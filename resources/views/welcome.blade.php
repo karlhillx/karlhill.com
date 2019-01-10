@@ -176,7 +176,7 @@
             </div>
             <form action="/login.php" method="post">
                 <div class="modal-body">
-                    <div class="p-5 bd-example">
+                    <div class="bd-example">
                         <div class="user-icon text-center">
                             <i class="fas fa-user-circle"></i>
                         </div>
