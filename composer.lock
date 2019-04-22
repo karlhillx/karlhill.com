@@ -1400,16 +1400,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v6.2.0",
+            "version": "v6.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "6fa3232ff9d3f8237c0fae4b7ff05e1baa4cd707"
+                "reference": "5397cd05b0a0f7937c47b0adcb4c60e5ab936b6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/6fa3232ff9d3f8237c0fae4b7ff05e1baa4cd707",
-                "reference": "6fa3232ff9d3f8237c0fae4b7ff05e1baa4cd707",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/5397cd05b0a0f7937c47b0adcb4c60e5ab936b6a",
+                "reference": "5397cd05b0a0f7937c47b0adcb4c60e5ab936b6a",
                 "shasum": ""
             },
             "require": {
@@ -1458,7 +1458,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2019-03-10T07:52:41+00:00"
+            "time": "2019-04-21T09:21:45+00:00"
         },
         {
             "name": "symfony/console",
@@ -3659,16 +3659,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.1.2",
+            "version": "8.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e7450b51b6f5d29edcd645ff72b355ab0633ca35"
+                "reference": "2a676677982b484ee36b54961f570c02eabbe7e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e7450b51b6f5d29edcd645ff72b355ab0633ca35",
-                "reference": "e7450b51b6f5d29edcd645ff72b355ab0633ca35",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2a676677982b484ee36b54961f570c02eabbe7e1",
+                "reference": "2a676677982b484ee36b54961f570c02eabbe7e1",
                 "shasum": ""
             },
             "require": {
@@ -3737,7 +3737,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-04-08T16:03:02+00:00"
+            "time": "2019-04-19T15:52:00+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
