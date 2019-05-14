@@ -13,13 +13,11 @@ $path = getenv('DEPLOY_PATH');
 $slack = getenv('DEPLOY_SLACK_WEBHOOK');
 $date = ( new DateTime )->format('Y-m-d_H:i:s');
 
-{{-- Files and direcrtories that need permissions of 755 and www-data as owner --}}
 $chmods = [
 'app/storage',
 'public',
 ];
 
-{{-- All directories symlinked to the shared folder --}}
 $symlinks = [
 'storage/views'    => 'app/storage/views',
 'storage/sessions' => 'app/storage/sessions',
