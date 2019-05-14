@@ -51,6 +51,14 @@
     git pull --force
 @endtask
 
+@task('startDeployment')
+    {{ logMessage('🏃  Reset?') }}
+    php artisan down
+    {{--git reset --hard HEAD
+    git clean -df
+    git pull --force--}}
+@endtask
+
 @task('runComposer')
     {{ logMessage('🚚  Running Composer...') }}
     composer global update
@@ -59,6 +67,7 @@
 
 @task('generateAssets')
     {{ logMessage('🌅  Generating assets...') }}
+    npm install
     npm run production
 @endtask
 
