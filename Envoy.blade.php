@@ -1,17 +1,6 @@
 @setup
-    require __DIR__.'/vendor/autoload.php';
-
-    $dotenv = Dotenv\Dotenv::create(__DIR__);
-    try {
-        $dotenv->load();
-        $dotenv->required(['DEPLOY_PATH'])->notEmpty();
-    } catch ( Exception $e )  {
-        echo $e->getMessage();
-    }
-
     $path = getenv('DEPLOY_PATH');
     $slack = getenv('DEPLOY_SLACK_WEBHOOK');
-    $date = ( new DateTime )->format('Y-m-d_H:i:s');
 
     $chmods = [
         'app/storage',
