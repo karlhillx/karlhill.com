@@ -12,15 +12,15 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.8.2",
         "aos": "^3.0.0-beta.6",
-        "axios": "^0.18",
+        "axios": "^0.18.1",
         "bootstrap": "^4.3.1",
         "cross-env": "^5.1",
         "jquery": "^3.4.1",
-        "laravel-mix": "^4.0.15",
+        "laravel-mix": "^4.0.16",
         "lodash": "^4.17.5",
         "popper.js": "^1.15.0",
         "resolve-url-loader": "^2.3.2",
-        "sass": "^1.20.1",
+        "sass": "^1.20.3",
         "sass-loader": "^7.1.0",
         "vue": "^2.6.10",
         "vue-template-compiler": "^2.6.10"
