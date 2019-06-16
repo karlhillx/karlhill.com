@@ -33,23 +33,15 @@
 @endmacro
 
 @task('startDeployment')
-    {{ logMessage('🏃  Starting deployment...') }}
+    {{ logMessage('🚀 Starting deployment...') }}
     php artisan down
-    git reset --hard HEAD
-    git clean -df
+    #git reset --hard HEAD
+    #git clean -df
     git pull --force
 @endtask
 
-@task('startDeployment')
-    {{ logMessage('🏃  Reset?') }}
-    php artisan down
-    {{--git reset --hard HEAD
-    git clean -df
-    git pull --force--}}
-@endtask
-
 @task('runComposer')
-    {{ logMessage('🚚  Running Composer...') }}
+    {{ logMessage('🏃 Running Composer...') }}
     composer global update
     composer install --no-interaction --quiet --prefer-dist --optimize-autoloader --no-scripts --no-dev -q -o;
 @endtask
@@ -63,9 +55,8 @@
 @task('updateSymlinks')
 {{ logMessage('🔗  Updating symlinks...') }}
     @foreach($symlinks as $folder => $symlink)
-        echo "Symlink has been set for {{ $symlink }}"
+        echo '🔗 Symlink has been set for {{ $symlink }}'
     @endforeach
-    {{ logMessage('🔗  All symlinks have been set.') }}
 @endtask
 
 @task('migrateDatabase')
@@ -100,7 +91,7 @@
 @task('finishDeploy')
     php artisan queue:restart --quiet
     php artisan up
-    {{ logMessage('🚀  Deployment finished successfully!') }}
+    {{ logMessage('Deployment finished successfully!') }}
 @endtask
 
 {{--
