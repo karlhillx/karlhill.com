@@ -35,14 +35,13 @@
 @task('startDeployment')
     {{ logMessage('🚀 Starting deployment...') }}
     php artisan down
-    #git reset --hard HEAD
-    #git clean -df
     git pull --force
 @endtask
 
 @task('runComposer')
     {{ logMessage('🏃 Running Composer...') }}
     composer global update
+    composer dump-autoload
     composer install --no-interaction --quiet --prefer-dist --optimize-autoloader --no-scripts --no-dev -q -o;
 @endtask
 
@@ -53,7 +52,7 @@
 @endtask
 
 @task('updateSymlinks')
-{{ logMessage('🔗  Updating symlinks...') }}
+    {{ logMessage('🔗  Updating symlinks...') }}
     @foreach($symlinks as $folder => $symlink)
         echo '🔗 Symlink has been set for {{ $symlink }}'
     @endforeach
