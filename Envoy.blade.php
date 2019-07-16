@@ -35,7 +35,6 @@
 @task('startDeployment')
     {{ logMessage('🚀 Starting deployment...') }}
     php artisan down
-    git pull --force
 @endtask
 
 @task('runComposer')
