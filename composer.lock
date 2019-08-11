@@ -474,12 +474,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "49ef78604da95fcc5f3e4272ff1a98d40fb59cc0"
+                "reference": "6ea47d67bf8b65778b55567e8c8a6eaed09008e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/49ef78604da95fcc5f3e4272ff1a98d40fb59cc0",
-                "reference": "49ef78604da95fcc5f3e4272ff1a98d40fb59cc0",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6ea47d67bf8b65778b55567e8c8a6eaed09008e0",
+                "reference": "6ea47d67bf8b65778b55567e8c8a6eaed09008e0",
                 "shasum": ""
             },
             "require": {
@@ -613,7 +613,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-08-06T14:47:18+00:00"
+            "time": "2019-08-09T14:20:23+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3169,16 +3169,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.9.1",
+            "version": "1.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "e6828efaba2c9b79f4499dae1d66ef8bfa7b2b72"
+                "reference": "007c053ae6f31bba39dfa19a7726f56e9763bbea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/e6828efaba2c9b79f4499dae1d66ef8bfa7b2b72",
-                "reference": "e6828efaba2c9b79f4499dae1d66ef8bfa7b2b72",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/007c053ae6f31bba39dfa19a7726f56e9763bbea",
+                "reference": "007c053ae6f31bba39dfa19a7726f56e9763bbea",
                 "shasum": ""
             },
             "require": {
@@ -3213,7 +3213,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2019-04-07T13:18:21+00:00"
+            "time": "2019-08-09T12:45:53+00:00"
         },
         {
             "name": "phar-io/manifest",
