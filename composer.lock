@@ -474,12 +474,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "fc7b632cc37a7a54d379a843b7fabb050eea97fa"
+                "reference": "3c4964d47c80a4e5704fb155e8b2e2d7c96bfb1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/fc7b632cc37a7a54d379a843b7fabb050eea97fa",
-                "reference": "fc7b632cc37a7a54d379a843b7fabb050eea97fa",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/3c4964d47c80a4e5704fb155e8b2e2d7c96bfb1a",
+                "reference": "3c4964d47c80a4e5704fb155e8b2e2d7c96bfb1a",
                 "shasum": ""
             },
             "require": {
@@ -561,6 +561,7 @@
             "suggest": {
                 "aws/aws-sdk-php": "Required to use the SQS queue driver, DynamoDb failed job storage and SES mail driver (^3.0).",
                 "doctrine/dbal": "Required to rename columns and drop SQLite columns (^2.6).",
+                "ext-gd": "Required to use Illuminate\\Http\\Testing\\FileFactory\\image::().",
                 "ext-memcached": "Required to use the memcache cache driver.",
                 "ext-pcntl": "Required to use all features of the queue worker.",
                 "ext-posix": "Required to use all features of the queue worker.",
@@ -610,7 +611,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-09-02T16:52:36+00:00"
+            "time": "2019-09-03T11:25:18+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -957,16 +958,16 @@
         },
         {
             "name": "opis/closure",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722"
+                "reference": "60a97fff133b1669a5b1776aa8ab06db3f3962b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
-                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
+                "url": "https://api.github.com/repos/opis/closure/zipball/60a97fff133b1669a5b1776aa8ab06db3f3962b7",
+                "reference": "60a97fff133b1669a5b1776aa8ab06db3f3962b7",
                 "shasum": ""
             },
             "require": {
@@ -1014,7 +1015,7 @@
                 "serialization",
                 "serialize"
             ],
-            "time": "2019-07-09T21:58:11+00:00"
+            "time": "2019-09-02T21:07:33+00:00"
         },
         {
             "name": "paragonie/random_compat",
