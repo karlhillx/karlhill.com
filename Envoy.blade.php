@@ -3,15 +3,8 @@
     $slack = getenv('DEPLOY_SLACK_WEBHOOK');
 
     $chmods = [
-        'app/storage',
-        'public',
-    ];
-
-    $symlinks = [
-        'storage/views'    => 'app/storage/views',
-        'storage/sessions' => 'app/storage/sessions',
-        'storage/logs'     => 'app/storage/logs',
-        'storage/cache'    => 'app/storage/cache',
+        'storage',
+        'bootstrap/cache',
     ];
 
     function logMessage($message) {
