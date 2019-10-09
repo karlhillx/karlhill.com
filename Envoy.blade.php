@@ -19,7 +19,6 @@
     runComposer
     migrateDatabase
     generateAssets
-    updateSymlinks
     optimizeInstallation
     blessDeployment
     finishDeploy
@@ -41,13 +40,6 @@
     {{ logMessage('🌅  Generating assets...') }}
     npm install
     npm run production
-@endtask
-
-@task('updateSymlinks')
-    {{ logMessage('🔗  Updating symlinks...') }}
-    @foreach($symlinks as $folder => $symlink)
-        echo '🔗 Symlink has been set for {{ $symlink }}'
-    @endforeach
 @endtask
 
 @task('migrateDatabase')
