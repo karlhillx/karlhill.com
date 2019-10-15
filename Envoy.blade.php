@@ -14,15 +14,16 @@
 
 @servers(['local' => '127.0.0.1'])
 
-@macro('deploy')
+@story('deploy')
     startDeployment
     runComposer
     migrateDatabase
+    updatePermissions
     generateAssets
     optimizeInstallation
     blessDeployment
     finishDeploy
-@endmacro
+@endstory
 
 @task('startDeployment')
     {{ logMessage('🚀 Starting deployment...') }}
@@ -47,14 +48,12 @@
     #php artisan migrate --force --no-interaction
 @endtask
 
-@task('chmod', ['on' => $on])
+@task('updatePermissions')
     @foreach($chmods as $file)
-        {{--
-        chmod -R 755 {{ $release }}/{{ $file }}
-        chmod -R g+s {{ $release }}/{{ $file }}
-        chown -R www-data:www-data {{ $release }}/{{ $file };
+        chmod -R 755 {{ $file }}
+        chmod -R g+s {{ $file }}
+        chown -R www-data:www-data {{ $file }};
         echo "Permissions have been set for {{ $file }}"
-        --}}
     @endforeach
 @endtask
 
