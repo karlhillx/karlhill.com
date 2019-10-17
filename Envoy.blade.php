@@ -52,7 +52,7 @@
     @foreach($chmods as $file)
         chmod -R 755 {{ $file }}
         chmod -R g+s {{ $file }}
-        chown -R www-data:www-data {{ $file }};
+        chown -R northea1:northea1 {{ $file }};
         echo "Permissions have been set for {{ $file }}"
     @endforeach
 @endtask
@@ -66,8 +66,6 @@
     {{ logMessage('🙏  Blessing deployment...') }}
     php artisan config:clear
     php artisan cache:clear
-    php artisan config:cache
-    php artisan view:cache
 @endtask
 
 @task('finishDeploy')
