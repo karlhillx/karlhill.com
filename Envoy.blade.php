@@ -33,8 +33,8 @@
 @task('runComposer')
     {{ logMessage('🏃 Running Composer...') }}
     composer global update
-    composer dump-autoload
     composer install --no-interaction --quiet --prefer-dist --optimize-autoloader --no-scripts --no-dev -q -o;
+composer dump-autoload
 @endtask
 
 @task('generateAssets')
