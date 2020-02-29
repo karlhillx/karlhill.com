@@ -40,7 +40,7 @@
                 <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"
                      data-aos-easing="ease-in-out-back">
                     <button type="button" class="btn btn-warning" data-toggle="modal"
-                            data-target="#resume-modal">Résumé
+                            data-target="#resume-modal">Resume
                     </button>
                     <a href="#why" class="btn btn-border">Learn More</a>
                 </div>
