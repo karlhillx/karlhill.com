@@ -737,12 +737,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "33461dcbb77702d444ec0e04a55c2e7ff97521b1"
+                "reference": "7efc657a76d04e0eeb0856347e68eae88d09e789"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/33461dcbb77702d444ec0e04a55c2e7ff97521b1",
-                "reference": "33461dcbb77702d444ec0e04a55c2e7ff97521b1",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/7efc657a76d04e0eeb0856347e68eae88d09e789",
+                "reference": "7efc657a76d04e0eeb0856347e68eae88d09e789",
                 "shasum": ""
             },
             "require": {
@@ -880,7 +880,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-03-01T17:18:39+00:00"
+            "time": "2020-03-02T14:15:06+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -952,12 +952,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/ui.git",
-                "reference": "8774f0aa6c4e69cb67077cf705c1e87b9df62370"
+                "reference": "f0af6374162b2dcfe27c1cab35590d74a59b32d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ui/zipball/8774f0aa6c4e69cb67077cf705c1e87b9df62370",
-                "reference": "8774f0aa6c4e69cb67077cf705c1e87b9df62370",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/f0af6374162b2dcfe27c1cab35590d74a59b32d6",
+                "reference": "f0af6374162b2dcfe27c1cab35590d74a59b32d6",
                 "shasum": ""
             },
             "require": {
@@ -999,7 +999,7 @@
                 "laravel",
                 "ui"
             ],
-            "time": "2020-02-18T19:52:45+00:00"
+            "time": "2020-03-02T14:17:31+00:00"
         },
         {
             "name": "league/commonmark",
@@ -4725,16 +4725,16 @@
         },
         {
             "name": "scrivo/highlight.php",
-            "version": "v9.18.1.0",
+            "version": "v9.18.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scrivo/highlight.php.git",
-                "reference": "a57c858cb753f543965a1e17af386a648012ed8f"
+                "reference": "52fc21c99fd888e33aed4879e55a3646f8d40558"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/a57c858cb753f543965a1e17af386a648012ed8f",
-                "reference": "a57c858cb753f543965a1e17af386a648012ed8f",
+                "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/52fc21c99fd888e33aed4879e55a3646f8d40558",
+                "reference": "52fc21c99fd888e33aed4879e55a3646f8d40558",
                 "shasum": ""
             },
             "require": {
@@ -4744,6 +4744,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.8|^5.7",
+                "sabberworm/php-css-parser": "^8.3",
                 "symfony/finder": "^2.8|^3.4",
                 "symfony/var-dumper": "^2.8|^3.4"
             },
@@ -4789,7 +4790,7 @@
                 "highlight.php",
                 "syntax"
             ],
-            "time": "2020-02-03T02:19:36+00:00"
+            "time": "2020-03-02T05:59:21+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
