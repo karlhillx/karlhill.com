@@ -39,27 +39,29 @@ composer dump-autoload
 
 @task('generateAssets')
     {{ logMessage('🌅  Generating assets...') }}
-    npm install
-    npm run production
+npm install
+npm run production
 @endtask
 
 @task('migrateDatabase')
-    {{ logMessage('🙈  Migrating database...') }}
-    #php artisan migrate --force --no-interaction
+{{ logMessage('🙈  Migrating database...') }}
+#php artisan migrate --force --no-interaction
 @endtask
 
 @task('updatePermissions')
-    @foreach($chmods as $file)
-        chmod -R 755 {{ $file }}
-        chmod -R g+s {{ $file }}
-        chown -R northea1:northea1 {{ $file }};
-        echo "Permissions have been set for {{ $file }}"
-    @endforeach
+chgrp -R www-data {{ $release }};
+chmod -R ug+rwx {{ $release }};
+@foreach($chmods as $file)
+    chmod -R 755 {{ $file }}
+    chmod -R g+s {{ $file }}
+    chown -R northea1 {{ $file }};
+    echo "Permissions have been set for {{ $file }}"
+@endforeach
 @endtask
 
 @task('optimizeInstallation')
-    {{ logMessage('✨  Optimizing installation...') }}
-    php artisan clear-compiled
+{{ logMessage('✨  Optimizing installation...') }}
+php artisan clear-compiled
 @endtask
 
 @task('blessDeployment')
