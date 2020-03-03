@@ -15,18 +15,18 @@
 @servers(['local' => '127.0.0.1'])
 
 @story('deploy')
-    startDeployment
-    runComposer
-    migrateDatabase
-    updatePermissions
-    generateAssets
-    optimizeInstallation
-    blessDeployment
-    finishDeploy
+startDeployment
+runComposer
+migrateDatabase
+generateAssets
+optimizeInstallation
+updatePermissions
+blessDeployment
+finishDeploy
 @endstory
 
 @task('startDeployment')
-    {{ logMessage('🚀 Starting deployment...') }}
+{{ logMessage('🚀 Starting deployment...') }}
     php artisan down
 @endtask
 
