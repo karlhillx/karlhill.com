@@ -120,8 +120,6 @@
                            href="https://stackoverflow.com/users/633440/karl-hill"><i class="fab fa-stack-overflow"></i></a>
                         <a class="twitter" target="_blank" href="https://twitter.com/karl_hill/"><i
                                 class="fab fa-twitter-square"></i></a>
-                        <a class="bitbucket" target="_blank" href="https://bitbucket.org/karlhillx/"><i
-                                class="fab fa-bitbucket"></i></a>
                         <a class="discogs" target="_blank" href="https://www.discogs.com/artist/1286669-Karl-Hill"><i
                                 class="fas fa-compact-disc"></i></a>
                     </div>
