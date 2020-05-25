@@ -55,7 +55,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
-                <img src="{{ asset('img/features/img1.png') }}" class="img-fluid">
+                <img src="{{ asset('img/features/img1.png') }}" alt="" class="img-fluid">
             </div>
             <div class="col-md-6 col-sm-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
                 <div class="content">
@@ -89,7 +89,7 @@
     <div class="map">
         <iframe
             width="100%" height="400"
-            frameborder="0" style="border:0"
+            style="border:0"
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA1U9kPUx3SN0u33kKiaCSXl7plnfA3y8Q&q=Woodley+Park,+Washington,+DC+20008"
             allowfullscreen>
         </iframe>
