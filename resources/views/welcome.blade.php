@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="uFxkTB0m6tASRk0RkemBMFIyjR5TpGH5Qrmhpka_QfY"/>
+    <meta name="version" content="{{ app()->version() }}">
     <title>{{ config('app.name', 'Karl Hill | Full Stack Engineer') }}</title>
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -104,7 +105,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <div class="copyright-text">
-                        <small class="text-muted">© {{ date('Y') }} Karl Hill. Laravel v{{ App::VERSION() }}.<br>
+                        <small class="text-muted">© {{ date('Y') }} Karl Hill. Laravel v{{ app()->version() }}.<br>
                             Unless otherwise indicated, content is licensed under the Creative Commons Attribution
                             4.0 International.
                         </small>
@@ -173,19 +174,25 @@
                     <span>&times;</span>
                 </button>
             </div>
-            <form action="/login.php" method="post">
+
+            <form method="post" action="{{ route('login') }}">
+                @csrf
                 <div class="modal-body">
                     <div class="bd-example">
                         <div class="user-icon text-center">
                             <i class="fas fa-user-circle"></i>
                         </div>
-                        <input type="email" class="form-control" placeholder="Enter Email"
-                               data-minlength="1" maxlength="255" required>
+                        <label>
+                            <input type="email" class="form-control" placeholder="Enter Email"
+                                   data-minlength="1" maxlength="255" required>
+                        </label>
                         <small id="emailHelp" class="form-text text-muted">Your email will not be shared
                             with a third party.
                         </small>
-                        <input type="password" data-minlength="8" class="form-control"
-                               placeholder="Password" required>
+                        <label>
+                            <input type="password" data-minlength="8" class="form-control"
+                                   placeholder="Password" required>
+                        </label>
                         <small class="help-block text-muted">Minimum of 8 characters</small>
                     </div>
                 </div>
