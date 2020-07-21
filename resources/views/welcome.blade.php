@@ -171,7 +171,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="login-modalTitle">Portfolio</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span>&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
@@ -182,18 +182,18 @@
                         <div class="user-icon text-center">
                             <i class="fas fa-user-circle"></i>
                         </div>
-                        <label>
-                            <input type="email" class="form-control" placeholder="Enter Email"
-                                   data-minlength="1" maxlength="255" required>
-                        </label>
-                        <small id="emailHelp" class="form-text text-muted">Your email will not be shared
-                            with a third party.
-                        </small>
-                        <label>
-                            <input type="password" data-minlength="8" class="form-control"
-                                   placeholder="Password" required>
-                        </label>
-                        <small class="help-block text-muted">Minimum of 8 characters</small>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" aria-describedby="emailHelp" data-minlength="1"
+                                   maxlength="255" required>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" aria-describedby="passwordHelp"
+                                   data-minlength="8" maxlength="20" required>
+                            <div id="passwordHelp" class="form-text">Must be 8-20 characters long.</div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
