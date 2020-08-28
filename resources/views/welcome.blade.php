@@ -62,7 +62,7 @@
                 <div class="content">
                     <h2>Why You Should<br> Hire Me</h2>
                     <p>
-                        Full stack engineer with 20+ years development experience. Background to accomplish
+                        Full stack engineer with over 20 years development experience. Background to accomplish
                         complex programming tasks and the expertise to produce engaging interfaces. Hunger for
                         learning new technologies and functions well independently or in team situations.
                         Professional, motivated, detail-oriented, wildly creative, and possesses excellent
@@ -71,12 +71,14 @@
                     <ul class="list-item">
                         <li><i class="fa fa-thermometer-full" aria-hidden="true"></i>&nbsp;20+ years experience</li>
                         <li><i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>&nbsp;MVC
-                            frameworks
+                            frameworks (Laravel, Symphony, Django)
                         </li>
                         <li><i class="fa fa-thermometer-half" aria-hidden="true"></i>&nbsp;Test-driven
-                            development
+                            development (TDD)
                         </li>
-                        <li><i class="fa fa-thermometer-quarter" aria-hidden="true"></i>&nbsp;Agile methodologies</li>
+                        <li><i class="fa fa-thermometer-quarter" aria-hidden="true"></i>&nbsp;Agile methodologies
+                            (Scrum/Kanban)
+                        </li>
                         <li><i class="fa fa-thermometer-empty" aria-hidden="true"></i>&nbsp;Responsive UI/UX design</li>
                     </ul>
                 </div>
