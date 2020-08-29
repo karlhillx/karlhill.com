@@ -13,11 +13,11 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.3"
+        "laravel/tinker": "^2.3",
+        "laravel/ui": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9.1",
-        "laravel/ui": "^2.1",
         "phpunit/phpunit": "^9.0"
     },
     "config": {
