@@ -5,11 +5,11 @@
     $chmods = [
         'storage',
         'bootstrap/cache',
-    ];
+];
 
-    function logMessage($message) {
-        return "echo '\033[32m" .$message. "\033[0m';\n";
-    }
+function logMessage($message) {
+return "echo '\033[32m" .$message. "\033[0m';\n";
+}
 @endsetup
 
 @servers(['local' => '127.0.0.1'])
@@ -31,14 +31,14 @@ finishDeploy
 @endtask
 
 @task('runComposer')
-    {{ logMessage('🏃 Running Composer...') }}
-    composer global update
-    composer install --no-interaction --quiet --prefer-dist --optimize-autoloader --no-scripts --no-dev -q -o;
+{{ logMessage('🏃 Running Composer...') }}
+composer global update
+composer install --no-interaction --quiet --prefer-dist --optimize-autoloader --no-scripts --no-dev -q -o;
 composer dump-autoload
 @endtask
 
 @task('generateAssets')
-    {{ logMessage('🌅  Generating assets...') }}
+{{ logMessage('🌅  Generating assets...') }}
 npm install
 npm run production
 @endtask
@@ -49,7 +49,7 @@ npm run production
 @endtask
 
 @task('updatePermissions')
-chgrp -R www-data {{ $release }};
+chgrp -R northea1 {{ $release }};
 chmod -R ug+rwx {{ $release }};
 @foreach($chmods as $file)
     chmod -R 755 {{ $file }}
@@ -65,13 +65,13 @@ php artisan clear-compiled
 @endtask
 
 @task('blessDeployment')
-    {{ logMessage('🙏  Blessing deployment...') }}
-    php artisan config:clear
-    php artisan cache:clear
+{{ logMessage('🙏  Blessing deployment...') }}
+php artisan config:clear
+php artisan cache:clear
 @endtask
 
 @task('finishDeploy')
-    php artisan queue:restart --quiet
+php artisan queue:restart --quiet
     php artisan up
     {{ logMessage('Deployment finished successfully!') }}
 @endtask
