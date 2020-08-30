@@ -71,7 +71,7 @@
                     <ul class="list-item">
                         <li><i class="fa fa-thermometer-full" aria-hidden="true"></i>&nbsp;20+ years experience</li>
                         <li><i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>&nbsp;MVC
-                            frameworks (Laravel, Symphony, Django)
+                            frameworks (Laravel, Symphony)
                         </li>
                         <li><i class="fa fa-thermometer-half" aria-hidden="true"></i>&nbsp;Test-driven
                             development (TDD)
@@ -105,15 +105,15 @@
     <div id="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-6">
                     <div class="copyright-text">
-                        <small class="text-muted">© {{ date('Y') }} Karl Hill. Laravel v{{ app()->version() }}.<br>
+                        <small>© {{ date('Y') }} Karl Hill. Laravel v{{ app()->version() }}.<br>
                             Unless otherwise indicated, content is licensed under the Creative Commons Attribution
                             4.0 International.
                         </small>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <div class="bottom-social-icons float-right">
                         <a class="linkedin" target="_blank" href="https://linkedin.com/in/khill"><i
                                 class="fab fa-linkedin"></i></a>
