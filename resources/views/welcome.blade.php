@@ -16,10 +16,11 @@
 <!-- Navbar -->
 <nav class="navbar fixed-top">
     <div class="area float-left mr-auto">
-        <span><i class="far fa-envelope"></i> <a href="mailto:karlhillx@gmail.com">karlhillx@gmail.com</a></span>
+        <span><i class="fas fa-envelope-open-text"></i> <a
+                href="mailto:karlhillx@gmail.com">karlhillx@gmail.com</a></span>
     </div>
     <div class="float-right mt-2 mt-md-0">
-        <a href="javascript:" data-toggle="modal" data-target="#login-modal"><i class="far fa-user-circle"></i>
+        <a href="javascript:" data-toggle="modal" data-target="#login-modal"><i class="fas fa-sign-in-alt"></i>
             Login</a>
     </div>
 </nav>
