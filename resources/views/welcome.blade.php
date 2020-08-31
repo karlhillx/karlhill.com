@@ -16,12 +16,16 @@
 <!-- Navbar -->
 <nav class="navbar fixed-top">
     <div class="area float-left mr-auto">
-        <span><i class="fas fa-envelope-open-text"></i> <a
-                href="mailto:karlhillx@gmail.com">karlhillx@gmail.com</a></span>
+        <span>
+            <i class="fas fa-envelope-open-text"></i> <a
+                href="mailto:karlhillx@gmail.com">karlhillx@gmail.com</a>
+        </span>
     </div>
     <div class="float-right mt-2 mt-md-0">
-        <a href="javascript:" data-toggle="modal" data-target="#login-modal"><i class="fas fa-sign-in-alt"></i>
-            Login</a>
+        <a href="javascript:" data-toggle="modal" data-target="#login-modal">
+            <i class="fas fa-sign-in-alt"></i>
+            Login
+        </a>
     </div>
 </nav>
 <!-- // -->
@@ -152,10 +156,7 @@
                 </div>
                 <div class="p-5 bd-example">
                     <a class="btn btn-danger" href="{{ asset('files/karlhill-resume.pdf') }}" role="button"
-                       target="_blank"><i
-                            class="fas fa-file-pdf" aria-hidden="true"></i>&nbsp;PDF</a>
-                    <a class="btn btn-primary disabled" href="#" role="button"><i
-                            class="fas fa-file-word" aria-hidden="true"></i>&nbsp;DOC</a>
+                       target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i>&nbsp;PDF</a>
                 </div>
             </div>
             <div class="modal-footer">

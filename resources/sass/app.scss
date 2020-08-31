@@ -24,67 +24,70 @@
     animation-fill-mode: both;
     animation-name: fadeInDown;
     background: #3f51b5 !important;
-    padding: 0 !important;
+    padding: 0 !important
 }
 
-.area {
-    padding-left: 15px;
+.area, .navbar span {
+    padding-left: 15px
 }
 
 .btn {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 400
+}
+
+.btn-border, a {
+    color: #fff !important
 }
 
 .btn-border {
-    background: transparent;
-    border: 1px solid #fff;
-    color: #fff !important;
+    background: 0 0;
+    border: 1px solid #fff
 }
 
 .btn-border:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, .08)
 }
 
 .clear {
-    clear: both;
+    clear: both
 }
 
 .content-wrap {
     -webkit-transition: -webkit-transform .4s;
-    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    -webkit-transition-timing-function: cubic-bezier(.7, 0, .3, 1);
     transition: transform .4s;
-    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(.7, 0, .3, 1)
 }
 
 .landing {
     background: url(/img/landing.jpg) bottom center no-repeat;
     color: #fff;
     overflow: hidden;
-    padding: 280px 0;
+    padding: 280px 0
 }
 
-.landing .contents .btn {
-    margin-right: 5px;
+.landing .contents .btn, .navbar span i {
+    margin-right: 5px
 }
 
-.landing .contents h1 {
+.landing .contents h1, h1 {
     font-size: 50px;
-    font-weight: 700;
+    font-weight: 700
 }
 
 .landing .contents p {
     font-size: 16px;
     font-weight: 400;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 .landing .sticky-navigation {
-    background: transparent;
+    background: 0 0
 }
 
-.nabrar span a:hover {
-    opacity: .8;
+.navbar span a:hover {
+    opacity: .8
 }
 
 .navbar {
@@ -92,11 +95,11 @@
     border-bottom: rgba(0, 0, 0, .15) 1px solid;
     color: #ccc;
     font-size: 14px;
-    padding: 10px 40px;
+    padding: 10px 40px
 }
 
 .navbar .navbar-nav li {
-    float: none;
+    float: none
 }
 
 .navbar .navbar-nav li a {
@@ -108,11 +111,7 @@
     font-weight: 400;
     padding: 15px 20px;
     text-transform: uppercase;
-    transition: all .3s ease-in-out;
-}
-
-.navbar span {
-    padding-left: 15px;
+    transition: all .3s ease-in-out
 }
 
 .navbar span a {
@@ -120,31 +119,27 @@
     -o-transition: all .2s linear;
     -webkit-transition: all .2s linear;
     color: #fff;
-    transition: all .2s linear;
-}
-
-.navbar span i {
-    margin-right: 5px;
+    transition: all .2s linear
 }
 
 .navbar-fixed-top {
-    padding: 15px 0;
+    padding: 15px 0
 }
 
 .navbar-laravel {
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .04)
 }
 
 .navbar-nav {
     float: none;
-    margin: 0;
+    margin: 0
 }
 
 .navbar.menu-wrap {
     -webkit-transform: translate3d(250px, 0, 0);
     -webkit-transition: -webkit-transform .4s;
-    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    -webkit-transition-timing-function: cubic-bezier(.7, 0, .3, 1);
     border-radius: 0;
     height: 100%;
     margin: 0;
@@ -154,67 +149,64 @@
     top: 0;
     transform: translate3d(250px, 0, 0);
     transition: transform .4s;
-    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(.7, 0, .3, 1);
     width: 250px;
-    z-index: 9999;
+    z-index: 9999
 }
 
 .navbar.menu-wrap .navbar-header {
     float: none;
-    margin: 0 85px;
+    margin: 0 85px
 }
 
 .row {
-    padding: 30px 0;
+    padding: 30px 0
 }
 
 .section {
-    padding: 90px 0;
+    padding: 90px 0
 }
 
-.section-header .section-subtitle {
+.section-header .section-subtitle, .section-header .section-title {
     font-size: 14px;
     font-weight: 400;
     margin-top: 0;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 .section-header .section-title {
     font-size: 38px;
-    font-weight: 700;
-    margin-top: 0;
-    text-transform: uppercase;
+    font-weight: 700
 }
 
 .show-menu .content-wrap {
     -webkit-transform: translate3d(-250px, 0, 0);
     -webkit-transition-delay: .1s;
     transform: translate3d(-250px, 0, 0);
-    transition-delay: .1s;
+    transition-delay: .1s
 }
 
 .sticky-navigation .row {
-    padding: 0;
+    padding: 0
 }
 
 .title-small {
     color: #3f51b5;
     font-size: 38px;
     line-height: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 30px
 }
 
 a {
     background-color: transparent;
-    color: #fff !important;
-    outline: none;
-    text-decoration: none;
+    outline: 0;
+    text-decoration: none
 }
 
-a:hover, a:focus {
+a:focus, a:hover {
     color: #fff;
-    outline: none;
-    text-decoration: none;
+    outline: 0;
+    text-decoration: none
 }
 
 body {
@@ -222,47 +214,42 @@ body {
     color: #666;
     font-family: 'Nunito', sans-serif;
     font-size: 14px;
-    font-weight: 400;
-}
-
-h1 {
-    font-size: 50px;
-    font-weight: 700;
+    font-weight: 400
 }
 
 html {
     -moz-osx-font-smoothing: grayscale !important;
     -webkit-font-smoothing: antialiased !important;
-    text-rendering: optimizeLegibility !important;
+    text-rendering: optimizeLegibility !important
 }
 
 ul {
     margin: 0;
-    padding: 0;
+    padding: 0
 }
 
 ul li {
-    list-style: none;
+    list-style: none
 }
 
 @media (min-width: 1200px) {
     .landing {
-        padding: 280px 0;
+        padding: 280px 0
     }
 
     .landing h1 {
-        font-size: 50px !important;
+        font-size: 50px !important
     }
 }
 
 #about {
     background: url(/img/backgrounds/blurred-bg.jpg) center center fixed;
     background-size: cover;
-    color: #fff;
+    color: #fff
 }
 
 #emailHelp {
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 #loader {
@@ -272,40 +259,40 @@ ul li {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 9999999999;
+    z-index: 9999999999
 }
 
 #why {
     background: url(/img/why-bg.jpg);
     background-size: cover;
     border-top: rgba(0, 0, 0, .15) 10px solid;
-    color: #fff;
+    color: #fff
 }
 
 #why .content .list-item li {
     color: #fff;
     font-size: 16px;
-    line-height: 45px;
+    line-height: 45px
 }
 
 #why .content .list-item li i {
     padding-right: 5px;
-    vertical-align: middle;
+    vertical-align: middle
 }
 
 #why .content h2 {
     font-size: 50px;
     font-weight: 100;
     line-height: 70px;
-    margin-top: 0;
+    margin-top: 0
 }
 
 #why .feature-item {
-    padding: 48px 0;
+    padding: 48px 0
 }
 
-#why img {
-    float: right;
+#why img, .cta .btn-border {
+    float: right
 }
 
 .back-to-top {
@@ -313,35 +300,29 @@ ul li {
     -webkit-border-radius: 50%;
     border-radius: 50%;
     color: #fff;
-    display: block;
     height: 60px;
     left: 50%;
     line-height: 60px;
-    margin: 0 -25px;
     margin: 0 -30px;
     padding: 0;
-    position: absolute;
     text-align: center;
     top: -28px;
     width: 60px;
-}
-
-.back-to-top {
     bottom: 30px;
     display: none;
     position: fixed;
-    right: 30px;
+    right: 30px
 }
 
-.back-to-top i {
-    font-size: 42px;
-    line-height: 56px;
-}
-
-.back-to-top i {
+.back-to-top i, .social i {
     -moz-transition: all .2s linear;
-    -o-transition: all .2s linear;
     -webkit-transition: all .2s linear;
+    text-align: center;
+    transition: all .2s linear
+}
+
+.back-to-top i {
+    -o-transition: all .2s linear;
     background-color: #436eee;
     border-radius: 2px;
     color: #fff;
@@ -349,129 +330,117 @@ ul li {
     font-size: 15px;
     height: 36px;
     line-height: 36px;
-    text-align: center;
-    transition: all .2s linear;
-    width: 36px;
+    width: 36px
 }
 
 .bd-example {
     border: .2rem solid #f8f9fa;
     margin-left: 0;
     margin-right: 0;
-    padding: 1.5rem;
+    padding: 1.5rem
 }
 
 .bs4-alert {
-    display: none !important;
+    display: none !important
 }
 
 .cta {
-    background: #377575;
-}
-
-.cta .btn-border {
-    float: right;
+    background: #377575
 }
 
 .cta .row {
-    text-align: center !important;
+    text-align: center !important
 }
 
 .cta h3 {
     color: #fff;
     font-size: 20px;
     font-weight: 700;
-    padding: 5px 0;
+    padding: 5px 0
 }
 
 .loader-inner {
     left: 50%;
     position: inherit;
-    top: 50%;
+    top: 50%
 }
 
 .main-feature-gray {
-    background: #ecf0f1;
+    background: #ecf0f1
 }
 
 .modal-dialog {
     margin: 30px auto;
-    max-width: 380px !important;
+    max-width: 380px !important
 }
 
 .modal-header {
     background-color: rgba(52, 144, 220, .5) !important;
-    color: #fff !important;
+    color: #fff !important
 }
 
 .password {
-    margin-bottom: 30px;
+    margin-bottom: 30px
 }
 
 .social {
-    color: #fff;
     display: inline-block;
-    margin: 10px 2px;
+    margin: 10px 2px
 }
 
 .social i {
-    -moz-transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, .18);
     border-radius: 50%;
     font-size: 16px;
     height: 48px;
     line-height: 48px;
-    text-align: center;
-    transition: all .2s linear;
-    width: 48px;
+    width: 48px
 }
 
-.social i:hover {
-    color: #fff;
+.social, .social i:hover {
+    color: #fff
 }
 
 .user-icon {
     color: #ccc;
     font-size: 120px;
-    opacity: .5 !important;
+    opacity: .5 !important
 }
 
 footer {
-    background: #22272b;
-    color: #999;
+    background: #22272b
 }
 
 footer #copyright {
-    background: #1d2023;
+    background: #1d2023
 }
 
 footer #copyright .bottom-social-icons {
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 footer #copyright .bottom-social-icons .discogs:hover {
-    background-color: #7a7a7a;
+    background-color: #7a7a7a
 }
 
 footer #copyright .bottom-social-icons .bitbucket:hover {
-    background-color: #205081;
+    background-color: #205081
 }
 
 footer #copyright .bottom-social-icons .github:hover {
-    background-color: #000;
+    background-color: #000
 }
 
 footer #copyright .bottom-social-icons .linkedin:hover {
-    background-color: #0077b5;
+    background-color: #0077b5
 }
 
 footer #copyright .bottom-social-icons .stackoverflow:hover {
-    background-color: #f58025;
+    background-color: #f58025
 }
 
 footer #copyright .bottom-social-icons .twitter:hover {
-    background-color: #1da1f2;
+    background-color: #1da1f2
 }
 
 footer #copyright .bottom-social-icons a {
@@ -484,43 +453,39 @@ footer #copyright .bottom-social-icons a {
     overflow: hidden;
     position: relative;
     text-align: center;
-    width: 32px;
+    width: 32px
 }
 
 footer #copyright .footer-nav {
-    margin-top: 15px;
+    margin-top: 15px
 }
 
 footer #copyright .footer-nav li {
-    display: inline-block;
+    display: inline-block
 }
 
-footer #copyright .footer-nav li a {
-    color: #999;
+footer, footer #copyright .footer-nav li a {
+    color: #999
 }
 
-footer #copyright .footer-nav li a:hover {
-    color: #436eee;
+footer #copyright .footer-nav li a:hover, footer a:hover {
+    color: #436eee
 }
 
 footer #copyright .row {
     padding-bottom: 15px;
-    padding-top: 25px;
+    padding-top: 25px
 }
 
 footer .address li {
-    line-height: 42px;
+    line-height: 42px
 }
 
 footer .address li i {
     color: #436eee;
-    margin-right: 10px;
+    margin-right: 10px
 }
 
 footer .row {
-    padding: 60px 0;
-}
-
-footer a:hover {
-    color: #436eee;
+    padding: 60px 0
 }
