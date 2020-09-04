@@ -1,7 +1,7 @@
 const mix = require('laravel-mix');
 
 /*
- |-------------------------------------------------------------------------
+ |--------------------------------------------------------------------------
  | Mix Asset Management
  |--------------------------------------------------------------------------
  |
@@ -11,6 +11,5 @@ const mix = require('laravel-mix');
  |
  */
 
-// Bundle all JavaScript (and any required modules) at ./resources/js/app.js to ./public/js/app.js.
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
