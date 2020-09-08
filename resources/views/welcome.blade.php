@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="uFxkTB0m6tASRk0RkemBMFIyjR5TpGH5Qrmhpka_QfY"/>
-    <meta name="version" content="Laravel v{{ app()->version() }}">
+    <meta name="laravel-version" content="Laravel v{{ app()->version() }}">
     <title>{{ config('app.name', 'Karl Hill | Full Stack Engineer') }}</title>
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>
 
@@ -76,7 +76,7 @@
                     <ul class="list-item">
                         <li><i class="fa fa-thermometer-full" aria-hidden="true"></i>&nbsp;20+ years experience</li>
                         <li><i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>&nbsp;MVC
-                            frameworks (Laravel, Symphony)
+                            frameworks (Laravel, Symfony)
                         </li>
                         <li><i class="fa fa-thermometer-half" aria-hidden="true"></i>&nbsp;Test-driven
                             development (TDD)
