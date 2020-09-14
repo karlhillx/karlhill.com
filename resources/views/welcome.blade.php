@@ -14,8 +14,8 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar fixed-top">
-    <div class="area float-left mr-auto">
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container area float-left mr-auto">
         <span>
             <i class="fas fa-envelope-open-text"></i> <a
                 href="mailto:karlhillx@gmail.com">karlhillx@gmail.com</a>
