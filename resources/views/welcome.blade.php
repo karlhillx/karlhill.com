@@ -14,7 +14,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-md fixed-top">
+<nav class="navbar fixed-top">
     <div class="container">
         <div class="float-left mr-auto">
         <span>

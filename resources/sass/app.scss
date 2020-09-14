@@ -1,3 +1,6 @@
+// Normalize.css
+@import '~normalize.css';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
@@ -9,9 +12,6 @@
 
 // Animate on Scroll
 @import '~aos/dist/aos.css';
-
-// Normalize.css
-@import '~normalize.css';
 
 .affix {
     -webkit-animation-duration: 1s;
