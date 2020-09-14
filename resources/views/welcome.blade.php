@@ -14,18 +14,20 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container area float-left mr-auto">
+<nav class="navbar navbar-expand-md fixed-top">
+    <div class="container">
+        <div class="float-left mr-auto">
         <span>
             <i class="fas fa-envelope-open-text"></i> <a
                 href="mailto:karlhillx@gmail.com">karlhillx@gmail.com</a>
         </span>
-    </div>
-    <div class="float-right mt-2 mt-md-0">
-        <a href="javascript:" data-toggle="modal" data-target="#login-modal">
-            <i class="fas fa-sign-in-alt"></i>
-            Login
-        </a>
+        </div>
+        <div class="float-right mt-2 mt-md-0">
+            <a href="javascript:" data-toggle="modal" data-target="#login-modal">
+                <i class="fas fa-sign-in-alt"></i>
+                Login
+            </a>
+        </div>
     </div>
 </nav>
 <!-- // -->
