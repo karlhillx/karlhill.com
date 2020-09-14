@@ -54,7 +54,7 @@
 }
 
 .landing {
-    background: url(/img/landing.jpg) bottom center no-repeat;
+    background: url('/img/landing.jpg') bottom center no-repeat;
     color: #fff;
     overflow: hidden;
     padding: 280px 0
@@ -88,6 +88,7 @@
     color: #ccc;
     font-size: 14px;
     padding: 15px 0 15px;
+    border-bottom: #222121 1px solid;
 }
 
 .navbar .navbar-nav li {
@@ -234,7 +235,7 @@ ul li {
 }
 
 #about {
-    background: url(/img/backgrounds/blurred-bg.jpg) center center fixed;
+    background: url('/img/backgrounds/blurred-bg.jpg') center center fixed;
     background-size: cover;
     color: #fff
 }
@@ -254,7 +255,7 @@ ul li {
 }
 
 #why {
-    background: url(/img/why-bg.jpg);
+    background: url('/img/why-bg.jpg');
     background-size: cover;
     border-top: rgba(0, 0, 0, .15) 10px solid;
     color: #fff
