@@ -78,17 +78,20 @@
                         verbal and written skills.
                     </p>
                     <ul class="list-item">
-                        <li><i class="fa fa-thermometer-full" aria-hidden="true"></i>&nbsp;20+ years experience</li>
-                        <li><i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>&nbsp;MVC
+                        <li><i class="fas fa-thermometer-full"></i>&nbsp;20+ years experience</li>
+                        <li><i class="fas fa-thermometer-three-quarters"></i> MVC
                             frameworks (Laravel, Symfony)
                         </li>
-                        <li><i class="fa fa-thermometer-half" aria-hidden="true"></i>&nbsp;Test-driven
+                        <li><i class="fas fa-thermometer-half"></i>&nbsp;Test-driven
                             development (TDD)
                         </li>
-                        <li><i class="fa fa-thermometer-quarter" aria-hidden="true"></i>&nbsp;Agile methodologies
+                        <li><i class="fas fa-thermometer-quarter"></i>&nbsp;Agile methodologies
                             (Scrum/Kanban)
                         </li>
-                        <li><i class="fa fa-thermometer-empty" aria-hidden="true"></i>&nbsp;Responsive UI/UX design</li>
+                        <li><i class="fas fa-thermometer-quarter"></i>&nbsp;Responsive UI/UX (Bootstrap, etc)
+                        </li>
+                        <li><i class="fas fa-thermometer-empty"></i>&nbsp;Excellent communication and writing skills
+                        </li>
                     </ul>
                 </div>
             </div>
