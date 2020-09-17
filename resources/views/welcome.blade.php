@@ -18,14 +18,13 @@
     <div class="container">
         <div class="float-left mr-auto">
         <span>
-            <i class="fas fa-envelope-open-text"></i> <a
+            <i class="fas fa-envelope-open-text mr-2"></i><a
                 href="mailto:karlhillx@gmail.com">karlhillx@gmail.com</a>
         </span>
         </div>
         <div class="float-right mt-2 mt-md-0">
             <a href="javascript:" data-toggle="modal" data-target="#login-modal">
-                <i class="fas fa-sign-in-alt"></i>
-                Login
+                <i class="fas fa-sign-in-alt mr-2"></i>Login
             </a>
         </div>
     </div>
@@ -34,25 +33,25 @@
 
 <!-- Landing -->
 <div class="content-wrap">
-    <div class="landing" id="home">
+    <div class="landing">
         <div class="container">
-            <div class="col-md-12 contents text-left">
+            <div class="col-12">
                 <div data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
                      data-aos-easing="ease-in-out-back">
                     <h1><strong>Karl Hill</strong></h1>
                 </div>
-                <div data-aos="fade-left" data-aos-duration="1100" data-aos-delay="400"
+                <div data-aos="fade-left" data-aos-duration="1100" data-aos-delay="400" class="mt-2 mb-3"
                      data-aos-easing="ease-in-out-back">
-                    <p>Full Stack Engineer (Laravel, PHP, MySQL, LAMP, MVC)</p>
+                    <h6 class="text-uppercase">Full Stack Engineer (Laravel, PHP, MySQL, LAMP, MVC)</h6>
                 </div>
                 <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"
                      data-aos-easing="ease-in-out-back">
-                    <a href="https://www.linkedin.com/in/khill/" target="_blank" class="btn btn-primary"><i
+                    <a href="https://www.linkedin.com/in/khill/" target="_blank" class="btn btn-primary mr-1"><i
                             class="fab fa-linkedin"></i> LinkedIn</a>
-                    <button type="button" class="btn btn-warning" data-toggle="modal"
-                            data-target="#resume-modal"><i class="far fa-file-pdf"></i> Resume
+                    <button type="button" class="btn btn-warning mr-1" data-toggle="modal"
+                            data-target="#resume-modal"><i class="fab fa-adobe"></i> Resume
                     </button>
-                    <a href="#why" class="btn btn-border">Learn More</a>
+                    <a href="#why" class="btn btn-border"> Learn More</a>
                 </div>
             </div>
         </div>
@@ -64,11 +63,11 @@
 <section id="why" class="section">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+            <div class="col-lg-5 text-right" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
                 <img src="{{ asset('img/features/img1.png') }}" alt="" class="img-fluid">
             </div>
-            <div class="col-md-6 col-sm-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
-                <div class="content">
+            <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                <div class="content col-8">
                     <h2>Why You Should<br> Hire Me</h2>
                     <p>
                         Full stack engineer with over 20 years development experience. Background to accomplish
@@ -78,19 +77,23 @@
                         verbal and written skills.
                     </p>
                     <ul class="list-item">
-                        <li><i class="fas fa-thermometer-full"></i>&nbsp;20+ years experience</li>
-                        <li><i class="fas fa-thermometer-three-quarters"></i> MVC
-                            frameworks (Laravel, Symfony)
+                        <li>
+                            <i class="fas fa-thermometer-full mr-2"></i>20+ years experience
                         </li>
-                        <li><i class="fas fa-thermometer-half"></i>&nbsp;Test-driven
-                            development (TDD)
+                        <li>
+                            <i class="fas fa-thermometer-three-quarters mr-2"></i>MVC frameworks (Laravel, Symfony)
                         </li>
-                        <li><i class="fas fa-thermometer-quarter"></i>&nbsp;Agile methodologies
-                            (Scrum/Kanban)
+                        <li>
+                            <i class="fas fa-thermometer-half mr-2"></i>Test-driven development (TDD)
                         </li>
-                        <li><i class="fas fa-thermometer-quarter"></i>&nbsp;Responsive UI/UX (Bootstrap, etc)
+                        <li>
+                            <i class="fas fa-thermometer-quarter mr-2"></i>Agile methodologies (Scrum/Kanban)
                         </li>
-                        <li><i class="fas fa-thermometer-empty"></i>&nbsp;Excellent communication and writing skills
+                        <li>
+                            <i class="fas fa-thermometer-quarter mr-2"></i>Responsive UI/UX (Bootstrap, etc)
+                        </li>
+                        <li>
+                            <i class="fas fa-thermometer-empty mr-2"></i>Excellent communication and writing skills
                         </li>
                     </ul>
                 </div>
@@ -100,6 +103,7 @@
 </section>
 <!-- // -->
 
+<!-- Mapz -->
 <div class="map-area">
     <div class="map">
         <iframe
@@ -110,33 +114,31 @@
         </iframe>
     </div>
 </div>
+<!-- // -->
 
 <!-- Footer -->
 <footer>
-    <div id="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="copyright-text">
-                        <small>© {{ date('Y') }} Karl Hill. Laravel v{{ app()->version() }}.<br>
-                            Unless otherwise indicated, content is licensed under the Creative Commons Attribution
-                            4.0 International.
-                        </small>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="bottom-social-icons float-right">
-                        <a class="linkedin" target="_blank" href="https://linkedin.com/in/khill"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a class="github" target="_blank" href="https://github.com/karlhillx/"><i
-                                class="fab fa-github"></i></a>
-                        <a class="stackoverflow" target="_blank"
-                           href="https://stackoverflow.com/users/633440/karl-hill"><i class="fab fa-stack-overflow"></i></a>
-                        <a class="twitter" target="_blank" href="https://twitter.com/karl_hill/"><i
-                                class="fab fa-twitter-square"></i></a>
-                        <a class="discogs" target="_blank" href="https://www.discogs.com/artist/1286669-Karl-Hill"><i
-                                class="fas fa-compact-disc"></i></a>
-                    </div>
+    <div class="container">
+        <div class="row pt-4 pb-4">
+            <div class="col-md-7">
+                <small>© {{ date('Y') }} Karl Hill. Laravel v{{ app()->version() }}.<br>
+                    Unless otherwise indicated, content is licensed under the Creative Commons Attribution
+                    4.0 International.
+                </small>
+            </div>
+            <div class="col-md-5">
+                <div class="bottom-social-icons float-right">
+                    <a class="linkedin" target="_blank" href="https://linkedin.com/in/khill"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a class="github" target="_blank" href="https://github.com/karlhillx/"><i
+                            class="fab fa-github"></i></a>
+                    <a class="stackoverflow" target="_blank"
+                       href="https://stackoverflow.com/users/633440/karl-hill"><i
+                            class="fab fa-stack-overflow"></i></a>
+                    <a class="twitter" target="_blank" href="https://twitter.com/karl_hill/"><i
+                            class="fab fa-twitter-square"></i></a>
+                    <a class="discogs" target="_blank" href="https://www.discogs.com/artist/1286669-Karl-Hill"><i
+                            class="fas fa-compact-disc"></i></a>
                 </div>
             </div>
         </div>
@@ -160,7 +162,7 @@
                 </div>
                 <div class="p-5 bd-example">
                     <a class="btn btn-danger" href="{{ asset('files/karlhill-resume.pdf') }}" role="button"
-                       target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i>&nbsp;PDF</a>
+                       target="_blank"><i class="fas fa-file-pdf mr-2"></i>PDF Version</a>
                 </div>
             </div>
             <div class="modal-footer">
@@ -191,14 +193,15 @@
                             <i class="fas fa-user-circle"></i>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" aria-describedby="emailHelp" data-minlength="1"
+                            <label for="email1" class="form-label">Email address</label>
+                            <input type="email" name="email" class="form-control" aria-describedby="emailHelp"
+                                   data-minlength="1"
                                    maxlength="255" required>
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" aria-describedby="passwordHelp"
+                            <input type="password" name="password" class="form-control" aria-describedby="passwordHelp"
                                    data-minlength="8" maxlength="20" required>
                             <div id="passwordHelp" class="form-text">Must be 8-20 characters long.</div>
                         </div>
@@ -212,10 +215,7 @@
         </div>
     </div>
 </div>
-
-<a href="#" class="back-to-top">
-    <i class="fas fa-arrow-up"></i>
-</a>
+<!-- // -->
 
 </body>
 <script src="{{ mix('js/app.js') }}"></script>
@@ -231,8 +231,7 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-85045253-1');
-</script>
-<script>
+
     AOS.init();
 </script>
 </html>

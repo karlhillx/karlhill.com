@@ -20,7 +20,6 @@
         "jquery": "^3.5.1",
         "laravel-mix": "^5.0.5",
         "lodash": "^4.17.20",
-        "normalize": "^0.3.1",
         "normalize.css": "^8.0.1",
         "popper.js": "^1.16.1",
         "resolve-url-loader": "^4.0.0-alpha.1",
