@@ -119,7 +119,7 @@
 <!-- Footer -->
 <footer>
     <div class="container">
-        <div class="row pt-4 pb-4">
+        <div class="row pt-5 pb-5">
             <div class="col-md-7">
                 <small>© {{ date('Y') }} Karl Hill. Laravel v{{ app()->version() }}.<br>
                     Unless otherwise indicated, content is licensed under the Creative Commons Attribution
