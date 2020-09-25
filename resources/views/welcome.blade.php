@@ -19,7 +19,7 @@
         <div class="float-left mr-auto">
         <span>
             <i class="fas fa-envelope-open-text mr-2"></i><a
-                href="mailto:karlhillx@gmail.com">karlhillx@gmail.com</a>
+                href="mailto:karlhillx@gmail.com" target="_blank">karlhillx@gmail.com</a>
         </span>
         </div>
         <div class="float-right mt-2 mt-md-0">
