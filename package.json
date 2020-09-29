@@ -15,7 +15,7 @@
         "@popperjs/core": "^2.5.3",
         "aos": "^3.0.0-beta.6",
         "axios": "^0.20",
-        "bootstrap": "^5.0.0-alpha1",
+        "bootstrap": "^5.0.0-alpha2",
         "cross-env": "^7.0",
         "jquery": "^3.5.1",
         "laravel-mix": "^5.0.5",
