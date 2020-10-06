@@ -49,7 +49,7 @@
                     <a href="https://www.linkedin.com/in/khill/" target="_blank" class="btn btn-primary mr-1"><i
                             class="fab fa-linkedin"></i> LinkedIn</a>
                     <button type="button" class="btn btn-warning mr-1" data-toggle="modal"
-                            data-target="#resume-modal"><i class="fab fa-adobe"></i> Resume
+                            data-target="#resume-modal"><i class="far fa-file-pdf"></i> Resume
                     </button>
                     <a href="#why" class="btn btn-border"> Learn More</a>
                 </div>
