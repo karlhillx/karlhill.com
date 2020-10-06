@@ -24,7 +24,7 @@
         </div>
         <div class="float-right mt-2 mt-md-0">
             <a href="javascript:" data-toggle="modal" data-target="#login-modal">
-                <i class="fas fa-sign-in-alt mr-2"></i>Login
+                <i class="fas fa-sign-in-alt mr-2"></i>Portfolio
             </a>
         </div>
     </div>
@@ -180,26 +180,24 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="login-modalTitle">Portfolio</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <form method="post" action="{{ route('login') }}">
                 @csrf
                 <div class="modal-body">
-                    <div class="bd-example">
+                    <div class="bd-example container">
                         <div class="user-icon text-center">
                             <i class="fas fa-user-circle"></i>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 container">
                             <label for="email1" class="form-label">Email address</label>
                             <input type="email" name="email" class="form-control" aria-describedby="emailHelp"
                                    data-minlength="1"
-                                   maxlength="255" required>
+                                   maxlength="45" required>
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 container">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control" aria-describedby="passwordHelp"
                                    data-minlength="8" maxlength="20" required>
