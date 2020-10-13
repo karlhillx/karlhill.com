@@ -78,7 +78,7 @@
                     </p>
                     <ul class="list-item">
                         <li>
-                            <i class="fas fa-thermometer-full mr-2"></i>20+ years experience
+                            <i class="fas fa-thermometer-full mr-2"></i>20+ years SDLC experience
                         </li>
                         <li>
                             <i class="fas fa-thermometer-three-quarters mr-2"></i>MVC frameworks (Laravel, Symfony)
