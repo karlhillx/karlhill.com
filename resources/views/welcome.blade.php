@@ -90,7 +90,8 @@
                             <i class="fas fa-thermometer-quarter mr-2"></i>Agile methodologies (Scrum/Kanban)
                         </li>
                         <li>
-                            <i class="fas fa-thermometer-quarter mr-2"></i>Responsive UI/UX (Bootstrap, etc)
+                            <i class="fas fa-thermometer-quarter mr-2"></i>Responsive UI/UX (Tailwind CSS, Bootstrap,
+                            etc.)
                         </li>
                         <li>
                             <i class="fas fa-thermometer-empty mr-2"></i>Excellent communication and writing skills
