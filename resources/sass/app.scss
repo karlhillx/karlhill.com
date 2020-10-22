@@ -214,3 +214,14 @@ footer, footer .footer-nav li a {
     font-size: 120px;
     opacity: .5 !important
 }
+
+.modal-dialog {
+    width: 360px;
+}
+
+.modal-header {
+    background-color: #337AB7;
+    padding:16px 16px;
+    color:#FFF;
+    border-bottom:2px dashed #337AB7;
+}

@@ -18,8 +18,9 @@
         "bootstrap": "^5.0.0-alpha2",
         "cross-env": "^7.0",
         "jquery": "^3.5.1",
-        "laravel-mix": "^6.0.0-beta.10",
+        "laravel-mix": "^5.0.7",
         "lodash": "^4.17.20",
+        "mix-tailwindcss": "^1.2.0",
         "normalize.css": "^8.0.1",
         "popper.js": "^1.16.1",
         "resolve-url-loader": "^4.0.0-alpha.1",
@@ -27,5 +28,8 @@
         "sass-loader": "^10.0.3",
         "vue": "^3.0.2",
         "vue-template-compiler": "^2.6.12"
+    },
+    "devDependencies": {
+        "tailwindcss": "^1.9.5"
     }
 }
