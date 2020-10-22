@@ -26,15 +26,8 @@
         "resolve-url-loader": "^4.0.0-alpha.1",
         "sass": "^1.27.0",
         "sass-loader": "^10.0.3",
+        "tailwindcss": "^1.9.5",
         "vue": "^3.0.2",
         "vue-template-compiler": "^2.6.12"
-    },
-    "devDependencies": {
-        "bootstrap": "^4.0.0",
-        "jquery": "^3.2",
-        "popper.js": "^1.12",
-        "sass": "^1.15.2",
-        "sass-loader": "^8.0.0",
-        "tailwindcss": "^1.9.5"
     }
 }

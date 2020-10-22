@@ -7,8 +7,7 @@ window._ = require('lodash');
  */
 
 try {
-    //window.Popper = require('@popperjs/core').default;
-    window.Popper = require('popper.js').default;
+    window.Popper = require('@popperjs/core').default;
     window.$ = window.jQuery = require('jquery');
     window.AOS = require('aos');
 
