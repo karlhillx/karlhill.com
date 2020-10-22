@@ -160,7 +160,7 @@
                     <div class="alert alert-info" role="alert">
                         Please make a selection from the following options.
                     </div>
-                    <div class="p-5 bd-example">
+                    <div class="p-1 bd-example">
                         <a class="btn btn-danger" href="{{ asset('files/karlhill-resume.pdf') }}" role="button"
                            target="_blank"><i class="fas fa-file-pdf mr-2"></i>PDF Version</a>
                     </div>
