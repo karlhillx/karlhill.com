@@ -193,15 +193,15 @@
                                 <input type="email" name="email" class="form-control" aria-describedby="emailHelp"
                                        data-minlength="1"
                                        maxlength="45" required>
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
-                                </div>
+                                <small id="emailHelp" class="text-muted">We'll never share your email with anyone else.
+                                </small>
                             </div>
                             <div class="mb-3 container">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" name="password" class="form-control"
                                        aria-describedby="passwordHelp"
                                        data-minlength="8" maxlength="20" required>
-                                <div id="passwordHelp" class="form-text">Must be 8-20 characters long.</div>
+                                <small id="passwordHelp" class="text-muted">Must be 8-20 characters long.</small>
                             </div>
                         </div>
                     </div>

@@ -885,16 +885,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.12.2",
+            "version": "v8.12.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "aa81c2e5a0ba8048a6f0486e4570df74a508a6c9"
+                "reference": "6707480c5f0db7aa07537f9ad93255b64b65b85e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/aa81c2e5a0ba8048a6f0486e4570df74a508a6c9",
-                "reference": "aa81c2e5a0ba8048a6f0486e4570df74a508a6c9",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6707480c5f0db7aa07537f9ad93255b64b65b85e",
+                "reference": "6707480c5f0db7aa07537f9ad93255b64b65b85e",
                 "shasum": ""
             },
             "require": {
@@ -1048,7 +1048,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2020-10-29T18:57:56+00:00"
+            "time": "2020-10-29T22:01:29+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -5824,23 +5824,23 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.2",
+            "version": "9.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "229099d7d69fe5044f6e464f669b1fd34f252e8d"
+                "reference": "6b20e2055f7c29b56cb3870b3de7cc463d7add41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/229099d7d69fe5044f6e464f669b1fd34f252e8d",
-                "reference": "229099d7d69fe5044f6e464f669b1fd34f252e8d",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6b20e2055f7c29b56cb3870b3de7cc463d7add41",
+                "reference": "6b20e2055f7c29b56cb3870b3de7cc463d7add41",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "ext-xmlwriter": "*",
-                "nikic/php-parser": "^4.8",
+                "nikic/php-parser": "^4.10.2",
                 "php": ">=7.3",
                 "phpunit/php-file-iterator": "^3.0.3",
                 "phpunit/php-text-template": "^2.0.2",
@@ -5889,7 +5889,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.2"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.3"
             },
             "funding": [
                 {
@@ -5897,7 +5897,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-28T06:24:13+00:00"
+            "time": "2020-10-30T10:46:41+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
