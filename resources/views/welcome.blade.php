@@ -152,9 +152,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Resume</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
                     <div class="alert alert-info" role="alert">
@@ -180,9 +178,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="login-modalTitle">Portfolio</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <form method="post" action="{{ route('login') }}">
@@ -193,19 +189,19 @@
                                 <i class="fas fa-user-circle"></i>
                             </div>
                             <div class="mb-3 container">
-                                <label for="email1" class="form-label">Email address</label>
-                                <input type="email" id="email1" name="email1" class="form-control"
-                                       aria-describedby="emailHelp"
-                                       data-minlength="1"
-                                       maxlength="45" required>
-                                <small id="emailHelp" class="text-muted">We don't share your email with anyone else.
-                                </small>
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="floatingInput"
+                                           placeholder="name@example.com">
+                                    <label for="floatingInput">Email address</label>
+                                </div>
+                                <small id="emailHelp" class="text-muted">We don't share your email address.</small>
                             </div>
                             <div class="mb-3 container">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" id="password" name="password" class="form-control"
-                                       aria-describedby="passwordHelp"
-                                       data-minlength="8" maxlength="20" required>
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="floatingPassword"
+                                           placeholder="Password">
+                                    <label for="floatingPassword">Password</label>
+                                </div>
                                 <small id="passwordHelp" class="text-muted">Must be 8-20 characters long.</small>
                             </div>
                         </div>
