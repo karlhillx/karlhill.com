@@ -88,8 +88,7 @@
                                 <i class="fas fa-thermometer-quarter mr-2"></i>Agile methodologies (Scrum/Kanban)
                             </li>
                             <li>
-                                <i class="fas fa-thermometer-quarter mr-2"></i>Responsive UI/UX (Tailwind CSS,
-                                Bootstrap,
+                                <i class="fas fa-thermometer-quarter mr-2"></i>Responsive UI/UX (Tailwind, Bootstrap,
                                 etc.)
                             </li>
                             <li>
@@ -181,7 +180,7 @@
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form method="post" action="{{ route('login') }}">
+                <form method="post" action="{{ route('portfolio') }}">
                     @csrf
                     <div class="modal-body">
                         <div class="bd-example container">
@@ -217,8 +216,9 @@
     <!-- // -->
 
 </div>
-</body>
 <script src="{{ mix('js/app.js') }}"></script>
+@toastr_js
+@toastr_render
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85045253-1"></script>
 <script>
@@ -234,4 +234,5 @@
 
     AOS.init();
 </script>
+</body>
 </html>

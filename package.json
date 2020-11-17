@@ -27,7 +27,9 @@
         "sass": "^1.29.0",
         "sass-loader": "^9.0.3",
         "tailwindcss": "^1.9.6",
+        "toastr": "^2.1.4",
         "vue-template-compiler": "^2.6.12",
         "webpack": "^4.44.2"
-    }
+    },
+    "name": "karlhillx"
 }

@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::post('portfolio', [WelcomeController::class, 'portfolio'])->name('portfolio');
 
 Auth::routes();
