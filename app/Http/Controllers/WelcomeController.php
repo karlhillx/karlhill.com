@@ -18,7 +18,7 @@ class WelcomeController extends Controller
     /**
      * @return RedirectResponse
      */
-    final public function portfolio(): RedirectResponse
+    public function portfolio(): RedirectResponse
     {
         toastr()->error('Sorry, this feature has not been implemented yet.');
 
