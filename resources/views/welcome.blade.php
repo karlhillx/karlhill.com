@@ -18,11 +18,11 @@
         <div class="container">
             <div class="float-left mr-auto" data-aos="flip-left">
                 <i class="fas fa-envelope-open-text mr-2"></i><a
-                    href="mailto:karlhillx@gmail.com" target="_blank">karlhillx@gmail.com</a>
+                    href="mailto:karlhillx@gmail.com" target="_blank"> karlhillx@gmail.com</a>
             </div>
             <div class="float-right mt-2 mt-md-0" data-aos="flip-right">
                 <a href="javascript:" data-toggle="modal" data-target="#login-modal">
-                    <i class="fas fa-sign-in-alt mr-2"></i>Portfolio
+                    <i class="fas fa-sign-in-alt mr-2"></i> Portfolio
                 </a>
             </div>
         </div>
