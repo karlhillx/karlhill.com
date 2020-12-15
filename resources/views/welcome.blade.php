@@ -16,13 +16,13 @@
     <!-- Navbar -->
     <nav class="navbar fixed-top">
         <div class="container">
-            <div class="float-left mr-auto" data-aos="flip-left">
-                <i class="fas fa-envelope-open-text mr-2"></i><a
+            <div class="float-start" data-aos="flip-left">
+                <i class="fas fa-envelope-open-text me-2"></i><a
                     href="mailto:karlhillx@gmail.com" target="_blank"> karlhillx@gmail.com</a>
             </div>
             <div class="float-right mt-2 mt-md-0" data-aos="flip-right">
-                <a href="javascript:" data-toggle="modal" data-target="#login-modal">
-                    <i class="fas fa-sign-in-alt mr-2"></i> Portfolio
+                <a href="javascript:" data-bs-toggle="modal" data-bs-target="#login-modal">
+                    <i class="fas fa-sign-in-alt me-2"></i> Portfolio
                 </a>
             </div>
         </div>
@@ -44,10 +44,10 @@
                     </div>
                     <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"
                          data-aos-easing="ease-in-out-back">
-                        <a href="https://www.linkedin.com/in/khill/" target="_blank" class="btn btn-primary mr-1"><i
+                        <a href="https://www.linkedin.com/in/khill/" target="_blank" class="btn btn-primary me-1"><i
                                 class="fab fa-linkedin"></i> LinkedIn</a>
-                        <button type="button" class="btn btn-warning mr-1" data-toggle="modal"
-                                data-target="#resume-modal"><i class="far fa-file-pdf"></i> Resume
+                        <button type="button" class="btn btn-warning me-1" data-bs-toggle="modal"
+                                data-bs-target="#resume-modal"><i class="far fa-file-pdf"></i> Resume
                         </button>
                         <a href="#why" class="btn btn-border"> Learn More</a>
                     </div>
@@ -76,23 +76,23 @@
                         </p>
                         <ul class="list-item">
                             <li>
-                                <i class="fas fa-thermometer-full mr-2"></i>20+ years SDLC experience
+                                <i class="fas fa-thermometer-full me-2"></i>20+ years SDLC experience
                             </li>
                             <li>
-                                <i class="fas fa-thermometer-three-quarters mr-2"></i>MVC frameworks (Laravel, Symfony)
+                                <i class="fas fa-thermometer-three-quarters me-2"></i>MVC frameworks (Laravel, Symfony)
                             </li>
                             <li>
-                                <i class="fas fa-thermometer-half mr-2"></i>Test-driven development (TDD)
+                                <i class="fas fa-thermometer-half me-2"></i>Test-driven development (TDD)
                             </li>
                             <li>
-                                <i class="fas fa-thermometer-quarter mr-2"></i>Agile methodologies (Scrum/Kanban)
+                                <i class="fas fa-thermometer-quarter me-2"></i>Agile methodologies (Scrum/Kanban)
                             </li>
                             <li>
-                                <i class="fas fa-thermometer-quarter mr-2"></i>Responsive UI/UX (Tailwind, Bootstrap,
+                                <i class="fas fa-thermometer-quarter me-2"></i>Responsive UI/UX (Tailwind, Bootstrap,
                                 etc.)
                             </li>
                             <li>
-                                <i class="fas fa-thermometer-empty mr-2"></i>Excellent communication and writing skills
+                                <i class="fas fa-thermometer-empty m3-2"></i> Excellent communication and writing skills
                             </li>
                         </ul>
                     </div>
@@ -126,7 +126,7 @@
                     </small>
                 </div>
                 <div class="col-md-5">
-                    <div class="bottom-social-icons float-right">
+                    <div class="bottom-social-icons float-end">
                         <a class="linkedin" target="_blank" href="https://linkedin.com/in/khill"><i
                                 class="fab fa-linkedin"></i></a>
                         <a class="github" target="_blank" href="https://github.com/karlhillx/"><i
@@ -151,7 +151,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Resume</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
                     <div class="alert alert-info" role="alert">
@@ -159,11 +159,11 @@
                     </div>
                     <div class="p-1 bd-example">
                         <a class="btn btn-danger" href="{{ asset('files/karlhill-resume.pdf') }}" role="button"
-                           target="_blank"><i class="fas fa-file-pdf mr-2"></i>PDF Version</a>
+                           target="_blank"><i class="fas fa-file-pdf me-2"></i>PDF Version</a>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close</button>
                 </div>
             </div>
         </div>
@@ -177,7 +177,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="login-modalTitle">Portfolio</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <form method="post" action="{{ route('portfolio') }}">
@@ -207,7 +207,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary active" aria-pressed="true">Login</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>
             </div>

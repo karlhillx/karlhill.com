@@ -2,7 +2,7 @@
 @import '~normalize.css';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap.scss';
 
 // Fontawesome
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
@@ -185,6 +185,7 @@ footer .bottom-social-icons a {
     position: relative;
     text-align: center;
     width: 32px;
+    border-radius: 4px;
 }
 
 footer, footer .footer-nav li a {
