@@ -92,7 +92,7 @@
                                 etc.)
                             </li>
                             <li>
-                                <i class="fas fa-thermometer-empty me-2"></i> Excellent communication and writing skills
+                                <i class="fas fa-thermometer-empty me-2"></i>Excellent communication and writing skills
                             </li>
                         </ul>
                     </div>
