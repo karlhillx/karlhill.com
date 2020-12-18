@@ -68,7 +68,7 @@
                     <div class="content col-8">
                         <h2>Why You Should<br> Hire Me</h2>
                         <p>
-                            Full stack engineer with over 20 years development experience. Background to accomplish
+                            Full stack engineer with 25 years development experience. Background to accomplish
                             complex programming tasks and the expertise to produce engaging interfaces. Hunger for
                             learning new technologies and functions well independently or in team situations.
                             Professional, motivated, detail-oriented, wildly creative, and possesses excellent
@@ -92,7 +92,7 @@
                                 etc.)
                             </li>
                             <li>
-                                <i class="fas fa-thermometer-empty m3-2"></i> Excellent communication and writing skills
+                                <i class="fas fa-thermometer-empty me-2"></i> Excellent communication and writing skills
                             </li>
                         </ul>
                     </div>
