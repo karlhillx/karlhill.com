@@ -1,0 +1,199 @@
+
+@import '~normalize.css/normalize.css';
+
+@import '~bootstrap/dist/css/bootstrap.css';
+
+@import '~@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '~@fortawesome/fontawesome-free/css/regular.css';
+@import '~@fortawesome/fontawesome-free/css/solid.css';
+@import '~@fortawesome/fontawesome-free/css/brands.css';
+
+@import '~aos/dist/aos.css';
+
+@import '~toastr/build/toastr.css';
+
+/*!
+ * @Author Karl Hill
+ * Licensed under MIT (https://github.com/karlhillx/karlhill.com/blob/master/LICENSE)*/
+#about {
+    background: url(/img/backgrounds/blurred-bg.jpg) 50% fixed;
+}
+
+#about, #why, .navbar span a, a:focus, a:hover {
+    color: #fff;
+}
+
+#why {
+    background: url(/img/why-bg.jpg);
+    border-top: 10px solid rgba(0, 0, 0, .15);
+}
+
+#why .content .h2, #why .content h2 {
+    font-size: 3.125rem;
+    font-weight: 100;
+    line-height: 3.75rem;
+    margin-top: 0;
+}
+
+#why .content .list-item li {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 2.5rem;
+}
+
+.btn {
+    font-size: .875rem;
+}
+
+.btn-border {
+    background: 0 0;
+    border: 1px solid #fff;
+}
+
+.btn-border, a {
+    color: #fff !important;
+}
+
+.btn-border:hover {
+    background: rgba(255, 255, 255, .08);
+}
+
+.h1, .landing .contents h1, h1 {
+    font-size: 3.125rem;
+    font-weight: 700;
+}
+
+.landing {
+    background: url(/img/landing.jpg) bottom no-repeat;
+    color: #fff;
+    overflow: hidden;
+    padding: 280px 0;
+}
+
+.landing .contents p, .navbar .navbar-nav li a {
+    font-size: 1.125rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.landing .h6, .landing h6 {
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.landing .sticky-navigation {
+    background: 0 0;
+}
+
+.modal-dialog {
+    width: 360px;
+}
+
+.modal-header {
+    background-color: #0257d5;
+    border-color: #0252c9;
+    color: #fff;
+    padding: 1rem;
+}
+
+.navbar {
+    background-color: #7d2746 !important;
+    border-bottom: 1px solid #222121;
+    color: #ccc;
+    font-size: .875rem;
+    padding: 15px 0;
+}
+
+.navbar .navbar-nav li {
+    float: none;
+}
+
+.navbar .navbar-nav li a {
+    display: block;
+    font-size: .875rem;
+}
+
+.navbar-nav {
+    float: none;
+    margin: 0;
+}
+
+.section {
+    padding: 90px 0;
+}
+
+.user-icon {
+    color: #ccc;
+    font-size: 120px;
+}
+
+a {
+    background-color: transparent;
+}
+
+a, a:focus, a:hover {
+    outline: 0;
+    text-decoration: none;
+}
+
+body {
+    background: #7d2746;
+    font-family: 'Nunito', sans-serif;
+    font-size: .875rem;
+    font-weight: 400;
+}
+
+footer {
+    background: #080808;
+    color: #b7b9bc;
+}
+
+footer .bottom-social-icons .bitbucket:hover {
+    background-color: #205081;
+}
+
+footer .bottom-social-icons .discogs:hover {
+    background-color: #7a7a7a;
+}
+
+footer .bottom-social-icons .github:hover {
+    background-color: #000;
+}
+
+footer .bottom-social-icons .linkedin:hover {
+    background-color: #0077b5;
+}
+
+footer .bottom-social-icons .stackoverflow:hover {
+    background-color: #f58025;
+}
+
+footer .bottom-social-icons .twitter:hover {
+    background-color: #1da1f2;
+}
+
+footer .bottom-social-icons a {
+    background: #292b2c;
+    color: #fff;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 32px;
+    border-radius: 4px;
+}
+
+footer, footer .footer-nav li a {
+    color: #999;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
