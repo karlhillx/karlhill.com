@@ -8,7 +8,6 @@ window._ = require('lodash');
 
 try {
     window.$ = window.jQuery = require('jquery');
-    window.Popper = require('@popperjs/core').default;
     window.AOS = require('aos');
 
     require('bootstrap');
