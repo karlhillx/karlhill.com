@@ -40,7 +40,7 @@
 @task('generateAssets')
     {{ logMessage('🌅  Generating assets...') }}
     npm install
-    npm run production
+    npx mix -p
 @endtask
 
 @task('migrateDatabase')
