@@ -20,7 +20,6 @@
     migrateDatabase
     generateAssets
     optimizeInstallation
-    updatePermissions
     blessDeployment
     finishDeploy
 @endstory
@@ -49,14 +48,6 @@
 @endtask
 
 @task('updatePermissions')
-    chgrp -R northea1 {{ $release }};
-    chmod -R ug+rwx {{ $release }};
-    @foreach($chmods as $file)
-        chmod -R 755 {{ $file }}
-        chmod -R g+s {{ $file }}
-        chown -R northea1 {{ $file }};
-        echo "Permissions have been set for {{ $file }}"
-    @endforeach
 @endtask
 
 @task('optimizeInstallation')
