@@ -19,7 +19,6 @@
     runComposer
     migrateDatabase
     generateAssets
-    optimizeInstallation
     blessDeployment
     finishDeploy
 @endstory
@@ -32,7 +31,7 @@
 @task('runComposer')
     {{ logMessage('🏃 Running Composer...') }}
     composer global update
-    composer install --prefer-dist --optimize-autoloader
+    composer install --optimize-autoloader --no-dev
     composer dump-autoload
 @endtask
 
@@ -50,15 +49,9 @@
 @task('updatePermissions')
 @endtask
 
-@task('optimizeInstallation')
-    {{ logMessage('✨  Optimizing installation...') }}
-    php artisan clear-compiled
-@endtask
-
 @task('blessDeployment')
     {{ logMessage('🙏  Blessing deployment...') }}
-    php artisan config:clear
-    php artisan cache:clear
+    php artisan optimize:clear
 @endtask
 
 @task('finishDeploy')

@@ -13,17 +13,17 @@
         "@fortawesome/fontawesome-free": "^5.15.2",
         "@popperjs/core": "^2.6.0",
         "aos": "^3.0.0-beta.6",
-        "autoprefixer": "^10.2.3",
+        "autoprefixer": "^10.2.4",
         "axios": "^0.21.1",
         "bootstrap": "^5.0.0-beta1",
         "jquery": "^3.5.1",
-        "laravel-mix": "^6.0.10",
+        "laravel-mix": "^6.0.11",
         "lodash": "^4.17.20",
         "normalize.css": "^8.0.1",
         "postcss": "^8.2.4",
         "tailwindcss": "^2.0.2",
         "toastr": "^2.1.4",
         "vue-template-compiler": "^2.6.12",
-        "webpack": "^5.17.0"
+        "webpack": "^5.20.2"
     }
 }
