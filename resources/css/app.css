@@ -65,7 +65,7 @@
 
 .landing {
     background: url(/img/landing.jpg) bottom no-repeat;
-    color: #fff;
+    color: #ffffff;
     overflow: hidden;
     padding: 280px 0;
 }
@@ -138,7 +138,7 @@ a, a:focus, a:hover {
 
 body {
     background: #7d2746;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: .875rem;
     font-weight: 400;
 }
