@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -15,9 +16,6 @@ mix.setResourceRoot("../");
 
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
-
-if (mix.inProduction()) {
-    mix.version();
-}
+        require('tailwindcss'),
+    ])
+    .version();

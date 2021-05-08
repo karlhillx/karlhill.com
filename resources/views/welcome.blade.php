@@ -8,10 +8,9 @@
     <meta name="framework" content="Laravel v{{ app()->version() }}">
     <title>{{ config('app.name', 'Karl Hill | Full Stack Engineer') }}</title>
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
-<body class="antialiased">
+<body class="antialiased font-sans">
 <div>
     <!-- Navbar -->
     <nav class="navbar fixed-top">
@@ -36,7 +35,7 @@
                 <div class="col-12">
                     <div data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
                          data-aos-easing="ease-in-out-back">
-                        <h1><strong>Karl Hill</strong></h1>
+                        <h1>Karl Hill</h1>
                     </div>
                     <div data-aos="fade-left" data-aos-duration="1100" data-aos-delay="400" class="mt-2 mb-3"
                          data-aos-easing="ease-in-out-back">
@@ -189,15 +188,15 @@
                             </div>
                             <div class="mb-3 container">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="floatingInput"
+                                    <input type="email" class="form-control border border-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" id="floatingInput"
                                            placeholder="name@example.com">
                                     <label for="floatingInput">Email address</label>
                                 </div>
-                                <small id="emailHelp" class="text-muted">We don't share your email address.</small>
+                                <small id="emailHelp" class="text-muted">We won't share your email address.</small>
                             </div>
                             <div class="mb-3 container">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" id="floatingPassword"
+                                    <input type="password" class="form-control border border-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" id="floatingPassword"
                                            placeholder="Password">
                                     <label for="floatingPassword">Password</label>
                                 </div>
@@ -206,8 +205,16 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary active" aria-pressed="true">Login</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <div class="pt-5">
+                            <div class="flex justify-end">
+                                <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Cancel
+                                </button>
+                                <button type="submit" class="ml-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Login
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -216,6 +223,7 @@
     <!-- // -->
 
 </div>
+
 <script src="{{ mix('js/app.js') }}"></script>
 @toastr_js
 @toastr_render

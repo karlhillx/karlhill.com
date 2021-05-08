@@ -1,12 +1,16 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@import '~normalize.css/normalize.css';
-
-@import '~bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700;900&display=swap');
 
 @import '~@fortawesome/fontawesome-free/css/fontawesome.css';
 @import '~@fortawesome/fontawesome-free/css/regular.css';
 @import '~@fortawesome/fontawesome-free/css/solid.css';
 @import '~@fortawesome/fontawesome-free/css/brands.css';
+
+/* Eventually remove Bootstrap 5 completely. */
+@import '~bootstrap/dist/css/bootstrap.css';
 
 @import '~aos/dist/aos.css';
 
