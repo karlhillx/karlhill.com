@@ -2,7 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @import '~@fortawesome/fontawesome-free/css/fontawesome.css';
 @import '~@fortawesome/fontawesome-free/css/regular.css';
@@ -13,143 +13,60 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 
 @import '~aos/dist/aos.css';
-
 @import '~toastr/build/toastr.css';
 
 /*!
  * @Author Karl Hill
- * Licensed under MIT (https://github.com/karlhillx/karlhill.com/blob/master/LICENSE)*/
+ * Licensed under MIT (https://github.com/karlhillx/karlhill.com/blob/master/LICENSE)
+ */
 #about {
-    background: url(/img/backgrounds/blurred-bg.jpg) 50% fixed;
-}
-
-#about, #why, .navbar span a, a:focus, a:hover {
-    color: #fff;
+    @apply bg-fixed;
+    background-image: url(/img/backgrounds/blurred-bg.jpg);
+    background-position: 50%;
 }
 
 #why {
-    background: url(/img/why-bg.jpg);
-    border-top: 10px solid rgba(0, 0, 0, .15);
-}
-
-#why .content .h2, #why .content h2 {
-    font-size: 3.125rem;
-    font-weight: 100;
-    line-height: 3.75rem;
-    margin-top: 0;
-}
-
-#why .content .list-item li {
-    color: #fff;
-    font-size: 1rem;
-    line-height: 2.5rem;
-}
-
-.btn {
-    font-size: .875rem;
-}
-
-.btn-border {
-    background: 0 0;
-    border: 1px solid #fff;
-}
-
-.btn-border, a {
-    color: #fff !important;
-}
-
-.btn-border:hover {
-    background: rgba(255, 255, 255, .08);
-}
-
-.h1, .landing .contents h1, h1 {
-    font-size: 3.125rem;
-    font-weight: 700;
+    @apply border-black border-solid;
+    background-image: url(/img/why-bg.jpg);
+    border-top-width: 10px;
 }
 
 .landing {
-    background: url(/img/landing.jpg) bottom no-repeat;
-    color: #ffffff;
-    overflow: hidden;
-    padding: 280px 0;
-}
-
-.landing .contents p, .navbar .navbar-nav li a {
-    font-size: 1.125rem;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-.landing .h6, .landing h6 {
-    font-size: 1.125rem;
-    font-weight: 400;
-}
-
-.landing .sticky-navigation {
-    background: 0 0;
-}
-
-.modal-dialog {
-    width: 360px;
+    @apply bg-bottom bg-no-repeat overflow-hidden px-0 text-white;
+    background-image: url(/img/landing.jpg);
+    padding-top: 280px;
+    padding-bottom: 280px;
 }
 
 .modal-header {
-    background-color: #0257d5;
-    border-color: #0252c9;
-    color: #fff;
-    padding: 1rem;
+    @apply p-4 text-white;
+    background-color: rgba(2, 87, 213, 1);
+    border-color: rgba(2, 82, 201, 1);
+}
+
+.msg-warning {
+    @apply text-black;
+    background-color: rgba(255, 193, 7, 1);
+    border-color: rgba(255, 193, 7, 1);
+}
+
+.msg-info {
+    color: #055160;
+    background-color: #cff4fc;
+    border-color: #b6effb;
 }
 
 .navbar {
-    background-color: #7d2746 !important;
-    border-bottom: 1px solid #222121;
-    color: #ccc;
-    font-size: .875rem;
-    padding: 15px 0;
-}
-
-.navbar .navbar-nav li {
-    float: none;
-}
-
-.navbar .navbar-nav li a {
-    display: block;
-    font-size: .875rem;
-}
-
-.navbar-nav {
-    float: none;
-    margin: 0;
-}
-
-.section {
-    padding: 90px 0;
-}
-
-.user-icon {
-    color: #ccc;
-    font-size: 120px;
-}
-
-a {
-    background-color: transparent;
-}
-
-a, a:focus, a:hover {
-    outline: 0;
-    text-decoration: none;
+    @apply border-solid border-b text-sm px-0 py-4;
+    background-color: rgba(125, 39, 70, 1);
+    border-color: rgba(34, 33, 33, 1);
+    color: rgba(204, 204, 204, 1);
 }
 
 body {
-    background: #7d2746;
-    font-family: 'Inter', sans-serif;
-    font-size: .875rem;
-    font-weight: 400;
-}
-
-footer {
-    background: #080808;
-    color: #b7b9bc;
+    @apply font-normal text-sm;
+    background-color: rgba(125, 39, 70, 1);
+    font-family: "Inter", sans-serif;
 }
 
 footer .bottom-social-icons .bitbucket:hover {
@@ -177,27 +94,6 @@ footer .bottom-social-icons .twitter:hover {
 }
 
 footer .bottom-social-icons a {
-    background: #292b2c;
-    color: #fff;
-    display: inline-block;
-    height: 32px;
-    line-height: 32px;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    width: 32px;
-    border-radius: 4px;
-}
-
-footer, footer .footer-nav li a {
-    color: #999;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-ul li {
-    list-style: none;
+    @apply rounded inline-block h-8 leading-8 overflow-hidden relative text-center text-white w-8;
+    background-color: rgba(41, 43, 44, 1);
 }

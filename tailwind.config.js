@@ -21,10 +21,10 @@ module.exports = {
         },
     },
     variants: {
+        backgroundColor: ['hover', 'focus'],
+        borderColor: ['focus', 'hover'],
+        borderStyle: ['hover'],
         opacity: ['responsive', 'hover', 'focus', 'disabled'],
-        extend: {
-            borderStyle: ['hover'],
-        }
     },
     plugins: [
         require('autoprefixer'),

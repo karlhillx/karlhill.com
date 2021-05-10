@@ -24,11 +24,11 @@
         "laravel-mix-purgecss": "^6.0.0",
         "lodash": "^4.17.21",
         "normalize.css": "^8.0.1",
-        "postcss": "^8.2.14",
-        "postcss-import": "^14.0.1",
+        "postcss": "^8.2.15",
+        "postcss-import": "^14.0.2",
         "tailwindcss": "^2.1.2",
         "toastr": "^2.1.4",
         "vue-template-compiler": "^2.6.12",
-        "webpack": "^5.36.2"
+        "webpack": "^5.37.0"
     }
 }
