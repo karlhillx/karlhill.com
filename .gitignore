@@ -13,3 +13,4 @@ npm-debug.log
 yarn-error.log
 app.js.LICENSE.txt
 .DS_Store
+/.idea
