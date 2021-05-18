@@ -38,7 +38,6 @@
 @task('generateAssets')
     {{ logMessage('🌅  Generating assets...') }}
     npm install
-    npm run prod
 @endtask
 
 @task('migrateDatabase')
