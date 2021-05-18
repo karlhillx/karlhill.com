@@ -1,6 +1,6 @@
 <!-- Footer -->
 <footer class="bg-black">
-    <div class="container mx-auto sm:px-4 pt-12 pb-12">
+    <div class="container mx-auto sm:px-4 pt-12 pb-12 py-6 px-6">
         <div class="flex flex-wrap">
             <div class="grid grid-cols-3 gap-4">
                 <div class="text-gray-400">© {{ date('Y') }} Karl Hill. Laravel Build v{{ app()->version() }}.<br>

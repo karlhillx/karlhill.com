@@ -13,9 +13,8 @@
 @include('partials.header')
 
 <!-- Hero -->
-<div class="landing relative bg-gray-50 overflow-hidden">
-    <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
-        <div class="w-full">
+<div class="landing">
+        <div class="container mx-auto py-6 px-6">
             <div data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
                  data-aos-easing="ease-in-out-back">
                 <h2 class="text-4xl font-extrabold tracking-tight sm:text-5xl">Karl Hill</h2>
@@ -50,7 +49,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 <!-- Feature -->
 <section id="why" class="bg-white px-0">
