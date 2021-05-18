@@ -1,3 +1,6 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
+
 module.exports = {
     mode: 'jit',
     purge: {
@@ -7,29 +10,50 @@ module.exports = {
         content: [
             './vendor/laravel/jetstream/**/*.blade.php',
             './storage/framework/views/*.php',
-            './resources/**/*.blade.php',
-            './resources/**/*.js',
-            './resources/**/*.vue',
-        ],
+            './resources/views/**/*.blade.php',
+        ]
     },
-    darkMode: false, // or 'media' or 'class'
     theme: {
-        fontFamily: {
-            display: ['Inter', 'system-ui', 'sans-serif'],
-            body: ['Inter', 'system-ui', 'sans-serif'],
-            sans: ['Inter', 'system-ui', 'sans-serif'],
+        extend: {
+            colors: {
+                red: colors.red,
+                rose: colors.rose,
+                'light-blue': colors.lightBlue,
+                cyan: colors.cyan,
+            },
+            fontFamily: {
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+            },
         },
+        opacity: {
+            '0': '0',
+            '10': '.1',
+            '20': '.2',
+            '25': '.25',
+            '30': '.3',
+            '40': '.4',
+            '50': '.5',
+            '60': '.6',
+            '70': '.7',
+            '75': '.75',
+            '80': '.8',
+            '90': '.9',
+            '100': '1',
+        }
     },
     variants: {
-        backgroundColor: ['hover', 'focus'],
-        borderColor: ['focus', 'hover'],
-        borderStyle: ['hover'],
-        opacity: ['responsive', 'hover', 'focus', 'disabled'],
+        extend: {
+            outline: ['hover', 'active'],
+            ringColor: ['hover', 'active'],
+            ringOffsetColor: ['hover', 'active'],
+            ringOffsetWidth: ['hover', 'active'],
+            ringOpacity: ['hover', 'active'],
+            ringWidth: ['hover', 'active'],
+        }
     },
     plugins: [
-        require('autoprefixer'),
+        require('@tailwindcss/aspect-ratio'),
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
-        require('@tailwindcss/aspect-ratio'),
-    ]
-};
+    ],
+}

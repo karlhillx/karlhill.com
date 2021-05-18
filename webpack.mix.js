@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
 require('laravel-mix-purgecss');
 
 /*
@@ -12,10 +13,12 @@ require('laravel-mix-purgecss');
  |
  */
 
-mix.setResourceRoot("../");
-
+mix.setPublicPath('public')
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         require('tailwindcss'),
     ])
-    .version();
+    .options({
+        processCssUrls: true,
+        postCss: [ tailwindcss('tailwind.config.js') ],
+    })

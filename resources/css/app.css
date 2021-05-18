@@ -9,33 +9,17 @@
 @import '~@fortawesome/fontawesome-free/css/solid.css';
 @import '~@fortawesome/fontawesome-free/css/brands.css';
 
-/* Eventually remove Bootstrap 5 completely. */
-@import '~bootstrap/dist/css/bootstrap.css';
-
 @import '~aos/dist/aos.css';
-@import '~toastr/build/toastr.css';
 
 /*!
  * @Author Karl Hill
  * Licensed under MIT (https://github.com/karlhillx/karlhill.com/blob/master/LICENSE)
  */
-#about {
-    @apply bg-fixed;
-    background-image: url(/img/backgrounds/blurred-bg.jpg);
-    background-position: 50%;
-}
-
-#why {
-    @apply border-black border-solid;
-    background-image: url(/img/why-bg.jpg);
-    border-top-width: 10px;
-}
-
 .landing {
-    @apply bg-bottom bg-no-repeat overflow-hidden px-0 text-white;
-    background-image: url(/img/landing.jpg);
-    padding-top: 280px;
-    padding-bottom: 280px;
+    @apply overflow-hidden px-0 text-white;
+    background-image: url(/img/bg-landing.jpg);
+    padding-top: 300px;
+    padding-bottom: 300px;
 }
 
 .modal-header {
