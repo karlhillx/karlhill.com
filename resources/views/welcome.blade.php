@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="uFxkTB0m6tASRk0RkemBMFIyjR5TpGH5Qrmhpka_QfY"/>
     <meta name="framework" content="Laravel v{{ app()->version() }}">
     <title>{{ config('app.name', 'Karl Hill | Full Stack Engineer') }}</title>
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
