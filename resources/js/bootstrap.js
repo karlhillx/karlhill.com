@@ -8,8 +8,8 @@ window._ = require('lodash');
 
 try {
     window.AOS = require('aos');
-
 } catch (e) {
+    console.error(e);
 }
 
 /**
