@@ -15,7 +15,8 @@
 
 <!-- Hero -->
 <div class="landing">
-        <div class="container mx-auto py-6 px-6">
+    <div class="max-w-7xl mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
+        <div class="container mx-auto py-6">
             <div data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
                  data-aos-easing="ease-in-out-back">
                 <h2 class="text-4xl font-extrabold tracking-tight sm:text-5xl">Karl Hill</h2>
@@ -28,29 +29,29 @@
                  data-aos-easing="ease-in-out-back">
                 <h6 class="uppercase font-medium text-lg tracking-tight">PHP, Laravel, Python, Django, Tailwind</h6>
             </div>
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"
-                 data-aos-easing="ease-in-out-back">
-                <a href="https://www.linkedin.com/in/khill/" target="_blank"
-                   class="inline-flex items-center px-3 py-2 sm:text-sm font-medium
-                            rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700
-                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-easing="ease-in-out-back"
+                 class="mt-6">
+                <a href="https://linkedin.com/in/khill/" role="button" target="_blank"
+                   class="w-full sm:w-auto flex-none bg-blue-600 hover:bg-blue-500 text-white text-lg leading-6
+                    font-semibold py-3 px-5 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2
+                    focus:ring-offset-white focus:ring-blue-600 focus:outline-none transition-colors duration-200 mr-1">
                     <i class="fab fa-linkedin mr-2"></i>LinkedIn
                 </a>
                 <a href="{{ asset('files/karlhill-resume.pdf') }}" role="button" target="_blank"
-                   class="inline-flex items-center px-3 py-2 sm:text-sm font-medium
-                            rounded-md shadow-sm text-black bg-yellow-400 hover:bg-yellow-500
-                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300">
+                   class="w-full sm:w-auto flex-none bg-yellow-500 hover:bg-yellow-400 text-white text-lg leading-6
+                    font-semibold py-3 px-5 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2
+                    focus:ring-offset-white focus:ring-yellow-500 focus:outline-none transition-colors duration-200 mr-1">
                     <i class="fas fa-file-pdf mr-2"></i>Resume
                 </a>
-                <a href="#why" class="inline-flex items-center px-3 py-2 sm:text-sm font-medium
-                            rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700
-                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                <a href="#why" class="w-full sm:w-auto flex-none bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6
+                    font-semibold py-3 px-5 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2
+                    focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">
                     Learn More
                 </a>
             </div>
         </div>
     </div>
-
+</div>
 
 <!-- Feature -->
 <section id="why" class="bg-white px-0">
@@ -103,7 +104,6 @@
     }
 
     gtag('js', new Date());
-
     gtag('config', 'UA-85045253-1');
 
     AOS.init();

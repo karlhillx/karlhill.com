@@ -18,8 +18,8 @@
 .landing {
     @apply overflow-hidden px-0 text-white;
     background-image: url(/img/bg-landing.jpg);
-    padding-top: 300px;
-    padding-bottom: 300px;
+    padding-top: 280px;
+    padding-bottom: 320px;
 }
 
 .modal-header {

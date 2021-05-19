@@ -28,6 +28,6 @@
         "purgecss": "^4.0.3",
         "tailwindcss": "^2.1.2",
         "vue-template-compiler": "^2.6.12",
-        "webpack": "^5.37.0"
+        "webpack": "^5.37.1"
     }
 }
