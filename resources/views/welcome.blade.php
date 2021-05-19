@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="framework" content="Laravel v{{ app()->version() }}">
+    <meta name="php-version" content="{{ PHP_VERSION }}">
     <title>{{ config('app.name', 'Karl Hill | Full Stack Engineer') }}</title>
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -39,7 +40,7 @@
                    class="inline-flex items-center px-3 py-2 sm:text-sm font-medium
                             rounded-md shadow-sm text-black bg-yellow-400 hover:bg-yellow-500
                             focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300">
-                    <i class="fas fa-file-pdf mr-2"></i>Resume/CV
+                    <i class="fas fa-file-pdf mr-2"></i>Resume
                 </a>
                 <a href="#why" class="inline-flex items-center px-3 py-2 sm:text-sm font-medium
                             rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700
@@ -82,7 +83,7 @@
 </section>
 
 <!-- Map -->
-<div class="bg-yellow-50 border-t border-yellow-400">
+<div class="bg-gray-200 border-t border-yellow-400">
     <iframe class="h-96 w-full"
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA1U9kPUx3SN0u33kKiaCSXl7plnfA3y8Q&q=Woodley+Park,+Washington,+DC+20008"
             allowfullscreen>
