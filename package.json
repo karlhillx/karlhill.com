@@ -21,7 +21,7 @@
         "laravel-mix": "^6.0.19",
         "laravel-mix-purgecss": "^6.0.0",
         "lodash": "^4.17.21",
-        "postcss": "^8.2.15",
+        "postcss": "^8.3.0",
         "postcss-focus-visible": "^5.0.0",
         "postcss-import": "^14.0.2",
         "postcss-loader": "^5.3.0",
