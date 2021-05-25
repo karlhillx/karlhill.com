@@ -14,7 +14,7 @@
 @include('partials.header')
 
 <!-- Hero -->
-<div class="landing">
+<section class="hero min-h-screen">
     <div class="max-w-7xl mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
         <div class="container mx-auto py-6">
             <div data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
@@ -43,7 +43,7 @@
                     focus:ring-offset-white focus:ring-yellow-500 focus:outline-none transition-colors duration-200 mr-1">
                     <i class="fas fa-file-pdf mr-2"></i>Resume
                 </a>
-                <a href="#why" class="w-full sm:w-auto flex-none bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6
+                <a href="#feature" class="w-full sm:w-auto flex-none bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6
                     font-semibold py-3 px-5 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2
                     focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">
                     Learn More
@@ -51,10 +51,10 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <!-- Feature -->
-<section id="why" class="bg-white px-0">
+<section id="feature" class="bg-white px-0">
     <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div class="bg-yellow-600 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
             <div class="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
@@ -94,7 +94,6 @@
 @include('partials.footer')
 
 <script src="{{ mix('js/app.js') }}"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85045253-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];

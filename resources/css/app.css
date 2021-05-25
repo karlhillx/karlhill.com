@@ -15,7 +15,7 @@
  * @Author Karl Hill
  * Licensed under MIT (https://github.com/karlhillx/karlhill.com/blob/master/LICENSE)
  */
-.landing {
+.hero {
     @apply overflow-hidden px-0 text-white;
     background-image: url(/img/bg-landing.jpg);
     padding-top: 280px;

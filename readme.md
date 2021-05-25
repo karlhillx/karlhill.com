@@ -16,9 +16,13 @@ Build the environment and run it using docker-compose.
 
     docker-compose up -d apache2
 
-Enter the Workspace container, to execute commands like (Artisan, Composer, PHPUnit, Gulp, …)
+Enter the Workspace container, to execute commands like (Artisan, Composer, PHPUnit…)
 
     docker-compose exec workspace bash
+
+If needed, rebuild containers.
+
+    docker-compose build apache2 workspace php-fpm
 
 Stop and remove containers, networks and volumes.
 
@@ -29,14 +33,6 @@ Remove all unused containers, networks, images (both dangling and unreferenced),
     docker system prune --volumes
 
 ## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
