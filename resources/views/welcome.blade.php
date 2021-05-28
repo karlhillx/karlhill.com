@@ -14,7 +14,7 @@
 @include('partials.header')
 
 <!-- Hero -->
-<section class="hero min-h-screen">
+<section class="hero min-h-screen pt-52">
     <div class="max-w-7xl mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
         <div class="container mx-auto py-6">
             <div data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
@@ -29,21 +29,20 @@
                  data-aos-easing="ease-in-out-back">
                 <h6 class="uppercase font-medium text-lg tracking-tight">PHP, Laravel, Python, Django, Tailwind</h6>
             </div>
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-easing="ease-in-out-back"
-                 class="mt-6">
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-easing="ease-in-out-back">
                 <a href="https://linkedin.com/in/khill/" role="button" target="_blank"
-                   class="w-full sm:w-auto flex-none bg-blue-600 hover:bg-blue-500 text-white text-lg leading-6
+                   class="inline-flex items-center sm:w-auto flex-none bg-blue-600 hover:bg-blue-500 text-white text-lg leading-6
                     font-semibold py-3 px-5 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2
-                    focus:ring-offset-white focus:ring-blue-600 focus:outline-none transition-colors duration-200 mr-1">
-                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                    focus:ring-offset-white focus:ring-blue-600 focus:outline-none transition-colors duration-200">
+                    <i class="fab fa-linkedin mr-2 mb-1"></i>LinkedIn
                 </a>
                 <a href="{{ asset('files/karlhill-resume.pdf') }}" role="button" target="_blank"
-                   class="w-full sm:w-auto flex-none bg-yellow-500 hover:bg-yellow-400 text-white text-lg leading-6
+                   class="inline-flex items-center sm:w-auto flex-none bg-yellow-500 hover:bg-yellow-400 text-white text-lg leading-6
                     font-semibold py-3 px-5 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2
-                    focus:ring-offset-white focus:ring-yellow-500 focus:outline-none transition-colors duration-200 mr-1">
-                    <i class="fas fa-file-pdf mr-2"></i>Resume
+                    focus:ring-offset-white focus:ring-yellow-500 focus:outline-none transition-colors duration-200">
+                    <i class="fas fa-file-pdf mr-2 mb-1"></i>Resume
                 </a>
-                <a href="#feature" class="w-full sm:w-auto flex-none bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6
+                <a href="#feature" class="inline-flex items-center sm:w-auto flex-none bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6
                     font-semibold py-3 px-5 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2
                     focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">
                     Learn More
