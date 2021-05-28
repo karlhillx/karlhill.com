@@ -27,24 +27,26 @@
             </div>
             <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="600" class="mt-2 mb-3"
                  data-aos-easing="ease-in-out-back">
-                <h6 class="text-lg sm:text-xl uppercase font-medium tracking-tight">PHP, Laravel, Python, Django, Tailwind</h6>
+                <h6 class="text-lg sm:text-xl uppercase font-medium tracking-tight">PHP, Laravel, Python, Django,
+                    Tailwind</h6>
             </div>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-easing="ease-in-out-back">
                 <a href="https://linkedin.com/in/khill/" role="button" target="_blank"
-                   class="inline-flex items-center sm:w-auto flex-none bg-blue-600 hover:bg-blue-500 text-white text-lg leading-6
-                    font-medium py-2 px-4 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2
-                    focus:ring-offset-white focus:ring-blue-600 focus:outline-none transition-colors duration-200">
+                   class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium
+                   rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2
+                   focus:ring-offset-2 focus:ring-blue-500">
                     LinkedIn
                 </a>
                 <a href="{{ asset('files/karlhill-resume.pdf') }}" role="button" target="_blank"
-                   class="inline-flex items-center sm:w-auto flex-none bg-yellow-500 hover:bg-yellow-400 text-white text-lg leading-6
-                    font-medium py-2 px-4 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2
-                    focus:ring-offset-white focus:ring-yellow-500 focus:outline-none transition-colors duration-200">
+                   class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium
+                   rounded-md shadow-sm text-white bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:ring-2
+                   focus:ring-offset-2 focus:ring-yellow-500">
                     Resume
                 </a>
-                <a href="#feature" class="inline-flex items-center sm:w-auto flex-none bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6
-                    font-medium py-2 px-4 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2
-                    focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">
+                <a href="#feature"
+                   class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium
+                   rounded-md shadow-sm text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-2
+                   focus:ring-offset-2 focus:ring-gray-500">
                     Learn More
                 </a>
             </div>
