@@ -11,6 +11,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-app.js.LICENSE.txt
-.DS_Store
 /.idea
+/.vscode
+.DS_Store
