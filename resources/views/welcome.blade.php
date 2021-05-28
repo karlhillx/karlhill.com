@@ -14,7 +14,7 @@
 @include('partials.header')
 
 <!-- Hero -->
-<section class="hero min-h-screen pt-48">
+<section class="hero min-h-screen pt-40">
     <div class="max-w-7xl mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
         <div class="container mx-auto py-6">
             <div data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"

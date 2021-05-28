@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="mt-8 md:mt-0 md:order-1">
-            <p class="text-sm text-gray-400">
+            <p class="text-sm text-gray-400 text-center sm:text-left">
                 © {{ date('Y') }} Karl Hill. Laravel Build v{{ app()->version() }}.<br>
                 Unless otherwise indicated, content is licensed under the Creative Commons Attribution
                 4.0 International.
