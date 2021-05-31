@@ -15,48 +15,6 @@
  * @Author Karl Hill
  * Licensed under MIT (https://github.com/karlhillx/karlhill.com/blob/master/LICENSE)
  */
-.hero {
-    @apply overflow-hidden px-0 text-white;
-    background-image: url(/img/bg-landing.jpg);
-}
-
-.navbar {
-    @apply border-solid border-b text-sm px-0 py-4;
-    background-color: rgba(125, 39, 70, 1);
-    border-color: rgba(34, 33, 33, 1);
-    color: rgba(204, 204, 204, 1);
-}
-
-body {
-    @apply font-normal text-sm;
-    background-color: rgba(125, 39, 70, 1);
-    font-family: "Inter", sans-serif;
-}
-
-footer .bottom-social-icons .bitbucket:hover {
-    background-color: #205081;
-}
-
-footer .bottom-social-icons .discogs:hover {
-    background-color: #7a7a7a;
-}
-
-footer .bottom-social-icons .github:hover {
-    background-color: #000;
-}
-
-footer .bottom-social-icons .linkedin:hover {
-    background-color: #0077b5;
-}
-
-footer .bottom-social-icons .stackoverflow:hover {
-    background-color: #f58025;
-}
-
-footer .bottom-social-icons .twitter:hover {
-    background-color: #1da1f2;
-}
-
 footer .bottom-social-icons a {
     @apply rounded inline-block h-8 leading-8 overflow-hidden relative text-center text-white w-8;
     background-color: rgba(41, 43, 44, 1);

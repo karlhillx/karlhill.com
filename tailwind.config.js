@@ -15,12 +15,19 @@ module.exports = {
     },
     theme: {
         extend: {
+            backgroundImage: theme => ({
+                'hero-pattern': "url('/img/bg-landing.jpg')",
+                'drl-screenshot': "url('/img/bg-drl-screenshot.png')",
+            }),
+
             colors: {
+                cyan: colors.cyan,
+                'maroon-dream': '#7D2746',
+                orange: colors.orange,
                 red: colors.red,
                 rose: colors.rose,
-                'light-blue': colors.lightBlue,
-                cyan: colors.cyan,
             },
+
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },

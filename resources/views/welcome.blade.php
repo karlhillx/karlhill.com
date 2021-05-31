@@ -9,12 +9,12 @@
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
-<body class="antialiased font-sans">
+<body class="antialiased font-sans bg-maroon-dream">
 
 @include('partials.header')
 
 <!-- Hero -->
-<section class="hero min-h-screen pt-40">
+<section class="bg-hero-pattern min-h-screen w-full pt-48 overflow-hidden px-0 text-white">
     <div class="max-w-7xl mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
         <div class="container mx-auto py-6">
             <div data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
