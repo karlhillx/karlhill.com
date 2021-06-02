@@ -1,6 +1,6 @@
 # Full Stack Developer | Karl Hill
 
-Foobar is a Python library for dealing with word pluralization.
+Foobar is a library for dealing with word pluralization.
 
 ## Installation
 
