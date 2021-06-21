@@ -25,7 +25,7 @@ module.exports = {
                 'maroon-dream': '#7D2746',
                 orange: colors.orange,
                 red: colors.red,
-                rose: colors.rose,
+                rose: colors.rose
             },
 
             fontFamily: {

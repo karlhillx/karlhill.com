@@ -32,20 +32,20 @@
             </div>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-easing="ease-in-out-back">
                 <a href="https://linkedin.com/in/khill/" role="button" target="_blank"
-                   class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium
-                   rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2
+                   class="inline-flex items-center px-4 py-2 border-solid border-2 border-white text-base font-medium
+                   rounded-md shadow-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2
                    focus:ring-offset-2 focus:ring-blue-500">
                     LinkedIn
                 </a>
                 <a href="{{ asset('files/karlhill-resume.pdf') }}" role="button" target="_blank"
-                   class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium
-                   rounded-md shadow-sm text-white bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:ring-2
+                   class="inline-flex items-center px-4 py-2 border-solid border-2 border-white text-base font-medium
+                   rounded-md shadow-sm text-white hover:bg-yellow-600 focus:outline-none focus:ring-2
                    focus:ring-offset-2 focus:ring-yellow-500">
                     Resume
                 </a>
                 <a href="#feature"
-                   class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium
-                   rounded-md shadow-sm text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-2
+                   class="inline-flex items-center px-4 py-2 border-solid border-2 border-white text-base font-medium
+                   rounded-md shadow-sm text-white hover:bg-black focus:outline-none focus:ring-2
                    focus:ring-offset-2 focus:ring-gray-500">
                     Learn More
                 </a>
