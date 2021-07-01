@@ -66,7 +66,7 @@
                     <p class="mt-4 text-lg leading-6 text-white">
                         As a senior technology leader with over 20 years of experience developing and launching
                         breakthrough solutions in Agile environments, I have cultivated a strong track record of
-                        developing successful solutions quickly while working on distributed and virtual teams.
+                        developing successful solutions quickly while working within distributed and virtual teams.
                         In addition, I have the technical skills to accomplish complex programming tasks and the
                         expertise to produce engaging interfaces. Hungry for learning new technologies, quickly
                         ramping up on new projects, and working independently or in team situations to drive
