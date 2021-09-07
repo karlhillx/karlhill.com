@@ -13,6 +13,9 @@
                    href="https://stackoverflow.com/users/633440/karl-hill">
                     <i class="fab fa-stack-overflow"></i>
                 </a>
+                <a class="medium hover:bg-green-400" target="_blank" href="https://karlhillx.medium.com/">
+                    <i class="fab fa-medium"></i>
+                </a>
                 <a class="twitter hover:bg-blue-400" target="_blank" href="https://twitter.com/karl_hill/">
                     <i class="fab fa-twitter-square"></i>
                 </a>
