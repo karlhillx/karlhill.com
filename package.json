@@ -17,12 +17,11 @@
         "aos": "^3.0.0-beta.6",
         "autoprefixer": "^10.3.4",
         "axios": "^0.21.4",
-        "laravel-mix": "^6.0.29",
+        "laravel-mix": "^6.0.31",
         "laravel-mix-purgecss": "^6.0.0",
         "lodash": "^4.17.21",
         "postcss": "^8.3.6",
-        "postcss-focus-visible": "^5.0.0",
         "purgecss": "^4.0.3",
-        "tailwindcss": "^2.2.10"
+        "tailwindcss": "^2.2.15"
     }
 }
