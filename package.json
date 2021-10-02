@@ -11,17 +11,17 @@
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
-        "@tailwindcss/aspect-ratio": "^0.2.1",
-        "@tailwindcss/forms": "^0.3.3",
+        "@tailwindcss/aspect-ratio": "^0.2.2",
+        "@tailwindcss/forms": "^0.3.4",
         "@tailwindcss/typography": "^0.4.1",
         "aos": "^3.0.0-beta.6",
-        "autoprefixer": "^10.3.4",
-        "axios": "^0.21.4",
+        "autoprefixer": "^10.3.6",
+        "axios": "^0.22.0",
         "laravel-mix": "^6.0.31",
         "laravel-mix-purgecss": "^6.0.0",
         "lodash": "^4.17.21",
-        "postcss": "^8.3.6",
+        "postcss": "^8.3.8",
         "purgecss": "^4.0.3",
-        "tailwindcss": "^2.2.15"
+        "tailwindcss": "^2.2.16"
     }
 }
