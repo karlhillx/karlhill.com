@@ -1,8 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
 
 module.exports = {
-    mode: 'jit',
     purge: {
         enabled: true,
         mode: 'all',
@@ -15,17 +13,13 @@ module.exports = {
     },
     theme: {
         extend: {
-            backgroundImage: theme => ({
+            backgroundImage: defaultTheme => ({
                 'hero-pattern': "url('/img/bg-landing.jpg')",
                 'drl-screenshot': "url('/img/bg-drl-screenshot.png')",
             }),
 
             colors: {
-                cyan: colors.cyan,
                 'maroon-dream': '#7D2746',
-                orange: colors.orange,
-                red: colors.red,
-                rose: colors.rose
             },
 
             fontFamily: {
