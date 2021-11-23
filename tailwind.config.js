@@ -1,16 +1,11 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    purge: {
-        enabled: true,
-        mode: 'all',
-        preserveHtmlElements: false,
-        content: [
-            './vendor/laravel/jetstream/**/*.blade.php',
-            './storage/framework/views/*.php',
-            './resources/views/**/*.blade.php',
-        ]
-    },
+    content: [
+        './vendor/laravel/jetstream/**/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+    ],
     theme: {
         extend: {
             backgroundImage: defaultTheme => ({
