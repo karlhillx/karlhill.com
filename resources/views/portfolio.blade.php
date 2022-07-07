@@ -72,12 +72,12 @@
                   <span class="block text-sm font-medium text-gray-500 truncate">informeddna.com</span>
                 </span>
               </span>
-                                <span class="flex-shrink-0 h-10 w-10 inline-flex items-center justify-center">
-                <svg class="h-5 w-5 text-gray-400 group-hover:text-gray-500" x-description="Heroicon name: solid/plus"
-                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-  <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-        clip-rule="evenodd"></path>
-</svg>
+               <span class="flex-shrink-0 h-10 w-10 inline-flex items-center justify-center">
+                            <svg class="h-5 w-5 text-gray-400 group-hover:text-gray-500" x-description="Heroicon name: solid/plus"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                    clip-rule="evenodd"></path>
+            </svg>
               </span>
                             </button>
                         </li>
@@ -85,24 +85,25 @@
                         <li>
                             <a href="#earth-observatory" type="button"
                                class="group p-2 w-full flex items-center justify-between rounded-full border border-gray-300 shadow-sm space-x-3 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              <span class="min-w-0 flex-1 flex items-center space-x-3">
-                <span class="block flex-shrink-0">
-                      <img class="h-10 w-10 rounded-full"
-                           src="img/logo-earth-observatory.png"
-                           alt="">
-                </span>
-                <span class="block min-w-0 flex-1">
-                  <span class="block text-sm font-medium text-gray-900 truncate">NASA Earth Observatory</span>
-                  <span class="block text-sm font-medium text-gray-500 truncate">earthobservatory.nasa.gov</span>
-                </span>
-              </span>
-                                <span class="flex-shrink-0 h-10 w-10 inline-flex items-center justify-center">
-                <svg class="h-5 w-5 text-gray-400 group-hover:text-gray-500" x-description="Heroicon name: solid/plus"
-                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-  <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-        clip-rule="evenodd"></path>
-</svg>
-              </span>
+                              <span class="min-w-0 flex-1 flex items-center space-x-3">
+                                <span class="block flex-shrink-0">
+                                      <img class="h-10 w-10 rounded-full"
+                                           src="img/logo-earth-observatory.png"
+                                           alt="">
+                                </span>
+                                <span class="block min-w-0 flex-1">
+                                  <span class="block text-sm font-medium text-gray-900 truncate">NASA Earth Observatory</span>
+                                  <span class="block text-sm font-medium text-gray-500 truncate">earthobservatory.nasa.gov</span>
+                                </span>
+                              </span>
+                                                <span class="flex-shrink-0 h-10 w-10 inline-flex items-center justify-center">
+                                <svg class="h-5 w-5 text-gray-400 group-hover:text-gray-500" x-description="Heroicon name: solid/plus"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                  <path fill-rule="evenodd"
+                                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                              </span>
                             </a>
                         </li>
 
@@ -237,13 +238,12 @@
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
+        let dataLayer;
         dataLayer.push(arguments);
     }
 
     gtag('js', new Date());
     gtag('config', 'UA-85045253-1');
-
-    AOS.init();
 </script>
 </body>
 </html>

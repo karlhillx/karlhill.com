@@ -7,11 +7,11 @@ window._ = _;
  * code may be modified to fit the specific needs of your application.
  */
 
-try {
-    window.AOS = require('aos');
-} catch (e) {
-    console.error(e);
-}
+import $ from 'jquery/dist/jquery';
+window.jQuery = window.$ = $
+
+import AOS from 'aos';
+AOS.init();
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

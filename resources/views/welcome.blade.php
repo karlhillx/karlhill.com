@@ -105,8 +105,6 @@
 
     gtag('js', new Date());
     gtag('config', 'UA-85045253-1');
-
-    AOS.init();
 </script>
 </body>
 </html>
