@@ -7,7 +7,7 @@
     <meta name="php-version" content="{{ PHP_VERSION }}">
     <title>{{ config('app.name', 'Karl Hill | Full Stack Engineer') }}</title>
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    @vite('resources/css/app.css')
 </head>
 <body class="antialiased font-sans bg-white">
 
@@ -231,7 +231,7 @@
 
 @include('partials.footer')
 
-<script src="{{ mix('js/app.js') }}"></script>
+@vite('resources/js/app.js')
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85045253-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
