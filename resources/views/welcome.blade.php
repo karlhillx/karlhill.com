@@ -27,8 +27,9 @@
             </div>
             <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="600" class="mt-2 mb-3"
                  data-aos-easing="ease-in-out-back">
-                <h6 class="text-lg sm:text-xl uppercase font-medium tracking-tight">PHP, Laravel, Python, Django,
-                    Tailwind</h6>
+                <h6 class="text-lg sm:text-xl uppercase font-medium tracking-tight">
+                    PHP, Laravel, Tailwind, Inertia, Vite
+                </h6>
             </div>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-easing="ease-in-out-back">
                 <a href="https://linkedin.com/in/khill/" role="button" target="_blank"
