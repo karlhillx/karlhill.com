@@ -392,7 +392,7 @@
         </div>
     </main>
 
-    <div class="relative bg-gray-50 pb-20 pt-20 pl-20 pr-20">
+    <div class="relative bg-gray-50 pb-20 pt-20 pl-5 pr-5">
         <div class="absolute inset-0">
             <div class="bg-white h-1/3 sm:h-2/3"></div>
         </div>
@@ -563,7 +563,7 @@
 </section>
 
 <section id="portfolio2">
-    <div class="relative bg-gray-50 pb-20 border border-gray-200">
+    <div class="relative bg-gray-50 pb-20 border border-gray-200 pl-5 pr-5">
         <div class="absolute inset-0">
             <div class="bg-white h-1/3 sm:h-2/3"></div>
         </div>
