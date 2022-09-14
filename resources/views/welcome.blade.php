@@ -32,11 +32,11 @@
                 </h6>
             </div>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-easing="ease-in-out-back">
-                <a href="https://linkedin.com/in/khill/" role="button" target="_blank"
+                <a href="/portfolio" role="button"
                    class="inline-flex items-center px-4 py-2 border-solid border-2 border-white text-base font-medium
                    rounded-md shadow-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2
                    focus:ring-offset-2 focus:ring-blue-500">
-                    LinkedIn
+                   Portfolio
                 </a>
                 <a href="{{ asset('files/karlhill-resume.pdf') }}" role="button" target="_blank"
                    class="inline-flex items-center px-4 py-2 border-solid border-2 border-white text-base font-medium

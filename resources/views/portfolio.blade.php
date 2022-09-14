@@ -715,7 +715,7 @@
                                     <a href="#" class="hover:underline"> JAVA, JSP, RichFaces</a>
                                 </p>
                                 <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time datetime="2020-02-12"> NASA Goddard Space Flight Center</time>
+                                    <time datetime="2020-02-12"> Dante Inc. </time>
                                 </div>
                             </div>
                         </div>
