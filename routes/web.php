@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('portfolio', [WelcomeController::class, 'portfolio'])->name('portfolio');
+
+Route::get('/contact-form', [App\Http\Controllers\ContactController::class, 'contactForm'])->name('contact-form');
+Route::post('/contact-form', [App\Http\Controllers\ContactController::class, 'storeContactForm'])->name('contact.us.store');

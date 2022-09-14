@@ -16,20 +16,25 @@
 <section id="portfolio1">
 
     <main>
-        <div class="sm:px-8 mt-9 pb-20">
+
+        <div class="sm:px-8 mt-4 pb-10">
             <div class="mx-auto max-w-7xl lg:px-8">
                 <div class="relative px-4 sm:px-8 lg:px-12">
                     <div class="mx-auto max-w-2xl lg:max-w-5xl">
+
                         <div class="max-w-2xl"><h1
                                 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                                 Software engineer, volunteer, and musician.</h1>
                             <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">I’m Karl, a full-stack software
-                                engineer at NASA Goddard Space Flight Center. I am responsible for building and
-                                maintaining some of the agency’s
+                                engineer at <a href="https://www.nasa.gov/goddard/">NASA Goddard Space Flight Center</a>.
+                                I am responsible for building and  maintaining some of the agency’s
                                 best internal and external web applications. Besides working for NASA, I volunteer for
-                                The
-                                Renwick Gallery, a branch museum of the Smithsonian American Art Museum. I also
-                                volunteer for several other non-profit organizations.
+                                <a href="https://americanart.si.edu/visit/renwick" target="_blank">
+                                    The Renwick Gallery
+                                </a>, a branch museum of the
+                                <a href="https://americanart.si.edu/" target="_blank">
+                                    Smithsonian American Art Museum</a>. I also
+                                volunteer for several other non-profit organizations. In my free time, I enjoy playing music.
                             </p>
                             <div class="mt-6 flex gap-6">
                                 <a class="group -m-1 p-1" aria-label="Follow on Twitter"
@@ -273,10 +278,10 @@
                                                 </dd>
                                                 <dt class="sr-only">Date</dt>
                                                 <dd class="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                                                    aria-label="2011 until 2014">
-                                                    <time datetime="2011">2011</time>
+                                                    aria-label="2012 until 2015">
+                                                    <time datetime="2012">2012</time>
                                                     <span aria-hidden="true">—</span>
-                                                    <time datetime="2014">2014</time>
+                                                    <time datetime="2015">2015</time>
                                                 </dd>
                                             </dl>
                                         </li>
@@ -297,10 +302,10 @@
                                                 </dd>
                                                 <dt class="sr-only">Date</dt>
                                                 <dd class="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                                                    aria-label="2011 until 2014">
-                                                    <time datetime="2011">2011</time>
+                                                    aria-label="2010 until 2012">
+                                                    <time datetime="2010">2010</time>
                                                     <span aria-hidden="true">—</span>
-                                                    <time datetime="2014">2014</time>
+                                                    <time datetime="2012">2012</time>
                                                 </dd>
                                             </dl>
                                         </li>
@@ -321,10 +326,10 @@
                                                 </dd>
                                                 <dt class="sr-only">Date</dt>
                                                 <dd class="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                                                    aria-label="2011 until 2014">
-                                                    <time datetime="2011">2011</time>
+                                                    aria-label="2007 until 2010">
+                                                    <time datetime="2007">2007</time>
                                                     <span aria-hidden="true">—</span>
-                                                    <time datetime="2014">2014</time>
+                                                    <time datetime="2010">2010</time>
                                                 </dd>
                                             </dl>
                                         </li>
@@ -361,8 +366,7 @@
                                                   stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
                                     </a></div>
-                                <form action="/thank-you"
-                                      class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mb-20">
+                                <form action="/contact-us" method="POST" class="flex flex-col gap-4 rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mb-20">
                                     <h2 class="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                                         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"
                                              stroke-linejoin="round" aria-hidden="true" class="h-6 w-6 flex-none">
@@ -416,7 +420,7 @@
                 <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                     <div class="flex-shrink-0">
                         <img class="h-48 w-full object-cover"
-                             src="/img/ss-mci-verizon.png"
+                             src="/img/ss-esccor.png"
                              alt="">
                     </div>
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
@@ -427,7 +431,10 @@
                             <a href="#" class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900">Earth Science Data Systems </p>
                                 <p class="mt-3 text-base text-gray-500">
-                                    NASA's ESDS program oversees the lifecycle of NASA's Earth science data — from acquisition through processing and distribution. ESDS aims to maximize the scientific return from NASA's missions for research and applied scientists, decision-makers, and society at large.
+                                    NASA's ESDS program oversees the lifecycle of NASA's Earth science data — from
+                                    acquisition through processing and distribution. ESDS aims to maximize the
+                                    scientific return from NASA's missions for research and applied scientists,
+                                    decision-makers, and society at large.
                                 </p>
                             </a>
                             <a href="#">
@@ -510,7 +517,7 @@
 
                 <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                     <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" src="/img/ss-direct-readout.png" alt="">
+                        <img class="h-48 w-full object-cover" src="/img/ss-direct-readout2.png" alt="">
                     </div>
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                         <div class="flex-1">
@@ -637,7 +644,11 @@
                                         href="https://idnaportal.com/"
                                         alt="" target="_blank">InformedDNA</a></p>
                                 <p class="mt-3 text-base text-gray-500">
-                                    InformedDNA optimizes clinical decisions through impactful solutions leveraging the most current genomics expertise. We are the nation’s leading applied genomics company, with the largest independent team of genetics specialists representing the full breadth of specialties and sub-specialties. In addition, we are backed by more than 14 years of clinical data and financial proof of effectiveness.
+                                    InformedDNA optimizes clinical decisions through impactful solutions leveraging the
+                                    most current genomics expertise. We are the nation’s leading applied genomics
+                                    company, with the largest independent team of genetics specialists representing the
+                                    full breadth of specialties and sub-specialties. In addition, we are backed by more
+                                    than 14 years of clinical data and financial proof of effectiveness.
 
                                 </p>
                             </a>
