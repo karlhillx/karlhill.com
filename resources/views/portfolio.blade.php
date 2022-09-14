@@ -39,7 +39,8 @@
                                         <path
                                             d="M20.055 7.983c.011.174.011.347.011.523 0 5.338-3.92 11.494-11.09 11.494v-.003A10.755 10.755 0 0 1 3 18.186c.308.038.618.057.928.058a7.655 7.655 0 0 0 4.841-1.733c-1.668-.032-3.13-1.16-3.642-2.805a3.753 3.753 0 0 0 1.76-.07C5.07 13.256 3.76 11.6 3.76 9.676v-.05a3.77 3.77 0 0 0 1.77.505C3.816 8.945 3.288 6.583 4.322 4.737c1.98 2.524 4.9 4.058 8.034 4.22a4.137 4.137 0 0 1 1.128-3.86A3.807 3.807 0 0 1 19 5.274a7.657 7.657 0 0 0 2.475-.98c-.29.934-.9 1.729-1.713 2.233A7.54 7.54 0 0 0 22 5.89a8.084 8.084 0 0 1-1.945 2.093Z"></path>
                                     </svg>
-                                </a><a class="group -m-1 p-1" aria-label="Follow on GitHub" href="https://github.com/karlhillx" target="_blank">
+                                </a><a class="group -m-1 p-1" aria-label="Follow on GitHub"
+                                       href="https://github.com/karlhillx" target="_blank">
                                     <svg viewBox="0 0 24 24" aria-hidden="true"
                                          class="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -426,10 +427,7 @@
                             <a href="#" class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900">Earth Science Data Systems </p>
                                 <p class="mt-3 text-base text-gray-500">
-                                    NASA's ESDS program oversees the life cycle of NASA's Earth science data — from
-                                    acquisition through processing and distribution. The primary goal of ESDS is to
-                                    maximize the scientific return from NASA's missions and experiments for
-                                    research and applied scientists, decision makers, and society at large.
+                                    NASA's ESDS program oversees the lifecycle of NASA's Earth science data — from acquisition through processing and distribution. ESDS aims to maximize the scientific return from NASA's missions for research and applied scientists, decision-makers, and society at large.
                                 </p>
                             </a>
                             <a href="#">
@@ -639,11 +637,8 @@
                                         href="https://idnaportal.com/"
                                         alt="" target="_blank">InformedDNA</a></p>
                                 <p class="mt-3 text-base text-gray-500">
-                                    InformedDNA optimizes clinical decisions through impactful solutions leveraging the
-                                    most current genomics expertise. We are the nation’s leading applied genomics
-                                    company, with the largest independent team of genetics specialists representing the
-                                    full breadth of specialties and sub-specialties, and backed by more than 14 years of
-                                    clinical data and financial proof of effectiveness.
+                                    InformedDNA optimizes clinical decisions through impactful solutions leveraging the most current genomics expertise. We are the nation’s leading applied genomics company, with the largest independent team of genetics specialists representing the full breadth of specialties and sub-specialties. In addition, we are backed by more than 14 years of clinical data and financial proof of effectiveness.
+
                                 </p>
                             </a>
 
@@ -690,7 +685,8 @@
                             <span class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900"><a
                                         href="https://directreadout.sci.gsfc.nasa.gov/" alt="" target="_blank">Dante Inc's Taylor</a></p>
-                                <p class="mt-3 text-base text-gray-500">Taylor MDA is a specialized UML modeling tool based on Eclipse. It uses convention-based techniques to generate the maximum code from streamlined UML models. Templates are included for generating JEE applications based on JPA/EJB3 and JSF/Seam/Facelets.</p>
+                                <p class="mt-3 text-base text-gray-500">
+Taylor MDA is a specialized UML modeling tool based on Eclipse designed to support the development of multi-tiered, distributed systems. Used to model and document complex systems design, it uses convention-based techniques to generate the maximum code from streamlined UML models. Templates for creating JEE applications based on JPA/EJB3 and JSF/Seam/Facelets are included.                                </p>
                             </span>
 
                             <a href="#">
@@ -715,7 +711,7 @@
                                     <a href="#" class="hover:underline"> JAVA, JSP, RichFaces</a>
                                 </p>
                                 <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time datetime="2020-02-12"> Dante Inc. </time>
+                                    <time datetime="2020-02-12"> Dante Inc.</time>
                                 </div>
                             </div>
                         </div>
