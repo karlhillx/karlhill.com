@@ -519,7 +519,7 @@
                                 <div class="font-bold tracking-tight text-sm text-blue-400 mt-4 border-blue-400
                                         rounded border uppercase px-2 py-1 inline-block
                                         hover:text-blue-600 hover:border-blue-600">
-                                    <a href="/img/ss-earth-observatory.png" target="_blank">
+                                    <a href="/img/screencapture-earthobservatory-nasa-gov.png" target="_blank">
                                         VIEW SCREENSHOT
                                     </a>
                                 </div>
