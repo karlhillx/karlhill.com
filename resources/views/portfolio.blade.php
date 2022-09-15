@@ -27,14 +27,15 @@
                                 Software engineer, volunteer, and musician.</h1>
                             <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">I’m Karl, a full-stack software
                                 engineer at <a href="https://www.nasa.gov/goddard/">NASA Goddard Space Flight Center</a>.
-                                I am responsible for building and  maintaining some of the agency’s
+                                I am responsible for building and maintaining some of the agency’s
                                 best internal and external web applications. Besides working for NASA, I volunteer for
                                 <a href="https://americanart.si.edu/visit/renwick" target="_blank">
                                     The Renwick Gallery
                                 </a>, a branch museum of the
                                 <a href="https://americanart.si.edu/" target="_blank">
                                     Smithsonian American Art Museum</a>. I also
-                                volunteer for several other non-profit organizations. In my free time, I enjoy playing music.
+                                volunteer for several other non-profit organizations. In my free time, I enjoy playing
+                                music.
                             </p>
                             <div class="mt-6 flex gap-6">
                                 <a class="group -m-1 p-1" aria-label="Follow on Twitter"
@@ -115,13 +116,15 @@
                             <div class="flex flex-col gap-16">
                                 <article class="group relative flex flex-col items-start">
                                     <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-                                        <div
-                                            class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
-                                        <div>
+                                        <a href="https://laravel-vite.dev/" target="_blank">
+                                            <div
+                                                class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
+                                            <div>
                                             <span
                                                 class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"></span><span
-                                                class="relative z-10">Transitioning from Laravel Mix to Vite</span>
-                                        </div>
+                                                    class="relative z-10">Transitioning from Laravel Mix to Vite</span>
+                                            </div>
+                                        </a>
                                     </h2>
                                     <time
                                         class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
@@ -138,18 +141,22 @@
                                         with Laravel, you will typically use Vite to bundle your application's CSS and
                                         JavaScript files into production ready assets.
 
-
                                         Laravel integrates seamlessly with Vite by providing an official plugin and
-                                        Blade directive to load your assets for development and production.
+                                        Blade directives to load your assets for development and production.
                                     </p>
                                 </article>
                                 <article class="group relative flex flex-col items-start">
                                     <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
                                         <div
                                             class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
-                                        <a href="/articles/introducing-animaginary"><span
-                                                class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"></span><span
-                                                class="relative z-10">Introducing my personal portfolio</span></a>
+                                        <a href="http://www.karlhill.com" target="_blank">
+                                            <span
+                                                class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl">
+                                            </span>
+                                            <span
+                                                class="relative z-10">Introducing my personal portfolio
+                                            </span>
+                                        </a>
                                     </h2>
                                     <time
                                         class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
@@ -168,7 +175,7 @@
                                     <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
                                         <div
                                             class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
-                                        <a href="/articles/rewriting-the-cosmos-kernel-in-rust"><span
+                                        <a href="https://tailwindcss.com/" target="_blank"><span
                                                 class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"></span><span
                                                 class="relative z-10">Rewriting interfaces with TailwindCSS</span></a>
                                     </h2>
@@ -183,7 +190,8 @@
                                         When I first came across <a href="https://tailwindcss.com/" target="_blank">TailwindCSS</a>,
                                         I was amazed by the framework's simplicity. I rewrote my interfaces in a matter
                                         of minutes with efficiency and maintainability, leaving me more time to focus on
-                                        the core of my application.
+                                        the core of my applications. I have since used TailwindCSS in all of my new
+                                        projects.
                                     </p>
 
                                 </article>
@@ -264,13 +272,16 @@
                                         <li class="flex gap-4">
                                             <div
                                                 class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                                                <img alt="" src="/img/logo-ticomix-small.png" width="28"
-                                                     height="28" decoding="async" data-nimg="future" class="h-7 w-7"
-                                                     loading="lazy" style="color:transparent"></div>
+                                                <a href="https://www.ticomix.com/" target="_blank">
+                                                    <img alt="" src="/img/logo-ticomix-small.png" width="28"
+                                                         height="28" decoding="async" data-nimg="future" class="h-7 w-7"
+                                                         loading="lazy" style="color:transparent">
+                                                </a>
+                                            </div>
                                             <dl class="flex flex-auto flex-wrap gap-x-2">
                                                 <dt class="sr-only">Company</dt>
                                                 <dd class="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                                    Ticomix
+                                                    <a href="https://www.ticomix.com/" target="_blank">Ticomix</a>
                                                 </dd>
                                                 <dt class="sr-only">Role</dt>
                                                 <dd class="text-xs text-zinc-500 dark:text-zinc-400">
@@ -288,13 +299,17 @@
                                         <li class="flex gap-4">
                                             <div
                                                 class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                                                <img alt="" src="/img/logo-sabre-small.png" width="28"
-                                                     height="28" decoding="async" data-nimg="future" class="h-7 w-7"
-                                                     loading="lazy" style="color:transparent"></div>
+                                                <a href="https://www.sabre.com/" target="_blank">
+                                                    <img alt="" src="/img/logo-sabre-small.png" width="28"
+                                                         height="28" decoding="async" data-nimg="future" class="h-7 w-7"
+                                                         loading="lazy" style="color:transparent">
+                                                </a>
+                                            </div>
                                             <dl class="flex flex-auto flex-wrap gap-x-2">
                                                 <dt class="sr-only">Company</dt>
                                                 <dd class="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                                    Sabre Corporation
+                                                    <a href="https://www.sabre.com/" target="_blank">Sabre
+                                                        Corporation</a>
                                                 </dd>
                                                 <dt class="sr-only">Role</dt>
                                                 <dd class="text-xs text-zinc-500 dark:text-zinc-400">
@@ -312,13 +327,16 @@
                                         <li class="flex gap-4">
                                             <div
                                                 class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                                                <img alt="" src="/img/logo-dante-small.png" width="28"
-                                                     height="28" decoding="async" data-nimg="future" class="h-7 w-7"
-                                                     loading="lazy" style="color:transparent"></div>
+                                                <a href="http://www.danteinc.com/" target="_blank">
+                                                    <img alt="" src="/img/logo-dante-small.png" width="28"
+                                                         height="28" decoding="async" data-nimg="future" class="h-7 w-7"
+                                                         loading="lazy" style="color:transparent">
+                                                </a>
+                                            </div>
                                             <dl class="flex flex-auto flex-wrap gap-x-2">
                                                 <dt class="sr-only">Company</dt>
                                                 <dd class="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                                    Dante Inc.
+                                                    <a href="http://www.danteinc.com/" target="_blank">Dante Inc.</a>
                                                 </dd>
                                                 <dt class="sr-only">Role</dt>
                                                 <dd class="text-xs text-zinc-500 dark:text-zinc-400">
@@ -336,13 +354,17 @@
                                         <li class="flex gap-4">
                                             <div
                                                 class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                                                <img alt="" src="/img/logo-verizon-small.png" width="28"
-                                                     height="28" decoding="async" data-nimg="future" class="h-7 w-7"
-                                                     loading="lazy" style="color:transparent"></div>
+                                                <a href="https://www.verizon.com/business/" target="_blank">
+                                                    <img alt="" src="/img/logo-verizon-small.png" width="28"
+                                                         height="28" decoding="async" data-nimg="future" class="h-7 w-7"
+                                                         loading="lazy" style="color:transparent">
+                                                </a>
+                                            </div>
                                             <dl class="flex flex-auto flex-wrap gap-x-2">
                                                 <dt class="sr-only">Company</dt>
                                                 <dd class="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                                    Verizon Business
+                                                    <a href="https://www.verizon.com/business/" target="_blank">Verizon
+                                                        Business</a>
                                                 </dd>
                                                 <dt class="sr-only">Role</dt>
                                                 <dd class="text-xs text-zinc-500 dark:text-zinc-400">Software Developer
@@ -366,7 +388,8 @@
                                                   stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
                                     </a></div>
-                                <form action="/contact-us" method="POST" class="flex flex-col gap-4 rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mb-20">
+                                <form action="/contact-us" method="POST"
+                                      class="flex flex-col gap-4 rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mb-20">
                                     <h2 class="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                                         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"
                                              stroke-linejoin="round" aria-hidden="true" class="h-6 w-6 flex-none">
@@ -590,14 +613,15 @@
                                 <a href="#" class="hover:underline"> Application & Backend Administration</a>
                             </p>
                             <a href="#" class="block mt-2">
-                                <p class="text-xl font-semibold text-gray-900"> MCI's Finium&#8482; Security Suite </p>
+                                <p class="text-xl font-semibold text-gray-900"> Verizon Business Finium&#8482;</p>
                                 <p class="mt-3 text-base text-gray-500">
-                                    MCI's suite of security services powered by Finium&#8482;, a co-managed platform
-                                    driven
-                                    by flexible technologies, proven processes and expert staff; operated via a
+                                    Verizon Business' suite of security services powered by Finium&#8482;, a co-managed
+                                    platform
+                                    driven by flexible technologies, proven processes and expert staff; operated via a
                                     disaster-resilient Security Operations Center. Finium&#8482; integrates threat,
                                     vulnerability and event information via a centralized, secure web console, enabling
-                                    analysts and managers to better manage security as part of their business.
+                                    analysts and managers to better manage security as part of their business
+                                    operations.
                                 </p>
                             </a>
 
@@ -623,7 +647,7 @@
                                     <a href="#" class="hover:underline"> JAVA, JSF, Struts </a>
                                 </p>
                                 <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time datetime="2020-03-16"> MCI/Verizon Business</time>
+                                    <time datetime="2020-03-16"> Verizon Business</time>
                                 </div>
                             </div>
                         </div>
