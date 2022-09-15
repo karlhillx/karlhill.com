@@ -452,7 +452,11 @@
                                 <a href="#" class="hover:underline"> Application </a>
                             </p>
                             <a href="#" class="block mt-2">
-                                <p class="text-xl font-semibold text-gray-900">Earth Science Data Systems </p>
+                                <p class="text-xl font-semibold text-gray-900">
+                                    <a href="https://www.earthdata.nasa.gov/esds" target="_blank">
+                                        Earth Science Data Systems
+                                    </a>
+                                </p>
                                 <p class="mt-3 text-base text-gray-500">
                                     NASA's ESDS program oversees the lifecycle of NASA's Earth science data — from
                                     acquisition through processing and distribution. ESDS aims to maximize the
@@ -464,7 +468,9 @@
                                 <div class="font-bold tracking-tight text-sm text-blue-400 mt-4 border-blue-400
                                         rounded border uppercase px-2 py-1 inline-block
                                         hover:text-blue-600 hover:border-blue-600">
-                                    VIEW SCREENSHOT
+                                    <a href="/img/ss-esccor.png" target="_blank">
+                                       VIEW SCREENSHOT
+                                    </a>
                                 </div>
                             </a>
                             <div class="mt-4">
@@ -513,7 +519,9 @@
                                 <div class="font-bold tracking-tight text-sm text-blue-400 mt-4 border-blue-400
                                         rounded border uppercase px-2 py-1 inline-block
                                         hover:text-blue-600 hover:border-blue-600">
-                                    VIEW SCREENSHOT
+                                    <a href="/img/ss-earth-observatory.png" target="_blank">
+                                        VIEW SCREENSHOT
+                                    </a>
                                 </div>
                             </a>
                         </div>
@@ -719,7 +727,7 @@
                             </p>
                             <span class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900"><a
-                                        href="https://directreadout.sci.gsfc.nasa.gov/" alt="" target="_blank">Dante Inc's Taylor</a></p>
+                                        href="https://www.danteinc.com/" alt="" target="_blank">Dante Inc's Taylor</a></p>
                                 <p class="mt-3 text-base text-gray-500">
 Taylor MDA is a specialized UML modeling tool based on Eclipse designed to support the development of multi-tiered, distributed systems. Used to model and document complex systems design, it uses convention-based techniques to generate the maximum code from streamlined UML models. Templates for creating JEE applications based on JPA/EJB3 and JSF/Seam/Facelets are included.                                </p>
                             </span>
@@ -728,7 +736,9 @@ Taylor MDA is a specialized UML modeling tool based on Eclipse designed to suppo
                                 <div class="font-bold tracking-tight text-sm text-blue-400 mt-4 border-blue-400
                                         rounded border uppercase px-2 py-1 inline-block
                                         hover:text-blue-600 hover:border-blue-600">
-                                    VIEW SCREENSHOT
+                                    <a href="img/ss-dante.png" target="_blank">
+                                        VIEW SCREENSHOT
+                                    </a>
                                 </div>
                             </a>
                         </div>
