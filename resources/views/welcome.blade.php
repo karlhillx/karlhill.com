@@ -31,13 +31,19 @@
                     PHP, Laravel, Tailwind, Inertia, Vite
                 </h6>
             </div>
+
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-easing="ease-in-out-back">
-                <a href="/portfolio" role="button"
-                   class="inline-flex items-center px-4 py-2 border-solid border-2 border-white text-base font-medium
-                   rounded-md shadow-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2
-                   focus:ring-offset-2 focus:ring-blue-500">
-                   Portfolio
-                </a>
+                <span class="relative inline-flex rounded-md shadow-sm">
+                  <a href="/portfolio" type="button"
+                     class="hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 inline-flex items-center px-4 py-2 border-2 border-white text-base leading-6 font-medium rounded-md text-white focus:border-white transition ease-in-out duration-150">
+                    Portfolio
+                  </a>
+                  <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                  </span>
+                </span>
+
                 <a href="{{ asset('files/karlhill-resume.pdf') }}" role="button" target="_blank"
                    class="inline-flex items-center px-4 py-2 border-solid border-2 border-white text-base font-medium
                    rounded-md shadow-sm text-white hover:bg-yellow-600 focus:outline-none focus:ring-2
