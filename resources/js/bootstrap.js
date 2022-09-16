@@ -10,9 +10,6 @@ window._ = _;
 import $ from 'jquery/dist/jquery';
 window.jQuery = window.$ = $
 
-import toastr from 'toastr';
-window.toastr = toastr;
-
 import AOS from 'aos';
 AOS.init();
 
