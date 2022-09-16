@@ -2,43 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use App\Http\Requests\StoreContactRequest;
+use App\Mail\Subscribe;
+use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Mail;
 
 class ContactController extends Controller
 {
-    /**
-     * Write code on Method
-     */
-    public function contactForm(
-    ): Factory|View|Application
+
+    public function store(StoreContactRequest $request, FlasherInterface $flasher): RedirectResponse
     {
-        return view('contactForm');
-    }
+        $request->validated();
 
-    /**
-     * Write code on Method
-     */
-    public function storeContactForm(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'email' => 'required|email',
-        ]);
+        $validated = $request->safe()->only(['email']);
 
-        $input = $request->all();
+       // dd($validated);
 
-        //  Send mail to admin
-        Mail::send('contactMail', array(
-            'email' => $input['email'],
-        ), function ($message) use ($request) {
-            $message->from($request->email);
-            $message->to('admin@admin.com', 'Admin')->subject('Testing');
-        });
+        Mail::to(env('MAIL_USERNAME'))
+            ->cc('karlhillx@gmail.com')
+            ->send(new Subscribe($request->email)
+            );
 
-        return redirect()->back()->with(['success' => 'Contact Form Submit Successfully']);
+        $flasher->addSuccess('Thank you '.$request->email.' for subscribing to our newsletter.');
+
+
+        return back();
     }
 }

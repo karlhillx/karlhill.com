@@ -17,6 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('portfolio', [WelcomeController::class, 'portfolio'])->name('portfolio');
-
-Route::get('/contact-form', [App\Http\Controllers\ContactController::class, 'contactForm'])->name('contact-form');
-Route::post('/contact-form', [App\Http\Controllers\ContactController::class, 'storeContactForm'])->name('contact.us.store');
+Route::post('contact', [ContactController::class, 'store'])->name('contact.post');
