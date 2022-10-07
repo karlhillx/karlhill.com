@@ -1,15 +1,26 @@
 @component('mail::message')
-# Welcome to my newsletter
 
-Dear {{$email}},<br><br>
+# Thanks for joining my newsletter
 
-I look forward to communicating more with you in the future. In the meantime please visit my portfolio for updates.
+
+Hey {{$email}},
+
+I look forward to communicating more with you in the future. I'll be sending you a newsletter every month with the latest news and updates.
+In the meantime please visit my portfolio.
+
 
 @component('mail::button', ['url' => 'https://karlhill.com/portfolio'])
 Portfolio
 @endcomponent
 
-Thanks,<br><br>
+Thanks,
+
 
 {{ config('app.name') }}
+
+<pre>
+{{$text}}
+</pre>
+
+
 @endcomponent
