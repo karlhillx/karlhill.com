@@ -24,4 +24,12 @@ class WelcomeController extends Controller
     {
         return view('portfolio');
     }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function house()
+    {
+        return view('house');
+    }
 }
