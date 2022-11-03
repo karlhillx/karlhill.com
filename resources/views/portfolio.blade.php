@@ -149,7 +149,7 @@
                                     <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
                                         <div
                                             class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
-                                        <a href="http://www.karlhill.com" target="_blank">
+                                        <a href="https://www.karlhill.com" target="_blank">
                                             <span
                                                 class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl">
                                             </span>
@@ -327,7 +327,7 @@
                                         <li class="flex gap-4">
                                             <div
                                                 class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                                                <a href="http://www.danteinc.com/" target="_blank">
+                                                <a href="https://www.danteinc.com/" target="_blank">
                                                     <img alt="" src="/img/logo-dante-small.png" width="28"
                                                          height="28" decoding="async" data-nimg="future" class="h-7 w-7"
                                                          loading="lazy" style="color:transparent">
@@ -336,7 +336,7 @@
                                             <dl class="flex flex-auto flex-wrap gap-x-2">
                                                 <dt class="sr-only">Company</dt>
                                                 <dd class="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                                    <a href="http://www.danteinc.com/" target="_blank">Dante Inc.</a>
+                                                    <a href="https://www.danteinc.com/" target="_blank">Dante Inc.</a>
                                                 </dd>
                                                 <dt class="sr-only">Role</dt>
                                                 <dd class="text-xs text-zinc-500 dark:text-zinc-400">
