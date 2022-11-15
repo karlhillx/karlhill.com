@@ -94,7 +94,7 @@
 <!-- Map -->
 <div class="bg-gray-200 border-t border-yellow-400">
     <iframe class="h-96 w-full"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA1U9kPUx3SN0u33kKiaCSXl7plnfA3y8Q&q=Woodley+Park,+Washington,+DC+20008"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA1U9kPUx3SN0u33kKiaCSXl7plnfA3y8Q&q=Brightwood+Park,+Washington,+DC+20011"
             allowfullscreen>
     </iframe>
 </div>

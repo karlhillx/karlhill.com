@@ -61,6 +61,14 @@
                                     </svg>
                                 </a></div>
                         </div>
+                        <p class="mt-6">
+                            <a href="{{ route('welcome'); }}" class="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7
+                           text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                                <span class="text-gray-400" aria-hidden="true">←</span>
+                                 Go Back
+                            </a>
+                        </p>
+
                     </div>
                 </div>
             </div>
@@ -406,8 +414,8 @@
                                         something new, and unsubscribe at any time.</p>
                                     <div class="mt-6 flex">
                                         <input type="email" name="email" placeholder="Email address"
-                                            aria-label="Email address" required
-                                            class="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm">
+                                               aria-label="Email address" required
+                                               class="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm">
                                         <button
                                             class="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70 ml-4 flex-none"
                                             type="submit">Join
@@ -472,7 +480,7 @@
                                         rounded border uppercase px-2 py-1 inline-block
                                         hover:text-blue-600 hover:border-blue-600">
                                     <a href="/img/ss-esccor.png" target="_blank">
-                                       VIEW SCREENSHOT
+                                        VIEW SCREENSHOT
                                     </a>
                                 </div>
                             </a>
@@ -640,7 +648,7 @@
                                 <div class="font-bold tracking-tight text-sm text-blue-400 mt-4 border-blue-400
                                         rounded border uppercase px-2 py-1 inline-block
                                         hover:text-blue-600 hover:border-blue-600">
-                                    <a href="/img/ss-mci-verizon.png" target="_blank" >VIEW SCREENSHOT</a>
+                                    <a href="/img/ss-mci-verizon.png" target="_blank">VIEW SCREENSHOT</a>
                                 </div>
                             </a>
                             <div class="mt-4">
@@ -730,7 +738,8 @@
                             </p>
                             <span class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900"><a
-                                        href="https://www.danteinc.com/" alt="" target="_blank">Dante Inc's Taylor</a></p>
+                                        href="https://www.danteinc.com/" alt=""
+                                        target="_blank">Dante Inc's Taylor</a></p>
                                 <p class="mt-3 text-base text-gray-500">
 Taylor MDA is a specialized UML modeling tool based on Eclipse designed to support the development of multi-tiered, distributed systems. Used to model and document complex systems design, it uses convention-based techniques to generate the maximum code from streamlined UML models. Templates for creating JEE applications based on JPA/EJB3 and JSF/Seam/Facelets are included.                                </p>
                             </span>
