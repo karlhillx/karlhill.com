@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full font-sans antialiased">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
     @vite('resources/css/app.css')
 </head>
-<body class="antialiased font-sans bg-maroon-dream">
+<body class="font-sans bg-maroon-dream">
 
 @include('partials.header')
 
@@ -39,8 +39,8 @@
                     Portfolio
                   </a>
                   <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-300 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-red-400"></span>
                   </span>
                 </span>
 
