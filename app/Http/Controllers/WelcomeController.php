@@ -5,15 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Carbon;
+use Illuminate\View\View;
 
 class WelcomeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         return view('welcome');
     }
@@ -21,7 +20,7 @@ class WelcomeController extends Controller
     /**
      * @return Application|Factory|View
      */
-    public function portfolio()
+    public function portfolio(): View
     {
         return view('portfolio');
     }
@@ -29,7 +28,7 @@ class WelcomeController extends Controller
     /**
      * @return Application|Factory|View
      */
-    public function house()
+    public function house(): View
     {
         return view('house');
     }

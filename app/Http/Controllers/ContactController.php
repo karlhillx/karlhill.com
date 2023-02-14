@@ -10,7 +10,6 @@ use Mail;
 
 class ContactController extends Controller
 {
-
     public function store(StoreContactRequest $request, FlasherInterface $flasher): RedirectResponse
     {
         if ($request->validated()) {
