@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -34,7 +33,7 @@ class Subscribe extends Mailable
         return $this->from('karlhillx@gmail.com', 'Karl Hill')
             ->subject('Thank you for subscribing to our newsletter')
             ->with([
-                'text' => strip_tags(Inspiring::quote())
+                'text' => strip_tags(Inspiring::quote()),
             ])
             ->markdown('emails.subscribers');
     }
