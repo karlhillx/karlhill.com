@@ -9,7 +9,7 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage: defaultTheme => ({
-                'hero-pattern': "url('/img/bg-landing.jpg')",
+                'hero-pattern': "url('../../public/img/bg-landing.jpg')",
                 'drl-screenshot': "url('/img/bg-drl-screenshot.png')",
             }),
 
