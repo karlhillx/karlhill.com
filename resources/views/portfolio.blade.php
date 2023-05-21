@@ -732,9 +732,9 @@
                                     InformedDNA optimizes clinical decisions through impactful solutions leveraging the
                                     most current genomics expertise. We are the nation’s leading applied genomics
                                     company, with the largest independent team of genetics specialists representing the
-                                    full breadth of specialties and sub-specialties. In addition, we are backed by more
-                                    than 14 years of clinical data and financial proof of effectiveness.
-
+                                    full breadth of specialties and sub-specialties. Furthermore, we possess over 14
+                                    years' worth of clinical data and financial evidence substantiating our
+                                    effectiveness.
                                 </p>
                             </a>
 
@@ -749,7 +749,7 @@
                                 <hr>
                             </div>
                         </div>
-                        <div class="mt-6 flex items-center">
+                        <div class="mt-4 flex items-center">
                             <div class="flex-shrink-0">
                                 <a href="#">
                                     <img class="h-10 w-10 rounded-full" src="/img/logo-informeddna.png" alt="">
@@ -760,7 +760,7 @@
                                     <a href="#" class="hover:underline"> Laravel, Bootstrap, SugarCRM </a>
                                 </p>
                                 <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time datetime="2020-03-10"> InformedDNA</time>
+                                    <time datetime="2020-03-10">InformedDNA</time>
                                 </div>
                             </div>
                         </div>
@@ -783,7 +783,13 @@
                                         href="https://www.danteinc.com/" alt=""
                                         target="_blank">Dante Inc's Taylor</a></p>
                                 <p class="mt-3 text-base text-gray-500">
-Taylor MDA is a specialized UML modeling tool based on Eclipse designed to support the development of multi-tiered, distributed systems. Used to model and document complex systems design, it uses convention-based techniques to generate the maximum code from streamlined UML models. Templates for creating JEE applications based on JPA/EJB3 and JSF/Seam/Facelets are included.                                </p>
+                                    Taylor MDA is a specialized UML modeling tool based on Eclipse designed to support
+                                    the development of multi-tiered,
+                                    distributed systems. Used to model and document complex systems design, it uses
+                                    convention-based techniques to generate the maximum code from streamlined UML
+                                    models. Included are pre-designed templates for creating JEE applications that
+                                    utilize JPA/EJB3 and JSF/Seam/Facelets.
+                                </p>
                             </span>
 
                             <a href="#">
