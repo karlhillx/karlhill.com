@@ -102,16 +102,14 @@
 @include('partials.footer')
 
 @vite('resources/js/app.js')
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-85045253-1"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZZNL8KY8P"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-85045253-1');
+
+    gtag('config', 'G-EZZNL8KY8P');
 </script>
 </body>
 </html>
