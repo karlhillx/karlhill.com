@@ -6,9 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "guzzlehttp/guzzle": "^7.8",
         "laravel/framework": "^11.0",
-        "laravel/sanctum": "^4.0@dev",
         "laravel/tinker": "^2.9"
     },
     "require-dev": {
@@ -44,7 +42,9 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --ansi"
         ]
     },
     "extra": {
