@@ -11,20 +11,16 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class Subscribe extends Mailable
+class UserSubscribed extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $email;
-
     /**
      * Create a new message instance.
-     *
-     * @return void
      */
-    public function __construct($email)
+    public function __construct()
     {
-        $this->email = $email;
+        //
     }
 
     /**
@@ -32,9 +28,7 @@ class Subscribe extends Mailable
      */
     public function envelope(): Envelope
     {
-        return new Envelope(
-            from: new Address('karlhillx@gmail.com', 'Karl Hill'),
-            replyTo: [
+        return new Envelope(from: new Address('karlhillx@gmail.com', 'Karl Hill'), replyTo: [
                 new Address('karlhillx@gmail.com', 'Karl Hill'),
             ], subject: 'Thank you for subscribing to our newsletter',);
     }
@@ -44,9 +38,7 @@ class Subscribe extends Mailable
      */
     public function content(): Content
     {
-        return new Content(
-            view: 'emails.subscribers',
-            with: [
+        return new Content(view: 'mail.user.subscribed', with: [
                 'text' => strip_tags(Inspiring::quote()),
             ],);
     }
@@ -60,5 +52,4 @@ class Subscribe extends Mailable
     {
         return [];
     }
-
 }
