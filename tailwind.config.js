@@ -10,7 +10,7 @@ module.exports = {
         extend: {
             backgroundImage: defaultTheme => ({
                 'hero-pattern': "url('../../public/img/bg-landing.jpg')",
-                'drl-screenshot': "url('/img/bg-drl-screenshot.png')",
+                'drl-screenshot': "url('../../public/img/bg-drl-screenshot.png')",
             }),
 
             colors: {
