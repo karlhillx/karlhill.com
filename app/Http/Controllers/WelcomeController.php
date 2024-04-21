@@ -14,17 +14,11 @@ class WelcomeController extends Controller
         return view('welcome');
     }
 
-    /**
-     * @return View
-     */
     public function portfolio(): View
     {
         return view('portfolio');
     }
 
-    /**
-     * @return View
-     */
     public function house(): View
     {
         return view('house');
