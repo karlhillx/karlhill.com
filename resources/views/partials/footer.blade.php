@@ -9,22 +9,15 @@
                 <a class="github hover:bg-gray-900" target="_blank" href="https://github.com/karlhillx/">
                     <i class="fab fa-github"></i>
                 </a>
-                <a class="stackoverflow hover:bg-orange-600" target="_blank"
-                   href="https://stackoverflow.com/users/633440/karl-hill">
-                    <i class="fab fa-stack-overflow"></i>
-                </a>
                 <a class="medium hover:bg-green-400" target="_blank" href="https://karlhillx.medium.com/">
                     <i class="fab fa-medium"></i>
                 </a>
                 <a class="twitter hover:bg-blue-400" target="_blank" href="https://twitter.com/karl_hill/">
-                    <i class="fab fa-twitter-square"></i>
+                    <i class="fab fa-x-twitter"></i>
                 </a>
                 <a class="discogs hover:bg-gray-400" target="_blank"
                    href="https://www.discogs.com/artist/1286669-Karl-Hill">
                     <i class="fas fa-compact-disc"></i>
-                </a>
-                <a class="discogs hover:bg-orange-800" target="_blank" href="https://www.buymeacoffee.com/karlhillx">
-                    <i class="fas fa-coffee"></i>
                 </a>
             </div>
         </div>
