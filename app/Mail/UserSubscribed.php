@@ -29,8 +29,8 @@ class UserSubscribed extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(from: new Address('karlhillx@gmail.com', 'Karl Hill'), replyTo: [
-                new Address('karlhillx@gmail.com', 'Karl Hill'),
-            ], subject: 'Thank you for subscribing to our newsletter',);
+            new Address('karlhillx@gmail.com', 'Karl Hill'),
+        ], subject: 'Thank you for subscribing to our newsletter', );
     }
 
     /**
@@ -39,8 +39,8 @@ class UserSubscribed extends Mailable
     public function content(): Content
     {
         return new Content(view: 'mail.user.subscribed', with: [
-                'text' => strip_tags(Inspiring::quote()),
-            ],);
+            'text' => strip_tags(Inspiring::quote()),
+        ], );
     }
 
     /**
