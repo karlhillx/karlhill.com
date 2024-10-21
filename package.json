@@ -5,23 +5,20 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@alpinejs/intersect": "^3.14.3",
         "@fortawesome/fontawesome-free": "^6.6.0",
         "@fortawesome/free-brands-svg-icons": "^6.6.0",
         "@fortawesome/free-regular-svg-icons": "^6.6.0",
         "@fortawesome/free-solid-svg-icons": "^6.6.0",
-        "@tailwindcss/aspect-ratio": "^0.4.2",
-        "@tailwindcss/forms": "^0.5.9",
-        "@tailwindcss/typography": "^0.5.15",
+        "@tailwindcss/cli": "^4.0.0-alpha.28",
+        "@tailwindcss/postcss": "^4.0.0-alpha.28",
+        "alpinejs": "^3.14.3",
         "aos": "^3.0.0-beta.6",
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.7",
         "jquery": "^3.7.1",
         "laravel-vite-plugin": "^1.0.5",
-        "postcss": "^8.4.47",
-        "tailwindcss": "^3.4.12",
-        "vite": "^5.4.6"
-    },
-    "dependencies": {
-        "npm-check-updates": "^17.1.2"
+        "tailwindcss": "^4.0.0-alpha.28",
+        "vite": "^5.4.9"
     }
 }
