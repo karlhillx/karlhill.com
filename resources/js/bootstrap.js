@@ -7,9 +7,6 @@
 import $ from 'jquery/dist/jquery';
 window.jQuery = window.$ = $
 
-import AOS from 'aos';
-AOS.init();
-
 /**
  * The axios HTTP library is used by a variety of first-party Laravel packages
  * like Inertia in order to make requests to the Laravel backend. This will

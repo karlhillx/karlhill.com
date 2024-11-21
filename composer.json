@@ -9,18 +9,15 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "laravel/framework": "^11.4",
-        "laravel/tinker": "^2.9",
-        "php-flasher/flasher-laravel": "^1.15"
+        "laravel/framework": "^12.x-dev",
+        "laravel/tinker": "dev-develop"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.13",
-        "laravel/sail": "^1.26",
+        "laravel/sail": "dev-develop",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.0",
-        "phpunit/phpunit": "^10.5",
-        "spatie/laravel-ignition": "^2.4"
+        "phpunit/phpunit": "^10.5"
     },
     "autoload": {
         "psr-4": {

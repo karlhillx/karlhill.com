@@ -1,37 +1,54 @@
-@import 'tailwindcss';
-@import '@fortawesome/fontawesome-free/css/all.css';
-@import '@fortawesome/fontawesome-free/css/regular.css';
-@import '@fortawesome/fontawesome-free/css/solid.css';
-@import '@fortawesome/fontawesome-free/css/brands.css';
-@import 'aos/dist/aos.css';
+/* Modern CSS imports using @import syntax */
+@import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "@fortawesome/fontawesome-free/css/regular.css";
+@import "@fortawesome/fontawesome-free/css/solid.css";
+@import "@fortawesome/fontawesome-free/css/brands.css";
 
-@theme {
-    --font-family-sans: "Inter Variable", sans-serif;
-    --color-maroon-dream: #7D2746;
+/* CSS variables using modern custom property syntax */
+:root {
+    --font-family-sans: "Inter Variable", system-ui, sans-serif;
+    --color-maroon-dream: #7d2746;
+    --color-hover-transition: 200ms ease-in-out;
 }
 
-/*!
- * @Author Karl Hill
- * @File resources/css/app.css
- * @Description Main CSS file for the project
- * @License MIT (https://github.com/karlhillx/karlhill.com/blob/master/LICENSE)
- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simplified dark mode handling for v4 */
+@media (prefers-color-scheme: dark) {
+    .header-dark-mode {
+        background-color: var(--color-maroon-dream);
+    }
+}
+
+/* Utility classes with modern syntax */
 .color-maroon-dream {
-    background-color: #7D2746;
+    background-color: var(--color-maroon-dream);
+    transition: background-color var(--color-hover-transition);
 }
 
 .bg-maroon-dream {
-    background-image: url('../../public/img/bg-landing.jpg');
-    background-color: #7D2746;
+    background-image: url("/img/bg-landing.jpg");
+    background-color: var(--color-maroon-dream);
+    background-size: cover;
+    background-position: center;
 }
 
+/* Modern social icons using Tailwind v4 syntax */
 footer .bottom-social-icons a {
-    @apply rounded inline-block h-8 leading-8 overflow-hidden relative text-center text-white w-8 bg-gray-800;
+    @apply rounded inline-flex items-center justify-center h-8 w-8 text-white bg-gray-800 transition-colors duration-200;
 }
 
-.linkedin:hover { background-color: theme('colors.blue.600'); }
-.github:hover { background-color: theme('colors.black'); }
-.medium:hover { background-color: theme('colors.green.400'); }
-.twitter:hover { background-color: theme('colors.gray.200'); }
-.discogs:hover { background-color: theme('colors.gray.400'); }
+/* Simplified hover states using modern color syntax */
+.linkedin:hover { @apply bg-blue-600; }
+.github:hover { @apply bg-black; }
+.medium:hover { @apply bg-green-400; }
+.twitter:hover { @apply bg-gray-200; }
+.discogs:hover { @apply bg-gray-400; }
 
+/* Modern spacing utility */
+.text-container {
+    padding-inline-start: 1.25rem;
+}

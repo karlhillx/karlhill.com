@@ -1,11 +1,18 @@
-module.exports = {
-    darkMode: 'class',
+export default {
     content: [
-        './vendor/laravel/jetstream/**/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
     ],
     future: {
         hoverOnlyWhenSupported: true
-    }
+    },
+    theme: {
+        extend: {
+            colors: {
+                'maroon-dream': '#7D2746', // Custom dark mode color
+                'light-gray': '#d3d3d3',   // Custom light mode color
+            },
+        },
+    },
 }
