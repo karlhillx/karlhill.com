@@ -5,61 +5,55 @@
 @import "@fortawesome/fontawesome-free/css/solid.css";
 @import "@fortawesome/fontawesome-free/css/brands.css";
 
-/* CSS variables using modern custom property syntax */
 :root {
-    --font-family-sans: "Inter Variable", system-ui, sans-serif;
+    --font-family-sans: "Inter Variable", system-ui, -apple-system, sans-serif;
     --color-maroon-dream: #7d2746;
-    --color-hover-transition: 200ms ease-in-out;
+    --color-hover-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Simplified dark mode handling for v4 */
 @media (prefers-color-scheme: dark) {
     .header-dark-mode {
+        @apply bg-zinc-900;
         background-color: var(--color-maroon-dream);
     }
 }
 
-/* Utility classes with modern syntax */
 .color-maroon-dream {
+    @apply transition-colors;
     background-color: var(--color-maroon-dream);
-    transition: background-color var(--color-hover-transition);
 }
 
 .bg-maroon-dream {
+    @apply bg-cover bg-center;
     background-image: url("/img/bg-landing.jpg");
     background-color: var(--color-maroon-dream);
-    background-size: cover;
-    background-position: center;
 }
 
-/* Modern social icons using Tailwind v4 syntax */
 footer .bottom-social-icons a {
-    @apply rounded inline-flex items-center justify-center h-8 w-8 text-white bg-gray-800 transition-colors duration-200;
+    @apply rounded inline-flex items-center justify-center h-8 w-8 text-white bg-zinc-800 transition-colors duration-200;
 }
 
-/* Simplified hover states using modern color syntax */
-.linkedin:hover { @apply bg-blue-600; }
-.github:hover { @apply bg-black; }
-.medium:hover { @apply bg-green-400; }
-.twitter:hover { @apply bg-gray-200; }
-.discogs:hover { @apply bg-gray-400; }
+.linkedin:hover { @apply bg-blue-600 scale-105 transition-transform; }
+.github:hover { @apply bg-black scale-105 transition-transform; }
+.medium:hover { @apply bg-green-400 scale-105 transition-transform; }
+.twitter:hover { @apply bg-zinc-200 scale-105 transition-transform; }
+.discogs:hover { @apply bg-zinc-400 scale-105 transition-transform; }
 
-/* Modern spacing utility */
 .text-container {
     padding-inline-start: 1.25rem;
 }
 
-/* Add these animations to app.css */
 @keyframes skill-slide-in {
-    0% {
+    from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(1.25rem);
     }
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
@@ -70,10 +64,9 @@ footer .bottom-social-icons a {
     to { width: var(--skill-percentage); }
 }
 
-/* Enhanced skill items with animations */
 .skill-item {
-    opacity: 0;
-    animation: skill-slide-in 0.6s ease-out forwards;
+    @apply opacity-0;
+    animation: skill-slide-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .skill-item:nth-child(1) { animation-delay: 0.2s; }
@@ -82,7 +75,5 @@ footer .bottom-social-icons a {
 
 .skill-item .bg-teal-500 {
     width: 0;
-    animation: skill-bar-fill 1s ease-out forwards;
-    animation-delay: 0.8s;
+    animation: skill-bar-fill 1s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.8s;
 }
-
