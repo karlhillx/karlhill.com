@@ -52,3 +52,37 @@ footer .bottom-social-icons a {
 .text-container {
     padding-inline-start: 1.25rem;
 }
+
+/* Add these animations to app.css */
+@keyframes skill-slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes skill-bar-fill {
+    from { width: 0; }
+    to { width: var(--skill-percentage); }
+}
+
+/* Enhanced skill items with animations */
+.skill-item {
+    opacity: 0;
+    animation: skill-slide-in 0.6s ease-out forwards;
+}
+
+.skill-item:nth-child(1) { animation-delay: 0.2s; }
+.skill-item:nth-child(2) { animation-delay: 0.4s; }
+.skill-item:nth-child(3) { animation-delay: 0.6s; }
+
+.skill-item .bg-teal-500 {
+    width: 0;
+    animation: skill-bar-fill 1s ease-out forwards;
+    animation-delay: 0.8s;
+}
+

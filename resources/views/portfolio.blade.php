@@ -941,6 +941,7 @@
         </section>
     </main>    @include('partials.footer')
 </div>
+@include('partials.back-to-top')
 @include('partials.scripts')
 @include('partials.schema')
 </body>
