@@ -8,7 +8,7 @@
     @include('partials.header')
 
     <main class="flex-grow pt-32">
-        <section id="portfolio1">
+        <section id="recent-work">
             <main>
                 <x-hero-section />
                 <div class="sm:mt-20">
@@ -580,8 +580,8 @@
 
                         <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                             <picture>
-                                <source srcset="/img/webp/earth-observatory.webp" type="image/webp">
-                                <img class="h-48 w-full object-cover" src="/img/earth-observatory.png" alt="Earth Observatory">
+                                <source srcset="/img/webp/small-earth-observatory.webp" type="image/webp">
+                                <img class="h-48 w-full object-cover" src="/img/small-earth-observatory.png" alt="Earth Observatory">
                             </picture>
 
                             <div class="flex-1 bg-white p-6 flex flex-col justify-between">
