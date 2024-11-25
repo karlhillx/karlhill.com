@@ -1,2 +1,33 @@
+# Global rules
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /files/
+Disallow: /storage/
+Disallow: /vendor/
+Disallow: /bootstrap/
+Disallow: /*.json$
+Disallow: /*.xml$
+Crawl-delay: 10
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Allow: /*.js
+Allow: /*.css
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.gif
+
+User-agent: Bingbot
+Allow: /
+Allow: /*.js
+Allow: /*.css
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.gif
+
+# Sitemap location
+Sitemap: https://karlhill.com/sitemap.xml
+
+# Additional modern directives
+X-Robots-Tag: index, follow
