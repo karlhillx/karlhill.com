@@ -26,7 +26,6 @@ Allow: /*.png
 Allow: /*.jpg
 Allow: /*.gif
 
-# Sitemap location
 Sitemap: https://karlhill.com/sitemap.xml
 
 # Additional modern directives
