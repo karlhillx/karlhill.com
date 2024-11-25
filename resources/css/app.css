@@ -1,54 +1,63 @@
-/* Modern CSS imports using @import syntax */
+@import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.css";
+
 @import "tailwindcss";
 @import "@fortawesome/fontawesome-free/css/all.css";
 
 :root {
     --font-family-sans: "Inter Variable", system-ui, -apple-system, sans-serif;
-    --color-maroon-dream: #7d2746;
-    --color-hover-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --color-maroon-base: #7d2746;
+    --color-maroon-light: #9e325a;
+    --color-maroon-dark: #5c1c33;
+    --transition-smooth: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+    scroll-padding-top: 2rem;
+    font-size: clamp(16px, 1vw, 18px);
 }
 
 @media (prefers-color-scheme: dark) {
     .header-dark-mode {
-        @apply bg-zinc-900;
-        background-color: var(--color-maroon-dream);
+        @apply bg-zinc-900 backdrop-blur-sm;
+        background-color: rgb(var(--color-maroon-base) / 0.95);
     }
 }
 
 .color-maroon-dream {
-    @apply transition-colors;
-    background-color: var(--color-maroon-dream);
+    @apply transition-colors duration-300;
+    background-color: var(--color-maroon-base);
 }
 
 .bg-maroon-dream {
-    @apply bg-cover bg-center;
-    background-image: url("/img/bg-landing.jpg");
-    background-color: var(--color-maroon-dream);
+    @apply bg-cover bg-center bg-fixed;
+    background-image:
+        linear-gradient(rgb(0 0 0 / 0.4), rgb(0 0 0 / 0.4)),
+        url("/img/bg-landing.jpg");
+    background-color: var(--color-maroon-base);
 }
 
 footer .bottom-social-icons a {
-    @apply rounded inline-flex items-center justify-center h-8 w-8 text-white bg-zinc-800 transition-colors duration-200;
+    @apply rounded-lg inline-flex items-center justify-center h-10 w-10 text-white bg-zinc-800
+           transition-all duration-300 hover:shadow-lg;
 }
 
-.linkedin:hover { @apply bg-blue-600 scale-105 transition-transform; }
-.github:hover { @apply bg-black scale-105 transition-transform; }
-.medium:hover { @apply bg-green-400 scale-105 transition-transform; }
-.twitter:hover { @apply bg-zinc-200 scale-105 transition-transform; }
-.discogs:hover { @apply bg-zinc-400 scale-105 transition-transform; }
+.linkedin:hover { @apply bg-[#0077b5] scale-110 rotate-3; }
+.github:hover { @apply bg-[#333] scale-110 -rotate-3; }
+.medium:hover { @apply bg-[#00ab6c] scale-110 rotate-3; }
+.twitter:hover { @apply bg-[#1da1f2] scale-110 -rotate-3; }
+.discogs:hover { @apply bg-[#333] scale-110 rotate-3; }
 
 .text-container {
-    padding-inline-start: 1.25rem;
+    padding-inline: clamp(1rem, 5vw, 2rem);
 }
 
 @keyframes skill-slide-in {
     from {
         opacity: 0;
-        transform: translateY(1.25rem);
+        transform: translateY(2rem);
     }
     to {
         opacity: 1;
@@ -63,14 +72,125 @@ footer .bottom-social-icons a {
 
 .skill-item {
     @apply opacity-0;
-    animation: skill-slide-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: skill-slide-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.skill-item:nth-child(1) { animation-delay: 0.2s; }
-.skill-item:nth-child(2) { animation-delay: 0.4s; }
-.skill-item:nth-child(3) { animation-delay: 0.6s; }
+.skill-item:nth-child(1) { animation-delay: 100ms; }
+.skill-item:nth-child(2) { animation-delay: 300ms; }
+.skill-item:nth-child(3) { animation-delay: 500ms; }
 
 .skill-item .bg-teal-500 {
     width: 0;
-    animation: skill-bar-fill 1s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.8s;
+    animation: skill-bar-fill 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 800ms;
 }
+html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    scroll-padding-top: 2rem;
+    font-size: clamp(16px, 1vw, 18px);
+}
+
+@media (prefers-color-scheme: dark) {
+    .header-dark-mode {
+        @apply bg-zinc-900 backdrop-blur-sm;
+        background-color: rgb(var(--color-maroon-base) / 0.95);
+    }
+}
+
+.color-maroon-dream {
+    @apply transition-colors duration-300;
+    background-color: var(--color-maroon-base);
+}
+
+.bg-maroon-dream {
+    @apply bg-cover bg-center bg-fixed;
+    background-image:
+        linear-gradient(rgb(0 0 0 / 0.4), rgb(0 0 0 / 0.4)),
+        url("/img/bg-landing.jpg");
+    background-color: var(--color-maroon-base);
+}
+
+footer .bottom-social-icons a {
+    @apply rounded-lg inline-flex items-center justify-center h-10 w-10 text-white bg-zinc-800
+           transition-all duration-300 hover:shadow-lg;
+}
+.linkedin:hover { @apply bg-[#0077b5] scale-110 rotate-3; }
+.github:hover { @apply bg-[#333] scale-110 -rotate-3; }
+.medium:hover { @apply bg-[#00ab6c] scale-110 rotate-3; }
+.twitter:hover { @apply bg-[#1da1f2] scale-110 -rotate-3; }
+.discogs:hover { @apply bg-[#333] scale-110 rotate-3; }
+.text-container {
+    padding-inline: clamp(1rem, 5vw, 2rem);
+}
+
+@keyframes skill-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes skill-bar-fill {
+    from { width: 0; }
+    to { width: var(--skill-percentage); }
+}
+
+.skill-item {
+    @apply opacity-0;
+    animation: skill-slide-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.skill-item:nth-child(1) { animation-delay: 100ms; }
+.skill-item:nth-child(2) { animation-delay: 300ms; }
+.skill-item:nth-child(3) { animation-delay: 500ms; }
+
+.skill-item .bg-teal-500 {
+    width: 0;
+    animation: skill-bar-fill 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 800ms;
+}
+
+@layer components {
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.7s ease-out;
+  }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
