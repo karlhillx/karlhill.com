@@ -47,27 +47,27 @@
                              x-transition:enter="transition ease-out duration-800"
                              x-transition:enter-start="opacity-0 transform translate-y-4"
                              x-transition:enter-end="opacity-100 transform translate-y-0">
-                              <span class="relative inline-flex rounded-md shadow-sm">
-                                <a href="/portfolio" type="button"
-                                   class="hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 inline-flex items-center px-4 py-2 border-2 border-white text-base leading-6 font-medium rounded-md text-white focus:border-white transition ease-in-out duration-150">
-                                  Portfolio
-                                </a>
-                                <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
-                                  <span
-                                      class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-300 opacity-75"></span>
-                                  <span class="relative inline-flex rounded-full h-3 w-3 bg-red-400"></span>
-                                </span>
-                              </span>
+      <span class="relative inline-flex rounded-md shadow-sm">
+        <a href="/portfolio" type="button"
+           class="hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 inline-flex items-center px-3 py-2 border-2 border-white text-sm leading-6 font-medium rounded-md text-white focus:border-white transition ease-in-out duration-150 sm:text-base sm:px-4">
+          Portfolio
+        </a>
+        <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-300 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-red-400"></span>
+        </span>
+      </span>
                             <a href="{{ asset('files/karlhill-resume.pdf') }}" role="button" target="_blank"
-                               class="inline-flex items-center px-4 py-2 border-2 border-white text-base font-medium rounded-md shadow-sm text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                               class="inline-flex items-center px-3 py-2 border-2 border-white text-sm font-medium rounded-md shadow-sm text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:text-base sm:px-4">
                                 Resume
                             </a>
                             <a href="#feature"
-                               class="inline-flex items-center px-4 py-2 border-2 border-white text-base font-medium rounded-md shadow-sm text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                               class="inline-flex items-center px-3 py-2 border-2 border-white text-sm font-medium rounded-md shadow-sm text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:text-base sm:px-4"
                                aria-label="Learn more about Karl Hill">
                                 Learn More
                             </a>
                         </div>
+
                     </div>
                 </div>
             </div>
