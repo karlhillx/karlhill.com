@@ -49,7 +49,7 @@
                              x-transition:enter-end="opacity-100 transform translate-y-0">
       <span class="relative inline-flex rounded-md shadow-sm">
         <a href="/portfolio" type="button"
-           class="hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 inline-flex items-center px-3 py-2 border-2 border-white text-sm leading-6 font-medium rounded-md text-white focus:border-white transition ease-in-out duration-150 sm:text-base sm:px-4">
+           class="inline-flex items-center px-3 py-2 border-2 border-white text-sm font-medium rounded-md text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-base sm:px-4">
           Portfolio
         </a>
         <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
@@ -58,11 +58,11 @@
         </span>
       </span>
                             <a href="{{ asset('files/karlhill-resume.pdf') }}" role="button" target="_blank"
-                               class="inline-flex items-center px-3 py-2 border-2 border-white text-sm font-medium rounded-md shadow-sm text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:text-base sm:px-4">
+                               class="inline-flex items-center px-3 py-2 border-2 border-white text-sm font-medium rounded-md text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:text-base sm:px-4">
                                 Resume
                             </a>
                             <a href="#feature"
-                               class="inline-flex items-center px-3 py-2 border-2 border-white text-sm font-medium rounded-md shadow-sm text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:text-base sm:px-4"
+                               class="inline-flex items-center px-3 py-2 border-2 border-white text-sm font-medium rounded-md text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:text-base sm:px-4"
                                aria-label="Learn more about Karl Hill">
                                 Learn More
                             </a>
@@ -289,47 +289,74 @@
                     </h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="space-y-6">
-                            <div class="group relative flex flex-col space-y-4 p-6 bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-zinc-800/50 dark:to-zinc-900/50 rounded-2xl transition-all duration-300 hover:shadow-xl">
+                            <div
+                                class="group relative flex flex-col space-y-4 p-6 bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-zinc-800/50 dark:to-zinc-900/50 rounded-2xl transition-all duration-300 hover:shadow-xl">
                                 <div class="space-y-4">
-                                    <div class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
-                                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
-                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    <div
+                                        class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
+                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7"/>
                                             </svg>
                                         </span>
-                                        <p class="text-zinc-600 dark:text-zinc-300">20+ years of experience delivering enterprise-level software in PHP, Python and Java</p>
+                                        <p class="text-zinc-600 dark:text-zinc-300">20+ years of experience delivering
+                                            enterprise-level software in PHP, Python and Java</p>
                                     </div>
-                                    <div class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
-                                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
-                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    <div
+                                        class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
+                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7"/>
                                             </svg>
                                         </span>
-                                        <p class="text-zinc-600 dark:text-zinc-300">Proficiency with object-oriented design, data structures, algorithms, and asynchronous architectural design</p>
+                                        <p class="text-zinc-600 dark:text-zinc-300">Proficiency with object-oriented
+                                            design, data structures, algorithms, and asynchronous architectural
+                                            design</p>
                                     </div>
-                                    <div class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
-                                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
-                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    <div
+                                        class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
+                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7"/>
                                             </svg>
                                         </span>
-                                        <p class="text-zinc-600 dark:text-zinc-300">Professional experience building REST APIs</p>
+                                        <p class="text-zinc-600 dark:text-zinc-300">Professional experience building
+                                            REST APIs</p>
                                     </div>
-                                    <div class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
-                                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
-                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    <div
+                                        class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
+                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7"/>
                                             </svg>
                                         </span>
-                                        <p class="text-zinc-600 dark:text-zinc-300">Professional experience with relational databases, schema design, and SQL</p>
+                                        <p class="text-zinc-600 dark:text-zinc-300">Professional experience with
+                                            relational databases, schema design, and SQL</p>
                                     </div>
-                                    <div class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
-                                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
-                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    <div
+                                        class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
+                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7"/>
                                             </svg>
                                         </span>
-                                        <p class="text-zinc-600 dark:text-zinc-300">Hands-on experience with Kubernetes and related technologies</p>
+                                        <p class="text-zinc-600 dark:text-zinc-300">Hands-on experience with Kubernetes
+                                            and related technologies</p>
                                     </div>
                                 </div>
                             </div>
@@ -337,47 +364,73 @@
 
                         <!-- Right Column -->
                         <div class="space-y-6">
-                            <div class="group relative flex flex-col space-y-4 p-6 bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-zinc-800/50 dark:to-zinc-900/50 rounded-2xl transition-all duration-300 hover:shadow-xl">
+                            <div
+                                class="group relative flex flex-col space-y-4 p-6 bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-zinc-800/50 dark:to-zinc-900/50 rounded-2xl transition-all duration-300 hover:shadow-xl">
                                 <div class="space-y-4">
-                                    <div class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
-                                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
-                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    <div
+                                        class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
+                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7"/>
                                             </svg>
                                         </span>
-                                        <p class="text-zinc-600 dark:text-zinc-300">Strong understanding of containerization technologies like Docker</p>
+                                        <p class="text-zinc-600 dark:text-zinc-300">Strong understanding of
+                                            containerization technologies like Docker</p>
                                     </div>
-                                    <div class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
-                                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
-                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    <div
+                                        class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
+                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7"/>
                                             </svg>
                                         </span>
-                                        <p class="text-zinc-600 dark:text-zinc-300">Experience with modern JS frameworks like React and Vue.js</p>
+                                        <p class="text-zinc-600 dark:text-zinc-300">Experience with modern JS frameworks
+                                            like React and Vue.js</p>
                                     </div>
-                                    <div class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
-                                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
-                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    <div
+                                        class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
+                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7"/>
                                             </svg>
                                         </span>
-                                        <p class="text-zinc-600 dark:text-zinc-300">Experience with cloud providers like AWS</p>
+                                        <p class="text-zinc-600 dark:text-zinc-300">Experience with cloud providers like
+                                            AWS</p>
                                     </div>
-                                    <div class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
-                                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
-                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    <div
+                                        class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
+                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7"/>
                                             </svg>
                                         </span>
-                                        <p class="text-zinc-600 dark:text-zinc-300">Proficiency in version control systems like Git</p>
+                                        <p class="text-zinc-600 dark:text-zinc-300">Proficiency in version control
+                                            systems like Git</p>
                                     </div>
-                                    <div class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
-                                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
-                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    <div
+                                        class="flex items-center space-x-3 transform transition-transform duration-300 hover:translate-x-2">
+                                        <span
+                                            class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-teal-500/10">
+                                            <svg class="h-5 w-5 text-teal-500" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M5 13l4 4L19 7"/>
                                             </svg>
                                         </span>
-                                        <p class="text-zinc-600 dark:text-zinc-300">Passion for infrastructure and DevOps tooling</p>
+                                        <p class="text-zinc-600 dark:text-zinc-300">Passion for infrastructure and
+                                            DevOps tooling</p>
                                     </div>
                                 </div>
                             </div>
