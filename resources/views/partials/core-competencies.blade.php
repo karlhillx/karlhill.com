@@ -48,11 +48,8 @@
 @endphp
 <section id="core-competencies"
          class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-0 py-24">
-    <!-- Background Grid Pattern -->
     <div
         class="absolute inset-0 bg-[url('/img/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-
-    <!-- Gradient Blob Effects -->
     <div
         class="absolute -top-24 right-0 h-96 w-96 animate-blob rounded-full bg-purple-500 opacity-20 mix-blend-multiply blur-xl filter"></div>
     <div
@@ -82,25 +79,6 @@
                     @endforeach
                 </div>
             @endforeach
-            <div class="space-y-4">
-                @foreach($competencies[$column] as $competency)
-                    <div
-                        class="group bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl">
-                        <div class="flex items-center space-x-4">
-                                <span
-                                    class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-400 to-indigo-400">
-                                    <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor"
-                                         viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                              d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </span>
-                            <p class="text-lg text-white/90 font-medium">{{ $competency['text'] }}</p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-
         </div>
     </div>
 </section>
