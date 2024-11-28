@@ -10,7 +10,7 @@
     <main class="flex-grow pt-32">
         <section id="recent-work">
             <main>
-                <x-hero-section />
+                <x-hero-section/>
                 <div class="sm:mt-20">
                     <div class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
                         <div
@@ -548,18 +548,18 @@
                                             benefiting multiple NASA groups and advancing the agency's mission.
                                         </p>
                                     </a>
-                                    <a href="#">
-                                        <div class="font-bold tracking-tight text-sm text-blue-400 mt-4 border-blue-400
-                                        rounded border uppercase px-2 py-1 inline-block
-                                        hover:text-blue-600 hover:border-blue-600">
+
+                                    <div class="mt-4">
+                                        <div
+                                            class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600">
                                             <a href="/img/ss-esccor.png" target="_blank">
                                                 VIEW SCREENSHOT
                                             </a>
                                         </div>
-                                    </a>
-                                    <hr class="border-slate-100 border-t my-4">
+                                    </div>
+                                    <hr class="border-slate-100 border-t mt-4">
                                 </div>
-                                <div class=" flex items-center">
+                                <div class="flex items-center">
                                     <div class="flex-shrink-0">
                                         <a href="#">
                                             <img class="h-10 w-10 rounded-full" src="/img/logo-nasa.png" alt="">
@@ -581,7 +581,8 @@
                         <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                             <picture>
                                 <source srcset="/img/webp/small-earth-observatory.webp" type="image/webp">
-                                <img class="h-48 w-full object-cover" src="/img/small-earth-observatory.png" alt="Earth Observatory">
+                                <img class="h-48 w-full object-cover" src="/img/small-earth-observatory.png"
+                                     alt="Earth Observatory">
                             </picture>
 
                             <div class="flex-1 bg-white p-6 flex flex-col justify-between">
@@ -596,31 +597,28 @@
                                                 Observatory</a></p>
                                         <p class="mt-3 text-base text-gray-500">
                                             I helped develop NASA's Earth Observatory website and its advanced back-end
-                                            system,
-                                            creating a digital gateway to NASA's environmental research. This platform
-                                            showcases
-                                            stunning imagery, compelling stories, and crucial discoveries about Earth's
-                                            ecosystems and climate from NASA's satellite missions and field research.
-                                            Using
-                                            cutting-edge web technologies, we crafted an immersive interface that brings
-                                            complex
-                                            scientific data to life for a global audience, supporting NASA's mission to
-                                            foster
-                                            public understanding of our planet's intricate systems and environmental
-                                            changes.
+                                            system, creating a digital gateway to NASA's environmental research. This
+                                            platform showcases stunning imagery, compelling stories, and crucial
+                                            discoveries about Earth's ecosystems and climate from NASA's satellite
+                                            missions and field research. Using cutting-edge web technologies, we crafted
+                                            an immersive interface that brings complex scientific data to life for a
+                                            global audience, supporting NASA's mission to foster public understanding of
+                                            our planet's intricate systems and environmental changes. The site serves as
+                                            an invaluable resource for scientists, educators, policymakers, and the
+                                            public alike.
                                         </p>
                                     </a>
-                                    <a href="#">
-                                        <div class="font-bold tracking-tight text-sm text-blue-400 mt-4 border-blue-400
-                                        rounded border uppercase px-2 inline-block
-                                        hover:text-blue-600 hover:border-blue-600">
+                                    <div class="mt-4">
+                                        <div
+                                            class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600">
+
                                             <a href="/img/screencapture-earthobservatory-nasa-gov.png" target="_blank">
                                                 VIEW SCREENSHOT
                                             </a>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                                <hr class="border-slate-100 border-t my-4">
+                                <hr class="border-slate-100 border-t mt-4">
                                 <div class="mt-6 flex items-center">
                                     <div class="flex-shrink-0">
                                         <a href="#">
@@ -653,34 +651,17 @@
                                                 href="https://directreadout.sci.gsfc.nasa.gov/" alt="" target="_blank">Direct
                                                 Readout Laboratory</a></p>
                                         <p class="mt-3 text-base text-gray-500">
-                                            The Direct Readout Laboratory (DRL) serves as a crucial technology conduit
-                                            for
-                                            the
-                                            Direct Broadcast community, bridging NASA missions with users. I designed a
-                                            concept
-                                            website for the DRL, envisioning a cutting-edge platform built with Laravel,
-                                            Tailwind CSS, and Vite. This modern, responsive design showcases the DRL's
-                                            innovative role in facilitating real-time data transmission from
-                                            Earth-observing
-                                            satellites to global ground stations. The sleek interface aims to provide
-                                            seamless
-                                            access
-                                            to mission-critical information, enhancing environmental monitoring
-                                            capabilities
-                                            and
-                                            supporting vital scientific research worldwide.
-                                        </p>
-                                    </a>
+                                            The Direct Readout Laboratory (DRL) plays a vital role in connecting NASA's Earth observation missions with data users worldwide. I designed a concept website for the DRL, envisioning a modern and dynamic platform built with cutting-edge web technologies like Laravel, Tailwind CSS, and Vite. This responsive design would effectively showcase the DRL's innovative work in facilitating real-time data transmission from Earth-observing satellites directly to ground stations across the globe. The website's intuitive interface would provide users with seamless access to mission-critical information, valuable tools, and essential resources, like data visualization tools and educational materials, enhancing environmental monitoring capabilities and supporting vital scientific research on a global scale. By empowering users with timely and accessible data, the DRL website aims to strengthen international collaboration and contribute to a deeper understanding of our changing planet.                                    <div class="mt-4">
+                                        <div
+                                            class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600">
 
-                                    <a href="/img/ss-direct-readout.png" alt="" target="_blank">
-                                        <div class="font-bold tracking-tight text-sm text-blue-400 mt-4 border-blue-400
-                                        rounded border uppercase px-2 py-1 inline-block
-                                        hover:text-blue-600 hover:border-blue-600">
-                                            VIEW SCREENSHOT
+                                            <a href="/img/ss-direct-readout.png" alt="" target="_blank">
+                                                VIEW SCREENSHOT
+                                            </a>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                                <hr class="border-slate-100 border-t my-4">
+                                <hr class="border-slate-100 border-t mt-4">
                                 <div class="mt-6 flex items-center">
                                     <div class="flex-shrink-0">
                                         <a href="#">
@@ -743,14 +724,17 @@
                                         </p>
                                     </a>
 
-                                    <a href="#">
-                                        <div class="font-bold tracking-tight text-sm text-blue-400 mt-4 border-blue-400
-                                        rounded border uppercase px-2 py-1 inline-block
-                                        hover:text-blue-600 hover:border-blue-600">
-                                            <a href="/img/ss-mci-verizon.png" target="_blank">VIEW SCREENSHOT</a>
+
+                                    <div class="mt-4">
+                                        <div
+                                            class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600">
+                                            <a href="/img/ss-mci-verizon.png" target="_blank">
+                                                VIEW SCREENSHOT
+                                            </a>
                                         </div>
-                                    </a>
-                                    <hr class="border-slate-100 border-t my-4">
+                                    </div>
+
+                                    <hr class="border-slate-100 border-t mt-4">
                                 </div>
                                 <div class="mt-6 flex items-center">
                                     <div class="flex-shrink-0">
@@ -797,14 +781,16 @@
                                         </p>
                                     </a>
 
-                                    <a href="/img/ss-informeddna.png" target="_blank">
-                                        <div class="font-bold tracking-tight text-sm text-blue-400 mt-4 border-blue-400
-                                        rounded border uppercase px-2 py-1 inline-block
-                                        hover:text-blue-600 hover:border-blue-600">
-                                            VIEW SCREENSHOT
+                                    <div class="mt-4">
+                                        <div
+                                            class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600">
+
+                                            <a href="/img/ss-informeddna.png" target="_blank">
+                                                VIEW SCREENSHOT
+                                            </a>
                                         </div>
-                                    </a>
-                                    <hr class="border-slate-100 border-t my-4">
+                                    </div>
+                                    <hr class="border-slate-100 border-t mt-4">
                                 </div>
                                 <div class="mt-4 flex items-center">
                                     <div class="flex-shrink-0">
@@ -843,18 +829,18 @@
                                         <p class="mt-3 text-base text-gray-500">
                                             At Dante Inc., I contributed to Taylor MDA, an advanced Eclipse-based UML modeling tool for multi-tiered, distributed systems. It streamlines complex system design and maximizes code generation from UML models. Taylor MDA features pre-designed templates for JEE applications, integrating JPA/EJB3 and JSF/Seam/Facelets, accelerating enterprise application development through innovative model-driven architecture techniques. My work enhanced its capabilities and user experience.
                                         </p>
-                                        <a href="#">
-                                            <div class="font-bold tracking-tight text-sm text-blue-400 mt-4 border-blue-400
-                                                    rounded border uppercase px-2 py-1 inline-block
-                                                    hover:text-blue-600 hover:border-blue-600">
+<div class="mt-4">
+    <div
+        class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600">
+
                                                 <a href="img/ss-dante.png" target="_blank">
                                                     VIEW SCREENSHOT
                                                 </a>
                                             </div>
-                                        </a>
-                                    </span>
-                                </div>
-                                <hr class="border-slate-100 border-t my-4">
+</div>
+
+
+                                <hr class="border-slate-100 border-t mt-4">
                                 <div class="mt-6 flex items-center">
                                     <div class="flex-shrink-0">
                                         <a href="#">
@@ -870,13 +856,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
-    </main>    @include('partials.footer')
+    </main> @include('partials.footer')
 </div>
 @include('partials.back-to-top')
 @include('partials.scripts')
