@@ -57,7 +57,7 @@
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-16">
-            <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
+            <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 animate-fade-in">
                 Core Competencies
             </span>
         </h2>
@@ -65,15 +65,19 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             @foreach(['left', 'right'] as $column)
                 <div class="space-y-4">
-                    @foreach($competencies[$column] as $competency)
+                    @foreach($competencies[$column] as $index => $competency)
                         <div
-                            class="group bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl">
+                            class="group bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl skill-item"
+                            style="animation-delay: {{ $index * 200 }}ms">
                             <div class="flex items-center space-x-4">
                                 <span
-                                    class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-400 to-indigo-400">
+                                    class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-400 to-indigo-400 animate-skillPulse">
                                     <i class="{{ $competency['icon'] }} text-xl text-white"></i>
                                 </span>
-                                <p class="text-lg text-white/90 font-medium">{{ $competency['text'] }}</p>
+                                <p class="text-lg text-white/90 font-medium animate-fade-in-up">{{ $competency['text'] }}</p>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-1 mt-4 overflow-hidden opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                <div class="bg-gradient-to-r from-cyan-400 to-indigo-400 h-1 rounded-full animate-skillPulse" style="width: 100%"></div>
                             </div>
                         </div>
                     @endforeach
