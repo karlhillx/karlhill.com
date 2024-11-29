@@ -119,6 +119,9 @@ footer .bottom-social-icons a {
 .medium:hover { @apply bg-[#00ab6c] scale-110 rotate-3; }
 .twitter:hover { @apply bg-[#1da1f2] scale-110 -rotate-3; }
 .discogs:hover { @apply bg-[#333] scale-110 rotate-3; }
+.orcid:hover { @apply bg-[#a6ce39] scale-110 -rotate-3; }
+
+
 .text-container {
     padding-inline: clamp(1rem, 5vw, 2rem);
 }

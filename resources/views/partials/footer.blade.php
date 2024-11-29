@@ -28,6 +28,12 @@
                    target="_blank" href="https://www.discogs.com/artist/1286669-Karl-Hill">
                     <i class="fas fa-compact-disc text-white"></i>
                 </a>
+                <a class="orcid group transition-colors duration-300"
+                   aria-label="Visit Karl Hill's ORCID profile"
+                   target="_blank"
+                   href="https://orcid.org/0009-0002-6847-3368">
+                    <i class="fab fa-orcid text-white"></i>
+                </a>
             </div>
         </div>
         <div class="mt-8 md:mt-0 md:order-1">
