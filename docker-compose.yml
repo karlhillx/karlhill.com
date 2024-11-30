@@ -1,0 +1,30 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - .:/var/www
+      - /var/www/node_modules
+      - /var/www/vendor
+    networks:
+      - karlhill
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www
+      - /var/www/node_modules
+      - /var/www/vendor
+    depends_on:
+      - app
+    networks:
+      - karlhill
+
+networks:
+  karlhill:
+    driver: bridge
