@@ -5,12 +5,12 @@
 </head>
 <body class="font-sans bg-white">
 <div class="flex flex-col min-h-screen">
-    @include('partials.header')
+    @include('components.header')
 
     <main class="flex-grow pt-32">
         <section id="recent-work">
             <main>
-                <x-hero-section/>
+                <x-hero/>
                 <div class="sm:mt-20">
                     <div class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
                         <div
@@ -648,18 +648,33 @@
                                     </p>
                                     <a href="#" class="block mt-2">
                                         <p class="text-xl font-semibold text-gray-900"><a
-                                                href="https://directreadout.sci.gsfc.nasa.gov/" alt="" target="_blank">Direct
+                                                href="https://directreadout.sci.gsfc.nasa.gov/" alt=""
+                                                target="_blank">Direct
                                                 Readout Laboratory</a></p>
                                         <p class="mt-3 text-base text-gray-500">
-                                            The Direct Readout Laboratory (DRL) plays a vital role in connecting NASA's Earth observation missions with data users worldwide. I designed a concept website for the DRL, envisioning a modern and dynamic platform built with cutting-edge web technologies like Laravel, Tailwind CSS, and Vite. This responsive design would effectively showcase the DRL's innovative work in facilitating real-time data transmission from Earth-observing satellites directly to ground stations across the globe. The website's intuitive interface would provide users with seamless access to mission-critical information, valuable tools, and essential resources, like data visualization tools and educational materials, enhancing environmental monitoring capabilities and supporting vital scientific research on a global scale. By empowering users with timely and accessible data, the DRL website aims to strengthen international collaboration and contribute to a deeper understanding of our changing planet.                                    <div class="mt-4">
-                                        <div
-                                            class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600">
+                                            The Direct Readout Laboratory (DRL) plays a vital role in connecting NASA's
+                                            Earth observation missions with data users worldwide. I designed a concept
+                                            website for the DRL, envisioning a modern and dynamic platform built with
+                                            cutting-edge web technologies like Laravel, Tailwind CSS, and Vite. This
+                                            responsive design would effectively showcase the DRL's innovative work in
+                                            facilitating real-time data transmission from Earth-observing satellites
+                                            directly to ground stations across the globe. The website's intuitive
+                                            interface would provide users with seamless access to mission-critical
+                                            information, valuable tools, and essential resources, like data
+                                            visualization tools and educational materials, enhancing environmental
+                                            monitoring capabilities and supporting vital scientific research on a global
+                                            scale. By empowering users with timely and accessible data, the DRL website
+                                            aims to strengthen international collaboration and contribute to a deeper
+                                            understanding of our changing planet.
+                                        <div class="mt-4">
+                                            <div
+                                                class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600">
 
-                                            <a href="/img/ss-direct-readout.png" alt="" target="_blank">
-                                                VIEW SCREENSHOT
-                                            </a>
+                                                <a href="/img/ss-direct-readout.png" alt="" target="_blank">
+                                                    VIEW SCREENSHOT
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
                                 <hr class="border-slate-100 border-t mt-4">
                                 <div class="mt-6 flex items-center">
@@ -861,11 +876,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
-    </main> @include('partials.footer')
+    </main>
+    @include('components.footer')
 </div>
-@include('partials.back-to-top')
-@include('partials.scripts')
-@include('partials.schema')
+@include('components.back-to-top')
+@include('components.scripts')
+@include('components.schema')
 </body>
 </html>
