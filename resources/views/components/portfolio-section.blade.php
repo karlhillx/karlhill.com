@@ -1,4 +1,5 @@
-<div class="relative bg-gray-50 pb-20 pt-20 pl-5 pr-5">
+<!-- Header Section -->
+<section class="relative bg-gray-50 pt-20 pb-8 px-5">
     <div class="relative max-w-7xl mx-auto">
         <header>
             <div class="text-center">
@@ -10,15 +11,19 @@
                     </svg>
                 </div>
             </div>
-            <h2 class="text-3xl text-auto tracking-tight font-bold text-gray-900 sm:text-4xl sm:tracking-tight">
-                Portfolio</h2>
+            <h2 class="text-3xl text-auto tracking-tight font-bold text-gray-900 sm:text-4xl sm:tracking-tight">Portfolio</h2>
             <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
                 A brief, curated list of projects I've worked on over the years in professional settings.
             </p>
         </header>
+    </div>
+</section>
 
-        <!-- Portfolio Section 1-->
-        <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+<!-- NASA Projects Section -->
+<section class="relative bg-gray-50 py-12 px-5">
+    <div class="relative max-w-7xl mx-auto">
+        <div class="max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+            <!-- ESCCOR Project Card -->
             <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                 <div class="flex-shrink-0">
                     <img class="h-48 w-full object-cover"
@@ -80,6 +85,7 @@
                 </div>
             </div>
 
+            <!-- Earth Observatory Project Card -->
             <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                 <picture>
                     <source srcset="/img/webp/small-earth-observatory.webp" type="image/webp">
@@ -139,6 +145,7 @@
                 </div>
             </div>
 
+            <!-- Direct Readout Laboratory Project Card -->
             <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                 <div class="flex-shrink-0">
                     <img class="h-48 w-full object-cover" src="/img/ss-direct-readout2.png" alt="">
@@ -168,6 +175,7 @@
                                 scale. By empowering users with timely and accessible data, the DRL website
                                 aims to strengthen international collaboration and contribute to a deeper
                                 understanding of our changing planet.
+                            </p>
                             <div class="mt-4">
                                 <div
                                     class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600">
@@ -198,23 +206,18 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
-
-<!-- Portfolio Section 2-->
-<section class="relative bg-gray-50 pb-20 pt-20 pl-5 pr-5">
-    <div class="absolute inset-0">
-        <div class="bg-white h-1/3 sm:h-2/3"></div>
-    </div>
-    <article class="relative max-w-7xl mx-auto">
-        <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+<!-- Enterprise Projects Section -->
+<section class="relative bg-gray-50 py-12 px-5">
+    <div class="relative max-w-7xl mx-auto">
+        <div class="max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+            <!-- Verizon Business Finium Card -->
             <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                 <div class="flex-shrink-0">
-
                     <img class="h-48 w-full object-cover"
                          src="/img/ss-mci-verizon.png"
                          alt="">
-
                 </div>
                 <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                     <div class="flex-1">
@@ -240,8 +243,6 @@
                                 operations in our complex digital landscape.
                             </p>
                         </a>
-
-
                         <div class="mt-4">
                             <div
                                 class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600">
@@ -250,7 +251,6 @@
                                 </a>
                             </div>
                         </div>
-
                         <hr class="border-slate-100 border-t mt-4">
                     </div>
                     <div class="mt-6 flex items-center">
@@ -271,6 +271,7 @@
                 </div>
             </div>
 
+            <!-- IDNAPortal Project Card -->
             <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                 <div class="flex-shrink-0">
                     <img class="h-48 object-cover object-left-top" src="/img/ss-informeddna.png" alt="">
@@ -328,6 +329,7 @@
                 </div>
             </div>
 
+            <!-- Taylor MDA Project Card -->
             <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                 <div class="flex-shrink-0">
                     <img class="h-48 w-full object-cover" src="/img/ss-dante.png" alt="Taylor MDA Screenshot">
@@ -372,5 +374,5 @@
                 </div>
             </div>
         </div>
-        </div>
-        </div>
+    </div>
+</section>
