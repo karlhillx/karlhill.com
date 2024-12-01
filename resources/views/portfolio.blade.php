@@ -29,10 +29,10 @@
         <x-portfolio-section2/>
 
     </main>
-    @include('components.footer')
+    <x-footer/>
 </div>
-@include('components.back-to-top')
-@include('components.scripts')
-@include('components.schema')
+<x-back-to-top/>
+<x-scripts/>
+<x-schema/>
 </body>
 </html>
