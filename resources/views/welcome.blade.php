@@ -11,7 +11,7 @@
     <div class="flex flex-col min-h-screen">
         <x-header/>
 
-        <main class="flex-grow">
+        <main class="flex-grow" role="main">
             <x-landing/>
             <x-feature/>
             <x-skills/>
