@@ -1,4 +1,4 @@
-<section id="carousel">
+<section id="gallery">
      <div class="sm:mt-20">
          <div class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
              @php

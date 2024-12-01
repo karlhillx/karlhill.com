@@ -4,7 +4,7 @@
 
 @section('content')
     <x-hero/>
-    <x-carousel/>
+    <x-gallery/>
     <div class="sm:px-8 mt-24 md:mt-28">
         <div class="mx-auto max-w-7xl lg:px-8">
             <div class="relative px-4 sm:px-8 lg:px-12">

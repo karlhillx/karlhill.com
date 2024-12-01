@@ -1,4 +1,4 @@
-<section id="landing-hero" class="bg-hero-pattern min-h-screen w-full pt-48 overflow-hidden">
+<section id="landing" class="bg-hero-pattern min-h-screen w-full pt-48 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-container py-6">
             <div x-data="{ show: false }" x-init="setTimeout(() => show = true, 200)">
@@ -44,7 +44,7 @@
                 x-transition:enter="transition ease-out duration-800"
                 x-transition:enter-start="opacity-0 transform translate-y-4"
                 x-transition:enter-end="opacity-100 transform translate-y-0"
-                class="flex gap-4 flex-wrap"
+                class="flex gap-2 flex-wrap"
             >
                 <span class="relative inline-block">
                     <a href="/portfolio" class="inline-flex items-center px-3 py-2 border-2 border-white text-sm font-medium rounded-md text-white hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-base sm:px-4">
