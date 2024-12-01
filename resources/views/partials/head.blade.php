@@ -52,4 +52,4 @@
 <!-- Preload Critical Assets -->
 <link rel="preload" href="{{ asset('fonts/inter.woff2') }}" as="font" type="font/woff2" crossorigin>
 
-@vite('resources/css/app.css')
+@vite(['resources/css/app.css', 'resources/js/app.js'])
