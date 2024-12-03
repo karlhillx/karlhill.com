@@ -9,7 +9,7 @@
     @endif
 >
 <head>
-    @include('partials.head')
+    <x-meta/>
 </head>
 <body class="font-sans @yield('body-bg', 'bg-white') antialiased">
 

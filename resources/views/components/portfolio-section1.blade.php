@@ -1,26 +1,30 @@
 <!-- NASA Projects Section -->
-<section class="relative bg-gray-50 py-12 px-5">
+<section class="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 px-5 transition-colors duration-300">
     <div class="relative max-w-7xl mx-auto">
-        <div class="max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+        <div class="max-w-lg mx-auto grid gap-8 lg:grid-cols-3 lg:max-w-none opacity-0 translate-y-4 transition-all duration-700"
+             x-data="{}"
+             x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-y-4'), 100)">
+
             <!-- ESCCOR Project Card -->
-            <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+            <div class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800">
                 <div class="flex-shrink-0">
-                    <img class="h-48 w-full object-cover"
+                    <img class="h-48 w-full object-cover transition-opacity duration-300"
+                         loading="lazy"
                          src="/img/ss-esccor.png"
-                         alt="">
+                         alt="ESCCOR Project Screenshot">
                 </div>
-                <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                <div class="flex-1 p-6 flex flex-col justify-between dark:bg-gray-800">
                     <div class="flex-1">
-                        <p class="text-sm font-medium text-indigo-600">
-                            <a href="#" class="hover:underline"> Application </a>
+                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                            <a href="#" class="hover:underline transition-colors">Application</a>
                         </p>
                         <a href="#" class="block mt-2">
-                            <p class="text-xl font-semibold text-gray-900">
+                            <p class="text-xl font-semibold text-gray-900 dark:text-white">
                                 <a href="https://www.earthdata.nasa.gov/esds" target="_blank">
                                     Earth Science Communications Content Registry (ESCCOR)
                                 </a>
                             </p>
-                            <p class="mt-3 text-base text-gray-500">
+                            <p class="mt-3 text-base text-gray-500 dark:text-gray-400">
                                 ESCCOR is a cutting-edge platform revolutionizing Earth science data
                                 management.
                                 This system integrates advanced taxonomy, AI-powered indexing, and a
@@ -43,7 +47,7 @@
                                 </a>
                             </div>
                         </div>
-                        <hr class="border-slate-100 border-t mt-4">
+                        <hr class="border-slate-100 dark:border-slate-700 border-t mt-4">
                     </div>
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
@@ -52,11 +56,11 @@
                             </a>
                         </div>
                         <div class="ml-3">
-                            <p class="text-sm font-medium text-gray-900">
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">
                                 <a href="#" class="hover:underline"> Laravel, Apache Nutch,
                                     ElasticSearch </a>
                             </p>
-                            <div class="flex space-x-1 text-sm text-gray-500">
+                            <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
                                 <time datetime="2020-03-16"> NASA Goddard Space Flight Center</time>
                             </div>
                         </div>
@@ -65,24 +69,25 @@
             </div>
 
             <!-- Earth Observatory Project Card -->
-            <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+            <div class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800">
                 <picture>
                     <source srcset="/img/webp/small-earth-observatory.webp" type="image/webp">
-                    <img class="h-48 w-full object-cover" src="/img/small-earth-observatory.png"
-                         alt="Earth Observatory">
+                    <img class="h-48 w-full object-cover transition-opacity duration-300"
+                         loading="lazy"
+                         src="/img/small-earth-observatory.png"
+                         alt="Earth Observatory Screenshot">
                 </picture>
-
-                <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                <div class="flex-1 p-6 flex flex-col justify-between dark:bg-gray-800">
                     <div class="flex-1">
-                        <p class="text-sm font-medium text-indigo-600">
-                            <a href="#" class="hover:underline"> Website & Backend Administration </a>
+                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                            <a href="#" class="hover:underline transition-colors">Website & Backend Administration</a>
                         </p>
                         <a href="#" class="block mt-2">
-                            <p class="text-xl font-semibold text-gray-900"><a
+                            <p class="text-xl font-semibold text-gray-900 dark:text-white"><a
                                     href="https://earthobservatory.nasa.gov/"
                                     alt="" target="_blank">Earth
                                     Observatory</a></p>
-                            <p class="mt-3 text-base text-gray-500">
+                            <p class="mt-3 text-base text-gray-500 dark:text-gray-400">
                                 I helped develop NASA's Earth Observatory website and its advanced back-end
                                 system, creating a digital gateway to NASA's environmental research. This
                                 platform showcases stunning imagery, compelling stories, and crucial
@@ -105,7 +110,7 @@
                             </div>
                         </div>
                     </div>
-                    <hr class="border-slate-100 border-t mt-4">
+                    <hr class="border-slate-100 dark:border-slate-700 border-t mt-4">
                     <div class="mt-6 flex items-center">
                         <div class="flex-shrink-0">
                             <a href="#">
@@ -113,10 +118,10 @@
                             </a>
                         </div>
                         <div class="ml-3">
-                            <p class="text-sm font-medium text-gray-900">
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">
                                 <a href="#" class="hover:underline"> Laravel, Bootstrap, Laravel Mix </a>
                             </p>
-                            <div class="flex space-x-1 text-sm text-gray-500">
+                            <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
                                 <time datetime="2020-03-10"> NASA Goddard Space Flight Center</time>
                             </div>
                         </div>
@@ -125,21 +130,24 @@
             </div>
 
             <!-- Direct Readout Laboratory Project Card -->
-            <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+            <div class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800">
                 <div class="flex-shrink-0">
-                    <img class="h-48 w-full object-cover" src="/img/ss-direct-readout2.png" alt="">
+                    <img class="h-48 w-full object-cover transition-opacity duration-300"
+                         loading="lazy"
+                         src="/img/ss-direct-readout2.png"
+                         alt="Direct Readout Laboratory Screenshot">
                 </div>
-                <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                <div class="flex-1 p-6 flex flex-col justify-between dark:bg-gray-800">
                     <div class="flex-1">
-                        <p class="text-sm font-medium text-indigo-600">
-                            <a href="#" class="hover:underline"> Website Case Study </a>
+                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                            <a href="#" class="hover:underline transition-colors">Website Case Study</a>
                         </p>
                         <a href="#" class="block mt-2">
-                            <p class="text-xl font-semibold text-gray-900"><a
+                            <p class="text-xl font-semibold text-gray-900 dark:text-white"><a
                                     href="https://directreadout.sci.gsfc.nasa.gov/" alt=""
                                     target="_blank">Direct
                                     Readout Laboratory</a></p>
-                            <p class="mt-3 text-base text-gray-500">
+                            <p class="mt-3 text-base text-gray-500 dark:text-gray-400">
                                 The Direct Readout Laboratory (DRL) plays a vital role in connecting NASA's
                                 Earth observation missions with data users worldwide. I designed a concept
                                 website for the DRL, envisioning a modern and dynamic platform built with
@@ -165,7 +173,7 @@
                                 </div>
                             </div>
                     </div>
-                    <hr class="border-slate-100 border-t mt-4">
+                    <hr class="border-slate-100 dark:border-slate-700 border-t mt-4">
                     <div class="mt-6 flex items-center">
                         <div class="flex-shrink-0">
                             <a href="#">
@@ -173,10 +181,10 @@
                             </a>
                         </div>
                         <div class="ml-3">
-                            <p class="text-sm font-medium text-gray-900">
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">
                                 <a href="#" class="hover:underline"> Laravel, Tailwind, Vite</a>
                             </p>
-                            <div class="flex space-x-1 text-sm text-gray-500">
+                            <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
                                 <time datetime="2020-02-12"> NASA Goddard Space Flight Center</time>
                             </div>
                         </div>
