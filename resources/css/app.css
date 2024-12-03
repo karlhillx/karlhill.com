@@ -1,5 +1,4 @@
-@import "tailwindcss";
-@import "@fortawesome/fontawesome-free/css/all.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @import "tailwindcss";
 @import "@fortawesome/fontawesome-free/css/all.css";
@@ -255,3 +254,6 @@ footer .bottom-social-icons a {
     animation: skillPulse 2s ease-in-out infinite;
 }
 
+.project-card {
+    @apply transition-transform duration-300 hover:scale-102;
+}

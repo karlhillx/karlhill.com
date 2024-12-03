@@ -35,3 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 })
+
+// Handle page visibility changes
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        // Refresh content or reconnect as needed
+    }
+});
+
