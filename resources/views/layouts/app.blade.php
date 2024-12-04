@@ -15,6 +15,8 @@
 
 <x-header/>
 
+<x-flash-message />
+
 <main class="flex-grow @yield('main-classes')" role="main">
     @yield('content')
 </main>
@@ -28,3 +30,4 @@
 <x-schema/>
 </body>
 </html>
+
