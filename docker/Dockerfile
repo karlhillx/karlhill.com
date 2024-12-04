@@ -1,4 +1,4 @@
-FROM php:8.3-fpm
+FROM php:8.4-alpine
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip
 
-# Install Node.js 22
-RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+# Install Node.js 23
+RUN curl -fsSL https://deb.nodesource.com/setup_23.x | bash -
 RUN apt-get install -y nodejs
 
 # Clear cache
