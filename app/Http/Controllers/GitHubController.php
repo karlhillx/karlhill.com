@@ -18,7 +18,11 @@ class GitHubController extends Controller
         try {
             $response = Http::withHeaders([
                 'Authorization' => 'Bearer ' . $token,
-            ])->get('https://api.github.com/users/karlhillx/repos');
+            ])->get('https://api.github.com/user/repos', [
+                'visibility' => 'all',
+                'per_page' => 100,
+                'sort' => 'updated'
+            ]);
 
             return response()->json($response->json());
         } catch (\Exception $e) {
