@@ -3,6 +3,7 @@
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\GitHubController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,6 @@ Route::prefix('contact')->group(function () {
 Route::get('/health', function () {
     return response()->json(['status' => 'healthy']);
 });
+
+Route::get('/api/github/languages', [GitHubController::class, 'getLanguageStats']);
+

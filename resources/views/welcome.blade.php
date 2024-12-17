@@ -12,6 +12,8 @@
 
     <x-skills/>
 
+    {{--<x-dynamic-skills/>--}}
+
     <x-core-competencies/>
 
     <x-map/>
