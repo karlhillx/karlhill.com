@@ -10,11 +10,11 @@
 
     <x-feature/>
 
+    <x-core-competencies/>
+
     <x-skills/>
 
-    {{--<x-dynamic-skills/>--}}
-
-    <x-core-competencies/>
+    <x-dynamic-skills/>
 
     <x-map/>
 

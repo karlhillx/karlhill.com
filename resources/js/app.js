@@ -1,5 +1,6 @@
 import Alpine from 'alpinejs'
 import darkMode from './darkMode'
+import './github-skills.js'
 
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';

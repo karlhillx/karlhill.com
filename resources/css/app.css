@@ -257,3 +257,13 @@ footer .bottom-social-icons a {
 .project-card {
     @apply transition-transform duration-300 hover:scale-102;
 }
+
+.skill-bar {
+  --skill-percentage: 0;
+  width: calc(var(--skill-percentage) * 1%);
+  height: 100%;
+  background-color: theme('colors.sky.500');
+  border-radius: 0.25rem;
+  transition: width 1s ease-in-out;
+}
+
