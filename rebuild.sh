@@ -11,7 +11,7 @@ NC='\033[0m' # No Color
 log() {
     case "$1" in
         start)
-            echo -e "🚀 \033[1mStarting   build process.\033[0m"
+            echo -e "🚀 \033[1mStarting build process.\033[0m"
             ;;
         deps)
             echo -e "\n📦 Preparing dependencies..."
