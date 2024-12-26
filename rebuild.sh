@@ -11,7 +11,7 @@ NC='\033[0m' # No Color
 log() {
     case "$1" in
         start)
-            echo -e "🚀 \033[1m**Starting rebuild process.**\033[0m"
+            echo -e "🚀 \033[1mStarting   build process.\033[0m"
             ;;
         deps)
             echo -e "\n📦 Preparing dependencies..."
@@ -27,7 +27,7 @@ log() {
             echo -e "\n🏗️ Building frontend assets..."
             ;;
         complete)
-            echo -e "\n✨ ${GREEN}\033[1mRebuild completed successfully!${NC}"
+            echo -e "\n✨ ${GREEN}\033[1mBuild completed successfully!${NC}"
             ;;
         warning)
             echo -e "\n⚠️  ${YELLOW}$2${NC}"
@@ -59,6 +59,42 @@ handle_vulnerabilities() {
         log warning "Automatic vulnerability fix failed. Manual intervention required."
         echo -e "${RED}Please run 'npm audit' and address vulnerabilities manually.${NC}"
     fi
+}
+
+# Function to check if it's a Laravel application
+is_laravel_app() {
+    if [ -f "artisan" ] && [ -d "app" ] && [ -d "bootstrap" ] && [ -d "config" ]; then
+        return 0  # It's a Laravel app
+    else
+        return 1  # Not a Laravel app
+    fi
+}
+
+# Function to run Laravel-specific commands
+run_laravel_commands() {
+    echo -e "\n🔧 ${YELLOW}Detected Laravel application. Running Laravel-specific commands...${NC}"
+
+    # Composer install
+    log "Composer install"
+    composer install
+
+    # Generate application key
+    echo -e "\n🔑 Generating application key..."
+    php artisan key:generate
+
+    # Run database migrations
+    #echo -e "\n💾 Running database migrations..."
+    #php artisan migrate
+
+    # Clear application cache
+    echo -e "\n🧹 Clearing application cache..."
+    php artisan cache:clear
+
+    # Optimize application
+    echo -e "\n🚀 Optimizing application..."
+    php artisan optimize
+
+    echo -e "\n✨ ${GREEN}Laravel artisan commands completed!${NC}"
 }
 
 # Main rebuild process
@@ -94,10 +130,16 @@ main() {
     log build
     npm run build
 
+    # Check if it's a Laravel application
+    if is_laravel_app; then
+        run_laravel_commands
+    else
+        echo -e "\n❌ ${YELLOW}Not a Laravel application. Skipping Laravel-specific commands.${NC}"
+    fi
+
     # Complete process
     log complete
 }
 
 # Execute main function
 main "$@"
-
