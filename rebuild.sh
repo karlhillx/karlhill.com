@@ -124,7 +124,7 @@ main() {
 
     # Build frontend
     log build
-    npm run build
+    npm rebuild esbuild
 
     # Check if it's a Laravel application
     if is_laravel_app; then

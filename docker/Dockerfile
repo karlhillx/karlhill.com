@@ -30,7 +30,7 @@ COPY composer.* ./
 RUN composer install --no-scripts --no-autoloader
 
 COPY package*.json ./
-RUN npm install
+RUN npm i npm@next -g
 RUN npm rebuild esbuild
 
 COPY .. .
