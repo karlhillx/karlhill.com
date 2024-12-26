@@ -34,7 +34,7 @@
                 x-transition:enter-end="opacity-100 transform translate-x-0"
                 class="text-lg sm:text-xl uppercase font-medium tracking-tight text-white mt-2 mb-3"
             >
-                PHP, Laravel, Tailwind, Alpine, Vite
+                Agile & Cloud-Native Solutions Architect
             </div>
 
             <div
