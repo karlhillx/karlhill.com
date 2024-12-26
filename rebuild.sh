@@ -82,10 +82,6 @@ run_laravel_commands() {
     echo -e "\n🔑 Generating application key..."
     php artisan key:generate
 
-    # Run database migrations
-    #echo -e "\n💾 Running database migrations..."
-    #php artisan migrate
-
     # Clear application cache
     echo -e "\n🧹 Clearing application cache..."
     php artisan cache:clear

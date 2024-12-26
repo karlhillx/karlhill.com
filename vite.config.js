@@ -1,8 +1,11 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import path from 'path';
+import postcss from './postcss.config.mjs';
 
 export default defineConfig({
+    css: {
+        postcss,
+    },
   plugins: [
       laravel({
           input: [
@@ -11,10 +14,5 @@ export default defineConfig({
           ],
           refresh: true,
       }),
-  ],
-  resolve: {
-      alias: {
-          '~tailwindcss': path.resolve(__dirname, 'node_modules/tailwindcss'),
-      }
-  }
+  ]
 });

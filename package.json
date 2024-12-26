@@ -10,7 +10,9 @@
         "@fortawesome/free-brands-svg-icons": "^6.7.2",
         "@fortawesome/free-regular-svg-icons": "^6.7.2",
         "@fortawesome/free-solid-svg-icons": "^6.7.2",
+        "@tailwindcss/cli": "^4.0.0-beta.8",
         "@tailwindcss/postcss": "^4.0.0-beta.8",
+        "@tailwindcss/vite": "^4.0.0-beta.8",
         "alpinejs": "^3.14.7",
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.9",
@@ -18,6 +20,6 @@
         "jquery": "^3.7.1",
         "laravel-vite-plugin": "^1.1.1",
         "tailwindcss": "^4.0.0-beta.8",
-        "vite": "^6.0.4"
+        "vite": "^6.0.3"
     }
 }
