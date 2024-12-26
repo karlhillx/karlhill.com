@@ -67,8 +67,9 @@ main() {
     log "Pulling latest repository changes"
     git pull origin main
 
-    # Install/update dependencies
-    log "Installing/updating PHP dependencies"
+    # Update and install PHP dependencies
+    log "Updating and installing PHP dependencies"
+    composer update --no-interaction --prefer-dist
     composer install --no-interaction --prefer-dist --optimize-autoloader
 
     # Install/update npm dependencies
@@ -76,7 +77,7 @@ main() {
     npm install
     npm run build
 
-    log "Rebuild completed successfully for ${DOMAIN}."
+    log "Rebuild completed successfully."
 }
 
 # Execute main function with domain argument
