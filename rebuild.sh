@@ -101,20 +101,13 @@ main() {
     # Prepare dependencies
     log deps
 
-    # Use nvm for Node.js management
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-    # Install or use latest Node.js
-    nvm install node
-    nvm use node
-
     # Pull latest changes
     git pull origin main
 
     # Install npm dependencies
     log npm
-    npm install
+    npm i npm@latest -g
+    npm rebuild esbuild
 
     # Check for vulnerabilities
     npm audit > /dev/null
