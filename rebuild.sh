@@ -1,84 +1,103 @@
-# This script automates the deployment and rebuild process
-
-# Exit on any error
-set -e
+#!/bin/bash
 
 # Color codes for better readability
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+RED='\033[0;31m'
+GRAY='\033[0;37m'
 NC='\033[0m' # No Color
 
-# Function to log messages
+# Function to log messages with emoji
 log() {
-    echo -e "${GREEN}[REBUILD]${NC} $1"
+    case "$1" in
+        start)
+            echo -e "🚀 \033[1m**Starting rebuild process.**\033[0m"
+            ;;
+        deps)
+            echo -e "\n📦 Preparing dependencies..."
+            echo "   - Checking Node.js and npm..."
+            echo -e "   ${GRAY}- Node.js version: $(node --version)${NC}"
+            echo -e "   ${GRAY}- npm version: $(npm --version)${NC}"
+            echo "   - Pulling latest repo changes..."
+            ;;
+        npm)
+            echo -e "\n📦 Installing npm packages..."
+            ;;
+        build)
+            echo -e "\n🏗️ Building frontend assets..."
+            ;;
+        complete)
+            echo -e "\n✨ ${GREEN}\033[1mRebuild completed successfully!${NC}"
+            ;;
+        warning)
+            echo -e "\n⚠️  ${YELLOW}$2${NC}"
+            ;;
+        security)
+            echo -e "\n🛡️  ${RED}$2${NC}"
+            ;;
+    esac
 }
 
-# Function to log warnings
-warn() {
-    echo -e "${YELLOW}[WARNING]${NC} $1"
-}
+# Function to handle security vulnerabilities
+handle_vulnerabilities() {
+    log security "Security vulnerabilities detected in npm packages!"
+    echo -e "${YELLOW}Attempting to automatically fix vulnerabilities...${NC}"
 
-# Function to install Node.js and npm globally
-install_node_npm() {
-    log "Installing Node.js and npm globally"
+    # Run npm audit fix
+    npm audit fix
 
-    # Check if nvm is installed
-    if [ -d "$HOME/.nvm" ]; then
-        # Source nvm
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    # Check the result of npm audit fix
+    if [ $? -eq 0 ]; then
+        log security "Successfully applied security fixes using npm audit fix."
 
-        # Install latest LTS version of Node.js
-        nvm install --lts
-        nvm use --lts
-    else
-        # If nvm is not installed, use alternative method
-        # This might vary depending on your operating system
-
-        # For Ubuntu/Debian
-        if [ -x "$(command -v apt-get)" ]; then
-            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-            sudo apt-get install -y nodejs
-
-        # For macOS with Homebrew
-        elif [ -x "$(command -v brew)" ]; then
-            brew install node
-
-        # For other systems, you might need to adjust
-        else
-            warn "Automatic Node.js installation not supported on this system"
-            exit 1
+        # Run another audit to confirm
+        npm audit
+        if [ $? -ne 0 ]; then
+            log warning "Some vulnerabilities remain. Manual review recommended."
         fi
+    else
+        log warning "Automatic vulnerability fix failed. Manual intervention required."
+        echo -e "${RED}Please run 'npm audit' and address vulnerabilities manually.${NC}"
     fi
-
-    # Verify installation
-    node --version
-    npm --version
 }
 
 # Main rebuild process
 main() {
-    log "Starting rebuild process."
+    # Start process
+    log start
 
-    # Install Node.js and npm globally
-    install_node_npm
+    # Prepare dependencies
+    log deps
+
+    # Use nvm for Node.js management
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+    # Install or use latest Node.js
+    nvm install node
+    nvm use node
 
     # Pull latest changes
-    log "Pulling latest repository changes"
     git pull origin main
 
-    # Update and install PHP dependencies
-    log "Updating and installing PHP dependencies"
-    composer update --no-interaction --prefer-dist
-    composer install --no-interaction --prefer-dist --optimize-autoloader
-
-    # Install/update npm dependencies
-    log "Installing/updating npm dependencies"
+    # Install npm dependencies
+    log npm
     npm install
+
+    # Check for vulnerabilities
+    npm audit > /dev/null
+    if [ $? -ne 0 ]; then
+        handle_vulnerabilities
+    fi
+
+    # Build frontend
+    log build
     npm run build
 
-    log "Rebuild completed successfully."
+    # Complete process
+    log complete
 }
 
-# Execute main function with domain argument
+# Execute main function
 main "$@"
+
