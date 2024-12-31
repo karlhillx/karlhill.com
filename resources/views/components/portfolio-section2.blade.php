@@ -1,6 +1,51 @@
 <!-- Enterprise Projects Section -->
 <section
     class="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 px-5 transition-colors duration-300">
+    <div x-data="{
+        selectedImage: null,
+        openModal(imageSrc) {
+            this.selectedImage = imageSrc;
+        },
+        closeModal() {
+            this.selectedImage = null;
+        }
+    }">
+        <!-- Image Modal -->
+        <template x-if="selectedImage">
+            <div
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4"
+                @click.self="closeModal"
+            >
+                <div
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 scale-90"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-90"
+                    class="max-w-5xl max-h-[90vh] overflow-contain"
+                >
+                    <img
+                        :src="selectedImage"
+                        class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                        @click.stop
+                    >
+                    <button
+                        @click="closeModal"
+                        class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300"
+                    >
+                        ×
+                    </button>
+                </div>
+            </div>
+        </template>
+
     <div class="relative max-w-7xl mx-auto">
         <div
             class="max-w-lg mx-auto grid gap-8 lg:grid-cols-3 lg:max-w-none opacity-0 translate-y-4 transition-all duration-700"
@@ -36,7 +81,12 @@
                         <div class="mt-4">
                             <div
                                 class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600 transition-colors">
-                                <a href="/img/ss-mci-verizon.png" target="_blank">VIEW SCREENSHOT</a>
+                                <a
+                                    href="#"
+                                    @click.prevent="openModal('/img/ss-mci-verizon.png')"
+                                >
+                                    VIEW SCREENSHOT
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -94,7 +144,12 @@
                         <div class="mt-4">
                             <div
                                 class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600 transition-colors">
-                                <a href="/img/ss-informeddna.png" target="_blank">VIEW SCREENSHOT</a>
+                                <a
+                                    href="#"
+                                    @click.prevent="openModal('/img/ss-informeddna.png')"
+                                >
+                                    VIEW SCREENSHOT
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -144,7 +199,12 @@
                         <div class="mt-4">
                             <div
                                 class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600 transition-colors">
-                                <a href="/img/ss-dante.png" target="_blank">VIEW SCREENSHOT</a>
+                                <a
+                                    href="#"
+                                    @click.prevent="openModal('/img/ss-dante.png')"
+                                >
+                                    VIEW SCREENSHOT
+                                </a>
                             </div>
                         </div>
                         <hr class="border-slate-100 dark:border-gray-700 border-t mt-4">
@@ -169,4 +229,5 @@
             </div>
         </div>
     </div>
+</div>
 </section>
