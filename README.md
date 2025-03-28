@@ -5,7 +5,7 @@ A modern, responsive portfolio website built with Laravel, Tailwind CSS, and mod
 ## Features
 
 - **Dark/Light mode support**
-- **Responsive design** using Tailwind CSS v4 Beta
+- **Responsive design** using Tailwind CSS v4
 - **Portfolio showcasing professional projects** including:
     - ESCCOR (NASA Earth Science Data Management)
     - Taylor MDA (Eclipse-based UML Modeling Tool)
@@ -15,7 +15,7 @@ A modern, responsive portfolio website built with Laravel, Tailwind CSS, and mod
 ## Tech Stack
 
 - **Laravel**
-- **Tailwind CSS v4 Beta**
+- **Tailwind CSS v4**
 - **Livewire/Inertia capabilities**
 - **Vite** for asset bundling
 - **PHP 8.3+**
