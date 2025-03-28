@@ -1,25 +1,26 @@
 {
     "private": true,
+    "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "dev": "vite"
     },
     "devDependencies": {
-        "@alpinejs/intersect": "^3.14.7",
+        "@alpinejs/intersect": "^3.14.9",
         "@fortawesome/fontawesome-free": "^6.7.2",
         "@fortawesome/free-brands-svg-icons": "^6.7.2",
         "@fortawesome/free-regular-svg-icons": "^6.7.2",
         "@fortawesome/free-solid-svg-icons": "^6.7.2",
-        "@tailwindcss/cli": "^4.0.0-beta.8",
-        "@tailwindcss/postcss": "^4.0.0-beta.8",
-        "@tailwindcss/vite": "^4.0.0-beta.8",
-        "alpinejs": "^3.14.7",
-        "autoprefixer": "^10.4.20",
-        "axios": "^1.7.9",
-        "chart.js": "^4.4.7",
+        "@tailwindcss/vite": "^4.0.17",
+        "alpinejs": "^3.14.9",
+        "autoprefixer": "^10.4.21",
+        "axios": "^1.8.4",
+        "chart.js": "^4.4.8",
+        "concurrently": "^9.1.2",
         "jquery": "^3.7.1",
-        "laravel-vite-plugin": "^1.1.1",
-        "tailwindcss": "^4.0.0-beta.8",
-        "vite": "^6.0.3"
+        "laravel-vite-plugin": "^1.2.0",
+        "postcss": "^8.5.3",
+        "tailwindcss": "^4.0.17",
+        "vite": "^6.2.3"
     }
 }

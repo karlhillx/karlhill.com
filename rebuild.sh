@@ -107,7 +107,6 @@ main() {
     # Install npm dependencies
     log npm
     npm i npm@latest -g
-    npm rebuild esbuild
 
     # Check for vulnerabilities
     npm audit > /dev/null
