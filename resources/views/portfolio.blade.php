@@ -8,8 +8,6 @@
     <x-gallery class="lazy-load"/>
 
     <x-portfolio-wrapper>
-        <x-blog/>
-
         <x-work/>
     </x-portfolio-wrapper>
 

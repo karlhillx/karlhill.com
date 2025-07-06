@@ -19,6 +19,9 @@
                 <a href="/portfolio" class="text-white hover:text-orange-400 transition-colors text-sm font-medium">
                     <i class="far fa-folder-open mr-2 hover:scale-110 transition-transform"></i>Portfolio
                 </a>
+                <a href="/blog" class="text-white hover:text-orange-400 transition-colors text-sm font-medium">
+                    <i class="far fa-newspaper mr-2 hover:scale-110 transition-transform"></i>Blog
+                </a>
             </div>
 
             <!-- Hamburger Button -->
@@ -39,6 +42,10 @@
                 <a href="/portfolio" class="flex items-center px-6 py-3 text-white hover:bg-white/20 transition-all duration-200">
                     <i class="far fa-folder-open mr-3"></i>
                     <span class="text-sm font-medium">Portfolio</span>
+                </a>
+                <a href="/blog" class="flex items-center px-6 py-3 text-white hover:bg-white/20 transition-all duration-200">
+                    <i class="far fa-newspaper mr-3"></i>
+                    <span class="text-sm font-medium">Blog</span>
                 </a>
             </div>
         </nav>
