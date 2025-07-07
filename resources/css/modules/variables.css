@@ -1,0 +1,21 @@
+:root {
+    /* Colors */
+    --color-maroon-base: #7d2746;
+    --color-maroon-light: #9e325a;
+    --color-maroon-dark: #5c1c33;
+
+    /* Typography */
+    --font-family-sans: "Inter Variable", system-ui, -apple-system, sans-serif;
+    --font-size-base: clamp(16px, 1vw, 18px);
+
+    /* Transitions */
+    --transition-smooth: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Spacing */
+    --spacing-inline: clamp(1rem, 5vw, 2rem);
+
+    /* Z-index layers */
+    --z-index-header: 100;
+    --z-index-modal: 200;
+}

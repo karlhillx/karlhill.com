@@ -1,0 +1,32 @@
+/* Social media styles */
+
+/* Base social icon styles */
+footer .bottom-social-icons a {
+    @apply rounded-lg inline-flex items-center justify-center h-10 w-10 text-white bg-zinc-800
+           transition-all duration-300 hover:shadow-lg;
+}
+
+/* Individual social media hover styles */
+.linkedin:hover {
+    @apply bg-[#0077b5] scale-110 rotate-3;
+}
+
+.github:hover {
+    @apply bg-[#333] scale-110 -rotate-3;
+}
+
+.medium:hover {
+    @apply bg-[#00ab6c] scale-110 rotate-3;
+}
+
+.twitter:hover {
+    @apply bg-[#1da1f2] scale-110 -rotate-3;
+}
+
+.discogs:hover {
+    @apply bg-[#333] scale-110 rotate-3;
+}
+
+.orcid:hover {
+    @apply bg-[#a6ce39] scale-110 -rotate-3;
+}

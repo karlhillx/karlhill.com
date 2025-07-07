@@ -1,0 +1,38 @@
+/* Utility classes */
+
+/* Tailwind layer for utility classes */
+@layer utilities {
+    /* Scale utilities */
+    .hover\:scale-102:hover {
+        transform: scale(1.02);
+    }
+
+    /* Transition utilities */
+    .transition-transform {
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+    }
+
+    .transition-colors {
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+    }
+
+    .transition-all {
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+    }
+
+    /* Duration utilities */
+    .duration-300 {
+        transition-duration: 300ms;
+    }
+}
+
+/* Project card utility */
+.project-card {
+    @apply transition-transform duration-300 hover:scale-102;
+}
