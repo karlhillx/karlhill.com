@@ -3,11 +3,18 @@
     class="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 px-5 transition-colors duration-300">
     <div x-data="{
         selectedImage: null,
+        activeCard: null,
         openModal(imageSrc) {
             this.selectedImage = imageSrc;
         },
         closeModal() {
             this.selectedImage = null;
+        },
+        setActiveCard(index) {
+            this.activeCard = index;
+        },
+        resetActiveCard() {
+            this.activeCard = null;
         }
     }">
         <!-- Image Modal -->
@@ -19,8 +26,9 @@
                 x-transition:leave="transition ease-in duration-200"
                 x-transition:leave-start="opacity-100"
                 x-transition:leave-end="opacity-0"
-                class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4"
+                class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4 backdrop-blur-sm"
                 @click.self="closeModal"
+                @keydown.escape.window="closeModal"
             >
                 <div
                     x-transition:enter="transition ease-out duration-300"
@@ -29,19 +37,23 @@
                     x-transition:leave="transition ease-in duration-200"
                     x-transition:leave-start="opacity-100 scale-100"
                     x-transition:leave-end="opacity-0 scale-90"
-                    class="max-w-5xl max-h-[90vh] overflow-contain"
+                    class="relative max-w-5xl max-h-[90vh] overflow-auto"
                 >
                     <img
                         :src="selectedImage"
-                        class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                        class="max-w-full max-h-full object-contain rounded-lg shadow-2xl border-4 border-white/10"
                         @click.stop
                     >
                     <button
                         @click="closeModal"
-                        class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300"
+                        class="absolute top-4 right-4 bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl hover:bg-black/80 hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white"
+                        aria-label="Close modal"
                     >
                         ×
                     </button>
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white text-sm px-4 py-2 rounded-full">
+                        Click anywhere outside to close
+                    </div>
                 </div>
             </div>
         </template>
@@ -54,11 +66,15 @@
 
             <!-- Verizon Business Finium Card -->
             <div
-                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800">
-                <div class="flex-shrink-0">
-                    <img class="h-48 w-full object-cover transition-opacity duration-300"
+                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800 relative"
+                @mouseenter="setActiveCard(1)"
+                @mouseleave="resetActiveCard()"
+                :class="{'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-gray-900': activeCard === 1}">
+                <div class="flex-shrink-0 overflow-hidden">
+                    <img class="h-48 w-full object-cover transition-all duration-500"
                          loading="lazy"
                          src="/img/ss-mci-verizon.png"
+                         :class="{'scale-110 brightness-110': activeCard === 1}"
                          alt="Verizon Business Finium Screenshot">
                 </div>
                 <div class="flex-1 p-6 flex flex-col justify-between dark:bg-gray-800">
@@ -80,11 +96,17 @@
                         </div>
                         <div class="mt-4">
                             <div
-                                class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600 transition-colors">
+                                class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded-md border uppercase px-4 py-2 inline-block hover:text-white hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md"
+                                :class="{'bg-blue-500 text-white border-blue-500 -translate-y-1 shadow-md': activeCard === 1}">
                                 <a
                                     href="#"
                                     @click.prevent="openModal('/img/ss-mci-verizon.png')"
+                                    class="flex items-center gap-2"
                                 >
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
                                     VIEW SCREENSHOT
                                 </a>
                             </div>
@@ -111,11 +133,15 @@
 
             <!-- IDNAPortal Project Card -->
             <div
-                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800">
-                <div class="flex-shrink-0">
-                    <img class="h-48 object-cover object-left-top transition-opacity duration-300"
+                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800 relative"
+                @mouseenter="setActiveCard(2)"
+                @mouseleave="resetActiveCard()"
+                :class="{'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-gray-900': activeCard === 2}">
+                <div class="flex-shrink-0 overflow-hidden">
+                    <img class="h-48 object-cover object-left-top transition-all duration-500"
                          loading="lazy"
                          src="/img/ss-informeddna.png"
+                         :class="{'scale-110 brightness-110': activeCard === 2}"
                          alt="IDNAPortal Screenshot">
                 </div>
                 <div class="flex-1 p-6 flex flex-col justify-between dark:bg-gray-800">
@@ -143,11 +169,17 @@
 
                         <div class="mt-4">
                             <div
-                                class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600 transition-colors">
+                                class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded-md border uppercase px-4 py-2 inline-block hover:text-white hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md"
+                                :class="{'bg-blue-500 text-white border-blue-500 -translate-y-1 shadow-md': activeCard === 2}">
                                 <a
                                     href="#"
                                     @click.prevent="openModal('/img/ss-informeddna.png')"
+                                    class="flex items-center gap-2"
                                 >
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
                                     VIEW SCREENSHOT
                                 </a>
                             </div>
@@ -175,11 +207,15 @@
 
             <!-- Taylor MDA Project Card -->
             <div
-                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800">
-                <div class="flex-shrink-0">
-                    <img class="h-48 w-full object-cover transition-opacity duration-300"
+                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800 relative"
+                @mouseenter="setActiveCard(3)"
+                @mouseleave="resetActiveCard()"
+                :class="{'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-gray-900': activeCard === 3}">
+                <div class="flex-shrink-0 overflow-hidden">
+                    <img class="h-48 w-full object-cover transition-all duration-500"
                          loading="lazy"
                          src="/img/ss-dante.png"
+                         :class="{'scale-110 brightness-110': activeCard === 3}"
                          alt="Taylor MDA Screenshot">
                 </div>
                 <div class="flex-1 p-6 flex flex-col justify-between dark:bg-gray-800">
@@ -198,11 +234,17 @@
                             </span>
                         <div class="mt-4">
                             <div
-                                class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded border uppercase px-4 py-1 inline-block hover:text-blue-600 hover:border-blue-600 transition-colors">
+                                class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded-md border uppercase px-4 py-2 inline-block hover:text-white hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md"
+                                :class="{'bg-blue-500 text-white border-blue-500 -translate-y-1 shadow-md': activeCard === 3}">
                                 <a
                                     href="#"
                                     @click.prevent="openModal('/img/ss-dante.png')"
+                                    class="flex items-center gap-2"
                                 >
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
                                     VIEW SCREENSHOT
                                 </a>
                             </div>

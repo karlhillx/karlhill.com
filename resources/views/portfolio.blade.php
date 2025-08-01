@@ -7,12 +7,6 @@
 
     <x-gallery class="lazy-load"/>
 
-    <x-portfolio-wrapper>
-        <x-blog/>
-
-        <x-work/>
-    </x-portfolio-wrapper>
-
     <x-portfolio-header/>
 
     <x-portfolio-section1/>
