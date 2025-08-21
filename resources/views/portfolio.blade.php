@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('main-classes', 'pt-32')
+@section('main-classes', 'pt-2')
 
 @section('content')
     <x-hero class="animate-fade-in"/>
