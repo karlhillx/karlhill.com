@@ -35,7 +35,7 @@
                                 <x-link href="https://americanart.si.edu/" external>Smithsonian American Art Museum
                                 </x-link>
                                 .
-                                My diverse interests extend into music, where I find creative expression through
+                                My diverse interests extend into <x-link href="https://www.discogs.com/artist/1286669-Karl-Hill" external>music</x-link>, where I find creative expression through
                                 performance and
                                 composition.
                             </p>
