@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip
 
-# Install Node.js 23
-RUN curl -fsSL https://deb.nodesource.com/setup_23.x | bash -
+# Install Node.js 24
+RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
 RUN apt-get install -y nodejs
 
 # Clear cache
