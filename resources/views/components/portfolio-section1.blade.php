@@ -85,17 +85,7 @@
                                     </a>
                                 </p>
                                 <p class="mt-3 text-base text-gray-500 dark:text-gray-400">
-                                    ESCCOR is a cutting-edge platform revolutionizing Earth science data
-                                    management.
-                                    This system integrates advanced taxonomy, AI-powered indexing, and a
-                                    high-performance catalog, accessible through a user-friendly portal. ESCCOR
-                                    enhances
-                                    NASA's Earth Sciences Division's reporting, product access, and cross-team
-                                    collaboration, positioning NASA at the forefront of Earth science data
-                                    management.
-                                    My work significantly improved NASA's handling of vast Earth science
-                                    information,
-                                    benefiting multiple NASA groups and advancing the agency's mission.
+                                    ESCCOR is a cutting-edge platform revolutionizing Earth science data management. This system integrates advanced taxonomy, AI-powered indexing, and a high-performance catalog, accessible through a user-friendly portal. ESCCOR enhances NASA's Earth Sciences Division's reporting, product access, and cross-team collaboration, positioning NASA at the forefront of Earth science data management. My work significantly improved NASA's handling of vast science information, benefiting multiple NASA groups and advancing the agency's mission. Together, these innovations make critical data more discoverable, usable, and impactful than ever before.
                                 </p>
                             </a>
 
@@ -235,20 +225,9 @@
                                         target="_blank">Direct
                                         Readout Laboratory</a></p>
                                 <p class="mt-3 text-base text-gray-500 dark:text-gray-400">
-                                    The Direct Readout Laboratory (DRL) plays a vital role in connecting NASA's
-                                    Earth observation missions with data users worldwide. I designed a concept
-                                    website for the DRL, envisioning a modern and dynamic platform built with
-                                    cutting-edge web technologies like Laravel, Tailwind CSS, and Vite. This
-                                    responsive design would effectively showcase the DRL's innovative work in
-                                    facilitating real-time data transmission from Earth-observing satellites
-                                    directly to ground stations across the globe. The website's intuitive
-                                    interface would provide users with seamless access to mission-critical
-                                    information, valuable tools, and essential resources, like data
-                                    visualization tools and educational materials, enhancing environmental
-                                    monitoring capabilities and supporting vital scientific research on a global
-                                    scale. By empowering users with timely and accessible data, the DRL website
-                                    aims to strengthen international collaboration and contribute to a deeper
-                                    understanding of our changing planet.
+                                    The Direct Readout Laboratory (DRL) bridges NASA’s Earth-observing missions with users worldwide. I created a concept website that reimagines DRL’s presence as a modern, responsive platform built with Laravel, Tailwind CSS, and Vite. The design highlights DRL’s role in enabling real-time satellite data transmission to ground stations across the globe.
+
+                                    With an intuitive interface and accessible tools—such as data visualizations and educational resources—the site empowers users to explore mission data, support environmental monitoring, and strengthen global scientific collaboration. This concept shows how thoughtful design can turn complex science into an engaging, user-friendly experience.
                                 </p>
                                 <div class="mt-4">
                                     <div

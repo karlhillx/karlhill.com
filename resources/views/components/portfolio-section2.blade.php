@@ -64,73 +64,6 @@
             x-data="{}"
             x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-y-4'), 100)">
 
-            <!-- Verizon Business Finium Card -->
-            <div
-                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800 relative"
-                @mouseenter="setActiveCard(1)"
-                @mouseleave="resetActiveCard()"
-                :class="{'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-gray-900': activeCard === 1}">
-                <div class="flex-shrink-0 overflow-hidden">
-                    <img class="h-48 w-full object-cover transition-all duration-500"
-                         loading="lazy"
-                         src="/img/ss-mci-verizon.png"
-                         :class="{'scale-110 brightness-110': activeCard === 1}"
-                         alt="Verizon Business Finium Screenshot">
-                </div>
-                <div class="flex-1 p-6 flex flex-col justify-between dark:bg-gray-800">
-                    <div class="flex-1">
-                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400">
-                            <a href="#" class="hover:underline transition-colors">Application & Backend
-                                Administration</a>
-                        </p>
-                        <div class="block mt-2">
-                            <p class="text-xl font-semibold text-gray-900 dark:text-white">Verizon Business Finium™</p>
-                            <p class="mt-3 text-base text-gray-500 dark:text-gray-300">
-                                Verizon Business' Finium™ platform revolutionizes cybersecurity by integrating threat
-                                intelligence, vulnerability data, and security events in a centralized web console.
-                                Operating from a disaster-resilient Security Operations Center, this cutting-edge system
-                                empowers analysts and business leaders to proactively manage security as a strategic
-                                asset. My work on Finium™ contributed to transforming enterprise cybersecurity, making
-                                it an accessible, integral part of business operations in our complex digital landscape.
-                            </p>
-                        </div>
-                        <div class="mt-4">
-                            <div
-                                class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded-md border uppercase px-4 py-2 inline-block hover:text-white hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md"
-                                :class="{'bg-blue-500 text-white border-blue-500 -translate-y-1 shadow-md': activeCard === 1}">
-                                <a
-                                    href="#"
-                                    @click.prevent="openModal('/img/ss-mci-verizon.png')"
-                                    class="flex items-center gap-2"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                    </svg>
-                                    VIEW SCREENSHOT
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="border-slate-100 dark:border-gray-700 border-t mt-4">
-                    <div class="mt-6 flex items-center">
-                        <div class="flex-shrink-0">
-                            <a href="#">
-                                <img class="h-10 w-10 rounded-full" src="/img/logo-verizon.png" alt="">
-                            </a>
-                        </div>
-                        <div class="ml-3">
-                            <p class="text-sm font-medium text-gray-900 dark:text-white">
-                                <a href="#" class="hover:underline"> JAVA, JSF, Struts </a>
-                            </p>
-                            <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
-                                <time datetime="2020-03-16"> Verizon Business</time>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- IDNAPortal Project Card -->
             <div
                 class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800 relative"
@@ -269,6 +202,68 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Verizon Business Finium Card -->
+            <div
+                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800 relative"
+                @mouseenter="setActiveCard(1)"
+                @mouseleave="resetActiveCard()"
+                :class="{'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-gray-900': activeCard === 1}">
+                <div class="flex-shrink-0 overflow-hidden">
+                    <img class="h-48 w-full object-cover transition-all duration-500"
+                         loading="lazy"
+                         src="/img/ss-mci-verizon.png"
+                         :class="{'scale-110 brightness-110': activeCard === 1}"
+                         alt="Verizon Business Finium Screenshot">
+                </div>
+                <div class="flex-1 p-6 flex flex-col justify-between dark:bg-gray-800">
+                    <div class="flex-1">
+                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                            <a href="#" class="hover:underline transition-colors">Application & Backend
+                                Administration</a>
+                        </p>
+                        <div class="block mt-2">
+                            <p class="text-xl font-semibold text-gray-900 dark:text-white">Verizon Business Finium™</p>
+                            <p class="mt-3 text-base text-gray-500 dark:text-gray-300">
+                                Verizon Business' Finium™ platform transforms cybersecurity by unifying threat intelligence, vulnerability data, and security events in a centralized web console. Built on a disaster-resilient Security Operations Center, this advanced system empowers analysts and business leaders to treat security as a strategic asset. My work on Finium™ helped reshape enterprise cybersecurity, making it more accessible and integral to business operations in today’s digital landscape.                 </p>
+                        </div>
+                        <div class="mt-4">
+                            <div
+                                class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded-md border uppercase px-4 py-2 inline-block hover:text-white hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md"
+                                :class="{'bg-blue-500 text-white border-blue-500 -translate-y-1 shadow-md': activeCard === 1}">
+                                <a
+                                    href="#"
+                                    @click.prevent="openModal('/img/ss-mci-verizon.png')"
+                                    class="flex items-center gap-2"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                    VIEW SCREENSHOT
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="border-slate-100 dark:border-gray-700 border-t mt-4">
+                    <div class="mt-6 flex items-center">
+                        <div class="flex-shrink-0">
+                            <a href="#">
+                                <img class="h-10 w-10 rounded-full" src="/img/logo-verizon.png" alt="">
+                            </a>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">
+                                <a href="#" class="hover:underline"> JAVA, JSF, Struts </a>
+                            </p>
+                            <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
+                                <time datetime="2020-03-16"> Verizon Business</time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

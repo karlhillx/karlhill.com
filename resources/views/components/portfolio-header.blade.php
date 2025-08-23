@@ -1,5 +1,5 @@
 <!-- Header Section -->
-<section class="relative bg-gray-50 py-20 px-5">
+<section class="relative bg-gray-50 py-10 px-5">
     <div class="max-w-7xl mx-auto text-center">
         <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor"
              viewBox="0 0 48 48" aria-hidden="true">
