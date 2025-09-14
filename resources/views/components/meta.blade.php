@@ -1,39 +1,72 @@
+@props([
+    'title' => config('app.name', 'Karl Hill | Software Engineer'),
+    'description' => 'Experienced Software Engineer and Agile Leader with 25+ years building aerospace, cloud-native, and enterprise-scale solutions.',
+    'image' => asset('img/profile.jpg'),
+    'type' => 'website',
+    'url' => url()->current(),
+    'siteName' => 'Karl Hill - Portfolio',
+    'author' => 'Karl Hill',
+    'keywords' => 'Karl Hill, software engineer, aerospace software, cloud-native architecture, DevSecOps, Laravel expert, full stack developer, CI/CD pipelines, Agile leadership, enterprise solutions, NASA projects, principal engineer',
+    'twitterCard' => 'summary_large_image',
+    'twitterCreator' => '@karlhill',
+    'themeColorLight' => '#ffffff',
+    'themeColorDark' => '#18181b',
+    'noindex' => false,
+    'canonical' => null,
+    'robots' => null,
+])
+
+@php
+    $canonicalUrl = $canonical ?? $url;
+    $robotsTag = $robots ?? ($noindex ? 'noindex, nofollow' : 'index, follow');
+@endphp
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Karl Hill | Full Stack Engineer with 20+ years experience in NASA projects, Laravel enterprise solutions, and AI integration. Proven track record in scalable architecture design and high-performance applications.">
-<meta name="keywords" content="Karl Hill, NASA software engineer, Laravel architect, full stack developer, enterprise solutions, PHP expert, Tailwind CSS specialist, AI integration">
-<meta name="author" content="Karl Hill">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#18181b" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="{{ $description }}">
+<meta name="keywords" content="{{ $keywords }}">
+<meta name="author" content="{{ $author }}">
+<meta name="theme-color" content="{{ $themeColorLight }}" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="{{ $themeColorDark }}" media="(prefers-color-scheme: dark)">
+<meta name="robots" content="{{ $robotsTag }}">
+<meta name="referrer" content="no-referrer-when-downgrade">
 
 <!-- Security Headers -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+<meta http-equiv="Permissions-Policy" content="browsing-topics=()">
+
+<!-- CSRF -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<!-- Canonical -->
+<link rel="canonical" href="{{ $canonicalUrl }}">
 
 <!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ url()->current() }}">
-<meta property="og:title" content="Karl Hill | Full Stack Engineer">
-<meta property="og:description" content="Sofware Engineer specializing in Laravel, AI integration, and scalable solutions">
-<meta property="og:image" content="{{ asset('img/profile.jpg') }}">
-<meta property="og:site_name" content="Karl Hill - Portfolio">
+<meta property="og:type" content="{{ $type }}">
+<meta property="og:url" content="{{ $url }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:image" content="{{ $image }}">
+<meta property="og:image:alt" content="{{ $title }}">
+<meta property="og:site_name" content="{{ $siteName }}">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:creator" content="@karlhill">
-<meta name="twitter:title" content="Karl Hill | Full Stack Engineer">
-<meta name="twitter:description" content="20+ years building enterprise solutions for NASA and beyond">
-<meta name="twitter:image" content="{{ asset('img/profile.jpg') }}">
+<meta name="twitter:card" content="{{ $twitterCard }}">
+<meta name="twitter:creator" content="{{ $twitterCreator }}">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+<meta name="twitter:image" content="{{ $image }}">
 
 <!-- Technology Stack & Expertise -->
-<meta name="technology-stack" content="Laravel {{ app()->version() }}, PHP {{ PHP_VERSION }}, Tailwind CSS v4.0, Vite 6">
+<meta name="technology-stack" content="Laravel {{ app()->version() }}, PHP {{ PHP_VERSION }}, Tailwind CSS, Vite">
 
 <!-- Cache Control -->
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 
-<title>{{ config('app.name', 'Karl Hill | Full Stack Engineer') }}</title>
+<title>{{ $title }}</title>
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="{{ asset('img/favicon.svg') }}">
@@ -43,5 +76,7 @@
 <link rel="manifest" href="{{ asset('site.webmanifest') }}">
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+{{ $slot ?? '' }}
 
 
