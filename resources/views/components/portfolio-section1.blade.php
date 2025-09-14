@@ -1,5 +1,5 @@
 <!-- NASA Projects Section -->
-<section class="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 px-5 transition-colors duration-300">
+<section class="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 px-5 transition-colors duration-300 reveal-section">
     <div x-data="{
         selectedImage: null,
         activeCard: null,
@@ -84,7 +84,7 @@
                                         Earth Science Communications Content Registry (ESCCOR)
                                     </a>
                                 </p>
-                                <p class="mt-3 text-base text-gray-500 dark:text-gray-400">
+                                <p class="mt-3 text-base text-gray-500 dark:text-gray-400 link-underline">
                                     ESCCOR is a cutting-edge platform revolutionizing Earth science data management. This system integrates advanced taxonomy, AI-powered indexing, and a high-performance catalog, accessible through a user-friendly portal. ESCCOR enhances NASA's Earth Sciences Division's reporting, product access, and cross-team collaboration, positioning NASA at the forefront of Earth science data management. My work significantly improved NASA's handling of vast science information, benefiting multiple NASA groups and advancing the agency's mission. Together, these innovations make critical data more discoverable, usable, and impactful than ever before.
                                 </p>
                             </a>
@@ -152,7 +152,7 @@
                                         href="https://earthobservatory.nasa.gov/"
                                         alt="" target="_blank">Earth
                                         Observatory</a></p>
-                                <p class="mt-3 text-base text-gray-500 dark:text-gray-400">
+                                <p class="mt-3 text-base text-gray-500 dark:text-gray-400 link-underline">
                                     I helped develop NASA's Earth Observatory website and its advanced back-end
                                     system, creating a digital gateway to NASA's environmental research. This
                                     platform showcases stunning imagery, compelling stories, and crucial
@@ -224,7 +224,7 @@
                                         href="https://directreadout.sci.gsfc.nasa.gov/" alt=""
                                         target="_blank">Direct
                                         Readout Laboratory</a></p>
-                                <p class="mt-3 text-base text-gray-500 dark:text-gray-400">
+                                <p class="mt-3 text-base text-gray-500 dark:text-gray-400 link-underline">
                                     The Direct Readout Laboratory (DRL) bridges NASA’s Earth-observing missions with users worldwide. I created a concept website that reimagines DRL’s presence as a modern, responsive platform built with Laravel, Tailwind CSS, and Vite. The design highlights DRL’s role in enabling real-time satellite data transmission to ground stations across the globe.
 
                                     With an intuitive interface and accessible tools—such as data visualizations and educational resources—the site empowers users to explore mission data, support environmental monitoring, and strengthen global scientific collaboration. This concept shows how thoughtful design can turn complex science into an engaging, user-friendly experience.

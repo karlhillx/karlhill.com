@@ -1,6 +1,6 @@
 <!-- Enterprise Projects Section -->
 <section
-    class="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 px-5 transition-colors duration-300">
+    class="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 px-5 transition-colors duration-300 reveal-section">
     <div x-data="{
         selectedImage: null,
         activeCard: null,
@@ -86,7 +86,7 @@
                             <p class="text-xl font-semibold text-gray-900 dark:text-white"><a
                                     href="https://idnaportal.com/"
                                     alt="" target="_blank">IDNAPortal</a></p>
-                            <p class="mt-3 text-base text-gray-500 dark:text-gray-300">
+                            <p class="mt-3 text-base text-gray-500 dark:text-gray-300 link-underline">
                                 InformedDNA leads the applied genomics field, optimizing clinical decisions
                                 with
                                 cutting-edge genomics expertise. Their IDNAPortal, which I developed, is a
@@ -161,7 +161,7 @@
                                 <p class="text-xl font-semibold text-gray-900 dark:text-white">
                                     <a href="https://www.danteinc.com/" target="_blank">Taylor MDA</a>
                                 </p>
-                                <p class="mt-3 text-base text-gray-500 dark:text-gray-300">
+                                <p class="mt-3 text-base text-gray-500 dark:text-gray-300 link-underline">
                                     At Dante Inc., I contributed to Taylor MDA, an advanced Eclipse-based UML modeling tool for multi-tiered, distributed systems. It streamlines complex system design and maximizes code generation from UML models. Taylor MDA features pre-designed templates for JEE applications, integrating JPA/EJB3 and JSF/Seam/Facelets, accelerating enterprise application development through innovative model-driven architecture techniques. My work enhanced its capabilities and user experience.
                                 </p>
                             </span>
@@ -224,7 +224,7 @@
                         </p>
                         <div class="block mt-2">
                             <p class="text-xl font-semibold text-gray-900 dark:text-white">Verizon Business Finium™</p>
-                            <p class="mt-3 text-base text-gray-500 dark:text-gray-300">
+                            <p class="mt-3 text-base text-gray-500 dark:text-gray-300 link-underline">
                                 Verizon Business' Finium™ platform transforms cybersecurity by unifying threat intelligence, vulnerability data, and security events in a centralized web console. Built on a disaster-resilient Security Operations Center, this advanced system empowers analysts and business leaders to treat security as a strategic asset. My work on Finium™ helped reshape enterprise cybersecurity, making it more accessible and integral to business operations in today’s digital landscape.                 </p>
                         </div>
                         <div class="mt-4">
