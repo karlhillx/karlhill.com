@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-      @hasSection('dark-mode')
-          x-data="darkMode"
-      :class="{ 'dark': darkMode }"
-      class="scroll-smooth"
-      @else
-          class="h-full font-sans antialiased"
-    @endif
+<html
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    dir="{{ in_array(app()->getLocale(), ['ar','fa','he','ur']) ? 'rtl' : 'ltr' }}"
+    @hasSection('dark-mode') x-data="darkMode" :class="{ 'dark': darkMode }" @endif
+    class="scroll-smooth h-full font-sans antialiased"
+    @yield('html-attrs')
 >
 <head>
     <x-meta/>
