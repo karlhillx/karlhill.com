@@ -1,6 +1,6 @@
 @props([
     'title' => config('app.name', 'Karl Hill | Software Engineer'),
-    'description' => 'Experienced Software Engineer and Agile Leader with 25+ years building aerospace, cloud-native, and enterprise-scale solutions.',
+    'description' => 'Software Engineer and Agile Leader with 25+ years building aerospace, cloud-native, and enterprise-scale solutions.',
     'image' => asset('img/profile.jpg'),
     'type' => 'website',
     'url' => url()->current(),
