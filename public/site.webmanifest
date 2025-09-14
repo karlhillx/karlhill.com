@@ -1,19 +1,35 @@
 {
-    "name": "Karl Hill | Lead Software Engineer",
-    "short_name": "Karl Hill",
-    "icons": [
-        {
-            "src": "/img/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display": "standalone"
+  "id": "/",
+  "name": "Karl Hill | Software Engineer",
+  "short_name": "Karl Hill",
+  "description": "Software Engineer and Agile Leader with 25+ years building aerospace, cloud-native, and enterprise-scale solutions.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "/?utm_source=web_app_manifest",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/img/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Home",
+      "short_name": "Home",
+      "url": "/"
+    }
+  ]
 }
