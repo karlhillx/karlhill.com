@@ -11,12 +11,9 @@
                         <span class="block">Why you should hire me.</span>
                     </h2>
                     <p class="mt-4 text-base sm:text-lg leading-6 text-white">
-                        With over 20 years of experience, I’ve led the creation and launch of high-impact technology
-                        solutions across Agile environments. I excel at guiding distributed teams while staying hands-on
-                        with code, tackling complex engineering challenges, and shaping user-focused design. I’m
-                        passionate about modernizing systems, applying new technologies like AI/ML, and driving product
-                        development from vision to delivery. My approach blends technical depth, strategic leadership,
-                        creativity, and clear communication—ensuring solutions are not only built, but built to last.
+                        I deliver secure, cloud-native software that keeps critical missions operational. With 20+ years of engineering experience and a focus on national-security and space-operations environments, I lead teams through complex challenges while remaining hands-on with architecture, automation, and code.
+
+                        I excel at designing systems that are reliable, traceable, and built for high-assurance deployment. My approach blends technical depth with clear communication and cross-functional collaboration, ensuring solutions aren’t just built—they’re operationally ready.
                     </p>
                 </div>
             </div>

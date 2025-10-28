@@ -2,46 +2,46 @@
     $competencies = [
         'left' => [
             [
-                'text' => '20+ years of experience delivering enterprise-level software in PHP, Python and Java',
-                'icon' => 'fa-solid fa-code'
+                'text' => '20+ years engineering secure, mission-critical systems',
+                'icon' => 'fa-solid fa-shield-halved'
             ],
             [
-                'text' => 'Proficiency with object-oriented design, data structures, algorithms, and asynchronous architectural design',
-                'icon' => 'fa-solid fa-diagram-project'
+                'text' => 'Driving DevSecOps strategy and secure CI/CD workflows that accelerate capability delivery',
+                'icon' => 'fa-solid fa-cogs'
             ],
             [
-                'text' => 'Professional experience building REST APIs',
-                'icon' => 'fa-solid fa-network-wired'
+                'text' => 'Architecting cloud-native platforms that enhance operational readiness and decision advantage',
+                'icon' => 'fa-solid fa-cloud'
             ],
             [
-                'text' => 'Professional experience with relational databases, schema design, and SQL',
+                'text' => 'Leading engineering standards and technical governance to ensure reliability, reproducibility, and compliance',
+                'icon' => 'fa-solid fa-gavel'
+            ],
+            [
+                'text' => 'Designing distributed data systems optimized for performance under real-world mission demands',
                 'icon' => 'fa-solid fa-database'
-            ],
-            [
-                'text' => 'Hands-on experience with Kubernetes and related technologies',
-                'icon' => 'fa-solid fa-dharmachakra'
             ]
         ],
         'right' => [
             [
-                'text' => 'Strong understanding of containerization technologies like Docker',
+                'text' => 'Containerizing and hardening workloads with Kubernetes-orchestrated, zero-downtime deployment patterns',
                 'icon' => 'fa-brands fa-docker'
             ],
             [
-                'text' => 'Experience with modern JS frameworks like React and Vue.js',
-                'icon' => 'fa-brands fa-react'
+                'text' => 'Collaborating with operators, analysts, and mission stakeholders to translate operational needs into deployable software capability',
+                'icon' => 'fa-solid fa-users'
             ],
             [
-                'text' => 'Experience with cloud providers like AWS',
-                'icon' => 'fa-brands fa-aws'
+                'text' => 'Mentoring and elevating teams through Agile delivery, code quality practices, and modern software craftsmanship',
+                'icon' => 'fa-solid fa-chalkboard-teacher'
             ],
             [
-                'text' => 'Proficiency in version control systems like Git',
-                'icon' => 'fa-brands fa-git-alt'
+                'text' => 'Instrumenting observability, validation, and automation to proactively ensure operational integrity',
+                'icon' => 'fa-solid fa-binoculars'
             ],
             [
-                'text' => 'Passion for infrastructure and DevOps tooling',
-                'icon' => 'fa-solid fa-gears'
+                'text' => 'Creating operator interfaces and mission workflows that improve situational awareness and execution speed',
+                'icon' => 'fa-solid fa-desktop'
             ]
         ]
     ];

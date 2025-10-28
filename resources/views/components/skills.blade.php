@@ -15,25 +15,25 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             @foreach ([
-                'Backend Development' => [
-                    'PHP/Laravel' => ['level' => 95, 'icon' => 'fa-brands fa-laravel'],
-                    'Node.js' => ['level' => 85, 'icon' => 'fa-brands fa-node-js'],
-                    'Python' => ['level' => 80, 'icon' => 'fa-brands fa-python']
+                'Mission Software' => [
+                    'Python' => ['level' => 95, 'icon' => 'fa-brands fa-laravel'],
+                    'Java' => ['level' => 85, 'icon' => 'fa-brands fa-node-js'],
+                    'Asynchronous / Messaging Systems' => ['level' => 80, 'icon' => 'fa-brands fa-python']
                 ],
-                'Frontend Engineering' => [
-                    'Vue/React' => ['level' => 90, 'icon' => 'fa-brands fa-vuejs'],
-                    'Tailwind/Alpine' => ['level' => 95, 'icon' => 'fa-solid fa-wind'],
-                    'TypeScript' => ['level' => 85, 'icon' => 'fa-solid fa-code']
+                'Cloud & Deployment Architecture' => [
+                    'Kubernetes' => ['level' => 90, 'icon' => 'fa-brands fa-vuejs'],
+                    'AWS' => ['level' => 95, 'icon' => 'fa-solid fa-wind'],
+                    'Infrastructure-as-Code' => ['level' => 85, 'icon' => 'fa-solid fa-code']
                 ],
-                'Cloud Architecture' => [
-                    'AWS/GCP' => ['level' => 85, 'icon' => 'fa-brands fa-aws'],
-                    'Docker/K8s' => ['level' => 90, 'icon' => 'fa-brands fa-docker'],
-                    'CI/CD' => ['level' => 90, 'icon' => 'fa-solid fa-rotate']
+                'DevSecOps & High-Assurance Delivery' => [
+                    'Secure CI/CD Automation' => ['level' => 85, 'icon' => 'fa-brands fa-aws'],
+                    'Automated Testing & Verification' => ['level' => 90, 'icon' => 'fa-brands fa-docker'],
+                    'Observability & Telemetry Tools' => ['level' => 90, 'icon' => 'fa-solid fa-rotate']
                 ],
-                'Data Management' => [
-                    'MySQL/PostgreSQL' => ['level' => 95, 'icon' => 'fa-solid fa-database'],
-                    'MongoDB/Redis' => ['level' => 85, 'icon' => 'fa-solid fa-leaf'],
-                    'ElasticSearch' => ['level' => 80, 'icon' => 'fa-solid fa-magnifying-glass']
+                'Operational Data & Processing' => [
+                    'PostgreSQL' => ['level' => 95, 'icon' => 'fa-solid fa-database'],
+                    'Redis' => ['level' => 85, 'icon' => 'fa-solid fa-leaf'],
+                    'Elastic / Search & Indexing' => ['level' => 80, 'icon' => 'fa-solid fa-magnifying-glass']
                 ]
             ] as $category => $skills)
                 <div class="group bg-white/5 backdrop-blur-lg rounded-xl p-5 sm:p-6 md:p-8 border border-white/10 transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl">
