@@ -4,7 +4,7 @@
             class="w-full transition-all duration-300 hover:opacity-95 filter saturate-[0.85] hover:saturate-100"
             style="height: 50vh"
             loading="lazy"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA1U9kPUx3SN0u33kKiaCSXl7plnfA3y8Q&q=Brightwood+Park,+Washington,+DC+20011&zoom=14"
+            src="https://www.google.com/maps?q=Brightwood+Park,+Washington,+DC+20011&z=14&output=embed"
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
             title="Google Maps - Brightwood Park Location">
