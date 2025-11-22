@@ -1,7 +1,23 @@
 @php
     $career = [
         [
-            'year' => '2017 - Present',
+            'year' => 'Sep 2025 - Present',
+            'role' => 'Staff Aerospace Software Engineer',
+            'company' => 'Jacobs',
+            'company_url' => 'https://www.jacobs.com/',
+            'logo' => '/img/logo-jacobs.png',
+            'highlights' => [
+                'Deliver mission-simulation and algorithm services aligned to operational needs',
+                'Drive Agile execution and stakeholder updates for predictable delivery',
+                'Define repo/branching/PR standards to reduce integration risk',
+                'Build CI/CD with tests and security scans for safe, fast releases',
+                'Use containers and IaC for reproducible environments across deployments',
+                'Mentor engineers on DevSecOps and platform-first practices'
+            ],
+            'level' => 'staff'
+        ],
+        [
+            'year' => 'Dec 2017 - Sep 2025',
             'role' => 'Lead Software Engineer',
             'company' => 'NASA/SSAI',
             'company_url' => 'https://www.nasa.gov/',
@@ -124,7 +140,8 @@
                                                 {{ $position['role'] }}
                                             </h3>
                                             <span class="text-xs font-semibold px-2 py-1 rounded-full
-                                                @if($position['level'] === 'lead') bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300
+                                                @if($position['level'] === 'staff') bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300
+                                                @elseif($position['level'] === 'lead') bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300
                                                 @elseif($position['level'] === 'senior') bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300
                                                 @else bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300
                                                 @endif">
