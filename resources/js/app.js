@@ -1,6 +1,9 @@
 import Alpine from 'alpinejs'
+import intersect from '@alpinejs/intersect'
 import darkMode from './darkMode'
 import './github-skills.js'
+
+Alpine.plugin(intersect)
 
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';

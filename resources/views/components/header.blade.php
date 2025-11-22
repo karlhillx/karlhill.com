@@ -19,8 +19,11 @@
                 <a href="/" class="text-white hover:text-orange-400 transition-colors text-sm font-medium">
                     <i class="far fa-compass mr-2 transform hover:rotate-45 transition-transform"></i>Home
                 </a>
-                <a href="/portfolio" class="text-white hover:text-orange-400 transition-colors text-sm font-medium">
-                    <i class="far fa-folder-open mr-2 hover:scale-110 transition-transform"></i>Portfolio
+                <a href="#career-trajectory" class="text-white hover:text-orange-400 transition-colors text-sm font-medium">
+                    <i class="fa-solid fa-microchip mr-2 hover:scale-110 transition-transform"></i>Career
+                </a>
+                <a href="#impact-leadership" class="text-white hover:text-orange-400 transition-colors text-sm font-medium">
+                    <i class="far fa-star mr-2 hover:scale-110 transition-transform"></i>Impact
                 </a>
             </div>
 
@@ -39,9 +42,13 @@
                     <i class="far fa-compass mr-3 transition-transform hover:rotate-45"></i>
                     <span class="text-sm font-medium">Home</span>
                 </a>
-                <a href="/portfolio" class="flex items-center px-6 py-3 text-white hover:bg-white/20 transition-all duration-200">
-                    <i class="far fa-folder-open mr-3"></i>
-                    <span class="text-sm font-medium">Portfolio</span>
+                <a href="#career-trajectory" class="flex items-center px-6 py-3 text-white hover:bg-white/20 transition-all duration-200">
+                    <i class="fa-solid fa-microchip mr-3"></i>
+                    <span class="text-sm font-medium">Career</span>
+                </a>
+                <a href="#impact-leadership" class="flex items-center px-6 py-3 text-white hover:bg-white/20 transition-all duration-200">
+                    <i class="far fa-star mr-3"></i>
+                    <span class="text-sm font-medium">Impact</span>
                 </a>
                 <a href="mailto:karlhillx@gmail.com" class="flex items-center px-6 py-3 text-white hover:bg-white/20 transition-all duration-200">
                     <i class="far fa-paper-plane mr-3"></i>

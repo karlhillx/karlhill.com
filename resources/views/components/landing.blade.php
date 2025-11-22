@@ -46,18 +46,15 @@
                 x-transition:enter-end="opacity-100 transform translate-y-0"
                 class="flex gap-2 flex-wrap mt-6"
             >
-                <span class="relative inline-block mb-2">
-                    <a href="/portfolio" class="inline-flex items-center px-4 py-2 border-2 border-white text-sm font-medium rounded-md text-white hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-base">
-                        Portfolio
-                    </a>
-                    <span class="absolute -top-1 -right-1 flex h-3 w-3">
-                        <span class="animate-ping absolute h-full w-full rounded-full bg-yellow-300 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-400"></span>
-                    </span>
-                </span>
-
                 <a href="{{ asset('files/karlhill-resume.pdf') }}" target="_blank" class="inline-flex items-center px-4 py-2 border-2 border-white text-sm font-medium rounded-md text-white hover:bg-yellow-600 focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:text-base mb-2">
-                    Resume
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    Download Resume
+                </a>
+
+                <a href="#career-trajectory" aria-label="View career trajectory" class="inline-flex items-center px-4 py-2 border-2 border-white text-sm font-medium rounded-md text-white hover:bg-indigo-600 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-base mb-2">
+                    Career Journey
                 </a>
 
                 <a href="#feature" aria-label="Learn more about Karl Hill" class="inline-flex items-center px-4 py-2 border-2 border-white text-sm font-medium rounded-md text-white hover:bg-black focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:text-base mb-2">

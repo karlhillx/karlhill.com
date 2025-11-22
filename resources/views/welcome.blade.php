@@ -19,6 +19,14 @@
     </section>
 
     <section class="reveal-section">
+        <x-career-trajectory/>
+    </section>
+
+    <section class="reveal-section">
+        <x-impact-leadership/>
+    </section>
+
+    <section class="reveal-section">
         <x-skills/>
     </section>
 

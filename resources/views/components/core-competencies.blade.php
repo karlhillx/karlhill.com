@@ -2,7 +2,7 @@
     $competencies = [
         'left' => [
             [
-                'text' => '20+ years engineering secure, mission-critical systems',
+                'text' => '25+ years engineering secure, mission-critical systems with proven leadership track record',
                 'icon' => 'fa-solid fa-shield-halved'
             ],
             [

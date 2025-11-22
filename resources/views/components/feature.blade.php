@@ -8,13 +8,27 @@
             <div class="pt-8 pb-10 px-4 sm:pt-12 sm:px-8 md:pt-16 md:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
                 <div class="lg:self-center">
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-white md:text-4xl">
-                        <span class="block">Why you should hire me.</span>
+                        <span class="block">Engineering Leadership That Delivers</span>
                     </h2>
                     <p class="mt-4 text-base sm:text-lg leading-6 text-white">
-                        I deliver secure, cloud-native software that keeps critical missions operational. With 20+ years of engineering experience and a focus on national-security and space-operations environments, I lead teams through complex challenges while remaining hands-on with architecture, automation, and code.
+                        As a Lead Software Engineer with 25+ years of experience, I bridge the gap between strategic vision and technical execution. I don't just write code—I architect systems, lead transformations, and mentor teams to deliver mission-critical solutions.
 
-                        I excel at designing systems that are reliable, traceable, and built for high-assurance deployment. My approach blends technical depth with clear communication and cross-functional collaboration, ensuring solutions aren’t just built—they’re operationally ready.
+                        My leadership approach combines hands-on technical expertise with strategic thinking. I've led DevSecOps transformations, architected cloud-native platforms, and built high-assurance systems for space operations and national security. I excel at translating complex mission requirements into reliable, scalable, and operationally-ready software.
                     </p>
+                    <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                            <div class="text-3xl font-bold text-white">25+</div>
+                            <div class="text-sm text-white/90 mt-1">Years Experience</div>
+                        </div>
+                        <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                            <div class="text-3xl font-bold text-white">15+</div>
+                            <div class="text-sm text-white/90 mt-1">Engineers Mentored</div>
+                        </div>
+                        <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                            <div class="text-3xl font-bold text-white">100%</div>
+                            <div class="text-sm text-white/90 mt-1">Mission Success</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="aspect-w-4 aspect-h-3 sm:aspect-w-5 sm:aspect-h-3 md:aspect-w-2 md:aspect-h-1 lg:self-end">

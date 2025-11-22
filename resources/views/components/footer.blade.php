@@ -38,11 +38,10 @@
         </div>
         <div class="mt-6 md:mt-0 md:order-1">
             <p class="text-sm text-gray-400 text-center sm:text-left">
-                © {{ date('Y') }} Karl Hill. Laravel Build v{{ app()->version() }}.<br class="sm:hidden">
+                © {{ date('Y') }} Karl Hill. Built with Laravel v{{ app()->version() }}.<br class="sm:hidden">
                 <span class="hidden sm:inline"> </span>
-                Unless otherwise indicated, content is licensed under the <a
-                    href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="hover:text-gray-300">Creative Commons Attribution 4.0
-                    International</a>.
+                Content (unless noted) licensed under <a
+                    href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="hover:text-gray-300">CC BY 4.0</a>.
             </p>
         </div>
     </div>
