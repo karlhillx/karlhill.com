@@ -1,10 +1,10 @@
 @props([
-    'title' => config('app.name', 'Karl Hill | Software Engineer'),
+    'title' => config('app.name', 'Karl Hill · Staff Software Engineer · Cloud-Native & DevSecOps'),
     'description' => 'Software Engineer and Agile Leader with 25+ years building aerospace, cloud-native, and enterprise-scale solutions.',
     'image' => asset('img/profile.jpg'),
     'type' => 'website',
     'url' => url()->current(),
-    'siteName' => 'Karl Hill - Portfolio',
+    'siteName' => 'Karl Hill · Staff Software Engineer',
     'author' => 'Karl Hill',
     'keywords' => 'Karl Hill, software engineer, aerospace software, cloud-native architecture, DevSecOps, Laravel expert, full stack developer, CI/CD pipelines, Agile leadership, enterprise solutions, NASA projects, principal engineer',
     'twitterCard' => 'summary_large_image',

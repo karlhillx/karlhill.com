@@ -21,7 +21,7 @@
                     x-transition:enter-end="opacity-100 transform translate-y-0"
                     class="text-2xl md:text-4xl font-extrabold tracking-tight text-white sm:text-5xl mt-2 mb-3"
                 >
-                    Software Engineer
+                    Staff Software Engineer
                 </h2>
             </div>
 
