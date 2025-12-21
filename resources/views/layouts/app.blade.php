@@ -9,7 +9,7 @@
 <head>
     <x-meta/>
 </head>
-<body class="font-sans @yield('body-bg', 'bg-white') antialiased">
+<body class="font-sans @yield('body-bg', 'bg-white dark:bg-zinc-900') antialiased transition-colors duration-200">
 
 <x-header/>
 

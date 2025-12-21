@@ -46,18 +46,24 @@
                 x-transition:enter-end="opacity-100 transform translate-y-0"
                 class="flex gap-2 flex-wrap mt-6"
             >
-                <a href="{{ asset('files/karlhill-resume.pdf') }}" target="_blank" class="inline-flex items-center px-4 py-2 border-2 border-white text-sm font-medium rounded-md text-white hover:bg-yellow-600 focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:text-base mb-2">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="{{ asset('files/karlhill-resume.pdf') }}" target="_blank" class="btn-secondary inline-flex items-center px-6 py-3 text-sm font-semibold sm:text-base mb-2 group">
+                    <svg class="w-5 h-5 mr-2 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
                     Resume
                 </a>
 
-                <a href="#career-trajectory" aria-label="View career trajectory" class="inline-flex items-center px-4 py-2 border-2 border-white text-sm font-medium rounded-md text-white hover:bg-indigo-600 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-base mb-2">
+                <a href="#career-trajectory" aria-label="View career trajectory" class="btn-secondary inline-flex items-center px-6 py-3 text-sm font-semibold sm:text-base mb-2 group">
+                    <svg class="w-5 h-5 mr-2 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
                     Career Journey
                 </a>
 
-                <a href="#feature" aria-label="Learn more about Karl Hill" class="inline-flex items-center px-4 py-2 border-2 border-white text-sm font-medium rounded-md text-white hover:bg-black focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:text-base mb-2">
+                <a href="#feature" aria-label="Learn more about Karl Hill" class="btn-secondary inline-flex items-center px-6 py-3 text-sm font-semibold sm:text-base mb-2 group">
+                    <svg class="w-5 h-5 mr-2 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
                     Learn More
                 </a>
             </div>

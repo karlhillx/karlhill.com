@@ -3,7 +3,9 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "preview": "vite preview",
+        "production": "vite build --mode production"
     },
     "devDependencies": {
         "@alpinejs/intersect": "^3.15.3",
@@ -17,7 +19,6 @@
         "axios": "^1.13.2",
         "chart.js": "^4.5.1",
         "concurrently": "^9.2.1",
-        "jquery": "^3.7.1",
         "laravel-vite-plugin": "^2.0.1",
         "postcss": "^8.5.6",
         "tailwindcss": "^4.1.18",

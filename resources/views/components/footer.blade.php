@@ -1,5 +1,5 @@
-<footer class="bg-black">
-    <div class="max-w-9xl mx-auto py-6 sm:py-8 px-4 sm:px-6 md:py-12 md:flex md:items-center md:justify-between lg:px-8">
+<footer class="bg-gradient-to-b from-zinc-900 to-black border-t border-zinc-800/50">
+    <div class="max-w-9xl mx-auto py-8 sm:py-10 px-4 sm:px-6 md:py-12 md:flex md:items-center md:justify-between lg:px-8">
         <div class="flex justify-center md:order-2">
             <div class="bottom-social-icons flex flex-wrap justify-center gap-3 sm:gap-4">
                 <a class="linkedin group transition-colors duration-300 p-2 hover:bg-gray-800 rounded-lg"
@@ -37,11 +37,14 @@
             </div>
         </div>
         <div class="mt-6 md:mt-0 md:order-1">
-            <p class="text-sm text-gray-400 text-center sm:text-left">
-                © {{ date('Y') }} Karl Hill. Built with Laravel v{{ app()->version() }}.<br class="sm:hidden">
+            <p class="text-sm text-gray-400 text-center sm:text-left leading-relaxed">
+                © {{ date('Y') }} Karl Hill. Built with <span class="text-gray-300 font-medium">Laravel v{{ app()->version() }}</span>.<br class="sm:hidden">
                 <span class="hidden sm:inline"> </span>
                 Content (unless noted) licensed under <a
-                    href="https://creativecommons.org/licenses/by/4.0/" target="_blank" class="hover:text-gray-300">CC BY 4.0</a>.
+                    href="https://creativecommons.org/licenses/by/4.0/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="hover:text-gray-300 underline decoration-gray-600 hover:decoration-gray-400 transition-colors">CC BY 4.0</a>.
             </p>
         </div>
     </div>
