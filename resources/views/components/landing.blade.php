@@ -1,6 +1,20 @@
-<section id="landing" class="bg-hero-pattern min-h-screen w-full pt-24 sm:pt-32 md:pt-48 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-container py-6">
+<section id="landing" class="bg-hero-pattern min-h-screen w-full pt-24 sm:pt-32 md:pt-48 overflow-hidden relative">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="landing-gradient-orb landing-gradient-orb-1"></div>
+        <div class="landing-gradient-orb landing-gradient-orb-2"></div>
+        <div class="landing-gradient-orb landing-gradient-orb-3"></div>
+        
+        <!-- Floating particles -->
+        <div class="landing-particle landing-particle-1"></div>
+        <div class="landing-particle landing-particle-2"></div>
+        <div class="landing-particle landing-particle-3"></div>
+        <div class="landing-particle landing-particle-4"></div>
+        <div class="landing-particle landing-particle-5"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-container py-6 landing-content">
             <div x-data="{ show: false }" x-init="setTimeout(() => show = true, 200)">
                 <h1
                     x-show="show"
