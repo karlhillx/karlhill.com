@@ -11,6 +11,8 @@
 </head>
 <body class="font-sans @yield('body-bg', 'bg-white dark:bg-zinc-900') antialiased transition-colors duration-200">
 
+<x-loader/>
+
 <x-header/>
 
 <x-flash-message />

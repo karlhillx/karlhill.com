@@ -189,6 +189,75 @@ const utils = {
                 imageObserver.observe(img);
             });
         }
+    },
+
+    /**
+     * Initialize page loader
+     */
+    initPageLoader() {
+        const loader = document.getElementById('page-loader');
+        if (!loader) return;
+
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const minDisplayTime = prefersReduced ? 300 : 800; // Shorter for reduced motion
+        const startTime = performance.now();
+
+        // Function to hide loader
+        const hideLoader = () => {
+            const elapsed = performance.now() - startTime;
+            const remainingTime = Math.max(0, minDisplayTime - elapsed);
+
+            setTimeout(() => {
+                loader.classList.add('loaded');
+                
+                // Remove from DOM after animation completes
+                setTimeout(() => {
+                    loader.remove();
+                    // Enable body scroll after loader is removed
+                    document.body.style.overflow = '';
+                }, 600); // Match CSS transition duration
+            }, remainingTime);
+        };
+
+        // Prevent body scroll while loader is visible
+        document.body.style.overflow = 'hidden';
+
+        // Check if page is already loaded
+        if (document.readyState === 'complete') {
+            // Small delay to ensure loader is visible
+            setTimeout(() => {
+                hideLoader();
+            }, 100);
+            return;
+        }
+
+        // Wait for page to fully load
+        const handleLoad = () => {
+            // Ensure fonts are loaded
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(() => {
+                    hideLoader();
+                }).catch(() => {
+                    // If fonts fail to load, still hide loader
+                    hideLoader();
+                });
+            } else {
+                hideLoader();
+            }
+        };
+
+        // Listen for load event
+        if (document.readyState === 'loading') {
+            window.addEventListener('load', handleLoad, { once: true });
+        } else {
+            // DOM is already loaded, wait a bit then hide
+            setTimeout(handleLoad, 100);
+        }
+
+        // Fallback: hide after maximum wait time (prevents stuck loader)
+        setTimeout(() => {
+            hideLoader();
+        }, 5000);
     }
 };
 
@@ -202,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize utility functions
     utils.initTheme();
+    utils.initPageLoader(); // Initialize loader after DOM is ready
     utils.initRevealAnimations();
     utils.initPageTransitions();
     utils.initSmoothScroll();
