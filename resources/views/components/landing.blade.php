@@ -1,4 +1,4 @@
-<section id="landing" class="bg-hero-pattern min-h-screen w-full pt-24 sm:pt-32 md:pt-48 overflow-hidden relative">
+<section id="landing" class="bg-hero-pattern min-h-screen w-full pt-24 sm:pt-32 md:pt-48 pb-16 overflow-hidden relative">
     <!-- Animated background elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div class="landing-gradient-orb landing-gradient-orb-1"></div>

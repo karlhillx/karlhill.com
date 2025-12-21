@@ -43,13 +43,83 @@ html {
 }
 
 .bg-maroon-dream {
-    @apply bg-cover bg-center bg-fixed;
+    @apply bg-cover bg-center;
     background-image:
         linear-gradient(135deg, rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.3)),
         url("/img/bg-landing.jpg");
     background-color: var(--color-maroon-base);
     position: relative;
+    background-attachment: scroll;
     animation: background-float 20s ease-in-out infinite;
+}
+
+/* Ensure background is contained to the landing section only */
+#landing {
+    background-attachment: scroll !important;
+    background-clip: padding-box;
+    isolation: isolate;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    /* Create a hard boundary */
+    border-bottom: 1px solid transparent;
+}
+
+/* Prevent bg-maroon-dream from applying background image to body */
+body.bg-maroon-dream {
+    background-image: none !important;
+    background-color: var(--color-maroon-base) !important;
+}
+
+/* Ensure sections after landing have proper backgrounds and are above landing */
+#landing ~ section,
+#landing + * {
+    position: relative;
+    z-index: 2;
+    background-color: white;
+}
+
+.dark #landing ~ section,
+.dark #landing + * {
+    background-color: rgb(24, 24, 27);
+}
+
+/* If bg-hero-pattern is used, apply the same background */
+.bg-hero-pattern {
+    @apply bg-cover bg-center;
+    background-image:
+        linear-gradient(135deg, rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.3)),
+        url("/img/bg-landing.jpg");
+    background-color: var(--color-maroon-base);
+    position: relative;
+    background-attachment: scroll !important;
+    background-clip: padding-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: background-float 20s ease-in-out infinite;
+    /* Ensure it doesn't extend beyond the section */
+    contain: layout style paint;
+}
+
+.bg-hero-pattern::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    animation: gradient-pulse 8s ease-in-out infinite, gradient-move 15s ease-in-out infinite;
+    z-index: 0;
+}
+
+.bg-hero-pattern::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    animation: gradient-pulse 10s ease-in-out infinite, gradient-move-reverse 18s ease-in-out infinite;
+    animation-delay: -5s;
+    z-index: 0;
 }
 
 .bg-maroon-dream::before {

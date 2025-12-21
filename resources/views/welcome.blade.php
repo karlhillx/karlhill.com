@@ -2,7 +2,7 @@
 
 @section('dark-mode', true)
 
-@section('body-bg', 'bg-maroon-dream dark:bg-maroon-dream text-gray-900 dark:text-white')
+@section('body-bg', 'bg-white dark:bg-zinc-900 text-gray-900 dark:text-white')
 
 @section('content')
 
