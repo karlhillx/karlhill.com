@@ -1416,3 +1416,250 @@ body.leaving {
     }
 }
 
+/* GitHub Section Automatic Animations */
+@keyframes github-orb-1 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.1;
+    }
+    33% {
+        transform: translate(40px, -50px) scale(1.15);
+        opacity: 0.15;
+    }
+    66% {
+        transform: translate(-30px, 40px) scale(0.9);
+        opacity: 0.12;
+    }
+}
+
+@keyframes github-orb-2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.1;
+    }
+    50% {
+        transform: translate(-40px, 50px) scale(1.2);
+        opacity: 0.15;
+    }
+}
+
+@keyframes github-orb-3 {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 0.05;
+    }
+    25% {
+        transform: translate(-48%, -52%) scale(1.1) rotate(90deg);
+        opacity: 0.08;
+    }
+    50% {
+        transform: translate(-52%, -48%) scale(0.95) rotate(180deg);
+        opacity: 0.06;
+    }
+    75% {
+        transform: translate(-50%, -50%) scale(1.05) rotate(270deg);
+        opacity: 0.07;
+    }
+}
+
+@keyframes github-grid-shift {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40px 40px;
+    }
+}
+
+@keyframes github-title-shimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes github-stat-appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes github-chart-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-github-orb-1 {
+    animation: github-orb-1 18s ease-in-out infinite;
+}
+
+.animate-github-orb-2 {
+    animation: github-orb-2 20s ease-in-out infinite;
+    animation-delay: -7s;
+}
+
+.animate-github-orb-3 {
+    animation: github-orb-3 25s ease-in-out infinite;
+    animation-delay: -12s;
+}
+
+.animate-github-title-shimmer {
+    background-size: 200% 200%;
+    animation: github-title-shimmer 3s ease infinite;
+}
+
+/* GitHub section reveal animations */
+.github-header {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.github-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.github-stats {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.github-stats.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.github-stat-card {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.github-stat-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.github-chart-container {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+    transition: opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s;
+}
+
+.github-chart-container.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.github-chart-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.github-loading {
+    transition: opacity 0.3s ease-out;
+}
+
+.github-chart-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.github-chart-btn.active {
+    position: relative;
+}
+
+.github-chart-btn.active::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: github-button-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes github-button-shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.github-profile-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.github-profile-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.github-profile-link:hover::before {
+    transform: translateX(100%);
+}
+
+.github-legend-item {
+    position: relative;
+}
+
+.github-legend-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.5rem;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.github-legend-item:hover::before {
+    opacity: 1;
+}
+
+/* Respect reduced motion for GitHub section */
+@media (prefers-reduced-motion: reduce) {
+    .animate-github-orb-1,
+    .animate-github-orb-2,
+    .animate-github-orb-3,
+    .animate-github-title-shimmer {
+        animation: none;
+    }
+    
+    .github-header,
+    .github-stats,
+    .github-stat-card,
+    .github-chart-container {
+        opacity: 1;
+        transform: none;
+    }
+    
+    .github-chart-btn.active::before {
+        animation: none;
+    }
+}
+

@@ -59,6 +59,9 @@ const utils = {
         
         // Initialize map section animations
         this.initMapAnimations();
+        
+        // Initialize GitHub section animations
+        this.initGitHubAnimations();
     },
 
     /**
@@ -145,6 +148,59 @@ const utils = {
         }, observerOptions);
 
         observer.observe(mapSection);
+    },
+
+    /**
+     * Initialize automatic animations for GitHub section
+     */
+    initGitHubAnimations() {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (prefersReduced || !('IntersectionObserver' in window)) {
+            document.querySelectorAll('.github-header, .github-stats, .github-stat-card, .github-chart-container').forEach(el => {
+                el.classList.add('visible');
+            });
+            return;
+        }
+
+        const githubSection = document.getElementById('github-section');
+        if (!githubSection) return;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -10% 0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const header = entry.target.querySelector('.github-header');
+                    const stats = entry.target.querySelector('.github-stats');
+                    const statCards = entry.target.querySelectorAll('.github-stat-card');
+                    const chartContainer = entry.target.querySelector('.github-chart-container');
+                    
+                    if (header) {
+                        setTimeout(() => header.classList.add('visible'), 100);
+                    }
+                    if (stats) {
+                        setTimeout(() => {
+                            stats.classList.add('visible');
+                            statCards.forEach((card, index) => {
+                                setTimeout(() => card.classList.add('visible'), index * 100);
+                            });
+                        }, 300);
+                    }
+                    if (chartContainer) {
+                        setTimeout(() => chartContainer.classList.add('visible'), 600);
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(githubSection);
     },
 
     /**
