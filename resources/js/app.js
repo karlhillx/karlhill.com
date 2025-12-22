@@ -56,6 +56,9 @@ const utils = {
 
         // Initialize competency card animations
         this.initCompetencyAnimations();
+        
+        // Initialize map section animations
+        this.initMapAnimations();
     },
 
     /**
@@ -95,6 +98,53 @@ const utils = {
         }, observerOptions);
 
         observer.observe(competencySection);
+    },
+
+    /**
+     * Initialize automatic animations for Map section
+     */
+    initMapAnimations() {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (prefersReduced || !('IntersectionObserver' in window)) {
+            document.querySelectorAll('.map-container, .map-location-info, .map-coordinates, .map-pin-overlay').forEach(el => {
+                el.classList.add('visible');
+            });
+            return;
+        }
+
+        const mapSection = document.getElementById('map');
+        if (!mapSection) return;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -10% 0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const container = entry.target.querySelector('.map-container');
+                    const locationInfo = entry.target.querySelector('.map-location-info');
+                    const coordinates = entry.target.querySelector('.map-coordinates');
+                    const pinOverlay = entry.target.querySelector('.map-pin-overlay');
+                    
+                    if (container) container.classList.add('visible');
+                    if (locationInfo) locationInfo.classList.add('visible');
+                    if (coordinates) {
+                        setTimeout(() => coordinates.classList.add('visible'), 800);
+                    }
+                    if (pinOverlay) {
+                        setTimeout(() => pinOverlay.classList.add('visible'), 1000);
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(mapSection);
     },
 
     /**
