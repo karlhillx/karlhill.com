@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
 // Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-// Contact Routes
-Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.post');
+
+// Contact Routes - MUST be before any catch-all routes
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.post');
 
 // Newsletter Routes
 Route::prefix('newsletter')->group(function () {
@@ -31,4 +32,3 @@ Route::get('/health', function () {
 });
 
 Route::get('/api/github/languages', [GitHubController::class, 'getLanguageStats']);
-

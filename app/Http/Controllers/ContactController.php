@@ -16,8 +16,18 @@ class ContactController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        // Force JSON response
-        $request->headers->set('Accept', 'application/json');
+        // This should NEVER return HTML - if you see HTML, the route isn't being hit
+        if (!$request->expectsJson() && !$request->wantsJson()) {
+            $request->headers->set('Accept', 'application/json');
+        }
+        
+        // Log for debugging
+        Log::info('Contact form submission received', [
+            'ip' => $request->ip(),
+            'method' => $request->method(),
+            'url' => $request->url(),
+            'data' => $request->except(['_token', 'website'])
+        ]);
         
         try {
 
@@ -71,9 +81,14 @@ class ContactController extends Controller
                     ->replyTo($request->email, $request->name);
             });
 
-            return response()->json([
+            $response = response()->json([
                 'message' => 'Message sent successfully! I\'ll get back to you soon.',
             ], 200);
+            
+            // Explicitly set JSON headers
+            $response->headers->set('Content-Type', 'application/json');
+            
+            return $response;
 
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
