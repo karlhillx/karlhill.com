@@ -519,6 +519,150 @@ footer .bottom-social-icons a {
     animation: skillPulse 2s ease-in-out infinite;
 }
 
+/* Core Competencies automatic animations */
+@keyframes competency-card-float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-3px) scale(1.01);
+    }
+}
+
+@keyframes competency-icon-rotate {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(5deg) scale(1.05);
+    }
+    75% {
+        transform: rotate(-5deg) scale(1.05);
+    }
+}
+
+@keyframes competency-icon-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+@keyframes competency-icon-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes competency-icon-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes competency-slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(-20px) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+.competency-card {
+    opacity: 0;
+    transform: translateX(-20px) translateY(10px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.competency-card.visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+    animation: competency-card-float 6s ease-in-out infinite;
+}
+
+/* Icon-specific animations */
+.competency-icon-shield {
+    animation: competency-icon-pulse 3s ease-in-out infinite;
+}
+
+.competency-icon-cogs {
+    animation: competency-icon-spin 8s linear infinite;
+}
+
+.competency-icon-cloud {
+    animation: competency-icon-float 4s ease-in-out infinite;
+}
+
+.competency-icon-gavel {
+    animation: competency-icon-rotate 3s ease-in-out infinite;
+}
+
+.competency-icon-database {
+    animation: competency-icon-pulse 2.5s ease-in-out infinite;
+}
+
+.competency-icon-docker {
+    animation: competency-icon-float 3.5s ease-in-out infinite;
+}
+
+.competency-icon-users {
+    animation: competency-icon-pulse 3.5s ease-in-out infinite;
+}
+
+.competency-icon-teacher {
+    animation: competency-icon-rotate 4s ease-in-out infinite;
+}
+
+.competency-icon-binoculars {
+    animation: competency-icon-pulse 2s ease-in-out infinite;
+}
+
+.competency-icon-desktop {
+    animation: competency-icon-float 5s ease-in-out infinite;
+}
+
+/* Sequential reveal animation delays */
+.competency-card.visible:nth-child(1) { animation-delay: 0.7s; }
+.competency-card.visible:nth-child(2) { animation-delay: 0.8s; }
+.competency-card.visible:nth-child(3) { animation-delay: 0.9s; }
+.competency-card.visible:nth-child(4) { animation-delay: 1.0s; }
+.competency-card.visible:nth-child(5) { animation-delay: 1.1s; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .competency-card,
+    .competency-icon-shield,
+    .competency-icon-cogs,
+    .competency-icon-cloud,
+    .competency-icon-gavel,
+    .competency-icon-database,
+    .competency-icon-docker,
+    .competency-icon-users,
+    .competency-icon-teacher,
+    .competency-icon-binoculars,
+    .competency-icon-desktop {
+        animation: none;
+    }
+    
+    .competency-card {
+        opacity: 1;
+        transform: none;
+    }
+}
+
 .project-card {
     @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl;
     @apply rounded-xl overflow-hidden border border-zinc-200/50 dark:border-zinc-700/50;

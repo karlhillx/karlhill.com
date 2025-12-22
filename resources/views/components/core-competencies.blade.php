@@ -66,15 +66,36 @@
             @foreach(['left', 'right'] as $column)
                 <div class="space-y-3 sm:space-y-4">
                     @foreach($competencies[$column] as $index => $competency)
+                        @php
+                            // Map icons to animation classes
+                            $iconAnimations = [
+                                'fa-shield-halved' => 'competency-icon-shield',
+                                'fa-cogs' => 'competency-icon-cogs',
+                                'fa-cloud' => 'competency-icon-cloud',
+                                'fa-gavel' => 'competency-icon-gavel',
+                                'fa-database' => 'competency-icon-database',
+                                'fa-docker' => 'competency-icon-docker',
+                                'fa-users' => 'competency-icon-users',
+                                'fa-chalkboard-teacher' => 'competency-icon-teacher',
+                                'fa-binoculars' => 'competency-icon-binoculars',
+                                'fa-desktop' => 'competency-icon-desktop',
+                            ];
+                            $iconClass = '';
+                            foreach ($iconAnimations as $iconKey => $animationClass) {
+                                if (str_contains($competency['icon'], $iconKey)) {
+                                    $iconClass = $animationClass;
+                                    break;
+                                }
+                            }
+                        @endphp
                         <div
-                            class="group bg-white/5 backdrop-blur-lg rounded-xl p-4 sm:p-5 md:p-6 border border-white/10 transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl skill-item"
-                            style="animation-delay: {{ $index * 200 }}ms">
+                            class="competency-card group bg-white/5 backdrop-blur-lg rounded-xl p-4 sm:p-5 md:p-6 border border-white/10 transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl">
                             <div class="flex items-center space-x-3 sm:space-x-4">
                                 <span
-                                    class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-400 to-indigo-400 animate-skillPulse">
+                                    class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-400 to-indigo-400 {{ $iconClass }}">
                                     <i class="{{ $competency['icon'] }} text-base sm:text-xl text-white"></i>
                                 </span>
-                                <p class="text-base sm:text-lg text-white/90 font-medium animate-fade-in-up">{{ $competency['text'] }}</p>
+                                <p class="text-base sm:text-lg text-white/90 font-medium">{{ $competency['text'] }}</p>
                             </div>
                             <div class="w-full bg-white/10 rounded-full h-1 mt-3 sm:mt-4 overflow-hidden opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                 <div class="bg-gradient-to-r from-cyan-400 to-indigo-400 h-1 rounded-full animate-skillPulse" style="width: 100%"></div>

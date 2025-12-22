@@ -28,6 +28,10 @@ const utils = {
             document.querySelectorAll('.reveal-section').forEach(el => {
                 el.classList.add('in-view');
             });
+            // Show competency cards immediately
+            document.querySelectorAll('.competency-card').forEach(el => {
+                el.classList.add('visible');
+            });
             return;
         }
 
@@ -49,6 +53,48 @@ const utils = {
         document.querySelectorAll('.reveal-section').forEach(el => {
             observer.observe(el);
         });
+
+        // Initialize competency card animations
+        this.initCompetencyAnimations();
+    },
+
+    /**
+     * Initialize automatic animations for Core Competencies
+     */
+    initCompetencyAnimations() {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (prefersReduced || !('IntersectionObserver' in window)) {
+            document.querySelectorAll('.competency-card').forEach(el => {
+                el.classList.add('visible');
+            });
+            return;
+        }
+
+        const competencySection = document.getElementById('core-competencies');
+        if (!competencySection) return;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -15% 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.competency-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 100);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(competencySection);
     },
 
     /**
