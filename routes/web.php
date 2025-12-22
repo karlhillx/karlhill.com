@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\PortfolioController;
@@ -17,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-// Contact & Newsletter Routes
-Route::prefix('contact')->group(function () {
-    Route::post('/', [NewsletterSubscriptionController::class, 'store'])->name('contact.post');
-    Route::get('/success', [NewsletterSubscriptionController::class, 'success'])->name('contact.success');
+// Contact Routes
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.post');
+
+// Newsletter Routes
+Route::prefix('newsletter')->group(function () {
+    Route::post('/', [NewsletterSubscriptionController::class, 'store'])->name('newsletter.post');
 });
 
 // Health Check

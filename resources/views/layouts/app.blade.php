@@ -25,6 +25,8 @@
 
 <x-back-to-top/>
 
+<x-contact-modal/>
+
 @stack('scripts')
 
 <x-schema/>

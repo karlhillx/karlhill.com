@@ -279,7 +279,7 @@
         </div>
     </div>
 
-    <form action="/contact" method="post"
+    <form action="/newsletter" method="post"
           class="flex flex-col gap-4 rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mb-20">
         @csrf
         <h2 class="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">

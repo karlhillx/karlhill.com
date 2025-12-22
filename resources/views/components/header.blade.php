@@ -9,12 +9,14 @@
             <div class="flex items-center md:gap-x-12">
                 <div class="float-start" data-aos="flip-left">
                     <i class="far fa-paper-plane text-white hover:text-orange-400 transition-all transform hover:scale-110"></i>
-                    <a href="mailto:karlhillx@gmail.com" target="_blank" class="text-white ml-1 hover:text-orange-400 transition-colors hidden xs:inline-block sm:inline-block md:inline-block">
-                        karlhillx@gmail.com
-                    </a>
-                    <a href="mailto:karlhillx@gmail.com" target="_blank" class="text-white ml-1 hover:text-orange-400 transition-colors xs:hidden sm:hidden md:hidden">
-                        Email
-                    </a>
+                    <button @click="window.dispatchEvent(new Event('open-contact-modal'))" 
+                            class="text-white ml-1 hover:text-orange-400 transition-colors hidden xs:inline-block sm:inline-block md:inline-block focus:outline-none focus:ring-2 focus:ring-orange-400 rounded">
+                        Contact Me
+                    </button>
+                    <button @click="window.dispatchEvent(new Event('open-contact-modal'))" 
+                            class="text-white ml-1 hover:text-orange-400 transition-colors xs:hidden sm:hidden md:hidden focus:outline-none focus:ring-2 focus:ring-orange-400 rounded">
+                        Contact
+                    </button>
                 </div>
             </div>
 
@@ -68,10 +70,11 @@
                     <i class="far fa-star mr-3 transition-transform duration-300 group-hover:scale-110"></i>
                     <span class="text-sm font-medium">Impact</span>
                 </a>
-                <a href="mailto:karlhillx@gmail.com" class="flex items-center px-6 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg mx-2 group">
+                <button @click="window.dispatchEvent(new Event('open-contact-modal'))" 
+                        class="flex items-center px-6 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg mx-2 group w-full text-left focus:outline-none focus:ring-2 focus:ring-white/50">
                     <i class="far fa-paper-plane mr-3 transition-transform duration-300 group-hover:translate-x-1"></i>
                     <span class="text-sm font-medium">Contact</span>
-                </a>
+                </button>
             </div>
         </nav>
     </div>

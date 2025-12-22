@@ -417,6 +417,79 @@ const utils = {
 document.addEventListener('DOMContentLoaded', () => {
     // Register Alpine data
     Alpine.data('darkMode', darkMode);
+    Alpine.data('contactModal', () => {
+        return {
+            open: false,
+            submitting: false,
+            success: false,
+            error: false,
+            form: {
+                name: '',
+                email: '',
+                message: '',
+                website: ''
+            },
+            errors: {},
+            
+            init() {
+                window.addEventListener('open-contact-modal', () => {
+                    this.open = true;
+                    document.body.style.overflow = 'hidden';
+                });
+            },
+            
+            close() {
+                this.open = false;
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    this.reset();
+                }, 300);
+            },
+            
+            reset() {
+                this.submitting = false;
+                this.success = false;
+                this.error = false;
+                this.form = { name: '', email: '', message: '', website: '' };
+                this.errors = {};
+            },
+            
+            async submit() {
+                this.submitting = true;
+                this.error = false;
+                this.errors = {};
+                
+                try {
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;
+                    const response = await fetch('/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken,
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(this.form)
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        this.success = true;
+                        setTimeout(() => {
+                            this.close();
+                        }, 3000);
+                    } else {
+                        this.error = data.message || 'Something went wrong. Please try again.';
+                        this.errors = data.errors || {};
+                    }
+                } catch (err) {
+                    this.error = 'Network error. Please check your connection and try again.';
+                } finally {
+                    this.submitting = false;
+                }
+            }
+        };
+    });
     
     // Start Alpine
     Alpine.start();
