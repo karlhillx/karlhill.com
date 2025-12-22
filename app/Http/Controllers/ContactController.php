@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
 
 class ContactController extends Controller
 {
@@ -31,16 +31,34 @@ class ContactController extends Controller
         
         try {
 
-            // Rate limiting: max 3 requests per hour per IP
-            $key = 'contact:' . $request->ip();
-            if (RateLimiter::tooManyAttempts($key, 3)) {
-                $seconds = RateLimiter::availableIn($key);
-                return response()->json([
-                    'message' => "Too many attempts. Please try again in {$seconds} seconds.",
-                ], 429);
-            }
+            // Rate limiting: max 5 requests per hour per IP
+            // Using file-based cache to avoid database dependency
+            try {
+                $cache = cache()->store('file'); // Use file cache explicitly
+                $key = 'contact_rate_limit:' . $request->ip();
+                $attempts = $cache->get($key, 0);
+                
+                if ($attempts >= 5) {
+                    $expiresAt = $cache->get($key . '_expires', now()->addHour());
+                    $seconds = max(0, now()->diffInSeconds($expiresAt));
+                    return response()->json([
+                        'message' => "Too many attempts. Please try again in {$seconds} seconds.",
+                    ], 429);
+                }
 
-            RateLimiter::hit($key, 3600); // 1 hour
+                // Increment attempts
+                if ($attempts === 0) {
+                    $cache->put($key, 1, now()->addHour());
+                    $cache->put($key . '_expires', now()->addHour(), now()->addHour());
+                } else {
+                    $cache->increment($key);
+                }
+            } catch (\Exception $rateLimitError) {
+                // If rate limiting fails (cache issues), log but continue
+                Log::warning('Rate limiting failed, continuing anyway', [
+                    'error' => $rateLimitError->getMessage()
+                ]);
+            }
 
             // Honeypot spam protection
             if (!empty($request->input('website'))) {
