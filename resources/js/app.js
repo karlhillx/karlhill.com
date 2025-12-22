@@ -459,33 +459,104 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.error = false;
                 this.errors = {};
                 
+                console.log('[Contact Form] Starting submission...');
+                
                 try {
                     const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;
+                    console.log('[Contact Form] CSRF Token:', csrfToken ? 'Found' : 'Missing');
+                    
+                    if (!csrfToken) {
+                        this.error = 'Security token not found. Please refresh the page and try again.';
+                        this.submitting = false;
+                        return;
+                    }
+                    
+                    const formData = {
+                        name: this.form.name,
+                        email: this.form.email,
+                        message: this.form.message,
+                        website: this.form.website, // honeypot
+                    };
+                    
+                    console.log('[Contact Form] Submitting data:', { ...formData, message: formData.message.substring(0, 50) + '...' });
+                    
                     const response = await fetch('/contact', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                             'X-CSRF-TOKEN': csrfToken,
+                            'X-Requested-With': 'XMLHttpRequest',
                             'Accept': 'application/json'
                         },
-                        body: JSON.stringify(this.form)
+                        credentials: 'same-origin',
+                        body: JSON.stringify(formData)
                     });
                     
-                    const data = await response.json();
+                    console.log('[Contact Form] Response status:', response.status);
+                    console.log('[Contact Form] Response headers:', Object.fromEntries(response.headers.entries()));
+                    
+                    // Handle response
+                    if (!response.ok && response.status === 419) {
+                        // CSRF token mismatch
+                        console.error('[Contact Form] CSRF token mismatch (419)');
+                        this.error = 'Session expired. Please refresh the page and try again.';
+                        this.submitting = false;
+                        return;
+                    }
+                    
+                    // Try to parse response as JSON
+                    let data;
+                    try {
+                        const contentType = response.headers.get('content-type') || '';
+                        console.log('[Contact Form] Content-Type:', contentType);
+                        
+                        if (contentType.includes('application/json')) {
+                            data = await response.json();
+                            console.log('[Contact Form] Response data:', data);
+                        } else {
+                            // If not JSON, get text for debugging
+                            const text = await response.text();
+                            console.error('[Contact Form] Non-JSON response:', text.substring(0, 500));
+                            this.error = `Server error (${response.status}). Check console for details.`;
+                            this.submitting = false;
+                            return;
+                        }
+                    } catch (parseError) {
+                        console.error('[Contact Form] JSON parse error:', parseError);
+                        this.error = 'Invalid response from server. Please try again.';
+                        this.submitting = false;
+                        return;
+                    }
                     
                     if (response.ok) {
+                        console.log('[Contact Form] Success!');
                         this.success = true;
                         setTimeout(() => {
                             this.close();
                         }, 3000);
                     } else {
-                        this.error = data.message || 'Something went wrong. Please try again.';
+                        console.error('[Contact Form] Error response:', data);
+                        this.error = data.message || `Error ${response.status}: Something went wrong. Please try again.`;
                         this.errors = data.errors || {};
                     }
                 } catch (err) {
-                    this.error = 'Network error. Please check your connection and try again.';
+                    console.error('[Contact Form] Exception caught:', err);
+                    console.error('[Contact Form] Error details:', {
+                        name: err.name,
+                        message: err.message,
+                        stack: err.stack
+                    });
+                    // More specific error messages
+                    if (err.name === 'TypeError' && err.message.includes('fetch')) {
+                        this.error = 'Network error. Please check your internet connection and that the server is running.';
+                    } else if (err.message) {
+                        this.error = err.message;
+                    } else {
+                        this.error = 'An unexpected error occurred. Please try again.';
+                    }
                 } finally {
                     this.submitting = false;
+                    console.log('[Contact Form] Submission completed');
                 }
             }
         };

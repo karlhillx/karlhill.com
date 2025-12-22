@@ -14,5 +14,21 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        // Return JSON for all JSON requests
+        $exceptions->render(function (\Throwable $e, $request) {
+            if ($request->expectsJson() || $request->wantsJson() || $request->header('Accept') === 'application/json') {
+                $status = method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 500;
+                
+                return response()->json([
+                    'message' => $e->getMessage() ?? 'An error occurred.',
+                    'error' => config('app.debug') ? [
+                        'message' => $e->getMessage(),
+                        'file' => $e->getFile(),
+                        'line' => $e->getLine(),
+                    ] : null,
+                ], $status);
+            }
+            
+            return null; // Let Laravel handle non-JSON requests normally
+        });
     })->create();
