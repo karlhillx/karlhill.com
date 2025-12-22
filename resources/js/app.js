@@ -536,8 +536,24 @@ document.addEventListener('DOMContentLoaded', () => {
                         }, 3000);
                     } else {
                         console.error('[Contact Form] Error response:', data);
-                        this.error = data.message || `Error ${response.status}: Something went wrong. Please try again.`;
-                        this.errors = data.errors || {};
+                        console.error('[Contact Form] Validation errors:', JSON.stringify(data.errors, null, 2));
+                        
+                        // Build error message from validation errors
+                        if (data.errors && Object.keys(data.errors).length > 0) {
+                            const errorMessages = [];
+                            Object.keys(data.errors).forEach(field => {
+                                if (Array.isArray(data.errors[field])) {
+                                    errorMessages.push(...data.errors[field]);
+                                } else {
+                                    errorMessages.push(data.errors[field]);
+                                }
+                            });
+                            this.error = errorMessages.join(' ');
+                            this.errors = data.errors;
+                        } else {
+                            this.error = data.message || `Error ${response.status}: Something went wrong. Please try again.`;
+                            this.errors = data.errors || {};
+                        }
                     }
                 } catch (err) {
                     console.error('[Contact Form] Exception caught:', err);

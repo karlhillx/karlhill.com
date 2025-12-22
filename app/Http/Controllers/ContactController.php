@@ -81,6 +81,11 @@ class ContactController extends Controller
             ]);
 
             if ($validator->fails()) {
+                Log::warning('Contact form validation failed', [
+                    'errors' => $validator->errors()->toArray(),
+                    'input' => $request->except(['website'])
+                ]);
+                
                 return response()->json([
                     'message' => 'Please correct the errors below.',
                     'errors' => $validator->errors()->toArray(),
