@@ -633,8 +633,8 @@ body.leaving {
     }
 }
 
-/* Subtle text breathing effect */
-#landing h1,
+/* Subtle text breathing effect - REMOVED to prevent unwanted movement */
+/* #landing h1,
 #landing h2 {
     animation: text-breathe 4s ease-in-out infinite;
     animation-delay: 1s;
@@ -651,7 +651,7 @@ body.leaving {
 
 #landing .text-base {
     animation: text-float 6s ease-in-out infinite;
-}
+} */
 
 @keyframes text-breathe {
     0%, 100% {
@@ -680,14 +680,14 @@ body.leaving {
     }
 }
 
-/* Subtle button hover enhancement */
+/* Subtle button hover enhancement - REMOVED animation to prevent unwanted movement */
 #landing .btn-secondary {
     position: relative;
     overflow: hidden;
-    animation: button-float 5s ease-in-out infinite;
+    /* animation: button-float 5s ease-in-out infinite; */
 }
 
-#landing .btn-secondary:nth-child(1) {
+/* #landing .btn-secondary:nth-child(1) {
     animation-delay: 0s;
 }
 
@@ -697,7 +697,7 @@ body.leaving {
 
 #landing .btn-secondary:nth-child(3) {
     animation-delay: 3s;
-}
+} */
 
 #landing .btn-secondary::before {
     content: '';
