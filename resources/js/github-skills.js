@@ -55,8 +55,23 @@ async function loadGitHubStats() {
         // Show loading state
         if (loadingEl) loadingEl.style.display = 'flex';
         
-        const response = await fetch('/api/github/languages', { headers: { 'Accept': 'application/json' } });
+        // Add cache-busting and prevent caching
+        const cacheBuster = `?t=${Date.now()}`;
+        const response = await fetch(`/api/github/languages${cacheBuster}`, { 
+            headers: { 
+                'Accept': 'application/json',
+                'Cache-Control': 'no-cache'
+            },
+            cache: 'no-store'
+        });
         const data = await response.json();
+        
+        // Debug logging
+        console.log('GitHub API Response:', {
+            totalRepos: Array.isArray(data) ? data.length : 0,
+            reposWithLanguages: Array.isArray(data) ? data.filter(r => r && r.language).length : 0,
+            languages: Array.isArray(data) ? [...new Set(data.filter(r => r && r.language).map(r => r.language))] : []
+        });
 
         if (!Array.isArray(data)) {
             console.warn('GitHub languages API returned non-array:', data);
@@ -65,10 +80,26 @@ async function loadGitHubStats() {
         }
 
         const languageStats = {};
+        let reposWithLanguages = 0;
+        let reposWithoutLanguages = 0;
+        
         data.forEach(repo => {
-            if (repo && repo.language) {
-                languageStats[repo.language] = (languageStats[repo.language] || 0) + 1;
+            if (repo) {
+                if (repo.language) {
+                    languageStats[repo.language] = (languageStats[repo.language] || 0) + 1;
+                    reposWithLanguages++;
+                } else {
+                    reposWithoutLanguages++;
+                }
             }
+        });
+        
+        console.log('Language Statistics:', {
+            totalRepos: data.length,
+            reposWithLanguages,
+            reposWithoutLanguages,
+            languages: Object.keys(languageStats),
+            languageCounts: languageStats
         });
 
         chartData = {
@@ -135,9 +166,10 @@ async function loadGitHubStats() {
                         callbacks: {
                             label: function(context) {
                                 const label = context.label || '';
-                                const value = context.parsed || context.raw;
+                                // For pie/doughnut charts, get value from dataset data array using dataIndex
+                                const value = context.dataset.data[context.dataIndex];
                                 const total = chartData.values.reduce((a, b) => a + b, 0);
-                                const percentage = ((value / total) * 100).toFixed(1);
+                                const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : '0.0';
                                 return `${label}: ${value} repo${value !== 1 ? 's' : ''} (${percentage}%)`;
                             }
                         }
