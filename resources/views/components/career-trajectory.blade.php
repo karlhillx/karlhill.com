@@ -1,32 +1,36 @@
 @php
     $career = [
         [
-            'year' => 'Sep 2025 - Present',
+            'year' => 'Sep 2025 - Present · 4 mos',
             'role' => 'Staff Aerospace Software Engineer',
             'company' => 'Jacobs',
             'company_url' => 'https://www.jacobs.com/',
             'logo' => '/img/logo-jacobs.png',
+            'location' => 'Chantilly, Virginia, United States',
+            'description' => 'Leading design and delivery of secure, cloud-native ground systems for space and defense missions. Driving DevSecOps maturity, automation, engineering standards, and Agile execution.',
             'highlights' => [
-                'Deliver mission-simulation and algorithm services aligned to operational needs',
-                'Drive Agile execution and stakeholder updates for predictable delivery',
-                'Define repo/branching/PR standards to reduce integration risk',
-                'Build CI/CD with tests and security scans for safe, fast releases',
-                'Use containers and IaC for reproducible environments across deployments',
-                'Mentor engineers on DevSecOps and platform-first practices'
+                'Lead architecture and delivery of cloud-native mission software for modeling and operations',
+                'Drive DevSecOps automation for simulation/mission platforms (CI/CD, builds, quality gates)',
+                'Implement hardened pipelines enabling secure, traceable, release-ready deployments',
+                'Mentor engineers and standardize code quality: reviews, testing, repo conventions, PR hygiene',
+                'Align technical delivery with mission needs, schedules, and operational constraints'
             ],
             'level' => 'staff'
         ],
         [
-            'year' => 'Dec 2017 - Sep 2025',
-            'role' => 'Lead Software Engineer',
-            'company' => 'NASA/SSAI',
+            'year' => 'Dec 2017 - Sep 2025 · 7 yrs 10 mos',
+            'role' => 'Lead Software Engineer at NASA',
+            'company' => 'Science Systems and Applications, Inc (SSAI)',
             'company_url' => 'https://www.nasa.gov/',
             'logo' => '/img/logo-nasa.png',
+            'location' => 'NASA Goddard Space Flight Center (GSFC), Greenbelt, Maryland',
+            'description' => 'Led design and delivery of NASA Earth science data systems, including real-time hazard/event detection and major platform modernization efforts supporting large-scale public users. Served as a technical lead across cloud-native architecture, data pipelines, and DevOps, while driving Agile delivery with Jira/Confluence.',
             'highlights' => [
-                'Leading DevSecOps transformation for mission-critical ground systems',
-                'Architecting cloud-native platforms for space operations',
-                'Mentoring engineering teams in secure Agile delivery practices',
-                'Designing high-assurance systems for national security environments'
+                'Architected and operated real-time flood detection on AWS using satellite data',
+                'Modernized Earth data platforms for scale, reliability, and usability',
+                'Built Ceph-backed storage services and automated science data pipelines',
+                'Shipped containerized services (Docker/Kubernetes) with GitLab CI/CD',
+                'Led Agile delivery (Jira/Confluence) and mentored engineers'
             ],
             'level' => 'lead'
         ],
@@ -154,8 +158,14 @@
                                             {{ $position['company'] }}
                                         </a>
                                         <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{{ $position['year'] }}</p>
+                                        @if(isset($position['location']))
+                                            <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">{{ $position['location'] }}</p>
+                                        @endif
                                     </div>
                                 </div>
+                                @if(isset($position['description']))
+                                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{{ $position['description'] }}</p>
+                                @endif
                                 <ul class="space-y-2 mt-4">
                                     @foreach($position['highlights'] as $highlight)
                                         <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
