@@ -308,6 +308,141 @@ footer .bottom-social-icons a {
   }
 }
 
+/* Career trajectory continuous animations */
+.career-timeline-line {
+  background-size: 200% 200%;
+  animation: career-gradient-shift 8s ease infinite;
+}
+
+@keyframes career-gradient-shift {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%;
+  }
+  50% {
+    background-position: 100% 100%, 0% 0%;
+  }
+}
+
+.career-timeline-dot {
+  transform-origin: center;
+  animation: career-dot-pulse 3s ease-in-out infinite;
+}
+
+@keyframes career-dot-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(99, 102, 241, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .career-timeline-dot {
+    transform: translateX(-50%);
+    animation: career-dot-pulse-md 3s ease-in-out infinite;
+  }
+  
+  @keyframes career-dot-pulse-md {
+    0%, 100% {
+      transform: translateX(-50%) scale(1);
+      box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+    50% {
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: 0 0 0 8px rgba(99, 102, 241, 0);
+    }
+  }
+}
+
+.career-card {
+  animation: career-card-float 6s ease-in-out infinite;
+}
+
+@keyframes career-card-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.career-logo {
+  animation: career-logo-gentle 4s ease-in-out infinite;
+}
+
+@keyframes career-logo-gentle {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(1deg) scale(1.02);
+  }
+  75% {
+    transform: rotate(-1deg) scale(1.02);
+  }
+}
+
+.career-badge {
+  animation: career-badge-glow 4s ease-in-out infinite;
+}
+
+@keyframes career-badge-glow {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.9;
+    filter: brightness(1.1);
+  }
+}
+
+.career-check-icon {
+  animation: career-check-float 5s ease-in-out infinite;
+}
+
+@keyframes career-check-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-1px) scale(1.05);
+  }
+}
+
+/* Impact & Leadership arrow pulsation */
+.impact-arrow {
+  animation: impact-arrow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes impact-arrow-pulse {
+  0%, 100% {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2) translateX(2px);
+    opacity: 0.8;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .career-timeline-line,
+  .career-timeline-dot,
+  .career-card,
+  .career-logo,
+  .career-badge,
+  .career-check-icon,
+  .impact-arrow {
+    animation: none;
+  }
+}
+
 @keyframes fade-in {
     0% { opacity: 0; }
     100% { opacity: 1; }
