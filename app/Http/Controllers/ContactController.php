@@ -88,16 +88,40 @@ class ContactController extends Controller
             }
 
             // Send email notification
-            Mail::send('mail.contact', [
-                'name' => $request->name,
-                'email' => $request->email,
-                'messageContent' => $request->message,
-                'ip' => $request->ip(),
-            ], function ($message) use ($request) {
-                $message->to(config('mail.from.address'), config('mail.from.name'))
-                    ->subject('New Contact Form Submission from ' . $request->name)
-                    ->replyTo($request->email, $request->name);
-            });
+            // If mail fails, we'll log it but still return success to user
+            try {
+                Mail::send('mail.contact', [
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'messageContent' => $request->message,
+                    'ip' => $request->ip(),
+                ], function ($message) use ($request) {
+                    $message->to(config('mail.from.address'), config('mail.from.name'))
+                        ->subject('New Contact Form Submission from ' . $request->name)
+                        ->replyTo($request->email, $request->name);
+                });
+                
+                Log::info('Contact form email sent successfully', [
+                    'to' => config('mail.from.address'),
+                    'from' => $request->email
+                ]);
+            } catch (\Exception $mailError) {
+                // Log the mail error but don't fail the request
+                // The email will be logged in storage/logs/laravel.log if using 'log' driver
+                Log::error('Contact form email failed to send', [
+                    'error' => $mailError->getMessage(),
+                    'to' => config('mail.from.address'),
+                    'from' => $request->email,
+                    'subject' => 'New Contact Form Submission from ' . $request->name
+                ]);
+                
+                // If using 'log' driver, the email is still "sent" (logged)
+                // If using SMTP and it fails, we still want to notify user it was received
+                if (config('mail.default') !== 'log') {
+                    // Email failed but we'll still show success since form was submitted
+                    Log::warning('SMTP mail failed - consider using log driver or configuring App Password for Gmail');
+                }
+            }
 
             $response = response()->json([
                 'message' => 'Message sent successfully! I\'ll get back to you soon.',
