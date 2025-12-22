@@ -2,6 +2,67 @@
 
 @import "tailwindcss";
 
+/* Alpine.js x-cloak - hide elements until Alpine is ready */
+[x-cloak] {
+    display: none !important;
+}
+
+/* Ensure resume modal is always above header */
+.resume-modal-overlay {
+    z-index: 999999 !important;
+    position: fixed !important;
+    isolation: isolate;
+}
+
+/* Break stacking context for modal - target any level */
+.resume-modal-overlay,
+body .resume-modal-overlay,
+body > .resume-modal-overlay,
+section .resume-modal-overlay,
+div .resume-modal-overlay {
+    z-index: 999999 !important;
+}
+
+/* Lower header z-index when resume modal is open - multiple selectors for reliability */
+body.resume-modal-open .header-nav,
+body.resume-modal-open header,
+.resume-modal-open ~ header,
+body.resume-modal-open header.header-nav {
+    z-index: 30 !important;
+}
+
+/* Resume Modal Styles */
+.resume-modal-backdrop {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.resume-modal-content {
+    animation: modal-slide-in 0.3s ease-out;
+}
+
+@keyframes modal-slide-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* PDF Viewer Responsive */
+.resume-pdf-container {
+    min-height: 500px;
+}
+
+@media (max-width: 640px) {
+    .resume-pdf-container {
+        min-height: 400px;
+    }
+}
+
 :root {
     --font-family-sans: "Inter Variable", "Inter", system-ui, -apple-system, sans-serif;
     --color-maroon-base: #7d2746;

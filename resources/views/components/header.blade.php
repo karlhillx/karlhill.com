@@ -1,7 +1,7 @@
 <header x-data="{ scrolled: false }" 
         @scroll.window="scrolled = window.scrollY > 20"
         :class="{ 'shadow-xl': scrolled }"
-        class="py-3 sm:py-4 color-maroon-dream backdrop-blur-xl fixed w-full top-0 z-50 shadow-lg border-b border-white/10 transition-all duration-300">
+        class="header-nav py-3 sm:py-4 color-maroon-dream backdrop-blur-xl fixed w-full top-0 z-50 shadow-lg border-b border-white/10 transition-all duration-300">
     <div class="mx-auto max-w-9xl px-4 sm:px-6 lg:px-8">
         <nav x-data="{ isOpen: false }" 
              class="relative z-50 flex justify-between items-center">

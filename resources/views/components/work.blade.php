@@ -193,17 +193,91 @@
                 </dl>
             </li>
         </ol>
-        <a href="{{ asset('files/karlhill-resume.pdf') }}" role="button"
-           target="_blank"
-           class="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-50 font-medium text-zinc-900 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70 group mt-6 w-full">Download
-            CV
-            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"
-                 class="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50">
-                <path d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-                      stroke-width="1.5"
-                      stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-        </a></div>
+        <div x-data="{ resumeModalOpen: false }" 
+             x-init="$watch('resumeModalOpen', value => { if(value) { document.body.classList.add('resume-modal-open'); } else { document.body.classList.remove('resume-modal-open'); } })"
+             class="mt-6">
+            <button @click="resumeModalOpen = true" 
+                    class="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-50 font-medium text-zinc-900 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70 group w-full">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                </svg>
+                View Resume
+            </button>
+
+            <!-- Resume Modal -->
+            <div x-show="resumeModalOpen" 
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition ease-in duration-200"
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0"
+                 @click.away="resumeModalOpen = false"
+                 @keydown.escape.window="resumeModalOpen = false"
+                 class="resume-modal-overlay fixed inset-0 flex items-center justify-center p-4 pt-20 sm:pt-24 bg-black/80 backdrop-blur-sm"
+                 style="display: none; z-index: 999999;"
+                 x-cloak>
+                <div class="relative w-full max-w-5xl max-h-[85vh] bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+                    <!-- Modal Header -->
+                    <div class="flex items-center justify-between p-4 sm:p-6 border-b border-zinc-200 dark:border-zinc-700 bg-gradient-to-r from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                                <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-zinc-900 dark:text-white">Karl Hill - Resume</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400">Staff Software Engineer</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <a href="{{ asset('files/karlhill-resume.pdf') }}" 
+                               download
+                               class="p-2 text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
+                               title="Download Resume">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                </svg>
+                            </a>
+                            <button @click="resumeModalOpen = false" 
+                                    class="p-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
+                                    aria-label="Close modal">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- PDF Viewer -->
+                    <div class="flex-1 overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+                        <iframe src="{{ asset('files/karlhill-resume.pdf') }}#toolbar=1&navpanes=1&scrollbar=1" 
+                                class="w-full h-full min-h-[500px] border-0"
+                                title="Resume PDF Viewer">
+                        </iframe>
+                    </div>
+                    
+                    <!-- Modal Footer -->
+                    <div class="flex items-center justify-between p-4 sm:p-6 border-t border-zinc-200 dark:border-zinc-700 bg-gradient-to-r from-zinc-50 to-white dark:from-zinc-800 dark:to-zinc-900">
+                        <p class="text-sm text-zinc-500 dark:text-zinc-400">
+                            <span class="hidden sm:inline">Tip: Use the controls above to navigate, zoom, or </span>
+                            <a href="{{ asset('files/karlhill-resume.pdf') }}" 
+                               download
+                               class="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                                download the PDF
+                            </a>
+                        </p>
+                        <button @click="resumeModalOpen = false" 
+                                class="px-4 py-2 bg-zinc-900 dark:bg-zinc-700 text-white rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-600 transition-colors text-sm font-medium">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <form action="/contact" method="post"
           class="flex flex-col gap-4 rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mb-20">
