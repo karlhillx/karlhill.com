@@ -270,10 +270,6 @@ footer .bottom-social-icons a {
     @apply bg-[#333] -rotate-3; 
     box-shadow: 0 0 20px rgba(51, 51, 51, 0.5);
 }
-.medium:hover { 
-    @apply bg-[#00ab6c] rotate-3; 
-    box-shadow: 0 0 20px rgba(0, 171, 108, 0.5);
-}
 .twitter:hover { 
     @apply bg-[#1da1f2] -rotate-3; 
     box-shadow: 0 0 20px rgba(29, 161, 242, 0.5);

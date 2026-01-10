@@ -13,11 +13,6 @@
                    href="https://github.com/karlhillx/">
                     <i class="fab fa-github text-white text-lg sm:text-xl"></i>
                 </a>
-                <a class="medium group transition-colors duration-300 p-2 hover:bg-gray-800 rounded-lg"
-                   aria-label="Visit Karl Hill's Medium profile"
-                   target="_blank" href="https://karlhillx.medium.com/">
-                    <i class="fab fa-medium text-white text-lg sm:text-xl"></i>
-                </a>
                 <a class="twitter group transition-colors duration-300 p-2 hover:bg-gray-800 rounded-lg"
                    aria-label="Visit Karl Hill's Twitter profile"
                    target="_blank" href="https://twitter.com/karl_hill/">
