@@ -1,4 +1,4 @@
-# Karl Hill – Portfolio Website
+# Karl Hill – Capabilities
 
 A modern, production-ready portfolio built on Laravel with Tailwind CSS v4 and Vite. The codebase is optimized for fast iteration in development and straightforward deployment behind Nginx/PHP-FPM in production. This README targets developers who want to clone, iterate, and deploy with confidence.
 
