@@ -7,7 +7,7 @@
     </div>
 
     <!-- Animated grid pattern -->
-    <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none">
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px; animation: github-grid-shift 25s linear infinite;"></div>
     </div>
 

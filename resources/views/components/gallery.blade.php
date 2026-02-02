@@ -38,7 +38,7 @@
              @endphp
 
              @foreach($images as $image)
-                 <div class="relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl {{ $image['rotate'] }}">
+                 <div class="relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl {{ $image['rotate'] }}">
                      @if(isset($image['url']))
                          <a href="{{ $image['url'] }}" target="_blank">
                      @endif

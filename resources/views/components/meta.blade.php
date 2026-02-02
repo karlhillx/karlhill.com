@@ -9,8 +9,7 @@
     'keywords' => 'Karl Hill, software engineer, aerospace software, cloud-native architecture, DevSecOps, Laravel expert, full stack developer, CI/CD pipelines, Agile leadership, enterprise solutions, NASA projects, principal engineer',
     'twitterCard' => 'summary_large_image',
     'twitterCreator' => '@karlhill',
-    'themeColorLight' => '#ffffff',
-    'themeColorDark' => '#18181b',
+    'themeColor' => '#ffffff',
     'noindex' => false,
     'canonical' => null,
     'robots' => null,
@@ -23,12 +22,10 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
 <meta name="description" content="{{ $description }}">
 <meta name="keywords" content="{{ $keywords }}">
 <meta name="author" content="{{ $author }}">
-<meta name="theme-color" content="{{ $themeColorLight }}" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="{{ $themeColorDark }}" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="{{ $themeColor }}">
 <meta name="robots" content="{{ $robotsTag }}">
 <meta name="referrer" content="no-referrer-when-downgrade">
 

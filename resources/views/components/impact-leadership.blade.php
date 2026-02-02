@@ -63,7 +63,7 @@
                     Impact & Leadership
                 </span>
             </h2>
-            <p class="text-lg text-gray-300 dark:text-gray-400 max-w-3xl mx-auto">
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto">
                 Strategic contributions that drive technical excellence, team growth, and mission success
             </p>
         </div>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     
-                    <p class="text-gray-300 dark:text-gray-400 mb-4 leading-relaxed">
+                    <p class="text-gray-300 mb-4 leading-relaxed">
                         {{ $impact['description'] }}
                     </p>
 

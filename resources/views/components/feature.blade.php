@@ -1,10 +1,10 @@
 <section
     id="feature"
-    class="bg-white dark:bg-maroon-dream"
+    class="bg-white"
 >
     <div class="max-w-7xl mx-auto py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div
-            class="bg-orange-500 dark:bg-orange-600 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
+            class="bg-orange-500 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
             <div class="pt-8 pb-10 px-4 sm:pt-12 sm:px-8 md:pt-16 md:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
                 <div class="lg:self-center">
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-white md:text-4xl">

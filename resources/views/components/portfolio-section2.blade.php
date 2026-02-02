@@ -1,6 +1,6 @@
 <!-- Enterprise Projects Section -->
 <section
-    class="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 px-5 transition-colors duration-300 reveal-section">
+    class="relative bg-gradient-to-b from-gray-50 to-white py-16 px-5 transition-colors duration-300 reveal-section">
     <div x-data="{
         selectedImage: null,
         activeCard: null,
@@ -66,10 +66,10 @@
 
             <!-- IDNAPortal Project Card -->
             <div
-                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800 relative"
+                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white relative"
                 @mouseenter="setActiveCard(2)"
                 @mouseleave="resetActiveCard()"
-                :class="{'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-gray-900': activeCard === 2}">
+                :class="{'ring-2 ring-indigo-500 ring-offset-2 ring-offset-white': activeCard === 2}">
                 <div class="flex-shrink-0 overflow-hidden">
                     <img class="h-48 object-cover object-left-top transition-all duration-500"
                          loading="lazy"
@@ -77,16 +77,16 @@
                          :class="{'scale-110 brightness-110': activeCard === 2}"
                          alt="IDNAPortal Screenshot">
                 </div>
-                <div class="flex-1 p-6 flex flex-col justify-between dark:bg-gray-800">
+                <div class="flex-1 p-6 flex flex-col justify-between">
                     <div class="flex-1">
-                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                        <p class="text-sm font-medium text-indigo-600">
                             <a class="hover:underline transition-colors"> Application </a>
                         </p>
                         <a href="#" class="block mt-2">
-                            <p class="text-xl font-semibold text-gray-900 dark:text-white"><a
+                            <p class="text-xl font-semibold text-gray-900"><a
                                     href="https://idnaportal.com/"
                                     alt="" target="_blank">IDNAPortal</a></p>
-                            <p class="mt-3 text-base text-gray-500 dark:text-gray-300 link-underline">
+                            <p class="mt-3 text-base text-gray-500 link-underline">
                                 InformedDNA leads the applied genomics field, optimizing clinical decisions
                                 with
                                 cutting-edge genomics expertise. Their IDNAPortal, which I developed, is a
@@ -102,7 +102,7 @@
 
                         <div class="mt-4">
                             <div
-                                class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded-md border uppercase px-4 py-2 inline-block hover:text-white hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md"
+                                class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded-md border uppercase px-4 py-2 inline-block hover:text-white hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md"
                                 :class="{'bg-blue-500 text-white border-blue-500 -translate-y-1 shadow-md': activeCard === 2}">
                                 <a
                                     href="#"
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <hr class="border-slate-100 dark:border-gray-700 border-t mt-4">
+                    <hr class="border-slate-100 border-t mt-4">
                     <div class="mt-4 flex items-center">
                         <div class="flex-shrink-0">
                             <a href="#">
@@ -127,10 +127,10 @@
                             </a>
                         </div>
                         <div class="ml-3">
-                            <p class="text-sm font-medium text-gray-900 dark:text-white">
+                            <p class="text-sm font-medium text-gray-900">
                                 <a href="#" class="hover:underline"> Laravel, Bootstrap, SugarCRM </a>
                             </p>
-                            <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
+                            <div class="flex space-x-1 text-sm text-gray-500">
                                 <time datetime="2020-03-10">InformedDNA</time>
                             </div>
                         </div>
@@ -140,10 +140,10 @@
 
             <!-- Taylor MDA Project Card -->
             <div
-                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800 relative"
+                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white relative"
                 @mouseenter="setActiveCard(3)"
                 @mouseleave="resetActiveCard()"
-                :class="{'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-gray-900': activeCard === 3}">
+                :class="{'ring-2 ring-indigo-500 ring-offset-2 ring-offset-white': activeCard === 3}">
                 <div class="flex-shrink-0 overflow-hidden">
                     <img class="h-48 w-full object-cover transition-all duration-500"
                          loading="lazy"
@@ -151,23 +151,23 @@
                          :class="{'scale-110 brightness-110': activeCard === 3}"
                          alt="Taylor MDA Screenshot">
                 </div>
-                <div class="flex-1 p-6 flex flex-col justify-between dark:bg-gray-800">
+                <div class="flex-1 p-6 flex flex-col justify-between">
                     <div class="flex-1">
-                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                        <p class="text-sm font-medium text-indigo-600">
                             <a href="#" class="hover:underline transition-colors">Tool for Building Enterprise
                                 Applications</a>
                         </p>
                         <span class="block mt-2">
-                                <p class="text-xl font-semibold text-gray-900 dark:text-white">
+                                <p class="text-xl font-semibold text-gray-900">
                                     <a href="https://www.danteinc.com/" target="_blank">Taylor MDA</a>
                                 </p>
-                                <p class="mt-3 text-base text-gray-500 dark:text-gray-300 link-underline">
+                                <p class="mt-3 text-base text-gray-500 link-underline">
                                     At Dante Inc., I contributed to Taylor MDA, an advanced Eclipse-based UML modeling tool for multi-tiered, distributed systems. It streamlines complex system design and maximizes code generation from UML models. Taylor MDA features pre-designed templates for JEE applications, integrating JPA/EJB3 and JSF/Seam/Facelets, accelerating enterprise application development through innovative model-driven architecture techniques. My work enhanced its capabilities and user experience.
                                 </p>
                             </span>
                         <div class="mt-4">
                             <div
-                                class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded-md border uppercase px-4 py-2 inline-block hover:text-white hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md"
+                                class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded-md border uppercase px-4 py-2 inline-block hover:text-white hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md"
                                 :class="{'bg-blue-500 text-white border-blue-500 -translate-y-1 shadow-md': activeCard === 3}">
                                 <a
                                     href="#"
@@ -182,7 +182,7 @@
                                 </a>
                             </div>
                         </div>
-                        <hr class="border-slate-100 dark:border-gray-700 border-t mt-4">
+                        <hr class="border-slate-100 border-t mt-4">
                         <div class="mt-6 flex items-center">
                             <div class="flex-shrink-0">
                                 <a href="#">
@@ -191,10 +191,10 @@
                                 </a>
                             </div>
                             <div class="ml-3">
-                                <p class="text-sm font-medium text-gray-900 dark:text-white">
+                                <p class="text-sm font-medium text-gray-900">
                                     <a href="#" class="hover:underline"> JAVA, JSP, RichFaces</a>
                                 </p>
-                                <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
+                                <div class="flex space-x-1 text-sm text-gray-500">
                                     <time datetime="2020-02-12"> Dante Inc.</time>
                                 </div>
                             </div>
@@ -205,10 +205,10 @@
 
             <!-- Verizon Business Finium Card -->
             <div
-                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white dark:bg-gray-800 relative"
+                class="flex flex-col rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-white relative"
                 @mouseenter="setActiveCard(1)"
                 @mouseleave="resetActiveCard()"
-                :class="{'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-gray-900': activeCard === 1}">
+                :class="{'ring-2 ring-indigo-500 ring-offset-2 ring-offset-white': activeCard === 1}">
                 <div class="flex-shrink-0 overflow-hidden">
                     <img class="h-48 w-full object-cover transition-all duration-500"
                          loading="lazy"
@@ -216,20 +216,20 @@
                          :class="{'scale-110 brightness-110': activeCard === 1}"
                          alt="Verizon Business Finium Screenshot">
                 </div>
-                <div class="flex-1 p-6 flex flex-col justify-between dark:bg-gray-800">
+                <div class="flex-1 p-6 flex flex-col justify-between">
                     <div class="flex-1">
-                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                        <p class="text-sm font-medium text-indigo-600">
                             <a href="#" class="hover:underline transition-colors">Application & Backend
                                 Administration</a>
                         </p>
                         <div class="block mt-2">
-                            <p class="text-xl font-semibold text-gray-900 dark:text-white">Verizon Business Finium™</p>
-                            <p class="mt-3 text-base text-gray-500 dark:text-gray-300 link-underline">
+                            <p class="text-xl font-semibold text-gray-900">Verizon Business Finium™</p>
+                            <p class="mt-3 text-base text-gray-500 link-underline">
                                 Verizon Business' Finium™ platform transforms cybersecurity by unifying threat intelligence, vulnerability data, and security events in a centralized web console. Built on a disaster-resilient Security Operations Center, this advanced system empowers analysts and business leaders to treat security as a strategic asset. My work on Finium™ helped reshape enterprise cybersecurity, making it more accessible and integral to business operations in today’s digital landscape.                 </p>
                         </div>
                         <div class="mt-4">
                             <div
-                                class="font-bold tracking-tight text-sm text-blue-400 dark:text-blue-300 border-blue-400 dark:border-blue-300 rounded-md border uppercase px-4 py-2 inline-block hover:text-white hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md"
+                                class="font-bold tracking-tight text-sm text-blue-400 border-blue-400 rounded-md border uppercase px-4 py-2 inline-block hover:text-white hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md"
                                 :class="{'bg-blue-500 text-white border-blue-500 -translate-y-1 shadow-md': activeCard === 1}">
                                 <a
                                     href="#"
@@ -245,7 +245,7 @@
                             </div>
                         </div>
                     </div>
-                    <hr class="border-slate-100 dark:border-gray-700 border-t mt-4">
+                    <hr class="border-slate-100 border-t mt-4">
                     <div class="mt-6 flex items-center">
                         <div class="flex-shrink-0">
                             <a href="#">
@@ -253,10 +253,10 @@
                             </a>
                         </div>
                         <div class="ml-3">
-                            <p class="text-sm font-medium text-gray-900 dark:text-white">
+                            <p class="text-sm font-medium text-gray-900">
                                 <a href="#" class="hover:underline"> JAVA, JSF, Struts </a>
                             </p>
-                            <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
+                            <div class="flex space-x-1 text-sm text-gray-500">
                                 <time datetime="2020-03-16"> Verizon Business</time>
                             </div>
                         </div>

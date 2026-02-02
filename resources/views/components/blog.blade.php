@@ -1,7 +1,7 @@
 <div class="flex flex-col gap-16">
     <section id="blog" class="py-12 space-y-16">
         <header class="mb-12">
-            <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100">Blog Posts</h1>
+            <h1 class="text-3xl font-bold text-zinc-900">Blog Posts</h1>
         </header>
 
         <div class="grid gap-16">
@@ -9,9 +9,9 @@
             <article class="group relative">
                 <div class="flex flex-col items-start">
                     <header class="w-full">
-                        <h2 class="text-xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+                        <h2 class="text-xl font-semibold tracking-tight text-zinc-800">
                             <div
-                                class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
+                                class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"></div>
                             <a href="https://tailwindcss.com/blog/tailwindcss-v4-alpha" target="_blank"
                                class="hover:text-orange-500 transition-colors">
                                 <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
@@ -19,16 +19,16 @@
                             </a>
                         </h2>
                         <time
-                            class="relative z-10 mt-2 flex items-center text-sm text-orange-400 dark:text-zinc-500 pl-3.5"
+                            class="relative z-10 mt-2 flex items-center text-sm text-orange-400 pl-3.5"
                             datetime="2024-11-21">
                         <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
-                            <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+                            <span class="h-4 w-0.5 rounded-full bg-zinc-200"></span>
                         </span>
                             November 21, 2024
                         </time>
                     </header>
-                    <div class="mt-4 prose prose-zinc dark:prose-invert">
-                        <p class="relative z-10 text-sm text-zinc-600 dark:text-zinc-400">
+                    <div class="mt-4 prose prose-zinc">
+                        <p class="relative z-10 text-sm text-zinc-600">
                             I've recently integrated Tailwind CSS v4 Beta into my portfolio, pushing the boundaries of
                             modern web design. This cutting-edge version brings exciting new features like native color
                             opacity, simplified custom values, and improved performance. By adopting v4 Alpha, I'm
@@ -44,9 +44,9 @@
             <article class="group relative">
                 <div class="flex flex-col items-start">
                     <header class="w-full">
-                        <h2 class="text-xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+                        <h2 class="text-xl font-semibold tracking-tight text-zinc-800">
                             <div
-                                class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
+                                class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"></div>
                             <a href="https://laravel-livewire.com/" target="_blank"
                                class="hover:text-orange-500 transition-colors">
                                 <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
@@ -54,16 +54,16 @@
                             </a>
                         </h2>
                         <time
-                            class="relative z-10 mt-2 flex items-center text-sm text-orange-400 dark:text-zinc-500 pl-3.5"
+                            class="relative z-10 mt-2 flex items-center text-sm text-orange-400 pl-3.5"
                             datetime="2022-12-20">
                         <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
-                            <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+                            <span class="h-4 w-0.5 rounded-full bg-zinc-200"></span>
                         </span>
                             December 20, 2022
                         </time>
                     </header>
-                    <div class="mt-4 prose prose-zinc dark:prose-invert">
-                        <p class="relative z-10 text-sm text-zinc-600 dark:text-zinc-400">
+                    <div class="mt-4 prose prose-zinc">
+                        <p class="relative z-10 text-sm text-zinc-600">
                             If you're a Laravel developer, you may be interested in using Laravel Livewire and Inertia
                             to build interactive and dynamic web applications. Livewire is a full-stack framework that
                             allows you to create dynamic, reactive components using PHP. In contrast, Inertia enables
@@ -80,9 +80,9 @@
             <article class="group relative">
                 <div class="flex flex-col items-start">
                     <header class="w-full">
-                        <h2 class="text-xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+                        <h2 class="text-xl font-semibold tracking-tight text-zinc-800">
                             <div
-                                class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
+                                class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"></div>
                             <a href="https://laravel-vite.dev/" target="_blank"
                                class="hover:text-orange-500 transition-colors">
                                 <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
@@ -90,16 +90,16 @@
                             </a>
                         </h2>
                         <time
-                            class="relative z-10 mt-2 flex items-center text-sm text-orange-400 dark:text-zinc-500 pl-3.5"
+                            class="relative z-10 mt-2 flex items-center text-sm text-orange-400 pl-3.5"
                             datetime="2022-09-05">
                         <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
-                            <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+                            <span class="h-4 w-0.5 rounded-full bg-zinc-200"></span>
                         </span>
                             September 5, 2022
                         </time>
                     </header>
-                    <div class="mt-4 prose prose-zinc dark:prose-invert">
-                        <p class="relative z-10 text-sm text-zinc-600 dark:text-zinc-400">
+                    <div class="mt-4 prose prose-zinc">
+                        <p class="relative z-10 text-sm text-zinc-600">
                             Are you tired of dealing with the slow build times and complicated configuration of Laravel
                             Mix? If so, it might be time to consider transitioning to Vite. Vite is a modern frontend
                             build tool that provides an extremely fast development environment and bundles your code for
@@ -116,9 +116,9 @@
             <article class="group relative">
                 <div class="flex flex-col items-start">
                     <header class="w-full">
-                        <h2 class="text-xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+                        <h2 class="text-xl font-semibold tracking-tight text-zinc-800">
                             <div
-                                class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
+                                class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"></div>
                             <a href="https://tailwindcss.com/" target="_blank"
                                class="hover:text-orange-500 transition-colors">
                                 <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
@@ -126,16 +126,16 @@
                             </a>
                         </h2>
                         <time
-                            class="relative z-10 mt-2 flex items-center text-sm text-orange-400 dark:text-zinc-500 pl-3.5"
+                            class="relative z-10 mt-2 flex items-center text-sm text-orange-400 pl-3.5"
                             datetime="2022-02-14">
                         <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
-                            <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+                            <span class="h-4 w-0.5 rounded-full bg-zinc-200"></span>
                         </span>
                             February 14, 2022
                         </time>
                     </header>
-                    <div class="mt-4 prose prose-zinc dark:prose-invert">
-                        <p class="relative z-10 text-sm text-zinc-600 dark:text-zinc-400">
+                    <div class="mt-4 prose prose-zinc">
+                        <p class="relative z-10 text-sm text-zinc-600">
                             If you're tired of the same old UI designs and want to give your interface a fresh, modern
                             look, consider rewriting it with TailwindCSS. When I first came across <a
                                 href="https://tailwindcss.com/" target="_blank"
@@ -156,24 +156,24 @@
     <article class="group relative">
         <div class="flex flex-col items-start">
             <header class="w-full">
-                <h2 class="text-xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+                <h2 class="text-xl font-semibold tracking-tight text-zinc-800">
                     <div
-                        class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
+                        class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"></div>
                     <a href="https://www.karlhill.com" target="_blank" class="hover:text-orange-500 transition-colors">
                         <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
                         <span class="relative z-10">Introducing my personal portfolio</span>
                     </a>
                 </h2>
-                <time class="relative z-10 mt-2 flex items-center text-sm text-orange-400 dark:text-zinc-500 pl-3.5"
+                <time class="relative z-10 mt-2 flex items-center text-sm text-orange-400 pl-3.5"
                       datetime="2022-01-02">
                 <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
-                    <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+                    <span class="h-4 w-0.5 rounded-full bg-zinc-200"></span>
                 </span>
                     January 2, 2022
                 </time>
             </header>
-            <div class="mt-4 prose prose-zinc dark:prose-invert">
-                <p class="relative z-10 text-sm text-zinc-600 dark:text-zinc-400">
+            <div class="mt-4 prose prose-zinc">
+                <p class="relative z-10 text-sm text-zinc-600">
                     I am professionally showcasing my portfolio, highlighting the breadth of my experience and the depth
                     of my skills across multiple industries and verticals, establishing myself as a go-to resource for
                     new business opportunities.

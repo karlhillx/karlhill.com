@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('dark-mode', true)
-
-@section('body-bg', 'bg-white dark:bg-zinc-900 text-gray-900 dark:text-white')
+@section('body-bg', 'bg-white text-gray-900')
 
 @section('content')
 

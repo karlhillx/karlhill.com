@@ -90,14 +90,6 @@ html {
     @apply transition-colors duration-200;
 }
 
-@media (prefers-color-scheme: dark) {
-    .header-dark-mode {
-        @apply bg-zinc-900/95 backdrop-blur-xl;
-        background-color: rgb(125 39 70 / 0.95);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-}
-
 .color-maroon-dream {
     @apply transition-colors duration-300;
     background: linear-gradient(135deg, var(--color-maroon-base) 0%, var(--color-maroon-dark) 100%);
@@ -138,11 +130,6 @@ body.bg-maroon-dream {
     position: relative;
     z-index: 2;
     background-color: white;
-}
-
-.dark #landing ~ section,
-.dark #landing + * {
-    background-color: rgb(24, 24, 27);
 }
 
 /* If bg-hero-pattern is used, apply the same background */
@@ -249,13 +236,6 @@ body.bg-maroon-dream {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
-.glass-dark {
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 footer .bottom-social-icons a {
     @apply rounded-xl inline-flex items-center justify-center h-12 w-12 text-white bg-zinc-800/80
            transition-all duration-300 hover:shadow-xl hover:scale-110 backdrop-blur-sm
@@ -290,16 +270,15 @@ footer .bottom-social-icons a {
 
 /* Modern card styles */
 .modern-card {
-    @apply rounded-2xl p-6 sm:p-8 bg-white/90 dark:bg-zinc-900/90 
-           backdrop-blur-xl border border-zinc-200/50 dark:border-zinc-700/50
+    @apply rounded-2xl p-6 sm:p-8 bg-white/90
+           backdrop-blur-xl border border-zinc-200/50
            shadow-xl hover:shadow-2xl transition-all duration-300
            hover:scale-[1.02] hover:-translate-y-1;
 }
 
 .modern-card-gradient {
-    @apply rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-white/95 to-zinc-50/95 
-           dark:from-zinc-900/95 dark:to-zinc-800/95
-           backdrop-blur-xl border border-zinc-200/50 dark:border-zinc-700/50
+    @apply rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-white/95 to-zinc-50/95
+           backdrop-blur-xl border border-zinc-200/50
            shadow-xl hover:shadow-2xl transition-all duration-300;
 }
 
@@ -722,7 +701,7 @@ footer .bottom-social-icons a {
 
 .project-card {
     @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl;
-    @apply rounded-xl overflow-hidden border border-zinc-200/50 dark:border-zinc-700/50;
+    @apply rounded-xl overflow-hidden border border-zinc-200/50;
 }
 
 .skill-bar {
@@ -1127,16 +1106,6 @@ body.leaving {
 @keyframes spinner-spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-/* Dark mode adjustments */
-.dark .page-loader {
-    background: rgba(10, 10, 10, 0.95);
-}
-
-.dark .spinner-ring {
-    border-color: rgba(59, 130, 246, 0.2);
-    border-top-color: #60a5fa;
 }
 
 /* Reduced motion support */

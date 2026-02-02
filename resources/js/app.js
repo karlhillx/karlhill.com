@@ -1,6 +1,5 @@
 import Alpine from 'alpinejs'
 import intersect from '@alpinejs/intersect'
-import darkMode from './darkMode'
 import './github-skills.js'
 
 // Import Font Awesome styles
@@ -245,52 +244,6 @@ const utils = {
     },
 
     /**
-     * Initialize theme system
-     */
-    initTheme() {
-        // Set initial theme based on preference
-        const getThemePreference = () => {
-            if (localStorage.theme === 'dark' || 
-                (!('theme' in localStorage) && 
-                 window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                return 'dark';
-            }
-            return 'light';
-        };
-
-        const applyTheme = (theme) => {
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-            localStorage.theme = theme;
-        };
-
-        // Apply initial theme
-        applyTheme(getThemePreference());
-
-        // Listen for system theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (!('theme' in localStorage)) {
-                applyTheme(e.matches ? 'dark' : 'light');
-            }
-        });
-
-        // Create global theme toggle function
-        window.toggleTheme = function() {
-            const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-            applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
-        };
-
-        // Handle dark mode toggle button if it exists
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        if (darkModeToggle) {
-            darkModeToggle.addEventListener('click', window.toggleTheme);
-        }
-    },
-
-    /**
      * Initialize smooth scrolling for anchor links
      */
     initSmoothScroll() {
@@ -416,7 +369,6 @@ const utils = {
 // Initialize Alpine.js and utilities when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     // Register Alpine data
-    Alpine.data('darkMode', darkMode);
     Alpine.data('contactModal', () => {
         return {
             open: false,
@@ -582,7 +534,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Alpine.start();
 
     // Initialize utility functions
-    utils.initTheme();
     utils.initPageLoader(); // Initialize loader after DOM is ready
     utils.initRevealAnimations();
     utils.initPageTransitions();
