@@ -40,4 +40,9 @@ return [
         'token' => env('GITHUB_TOKEN'),
     ],
 
+    'google_analytics' => [
+        'enabled' => env('GOOGLE_ANALYTICS_ENABLED', false),
+        'measurement_id' => env('GOOGLE_ANALYTICS_MEASUREMENT_ID'),
+    ],
+
 ];

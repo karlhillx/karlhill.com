@@ -7,6 +7,7 @@
 >
 <head>
     <x-meta/>
+    <x-analytics/>
 </head>
 <body class="font-sans @yield('body-bg', 'bg-white') antialiased transition-colors duration-200">
 
