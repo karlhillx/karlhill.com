@@ -22,19 +22,19 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             @foreach ([
                 'Mission Software' => [
-                    'Python' => ['level' => 95, 'icon' => 'fa-brands fa-laravel'],
-                    'Java' => ['level' => 85, 'icon' => 'fa-brands fa-node-js'],
-                    'Asynchronous / Messaging Systems' => ['level' => 80, 'icon' => 'fa-brands fa-python']
+                    'Python' => ['level' => 95, 'icon' => 'fa-brands fa-python'],
+                    'Java' => ['level' => 85, 'icon' => 'fa-brands fa-java'],
+                    'Asynchronous / Messaging Systems' => ['level' => 80, 'icon' => 'fa-solid fa-bolt']
                 ],
                 'Cloud & Deployment Architecture' => [
-                    'Kubernetes' => ['level' => 90, 'icon' => 'fa-brands fa-vuejs'],
-                    'AWS' => ['level' => 95, 'icon' => 'fa-solid fa-wind'],
+                    'Kubernetes' => ['level' => 90, 'icon' => 'fa-solid fa-cubes'],
+                    'AWS' => ['level' => 95, 'icon' => 'fa-brands fa-aws'],
                     'Infrastructure-as-Code' => ['level' => 85, 'icon' => 'fa-solid fa-code']
                 ],
                 'DevSecOps & High-Assurance Delivery' => [
-                    'Secure CI/CD Automation' => ['level' => 85, 'icon' => 'fa-brands fa-aws'],
-                    'Automated Testing & Verification' => ['level' => 90, 'icon' => 'fa-brands fa-docker'],
-                    'Observability & Telemetry Tools' => ['level' => 90, 'icon' => 'fa-solid fa-rotate']
+                    'Secure CI/CD Automation' => ['level' => 85, 'icon' => 'fa-solid fa-code-branch'],
+                    'Automated Testing & Verification' => ['level' => 90, 'icon' => 'fa-solid fa-flask'],
+                    'Observability & Telemetry Tools' => ['level' => 90, 'icon' => 'fa-solid fa-binoculars']
                 ],
                 'Operational Data & Processing' => [
                     'PostgreSQL' => ['level' => 95, 'icon' => 'fa-solid fa-database'],

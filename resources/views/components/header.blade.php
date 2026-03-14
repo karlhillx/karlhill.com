@@ -25,7 +25,7 @@
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300"></span>
                 </a>
                 <a href="#career-trajectory" class="text-white/90 hover:text-white transition-all text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/10 relative group">
-                    <i class="fa-solid fa-microchip mr-2 group-hover:scale-110 transition-transform duration-300"></i>Career
+                    <i class="fa-solid fa-briefcase mr-2 group-hover:scale-110 transition-transform duration-300"></i>Career
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300"></span>
                 </a>
                 <a href="#impact-leadership" class="text-white/90 hover:text-white transition-all text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/10 relative group">
@@ -63,7 +63,7 @@
                     <span class="text-sm font-medium">Home</span>
                 </a>
                 <a href="#career-trajectory" class="flex items-center px-6 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg mx-2 group">
-                    <i class="fa-solid fa-microchip mr-3 transition-transform duration-300 group-hover:scale-110"></i>
+                    <i class="fa-solid fa-briefcase mr-3 transition-transform duration-300 group-hover:scale-110"></i>
                     <span class="text-sm font-medium">Career</span>
                 </a>
                 <a href="#impact-leadership" class="flex items-center px-6 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg mx-2 group">
