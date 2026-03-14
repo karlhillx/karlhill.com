@@ -3,25 +3,23 @@
         :class="{ 'shadow-xl': scrolled }"
         class="header-nav py-3 sm:py-4 color-maroon-dream backdrop-blur-xl fixed w-full top-0 z-50 shadow-lg border-b border-white/10 transition-all duration-300">
     <div class="mx-auto max-w-9xl px-4 sm:px-6 lg:px-8">
-        <nav x-data="{ isOpen: false }" 
+        <nav x-data="{ isOpen: false, isDesktop: window.innerWidth >= 768 }"
+             @resize.window="isDesktop = window.innerWidth >= 768; if (isDesktop) isOpen = false"
              class="relative z-50 flex justify-between items-center">
             <!-- Left Side -->
             <div class="flex items-center md:gap-x-12">
                 <div class="float-start" data-aos="flip-left">
                     <i class="far fa-paper-plane text-white hover:text-orange-400 transition-all transform hover:scale-110"></i>
                     <button @click="window.dispatchEvent(new Event('open-contact-modal'))" 
-                            class="text-white ml-1 hover:text-orange-400 transition-colors hidden xs:inline-block sm:inline-block md:inline-block focus:outline-none focus:ring-2 focus:ring-orange-400 rounded">
-                        Contact Me
-                    </button>
-                    <button @click="window.dispatchEvent(new Event('open-contact-modal'))" 
-                            class="text-white ml-1 hover:text-orange-400 transition-colors xs:hidden sm:hidden md:hidden focus:outline-none focus:ring-2 focus:ring-orange-400 rounded">
-                        Contact
+                            class="ml-1 text-white hover:text-orange-400 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-400 rounded">
+                        <span class="hidden sm:inline">Start a Conversation</span>
+                        <span class="sm:hidden">Contact</span>
                     </button>
                 </div>
             </div>
 
             <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-x-6">
+            <div x-show="isDesktop" x-cloak class="desktop-nav items-center gap-x-4 lg:gap-x-6">
                 <a href="/" class="text-white/90 hover:text-white transition-all text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/10 relative group">
                     <i class="far fa-compass mr-2 transform group-hover:rotate-45 transition-transform duration-300"></i>Home
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300"></span>
@@ -38,7 +36,9 @@
 
             <!-- Hamburger Button -->
             <button @click="isOpen = !isOpen"
-                    class="md:hidden text-white p-2.5 hover:bg-white/20 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 active:scale-95"
+                    x-show="!isDesktop"
+                    x-cloak
+                    class="mobile-nav-toggle text-white p-2.5 hover:bg-white/20 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 active:scale-95"
                     aria-label="Toggle navigation menu"
                     aria-expanded="false"
                     :aria-expanded="isOpen">
@@ -49,7 +49,7 @@
             </button>
 
             <!-- Mobile Menu -->
-            <div x-show="isOpen" 
+            <div x-show="!isDesktop && isOpen" 
                  x-transition:enter="transition ease-out duration-200"
                  x-transition:enter-start="opacity-0 scale-95"
                  x-transition:enter-end="opacity-100 scale-100"
@@ -57,7 +57,7 @@
                  x-transition:leave-start="opacity-100 scale-100"
                  x-transition:leave-end="opacity-0 scale-95"
                  @click.away="isOpen = false" 
-                 class="absolute right-0 top-full mt-2 w-64 rounded-2xl color-maroon-dream backdrop-blur-xl py-4 shadow-2xl ring-1 ring-white/20 md:hidden glass-dark">
+                 class="absolute right-0 top-full mt-2 w-[min(18rem,calc(100vw-2rem))] rounded-2xl color-maroon-dream backdrop-blur-xl py-4 shadow-2xl ring-1 ring-white/20 glass-dark">
                 <a href="/" class="flex items-center px-6 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg mx-2 group">
                     <i class="far fa-compass mr-3 transition-transform duration-300 group-hover:rotate-45"></i>
                     <span class="text-sm font-medium">Home</span>

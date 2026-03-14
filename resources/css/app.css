@@ -99,7 +99,7 @@ html {
     @apply bg-cover bg-center;
     background-image:
         linear-gradient(135deg, rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.3)),
-        url("/img/bg-landing.jpg");
+        var(--landing-bg-image, none);
     background-color: var(--color-maroon-base);
     position: relative;
     background-attachment: scroll;
@@ -137,7 +137,7 @@ body.bg-maroon-dream {
     @apply bg-cover bg-center;
     background-image:
         linear-gradient(135deg, rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.3)),
-        url("/img/bg-landing.jpg");
+        var(--landing-bg-image, none);
     background-color: var(--color-maroon-base);
     position: relative;
     background-attachment: scroll !important;
@@ -277,6 +277,132 @@ footer .bottom-social-icons a {
     max-width: 90ch;
 }
 
+.hero-kicker {
+    display: inline-flex;
+    margin-bottom: 0.9rem;
+    max-width: 100%;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(226 232 240 / 0.92);
+    background: rgb(255 255 255 / 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.12);
+}
+
+.hero-text-stack {
+    max-width: 46rem;
+}
+
+.hero-name {
+    max-width: 10ch;
+    font-family: var(--font-family-sans);
+    font-size: clamp(1.95rem, 4vw, 3rem);
+    line-height: 1.04;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    color: rgb(255 255 255 / 0.96);
+    text-wrap: balance;
+}
+
+.hero-role {
+    margin-top: 0.85rem;
+    font-family: var(--font-family-sans);
+    font-size: clamp(1.95rem, 4vw, 3rem);
+    line-height: 1.04;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    color: rgb(255 255 255 / 0.92);
+    text-wrap: balance;
+}
+
+.hero-specialties {
+    margin-top: 1.1rem;
+    max-width: 44rem;
+    font-size: clamp(0.78rem, 0.72rem + 0.3vw, 0.96rem);
+    line-height: 1.6;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgb(226 232 240 / 0.78);
+}
+
+.hero-copy,
+.section-lead {
+    max-width: 42rem;
+    font-size: clamp(1rem, 0.92rem + 0.35vw, 1.125rem);
+    line-height: 1.8;
+}
+
+.hero-copy,
+.section-lead {
+    text-wrap: pretty;
+}
+
+.hero-copy {
+    margin-top: 1.35rem;
+    color: rgb(241 245 249 / 0.88);
+}
+
+.section-lead {
+    color: rgb(71 85 105);
+}
+
+.hero-actions > * {
+    flex: 1 1 100%;
+}
+
+.desktop-nav {
+    display: none;
+}
+
+.mobile-nav-toggle {
+    display: inline-flex;
+}
+
+@media (min-width: 640px) {
+    .hero-kicker {
+        font-size: 0.72rem;
+    }
+
+    .hero-role {
+        margin-top: 0.55rem;
+    }
+
+    .hero-copy {
+        margin-top: 1.5rem;
+    }
+
+    .hero-actions > * {
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 639px) {
+    .hero-kicker {
+        letter-spacing: 0.14em;
+    }
+
+    .hero-specialties {
+        letter-spacing: 0.11em;
+    }
+}
+
+@media (min-width: 768px) {
+    .desktop-nav {
+        display: flex;
+    }
+
+    .mobile-nav-toggle {
+        display: none;
+    }
+}
+
 /* Modern card styles */
 .modern-card {
     @apply rounded-2xl p-6 sm:p-8 bg-white/90
@@ -343,8 +469,8 @@ footer .bottom-social-icons a {
 
   .reveal-section {
     opacity: 0;
-    transform: translateY(2rem);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(1.5rem);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   }
 
   .reveal-section.in-view {
@@ -403,7 +529,7 @@ footer .bottom-social-icons a {
 }
 
 .career-card {
-  animation: career-card-float 6s ease-in-out infinite;
+  animation: career-card-float 9s ease-in-out infinite;
 }
 
 @keyframes career-card-float {
@@ -461,7 +587,7 @@ footer .bottom-social-icons a {
 
 /* Impact & Leadership arrow pulsation */
 .impact-arrow {
-  animation: impact-arrow-pulse 2s ease-in-out infinite;
+  animation: impact-arrow-pulse 2.6s ease-in-out infinite;
 }
 
 @keyframes impact-arrow-pulse {
@@ -470,8 +596,8 @@ footer .bottom-social-icons a {
     opacity: 1;
   }
   50% {
-    transform: scale(1.2) translateX(2px);
-    opacity: 0.8;
+    transform: scale(1.08) translateX(2px);
+    opacity: 0.88;
   }
 }
 
@@ -764,7 +890,7 @@ body.leaving {
 
 /* Landing Section Animations */
 .landing-content {
-    animation: content-fade-in 1.2s ease-out;
+    animation: content-fade-in 0.9s ease-out;
 }
 
 @keyframes content-fade-in {
@@ -783,37 +909,37 @@ body.leaving {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.15;
+    opacity: 0.12;
     pointer-events: none;
     will-change: transform;
 }
 
 .landing-gradient-orb-1 {
-    width: 400px;
-    height: 400px;
+    width: min(400px, 48vw);
+    height: min(400px, 48vw);
     background: radial-gradient(circle, rgba(59, 130, 246, 0.4), rgba(139, 92, 246, 0.2), transparent);
     top: -100px;
     right: -100px;
-    animation: orb-float-1 15s ease-in-out infinite;
+    animation: orb-float-1 18s ease-in-out infinite;
 }
 
 .landing-gradient-orb-2 {
-    width: 300px;
-    height: 300px;
+    width: min(300px, 40vw);
+    height: min(300px, 40vw);
     background: radial-gradient(circle, rgba(6, 182, 212, 0.3), rgba(59, 130, 246, 0.2), transparent);
     bottom: -50px;
     left: -50px;
-    animation: orb-float-2 12s ease-in-out infinite;
+    animation: orb-float-2 16s ease-in-out infinite;
 }
 
 .landing-gradient-orb-3 {
-    width: 250px;
-    height: 250px;
+    width: min(250px, 32vw);
+    height: min(250px, 32vw);
     background: radial-gradient(circle, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.2), transparent);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: orb-float-3 18s ease-in-out infinite;
+    animation: orb-float-3 22s ease-in-out infinite;
 }
 
 @keyframes orb-float-1 {
@@ -821,10 +947,10 @@ body.leaving {
         transform: translate(0, 0) scale(1);
     }
     33% {
-        transform: translate(30px, -40px) scale(1.1);
+        transform: translate(18px, -24px) scale(1.06);
     }
     66% {
-        transform: translate(-20px, 30px) scale(0.9);
+        transform: translate(-14px, 18px) scale(0.96);
     }
 }
 
@@ -833,7 +959,7 @@ body.leaving {
         transform: translate(0, 0) scale(1);
     }
     50% {
-        transform: translate(-30px, 40px) scale(1.15);
+        transform: translate(-18px, 24px) scale(1.08);
     }
 }
 
@@ -842,13 +968,13 @@ body.leaving {
         transform: translate(-50%, -50%) scale(1) rotate(0deg);
     }
     25% {
-        transform: translate(-45%, -55%) scale(1.1) rotate(90deg);
+        transform: translate(-47%, -53%) scale(1.05) rotate(90deg);
     }
     50% {
-        transform: translate(-55%, -45%) scale(0.95) rotate(180deg);
+        transform: translate(-53%, -47%) scale(0.97) rotate(180deg);
     }
     75% {
-        transform: translate(-50%, -50%) scale(1.05) rotate(270deg);
+        transform: translate(-50%, -50%) scale(1.03) rotate(270deg);
     }
 }
 
@@ -857,103 +983,103 @@ body.leaving {
     position: absolute;
     width: 4px;
     height: 4px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.24);
     border-radius: 50%;
     pointer-events: none;
     will-change: transform, opacity;
-    box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.28);
 }
 
 .landing-particle-1 {
     top: 20%;
     left: 10%;
-    animation: particle-float-1 8s ease-in-out infinite;
+    animation: particle-float-1 10s ease-in-out infinite;
 }
 
 .landing-particle-2 {
     top: 60%;
     right: 15%;
-    animation: particle-float-2 10s ease-in-out infinite;
+    animation: particle-float-2 12s ease-in-out infinite;
     animation-delay: -2s;
 }
 
 .landing-particle-3 {
     top: 40%;
     left: 20%;
-    animation: particle-float-3 12s ease-in-out infinite;
+    animation: particle-float-3 14s ease-in-out infinite;
     animation-delay: -4s;
 }
 
 .landing-particle-4 {
     bottom: 30%;
     right: 25%;
-    animation: particle-float-4 9s ease-in-out infinite;
+    animation: particle-float-4 11s ease-in-out infinite;
     animation-delay: -1s;
 }
 
 .landing-particle-5 {
     top: 70%;
     left: 30%;
-    animation: particle-float-5 11s ease-in-out infinite;
+    animation: particle-float-5 13s ease-in-out infinite;
     animation-delay: -3s;
 }
 
 @keyframes particle-float-1 {
     0%, 100% {
         transform: translate(0, 0);
-        opacity: 0.3;
+        opacity: 0.2;
     }
     50% {
-        transform: translate(30px, -50px);
-        opacity: 0.6;
+        transform: translate(18px, -30px);
+        opacity: 0.42;
     }
 }
 
 @keyframes particle-float-2 {
     0%, 100% {
         transform: translate(0, 0);
-        opacity: 0.4;
+        opacity: 0.24;
     }
     50% {
-        transform: translate(-40px, 40px);
-        opacity: 0.7;
+        transform: translate(-22px, 24px);
+        opacity: 0.45;
     }
 }
 
 @keyframes particle-float-3 {
     0%, 100% {
         transform: translate(0, 0);
-        opacity: 0.2;
+        opacity: 0.16;
     }
     33% {
-        transform: translate(25px, 30px);
-        opacity: 0.5;
+        transform: translate(14px, 18px);
+        opacity: 0.36;
     }
     66% {
-        transform: translate(-20px, -25px);
-        opacity: 0.4;
+        transform: translate(-12px, -16px);
+        opacity: 0.3;
     }
 }
 
 @keyframes particle-float-4 {
     0%, 100% {
         transform: translate(0, 0);
-        opacity: 0.3;
+        opacity: 0.2;
     }
     50% {
-        transform: translate(35px, -30px);
-        opacity: 0.6;
+        transform: translate(20px, -18px);
+        opacity: 0.4;
     }
 }
 
 @keyframes particle-float-5 {
     0%, 100% {
         transform: translate(0, 0);
-        opacity: 0.25;
+        opacity: 0.16;
     }
     50% {
-        transform: translate(-30px, 45px);
-        opacity: 0.55;
+        transform: translate(-18px, 24px);
+        opacity: 0.38;
     }
 }
 
@@ -1011,6 +1137,12 @@ body.leaving {
     /* animation: button-float 5s ease-in-out infinite; */
 }
 
+@media (max-width: 639px) {
+    #landing .btn-secondary {
+        width: 100%;
+    }
+}
+
 /* #landing .btn-secondary:nth-child(1) {
     animation-delay: 0s;
 }
@@ -1049,6 +1181,9 @@ body.leaving {
 
 /* Reduced motion support for landing animations */
 @media (prefers-reduced-motion: reduce) {
+    .bg-hero-pattern,
+    .bg-hero-pattern::before,
+    .bg-hero-pattern::after,
     .bg-maroon-dream,
     .bg-maroon-dream::before,
     .bg-maroon-dream::after,

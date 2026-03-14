@@ -1,4 +1,4 @@
-<section id="landing" class="bg-hero-pattern min-h-screen w-full pt-24 sm:pt-32 md:pt-48 pb-16 overflow-hidden relative">
+<section id="landing" class="bg-hero-pattern min-h-screen w-full pt-24 sm:pt-32 md:pt-40 pb-16 sm:pb-20 overflow-hidden relative" style="--landing-bg-image: url('{{ asset('img/bg-landing.jpg') }}');">
     <!-- Animated background elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div class="landing-gradient-orb landing-gradient-orb-1"></div>
@@ -14,14 +14,27 @@
     </div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-container py-6 landing-content">
+        <div class="text-container py-6 sm:py-10 landing-content">
+            <div class="hero-text-stack">
+            <div x-data="{ show: false }" x-init="setTimeout(() => show = true, 120)">
+                <div
+                    x-show="show"
+                    x-transition:enter="transition ease-out duration-700"
+                    x-transition:enter-start="opacity-0 transform -translate-y-3"
+                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                    class="hero-kicker"
+                >
+                    Engineering leadership for mission software
+                </div>
+            </div>
+
             <div x-data="{ show: false }" x-init="setTimeout(() => show = true, 200)">
                 <h1
                     x-show="show"
-                    x-transition:enter="transition ease-out duration-800"
-                    x-transition:enter-start="opacity-0 transform -translate-y-4"
+                    x-transition:enter="transition ease-out duration-700"
+                    x-transition:enter-start="opacity-0 transform -translate-y-3"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
-                    class="text-3xl md:text-4xl font-extrabold tracking-tight text-white sm:text-5xl"
+                    class="hero-name"
                 >
                     Karl Hill
                 </h1>
@@ -30,10 +43,10 @@
             <div x-data="{ show: false }" x-init="setTimeout(() => show = true, 400)">
                 <h2
                     x-show="show"
-                    x-transition:enter="transition ease-out duration-800"
+                    x-transition:enter="transition ease-out duration-700"
                     x-transition:enter-start="opacity-0 transform translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
-                    class="text-2xl md:text-4xl font-extrabold tracking-tight text-white sm:text-5xl mt-2 mb-3"
+                    class="hero-role"
                 >
                     Staff Software Engineer
                 </h2>
@@ -43,24 +56,37 @@
                 x-data="{ show: false }"
                 x-init="setTimeout(() => show = true, 600)"
                 x-show="show"
-                x-transition:enter="transition ease-out duration-800"
+                x-transition:enter="transition ease-out duration-700"
                 x-transition:enter-start="opacity-0 transform translate-x-4"
                 x-transition:enter-end="opacity-100 transform translate-x-0"
-                class="text-base md:text-lg sm:text-xl uppercase font-medium tracking-tight text-white mt-2 mb-3"
+                class="hero-specialties"
             >
                 Cloud Architecture • DevSecOps • Secure Agile Delivery
+            </div>
+
+            <div
+                x-data="{ show: false }"
+                x-init="setTimeout(() => show = true, 720)"
+                x-show="show"
+                x-transition:enter="transition ease-out duration-700"
+                x-transition:enter-start="opacity-0 transform translate-y-4"
+                x-transition:enter-end="opacity-100 transform translate-y-0"
+                class="hero-copy"
+            >
+                I deliver secure, resilient software for complex mission environments, with a focus on cloud-native platforms, hardened delivery pipelines, and operationally ready systems.
+            </div>
             </div>
 
             <div
                 x-data="{ show: false, resumeModalOpen: false }"
                 x-init="setTimeout(() => show = true, 800); $watch('resumeModalOpen', value => { if(value) { document.body.classList.add('resume-modal-open'); } else { document.body.classList.remove('resume-modal-open'); } })"
                 x-show="show"
-                x-transition:enter="transition ease-out duration-800"
+                x-transition:enter="transition ease-out duration-700"
                 x-transition:enter-start="opacity-0 transform translate-y-4"
                 x-transition:enter-end="opacity-100 transform translate-y-0"
-                class="flex gap-2 flex-wrap mt-6"
+                class="hero-actions flex gap-3 flex-wrap mt-8"
             >
-                <button @click="resumeModalOpen = true" class="btn-secondary inline-flex items-center px-6 py-3 text-sm font-semibold sm:text-base mb-2 group">
+                <button @click="resumeModalOpen = true" class="btn-secondary inline-flex items-center justify-center px-6 py-3 text-sm font-semibold sm:text-base group">
                     <svg class="w-5 h-5 mr-2 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
@@ -139,18 +165,18 @@
                     </div>
                 </div>
 
-                <a href="#career-trajectory" aria-label="View career trajectory" class="btn-secondary inline-flex items-center px-6 py-3 text-sm font-semibold sm:text-base mb-2 group">
+                <a href="#career-trajectory" aria-label="View career trajectory" class="btn-secondary inline-flex items-center justify-center px-6 py-3 text-sm font-semibold sm:text-base group">
                     <svg class="w-5 h-5 mr-2 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
-                    Career Journey
+                    Explore Experience
                 </a>
 
-                <a href="#feature" aria-label="Learn more about Karl Hill" class="btn-secondary inline-flex items-center px-6 py-3 text-sm font-semibold sm:text-base mb-2 group">
+                <a href="#feature" aria-label="Learn more about Karl Hill" class="btn-secondary inline-flex items-center justify-center px-6 py-3 text-sm font-semibold sm:text-base group">
                     <svg class="w-5 h-5 mr-2 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
-                    Learn More
+                    What I Build
                 </a>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<section id="map" class="relative overflow-hidden bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200 border-t border-yellow-400 py-8 sm:py-12">
+<section id="map" class="relative overflow-hidden border-t border-yellow-400 bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200 py-10 sm:py-12 md:py-16">
     <!-- Animated background gradient orbs -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl animate-map-orb-1"></div>
@@ -14,7 +14,7 @@
     <div class="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Location info overlay -->
         <div class="map-location-info mb-6 text-center">
-            <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/80 backdrop-blur-lg rounded-full shadow-lg border border-gray-200/50">
+            <div class="inline-flex max-w-full items-center gap-3 rounded-full border border-gray-200/50 bg-white/80 px-5 py-3 text-left shadow-lg backdrop-blur-lg sm:px-6">
                 <i class="fa-solid fa-location-dot text-yellow-500 text-xl animate-map-pin-bounce"></i>
                 <span class="text-gray-800 font-semibold text-sm sm:text-base">Brightwood Park, Washington, DC</span>
                 <i class="fa-solid fa-map text-blue-500 text-lg animate-map-compass"></i>
@@ -30,7 +30,7 @@
             <div class="relative rounded-lg overflow-hidden shadow-2xl border-2 border-white/50 map-iframe-wrapper">
                 <iframe
                     class="w-full transition-all duration-500 hover:opacity-95 filter saturate-[0.85] hover:saturate-100 map-iframe"
-                    style="height: 50vh"
+                    style="height: clamp(18rem, 50vh, 32rem)"
                     loading="lazy"
                     src="https://www.google.com/maps?q=Brightwood+Park,+Washington,+DC+20011&z=14&output=embed"
                     allowfullscreen
@@ -61,9 +61,9 @@
 
         <!-- Animated coordinates display -->
         <div class="map-coordinates mt-6 text-center opacity-0">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-md rounded-lg text-xs sm:text-sm text-gray-600">
+            <div class="inline-flex items-center gap-2 rounded-lg bg-white/60 px-4 py-2 text-xs text-gray-600 backdrop-blur-md sm:text-sm">
                 <i class="fa-solid fa-globe text-blue-500"></i>
-                <span>38.9546° N, 77.0234° W</span>
+                <span>Based in Northwest Washington, DC</span>
             </div>
         </div>
     </div>

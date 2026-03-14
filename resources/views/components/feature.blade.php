@@ -2,46 +2,50 @@
     id="feature"
     class="bg-white"
 >
-    <div class="max-w-7xl mx-auto py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div
-            class="bg-orange-500 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
-            <div class="pt-8 pb-10 px-4 sm:pt-12 sm:px-8 md:pt-16 md:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
+            class="overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 shadow-2xl lg:grid lg:grid-cols-[1.15fr,0.85fr] lg:gap-6">
+            <div class="px-5 pt-8 pb-10 sm:px-8 sm:pt-12 md:px-12 md:pt-14 lg:py-14 lg:pr-0 xl:px-16">
                 <div class="lg:self-center">
+                    <div class="hero-kicker !mb-4 !bg-white/10 !text-cyan-100">
+                        Technical strategy, delivery, and mentorship
+                    </div>
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-white md:text-4xl">
-                        <span class="block">Engineering Leadership That Delivers</span>
+                        <span class="block">Engineering leadership that stays close to the work</span>
                     </h2>
-                    <p class="mt-4 text-base sm:text-lg leading-6 text-white">
-                        As a Lead Software Engineer with 25+ years of experience, I bridge the gap between strategic vision and technical execution. I don't just write code—I architect systems, lead transformations, and mentor teams to deliver mission-critical solutions.
-
-                        My leadership approach combines hands-on technical expertise with strategic thinking. I've led DevSecOps transformations, architected cloud-native platforms, and built high-assurance systems for space operations and national security. I excel at translating complex mission requirements into reliable, scalable, and operationally-ready software.
+                    <p class="mt-4 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg">
+                        I help teams turn ambitious requirements into dependable systems, from data-intensive platforms to secure mission software.
                     </p>
-                    <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                    <p class="mt-4 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+                        My focus is consistent: clear architecture, thoughtful delivery practices, and engineering environments where teams can ship with confidence.
+                    </p>
+                    <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                        <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
                             <div class="text-3xl font-bold text-white">25+</div>
-                            <div class="text-sm text-white/90 mt-1">Years Experience</div>
+                            <div class="mt-1 text-sm text-white/80">Years building software</div>
                         </div>
-                        <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                        <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
                             <div class="text-3xl font-bold text-white">15+</div>
-                            <div class="text-sm text-white/90 mt-1">Engineers Mentored</div>
+                            <div class="mt-1 text-sm text-white/80">Engineers mentored</div>
                         </div>
-                        <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                        <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
                             <div class="text-3xl font-bold text-white">100%</div>
-                            <div class="text-sm text-white/90 mt-1">Mission Success</div>
+                            <div class="mt-1 text-sm text-white/80">Mission-first delivery mindset</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="aspect-w-4 aspect-h-3 sm:aspect-w-5 sm:aspect-h-3 md:aspect-w-2 md:aspect-h-1 lg:self-end">
-                <picture class="transform rounded-md">
+            <div class="px-5 pb-5 sm:px-8 sm:pb-8 lg:flex lg:items-end lg:justify-end lg:p-6">
+                <picture class="block overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
                     <source
                         srcset="/img/webp/bg-drl-screenshot.webp"
                         type="image/webp"
                     >
                     <img
                         loading="lazy"
-                        class="transform rounded-md object-cover object-center lg:object-right-bottom"
+                        class="h-full w-full object-cover object-center lg:max-h-[30rem] lg:object-right-bottom"
                         src="/img/bg-drl-screenshot.png"
-                        alt="App screenshot"
+                        alt="Mission software interface screenshot"
                         width="800"
                         height="600"
                     >

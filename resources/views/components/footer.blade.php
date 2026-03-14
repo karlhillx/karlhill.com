@@ -33,7 +33,7 @@
         </div>
         <div class="mt-6 md:mt-0 md:order-1">
             <p class="text-sm text-gray-400 text-center sm:text-left leading-relaxed">
-                © {{ date('Y') }} Karl Hill. Built with <span class="text-gray-300 font-medium">Laravel v{{ app()->version() }}</span>.<br class="sm:hidden">
+                © {{ date('Y') }} Karl Hill. Built with <span class="text-gray-300 font-medium">Laravel v{{ app()->version() }}</span> and a modern frontend stack.<br class="sm:hidden">
                 <span class="hidden sm:inline"> </span>
                 Content (unless noted) licensed under <a
                     href="https://creativecommons.org/licenses/by/4.0/" 

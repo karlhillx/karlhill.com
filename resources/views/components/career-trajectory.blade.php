@@ -1,7 +1,7 @@
 @php
     $career = [
         [
-            'year' => 'Sep 2025 - Present · 4 mos',
+            'year' => 'Sep 2025 - Present',
             'role' => 'Staff Aerospace Software Engineer',
             'company' => 'Jacobs',
             'company_url' => 'https://www.jacobs.com/',
@@ -18,7 +18,7 @@
             'level' => 'staff'
         ],
         [
-            'year' => 'Dec 2017 - Sep 2025 · 7 yrs 10 mos',
+            'year' => 'Dec 2017 - Sep 2025',
             'role' => 'Lead Software Engineer at NASA',
             'company' => 'Science Systems and Applications, Inc (SSAI)',
             'company_url' => 'https://www.nasa.gov/',
@@ -99,7 +99,8 @@
 @endphp
 
 <section id="career-trajectory" class="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 px-0 py-16 sm:py-20 md:py-24">
-    <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] bg-center opacity-5"></div>
+    <div class="absolute inset-0 bg-center opacity-5"
+         style="background-image: url('{{ asset('img/grid-pattern.svg') }}');"></div>
     
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 sm:mb-16">
@@ -109,7 +110,7 @@
                 </span>
             </h2>
             <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                25+ years of progressive engineering leadership, from building foundational systems to leading mission-critical platforms
+                Progressive engineering leadership spanning foundational systems, modern platforms, and mission-critical software delivery
             </p>
         </div>
 
