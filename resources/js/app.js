@@ -151,3 +151,38 @@ async function loadGitHubRepos() {
 }
 
 loadGitHubRepos();
+
+// ---------------------------------------------------------------------------
+// Scroll spy — highlight nav link for the section currently in view
+// ---------------------------------------------------------------------------
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+            const active = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('text-orange-500', active);
+            link.classList.toggle('text-neutral-500', !active);
+        });
+    });
+}, {
+    rootMargin: '-40% 0px -55% 0px',
+    threshold: 0,
+});
+
+document.querySelectorAll('section[id], footer[id]').forEach(el => spyObserver.observe(el));
+
+// ---------------------------------------------------------------------------
+// Mobile menu — close on outside click
+// ---------------------------------------------------------------------------
+document.addEventListener('click', (e) => {
+    const toggle = document.getElementById('nav-toggle');
+    const menu   = document.getElementById('mobile-menu');
+    if (!toggle || !menu || menu.hidden) return;
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+});

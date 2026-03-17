@@ -43,6 +43,15 @@
     to   { background-position: 0 -48px; }
 }
 
+@keyframes availabilityPulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.35; }
+}
+
+.availability-pulse {
+    animation: availabilityPulse 2.5s ease-in-out infinite;
+}
+
 /* ---------------------------------------------------------------------------
    Hero entrance animations — one-shot on page load
 --------------------------------------------------------------------------- */
@@ -117,6 +126,9 @@
     .glow-orb-1,
     .glow-orb-2,
     .hero-dot-grid {
+        animation: none;
+    }
+    .availability-pulse {
         animation: none;
     }
     [data-reveal] {

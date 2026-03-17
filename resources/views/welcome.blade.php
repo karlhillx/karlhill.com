@@ -12,8 +12,8 @@
     <meta property="og:title" content="Karl Hill — Staff Software Engineer">
     <meta property="og:description" content="25+ years shipping systems under pressure — from NASA Goddard's Earth science and flood mapping platforms to mission-critical aerospace software at Jacobs/BlackLynx.">
     <meta property="og:image" content="https://karlhill.com/img/profile.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="800">
 
     {{-- Twitter / X --}}
     <meta name="twitter:card" content="summary_large_image">
@@ -34,11 +34,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="manifest" href="/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -59,9 +58,16 @@
             "addressRegion": "DC",
             "addressCountry": "US"
         },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Jacobs"
+        },
         "sameAs": [
             "https://www.linkedin.com/in/khill/",
-            "https://github.com/karlhillx"
+            "https://github.com/karlhillx",
+            "https://twitter.com/karl_hill",
+            "https://orcid.org/0009-0002-6847-3368",
+            "https://www.discogs.com/artist/1286669-Karl-Hill"
         ]
     }
     </script>
@@ -127,9 +133,14 @@
 
         <div class="relative z-10 max-w-6xl mx-auto w-full">
             <div class="pt-12">
-                <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-8 hero-enter" style="animation-delay:100ms">
-                    Staff Software Engineer &nbsp;·&nbsp; 25+ Years
-                </p>
+                <div class="flex items-center gap-4 mb-8 hero-enter" style="animation-delay:100ms">
+                    <img src="/img/profile.jpg" alt="Karl Hill"
+                         width="48" height="48"
+                         class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-500/30 shrink-0">
+                    <p class="font-mono text-orange-500 text-xs tracking-widest uppercase">
+                        Staff Software Engineer &nbsp;·&nbsp; {{ date('Y') - 1999 }}+ Years
+                    </p>
+                </div>
                 <h1 class="font-display text-[clamp(5rem,20vw,15rem)] leading-none tracking-wide text-white mb-6 hero-enter" style="animation-delay:220ms">
                     Karl Hill
                 </h1>
@@ -155,6 +166,10 @@
                        class="border border-neutral-700 text-neutral-300 font-semibold px-8 py-3.5 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
                         GitHub
                     </a>
+                </div>
+                <div class="flex items-center gap-2.5 mt-6 hero-enter" style="animation-delay:640ms">
+                    <span class="w-2 h-2 rounded-full bg-green-500 availability-pulse" aria-hidden="true"></span>
+                    <span class="font-mono text-xs text-neutral-500 uppercase tracking-widest">Available for select consulting</span>
                 </div>
             </div>
         </div>
@@ -198,7 +213,7 @@
     <section class="border-t border-b border-neutral-800 bg-neutral-900/40">
         <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         @foreach([
-            ['25+',   'Years of Experience',              25,  '',  '+'],
+            [date('Y') - 1999 . '+',   'Years of Experience',              date('Y') - 1999,  '',  '+'],
             ['1.5M',  'Monthly Visitors — NASA PLATFORMS',       1.5, '',  'M'],
             ['$105M', 'Platform Acquisition Value',       105, '$', 'M'],
             ['~60%',  'Efficiency Gained via Automation', 60,  '~', '%'],
@@ -571,7 +586,7 @@
                         <span class="text-orange-500 text-base arrow-nudge" aria-hidden="true">→</span>
                         karlhillx@gmail.com
                     </a>
-                    <a href="/files/karlhill-resume.pdf" target="_blank" rel="noopener" download="Karl-Hill-Resume.pdf"
+                    <a href="/files/karlhill-resume.pdf" target="_blank" rel="noopener noreferrer"
                        class="inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 w-fit">
                         <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
@@ -621,7 +636,7 @@
             </div>
             <div class="mt-20 pt-8 border-t border-neutral-800/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <p class="font-display text-3xl tracking-widest text-neutral-600">Karl Hill</p>
-                <p class="font-mono text-xs text-neutral-500">Washington, DC &nbsp;·&nbsp; Staff Software Engineer &nbsp;·&nbsp; 25+ Years</p>
+                <p class="font-mono text-xs text-neutral-500">Washington, DC &nbsp;·&nbsp; Staff Software Engineer &nbsp;·&nbsp; {{ date('Y') - 1999 }}+ Years</p>
                 <p class="font-mono text-xs text-neutral-700">Laravel {{ app()->version() }}</p>
             </div>
         </div>
