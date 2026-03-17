@@ -25,7 +25,7 @@ class GitHubController extends Controller
 
             $response = Http::withHeaders($headers)->get(
                 "https://api.github.com/users/{$username}/repos",
-                ['sort' => 'stars', 'per_page' => 30, 'type' => 'owner']
+                ['sort' => 'updated', 'direction' => 'desc', 'per_page' => 50, 'type' => 'owner']
             );
 
             if (!$response->successful()) {
@@ -36,8 +36,12 @@ class GitHubController extends Controller
                 return response()->json(['error' => 'GitHub API error', 'status' => $response->status()], 503);
             }
 
+            $exclude = [$username, 'karlhill.com'];
+
             $repos = array_values(array_filter($response->json(), fn($r) =>
-                !($r['fork'] ?? false) && !($r['archived'] ?? false)
+                !($r['fork'] ?? false) &&
+                !($r['archived'] ?? false) &&
+                !in_array($r['name'], $exclude, true)
             ));
 
             $top = array_map(fn($r) => [
