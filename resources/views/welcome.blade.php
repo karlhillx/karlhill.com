@@ -339,10 +339,10 @@
                         <span class="text-orange-500 text-base group-hover:translate-x-0.5 transition-transform">→</span>
                         karlhillx@gmail.com
                     </a>
-                    <a href="tel:+12023045556"
+                    <a href="/files/karlhill-resume.pdf" target="_blank" rel="noopener"
                        class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
-                        <span class="text-orange-500 text-base group-hover:translate-x-0.5 transition-transform">→</span>
-                        202-304-5556
+                        <span class="text-orange-500 text-base group-hover:translate-x-0.5 transition-transform">↗</span>
+                        Resume
                     </a>
                     <a href="https://www.linkedin.com/in/khill/" target="_blank" rel="noopener"
                        class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
