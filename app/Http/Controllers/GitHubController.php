@@ -8,6 +8,51 @@ use Illuminate\Http\Response;
 
 class GitHubController extends Controller
 {
+    public function getTopRepos()
+    {
+        $token    = config('services.github.token');
+        $username = config('services.github.username');
+
+        try {
+            $headers = [
+                'Accept'             => 'application/vnd.github+json',
+                'X-GitHub-Api-Version' => '2022-11-28',
+                'User-Agent'         => 'karlhill.com',
+            ];
+            if ($token) {
+                $headers['Authorization'] = 'Bearer ' . $token;
+            }
+
+            $response = Http::withHeaders($headers)->get(
+                "https://api.github.com/users/{$username}/repos",
+                ['sort' => 'stars', 'per_page' => 30, 'type' => 'owner']
+            );
+
+            if (!$response->successful()) {
+                return response()->json(['error' => 'GitHub API error'], 503);
+            }
+
+            $repos = array_values(array_filter($response->json(), fn($r) =>
+                !($r['fork'] ?? false) && !($r['archived'] ?? false)
+            ));
+
+            $top = array_map(fn($r) => [
+                'name'        => $r['name'],
+                'description' => $r['description'],
+                'url'         => $r['html_url'],
+                'stars'       => $r['stargazers_count'],
+                'forks'       => $r['forks_count'],
+                'language'    => $r['language'],
+                'topics'      => $r['topics'] ?? [],
+            ], array_slice($repos, 0, 6));
+
+            return response()->json($top)
+                ->header('Cache-Control', 'public, max-age=3600');
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 503);
+        }
+    }
+
     public function getLanguageStats()
     {
         $token = config('services.github.token');

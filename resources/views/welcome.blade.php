@@ -5,8 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Karl Hill — Staff Software Engineer</title>
     <meta name="description" content="Karl Hill is a Staff Software Engineer with 25+ years building cloud-native systems, leading high-performing engineering teams, and shipping reliable software at scale.">
+
+    {{-- Open Graph --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://karlhill.com">
     <meta property="og:title" content="Karl Hill — Staff Software Engineer">
-    <meta property="og:description" content="20+ years building systems that perform under pressure — from NASA's Earth Observatory to mission-critical aerospace platforms.">
+    <meta property="og:description" content="25+ years building systems that perform under pressure — from NASA's Earth Observatory to mission-critical aerospace platforms.">
+    <meta property="og:image" content="https://karlhill.com/img/profile.jpg">
+
+    {{-- Twitter / X --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Karl Hill — Staff Software Engineer">
+    <meta name="twitter:description" content="25+ years building systems that perform under pressure — from NASA's Earth Observatory to mission-critical aerospace platforms.">
+    <meta name="twitter:image" content="https://karlhill.com/img/profile.jpg">
+
+    <link rel="canonical" href="https://karlhill.com">
+
+    {{-- Favicons --}}
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -14,10 +29,36 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
     <link rel="manifest" href="/img/site.webmanifest">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Structured Data --}}
+    @verbatim
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Karl Hill",
+        "jobTitle": "Staff Software Engineer",
+        "url": "https://karlhill.com",
+        "image": "https://karlhill.com/img/profile.jpg",
+        "email": "karlhillx@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Washington",
+            "addressRegion": "DC",
+            "addressCountry": "US"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/khill/",
+            "https://github.com/karlhillx"
+        ]
+    }
+    </script>
+    @endverbatim
 </head>
 <body class="bg-[#080808] text-neutral-100 antialiased">
 
@@ -25,6 +66,12 @@
     <nav class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-[#080808]/90 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <span class="font-display text-2xl tracking-wider text-orange-500">KARL HILL</span>
+            <div class="hidden md:flex items-center gap-8 font-mono text-xs text-neutral-500 uppercase tracking-widest">
+                <a href="#experience" class="hover:text-orange-500 transition-colors duration-200">Experience</a>
+                <a href="#work" class="hover:text-orange-500 transition-colors duration-200">Work</a>
+                <a href="#stack" class="hover:text-orange-500 transition-colors duration-200">Stack</a>
+                <a href="#contact" class="hover:text-orange-500 transition-colors duration-200">Contact</a>
+            </div>
             <a href="mailto:karlhillx@gmail.com"
                class="text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
                 Get in Touch
@@ -33,7 +80,7 @@
     </nav>
 
     {{-- Hero --}}
-    <section class="min-h-screen flex flex-col justify-end pt-24 pb-16 px-6">
+    <section id="hero" class="min-h-screen flex flex-col justify-end pt-24 pb-16 px-6">
         <div class="max-w-6xl mx-auto w-full">
             <div class="border-t border-neutral-800 pt-12">
                 <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-8">
@@ -70,11 +117,11 @@
     </section>
 
     {{-- Why Hire Me --}}
-    <section class="py-28 px-6 border-t border-neutral-800">
+    <section id="why" class="py-28 px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
-            <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16">01 — Why Me</p>
+            <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>01 — Why Me</p>
             <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-800">
-                <div class="py-10 md:py-0 md:pr-12">
+                <div class="py-10 md:py-0 md:pr-12" data-reveal>
                     <p class="font-display text-6xl text-orange-500 mb-5">I Build</p>
                     <p class="text-neutral-400 leading-relaxed text-sm">
                         Cloud-native platforms on AWS. Containerized services with Docker and Kubernetes.
@@ -82,7 +129,7 @@
                         reliably at scale — not just to demo well.
                     </p>
                 </div>
-                <div class="py-10 md:py-0 md:px-12">
+                <div class="py-10 md:py-0 md:px-12" data-reveal>
                     <p class="font-display text-6xl text-orange-500 mb-5">I Lead</p>
                     <p class="text-neutral-400 leading-relaxed text-sm">
                         Engineering teams from roadmap to release. 1:1s, onboarding, PR standards,
@@ -90,7 +137,7 @@
                         into a high-performing team that ships consistently.
                     </p>
                 </div>
-                <div class="py-10 md:py-0 md:pl-12">
+                <div class="py-10 md:py-0 md:pl-12" data-reveal>
                     <p class="font-display text-6xl text-orange-500 mb-5">I Deliver</p>
                     <p class="text-neutral-400 leading-relaxed text-sm">
                         Predictable execution, every sprint. I translate mission needs into sequenced
@@ -106,26 +153,31 @@
     <section class="border-t border-b border-neutral-800 bg-neutral-900/40">
         <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         @foreach([
-                    ['25+', 'Years of Experience'],
-                ['1.5M', 'Monthly Visitors — NASA EO'],
-                ['$105M', 'Platform Acquisition Value'],
-                ['~60%', 'Efficiency Gained via Automation'],
-            ] as [$stat, $label])
-            <div>
-                <p class="font-display text-5xl text-orange-500 leading-none">{{ $stat }}</p>
-                <p class="font-mono text-xs text-neutral-500 mt-2 uppercase tracking-wide leading-snug">{{ $label }}</p>
-            </div>
-            @endforeach
+            ['25+',   'Years of Experience',              25,  '',  '+'],
+            ['1.5M',  'Monthly Visitors — NASA EO',       1.5, '',  'M'],
+            ['$105M', 'Platform Acquisition Value',       105, '$', 'M'],
+            ['~60%',  'Efficiency Gained via Automation', 60,  '~', '%'],
+        ] as [$stat, $label, $to, $prefix, $suffix])
+        <div data-reveal>
+            <p class="font-display text-5xl text-orange-500 leading-none"
+               data-counter
+               data-to="{{ $to }}"
+               data-prefix="{{ $prefix }}"
+               data-suffix="{{ $suffix }}"
+               data-final="{{ $stat }}">{{ $stat }}</p>
+            <p class="font-mono text-xs text-neutral-500 mt-2 uppercase tracking-wide leading-snug">{{ $label }}</p>
+        </div>
+        @endforeach
         </div>
     </section>
 
     {{-- Experience --}}
-    <section class="py-28 px-6 border-t border-neutral-800">
+    <section id="experience" class="py-28 px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
-            <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16">02 — Experience</p>
+            <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>02 — Experience</p>
 
-            {{-- Current Role - Featured --}}
-            <div class="mb-16 p-8 md:p-10 border border-orange-500/25 bg-orange-500/[0.03]">
+            {{-- Current Role --}}
+            <div class="mb-16 p-8 md:p-10 border border-orange-500/25 bg-orange-500/[0.03]" data-reveal>
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-8">
                     <div>
                         <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-2">Current Role</p>
@@ -157,8 +209,7 @@
             {{-- Past Roles --}}
             <div class="space-y-0 divide-y divide-neutral-800">
 
-                {{-- NASA --}}
-                <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 py-14">
+                <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 py-14" data-reveal>
                     <div>
                         <h3 class="font-display text-2xl tracking-wide leading-tight">Lead Software Engineer</h3>
                         <p class="text-orange-500 text-sm font-medium mt-2">NASA / SSAI</p>
@@ -189,8 +240,7 @@
                     </ul>
                 </div>
 
-                {{-- InformedDNA --}}
-                <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 py-14">
+                <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 py-14" data-reveal>
                     <div>
                         <h3 class="font-display text-2xl tracking-wide leading-tight">Sr. Software Engineer</h3>
                         <p class="text-orange-500 text-sm font-medium mt-2">InformedDNA</p>
@@ -213,8 +263,7 @@
                     </ul>
                 </div>
 
-                {{-- Earlier Roles --}}
-                <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 py-14">
+                <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 py-14" data-reveal>
                     <div>
                         <h3 class="font-display text-2xl tracking-wide leading-tight">Earlier Career</h3>
                         <span class="font-mono text-xs text-neutral-600 mt-3 block">1999 — 2015</span>
@@ -260,20 +309,85 @@
         </div>
     </section>
 
-    {{-- Tech Stack --}}
-    <section class="py-28 px-6 border-t border-neutral-800">
+    {{-- Selected Work --}}
+    <section id="work" class="py-28 px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
-            <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16">03 — Technical Stack</p>
+            <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>03 — Selected Work</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-800">
+                @foreach([
+                    [
+                        'NASA Earth Observatory',
+                        'NASA / SSAI &nbsp;·&nbsp; 2017–2025',
+                        'Rebuilt a flagship science communication platform serving ~1.5M monthly visitors. Improved performance, UX, and accessibility.',
+                        '/img/small-earth-observatory.png',
+                        'https://earthobservatory.nasa.gov',
+                    ],
+                    [
+                        'Flood Mapping System',
+                        'NASA / SSAI &nbsp;·&nbsp; 2017–2025',
+                        'Cloud-native AWS platform delivering near real-time satellite flood products to support global disaster response.',
+                        '/img/small-flood.png',
+                        null,
+                    ],
+                    [
+                        'Direct Readout Laboratory',
+                        'NASA / SSAI &nbsp;·&nbsp; 2017–2025',
+                        'Scientific data processing and distribution platform for direct readout satellite data.',
+                        '/img/small-direct-readout.png',
+                        null,
+                    ],
+                    [
+                        'InformedDNA Platform',
+                        'InformedDNA &nbsp;·&nbsp; 2016–2017',
+                        'Laravel-based genomics case management system reducing operational costs by $30K/year.',
+                        '/img/small-informeddna.png',
+                        null,
+                    ],
+                    [
+                        'Finium',
+                        'Verizon Business &nbsp;·&nbsp; 1999–2005',
+                        'Managed security-services platform that drove a 10× increase in client engagements and supported a $105M acquisition.',
+                        '/img/small-mci-verizon.png',
+                        null,
+                    ],
+                ] as [$title, $meta, $desc, $img, $url])
+                <div class="bg-[#080808] group relative overflow-hidden" data-reveal>
+                    <div class="aspect-video overflow-hidden bg-neutral-900">
+                        <img src="{{ $img }}" alt="{{ $title }}"
+                             loading="lazy"
+                             class="w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500">
+                    </div>
+                    <div class="p-6">
+                        <p class="font-display text-xl tracking-wide text-white mb-1">{{ $title }}</p>
+                        <p class="font-mono text-xs text-orange-500 mb-3">{!! $meta !!}</p>
+                        <p class="text-neutral-500 text-xs leading-relaxed">{{ $desc }}</p>
+                        @if($url)
+                        <a href="{{ $url }}" target="_blank" rel="noopener"
+                           class="inline-flex items-center gap-1.5 font-mono text-xs text-neutral-600 hover:text-orange-500 transition-colors mt-4">
+                            View Live ↗
+                        </a>
+                        @endif
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- Tech Stack --}}
+    <section id="stack" class="py-28 px-6 border-t border-neutral-800">
+        <div class="max-w-6xl mx-auto">
+            <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>04 — Technical Stack</p>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
                 @foreach([
-                    ['Languages',      ['Python', 'TypeScript', 'Java', 'PHP', 'Bash']],
-                    ['Cloud & Infra',  ['AWS', 'Docker', 'Kubernetes', 'Helm (OCI)', 'Ceph']],
+                    ['Languages',        ['Python', 'TypeScript', 'Java', 'PHP', 'Bash']],
+                    ['Cloud & Infra',    ['AWS', 'Docker', 'Kubernetes', 'Helm (OCI)', 'Ceph']],
                     ['Delivery & CI/CD', ['GitLab CI', 'GitHub Actions', 'Bitbucket', 'Release Automation']],
-                    ['Web & UI',       ['React', 'Node.js', 'Laravel', 'Vite', 'Tailwind', 'OpenAPI/Swagger']],
-                    ['Data Platforms', ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Elasticsearch']],
-                    ['Leadership',     ['Agile / Scrum', 'Team Coaching', 'Roadmapping', 'DevSecOps', 'Stakeholder Mgmt']],
+                    ['Web & UI',         ['React', 'Node.js', 'Laravel', 'Vite', 'Tailwind', 'OpenAPI/Swagger']],
+                    ['Data Platforms',   ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Elasticsearch']],
+                    ['Leadership',       ['Agile / Scrum', 'Team Coaching', 'Roadmapping', 'DevSecOps', 'Stakeholder Mgmt']],
                 ] as [$category, $skills])
-                <div>
+                <div data-reveal>
                     <p class="font-display text-lg text-neutral-500 tracking-widest mb-4">{{ $category }}</p>
                     <div class="flex flex-wrap gap-2">
                         @foreach($skills as $skill)
@@ -286,26 +400,51 @@
         </div>
     </section>
 
-    {{-- Certifications --}}
-    <section class="py-28 px-6 border-t border-neutral-800">
+    {{-- Open Source --}}
+    <section id="open-source" class="py-28 px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
-            <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16">04 — Certifications & Education</p>
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16" data-reveal>
+                <p class="font-mono text-orange-500 text-xs tracking-widest uppercase">05 — Open Source</p>
+                <a href="https://github.com/karlhillx" target="_blank" rel="noopener"
+                   class="font-mono text-xs text-neutral-600 hover:text-orange-500 transition-colors">
+                    github.com/karlhillx ↗
+                </a>
+            </div>
+            <div id="github-repos" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-800">
+                @for($i = 0; $i < 6; $i++)
+                <div class="bg-[#080808] p-6 animate-pulse">
+                    <div class="h-3 bg-neutral-800 rounded mb-3 w-3/4"></div>
+                    <div class="h-2 bg-neutral-900 rounded mb-1.5 w-full"></div>
+                    <div class="h-2 bg-neutral-900 rounded mb-4 w-2/3"></div>
+                    <div class="h-2 bg-neutral-800 rounded w-1/4"></div>
+                </div>
+                @endfor
+            </div>
+        </div>
+    </section>
+
+    {{-- Certifications --}}
+    <section id="certs" class="py-28 px-6 border-t border-neutral-800">
+        <div class="max-w-6xl mx-auto">
+            <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>06 — Certifications & Education</p>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-800">
                 @foreach([
-                    ['PSM II',  'Professional Scrum Master™ II',       'Scrum.org'],
-                    ['PSD I',   'Professional Scrum Developer™ I',      'Scrum.org'],
-                    ['PSPO I',  'Professional Scrum Product Owner™ I',  'Scrum.org'],
-                    ['CSM',     'Certified ScrumMaster®',               'Scrum Alliance'],
-                ] as [$abbr, $name, $issuer])
-                <div class="bg-[#080808] p-8 hover:bg-neutral-900/60 transition-colors">
-                    <p class="font-display text-5xl text-orange-500 mb-3">{{ $abbr }}</p>
+                    ['PSM II',  'Professional Scrum Master™ II',       'Scrum.org',     'https://www.credly.com/badges/1874ba29-99d7-4dae-8335-1a915795d956'],
+                    ['PSD I',   'Professional Scrum Developer™ I',      'Scrum.org',     'https://www.credly.com/badges/937b37cf-6fa7-49dd-8c70-e43378feda5b'],
+                    ['PSPO I',  'Professional Scrum Product Owner™ I',  'Scrum.org',     'https://www.credly.com/badges/da27e50e-ef55-41f0-bc14-ca26d9e3e0ff'],
+                    ['CSM',     'Certified ScrumMaster®',               'Scrum Alliance', 'https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster'],
+                ] as [$abbr, $name, $issuer, $verifyUrl])
+                <a href="{{ $verifyUrl }}" target="_blank" rel="noopener"
+                   class="bg-[#080808] p-8 hover:bg-neutral-900/60 transition-colors group" data-reveal>
+                    <p class="font-display text-5xl text-orange-500 mb-3 group-hover:text-orange-400 transition-colors">{{ $abbr }}</p>
                     <p class="text-sm text-neutral-300 font-medium leading-snug">{{ $name }}</p>
                     <p class="font-mono text-xs text-neutral-600 mt-3">{{ $issuer }}</p>
-                </div>
+                    <p class="font-mono text-xs text-neutral-700 mt-2 group-hover:text-orange-600 transition-colors">Verify ↗</p>
+                </a>
                 @endforeach
             </div>
             <div class="mt-px bg-neutral-800">
-                <div class="bg-[#080808] p-8">
+                <div class="bg-[#080808] p-8" data-reveal>
                     <p class="font-display text-lg text-neutral-500 tracking-widest mb-4">Education</p>
                     <div class="flex flex-col sm:flex-row gap-8">
                         <div>
@@ -327,11 +466,11 @@
     </section>
 
     {{-- Contact / Footer --}}
-    <footer class="border-t border-neutral-800 py-24 px-6">
+    <footer id="contact" class="border-t border-neutral-800 py-24 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
-                <div class="max-w-xl">
-                    <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-6">05 — Contact</p>
+                <div class="max-w-xl" data-reveal>
+                    <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-6">07 — Contact</p>
                     <h2 class="font-display text-[clamp(3rem,8vw,6rem)] leading-none tracking-wide mb-6">
                         Let's Work<br>Together
                     </h2>
@@ -340,13 +479,13 @@
                         I'd like to hear about it.
                     </p>
                 </div>
-                <div class="flex flex-col gap-4 lg:pt-16 shrink-0">
+                <div class="flex flex-col gap-4 lg:pt-16 shrink-0" data-reveal>
                     <a href="mailto:karlhillx@gmail.com"
                        class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
                         <span class="text-orange-500 text-base group-hover:translate-x-0.5 transition-transform">→</span>
                         karlhillx@gmail.com
                     </a>
-                    <a href="/files/karlhill-resume.pdf" target="_blank" rel="noopener"
+                    <a href="/files/karlhill-resume.pdf" target="_blank" rel="noopener" download="Karl-Hill-Resume.pdf"
                        class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
                         <span class="text-orange-500 text-base group-hover:translate-x-0.5 transition-transform">↗</span>
                         Resume
@@ -360,11 +499,6 @@
                        class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
                         <span class="text-orange-500 text-base group-hover:translate-x-0.5 transition-transform">↗</span>
                         github.com/karlhillx
-                    </a>
-                    <a href="https://karlhill.com" target="_blank" rel="noopener"
-                       class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
-                        <span class="text-orange-500 text-base group-hover:translate-x-0.5 transition-transform">↗</span>
-                        karlhill.com
                     </a>
                 </div>
             </div>
