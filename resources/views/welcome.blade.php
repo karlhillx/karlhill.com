@@ -75,7 +75,7 @@
     </a>
 
     {{-- Nav --}}
-    <nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-[#080808]/90 backdrop-blur-sm">
+    <nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-[#080808]/90 backdrop-blur-sm nav-enter">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <span class="font-display text-2xl tracking-wider text-orange-500">KARL HILL</span>
             <div class="hidden md:flex items-center gap-8 font-mono text-xs text-neutral-500 uppercase tracking-widest">
@@ -112,25 +112,37 @@
     <main id="main-content">
 
     {{-- Hero --}}
-    <section id="hero" class="min-h-screen flex flex-col justify-end pt-24 pb-16 px-6">
-        <div class="max-w-6xl mx-auto w-full">
-            <div class="border-t border-neutral-800 pt-12">
-                <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-8">
+    <section id="hero" class="relative min-h-screen flex flex-col justify-end pt-24 pb-16 px-6 overflow-hidden">
+
+        {{-- Dot-grid scrolling overlay --}}
+        <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+        {{-- Ambient glow orbs --}}
+        <div class="glow-orb-1 pointer-events-none absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full"
+             style="background: radial-gradient(ellipse, rgba(249,115,22,0.14) 0%, transparent 65%);"
+             aria-hidden="true"></div>
+        <div class="glow-orb-2 pointer-events-none absolute -top-48 -right-48 w-[500px] h-[500px] rounded-full"
+             style="background: radial-gradient(ellipse, rgba(249,115,22,0.09) 0%, transparent 65%);"
+             aria-hidden="true"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto w-full">
+            <div class="border-t border-neutral-800 pt-12 border-reveal">
+                <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-8 hero-enter" style="animation-delay:100ms">
                     Staff Software Engineer &nbsp;·&nbsp; 25+ Years
                 </p>
-                <h1 class="font-display text-[clamp(5rem,20vw,15rem)] leading-none tracking-wide text-white mb-6">
+                <h1 class="font-display text-[clamp(5rem,20vw,15rem)] leading-none tracking-wide text-white mb-6 hero-enter" style="animation-delay:220ms">
                     Karl Hill
                 </h1>
                 <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
-                    <p class="font-display text-[clamp(1.4rem,3.5vw,2.5rem)] text-neutral-500 tracking-widest uppercase">
+                    <p class="font-display text-[clamp(1.4rem,3.5vw,2.5rem)] text-neutral-500 tracking-widest uppercase hero-enter" style="animation-delay:360ms">
                         Cloud · Platforms · Engineering Leadership
                     </p>
-                    <p class="text-neutral-400 text-base leading-relaxed max-w-md lg:text-right">
+                    <p class="text-neutral-400 text-base leading-relaxed max-w-md lg:text-right hero-enter" style="animation-delay:440ms">
                         I architect systems, lead teams, and ship software that matters —
                         from disaster-response platforms at NASA to mission-critical aerospace systems at Jacobs/BlackLynx.
                     </p>
                 </div>
-                <div class="flex flex-wrap gap-4">
+                <div class="flex flex-wrap gap-4 hero-enter" style="animation-delay:560ms">
                     <a href="https://www.linkedin.com/in/khill/" target="_blank" rel="noopener noreferrer"
                        class="bg-orange-500 text-black font-bold px-8 py-3.5 text-xs uppercase tracking-widest hover:bg-orange-400 transition-colors duration-200">
                         LinkedIn
@@ -149,6 +161,7 @@
     </section>
 
     {{-- Why Hire Me --}}
+
     <section id="why" class="py-28 px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
             <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>01 — Why Me</h2>
@@ -221,19 +234,19 @@
                 </div>
                 <ul class="space-y-4 text-neutral-300 text-sm leading-relaxed">
                     <li class="flex gap-4">
-                        <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                        <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                         Lead delivery for cloud-native mission-simulation and telemetry services. Own planning, refinement, demos, and stakeholder alignment end-to-end.
                     </li>
                     <li class="flex gap-4">
-                        <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                        <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                         Own team health and execution — coaching, 1:1s, onboarding, and delivery discipline across multi-repo, multi-environment systems.
                     </li>
                     <li class="flex gap-4">
-                        <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                        <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                         Set and enforce engineering standards: repo/branch governance, PR reviews, Definition of Done, and documentation to reduce integration risk.
                     </li>
                     <li class="flex gap-4">
-                        <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                        <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                         Drive DevSecOps and release governance via CI/CD, automated testing, quality gates, and security checks to shorten feedback loops.
                     </li>
                 </ul>
@@ -251,23 +264,23 @@
                     </div>
                     <ul class="space-y-4 text-neutral-400 text-sm leading-relaxed self-start">
                         <li class="flex gap-4">
-                            <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                            <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                             Architected NASA's cloud-based Flood Mapping System on AWS, delivering near real-time satellite-derived flood products to support global disaster response.
                         </li>
                         <li class="flex gap-4">
-                            <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                            <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                             Rebuilt the NASA Earth Observatory — a platform serving <strong class="text-white font-semibold">~1.5M monthly visitors</strong> — improving performance, UX, and SEO.
                         </li>
                         <li class="flex gap-4">
-                            <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                            <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                             Built a high-performance Ceph-based file + metadata platform, improving large dataset discovery and access for researchers.
                         </li>
                         <li class="flex gap-4">
-                            <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                            <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                             Delivered an automated content registry workflow that boosted data collection efficiency by <strong class="text-white font-semibold">~60%</strong> and accelerated researcher access.
                         </li>
                         <li class="flex gap-4">
-                            <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                            <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                             Implemented GitLab CI/CD + Docker + Kubernetes delivery — automated deployments, repeatable releases, reliable stakeholder approvals.
                         </li>
                     </ul>
@@ -282,15 +295,15 @@
                     </div>
                     <ul class="space-y-4 text-neutral-400 text-sm leading-relaxed self-start">
                         <li class="flex gap-4">
-                            <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                            <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                             Architected a Laravel-based case management platform reducing operational costs by <strong class="text-white font-semibold">$30K/year</strong>.
                         </li>
                         <li class="flex gap-4">
-                            <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                            <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                             Led CRM enhancements improving client retention and contributing ~15% revenue growth through better lifecycle workflows and reporting.
                         </li>
                         <li class="flex gap-4">
-                            <span class="text-orange-500 shrink-0 mt-0.5" aria-hidden="true">→</span>
+                            <span class="text-orange-500 shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
                             Spearheaded platform upgrades and security improvements, doubling incident response efficiency and strengthening operational readiness.
                         </li>
                     </ul>
@@ -403,7 +416,7 @@
                         ['/img/logo-verizon-v.png', null, 'h-8'],
                     ],
                 ] as [$title, $meta, $desc, $img, $url, $tags, $logo])
-                <div class="bg-[#080808] group relative overflow-hidden h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/60" tabindex="0" data-reveal>
+                <div class="bg-[#080808] group relative overflow-hidden h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/60 transition-shadow duration-300" tabindex="0" data-reveal>
 
                     {{-- Full-bleed image --}}
                     <img src="{{ $img }}" alt="{{ $title }}"
@@ -555,7 +568,7 @@
                 <div class="flex flex-col gap-4 lg:pt-16 shrink-0" data-reveal>
                     <a href="mailto:karlhillx@gmail.com"
                        class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
-                        <span class="text-orange-500 text-base group-hover:translate-x-0.5 transition-transform" aria-hidden="true">→</span>
+                        <span class="text-orange-500 text-base arrow-nudge" aria-hidden="true">→</span>
                         karlhillx@gmail.com
                     </a>
                     <a href="/files/karlhill-resume.pdf" target="_blank" rel="noopener" download="Karl-Hill-Resume.pdf"
@@ -609,6 +622,7 @@
             <div class="mt-20 pt-8 border-t border-neutral-800/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <p class="font-display text-3xl tracking-widest text-neutral-600">Karl Hill</p>
                 <p class="font-mono text-xs text-neutral-500">Washington, DC &nbsp;·&nbsp; Staff Software Engineer &nbsp;·&nbsp; 25+ Years</p>
+                <p class="font-mono text-xs text-neutral-700">Laravel {{ app()->version() }}</p>
             </div>
         </div>
     </footer>

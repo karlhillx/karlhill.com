@@ -5,7 +5,85 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
-/* Scroll-reveal */
+/* ---------------------------------------------------------------------------
+   Keyframes
+--------------------------------------------------------------------------- */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes borderReveal {
+    from { transform: scaleX(0); transform-origin: left; }
+    to   { transform: scaleX(1); transform-origin: left; }
+}
+
+@keyframes arrowNudge {
+    0%, 100% { transform: translateX(0); }
+    50%       { transform: translateX(4px); }
+}
+
+@keyframes glowDrift1 {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(40px, -30px); }
+}
+
+@keyframes glowDrift2 {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-40px, 30px); }
+}
+
+@keyframes dotScroll {
+    from { background-position: 0 0; }
+    to   { background-position: 0 -48px; }
+}
+
+/* ---------------------------------------------------------------------------
+   Hero entrance animations — one-shot on page load
+--------------------------------------------------------------------------- */
+.hero-enter {
+    animation: fadeUp 0.7s ease-out both;
+}
+
+.nav-enter {
+    animation: fadeDown 0.5s ease-out both;
+}
+
+.border-reveal {
+    animation: borderReveal 0.8s ease-out both;
+}
+
+/* Arrow micro-animation */
+.arrow-nudge {
+    display: inline-block;
+    animation: arrowNudge 2.8s ease-in-out infinite;
+}
+
+/* Hero ambient glow orbs */
+.glow-orb-1 {
+    animation: glowDrift1 18s ease-in-out infinite alternate;
+}
+
+.glow-orb-2 {
+    animation: glowDrift2 22s ease-in-out infinite alternate;
+    animation-delay: -11s;
+}
+
+/* Hero dot-grid overlay */
+.hero-dot-grid {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    animation: dotScroll 8s linear infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll-reveal
+--------------------------------------------------------------------------- */
 [data-reveal] {
     opacity: 0;
     transform: translateY(20px);
@@ -26,6 +104,21 @@
 
 /* Reduced motion: skip all animations */
 @media (prefers-reduced-motion: reduce) {
+    .hero-enter,
+    .nav-enter,
+    .border-reveal {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    .arrow-nudge {
+        animation: none;
+    }
+    .glow-orb-1,
+    .glow-orb-2,
+    .hero-dot-grid {
+        animation: none;
+    }
     [data-reveal] {
         opacity: 1;
         transform: none;
