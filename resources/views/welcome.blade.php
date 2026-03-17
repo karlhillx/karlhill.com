@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Karl Hill — Staff Software Engineer</title>
-    <meta name="description" content="Karl Hill is a Staff Software Engineer with 25+ years building cloud-native systems, leading high-performing engineering teams, and shipping reliable software at scale.">
+    <meta name="description" content="Karl Hill is a Staff Software Engineer with 25+ years of experience. Built NASA Goddard's Earth Observatory, flood mapping, and direct readout satellite platforms. Now leading aerospace software at Jacobs.">
 
     {{-- Open Graph --}}
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://karlhill.com">
     <meta property="og:title" content="Karl Hill — Staff Software Engineer">
-    <meta property="og:description" content="25+ years building systems that perform under pressure — from NASA's Earth Observatory to mission-critical aerospace platforms.">
+    <meta property="og:description" content="25+ years shipping systems under pressure — from NASA Goddard's Earth science and flood mapping platforms to mission-critical aerospace software at Jacobs/BlackLynx.">
     <meta property="og:image" content="https://karlhill.com/img/profile.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -20,7 +20,7 @@
     <meta name="twitter:site" content="@karl_hill">
     <meta name="twitter:creator" content="@karl_hill">
     <meta name="twitter:title" content="Karl Hill — Staff Software Engineer">
-    <meta name="twitter:description" content="25+ years building systems that perform under pressure — from NASA's Earth Observatory to mission-critical aerospace platforms.">
+    <meta name="twitter:description" content="25+ years shipping systems under pressure — from NASA Goddard's Earth science and flood mapping platforms to mission-critical aerospace software at Jacobs/BlackLynx.">
     <meta name="twitter:image" content="https://karlhill.com/img/profile.jpg">
 
     <meta name="theme-color" content="#080808">
