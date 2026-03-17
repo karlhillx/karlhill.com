@@ -376,7 +376,7 @@
                         'Operational satellite imagery processing system generating near real-time flood inundation maps during active disaster events globally. Automated the end-to-end pipeline from raw sensor acquisition through geospatial product generation, dissemination, and integration with international emergency management networks.',
                         '/img/small-flood.png',
                         null,
-                        ['AWS', 'Python'],
+                        ['Python', 'Docker', 'AWS'],
                         ['/img/logo-nasa.svg', null, 'h-8'],
                     ],
                     [
@@ -385,7 +385,7 @@
                         'Scientific data processing hub ingesting multi-instrument sensor streams from polar-orbiting satellites in near real-time. Reformats and distributes Level-0 through Level-2 geophysical products to operational centers and research institutions across a global network of registered direct broadcast ground stations.',
                         '/img/ss-direct-readout2.png',
                         null,
-                        ['PHP', 'Linux'],
+                        ['PHP', 'Linux', 'NGINX'],
                         ['/img/logo-nasa.svg', null, 'h-8'],
                     ],
                     [
@@ -394,7 +394,7 @@
                         'Earth science data discovery portal unifying archival and near real-time remote sensing holdings into a searchable, standards-compliant catalog. Implemented granule-level access controls and standardized metadata schemas to streamline data ordering and delivery for researchers across government agencies and partner institutions.',
                         '/img/ss-esccor.png',
                         null,
-                        ['PHP', 'MySQL'],
+                        ['PHP', 'MySQL', 'ElasticSearch'],
                         ['/img/logo-nasa.svg', null, 'h-8'],
                     ],
                     [
@@ -403,7 +403,7 @@
                         'Clinical genomics workflow platform coordinating case management, genetic counseling routing, and billing reconciliation across distributed care teams. Unified fragmented operational processes into a governed system with role-based access, full audit trails, and automated documentation pipelines that cut per-case overhead by $30K annually.',
                         '/img/ss-informeddna.png',
                         null,
-                        ['Laravel', 'MySQL'],
+                        ['Laravel', 'MySQL', 'RESTful APIs'],
                         ['/img/logo-informeddna.png', 'brightness(0) invert(1)', 'h-6'],
                     ],
                     [
@@ -412,7 +412,7 @@
                         'Enterprise managed security services platform unifying multi-tenant client operations across a national carrier network for a Fortune 500 provider. Automated provisioning, monitoring, and incident response orchestration drove a 10× growth in client engagements and contributed directly to a $105M acquisition.',
                         '/img/ss-mci-verizon.png',
                         null,
-                        ['Java', 'Security'],
+                        ['Java', 'SQL Server', 'Security'],
                         ['/img/logo-verizon.svg', null, 'h-5'],
                     ],
                 ] as [$title, $meta, $desc, $img, $url, $tags, $logo])
