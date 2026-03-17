@@ -1,5 +1,8 @@
 import './bootstrap';
 
+// Check user's motion preference once
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ---------------------------------------------------------------------------
 // Scroll-reveal (fade up)
 // ---------------------------------------------------------------------------
@@ -13,6 +16,10 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
 document.querySelectorAll('[data-reveal]').forEach(el => {
+    if (prefersReducedMotion) {
+        el.classList.add('revealed');
+        return;
+    }
     // Stagger siblings that share the same direct parent
     const siblings = Array.from(
         el.parentElement.querySelectorAll(':scope > [data-reveal]')
@@ -28,10 +35,16 @@ document.querySelectorAll('[data-reveal]').forEach(el => {
 // Stat counters
 // ---------------------------------------------------------------------------
 function animateCounter(el) {
+    const final = el.dataset.final;
+
+    if (prefersReducedMotion) {
+        el.textContent = final;
+        return;
+    }
+
     const to       = parseFloat(el.dataset.to);
     const prefix   = el.dataset.prefix || '';
     const suffix   = el.dataset.suffix || '';
-    const final    = el.dataset.final;
     const isFloat  = !Number.isInteger(to);
     const duration = 1800;
     const start    = performance.now();
@@ -91,11 +104,16 @@ async function loadGitHubRepos() {
     const container = document.getElementById('github-repos');
     if (!container) return;
 
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+
     try {
-        const res = await fetch('/api/github/repos');
+        const res = await fetch('/api/github/repos', { signal: controller.signal });
+        clearTimeout(timeout);
         if (!res.ok) throw new Error('api error');
 
         const repos = await res.json();
+        container.setAttribute('aria-busy', 'false');
 
         if (!Array.isArray(repos) || !repos.length) {
             document.getElementById('open-source')?.style.setProperty('display', 'none');
@@ -103,8 +121,10 @@ async function loadGitHubRepos() {
         }
 
         container.className = 'grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-800';
-        container.innerHTML = repos.map(repo => `
-            <a href="${esc(repo.url)}" target="_blank" rel="noopener"
+        container.innerHTML = repos.map(repo => {
+            const safeUrl = repo.url?.startsWith('https://github.com/') ? repo.url : '#';
+            return `
+            <a href="${esc(safeUrl)}" target="_blank" rel="noopener noreferrer"
                class="bg-[#080808] group block p-6 hover:bg-neutral-900/40 transition-all duration-200">
                 <div class="flex items-start justify-between gap-4 mb-3">
                     <p class="font-mono text-sm text-neutral-200 group-hover:text-orange-400 transition-colors leading-snug break-all">${esc(repo.name)}</p>
@@ -122,8 +142,10 @@ async function loadGitHubRepos() {
                     ).join('')}
                 </div>
             </a>
-        `).join('');
+        `}).join('');
     } catch {
+        clearTimeout(timeout);
+        container.setAttribute('aria-busy', 'false');
         document.getElementById('open-source')?.style.setProperty('display', 'none');
     }
 }
