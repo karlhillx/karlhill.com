@@ -1,32 +1,7 @@
 <?php
 
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\NewsletterSubscriptionController;
-use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\GitHubController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-*/
-
-// Public Routes
-Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
-// Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-
-// Contact Routes - MUST be before any catch-all routes
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.post');
-
-// Newsletter Routes
-Route::prefix('newsletter')->group(function () {
-    Route::post('/', [NewsletterSubscriptionController::class, 'store'])->name('newsletter.post');
+Route::get('/', function () {
+    return view('welcome');
 });
-
-// Health Check
-Route::get('/health', function () {
-    return response()->json(['status' => 'healthy']);
-});
-
-Route::get('/api/github/languages', [GitHubController::class, 'getLanguageStats']);
