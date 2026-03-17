@@ -29,7 +29,11 @@ class GitHubController extends Controller
             );
 
             if (!$response->successful()) {
-                return response()->json(['error' => 'GitHub API error'], 503);
+                Log::error('GitHub API error in getTopRepos', [
+                    'status' => $response->status(),
+                    'body'   => $response->body(),
+                ]);
+                return response()->json(['error' => 'GitHub API error', 'status' => $response->status()], 503);
             }
 
             $repos = array_values(array_filter($response->json(), fn($r) =>
