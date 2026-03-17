@@ -95,7 +95,7 @@
                     </p>
                     <p class="text-neutral-400 text-base leading-relaxed max-w-md lg:text-right">
                         I architect systems, lead teams, and ship software that matters —
-                        from disaster-response platforms at NASA to mission-critical aerospace systems.
+                        from disaster-response platforms at NASA to mission-critical aerospace systems at Jacobs/BlackLynx.
                     </p>
                 </div>
                 <div class="flex flex-wrap gap-4">
@@ -317,56 +317,100 @@
                 @foreach([
                     [
                         'NASA Earth Observatory',
-                        'NASA / SSAI &nbsp;·&nbsp; 2017–2025',
-                        'Rebuilt a flagship science communication platform serving ~1.5M monthly visitors. Improved performance, UX, and accessibility.',
-                        '/img/small-earth-observatory.png',
+                        'NASA &nbsp;·&nbsp; 2017–2025',
+                        'Flagship science communication platform delivering satellite imagery and Earth data to 1.5M+ monthly visitors. Rebuilt the core publishing pipeline to unify editorial workflows across distributed content teams. Redesigned the information architecture and overhauled delivery infrastructure for compliance and long-term scale.',
+                        '/img/ss-earth-observatory.png',
                         'https://earthobservatory.nasa.gov',
+                        ['Laravel', 'AWS'],
+                        ['/img/logo-nasa.svg', null, 'h-8'],
                     ],
                     [
                         'Flood Mapping System',
-                        'NASA / SSAI &nbsp;·&nbsp; 2017–2025',
-                        'Cloud-native AWS platform delivering near real-time satellite flood products to support global disaster response.',
+                        'NASA &nbsp;·&nbsp; 2017–2025',
+                        'Operational satellite imagery processing system delivering near real-time flood inundation maps during active disaster events. Automated the full pipeline from raw sensor acquisition through geospatial product generation and dissemination. Integrated with international emergency management networks for real-time coordination with ground-level responders.',
                         '/img/small-flood.png',
                         null,
+                        ['AWS', 'Python'],
+                        ['/img/logo-nasa.svg', null, 'h-8'],
                     ],
                     [
                         'Direct Readout Laboratory',
-                        'NASA / SSAI &nbsp;·&nbsp; 2017–2025',
-                        'Scientific data processing and distribution platform for direct readout satellite data.',
-                        '/img/small-direct-readout.png',
+                        'NASA &nbsp;·&nbsp; 2017–2025',
+                        'Scientific data processing hub ingesting multi-instrument sensor streams from polar-orbiting satellites in near real-time. Reformats and distributes Level-0 through Level-2 geophysical products to operational centers and research institutions worldwide. Supports direct broadcast reception infrastructure across a global network of registered ground stations.',
+                        '/img/ss-direct-readout2.png',
                         null,
+                        ['PHP', 'Linux'],
+                        ['/img/logo-nasa.svg', null, 'h-8'],
                     ],
                     [
                         'InformedDNA Platform',
                         'InformedDNA &nbsp;·&nbsp; 2016–2017',
-                        'Laravel-based genomics case management system reducing operational costs by $30K/year.',
-                        '/img/small-informeddna.png',
+                        'Clinical genomics workflow platform coordinating case management, genetic counseling routing, and billing reconciliation across distributed care teams. Unified fragmented operational processes into a single governed system with role-based access and audit trails. Automated triaging and documentation pipelines reduced per-case overhead by $30K annually.',
+                        '/img/ss-informeddna.png',
                         null,
+                        ['Laravel', 'MySQL'],
+                        ['/img/logo-informeddna.png', 'brightness(0) invert(1)', 'h-6'],
+                    ],
+                    [
+                        'ESSCOR',
+                        'NASA &nbsp;·&nbsp; 2017–2025',
+                        'Earth science data discovery portal unifying archival and near real-time remote sensing holdings into a searchable, standards-compliant catalog. Implemented granule-level access controls and standardized metadata schemas across heterogeneous data sources. Streamlined ordering and delivery workflows for operational researchers across government agencies and partner institutions.',
+                        '/img/ss-esccor.png',
+                        null,
+                        ['PHP', 'MySQL'],
+                        ['/img/logo-nasa.svg', null, 'h-8'],
                     ],
                     [
                         'Finium',
                         'Verizon Business &nbsp;·&nbsp; 1999–2005',
-                        'Managed security-services platform that drove a 10× increase in client engagements and supported a $105M acquisition.',
-                        '/img/small-mci-verizon.png',
+                        'Enterprise managed security services platform unifying multi-tenant client operations across a national carrier network. Drove a 10× increase in client engagements through automated provisioning, monitoring, and incident response orchestration. Platform capabilities and client base contributed directly to a $105M acquisition by a Fortune 500 carrier.',
+                        '/img/ss-mci-verizon.png',
                         null,
+                        ['Java', 'Security'],
+                        ['/img/logo-verizon-v.png', null, 'h-8'],
                     ],
-                ] as [$title, $meta, $desc, $img, $url])
-                <div class="bg-[#080808] group relative overflow-hidden" data-reveal>
-                    <div class="aspect-video overflow-hidden bg-neutral-900">
-                        <img src="{{ $img }}" alt="{{ $title }}"
-                             loading="lazy"
-                             class="w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500">
+                ] as [$title, $meta, $desc, $img, $url, $tags, $logo])
+                <div class="bg-[#080808] group relative overflow-hidden h-72 lg:h-80" data-reveal>
+
+                    {{-- Full-bleed image --}}
+                    <img src="{{ $img }}" alt="{{ $title }}"
+                         loading="lazy"
+                         class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-all duration-700 ease-out">
+
+                    {{-- Top scrim so tags are readable --}}
+                    <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/60 to-transparent"></div>
+
+                    {{-- Logo: top-right --}}
+                    @if($logo)
+                    <div class="absolute top-4 right-4">
+                        <img src="{{ $logo[0] }}" alt="" loading="lazy" aria-hidden="true"
+                             @if($logo[1]) style="filter: {{ $logo[1] }};" @endif
+                             class="{{ $logo[2] }} w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
-                    <div class="p-6">
-                        <p class="font-display text-xl tracking-wide text-white mb-1">{{ $title }}</p>
-                        <p class="font-mono text-xs text-orange-500 mb-3">{!! $meta !!}</p>
-                        <p class="text-neutral-500 text-xs leading-relaxed">{{ $desc }}</p>
-                        @if($url)
-                        <a href="{{ $url }}" target="_blank" rel="noopener"
-                           class="inline-flex items-center gap-1.5 font-mono text-xs text-neutral-600 hover:text-orange-500 transition-colors mt-4">
-                            View Live ↗
-                        </a>
-                        @endif
+                    @endif
+
+                    {{-- Tags: top-left --}}
+                    <div class="absolute top-4 left-4 flex flex-wrap gap-1.5">
+                        @foreach($tags as $tag)
+                        <span class="font-mono text-[10px] px-2 py-0.5 bg-black/60 border border-neutral-700/50 text-neutral-400 backdrop-blur-sm">{{ $tag }}</span>
+                        @endforeach
+                    </div>
+
+                    {{-- Frosted glass content panel --}}
+                    <div class="absolute inset-x-0 bottom-0 bg-[#080808]/85 backdrop-blur-md border-t border-white/[0.06] px-5 pt-4 pb-5">
+                        <p class="font-mono text-[10px] text-orange-500 uppercase tracking-widest mb-1.5">{!! $meta !!}</p>
+                        <p class="font-display text-lg tracking-wide text-white leading-tight">{{ $title }}</p>
+
+                        {{-- Description expands on hover --}}
+                        <div class="max-h-0 group-hover:max-h-32 overflow-hidden transition-[max-height] duration-300 ease-out">
+                            <p class="text-neutral-400 text-xs leading-relaxed mt-2">{{ $desc }}</p>
+                            @if($url)
+                            <a href="{{ $url }}" target="_blank" rel="noopener"
+                               class="inline-flex items-center gap-1.5 font-mono text-xs text-orange-500 hover:text-orange-400 transition-colors mt-2.5">
+                                View Live ↗
+                            </a>
+                            @endif
+                        </div>
                     </div>
                 </div>
                 @endforeach
