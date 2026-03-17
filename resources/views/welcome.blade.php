@@ -138,7 +138,7 @@
                          width="48" height="48"
                          class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-500/30 shrink-0">
                     <p class="font-mono text-orange-500 text-xs tracking-widest uppercase">
-                        Staff Software Engineer &nbsp;·&nbsp; {{ date('Y') - 1999 }}+ Years
+                        Staff Software Engineer &nbsp;·&nbsp; 25+ Years
                     </p>
                 </div>
                 <h1 class="font-display text-[clamp(5rem,20vw,15rem)] leading-none tracking-wide text-white mb-6 hero-enter" style="animation-delay:220ms">
@@ -213,7 +213,7 @@
     <section class="border-t border-b border-neutral-800 bg-neutral-900/40">
         <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         @foreach([
-            [date('Y') - 1999 . '+',   'Years of Experience',              date('Y') - 1999,  '',  '+'],
+            ['25+',   'Years of Experience',              25,  '',  '+'],
             ['1.5M',  'Monthly Visitors — NASA PLATFORMS',       1.5, '',  'M'],
             ['$105M', 'Platform Acquisition Value',       105, '$', 'M'],
             ['~60%',  'Efficiency Gained via Automation', 60,  '~', '%'],
@@ -636,7 +636,7 @@
             </div>
             <div class="mt-20 pt-8 border-t border-neutral-800/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <p class="font-display text-3xl tracking-widest text-neutral-600">Karl Hill</p>
-                <p class="font-mono text-xs text-neutral-500">Washington, DC &nbsp;·&nbsp; Staff Software Engineer &nbsp;·&nbsp; {{ date('Y') - 1999 }}+ Years</p>
+                <p class="font-mono text-xs text-neutral-500">Washington, DC &nbsp;·&nbsp; Staff Software Engineer &nbsp;·&nbsp; 25+ Years</p>
                 <p class="font-mono text-xs text-neutral-700">Laravel {{ app()->version() }}</p>
             </div>
         </div>
