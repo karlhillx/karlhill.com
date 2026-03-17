@@ -432,7 +432,7 @@
                     ['PSM II',  'Professional Scrum Master™ II',       'Scrum.org',     'https://www.credly.com/badges/1874ba29-99d7-4dae-8335-1a915795d956'],
                     ['PSD I',   'Professional Scrum Developer™ I',      'Scrum.org',     'https://www.credly.com/badges/937b37cf-6fa7-49dd-8c70-e43378feda5b'],
                     ['PSPO I',  'Professional Scrum Product Owner™ I',  'Scrum.org',     'https://www.credly.com/badges/da27e50e-ef55-41f0-bc14-ca26d9e3e0ff'],
-                    ['CSM',     'Certified ScrumMaster®',               'Scrum Alliance', 'https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster'],
+                    ['CSM',     'Certified ScrumMaster®',               'Scrum Alliance', 'https://certification.scrumalliance.org/accounts/1484321-karl-hill/certifications/1735632-csm'],
                 ] as [$abbr, $name, $issuer, $verifyUrl])
                 <a href="{{ $verifyUrl }}" target="_blank" rel="noopener"
                    class="bg-[#080808] p-8 hover:bg-neutral-900/60 transition-colors group" data-reveal>
