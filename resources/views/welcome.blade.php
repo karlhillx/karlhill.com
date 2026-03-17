@@ -154,7 +154,7 @@
         <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         @foreach([
             ['25+',   'Years of Experience',              25,  '',  '+'],
-            ['1.5M',  'Monthly Visitors — NASA EO',       1.5, '',  'M'],
+            ['1.5M',  'Monthly Visitors — NASA PLATFORMS',       1.5, '',  'M'],
             ['$105M', 'Platform Acquisition Value',       105, '$', 'M'],
             ['~60%',  'Efficiency Gained via Automation', 60,  '~', '%'],
         ] as [$stat, $label, $to, $prefix, $suffix])
@@ -313,12 +313,12 @@
     <section id="work" class="py-28 px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
             <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>03 — Selected Work</p>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-800">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 @foreach([
                     [
                         'NASA Earth Observatory',
                         'NASA &nbsp;·&nbsp; 2017–2025',
-                        'Flagship science communication platform delivering satellite imagery and Earth data to 1.5M+ monthly visitors. Rebuilt the core publishing pipeline to unify editorial workflows across distributed content teams. Redesigned the information architecture and overhauled delivery infrastructure for compliance and long-term scale.',
+                        'Flagship science communication platform serving 1.5M+ monthly visitors with satellite imagery and Earth science data. Rebuilt the publishing pipeline to unify editorial workflows across distributed content teams. Overhauled the delivery architecture for accessibility compliance and redesigned the information hierarchy for long-term scale.',
                         '/img/ss-earth-observatory.png',
                         'https://earthobservatory.nasa.gov',
                         ['Laravel', 'AWS'],
@@ -327,7 +327,7 @@
                     [
                         'Flood Mapping System',
                         'NASA &nbsp;·&nbsp; 2017–2025',
-                        'Operational satellite imagery processing system delivering near real-time flood inundation maps during active disaster events. Automated the full pipeline from raw sensor acquisition through geospatial product generation and dissemination. Integrated with international emergency management networks for real-time coordination with ground-level responders.',
+                        'Operational satellite imagery processing system generating near real-time flood inundation maps during active disaster events globally. Automated the end-to-end pipeline from raw sensor acquisition through geospatial product generation, dissemination, and integration with international emergency management networks.',
                         '/img/small-flood.png',
                         null,
                         ['AWS', 'Python'],
@@ -336,41 +336,41 @@
                     [
                         'Direct Readout Laboratory',
                         'NASA &nbsp;·&nbsp; 2017–2025',
-                        'Scientific data processing hub ingesting multi-instrument sensor streams from polar-orbiting satellites in near real-time. Reformats and distributes Level-0 through Level-2 geophysical products to operational centers and research institutions worldwide. Supports direct broadcast reception infrastructure across a global network of registered ground stations.',
+                        'Scientific data processing hub ingesting multi-instrument sensor streams from polar-orbiting satellites in near real-time. Reformats and distributes Level-0 through Level-2 geophysical products to operational centers and research institutions across a global network of registered direct broadcast ground stations.',
                         '/img/ss-direct-readout2.png',
                         null,
                         ['PHP', 'Linux'],
                         ['/img/logo-nasa.svg', null, 'h-8'],
                     ],
                     [
-                        'InformedDNA Platform',
-                        'InformedDNA &nbsp;·&nbsp; 2016–2017',
-                        'Clinical genomics workflow platform coordinating case management, genetic counseling routing, and billing reconciliation across distributed care teams. Unified fragmented operational processes into a single governed system with role-based access and audit trails. Automated triaging and documentation pipelines reduced per-case overhead by $30K annually.',
-                        '/img/ss-informeddna.png',
-                        null,
-                        ['Laravel', 'MySQL'],
-                        ['/img/logo-informeddna.png', 'brightness(0) invert(1)', 'h-6'],
-                    ],
-                    [
                         'ESSCOR',
                         'NASA &nbsp;·&nbsp; 2017–2025',
-                        'Earth science data discovery portal unifying archival and near real-time remote sensing holdings into a searchable, standards-compliant catalog. Implemented granule-level access controls and standardized metadata schemas across heterogeneous data sources. Streamlined ordering and delivery workflows for operational researchers across government agencies and partner institutions.',
+                        'Earth science data discovery portal unifying archival and near real-time remote sensing holdings into a searchable, standards-compliant catalog. Implemented granule-level access controls and standardized metadata schemas to streamline data ordering and delivery for researchers across government agencies and partner institutions.',
                         '/img/ss-esccor.png',
                         null,
                         ['PHP', 'MySQL'],
                         ['/img/logo-nasa.svg', null, 'h-8'],
                     ],
                     [
+                        'InformedDNA Platform',
+                        'InformedDNA &nbsp;·&nbsp; 2016–2017',
+                        'Clinical genomics workflow platform coordinating case management, genetic counseling routing, and billing reconciliation across distributed care teams. Unified fragmented operational processes into a governed system with role-based access, full audit trails, and automated documentation pipelines that cut per-case overhead by $30K annually.',
+                        '/img/ss-informeddna.png',
+                        null,
+                        ['Laravel', 'MySQL'],
+                        ['/img/logo-informeddna.png', 'brightness(0) invert(1)', 'h-6'],
+                    ],
+                    [
                         'Finium',
                         'Verizon Business &nbsp;·&nbsp; 1999–2005',
-                        'Enterprise managed security services platform unifying multi-tenant client operations across a national carrier network. Drove a 10× increase in client engagements through automated provisioning, monitoring, and incident response orchestration. Platform capabilities and client base contributed directly to a $105M acquisition by a Fortune 500 carrier.',
+                        'Enterprise managed security services platform unifying multi-tenant client operations across a national carrier network for a Fortune 500 provider. Automated provisioning, monitoring, and incident response orchestration drove a 10× growth in client engagements and contributed directly to a $105M acquisition.',
                         '/img/ss-mci-verizon.png',
                         null,
                         ['Java', 'Security'],
                         ['/img/logo-verizon-v.png', null, 'h-8'],
                     ],
                 ] as [$title, $meta, $desc, $img, $url, $tags, $logo])
-                <div class="bg-[#080808] group relative overflow-hidden h-72 lg:h-80" data-reveal>
+                <div class="bg-[#080808] group relative overflow-hidden h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06]" data-reveal>
 
                     {{-- Full-bleed image --}}
                     <img src="{{ $img }}" alt="{{ $title }}"
@@ -397,19 +397,13 @@
                     </div>
 
                     {{-- Frosted glass content panel --}}
-                    <div class="absolute inset-x-0 bottom-0 bg-[#080808]/85 backdrop-blur-md border-t border-white/[0.06] px-5 pt-4 pb-5">
+                    <div class="absolute inset-x-0 bottom-0 bg-[#080808]/90 backdrop-blur-md border-t border-white/[0.06] px-5 pt-4 pb-5 rounded-b-2xl">
                         <p class="font-mono text-[10px] text-orange-500 uppercase tracking-widest mb-1.5">{!! $meta !!}</p>
                         <p class="font-display text-lg tracking-wide text-white leading-tight">{{ $title }}</p>
 
                         {{-- Description expands on hover --}}
-                        <div class="max-h-0 group-hover:max-h-32 overflow-hidden transition-[max-height] duration-300 ease-out">
+                        <div class="max-h-0 group-hover:max-h-52 overflow-hidden transition-[max-height] duration-500 ease-out">
                             <p class="text-neutral-400 text-xs leading-relaxed mt-2">{{ $desc }}</p>
-                            @if($url)
-                            <a href="{{ $url }}" target="_blank" rel="noopener"
-                               class="inline-flex items-center gap-1.5 font-mono text-xs text-orange-500 hover:text-orange-400 transition-colors mt-2.5">
-                                View Live ↗
-                            </a>
-                            @endif
                         </div>
                     </div>
                 </div>
