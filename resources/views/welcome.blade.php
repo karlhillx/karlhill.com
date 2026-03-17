@@ -503,9 +503,9 @@
                 </div>
             </div>
             <div class="mt-20 pt-8 border-t border-neutral-800/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <p class="font-display text-3xl tracking-widest text-neutral-800">Karl Hill</p>
-                <p class="font-mono text-xs text-neutral-700">Washington, DC &nbsp;·&nbsp; Staff Software Engineer &nbsp;·&nbsp; 25+ Years</p>
-                <p class="font-mono text-xs text-neutral-800 mt-1">Laravel {{ app()->version() }}</p>
+                <p class="font-display text-3xl tracking-widest text-neutral-600">Karl Hill</p>
+                <p class="font-mono text-xs text-neutral-500">Washington, DC &nbsp;·&nbsp; Staff Software Engineer &nbsp;·&nbsp; 25+ Years</p>
+                <p class="font-mono text-xs text-neutral-600 mt-1">Laravel {{ app()->version() }}</p>
             </div>
         </div>
     </footer>
