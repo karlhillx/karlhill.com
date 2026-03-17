@@ -126,7 +126,7 @@
              aria-hidden="true"></div>
 
         <div class="relative z-10 max-w-6xl mx-auto w-full">
-            <div class="border-t border-neutral-800 pt-12 border-reveal">
+            <div class="pt-12">
                 <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-8 hero-enter" style="animation-delay:100ms">
                     Staff Software Engineer &nbsp;·&nbsp; 25+ Years
                 </p>
@@ -413,7 +413,7 @@
                         '/img/ss-mci-verizon.png',
                         null,
                         ['Java', 'Security'],
-                        ['/img/logo-verizon-v.png', null, 'h-8'],
+                        ['/img/logo-verizon.svg', null, 'h-5'],
                     ],
                 ] as [$title, $meta, $desc, $img, $url, $tags, $logo])
                 <div class="bg-[#080808] group relative overflow-hidden h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/60 transition-shadow duration-300" tabindex="0" data-reveal>
