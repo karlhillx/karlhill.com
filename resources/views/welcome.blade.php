@@ -327,7 +327,7 @@
                 <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 py-14" data-reveal>
                     <div>
                         <h3 class="font-display text-2xl tracking-wide leading-tight">Earlier Career</h3>
-                        <span class="font-mono text-xs text-neutral-600 mt-3 block">1999 — 2015</span>
+                        <span class="font-mono text-xs text-neutral-600 mt-3 block">1997 — 2015</span>
                     </div>
                     <div class="space-y-6">
                         @foreach([
@@ -350,6 +350,11 @@
                                 'Verizon Business',
                                 'Software Developer · Herndon, VA · 1999–2005',
                                 'Built Finium, the managed security-services platform that drove a 10× increase in client engagements and supported a $105M acquisition by MCI/Verizon.',
+                            ],
+                            [
+                                'Advantage Industries, Inc.',
+                                'Sr. Software Engineer · Columbia, MD · 1997–1999',
+                                'Built database-driven enterprise applications automating client workflows and eliminating manual bottlenecks. Foundational role in production software delivery and data modeling.',
                             ],
                         ] as [$company, $meta, $detail])
                         <div class="flex gap-5">
