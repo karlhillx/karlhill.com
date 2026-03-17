@@ -7,6 +7,13 @@
     <meta name="description" content="Karl Hill is a Staff Software Engineer with 25+ years building cloud-native systems, leading high-performing engineering teams, and shipping reliable software at scale.">
     <meta property="og:title" content="Karl Hill — Staff Software Engineer">
     <meta property="og:description" content="20+ years building systems that perform under pressure — from NASA's Earth Observatory to mission-critical aerospace platforms.">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="manifest" href="/img/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
