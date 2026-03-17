@@ -524,20 +524,51 @@
                         karlhillx@gmail.com
                     </a>
                     <a href="/files/karlhill-resume.pdf" target="_blank" rel="noopener" download="Karl-Hill-Resume.pdf"
-                       class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
-                        <span class="text-orange-500 text-base group-hover:translate-x-0.5 transition-transform">↗</span>
-                        Resume
+                       class="inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 w-fit">
+                        <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        </svg>
+                        Download Resume
                     </a>
-                    <a href="https://www.linkedin.com/in/khill/" target="_blank" rel="noopener"
-                       class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
-                        <span class="text-orange-500 text-base group-hover:translate-x-0.5 transition-transform">↗</span>
-                        linkedin.com/in/khill
-                    </a>
-                    <a href="https://github.com/karlhillx" target="_blank" rel="noopener"
-                       class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
-                        <span class="text-orange-500 text-base group-hover:translate-x-0.5 transition-transform">↗</span>
-                        github.com/karlhillx
-                    </a>
+
+                    {{-- Social icon links --}}
+                    <div class="flex items-center gap-5 pt-2">
+                        <a href="https://www.linkedin.com/in/khill/" target="_blank" rel="noopener"
+                           aria-label="LinkedIn" title="linkedin.com/in/khill"
+                           class="text-neutral-500 hover:text-orange-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/karlhillx" target="_blank" rel="noopener"
+                           aria-label="GitHub" title="github.com/karlhillx"
+                           class="text-neutral-500 hover:text-orange-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/karl_hill/" target="_blank" rel="noopener"
+                           aria-label="X / Twitter" title="@karl_hill"
+                           class="text-neutral-500 hover:text-orange-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://orcid.org/0009-0002-6847-3368" target="_blank" rel="noopener"
+                           aria-label="ORCID" title="orcid.org/0009-0002-6847-3368"
+                           class="text-neutral-500 hover:text-orange-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.discogs.com/artist/1286669-Karl-Hill" target="_blank" rel="noopener"
+                           aria-label="Discogs" title="discogs.com/artist/Karl-Hill"
+                           class="text-neutral-500 hover:text-orange-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 6.207a5.793 5.793 0 110 11.586A5.793 5.793 0 0112 6.207zm0 3.585a2.208 2.208 0 100 4.416 2.208 2.208 0 000-4.416zM3.585 11.1H1.097a10.92 10.92 0 000 1.8H3.585a8.534 8.534 0 010-1.8zm19.318 0h-2.488a8.535 8.535 0 010 1.8h2.488a10.921 10.921 0 000-1.8zM11.1 3.585V1.097a10.919 10.919 0 00-1.8 0V3.585a8.535 8.535 0 011.8 0zm1.8 16.83v-2.488a8.535 8.535 0 01-1.8 0v2.488a10.921 10.921 0 001.8 0zM5.967 4.381L4.21 2.625a10.94 10.94 0 00-1.273 1.273l1.757 1.757a8.538 8.538 0 011.273-1.274zm12.097 12.097l1.757 1.757a10.94 10.94 0 001.273-1.273l-1.757-1.757a8.538 8.538 0 01-1.273 1.273zM4.381 18.033L2.625 19.79a10.942 10.942 0 001.273 1.273l1.757-1.757a8.538 8.538 0 01-1.274-1.273zm13.37-12.097l1.757-1.757A10.94 10.94 0 0018.235 2.9l-1.757 1.757a8.538 8.538 0 011.273 1.279z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="mt-20 pt-8 border-t border-neutral-800/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
