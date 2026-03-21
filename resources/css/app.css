@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+/* Cursor-follow ambient light (updated via JS — see app.js) */
+:root {
+    --spot-x: 50%;
+    --spot-y: 35%;
+}
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -90,6 +96,26 @@
     animation: dotScroll 8s linear infinite;
 }
 
+/* Full-page spotlight that follows the pointer (Gauntlet-style ambient lift) */
+.cursor-spotlight {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(
+        620px circle at var(--spot-x) var(--spot-y),
+        rgba(249, 115, 22, 0.09),
+        rgba(249, 115, 22, 0.02) 35%,
+        transparent 55%
+    );
+}
+
+@media (pointer: coarse) {
+    .cursor-spotlight {
+        display: none;
+    }
+}
+
 /* ---------------------------------------------------------------------------
    Scroll-reveal
 --------------------------------------------------------------------------- */
@@ -135,6 +161,9 @@
         opacity: 1;
         transform: none;
         transition: none;
+    }
+    .cursor-spotlight {
+        display: none;
     }
     html {
         scroll-behavior: auto;

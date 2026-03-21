@@ -4,6 +4,33 @@ import './bootstrap';
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ---------------------------------------------------------------------------
+// Cursor spotlight — soft radial glow follows the pointer (CSS vars on :root)
+// ---------------------------------------------------------------------------
+if (!prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
+    const root = document.documentElement;
+    let rafId = null;
+    let lx = 0;
+    let ly = 0;
+
+    document.addEventListener(
+        'mousemove',
+        (e) => {
+            lx = e.clientX;
+            ly = e.clientY;
+            if (rafId !== null) return;
+            rafId = requestAnimationFrame(() => {
+                rafId = null;
+                const w = window.innerWidth || 1;
+                const h = window.innerHeight || 1;
+                root.style.setProperty('--spot-x', `${(lx / w) * 100}%`);
+                root.style.setProperty('--spot-y', `${(ly / h) * 100}%`);
+            });
+        },
+        { passive: true }
+    );
+}
+
+// ---------------------------------------------------------------------------
 // Scroll-reveal (fade up)
 // ---------------------------------------------------------------------------
 const revealObserver = new IntersectionObserver((entries) => {

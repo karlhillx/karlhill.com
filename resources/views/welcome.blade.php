@@ -75,6 +75,8 @@
 </head>
 <body class="bg-[#080808] text-neutral-100 antialiased">
 
+    <div class="cursor-spotlight" aria-hidden="true"></div>
+
     <a href="#main-content"
        class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-black focus:font-semibold focus:text-xs focus:uppercase focus:tracking-widest">
         Skip to content
@@ -115,7 +117,7 @@
         </div>
     </nav>
 
-    <main id="main-content">
+    <main id="main-content" class="relative z-10">
 
     {{-- Hero --}}
     <section id="hero" class="relative min-h-screen flex flex-col justify-end pt-24 pb-16 px-6 overflow-hidden">
@@ -572,7 +574,7 @@
     </main>
 
     {{-- Contact / Footer --}}
-    <footer id="contact" class="border-t border-neutral-800 py-24 px-6">
+    <footer id="contact" class="relative z-10 border-t border-neutral-800 py-24 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
                 <div class="max-w-xl" data-reveal>
