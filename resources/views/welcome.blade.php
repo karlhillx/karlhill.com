@@ -80,6 +80,14 @@
 <body class="bg-[#080808] text-neutral-100 antialiased">
 
     <div class="cursor-spotlight" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <button id="quick-back-top"
+            class="quick-back-top font-mono text-[10px] uppercase tracking-widest"
+            type="button"
+            aria-label="Back to top">
+        Back to Top
+    </button>
+    <nav id="section-minimap" aria-label="Section mini map" class="section-minimap"></nav>
 
     <a href="#main-content"
        class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-black focus:font-semibold focus:text-xs focus:uppercase focus:tracking-widest">
@@ -97,8 +105,15 @@
                 <a href="#contact" class="hover:text-orange-500 transition-colors duration-200">Contact</a>
             </div>
             <div class="flex items-center gap-3">
+                <button id="command-palette-trigger"
+                        class="magnetic-btn hidden sm:inline-flex items-center gap-2 text-[10px] font-mono text-neutral-300 border border-neutral-700 px-3 py-2 uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200"
+                        type="button"
+                        aria-label="Open command palette">
+                    <span aria-hidden="true">⌘K</span>
+                    Jump
+                </button>
                 <a href="mailto:karlhillx@gmail.com"
-                   class="text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
+                   class="magnetic-btn text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
                     Get in Touch
                 </a>
                 {{-- Mobile hamburger --}}
@@ -165,15 +180,15 @@
                 </div>
                 <div class="flex flex-wrap gap-4 hero-enter" style="animation-delay:560ms">
                     <a href="https://www.linkedin.com/in/khill/" target="_blank" rel="noopener noreferrer"
-                       class="bg-orange-500 text-black font-bold px-8 py-3.5 text-xs uppercase tracking-widest hover:bg-orange-400 transition-colors duration-200">
+                       class="magnetic-btn bg-orange-500 text-black font-bold px-8 py-3.5 text-xs uppercase tracking-widest hover:bg-orange-400 transition-colors duration-200">
                         LinkedIn
                     </a>
                     <a href="mailto:karlhillx@gmail.com"
-                       class="border border-neutral-700 text-neutral-300 font-semibold px-8 py-3.5 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
+                       class="magnetic-btn border border-neutral-700 text-neutral-300 font-semibold px-8 py-3.5 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
                         karlhillx@gmail.com
                     </a>
                     <a href="https://github.com/karlhillx" target="_blank" rel="noopener noreferrer"
-                       class="border border-neutral-700 text-neutral-300 font-semibold px-8 py-3.5 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
+                       class="magnetic-btn border border-neutral-700 text-neutral-300 font-semibold px-8 py-3.5 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
                         GitHub
                     </a>
                 </div>
@@ -603,13 +618,13 @@
                     </p>
                 </div>
                 <div class="flex flex-col gap-4 lg:pt-16 shrink-0" data-reveal>
-                    <a href="mailto:karlhillx@gmail.com"
-                       class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
+                <a href="mailto:karlhillx@gmail.com"
+                   class="magnetic-btn flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
                         <span class="text-orange-500 text-base arrow-nudge" aria-hidden="true">→</span>
                         karlhillx@gmail.com
                     </a>
                     <a href="/files/karlhill-resume.pdf" target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 w-fit">
+                       class="magnetic-btn inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 w-fit">
                         <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                         </svg>
@@ -664,20 +679,23 @@
         </div>
     </footer>
 
-    <script>
-        const navToggle = document.getElementById('nav-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        navToggle?.addEventListener('click', () => {
-            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-            navToggle.setAttribute('aria-expanded', String(!expanded));
-            mobileMenu.hidden = expanded;
-        });
-        mobileMenu?.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                mobileMenu.hidden = true;
-                navToggle.setAttribute('aria-expanded', 'false');
-            });
-        });
-    </script>
+    <div id="command-palette"
+         class="command-palette hidden"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="command-palette-title">
+        <div class="command-palette-panel">
+            <p id="command-palette-title" class="font-mono text-[10px] uppercase tracking-widest text-neutral-500 mb-3">
+                Command Palette
+            </p>
+            <input id="command-input"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="Type to jump (experience, work, stack, contact, github...)"
+                   class="command-input"
+                   aria-label="Search site destinations">
+            <div id="command-results" class="command-results mt-3" role="listbox" aria-label="Command results"></div>
+        </div>
+    </div>
 </body>
 </html>
