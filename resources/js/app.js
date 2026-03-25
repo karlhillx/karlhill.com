@@ -4,7 +4,7 @@ import './bootstrap';
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ---------------------------------------------------------------------------
-// Cursor spotlight — soft radial glow follows the pointer (CSS vars on :root)
+// Soft radial glow follows the pointer (CSS vars on :root)
 // ---------------------------------------------------------------------------
 if (!prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
     const root = document.documentElement;
@@ -177,7 +177,34 @@ async function loadGitHubRepos() {
     }
 }
 
-loadGitHubRepos();
+let githubReposRequested = false;
+function scheduleGitHubReposLoad() {
+    if (githubReposRequested) return;
+    githubReposRequested = true;
+
+    const run = () => {
+        void loadGitHubRepos();
+    };
+
+    if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(run, { timeout: 1500 });
+    } else {
+        setTimeout(run, 400);
+    }
+}
+
+const openSourceSection = document.getElementById('open-source');
+if (openSourceSection) {
+    const openSourceObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            scheduleGitHubReposLoad();
+            openSourceObserver.disconnect();
+        });
+    }, { rootMargin: '500px 0px' });
+
+    openSourceObserver.observe(openSourceSection);
+}
 
 // ---------------------------------------------------------------------------
 // Scroll spy — highlight nav link for the section currently in view

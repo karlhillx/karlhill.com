@@ -110,9 +110,44 @@
     );
 }
 
+/* Defer expensive layout/paint work for below-the-fold sections */
+main > section:not(#hero),
+footer#contact {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 1000px;
+}
+
 @media (pointer: coarse) {
     .cursor-spotlight {
         display: none;
+    }
+}
+
+/* Tone down continuously animating backgrounds on smaller devices */
+@media (max-width: 768px) {
+    .hero-dot-grid {
+        animation: none;
+    }
+    .glow-orb-1,
+    .glow-orb-2,
+    .cursor-spotlight {
+        display: none;
+    }
+    .hero-enter,
+    .nav-enter {
+        animation: none;
+    }
+    .arrow-nudge,
+    .availability-pulse {
+        animation: none;
+    }
+    #hero {
+        min-height: 88vh;
+    }
+    #hero h1,
+    #hero .font-display {
+        font-family: var(--font-sans);
+        letter-spacing: 0.02em;
     }
 }
 

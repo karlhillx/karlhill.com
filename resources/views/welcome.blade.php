@@ -38,7 +38,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap">
+    </noscript>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     {{-- Structured Data --}}
@@ -136,9 +140,13 @@
         <div class="relative z-10 max-w-6xl mx-auto w-full">
             <div class="pt-12">
                 <div class="flex items-center gap-4 mb-8 hero-enter" style="animation-delay:100ms">
-                    <img src="/img/profile.jpg" alt="Karl Hill"
-                         width="48" height="48"
-                         class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-500/30 shrink-0">
+                    <picture>
+                        <source srcset="/img/webp/profile.webp" type="image/webp">
+                        <img src="/img/profile.jpg" alt="Karl Hill"
+                             width="48" height="48"
+                             loading="eager" fetchpriority="high" decoding="async"
+                             class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-500/30 shrink-0">
+                    </picture>
                     <p class="font-mono text-orange-500 text-xs tracking-widest uppercase">
                         Staff Software Engineer &nbsp;·&nbsp; 25+ Years
                     </p>
@@ -441,9 +449,16 @@
                 <div class="bg-[#080808] group relative overflow-hidden h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/60 transition-shadow duration-300" tabindex="0" data-reveal>
 
                     {{-- Full-bleed image --}}
-                    <img src="{{ $img }}" alt="{{ $title }}"
-                         loading="lazy" decoding="async"
-                         class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out">
+                    @php
+                        $webpImg = preg_replace('/\.(png|jpe?g)$/i', '.webp', str_replace('/img/', '/img/webp/', $img));
+                    @endphp
+                    <picture>
+                        <source srcset="{{ $webpImg }}" type="image/webp">
+                        <img src="{{ $img }}" alt="{{ $title }}"
+                             width="960" height="720"
+                             loading="lazy" decoding="async"
+                             class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out">
+                    </picture>
 
                     {{-- Top scrim so tags are readable --}}
                     <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/60 to-transparent"></div>
