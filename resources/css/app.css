@@ -1,3 +1,11 @@
+@import '@fontsource/inter/latin-300.css';
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/inter/latin-700.css';
+@import '@fontsource/bebas-neue/latin-400.css';
+@import '@fontsource/jetbrains-mono/latin-400.css';
+@import '@fontsource/jetbrains-mono/latin-500.css';
 @import 'tailwindcss';
 
 /* Cursor-follow ambient light (updated via JS — see app.js) */
@@ -10,6 +18,21 @@
     --muted: #a3a3a3;
     --accent: #f97316;
     --focus: #fb923c;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    background: var(--bg);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+}
+
+.font-display {
+    text-wrap: balance;
 }
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -150,13 +173,33 @@ footer#contact {
     #hero {
         min-height: 88vh;
     }
-    #hero h1,
-    #hero .font-display {
-        font-family: var(--font-sans);
-        letter-spacing: 0.02em;
+    #hero h1 {
+        letter-spacing: 0.035em;
+        max-width: 8ch;
     }
     .section-minimap {
         display: none;
+    }
+    .work-card-details {
+        max-height: 13rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quick-back-top {
+        right: 0.75rem;
+        bottom: 0.75rem;
+        padding-inline: 0.6rem;
+    }
+
+    .command-palette {
+        padding-top: 5rem;
+        place-items: start center;
+    }
+
+    .command-palette-panel {
+        width: calc(100vw - 1.5rem);
+        padding: 0.75rem;
     }
 }
 

@@ -156,12 +156,12 @@ async function loadGitHubRepos() {
     const timeout = setTimeout(() => controller.abort(), 8000);
 
     function renderRepoCards(repos) {
-        container.className = 'grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-800';
+        container.className = 'grid sm:grid-cols-2 lg:grid-cols-3 gap-3';
         container.innerHTML = repos.map(repo => {
             const safeUrl = repo.url?.startsWith('https://github.com/') ? repo.url : '#';
             return `
             <a href="${esc(safeUrl)}" target="_blank" rel="noopener noreferrer"
-               class="bg-[#080808] group block p-6 hover:bg-neutral-900/40 transition-all duration-200">
+               class="bg-[#080808] group block rounded-2xl border border-neutral-800/80 p-6 hover:border-orange-500/40 hover:bg-neutral-900/40 transition-all duration-200">
                 <div class="flex items-start justify-between gap-4 mb-3">
                     <p class="font-mono text-sm text-neutral-200 group-hover:text-orange-400 transition-colors leading-snug break-all">${esc(repo.name)}</p>
                     ${repo.stars ? `<span class="font-mono text-xs text-neutral-600 whitespace-nowrap shrink-0">★ ${esc(repo.stars)}</span>` : ''}
@@ -182,8 +182,9 @@ async function loadGitHubRepos() {
     }
 
     function renderEmptyMessage() {
+        container.className = 'grid';
         container.innerHTML = `
-            <div class="bg-[#080808] p-6 sm:col-span-2 lg:col-span-3">
+            <div class="bg-[#080808] rounded-2xl border border-neutral-800/80 p-6">
                 <p class="font-mono text-xs text-neutral-500 uppercase tracking-widest mb-2">Open Source</p>
                 <p class="text-neutral-400 text-sm">No public repositories were returned right now. Please check back shortly.</p>
             </div>`;
@@ -395,7 +396,7 @@ sections.forEach((section) => navSectionsObserver.observe(section));
 // Command palette (Cmd/Ctrl+K) with fuzzy section routing
 // ---------------------------------------------------------------------------
 const palette = document.getElementById('command-palette');
-const paletteTrigger = document.getElementById('command-palette-trigger');
+const paletteTriggers = document.querySelectorAll('[data-command-palette-trigger]');
 const commandInput = document.getElementById('command-input');
 const commandResults = document.getElementById('command-results');
 
@@ -411,9 +412,11 @@ const commands = [
 ];
 
 let activeCommandIndex = 0;
+let lastPaletteTrigger = null;
 
-function openPalette() {
+function openPalette(trigger = null) {
     if (!palette || !commandInput) return;
+    lastPaletteTrigger = trigger;
     palette.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     renderCommands('');
@@ -424,6 +427,12 @@ function closePalette() {
     if (!palette) return;
     palette.classList.add('hidden');
     document.body.style.removeProperty('overflow');
+    const triggerIsHidden = lastPaletteTrigger?.closest?.('[hidden]');
+    if (lastPaletteTrigger && !triggerIsHidden) {
+        lastPaletteTrigger.focus();
+    } else {
+        navToggle?.focus();
+    }
 }
 
 function runCommand(index) {
@@ -457,7 +466,15 @@ function renderCommands(query) {
         : '<p class="font-mono text-xs text-neutral-500 px-2 py-2">No matches</p>';
 }
 
-paletteTrigger?.addEventListener('click', openPalette);
+paletteTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+        if (mobileMenu) {
+            mobileMenu.hidden = true;
+            navToggle?.setAttribute('aria-expanded', 'false');
+        }
+        openPalette(trigger);
+    });
+});
 
 commandInput?.addEventListener('input', (e) => {
     activeCommandIndex = 0;

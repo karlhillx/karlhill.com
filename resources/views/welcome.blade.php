@@ -36,13 +36,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap">
-    </noscript>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     {{-- Structured Data --}}
@@ -77,7 +70,7 @@
     </script>
     @endverbatim
 </head>
-<body class="bg-[#080808] text-neutral-100 antialiased">
+<body class="bg-[var(--bg)] text-neutral-100 antialiased">
 
     <div class="cursor-spotlight" aria-hidden="true"></div>
     <div class="scroll-progress" aria-hidden="true"></div>
@@ -96,7 +89,7 @@
 
     {{-- Nav --}}
     <nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-[#080808]/90 backdrop-blur-sm nav-enter">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-5 sm:px-6 py-4 flex items-center justify-between">
             <span class="font-display text-2xl tracking-wider text-orange-500">KARL HILL</span>
             <div class="hidden md:flex items-center gap-8 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="#experience" class="hover:text-orange-500 transition-colors duration-200">Experience</a>
@@ -106,6 +99,7 @@
             </div>
             <div class="flex items-center gap-3">
                 <button id="command-palette-trigger"
+                        data-command-palette-trigger
                         class="magnetic-btn hidden sm:inline-flex items-center gap-2 text-[10px] font-mono text-neutral-300 border border-neutral-700 px-3 py-2 uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200"
                         type="button"
                         aria-label="Open command palette">
@@ -113,7 +107,7 @@
                     Jump
                 </button>
                 <a href="mailto:karlhillx@gmail.com"
-                   class="magnetic-btn text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
+                   class="magnetic-btn hidden sm:inline-flex text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
                     Get in Touch
                 </a>
                 {{-- Mobile hamburger --}}
@@ -127,11 +121,17 @@
         </div>
         {{-- Mobile menu --}}
         <div id="mobile-menu" hidden class="md:hidden border-t border-neutral-800 bg-[#080808]/98 backdrop-blur-sm">
-            <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1 font-mono text-xs text-neutral-500 uppercase tracking-widest">
+            <div class="max-w-6xl mx-auto px-5 sm:px-6 py-4 flex flex-col gap-1 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="#experience" class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Experience</a>
                 <a href="#work"       class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Work</a>
                 <a href="#stack"      class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Stack</a>
-                <a href="#contact"    class="py-3 hover:text-orange-500 transition-colors">Contact</a>
+                <button type="button"
+                        data-command-palette-trigger
+                        class="py-3 border-b border-neutral-800/50 text-left uppercase tracking-widest hover:text-orange-500 transition-colors">
+                    Jump / Search
+                </button>
+                <a href="#contact"    class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Contact</a>
+                <a href="mailto:karlhillx@gmail.com" class="py-3 text-neutral-300 hover:text-orange-500 transition-colors">Get in Touch</a>
             </div>
         </div>
     </nav>
@@ -139,7 +139,7 @@
     <main id="main-content" class="relative z-10">
 
     {{-- Hero --}}
-    <section id="hero" class="relative min-h-screen flex flex-col justify-end pt-24 pb-16 px-6 overflow-hidden">
+    <section id="hero" class="relative min-h-screen flex flex-col justify-end pt-24 pb-14 sm:pb-16 px-5 sm:px-6 overflow-hidden">
 
         {{-- Dot-grid scrolling overlay --}}
         <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
@@ -166,7 +166,7 @@
                         Staff Software Engineer &nbsp;·&nbsp; 25+ Years
                     </p>
                 </div>
-                <h1 class="font-display text-[clamp(5rem,20vw,15rem)] leading-none tracking-wide text-white mb-6 hero-enter" style="animation-delay:220ms">
+                <h1 class="font-display text-[clamp(4.5rem,20vw,15rem)] leading-none tracking-wide text-white mb-6 hero-enter" style="animation-delay:220ms">
                     Karl Hill
                 </h1>
                 <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
@@ -178,17 +178,17 @@
                         from disaster-response platforms at NASA to mission-critical aerospace systems at Jacobs/BlackLynx.
                     </p>
                 </div>
-                <div class="flex flex-wrap gap-4 hero-enter" style="animation-delay:560ms">
+                <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 hero-enter" style="animation-delay:560ms">
                     <a href="https://www.linkedin.com/in/khill/" target="_blank" rel="noopener noreferrer"
-                       class="magnetic-btn bg-orange-500 text-black font-bold px-8 py-3.5 text-xs uppercase tracking-widest hover:bg-orange-400 transition-colors duration-200">
+                       class="magnetic-btn inline-flex justify-center bg-orange-500 text-black font-bold px-8 py-3.5 text-xs uppercase tracking-widest hover:bg-orange-400 transition-colors duration-200">
                         LinkedIn
                     </a>
                     <a href="mailto:karlhillx@gmail.com"
-                       class="magnetic-btn border border-neutral-700 text-neutral-300 font-semibold px-8 py-3.5 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
+                       class="magnetic-btn inline-flex justify-center border border-neutral-700 text-neutral-300 font-semibold px-8 py-3.5 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
                         karlhillx@gmail.com
                     </a>
                     <a href="https://github.com/karlhillx" target="_blank" rel="noopener noreferrer"
-                       class="magnetic-btn border border-neutral-700 text-neutral-300 font-semibold px-8 py-3.5 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
+                       class="magnetic-btn inline-flex justify-center border border-neutral-700 text-neutral-300 font-semibold px-8 py-3.5 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
                         GitHub
                     </a>
                 </div>
@@ -202,12 +202,12 @@
 
     {{-- Why Hire Me --}}
 
-    <section id="why" class="py-28 px-6 border-t border-neutral-800">
+    <section id="why" class="py-24 md:py-28 px-5 sm:px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
             <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>01 — Why Me</h2>
             <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-800">
                 <div class="py-10 md:py-0 md:pr-12" data-reveal>
-                    <p class="font-display text-6xl text-orange-500 mb-5">I Build</p>
+                    <p class="font-display text-5xl sm:text-6xl text-orange-500 mb-5">I Build</p>
                     <p class="text-neutral-400 leading-relaxed text-sm">
                         Cloud-native platforms on AWS. Containerized services with Docker and Kubernetes.
                         High-traffic web systems. Secure CI/CD pipelines. Built to last and operate
@@ -215,7 +215,7 @@
                     </p>
                 </div>
                 <div class="py-10 md:py-0 md:px-12" data-reveal>
-                    <p class="font-display text-6xl text-orange-500 mb-5">I Lead</p>
+                    <p class="font-display text-5xl sm:text-6xl text-orange-500 mb-5">I Lead</p>
                     <p class="text-neutral-400 leading-relaxed text-sm">
                         Engineering teams from roadmap to release. 1:1s, onboarding, PR standards,
                         definition of done — the unglamorous work that turns a group of developers
@@ -223,7 +223,7 @@
                     </p>
                 </div>
                 <div class="py-10 md:py-0 md:pl-12" data-reveal>
-                    <p class="font-display text-6xl text-orange-500 mb-5">I Deliver</p>
+                    <p class="font-display text-5xl sm:text-6xl text-orange-500 mb-5">I Deliver</p>
                     <p class="text-neutral-400 leading-relaxed text-sm">
                         Predictable execution, every sprint. I translate mission needs into sequenced
                         plans, manage stakeholders across technical and non-technical audiences,
@@ -236,7 +236,7 @@
 
     {{-- Stats Bar --}}
     <section class="border-t border-b border-neutral-800 bg-neutral-900/40">
-        <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="max-w-6xl mx-auto px-5 sm:px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-7 sm:gap-8 text-center">
         @foreach([
             ['25+',   'Years of Experience',              25,  '',  '+'],
             ['1.5M',  'Monthly Visitors — NASA PLATFORMS',       1.5, '',  'M'],
@@ -244,7 +244,7 @@
             ['~60%',  'Efficiency Gained via Automation', 60,  '~', '%'],
         ] as [$stat, $label, $to, $prefix, $suffix])
         <div data-reveal>
-            <p class="font-display text-5xl text-orange-500 leading-none"
+            <p class="font-display text-4xl sm:text-5xl text-orange-500 leading-none"
                data-counter
                data-to="{{ $to }}"
                data-prefix="{{ $prefix }}"
@@ -258,16 +258,16 @@
     </section>
 
     {{-- Experience --}}
-    <section id="experience" class="py-28 px-6 border-t border-neutral-800">
+    <section id="experience" class="py-24 md:py-28 px-5 sm:px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
             <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>02 — Experience</h2>
 
             {{-- Current Role --}}
-            <div class="mb-16 p-8 md:p-10 border border-orange-500/25 bg-orange-500/[0.03]" data-reveal>
+            <div class="mb-16 p-6 sm:p-8 md:p-10 border border-orange-500/25 bg-orange-500/[0.03]" data-reveal>
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-8">
                     <div>
                         <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-2">Current Role</p>
-                        <h3 class="font-display text-4xl tracking-wide">Staff Aerospace Software Engineer</h3>
+                        <h3 class="font-display text-3xl sm:text-4xl tracking-wide">Staff Aerospace Software Engineer</h3>
                         <p class="text-orange-400 font-medium mt-1.5">Jacobs &nbsp;·&nbsp; Chantilly, VA</p>
                     </div>
                     <span class="font-mono text-xs text-neutral-600 uppercase tracking-widest whitespace-nowrap mt-1">Sept 2025 — Present</span>
@@ -401,7 +401,7 @@
     </section>
 
     {{-- Selected Work --}}
-    <section id="work" class="py-28 px-6 border-t border-neutral-800">
+    <section id="work" class="py-24 md:py-28 px-5 sm:px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
             <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>03 — Selected Work</h2>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -461,7 +461,7 @@
                         ['/img/logo-verizon.svg', null, 'h-5'],
                     ],
                 ] as [$title, $meta, $desc, $img, $url, $tags, $logo])
-                <div class="bg-[#080808] group relative overflow-hidden h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/60 transition-shadow duration-300" tabindex="0" data-reveal>
+                <div class="work-card bg-[#080808] group relative overflow-hidden min-h-96 sm:h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/60 transition-shadow duration-300" tabindex="0" data-reveal>
 
                     {{-- Full-bleed image --}}
                     @php
@@ -500,7 +500,7 @@
                         <p class="font-display text-lg tracking-wide text-white leading-tight">{{ $title }}</p>
 
                         {{-- Description expands on hover --}}
-                        <div class="max-h-0 group-hover:max-h-52 group-focus:max-h-52 overflow-hidden transition-[max-height] duration-500 ease-out">
+                        <div class="work-card-details max-h-0 group-hover:max-h-52 group-focus:max-h-52 overflow-hidden transition-[max-height] duration-500 ease-out">
                             <p class="text-neutral-400 text-xs leading-relaxed mt-2">{{ $desc }}</p>
                         </div>
                     </div>
@@ -511,7 +511,7 @@
     </section>
 
     {{-- Tech Stack --}}
-    <section id="stack" class="py-28 px-6 border-t border-neutral-800">
+    <section id="stack" class="py-24 md:py-28 px-5 sm:px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
             <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>04 — Technical Stack</h2>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -537,7 +537,7 @@
     </section>
 
     {{-- Open Source --}}
-    <section id="open-source" class="py-28 px-6 border-t border-neutral-800">
+    <section id="open-source" class="py-24 md:py-28 px-5 sm:px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16" data-reveal>
                 <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase">05 — Open Source</h2>
@@ -546,9 +546,9 @@
                     github.com/karlhillx ↗
                 </a>
             </div>
-            <div id="github-repos" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-800" aria-busy="true" aria-label="Loading repositories">
+            <div id="github-repos" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3" aria-busy="true" aria-label="Loading repositories">
                 @for($i = 0; $i < 6; $i++)
-                <div class="bg-[#080808] p-6 animate-pulse">
+                <div class="bg-[#080808] rounded-2xl border border-neutral-800/80 p-6 animate-pulse">
                     <div class="h-3 bg-neutral-800 rounded mb-3 w-3/4"></div>
                     <div class="h-2 bg-neutral-900 rounded mb-1.5 w-full"></div>
                     <div class="h-2 bg-neutral-900 rounded mb-4 w-2/3"></div>
@@ -560,7 +560,7 @@
     </section>
 
     {{-- Certifications --}}
-    <section id="certs" class="py-28 px-6 border-t border-neutral-800">
+    <section id="certs" class="py-24 md:py-28 px-5 sm:px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
             <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>06 — Certifications & Education</h2>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-800">
@@ -571,8 +571,8 @@
                     ['CSM',     'Certified ScrumMaster®',               'Scrum Alliance', 'https://certification.scrumalliance.org/accounts/1484321-karl-hill/certifications/1735632-csm'],
                 ] as [$abbr, $name, $issuer, $verifyUrl])
                 <a href="{{ $verifyUrl }}" target="_blank" rel="noopener noreferrer"
-                   class="bg-[#080808] p-8 hover:bg-neutral-900/60 transition-colors group" data-reveal>
-                    <p class="font-display text-5xl text-orange-500 mb-3 group-hover:text-orange-400 transition-colors">{{ $abbr }}</p>
+                   class="bg-[#080808] p-6 sm:p-8 hover:bg-neutral-900/60 transition-colors group" data-reveal>
+                    <p class="font-display text-4xl sm:text-5xl text-orange-500 mb-3 group-hover:text-orange-400 transition-colors">{{ $abbr }}</p>
                     <p class="text-sm text-neutral-300 font-medium leading-snug">{{ $name }}</p>
                     <p class="font-mono text-xs text-neutral-600 mt-3">{{ $issuer }}</p>
                     <p class="font-mono text-xs text-neutral-700 mt-2 group-hover:text-orange-600 transition-colors">Verify ↗</p>
@@ -580,7 +580,7 @@
                 @endforeach
             </div>
             <div class="mt-px bg-neutral-800">
-                <div class="bg-[#080808] p-8" data-reveal>
+                <div class="bg-[#080808] p-6 sm:p-8" data-reveal>
                     <p class="font-display text-lg text-neutral-500 tracking-widest mb-4">Education</p>
                     <div class="flex flex-col sm:flex-row gap-8">
                         <div>
@@ -604,7 +604,7 @@
     </main>
 
     {{-- Contact / Footer --}}
-    <footer id="contact" class="relative z-10 border-t border-neutral-800 py-24 px-6">
+    <footer id="contact" class="relative z-10 border-t border-neutral-800 py-20 sm:py-24 px-5 sm:px-6">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
                 <div class="max-w-xl" data-reveal>
@@ -619,7 +619,7 @@
                 </div>
                 <div class="flex flex-col gap-4 lg:pt-16 shrink-0" data-reveal>
                 <a href="mailto:karlhillx@gmail.com"
-                   class="magnetic-btn flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
+                   class="magnetic-btn flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group break-all">
                         <span class="text-orange-500 text-base arrow-nudge" aria-hidden="true">→</span>
                         karlhillx@gmail.com
                     </a>
