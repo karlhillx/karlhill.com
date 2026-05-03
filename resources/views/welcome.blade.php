@@ -409,7 +409,7 @@
                     [
                         'NASA Earth Observatory',
                         'NASA &nbsp;·&nbsp; 2017–2025',
-                        'Flagship science communication platform serving 1.5M+ monthly visitors with satellite imagery and Earth science data. Rebuilt the publishing pipeline to unify editorial workflows across distributed content teams. Overhauled the delivery architecture for accessibility compliance and redesigned the information hierarchy for long-term scale.',
+                        'Rebuilt NASA\'s flagship Earth science publication platform for 1.5M+ monthly visitors, improving editorial workflows, accessibility, performance, and long-term information architecture.',
                         '/img/ss-earth-observatory.png',
                         'https://earthobservatory.nasa.gov',
                         ['Laravel', 'AWS'],
@@ -418,7 +418,7 @@
                     [
                         'Flood Mapping System',
                         'NASA &nbsp;·&nbsp; 2017–2025',
-                        'Operational satellite imagery processing system generating near real-time flood inundation maps during active disaster events globally. Automated the end-to-end pipeline from raw sensor acquisition through geospatial product generation, dissemination, and integration with international emergency management networks.',
+                        'Built near real-time satellite flood mapping pipelines that turn raw sensor data into geospatial products for global disaster-response partners.',
                         '/img/small-flood.png',
                         null,
                         ['Python', 'Docker', 'AWS'],
@@ -427,7 +427,7 @@
                     [
                         'Direct Readout Laboratory',
                         'NASA &nbsp;·&nbsp; 2017–2025',
-                        'Scientific data processing hub ingesting multi-instrument sensor streams from polar-orbiting satellites in near real-time. Reformats and distributes Level-0 through Level-2 geophysical products to operational centers and research institutions across a global network of registered direct broadcast ground stations.',
+                        'Delivered a near real-time satellite data hub for ingesting, reformatting, and distributing science products to operational and research users.',
                         '/img/ss-direct-readout2.png',
                         null,
                         ['PHP', 'Linux', 'NGINX'],
@@ -436,7 +436,7 @@
                     [
                         'ESSCOR',
                         'NASA &nbsp;·&nbsp; 2017–2025',
-                        'Earth science data discovery portal unifying archival and near real-time remote sensing holdings into a searchable, standards-compliant catalog. Implemented granule-level access controls and standardized metadata schemas to streamline data ordering and delivery for researchers across government agencies and partner institutions.',
+                        'Built a searchable Earth science data portal with standardized metadata, access controls, and streamlined ordering for research partners.',
                         '/img/ss-esccor.png',
                         null,
                         ['PHP', 'MySQL', 'ElasticSearch'],
@@ -445,7 +445,7 @@
                     [
                         'InformedDNA Platform',
                         'InformedDNA &nbsp;·&nbsp; 2016–2017',
-                        'Clinical genomics workflow platform coordinating case management, genetic counseling routing, and billing reconciliation across distributed care teams. Unified fragmented operational processes into a governed system with role-based access, full audit trails, and automated documentation pipelines that cut per-case overhead by $30K annually.',
+                        'Unified clinical genomics case management, counseling routing, billing reconciliation, role-based access, audits, and automated documentation.',
                         '/img/ss-informeddna.png',
                         null,
                         ['Laravel', 'MySQL', 'RESTful APIs'],
@@ -454,7 +454,7 @@
                     [
                         'Finium',
                         'Verizon Business &nbsp;·&nbsp; 1999–2005',
-                        'Enterprise managed security services platform unifying multi-tenant client operations across a national carrier network for a Fortune 500 provider. Automated provisioning, monitoring, and incident response orchestration drove a 10× growth in client engagements and contributed directly to a $105M acquisition.',
+                        'Built managed security-service tooling for provisioning, monitoring, and incident workflows that helped drive 10x engagement growth and a $105M acquisition.',
                         '/img/ss-mci-verizon.png',
                         null,
                         ['Java', 'SQL Server', 'Security'],
@@ -468,9 +468,12 @@
                         $webpImg = preg_replace('/\.(png|jpe?g)$/i', '.webp', str_replace('/img/', '/img/webp/', $img));
                     @endphp
                     <picture>
-                        <source srcset="{{ $webpImg }}" type="image/webp">
+                        <source srcset="{{ $webpImg }}"
+                                type="image/webp"
+                                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw">
                         <img src="{{ $img }}" alt="{{ $title }}"
                              width="960" height="720"
+                             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                              loading="lazy" decoding="async"
                              class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out">
                     </picture>
@@ -693,6 +696,8 @@
                    autocomplete="off"
                    placeholder="Type to jump (experience, work, stack, contact, github...)"
                    class="command-input"
+                   aria-controls="command-results"
+                   aria-autocomplete="list"
                    aria-label="Search site destinations">
             <div id="command-results" class="command-results mt-3" role="listbox" aria-label="Command results"></div>
         </div>

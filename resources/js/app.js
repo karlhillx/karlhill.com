@@ -139,6 +139,7 @@ const langColors = {
     Blade:      '#f7523f',
 };
 const excludedRepoNames = new Set(['karlhillx', 'karlhill.com']);
+const featuredRepoNames = ['sim-rs', 'pipeguard', 'bb-run', 'driftlens', 'drift-rs'];
 
 function esc(str) {
     return String(str ?? '')
@@ -146,6 +147,19 @@ function esc(str) {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
+}
+
+function sortFeaturedRepos(repos) {
+    const rank = new Map(featuredRepoNames.map((name, index) => [name, index]));
+
+    return repos.sort((a, b) => {
+        const aRank = rank.get(String(a?.name || '').toLowerCase()) ?? Number.MAX_SAFE_INTEGER;
+        const bRank = rank.get(String(b?.name || '').toLowerCase()) ?? Number.MAX_SAFE_INTEGER;
+
+        if (aRank !== bRank) return aRank - bRank;
+
+        return String(b?.updated_at || '').localeCompare(String(a?.updated_at || ''));
+    });
 }
 
 async function loadGitHubRepos() {
@@ -192,12 +206,13 @@ async function loadGitHubRepos() {
 
     function normalizeRepos(rawRepos) {
         if (!Array.isArray(rawRepos)) return [];
-        return rawRepos
+        return sortFeaturedRepos(rawRepos
             .filter((r) => {
                 if (r?.archived) return false;
                 const name = String(r?.name || '').toLowerCase();
                 return !excludedRepoNames.has(name);
             })
+        )
             .slice(0, 6)
             .map((r) => ({
                 name: r.name,
@@ -206,6 +221,7 @@ async function loadGitHubRepos() {
                 stars: r.stars ?? r.stargazers_count ?? 0,
                 language: r.language,
                 topics: Array.isArray(r.topics) ? r.topics : [],
+                updated_at: r.updated_at,
             }));
     }
 
@@ -419,6 +435,8 @@ function openPalette(trigger = null) {
     lastPaletteTrigger = trigger;
     palette.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
+    commandInput.value = '';
+    activeCommandIndex = 0;
     renderCommands('');
     setTimeout(() => commandInput.focus(), 0);
 }
@@ -459,11 +477,20 @@ function renderCommands(query) {
     commandResults.innerHTML = filtered.length
         ? filtered
             .map((cmd, index) => `
-                <button type="button" class="command-result ${index === activeCommandIndex ? 'is-active' : ''}" data-command-index="${index}">
+                <button type="button"
+                        id="command-result-${index}"
+                        role="option"
+                        aria-selected="${index === activeCommandIndex ? 'true' : 'false'}"
+                        class="command-result ${index === activeCommandIndex ? 'is-active' : ''}"
+                        data-command-index="${index}">
                     <span class="font-mono text-xs">${cmd.label}</span>
                 </button>`)
             .join('')
         : '<p class="font-mono text-xs text-neutral-500 px-2 py-2">No matches</p>';
+    commandInput?.setAttribute(
+        'aria-activedescendant',
+        filtered.length ? `command-result-${activeCommandIndex}` : ''
+    );
 }
 
 paletteTriggers.forEach((trigger) => {
@@ -500,6 +527,25 @@ document.addEventListener('keydown', (e) => {
     }
 
     if (palette?.classList.contains('hidden')) return;
+
+    if (e.key === 'Tab') {
+        const focusable = Array.from(
+            palette.querySelectorAll('button, input, [href], [tabindex]:not([tabindex="-1"])')
+        ).filter((el) => !el.disabled && el.offsetParent !== null);
+
+        if (focusable.length > 0) {
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    }
 
     if (e.key === 'Escape') {
         e.preventDefault();
