@@ -59,6 +59,19 @@
             "@type": "Organization",
             "name": "Jacobs"
         },
+        "subjectOf": [
+            {
+                "@type": "ScholarlyArticle",
+                "name": "A Web-Based High-resolution Global Water and Flood Mapping Platform",
+                "url": "https://doi.org/10.1144/gh2025-7",
+                "identifier": "https://doi.org/10.1144/gh2025-7",
+                "datePublished": "2026-05-05",
+                "isPartOf": {
+                    "@type": "Periodical",
+                    "name": "GeoHorizons"
+                }
+            }
+        ],
         "sameAs": [
             "https://www.linkedin.com/in/khill/",
             "https://github.com/karlhillx",
@@ -94,6 +107,7 @@
             <div class="hidden md:flex items-center gap-8 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="#experience" class="hover:text-orange-500 transition-colors duration-200">Experience</a>
                 <a href="#work" class="hover:text-orange-500 transition-colors duration-200">Work</a>
+                <a href="#research" class="hover:text-orange-500 transition-colors duration-200">Research</a>
                 <a href="#stack" class="hover:text-orange-500 transition-colors duration-200">Stack</a>
                 <a href="#contact" class="hover:text-orange-500 transition-colors duration-200">Contact</a>
             </div>
@@ -124,6 +138,7 @@
             <div class="max-w-6xl mx-auto px-5 sm:px-6 py-4 flex flex-col gap-1 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="#experience" class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Experience</a>
                 <a href="#work"       class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Work</a>
+                <a href="#research"   class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Research</a>
                 <a href="#stack"      class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Stack</a>
                 <button type="button"
                         data-command-palette-trigger
@@ -513,10 +528,47 @@
         </div>
     </section>
 
+    {{-- Research --}}
+    <section id="research" class="py-24 md:py-28 px-5 sm:px-6 border-t border-neutral-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>04 — Research</h2>
+
+            <article class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12 border border-neutral-800 bg-neutral-900/30 p-6 sm:p-8 md:p-10" data-reveal>
+                <div>
+                    <p class="font-mono text-xs text-orange-500 uppercase tracking-widest mb-3">Co-author</p>
+                    <p class="font-display text-4xl text-neutral-500 leading-none">GeoHorizons</p>
+                    <p class="font-mono text-xs text-neutral-600 mt-4">Published online May 2026</p>
+                </div>
+
+                <div>
+                    <h3 class="font-display text-3xl sm:text-4xl tracking-wide text-white leading-tight mb-5">
+                        A Web-Based High-resolution Global Water and Flood Mapping Platform
+                    </h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed max-w-3xl mb-6">
+                        Peer-reviewed publication describing the Global Water and Flood Mapping System,
+                        a NASA-supported platform for high-resolution surface water and flood products
+                        derived from commercial satellite data.
+                    </p>
+                    <p class="text-neutral-500 text-sm leading-relaxed max-w-3xl mb-8">
+                        F. S. Policelli, A. J. Kettner, K. Hill, and D. Maloney.
+                        <span class="text-neutral-600">GeoHorizons, 1(1), gh2025-7.</span>
+                    </p>
+                    <a href="https://doi.org/10.1144/gh2025-7"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="magnetic-btn inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
+                        DOI: 10.1144/gh2025-7
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
     {{-- Tech Stack --}}
     <section id="stack" class="py-24 md:py-28 px-5 sm:px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
-            <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>04 — Technical Stack</h2>
+            <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>05 — Technical Stack</h2>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
                 @foreach([
                     ['Languages',        ['Python', 'TypeScript', 'Java', 'PHP', 'Bash']],
@@ -543,7 +595,7 @@
     <section id="open-source" class="py-24 md:py-28 px-5 sm:px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16" data-reveal>
-                <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase">05 — Open Source</h2>
+                <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase">06 — Open Source</h2>
                 <a href="https://github.com/karlhillx" target="_blank" rel="noopener noreferrer"
                    class="font-mono text-xs text-neutral-600 hover:text-orange-500 transition-colors">
                     github.com/karlhillx ↗
@@ -565,7 +617,7 @@
     {{-- Certifications --}}
     <section id="certs" class="py-24 md:py-28 px-5 sm:px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
-            <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>06 — Certifications & Education</h2>
+            <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>07 — Certifications & Education</h2>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-800">
                 @foreach([
                     ['PSM II',  'Professional Scrum Master™ II',       'Scrum.org',     'https://www.credly.com/badges/1874ba29-99d7-4dae-8335-1a915795d956'],
@@ -611,7 +663,7 @@
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
                 <div class="max-w-xl" data-reveal>
-                    <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-6">07 — Contact</h2>
+                    <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-6">08 — Contact</h2>
                     <p class="font-display text-[clamp(3rem,8vw,6rem)] leading-none tracking-wide mb-6">
                         Let's Work<br>Together
                     </p>
@@ -694,7 +746,7 @@
             <input id="command-input"
                    type="text"
                    autocomplete="off"
-                   placeholder="Type to jump (experience, work, stack, contact, github...)"
+                   placeholder="Type to jump (experience, work, research, stack, contact, github...)"
                    class="command-input"
                    aria-controls="command-results"
                    aria-autocomplete="list"

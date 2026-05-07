@@ -419,6 +419,7 @@ const commandResults = document.getElementById('command-results');
 const commands = [
     { label: 'Experience', keywords: 'experience career nasa jacobs', action: () => document.getElementById('experience')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' }) },
     { label: 'Selected Work', keywords: 'work portfolio projects', action: () => document.getElementById('work')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' }) },
+    { label: 'Research', keywords: 'research publication paper doi geohorizons flood mapping', action: () => document.getElementById('research')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' }) },
     { label: 'Stack', keywords: 'stack tech tools languages', action: () => document.getElementById('stack')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' }) },
     { label: 'Open Source', keywords: 'github repos open source', action: () => document.getElementById('open-source')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' }) },
     { label: 'Certifications', keywords: 'certs education scrum', action: () => document.getElementById('certs')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' }) },
