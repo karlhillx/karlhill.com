@@ -77,6 +77,7 @@
             "https://github.com/karlhillx",
             "https://twitter.com/karl_hill",
             "https://orcid.org/0009-0002-6847-3368",
+            "https://www.researchgate.net/profile/Karl-Hill-2",
             "https://www.discogs.com/artist/1286669-Karl-Hill"
         ]
     }
@@ -714,6 +715,14 @@
                            class="text-neutral-500 hover:text-orange-500 transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.researchgate.net/profile/Karl-Hill-2" target="_blank" rel="noopener noreferrer"
+                           aria-label="ResearchGate" title="researchgate.net/profile/Karl-Hill-2"
+                           class="text-neutral-500 hover:text-orange-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0z"/>
+                                <text x="12" y="15.4" text-anchor="middle" fill="#080808" font-family="Arial, sans-serif" font-size="7.6" font-weight="700" letter-spacing="-0.4">RG</text>
                             </svg>
                         </a>
                         <a href="https://www.discogs.com/artist/1286669-Karl-Hill" target="_blank" rel="noopener noreferrer"
