@@ -15,13 +15,14 @@
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="800">
 
-    {{-- Twitter / X --}}
-    <meta name="twitter:card" content="summary_large_image">
+    {{-- Twitter / X (using `summary` because profile.jpg is square 800x800) --}}
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@karl_hill">
     <meta name="twitter:creator" content="@karl_hill">
     <meta name="twitter:title" content="Karl Hill — Staff Software Engineer">
     <meta name="twitter:description" content="25+ years shipping systems under pressure — from NASA Goddard's Earth science and flood mapping platforms to mission-critical aerospace software at Jacobs/BlackLynx.">
     <meta name="twitter:image" content="https://karlhill.com/img/profile.jpg">
+    <meta name="twitter:image:alt" content="Portrait of Karl Hill">
 
     <meta name="theme-color" content="#080808">
 
@@ -43,42 +44,62 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Karl Hill",
-        "jobTitle": "Staff Software Engineer",
-        "url": "https://karlhill.com",
-        "image": "https://karlhill.com/img/profile.jpg",
-        "email": "karlhillx@gmail.com",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Washington",
-            "addressRegion": "DC",
-            "addressCountry": "US"
-        },
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Jacobs"
-        },
-        "subjectOf": [
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://karlhill.com/#karl",
+                "name": "Karl Hill",
+                "jobTitle": "Staff Software Engineer",
+                "url": "https://karlhill.com",
+                "image": "https://karlhill.com/img/profile.jpg",
+                "email": "karlhillx@gmail.com",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Washington",
+                    "addressRegion": "DC",
+                    "addressCountry": "US"
+                },
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Jacobs"
+                },
+                "alumniOf": [
+                    { "@type": "CollegeOrUniversity", "name": "University of Maryland" },
+                    { "@type": "CollegeOrUniversity", "name": "Howard Community College" },
+                    { "@type": "CollegeOrUniversity", "name": "Rutgers University" }
+                ],
+                "sameAs": [
+                    "https://www.linkedin.com/in/khill/",
+                    "https://github.com/karlhillx",
+                    "https://twitter.com/karl_hill",
+                    "https://orcid.org/0009-0002-6847-3368",
+                    "https://www.researchgate.net/profile/Karl-Hill-2",
+                    "https://www.discogs.com/artist/1286669-Karl-Hill"
+                ]
+            },
             {
                 "@type": "ScholarlyArticle",
+                "@id": "https://doi.org/10.1144/gh2025-7",
                 "name": "A Web-Based High-resolution Global Water and Flood Mapping Platform",
+                "headline": "A Web-Based High-resolution Global Water and Flood Mapping Platform",
                 "url": "https://doi.org/10.1144/gh2025-7",
-                "identifier": "https://doi.org/10.1144/gh2025-7",
+                "identifier": {
+                    "@type": "PropertyValue",
+                    "propertyID": "DOI",
+                    "value": "10.1144/gh2025-7"
+                },
                 "datePublished": "2026-05-05",
+                "author": [
+                    { "@type": "Person", "name": "F. S. Policelli" },
+                    { "@type": "Person", "name": "A. J. Kettner" },
+                    { "@id": "https://karlhill.com/#karl" },
+                    { "@type": "Person", "name": "D. Maloney" }
+                ],
                 "isPartOf": {
                     "@type": "Periodical",
                     "name": "GeoHorizons"
                 }
             }
-        ],
-        "sameAs": [
-            "https://www.linkedin.com/in/khill/",
-            "https://github.com/karlhillx",
-            "https://twitter.com/karl_hill",
-            "https://orcid.org/0009-0002-6847-3368",
-            "https://www.researchgate.net/profile/Karl-Hill-2",
-            "https://www.discogs.com/artist/1286669-Karl-Hill"
         ]
     }
     </script>
@@ -679,7 +700,8 @@
                         <span class="text-orange-500 text-base arrow-nudge" aria-hidden="true">→</span>
                         karlhillx@gmail.com
                     </a>
-                    <a href="/files/karlhill-resume.pdf" target="_blank" rel="noopener noreferrer"
+                    <a href="/files/karlhill-resume.pdf" download="karlhill-resume.pdf"
+                       target="_blank" rel="noopener noreferrer"
                        class="magnetic-btn inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 w-fit">
                         <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
