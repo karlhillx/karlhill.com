@@ -1,8 +1,4 @@
-@import '@fontsource/inter/latin-300.css';
-@import '@fontsource/inter/latin-400.css';
-@import '@fontsource/inter/latin-500.css';
-@import '@fontsource/inter/latin-600.css';
-@import '@fontsource/inter/latin-700.css';
+@import '@fontsource-variable/inter/opsz.css';
 @import '@fontsource/bebas-neue/latin-400.css';
 @import '@fontsource/jetbrains-mono/latin-400.css';
 @import '@fontsource/jetbrains-mono/latin-500.css';
@@ -16,8 +12,18 @@
     --panel: #121212;
     --text: #f5f5f5;
     --muted: #a3a3a3;
-    --accent: #f97316;
-    --focus: #fb923c;
+    /* OKLCH for perceptually uniform shades + better animation interpolation */
+    --accent: oklch(70% 0.19 50);
+    --focus:  oklch(76% 0.16 55);
+}
+
+/* Wide-gamut escalation: punchier orange on Display-P3 hardware (recent
+   iPhones, M-series Macs, OLED Androids). Falls back silently on sRGB. */
+@supports (color: color(display-p3 1 0 0)) {
+    :root {
+        --accent: oklch(72% 0.22 50);
+        --focus:  oklch(78% 0.18 55);
+    }
 }
 
 html {
@@ -28,7 +34,13 @@ html {
 body {
     background: var(--bg);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-optical-sizing: auto;
     text-rendering: optimizeLegibility;
+}
+
+/* Better paragraph rag — eliminates orphans without the cost of `balance` */
+p {
+    text-wrap: pretty;
 }
 
 .font-display {
@@ -133,10 +145,78 @@ body {
     z-index: 0;
     background: radial-gradient(
         620px circle at var(--spot-x) var(--spot-y),
-        rgba(249, 115, 22, 0.09),
-        rgba(249, 115, 22, 0.02) 35%,
+        color-mix(in oklab, var(--accent) 9%, transparent),
+        color-mix(in oklab, var(--accent) 2%, transparent) 35%,
         transparent 55%
     );
+}
+
+/* ---------------------------------------------------------------------------
+   Film-grain overlay — fixed SVG turbulence noise, blended into the page.
+   Adds tactility without bandwidth cost (it's a single inline <svg>).
+--------------------------------------------------------------------------- */
+.grain {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: overlay;
+    opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .grain { display: none; }
+}
+
+/* ---------------------------------------------------------------------------
+   Animated conic-gradient border for the active "Current Role" card.
+   Uses @property so the angle interpolates in CSS (not via JS).
+--------------------------------------------------------------------------- */
+@property --angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes spin-angle {
+    to { --angle: 360deg; }
+}
+
+.role-active {
+    position: relative;
+    isolation: isolate;
+}
+
+.role-active::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    pointer-events: none;
+    border-radius: inherit;
+    background: conic-gradient(
+        from var(--angle),
+        color-mix(in oklab, var(--accent) 0%,  transparent) 0deg,
+        color-mix(in oklab, var(--accent) 70%, transparent) 90deg,
+        color-mix(in oklab, var(--accent) 0%,  transparent) 180deg,
+        color-mix(in oklab, var(--accent) 0%,  transparent) 360deg
+    );
+    /* Mask out the interior so only the 1px ring remains */
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    animation: spin-angle 9s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .role-active::before { animation: none; }
 }
 
 /* Defer expensive layout/paint work for below-the-fold sections */
@@ -204,7 +284,8 @@ footer#contact {
 }
 
 /* ---------------------------------------------------------------------------
-   Scroll-reveal
+   Scroll-reveal — JS IntersectionObserver fallback for browsers without
+   scroll-driven animation support (Safari today, behind a flag).
 --------------------------------------------------------------------------- */
 [data-reveal] {
     opacity: 0;
@@ -215,6 +296,18 @@ footer#contact {
 [data-reveal].revealed {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Modern browsers: pure-CSS scroll-driven entry, also reverses on scroll-up. */
+@supports (animation-timeline: view()) {
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        animation: fadeUp linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 22%;
+    }
 }
 
 /* Keyboard focus ring — visible only for keyboard navigation */
@@ -395,10 +488,49 @@ footer#contact {
     html {
         scroll-behavior: auto;
     }
+    .role-active::before {
+        animation: none;
+    }
+    .grain {
+        display: none;
+    }
+}
+
+/* Reduced transparency: macOS Sequoia / iOS 18 setting that asks UIs to
+   minimize translucency. Drops backdrop-filter blur on translucent surfaces. */
+@media (prefers-reduced-transparency: reduce) {
+    .grain { display: none; }
+    nav.fixed,
+    #mobile-menu {
+        backdrop-filter: none;
+        background: var(--bg);
+    }
+}
+
+/* High-contrast preference: punch the accent and lighten the lowest-tier
+   secondary text so 3:1 contrast is met for users who opt in. */
+@media (prefers-contrast: more) {
+    :root {
+        --accent: oklch(78% 0.24 50);
+        --focus:  oklch(82% 0.20 55);
+    }
+    .text-neutral-500 { color: oklch(72% 0.02 250); }
+    .text-neutral-600 { color: oklch(64% 0.02 250); }
+    .text-neutral-700 { color: oklch(58% 0.02 250); }
+}
+
+/* Default cross-document view-transition: clean cross-fade.
+   The `brand` and `portrait` named transitions morph between pages. */
+@view-transition {
+    navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.3s;
 }
 
 @theme {
-    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
     --font-display: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }

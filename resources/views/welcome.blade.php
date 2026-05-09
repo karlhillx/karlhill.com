@@ -36,13 +36,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap">
-    </noscript>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     {{-- Structured Data --}}
@@ -81,6 +74,18 @@
 
     <div class="cursor-spotlight" aria-hidden="true"></div>
 
+    {{-- Film-grain overlay (SVG turbulence; pure-CSS blended) --}}
+    <svg class="grain" aria-hidden="true" preserveAspectRatio="none">
+        <filter id="grain-noise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+            <feColorMatrix values="0 0 0 0 1
+                                   0 0 0 0 1
+                                   0 0 0 0 1
+                                   0 0 0 0.045 0"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain-noise)"/>
+    </svg>
+
     <a href="#main-content"
        class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-black focus:font-semibold focus:text-xs focus:uppercase focus:tracking-widest">
         Skip to content
@@ -89,7 +94,7 @@
     {{-- Nav --}}
     <nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-[#080808]/90 backdrop-blur-sm nav-enter">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <span class="font-display text-2xl tracking-wider text-orange-500">KARL HILL</span>
+            <span class="font-display text-2xl tracking-wider text-orange-500" style="view-transition-name: brand">KARL HILL</span>
             <div class="hidden md:flex items-center gap-8 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="#experience" class="hover:text-orange-500 transition-colors duration-200">Experience</a>
                 <a href="#work" class="hover:text-orange-500 transition-colors duration-200">Work</a>
@@ -145,6 +150,7 @@
                         <img src="/img/profile.jpg" alt="Karl Hill"
                              width="48" height="48"
                              loading="eager" fetchpriority="high" decoding="async"
+                             style="view-transition-name: portrait"
                              class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-500/30 shrink-0">
                     </picture>
                     <p class="font-mono text-orange-500 text-xs tracking-widest uppercase">
@@ -248,7 +254,7 @@
             <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>02 — Experience</h2>
 
             {{-- Current Role --}}
-            <div class="mb-16 p-8 md:p-10 border border-orange-500/25 bg-orange-500/[0.03]" data-reveal>
+            <div class="role-active rounded-sm mb-16 p-8 md:p-10 border border-orange-500/25 bg-orange-500/[0.03]" data-reveal>
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-8">
                     <div>
                         <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-2">Current Role</p>
