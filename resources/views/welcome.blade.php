@@ -701,7 +701,6 @@
                         karlhillx@gmail.com
                     </a>
                     <a href="/files/karlhill-resume.pdf" download="karlhill-resume.pdf"
-                       target="_blank" rel="noopener noreferrer"
                        class="magnetic-btn inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 w-fit">
                         <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
