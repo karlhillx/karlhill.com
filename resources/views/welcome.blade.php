@@ -59,11 +59,25 @@
             "@type": "Organization",
             "name": "Jacobs"
         },
+        "subjectOf": [
+            {
+                "@type": "ScholarlyArticle",
+                "name": "A Web-Based High-resolution Global Water and Flood Mapping Platform",
+                "url": "https://doi.org/10.1144/gh2025-7",
+                "identifier": "https://doi.org/10.1144/gh2025-7",
+                "datePublished": "2026-05-05",
+                "isPartOf": {
+                    "@type": "Periodical",
+                    "name": "GeoHorizons"
+                }
+            }
+        ],
         "sameAs": [
             "https://www.linkedin.com/in/khill/",
             "https://github.com/karlhillx",
             "https://twitter.com/karl_hill",
             "https://orcid.org/0009-0002-6847-3368",
+            "https://www.researchgate.net/profile/Karl-Hill-2",
             "https://www.discogs.com/artist/1286669-Karl-Hill"
         ]
     }
@@ -98,10 +112,19 @@
             <div class="hidden md:flex items-center gap-8 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="#experience" class="hover:text-orange-500 transition-colors duration-200">Experience</a>
                 <a href="#work" class="hover:text-orange-500 transition-colors duration-200">Work</a>
+                <a href="#research" class="hover:text-orange-500 transition-colors duration-200">Research</a>
                 <a href="#stack" class="hover:text-orange-500 transition-colors duration-200">Stack</a>
                 <a href="#contact" class="hover:text-orange-500 transition-colors duration-200">Contact</a>
             </div>
             <div class="flex items-center gap-3">
+                <button type="button"
+                        data-command-palette-trigger
+                        aria-label="Open command palette"
+                        title="Search (⌘K)"
+                        class="hidden md:inline-flex items-center gap-2 font-mono text-[10px] text-neutral-500 border border-neutral-800 px-3 py-2.5 uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
+                    <span aria-hidden="true">⌘K</span>
+                    <span class="sr-only">Open command palette</span>
+                </button>
                 <a href="mailto:karlhillx@gmail.com"
                    class="text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
                     Get in Touch
@@ -120,8 +143,14 @@
             <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="#experience" class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Experience</a>
                 <a href="#work"       class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Work</a>
+                <a href="#research"   class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Research</a>
                 <a href="#stack"      class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Stack</a>
-                <a href="#contact"    class="py-3 hover:text-orange-500 transition-colors">Contact</a>
+                <a href="#contact"    class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Contact</a>
+                <button type="button"
+                        data-command-palette-trigger
+                        class="py-3 text-left hover:text-orange-500 transition-colors">
+                    Search · ⌘K
+                </button>
             </div>
         </div>
     </nav>
@@ -230,7 +259,7 @@
         <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         @foreach([
             ['25+',   'Years of Experience',              25,  '',  '+'],
-            ['1.5M',  'Monthly Visitors — NASA PLATFORMS',       1.5, '',  'M'],
+            ['1.5M',  'Monthly Visitors · NASA Platforms',        1.5, '',  'M'],
             ['$105M', 'Platform Acquisition Value',       105, '$', 'M'],
             ['~60%',  'Efficiency Gained via Automation', 60,  '~', '%'],
         ] as [$stat, $label, $to, $prefix, $suffix])
@@ -501,10 +530,47 @@
         </div>
     </section>
 
+    {{-- Research --}}
+    <section id="research" class="py-28 px-6 border-t border-neutral-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>04 — Research</h2>
+
+            <article class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12 border border-neutral-800 bg-neutral-900/30 p-6 sm:p-8 md:p-10" data-reveal>
+                <div>
+                    <p class="font-mono text-xs text-orange-500 uppercase tracking-widest mb-3">Co-author</p>
+                    <p class="font-display text-4xl text-neutral-500 leading-none">GeoHorizons</p>
+                    <p class="font-mono text-xs text-neutral-600 mt-4">Published online May 2026</p>
+                </div>
+
+                <div>
+                    <h3 class="font-display text-3xl sm:text-4xl tracking-wide text-white leading-tight mb-5">
+                        A Web-Based High-resolution Global Water and Flood Mapping Platform
+                    </h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed max-w-3xl mb-6">
+                        Peer-reviewed publication describing the Global Water and Flood Mapping System,
+                        a NASA-supported platform for high-resolution surface water and flood products
+                        derived from commercial satellite data.
+                    </p>
+                    <p class="text-neutral-500 text-sm leading-relaxed max-w-3xl mb-8">
+                        F. S. Policelli, A. J. Kettner, K. Hill, and D. Maloney.
+                        <span class="text-neutral-600">GeoHorizons, 1(1), gh2025-7.</span>
+                    </p>
+                    <a href="https://doi.org/10.1144/gh2025-7"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="magnetic-btn inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
+                        DOI: 10.1144/gh2025-7
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
     {{-- Tech Stack --}}
     <section id="stack" class="py-28 px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
-            <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>04 — Technical Stack</h2>
+            <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>05 — Technical Stack</h2>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
                 @foreach([
                     ['Languages',        ['Python', 'TypeScript', 'Java', 'PHP', 'Bash']],
@@ -531,7 +597,7 @@
     <section id="open-source" class="py-28 px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16" data-reveal>
-                <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase">05 — Open Source</h2>
+                <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase">06 — Open Source</h2>
                 <a href="https://github.com/karlhillx" target="_blank" rel="noopener noreferrer"
                    class="font-mono text-xs text-neutral-600 hover:text-orange-500 transition-colors">
                     github.com/karlhillx ↗
@@ -553,7 +619,7 @@
     {{-- Certifications --}}
     <section id="certs" class="py-28 px-6 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto">
-            <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>06 — Certifications & Education</h2>
+            <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-16" data-reveal>07 — Certifications & Education</h2>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-800">
                 @foreach([
                     ['PSM II',  'Professional Scrum Master™ II',       'Scrum.org',     'https://www.credly.com/badges/1874ba29-99d7-4dae-8335-1a915795d956'],
@@ -599,7 +665,7 @@
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
                 <div class="max-w-xl" data-reveal>
-                    <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-6">07 — Contact</h2>
+                    <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-6">08 — Contact</h2>
                     <p class="font-display text-[clamp(3rem,8vw,6rem)] leading-none tracking-wide mb-6">
                         Let's Work<br>Together
                     </p>
@@ -652,6 +718,14 @@
                                 <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/>
                             </svg>
                         </a>
+                        <a href="https://www.researchgate.net/profile/Karl-Hill-2" target="_blank" rel="noopener noreferrer"
+                           aria-label="ResearchGate" title="researchgate.net/profile/Karl-Hill-2"
+                           class="text-neutral-500 hover:text-orange-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0z"/>
+                                <text x="12" y="15.4" text-anchor="middle" fill="#080808" font-family="Arial, sans-serif" font-size="7.6" font-weight="700" letter-spacing="-0.4">RG</text>
+                            </svg>
+                        </a>
                         <a href="https://www.discogs.com/artist/1286669-Karl-Hill" target="_blank" rel="noopener noreferrer"
                            aria-label="Discogs" title="discogs.com/artist/Karl-Hill"
                            class="text-neutral-500 hover:text-orange-500 transition-colors">
@@ -670,20 +744,33 @@
         </div>
     </footer>
 
-    <script>
-        const navToggle = document.getElementById('nav-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        navToggle?.addEventListener('click', () => {
-            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-            navToggle.setAttribute('aria-expanded', String(!expanded));
-            mobileMenu.hidden = expanded;
-        });
-        mobileMenu?.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                mobileMenu.hidden = true;
-                navToggle.setAttribute('aria-expanded', 'false');
-            });
-        });
-    </script>
+    {{-- Section mini-map (populated by JS) --}}
+    <nav id="section-minimap" aria-label="Section navigation"></nav>
+
+    {{-- Contextual back-to-top --}}
+    <button id="quick-back-top" type="button"
+            class="quick-back-top font-mono text-[10px] uppercase tracking-widest"
+            aria-label="Back to top">
+        ↑ Top
+    </button>
+
+    {{-- Command palette (Cmd/Ctrl+K) --}}
+    <div id="command-palette" class="command-palette hidden" role="dialog" aria-modal="true" aria-labelledby="command-palette-title">
+        <div class="command-palette-panel">
+            <h2 id="command-palette-title" class="sr-only">Command palette</h2>
+            <input id="command-input" type="text"
+                   class="command-input font-mono"
+                   placeholder="Jump to a section…"
+                   role="combobox"
+                   aria-expanded="true"
+                   aria-controls="command-results"
+                   aria-autocomplete="list"
+                   autocomplete="off"
+                   spellcheck="false">
+            <div id="command-results" class="command-results mt-3" role="listbox" aria-label="Commands"></div>
+        </div>
+    </div>
+
+    {{-- Mobile menu / nav toggle behavior is handled in resources/js/app.js --}}
 </body>
 </html>
