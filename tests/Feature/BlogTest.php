@@ -31,7 +31,7 @@ class BlogTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('What 20 Years Taught Me About Release Governance', escape: false);
-        $response->assertSee('A release is not just a version number', escape: false);
+        $response->assertSee('A release is a decision', escape: false);
         $response->assertSee('rel="canonical" href="', escape: false);
         $response->assertSee('/blog/release-governance', escape: false);
         $response->assertSee('BlogPosting', escape: false);
@@ -69,6 +69,14 @@ class BlogTest extends TestCase
         $this->assertNotFalse($xml, 'Feed should be valid XML');
         $this->assertSame('feed', $xml->getName());
         $this->assertGreaterThan(0, count($xml->entry));
+        $body = $response->getContent();
+        $this->assertStringContainsString(
+            '<id>'.rtrim(config('app.url'), '/').'/feed.xml</id>',
+            $body,
+            'Feed id should match the self URL (stable syndication identity)',
+        );
+        $this->assertStringContainsString('<category term="engineering"/>', $body);
+        $this->assertStringContainsString('<category term="governance"/>', $body);
     }
 
     public function test_dynamic_sitemap_includes_blog_posts(): void
@@ -113,8 +121,8 @@ class BlogTest extends TestCase
         $repository = $this->app->make(BlogPostRepository::class);
         $repository->all();
 
-        $cached = collect(\Illuminate\Support\Facades\Cache::get(
-            'blog.posts.index.' . (function () use ($repository) {
+        $cached = collect(Cache::get(
+            'blog.posts.index.'.(function () use ($repository) {
                 $reflect = new \ReflectionMethod($repository, 'signature');
                 $reflect->setAccessible(true);
 
@@ -129,7 +137,7 @@ class BlogTest extends TestCase
             foreach ($row as $value) {
                 $this->assertTrue(
                     is_scalar($value) || is_array($value) || is_null($value),
-                    'Cached values must be primitives (got ' . get_debug_type($value) . ').',
+                    'Cached values must be primitives (got '.get_debug_type($value).').',
                 );
             }
         }
@@ -141,7 +149,7 @@ class BlogTest extends TestCase
     public function test_repository_round_trips_through_file_cache(): void
     {
         config(['cache.default' => 'file']);
-        \Illuminate\Support\Facades\Cache::flush();
+        Cache::flush();
 
         /** @var BlogPostRepository $repository */
         $repository = $this->app->make(BlogPostRepository::class);
@@ -153,6 +161,6 @@ class BlogTest extends TestCase
         $this->assertSame('What 20 Years Taught Me About Release Governance', $post->title);
         $this->assertSame(2026, $post->publishedAt->year);
 
-        \Illuminate\Support\Facades\Cache::flush();
+        Cache::flush();
     }
 }

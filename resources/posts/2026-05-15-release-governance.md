@@ -13,7 +13,7 @@ hero_image: img/blog/release-governance.jpg
 
 Release governance has a reputation problem.
 
-To many engineers, it sounds like paperwork. To some managers, it sounds like control. In too many programs, it becomes a late-stage ritual where people ask whether something is ready only after the important decisions have already been made.
+For engineers, it can sound like paperwork. For managers, it can sound like control. In too many programs, it becomes a late-stage ritual where people ask whether something is ready only after the important decisions have already been made.
 
 I have spent roughly twenty years watching this pattern play out across teams, environments, and programs.
 

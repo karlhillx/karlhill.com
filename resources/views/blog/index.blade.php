@@ -1,9 +1,9 @@
 @extends('layouts.site', [
     'title'         => 'Writing — Karl Hill',
-    'description'   => 'Notes on engineering leadership, release governance, mission systems, and shipping under pressure — by Karl Hill.',
+    'description'   => 'Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on — by Karl Hill.',
     'canonical'     => rtrim(config('app.url', 'https://karlhill.com'), '/') . '/blog',
     'ogTitle'       => 'Writing — Karl Hill',
-    'ogDescription' => 'Notes on engineering leadership, release governance, mission systems, and shipping under pressure.',
+    'ogDescription' => 'Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on.',
     'activeNav'     => 'writing',
 ])
 
@@ -24,8 +24,7 @@
             Notes from<br>the field
         </h1>
         <p class="text-neutral-400 text-base leading-relaxed max-w-2xl">
-            Long-form notes on release governance, engineering leadership, mission systems,
-            and the unglamorous work of shipping software that has to actually be operated.
+            Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on.
         </p>
     </div>
 </section>
