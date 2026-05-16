@@ -112,6 +112,7 @@
             <div class="hidden md:flex items-center gap-8 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="#experience" class="hover:text-orange-500 transition-colors duration-200">Experience</a>
                 <a href="#work" class="hover:text-orange-500 transition-colors duration-200">Work</a>
+                <a href="/blog" class="hover:text-orange-500 transition-colors duration-200">Writing</a>
                 <a href="#research" class="hover:text-orange-500 transition-colors duration-200">Research</a>
                 <a href="#stack" class="hover:text-orange-500 transition-colors duration-200">Stack</a>
                 <a href="#contact" class="hover:text-orange-500 transition-colors duration-200">Contact</a>
@@ -143,6 +144,7 @@
             <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="#experience" class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Experience</a>
                 <a href="#work"       class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Work</a>
+                <a href="/blog"       class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Writing</a>
                 <a href="#research"   class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Research</a>
                 <a href="#stack"      class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Stack</a>
                 <a href="#contact"    class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Contact</a>

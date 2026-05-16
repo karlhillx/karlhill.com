@@ -40,4 +40,8 @@ return [
         'username' => env('GITHUB_USERNAME', 'karlhillx'),
     ],
 
+    'devto' => [
+        'api_key' => env('DEVTO_API_KEY'),
+    ],
+
 ];

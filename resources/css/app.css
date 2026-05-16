@@ -534,3 +534,347 @@ footer#contact {
     --font-display: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
+
+/* ---------------------------------------------------------------------------
+   Long-form prose for the blog. Hand-rolled to match the site's design tokens
+   without pulling in @tailwindcss/typography (which would override the
+   Bebas Neue display font and OKLCH oranges).
+--------------------------------------------------------------------------- */
+.prose-karl {
+    color: oklch(84% 0.012 250);
+    font-size: 0.9375rem; /* 15px — tighter for laptop reading */
+    line-height: 1.6;
+    max-width: 66ch;
+}
+
+.prose-karl p,
+.prose-karl ul,
+.prose-karl ol,
+.prose-karl blockquote,
+.prose-karl pre,
+.prose-karl figure {
+    margin: 0;
+}
+
+.prose-karl > * + * {
+    margin-top: 0.85em;
+}
+
+.prose-karl > p + p {
+    margin-top: 0.95em;
+}
+
+/* Extra breathing room around lists and blockquotes — they should feel like distinct blocks */
+.prose-karl > * + ul,
+.prose-karl > * + ol,
+.prose-karl > * + blockquote,
+.prose-karl > ul + *,
+.prose-karl > ol + *,
+.prose-karl > blockquote + * {
+    margin-top: 1.5em;
+}
+
+.prose-karl h2,
+.prose-karl h3,
+.prose-karl h4 {
+    font-family: var(--font-display);
+    color: #fafafa;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+}
+
+.prose-karl h2 {
+    font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+    margin-top: 1.9em;
+    margin-bottom: 0.5em;
+    padding-top: 0.85em;
+    border-top: 1px solid #262626;
+}
+
+.prose-karl h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.prose-karl h3 {
+    font-size: clamp(1.15rem, 1.9vw, 1.3rem);
+    margin-top: 1.5em;
+    margin-bottom: 0.3em;
+}
+
+.prose-karl h4 {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #f5f5f5;
+    margin-top: 1.4em;
+    margin-bottom: 0.15em;
+    letter-spacing: 0;
+}
+
+.prose-karl strong {
+    color: #fafafa;
+    font-weight: 600;
+}
+
+.prose-karl em {
+    color: oklch(92% 0.015 250);
+}
+
+.prose-karl a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 35%, transparent);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.18s ease, color 0.18s ease;
+}
+
+.prose-karl a:hover {
+    color: oklch(80% 0.18 50);
+    text-decoration-color: var(--accent);
+}
+
+.prose-karl code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    color: oklch(82% 0.12 50);
+    background: color-mix(in oklab, var(--accent) 8%, transparent);
+    border: 1px solid color-mix(in oklab, var(--accent) 18%, transparent);
+    padding: 0.08em 0.4em;
+    border-radius: 3px;
+}
+
+.prose-karl pre {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    line-height: 1.65;
+    background: #0d0d0d;
+    border: 1px solid #262626;
+    border-radius: 6px;
+    padding: 1.1em 1.3em;
+    overflow-x: auto;
+    color: #e5e5e5;
+}
+
+.prose-karl pre code {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+.prose-karl blockquote {
+    border-left: 2px solid var(--accent);
+    padding: 0.15em 0 0.15em 1.2em;
+    margin-left: 0;
+    color: oklch(82% 0.02 250);
+    font-style: normal;
+}
+
+.prose-karl blockquote p + p {
+    margin-top: 0.5em;
+}
+
+.prose-karl blockquote p::before,
+.prose-karl blockquote p::after {
+    content: "";
+}
+
+.prose-karl ul,
+.prose-karl ol {
+    padding-left: 1.4em;
+    list-style-position: outside;
+}
+
+.prose-karl ul {
+    list-style-type: disc;
+}
+
+.prose-karl ol {
+    list-style-type: decimal;
+}
+
+.prose-karl ul li,
+.prose-karl ol li {
+    margin-top: 0.35em;
+    padding-left: 0.2em;
+}
+
+.prose-karl ul li:first-child,
+.prose-karl ol li:first-child {
+    margin-top: 0;
+}
+
+.prose-karl ul li::marker {
+    color: var(--accent);
+}
+
+.prose-karl ol li::marker {
+    color: oklch(72% 0.04 50);
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+}
+
+/* Task lists — GFM `- [x]` syntax. Used as a visual device for lines that
+   represent "boxes that got checked" (e.g. CI green, PR approved). */
+.prose-karl ul:has(> li > input[type="checkbox"]) {
+    list-style: none;
+    padding-left: 0;
+}
+
+.prose-karl li:has(> input[type="checkbox"]) {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.7em;
+}
+
+.prose-karl li:has(> input[type="checkbox"])::marker {
+    content: "";
+}
+
+.prose-karl li > input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    flex-shrink: 0;
+    width: 1.05em;
+    height: 1.05em;
+    border: 1px solid color-mix(in oklab, oklch(72% 0.18 150) 55%, #2a2a2a);
+    border-radius: 3px;
+    background: color-mix(in oklab, oklch(72% 0.18 150) 8%, #0a0a0a);
+    position: relative;
+    transform: translateY(0.15em);
+    cursor: default;
+    margin: 0;
+}
+
+.prose-karl li > input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    width: 0.3em;
+    height: 0.55em;
+    border: solid oklch(78% 0.2 150);
+    border-width: 0 0.14em 0.14em 0;
+    transform: translate(-55%, -60%) rotate(45deg);
+}
+
+/* Cadence block — used at section codas to evoke a drum-fill rhythm.
+   Markdown: wrap three short lines in <div class="cadence">…</div>. */
+.prose-karl > * + .cadence,
+.prose-karl > .cadence + * {
+    margin-top: 1.7em;
+}
+
+.prose-karl .cadence p {
+    color: #fafafa;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+    padding-left: 1.5em;
+    position: relative;
+}
+
+.prose-karl .cadence p + p {
+    margin-top: 0.5em;
+}
+
+.prose-karl .cadence p::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* Signoff block — used to mark the final lines of an article. */
+.prose-karl > * + .signoff {
+    margin-top: 2.4em;
+    padding-top: 1.6em;
+    border-top: 1px solid color-mix(in oklab, var(--accent) 30%, #1a1a1a);
+}
+
+.prose-karl .signoff p {
+    margin: 0;
+    color: #e5e5e5;
+}
+
+.prose-karl .signoff p + p {
+    margin-top: 0.7em;
+}
+
+.prose-karl .signoff p:last-child {
+    margin-top: 1em;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.4vw, 1.65rem);
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    color: #fafafa;
+}
+
+.prose-karl .signoff p:last-child strong {
+    font-weight: inherit;
+}
+
+.prose-karl hr {
+    border: 0;
+    border-top: 1px solid #262626;
+    margin: 2em 0;
+}
+
+.prose-karl img {
+    border-radius: 4px;
+    border: 1px solid #262626;
+    max-width: 100%;
+    height: auto;
+}
+
+.prose-karl figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: #737373;
+    text-align: center;
+    margin-top: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.prose-karl table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+
+.prose-karl th,
+.prose-karl td {
+    border-bottom: 1px solid #262626;
+    padding: 0.65em 0.9em;
+    text-align: left;
+}
+
+.prose-karl th {
+    font-family: var(--font-mono);
+    font-size: 0.78em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+@media (max-width: 640px) {
+    .prose-karl {
+        font-size: 0.9375rem;
+        line-height: 1.58;
+    }
+
+    .prose-karl h2 {
+        margin-top: 1.6em;
+    }
+}

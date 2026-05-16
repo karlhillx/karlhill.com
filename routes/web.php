@@ -1,9 +1,21 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FeedController;
+use App\Http\Controllers\GitHubController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-Route::get('/api/github/repos', [App\Http\Controllers\GitHubController::class, 'getTopRepos']);
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])
+    ->where('slug', '[a-z0-9-]+')
+    ->name('blog.show');
+
+Route::get('/feed.xml', FeedController::class)->name('feed');
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
+
+Route::get('/api/github/repos', [GitHubController::class, 'getTopRepos']);

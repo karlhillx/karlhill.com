@@ -2,21 +2,20 @@
 
 namespace App\Providers;
 
+use App\Support\BlogPostRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
     public function register(): void
     {
-        //
+        $this->app->singleton(BlogPostRepository::class, function () {
+            return new BlogPostRepository(
+                directory: resource_path('posts'),
+            );
+        });
     }
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
         //
