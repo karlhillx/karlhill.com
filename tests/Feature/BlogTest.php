@@ -20,7 +20,7 @@ class BlogTest extends TestCase
         $response = $this->get('/blog');
 
         $response->assertStatus(200);
-        $response->assertSee('Notes from');
+        $response->assertSee('Notes from', escape: false);
         $response->assertSee('What 20 Years Taught Me About Release Governance', escape: false);
         $response->assertSee('Release governance', escape: false);
     }

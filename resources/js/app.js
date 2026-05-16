@@ -300,14 +300,15 @@ if (openSourceSection) {
 // ---------------------------------------------------------------------------
 // Scroll spy — highlight nav link for the section currently in view
 // ---------------------------------------------------------------------------
-const navLinks = document.querySelectorAll('nav a[href^="#"]');
+const navSpyLinks = document.querySelectorAll('nav[aria-label="Primary"] a[data-nav-section]');
 
 const spyObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-            const active = link.getAttribute('href') === `#${id}`;
+        navSpyLinks.forEach(link => {
+            const sectionId = link.dataset.navSection;
+            const active = sectionId === id;
             link.classList.toggle('text-orange-500', active);
             link.classList.toggle('text-neutral-500', !active);
         });
@@ -317,7 +318,18 @@ const spyObserver = new IntersectionObserver((entries) => {
     threshold: 0,
 });
 
-document.querySelectorAll('section[id], footer[id]').forEach(el => spyObserver.observe(el));
+document.querySelectorAll('main section[id], footer[id]').forEach(el => spyObserver.observe(el));
+
+// ---------------------------------------------------------------------------
+// Desktop "More" nav — close when clicking outside the disclosure
+// ---------------------------------------------------------------------------
+document.addEventListener('click', (e) => {
+    document.querySelectorAll('details.nav-more[open]').forEach((details) => {
+        if (!details.contains(e.target)) {
+            details.removeAttribute('open');
+        }
+    });
+});
 
 // ---------------------------------------------------------------------------
 // Mobile menu controls
@@ -331,8 +343,8 @@ navToggle?.addEventListener('click', () => {
     if (mobileMenu) mobileMenu.hidden = expanded;
 });
 
-mobileMenu?.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
+mobileMenu?.querySelectorAll('a, button[data-command-palette-trigger]').forEach((el) => {
+    el.addEventListener('click', () => {
         mobileMenu.hidden = true;
         navToggle?.setAttribute('aria-expanded', 'false');
     });

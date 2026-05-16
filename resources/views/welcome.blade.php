@@ -1,164 +1,80 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Karl Hill — Staff Software Engineer</title>
-    <meta name="description" content="Karl Hill is a Staff Software Engineer with 25+ years of experience. Built NASA Goddard's Earth Observatory, flood mapping, and direct readout satellite platforms. Now leading aerospace software at Jacobs.">
+@extends('layouts.site', [
+    'title' => 'Karl Hill — Staff Software Engineer',
+    'description' => 'Karl Hill is a Staff Software Engineer with 25+ years of experience. Built NASA Goddard\'s Earth Observatory, flood mapping, and direct readout satellite platforms. Now leading aerospace software at Jacobs.',
+    'canonical' => $homeStructuredUrl,
+    'ogTitle' => 'Karl Hill — Staff Software Engineer',
+    'ogDescription' => '25+ years shipping systems under pressure — from NASA Goddard\'s Earth science and flood mapping platforms to mission-critical aerospace software at Jacobs/BlackLynx.',
+    'ogImage' => $homeStructuredUrl . '/img/profile.jpg',
+    'activeNav' => null,
+])
 
-    {{-- Open Graph --}}
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://karlhill.com">
-    <meta property="og:title" content="Karl Hill — Staff Software Engineer">
-    <meta property="og:description" content="25+ years shipping systems under pressure — from NASA Goddard's Earth science and flood mapping platforms to mission-critical aerospace software at Jacobs/BlackLynx.">
-    <meta property="og:image" content="https://karlhill.com/img/profile.jpg">
-    <meta property="og:image:width" content="800">
-    <meta property="og:image:height" content="800">
-
-    {{-- Twitter / X --}}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@karl_hill">
-    <meta name="twitter:creator" content="@karl_hill">
-    <meta name="twitter:title" content="Karl Hill — Staff Software Engineer">
-    <meta name="twitter:description" content="25+ years shipping systems under pressure — from NASA Goddard's Earth science and flood mapping platforms to mission-critical aerospace software at Jacobs/BlackLynx.">
-    <meta name="twitter:image" content="https://karlhill.com/img/profile.jpg">
-
-    <meta name="theme-color" content="#080808">
-
-    <link rel="canonical" href="https://karlhill.com">
-
-    {{-- Favicons --}}
-    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
-    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    {{-- Structured Data --}}
-    @verbatim
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Karl Hill",
-        "jobTitle": "Staff Software Engineer",
-        "url": "https://karlhill.com",
-        "image": "https://karlhill.com/img/profile.jpg",
-        "email": "karlhillx@gmail.com",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Washington",
-            "addressRegion": "DC",
-            "addressCountry": "US"
-        },
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Jacobs"
-        },
-        "subjectOf": [
-            {
-                "@type": "ScholarlyArticle",
-                "name": "A Web-Based High-resolution Global Water and Flood Mapping Platform",
-                "url": "https://doi.org/10.1144/gh2025-7",
-                "identifier": "https://doi.org/10.1144/gh2025-7",
-                "datePublished": "2026-05-05",
-                "isPartOf": {
-                    "@type": "Periodical",
-                    "name": "GeoHorizons"
-                }
-            }
+@push('head')
+@php
+    $u = $homeStructuredUrl;
+    $personLd = [
+        '@type' => 'Person',
+        'name' => 'Karl Hill',
+        'jobTitle' => 'Staff Software Engineer',
+        'url' => $u,
+        'image' => $u . '/img/profile.jpg',
+        'email' => 'karlhillx@gmail.com',
+        'address' => [
+            '@type' => 'PostalAddress',
+            'addressLocality' => 'Washington',
+            'addressRegion' => 'DC',
+            'addressCountry' => 'US',
         ],
-        "sameAs": [
-            "https://www.linkedin.com/in/khill/",
-            "https://github.com/karlhillx",
-            "https://twitter.com/karl_hill",
-            "https://orcid.org/0009-0002-6847-3368",
-            "https://www.researchgate.net/profile/Karl-Hill-2",
-            "https://www.discogs.com/artist/1286669-Karl-Hill"
-        ]
-    }
-    </script>
-    @endverbatim
-</head>
-<body class="bg-[#080808] text-neutral-100 antialiased">
+        'worksFor' => [
+            '@type' => 'Organization',
+            'name' => 'Jacobs',
+        ],
+        'subjectOf' => [
+            [
+                '@type' => 'ScholarlyArticle',
+                'name' => 'A Web-Based High-resolution Global Water and Flood Mapping Platform',
+                'url' => 'https://doi.org/10.1144/gh2025-7',
+                'identifier' => 'https://doi.org/10.1144/gh2025-7',
+                'datePublished' => '2026-05-05',
+                'isPartOf' => [
+                    '@type' => 'Periodical',
+                    'name' => 'GeoHorizons',
+                ],
+            ],
+        ],
+        'sameAs' => [
+            'https://www.linkedin.com/in/khill/',
+            'https://github.com/karlhillx',
+            'https://twitter.com/karl_hill',
+            'https://orcid.org/0009-0002-6847-3368',
+            'https://www.researchgate.net/profile/Karl-Hill-2',
+            'https://www.discogs.com/artist/1286669-Karl-Hill',
+        ],
+    ];
+    $blogPostsLd = $postsForJsonLd->map(fn ($p) => [
+        '@type' => 'BlogPosting',
+        'headline' => $p->title,
+        'url' => $p->canonicalUrl(),
+        'datePublished' => $p->publishedAt->toIso8601String(),
+        'description' => $p->excerpt,
+    ])->values()->all();
+    $blogLd = [
+        '@type' => 'Blog',
+        'name' => 'Karl Hill — Writing',
+        'url' => $u . '/blog',
+        'author' => ['@type' => 'Person', 'name' => 'Karl Hill', 'url' => $u],
+        'blogPost' => $blogPostsLd,
+    ];
+    $graphLd = [
+        '@context' => 'https://schema.org',
+        '@graph' => [$personLd, $blogLd],
+    ];
+@endphp
+<script type="application/ld+json">
+{!! json_encode($graphLd, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
 
-    <div class="cursor-spotlight" aria-hidden="true"></div>
-
-    {{-- Film-grain overlay (SVG turbulence; pure-CSS blended) --}}
-    <svg class="grain" aria-hidden="true" preserveAspectRatio="none">
-        <filter id="grain-noise">
-            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
-            <feColorMatrix values="0 0 0 0 1
-                                   0 0 0 0 1
-                                   0 0 0 0 1
-                                   0 0 0 0.045 0"/>
-        </filter>
-        <rect width="100%" height="100%" filter="url(#grain-noise)"/>
-    </svg>
-
-    <a href="#main-content"
-       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-black focus:font-semibold focus:text-xs focus:uppercase focus:tracking-widest">
-        Skip to content
-    </a>
-
-    {{-- Nav --}}
-    <nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-[#080808]/90 backdrop-blur-sm nav-enter">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <span class="font-display text-2xl tracking-wider text-orange-500" style="view-transition-name: brand">KARL HILL</span>
-            <div class="hidden md:flex items-center gap-8 font-mono text-xs text-neutral-500 uppercase tracking-widest">
-                <a href="#experience" class="hover:text-orange-500 transition-colors duration-200">Experience</a>
-                <a href="#work" class="hover:text-orange-500 transition-colors duration-200">Work</a>
-                <a href="/blog" class="hover:text-orange-500 transition-colors duration-200">Writing</a>
-                <a href="#research" class="hover:text-orange-500 transition-colors duration-200">Research</a>
-                <a href="#stack" class="hover:text-orange-500 transition-colors duration-200">Stack</a>
-                <a href="#contact" class="hover:text-orange-500 transition-colors duration-200">Contact</a>
-            </div>
-            <div class="flex items-center gap-3">
-                <button type="button"
-                        data-command-palette-trigger
-                        aria-label="Open command palette"
-                        title="Search (⌘K)"
-                        class="hidden md:inline-flex items-center gap-2 font-mono text-[10px] text-neutral-500 border border-neutral-800 px-3 py-2.5 uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
-                    <span aria-hidden="true">⌘K</span>
-                    <span class="sr-only">Open command palette</span>
-                </button>
-                <a href="mailto:karlhillx@gmail.com"
-                   class="text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200">
-                    Get in Touch
-                </a>
-                {{-- Mobile hamburger --}}
-                <button id="nav-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation"
-                        class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 border border-neutral-700 hover:border-orange-500 transition-colors shrink-0">
-                    <span class="block w-4 h-px bg-current" aria-hidden="true"></span>
-                    <span class="block w-4 h-px bg-current" aria-hidden="true"></span>
-                    <span class="block w-4 h-px bg-current" aria-hidden="true"></span>
-                </button>
-            </div>
-        </div>
-        {{-- Mobile menu --}}
-        <div id="mobile-menu" hidden class="md:hidden border-t border-neutral-800 bg-[#080808]/98 backdrop-blur-sm">
-            <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1 font-mono text-xs text-neutral-500 uppercase tracking-widest">
-                <a href="#experience" class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Experience</a>
-                <a href="#work"       class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Work</a>
-                <a href="/blog"       class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Writing</a>
-                <a href="#research"   class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Research</a>
-                <a href="#stack"      class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Stack</a>
-                <a href="#contact"    class="py-3 border-b border-neutral-800/50 hover:text-orange-500 transition-colors">Contact</a>
-                <button type="button"
-                        data-command-palette-trigger
-                        class="py-3 text-left hover:text-orange-500 transition-colors">
-                    Search · ⌘K
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <main id="main-content" class="relative z-10">
-
+@section('content')
     {{-- Hero --}}
     <section id="hero" class="relative min-h-screen flex flex-col justify-end pt-24 pb-16 px-6 overflow-hidden">
 
@@ -221,6 +137,25 @@
             </div>
         </div>
     </section>
+
+    @if($latestPost)
+    <section class="border-t border-neutral-800 bg-neutral-900/20 px-6 py-10" aria-label="Latest writing" data-reveal>
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+                <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-2">Latest writing</p>
+                <a href="{{ $latestPost->url() }}" class="group block">
+                    <h2 class="font-display text-2xl md:text-3xl text-neutral-100 group-hover:text-orange-500 tracking-wide transition-colors leading-tight">
+                        {{ $latestPost->title }} <span class="arrow-nudge inline-block text-orange-500" aria-hidden="true">→</span>
+                    </h2>
+                    <p class="text-neutral-500 text-sm mt-2 max-w-2xl leading-relaxed line-clamp-2 md:line-clamp-none">{{ $latestPost->excerpt }}</p>
+                </a>
+            </div>
+            <a href="/blog" class="shrink-0 font-mono text-xs text-orange-500 uppercase tracking-widest border border-orange-500/40 hover:bg-orange-500/10 px-5 py-3 text-center transition-colors">
+                All writing
+            </a>
+        </div>
+    </section>
+    @endif
 
     {{-- Why Hire Me --}}
 
@@ -660,9 +595,9 @@
         </div>
     </section>
 
-    </main>
+@endsection
 
-    {{-- Contact / Footer --}}
+@section('page_footer')
     <footer id="contact" class="relative z-10 border-t border-neutral-800 py-24 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
@@ -749,30 +684,4 @@
     {{-- Section mini-map (populated by JS) --}}
     <nav id="section-minimap" aria-label="Section navigation"></nav>
 
-    {{-- Contextual back-to-top --}}
-    <button id="quick-back-top" type="button"
-            class="quick-back-top font-mono text-[10px] uppercase tracking-widest"
-            aria-label="Back to top">
-        ↑ Top
-    </button>
-
-    {{-- Command palette (Cmd/Ctrl+K) --}}
-    <div id="command-palette" class="command-palette hidden" role="dialog" aria-modal="true" aria-labelledby="command-palette-title">
-        <div class="command-palette-panel">
-            <h2 id="command-palette-title" class="sr-only">Command palette</h2>
-            <input id="command-input" type="text"
-                   class="command-input font-mono"
-                   placeholder="Jump to a section…"
-                   role="combobox"
-                   aria-expanded="true"
-                   aria-controls="command-results"
-                   aria-autocomplete="list"
-                   autocomplete="off"
-                   spellcheck="false">
-            <div id="command-results" class="command-results mt-3" role="listbox" aria-label="Commands"></div>
-        </div>
-    </div>
-
-    {{-- Mobile menu / nav toggle behavior is handled in resources/js/app.js --}}
-</body>
-</html>
+@endsection

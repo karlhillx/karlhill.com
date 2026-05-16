@@ -15,5 +15,7 @@ class ExampleTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
+        $response->assertSee('Karl Hill', escape: false);
+        $response->assertSee('BlogPosting', escape: false);
     }
 }
