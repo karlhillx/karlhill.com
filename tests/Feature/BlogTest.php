@@ -22,7 +22,7 @@ class BlogTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Notes from');
         $response->assertSee('What 20 Years Taught Me About Release Governance', escape: false);
-        $response->assertSee('release governance', escape: false);
+        $response->assertSee('Release governance', escape: false);
     }
 
     public function test_blog_show_renders_for_known_slug(): void
@@ -39,7 +39,17 @@ class BlogTest extends TestCase
 
     public function test_blog_show_returns_404_for_unknown_slug(): void
     {
-        $this->get('/blog/no-such-post')->assertStatus(404);
+        $response = $this->get('/blog/no-such-post');
+        $response->assertStatus(404);
+        $response->assertSee('Page not found', escape: false);
+    }
+
+    public function test_unknown_web_route_renders_custom_404(): void
+    {
+        $response = $this->get('/this-path-does-not-exist');
+        $response->assertStatus(404);
+        $response->assertSee('Page not found', escape: false);
+        $response->assertSee('name="robots" content="noindex"', escape: false);
     }
 
     public function test_blog_post_repository_parses_frontmatter(): void
