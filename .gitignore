@@ -1,24 +1,43 @@
-*.log
-.DS_Store
+# Laravel / PHP project .gitignore
+# Source of truth: lynx-devops/templates/laravel.gitignore
+
+# Dependencies
+/vendor
+/node_modules
+
+# Environment
 .env
 .env.backup
 .env.production
-.phpactor.json
-.phpunit.result.cache
-/.fleet
-/.idea
-/.nova
-/.phpunit.cache
-/.vscode
-/.zed
 /auth.json
-/node_modules
+
+# Laravel build / runtime
 /public/build
 /public/hot
 /public/storage
 /storage/*.key
 /storage/pail
-/vendor
+
+# PHPUnit / IDE
+.phpactor.json
+.phpunit.result.cache
+/.phpunit.cache
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+
+# Homestead
 Homestead.json
 Homestead.yaml
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
 Thumbs.db
