@@ -12,14 +12,33 @@ echo "→ Installing JS dependencies and building assets"
 npm ci
 npm run build
 
-if command -v python3 >/dev/null 2>&1; then
+ensure_python_image_tools() {
+  if python3 -c "from PIL import Image" >/dev/null 2>&1; then
+    return 0
+  fi
+
   echo "→ Ensuring Python image tooling"
-  python3 -m pip install --user -q -r scripts/requirements.txt 2>/dev/null \
-    || python3 -m pip install -q -r scripts/requirements.txt
-else
-  echo "error: python3 is required for OG and WebP generation" >&2
-  exit 1
-fi
+
+  if command -v apt-get >/dev/null 2>&1; then
+    apt-get update -qq
+    DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-pil python3-pip
+  fi
+
+  if ! python3 -c "from PIL import Image" >/dev/null 2>&1; then
+    if python3 -m pip --version >/dev/null 2>&1; then
+      python3 -m pip install -q -r scripts/requirements.txt
+    elif python3 -m ensurepip --upgrade >/dev/null 2>&1; then
+      python3 -m pip install -q -r scripts/requirements.txt
+    fi
+  fi
+
+  if ! python3 -c "from PIL import Image" >/dev/null 2>&1; then
+    echo "error: Pillow is required for OG and WebP generation" >&2
+    exit 1
+  fi
+}
+
+ensure_python_image_tools
 
 echo "→ Generating OG images and WebP variants"
 php artisan og:generate --quiet
