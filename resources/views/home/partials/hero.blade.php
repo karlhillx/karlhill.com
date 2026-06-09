@@ -12,14 +12,11 @@
             @php($person = config('site.person'))
             @php($hero = config('site.hero'))
             <div class="flex items-center gap-4 mb-8 hero-enter" style="animation-delay:100ms">
-                <picture>
-                    <source srcset="/img/webp/profile.webp" type="image/webp">
-                    <img src="/img/profile.jpg" alt="{{ $person['name'] }}"
-                         width="48" height="48"
-                         loading="eager" fetchpriority="high" decoding="async"
-                         style="view-transition-name: portrait"
-                         class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-500/30 shrink-0">
-                </picture>
+                <img src="/img/webp/profile.webp" alt="{{ $person['name'] }}"
+                     width="48" height="48"
+                     loading="eager" fetchpriority="high" decoding="async"
+                     style="view-transition-name: portrait"
+                     class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-500/30 shrink-0">
                 <p class="font-mono text-orange-500 text-xs tracking-widest uppercase">
                     {{ $person['job_title'] }} &nbsp;·&nbsp; 25+ Years
                 </p>

@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "karlhillx/karlhill.com",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Personal site for Karl Hill — Laravel 13 + Tailwind v4.",
+    "keywords": ["laravel", "portfolio", "blog"],
     "license": "MIT",
     "require": {
         "php": "^8.4",
@@ -79,6 +79,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

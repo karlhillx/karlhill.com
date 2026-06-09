@@ -16,6 +16,9 @@ final class PageMeta
         public readonly string $ogType = 'website',
         public readonly ?string $activeNav = null,
         public readonly bool $noindex = false,
+        public readonly ?string $articlePublishedTime = null,
+        public readonly ?string $articleModifiedTime = null,
+        public readonly ?string $articleAuthor = null,
     ) {}
 
     public static function siteUrl(): string
@@ -56,6 +59,8 @@ final class PageMeta
 
     public static function forPost(BlogPost $post): self
     {
+        $author = config('site.person.name');
+
         return new self(
             title: "{$post->title} — Karl Hill",
             description: Str::limit($post->excerpt, 155, '…'),
@@ -65,6 +70,9 @@ final class PageMeta
             ogImage: $post->ogImageUrl(),
             ogType: 'article',
             activeNav: 'writing',
+            articlePublishedTime: $post->publishedAt->toIso8601String(),
+            articleModifiedTime: $post->modifiedAt()->toIso8601String(),
+            articleAuthor: $author,
         );
     }
 
@@ -97,6 +105,9 @@ final class PageMeta
             'ogType' => $this->ogType,
             'activeNav' => $this->activeNav,
             'noindex' => $this->noindex,
+            'articlePublishedTime' => $this->articlePublishedTime,
+            'articleModifiedTime' => $this->articleModifiedTime,
+            'articleAuthor' => $this->articleAuthor,
         ];
     }
 }

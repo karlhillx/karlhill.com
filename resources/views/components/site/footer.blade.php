@@ -49,7 +49,6 @@
         ])>
             <p class="font-display {{ $isHome ? 'text-3xl' : 'text-2xl' }} tracking-widest text-neutral-600">{{ $person['name'] }}</p>
             <p class="font-mono text-xs text-neutral-500">{{ $person['location'] }} &nbsp;·&nbsp; {{ $person['job_title'] }} &nbsp;·&nbsp; 25+ Years</p>
-            <p class="font-mono text-xs text-neutral-700">Laravel {{ app()->version() }}</p>
         </div>
     </div>
 </footer>

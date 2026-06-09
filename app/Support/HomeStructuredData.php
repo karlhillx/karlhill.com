@@ -21,7 +21,7 @@ final class HomeStructuredData
             'name' => $person['name'],
             'jobTitle' => $person['job_title'],
             'url' => $url,
-            'image' => "{$url}/img/profile.jpg",
+            'image' => "{$url}/img/webp/profile.webp",
             'email' => $person['email'],
             'address' => [
                 '@type' => 'PostalAddress',

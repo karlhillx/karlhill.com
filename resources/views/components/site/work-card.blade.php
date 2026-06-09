@@ -8,17 +8,16 @@
 ])
 
 @php
-    $webpImg = preg_replace('/\.(png|jpe?g)$/i', '.webp', str_replace('/img/', '/img/webp/', $image));
+    $webpImg = str_ends_with(strtolower($image), '.webp')
+        ? $image
+        : preg_replace('/\.(png|jpe?g)$/i', '.webp', str_replace('/img/', '/img/webp/', $image));
 @endphp
 
 <div {{ $attributes->merge(['class' => 'bg-[#080808] group relative overflow-hidden h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/60 transition-shadow duration-300']) }} tabindex="0" data-reveal>
-    <picture>
-        <source srcset="{{ $webpImg }}" type="image/webp">
-        <img src="{{ $image }}" alt="{{ $title }}"
-             width="960" height="720"
-             loading="lazy" decoding="async"
-             class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out">
-    </picture>
+    <img src="{{ $webpImg }}" alt="{{ $title }}"
+         width="960" height="720"
+         loading="lazy" decoding="async"
+         class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out">
 
     <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/60 to-transparent"></div>
 

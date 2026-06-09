@@ -16,7 +16,7 @@
     'description'     => $post->excerpt,
     'image'           => $ogImage,
     'datePublished'   => $post->publishedAt->toIso8601String(),
-    'dateModified'    => $post->publishedAt->toIso8601String(),
+    'dateModified'    => $post->modifiedAt()->toIso8601String(),
     'mainEntityOfPage' => [
         '@type' => 'WebPage',
         '@id'   => $post->canonicalUrl(),
@@ -27,8 +27,9 @@
         'url'   => rtrim(config('app.url', 'https://karlhill.com'), '/'),
     ],
     'publisher' => [
-        '@type' => 'Person',
-        'name'  => config('site.person.name'),
+        '@type' => 'Organization',
+        'name'  => 'Karl Hill',
+        'url'   => rtrim(config('app.url', 'https://karlhill.com'), '/'),
     ],
     'keywords' => implode(', ', $post->tags),
 ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}

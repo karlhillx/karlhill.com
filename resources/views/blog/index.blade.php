@@ -1,5 +1,28 @@
 @extends('layouts.site', ['meta' => $meta])
 
+@push('head')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type'    => 'Blog',
+    'name'     => 'Karl Hill — Writing',
+    'url'      => rtrim(config('app.url', 'https://karlhill.com'), '/') . '/blog',
+    'author'   => [
+        '@type' => 'Person',
+        'name'  => config('site.person.name'),
+        'url'   => rtrim(config('app.url', 'https://karlhill.com'), '/'),
+    ],
+    'blogPost' => $posts->map(fn($p) => [
+        '@type'         => 'BlogPosting',
+        'headline'      => $p->title,
+        'datePublished' => $p->publishedAt->toIso8601String(),
+        'url'           => $p->canonicalUrl(),
+        'description'   => $p->excerpt,
+    ])->all(),
+], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
+
 @section('content')
 
 <section class="relative pt-40 pb-20 px-6 overflow-hidden">
@@ -68,25 +91,3 @@
 
 @endsection
 
-@push('head')
-<script type="application/ld+json">
-{!! json_encode([
-    '@context' => 'https://schema.org',
-    '@type'    => 'Blog',
-    'name'     => 'Karl Hill — Writing',
-    'url'      => rtrim(config('app.url', 'https://karlhill.com'), '/') . '/blog',
-    'author'   => [
-        '@type' => 'Person',
-        'name'  => config('site.person.name'),
-        'url'   => rtrim(config('app.url', 'https://karlhill.com'), '/'),
-    ],
-    'blogPost' => $posts->map(fn($p) => [
-        '@type'         => 'BlogPosting',
-        'headline'      => $p->title,
-        'datePublished' => $p->publishedAt->toIso8601String(),
-        'url'           => $p->canonicalUrl(),
-        'description'   => $p->excerpt,
-    ])->all(),
-], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
-</script>
-@endpush

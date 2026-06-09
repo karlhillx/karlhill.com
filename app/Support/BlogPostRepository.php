@@ -7,11 +7,11 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
 use League\CommonMark\MarkdownConverter;
-use League\CommonMark\Environment\Environment;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 class BlogPostRepository
@@ -109,6 +109,9 @@ class BlogPostRepository
             ? CarbonImmutable::parse($publishedRaw)
             : CarbonImmutable::createFromTimestamp(filemtime($path));
 
+        $updatedRaw = $document->matter('updated') ?? $document->matter('updated_at');
+        $updatedAt = $updatedRaw ? CarbonImmutable::parse($updatedRaw) : null;
+
         $tags = $document->matter('tags');
         if (is_string($tags)) {
             $tags = array_filter(array_map('trim', explode(',', $tags)));
@@ -124,17 +127,18 @@ class BlogPostRepository
         $devToId = $document->matter('dev_to_id');
 
         return [
-            'slug'          => $slug,
-            'title'         => $title,
-            'excerpt'       => $excerpt,
-            'published_at'  => $publishedAt->toIso8601String(),
-            'tags'          => $tags,
-            'hero_image'    => $document->matter('hero_image'),
-            'body_html'     => $bodyHtml,
+            'slug' => $slug,
+            'title' => $title,
+            'excerpt' => $excerpt,
+            'published_at' => $publishedAt->toIso8601String(),
+            'updated_at' => $updatedAt?->toIso8601String(),
+            'tags' => $tags,
+            'hero_image' => $document->matter('hero_image'),
+            'body_html' => $bodyHtml,
             'body_markdown' => $bodyMarkdown,
-            'source_path'   => $path,
-            'dev_to_id'     => $devToId !== null ? (int) $devToId : null,
-            'read_minutes'  => $this->estimateReadMinutes($bodyMarkdown),
+            'source_path' => $path,
+            'dev_to_id' => $devToId !== null ? (int) $devToId : null,
+            'read_minutes' => $this->estimateReadMinutes($bodyMarkdown),
         ];
     }
 
@@ -144,32 +148,35 @@ class BlogPostRepository
     protected function hydrate(array $row): BlogPost
     {
         return new BlogPost(
-            slug:         (string) $row['slug'],
-            title:        (string) $row['title'],
-            excerpt:      (string) $row['excerpt'],
-            publishedAt:  CarbonImmutable::parse($row['published_at']),
-            tags:         (array) $row['tags'],
-            heroImage:    $row['hero_image'] !== null ? (string) $row['hero_image'] : null,
-            bodyHtml:     (string) $row['body_html'],
+            slug: (string) $row['slug'],
+            title: (string) $row['title'],
+            excerpt: (string) $row['excerpt'],
+            publishedAt: CarbonImmutable::parse($row['published_at']),
+            updatedAt: isset($row['updated_at']) && $row['updated_at']
+                ? CarbonImmutable::parse($row['updated_at'])
+                : null,
+            tags: (array) $row['tags'],
+            heroImage: $row['hero_image'] !== null ? (string) $row['hero_image'] : null,
+            bodyHtml: (string) $row['body_html'],
             bodyMarkdown: (string) $row['body_markdown'],
-            sourcePath:   (string) $row['source_path'],
-            devToId:      $row['dev_to_id'] !== null ? (int) $row['dev_to_id'] : null,
-            readMinutes:  (int) $row['read_minutes'],
+            sourcePath: (string) $row['source_path'],
+            devToId: $row['dev_to_id'] !== null ? (int) $row['dev_to_id'] : null,
+            readMinutes: (int) $row['read_minutes'],
         );
     }
 
     protected function renderMarkdown(string $markdown): string
     {
         $environment = new Environment([
-            'html_input'         => 'allow',
+            'html_input' => 'allow',
             'allow_unsafe_links' => false,
-            'renderer'           => [
+            'renderer' => [
                 'soft_break' => "<br>\n",
             ],
         ]);
-        $environment->addExtension(new CommonMarkCoreExtension());
-        $environment->addExtension(new GithubFlavoredMarkdownExtension());
-        $environment->addExtension(new SmartPunctExtension());
+        $environment->addExtension(new CommonMarkCoreExtension);
+        $environment->addExtension(new GithubFlavoredMarkdownExtension);
+        $environment->addExtension(new SmartPunctExtension);
 
         $converter = new MarkdownConverter($environment);
 
@@ -216,7 +223,7 @@ class BlogPostRepository
         }
 
         $entries = collect(File::files($this->directory))
-            ->map(fn ($file) => $file->getFilename() . ':' . $file->getMTime())
+            ->map(fn ($file) => $file->getFilename().':'.$file->getMTime())
             ->sort()
             ->values()
             ->all();

@@ -1,6 +1,5 @@
-import './bootstrap';
+// Vanilla JS for scroll effects, command palette, and blog share actions.
 
-// Check user's motion preference once
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const prefersFinePointer = window.matchMedia('(pointer: fine)').matches;
 

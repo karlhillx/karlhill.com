@@ -60,10 +60,10 @@ class SyndicatePost extends Command
         }
 
         $http = Http::withHeaders([
-            'api-key'      => $apiKey,
-            'Accept'       => 'application/vnd.forem.api-v1+json',
+            'api-key' => $apiKey,
+            'Accept' => 'application/vnd.forem.api-v1+json',
             'Content-Type' => 'application/json',
-            'User-Agent'   => 'karlhill.com-syndicator/1.0',
+            'User-Agent' => 'karlhill.com-syndicator/1.0',
         ])->timeout(20);
 
         $shouldUpdate = $post->devToId !== null && ! $this->option('update');
@@ -109,16 +109,16 @@ class SyndicatePost extends Command
     {
         return [
             'article' => array_filter([
-                'title'         => $post->title,
+                'title' => $post->title,
                 'body_markdown' => $post->bodyMarkdown,
-                'published'     => true,
-                'tags'          => array_slice(array_map(
+                'published' => true,
+                'tags' => array_slice(array_map(
                     fn ($t) => preg_replace('/[^a-z0-9]/', '', strtolower((string) $t)),
                     $post->tags
                 ), 0, 4),
                 'canonical_url' => $post->canonicalUrl(),
-                'main_image'    => $post->heroImageUrl(),
-                'description'   => $post->excerpt,
+                'main_image' => $post->heroImageUrl(),
+                'description' => $post->excerpt,
             ], fn ($v) => $v !== null && $v !== '' && $v !== []),
         ];
     }
@@ -139,7 +139,7 @@ class SyndicatePost extends Command
         $frontmatter['dev_to_id'] = $devToId;
 
         $newYaml = Yaml::dump($frontmatter, 4, 2, Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK);
-        $newRaw = "---\n" . rtrim($newYaml, "\n") . "\n---\n" . ltrim($body, "\r\n");
+        $newRaw = "---\n".rtrim($newYaml, "\n")."\n---\n".ltrim($body, "\r\n");
 
         File::put($post->sourcePath, $newRaw);
     }

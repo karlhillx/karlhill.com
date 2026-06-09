@@ -36,7 +36,7 @@ return [
     ],
 
     'github' => [
-        'token'    => env('GITHUB_TOKEN'),
+        'token' => env('GITHUB_TOKEN'),
         'username' => env('GITHUB_USERNAME', 'karlhillx'),
     ],
 

@@ -15,9 +15,18 @@ echo "→ Installing JS dependencies and building assets"
 npm ci
 npm run build
 
+if command -v python3 >/dev/null 2>&1; then
+  echo "→ Ensuring Python image tooling"
+  python3 -m pip install --user -q -r scripts/requirements.txt 2>/dev/null \
+    || python3 -m pip install -q -r scripts/requirements.txt
+else
+  echo "error: python3 is required for OG and WebP generation" >&2
+  exit 1
+fi
+
 echo "→ Generating OG images and WebP variants"
-php artisan og:generate --quiet || true
-php artisan assets:webp --quiet || true
+php artisan og:generate --quiet
+php artisan assets:webp --quiet
 
 echo "→ Optimizing Laravel"
 php artisan optimize

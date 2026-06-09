@@ -40,7 +40,7 @@ def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.Im
 
 
 def generate_home() -> Path:
-    profile_path = PUBLIC / "profile.jpg"
+    profile_path = PUBLIC / "webp" / "profile.webp"
     out_path = PUBLIC / "og-home.jpg"
 
     img = Image.new("RGB", (W, H), BG)

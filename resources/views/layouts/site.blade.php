@@ -19,6 +19,17 @@
     <meta property="og:image" content="{{ $ogImage ?? $siteUrl.'/img/og-home.jpg' }}">
     <meta property="og:image:width" content="{{ $ogImageWidth ?? 1200 }}">
     <meta property="og:image:height" content="{{ $ogImageHeight ?? 630 }}">
+    @if(($ogType ?? 'website') === 'article')
+        @if($articlePublishedTime ?? null)
+            <meta property="article:published_time" content="{{ $articlePublishedTime }}">
+        @endif
+        @if($articleModifiedTime ?? null)
+            <meta property="article:modified_time" content="{{ $articleModifiedTime }}">
+        @endif
+        @if($articleAuthor ?? null)
+            <meta property="article:author" content="{{ $articleAuthor }}">
+        @endif
+    @endif
 
     {{-- Twitter / X --}}
     <meta name="twitter:card" content="summary_large_image">
@@ -42,6 +53,7 @@
     <link rel="alternate" type="application/atom+xml" title="Karl Hill — Writing" href="/feed.xml">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <x-site.analytics />
     @stack('head')
 </head>
 <body class="bg-[#080808] text-neutral-100 antialiased">
@@ -67,7 +79,6 @@
     <x-site.nav :active-nav="$activeNav ?? null" />
 
     <main id="main-content" class="relative z-10">
-        {{ $slot ?? '' }}
         @yield('content')
     </main>
 

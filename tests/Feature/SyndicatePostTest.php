@@ -11,6 +11,7 @@ use Tests\TestCase;
 class SyndicatePostTest extends TestCase
 {
     protected string $fixturePath;
+
     protected ?string $originalContents = null;
 
     protected function setUp(): void
@@ -38,7 +39,7 @@ class SyndicatePostTest extends TestCase
         Http::fake();
 
         $exit = Artisan::call('post:syndicate', [
-            'slug'      => 'release-governance',
+            'slug' => 'release-governance',
             '--dry-run' => true,
         ]);
         $output = Artisan::output();
@@ -56,7 +57,7 @@ class SyndicatePostTest extends TestCase
     {
         Http::fake([
             'dev.to/api/articles' => Http::response([
-                'id'  => 987654,
+                'id' => 987654,
                 'url' => 'https://dev.to/karlhill/release-governance-abc',
             ], 201),
         ]);
@@ -97,7 +98,7 @@ class SyndicatePostTest extends TestCase
 
         Http::fake([
             'dev.to/api/articles/555' => Http::response([
-                'id'  => 555,
+                'id' => 555,
                 'url' => 'https://dev.to/karlhill/release-governance-abc',
             ], 200),
         ]);
@@ -127,7 +128,7 @@ class SyndicatePostTest extends TestCase
     public function test_fails_for_unknown_slug(): void
     {
         $this->artisan('post:syndicate', ['slug' => 'no-such-post'])
-            ->expectsOutputToContain("No post found")
+            ->expectsOutputToContain('No post found')
             ->assertExitCode(1);
     }
 }

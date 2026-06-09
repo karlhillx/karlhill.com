@@ -14,6 +14,7 @@ final class BlogPost
         public readonly string $title,
         public readonly string $excerpt,
         public readonly CarbonImmutable $publishedAt,
+        public readonly ?CarbonImmutable $updatedAt,
         public readonly array $tags,
         public readonly ?string $heroImage,
         public readonly string $bodyHtml,
@@ -31,7 +32,7 @@ final class BlogPost
     public function canonicalUrl(): string
     {
         return rtrim(config('app.url', 'https://karlhill.com'), '/')
-            . '/blog/' . $this->slug;
+            .'/blog/'.$this->slug;
     }
 
     /**
@@ -47,7 +48,7 @@ final class BlogPost
             return $this->heroImage;
         }
 
-        return '/' . ltrim($this->heroImage, '/');
+        return '/'.ltrim($this->heroImage, '/');
     }
 
     /**
@@ -79,11 +80,16 @@ final class BlogPost
             return $path;
         }
 
-        return rtrim(config('app.url', 'https://karlhill.com'), '/') . $path;
+        return rtrim(config('app.url', 'https://karlhill.com'), '/').$path;
     }
 
     public function isoDate(): string
     {
         return $this->publishedAt->toIso8601String();
+    }
+
+    public function modifiedAt(): CarbonImmutable
+    {
+        return $this->updatedAt ?? $this->publishedAt;
     }
 }
