@@ -28,15 +28,31 @@ GRAY = (163, 163, 163)
 DARK_GRAY = (82, 82, 82)
 
 
-def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
-    candidates = [
-        "/System/Library/Fonts/Supplemental/Arial Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Arial.ttf",
-        "/Library/Fonts/Arial Bold.ttf" if bold else "/Library/Fonts/Arial.ttf",
+def font_paths(bold: bool) -> list[str]:
+    dejavu = "/usr/share/fonts/truetype/dejavu"
+    paths = [
+        f"{dejavu}/DejaVuSans-Bold.ttf" if bold else f"{dejavu}/DejaVuSans.ttf",
     ]
-    for path in candidates:
+    if bold:
+        paths.extend([
+            "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+            "/Library/Fonts/Arial Bold.ttf",
+        ])
+    else:
+        paths.extend([
+            "/System/Library/Fonts/Supplemental/Arial.ttf",
+            "/Library/Fonts/Arial.ttf",
+        ])
+    return paths
+
+
+def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
+    for path in font_paths(bold):
         if os.path.exists(path):
             return ImageFont.truetype(path, size)
-    return ImageFont.load_default()
+    raise FileNotFoundError(
+        "No TrueType font found. On Linux install fonts-dejavu-core."
+    )
 
 
 def generate_home() -> Path:
@@ -81,7 +97,7 @@ def generate_home() -> Path:
     y += 50
     draw.text((x, y), "karlhill.com", fill=ORANGE, font=f_cta)
     tw = draw.textlength("karlhill.com", font=f_cta)
-    draw.text((x + tw + 12, y + 2), "→", fill=ORANGE, font=f_cta)
+    draw.text((x + tw + 12, y + 2), "->", fill=ORANGE, font=f_cta)
     draw.text((x, H - 60), "KARL HILL", fill=DARK_GRAY, font=f_site)
 
     img.save(out_path, "JPEG", quality=88, optimize=True)
@@ -142,7 +158,7 @@ def generate_blog(slug: str, title: str, hero_rel: str) -> Path:
         draw.text((60, y), ln, fill=WHITE, font=f_title)
         y += 58
 
-    draw.text((60, H - 55), "Read on karlhill.com →", fill=GRAY, font=f_cta)
+    draw.text((60, H - 55), "Read on karlhill.com ->", fill=GRAY, font=f_cta)
     hero.save(out_path, "JPEG", quality=88, optimize=True)
     return out_path
 

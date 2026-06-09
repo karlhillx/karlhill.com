@@ -21,7 +21,7 @@ ensure_python_image_tools() {
 
   if command -v apt-get >/dev/null 2>&1; then
     apt-get update -qq
-    DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-pil python3-pip
+    DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-pil python3-pip fonts-dejavu-core
   fi
 
   if ! python3 -c "from PIL import Image" >/dev/null 2>&1; then
