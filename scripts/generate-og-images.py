@@ -19,6 +19,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public" / "img"
+BUNDLED_FONTS = ROOT / "scripts" / "fonts"
 W, H = 1200, 630
 
 BG = (8, 8, 8)
@@ -31,6 +32,7 @@ DARK_GRAY = (82, 82, 82)
 def font_paths(bold: bool) -> list[str]:
     dejavu = "/usr/share/fonts/truetype/dejavu"
     paths = [
+        str(BUNDLED_FONTS / ("DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf")),
         f"{dejavu}/DejaVuSans-Bold.ttf" if bold else f"{dejavu}/DejaVuSans.ttf",
     ]
     if bold:
