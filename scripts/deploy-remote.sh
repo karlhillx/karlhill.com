@@ -66,6 +66,11 @@ php artisan og:generate --quiet
 php artisan assets:webp --quiet
 
 echo "→ Optimizing Laravel"
+php artisan cache:clear
 php artisan optimize
+
+echo "→ Fixing runtime permissions"
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R ug+rwx storage bootstrap/cache
 
 echo "✓ Deploy complete"
