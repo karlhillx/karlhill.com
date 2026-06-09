@@ -3,19 +3,11 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\GitHubController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SitemapController;
-use App\Support\BlogPostRepository;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $posts = app(BlogPostRepository::class)->all();
-
-    return view('welcome', [
-        'latestPost' => $posts->first(),
-        'postsForJsonLd' => $posts->take(12),
-        'homeStructuredUrl' => rtrim(config('app.url', 'https://karlhill.com'), '/'),
-    ]);
-})->name('home');
+Route::get('/', HomeController::class)->name('home');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])

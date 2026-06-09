@@ -1,22 +1,11 @@
 @php
-    use Illuminate\Support\Str;
-
     $heroPath  = $post->heroImagePath();
     $ogImage   = $post->ogImageUrl();
     $shareUrl  = $post->canonicalUrl();
     $shareText = $post->title . ' — by Karl Hill';
 @endphp
 
-@extends('layouts.site', [
-    'title'         => $post->title . ' — Karl Hill',
-    'description'   => Str::limit($post->excerpt, 155, '…'),
-    'canonical'     => $post->canonicalUrl(),
-    'ogType'        => 'article',
-    'ogTitle'       => $post->title,
-    'ogDescription' => Str::limit($post->excerpt, 120, '…'),
-    'ogImage'       => $ogImage,
-    'activeNav'     => 'writing',
-])
+@extends('layouts.site', ['meta' => $meta])
 
 @push('head')
 <script type="application/ld+json">
@@ -34,12 +23,12 @@
     ],
     'author' => [
         '@type' => 'Person',
-        'name'  => 'Karl Hill',
+        'name'  => config('site.person.name'),
         'url'   => rtrim(config('app.url', 'https://karlhill.com'), '/'),
     ],
     'publisher' => [
         '@type' => 'Person',
-        'name'  => 'Karl Hill',
+        'name'  => config('site.person.name'),
     ],
     'keywords' => implode(', ', $post->tags),
 ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}

@@ -1,12 +1,4 @@
-@extends('layouts.site', [
-    'title'         => 'Writing — Karl Hill',
-    'description'   => 'Reflections on engineering leadership, mission software, and the work that turns code into something people depend on — by Karl Hill.',
-    'canonical'     => rtrim(config('app.url', 'https://karlhill.com'), '/') . '/blog',
-    'ogTitle'       => 'Writing — Karl Hill',
-    'ogDescription' => 'Reflections on engineering leadership, mission software, and the work that turns code into something people depend on.',
-    'ogImage'       => rtrim(config('app.url', 'https://karlhill.com'), '/') . '/img/og-home.jpg',
-    'activeNav'     => 'writing',
-])
+@extends('layouts.site', ['meta' => $meta])
 
 @section('content')
 
@@ -85,7 +77,7 @@
     'url'      => rtrim(config('app.url', 'https://karlhill.com'), '/') . '/blog',
     'author'   => [
         '@type' => 'Person',
-        'name'  => 'Karl Hill',
+        'name'  => config('site.person.name'),
         'url'   => rtrim(config('app.url', 'https://karlhill.com'), '/'),
     ],
     'blogPost' => $posts->map(fn($p) => [

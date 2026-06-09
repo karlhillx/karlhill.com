@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Support\BlogPostRepository;
+use App\Support\PageMeta;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,10 +21,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('layouts.site', function (\Illuminate\View\View $view): void {
-            $active = $view->getData()['activeNav'] ?? null;
-            $view->with('navLinkClass', static function (string $key) use ($active): string {
-                return 'transition-colors duration-200 '.($active === $key ? 'text-orange-500' : 'hover:text-orange-500');
-            });
+            $data = $view->getData();
+
+            if (isset($data['meta']) && $data['meta'] instanceof PageMeta) {
+                foreach ($data['meta']->toViewData() as $key => $value) {
+                    $view->with($key, $value);
+                }
+            }
         });
     }
 }

@@ -1,10 +1,4 @@
-@extends('layouts.site', [
-    'title'         => 'Page not found — Karl Hill',
-    'description'   => 'This page does not exist or has moved.',
-    'canonical'     => rtrim(config('app.url', 'https://karlhill.com'), '/') . '/',
-    'ogTitle'       => 'Page not found — Karl Hill',
-    'ogDescription' => 'This page does not exist or has moved.',
-])
+@extends('layouts.site', ['meta' => \App\Support\PageMeta::notFound()])
 
 @section('content')
     <section class="relative pt-44 pb-36 px-6 md:pt-52 md:pb-44 lg:pt-56 lg:pb-52" aria-labelledby="page-not-found-heading">
@@ -29,7 +23,3 @@
         </div>
     </section>
 @endsection
-
-@push('head')
-    <meta name="robots" content="noindex">
-@endpush
