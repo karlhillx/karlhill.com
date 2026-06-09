@@ -7,15 +7,18 @@
                 github.com/karlhillx ↗
             </a>
         </div>
-        <div id="github-repos" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-800" aria-busy="true" aria-label="Loading repositories">
-            @for($i = 0; $i < 6; $i++)
-                <div class="bg-[#080808] p-6 animate-pulse">
-                    <div class="h-3 bg-neutral-800 rounded mb-3 w-3/4"></div>
-                    <div class="h-2 bg-neutral-900 rounded mb-1.5 w-full"></div>
-                    <div class="h-2 bg-neutral-900 rounded mb-4 w-2/3"></div>
-                    <div class="h-2 bg-neutral-800 rounded w-1/4"></div>
-                </div>
-            @endfor
-        </div>
+
+        @if($githubRepos->isEmpty())
+            <div class="bg-[#080808] rounded-2xl border border-neutral-800/80 p-6" data-reveal>
+                <p class="font-mono text-xs text-neutral-500 uppercase tracking-widest mb-2">Open Source</p>
+                <p class="text-neutral-400 text-sm">No public repositories were returned right now. Please check back shortly.</p>
+            </div>
+        @else
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                @foreach($githubRepos as $repo)
+                    <x-site.repo-card :repo="$repo" />
+                @endforeach
+            </div>
+        @endif
     </div>
 </section>

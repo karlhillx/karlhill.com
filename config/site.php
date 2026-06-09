@@ -246,4 +246,21 @@ return [
         'resume' => '/files/karlhill-resume.pdf',
     ],
 
+    'github' => [
+        'language_colors' => [
+            'JavaScript' => '#f1e05a',
+            'TypeScript' => '#3178c6',
+            'Python' => '#3572A5',
+            'PHP' => '#4F5D95',
+            'Java' => '#b07219',
+            'HTML' => '#e34c26',
+            'CSS' => '#563d7c',
+            'Shell' => '#89e051',
+            'Go' => '#00ADD8',
+            'Ruby' => '#701516',
+            'Blade' => '#f7523f',
+            'Rust' => '#dea584',
+        ],
+    ],
+
 ];

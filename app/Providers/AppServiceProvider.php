@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Support\BlogPostRepository;
+use App\Support\GitHubRepository;
 use App\Support\PageMeta;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -16,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
                 directory: resource_path('posts'),
             );
         });
+
+        $this->app->singleton(GitHubRepository::class);
     }
 
     public function boot(): void
