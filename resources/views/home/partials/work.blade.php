@@ -8,6 +8,7 @@
                     :meta="$project['meta']"
                     :description="$project['description']"
                     :image="$project['image']"
+                    :imagePosition="$project['imagePosition'] ?? 'object-top'"
                     :tags="$project['tags']"
                     :logo="$project['logo']"
                 />

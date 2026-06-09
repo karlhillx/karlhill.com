@@ -169,6 +169,7 @@ return [
             'meta' => 'NASA · 2017–2025',
             'description' => 'Operational satellite imagery processing system generating near real-time flood inundation maps during active disaster events globally. Automated the end-to-end pipeline from raw sensor acquisition through geospatial product generation, dissemination, and integration with international emergency management networks.',
             'image' => '/img/webp/small-flood.webp',
+            'imagePosition' => 'object-left-top',
             'url' => null,
             'tags' => ['Python', 'Docker', 'AWS'],
             'logo' => ['path' => '/img/logo-nasa.svg', 'filter' => null, 'class' => 'h-8'],
