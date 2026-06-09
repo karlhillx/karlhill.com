@@ -1,17 +1,19 @@
 @php
+    use Illuminate\Support\Str;
+
     $heroPath  = $post->heroImagePath();
-    $ogImage   = $post->heroImageUrl() ?? rtrim(config('app.url', 'https://karlhill.com'), '/') . '/img/profile.jpg';
+    $ogImage   = $post->ogImageUrl();
     $shareUrl  = $post->canonicalUrl();
     $shareText = $post->title . ' — by Karl Hill';
 @endphp
 
 @extends('layouts.site', [
     'title'         => $post->title . ' — Karl Hill',
-    'description'   => $post->excerpt,
+    'description'   => Str::limit($post->excerpt, 155, '…'),
     'canonical'     => $post->canonicalUrl(),
     'ogType'        => 'article',
     'ogTitle'       => $post->title,
-    'ogDescription' => $post->excerpt,
+    'ogDescription' => Str::limit($post->excerpt, 120, '…'),
     'ogImage'       => $ogImage,
     'activeNav'     => 'writing',
 ])

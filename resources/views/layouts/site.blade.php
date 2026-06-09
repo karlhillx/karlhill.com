@@ -10,13 +10,12 @@
     {{-- Open Graph --}}
     <meta property="og:type" content="{{ $ogType ?? 'website' }}">
     <meta property="og:url" content="{{ $canonical ?? $siteUrl }}">
+    <meta property="og:site_name" content="Karl Hill">
     <meta property="og:title" content="{{ $ogTitle ?? ($title ?? 'Karl Hill — Staff Software Engineer') }}">
     <meta property="og:description" content="{{ $ogDescription ?? ($description ?? '') }}">
-    <meta property="og:image" content="{{ $ogImage ?? $siteUrl.'/img/profile.jpg' }}">
-    @if(! ($ogImage ?? false))
-    <meta property="og:image:width" content="800">
-    <meta property="og:image:height" content="800">
-    @endif
+    <meta property="og:image" content="{{ $ogImage ?? $siteUrl.'/img/og-home.jpg' }}">
+    <meta property="og:image:width" content="{{ $ogImageWidth ?? 1200 }}">
+    <meta property="og:image:height" content="{{ $ogImageHeight ?? 630 }}">
 
     {{-- Twitter / X --}}
     <meta name="twitter:card" content="summary_large_image">
@@ -24,7 +23,7 @@
     <meta name="twitter:creator" content="@karl_hill">
     <meta name="twitter:title" content="{{ $ogTitle ?? ($title ?? 'Karl Hill — Staff Software Engineer') }}">
     <meta name="twitter:description" content="{{ $ogDescription ?? ($description ?? '') }}">
-    <meta name="twitter:image" content="{{ $ogImage ?? $siteUrl.'/img/profile.jpg' }}">
+    <meta name="twitter:image" content="{{ $ogImage ?? $siteUrl.'/img/og-home.jpg' }}">
 
     <meta name="theme-color" content="#080808">
 

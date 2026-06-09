@@ -1,10 +1,10 @@
 @extends('layouts.site', [
     'title' => 'Karl Hill — Staff Software Engineer',
-    'description' => 'Karl Hill is a Staff Software Engineer with 25+ years of experience. Built NASA Goddard\'s Earth Observatory, flood mapping, and direct readout satellite platforms. Now leading aerospace software at Jacobs.',
+    'description' => 'Staff Software Engineer with 25+ years building NASA Earth science platforms, flood mapping systems, and mission-critical aerospace software at Jacobs.',
     'canonical' => $homeStructuredUrl,
     'ogTitle' => 'Karl Hill — Staff Software Engineer',
-    'ogDescription' => '25+ years shipping systems under pressure — from NASA Goddard\'s Earth science and flood mapping platforms to mission-critical aerospace software at Jacobs/BlackLynx.',
-    'ogImage' => $homeStructuredUrl . '/img/profile.jpg',
+    'ogDescription' => '25+ years shipping mission-critical software — NASA Earth science, flood mapping, and aerospace platforms at Jacobs.',
+    'ogImage' => $homeStructuredUrl . '/img/og-home.jpg',
     'activeNav' => null,
 ])
 

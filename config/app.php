@@ -52,7 +52,16 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => (static function (): string {
+        $url = env('APP_URL');
+        if ($url !== null && $url !== '' && $url !== 'http://localhost') {
+            return $url;
+        }
+
+        $host = env('PRODUCTION', 'karlhill.com');
+
+        return 'https://'.ltrim(str_replace(['https://', 'http://'], '', $host), '/');
+    })(),
 
     /*
     |--------------------------------------------------------------------------

@@ -51,6 +51,21 @@ final class BlogPost
     }
 
     /**
+     * Absolute URL for Open Graph / Twitter cards. Prefers a 1200×630 card at
+     * public/img/og/blog/{slug}.jpg when present, then hero, then site default.
+     */
+    public function ogImageUrl(): string
+    {
+        $base = rtrim(config('app.url', 'https://karlhill.com'), '/');
+
+        if (is_file(public_path("img/og/blog/{$this->slug}.jpg"))) {
+            return "{$base}/img/og/blog/{$this->slug}.jpg";
+        }
+
+        return $this->heroImageUrl() ?? "{$base}/img/og-home.jpg";
+    }
+
+    /**
      * Absolute URL for OG tags and external syndication. Always uses APP_URL.
      */
     public function heroImageUrl(): ?string
