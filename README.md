@@ -141,7 +141,16 @@ On the server:
 bash scripts/deploy.sh
 ```
 
-Or use the GitHub Actions **Deploy** workflow (requires `DEPLOY_HOST`, `DEPLOY_USER`, `DEPLOY_PATH`, `DEPLOY_SSH_KEY` secrets).
+Or use the GitHub Actions **Deploy** workflow. Add these **environment secrets** under Settings → Environments → production:
+
+| Secret | Value |
+|--------|-------|
+| `DEPLOY_HOST` | `karlhill.com` |
+| `DEPLOY_USER` | `karl` |
+| `DEPLOY_SSH_KEY` | private SSH key with access to the server |
+| `DEPLOY_CONTAINER` | `karl-karlhill-1` (optional) |
+
+Deploy streams code into the Docker app container at `/var/www/html` (not the host path).
 
 SSH shortcut:
 
