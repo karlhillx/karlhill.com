@@ -28,10 +28,4 @@ php artisan assets:webp --quiet
 echo "→ Optimizing Laravel"
 php artisan optimize
 
-echo "→ Reloading PHP (if docker compose is available)"
-if command -v docker >/dev/null 2>&1 && [ -f docker-compose.yml ]; then
-  docker compose exec -T app php artisan optimize 2>/dev/null || true
-  docker compose exec -T nginx nginx -s reload 2>/dev/null || true
-fi
-
 echo "✓ Deploy complete"
