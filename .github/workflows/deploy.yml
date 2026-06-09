@@ -38,6 +38,9 @@ jobs:
 
           echo "ready=true" >> "$GITHUB_OUTPUT"
 
+      - uses: actions/checkout@v5
+        if: steps.config.outputs.ready == 'true'
+
       - name: Deploy to production
         if: steps.config.outputs.ready == 'true'
         env:
@@ -50,8 +53,19 @@ jobs:
           chmod 700 ~/.ssh
           printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no "${DEPLOY_USER}@${DEPLOY_HOST}" \
-            "cd ${DEPLOY_PATH} && bash scripts/deploy.sh"
+
+          SSH="ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no"
+          RSYNC_RSH="$SSH" rsync -az --delete \
+            --exclude='.git/' \
+            --exclude='vendor/' \
+            --exclude='node_modules/' \
+            --exclude='.env' \
+            --exclude='storage/' \
+            --exclude='bootstrap/cache/*.php' \
+            ./ "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
+
+          $SSH "${DEPLOY_USER}@${DEPLOY_HOST}" \
+            "cd ${DEPLOY_PATH} && bash scripts/deploy-remote.sh"
 
       - name: Fail manual deploy when secrets are missing
         if: github.event_name == 'workflow_dispatch' && steps.config.outputs.missing != ''
