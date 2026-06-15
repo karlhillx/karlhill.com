@@ -21,6 +21,7 @@
     ])->all(),
 ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
+<x-site.speculation-rules :rules="\App\Support\SpeculationRules::forBlogIndex($posts)" />
 @endpush
 
 @section('content')

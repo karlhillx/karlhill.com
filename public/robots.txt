@@ -2,3 +2,4 @@ User-agent: *
 Disallow:
 
 Sitemap: https://karlhill.com/sitemap.xml
+# Curated overview for AI agents: https://karlhill.com/llms.txt
