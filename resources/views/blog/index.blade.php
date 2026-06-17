@@ -36,10 +36,18 @@
          aria-hidden="true"></div>
 
     <div class="relative z-10 max-w-6xl mx-auto">
-        <x-site.breadcrumbs :items="[
-            ['label' => 'Home', 'url' => '/'],
-            ['label' => 'Writing'],
-        ]" class="mb-6" />
+        @php
+            $breadcrumbs = [
+                ['label' => 'Home', 'url' => '/'],
+            ];
+            if ($activeTag) {
+                $breadcrumbs[] = ['label' => 'Writing', 'url' => '/blog'];
+                $breadcrumbs[] = ['label' => ucfirst($activeTag)];
+            } else {
+                $breadcrumbs[] = ['label' => 'Writing'];
+            }
+        @endphp
+        <x-site.breadcrumbs :items="$breadcrumbs" class="mb-6" />
         <p class="font-mono text-accent text-xs tracking-widest uppercase mb-6">Writing</p>
         <h1 class="font-display text-[clamp(3.5rem,12vw,9rem)] leading-none tracking-wide text-white mb-8">
             Notes from<br>the field
@@ -54,7 +62,7 @@
     <div class="max-w-6xl mx-auto pt-20">
         @if($allTags->isNotEmpty())
             <div class="flex flex-wrap gap-2 mb-12" data-reveal>
-                <a href="/blog"
+                <a href="{{ route('blog.index') }}"
                    @class([
                        'font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 border transition-colors',
                        'border-accent text-accent' => ! $activeTag,
@@ -63,7 +71,7 @@
                     All
                 </a>
                 @foreach($allTags as $tag)
-                    <a href="/blog?tag={{ urlencode($tag) }}"
+                    <a href="{{ route('blog.tag', $tag) }}"
                        @class([
                            'font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 border transition-colors',
                            'border-accent text-accent' => $activeTag === $tag,

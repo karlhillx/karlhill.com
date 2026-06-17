@@ -41,6 +41,14 @@
 
                 <x-site.social-links :extended="$isHome" />
             </div>
+            <nav class="shrink-0" aria-label="Site">
+                <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Explore</p>
+                <ul class="space-y-3 font-mono text-sm">
+                    <li><a href="/work" class="text-neutral-500 hover:text-accent transition-colors">Work</a></li>
+                    <li><a href="/about" class="text-neutral-500 hover:text-accent transition-colors">About</a></li>
+                    <li><a href="/blog" class="text-neutral-500 hover:text-accent transition-colors">Writing</a></li>
+                </ul>
+            </nav>
         </div>
         <div @class([
             'pt-8 border-t border-neutral-800/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4',

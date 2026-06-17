@@ -3,13 +3,14 @@
 namespace App\Console\Commands;
 
 use App\Support\BlogPostRepository;
+use App\Support\ProjectCatalog;
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Process;
 
 class GenerateOgImages extends Command
 {
     protected $signature = 'og:generate
-        {slug? : Generate a blog post card only}
+        {slug? : Generate a blog post or project case study card only}
         {--home : Regenerate the homepage OG card only}';
 
     protected $description = 'Generate 1200×630 Open Graph images via scripts/generate-og-images.py';
@@ -27,7 +28,19 @@ class GenerateOgImages extends Command
         $homeOnly = (bool) $this->option('home');
 
         if ($slug !== null) {
-            return $this->runBlogPost($script, $posts, (string) $slug);
+            $slug = (string) $slug;
+
+            if ($posts->find($slug) !== null) {
+                return $this->runBlogPost($script, $posts, $slug);
+            }
+
+            if (ProjectCatalog::find($slug) !== null) {
+                return $this->runProject($script, $slug);
+            }
+
+            $this->error("Unknown slug: {$slug}");
+
+            return self::FAILURE;
         }
 
         if (! $homeOnly) {
@@ -35,7 +48,10 @@ class GenerateOgImages extends Command
             foreach ($posts->all() as $post) {
                 $this->runBlogPost($script, $posts, $post->slug, quiet: true);
             }
-            $this->info('Generated homepage and blog OG images.');
+            foreach (ProjectCatalog::withCaseStudies() as $project) {
+                $this->runProject($script, $project['slug'], quiet: true);
+            }
+            $this->info('Generated homepage, blog, and project OG images.');
 
             return self::SUCCESS;
         }
@@ -50,13 +66,13 @@ class GenerateOgImages extends Command
     {
         $post = $posts->find($slug);
         if ($post === null) {
-            $this->error("Unknown post slug: {$slug}");
-
             return self::FAILURE;
         }
 
         if ($post->heroImage === null || $post->heroImage === '') {
-            $this->warn("Post {$slug} has no hero_image; skipped.");
+            if (! $quiet) {
+                $this->warn("Post {$slug} has no hero_image; skipped.");
+            }
 
             return self::SUCCESS;
         }
@@ -72,6 +88,29 @@ class GenerateOgImages extends Command
 
         if (! $quiet) {
             $this->info("Generated OG image for {$slug}.");
+        }
+
+        return self::SUCCESS;
+    }
+
+    protected function runProject(string $script, string $slug, bool $quiet = false): int
+    {
+        $project = ProjectCatalog::find($slug);
+        if ($project === null || ! ProjectCatalog::hasCaseStudy($project)) {
+            return self::FAILURE;
+        }
+
+        $this->runProcess([
+            'python3',
+            $script,
+            '--project',
+            $project['slug'],
+            $project['title'],
+            ProjectCatalog::heroImagePath($project),
+        ]);
+
+        if (! $quiet) {
+            $this->info("Generated OG image for project {$slug}.");
         }
 
         return self::SUCCESS;

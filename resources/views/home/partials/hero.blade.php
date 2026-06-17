@@ -34,7 +34,8 @@
             </div>
             <div class="flex flex-wrap gap-4 hero-enter" style="animation-delay:560ms">
                 @foreach($hero['cta'] as $link)
-                    <a href="{{ $link['url'] }}" @unless(str_starts_with($link['url'], 'mailto:')) target="_blank" rel="noopener noreferrer" @endunless
+                    @php($isExternal = str_starts_with($link['url'], 'http'))
+                    <a href="{{ $link['url'] }}" @if($isExternal) target="_blank" rel="noopener noreferrer" @endif
                        @class([
                            'font-semibold px-8 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200',
                            'bg-accent text-black font-bold hover:bg-accent/80' => $link['primary'] ?? false,

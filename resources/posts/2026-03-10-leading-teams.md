@@ -7,6 +7,7 @@ tags:
   - leadership
   - engineering
   - teams
+hero_image: img/blog/leading-teams.jpg
 ---
 
 Engineering leadership has a visibility problem.

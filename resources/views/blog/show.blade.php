@@ -94,6 +94,25 @@
 
         <hr class="border-neutral-800 my-12">
 
+        @if($adjacentPosts['previous'] || $adjacentPosts['next'])
+            <nav class="grid sm:grid-cols-2 gap-6 mb-12" aria-label="Post navigation" data-reveal>
+                @if($adjacentPosts['previous'])
+                    <a href="{{ $adjacentPosts['previous']->url() }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors">
+                        <p class="font-mono text-[10px] text-neutral-600 uppercase tracking-widest mb-2">← Previous</p>
+                        <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $adjacentPosts['previous']->title }}</p>
+                    </a>
+                @else
+                    <div></div>
+                @endif
+                @if($adjacentPosts['next'])
+                    <a href="{{ $adjacentPosts['next']->url() }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors sm:text-right">
+                        <p class="font-mono text-[10px] text-neutral-600 uppercase tracking-widest mb-2">Next →</p>
+                        <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $adjacentPosts['next']->title }}</p>
+                    </a>
+                @endif
+            </nav>
+        @endif
+
         @if($relatedPosts->isNotEmpty())
             <div class="mb-12" data-reveal>
                 <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Related reading</p>

@@ -165,15 +165,78 @@ def generate_blog(slug: str, title: str, hero_rel: str) -> Path:
     return out_path
 
 
+def generate_project(slug: str, title: str, hero_rel: str) -> Path:
+    hero_path = ROOT / "public" / hero_rel.lstrip("/")
+    out_dir = PUBLIC / "og" / "work"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"{slug}.jpg"
+
+    hero = Image.open(hero_path).convert("RGB")
+    target_ratio = W / H
+    w, h = hero.size
+    current = w / h
+    if current > target_ratio:
+        new_w = int(h * target_ratio)
+        left = (w - new_w) // 2
+        hero = hero.crop((left, 0, left + new_w, h))
+    else:
+        new_h = int(w / target_ratio)
+        top = (h - new_h) // 2
+        hero = hero.crop((0, top, w, top + new_h))
+    hero = hero.resize((W, H), Image.LANCZOS)
+
+    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    od = ImageDraw.Draw(overlay)
+    for i in range(H // 2, H):
+        alpha = int(180 * ((i - H // 2) / (H // 2)) ** 1.2)
+        od.line([(0, i), (W, i)], fill=(*BG, alpha))
+    hero = Image.alpha_composite(hero.convert("RGBA"), overlay).convert("RGB")
+    draw = ImageDraw.Draw(hero)
+
+    f_site = font(22, bold=True)
+    f_title = font(52, bold=True)
+    f_cta = font(24, bold=True)
+
+    draw.text((60, H - 200), "KARL HILL", fill=ORANGE, font=f_site)
+
+    words = title.split()
+    lines: list[str] = []
+    line: list[str] = []
+    max_w = W - 120
+    for word in words:
+        test = " ".join(line + [word])
+        if draw.textlength(test, font=f_title) <= max_w:
+            line.append(word)
+        else:
+            if line:
+                lines.append(" ".join(line))
+            line = [word]
+    if line:
+        lines.append(" ".join(line))
+
+    y = H - 160
+    for ln in lines[:3]:
+        draw.text((60, y), ln, fill=WHITE, font=f_title)
+        y += 58
+
+    draw.text((60, H - 55), "Case study on karlhill.com ->", fill=GRAY, font=f_cta)
+    hero.save(out_path, "JPEG", quality=88, optimize=True)
+    return out_path
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--blog", nargs=3, metavar=("SLUG", "TITLE", "HERO"), help="Generate a blog post OG card")
+    parser.add_argument("--project", nargs=3, metavar=("SLUG", "TITLE", "HERO"), help="Generate a project case study OG card")
     args = parser.parse_args()
 
     try:
         if args.blog:
             slug, title, hero = args.blog
             path = generate_blog(slug, title, hero)
+        elif args.project:
+            slug, title, hero = args.project
+            path = generate_project(slug, title, hero)
         else:
             path = generate_home()
     except OSError as exc:

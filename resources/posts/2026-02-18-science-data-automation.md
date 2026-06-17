@@ -8,6 +8,7 @@ tags:
   - automation
   - nasa
   - platforms
+hero_image: img/blog/science-data-automation.jpg
 ---
 
 There is a familiar pattern in scientific data systems.

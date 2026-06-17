@@ -1,0 +1,14 @@
+{
+  "defaults": {
+    "timeout": 10000,
+    "standard": "WCAG2AA"
+  },
+  "urls": [
+    "http://127.0.0.1:8000/",
+    "http://127.0.0.1:8000/work",
+    "http://127.0.0.1:8000/work/nasa-earth-observatory",
+    "http://127.0.0.1:8000/about",
+    "http://127.0.0.1:8000/blog",
+    "http://127.0.0.1:8000/blog/release-governance"
+  ]
+}

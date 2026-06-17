@@ -55,6 +55,24 @@ class BlogPostRepository
         return $post;
     }
 
+    /**
+     * @return array{previous: ?BlogPost, next: ?BlogPost}
+     */
+    public function adjacent(BlogPost $post): array
+    {
+        $posts = $this->all()->values();
+        $index = $posts->search(fn (BlogPost $candidate) => $candidate->slug === $post->slug);
+
+        if ($index === false) {
+            return ['previous' => null, 'next' => null];
+        }
+
+        return [
+            'previous' => $index < $posts->count() - 1 ? $posts[$index + 1] : null,
+            'next' => $index > 0 ? $posts[$index - 1] : null,
+        ];
+    }
+
     public function pathFor(string $slug): ?string
     {
         return $this->all()->firstWhere('slug', $slug)?->sourcePath;
@@ -120,6 +138,7 @@ class BlogPostRepository
 
         $bodyMarkdown = trim($document->body());
         $bodyHtml = $this->renderMarkdown($bodyMarkdown);
+        $bodyHtml = $this->labelTaskListCheckboxes($bodyHtml);
 
         $excerpt = $document->matter('excerpt')
             ?? $this->generateExcerpt($bodyMarkdown);
@@ -181,6 +200,21 @@ class BlogPostRepository
         $converter = new MarkdownConverter($environment);
 
         return (string) $converter->convert($markdown);
+    }
+
+    protected function labelTaskListCheckboxes(string $html): string
+    {
+        return (string) preg_replace_callback(
+            '/<li>(\s*<input[^>]*type="checkbox"[^>]*>)(.*?)<\/li>/is',
+            static function (array $matches): string {
+                $label = trim(strip_tags($matches[2]));
+                $label = $label !== '' ? htmlspecialchars($label, ENT_QUOTES, 'UTF-8') : 'Task item';
+                $input = preg_replace('/>\s*$/', ' aria-label="'.$label.'">', $matches[1]);
+
+                return '<li>'.$input.$matches[2].'</li>';
+            },
+            $html,
+        );
     }
 
     protected function generateExcerpt(string $markdown): string

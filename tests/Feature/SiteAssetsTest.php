@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Support\BlogPostRepository;
 use Tests\TestCase;
 
 class SiteAssetsTest extends TestCase
@@ -17,6 +18,14 @@ class SiteAssetsTest extends TestCase
             $paths[] = $project['image'];
             if (isset($project['logo']['path'])) {
                 $paths[] = $project['logo']['path'];
+            }
+        }
+
+        $posts = app(BlogPostRepository::class)->all();
+        foreach ($posts as $post) {
+            if ($post->heroImage) {
+                $paths[] = '/'.ltrim($post->heroImage, '/');
+                $paths[] = '/img/og/blog/'.$post->slug.'.jpg';
             }
         }
 

@@ -66,4 +66,67 @@ class SpeculationRules
             ],
         ];
     }
+
+    /**
+     * Prefetch case studies and sibling projects from the work index.
+     *
+     * @return array<string, mixed>
+     */
+    public static function forWorkIndex(): array
+    {
+        $urls = collect(['/about', '/blog'])
+            ->merge(
+                ProjectCatalog::withCaseStudies()
+                    ->take(3)
+                    ->map(fn (array $project) => '/work/'.$project['slug'])
+            )
+            ->unique()
+            ->values()
+            ->all();
+
+        return [
+            'prefetch' => [
+                [
+                    'source' => 'list',
+                    'urls' => $urls,
+                    'eagerness' => 'moderate',
+                ],
+                [
+                    'source' => 'document',
+                    'where' => [
+                        'href_matches' => '/work/*',
+                    ],
+                    'eagerness' => 'conservative',
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $project
+     * @param  array<string, mixed>|null  $previous
+     * @param  array<string, mixed>|null  $next
+     * @return array<string, mixed>
+     */
+    public static function forCaseStudy(array $project, ?array $previous, ?array $next): array
+    {
+        $urls = collect(['/work', '/about']);
+
+        if ($previous !== null) {
+            $urls->push('/work/'.$previous['slug']);
+        }
+        if ($next !== null) {
+            $urls->push('/work/'.$next['slug']);
+        }
+
+        return [
+            'prefetch' => [
+                [
+                    'source' => 'list',
+                    'urls' => $urls->unique()->values()->all(),
+                    'eagerness' => 'moderate',
+                ],
+            ],
+        ];
+    }
 }

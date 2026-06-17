@@ -101,13 +101,29 @@ class BlogTest extends TestCase
         $this->assertNotFalse($xml);
     }
 
-    public function test_blog_index_filters_by_tag(): void
+    public function test_blog_tag_route_filters_posts(): void
     {
-        $response = $this->get('/blog?tag=leadership');
+        $response = $this->get('/blog/tag/automation');
 
         $response->assertStatus(200);
-        $response->assertSee('The Unglamorous Work of Leading Engineering Teams', escape: false);
-        $response->assertDontSee('What 1.5 Million Monthly Visitors', escape: false);
+        $response->assertSee('Why Automation Matters More When the Data Is Mission-Critical', escape: false);
+        $response->assertDontSee('The Unglamorous Work of Leading Engineering Teams', escape: false);
+        $response->assertSee('/blog/tag/automation', escape: false);
+    }
+
+    public function test_legacy_blog_tag_query_redirects_to_tag_route(): void
+    {
+        $response = $this->get('/blog?tag=automation');
+
+        $response->assertRedirect('/blog/tag/automation');
+    }
+
+    public function test_blog_index_filters_by_tag(): void
+    {
+        $this->get('/blog/tag/leadership')
+            ->assertStatus(200)
+            ->assertSee('The Unglamorous Work of Leading Engineering Teams', escape: false)
+            ->assertSee('What 20 Years Taught Me About Release Governance', escape: false);
     }
 
     public function test_blog_show_includes_breadcrumbs_and_related_reading(): void
@@ -118,6 +134,7 @@ class BlogTest extends TestCase
         $response->assertSee('aria-label="Breadcrumb"', escape: false);
         $response->assertSee('On this site', escape: false);
         $response->assertSee('href="/work"', escape: false);
+        $response->assertSee('Post navigation', escape: false);
     }
 
     public function test_homepage_links_to_writing(): void

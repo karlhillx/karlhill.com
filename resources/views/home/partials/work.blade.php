@@ -11,6 +11,7 @@
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             @foreach($projects as $project)
+                @php($cardUrl = \App\Support\ProjectCatalog::cardUrl($project))
                 <x-site.work-card
                     :title="$project['title']"
                     :meta="$project['meta']"
@@ -19,8 +20,9 @@
                     :imagePosition="$project['imagePosition'] ?? 'object-top'"
                     :tags="$project['tags']"
                     :logo="$project['logo']"
-                    :url="$project['url'] ?? null"
+                    :href="$cardUrl"
                     :slug="$project['slug'] ?? null"
+                    :external="\App\Support\ProjectCatalog::isExternalUrl($project)"
                 />
             @endforeach
         </div>

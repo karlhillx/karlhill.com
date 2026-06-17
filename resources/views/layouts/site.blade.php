@@ -106,6 +106,8 @@
             <input id="command-input" type="text"
                    class="command-input font-mono"
                    placeholder="Jump to a section…"
+                   aria-label="Search commands"
+                   aria-labelledby="command-palette-title"
                    role="combobox"
                    aria-expanded="true"
                    aria-controls="command-results"

@@ -89,6 +89,57 @@ final class PageMeta
         );
     }
 
+    public static function blogTag(string $tag): self
+    {
+        $label = Str::title(str_replace('-', ' ', $tag));
+        $url = self::siteUrl();
+
+        return new self(
+            title: "{$label} — Writing — Karl Hill",
+            description: "Essays tagged “{$label}” on engineering leadership, mission software, and delivery.",
+            canonical: "{$url}/blog/tag/{$tag}",
+            ogTitle: "{$label} — Karl Hill",
+            ogDescription: "Writing tagged “{$label}”.",
+            ogImage: "{$url}/img/og-home.jpg",
+            activeNav: 'writing',
+        );
+    }
+
+    public static function workTag(string $tag): self
+    {
+        $url = self::siteUrl();
+
+        return new self(
+            title: "{$tag} — Work — Karl Hill",
+            description: "Projects tagged with “{$tag}” — mission software, platforms, and engineering leadership.",
+            canonical: "{$url}/work/tag/".ProjectCatalog::tagSlug($tag),
+            ogTitle: "{$tag} — Karl Hill",
+            ogDescription: "Portfolio work tagged “{$tag}”.",
+            ogImage: "{$url}/img/og-home.jpg",
+            activeNav: 'work',
+        );
+    }
+
+    /**
+     * @param  array<string, mixed>  $project
+     */
+    public static function forProject(array $project): self
+    {
+        $url = self::siteUrl();
+        $slug = $project['slug'];
+        $study = $project['case_study'];
+
+        return new self(
+            title: "{$project['title']} — Karl Hill",
+            description: Str::limit($study['lede'] ?? $project['description'], 155, '…'),
+            canonical: "{$url}/work/{$slug}",
+            ogTitle: $project['title'],
+            ogDescription: Str::limit($study['lede'] ?? $project['description'], 120, '…'),
+            ogImage: ProjectCatalog::ogImageUrl($slug) ?? "{$url}{$project['image']}",
+            activeNav: 'work',
+        );
+    }
+
     public static function forPost(BlogPost $post): self
     {
         $author = config('site.person.name');

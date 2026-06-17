@@ -13,8 +13,14 @@ return [
     ],
 
     'analytics' => [
-        'enabled' => env('GOOGLE_ANALYTICS_ENABLED', false),
-        'id' => env('GOOGLE_ANALYTICS_MEASUREMENT_ID'),
+        'google' => [
+            'enabled' => env('GOOGLE_ANALYTICS_ENABLED', false),
+            'id' => env('GOOGLE_ANALYTICS_MEASUREMENT_ID'),
+        ],
+        'plausible' => [
+            'enabled' => env('PLAUSIBLE_ENABLED', false),
+            'domain' => env('PLAUSIBLE_DOMAIN', 'karlhill.com'),
+        ],
     ],
 
     'seo' => [
@@ -63,7 +69,9 @@ return [
         'subtitle' => 'Cloud · Platforms · Engineering Leadership',
         'bio' => 'I architect systems, lead teams, and ship software that matters — from disaster-response platforms at NASA to mission-critical aerospace systems at Jacobs/BlackLynx.',
         'cta' => [
-            ['label' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/khill/', 'primary' => true],
+            ['label' => 'View Work', 'url' => '/work', 'primary' => true],
+            ['label' => 'About', 'url' => '/about'],
+            ['label' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/khill/'],
             ['label' => 'karlhillx@gmail.com', 'url' => 'mailto:karlhillx@gmail.com'],
             ['label' => 'GitHub', 'url' => 'https://github.com/karlhillx'],
         ],
@@ -175,6 +183,28 @@ return [
             'featured' => true,
             'tags' => ['Laravel', 'AWS'],
             'logo' => ['path' => '/img/logo-nasa.svg', 'filter' => null, 'class' => 'h-8'],
+            'case_study' => [
+                'lede' => 'A flagship NASA science communication platform serving 1.5M+ monthly visitors — rebuilt for editorial velocity, performance, and long-term maintainability.',
+                'problem' => [
+                    'Editorial teams relied on brittle, one-off publishing patterns that slowed routine story production.',
+                    'Performance, accessibility, and SEO debt accumulated as traffic and content volume grew.',
+                    'Distributed content teams needed a shared workflow without engineering becoming the bottleneck.',
+                ],
+                'approach' => [
+                    'Redesigned the information architecture and publishing model around repeatable story templates.',
+                    'Rebuilt delivery pipelines for large imagery, metadata consistency, and non-engineer self-service.',
+                    'Improved frontend performance, accessibility compliance, and search discoverability as first-class requirements.',
+                ],
+                'outcome' => [
+                    'Unified editorial workflows across distributed teams with less custom engineering per story.',
+                    'Strengthened platform performance and accessibility for a high-traffic public science audience.',
+                    'Created a maintainable foundation for ongoing Earth science communication at scale.',
+                ],
+                'metrics' => [
+                    ['value' => '1.5M+', 'label' => 'Monthly visitors'],
+                    ['value' => '25+', 'label' => 'Years platform evolution'],
+                ],
+            ],
         ],
         [
             'slug' => 'flood-mapping-system',
@@ -187,6 +217,28 @@ return [
             'featured' => true,
             'tags' => ['Python', 'Docker', 'AWS'],
             'logo' => ['path' => '/img/logo-nasa.svg', 'filter' => null, 'class' => 'h-8'],
+            'case_study' => [
+                'lede' => 'Near real-time flood inundation mapping from satellite data — built for disaster response when latency is measured in hours, not sprints.',
+                'problem' => [
+                    'Manual processing steps delayed flood products during active global disaster events.',
+                    'End-to-end workflows from sensor acquisition to dissemination spanned multiple teams and environments.',
+                    'Operational users needed trustworthy, repeatable products — not one-off engineering heroics.',
+                ],
+                'approach' => [
+                    'Automated the pipeline from raw sensor ingestion through geospatial product generation.',
+                    'Containerized processing stages for repeatable deployments across environments.',
+                    'Integrated outputs with emergency management and research distribution networks.',
+                ],
+                'outcome' => [
+                    'Delivered near real-time flood inundation maps during active disaster events worldwide.',
+                    'Reduced manual handoffs that introduced latency and inconsistency under urgency.',
+                    'Supported peer-reviewed research on global water and flood mapping (GeoHorizons).',
+                ],
+                'metrics' => [
+                    ['value' => 'Near RT', 'label' => 'Product generation'],
+                    ['value' => 'Global', 'label' => 'Disaster coverage'],
+                ],
+            ],
         ],
         [
             'slug' => 'direct-readout-laboratory',
@@ -198,6 +250,28 @@ return [
             'featured' => true,
             'tags' => ['PHP', 'Linux', 'NGINX'],
             'logo' => ['path' => '/img/logo-nasa.svg', 'filter' => null, 'class' => 'h-8'],
+            'case_study' => [
+                'lede' => 'A scientific data hub ingesting multi-instrument satellite streams and distributing geophysical products to a global network of ground stations.',
+                'problem' => [
+                    'Multi-instrument sensor streams required consistent reformatting from Level-0 through Level-2 products.',
+                    'Operational centers and research partners depended on predictable, near real-time delivery.',
+                    'Legacy processing paths were difficult to operate and extend as instrument portfolios evolved.',
+                ],
+                'approach' => [
+                    'Built ingestion and reformatting pipelines tuned for polar-orbiting satellite data volumes.',
+                    'Standardized product tiers and distribution paths for downstream operational consumers.',
+                    'Operated on Linux/NGINX infrastructure designed for continuous scientific workloads.',
+                ],
+                'outcome' => [
+                    'Sustained near real-time distribution to registered direct broadcast ground stations.',
+                    'Improved reliability for multi-instrument product generation and handoff.',
+                    'Supported NASA direct readout operations across a global partner network.',
+                ],
+                'metrics' => [
+                    ['value' => 'L0–L2', 'label' => 'Product tiers'],
+                    ['value' => '24/7', 'label' => 'Operational ingest'],
+                ],
+            ],
         ],
         [
             'slug' => 'esscor',
@@ -205,9 +279,27 @@ return [
             'meta' => 'NASA · 2017–2025',
             'description' => 'Earth science data discovery portal unifying archival and near real-time remote sensing holdings into a searchable, standards-compliant catalog. Implemented granule-level access controls and standardized metadata schemas to streamline data ordering and delivery for researchers across government agencies and partner institutions.',
             'image' => '/img/webp/ss-esccor.webp',
-            'url' => '/work#esscor',
+            'url' => '/work/esscor',
             'tags' => ['PHP', 'MySQL', 'ElasticSearch'],
             'logo' => ['path' => '/img/logo-nasa.svg', 'filter' => null, 'class' => 'h-8'],
+            'case_study' => [
+                'lede' => 'A discovery portal unifying archival and near real-time remote sensing holdings into a searchable, standards-compliant catalog.',
+                'problem' => [
+                    'Researchers struggled to discover and order data across fragmented archival and near real-time holdings.',
+                    'Metadata inconsistency slowed search, access control, and downstream ordering workflows.',
+                ],
+                'approach' => [
+                    'Implemented granule-level access controls and standardized metadata schemas.',
+                    'Built search and discovery on ElasticSearch with governed ordering and delivery paths.',
+                ],
+                'outcome' => [
+                    'Streamlined data discovery and ordering for government agencies and partner institutions.',
+                    'Reduced friction between catalog search and governed data access.',
+                ],
+                'metrics' => [
+                    ['value' => 'Granule', 'label' => 'Level access control'],
+                ],
+            ],
         ],
         [
             'slug' => 'informeddna-platform',
@@ -218,6 +310,24 @@ return [
             'url' => 'https://www.informeddna.com',
             'tags' => ['Laravel', 'MySQL', 'RESTful APIs'],
             'logo' => ['path' => '/img/webp/logo-informeddna.webp', 'filter' => 'brightness(0) invert(1)', 'class' => 'h-6'],
+            'case_study' => [
+                'lede' => 'A clinical genomics workflow platform that unified case management, counseling routing, and billing across distributed care teams.',
+                'problem' => [
+                    'Fragmented operational processes created manual overhead across case intake, routing, and billing.',
+                    'Distributed care teams lacked a governed system with auditability and role-based access.',
+                ],
+                'approach' => [
+                    'Architected a Laravel platform integrating case management, counseling workflows, and billing reconciliation.',
+                    'Automated documentation pipelines and enforced role-based access with full audit trails.',
+                ],
+                'outcome' => [
+                    'Cut per-case operational overhead by $30K annually.',
+                    'Improved coordination across distributed genetic counseling and care teams.',
+                ],
+                'metrics' => [
+                    ['value' => '$30K', 'label' => 'Annual savings per case type'],
+                ],
+            ],
         ],
         [
             'slug' => 'finium',
@@ -225,9 +335,28 @@ return [
             'meta' => 'Verizon Business · 1999–2005',
             'description' => 'Enterprise managed security services platform unifying multi-tenant client operations across a national carrier network for a Fortune 500 provider. Automated provisioning, monitoring, and incident response orchestration drove a 10× growth in client engagements and contributed directly to a $105M acquisition.',
             'image' => '/img/webp/ss-mci-verizon.webp',
-            'url' => '/work#finium',
+            'url' => '/work/finium',
             'tags' => ['Java', 'SQL Server', 'Security'],
             'logo' => ['path' => '/img/logo-verizon.svg', 'filter' => null, 'class' => 'h-5'],
+            'case_study' => [
+                'lede' => 'An enterprise managed security services platform that scaled client operations across a national carrier network.',
+                'problem' => [
+                    'Multi-tenant security operations required manual provisioning, monitoring, and incident coordination.',
+                    'Growth was constrained by operational bottlenecks in client onboarding and response workflows.',
+                ],
+                'approach' => [
+                    'Built Java/SQL Server services automating provisioning, monitoring, and incident response orchestration.',
+                    'Unified multi-tenant client operations for a Fortune 500 carrier environment.',
+                ],
+                'outcome' => [
+                    'Drove a 10× increase in client engagements.',
+                    'Contributed to a $105M acquisition by MCI/Verizon.',
+                ],
+                'metrics' => [
+                    ['value' => '10×', 'label' => 'Client engagement growth'],
+                    ['value' => '$105M', 'label' => 'Acquisition value'],
+                ],
+            ],
         ],
     ],
 

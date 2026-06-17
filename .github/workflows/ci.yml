@@ -38,3 +38,12 @@ jobs:
 
       - name: Run tests
         run: composer test
+
+      - name: Accessibility audit
+        run: |
+          php artisan serve --host=127.0.0.1 --port=8000 > /dev/null 2>&1 &
+          for i in $(seq 1 30); do
+            curl -sf http://127.0.0.1:8000/up > /dev/null && break
+            sleep 1
+          done
+          npm run a11y

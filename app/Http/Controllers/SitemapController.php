@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Support\BlogPostRepository;
+use App\Support\ProjectCatalog;
 use Illuminate\Http\Response;
 
 class SitemapController extends Controller
@@ -44,6 +45,19 @@ class SitemapController extends Controller
                 "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>yearly</changefreq>\n    <priority>0.7</priority>\n  </url>",
                 $post->canonicalUrl(),
                 $post->publishedAt->toDateString(),
+            );
+        }
+
+        foreach (ProjectCatalog::all() as $project) {
+            if (! ProjectCatalog::hasCaseStudy($project)) {
+                continue;
+            }
+
+            $urls[] = sprintf(
+                "  <url>\n    <loc>%s/work/%s</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>yearly</changefreq>\n    <priority>0.75</priority>\n  </url>",
+                $base,
+                $project['slug'],
+                $today,
             );
         }
 

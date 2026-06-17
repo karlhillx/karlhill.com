@@ -41,6 +41,14 @@ class LlmsTxtBuilder
             '- [Writing]('.$base.'/blog): Essays on engineering leadership, release governance, and mission software',
         ];
 
+        $caseStudyLines = $this->caseStudySection($base);
+        if ($caseStudyLines !== []) {
+            $lines[] = '';
+            $lines[] = '## Case studies';
+            $lines[] = '';
+            array_push($lines, ...$caseStudyLines);
+        }
+
         $postLines = $this->postSection($base);
         if ($postLines !== []) {
             $lines[] = '';
@@ -60,6 +68,23 @@ class LlmsTxtBuilder
         array_push($lines, ...$this->optionalSection($base));
 
         return implode("\n", $lines)."\n";
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    protected function caseStudySection(string $base): array
+    {
+        return ProjectCatalog::all()
+            ->filter(fn (array $project) => ProjectCatalog::hasCaseStudy($project))
+            ->map(fn (array $project) => sprintf(
+                '- [%s](%s/work/%s): %s',
+                $this->escapeMarkdownLinkText($project['title']),
+                $base,
+                $project['slug'],
+                $this->escapeMarkdownLinkText($project['case_study']['lede'] ?? $project['description']),
+            ))
+            ->all();
     }
 
     /**
