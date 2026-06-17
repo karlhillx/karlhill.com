@@ -16,8 +16,8 @@
                      width="48" height="48"
                      loading="eager" fetchpriority="high" decoding="async"
                      style="view-transition-name: portrait"
-                     class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-500/30 shrink-0">
-                <p class="font-mono text-orange-500 text-xs tracking-widest uppercase">
+                     class="w-12 h-12 rounded-full object-cover ring-2 ring-accent/30 shrink-0">
+                <p class="font-mono text-accent text-xs tracking-widest uppercase">
                     {{ $person['job_title'] }} &nbsp;·&nbsp; 25+ Years
                 </p>
             </div>
@@ -37,8 +37,8 @@
                     <a href="{{ $link['url'] }}" @unless(str_starts_with($link['url'], 'mailto:')) target="_blank" rel="noopener noreferrer" @endunless
                        @class([
                            'font-semibold px-8 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200',
-                           'bg-orange-500 text-black font-bold hover:bg-orange-400' => $link['primary'] ?? false,
-                           'border border-neutral-700 text-neutral-300 hover:border-orange-500 hover:text-orange-500' => ! ($link['primary'] ?? false),
+                           'bg-accent text-black font-bold hover:bg-accent/80' => $link['primary'] ?? false,
+                           'border border-neutral-700 text-neutral-300 hover:border-accent hover:text-accent' => ! ($link['primary'] ?? false),
                        ])>
                         {{ $link['label'] }}
                     </a>

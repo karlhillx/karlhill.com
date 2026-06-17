@@ -14,9 +14,9 @@
         <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
             <div class="max-w-xl" @if($isHome) data-reveal @endif>
                 @if($isHome && $section)
-                    <h2 class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-6">{{ $section }} — Contact</h2>
+                    <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-6">{{ $section }} — Contact</h2>
                 @else
-                    <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-4">Get in Touch</p>
+                    <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Get in Touch</p>
                 @endif
                 <p class="font-display {{ $isHome ? 'text-[clamp(3rem,8vw,6rem)] mb-6' : 'text-[clamp(2rem,5vw,3.5rem)] mb-4' }} leading-none tracking-wide">
                     {!! nl2br(e($footer['headline'])) !!}
@@ -27,12 +27,12 @@
             </div>
             <div class="flex flex-col gap-4 {{ $isHome ? 'lg:pt-16' : '' }} shrink-0" @if($isHome) data-reveal @endif>
                 <a href="mailto:{{ $person['email'] }}"
-                   class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-orange-500 transition-colors group">
-                    <span class="text-orange-500 text-base arrow-nudge" aria-hidden="true">→</span>
+                   class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-accent transition-colors group">
+                    <span class="text-accent text-base arrow-nudge" aria-hidden="true">→</span>
                     {{ $person['email'] }}
                 </a>
                 <a href="{{ $footer['resume'] }}" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 w-fit">
+                   class="inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-colors duration-200 w-fit">
                     <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                     </svg>

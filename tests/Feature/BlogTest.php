@@ -101,6 +101,25 @@ class BlogTest extends TestCase
         $this->assertNotFalse($xml);
     }
 
+    public function test_blog_index_filters_by_tag(): void
+    {
+        $response = $this->get('/blog?tag=leadership');
+
+        $response->assertStatus(200);
+        $response->assertSee('The Unglamorous Work of Leading Engineering Teams', escape: false);
+        $response->assertDontSee('What 1.5 Million Monthly Visitors', escape: false);
+    }
+
+    public function test_blog_show_includes_breadcrumbs_and_related_reading(): void
+    {
+        $response = $this->get('/blog/release-governance');
+
+        $response->assertStatus(200);
+        $response->assertSee('aria-label="Breadcrumb"', escape: false);
+        $response->assertSee('On this site', escape: false);
+        $response->assertSee('href="/work"', escape: false);
+    }
+
     public function test_homepage_links_to_writing(): void
     {
         $response = $this->get('/');

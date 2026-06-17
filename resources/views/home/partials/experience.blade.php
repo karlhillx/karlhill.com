@@ -3,14 +3,14 @@
 
 <section id="experience" class="py-28 px-6 border-t border-neutral-800">
     <div class="max-w-6xl mx-auto">
-        <x-site.section-heading number="02" label="Experience" />
+        <x-site.section-heading :number="$sectionNumber ?? '01'" label="Experience" />
 
-        <div class="role-active rounded-sm mb-16 p-8 md:p-10 border border-orange-500/25 bg-orange-500/[0.03]" data-reveal>
+        <div class="role-active rounded-sm mb-16 p-8 md:p-10 border border-accent/25 bg-accent/[0.03]" data-reveal>
             <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-8">
                 <div>
-                    <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-2">{{ $current['label'] }}</p>
+                    <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">{{ $current['label'] }}</p>
                     <h3 class="font-display text-4xl tracking-wide">{{ $current['title'] }}</h3>
-                    <p class="text-orange-400 font-medium mt-1.5">{{ $current['company'] }} &nbsp;·&nbsp; {{ $current['location'] }}</p>
+                    <p class="text-accent/80 font-medium mt-1.5">{{ $current['company'] }} &nbsp;·&nbsp; {{ $current['location'] }}</p>
                 </div>
                 <span class="font-mono text-xs text-neutral-600 uppercase tracking-widest whitespace-nowrap mt-1">{{ $current['period'] }}</span>
             </div>
@@ -22,7 +22,7 @@
                 <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 py-14" data-reveal>
                     <div>
                         <h3 class="font-display text-2xl tracking-wide leading-tight">{{ $role['title'] }}</h3>
-                        <p class="text-orange-500 text-sm font-medium mt-2">{{ $role['company'] }}</p>
+                        <p class="text-accent text-sm font-medium mt-2">{{ $role['company'] }}</p>
                         <p class="text-neutral-600 text-sm">{{ $role['location'] }}</p>
                         <span class="font-mono text-xs text-neutral-600 mt-3 block">{{ $role['period'] }}</span>
                     </div>
@@ -40,7 +40,7 @@
                     @foreach($earlier['entries'] as $entry)
                         <div class="flex gap-5">
                             <div class="pt-1.5 shrink-0">
-                                <div class="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
+                                <div class="w-1.5 h-1.5 rounded-full bg-accent"></div>
                             </div>
                             <div>
                                 <p class="font-semibold text-neutral-200 text-sm">{{ $entry['company'] }}</p>

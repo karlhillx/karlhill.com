@@ -6,19 +6,35 @@
     'tags' => [],
     'logo' => null,
     'imagePosition' => 'object-top',
+    'url' => null,
+    'slug' => null,
 ])
 
 @php
     $webpImg = str_ends_with(strtolower($image), '.webp')
         ? $image
         : preg_replace('/\.(png|jpe?g)$/i', '.webp', str_replace('/img/', '/img/webp/', $image));
+    $href = $url ?? ($slug ? '/work#'.$slug : null);
+    $isExternal = $href && str_starts_with($href, 'http');
+    $cardClass = 'bg-bg group relative overflow-hidden h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 transition-shadow duration-300 block';
 @endphp
 
-<div {{ $attributes->merge(['class' => 'bg-[#080808] group relative overflow-hidden h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/60 transition-shadow duration-300']) }} tabindex="0" data-reveal>
-    <img src="{{ $webpImg }}" alt="{{ $title }}"
+@if($href)
+    <a href="{{ $href }}"
+       @if($isExternal) target="_blank" rel="noopener noreferrer" @endif
+       @if($slug) id="{{ $slug }}" @endif
+       {{ $attributes->merge(['class' => $cardClass]) }}
+       data-reveal>
+@else
+    <article @if($slug) id="{{ $slug }}" @endif
+             {{ $attributes->merge(['class' => $cardClass]) }}
+             data-reveal>
+@endif
+    <img src="{{ $webpImg }}" alt=""
          width="960" height="720"
          loading="lazy" decoding="async"
-         class="absolute inset-0 w-full h-full object-cover {{ $imagePosition }} opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out">
+         class="absolute inset-0 w-full h-full object-cover {{ $imagePosition }} opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out"
+         aria-hidden="true">
 
     <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/60 to-transparent"></div>
 
@@ -36,11 +52,20 @@
         @endforeach
     </div>
 
-    <div class="absolute inset-x-0 bottom-0 bg-[#080808]/90 backdrop-blur-md border-t border-white/[0.06] px-5 pt-4 pb-5 rounded-b-2xl">
-        <p class="font-mono text-[10px] text-orange-500 uppercase tracking-widest mb-1.5">{{ $meta }}</p>
+    <div class="absolute inset-x-0 bottom-0 bg-bg/90 backdrop-blur-md border-t border-white/[0.06] px-5 pt-4 pb-5 rounded-b-2xl">
+        <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1.5">{{ $meta }}</p>
         <p class="font-display text-lg tracking-wide text-white leading-tight">{{ $title }}</p>
-        <div class="max-h-0 group-hover:max-h-52 group-focus:max-h-52 overflow-hidden transition-[max-height] duration-500 ease-out">
-            <p class="text-neutral-400 text-xs leading-relaxed mt-2">{{ $description }}</p>
+        <div class="work-card-details max-h-0 md:group-hover:max-h-52 md:group-focus-within:max-h-52 overflow-hidden transition-[max-height] duration-500 ease-out">
+            <p class="text-neutral-400 text-xs leading-relaxed mt-2 line-clamp-4 md:line-clamp-none">{{ $description }}</p>
+            @if($href)
+                <p class="font-mono text-[10px] text-accent uppercase tracking-widest mt-3">
+                    {{ $isExternal ? 'Visit project' : 'View details' }} <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
+                </p>
+            @endif
         </div>
     </div>
-</div>
+@if($href)
+    </a>
+@else
+    </article>
+@endif

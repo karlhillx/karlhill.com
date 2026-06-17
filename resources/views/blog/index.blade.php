@@ -36,7 +36,11 @@
          aria-hidden="true"></div>
 
     <div class="relative z-10 max-w-6xl mx-auto">
-        <p class="font-mono text-orange-500 text-xs tracking-widest uppercase mb-6">Writing</p>
+        <x-site.breadcrumbs :items="[
+            ['label' => 'Home', 'url' => '/'],
+            ['label' => 'Writing'],
+        ]" class="mb-6" />
+        <p class="font-mono text-accent text-xs tracking-widest uppercase mb-6">Writing</p>
         <h1 class="font-display text-[clamp(3.5rem,12vw,9rem)] leading-none tracking-wide text-white mb-8">
             Notes from<br>the field
         </h1>
@@ -48,8 +52,37 @@
 
 <section class="px-6 pb-32 border-t border-neutral-800">
     <div class="max-w-6xl mx-auto pt-20">
+        @if($allTags->isNotEmpty())
+            <div class="flex flex-wrap gap-2 mb-12" data-reveal>
+                <a href="/blog"
+                   @class([
+                       'font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 border transition-colors',
+                       'border-accent text-accent' => ! $activeTag,
+                       'border-neutral-800 text-neutral-500 hover:border-accent hover:text-accent' => $activeTag,
+                   ])>
+                    All
+                </a>
+                @foreach($allTags as $tag)
+                    <a href="/blog?tag={{ urlencode($tag) }}"
+                       @class([
+                           'font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 border transition-colors',
+                           'border-accent text-accent' => $activeTag === $tag,
+                           'border-neutral-800 text-neutral-500 hover:border-accent hover:text-accent' => $activeTag !== $tag,
+                       ])>
+                        {{ $tag }}
+                    </a>
+                @endforeach
+            </div>
+        @endif
+
         @if($posts->isEmpty())
-            <p class="font-mono text-sm text-neutral-500">No posts yet — check back soon.</p>
+            <p class="font-mono text-sm text-neutral-500">
+                @if($activeTag)
+                    No posts tagged “{{ $activeTag }}” yet.
+                @else
+                    No posts yet — check back soon.
+                @endif
+            </p>
         @else
             <ul class="divide-y divide-neutral-800/70">
                 @foreach($posts as $post)
@@ -65,7 +98,7 @@
                                 </span>
                             </div>
                             <div>
-                                <h2 class="font-display text-3xl md:text-4xl tracking-wide text-neutral-100 group-hover:text-orange-500 transition-colors mb-4 leading-tight">
+                                <h2 class="font-display text-3xl md:text-4xl tracking-wide text-neutral-100 group-hover:text-accent transition-colors mb-4 leading-tight">
                                     {{ $post->title }}
                                 </h2>
                                 <p class="text-neutral-400 leading-relaxed mb-5 max-w-2xl">
@@ -77,7 +110,7 @@
                                             {{ $tag }}
                                         </span>
                                     @endforeach
-                                    <span class="font-mono text-xs text-orange-500 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span class="font-mono text-xs text-accent ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
                                         Read <span class="arrow-nudge inline-block">→</span>
                                     </span>
                                 </div>
@@ -91,4 +124,3 @@
 </section>
 
 @endsection
-

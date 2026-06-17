@@ -53,7 +53,7 @@ class GitHubRepositoryTest extends TestCase
         $this->assertFalse($repos->contains(fn ($repo) => $repo->name === 'karlhill.com'));
     }
 
-    public function test_homepage_renders_server_side_github_repos(): void
+    public function test_work_page_renders_server_side_github_repos(): void
     {
         Http::fake([
             'api.github.com/*' => Http::response([
@@ -71,7 +71,7 @@ class GitHubRepositoryTest extends TestCase
             ], 200),
         ]);
 
-        $response = $this->get('/');
+        $response = $this->get('/work');
 
         $response->assertOk();
         $response->assertSee('id="open-source"', escape: false);

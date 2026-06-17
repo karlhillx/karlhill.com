@@ -261,7 +261,73 @@ footer#contact {
         display: none;
     }
     .work-card-details {
-        max-height: 13rem;
+        max-height: none;
+    }
+}
+
+/* Mobile section jump rail — horizontal scroll below the nav */
+.section-rail {
+    position: fixed;
+    top: 4.55rem;
+    left: 0;
+    right: 0;
+    z-index: 45;
+    display: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 1px solid #262626;
+    background: color-mix(in oklab, var(--bg) 94%, transparent);
+    backdrop-filter: blur(6px);
+    -webkit-overflow-scrolling: touch;
+}
+
+.section-rail::-webkit-scrollbar {
+    display: none;
+}
+
+.section-rail-inner {
+    display: flex;
+    gap: 0.35rem;
+    padding: 0.55rem 1rem;
+    min-width: min-content;
+}
+
+.section-rail a {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #737373;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid #2a2a2a;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: color 0.16s ease, border-color 0.16s ease;
+}
+
+.section-rail a[aria-current="true"] {
+    color: var(--accent);
+    border-color: color-mix(in oklab, var(--accent) 55%, #2a2a2a);
+}
+
+@media (max-width: 768px) {
+    .section-rail {
+        display: block;
+    }
+    main {
+        scroll-margin-top: 7.5rem;
+    }
+    main section[id],
+    footer[id] {
+        scroll-margin-top: 7.5rem;
+    }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    .section-rail {
+        backdrop-filter: none;
+        background: var(--bg);
     }
 }
 
@@ -533,6 +599,12 @@ footer#contact {
     --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
     --font-display: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --color-bg: var(--bg);
+    --color-panel: var(--panel);
+    --color-accent: var(--accent);
+    --color-focus: var(--focus);
+    --color-muted: var(--muted);
+    --color-ink: var(--text);
 }
 
 /* ---------------------------------------------------------------------------

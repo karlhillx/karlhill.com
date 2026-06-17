@@ -9,16 +9,10 @@
     @include('home.partials.hero')
     @include('home.partials.latest-writing')
     @include('home.partials.why')
-    @include('home.partials.stats')
-    @include('home.partials.experience')
-    @include('home.partials.work')
-    @include('home.partials.research')
-    @include('home.partials.stack')
-    @include('home.partials.open-source')
-    @include('home.partials.certs')
+    @include('home.partials.featured-work')
 @endsection
 
 @section('page_footer')
-    <x-site.footer variant="home" section="08" />
-    <nav id="section-minimap" aria-label="Section navigation"></nav>
+    <x-site.footer variant="home" section="03" />
+    <nav id="section-minimap" class="section-minimap" aria-label="Section navigation"></nav>
 @endsection

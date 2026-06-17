@@ -56,7 +56,9 @@
     <x-site.analytics />
     @stack('head')
 </head>
-<body class="bg-[#080808] text-neutral-100 antialiased">
+<body class="bg-bg text-neutral-100 antialiased">
+
+    <div class="scroll-progress" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"></div>
 
     <div class="cursor-spotlight" aria-hidden="true"></div>
 
@@ -72,11 +74,15 @@
     </svg>
 
     <a href="#main-content"
-       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-black focus:font-semibold focus:text-xs focus:uppercase focus:tracking-widest">
+       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-black focus:font-semibold focus:text-xs focus:uppercase focus:tracking-widest">
         Skip to content
     </a>
 
     <x-site.nav :active-nav="$activeNav ?? null" />
+
+    @isset($sectionRail)
+        <x-site.section-rail :sections="$sectionRail" />
+    @endisset
 
     <main id="main-content" class="relative z-10">
         @yield('content')

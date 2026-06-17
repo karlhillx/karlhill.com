@@ -35,7 +35,9 @@ class LlmsTxtBuilder
             '',
             '## Key pages',
             '',
-            '- [Home]('.$base.'): Portfolio, experience, selected work, research, stack, and contact',
+            '- [Home]('.$base.'): Portfolio landing, latest writing, and contact',
+            '- [Work]('.$base.'/work): Selected projects and open-source repositories',
+            '- [About]('.$base.'/about): Experience, research, technical stack, and credentials',
             '- [Writing]('.$base.'/blog): Essays on engineering leadership, release governance, and mission software',
         ];
 

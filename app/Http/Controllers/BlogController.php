@@ -14,9 +14,24 @@ class BlogController extends Controller
 
     public function index(): View
     {
+        $tag = request()->query('tag');
+        $posts = $this->posts->all();
+
+        if (is_string($tag) && $tag !== '') {
+            $posts = $posts->filter(fn ($post) => in_array($tag, $post->tags, true))->values();
+        }
+
+        $allTags = $this->posts->all()
+            ->flatMap(fn ($post) => $post->tags)
+            ->unique()
+            ->sort()
+            ->values();
+
         return view('blog.index', [
             'meta' => PageMeta::blogIndex(),
-            'posts' => $this->posts->all(),
+            'posts' => $posts,
+            'activeTag' => is_string($tag) ? $tag : null,
+            'allTags' => $allTags,
         ]);
     }
 
@@ -27,6 +42,11 @@ class BlogController extends Controller
         return view('blog.show', [
             'meta' => PageMeta::forPost($post),
             'post' => $post,
+            'relatedPosts' => $this->posts->all()
+                ->reject(fn ($candidate) => $candidate->slug === $post->slug)
+                ->filter(fn ($candidate) => count(array_intersect($candidate->tags, $post->tags)) > 0)
+                ->take(2)
+                ->values(),
         ]);
     }
 }

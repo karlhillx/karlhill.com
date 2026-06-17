@@ -1,10 +1,10 @@
 @props(['repo'])
 
 <a href="{{ $repo->url }}" target="_blank" rel="noopener noreferrer"
-   class="bg-[#080808] group block rounded-2xl border border-neutral-800/80 p-6 hover:border-orange-500/40 hover:bg-neutral-900/40 transition-all duration-200"
+   class="bg-bg group block rounded-2xl border border-neutral-800/80 p-6 hover:border-accent/40 hover:bg-neutral-900/40 transition-all duration-200"
    data-reveal>
     <div class="flex items-start justify-between gap-4 mb-3">
-        <p class="font-mono text-sm text-neutral-200 group-hover:text-orange-400 transition-colors leading-snug break-all">{{ $repo->name }}</p>
+        <p class="font-mono text-sm text-neutral-200 group-hover:text-accent/80 transition-colors leading-snug break-all">{{ $repo->name }}</p>
         @if($repo->stars > 0)
             <span class="font-mono text-xs text-neutral-600 whitespace-nowrap shrink-0">★ {{ number_format($repo->stars) }}</span>
         @endif

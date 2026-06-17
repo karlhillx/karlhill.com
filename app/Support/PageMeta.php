@@ -57,6 +57,38 @@ final class PageMeta
         );
     }
 
+    public static function work(): self
+    {
+        $seo = config('site.seo.work');
+        $url = self::siteUrl();
+
+        return new self(
+            title: $seo['title'],
+            description: $seo['description'],
+            canonical: "{$url}/work",
+            ogTitle: $seo['title'],
+            ogDescription: $seo['og_description'],
+            ogImage: "{$url}/img/og-home.jpg",
+            activeNav: 'work',
+        );
+    }
+
+    public static function about(): self
+    {
+        $seo = config('site.seo.about');
+        $url = self::siteUrl();
+
+        return new self(
+            title: $seo['title'],
+            description: $seo['description'],
+            canonical: "{$url}/about",
+            ogTitle: $seo['title'],
+            ogDescription: $seo['og_description'],
+            ogImage: "{$url}/img/og-home.jpg",
+            activeNav: 'about',
+        );
+    }
+
     public static function forPost(BlogPost $post): self
     {
         $author = config('site.person.name');

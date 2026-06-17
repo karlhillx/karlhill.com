@@ -31,7 +31,8 @@ class LlmsTxtTest extends TestCase
         $this->assertStringContainsString('## Writing', $body);
         $this->assertStringContainsString('## Professional profiles', $body);
         $this->assertStringContainsString('## Optional', $body);
-        $this->assertStringContainsString('https://karlhill.com/blog', $body);
+        $this->assertStringContainsString('/work', $body);
+        $this->assertStringContainsString('/about', $body);
         $this->assertStringContainsString('/blog/release-governance', $body);
         $this->assertStringContainsString('What 20 Years Taught Me About Release Governance', $body);
         $this->assertStringContainsString('Preferred name: **Karl Hill**', $body);

@@ -122,38 +122,60 @@ const counterObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
 
 // ---------------------------------------------------------------------------
-// Scroll spy — highlight nav link for the section currently in view
+// Section navigation helpers (minimap, scroll spy, mobile rail)
 // ---------------------------------------------------------------------------
+const minimap = document.getElementById('section-minimap');
+const sections = Array.from(document.querySelectorAll('main section[id], footer[id]'));
 const navSpyLinks = document.querySelectorAll('nav[aria-label="Primary"] a[data-nav-section]');
+const railLinks = document.querySelectorAll('#section-rail a[data-rail-section]');
+
+function setActiveSection(sectionId) {
+    navSpyLinks.forEach((link) => {
+        const active = link.dataset.navSection === sectionId;
+        link.classList.toggle('text-accent', active);
+        link.classList.toggle('text-neutral-500', !active);
+    });
+
+    railLinks.forEach((link) => {
+        link.setAttribute('aria-current', link.dataset.railSection === sectionId ? 'true' : 'false');
+    });
+
+    minimap?.querySelectorAll('button[data-jump]').forEach((btn) => {
+        btn.setAttribute('aria-current', btn.getAttribute('data-jump') === sectionId ? 'true' : 'false');
+    });
+}
+
+if (minimap && sections.length > 0) {
+    minimap.innerHTML = sections
+        .map((section) => {
+            const id = section.getAttribute('id');
+            const label = id?.replace('-', ' ') || 'section';
+            return `<button type="button" data-jump="${id}" aria-label="Jump to ${label}" title="${label}"></button>`;
+        })
+        .join('');
+
+    minimap.querySelectorAll('button[data-jump]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-jump');
+            const target = id ? document.getElementById(id) : null;
+            target?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+        });
+    });
+}
 
 const spyObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const id = entry.target.getAttribute('id');
-        navSpyLinks.forEach(link => {
-            const sectionId = link.dataset.navSection;
-            const active = sectionId === id;
-            link.classList.toggle('text-orange-500', active);
-            link.classList.toggle('text-neutral-500', !active);
-        });
+        if (id) setActiveSection(id);
     });
 }, {
     rootMargin: '-40% 0px -55% 0px',
     threshold: 0,
 });
 
-document.querySelectorAll('main section[id], footer[id]').forEach(el => spyObserver.observe(el));
-
-// ---------------------------------------------------------------------------
-// Desktop "More" nav — close when clicking outside the disclosure
-// ---------------------------------------------------------------------------
-document.addEventListener('click', (e) => {
-    document.querySelectorAll('details.nav-more[open]').forEach((details) => {
-        if (!details.contains(e.target)) {
-            details.removeAttribute('open');
-        }
-    });
-});
+sections.forEach((el) => spyObserver.observe(el));
+document.querySelectorAll('footer[id]').forEach((el) => spyObserver.observe(el));
 
 // ---------------------------------------------------------------------------
 // Mobile menu controls
@@ -191,7 +213,9 @@ const root = document.documentElement;
 function updateScrollUI() {
     const max = root.scrollHeight - window.innerHeight;
     const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
-    root.style.setProperty('--scroll-progress', `${Math.min(progress, 100)}%`);
+    const clamped = Math.min(progress, 100);
+    root.style.setProperty('--scroll-progress', `${clamped}%`);
+    document.querySelector('.scroll-progress')?.setAttribute('aria-valuenow', String(Math.round(clamped)));
     backTopBtn?.classList.toggle('is-visible', window.scrollY > 560);
 }
 
@@ -204,47 +228,6 @@ backTopBtn?.addEventListener('click', () => {
 });
 
 // ---------------------------------------------------------------------------
-// Section mini-map synced to active section
-// ---------------------------------------------------------------------------
-const minimap = document.getElementById('section-minimap');
-const sections = Array.from(document.querySelectorAll('main section[id], footer[id]'));
-
-if (minimap && sections.length > 0) {
-    minimap.innerHTML = sections
-        .map((section) => {
-            const id = section.getAttribute('id');
-            const label = id?.replace('-', ' ') || 'section';
-            return `<button type="button" data-jump="${id}" aria-label="Jump to ${label}" title="${label}"></button>`;
-        })
-        .join('');
-
-    minimap.querySelectorAll('button[data-jump]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-            const id = btn.getAttribute('data-jump');
-            const target = id ? document.getElementById(id) : null;
-            target?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-        });
-    });
-}
-
-function setActiveSection(sectionId) {
-    minimap?.querySelectorAll('button[data-jump]').forEach((btn) => {
-        btn.setAttribute('aria-current', btn.getAttribute('data-jump') === sectionId ? 'true' : 'false');
-    });
-}
-
-const navSectionsObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const id = entry.target.getAttribute('id');
-        if (!id) return;
-        setActiveSection(id);
-    });
-}, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
-
-sections.forEach((section) => navSectionsObserver.observe(section));
-
-// ---------------------------------------------------------------------------
 // Command palette (Cmd/Ctrl+K) with fuzzy section routing
 // ---------------------------------------------------------------------------
 const palette = document.getElementById('command-palette');
@@ -252,25 +235,40 @@ const paletteTriggers = document.querySelectorAll('[data-command-palette-trigger
 const commandInput = document.getElementById('command-input');
 const commandResults = document.getElementById('command-results');
 
-// Section commands work cross-page: scroll if the anchor exists on this page,
-// otherwise navigate to the corresponding /#fragment on the home page.
+// Section commands: scroll if anchor exists on this page, else navigate to the right page.
 function gotoSection(id) {
     const el = document.getElementById(id);
     if (el) {
         el.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-    } else {
-        window.location.assign(`/#${id}`);
+        return;
     }
+
+    const pageMap = {
+        experience: '/about#experience',
+        research: '/about#research',
+        stack: '/about#stack',
+        credentials: '/about#credentials',
+        work: '/work#work',
+        'open-source': '/work#open-source',
+        contact: '/#contact',
+        writing: '/#writing',
+        why: '/#why',
+    };
+
+    window.location.assign(pageMap[id] ?? `/#${id}`);
 }
 
 const commands = [
+    { label: 'Home', keywords: 'home landing portfolio', action: () => window.location.assign('/') },
+    { label: 'Work — Portfolio', keywords: 'work portfolio projects nasa', action: () => window.location.assign('/work') },
+    { label: 'About — Experience', keywords: 'about experience career background', action: () => window.location.assign('/about') },
     { label: 'Writing — Blog', keywords: 'writing blog posts articles essays notes governance', action: () => window.location.assign('/blog') },
     { label: 'Experience', keywords: 'experience career nasa jacobs', action: () => gotoSection('experience') },
     { label: 'Selected Work', keywords: 'work portfolio projects', action: () => gotoSection('work') },
     { label: 'Research', keywords: 'research publication paper doi geohorizons flood mapping', action: () => gotoSection('research') },
     { label: 'Stack', keywords: 'stack tech tools languages', action: () => gotoSection('stack') },
+    { label: 'Credentials', keywords: 'certs certifications education scrum stats', action: () => gotoSection('credentials') },
     { label: 'Open Source', keywords: 'github repos open source', action: () => gotoSection('open-source') },
-    { label: 'Certifications', keywords: 'certs education scrum', action: () => gotoSection('certs') },
     { label: 'Contact', keywords: 'contact email hire', action: () => gotoSection('contact') },
     { label: 'RSS Feed', keywords: 'rss atom feed subscribe', action: () => window.open('/feed.xml', '_blank', 'noopener,noreferrer') },
     { label: 'LinkedIn', keywords: 'linkedin social', action: () => window.open('https://www.linkedin.com/in/khill/', '_blank', 'noopener,noreferrer') },

@@ -23,6 +23,16 @@ class SitemapController extends Controller
                 $today,
             ),
             sprintf(
+                "  <url>\n    <loc>%s/work</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n  </url>",
+                $base,
+                $today,
+            ),
+            sprintf(
+                "  <url>\n    <loc>%s/about</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n  </url>",
+                $base,
+                $today,
+            ),
+            sprintf(
                 "  <url>\n    <loc>%s/blog</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>",
                 $base,
                 $this->posts->all()->first()?->publishedAt->toDateString() ?? $today,

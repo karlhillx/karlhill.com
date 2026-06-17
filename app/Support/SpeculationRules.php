@@ -13,7 +13,7 @@ class SpeculationRules
      */
     public static function forHomepage(?BlogPost $latestPost): array
     {
-        $urls = collect(['/blog']);
+        $urls = collect(['/blog', '/work', '/about']);
 
         if ($latestPost !== null) {
             $urls->push('/blog/'.$latestPost->slug);
