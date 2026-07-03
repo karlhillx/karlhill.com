@@ -172,6 +172,74 @@ p {
     animation: arrowNudge 2.8s ease-in-out infinite;
 }
 
+/* ---------------------------------------------------------------------------
+   Interactive micro-animations
+--------------------------------------------------------------------------- */
+
+/* Nav links: an accent underline that wipes in on hover and anchors the
+   active page. Origin flips so it draws in from the left, out to the right. */
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.35rem;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link.text-accent::after,
+.nav-link[aria-current="page"]::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
+/* Section-heading accent dash: grows from zero as the heading scroll-reveals.
+   Keyed off the `.revealed` class the reveal observer adds. */
+.section-accent-line {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.12s;
+}
+[data-reveal].revealed .section-accent-line {
+    transform: scaleX(1);
+}
+
+/* Outline CTAs: an accent fill sweeps across on hover, flipping text to ink.
+   The fill sits behind the label via a negative z-index + isolation. */
+.btn-sweep {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.btn-sweep::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-sweep:hover,
+.btn-sweep:focus-visible {
+    color: #000;
+    border-color: var(--accent);
+}
+.btn-sweep:hover::before,
+.btn-sweep:focus-visible::before {
+    transform: scaleX(1);
+}
+
 /* Hero ambient glow orbs */
 .glow-orb-1 {
     animation: glowDrift1 18s ease-in-out infinite alternate;
@@ -670,6 +738,16 @@ footer#contact {
     .arrow-nudge {
         animation: none;
     }
+    /* Micro-animations collapse to instant end-states, no motion. */
+    .nav-link::after,
+    .section-accent-line,
+    .btn-sweep::before,
+    .prose-karl a {
+        transition: none;
+    }
+    .section-accent-line {
+        transform: scaleX(1);
+    }
     .glow-orb-1,
     .glow-orb-2,
     .hero-dot-grid {
@@ -878,17 +956,25 @@ footer#contact {
     color: oklch(92% 0.015 250);
 }
 
+/* Inline article links keep a faint resting underline for affordance, then a
+   solid accent underline sweeps across on hover as the faint one fades out. */
 .prose-karl a {
     color: var(--accent);
     text-decoration: underline;
     text-decoration-color: color-mix(in oklab, var(--accent) 35%, transparent);
     text-underline-offset: 3px;
-    transition: text-decoration-color 0.18s ease, color 0.18s ease;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        text-decoration-color 0.18s ease, color 0.18s ease;
 }
 
 .prose-karl a:hover {
     color: oklch(80% 0.18 50);
-    text-decoration-color: var(--accent);
+    text-decoration-color: transparent;
+    background-size: 100% 2px;
 }
 
 .prose-karl code {

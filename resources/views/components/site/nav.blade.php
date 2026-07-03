@@ -2,7 +2,7 @@
 
 @php
     $navLinkClass = static function (string $key) use ($activeNav): string {
-        return 'transition-colors duration-200 '.($activeNav === $key ? 'text-accent' : 'hover:text-accent');
+        return 'nav-link transition-colors duration-200 '.($activeNav === $key ? 'text-accent' : 'hover:text-accent');
     };
 @endphp
 
@@ -34,7 +34,7 @@
                 <span class="sr-only">Open command palette</span>
             </button>
             <a href="mailto:{{ config('site.person.email') }}"
-               class="hidden sm:inline-flex text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest hover:border-accent hover:text-accent transition-colors duration-200">
+               class="btn-sweep hidden sm:inline-flex text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest">
                 Get in Touch
             </a>
             <button id="nav-toggle" type="button" popovertarget="mobile-menu"

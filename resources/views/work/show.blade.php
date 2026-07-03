@@ -68,7 +68,10 @@
                 <div class="grid grid-cols-2 {{ $metricCols }} gap-px bg-neutral-800 mb-12" data-reveal>
                     @foreach($study['metrics'] as $metric)
                         <div class="bg-bg p-6 text-center">
-                            <p class="font-display text-3xl sm:text-4xl text-accent mb-1">{{ $metric['value'] }}</p>
+                            <p class="font-display text-3xl sm:text-4xl text-accent mb-1"
+                               data-counter
+                               data-final="{{ $metric['value'] }}"
+                               aria-label="{{ $metric['value'] }} — {{ $metric['label'] }}">{{ $metric['value'] }}</p>
                             <p class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">{{ $metric['label'] }}</p>
                         </div>
                     @endforeach

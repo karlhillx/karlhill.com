@@ -81,17 +81,45 @@ document.querySelectorAll('[data-reveal]').forEach((el) => {
 // ---------------------------------------------------------------------------
 // Stat counters
 // ---------------------------------------------------------------------------
+// Split a display string like "$105M", "1.5M+", "10×" or "~40%" into a leading
+// prefix, the numeric value, and a trailing suffix. Returns null when there's
+// no number to animate (e.g. "Global", "Near RT") so we leave the text as-is.
+function parseCountValue(str) {
+    const match = String(str).match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/s);
+    if (!match) return null;
+    return {
+        prefix: match[1],
+        to: parseFloat(match[2].replace(/,/g, '')),
+        suffix: match[3],
+    };
+}
+
 function animateCounter(el) {
-    const final = el.dataset.final;
+    const final = el.dataset.final ?? el.textContent.trim();
 
     if (prefersReducedMotion) {
         el.textContent = final;
         return;
     }
 
-    const to = parseFloat(el.dataset.to);
-    const prefix = el.dataset.prefix || '';
-    const suffix = el.dataset.suffix || '';
+    let to;
+    let prefix;
+    let suffix;
+
+    // Explicit data-* wins; otherwise derive the parts from the display string.
+    if (el.dataset.to !== undefined) {
+        to = parseFloat(el.dataset.to);
+        prefix = el.dataset.prefix || '';
+        suffix = el.dataset.suffix || '';
+    } else {
+        const parsed = parseCountValue(final);
+        if (!parsed) {
+            el.textContent = final;
+            return;
+        }
+        ({ to, prefix, suffix } = parsed);
+    }
+
     const isFloat = !Number.isInteger(to);
     const duration = 1800;
     const start = performance.now();

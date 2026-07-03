@@ -39,7 +39,7 @@
                        @class([
                            'font-semibold px-8 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200',
                            'bg-accent text-black font-bold hover:bg-accent/80' => $link['primary'] ?? false,
-                           'border border-neutral-700 text-neutral-300 hover:border-accent hover:text-accent' => ! ($link['primary'] ?? false),
+                           'btn-sweep border border-neutral-700 text-neutral-300' => ! ($link['primary'] ?? false),
                        ])>
                         {{ $link['label'] }}
                     </a>
