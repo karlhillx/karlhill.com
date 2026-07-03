@@ -51,6 +51,11 @@
 html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    /* Keep in-page anchor targets clear of the fixed nav (overridden taller on
+       mobile where the section rail adds a second sticky row). */
+    scroll-padding-top: 5.5rem;
+    /* Reserve the scrollbar's width so opening overlays never shifts layout. */
+    scrollbar-gutter: stable;
 }
 
 body {
@@ -58,6 +63,8 @@ body {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     font-optical-sizing: auto;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Better paragraph rag — eliminates orphans without the cost of `balance` */
@@ -67,6 +74,29 @@ p {
 
 .font-display {
     text-wrap: balance;
+}
+
+/* ---------------------------------------------------------------------------
+   Global micro-polish — selection, scrollbars, tap feedback
+--------------------------------------------------------------------------- */
+::selection {
+    background: color-mix(in oklab, var(--accent) 32%, transparent);
+    color: #fff;
+    text-shadow: none;
+}
+
+/* Slim, on-brand scrollbars on the dark canvas (pointer devices only, so the
+   mobile section rail keeps its hidden bar). */
+@media (min-width: 769px) {
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: color-mix(in oklab, var(--accent) 40%, #2a2a2a) transparent;
+    }
+}
+
+/* Drop the grey tap flash for a cleaner, app-like feel on touch. */
+:where(a, button, [role="button"], summary, [popovertarget]) {
+    -webkit-tap-highlight-color: transparent;
 }
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -337,12 +367,9 @@ footer#contact {
     .section-rail {
         display: block;
     }
-    main {
-        scroll-margin-top: 7.5rem;
-    }
-    main section[id],
-    footer[id] {
-        scroll-margin-top: 7.5rem;
+    /* Taller offset so jumps clear both the nav and the section rail. */
+    html {
+        scroll-padding-top: 7.5rem;
     }
 }
 

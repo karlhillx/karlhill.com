@@ -1,17 +1,32 @@
 @if($latestPost)
-<section id="writing" class="border-t border-neutral-800 bg-neutral-900/20 px-6 py-10" aria-label="Latest writing" data-reveal>
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        <div>
-            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">Latest writing</p>
-            <a href="{{ $latestPost->url() }}" class="group block">
-                <h2 class="font-display text-2xl md:text-3xl text-neutral-100 group-hover:text-accent tracking-wide transition-colors leading-tight">
-                    {{ $latestPost->title }} <span class="arrow-nudge inline-block text-accent" aria-hidden="true">→</span>
-                </h2>
-                <p class="text-neutral-500 text-sm mt-2 max-w-2xl leading-relaxed line-clamp-2 md:line-clamp-none">{{ $latestPost->excerpt }}</p>
+<section id="writing" class="py-28 px-6 border-t border-neutral-800" aria-label="Latest writing">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16" data-reveal>
+            <x-site.section-heading number="03" label="Latest Writing" class="mb-0" />
+            <a href="/blog"
+               class="font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors shrink-0">
+                All writing <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
             </a>
         </div>
-        <a href="/blog" class="shrink-0 font-mono text-xs text-accent uppercase tracking-widest border border-accent/40 hover:bg-accent/10 px-5 py-3 text-center transition-colors">
-            All writing
+
+        <a href="{{ $latestPost->url() }}"
+           class="group block rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] bg-neutral-900/20 hover:bg-neutral-900/40 px-7 py-8 md:px-10 md:py-10 transition-[background-color,box-shadow] duration-300"
+           data-reveal>
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-5 font-mono text-[10px] uppercase tracking-widest text-neutral-500">
+                <time datetime="{{ $latestPost->isoDate() }}">{{ $latestPost->publishedAt->format('M j, Y') }}</time>
+                <span class="text-neutral-700" aria-hidden="true">·</span>
+                <span>{{ $latestPost->readMinutes }} min read</span>
+                @foreach($latestPost->tags as $tag)
+                    <span class="border border-neutral-800 px-2 py-0.5 text-neutral-600">{{ $tag }}</span>
+                @endforeach
+            </div>
+            <h3 class="font-display text-3xl md:text-4xl tracking-wide text-neutral-100 group-hover:text-accent transition-colors leading-tight mb-4">
+                {{ $latestPost->title }}
+            </h3>
+            <p class="text-neutral-400 leading-relaxed max-w-2xl mb-6">{{ $latestPost->excerpt }}</p>
+            <span class="font-mono text-xs text-accent uppercase tracking-widest">
+                Read the post <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
+            </span>
         </a>
     </div>
 </section>

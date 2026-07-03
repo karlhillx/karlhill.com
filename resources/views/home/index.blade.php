@@ -7,12 +7,12 @@
 
 @section('content')
     @include('home.partials.hero')
-    @include('home.partials.latest-writing')
     @include('home.partials.why')
     @include('home.partials.featured-work')
+    @include('home.partials.latest-writing')
 @endsection
 
 @section('page_footer')
-    <x-site.footer variant="home" section="03" />
+    <x-site.footer variant="home" section="04" />
     <nav id="section-minimap" class="section-minimap" aria-label="Section navigation"></nav>
 @endsection

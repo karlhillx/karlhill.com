@@ -39,7 +39,7 @@
                     Download Resume
                 </a>
 
-                <x-site.social-links :extended="$isHome" />
+                <x-site.social-links />
             </div>
             <nav class="shrink-0" aria-label="Site">
                 <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Explore</p>
