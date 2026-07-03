@@ -106,7 +106,8 @@
                                 </span>
                             </div>
                             <div>
-                                <h2 class="font-display text-3xl md:text-4xl tracking-wide text-neutral-100 group-hover:text-accent transition-colors mb-4 leading-tight">
+                                <h2 class="font-display text-3xl md:text-4xl tracking-wide text-neutral-100 group-hover:text-accent transition-colors mb-4 leading-tight"
+                                    style="view-transition-name: post-{{ $post->slug }}; view-transition-class: post-title">
                                     {{ $post->title }}
                                 </h2>
                                 <p class="text-neutral-400 leading-relaxed mb-5 max-w-2xl">

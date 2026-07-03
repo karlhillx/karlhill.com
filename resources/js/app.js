@@ -196,28 +196,14 @@ document.querySelectorAll('footer[id]').forEach((el) => spyObserver.observe(el))
 // ---------------------------------------------------------------------------
 // Mobile menu controls
 // ---------------------------------------------------------------------------
+// The menu is a native popover (opened declaratively via `popovertarget` on
+// #nav-toggle). Light-dismiss, Esc, and top-layer are handled by the platform;
+// we only mirror the open state onto the toggle for assistive tech.
 const navToggle = document.getElementById('nav-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 
-navToggle?.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!expanded));
-    if (mobileMenu) mobileMenu.hidden = expanded;
-});
-
-mobileMenu?.querySelectorAll('a, button[data-command-palette-trigger]').forEach((el) => {
-    el.addEventListener('click', () => {
-        mobileMenu.hidden = true;
-        navToggle?.setAttribute('aria-expanded', 'false');
-    });
-});
-
-document.addEventListener('click', (e) => {
-    if (!navToggle || !mobileMenu || mobileMenu.hidden) return;
-    if (!navToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-        mobileMenu.hidden = true;
-        navToggle.setAttribute('aria-expanded', 'false');
-    }
+mobileMenu?.addEventListener('toggle', (e) => {
+    navToggle?.setAttribute('aria-expanded', e.newState === 'open' ? 'true' : 'false');
 });
 
 // ---------------------------------------------------------------------------
@@ -226,20 +212,28 @@ document.addEventListener('click', (e) => {
 const backTopBtn = document.getElementById('quick-back-top');
 const root = document.documentElement;
 
-function updateScrollUI() {
-    const max = root.scrollHeight - window.innerHeight;
-    const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
-    const clamped = Math.min(progress, 100);
-    root.style.setProperty('--scroll-progress', `${clamped}%`);
-    document
-        .querySelector('.scroll-progress')
-        ?.setAttribute('aria-valuenow', String(Math.round(clamped)));
-    backTopBtn?.classList.toggle('is-visible', window.scrollY > 560);
-}
+// Scroll-driven CSS (animation-timeline: scroll()) powers the progress bar and
+// the back-to-top reveal wherever it's supported. Only attach a scroll listener
+// as a fallback for browsers that lack it (e.g. Safari today).
+const supportsScrollTimeline =
+    typeof CSS !== 'undefined' && CSS.supports('animation-timeline', 'scroll()');
 
-window.addEventListener('scroll', updateScrollUI, { passive: true });
-window.addEventListener('resize', updateScrollUI);
-updateScrollUI();
+if (!supportsScrollTimeline) {
+    const updateScrollUI = () => {
+        const max = root.scrollHeight - window.innerHeight;
+        const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
+        const clamped = Math.min(progress, 100);
+        root.style.setProperty('--scroll-progress', `${clamped}%`);
+        document
+            .querySelector('.scroll-progress')
+            ?.setAttribute('aria-valuenow', String(Math.round(clamped)));
+        backTopBtn?.classList.toggle('is-visible', window.scrollY > 560);
+    };
+
+    window.addEventListener('scroll', updateScrollUI, { passive: true });
+    window.addEventListener('resize', updateScrollUI);
+    updateScrollUI();
+}
 
 backTopBtn?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
@@ -249,7 +243,6 @@ backTopBtn?.addEventListener('click', () => {
 // Command palette (Cmd/Ctrl+K) with fuzzy section routing
 // ---------------------------------------------------------------------------
 const palette = document.getElementById('command-palette');
-const paletteTriggers = document.querySelectorAll('[data-command-palette-trigger]');
 const commandInput = document.getElementById('command-input');
 const commandResults = document.getElementById('command-results');
 
@@ -343,36 +336,29 @@ const commands = [
 ];
 
 let activeCommandIndex = 0;
-let lastPaletteTrigger = null;
 
-function openPalette(trigger = null) {
-    if (!palette || !commandInput) return;
-    lastPaletteTrigger = trigger;
-    palette.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    commandInput.value = '';
-    activeCommandIndex = 0;
-    renderCommands('');
-    setTimeout(() => commandInput.focus(), 0);
-}
+const paletteIsOpen = () => palette?.matches(':popover-open') ?? false;
 
-function closePalette() {
-    if (!palette) return;
-    palette.classList.add('hidden');
-    document.body.style.removeProperty('overflow');
-    const triggerIsHidden = lastPaletteTrigger?.closest?.('[hidden]');
-    if (lastPaletteTrigger && !triggerIsHidden) {
-        lastPaletteTrigger.focus();
+// Reset + focus on open, restore scroll on close. Open/close itself is native:
+// triggers use `popovertarget`, Cmd+K calls togglePopover(), and Esc /
+// click-outside are handled by popover=auto.
+palette?.addEventListener('toggle', (e) => {
+    if (e.newState === 'open') {
+        document.body.style.overflow = 'hidden';
+        if (commandInput) commandInput.value = '';
+        activeCommandIndex = 0;
+        renderCommands('');
+        setTimeout(() => commandInput?.focus(), 0);
     } else {
-        navToggle?.focus();
+        document.body.style.removeProperty('overflow');
     }
-}
+});
 
 function runCommand(index) {
     const filtered = getFilteredCommands(commandInput?.value || '');
     const command = filtered[index];
     if (!command) return;
-    closePalette();
+    palette?.hidePopover();
     command.action();
 }
 
@@ -410,16 +396,6 @@ function renderCommands(query) {
     );
 }
 
-paletteTriggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-        if (mobileMenu) {
-            mobileMenu.hidden = true;
-            navToggle?.setAttribute('aria-expanded', 'false');
-        }
-        openPalette(trigger);
-    });
-});
-
 commandInput?.addEventListener('input', (e) => {
     activeCommandIndex = 0;
     renderCommands(e.target.value);
@@ -432,43 +408,15 @@ commandResults?.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-    const cmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k';
-    if (cmdK) {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        if (palette?.classList.contains('hidden')) {
-            openPalette();
-        } else {
-            closePalette();
-        }
+        palette?.togglePopover();
         return;
     }
 
-    if (palette?.classList.contains('hidden')) return;
-
-    if (e.key === 'Tab') {
-        const focusable = Array.from(
-            palette.querySelectorAll('button, input, [href], [tabindex]:not([tabindex="-1"])')
-        ).filter((el) => !el.disabled && el.offsetParent !== null);
-
-        if (focusable.length > 0) {
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
-
-            if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
-            } else if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
-            }
-        }
-    }
-
-    if (e.key === 'Escape') {
-        e.preventDefault();
-        closePalette();
-        return;
-    }
+    // Esc, Tab focus containment, and click-outside are handled natively by
+    // popover=auto; we only add the combobox-style list navigation.
+    if (!paletteIsOpen()) return;
 
     const filtered = getFilteredCommands(commandInput?.value || '');
     if (e.key === 'ArrowDown') {
@@ -483,10 +431,6 @@ document.addEventListener('keydown', (e) => {
         e.preventDefault();
         runCommand(activeCommandIndex);
     }
-});
-
-palette?.addEventListener('click', (e) => {
-    if (e.target === palette) closePalette();
 });
 
 // ---------------------------------------------------------------------------

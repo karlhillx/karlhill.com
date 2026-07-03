@@ -104,22 +104,18 @@
         ↑ Top
     </button>
 
-    <div id="command-palette" class="command-palette hidden" role="dialog" aria-modal="true" aria-labelledby="command-palette-title">
-        <div class="command-palette-panel">
-            <h2 id="command-palette-title" class="sr-only">Command palette</h2>
-            <input id="command-input" type="text"
-                   class="command-input font-mono"
-                   placeholder="Jump to a section…"
-                   aria-label="Search commands"
-                   aria-labelledby="command-palette-title"
-                   role="combobox"
-                   aria-expanded="true"
-                   aria-controls="command-results"
-                   aria-autocomplete="list"
-                   autocomplete="off"
-                   spellcheck="false">
-            <div id="command-results" class="command-results mt-3" role="listbox" aria-label="Commands"></div>
-        </div>
+    <div id="command-palette" popover="auto" class="command-palette" aria-label="Command palette">
+        <input id="command-input" type="text"
+               class="command-input font-mono"
+               placeholder="Jump to a section…"
+               aria-label="Search commands"
+               role="combobox"
+               aria-expanded="true"
+               aria-controls="command-results"
+               aria-autocomplete="list"
+               autocomplete="off"
+               spellcheck="false">
+        <div id="command-results" class="command-results mt-3" role="listbox" aria-label="Commands"></div>
     </div>
 </body>
 </html>

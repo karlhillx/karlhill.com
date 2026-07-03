@@ -59,6 +59,7 @@
                 <img src="{{ $project['image'] }}"
                      alt="{{ $project['title'] }}"
                      loading="eager" decoding="async" fetchpriority="high"
+                     style="view-transition-name: work-img-{{ $project['slug'] }}; view-transition-class: card-media"
                      class="w-full aspect-[16/9] object-cover {{ $project['imagePosition'] ?? 'object-center' }} sm:rounded-sm border-y sm:border border-neutral-800/70">
             </figure>
 

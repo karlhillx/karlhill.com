@@ -55,7 +55,8 @@
             &nbsp;·&nbsp; {{ $post->readMinutes }} min read
         </p>
 
-        <h1 class="font-display text-[clamp(1.85rem,4vw,3rem)] leading-[1.1] tracking-wide text-white mb-5">
+        <h1 class="font-display text-[clamp(1.85rem,4vw,3rem)] leading-[1.1] tracking-wide text-white mb-5"
+            style="view-transition-name: post-{{ $post->slug }}; view-transition-class: post-title">
             {{ $post->title }}
         </h1>
 

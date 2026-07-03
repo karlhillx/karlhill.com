@@ -361,11 +361,7 @@ footer#contact {
     }
 
     .command-palette {
-        padding-top: 5rem;
-        place-items: start center;
-    }
-
-    .command-palette-panel {
+        inset: 5rem 0 auto 0;
         width: calc(100vw - 1.5rem);
         padding: 0.75rem;
     }
@@ -414,6 +410,44 @@ footer#contact {
     z-index: 70;
     background: linear-gradient(90deg, color-mix(in oklab, var(--accent) 75%, white), var(--accent));
     box-shadow: 0 0 18px color-mix(in oklab, var(--accent) 40%, transparent);
+}
+
+/* Scroll-driven upgrade: where `scroll()` timelines are supported the reading
+   progress and the back-to-top reveal run entirely on the compositor — no JS
+   scroll listener (app.js only attaches one as a fallback). */
+@supports (animation-timeline: scroll()) {
+    .scroll-progress {
+        width: 100%;
+        transform-origin: 0 50%;
+        transform: scaleX(0);
+        animation: scrollProgressGrow linear both;
+        animation-timeline: scroll(root block);
+    }
+
+    .quick-back-top {
+        animation: quickBackTopReveal linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 520px 600px;
+    }
+}
+
+@keyframes scrollProgressGrow {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes quickBackTopReveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+        pointer-events: none;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
 }
 
 .quick-back-top {
@@ -479,28 +513,87 @@ footer#contact {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
+/* Command palette — a native popover living in the top layer. Entry/exit is
+   pure CSS via @starting-style + `transition-behavior: allow-discrete` (the
+   `overlay`/`display` transitions), so JS never toggles visibility classes. */
 .command-palette {
-    position: fixed;
-    inset: 0;
-    z-index: 80;
-    display: grid;
-    place-items: start center;
-    padding-top: 12vh;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(4px);
-}
-
-.command-palette.hidden {
-    display: none;
-}
-
-.command-palette-panel {
+    inset: 12vh 0 auto 0;
+    margin-inline: auto;
     width: min(42rem, calc(100vw - 2rem));
+    height: max-content;
+    max-height: min(80vh, 44rem);
     border: 1px solid #2a2a2a;
     background: color-mix(in oklab, var(--bg) 94%, #000);
     border-radius: 0.9rem;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
     padding: 0.95rem;
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        overlay 0.2s allow-discrete,
+        display 0.2s allow-discrete;
+}
+
+.command-palette:popover-open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@starting-style {
+    .command-palette:popover-open {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.98);
+    }
+}
+
+.command-palette::backdrop {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition:
+        opacity 0.2s ease,
+        overlay 0.2s allow-discrete,
+        display 0.2s allow-discrete;
+}
+
+.command-palette:popover-open::backdrop {
+    opacity: 1;
+}
+
+@starting-style {
+    .command-palette:popover-open::backdrop {
+        opacity: 0;
+    }
+}
+
+/* Mobile navigation menu — also a native popover, anchored under the fixed nav. */
+#mobile-menu {
+    inset: 4.0625rem 0 auto 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease,
+        overlay 0.18s allow-discrete,
+        display 0.18s allow-discrete;
+}
+
+#mobile-menu:popover-open {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@starting-style {
+    #mobile-menu:popover-open {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
 }
 
 .command-input {
@@ -582,6 +675,21 @@ footer#contact {
     .grain {
         display: none;
     }
+    .command-palette,
+    .command-palette::backdrop,
+    #mobile-menu {
+        transition: none;
+    }
+    .scroll-progress {
+        animation: none;
+    }
+    /* Keep the button reachable without the animated reveal. */
+    .quick-back-top {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+    }
 }
 
 /* Reduced transparency: macOS Sequoia / iOS 18 setting that asks UIs to
@@ -592,6 +700,9 @@ footer#contact {
     #mobile-menu {
         backdrop-filter: none;
         background: var(--bg);
+    }
+    .command-palette::backdrop {
+        backdrop-filter: none;
     }
 }
 
@@ -615,6 +726,30 @@ footer#contact {
 ::view-transition-old(root),
 ::view-transition-new(root) {
     animation-duration: 0.3s;
+}
+
+/* Shared-element morphs: work-card media ↔ case-study hero image, and blog
+   list title ↔ post title. `view-transition-class` (Chromium 125+) tunes every
+   participant at once; browsers without it fall back to the root cross-fade. */
+::view-transition-group(.card-media),
+::view-transition-group(.post-title) {
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-image-pair(.card-media) {
+    border-radius: 0.75rem;
+    overflow: clip;
+}
+
+/* Reduced motion: keep every navigation instant — no cross-fade, no morph. */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-image-pair(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
 }
 
 @theme {
