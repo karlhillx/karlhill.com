@@ -148,7 +148,55 @@ p {
 }
 
 .availability-pulse {
+    position: relative;
     animation: availabilityPulse 2.5s ease-in-out infinite;
+}
+
+/* Radar "ping" — a soft ring radiates outward from the live availability dot. */
+.availability-pulse::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: rgb(34 197 94);
+    animation: availabilityPing 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes availabilityPing {
+    0%        { transform: scale(1);   opacity: 0.55; }
+    70%, 100% { transform: scale(2.8); opacity: 0; }
+}
+
+/* Hero portrait — a slow accent halo breathes in and out. Uses drop-shadow
+   (not box-shadow) so it layers over the existing Tailwind ring cleanly. */
+.portrait-glow {
+    animation: portraitBreathe 5s ease-in-out infinite;
+}
+
+@keyframes portraitBreathe {
+    0%, 100% { filter: drop-shadow(0 0 2px color-mix(in oklab, var(--accent) 18%, transparent)); }
+    50%      { filter: drop-shadow(0 0 11px color-mix(in oklab, var(--accent) 38%, transparent)); }
+}
+
+/* Work-card imagery drifts vertically as the card travels through the viewport,
+   giving the otherwise-static grid a subtle sense of depth. Scroll-driven, so
+   it costs nothing on the main thread; only enabled where view() timelines and
+   the oversize crop are supported (others keep the flat, full-bleed image). */
+@keyframes workParallax {
+    from { translate: 0 -8%; }
+    to   { translate: 0 8%; }
+}
+
+@supports (animation-timeline: view()) {
+    .work-parallax {
+        top: -8%;
+        height: 116%;
+        animation: workParallax linear both;
+        animation-timeline: view();
+        animation-range: cover;
+    }
 }
 
 /* ---------------------------------------------------------------------------
@@ -367,8 +415,12 @@ footer#contact {
         animation: none;
     }
     .arrow-nudge,
-    .availability-pulse {
+    .availability-pulse,
+    .portrait-glow {
         animation: none;
+    }
+    .availability-pulse::after {
+        display: none;
     }
     #hero {
         min-height: 88vh;
@@ -753,8 +805,13 @@ footer#contact {
     .hero-dot-grid {
         animation: none;
     }
-    .availability-pulse {
+    .availability-pulse,
+    .portrait-glow,
+    .work-parallax {
         animation: none;
+    }
+    .availability-pulse::after {
+        display: none;
     }
     [data-reveal] {
         opacity: 1;

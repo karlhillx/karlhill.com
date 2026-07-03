@@ -27,13 +27,40 @@ class GitHubRepository
             $username = 'karlhillx';
         }
 
-        $rows = Cache::remember(
-            "github.repos.{$username}.{$limit}",
-            now()->addHour(),
-            fn () => $this->fetchRepoRows($username, $limit),
-        );
+        $cacheKey = "github.repos.{$username}.{$limit}";
+        $rows = Cache::get($cacheKey);
+
+        if (! is_array($rows)) {
+            $rows = $this->fetchRepoRows($username, $limit);
+
+            // Cache successes for an hour; cache misses only briefly so a
+            // transient failure (rate limit, outage) recovers within minutes
+            // instead of showing the empty state for a full hour.
+            Cache::put(
+                $cacheKey,
+                $rows,
+                $rows === [] ? now()->addMinutes(5) : now()->addHour(),
+            );
+        }
+
+        if ($rows === []) {
+            $rows = $this->fallbackRows($limit);
+        }
 
         return collect($rows)->map(fn (array $row) => GitHubRepo::fromArray($row));
+    }
+
+    /**
+     * Curated repositories shown when the live API returns nothing, so the
+     * Open Source section always renders meaningful content.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    protected function fallbackRows(int $limit): array
+    {
+        $fallback = config('site.github.fallback_repos', []);
+
+        return is_array($fallback) ? array_slice($fallback, 0, $limit) : [];
     }
 
     /**

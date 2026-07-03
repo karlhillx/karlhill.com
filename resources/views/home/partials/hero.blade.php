@@ -16,7 +16,7 @@
                      width="48" height="48"
                      loading="eager" fetchpriority="high" decoding="async"
                      style="view-transition-name: portrait"
-                     class="w-12 h-12 rounded-full object-cover ring-2 ring-accent/30 shrink-0">
+                     class="portrait-glow w-12 h-12 rounded-full object-cover ring-2 ring-accent/30 shrink-0">
                 <p class="font-mono text-accent text-xs tracking-widest uppercase">
                     {{ $person['job_title'] }} &nbsp;·&nbsp; 25+ Years
                 </p>

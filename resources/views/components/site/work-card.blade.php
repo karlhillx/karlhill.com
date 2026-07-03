@@ -33,7 +33,7 @@
          width="960" height="720"
          loading="lazy" decoding="async"
          @if($slug) style="view-transition-name: work-img-{{ $slug }}; view-transition-class: card-media" @endif
-         class="absolute inset-0 w-full h-full object-cover {{ $imagePosition }} opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out">
+         class="work-parallax absolute inset-0 w-full h-full object-cover {{ $imagePosition }} opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out">
 
     <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/60 to-transparent" aria-hidden="true"></div>
 

@@ -53,6 +53,31 @@ class GitHubRepositoryTest extends TestCase
         $this->assertFalse($repos->contains(fn ($repo) => $repo->name === 'karlhill.com'));
     }
 
+    public function test_falls_back_to_curated_repos_when_api_fails(): void
+    {
+        Http::fake([
+            'api.github.com/*' => Http::response('rate limited', 403),
+        ]);
+
+        $repos = app(GitHubRepository::class)->topRepos();
+
+        $this->assertGreaterThanOrEqual(1, $repos->count());
+        $this->assertTrue($repos->contains(fn ($repo) => $repo->name === 'sim-rs'));
+    }
+
+    public function test_work_page_shows_fallback_repos_instead_of_empty_state(): void
+    {
+        Http::fake([
+            'api.github.com/*' => Http::response('server error', 500),
+        ]);
+
+        $response = $this->get('/work');
+
+        $response->assertOk();
+        $response->assertSee('id="open-source"', escape: false);
+        $response->assertDontSee('No public repositories were returned');
+    }
+
     public function test_work_page_renders_server_side_github_repos(): void
     {
         Http::fake([
