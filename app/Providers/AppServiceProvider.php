@@ -6,6 +6,7 @@ use App\Support\BlogPostRepository;
 use App\Support\GitHubRepository;
 use App\Support\PageMeta;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        // Generate a per-request CSP nonce and let Vite stamp it onto the
+        // <script>/<style> tags it injects. The SecurityHeaders middleware
+        // reads the same nonce back via Vite::cspNonce() to build the header.
+        Vite::useCspNonce();
+
         View::composer('layouts.site', function (\Illuminate\View\View $view): void {
             $data = $view->getData();
 

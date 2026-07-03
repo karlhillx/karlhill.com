@@ -13,6 +13,7 @@ use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
 use League\CommonMark\MarkdownConverter;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
+use Tempest\Highlight\CommonMark\HighlightExtension;
 
 class BlogPostRepository
 {
@@ -196,6 +197,10 @@ class BlogPostRepository
         $environment->addExtension(new CommonMarkCoreExtension);
         $environment->addExtension(new GithubFlavoredMarkdownExtension);
         $environment->addExtension(new SmartPunctExtension);
+        // Server-side syntax highlighting for fenced code blocks. Emits
+        // `hl-*` classed spans (styled in resources/css/app.css) so there's no
+        // client-side JS cost; the result is baked into the cached post HTML.
+        $environment->addExtension(new HighlightExtension);
 
         $converter = new MarkdownConverter($environment);
 

@@ -56,7 +56,7 @@ class LlmsTxtTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
-        $response->assertSee('<script type="speculationrules">', escape: false);
+        $response->assertSee('<script type="speculationrules"', escape: false);
         $response->assertSee('"/blog"', escape: false);
         $response->assertSee('"/blog/release-governance"', escape: false);
         $response->assertSee('"href_matches":"/blog*"', escape: false);
@@ -67,7 +67,7 @@ class LlmsTxtTest extends TestCase
         $response = $this->get('/blog');
 
         $response->assertStatus(200);
-        $response->assertSee('<script type="speculationrules">', escape: false);
+        $response->assertSee('<script type="speculationrules"', escape: false);
         $response->assertSee('"/blog/release-governance"', escape: false);
         $response->assertSee('"href_matches":"/blog/*"', escape: false);
     }

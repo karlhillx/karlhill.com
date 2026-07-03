@@ -8,7 +8,7 @@
 @extends('layouts.site', ['meta' => $meta])
 
 @push('head')
-<script type="application/ld+json">
+<script type="application/ld+json" nonce="{{ Vite::cspNonce() }}">
 {!! json_encode([
     '@context' => 'https://schema.org',
     '@type' => 'CreativeWork',

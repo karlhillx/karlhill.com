@@ -30,6 +30,12 @@ jobs:
       - name: Install JS dependencies
         run: npm ci
 
+      - name: Lint JS
+        run: npm run lint
+
+      - name: Check JS formatting
+        run: npm run format:check
+
       - name: Build assets
         run: npm run build
 
