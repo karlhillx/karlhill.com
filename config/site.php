@@ -67,6 +67,7 @@ return [
     'hero' => [
         'headline' => 'Karl Hill',
         'subtitle' => 'Cloud · Platforms · Engineering Leadership',
+        'positioning' => 'I help mission-driven teams turn hard problems into cloud-native platforms that ship reliably — and keep shipping at scale.',
         'bio' => 'I architect systems, lead teams, and ship software that matters — from disaster-response platforms at NASA to mission-critical aerospace systems at Jacobs/BlackLynx.',
         'cta' => [
             ['label' => 'View Work', 'url' => '/work', 'primary' => true],
@@ -186,6 +187,7 @@ return [
             'logo' => ['path' => '/img/logo-nasa.svg', 'filter' => null, 'class' => 'h-8'],
             'case_study' => [
                 'lede' => 'A flagship NASA science communication platform serving 1.5M+ monthly visitors — rebuilt for editorial velocity, performance, and long-term maintainability.',
+                'role' => 'Lead engineer — owned the platform re-architecture and publishing pipeline, and set the frontend performance and accessibility standards.',
                 'problem' => [
                     'Editorial teams relied on brittle, one-off publishing patterns that slowed routine story production.',
                     'Performance, accessibility, and SEO debt accumulated as traffic and content volume grew.',
@@ -220,6 +222,7 @@ return [
             'logo' => ['path' => '/img/logo-nasa.svg', 'filter' => null, 'class' => 'h-8'],
             'case_study' => [
                 'lede' => 'Near real-time flood inundation mapping from satellite data — built for disaster response when latency is measured in hours, not sprints.',
+                'role' => 'Architect & lead developer — designed and automated the end-to-end geospatial pipeline on AWS.',
                 'problem' => [
                     'Manual processing steps delayed flood products during active global disaster events.',
                     'End-to-end workflows from sensor acquisition to dissemination spanned multiple teams and environments.',
@@ -253,6 +256,7 @@ return [
             'logo' => ['path' => '/img/logo-nasa.svg', 'filter' => null, 'class' => 'h-8'],
             'case_study' => [
                 'lede' => 'A scientific data hub ingesting multi-instrument satellite streams and distributing geophysical products to a global network of ground stations.',
+                'role' => 'Lead developer — designed the ingestion and reformatting architecture and operated the round-the-clock processing infrastructure.',
                 'problem' => [
                     'Multi-instrument sensor streams required consistent reformatting from Level-0 through Level-2 products.',
                     'Operational centers and research partners depended on predictable, near real-time delivery.',
@@ -285,6 +289,7 @@ return [
             'logo' => ['path' => '/img/logo-nasa.svg', 'filter' => null, 'class' => 'h-8'],
             'case_study' => [
                 'lede' => 'A discovery portal unifying archival and near real-time remote sensing holdings into a searchable, standards-compliant catalog.',
+                'role' => 'Lead developer — built the discovery and search platform, the metadata model, and granule-level access controls.',
                 'problem' => [
                     'Researchers struggled to discover and order data across fragmented archival and near real-time holdings.',
                     'Metadata inconsistency slowed search, access control, and downstream ordering workflows.',
@@ -313,6 +318,7 @@ return [
             'logo' => ['path' => '/img/webp/logo-informeddna.webp', 'filter' => 'brightness(0) invert(1)', 'class' => 'h-6'],
             'case_study' => [
                 'lede' => 'A clinical genomics workflow platform that unified case management, counseling routing, and billing across distributed care teams.',
+                'role' => 'Platform architect — designed and delivered the case-management system end-to-end.',
                 'problem' => [
                     'Fragmented operational processes created manual overhead across case intake, routing, and billing.',
                     'Distributed care teams lacked a governed system with auditability and role-based access.',
@@ -341,6 +347,7 @@ return [
             'logo' => ['path' => '/img/logo-verizon.svg', 'filter' => null, 'class' => 'h-5'],
             'case_study' => [
                 'lede' => 'An enterprise managed security services platform that scaled client operations across a national carrier network.',
+                'role' => 'Core developer — built the multi-tenant provisioning, monitoring, and incident-response services.',
                 'problem' => [
                     'Multi-tenant security operations required manual provisioning, monitoring, and incident coordination.',
                     'Growth was constrained by operational bottlenecks in client onboarding and response workflows.',
@@ -399,6 +406,11 @@ return [
         'headline' => "Let's Work\nTogether",
         'body' => 'Building something important and need an engineer who can lead, architect, and deliver? I\'d like to hear about it.',
         'resume' => '/files/karlhill-resume.pdf',
+    ],
+
+    'about' => [
+        // A short, human note that rounds out the résumé — kept true and specific.
+        'beyond' => 'Away from the terminal, I\'m based in Washington, DC, where I write and release music (you\'ll find a back catalog on Discogs). I\'m happiest with a hard problem, a whiteboard, and a team worth building with — and I care as much about mentoring the next engineer as I do about shipping the next release.',
     ],
 
     'github' => [

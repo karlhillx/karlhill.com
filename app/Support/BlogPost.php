@@ -52,8 +52,9 @@ final class BlogPost
     }
 
     /**
-     * Absolute URL for Open Graph / Twitter cards. Prefers a 1200×630 card at
-     * public/img/og/blog/{slug}.jpg when present, then hero, then site default.
+     * Absolute URL for Open Graph / Twitter cards. A hand-made card at
+     * public/img/og/blog/{slug}.jpg always wins; otherwise we serve a branded
+     * card generated on the fly at /og/blog/{slug}.png.
      */
     public function ogImageUrl(): string
     {
@@ -63,7 +64,7 @@ final class BlogPost
             return "{$base}/img/og/blog/{$this->slug}.jpg";
         }
 
-        return $this->heroImageUrl() ?? "{$base}/img/og-home.jpg";
+        return route('og.blog', ['slug' => $this->slug]);
     }
 
     /**

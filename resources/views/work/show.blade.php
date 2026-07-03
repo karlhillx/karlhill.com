@@ -44,12 +44,19 @@
             <h1 class="font-display text-[clamp(2rem,5vw,3.5rem)] leading-[1.05] tracking-wide text-white mb-5">
                 {{ $project['title'] }}
             </h1>
-            <p class="text-neutral-400 text-base leading-relaxed mb-8 max-w-2xl">{{ $study['lede'] }}</p>
+            <p class="text-neutral-400 text-base leading-relaxed mb-6 max-w-2xl">{{ $study['lede'] }}</p>
+
+            @if(! empty($study['role']))
+                <p class="flex items-baseline gap-3 mb-8 max-w-2xl">
+                    <span class="font-mono text-[10px] text-accent uppercase tracking-widest shrink-0 pt-0.5">My role</span>
+                    <span class="text-neutral-300 text-sm leading-relaxed">{{ $study['role'] }}</span>
+                </p>
+            @endif
 
             <div class="flex flex-wrap items-center gap-2 mb-10">
                 @foreach($project['tags'] as $tag)
                     <a href="{{ route('work.tag', \App\Support\ProjectCatalog::tagSlug($tag)) }}"
-                       class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest border border-neutral-800 px-2 py-1 hover:border-accent hover:text-accent transition-colors">
+                       class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest border border-neutral-800 px-2 py-1 hover:border-accent hover:text-accent transition-colors">
                         {{ $tag }}
                     </a>
                 @endforeach
@@ -72,10 +79,18 @@
                                data-counter
                                data-final="{{ $metric['value'] }}"
                                aria-label="{{ $metric['value'] }} — {{ $metric['label'] }}">{{ $metric['value'] }}</p>
-                            <p class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">{{ $metric['label'] }}</p>
+                            <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">{{ $metric['label'] }}</p>
                         </div>
                     @endforeach
                 </div>
+            @endif
+
+            @if(! empty($study['outcome'][0]))
+                <blockquote class="relative mb-12 pl-6 border-l-2 border-accent/70" data-reveal>
+                    <p class="font-display text-2xl sm:text-3xl leading-snug tracking-wide text-neutral-100">
+                        {!! $study['outcome'][0] !!}
+                    </p>
+                </blockquote>
             @endif
 
             <div class="space-y-12">
@@ -103,7 +118,7 @@
                             <li>
                                 <a href="/work/{{ $related['slug'] }}" class="group block border border-neutral-800 p-5 hover:border-accent/40 transition-colors">
                                     <p class="font-display text-xl text-neutral-100 group-hover:text-accent tracking-wide transition-colors">{{ $related['title'] }}</p>
-                                    <p class="text-neutral-500 text-sm mt-2 line-clamp-2">{{ $related['description'] }}</p>
+                                    <p class="text-neutral-400 text-sm mt-2 line-clamp-2">{{ $related['description'] }}</p>
                                 </a>
                             </li>
                         @endforeach
@@ -115,7 +130,7 @@
                 <nav class="mt-14 pt-8 border-t border-neutral-800 grid sm:grid-cols-2 gap-6" aria-label="Case study navigation" data-reveal>
                     @if($previousProject)
                         <a href="/work/{{ $previousProject['slug'] }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors">
-                            <p class="font-mono text-[10px] text-neutral-600 uppercase tracking-widest mb-2">← Previous</p>
+                            <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">← Previous</p>
                             <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $previousProject['title'] }}</p>
                         </a>
                     @else
@@ -123,7 +138,7 @@
                     @endif
                     @if($nextProject)
                         <a href="/work/{{ $nextProject['slug'] }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors sm:text-right">
-                            <p class="font-mono text-[10px] text-neutral-600 uppercase tracking-widest mb-2">Next →</p>
+                            <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">Next →</p>
                             <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $nextProject['title'] }}</p>
                         </a>
                     @endif
@@ -131,7 +146,7 @@
             @endif
 
             <div class="mt-14 pt-8 border-t border-neutral-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" data-reveal>
-                <a href="/work" class="font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors">
+                <a href="/work" class="font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
                     ← All work
                 </a>
                 @if($liveUrl)

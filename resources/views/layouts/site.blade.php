@@ -116,6 +116,11 @@
                autocomplete="off"
                spellcheck="false">
         <div id="command-results" class="command-results mt-3" role="listbox" aria-label="Commands"></div>
+        <div class="command-hint" aria-hidden="true">
+            <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+            <span><kbd>↵</kbd> select</span>
+            <span><kbd>esc</kbd> close</span>
+        </div>
     </div>
 </body>
 </html>

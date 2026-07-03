@@ -24,6 +24,11 @@
             <h1 class="font-display text-[clamp(5rem,20vw,15rem)] leading-none tracking-wide text-white mb-6 hero-enter" style="animation-delay:220ms">
                 <span class="hero-shine">{{ $hero['headline'] }}</span>
             </h1>
+            @if(! empty($hero['positioning']))
+                <p class="text-neutral-200 text-lg sm:text-xl leading-relaxed max-w-3xl mb-8 hero-enter" style="animation-delay:320ms">
+                    {{ $hero['positioning'] }}
+                </p>
+            @endif
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
                 <p class="font-display text-[clamp(1.4rem,3.5vw,2.5rem)] text-neutral-500 tracking-widest uppercase hero-enter" style="animation-delay:360ms">
                     {{ $hero['subtitle'] }}

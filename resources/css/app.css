@@ -814,6 +814,41 @@ footer#contact {
     transform: translateX(1px);
 }
 
+.command-hint {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #1f1f22;
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+}
+
+.command-hint span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.command-hint kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.15rem;
+    height: 1.15rem;
+    padding: 0 0.3rem;
+    border: 1px solid #3a3a3a;
+    border-radius: 0.3rem;
+    background: #141416;
+    color: #b5b5b5;
+    font-size: 0.62rem;
+    line-height: 1;
+}
+
 /* Reduced motion: skip all animations */
 @media (prefers-reduced-motion: reduce) {
     .hero-enter,

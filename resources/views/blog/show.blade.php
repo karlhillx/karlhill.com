@@ -66,7 +66,7 @@
 
         <div class="flex flex-wrap items-center gap-2 mb-10">
             @foreach($post->tags as $tag)
-                <span class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest border border-neutral-800 px-2 py-1">
+                <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest border border-neutral-800 px-2 py-1">
                     {{ $tag }}
                 </span>
             @endforeach
@@ -99,7 +99,7 @@
             <nav class="grid sm:grid-cols-2 gap-6 mb-12" aria-label="Post navigation" data-reveal>
                 @if($adjacentPosts['previous'])
                     <a href="{{ $adjacentPosts['previous']->url() }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors">
-                        <p class="font-mono text-[10px] text-neutral-600 uppercase tracking-widest mb-2">← Previous</p>
+                        <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">← Previous</p>
                         <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $adjacentPosts['previous']->title }}</p>
                     </a>
                 @else
@@ -107,7 +107,7 @@
                 @endif
                 @if($adjacentPosts['next'])
                     <a href="{{ $adjacentPosts['next']->url() }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors sm:text-right">
-                        <p class="font-mono text-[10px] text-neutral-600 uppercase tracking-widest mb-2">Next →</p>
+                        <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">Next →</p>
                         <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $adjacentPosts['next']->title }}</p>
                     </a>
                 @endif
@@ -122,7 +122,7 @@
                         <li>
                             <a href="{{ $related->url() }}" class="group block border border-neutral-800 p-5 hover:border-accent/40 transition-colors">
                                 <p class="font-display text-xl text-neutral-100 group-hover:text-accent tracking-wide transition-colors">{{ $related->title }}</p>
-                                <p class="text-neutral-500 text-sm mt-2 line-clamp-2">{{ $related->excerpt }}</p>
+                                <p class="text-neutral-400 text-sm mt-2 line-clamp-2">{{ $related->excerpt }}</p>
                             </a>
                         </li>
                     @endforeach
@@ -133,9 +133,9 @@
         <div class="border border-neutral-800 p-5 mb-12" data-reveal>
             <p class="font-mono text-accent text-xs tracking-widest uppercase mb-3">On this site</p>
             <div class="flex flex-wrap gap-4 font-mono text-[11px] uppercase tracking-widest">
-                <a href="/work" class="text-neutral-500 hover:text-accent transition-colors">Selected work →</a>
-                <a href="/about#experience" class="text-neutral-500 hover:text-accent transition-colors">Experience →</a>
-                <a href="/about#research" class="text-neutral-500 hover:text-accent transition-colors">Research →</a>
+                <a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Selected work →</a>
+                <a href="/about#experience" class="text-neutral-400 hover:text-accent transition-colors">Experience →</a>
+                <a href="/about#research" class="text-neutral-400 hover:text-accent transition-colors">Research →</a>
             </div>
         </div>
 
@@ -179,7 +179,7 @@
                 </div>
             </div>
             <div class="text-right">
-                <p class="font-mono text-[10px] text-neutral-600 uppercase tracking-widest mb-2">Written by</p>
+                <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">Written by</p>
                 <a href="/" class="font-display text-2xl text-neutral-300 hover:text-accent tracking-widest transition-colors">
                     Karl Hill
                 </a>

@@ -442,6 +442,19 @@ document.addEventListener('keydown', (e) => {
         return;
     }
 
+    // "?" is the classic "show me the shortcuts" key — open the palette, unless
+    // the visitor is typing into a field.
+    if (e.key === '?' && !e.metaKey && !e.ctrlKey && !e.altKey && !paletteIsOpen()) {
+        const el = e.target;
+        const typing =
+            el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
+        if (!typing) {
+            e.preventDefault();
+            palette?.showPopover();
+            return;
+        }
+    }
+
     // Esc, Tab focus containment, and click-outside are handled natively by
     // popover=auto; we only add the combobox-style list navigation.
     if (!paletteIsOpen()) return;
@@ -464,22 +477,71 @@ document.addEventListener('keydown', (e) => {
 // ---------------------------------------------------------------------------
 // Blog post share — copy permalink to clipboard
 // ---------------------------------------------------------------------------
+function flashFeedback(feedback) {
+    if (!feedback) return;
+    feedback.style.opacity = '1';
+    clearTimeout(feedback._t);
+    feedback._t = setTimeout(() => {
+        feedback.style.opacity = '0';
+    }, 1800);
+}
+
 document.querySelectorAll('[data-copy-link]').forEach((btn) => {
     btn.addEventListener('click', async () => {
         const url = btn.getAttribute('data-copy-link');
         if (!url) return;
-        const feedback = document.querySelector('[data-copy-feedback]');
         try {
             await navigator.clipboard.writeText(url);
-            if (feedback) {
-                feedback.style.opacity = '1';
-                clearTimeout(feedback._t);
-                feedback._t = setTimeout(() => {
-                    feedback.style.opacity = '0';
-                }, 1800);
-            }
+            flashFeedback(document.querySelector('[data-copy-feedback]'));
         } catch {
             window.prompt('Copy this link', url);
+        }
+    });
+});
+
+// ---------------------------------------------------------------------------
+// Contact form — refresh the CSRF token so the (publicly cacheable) home page
+// can never submit a stale/absent token behind a shared cache or CDN.
+// ---------------------------------------------------------------------------
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    const tokenInput = contactForm.querySelector('input[name="_token"]');
+    const tokenReady = fetch('/csrf-token', {
+        headers: { Accept: 'application/json' },
+        credentials: 'same-origin',
+    })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+            if (data && data.token && tokenInput) tokenInput.value = data.token;
+        })
+        .catch(() => {});
+
+    let tokenApplied = false;
+    contactForm.addEventListener('submit', (e) => {
+        if (tokenApplied) return;
+        // Hold the submit until the fresh token has been applied, then re-fire.
+        e.preventDefault();
+        tokenReady.finally(() => {
+            tokenApplied = true;
+            contactForm.submit();
+        });
+    });
+}
+
+// Generic copy-to-clipboard (e.g. email address) with a scoped confirmation.
+document.querySelectorAll('[data-copy-text]').forEach((btn) => {
+    btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const text = btn.getAttribute('data-copy-text');
+        if (!text) return;
+        const feedback =
+            btn.parentElement?.querySelector('[data-copy-feedback]') ??
+            document.querySelector('[data-copy-feedback]');
+        try {
+            await navigator.clipboard.writeText(text);
+            flashFeedback(feedback);
+        } catch {
+            window.prompt('Copy', text);
         }
     });
 });

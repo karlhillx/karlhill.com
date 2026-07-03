@@ -7,6 +7,7 @@
 
 @section('content')
     @include('home.partials.hero')
+    @include('home.partials.metrics')
     @include('home.partials.why')
     @include('home.partials.featured-work')
     @include('home.partials.latest-writing')
