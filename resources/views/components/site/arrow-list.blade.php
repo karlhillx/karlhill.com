@@ -4,7 +4,7 @@
     @foreach($items as $item)
         <li class="flex gap-4">
             <span class="text-accent shrink-0 mt-0.5 arrow-nudge" aria-hidden="true">→</span>
-            {!! $item !!}
+            <span class="min-w-0">{!! $item !!}</span>
         </li>
     @endforeach
 </ul>

@@ -107,10 +107,11 @@ return [
             'location' => 'Chantilly, VA',
             'period' => 'Sept 2025 — Present',
             'highlights' => [
-                'Lead delivery for cloud-native mission-simulation and telemetry services. Own planning, refinement, demos, and stakeholder alignment end-to-end.',
-                'Own team health and execution — coaching, 1:1s, onboarding, and delivery discipline across multi-repo, multi-environment systems.',
-                'Set and enforce engineering standards: repo/branch governance, PR reviews, Definition of Done, and documentation to reduce integration risk.',
-                'Drive DevSecOps and release governance via CI/CD, automated testing, quality gates, and security checks to shorten feedback loops.',
+                'Lead delivery for cloud-native mission simulation and telemetry services, owning planning, refinement, demos, and stakeholder alignment from concept through execution.',
+                'Drive DevSecOps and release governance through CI/CD, automated testing, quality gates, and security checks that shorten feedback loops and reduce delivery risk.',
+                'Establish engineering standards across multi-repo systems, including branch strategy, PR review discipline, Definition of Done, documentation, and integration readiness.',
+                'Improve team execution through coaching, onboarding, 1:1s, delivery cadence, and clear operating practices across local, cloud, and client environments.',
+                'Translate complex mission, product, and engineering needs into actionable roadmaps that align developers, stakeholders, and delivery priorities.',
             ],
         ],
         'roles' => [

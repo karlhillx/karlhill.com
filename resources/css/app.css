@@ -305,6 +305,41 @@ p {
     animation: dotScroll 8s linear infinite;
 }
 
+/* Hero wordmark — a slow warm "shine" drifts across the name on an endless
+   loop. Applied to an inner span so it never collides with the h1's one-shot
+   entrance animation. Falls back to solid ink where background-clip:text is
+   unsupported. */
+.hero-shine {
+    color: #ffffff;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .hero-shine {
+        background-image: linear-gradient(
+            100deg,
+            #ffffff 0%,
+            #ffffff 38%,
+            color-mix(in oklab, var(--accent) 60%, #ffffff) 50%,
+            #ffffff 62%,
+            #ffffff 100%
+        );
+        background-size: 220% 100%;
+        background-position: 0% 0;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        /* Alternate keeps background-position within 0–100% (so the text is
+           always fully painted) and reverses smoothly — no snap. */
+        animation: heroShine 9s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes heroShine {
+    from { background-position: 0% 0; }
+    to   { background-position: 100% 0; }
+}
+
 /* Full-page spotlight that follows the pointer (Gauntlet-style ambient lift) */
 .cursor-spotlight {
     pointer-events: none;
@@ -402,7 +437,8 @@ footer#contact {
 
 /* Tone down continuously animating backgrounds on smaller devices */
 @media (max-width: 768px) {
-    .hero-dot-grid {
+    .hero-dot-grid,
+    .hero-shine {
         animation: none;
     }
     .glow-orb-1,
@@ -802,7 +838,8 @@ footer#contact {
     }
     .glow-orb-1,
     .glow-orb-2,
-    .hero-dot-grid {
+    .hero-dot-grid,
+    .hero-shine {
         animation: none;
     }
     .availability-pulse,
