@@ -7,6 +7,13 @@ use Tests\TestCase;
 
 class ProjectCatalogTest extends TestCase
 {
+    public function test_flood_mapping_is_always_first(): void
+    {
+        $this->assertSame('flood-mapping-system', ProjectCatalog::all()->first()['slug']);
+        $this->assertSame('flood-mapping-system', ProjectCatalog::featured()->first()['slug']);
+        $this->assertSame('flood-mapping-system', ProjectCatalog::filteredByTag('AWS')->first()['slug']);
+    }
+
     public function test_featured_projects_have_case_studies(): void
     {
         $featured = ProjectCatalog::all()->where('featured', true);

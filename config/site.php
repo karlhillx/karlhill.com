@@ -55,6 +55,7 @@ return [
         ['label' => 'X / Twitter', 'url' => 'https://twitter.com/karl_hill/', 'icon' => 'twitter'],
         ['label' => 'ORCID', 'url' => 'https://orcid.org/0009-0002-6847-3368', 'icon' => 'orcid'],
         ['label' => 'ResearchGate', 'url' => 'https://www.researchgate.net/profile/Karl-Hill-2', 'icon' => 'researchgate'],
+        ['label' => 'Google Scholar', 'url' => 'https://scholar.google.com/citations?user=ykw3hstDPLcC', 'icon' => 'scholar'],
         ['label' => 'Discogs', 'url' => $discogsCreditsUrl, 'icon' => 'discogs'],
     ],
 
@@ -64,6 +65,7 @@ return [
         'https://twitter.com/karl_hill',
         'https://orcid.org/0009-0002-6847-3368',
         'https://www.researchgate.net/profile/Karl-Hill-2',
+        'https://scholar.google.com/citations?user=ykw3hstDPLcC',
         $discogsCreditsUrl,
     ],
 

@@ -7,12 +7,35 @@ use Illuminate\Support\Str;
 
 final class ProjectCatalog
 {
+    private const string PRIMARY_SLUG = 'flood-mapping-system';
+
     /**
      * @return Collection<int, array<string, mixed>>
      */
     public static function all(): Collection
     {
-        return collect(config('site.projects', []));
+        return self::ordered(collect(config('site.projects', [])));
+    }
+
+    /**
+     * @return Collection<int, array<string, mixed>>
+     */
+    public static function featured(int $limit = 3): Collection
+    {
+        return self::all()->where('featured', true)->take($limit)->values();
+    }
+
+    /**
+     * @param  Collection<int, array<string, mixed>>  $projects
+     * @return Collection<int, array<string, mixed>>
+     */
+    private static function ordered(Collection $projects): Collection
+    {
+        [$primary, $rest] = $projects->partition(
+            fn (array $project) => ($project['slug'] ?? '') === self::PRIMARY_SLUG
+        );
+
+        return $primary->concat($rest)->values();
     }
 
     /**
@@ -127,9 +150,9 @@ final class ProjectCatalog
             return $projects;
         }
 
-        return $projects
-            ->filter(fn (array $project) => in_array($tag, $project['tags'] ?? [], true))
-            ->values();
+        return self::ordered(
+            $projects->filter(fn (array $project) => in_array($tag, $project['tags'] ?? [], true))
+        );
     }
 
     /**

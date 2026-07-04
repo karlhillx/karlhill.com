@@ -1,5 +1,5 @@
 @php
-    $featured = collect(config('site.projects'))->where('featured', true)->take(3)->values();
+    $featured = \App\Support\ProjectCatalog::featured();
 @endphp
 
 @include('partials.work', [
