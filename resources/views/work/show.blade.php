@@ -54,7 +54,7 @@
             <div class="flex flex-wrap items-center gap-2 mb-10">
                 @foreach($project['tags'] as $tag)
                     <a href="{{ route('work.tag', \App\Support\ProjectCatalog::tagSlug($tag)) }}"
-                       class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest border border-neutral-800 px-2 py-1 hover:border-accent hover:text-accent transition-colors">
+                       class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
                         {{ $tag }}
                     </a>
                 @endforeach

@@ -14,7 +14,7 @@
 @php
     $webpImg = \App\Support\Images::webp($image);
     $srcset = \App\Support\Images::srcset($webpImg);
-    $cardClass = 'bg-bg group relative overflow-hidden h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 transition-shadow duration-300 block';
+    $cardClass = 'surface-card surface-card-media bg-bg group relative h-80 lg:h-96 block';
 @endphp
 
 @if($href)
@@ -47,7 +47,7 @@
 
     <div class="absolute top-4 left-4 flex flex-wrap gap-1.5">
         @foreach($tags as $tag)
-            <span class="font-mono text-[10px] px-2 py-0.5 bg-black/60 border border-neutral-700/50 text-neutral-400 backdrop-blur-sm">{{ $tag }}</span>
+            <span class="surface-chip-overlay font-mono text-[10px] px-2 py-0.5 text-neutral-400">{{ $tag }}</span>
         @endforeach
     </div>
 

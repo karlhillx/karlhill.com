@@ -10,7 +10,7 @@
 <div {{ $attributes->merge(['class' => 'flex flex-wrap gap-2']) }} data-reveal>
     <a href="{{ $allUrl }}"
        @class([
-           'font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 border transition-colors',
+           'font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 surface-chip transition-colors',
            'border-accent text-accent' => ! $activeTag,
            'border-neutral-800 text-neutral-500 hover:border-accent hover:text-accent' => $activeTag,
        ])>
@@ -19,7 +19,7 @@
     @foreach($tags as $tag)
         <a href="{{ $urlFor($tag) }}"
            @class([
-               'font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 border transition-colors',
+               'font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 surface-chip transition-colors',
                'border-accent text-accent' => $activeTag === $tag,
                'border-neutral-800 text-neutral-500 hover:border-accent hover:text-accent' => $activeTag !== $tag,
            ])>

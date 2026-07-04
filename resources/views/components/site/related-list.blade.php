@@ -11,7 +11,7 @@
         <ul class="space-y-4">
             @foreach($items as $item)
                 <li>
-                    <a href="{{ $item['url'] }}" class="group block border border-neutral-800 p-5 hover:border-accent/40 transition-colors">
+                    <a href="{{ $item['url'] }}" class="surface-card group block p-5">
                         <p class="font-display text-xl text-neutral-100 group-hover:text-accent tracking-wide transition-colors">{{ $item['title'] }}</p>
                         <p class="text-neutral-400 text-sm mt-2 line-clamp-2">{{ $item['excerpt'] }}</p>
                     </a>

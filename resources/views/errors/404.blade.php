@@ -33,7 +33,7 @@
                     <a href="/blog" class="text-neutral-400 hover:text-accent transition-colors">Writing →</a>
                 </div>
                 <p class="font-mono text-[11px] text-neutral-600 uppercase tracking-widest mt-8">
-                    Or press <kbd class="border border-neutral-700/80 rounded px-1.5 py-0.5 text-[10px] text-neutral-500 normal-case tracking-normal">⌘K</kbd> to jump anywhere
+                    Or press <kbd class="surface-chip px-1.5 py-0.5 text-[10px] text-neutral-500 normal-case tracking-normal">⌘K</kbd> to jump anywhere
                 </p>
             </div>
         </div>

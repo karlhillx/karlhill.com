@@ -9,14 +9,14 @@
         </div>
 
         <a href="{{ $latestPost->url() }}"
-           class="group block rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] bg-neutral-900/20 hover:bg-neutral-900/40 px-7 py-8 md:px-10 md:py-10 transition-[background-color,box-shadow] duration-300"
+           class="surface-card group block px-7 py-8 md:px-10 md:py-10"
            data-reveal>
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-5 font-mono text-[10px] uppercase tracking-widest text-neutral-500">
                 <time datetime="{{ $latestPost->isoDate() }}">{{ $latestPost->publishedAt->format('M j, Y') }}</time>
                 <span class="text-neutral-700" aria-hidden="true">·</span>
                 <span>{{ $latestPost->readMinutes }} min read</span>
                 @foreach($latestPost->tags as $tag)
-                    <span class="border border-neutral-800 px-2 py-0.5 text-neutral-600">{{ $tag }}</span>
+                    <span class="surface-chip px-2 py-0.5 text-neutral-600">{{ $tag }}</span>
                 @endforeach
             </div>
             <h3 class="font-display text-3xl md:text-4xl tracking-wide text-neutral-100 group-hover:text-accent transition-colors leading-tight mb-4">

@@ -64,7 +64,7 @@
 
         <div class="flex flex-wrap items-center gap-2 mb-10">
             @foreach($post->tags as $tag)
-                <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest border border-neutral-800 px-2 py-1">
+                <span class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1">
                     {{ $tag }}
                 </span>
             @endforeach
@@ -113,7 +113,7 @@
             ])->all()"
         />
 
-        <div class="border border-neutral-800 p-5 mb-12" data-reveal>
+        <div class="surface-card-static p-5 mb-12" data-reveal>
             <p class="font-mono text-accent text-xs tracking-widest uppercase mb-3">On this site</p>
             <div class="flex flex-wrap gap-4 font-mono text-[11px] uppercase tracking-widest">
                 <a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Selected work →</a>

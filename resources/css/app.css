@@ -72,6 +72,68 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* ---------------------------------------------------------------------------
+   Surface language — sharp structure, rounded interactive cards, square chips.
+   --------------------------------------------------------------------------- */
+.surface-card {
+    border-radius: 1rem;
+    background-color: rgb(23 23 23 / 0.2);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.06);
+    transition:
+        box-shadow 300ms ease,
+        background-color 300ms ease,
+        transform 300ms ease;
+}
+
+a.surface-card:hover,
+a.surface-card:focus-visible {
+    background-color: rgb(23 23 23 / 0.4);
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 40%, transparent);
+    transform: translateY(-0.25rem);
+}
+
+a.surface-card:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 60%, transparent);
+}
+
+.surface-card-media {
+    background-color: var(--bg);
+    overflow: hidden;
+}
+
+.surface-card-static {
+    border-radius: 1rem;
+    background-color: rgb(23 23 23 / 0.2);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.06);
+    transition:
+        box-shadow 300ms ease,
+        background-color 300ms ease;
+}
+
+.surface-card-static:hover {
+    background-color: rgb(23 23 23 / 0.4);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.12);
+}
+
+.surface-chip {
+    border-radius: 0.125rem;
+    border: 1px solid var(--border);
+}
+
+.surface-chip-overlay {
+    border-radius: 0.125rem;
+    border: 1px solid rgb(64 64 64 / 0.5);
+    background-color: rgb(0 0 0 / 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.surface-chip-accent {
+    border-radius: 0.125rem;
+    border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+    background-color: color-mix(in oklab, var(--accent) 10%, transparent);
+}
+
 /* Better paragraph rag — eliminates orphans without the cost of `balance` */
 p {
     text-wrap: pretty;
@@ -956,6 +1018,10 @@ nav[aria-label="Primary"] {
     .magnetic-btn {
         transform: none !important;
         transition: none;
+    }
+    a.surface-card:hover,
+    a.surface-card:focus-visible {
+        transform: none;
     }
     html {
         scroll-behavior: auto;

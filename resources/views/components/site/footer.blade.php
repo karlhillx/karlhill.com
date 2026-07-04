@@ -106,7 +106,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5a2 2 0 012-2h9a2 2 0 012 2v9a2 2 0 01-2 2h-2M5 8h9a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a2 2 0 012-2z"/>
                         </svg>
                         <span data-copy-feedback role="status" aria-live="polite"
-                              class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-md border border-accent/30 bg-accent/10 px-2.5 py-1 font-mono text-[10px] text-accent uppercase tracking-widest opacity-0 transition-opacity duration-200 shadow-lg shadow-black/40">
+                              class="surface-chip-accent pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1 font-mono text-[10px] text-accent uppercase tracking-widest opacity-0 transition-opacity duration-200 shadow-lg shadow-black/40">
                             <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                             </svg>
@@ -142,7 +142,7 @@
             <p class="font-mono text-xs text-neutral-400">{{ $person['location'] }} &nbsp;·&nbsp; {{ $person['job_title'] }} &nbsp;·&nbsp; 25+ Years</p>
         </div>
         <div class="mt-6 flex sm:justify-end">
-            <p class="inline-flex items-center rounded-md border border-neutral-800/80 bg-neutral-900/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-neutral-700 hover:text-neutral-500 hover:border-neutral-700/80 transition-colors duration-300">
+            <p class="surface-chip inline-flex items-center bg-neutral-900/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-neutral-700 hover:text-neutral-500 hover:border-neutral-700/80 transition-colors duration-300">
                 Built with Laravel {{ \App\Support\Stack::laravelVersion() }} &middot; Tailwind CSS {{ \App\Support\Stack::tailwindVersion() ?? '4' }}
             </p>
         </div>

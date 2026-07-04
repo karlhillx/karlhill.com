@@ -101,7 +101,7 @@
                                 </p>
                                 <div class="flex flex-wrap items-center gap-4">
                                     @foreach($post->tags as $tag)
-                                        <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest border border-neutral-800 px-2 py-1">
+                                        <span class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1">
                                             {{ $tag }}
                                         </span>
                                     @endforeach

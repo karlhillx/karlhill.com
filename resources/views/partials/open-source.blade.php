@@ -8,7 +8,7 @@
         </div>
 
         @if($githubRepos->isEmpty())
-            <div class="bg-bg rounded-2xl border border-neutral-800/80 p-6" data-reveal>
+            <div class="surface-card-static bg-bg p-6" data-reveal>
                 <p class="font-mono text-xs text-neutral-500 uppercase tracking-widest mb-2">Open Source</p>
                 <p class="text-neutral-400 text-sm">No public repositories were returned right now. Please check back shortly.</p>
             </div>

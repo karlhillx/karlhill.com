@@ -9,7 +9,7 @@
 @if($previous || $next)
     <nav {{ $attributes->merge(['class' => 'grid sm:grid-cols-2 gap-6']) }} aria-label="{{ $ariaLabel }}" data-reveal>
         @if($previous)
-            <a href="{{ $previous['url'] }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors">
+            <a href="{{ $previous['url'] }}" class="surface-card group p-5">
                 <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">← Previous</p>
                 <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $previous['title'] }}</p>
             </a>
@@ -17,7 +17,7 @@
             <div></div>
         @endif
         @if($next)
-            <a href="{{ $next['url'] }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors sm:text-right">
+            <a href="{{ $next['url'] }}" class="surface-card group p-5 sm:text-right">
                 <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">Next →</p>
                 <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $next['title'] }}</p>
             </a>

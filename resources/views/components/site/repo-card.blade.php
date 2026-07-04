@@ -1,7 +1,7 @@
 @props(['repo'])
 
 <a href="{{ $repo->url }}" target="_blank" rel="noopener noreferrer"
-   class="bg-bg group block rounded-2xl border border-neutral-800/80 p-6 hover:border-accent/40 hover:bg-neutral-900/40 transition-all duration-200"
+   class="surface-card bg-bg group block p-6"
    data-reveal>
     <div class="flex items-start justify-between gap-4 mb-3">
         <h3 class="font-mono text-sm font-normal text-neutral-200 group-hover:text-accent/80 transition-colors leading-snug break-all">{{ $repo->name }}</h3>
@@ -20,7 +20,7 @@
             </span>
         @endif
         @foreach(array_slice($repo->topics, 0, 2) as $topic)
-            <span class="font-mono text-xs px-2 py-0.5 border border-neutral-800 text-neutral-600">{{ $topic }}</span>
+            <span class="surface-chip font-mono text-xs px-2 py-0.5 text-neutral-600">{{ $topic }}</span>
         @endforeach
     </div>
 </a>

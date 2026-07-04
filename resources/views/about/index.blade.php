@@ -27,11 +27,23 @@
     </x-site.page-hero>
 
     @if(config('site.about.beyond'))
+        @php
+            $discogs = collect(config('site.social'))->first(fn ($link) => ($link['icon'] ?? '') === 'discogs');
+            $beyond = config('site.about.beyond');
+        @endphp
         <section aria-label="Beyond the work" class="px-6 border-t border-neutral-800">
             <div class="max-w-6xl mx-auto py-16 grid md:grid-cols-[200px_1fr] gap-6 md:gap-12" data-reveal>
                 <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">Beyond the work</p>
                 <p class="text-neutral-300 text-lg leading-relaxed max-w-2xl">
-                    {{ config('site.about.beyond') }}
+                    @if($discogs && str_contains($beyond, 'Discogs'))
+                        {!! str_replace(
+                            'Discogs',
+                            '<a href="'.e($discogs['url']).'" target="_blank" rel="me noopener noreferrer" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Discogs</a>',
+                            e($beyond)
+                        ) !!}
+                    @else
+                        {{ $beyond }}
+                    @endif
                 </p>
             </div>
         </section>

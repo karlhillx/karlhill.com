@@ -39,7 +39,7 @@
                 </svg>
                 <span>Jump to&hellip;</span>
                 <span aria-hidden="true"
-                      class="ml-1 border border-neutral-700/80 rounded px-1.5 py-0.5 text-[9px] leading-none text-neutral-500 normal-case tracking-normal">⌘K</span>
+                      class="surface-chip ml-1 px-1.5 py-0.5 text-[9px] leading-none text-neutral-500 normal-case tracking-normal">⌘K</span>
             </button>
             <a href="mailto:{{ config('site.person.email') }}"
                class="btn-sweep hidden sm:inline-flex text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest">
