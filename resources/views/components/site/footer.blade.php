@@ -141,8 +141,10 @@
             <p class="font-display {{ $isHome ? 'text-3xl' : 'text-2xl' }} tracking-widest text-neutral-500">{{ $person['name'] }}</p>
             <p class="font-mono text-xs text-neutral-400">{{ $person['location'] }} &nbsp;·&nbsp; {{ $person['job_title'] }} &nbsp;·&nbsp; 25+ Years</p>
         </div>
-        <p class="mt-6 font-mono text-[10px] uppercase tracking-widest text-neutral-700 hover:text-neutral-500 transition-colors duration-300 sm:text-right">
-            Built with Laravel {{ \App\Support\Stack::laravelVersion() }} &middot; Tailwind CSS {{ \App\Support\Stack::tailwindVersion() ?? '4' }}
-        </p>
+        <div class="mt-6 flex sm:justify-end">
+            <p class="inline-flex items-center rounded-md border border-neutral-800/80 bg-neutral-900/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-neutral-700 hover:text-neutral-500 hover:border-neutral-700/80 transition-colors duration-300">
+                Built with Laravel {{ \App\Support\Stack::laravelVersion() }} &middot; Tailwind CSS {{ \App\Support\Stack::tailwindVersion() ?? '4' }}
+            </p>
+        </div>
     </div>
 </footer>
