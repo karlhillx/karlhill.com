@@ -1,5 +1,7 @@
 <?php
 
+$discogsCreditsUrl = 'https://www.discogs.com/artist/1286669-Karl-Hill?superFilter=Credits&sort=year,desc';
+
 return [
 
     'person' => [
@@ -53,7 +55,7 @@ return [
         ['label' => 'X / Twitter', 'url' => 'https://twitter.com/karl_hill/', 'icon' => 'twitter'],
         ['label' => 'ORCID', 'url' => 'https://orcid.org/0009-0002-6847-3368', 'icon' => 'orcid'],
         ['label' => 'ResearchGate', 'url' => 'https://www.researchgate.net/profile/Karl-Hill-2', 'icon' => 'researchgate'],
-        ['label' => 'Discogs', 'url' => 'https://www.discogs.com/artist/1286669-Karl-Hill', 'icon' => 'discogs'],
+        ['label' => 'Discogs', 'url' => $discogsCreditsUrl, 'icon' => 'discogs'],
     ],
 
     'same_as' => [
@@ -62,7 +64,7 @@ return [
         'https://twitter.com/karl_hill',
         'https://orcid.org/0009-0002-6847-3368',
         'https://www.researchgate.net/profile/Karl-Hill-2',
-        'https://www.discogs.com/artist/1286669-Karl-Hill',
+        $discogsCreditsUrl,
     ],
 
     'hero' => [
