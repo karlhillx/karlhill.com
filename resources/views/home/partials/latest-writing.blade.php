@@ -1,6 +1,5 @@
 @if($latestPost)
-<section id="writing" class="py-28 px-6 border-t border-neutral-800" aria-label="Latest writing">
-    <div class="max-w-6xl mx-auto">
+<x-site.section id="writing" aria-label="Latest writing">
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16" data-reveal>
             <x-site.section-heading number="03" label="Latest Writing" class="mb-0" />
             <a href="/blog"
@@ -28,6 +27,5 @@
                 Read the post <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
             </span>
         </a>
-    </div>
-</section>
+</x-site.section>
 @endif

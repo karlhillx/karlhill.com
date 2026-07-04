@@ -1,5 +1,4 @@
-<section id="work" class="py-28 px-6 border-t border-neutral-800">
-    <div class="max-w-6xl mx-auto">
+<x-site.section id="work">
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16" data-reveal>
             <x-site.section-heading number="{{ $sectionNumber ?? '03' }}" label="{{ $heading ?? 'Selected Work' }}" class="mb-0" />
             @if($showViewAll ?? false)
@@ -26,5 +25,4 @@
                 />
             @endforeach
         </div>
-    </div>
-</section>
+</x-site.section>

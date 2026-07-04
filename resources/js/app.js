@@ -2,6 +2,8 @@
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const prefersFinePointer = window.matchMedia('(pointer: fine)').matches;
+const supportsViewTimeline =
+    typeof CSS !== 'undefined' && CSS.supports('animation-timeline', 'view()');
 
 // ---------------------------------------------------------------------------
 // Soft radial glow follows the pointer (CSS vars on :root)
@@ -35,14 +37,29 @@ if (!prefersReducedMotion && prefersFinePointer) {
 // ---------------------------------------------------------------------------
 if (!prefersReducedMotion && prefersFinePointer) {
     document.querySelectorAll('.magnetic-btn').forEach((el) => {
+        // Cache the rect on entry so mousemove never forces a layout read,
+        // and batch the style writes into a single rAF per frame.
+        let rect = null;
+        let rafId = null;
+        let mx = 0;
+        let my = 0;
+
+        el.addEventListener('mouseenter', () => {
+            rect = el.getBoundingClientRect();
+        });
         el.addEventListener('mousemove', (event) => {
-            const rect = el.getBoundingClientRect();
-            const dx = event.clientX - (rect.left + rect.width / 2);
-            const dy = event.clientY - (rect.top + rect.height / 2);
-            el.style.setProperty('--mx', `${Math.max(Math.min(dx * 0.1, 8), -8)}px`);
-            el.style.setProperty('--my', `${Math.max(Math.min(dy * 0.1, 8), -8)}px`);
+            if (!rect) rect = el.getBoundingClientRect();
+            mx = event.clientX - (rect.left + rect.width / 2);
+            my = event.clientY - (rect.top + rect.height / 2);
+            if (rafId !== null) return;
+            rafId = requestAnimationFrame(() => {
+                rafId = null;
+                el.style.setProperty('--mx', `${Math.max(Math.min(mx * 0.1, 8), -8)}px`);
+                el.style.setProperty('--my', `${Math.max(Math.min(my * 0.1, 8), -8)}px`);
+            });
         });
         el.addEventListener('mouseleave', () => {
+            rect = null;
             el.style.setProperty('--mx', '0px');
             el.style.setProperty('--my', '0px');
         });
@@ -50,33 +67,37 @@ if (!prefersReducedMotion && prefersFinePointer) {
 }
 
 // ---------------------------------------------------------------------------
-// Scroll-reveal (fade up)
+// Scroll-reveal (fade up) — JS fallback only. Browsers with view() timelines
+// run the reveal entirely in CSS (see [data-reveal] in app.css), so the
+// observer and inline stagger delays would be dead weight there.
 // ---------------------------------------------------------------------------
-const revealObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
-);
+if (!supportsViewTimeline) {
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
 
-document.querySelectorAll('[data-reveal]').forEach((el) => {
-    if (prefersReducedMotion) {
-        el.classList.add('revealed');
-        return;
-    }
-    // Stagger siblings that share the same direct parent
-    const siblings = Array.from(el.parentElement.querySelectorAll(':scope > [data-reveal]'));
-    const index = siblings.indexOf(el);
-    if (siblings.length > 1) {
-        el.style.transitionDelay = `${index * 100}ms`;
-    }
-    revealObserver.observe(el);
-});
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+        if (prefersReducedMotion) {
+            el.classList.add('revealed');
+            return;
+        }
+        // Stagger siblings that share the same direct parent
+        const siblings = Array.from(el.parentElement.querySelectorAll(':scope > [data-reveal]'));
+        const index = siblings.indexOf(el);
+        if (siblings.length > 1) {
+            el.style.transitionDelay = `${index * 100}ms`;
+        }
+        revealObserver.observe(el);
+    });
+}
 
 // ---------------------------------------------------------------------------
 // Stat counters
@@ -160,6 +181,7 @@ const minimap = document.getElementById('section-minimap');
 const sections = Array.from(document.querySelectorAll('main section[id], footer[id]'));
 const navSpyLinks = document.querySelectorAll('nav[aria-label="Primary"] a[data-nav-section]');
 const railLinks = document.querySelectorAll('#section-rail a[data-rail-section]');
+let minimapButtons = [];
 
 function setActiveSection(sectionId) {
     navSpyLinks.forEach((link) => {
@@ -169,13 +191,14 @@ function setActiveSection(sectionId) {
     });
 
     railLinks.forEach((link) => {
-        link.setAttribute(
-            'aria-current',
-            link.dataset.railSection === sectionId ? 'true' : 'false'
-        );
+        if (link.dataset.railSection === sectionId) {
+            link.setAttribute('aria-current', 'location');
+        } else {
+            link.removeAttribute('aria-current');
+        }
     });
 
-    minimap?.querySelectorAll('button[data-jump]').forEach((btn) => {
+    minimapButtons.forEach((btn) => {
         btn.setAttribute(
             'aria-current',
             btn.getAttribute('data-jump') === sectionId ? 'true' : 'false'
@@ -192,7 +215,9 @@ if (minimap && sections.length > 0) {
         })
         .join('');
 
-    minimap.querySelectorAll('button[data-jump]').forEach((btn) => {
+    minimapButtons = Array.from(minimap.querySelectorAll('button[data-jump]'));
+
+    minimapButtons.forEach((btn) => {
         btn.addEventListener('click', () => {
             const id = btn.getAttribute('data-jump');
             const target = id ? document.getElementById(id) : null;
@@ -234,6 +259,12 @@ mobileMenu?.addEventListener('toggle', (e) => {
     navToggle?.setAttribute('aria-expanded', e.newState === 'open' ? 'true' : 'false');
 });
 
+// Same-page anchor clicks (e.g. /#contact on the homepage) are fragment
+// navigations, which don't light-dismiss a popover — close it explicitly.
+mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => mobileMenu.hidePopover());
+});
+
 // ---------------------------------------------------------------------------
 // Reading progress + contextual back to top button
 // ---------------------------------------------------------------------------
@@ -250,11 +281,7 @@ if (!supportsScrollTimeline) {
     const updateScrollUI = () => {
         const max = root.scrollHeight - window.innerHeight;
         const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
-        const clamped = Math.min(progress, 100);
-        root.style.setProperty('--scroll-progress', `${clamped}%`);
-        document
-            .querySelector('.scroll-progress')
-            ?.setAttribute('aria-valuenow', String(Math.round(clamped)));
+        root.style.setProperty('--scroll-progress', `${Math.min(progress, 100)}%`);
         backTopBtn?.classList.toggle('is-visible', window.scrollY > 560);
     };
 
@@ -371,7 +398,9 @@ const paletteIsOpen = () => palette?.matches(':popover-open') ?? false;
 // triggers use `popovertarget`, Cmd+K calls togglePopover(), and Esc /
 // click-outside are handled by popover=auto.
 palette?.addEventListener('toggle', (e) => {
-    if (e.newState === 'open') {
+    const open = e.newState === 'open';
+    commandInput?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
         document.body.style.overflow = 'hidden';
         if (commandInput) commandInput.value = '';
         activeCommandIndex = 0;
@@ -524,22 +553,31 @@ document.querySelectorAll('[data-copy-link]').forEach((btn) => {
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     const tokenInput = contactForm.querySelector('input[name="_token"]');
-    const tokenReady = fetch('/csrf-token', {
-        headers: { Accept: 'application/json' },
-        credentials: 'same-origin',
-    })
-        .then((res) => (res.ok ? res.json() : null))
-        .then((data) => {
-            if (data && data.token && tokenInput) tokenInput.value = data.token;
+
+    // Defer the token request until the visitor actually engages with the
+    // form — most page views never touch it.
+    let tokenReady = null;
+    const ensureToken = () => {
+        tokenReady ??= fetch('/csrf-token', {
+            headers: { Accept: 'application/json' },
+            credentials: 'same-origin',
         })
-        .catch(() => {});
+            .then((res) => (res.ok ? res.json() : null))
+            .then((data) => {
+                if (data && data.token && tokenInput) tokenInput.value = data.token;
+            })
+            .catch(() => {});
+        return tokenReady;
+    };
+
+    contactForm.addEventListener('focusin', ensureToken, { once: true });
 
     let tokenApplied = false;
     contactForm.addEventListener('submit', (e) => {
         if (tokenApplied) return;
         // Hold the submit until the fresh token has been applied, then re-fire.
         e.preventDefault();
-        tokenReady.finally(() => {
+        ensureToken().finally(() => {
             tokenApplied = true;
             contactForm.submit();
         });

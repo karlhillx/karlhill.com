@@ -29,9 +29,7 @@
 
 @section('content')
     <article class="relative pt-36 pb-20 px-6">
-        <div class="glow-orb-1 pointer-events-none absolute top-24 -left-48 w-[500px] h-[500px] rounded-full"
-             style="background: radial-gradient(ellipse, rgba(249,115,22,0.10) 0%, transparent 65%);"
-             aria-hidden="true"></div>
+        <x-site.glow-orb :drift="1" :strength="0.10" class="top-24 -left-48 w-[500px] h-[500px]" />
 
         <div class="relative z-10 max-w-3xl mx-auto">
             <x-site.breadcrumbs :items="[
@@ -62,9 +60,14 @@
                 @endforeach
             </div>
 
+            @php
+                $heroImg = \App\Support\Images::webp($project['image']);
+                $heroSrcset = \App\Support\Images::srcset($heroImg);
+            @endphp
             <figure class="mb-12 -mx-6 sm:mx-0">
-                <img src="{{ $project['image'] }}"
-                     alt="{{ $project['title'] }}"
+                <img src="{{ $heroImg }}"
+                     @if($heroSrcset) srcset="{{ $heroSrcset }}" sizes="(min-width: 832px) 48rem, 100vw" @endif
+                     alt="Screenshot of {{ $project['title'] }}"
                      loading="eager" decoding="async" fetchpriority="high"
                      style="view-transition-name: work-img-{{ $project['slug'] }}; view-transition-class: card-media"
                      class="w-full aspect-[16/9] object-cover {{ $project['imagePosition'] ?? 'object-center' }} sm:rounded-sm border-y sm:border border-neutral-800/70">
@@ -74,13 +77,13 @@
                 @php($metricCols = count($study['metrics']) >= 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2')
                 <div class="grid grid-cols-2 {{ $metricCols }} gap-px bg-neutral-800 mb-12" data-reveal>
                     @foreach($study['metrics'] as $metric)
-                        <div class="bg-bg p-6 text-center">
-                            <p class="font-display text-3xl sm:text-4xl text-accent mb-1"
-                               data-counter
-                               data-final="{{ $metric['value'] }}"
-                               aria-label="{{ $metric['value'] }} — {{ $metric['label'] }}">{{ $metric['value'] }}</p>
-                            <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">{{ $metric['label'] }}</p>
-                        </div>
+                        <x-site.stat
+                            padding="p-6"
+                            :value="$metric['value']"
+                            :label="$metric['label']"
+                            value-class="text-3xl sm:text-4xl mb-1"
+                            label-class="text-neutral-400"
+                        />
                     @endforeach
                 </div>
             @endif
@@ -110,40 +113,22 @@
                 </section>
             </div>
 
-            @if($relatedProjects->isNotEmpty())
-                <div class="mt-14 pt-8 border-t border-neutral-800" data-reveal>
-                    <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Related projects</p>
-                    <ul class="space-y-4">
-                        @foreach($relatedProjects as $related)
-                            <li>
-                                <a href="/work/{{ $related['slug'] }}" class="group block border border-neutral-800 p-5 hover:border-accent/40 transition-colors">
-                                    <p class="font-display text-xl text-neutral-100 group-hover:text-accent tracking-wide transition-colors">{{ $related['title'] }}</p>
-                                    <p class="text-neutral-400 text-sm mt-2 line-clamp-2">{{ $related['description'] }}</p>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            <x-site.related-list
+                class="mt-14 pt-8 border-t border-neutral-800"
+                label="Related projects"
+                :items="$relatedProjects->map(fn ($related) => [
+                    'url' => '/work/'.$related['slug'],
+                    'title' => $related['title'],
+                    'excerpt' => $related['description'],
+                ])->all()"
+            />
 
-            @if($previousProject || $nextProject)
-                <nav class="mt-14 pt-8 border-t border-neutral-800 grid sm:grid-cols-2 gap-6" aria-label="Case study navigation" data-reveal>
-                    @if($previousProject)
-                        <a href="/work/{{ $previousProject['slug'] }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors">
-                            <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">← Previous</p>
-                            <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $previousProject['title'] }}</p>
-                        </a>
-                    @else
-                        <div></div>
-                    @endif
-                    @if($nextProject)
-                        <a href="/work/{{ $nextProject['slug'] }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors sm:text-right">
-                            <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">Next →</p>
-                            <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $nextProject['title'] }}</p>
-                        </a>
-                    @endif
-                </nav>
-            @endif
+            <x-site.adjacent-nav
+                class="mt-14 pt-8 border-t border-neutral-800"
+                aria-label="Case study navigation"
+                :previous="$previousProject ? ['url' => '/work/'.$previousProject['slug'], 'title' => $previousProject['title']] : null"
+                :next="$nextProject ? ['url' => '/work/'.$nextProject['slug'], 'title' => $nextProject['title']] : null"
+            />
 
             <div class="mt-14 pt-8 border-t border-neutral-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" data-reveal>
                 <a href="/work" class="font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">

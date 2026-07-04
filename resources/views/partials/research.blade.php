@@ -1,9 +1,6 @@
 @php($research = config('site.research'))
 
-<section id="research" class="py-28 px-6 border-t border-neutral-800">
-    <div class="max-w-6xl mx-auto">
-        <x-site.section-heading :number="$sectionNumber ?? '02'" label="Research" />
-
+<x-site.section id="research" :number="$sectionNumber ?? '02'" label="Research">
         <article class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12 border border-neutral-800 bg-neutral-900/30 p-6 sm:p-8 md:p-10" data-reveal>
             <div>
                 <p class="font-mono text-xs text-accent uppercase tracking-widest mb-3">{{ $research['label'] }}</p>
@@ -31,5 +28,4 @@
                 </a>
             </div>
         </article>
-    </div>
-</section>
+</x-site.section>

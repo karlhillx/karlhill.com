@@ -1,11 +1,7 @@
 <section id="hero" class="relative min-h-screen flex flex-col justify-end pt-24 pb-16 px-6 overflow-hidden">
     <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
-    <div class="glow-orb-1 pointer-events-none absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full"
-         style="background: radial-gradient(ellipse, rgba(249,115,22,0.14) 0%, transparent 65%);"
-         aria-hidden="true"></div>
-    <div class="glow-orb-2 pointer-events-none absolute -top-48 -right-48 w-[500px] h-[500px] rounded-full"
-         style="background: radial-gradient(ellipse, rgba(249,115,22,0.09) 0%, transparent 65%);"
-         aria-hidden="true"></div>
+    <x-site.glow-orb :drift="1" class="-bottom-32 -left-32 w-[600px] h-[600px]" />
+    <x-site.glow-orb :drift="2" :strength="0.09" class="-top-48 -right-48 w-[500px] h-[500px]" />
 
     <div class="relative z-10 max-w-6xl mx-auto w-full">
         <div class="pt-12">
@@ -50,10 +46,10 @@
                     </a>
                 @endforeach
             </div>
-            <div class="flex items-center gap-2.5 mt-6 hero-enter" style="animation-delay:640ms">
+            <a href="#contact" class="group flex items-center gap-2.5 mt-6 w-fit hero-enter" style="animation-delay:640ms">
                 <span class="w-2 h-2 rounded-full bg-green-500 availability-pulse" aria-hidden="true"></span>
-                <span class="font-mono text-xs text-neutral-500 uppercase tracking-widest">{{ $person['availability'] }}</span>
-            </div>
+                <span class="font-mono text-xs text-neutral-500 group-hover:text-accent uppercase tracking-widest transition-colors">{{ $person['availability'] }} <span class="arrow-nudge inline-block" aria-hidden="true">→</span></span>
+            </a>
         </div>
     </div>
 </section>

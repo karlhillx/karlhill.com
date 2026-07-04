@@ -1,10 +1,7 @@
 @php($experience = config('site.experience'))
 @php($current = $experience['current'])
 
-<section id="experience" class="py-28 px-6 border-t border-neutral-800">
-    <div class="max-w-6xl mx-auto">
-        <x-site.section-heading :number="$sectionNumber ?? '01'" label="Experience" />
-
+<x-site.section id="experience" :number="$sectionNumber ?? '01'" label="Experience">
         <div class="role-active rounded-sm mb-16 p-8 md:p-10 border border-accent/25 bg-accent/[0.03]" data-reveal>
             <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-8">
                 <div>
@@ -36,21 +33,26 @@
                     <h3 class="font-display text-2xl tracking-wide leading-tight">{{ $earlier['title'] }}</h3>
                     <span class="font-mono text-xs text-neutral-600 mt-3 block">{{ $earlier['period'] }}</span>
                 </div>
-                <div class="space-y-6">
-                    @foreach($earlier['entries'] as $entry)
-                        <div class="flex gap-5">
-                            <div class="pt-1.5 shrink-0">
-                                <div class="w-1.5 h-1.5 rounded-full bg-accent"></div>
+                <details class="group/earlier">
+                    <summary class="cursor-pointer list-none [&::-webkit-details-marker]:hidden font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors w-fit">
+                        <span class="group-open/earlier:hidden">Show {{ count($earlier['entries']) }} earlier roles <span aria-hidden="true">↓</span></span>
+                        <span class="hidden group-open/earlier:inline">Hide earlier roles <span aria-hidden="true">↑</span></span>
+                    </summary>
+                    <div class="space-y-6 mt-8">
+                        @foreach($earlier['entries'] as $entry)
+                            <div class="flex gap-5">
+                                <div class="pt-1.5 shrink-0">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-accent"></div>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-neutral-200 text-sm">{{ $entry['company'] }}</p>
+                                    <p class="font-mono text-xs text-neutral-600 mt-0.5">{{ $entry['meta'] }}</p>
+                                    <p class="text-neutral-500 text-sm mt-2 leading-relaxed">{{ $entry['detail'] }}</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="font-semibold text-neutral-200 text-sm">{{ $entry['company'] }}</p>
-                                <p class="font-mono text-xs text-neutral-600 mt-0.5">{{ $entry['meta'] }}</p>
-                                <p class="text-neutral-500 text-sm mt-2 leading-relaxed">{{ $entry['detail'] }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+                        @endforeach
+                    </div>
+                </details>
             </div>
         </div>
-    </div>
-</section>
+</x-site.section>

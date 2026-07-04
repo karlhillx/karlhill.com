@@ -6,6 +6,7 @@ use App\Mail\ContactMessage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -17,11 +18,21 @@ class ContactController extends Controller
             return $this->done();
         }
 
-        $validated = $request->validate([
+        $validator = Validator::make($request->only('name', 'email', 'message'), [
             'name' => ['required', 'string', 'max:120'],
             'email' => ['required', 'email:rfc', 'max:190'],
             'message' => ['required', 'string', 'min:10', 'max:4000'],
         ]);
+
+        if ($validator->fails()) {
+            // Redirect with the #contact-form fragment so the visitor lands on
+            // the form (in the footer) and actually sees the error messages.
+            return redirect(route('home').'#contact-form')
+                ->withErrors($validator)
+                ->withInput($request->only('name', 'email', 'message'));
+        }
+
+        $validated = $validator->validated();
 
         try {
             Mail::to(config('site.person.email'))->send(new ContactMessage(

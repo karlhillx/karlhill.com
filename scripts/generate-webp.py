@@ -12,12 +12,21 @@ IMG = ROOT / "public" / "img"
 QUALITY = 78
 SKIP_DIRS = {"webp", "og", "icons"}
 
+# Card/hero imagery also gets fixed-width variants for `srcset`
+# (consumed via App\Support\Images::srcset()).
+RESIZE_WIDTHS = (800, 1600)
+
 
 def should_convert(path: Path) -> bool:
     if path.suffix.lower() not in {".jpg", ".jpeg", ".png"}:
         return False
     parts = set(path.relative_to(IMG).parts)
     return not parts.intersection(SKIP_DIRS)
+
+
+def wants_variants(path: Path) -> bool:
+    rel = path.relative_to(IMG)
+    return rel.parts[0] == "blog" or rel.name.startswith(("ss-", "small-"))
 
 
 def target_path(source: Path) -> Path:
@@ -36,6 +45,18 @@ def main() -> int:
 
         with Image.open(source) as img:
             img.save(dest, "WEBP", quality=QUALITY, method=6)
+
+            if wants_variants(source):
+                for width in RESIZE_WIDTHS:
+                    if img.width <= width:
+                        continue
+                    height = round(img.height * width / img.width)
+                    variant = dest.with_name(f"{dest.stem}-{width}.webp")
+                    img.resize((width, height), Image.LANCZOS).save(
+                        variant, "WEBP", quality=QUALITY, method=6
+                    )
+                    print(f"wrote {variant.relative_to(ROOT)}")
+                    converted += 1
 
         print(f"wrote {dest.relative_to(ROOT)}")
         converted += 1

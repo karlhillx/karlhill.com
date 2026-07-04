@@ -4,6 +4,10 @@
     $navLinkClass = static function (string $key) use ($activeNav): string {
         return 'nav-link transition-colors duration-200 '.($activeNav === $key ? 'text-accent' : 'hover:text-accent');
     };
+    $mobileLinkClass = static function (string $key) use ($activeNav): string {
+        return 'py-3 border-b border-neutral-800/50 transition-colors '
+            .($activeNav === $key ? 'text-accent' : 'hover:text-accent');
+    };
 @endphp
 
 <nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-bg/90 backdrop-blur-sm nav-enter">
@@ -52,10 +56,10 @@
     </div>
     <div id="mobile-menu" popover="auto" class="md:hidden border-t border-neutral-800 bg-bg/98 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1 font-mono text-xs text-neutral-500 uppercase tracking-widest">
-            <a href="/work" class="py-3 border-b border-neutral-800/50 hover:text-accent transition-colors">Work</a>
-            <a href="/about" class="py-3 border-b border-neutral-800/50 hover:text-accent transition-colors">About</a>
-            <a href="/blog" class="py-3 border-b border-neutral-800/50 hover:text-accent transition-colors">Writing</a>
-            <a href="/#contact" class="py-3 border-b border-neutral-800/50 hover:text-accent transition-colors">Contact</a>
+            <a href="/work" class="{{ $mobileLinkClass('work') }}">Work</a>
+            <a href="/about" class="{{ $mobileLinkClass('about') }}">About</a>
+            <a href="/blog" class="{{ $mobileLinkClass('writing') }}">Writing</a>
+            <a href="/#contact" class="{{ $mobileLinkClass('contact') }}">Contact</a>
             <button type="button"
                     popovertarget="command-palette"
                     class="py-3 text-left hover:text-accent transition-colors">

@@ -13,6 +13,9 @@ final class PageMeta
         public readonly ?string $ogTitle = null,
         public readonly ?string $ogDescription = null,
         public readonly ?string $ogImage = null,
+        public readonly ?string $ogImageAlt = null,
+        public readonly ?int $ogImageWidth = null,
+        public readonly ?int $ogImageHeight = null,
         public readonly string $ogType = 'website',
         public readonly ?string $activeNav = null,
         public readonly bool $noindex = false,
@@ -38,6 +41,9 @@ final class PageMeta
             ogTitle: $seo['title'],
             ogDescription: $seo['og_description'],
             ogImage: "{$url}/img/og-home.jpg",
+            ogImageAlt: $seo['title'],
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
         );
     }
 
@@ -53,6 +59,9 @@ final class PageMeta
             ogTitle: $seo['title'],
             ogDescription: $seo['og_description'],
             ogImage: "{$url}/img/og-home.jpg",
+            ogImageAlt: $seo['title'],
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
             activeNav: 'writing',
         );
     }
@@ -69,6 +78,9 @@ final class PageMeta
             ogTitle: $seo['title'],
             ogDescription: $seo['og_description'],
             ogImage: "{$url}/img/og-home.jpg",
+            ogImageAlt: $seo['title'],
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
             activeNav: 'work',
         );
     }
@@ -85,6 +97,9 @@ final class PageMeta
             ogTitle: $seo['title'],
             ogDescription: $seo['og_description'],
             ogImage: "{$url}/img/og-home.jpg",
+            ogImageAlt: $seo['title'],
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
             activeNav: 'about',
         );
     }
@@ -101,6 +116,9 @@ final class PageMeta
             ogTitle: "{$label} — Karl Hill",
             ogDescription: "Writing tagged “{$label}”.",
             ogImage: "{$url}/img/og-home.jpg",
+            ogImageAlt: "Karl Hill — writing tagged {$label}",
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
             activeNav: 'writing',
         );
     }
@@ -116,6 +134,9 @@ final class PageMeta
             ogTitle: "{$tag} — Karl Hill",
             ogDescription: "Portfolio work tagged “{$tag}”.",
             ogImage: "{$url}/img/og-home.jpg",
+            ogImageAlt: "Karl Hill — work tagged {$tag}",
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
             activeNav: 'work',
         );
     }
@@ -129,13 +150,20 @@ final class PageMeta
         $slug = $project['slug'];
         $study = $project['case_study'];
 
+        // Generated OG cards are always 1200×630; the raw project screenshot
+        // fallback has unknown dimensions, so we omit them rather than lie.
+        $ogCard = ProjectCatalog::ogImageUrl($slug);
+
         return new self(
             title: "{$project['title']} — Karl Hill",
             description: Str::limit($study['lede'] ?? $project['description'], 155, '…'),
             canonical: "{$url}/work/{$slug}",
             ogTitle: $project['title'],
             ogDescription: Str::limit($study['lede'] ?? $project['description'], 120, '…'),
-            ogImage: ProjectCatalog::ogImageUrl($slug) ?? "{$url}{$project['image']}",
+            ogImage: $ogCard ?? "{$url}{$project['image']}",
+            ogImageAlt: $project['title'],
+            ogImageWidth: $ogCard ? 1200 : null,
+            ogImageHeight: $ogCard ? 630 : null,
             activeNav: 'work',
         );
     }
@@ -151,6 +179,9 @@ final class PageMeta
             ogTitle: $post->title,
             ogDescription: Str::limit($post->excerpt, 120, '…'),
             ogImage: $post->ogImageUrl(),
+            ogImageAlt: $post->title,
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
             ogType: 'article',
             activeNav: 'writing',
             articlePublishedTime: $post->publishedAt->toIso8601String(),
@@ -161,10 +192,11 @@ final class PageMeta
 
     public static function notFound(): self
     {
+        // No canonical: a 404 must not claim another URL as its canonical
+        // version (it's already noindex).
         return new self(
             title: 'Page not found — Karl Hill',
             description: 'This page does not exist or has moved.',
-            canonical: self::siteUrl().'/',
             ogTitle: 'Page not found — Karl Hill',
             ogDescription: 'This page does not exist or has moved.',
             noindex: true,
@@ -181,10 +213,13 @@ final class PageMeta
         return [
             'title' => $this->title,
             'description' => $this->description,
-            'canonical' => $this->canonical ?? $url,
+            'canonical' => $this->canonical,
             'ogTitle' => $this->ogTitle ?? $this->title,
             'ogDescription' => $this->ogDescription ?? $this->description,
             'ogImage' => $this->ogImage ?? "{$url}/img/og-home.jpg",
+            'ogImageAlt' => $this->ogImageAlt,
+            'ogImageWidth' => $this->ogImageWidth,
+            'ogImageHeight' => $this->ogImageHeight,
             'ogType' => $this->ogType,
             'activeNav' => $this->activeNav,
             'noindex' => $this->noindex,

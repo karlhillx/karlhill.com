@@ -22,9 +22,9 @@ class HomeController extends Controller
             'latestPost' => $posts->first(),
             'structuredData' => HomeStructuredData::build($posts->take(12)),
             'sectionRail' => [
-                ['id' => 'writing', 'label' => 'Writing', 'href' => '#writing'],
                 ['id' => 'why', 'label' => 'Why Me', 'href' => '#why'],
                 ['id' => 'work', 'label' => 'Work', 'href' => '#work'],
+                ['id' => 'writing', 'label' => 'Writing', 'href' => '#writing'],
                 ['id' => 'contact', 'label' => 'Contact', 'href' => '#contact'],
             ],
         ]);

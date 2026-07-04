@@ -8,7 +8,7 @@
             @foreach($sections as $section)
                 <a href="{{ $section['href'] }}"
                    data-rail-section="{{ $section['id'] }}"
-                   @if($loop->first) aria-current="true" @endif>
+                   @if($loop->first) aria-current="location" @endif>
                     {{ $section['label'] }}
                 </a>
             @endforeach

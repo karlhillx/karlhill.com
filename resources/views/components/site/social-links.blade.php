@@ -1,6 +1,6 @@
 <div {{ $attributes->merge(['class' => 'flex flex-wrap items-center gap-5 pt-2']) }}>
     @foreach(config('site.social') as $link)
-        <a href="{{ $link['url'] }}" target="_blank" rel="noopener noreferrer"
+        <a href="{{ $link['url'] }}" target="_blank" rel="me noopener noreferrer"
            aria-label="{{ $link['label'] }}" title="{{ $link['label'] }}"
            class="text-neutral-500 hover:text-accent hover:-translate-y-0.5 transition-[color,transform] duration-200">
             @include('components.site.icons.'.$link['icon'])

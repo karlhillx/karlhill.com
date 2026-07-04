@@ -26,74 +26,47 @@
 
 @section('content')
 
-<section class="relative pt-40 pb-20 px-6 overflow-hidden">
-    <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
-    <div class="glow-orb-1 pointer-events-none absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full"
-         style="background: radial-gradient(ellipse, rgba(249,115,22,0.14) 0%, transparent 65%);"
-         aria-hidden="true"></div>
-    <div class="glow-orb-2 pointer-events-none absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full"
-         style="background: radial-gradient(ellipse, rgba(249,115,22,0.09) 0%, transparent 65%);"
-         aria-hidden="true"></div>
+@php
+    $breadcrumbs = [
+        ['label' => 'Home', 'url' => '/'],
+    ];
+    if ($activeTag) {
+        $breadcrumbs[] = ['label' => 'Writing', 'url' => '/blog'];
+        $breadcrumbs[] = ['label' => ucfirst($activeTag)];
+    } else {
+        $breadcrumbs[] = ['label' => 'Writing'];
+    }
+@endphp
 
-    <div class="relative z-10 max-w-6xl mx-auto">
-        @php
-            $breadcrumbs = [
-                ['label' => 'Home', 'url' => '/'],
-            ];
-            if ($activeTag) {
-                $breadcrumbs[] = ['label' => 'Writing', 'url' => '/blog'];
-                $breadcrumbs[] = ['label' => ucfirst($activeTag)];
-            } else {
-                $breadcrumbs[] = ['label' => 'Writing'];
-            }
-        @endphp
-        <x-site.breadcrumbs :items="$breadcrumbs" class="mb-6" />
-        <p class="font-mono text-accent text-xs tracking-widest uppercase mb-6">Writing</p>
-        <h1 class="font-display text-[clamp(3.5rem,12vw,9rem)] leading-none tracking-wide text-white mb-8">
-            Notes from<br>the field
-        </h1>
-        <p class="text-neutral-300 text-base leading-relaxed max-w-2xl">
-            Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on.
-        </p>
-        <p class="text-neutral-400 text-base leading-relaxed max-w-2xl mt-4">
-            I write to think in public — to work out hard-won lessons on architecture, delivery, and leading teams, and to leave a trail worth following.
-        </p>
-        <div class="flex flex-wrap items-center gap-4 mt-8">
-            <a href="{{ route('feed') }}"
-               class="inline-flex items-center gap-2 font-mono text-xs text-accent border border-accent/40 hover:bg-accent/10 px-4 py-2.5 uppercase tracking-widest transition-colors">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M6.18 15.64a2.18 2.18 0 1 1 0 4.36 2.18 2.18 0 0 1 0-4.36ZM4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44Zm0 5.66A9.9 9.9 0 0 1 13.9 20h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/>
-                </svg>
-                Subscribe via RSS
-            </a>
-            <span class="font-mono text-[11px] text-neutral-500 uppercase tracking-widest">No newsletter, no spam — just the feed.</span>
-        </div>
+<x-site.page-hero eyebrow="Writing" :breadcrumbs="$breadcrumbs" class="pb-20">
+    <x-slot:title>Notes from<br>the field</x-slot:title>
+
+    <p class="text-neutral-300 text-base leading-relaxed max-w-2xl">
+        Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on.
+    </p>
+    <p class="text-neutral-400 text-base leading-relaxed max-w-2xl mt-4">
+        I write to think in public — to work out hard-won lessons on architecture, delivery, and leading teams, and to leave a trail worth following.
+    </p>
+    <div class="flex flex-wrap items-center gap-4 mt-8">
+        <a href="{{ route('feed') }}"
+           class="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
+            @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])
+            Subscribe via RSS
+        </a>
+        <span class="font-mono text-[11px] text-neutral-500 uppercase tracking-widest">No newsletter, no spam — just the feed.</span>
     </div>
-</section>
+</x-site.page-hero>
 
 <section class="px-6 pb-32 border-t border-neutral-800">
     <div class="max-w-6xl mx-auto pt-20">
         @if($allTags->isNotEmpty())
-            <div class="flex flex-wrap gap-2 mb-12" data-reveal>
-                <a href="{{ route('blog.index') }}"
-                   @class([
-                       'font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 border transition-colors',
-                       'border-accent text-accent' => ! $activeTag,
-                       'border-neutral-800 text-neutral-500 hover:border-accent hover:text-accent' => $activeTag,
-                   ])>
-                    All
-                </a>
-                @foreach($allTags as $tag)
-                    <a href="{{ route('blog.tag', $tag) }}"
-                       @class([
-                           'font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 border transition-colors',
-                           'border-accent text-accent' => $activeTag === $tag,
-                           'border-neutral-800 text-neutral-500 hover:border-accent hover:text-accent' => $activeTag !== $tag,
-                       ])>
-                        {{ $tag }}
-                    </a>
-                @endforeach
-            </div>
+            <x-site.tag-filter
+                class="mb-12"
+                :all-url="route('blog.index')"
+                :tags="$allTags"
+                :active-tag="$activeTag"
+                :url-for="fn ($tag) => route('blog.tag', $tag)"
+            />
         @endif
 
         @if($posts->isEmpty())
@@ -149,9 +122,7 @@
                 </div>
                 <a href="{{ route('feed') }}"
                    class="inline-flex items-center gap-2 shrink-0 font-mono text-xs text-accent border border-accent/40 hover:bg-accent/10 px-5 py-3 uppercase tracking-widest transition-colors">
-                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M6.18 15.64a2.18 2.18 0 1 1 0 4.36 2.18 2.18 0 0 1 0-4.36ZM4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44Zm0 5.66A9.9 9.9 0 0 1 13.9 20h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/>
-                    </svg>
+                    @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])
                     Subscribe via RSS
                 </a>
             </div>

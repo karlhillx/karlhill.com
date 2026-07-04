@@ -10,6 +10,7 @@ return [
         'tagline' => 'Staff Software Engineer · 25+ Years',
         'availability' => 'Available for select consulting',
         'employer' => 'Jacobs',
+        'twitter_handle' => '@karl_hill',
     ],
 
     'analytics' => [
@@ -69,12 +70,10 @@ return [
         'subtitle' => 'Cloud · Platforms · Engineering Leadership',
         'positioning' => 'I help mission-driven teams turn hard problems into cloud-native platforms that ship reliably — and keep shipping at scale.',
         'bio' => 'I architect systems, lead teams, and ship software that matters — from disaster-response platforms at NASA to mission-critical aerospace systems at Jacobs/BlackLynx.',
+        // Two CTAs, clear hierarchy. Social/email live in the nav and footer.
         'cta' => [
             ['label' => 'View Work', 'url' => '/work', 'primary' => true],
-            ['label' => 'About', 'url' => '/about'],
-            ['label' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/khill/'],
-            ['label' => 'karlhillx@gmail.com', 'url' => 'mailto:karlhillx@gmail.com'],
-            ['label' => 'GitHub', 'url' => 'https://github.com/karlhillx'],
+            ['label' => 'Get in Touch', 'url' => '#contact'],
         ],
     ],
 
@@ -390,10 +389,10 @@ return [
     ],
 
     'certifications' => [
+        ['abbr' => 'SAFe', 'name' => 'SAFe® Agilist Certification', 'issuer' => 'Scaled Agile, Inc.', 'url' => 'https://scaledagile.com/certification/safe-agilist/', 'status' => 'In Progress'],
         ['abbr' => 'PSM II', 'name' => 'Professional Scrum Master™ II', 'issuer' => 'Scrum.org', 'url' => 'https://www.credly.com/badges/1874ba29-99d7-4dae-8335-1a915795d956'],
-        ['abbr' => 'PSD I', 'name' => 'Professional Scrum Developer™ I', 'issuer' => 'Scrum.org', 'url' => 'https://www.credly.com/badges/937b37cf-6fa7-49dd-8c70-e43378feda5b'],
         ['abbr' => 'PSPO I', 'name' => 'Professional Scrum Product Owner™ I', 'issuer' => 'Scrum.org', 'url' => 'https://www.credly.com/badges/da27e50e-ef55-41f0-bc14-ca26d9e3e0ff'],
-        ['abbr' => 'CSM', 'name' => 'Certified ScrumMaster®', 'issuer' => 'Scrum Alliance', 'url' => 'https://certification.scrumalliance.org/accounts/1484321-karl-hill/certifications/1735632-csm'],
+        ['abbr' => 'PSD I', 'name' => 'Professional Scrum Developer™ I', 'issuer' => 'Scrum.org', 'url' => 'https://www.credly.com/badges/937b37cf-6fa7-49dd-8c70-e43378feda5b'],
     ],
 
     'education' => [

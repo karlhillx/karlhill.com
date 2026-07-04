@@ -2,9 +2,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
     @php($siteUrl = rtrim(config('app.url', 'https://karlhill.com'), '/'))
+    @php($defaultTitle = config('site.seo.home.title'))
+    @php($twitterHandle = config('site.person.twitter_handle'))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? 'Karl Hill — Staff Software Engineer' }}</title>
+    <title>{{ $title ?? $defaultTitle }}</title>
     <meta name="description" content="{{ $description ?? config('site.seo.home.description') }}">
     @if($noindex ?? false)
         <meta name="robots" content="noindex">
@@ -14,11 +16,17 @@
     <meta property="og:type" content="{{ $ogType ?? 'website' }}">
     <meta property="og:url" content="{{ $canonical ?? $siteUrl }}">
     <meta property="og:site_name" content="Karl Hill">
-    <meta property="og:title" content="{{ $ogTitle ?? ($title ?? 'Karl Hill — Staff Software Engineer') }}">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="{{ $ogTitle ?? ($title ?? $defaultTitle) }}">
     <meta property="og:description" content="{{ $ogDescription ?? ($description ?? '') }}">
     <meta property="og:image" content="{{ $ogImage ?? $siteUrl.'/img/og-home.jpg' }}">
-    <meta property="og:image:width" content="{{ $ogImageWidth ?? 1200 }}">
-    <meta property="og:image:height" content="{{ $ogImageHeight ?? 630 }}">
+    @if($ogImageAlt ?? null)
+        <meta property="og:image:alt" content="{{ $ogImageAlt }}">
+    @endif
+    @if(($ogImageWidth ?? null) && ($ogImageHeight ?? null))
+        <meta property="og:image:width" content="{{ $ogImageWidth }}">
+        <meta property="og:image:height" content="{{ $ogImageHeight }}">
+    @endif
     @if(($ogType ?? 'website') === 'article')
         @if($articlePublishedTime ?? null)
             <meta property="article:published_time" content="{{ $articlePublishedTime }}">
@@ -33,21 +41,23 @@
 
     {{-- Twitter / X --}}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@karl_hill">
-    <meta name="twitter:creator" content="@karl_hill">
-    <meta name="twitter:title" content="{{ $ogTitle ?? ($title ?? 'Karl Hill — Staff Software Engineer') }}">
+    <meta name="twitter:site" content="{{ $twitterHandle }}">
+    <meta name="twitter:creator" content="{{ $twitterHandle }}">
+    <meta name="twitter:title" content="{{ $ogTitle ?? ($title ?? $defaultTitle) }}">
     <meta name="twitter:description" content="{{ $ogDescription ?? ($description ?? '') }}">
     <meta name="twitter:image" content="{{ $ogImage ?? $siteUrl.'/img/og-home.jpg' }}">
 
     <meta name="theme-color" content="#080808">
-    <link rel="canonical" href="{{ $canonical ?? $siteUrl }}">
+    <meta name="color-scheme" content="dark">
+    @if($canonical ?? null)
+        <link rel="canonical" href="{{ $canonical }}">
+    @endif
 
     {{-- Preload the hero/display font (Bebas Neue) — it renders the LCP element,
          so fetching it before the CSS parses shaves first-paint latency. --}}
     <link rel="preload" as="font" type="font/woff2" href="/fonts/bebas-neue-latin-400-normal.woff2" crossorigin>
 
     {{-- Favicons --}}
-    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
@@ -63,7 +73,7 @@
 </head>
 <body class="bg-bg text-neutral-100 antialiased">
 
-    <div class="scroll-progress" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
 
     <div class="cursor-spotlight" aria-hidden="true"></div>
 
@@ -111,7 +121,7 @@
                placeholder="Jump to a section…"
                aria-label="Search commands"
                role="combobox"
-               aria-expanded="true"
+               aria-expanded="false"
                aria-controls="command-results"
                aria-autocomplete="list"
                autocomplete="off"

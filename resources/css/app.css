@@ -12,8 +12,7 @@
     font-style: normal;
     font-display: swap;
     font-weight: 400;
-    src: url('/fonts/bebas-neue-latin-400-normal.woff2') format('woff2'),
-         url('/fonts/bebas-neue-latin-400-normal.woff') format('woff');
+    src: url('/fonts/bebas-neue-latin-400-normal.woff2') format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
@@ -21,8 +20,7 @@
     font-style: normal;
     font-display: swap;
     font-weight: 400;
-    src: url('/fonts/bebas-neue-latin-ext-400-normal.woff2') format('woff2'),
-         url('/fonts/bebas-neue-latin-ext-400-normal.woff') format('woff');
+    src: url('/fonts/bebas-neue-latin-ext-400-normal.woff2') format('woff2');
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -34,9 +32,16 @@
     --panel: #121212;
     --text: #f5f5f5;
     --muted: #a3a3a3;
+    --muted-2: #737373;
+    --border: #262626;
+    --border-strong: #2a2a2a;
     /* OKLCH for perceptually uniform shades + better animation interpolation */
     --accent: oklch(70% 0.19 50);
     --focus:  oklch(76% 0.16 55);
+    --success: oklch(72% 0.19 150);
+    /* The site is dark by design: tell the UA so form controls, scrollbars,
+       and the default canvas render dark instead of light-on-dark. */
+    color-scheme: dark;
 }
 
 /* Wide-gamut escalation: punchier orange on Display-P3 hardware (recent
@@ -76,6 +81,25 @@ p {
     text-wrap: balance;
 }
 
+/* Trim Bebas Neue's generous built-in leading so display headings sit
+   optically tight against surrounding content (no margin fudging). */
+@supports (text-box: trim-both cap alphabetic) {
+    h1.font-display,
+    .prose-karl h2,
+    .prose-karl h3 {
+        text-box: trim-both cap alphabetic;
+    }
+}
+
+/* Contact textarea grows with its content instead of a fixed rows count. */
+@supports (field-sizing: content) {
+    .contact-textarea {
+        field-sizing: content;
+        min-height: 6.5rem;
+        max-height: 20rem;
+    }
+}
+
 /* ---------------------------------------------------------------------------
    Global micro-polish — selection, scrollbars, tap feedback
 --------------------------------------------------------------------------- */
@@ -88,9 +112,10 @@ p {
 /* Slim, on-brand scrollbars on the dark canvas (pointer devices only, so the
    mobile section rail keeps its hidden bar). */
 @media (min-width: 769px) {
-    * {
+    html,
+    .command-results {
         scrollbar-width: thin;
-        scrollbar-color: color-mix(in oklab, var(--accent) 40%, #2a2a2a) transparent;
+        scrollbar-color: color-mix(in oklab, var(--accent) 40%, var(--border-strong)) transparent;
     }
 }
 
@@ -158,7 +183,7 @@ p {
     position: absolute;
     inset: 0;
     border-radius: 9999px;
-    background: rgb(34 197 94);
+    background: inherit;
     animation: availabilityPing 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
     pointer-events: none;
     z-index: -1;
@@ -468,9 +493,6 @@ footer#contact {
     .section-minimap {
         display: none;
     }
-    .work-card-details {
-        max-height: none;
-    }
 }
 
 /* Mobile section jump rail — horizontal scroll below the nav */
@@ -483,7 +505,7 @@ footer#contact {
     display: none;
     overflow-x: auto;
     scrollbar-width: none;
-    border-bottom: 1px solid #262626;
+    border-bottom: 1px solid var(--border);
     background: color-mix(in oklab, var(--bg) 94%, transparent);
     backdrop-filter: blur(6px);
     -webkit-overflow-scrolling: touch;
@@ -506,17 +528,17 @@ footer#contact {
     font-size: 0.625rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #737373;
+    color: var(--muted-2);
     padding: 0.35rem 0.65rem;
-    border: 1px solid #2a2a2a;
+    border: 1px solid var(--border-strong);
     border-radius: 999px;
     white-space: nowrap;
     transition: color 0.16s ease, border-color 0.16s ease;
 }
 
-.section-rail a[aria-current="true"] {
+.section-rail a[aria-current="location"] {
     color: var(--accent);
-    border-color: color-mix(in oklab, var(--accent) 55%, #2a2a2a);
+    border-color: color-mix(in oklab, var(--accent) 55%, var(--border-strong));
 }
 
 @media (max-width: 768px) {
@@ -565,7 +587,9 @@ footer#contact {
     transform: translateY(0);
 }
 
-/* Modern browsers: pure-CSS scroll-driven entry, also reverses on scroll-up. */
+/* Modern browsers: pure-CSS scroll-driven entry, also reverses on scroll-up.
+   The JS reveal observer is skipped entirely here (see app.js), so the
+   section-heading accent dash needs its own scroll-driven growth too. */
 @supports (animation-timeline: view()) {
     [data-reveal] {
         opacity: 1;
@@ -575,6 +599,19 @@ footer#contact {
         animation-timeline: view();
         animation-range: entry 0% cover 22%;
     }
+
+    .section-accent-line {
+        transform: none;
+        transition: none;
+        animation: accentLineGrow linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 22%;
+    }
+}
+
+@keyframes accentLineGrow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
 }
 
 /* Keyboard focus ring — visible only for keyboard navigation */
@@ -638,8 +675,8 @@ footer#contact {
     right: 1rem;
     bottom: 1rem;
     z-index: 60;
-    border: 1px solid color-mix(in oklab, var(--accent) 40%, #737373);
-    color: color-mix(in oklab, var(--text) 78%, #737373);
+    border: 1px solid color-mix(in oklab, var(--accent) 40%, var(--muted-2));
+    color: color-mix(in oklab, var(--text) 78%, var(--muted-2));
     background: color-mix(in oklab, var(--bg) 84%, transparent);
     backdrop-filter: blur(6px);
     padding: 0.45rem 0.7rem;
@@ -705,7 +742,7 @@ footer#contact {
     width: min(42rem, calc(100vw - 2rem));
     height: max-content;
     max-height: min(80vh, 44rem);
-    border: 1px solid #2a2a2a;
+    border: 1px solid var(--border-strong);
     background: color-mix(in oklab, var(--bg) 94%, #000);
     border-radius: 0.9rem;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
@@ -779,6 +816,27 @@ footer#contact {
     }
 }
 
+/* The fixed primary nav anchors the mobile menu and section rail: where CSS
+   anchor positioning is supported they hang off the nav's real bottom edge,
+   so a nav height change can't strand them (the hardcoded offsets above
+   remain as the fallback). */
+nav[aria-label="Primary"] {
+    anchor-name: --site-nav;
+}
+
+@supports (anchor-name: --a) {
+    #mobile-menu {
+        position-anchor: --site-nav;
+        inset: auto 0;
+        top: anchor(bottom);
+    }
+
+    .section-rail {
+        position-anchor: --site-nav;
+        top: anchor(bottom);
+    }
+}
+
 .command-input {
     width: 100%;
     border: 1px solid #3f3f46;
@@ -821,7 +879,7 @@ footer#contact {
     margin-top: 0.85rem;
     padding-top: 0.75rem;
     border-top: 1px solid #1f1f22;
-    font-family: var(--font-mono, ui-monospace, monospace);
+    font-family: var(--font-mono);
     font-size: 0.65rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -869,6 +927,7 @@ footer#contact {
         transition: none;
     }
     .section-accent-line {
+        animation: none;
         transform: scaleX(1);
     }
     .glow-orb-1,
@@ -886,6 +945,7 @@ footer#contact {
         display: none;
     }
     [data-reveal] {
+        animation: none;
         opacity: 1;
         transform: none;
         transition: none;
@@ -895,9 +955,6 @@ footer#contact {
     }
     .magnetic-btn {
         transform: none !important;
-        transition: none;
-    }
-    .quick-back-top {
         transition: none;
     }
     html {
@@ -920,6 +977,7 @@ footer#contact {
     /* Keep the button reachable without the animated reveal. */
     .quick-back-top {
         animation: none;
+        transition: none;
         opacity: 1;
         transform: none;
         pointer-events: auto;
@@ -946,10 +1004,12 @@ footer#contact {
     :root {
         --accent: oklch(78% 0.24 50);
         --focus:  oklch(82% 0.20 55);
+        /* Lighten the low-tier neutrals at the token level so every utility
+           that references them (text, border, …) picks up the boost. */
+        --color-neutral-500: oklch(72% 0.02 250);
+        --color-neutral-600: oklch(64% 0.02 250);
+        --color-neutral-700: oklch(58% 0.02 250);
     }
-    .text-neutral-500 { color: oklch(72% 0.02 250); }
-    .text-neutral-600 { color: oklch(64% 0.02 250); }
-    .text-neutral-700 { color: oklch(58% 0.02 250); }
 }
 
 /* Default cross-document view-transition: clean cross-fade.
@@ -1051,7 +1111,7 @@ footer#contact {
     margin-top: 1.9em;
     margin-bottom: 0.5em;
     padding-top: 0.85em;
-    border-top: 1px solid #262626;
+    border-top: 1px solid var(--border);
 }
 
 .prose-karl h2:first-child {
@@ -1121,7 +1181,7 @@ footer#contact {
     font-size: 0.875em;
     line-height: 1.65;
     background: #0d0d0d;
-    border: 1px solid #262626;
+    border: 1px solid var(--border);
     border-radius: 6px;
     padding: 1.1em 1.3em;
     overflow-x: auto;
@@ -1185,11 +1245,6 @@ footer#contact {
     margin-top: 0.5em;
 }
 
-.prose-karl blockquote p::before,
-.prose-karl blockquote p::after {
-    content: "";
-}
-
 .prose-karl ul,
 .prose-karl ol {
     padding-left: 1.4em;
@@ -1250,9 +1305,9 @@ footer#contact {
     flex-shrink: 0;
     width: 1.05em;
     height: 1.05em;
-    border: 1px solid color-mix(in oklab, oklch(72% 0.18 150) 55%, #2a2a2a);
+    border: 1px solid color-mix(in oklab, var(--success) 55%, var(--border-strong));
     border-radius: 3px;
-    background: color-mix(in oklab, oklch(72% 0.18 150) 8%, #0a0a0a);
+    background: color-mix(in oklab, var(--success) 8%, #0a0a0a);
     position: relative;
     transform: translateY(0.15em);
     cursor: default;
@@ -1333,13 +1388,13 @@ footer#contact {
 
 .prose-karl hr {
     border: 0;
-    border-top: 1px solid #262626;
+    border-top: 1px solid var(--border);
     margin: 2em 0;
 }
 
 .prose-karl img {
     border-radius: 4px;
-    border: 1px solid #262626;
+    border: 1px solid var(--border);
     max-width: 100%;
     height: auto;
 }
@@ -1347,7 +1402,7 @@ footer#contact {
 .prose-karl figcaption {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: #737373;
+    color: var(--muted-2);
     text-align: center;
     margin-top: 0.7em;
     text-transform: uppercase;
@@ -1362,7 +1417,7 @@ footer#contact {
 
 .prose-karl th,
 .prose-karl td {
-    border-bottom: 1px solid #262626;
+    border-bottom: 1px solid var(--border);
     padding: 0.65em 0.9em;
     text-align: left;
 }

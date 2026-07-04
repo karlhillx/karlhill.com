@@ -12,9 +12,8 @@
 ])
 
 @php
-    $webpImg = str_ends_with(strtolower($image), '.webp')
-        ? $image
-        : preg_replace('/\.(png|jpe?g)$/i', '.webp', str_replace('/img/', '/img/webp/', $image));
+    $webpImg = \App\Support\Images::webp($image);
+    $srcset = \App\Support\Images::srcset($webpImg);
     $cardClass = 'bg-bg group relative overflow-hidden h-80 lg:h-96 rounded-2xl ring-1 ring-white/[0.06] hover:ring-white/[0.12] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 transition-shadow duration-300 block';
 @endphp
 
@@ -29,7 +28,8 @@
              {{ $attributes->merge(['class' => $cardClass]) }}
              data-reveal>
 @endif
-    <img src="{{ $webpImg }}" alt="{{ $title }}"
+    <img src="{{ $webpImg }}" alt=""
+         @if($srcset) srcset="{{ $srcset }}" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" @endif
          width="960" height="720"
          loading="lazy" decoding="async"
          @if($slug) style="view-transition-name: work-img-{{ $slug }}; view-transition-class: card-media" @endif
@@ -53,9 +53,11 @@
 
     <div class="absolute inset-x-0 bottom-0 bg-bg/90 backdrop-blur-md border-t border-white/[0.06] px-5 pt-4 pb-5 rounded-b-2xl">
         <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1.5">{{ $meta }}</p>
-        <p class="font-display text-lg tracking-wide text-white leading-tight">{{ $title }}</p>
-        <div class="work-card-details max-h-0 md:group-hover:max-h-52 md:group-focus-within:max-h-52 overflow-hidden transition-[max-height] duration-500 ease-out">
-            <p class="text-neutral-400 text-xs leading-relaxed mt-2 line-clamp-4 md:line-clamp-none">{{ $description }}</p>
+        <h3 class="font-display text-lg tracking-wide text-white leading-tight">{{ $title }}</h3>
+        {{-- Collapse/expand only on hover-capable (fine pointer) devices; touch
+             devices always see the description since they can't hover. --}}
+        <div class="work-card-details pointer-fine:max-h-0 pointer-fine:group-hover:max-h-52 pointer-fine:group-focus-within:max-h-52 overflow-hidden transition-[max-height] duration-500 ease-out">
+            <p class="text-neutral-400 text-xs leading-relaxed mt-2 line-clamp-4 pointer-fine:line-clamp-none">{{ $description }}</p>
             @if($href)
                 <p class="font-mono text-[10px] text-accent uppercase tracking-widest mt-3">
                     @if($external)

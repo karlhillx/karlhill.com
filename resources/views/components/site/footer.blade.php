@@ -50,35 +50,38 @@
                                 <label for="contact-name" class="sr-only">Your name</label>
                                 <input id="contact-name" name="name" type="text" required maxlength="120"
                                        value="{{ old('name') }}" placeholder="Your name" autocomplete="name"
+                                       @if($errors->has('name')) aria-invalid="true" aria-describedby="contact-name-error" @endif
                                        @class([
                                            'w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent',
                                            'border-red-500/60' => $errors->has('name'),
                                            'border-neutral-800' => ! $errors->has('name'),
                                        ])>
-                                @error('name')<p class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
+                                @error('name')<p id="contact-name-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
                             </div>
                             <div>
                                 <label for="contact-email" class="sr-only">Your email</label>
                                 <input id="contact-email" name="email" type="email" required maxlength="190"
                                        value="{{ old('email') }}" placeholder="you@company.com" autocomplete="email"
+                                       @if($errors->has('email')) aria-invalid="true" aria-describedby="contact-email-error" @endif
                                        @class([
                                            'w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent',
                                            'border-red-500/60' => $errors->has('email'),
                                            'border-neutral-800' => ! $errors->has('email'),
                                        ])>
-                                @error('email')<p class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
+                                @error('email')<p id="contact-email-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
                             </div>
                         </div>
                         <div>
                             <label for="contact-message" class="sr-only">Message</label>
                             <textarea id="contact-message" name="message" required minlength="10" maxlength="4000" rows="4"
                                       placeholder="What are you building, and how can I help?"
+                                      @if($errors->has('message')) aria-invalid="true" aria-describedby="contact-message-error" @endif
                                       @class([
-                                          'w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent resize-y',
+                                          'contact-textarea w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent resize-y',
                                           'border-red-500/60' => $errors->has('message'),
                                           'border-neutral-800' => ! $errors->has('message'),
                                       ])>{{ old('message') }}</textarea>
-                            @error('message')<p class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
+                            @error('message')<p id="contact-message-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
                         </div>
                         <button type="submit"
                                 class="btn-sweep inline-flex items-center gap-2 border border-accent/50 text-accent font-mono text-xs uppercase tracking-widest px-6 py-3">

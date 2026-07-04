@@ -39,9 +39,7 @@
 @section('content')
 
 <article class="relative pt-28 pb-20 px-6">
-    <div class="glow-orb-1 pointer-events-none absolute top-24 -left-48 w-[500px] h-[500px] rounded-full"
-         style="background: radial-gradient(ellipse, rgba(249,115,22,0.10) 0%, transparent 65%);"
-         aria-hidden="true"></div>
+    <x-site.glow-orb :drift="1" :strength="0.10" class="top-24 -left-48 w-[500px] h-[500px]" />
 
     <div class="relative z-10 max-w-3xl mx-auto">
         <x-site.breadcrumbs :items="[
@@ -74,15 +72,18 @@
 
         @if($heroPath)
             @php
-                $heroWebpPath = preg_replace('#^/img/#', '/img/webp/', preg_replace('/\.(jpe?g|png)$/i', '.webp', $heroPath));
+                $heroWebpPath = \App\Support\Images::webp($heroPath);
+                $heroSrcset = \App\Support\Images::srcset($heroWebpPath);
             @endphp
             <figure class="mb-8 -mx-6 sm:mx-0">
                 <picture>
-                    @if($heroWebpPath && $heroWebpPath !== $heroPath)
-                        <source srcset="{{ $heroWebpPath }}" type="image/webp">
+                    @if($heroWebpPath !== $heroPath)
+                        <source srcset="{{ $heroSrcset ?? $heroWebpPath }}"
+                                @if($heroSrcset) sizes="(min-width: 832px) 48rem, 100vw" @endif
+                                type="image/webp">
                     @endif
                     <img src="{{ $heroPath }}"
-                         alt="{{ $post->title }}"
+                         alt=""
                          loading="eager" decoding="async" fetchpriority="high"
                          class="w-full aspect-[16/7] sm:aspect-[5/2] object-cover object-center sm:rounded-sm border-y sm:border border-neutral-800/70">
                 </picture>
@@ -95,40 +96,22 @@
 
         <hr class="border-neutral-800 my-12">
 
-        @if($adjacentPosts['previous'] || $adjacentPosts['next'])
-            <nav class="grid sm:grid-cols-2 gap-6 mb-12" aria-label="Post navigation" data-reveal>
-                @if($adjacentPosts['previous'])
-                    <a href="{{ $adjacentPosts['previous']->url() }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors">
-                        <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">← Previous</p>
-                        <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $adjacentPosts['previous']->title }}</p>
-                    </a>
-                @else
-                    <div></div>
-                @endif
-                @if($adjacentPosts['next'])
-                    <a href="{{ $adjacentPosts['next']->url() }}" class="group border border-neutral-800 p-5 hover:border-accent/40 transition-colors sm:text-right">
-                        <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">Next →</p>
-                        <p class="font-display text-lg text-neutral-200 group-hover:text-accent tracking-wide transition-colors">{{ $adjacentPosts['next']->title }}</p>
-                    </a>
-                @endif
-            </nav>
-        @endif
+        <x-site.adjacent-nav
+            class="mb-12"
+            aria-label="Post navigation"
+            :previous="$adjacentPosts['previous'] ? ['url' => $adjacentPosts['previous']->url(), 'title' => $adjacentPosts['previous']->title] : null"
+            :next="$adjacentPosts['next'] ? ['url' => $adjacentPosts['next']->url(), 'title' => $adjacentPosts['next']->title] : null"
+        />
 
-        @if($relatedPosts->isNotEmpty())
-            <div class="mb-12" data-reveal>
-                <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Related reading</p>
-                <ul class="space-y-4">
-                    @foreach($relatedPosts as $related)
-                        <li>
-                            <a href="{{ $related->url() }}" class="group block border border-neutral-800 p-5 hover:border-accent/40 transition-colors">
-                                <p class="font-display text-xl text-neutral-100 group-hover:text-accent tracking-wide transition-colors">{{ $related->title }}</p>
-                                <p class="text-neutral-400 text-sm mt-2 line-clamp-2">{{ $related->excerpt }}</p>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        <x-site.related-list
+            class="mb-12"
+            label="Related reading"
+            :items="$relatedPosts->map(fn ($related) => [
+                'url' => $related->url(),
+                'title' => $related->title,
+                'excerpt' => $related->excerpt,
+            ])->all()"
+        />
 
         <div class="border border-neutral-800 p-5 mb-12" data-reveal>
             <p class="font-mono text-accent text-xs tracking-widest uppercase mb-3">On this site</p>
@@ -184,6 +167,12 @@
                     Karl Hill
                 </a>
             </div>
+        </div>
+
+        <div class="mt-14 pt-8 border-t border-neutral-800" data-reveal>
+            <a href="/blog" class="font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
+                ← All writing
+            </a>
         </div>
     </div>
 </article>
