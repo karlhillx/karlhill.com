@@ -22,6 +22,10 @@ class OgImageTest extends TestCase
 
     public function test_blog_og_route_returns_a_png(): void
     {
+        if (! function_exists('imagettftext')) {
+            $this->markTestSkipped('GD with FreeType is required to render OG cards.');
+        }
+
         $response = $this->get('/og/blog/'.$this->firstSlug().'.png');
 
         $response->assertOk();
