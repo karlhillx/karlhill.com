@@ -23,11 +23,22 @@ class ContactController extends Controller
             'message' => ['required', 'string', 'min:10', 'max:4000'],
         ]);
 
-        Mail::to(config('site.person.email'))->send(new ContactMessage(
-            senderName: $validated['name'],
-            senderEmail: $validated['email'],
-            body: $validated['message'],
-        ));
+        try {
+            Mail::to(config('site.person.email'))->send(new ContactMessage(
+                senderName: $validated['name'],
+                senderEmail: $validated['email'],
+                body: $validated['message'],
+            ));
+        } catch (\Throwable $e) {
+            // A delivery failure (e.g. an unverified sending domain or provider
+            // outage) must never crash the page. Log it and hand the visitor a
+            // graceful fallback with their message preserved.
+            report($e);
+
+            return redirect(route('home').'#contact')
+                ->withInput($request->only('name', 'email', 'message'))
+                ->with('status', 'contact-failed');
+        }
 
         return $this->done();
     }

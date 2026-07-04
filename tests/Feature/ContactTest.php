@@ -59,6 +59,23 @@ class ContactTest extends TestCase
         $this->assertStringContainsString('no-store', (string) $response->headers->get('Cache-Control'));
     }
 
+    public function test_delivery_failure_degrades_gracefully_instead_of_500(): void
+    {
+        // Simulate a provider rejection (e.g. an unverified sending domain).
+        Mail::shouldReceive('to')->andReturnSelf();
+        Mail::shouldReceive('send')->andThrow(new \RuntimeException('domain not verified'));
+
+        $response = $this->post('/contact', [
+            'name' => 'Grace Hopper',
+            'email' => 'grace@example.com',
+            'message' => 'This message should survive a mailer outage.',
+        ]);
+
+        $response->assertRedirect(route('home').'#contact');
+        $response->assertSessionHas('status', 'contact-failed');
+        $response->assertSessionHasInput('email', 'grace@example.com');
+    }
+
     public function test_honeypot_silently_drops_spam(): void
     {
         Mail::fake();

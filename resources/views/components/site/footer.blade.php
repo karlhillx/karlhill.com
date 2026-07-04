@@ -30,6 +30,11 @@
                         <p role="status" class="mt-8 max-w-md border border-accent/40 bg-accent/10 text-accent font-mono text-xs uppercase tracking-widest px-4 py-3">
                             Thanks — your message is on its way. I'll reply from {{ $person['email'] }}.
                         </p>
+                    @elseif(session('status') === 'contact-failed')
+                        <p role="alert" class="mt-8 max-w-md border border-red-500/40 bg-red-500/10 text-red-300 font-mono text-xs uppercase tracking-widest px-4 py-3 normal-case">
+                            Something went wrong sending your message. Please email me directly at
+                            <a href="mailto:{{ $person['email'] }}" class="underline hover:text-red-200">{{ $person['email'] }}</a>.
+                        </p>
                     @endif
 
                     <form id="contact-form" method="POST" action="{{ route('contact.store') }}" class="mt-8 space-y-4 max-w-md" aria-label="Send a message">
