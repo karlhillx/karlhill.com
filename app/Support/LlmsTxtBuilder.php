@@ -2,6 +2,8 @@
 
 namespace App\Support;
 
+use Carbon\CarbonImmutable;
+
 class LlmsTxtBuilder
 {
     public function __construct(
@@ -18,7 +20,7 @@ class LlmsTxtBuilder
         $lines = [
             '# '.$person['name'],
             '',
-            '> '.$person['job_title'].' with 25+ years building mission-critical software — NASA Earth science platforms, flood mapping systems, and aerospace systems at '.$person['employer'].'.',
+            '> '.($seo['og_description'] ?? $seo['description']),
             '',
             $hero['bio'],
             '',
@@ -31,6 +33,7 @@ class LlmsTxtBuilder
             '- Employer: '.$person['employer'].' ('.$person['location'].')',
             '- Canonical site: '.$base,
             '- Email: '.$person['email'],
+            '- Last updated: '.$this->lastUpdated(),
             '- When quoting writing, link to the specific post URL and include the post title.',
             '',
             '## Key pages',
@@ -138,6 +141,19 @@ class LlmsTxtBuilder
         }
 
         return $items;
+    }
+
+    /**
+     * The most recent content change, so agents can gauge freshness. Falls back
+     * to today when there are no posts yet.
+     */
+    protected function lastUpdated(): string
+    {
+        $latest = $this->posts->all()
+            ->map(fn (BlogPost $post) => $post->modifiedAt())
+            ->max();
+
+        return ($latest ?? CarbonImmutable::now())->format('F j, Y');
     }
 
     protected function escapeMarkdownLinkText(string $text): string

@@ -422,6 +422,15 @@ function renderCommands(query) {
         'aria-activedescendant',
         filtered.length ? `command-result-${activeCommandIndex}` : ''
     );
+
+    // Keep the highlighted option visible inside the scrollable results list —
+    // otherwise on short viewports the selection scrolls out of sight and the
+    // arrow keys appear to do nothing.
+    if (filtered.length) {
+        commandResults
+            .querySelector('.command-result.is-active')
+            ?.scrollIntoView({ block: 'nearest' });
+    }
 }
 
 commandInput?.addEventListener('input', (e) => {
@@ -460,13 +469,22 @@ document.addEventListener('keydown', (e) => {
     if (!paletteIsOpen()) return;
 
     const filtered = getFilteredCommands(commandInput?.value || '');
+    const count = filtered.length;
     if (e.key === 'ArrowDown') {
         e.preventDefault();
-        activeCommandIndex = Math.min(activeCommandIndex + 1, Math.max(filtered.length - 1, 0));
+        if (count) activeCommandIndex = (activeCommandIndex + 1) % count;
         renderCommands(commandInput?.value || '');
     } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        activeCommandIndex = Math.max(activeCommandIndex - 1, 0);
+        if (count) activeCommandIndex = (activeCommandIndex - 1 + count) % count;
+        renderCommands(commandInput?.value || '');
+    } else if (e.key === 'Home') {
+        e.preventDefault();
+        activeCommandIndex = 0;
+        renderCommands(commandInput?.value || '');
+    } else if (e.key === 'End') {
+        e.preventDefault();
+        activeCommandIndex = Math.max(count - 1, 0);
         renderCommands(commandInput?.value || '');
     } else if (e.key === 'Enter') {
         e.preventDefault();

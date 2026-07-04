@@ -55,6 +55,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="alternate" type="application/atom+xml" title="Karl Hill — Writing" href="/feed.xml">
+    <link rel="alternate" type="text/markdown" title="Karl Hill — LLM-friendly overview" href="/llms.txt">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <x-site.analytics />

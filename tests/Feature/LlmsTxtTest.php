@@ -25,8 +25,9 @@ class LlmsTxtTest extends TestCase
         $body = $response->getContent();
 
         $this->assertStringStartsWith('# Karl Hill', $body);
-        $this->assertStringContainsString('> Staff Software Engineer', $body);
+        $this->assertStringContainsString('> '.config('site.seo.home.og_description'), $body);
         $this->assertStringContainsString('## Citation', $body);
+        $this->assertStringContainsString('Last updated:', $body);
         $this->assertStringContainsString('## Key pages', $body);
         $this->assertStringContainsString('## Writing', $body);
         $this->assertStringContainsString('## Professional profiles', $body);
