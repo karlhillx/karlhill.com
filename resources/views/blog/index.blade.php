@@ -81,8 +81,8 @@
             <ul class="divide-y divide-neutral-800/70">
                 @foreach($posts as $post)
                     <li class="group" data-reveal>
-                        <a href="{{ $post->url() }}" class="grid md:grid-cols-[200px_1fr] gap-6 md:gap-12 py-12 hover:bg-neutral-900/30 transition-colors -mx-6 px-6">
-                            <div class="flex flex-col gap-2">
+                        <div class="grid md:grid-cols-[200px_1fr] gap-6 md:gap-12 py-12 hover:bg-neutral-900/30 transition-colors -mx-6 px-6 relative">
+                            <div class="relative z-10 flex flex-col gap-2">
                                 <time datetime="{{ $post->isoDate() }}"
                                       class="font-mono text-xs text-neutral-400 uppercase tracking-widest">
                                     {{ $post->publishedAt->format('M j, Y') }}
@@ -91,15 +91,18 @@
                                     {{ $post->readMinutes }} min read
                                 </span>
                             </div>
-                            <div>
+                            <div class="relative z-10 min-w-0">
                                 <h2 class="font-display text-3xl md:text-4xl tracking-wide text-neutral-100 group-hover:text-accent transition-colors mb-4 leading-tight"
                                     style="view-transition-name: post-{{ $post->slug }}; view-transition-class: post-title">
-                                    {{ $post->title }}
+                                    <a href="{{ $post->url() }}"
+                                       class="inline-block after:absolute after:inset-0 after:content-['']">
+                                        {{ $post->title }}
+                                    </a>
                                 </h2>
                                 <p class="text-neutral-400 leading-relaxed mb-5 max-w-2xl">
                                     {{ $post->excerpt }}
                                 </p>
-                                <div class="flex flex-wrap items-center gap-4">
+                                <div class="relative z-20 flex flex-wrap items-center gap-4">
                                     @foreach($post->tags as $tag)
                                         <a href="{{ route('blog.tag', $tag) }}"
                                            class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
@@ -111,7 +114,7 @@
                                     </span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </li>
                 @endforeach
             </ul>

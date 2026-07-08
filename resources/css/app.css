@@ -85,13 +85,16 @@ body {
 }
 
 a.surface-card:hover,
-a.surface-card:focus-visible {
+a.surface-card:focus-visible,
+article.surface-card:hover,
+article.surface-card:focus-within {
     background-color: rgb(23 23 23 / 0.4);
     box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 40%, transparent);
     transform: translateY(-0.25rem);
 }
 
-a.surface-card:focus-visible {
+a.surface-card:focus-visible,
+article.surface-card:focus-within {
     outline: none;
     box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 60%, transparent);
 }
@@ -1019,7 +1022,9 @@ nav[aria-label="Primary"] {
         transition: none;
     }
     a.surface-card:hover,
-    a.surface-card:focus-visible {
+    a.surface-card:focus-visible,
+    article.surface-card:hover,
+    article.surface-card:focus-within {
         transform: none;
     }
     html {
