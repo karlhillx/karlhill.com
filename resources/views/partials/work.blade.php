@@ -1,4 +1,4 @@
-<x-site.section id="work">
+<x-site.section id="work" section-label="Selected Work">
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16" data-reveal>
             <x-site.section-heading number="{{ $sectionNumber ?? '03' }}" label="{{ $heading ?? 'Selected Work' }}" class="mb-0" />
             @if($showViewAll ?? false)

@@ -1,4 +1,4 @@
-<section id="hero" class="relative min-h-screen flex flex-col justify-end pt-24 pb-16 px-6 overflow-hidden">
+<section id="hero" data-section-label="Top" class="relative min-h-screen flex flex-col justify-end pt-24 pb-16 px-6 overflow-hidden">
     <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
     <x-site.glow-orb :drift="1" class="-bottom-32 -left-32 w-[600px] h-[600px]" />
     <x-site.glow-orb :drift="2" :strength="0.09" class="-top-48 -right-48 w-[500px] h-[500px]" />
@@ -21,19 +21,23 @@
                 <span class="hero-shine">{{ $hero['headline'] }}</span>
             </h1>
             @if(! empty($hero['positioning']))
-                <p class="text-neutral-200 text-lg sm:text-xl leading-relaxed max-w-3xl mb-8 hero-enter" style="animation-delay:320ms">
+                <p class="text-neutral-200 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6 hero-enter" style="animation-delay:320ms">
                     {{ $hero['positioning'] }}
                 </p>
             @endif
-            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
-                <p class="font-display text-[clamp(1.4rem,3.5vw,2.5rem)] text-neutral-500 tracking-widest uppercase hero-enter" style="animation-delay:360ms">
-                    {{ $hero['subtitle'] }}
-                </p>
-                <p class="text-neutral-400 text-base leading-relaxed max-w-md lg:text-right hero-enter" style="animation-delay:440ms">
+            @if(! empty($hero['subtitle']))
+                <div class="flex flex-wrap gap-2 mb-6 hero-enter" style="animation-delay:380ms">
+                    @foreach(explode(' · ', $hero['subtitle']) as $chip)
+                        <span class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2.5 py-1">{{ trim($chip) }}</span>
+                    @endforeach
+                </div>
+            @endif
+            @if(! empty($hero['bio']))
+                <p class="text-neutral-400 text-base leading-relaxed max-w-2xl mb-12 hero-enter" style="animation-delay:440ms">
                     {{ $hero['bio'] }}
                 </p>
-            </div>
-            <div class="flex flex-wrap gap-4 hero-enter" style="animation-delay:560ms">
+            @endif
+            <div class="flex flex-wrap gap-4 hero-enter" style="animation-delay:520ms">
                 @foreach($hero['cta'] as $link)
                     @php($isExternal = str_starts_with($link['url'], 'http'))
                     <a href="{{ $link['url'] }}" @if($isExternal) target="_blank" rel="noopener noreferrer" @endif
@@ -46,7 +50,7 @@
                     </a>
                 @endforeach
             </div>
-            <a href="#contact" class="group flex items-center gap-2.5 mt-6 w-fit hero-enter" style="animation-delay:640ms">
+            <a href="#contact" class="group flex items-center gap-2.5 mt-6 w-fit hero-enter" style="animation-delay:600ms">
                 <span class="w-2 h-2 rounded-full bg-green-500 availability-pulse" aria-hidden="true"></span>
                 <span class="font-mono text-xs text-neutral-500 group-hover:text-accent uppercase tracking-widest transition-colors">{{ $person['availability'] }} <span class="arrow-nudge inline-block" aria-hidden="true">→</span></span>
             </a>

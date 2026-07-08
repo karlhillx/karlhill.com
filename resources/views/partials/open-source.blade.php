@@ -1,4 +1,4 @@
-<x-site.section id="open-source">
+<x-site.section id="open-source" section-label="Open Source" border="soft">
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16" data-reveal>
             <x-site.section-heading :number="$sectionNumber ?? '02'" label="Open Source" class="mb-0" />
             <a href="https://github.com/karlhillx" target="_blank" rel="noopener noreferrer"

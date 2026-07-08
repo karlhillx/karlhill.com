@@ -19,9 +19,10 @@ class HomeController extends Controller
 
         return view('home.index', [
             'meta' => PageMeta::home(),
-            'latestPost' => $posts->first(),
+            'latestPosts' => $posts->take(3),
             'structuredData' => HomeStructuredData::build($posts->take(12)),
             'sectionRail' => [
+                ['id' => 'impact', 'label' => 'Impact', 'href' => '#impact'],
                 ['id' => 'why', 'label' => 'Why Me', 'href' => '#why'],
                 ['id' => 'work', 'label' => 'Work', 'href' => '#work'],
                 ['id' => 'writing', 'label' => 'Writing', 'href' => '#writing'],

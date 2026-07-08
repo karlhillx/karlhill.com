@@ -210,7 +210,7 @@ if (minimap && sections.length > 0) {
     minimap.innerHTML = sections
         .map((section) => {
             const id = section.getAttribute('id');
-            const label = id?.replace('-', ' ') || 'section';
+            const label = section.dataset.sectionLabel || id?.replace(/-/g, ' ') || 'section';
             return `<button type="button" data-jump="${id}" aria-label="Jump to ${label}" title="${label}"></button>`;
         })
         .join('');

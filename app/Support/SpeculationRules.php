@@ -9,15 +9,16 @@ class SpeculationRules
     /**
      * Prefetch likely destinations from the homepage nav and latest-writing promo.
      *
+     * @param  Collection<int, BlogPost>  $latestPosts
      * @return array<string, mixed>
      */
-    public static function forHomepage(?BlogPost $latestPost): array
+    public static function forHomepage(Collection $latestPosts): array
     {
         $urls = collect(['/blog', '/work', '/about']);
 
-        if ($latestPost !== null) {
-            $urls->push('/blog/'.$latestPost->slug);
-        }
+        $urls = $urls->merge(
+            $latestPosts->map(fn (BlogPost $post) => '/blog/'.$post->slug)
+        );
 
         return [
             'prefetch' => [

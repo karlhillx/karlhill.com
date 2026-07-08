@@ -22,12 +22,13 @@
         <div class="flex items-center gap-2 sm:gap-3">
             <button type="button"
                     popovertarget="command-palette"
-                    aria-label="Jump to section"
-                    title="Jump to section"
-                    class="md:hidden inline-flex items-center justify-center w-9 h-9 border border-neutral-700 hover:border-accent text-neutral-400 hover:text-accent transition-colors shrink-0">
+                    aria-label="Jump to a page or section"
+                    title="Jump to a page or section"
+                    class="md:hidden inline-flex items-center gap-1.5 justify-center border border-neutral-700 hover:border-accent text-neutral-400 hover:text-accent transition-colors shrink-0 pl-2.5 pr-3 py-2">
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/>
                 </svg>
+                <span class="font-mono text-[9px] uppercase tracking-widest">Jump</span>
             </button>
             <button type="button"
                     popovertarget="command-palette"

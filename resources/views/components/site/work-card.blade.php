@@ -28,7 +28,7 @@
              {{ $attributes->merge(['class' => $cardClass]) }}
              data-reveal>
 @endif
-    <img src="{{ $webpImg }}" alt=""
+    <img src="{{ $webpImg }}" alt="Screenshot of {{ $title }}"
          @if($srcset) srcset="{{ $srcset }}" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" @endif
          width="960" height="720"
          loading="lazy" decoding="async"

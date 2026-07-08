@@ -14,14 +14,16 @@
 
     <div class="relative z-10 max-w-6xl mx-auto">
         @if(count($breadcrumbs) > 0)
-            <x-site.breadcrumbs :items="$breadcrumbs" class="mb-6" />
+            <x-site.breadcrumbs :items="$breadcrumbs" class="mb-6 hero-enter" style="animation-delay:80ms" />
         @endif
         @if($eyebrow)
-            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-6">{{ $eyebrow }}</p>
+            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-6 hero-enter" style="animation-delay:160ms">{{ $eyebrow }}</p>
         @endif
-        <h1 class="font-display text-[clamp(3.5rem,12vw,9rem)] leading-none tracking-wide text-white mb-6">
+        <h1 class="font-display text-[clamp(3.5rem,12vw,9rem)] leading-none tracking-wide text-white mb-6 hero-enter" style="animation-delay:240ms">
             {{ $title }}
         </h1>
-        {{ $slot }}
+        <div class="hero-enter" style="animation-delay:320ms">
+            {{ $slot }}
+        </div>
     </div>
 </section>

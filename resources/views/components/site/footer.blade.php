@@ -9,7 +9,7 @@
     $isHome = $variant === 'home';
 @endphp
 
-<footer @if($isHome) id="contact" @endif class="relative z-10 border-t border-neutral-800 {{ $isHome ? 'py-24' : 'py-16' }} px-6">
+<footer @if($isHome) id="contact" data-section-label="Contact" @endif class="relative z-10 border-t border-neutral-800/50 {{ $isHome ? 'py-24' : 'py-16' }} px-6">
     <div class="max-w-6xl mx-auto">
         <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
             <div class="max-w-xl" @if($isHome) data-reveal @endif>
@@ -47,7 +47,7 @@
 
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
-                                <label for="contact-name" class="sr-only">Your name</label>
+                                <label for="contact-name" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-1.5">Your name</label>
                                 <input id="contact-name" name="name" type="text" required maxlength="120"
                                        value="{{ old('name') }}" placeholder="Your name" autocomplete="name"
                                        @if($errors->has('name')) aria-invalid="true" aria-describedby="contact-name-error" @endif
@@ -59,7 +59,7 @@
                                 @error('name')<p id="contact-name-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
                             </div>
                             <div>
-                                <label for="contact-email" class="sr-only">Your email</label>
+                                <label for="contact-email" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-1.5">Your email</label>
                                 <input id="contact-email" name="email" type="email" required maxlength="190"
                                        value="{{ old('email') }}" placeholder="you@company.com" autocomplete="email"
                                        @if($errors->has('email')) aria-invalid="true" aria-describedby="contact-email-error" @endif
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                         <div>
-                            <label for="contact-message" class="sr-only">Message</label>
+                            <label for="contact-message" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-1.5">Message</label>
                             <textarea id="contact-message" name="message" required minlength="10" maxlength="4000" rows="4"
                                       placeholder="What are you building, and how can I help?"
                                       @if($errors->has('message')) aria-invalid="true" aria-describedby="contact-message-error" @endif

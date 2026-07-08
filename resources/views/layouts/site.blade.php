@@ -55,7 +55,7 @@
 
     {{-- Preload the hero/display font (Bebas Neue) — it renders the LCP element,
          so fetching it before the CSS parses shaves first-paint latency. --}}
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/bebas-neue-latin-400-normal.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="{{ Vite::asset('resources/fonts/bebas-neue-latin-400-normal.woff2') }}" crossorigin>
 
     {{-- Favicons --}}
     <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">

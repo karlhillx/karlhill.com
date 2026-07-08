@@ -2,7 +2,7 @@
 
 @push('head')
     @include('home.partials.structured-data')
-    <x-site.speculation-rules :rules="\App\Support\SpeculationRules::forHomepage($latestPost)" />
+    <x-site.speculation-rules :rules="\App\Support\SpeculationRules::forHomepage($latestPosts)" />
 @endpush
 
 @section('content')

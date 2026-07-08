@@ -101,11 +101,12 @@
                                 </p>
                                 <div class="flex flex-wrap items-center gap-4">
                                     @foreach($post->tags as $tag)
-                                        <span class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1">
+                                        <a href="{{ route('blog.tag', $tag) }}"
+                                           class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
                                             {{ $tag }}
-                                        </span>
+                                        </a>
                                     @endforeach
-                                    <span class="font-mono text-xs text-accent ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span class="blog-read-cta font-mono text-xs text-accent ml-auto opacity-60 group-hover:opacity-100 transition-opacity pointer-coarse:opacity-100">
                                         Read <span class="arrow-nudge inline-block">→</span>
                                     </span>
                                 </div>

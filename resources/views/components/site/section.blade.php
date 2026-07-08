@@ -5,9 +5,22 @@
     'id' => null,
     'number' => null,
     'label' => null,
+    'border' => 'default',
+    'sectionLabel' => null,
 ])
 
-<section @if($id) id="{{ $id }}" @endif {{ $attributes->merge(['class' => 'py-28 px-6 border-t border-neutral-800']) }}>
+@php
+    $borderClass = match ($border) {
+        'soft' => 'border-t border-neutral-800/50',
+        'none' => '',
+        default => 'border-t border-neutral-800',
+    };
+    $minimapLabel = $sectionLabel ?? $label;
+@endphp
+
+<section @if($id) id="{{ $id }}" @endif
+         @if($id && $minimapLabel) data-section-label="{{ $minimapLabel }}" @endif
+         {{ $attributes->merge(['class' => "py-28 px-6 {$borderClass}"]) }}>
     <div class="max-w-6xl mx-auto">
         @if($number !== null && $label !== null)
             <x-site.section-heading :number="$number" :label="$label" />

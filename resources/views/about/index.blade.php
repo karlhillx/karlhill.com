@@ -17,7 +17,7 @@
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/>
                 </svg>
-                Download résumé
+                Download Resume
             </a>
             <a href="/#contact"
                class="font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
@@ -31,8 +31,8 @@
             $discogs = collect(config('site.social'))->first(fn ($link) => ($link['icon'] ?? '') === 'discogs');
             $beyond = config('site.about.beyond');
         @endphp
-        <section aria-label="Beyond the work" class="px-6 border-t border-neutral-800">
-            <div class="max-w-6xl mx-auto py-16 grid md:grid-cols-[200px_1fr] gap-6 md:gap-12" data-reveal>
+        <section aria-label="Beyond the work" class="px-6 border-t border-neutral-800/50">
+            <div class="max-w-6xl mx-auto py-28 grid md:grid-cols-[200px_1fr] gap-6 md:gap-12" data-reveal>
                 <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">Beyond the work</p>
                 <p class="text-neutral-300 text-lg leading-relaxed max-w-2xl">
                     @if($discogs && str_contains($beyond, 'Discogs'))
