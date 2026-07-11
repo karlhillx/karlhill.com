@@ -58,6 +58,7 @@ class OgImageTest extends TestCase
             sourcePath: 'fake.md',
             devToId: null,
             readMinutes: 3,
+            tableOfContents: [],
         );
 
         $this->assertStringContainsString('/og/blog/a-post-without-a-hand-made-card.png', $post->ogImageUrl());

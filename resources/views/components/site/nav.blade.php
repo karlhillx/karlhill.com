@@ -23,6 +23,7 @@
             <button type="button"
                     popovertarget="command-palette"
                     aria-label="Jump to a page or section"
+                    aria-keyshortcuts="Meta+K"
                     title="Jump to a page or section"
                     class="md:hidden inline-flex items-center gap-1.5 justify-center border border-neutral-700 hover:border-accent text-neutral-400 hover:text-accent transition-colors shrink-0 pl-2.5 pr-3 py-2">
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -33,6 +34,7 @@
             <button type="button"
                     popovertarget="command-palette"
                     aria-label="Jump to a page or section"
+                    aria-keyshortcuts="Meta+K"
                     title="Jump to a page or section (⌘K)"
                     class="hidden md:inline-flex items-center gap-2 font-mono text-[10px] text-neutral-400 border border-neutral-800 pl-3 pr-2 py-2 uppercase tracking-widest hover:border-accent hover:text-accent transition-colors duration-200">
                 <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">

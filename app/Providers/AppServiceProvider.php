@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Support\BlogPostRepository;
+use App\Support\CommandIndex;
 use App\Support\GitHubRepository;
 use App\Support\PageMeta;
 use Illuminate\Support\Facades\View;
@@ -37,6 +38,8 @@ class AppServiceProvider extends ServiceProvider
                     $view->with($key, $value);
                 }
             }
+
+            $view->with('commandIndex', CommandIndex::build());
         });
     }
 }

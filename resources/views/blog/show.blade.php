@@ -34,6 +34,7 @@
     'keywords' => implode(', ', $post->tags),
 ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
+<x-site.speculation-rules :rules="\App\Support\SpeculationRules::forBlogPost($post, $adjacentPosts['previous'], $adjacentPosts['next'], $relatedPosts)" />
 @endpush
 
 @section('content')
@@ -50,6 +51,9 @@
 
         <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">
             <time datetime="{{ $post->isoDate() }}">{{ $post->publishedAt->format('M j, Y') }}</time>
+            @if($post->wasUpdated())
+                &nbsp;·&nbsp; Updated <time datetime="{{ $post->updatedAt->toIso8601String() }}">{{ $post->updatedAt->format('M j, Y') }}</time>
+            @endif
             &nbsp;·&nbsp; {{ $post->readMinutes }} min read
         </p>
 
@@ -90,8 +94,39 @@
             </figure>
         @endif
 
-        <div class="prose-karl">
-            {!! $post->bodyHtml !!}
+        @if(count($post->tableOfContents) >= 2)
+            <details class="article-toc-mobile lg:hidden mb-6 surface-card-static p-4">
+                <summary class="font-mono text-xs text-accent uppercase tracking-widest cursor-pointer select-none">
+                    On this page
+                </summary>
+                <ol class="article-toc-list mt-3">
+                    @foreach($post->tableOfContents as $item)
+                        <li @class([
+                            'article-toc-item',
+                            'article-toc-item--child' => ($item['level'] ?? 2) === 3,
+                        ])>
+                            <a href="#{{ $item['id'] }}"
+                               data-toc-link
+                               class="article-toc-link font-mono text-[11px] text-neutral-500 hover:text-accent transition-colors">
+                                {{ $item['text'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ol>
+            </details>
+        @endif
+
+        <div @class([
+            'mb-0',
+            'lg:grid lg:grid-cols-[9.5rem_minmax(0,1fr)] lg:gap-x-12 lg:items-start' => count($post->tableOfContents) >= 2,
+        ])>
+            @if(count($post->tableOfContents) >= 2)
+                <x-site.article-toc :items="$post->tableOfContents" class="hidden lg:block sticky top-28" />
+            @endif
+
+            <div class="prose-karl min-w-0">
+                {!! $post->bodyHtml !!}
+            </div>
         </div>
 
         <hr class="border-neutral-800 my-12">

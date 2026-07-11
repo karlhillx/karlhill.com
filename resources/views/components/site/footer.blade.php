@@ -83,7 +83,7 @@
                                       ])>{{ old('message') }}</textarea>
                             @error('message')<p id="contact-message-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
                         </div>
-                        <button type="submit"
+                        <button type="submit" id="contact-submit"
                                 class="btn-sweep inline-flex items-center gap-2 border border-accent/50 text-accent font-mono text-xs uppercase tracking-widest px-6 py-3">
                             Send message <span aria-hidden="true">→</span>
                         </button>

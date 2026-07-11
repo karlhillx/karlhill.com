@@ -107,7 +107,7 @@ class BlogTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('Why Automation Matters More When the Data Is Mission-Critical', escape: false);
-        $response->assertDontSee('The Unglamorous Work of Leading Engineering Teams', escape: false);
+        $response->assertDontSee('href="/blog/leading-teams"', escape: false);
         $response->assertSee('/blog/tag/automation', escape: false);
     }
 
@@ -153,6 +153,46 @@ class BlogTest extends TestCase
         $response->assertSee('linkedin.com/sharing/share-offsite', escape: false);
         $response->assertSee('twitter.com/intent/tweet', escape: false);
         $response->assertSee('data-copy-link', escape: false);
+    }
+
+    public function test_blog_show_renders_heading_anchors_and_table_of_contents(): void
+    {
+        $response = $this->get('/blog/release-governance');
+
+        $response->assertStatus(200);
+        $response->assertSee('id="a-release-is-a-decision"', escape: false);
+        $response->assertSee('heading-permalink', escape: false);
+        $response->assertSee('id="article-toc"', escape: false);
+        $response->assertSee('A release is a decision', escape: false);
+        $response->assertSee('data-toc-link', escape: false);
+    }
+
+    public function test_blog_show_displays_updated_date_when_present(): void
+    {
+        $response = $this->get('/blog/release-governance');
+
+        $response->assertStatus(200);
+        $response->assertSee('Updated', escape: false);
+        $response->assertSee('Jun 1, 2026', escape: false);
+    }
+
+    public function test_blog_show_includes_speculation_rules_for_adjacent_posts(): void
+    {
+        $response = $this->get('/blog/release-governance');
+
+        $response->assertStatus(200);
+        $response->assertSee('<script type="speculationrules"', escape: false);
+        $response->assertSee('"/blog"', escape: false);
+    }
+
+    public function test_layout_includes_command_index_for_palette_search(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+        $response->assertSee('id="command-index"', escape: false);
+        $response->assertSee('What 20 Years Taught Me About Release Governance', escape: false);
+        $response->assertSee('"/blog/release-governance"', escape: false);
     }
 
     /**

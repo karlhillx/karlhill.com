@@ -1182,6 +1182,7 @@ nav[aria-label="Primary"] {
     margin-bottom: 0.5em;
     padding-top: 0.85em;
     border-top: 1px solid var(--border);
+    scroll-margin-top: 6.5rem;
 }
 
 .prose-karl h2:first-child {
@@ -1194,6 +1195,7 @@ nav[aria-label="Primary"] {
     font-size: clamp(1.15rem, 1.9vw, 1.3rem);
     margin-top: 1.5em;
     margin-bottom: 0.3em;
+    scroll-margin-top: 6.5rem;
 }
 
 .prose-karl h4 {
@@ -1204,6 +1206,80 @@ nav[aria-label="Primary"] {
     margin-top: 1.4em;
     margin-bottom: 0.15em;
     letter-spacing: 0;
+    scroll-margin-top: 6.5rem;
+}
+
+/* Heading permalink anchors — visible on hover/focus */
+.prose-karl .heading-anchor-wrap {
+    position: relative;
+}
+
+.prose-karl .heading-permalink {
+    position: absolute;
+    right: 100%;
+    margin-right: 0.45rem;
+    top: 0.12em;
+    color: var(--muted-2);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.16s ease, color 0.16s ease;
+    font-family: var(--font-mono);
+    font-size: 0.72em;
+    line-height: 1;
+}
+
+.prose-karl .heading-anchor-wrap:hover .heading-permalink,
+.prose-karl .heading-anchor-wrap:focus-within .heading-permalink,
+.prose-karl .heading-permalink:focus-visible {
+    opacity: 1;
+}
+
+.prose-karl .heading-permalink:hover,
+.prose-karl .heading-permalink:focus-visible {
+    color: var(--accent);
+}
+
+/* Article table of contents */
+.article-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.article-toc-item--child {
+    padding-left: 0.75rem;
+}
+
+.article-toc-link {
+    display: block;
+    line-height: 1.35;
+    text-decoration: none;
+    border-left: 1px solid transparent;
+    padding-left: 0.55rem;
+    transition: color 0.16s ease, border-color 0.16s ease;
+}
+
+.article-toc-link.is-active,
+.article-toc-link[aria-current="location"] {
+    color: var(--accent);
+    border-left-color: color-mix(in oklab, var(--accent) 70%, transparent);
+}
+
+.article-toc-mobile summary::-webkit-details-marker {
+    display: none;
+}
+
+.article-toc-mobile summary::after {
+    content: "+";
+    float: right;
+    color: var(--muted-2);
+    font-family: var(--font-mono);
+}
+
+.article-toc-mobile[open] summary::after {
+    content: "−";
 }
 
 .prose-karl strong {
@@ -1276,6 +1352,53 @@ nav[aria-label="Primary"] {
     color: oklch(88% 0.008 250);
 }
 
+.prose-karl .code-copy-btn {
+    position: absolute;
+    top: 0.45em;
+    right: 0.45em;
+    z-index: 1;
+    border: 1px solid var(--border-strong);
+    background: color-mix(in oklab, var(--bg) 88%, #000);
+    color: var(--muted);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.28rem 0.5rem;
+    border-radius: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+}
+
+.prose-karl pre.notranslate:hover .code-copy-btn,
+.prose-karl pre.notranslate:focus-within .code-copy-btn,
+.prose-karl .code-copy-btn:focus-visible {
+    opacity: 1;
+}
+
+.prose-karl .code-copy-btn:hover,
+.prose-karl .code-copy-btn:focus-visible {
+    color: var(--accent);
+    border-color: color-mix(in oklab, var(--accent) 50%, var(--border-strong));
+}
+
+.prose-karl .code-copy-feedback {
+    position: absolute;
+    top: 0.45em;
+    right: 3.4rem;
+    z-index: 1;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    pointer-events: none;
+}
+
+.prose-karl .code-copy-feedback.is-visible {
+    opacity: 1;
+}
+
 /* Language label in the corner (skips the plain-text default) */
 .prose-karl pre.notranslate[data-lang]:not([data-lang="txt"])::before {
     content: attr(data-lang);
@@ -1288,6 +1411,11 @@ nav[aria-label="Primary"] {
     letter-spacing: 0.1em;
     color: #525252;
     pointer-events: none;
+    transition: opacity 0.16s ease;
+}
+
+.prose-karl pre.notranslate[data-lang]:not([data-lang="txt"]):is(:hover, :focus-within)::before {
+    opacity: 0;
 }
 
 .prose-karl .hl-comment   { color: oklch(58% 0.02 250); font-style: italic; }
@@ -1509,5 +1637,18 @@ nav[aria-label="Primary"] {
 
     .prose-karl h2 {
         margin-top: 1.6em;
+    }
+
+    .prose-karl .heading-permalink {
+        opacity: 1;
+        position: static;
+        display: inline-block;
+        margin-right: 0.35rem;
+    }
+}
+
+@media (pointer: coarse) {
+    .prose-karl .code-copy-btn {
+        opacity: 1;
     }
 }

@@ -2,6 +2,7 @@
 title: "What 20 Years Taught Me About Release Governance"
 slug: release-governance
 date: 2026-05-15
+updated: 2026-06-01
 excerpt: "Release governance is not bureaucracy. Done well, it is how engineering protects trust — how teams make sure what they build can actually be deployed, supported, reproduced, explained, secured, and operated."
 tags:
   - engineering

@@ -130,4 +130,40 @@ class SpeculationRules
             ],
         ];
     }
+
+    /**
+     * Prefetch adjacent and related posts while a reader is on an article.
+     *
+     * @param  Collection<int, BlogPost>  $related
+     * @return array<string, mixed>
+     */
+    public static function forBlogPost(
+        BlogPost $post,
+        ?BlogPost $previous,
+        ?BlogPost $next,
+        Collection $related,
+    ): array {
+        $urls = collect(['/blog']);
+
+        if ($previous !== null) {
+            $urls->push('/blog/'.$previous->slug);
+        }
+        if ($next !== null) {
+            $urls->push('/blog/'.$next->slug);
+        }
+
+        $urls = $urls->merge(
+            $related->map(fn (BlogPost $relatedPost) => '/blog/'.$relatedPost->slug)
+        );
+
+        return [
+            'prefetch' => [
+                [
+                    'source' => 'list',
+                    'urls' => $urls->unique()->values()->all(),
+                    'eagerness' => 'moderate',
+                ],
+            ],
+        ];
+    }
 }

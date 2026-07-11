@@ -140,6 +140,7 @@ class BlogPostRepository
         $bodyMarkdown = trim($document->body());
         $bodyHtml = $this->renderMarkdown($bodyMarkdown);
         $bodyHtml = $this->labelTaskListCheckboxes($bodyHtml);
+        ['html' => $bodyHtml, 'toc' => $tableOfContents] = $this->processHeadings($bodyHtml);
 
         $excerpt = $document->matter('excerpt')
             ?? $this->generateExcerpt($bodyMarkdown);
@@ -159,6 +160,7 @@ class BlogPostRepository
             'source_path' => $path,
             'dev_to_id' => $devToId !== null ? (int) $devToId : null,
             'read_minutes' => $this->estimateReadMinutes($bodyMarkdown),
+            'table_of_contents' => $tableOfContents,
         ];
     }
 
@@ -182,7 +184,65 @@ class BlogPostRepository
             sourcePath: (string) $row['source_path'],
             devToId: $row['dev_to_id'] !== null ? (int) $row['dev_to_id'] : null,
             readMinutes: (int) $row['read_minutes'],
+            tableOfContents: (array) ($row['table_of_contents'] ?? []),
         );
+    }
+
+    /**
+     * @return array{html: string, toc: array<int, array{id: string, text: string, level: int}>}
+     */
+    protected function processHeadings(string $html): array
+    {
+        if (trim($html) === '') {
+            return ['html' => $html, 'toc' => []];
+        }
+
+        $toc = [];
+        $usedIds = [];
+
+        $processed = (string) preg_replace_callback(
+            '/<h([23])>(.*?)<\/h\1>/s',
+            function (array $matches) use (&$toc, &$usedIds): string {
+                $level = (int) $matches[1];
+                $inner = $matches[2];
+                $text = trim(html_entity_decode(strip_tags($inner), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+
+                if ($text === '') {
+                    return $matches[0];
+                }
+
+                $id = $this->uniqueHeadingId($text, $usedIds);
+                $toc[] = ['id' => $id, 'text' => $text, 'level' => $level];
+
+                $label = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+                $anchor = '<a class="heading-permalink" href="#'.$id.'" aria-label="Link to section: '.$label.'">'
+                    .'<span aria-hidden="true">#</span></a>';
+
+                return '<h'.$level.' id="'.$id.'" class="heading-anchor-wrap">'.$anchor.$inner.'</h'.$level.'>';
+            },
+            $html,
+        );
+
+        return ['html' => $processed, 'toc' => $toc];
+    }
+
+    /**
+     * @param  array<int, string>  $usedIds
+     */
+    protected function uniqueHeadingId(string $text, array &$usedIds): string
+    {
+        $base = Str::slug($text) ?: 'section';
+        $id = $base;
+        $suffix = 2;
+
+        while (in_array($id, $usedIds, true)) {
+            $id = "{$base}-{$suffix}";
+            $suffix++;
+        }
+
+        $usedIds[] = $id;
+
+        return $id;
     }
 
     protected function renderMarkdown(string $markdown): string

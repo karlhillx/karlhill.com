@@ -69,6 +69,9 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <x-site.analytics />
+    <script id="command-index" type="application/json" nonce="{{ Vite::cspNonce() }}">
+{!! json_encode($commandIndex, JSON_UNESCAPED_SLASHES) !!}
+    </script>
     @stack('head')
 </head>
 <body class="bg-bg text-neutral-100 antialiased">

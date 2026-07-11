@@ -247,6 +247,55 @@ sections.forEach((el) => spyObserver.observe(el));
 document.querySelectorAll('footer[id]').forEach((el) => spyObserver.observe(el));
 
 // ---------------------------------------------------------------------------
+// Article table of contents — highlight the section in view
+// ---------------------------------------------------------------------------
+const mobileArticleToc = document.querySelector('.article-toc-mobile');
+const tocLinks = document.querySelectorAll('[data-toc-link]');
+
+if (tocLinks.length > 0) {
+    const tocTargets = Array.from(tocLinks)
+        .map((link) => {
+            const id = link.getAttribute('href')?.slice(1);
+            return id ? document.getElementById(id) : null;
+        })
+        .filter(Boolean);
+
+    const setActiveToc = (id) => {
+        tocLinks.forEach((link) => {
+            const active = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('is-active', active);
+            if (active) {
+                link.setAttribute('aria-current', 'location');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    };
+
+    const tocObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const id = entry.target.getAttribute('id');
+                if (id) setActiveToc(id);
+            });
+        },
+        {
+            rootMargin: '-30% 0px -60% 0px',
+            threshold: 0,
+        }
+    );
+
+    tocTargets.forEach((el) => tocObserver.observe(el));
+
+    tocLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            mobileArticleToc?.removeAttribute('open');
+        });
+    });
+}
+
+// ---------------------------------------------------------------------------
 // Mobile menu controls
 // ---------------------------------------------------------------------------
 // The menu is a native popover (opened declaratively via `popovertarget` on
@@ -324,7 +373,17 @@ function gotoSection(id) {
     window.location.assign(pageMap[id] ?? `/#${id}`);
 }
 
-const commands = [
+function parseCommandIndex() {
+    const el = document.getElementById('command-index');
+    if (!el) return { posts: [], projects: [] };
+    try {
+        return JSON.parse(el.textContent);
+    } catch {
+        return { posts: [], projects: [] };
+    }
+}
+
+const staticCommands = [
     {
         label: 'Home',
         keywords: 'home landing portfolio',
@@ -390,6 +449,26 @@ const commands = [
     },
 ];
 
+function buildCommands() {
+    const index = parseCommandIndex();
+    const dynamic = [
+        ...index.posts.map((post) => ({
+            label: post.label,
+            keywords: post.keywords ?? 'writing blog',
+            action: () => window.location.assign(post.url),
+        })),
+        ...index.projects.map((project) => ({
+            label: `Work — ${project.label}`,
+            keywords: project.keywords ?? 'work portfolio',
+            action: () => window.location.assign(project.url),
+        })),
+    ];
+
+    return [...staticCommands, ...dynamic];
+}
+
+const commands = buildCommands();
+
 let activeCommandIndex = 0;
 
 const paletteIsOpen = () => palette?.matches(':popover-open') ?? false;
@@ -419,13 +498,45 @@ function runCommand(index) {
     command.action();
 }
 
-function getFilteredCommands(query) {
+function fuzzyScore(query, haystack) {
     const q = query.trim().toLowerCase();
+    if (!q) return 1;
+    const h = haystack.toLowerCase();
+    if (h.includes(q)) {
+        return 200 + Math.max(0, 80 - h.indexOf(q));
+    }
+
+    let score = 0;
+    let qi = 0;
+    let streak = 0;
+    let lastMatch = -2;
+
+    for (let i = 0; i < h.length && qi < q.length; i++) {
+        if (h[i] === q[qi]) {
+            score += 3 + streak * 2;
+            if (i === lastMatch + 1) streak++;
+            else streak = 1;
+            if (i === 0 || h[i - 1] === ' ') score += 6;
+            lastMatch = i;
+            qi++;
+        }
+    }
+
+    return qi === q.length ? score : 0;
+}
+
+function getFilteredCommands(query) {
+    const q = query.trim();
     if (!q) return commands;
-    return commands.filter((cmd) => {
-        const combined = `${cmd.label} ${cmd.keywords}`.toLowerCase();
-        return combined.includes(q);
-    });
+
+    return commands
+        .map((cmd) => ({
+            cmd,
+            score: fuzzyScore(q, `${cmd.label} ${cmd.keywords}`),
+        }))
+        .filter(({ score }) => score > 0)
+        .sort((a, b) => b.score - a.score || a.cmd.label.localeCompare(b.cmd.label))
+        .map(({ cmd }) => cmd);
 }
 
 function renderCommands(query) {
@@ -553,6 +664,17 @@ document.querySelectorAll('[data-copy-link]').forEach((btn) => {
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     const tokenInput = contactForm.querySelector('input[name="_token"]');
+    const submitBtn = contactForm.querySelector('#contact-submit');
+
+    const setSubmitting = () => {
+        if (!submitBtn) return;
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+        if (!submitBtn.dataset.originalHtml) {
+            submitBtn.dataset.originalHtml = submitBtn.innerHTML;
+        }
+        submitBtn.innerHTML = 'Sending…';
+    };
 
     // Defer the token request until the visitor actually engages with the
     // form — most page views never touch it.
@@ -574,7 +696,10 @@ if (contactForm) {
 
     let tokenApplied = false;
     contactForm.addEventListener('submit', (e) => {
-        if (tokenApplied) return;
+        if (tokenApplied) {
+            setSubmitting();
+            return;
+        }
         // Hold the submit until the fresh token has been applied, then re-fire.
         e.preventDefault();
         ensureToken().finally(() => {
@@ -598,6 +723,37 @@ document.querySelectorAll('[data-copy-text]').forEach((btn) => {
             flashFeedback(feedback);
         } catch {
             window.prompt('Copy', text);
+        }
+    });
+});
+
+// ---------------------------------------------------------------------------
+// Blog code blocks — copy button on each highlighted <pre>
+// ---------------------------------------------------------------------------
+document.querySelectorAll('.prose-karl pre.notranslate').forEach((pre) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'code-copy-btn font-mono';
+    btn.setAttribute('aria-label', 'Copy code');
+    btn.textContent = 'Copy';
+
+    const feedback = document.createElement('span');
+    feedback.className = 'code-copy-feedback font-mono';
+    feedback.setAttribute('aria-hidden', 'true');
+    feedback.textContent = 'Copied';
+
+    pre.append(btn, feedback);
+
+    btn.addEventListener('click', async () => {
+        const code = pre.querySelector('code')?.textContent ?? pre.textContent;
+        if (!code) return;
+        try {
+            await navigator.clipboard.writeText(code.trim());
+            feedback.classList.add('is-visible');
+            clearTimeout(feedback._t);
+            feedback._t = setTimeout(() => feedback.classList.remove('is-visible'), 1800);
+        } catch {
+            window.prompt('Copy code', code.trim());
         }
     });
 });

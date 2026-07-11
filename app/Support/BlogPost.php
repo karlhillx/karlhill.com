@@ -8,6 +8,7 @@ final class BlogPost
 {
     /**
      * @param  array<int, string>  $tags
+     * @param  array<int, array{id: string, text: string, level: int}>  $tableOfContents
      */
     public function __construct(
         public readonly string $slug,
@@ -22,6 +23,7 @@ final class BlogPost
         public readonly string $sourcePath,
         public readonly ?int $devToId,
         public readonly int $readMinutes,
+        public readonly array $tableOfContents = [],
     ) {}
 
     public function url(): string
@@ -92,5 +94,10 @@ final class BlogPost
     public function modifiedAt(): CarbonImmutable
     {
         return $this->updatedAt ?? $this->publishedAt;
+    }
+
+    public function wasUpdated(): bool
+    {
+        return $this->updatedAt !== null && $this->updatedAt->gt($this->publishedAt);
     }
 }

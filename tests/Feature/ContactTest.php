@@ -13,7 +13,8 @@ class ContactTest extends TestCase
         $this->get('/')
             ->assertOk()
             ->assertSee('name="message"', false)
-            ->assertSee('action="'.route('contact.store').'"', false);
+            ->assertSee('action="'.route('contact.store').'"', false)
+            ->assertSee('id="contact-submit"', false);
     }
 
     public function test_valid_submission_sends_mail_and_redirects(): void
