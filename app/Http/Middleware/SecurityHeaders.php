@@ -34,13 +34,20 @@ class SecurityHeaders
     }
 
     /**
-     * The CSP is skipped for local development because the Vite dev server
-     * injects cross-origin module scripts and a websocket connection that a
-     * strict policy would block. Production and the test suite still get it.
+     * The CSP is skipped for local development (and whenever the Vite HMR
+     * server is active via `public/hot`) because Vite injects cross-origin
+     * module scripts and a websocket that a strict policy would block.
+     * Production and the test suite still get it.
      */
     protected function shouldSendCsp(Request $request, Response $response): bool
     {
         if (app()->environment('local')) {
+            return false;
+        }
+
+        // Avoid breaking `npm run dev` when APP_ENV is accidentally
+        // production — but never skip CSP in the test suite.
+        if (! app()->runningUnitTests() && file_exists(public_path('hot'))) {
             return false;
         }
 

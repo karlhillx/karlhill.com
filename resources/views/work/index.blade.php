@@ -31,6 +31,7 @@
                 <x-site.tag-filter
                     :all-url="route('work')"
                     :tags="$allTags"
+                    :counts="$tagCounts"
                     :active-tag="$activeTag"
                     :url-for="fn ($tag) => route('work.tag', \App\Support\ProjectCatalog::tagSlug($tag))"
                 />

@@ -64,6 +64,7 @@
                 class="mb-12"
                 :all-url="route('blog.index')"
                 :tags="$allTags"
+                :counts="$tagCounts"
                 :active-tag="$activeTag"
                 :url-for="fn ($tag) => route('blog.tag', $tag)"
             />

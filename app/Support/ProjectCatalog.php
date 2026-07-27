@@ -128,15 +128,22 @@ final class ProjectCatalog
     }
 
     /**
+     * @return Collection<string, int>
+     */
+    public static function tagCounts(): Collection
+    {
+        return self::all()
+            ->flatMap(fn (array $project) => $project['tags'] ?? [])
+            ->countBy()
+            ->sortKeys();
+    }
+
+    /**
      * @return Collection<int, string>
      */
     public static function allTags(): Collection
     {
-        return self::all()
-            ->flatMap(fn (array $project) => $project['tags'] ?? [])
-            ->unique()
-            ->sort()
-            ->values();
+        return self::tagCounts()->keys()->values();
     }
 
     /**

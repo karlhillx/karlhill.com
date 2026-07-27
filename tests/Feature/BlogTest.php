@@ -111,6 +111,16 @@ class BlogTest extends TestCase
         $response->assertSee('/blog/tag/automation', escape: false);
     }
 
+    public function test_blog_index_shows_tag_counts(): void
+    {
+        $response = $this->get('/blog');
+
+        $response->assertOk();
+        $response->assertSee('engineering', false);
+        // All three posts share the engineering tag.
+        $response->assertSee('engineering&nbsp;<span class="tabular-nums opacity-60">(3)</span>', false);
+    }
+
     public function test_legacy_blog_tag_query_redirects_to_tag_route(): void
     {
         $response = $this->get('/blog?tag=automation');

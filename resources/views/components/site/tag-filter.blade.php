@@ -1,11 +1,17 @@
 {{-- Tag filter pill row shared by the blog and work indexes.
-     `urlFor` is a closure resolving a tag to its filter URL. --}}
+     `urlFor` is a closure resolving a tag to its filter URL.
+     `counts` is an optional map of tag => post/project count. --}}
 @props([
     'allUrl',
     'tags' => [],
+    'counts' => [],
     'activeTag' => null,
     'urlFor',
 ])
+
+@php
+    $counts = collect($counts);
+@endphp
 
 <div {{ $attributes->merge(['class' => 'flex flex-wrap gap-2']) }} data-reveal>
     <a href="{{ $allUrl }}"
@@ -23,7 +29,7 @@
                'border-accent text-accent' => $activeTag === $tag,
                'border-neutral-800 text-neutral-500 hover:border-accent hover:text-accent' => $activeTag !== $tag,
            ])>
-            {{ $tag }}
+            {{ $tag }}@if($counts->has($tag))&nbsp;<span class="tabular-nums opacity-60">({{ $counts->get($tag) }})</span>@endif
         </a>
     @endforeach
 </div>

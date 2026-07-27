@@ -26,6 +26,9 @@ return [
         ],
     ],
 
+    // CI-only accessibility fixtures (never enable in production).
+    'a11y_fixtures' => filter_var(env('A11Y_FIXTURES', false), FILTER_VALIDATE_BOOLEAN),
+
     'seo' => [
         'home' => [
             'title' => 'Karl Hill — Staff Software Engineer',

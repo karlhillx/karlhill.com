@@ -62,4 +62,25 @@ class ProjectCatalogTest extends TestCase
         $this->assertSame('restful-apis', $slug);
         $this->assertSame('RESTful APIs', ProjectCatalog::tagFromSlug($slug));
     }
+
+    public function test_tag_counts_match_project_membership(): void
+    {
+        $counts = ProjectCatalog::tagCounts();
+
+        $this->assertTrue($counts->has('AWS'));
+        $this->assertSame(
+            ProjectCatalog::filteredByTag('AWS')->count(),
+            $counts->get('AWS'),
+        );
+    }
+
+    public function test_work_index_shows_tag_counts(): void
+    {
+        $count = ProjectCatalog::tagCounts()->get('AWS');
+
+        $this->get('/work')
+            ->assertOk()
+            ->assertSee('AWS', false)
+            ->assertSee('('.$count.')', false);
+    }
 }

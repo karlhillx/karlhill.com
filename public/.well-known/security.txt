@@ -1,0 +1,4 @@
+Contact: mailto:karlhillx@gmail.com
+Expires: 2027-07-27T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://karlhill.com/.well-known/security.txt

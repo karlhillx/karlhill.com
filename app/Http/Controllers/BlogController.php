@@ -59,17 +59,17 @@ class BlogController extends Controller
 
     protected function renderIndex(PageMeta $meta, $posts, ?string $activeTag): View
     {
-        $allTags = $this->posts->all()
+        $tagCounts = $this->posts->all()
             ->flatMap(fn ($post) => $post->tags)
-            ->unique()
-            ->sort()
-            ->values();
+            ->countBy()
+            ->sortKeys();
 
         return view('blog.index', [
             'meta' => $meta,
             'posts' => $posts,
             'activeTag' => $activeTag,
-            'allTags' => $allTags,
+            'allTags' => $tagCounts->keys()->values(),
+            'tagCounts' => $tagCounts,
         ]);
     }
 }

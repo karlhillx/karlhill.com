@@ -38,4 +38,28 @@ class SiteAssetsTest extends TestCase
             );
         }
     }
+
+    public function test_web_manifest_includes_required_pwa_fields(): void
+    {
+        $manifest = json_decode(
+            file_get_contents(public_path('site.webmanifest')),
+            true,
+            flags: JSON_THROW_ON_ERROR,
+        );
+
+        $this->assertSame('/', $manifest['start_url']);
+        $this->assertNotEmpty($manifest['description']);
+        $this->assertContains('portfolio', $manifest['categories']);
+    }
+
+    public function test_security_txt_is_present_with_required_fields(): void
+    {
+        $path = public_path('.well-known/security.txt');
+        $this->assertFileExists($path);
+
+        $body = file_get_contents($path);
+        $this->assertStringContainsString('Contact: mailto:karlhillx@gmail.com', $body);
+        $this->assertStringContainsString('Canonical: https://karlhill.com/.well-known/security.txt', $body);
+        $this->assertStringContainsString('Expires:', $body);
+    }
 }

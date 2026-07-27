@@ -11,6 +11,23 @@ use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\WorkController;
 use Illuminate\Support\Facades\Route;
 
+// Accessibility fixtures — only registered when A11Y_FIXTURES=true (CI).
+if (config('site.a11y_fixtures')) {
+    Route::get('/__a11y/contact-errors', function () {
+        return redirect('/#contact-form')
+            ->withErrors([
+                'name' => 'The name field is required.',
+                'email' => 'The email field must be a valid email address.',
+                'message' => 'The message field must be at least 10 characters.',
+            ])
+            ->withInput([
+                'name' => '',
+                'email' => 'not-an-email',
+                'message' => 'too short',
+            ]);
+    })->name('a11y.contact-errors');
+}
+
 // HTML pages: the site is effectively static (flat-file blog, cached GitHub
 // data) so a short public TTL plus an ETag lets browsers and any future CDN
 // revalidate cheaply (304s) without serving stale content.

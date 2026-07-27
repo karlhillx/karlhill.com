@@ -6,9 +6,13 @@
   "urls": [
     "http://127.0.0.1:8000/",
     "http://127.0.0.1:8000/work",
+    "http://127.0.0.1:8000/work/tag/aws",
     "http://127.0.0.1:8000/work/nasa-earth-observatory",
     "http://127.0.0.1:8000/about",
     "http://127.0.0.1:8000/blog",
-    "http://127.0.0.1:8000/blog/release-governance"
+    "http://127.0.0.1:8000/blog/tag/engineering",
+    "http://127.0.0.1:8000/blog/release-governance",
+    "http://127.0.0.1:8000/this-path-does-not-exist",
+    "http://127.0.0.1:8000/__a11y/contact-errors"
   ]
 }

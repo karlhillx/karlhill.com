@@ -49,6 +49,27 @@ class ContactTest extends TestCase
         Mail::assertNothingSent();
     }
 
+    public function test_validation_errors_render_accessible_feedback_on_the_form(): void
+    {
+        Mail::fake();
+
+        $response = $this->from('/')
+            ->post('/contact', [
+                'name' => '',
+                'email' => 'not-an-email',
+                'message' => 'too short',
+            ]);
+
+        $response->assertRedirect(route('home').'#contact-form');
+
+        $this->followRedirects($response)
+            ->assertOk()
+            ->assertSee('aria-invalid="true"', false)
+            ->assertSee('id="contact-name-error"', false)
+            ->assertSee('id="contact-email-error"', false)
+            ->assertSee('id="contact-message-error"', false);
+    }
+
     public function test_csrf_token_endpoint_returns_a_fresh_uncached_token(): void
     {
         $response = $this->getJson('/csrf-token');

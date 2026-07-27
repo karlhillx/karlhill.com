@@ -51,9 +51,9 @@
             <button id="nav-toggle" type="button" popovertarget="mobile-menu"
                     aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation"
                     class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 border border-neutral-700 hover:border-accent transition-colors shrink-0">
-                <span class="block w-4 h-px bg-current" aria-hidden="true"></span>
-                <span class="block w-4 h-px bg-current" aria-hidden="true"></span>
-                <span class="block w-4 h-px bg-current" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
             </button>
         </div>
     </div>
