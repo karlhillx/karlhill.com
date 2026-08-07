@@ -50,19 +50,20 @@ GITHUB_TOKEN=ghp_xxx
 GITHUB_USERNAME=karlhillx
 ```
 
-Analytics (GA4 is enabled by default for karlhill.com):
+Analytics — **GA4 is the primary provider**. Enabling Plausible turns GA off
+(no dual tracking):
 
 ```env
 GOOGLE_ANALYTICS_ENABLED=true
 GOOGLE_ANALYTICS_MEASUREMENT_ID=G-EZZNL8KY8P
 
-# Optional privacy-friendly alternative / complement
+# Set true to use Plausible instead of GA4
 PLAUSIBLE_ENABLED=false
 PLAUSIBLE_DOMAIN=karlhill.com
 ```
 
-Booking CTA (Calendly). Shown on `/now`, homepage availability, contact
-sections, and the mobile menu:
+Booking CTA (Calendly). Shown on `/now`, homepage availability, footer, and
+the mobile menu:
 
 ```env
 BOOKING_URL=https://calendly.com/karlhill
@@ -76,9 +77,20 @@ APP_URL=https://karlhill.com
 APP_DEBUG=false
 ```
 
-The live resume is `/resume` (generated from `config/site.php`, same source as
-`/about`). Keep `public/files/karlhill-resume.pdf` roughly aligned for ATS
-uploads; when they disagree, `/resume` is canonical.
+### Resume source of truth
+
+- **Canonical:** `/resume` (HTML generated from `config/site/experience.php` +
+  related fragments — same experience data as `/about`).
+- **ATS download:** `public/files/karlhill-resume.pdf` linked from the footer
+  and resume page. When PDF and HTML disagree, **HTML wins**.
+
+When you update the PDF, sync these keys (then spot-check `/resume` + `/about`):
+
+1. `config/site/experience.php` — roles, dates, bullets
+2. `config/site/education.php` / `certifications.php` / `stack.php`
+3. `config/site/person.php` — title, location, availability (availability is
+   shown on home + `/now`, not repeated on the CV body)
+4. Replace `public/files/karlhill-resume.pdf`
 
 ## Project Layout
 
@@ -99,7 +111,10 @@ app/Support/BlogSeries.php                    # ordered essay series
 app/Support/GitHubRepository.php              # server-side GitHub API client
 app/Support/PageMeta.php                      # SEO meta for all pages
 app/Support/HomeStructuredData.php            # homepage JSON-LD
-config/site.php                               # site content, series, /now copy
+config/site.php                               # aggregator (env flags, sameAs)
+config/site/*.php                             # content fragments (experience, projects, now, …)
+resources/js/app.js                           # modular UI entry
+resources/js/modules/*                        # view transitions, palette, contact, …
 resources/posts/*.md                          # blog posts (YAML frontmatter)
 resources/views/home/index.blade.php          # homepage shell
 resources/views/home/partials/*               # homepage sections
@@ -107,7 +122,6 @@ resources/views/now/index.blade.php           # /now page
 resources/views/components/site/*             # nav, footer, cards, series, images
 resources/views/layouts/site.blade.php        # shared layout
 resources/css/app.css                         # design tokens, animations
-resources/js/app.js                           # scroll-spy, command palette, SW register
 public/sw.js                                  # offline service worker
 public/offline.html                           # offline fallback
 scripts/deploy.sh                             # production deploy entrypoint

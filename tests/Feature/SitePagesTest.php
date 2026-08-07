@@ -40,18 +40,21 @@ class SitePagesTest extends TestCase
         $response->assertSee('id="experience"', escape: false);
         $response->assertSee('id="credentials"', escape: false);
         $response->assertSee('GeoHorizons', escape: false);
-        $response->assertSee('Engineering Manager muscles', escape: false);
-        $response->assertSee('Twenty-five years from managed security platforms', escape: false);
+        $response->assertSee('arc behind the work', escape: false);
+        $response->assertSee('cloud-native platforms for aerospace, NASA', escape: false);
+        $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
         $response->assertSee('Verizon Business', escape: false);
         $response->assertSee('$105M', escape: false);
+        $response->assertSee('Ticomix', escape: false);
+        $response->assertSee('Certified ScrumMaster', escape: false);
         $response->assertSee('href="/work/flood-mapping-system"', escape: false);
         $response->assertSee('href="/work/nasa-earth-observatory"', escape: false);
         $response->assertSee('href="/work/finium"', escape: false);
         $response->assertSee('Beyond the work', escape: false);
-        $response->assertSee('Coach ~6 engineers', escape: false);
-        $response->assertSee('Mentored and coordinated ~4 engineers', escape: false);
-        $response->assertSee('2–4 person engineering circle', escape: false);
-        $response->assertSee('coaching 2–4 engineers', escape: false);
+        $response->assertSee('multi-environment release readiness', escape: false);
+        $response->assertSee('Flood Mapping System on AWS', escape: false);
+        $response->assertSee('Laravel-based case management platform', escape: false);
+        $response->assertSee('cut backlog ~90%', escape: false);
     }
 
     public function test_homepage_is_a_focused_landing_page(): void
@@ -140,23 +143,25 @@ class SitePagesTest extends TestCase
         $response->assertSee('August 7, 2026', escape: false);
         $response->assertSee('href="/about#how-i-lead"', escape: false);
         $response->assertSee('For recruiters', escape: false);
-        $response->assertSee('id="now-contact-form"', escape: false);
+        $response->assertSee('id="contact-form"', escape: false);
         $response->assertSee('name="return_to"', escape: false);
-        $response->assertSee('linkedin.com/in/khill', escape: false);
+        $response->assertSee('id="contact"', escape: false);
+        $response->assertSee('Get in Touch', escape: false);
     }
 
     public function test_about_and_resume_pages_include_contact_and_live_cv(): void
     {
         $about = $this->get('/about');
         $about->assertStatus(200);
-        $about->assertSee('id="about-contact-form"', escape: false);
+        $about->assertSee('id="contact-form"', escape: false);
         $about->assertSee('href="/resume"', escape: false);
+        $about->assertSee('id="contact"', escape: false);
 
         $resume = $this->get('/resume');
         $resume->assertStatus(200);
         $resume->assertSee('Staff Aerospace Software Engineer', escape: false);
         $resume->assertSee('Jacobs', escape: false);
-        $resume->assertSee('id="resume-contact-form"', escape: false);
+        $resume->assertSee('id="contact-form"', escape: false);
         $resume->assertSee('Print / Save PDF', escape: false);
         $resume->assertDontSee('<a href="/work/flood-mapping-system"', escape: false);
     }

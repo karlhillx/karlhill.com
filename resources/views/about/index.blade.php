@@ -55,8 +55,6 @@
             </div>
         </section>
     @endif
-
-    <x-site.contact-section id-prefix="about-contact" />
 @endsection
 
 @section('page_footer')

@@ -10,6 +10,10 @@
     $formId = $idPrefix.'-form';
     $submitId = $idPrefix.'-submit';
     $returnPath = $returnTo ?? url()->current();
+    // Error pages (and some edge renders) may not share a ViewErrorBag.
+    $errorBag = isset($errors) && $errors instanceof \Illuminate\Support\ViewErrorBag
+        ? $errors
+        : new \Illuminate\Support\ViewErrorBag;
 @endphp
 
 <form id="{{ $formId }}"
@@ -31,38 +35,44 @@
             <label for="{{ $nameId }}" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-1.5">Your name</label>
             <input id="{{ $nameId }}" name="name" type="text" required maxlength="120"
                    value="{{ old('name') }}" placeholder="Your name" autocomplete="name"
-                   @if($errors->has('name')) aria-invalid="true" aria-describedby="{{ $nameId }}-error" @endif
+                   @if($errorBag->has('name')) aria-invalid="true" aria-describedby="{{ $nameId }}-error" @endif
                    @class([
                        'w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent',
-                       'border-red-500/60' => $errors->has('name'),
-                       'border-neutral-800' => ! $errors->has('name'),
+                       'border-red-500/60' => $errorBag->has('name'),
+                       'border-neutral-800' => ! $errorBag->has('name'),
                    ])>
-            @error('name')<p id="{{ $nameId }}-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
+            @if($errorBag->has('name'))
+                <p id="{{ $nameId }}-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $errorBag->first('name') }}</p>
+            @endif
         </div>
         <div>
             <label for="{{ $emailId }}" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-1.5">Your email</label>
             <input id="{{ $emailId }}" name="email" type="email" required maxlength="190"
                    value="{{ old('email') }}" placeholder="you@company.com" autocomplete="email"
-                   @if($errors->has('email')) aria-invalid="true" aria-describedby="{{ $emailId }}-error" @endif
+                   @if($errorBag->has('email')) aria-invalid="true" aria-describedby="{{ $emailId }}-error" @endif
                    @class([
                        'w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent',
-                       'border-red-500/60' => $errors->has('email'),
-                       'border-neutral-800' => ! $errors->has('email'),
+                       'border-red-500/60' => $errorBag->has('email'),
+                       'border-neutral-800' => ! $errorBag->has('email'),
                    ])>
-            @error('email')<p id="{{ $emailId }}-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
+            @if($errorBag->has('email'))
+                <p id="{{ $emailId }}-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $errorBag->first('email') }}</p>
+            @endif
         </div>
     </div>
     <div>
         <label for="{{ $messageId }}" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-1.5">Message</label>
         <textarea id="{{ $messageId }}" name="message" required minlength="10" maxlength="4000" rows="4"
                   placeholder="{{ config('site.footer.contact_placeholder', 'What are you building, and how can I help?') }}"
-                  @if($errors->has('message')) aria-invalid="true" aria-describedby="{{ $messageId }}-error" @endif
+                  @if($errorBag->has('message')) aria-invalid="true" aria-describedby="{{ $messageId }}-error" @endif
                   @class([
                       'contact-textarea w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent resize-y',
-                      'border-red-500/60' => $errors->has('message'),
-                      'border-neutral-800' => ! $errors->has('message'),
+                      'border-red-500/60' => $errorBag->has('message'),
+                      'border-neutral-800' => ! $errorBag->has('message'),
                   ])>{{ old('message') }}</textarea>
-        @error('message')<p id="{{ $messageId }}-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
+        @if($errorBag->has('message'))
+            <p id="{{ $messageId }}-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $errorBag->first('message') }}</p>
+        @endif
     </div>
     <button type="submit" id="{{ $submitId }}" data-contact-submit
             class="btn-sweep inline-flex items-center gap-2 border border-accent/50 text-accent font-mono text-xs uppercase tracking-widest px-6 py-3">

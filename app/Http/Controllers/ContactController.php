@@ -20,6 +20,8 @@ class ContactController extends Controller
         '/now',
         '/about',
         '/resume',
+        '/work',
+        '/blog',
     ];
 
     public function store(Request $request): RedirectResponse
@@ -82,12 +84,6 @@ class ContactController extends Controller
 
         if (! in_array($path, $this->allowedReturnPaths, true)) {
             $path = '/';
-        }
-
-        // Preserve unique form ids: home uses #contact-form; other pages use
-        // "{prefix}-form" but the section anchor is always #contact.
-        if ($fragment === 'contact-form' && $path !== '/') {
-            $fragment = 'contact';
         }
 
         return url($path).'#'.$fragment;

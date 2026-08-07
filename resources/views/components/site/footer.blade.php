@@ -9,7 +9,7 @@
     $isHome = $variant === 'home';
 @endphp
 
-<footer @if($isHome) id="contact" data-section-label="Contact" @endif @class(['relative z-10 border-t border-neutral-800/50 site-footer', 'site-footer--home' => $isHome])>
+<footer id="contact" @if($isHome) data-section-label="Contact" @endif @class(['relative z-10 border-t border-neutral-800/50 site-footer', 'site-footer--home' => $isHome])>
     <div class="site-shell">
         <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-14 lg:gap-16">
             <div class="max-w-xl" @if($isHome) data-reveal @endif>
@@ -29,14 +29,10 @@
                     {{ $footer['body'] }}
                 </p>
 
-                @if($isHome)
-                    <x-site.contact-form id-prefix="contact" return-to="/" />
-                @endif
+                <x-site.contact-form id-prefix="contact" :return-to="url()->current()" />
             </div>
-            <div class="flex flex-col gap-4 {{ $isHome ? 'lg:pt-16' : '' }} shrink-0" @if($isHome) data-reveal @endif>
-                @if($isHome)
-                    <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">Prefer to reach me directly?</p>
-                @endif
+            <div class="flex flex-col gap-4 {{ $isHome ? 'lg:pt-16' : 'lg:pt-10' }} shrink-0" @if($isHome) data-reveal @endif>
+                <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">Prefer to reach me directly?</p>
                 <div class="flex items-center gap-3">
                     <a href="mailto:{{ $person['email'] }}"
                        class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-accent transition-colors group">
@@ -90,7 +86,7 @@
             'mt-16' => ! $isHome,
         ])>
             <p class="font-display {{ $isHome ? 'text-3xl' : 'text-2xl' }} tracking-widest text-neutral-500">{{ $person['name'] }}</p>
-            <p class="font-mono text-xs text-neutral-400">{{ $person['location'] }} &nbsp;·&nbsp; {{ $person['job_title'] }} &nbsp;·&nbsp; 25+ Years</p>
+            <p class="font-mono text-xs text-neutral-400">{{ $person['location'] }} &nbsp;·&nbsp; {{ $person['job_title'] }} &nbsp;·&nbsp; 20+ Years</p>
         </div>
         <div class="mt-8 flex sm:justify-end">
             <p class="surface-chip inline-flex items-center bg-neutral-900/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-neutral-700 hover:text-neutral-500 hover:border-neutral-700/80 transition-colors duration-300">

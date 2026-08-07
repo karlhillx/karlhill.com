@@ -23,7 +23,7 @@
                 <p class="hero-eyebrow-label font-mono text-accent uppercase">
                     <span>{{ $person['job_title'] }}</span>
                     <span class="hero-eyebrow-sep" aria-hidden="true">·</span>
-                    <span>25+ Years</span>
+                    <span>20+ Years</span>
                 </p>
             </div>
             <h1 class="hero-title font-display tracking-wide text-white hero-enter" style="animation-delay:220ms">

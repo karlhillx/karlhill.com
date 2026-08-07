@@ -1,10 +1,6 @@
 @extends('layouts.site', ['meta' => $meta])
 
 @section('content')
-    @php
-        $strip = static fn (string $html): string => trim(html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
-    @endphp
-
     <x-site.page-hero eyebrow="Curriculum vitae" :breadcrumbs="[
         ['label' => 'Home', 'url' => '/'],
         ['label' => 'Resume'],
@@ -12,9 +8,8 @@
         <x-slot:title>Resume</x-slot:title>
 
         <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Generated from the same source as <a href="/about" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">About</a>
-            and <a href="/now" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Now</a>
-            — so this page stays aligned with the live career narrative. Prefer it when the PDF disagrees.
+            Canonical HTML CV from the same source as <a href="/about" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">About</a>.
+            Prefer this page when the static PDF disagrees. For ATS uploads, download the PDF below.
         </p>
 
         <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-8 sm:mt-10">
@@ -26,7 +21,7 @@
             @if(! empty($pdf))
                 <a href="{{ $pdf }}" target="_blank" rel="noopener noreferrer"
                    class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                    Download static PDF
+                    Download ATS PDF
                 </a>
             @endif
             @if(! empty($linkedin))
@@ -35,10 +30,6 @@
                     LinkedIn
                 </a>
             @endif
-            <a href="#contact"
-               class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors">
-                Contact
-            </a>
         </div>
     </x-site.page-hero>
 
@@ -48,9 +39,6 @@
                 <h2 class="font-display text-4xl sm:text-5xl tracking-wide text-white">{{ $person['name'] }}</h2>
                 <p class="mt-3 font-mono text-sm text-accent uppercase tracking-widest">
                     {{ $person['job_title'] }} · {{ $person['location'] }}
-                </p>
-                <p class="mt-4 text-neutral-400 text-base leading-relaxed">
-                    {{ $availability }}
                 </p>
                 <p class="mt-3 font-mono text-xs text-neutral-500">
                     <a href="mailto:{{ $person['email'] }}" class="hover:text-accent transition-colors">{{ $person['email'] }}</a>
@@ -85,11 +73,7 @@
                         <p class="mt-1 font-mono text-[11px] text-neutral-600 uppercase tracking-wider">
                             {{ $experience['current']['location'] }}
                         </p>
-                        <ul class="mt-4 space-y-2 text-neutral-400 text-sm leading-relaxed list-disc pl-5">
-                            @foreach($experience['current']['highlights'] as $highlight)
-                                <li>{{ $strip($highlight) }}</li>
-                            @endforeach
-                        </ul>
+                        <x-site.role-highlights class="mt-4" :items="$experience['current']['highlights']" plain />
                     </div>
 
                     @foreach($experience['roles'] as $role)
@@ -106,11 +90,7 @@
                             <p class="mt-1 font-mono text-[11px] text-neutral-600 uppercase tracking-wider">
                                 {{ $role['location'] }}
                             </p>
-                            <ul class="mt-4 space-y-2 text-neutral-400 text-sm leading-relaxed list-disc pl-5">
-                                @foreach($role['highlights'] as $highlight)
-                                    <li>{{ $strip($highlight) }}</li>
-                                @endforeach
-                            </ul>
+                            <x-site.role-highlights class="mt-4" :items="$role['highlights']" plain />
                         </div>
                     @endforeach
 
@@ -127,7 +107,9 @@
                                     <li>
                                         <p class="text-neutral-200 font-medium">{{ $entry['company'] }}</p>
                                         <p class="font-mono text-[11px] text-neutral-500 uppercase tracking-wider mt-0.5">{{ $entry['meta'] }}</p>
-                                        <p class="mt-2 text-neutral-400 text-sm leading-relaxed">{{ $entry['detail'] }}</p>
+                                        <p class="mt-2 text-neutral-400 text-sm leading-relaxed">
+                                            {{ \App\Support\PlainText::fromHtml($entry['detail']) }}
+                                        </p>
                                     </li>
                                 @endforeach
                             </ul>
@@ -151,13 +133,6 @@
             @endif
         </div>
     </article>
-
-    <x-site.contact-section
-        id-prefix="resume-contact"
-        eyebrow="Next step"
-        headline="Let's talk"
-        body="Open to Engineering Manager and Staff+ leadership conversations. Prefer Calendly for a short intro, or send a note below."
-    />
 @endsection
 
 @section('page_footer')

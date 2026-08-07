@@ -56,7 +56,7 @@
                                 <div>
                                     <p class="font-semibold text-neutral-200 text-sm">{{ $entry['company'] }}</p>
                                     <p class="font-mono text-xs text-neutral-600 mt-0.5">{{ $entry['meta'] }}</p>
-                                    <p class="text-neutral-500 text-sm mt-2 leading-relaxed">{{ $entry['detail'] }}</p>
+                                    <p class="text-neutral-500 text-sm mt-2 leading-relaxed">{!! $entry['detail'] !!}</p>
                                 </div>
                             </div>
                         @endforeach
