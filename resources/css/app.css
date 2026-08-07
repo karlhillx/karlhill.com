@@ -2930,6 +2930,16 @@ a.series-chapters__card:hover .series-chapters__title,
 }
 
 @media print {
+    @page {
+        margin: 0.55in 0.6in;
+        size: letter;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    /* Site chrome must not appear on paper (was incorrectly only setting scroll-behavior). */
     .grain,
     .hero-mesh,
     .cursor-spotlight,
@@ -2946,41 +2956,32 @@ a.series-chapters__card:hover .series-chapters__title,
     .article-sticky-title,
     .site-toast,
     .cmdk-tip,
-    html {
-        scroll-behavior: auto;
+    .article-toc,
+    .article-toc-mobile {
+        display: none !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Reveal / view-timeline entries must print fully visible. */
+    [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
     }
 
     body {
         background: #fff !important;
         color: #111 !important;
-    }
-
-    /* Resume print: content only — hero/contact/footer are screen affordances. */
-    body:has(.resume-doc) .site-page-hero,
-    body:has(.resume-doc) #contact,
-    body:has(.resume-doc) .site-footer {
-        display: none !important;
-    }
-
-    .resume-doc {
-        padding-block: 0 !important;
-        border: 0 !important;
-    }
-
-    .resume-doc h2,
-    .resume-doc h3,
-    .resume-doc h4,
-    .resume-doc .text-white,
-    .resume-doc .text-neutral-200,
-    .resume-doc .text-neutral-300 {
-        color: #111 !important;
-    }
-
-    .resume-doc .text-accent,
-    .resume-doc .text-neutral-400,
-    .resume-doc .text-neutral-500,
-    .resume-doc .text-neutral-600 {
-        color: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
 
     main {
@@ -2993,7 +2994,177 @@ a.series-chapters__card:hover .series-chapters__title,
         background: none !important;
     }
 
-    /* Show destination URLs for external links in print. */
+    /* Resume print: content only — hero/contact/footer are screen affordances. */
+    body:has(.resume-doc) .site-page-hero,
+    body:has(.resume-doc) #contact,
+    body:has(.resume-doc) .site-footer {
+        display: none !important;
+    }
+
+    body:has(.resume-doc) {
+        font-size: 10pt;
+        line-height: 1.35;
+        /* System fonts print reliably; Inter Variable often drops glyphs in Save-as-PDF. */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+    }
+
+    /* No outbound ↗ markers on paper. */
+    body:has(.resume-doc) a::after {
+        content: none !important;
+    }
+
+    .resume-doc,
+    .resume-doc * {
+        font-family: inherit !important;
+    }
+
+    .resume-doc {
+        padding: 0 !important;
+        border: 0 !important;
+        background: #fff !important;
+        color: #111 !important;
+    }
+
+    .resume-doc .site-shell {
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .resume-doc .resume-header {
+        margin-bottom: 0.55rem !important;
+        padding-bottom: 0.4rem !important;
+        border-bottom: 1px solid #222;
+    }
+
+    .resume-doc .resume-name {
+        font-size: 20pt !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.01em !important;
+        line-height: 1.1 !important;
+        color: #000 !important;
+    }
+
+    .resume-doc .resume-tagline,
+    .resume-doc .resume-contact,
+    .resume-doc .resume-section-title,
+    .resume-doc .resume-meta {
+        text-transform: none !important;
+        letter-spacing: 0.01em !important;
+    }
+
+    .resume-doc .resume-tagline {
+        margin-top: 0.15rem !important;
+        font-size: 9.5pt !important;
+        font-weight: 600 !important;
+        color: #222 !important;
+    }
+
+    .resume-doc .resume-contact {
+        margin-top: 0.2rem !important;
+        font-size: 9pt !important;
+        color: #333 !important;
+    }
+
+    .resume-doc .resume-contact a {
+        text-decoration: none !important;
+    }
+
+    /* Never avoid-page on whole sections — that shoved Experience onto page 2
+       and left page 1 almost blank. Only keep roles from splitting mid-block. */
+    .resume-doc .resume-section {
+        margin-bottom: 0.5rem !important;
+        break-inside: auto;
+    }
+
+    .resume-doc .resume-section-title {
+        margin: 0 0 0.28rem !important;
+        padding-bottom: 0.12rem !important;
+        border-bottom: 1px solid #bbb;
+        font-size: 10pt !important;
+        font-weight: 700 !important;
+        color: #000 !important;
+        break-after: avoid;
+    }
+
+    .resume-doc .resume-roles,
+    .resume-doc .space-y-8 {
+        margin: 0 !important;
+    }
+
+    .resume-doc .resume-roles > * + *,
+    .resume-doc .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 0.42rem !important;
+    }
+
+    .resume-doc .resume-role {
+        margin-bottom: 0 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .resume-doc .resume-role-title {
+        font-size: 10.5pt !important;
+        font-weight: 700 !important;
+        color: #000 !important;
+    }
+
+    .resume-doc .resume-meta {
+        font-size: 8.5pt !important;
+        color: #444 !important;
+    }
+
+    .resume-doc .resume-summary,
+    .resume-doc .resume-bullets,
+    .resume-doc .resume-prose,
+    .resume-doc .resume-stack-line,
+    .resume-doc .resume-education li,
+    .resume-doc .resume-certs li {
+        font-size: 9.25pt !important;
+        line-height: 1.32 !important;
+        color: #111 !important;
+    }
+
+    .resume-doc .resume-bullets {
+        margin: 0.18rem 0 0 !important;
+        padding-left: 1.05rem !important;
+        list-style: disc !important;
+    }
+
+    .resume-doc .resume-bullets li {
+        margin: 0.08rem 0 !important;
+        padding: 0 !important;
+        display: list-item !important;
+    }
+
+    .resume-doc .resume-stack-line + .resume-stack-line {
+        margin-top: 0.1rem !important;
+    }
+
+    .resume-doc .resume-stack-label {
+        font-weight: 700 !important;
+        color: #000 !important;
+    }
+
+    .resume-doc .mb-10,
+    .resume-doc .sm\:mb-12 {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .resume-doc h2,
+    .resume-doc h3,
+    .resume-doc h4,
+    .resume-doc .text-white,
+    .resume-doc .text-neutral-200,
+    .resume-doc .text-neutral-300,
+    .resume-doc .text-accent,
+    .resume-doc .text-neutral-400,
+    .resume-doc .text-neutral-500,
+    .resume-doc .text-neutral-600 {
+        color: inherit !important;
+    }
+
+    /* Show destination URLs for external links in blog print. */
     .prose-karl a[href^="http"]::after {
         content: " (" attr(href) ")";
         font-size: 0.85em;
@@ -3023,11 +3194,6 @@ a.series-chapters__card:hover .series-chapters__title,
     .prose-karl .code-copy-btn,
     .prose-karl .code-copy-feedback,
     .prose-karl .heading-permalink {
-        display: none !important;
-    }
-
-    .article-toc,
-    .article-toc-mobile {
         display: none !important;
     }
 }

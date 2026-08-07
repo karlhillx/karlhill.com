@@ -161,6 +161,9 @@ class SitePagesTest extends TestCase
         $resume->assertStatus(200);
         $resume->assertSee('Staff Aerospace Software Engineer', escape: false);
         $resume->assertSee('Jacobs', escape: false);
+        $resume->assertSee('class="resume-doc', escape: false);
+        $resume->assertSee('Professional Scrum Master', escape: false);
+        $resume->assertSee('Technical Leadership, Platforms', escape: false);
         $resume->assertSee('id="contact-form"', escape: false);
         $resume->assertSee('Print / Save PDF', escape: false);
         $resume->assertDontSee('<a href="/work/flood-mapping-system"', escape: false);

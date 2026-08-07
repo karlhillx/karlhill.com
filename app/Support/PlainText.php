@@ -13,6 +13,11 @@ final class PlainText
             return '';
         }
 
-        return trim(html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+        $text = trim(html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+
+        // Case-study anchors become bare "Case study" after strip_tags — drop them.
+        $text = preg_replace('/\s*Case study\.?\s*$/iu', '', $text) ?? $text;
+
+        return trim(preg_replace('/[ \t]+/u', ' ', $text) ?? $text);
     }
 }
