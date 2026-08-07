@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth"
+      @if(filled(config('site.booking.url')))
+          data-booking-url="{{ config('site.booking.url') }}"
+          data-booking-label="{{ config('site.booking.label') }}"
+      @endif
+>
 <head>
     @php($siteUrl = rtrim(config('app.url', 'https://karlhill.com'), '/'))
     @php($defaultTitle = config('site.seo.home.title'))
@@ -65,7 +70,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="alternate" type="application/atom+xml" title="Karl Hill — Writing" href="/feed.xml">
-    <link rel="alternate" type="text/markdown" title="Karl Hill — LLM-friendly overview" href="/llms.txt">
+    <link rel="alternate" type="application/feed+json" title="Karl Hill — Writing (JSON Feed)" href="/feed.json">
+    <link rel="alternate" type="text/plain" title="Karl Hill — LLM-friendly overview" href="/llms.txt">
+    <link rel="alternate" type="text/plain" title="Karl Hill — LLM full text" href="/llms-full.txt">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <x-site.analytics />
@@ -117,6 +124,36 @@
             aria-label="Back to top">
         ↑ Top
     </button>
+
+    <div id="cmdk-tip" class="cmdk-tip" hidden role="status">
+        <p class="font-mono text-[11px] uppercase tracking-widest text-neutral-300">
+            Press <kbd class="cmdk-tip__kbd">⌘</kbd><kbd class="cmdk-tip__kbd">K</kbd> to jump anywhere
+        </p>
+        <button type="button" class="cmdk-tip__dismiss" data-cmdk-tip-dismiss aria-label="Dismiss tip">×</button>
+    </div>
+
+    @php($toastStatus = session('status'))
+    @if(in_array($toastStatus, ['contact-sent', 'contact-failed'], true))
+        <div id="site-toast"
+             class="site-toast {{ $toastStatus === 'contact-failed' ? 'site-toast--error' : 'site-toast--success' }}"
+             role="{{ $toastStatus === 'contact-failed' ? 'alert' : 'status' }}"
+             data-toast
+             data-toast-duration="5200"
+             style="--toast-duration: 5200ms">
+            @if($toastStatus === 'contact-sent')
+                <p class="font-mono text-xs uppercase tracking-widest">
+                    Thanks — message sent. I'll reply from {{ config('site.person.email') }}.
+                </p>
+            @else
+                <p class="font-mono text-xs uppercase tracking-widest normal-case">
+                    Couldn't send that. Email me at
+                    <a href="mailto:{{ config('site.person.email') }}" class="underline">{{ config('site.person.email') }}</a>.
+                </p>
+            @endif
+            <button type="button" class="site-toast__dismiss" data-toast-dismiss aria-label="Dismiss">×</button>
+            <span class="site-toast__progress" aria-hidden="true"></span>
+        </div>
+    @endif
 
     <div id="command-palette" popover="auto" class="command-palette" aria-label="Command palette">
         <input id="command-input" type="text"

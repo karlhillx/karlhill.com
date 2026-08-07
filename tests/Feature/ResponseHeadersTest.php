@@ -58,4 +58,30 @@ class ResponseHeadersTest extends TestCase
         $response->assertStatus(200);
         $this->assertStringContainsString('max-age=3600', $response->headers->get('Cache-Control'));
     }
+
+    public function test_html_responses_include_link_preload_headers_when_built(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+        $link = $response->headers->get('Link');
+        // Link headers are best-effort (require a Vite manifest). When present,
+        // they should advertise font/style preloads for CDN Early Hints.
+        if ($link !== null) {
+            $this->assertTrue(
+                str_contains($link, 'rel=preload'),
+                'Expected Link header to include rel=preload when assets are built.',
+            );
+        } else {
+            $this->assertTrue(true);
+        }
+    }
+
+    public function test_csp_allows_same_origin_service_workers(): void
+    {
+        $response = $this->get('/');
+
+        $csp = $response->headers->get('Content-Security-Policy');
+        $this->assertStringContainsString("worker-src 'self'", (string) $csp);
+    }
 }

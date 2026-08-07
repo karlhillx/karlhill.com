@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LlmsTxtController;
+use App\Http\Controllers\NowController;
 use App\Http\Controllers\OgImageController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\WorkController;
@@ -41,6 +42,7 @@ Route::middleware('cache.headers:public;max_age=300;etag')->group(function (): v
         ->where('slug', '[a-z0-9-]+')
         ->name('work.show');
     Route::get('/about', AboutController::class)->name('about');
+    Route::get('/now', NowController::class)->name('now');
 
     Route::get('/blog/tag/{tag}', [BlogController::class, 'tag'])
         ->where('tag', '[a-z0-9-]+')
@@ -67,9 +69,11 @@ Route::get('/csrf-token', fn () => response()
 
 // Machine-readable feeds change less often — cache them for an hour.
 Route::middleware('cache.headers:public;max_age=3600;etag')->group(function (): void {
-    Route::get('/feed.xml', FeedController::class)->name('feed');
+    Route::get('/feed.xml', [FeedController::class, 'atom'])->name('feed');
+    Route::get('/feed.json', [FeedController::class, 'json'])->name('feed.json');
     Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
-    Route::get('/llms.txt', LlmsTxtController::class)->name('llms');
+    Route::get('/llms.txt', [LlmsTxtController::class, 'index'])->name('llms');
+    Route::get('/llms-full.txt', [LlmsTxtController::class, 'full'])->name('llms.full');
 });
 
 // Dynamically-generated per-post Open Graph cards (1200×630 PNG), cached hard.

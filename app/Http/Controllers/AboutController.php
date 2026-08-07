@@ -12,6 +12,7 @@ class AboutController extends Controller
         return view('about.index', [
             'meta' => PageMeta::about(),
             'sectionRail' => [
+                ['id' => 'how-i-lead', 'label' => 'How I lead', 'href' => '#how-i-lead'],
                 ['id' => 'experience', 'label' => 'Experience', 'href' => '#experience'],
                 ['id' => 'research', 'label' => 'Research', 'href' => '#research'],
                 ['id' => 'stack', 'label' => 'Stack', 'href' => '#stack'],

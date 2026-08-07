@@ -20,8 +20,8 @@
 
 <section @if($id) id="{{ $id }}" @endif
          @if($id && $minimapLabel) data-section-label="{{ $minimapLabel }}" @endif
-         {{ $attributes->merge(['class' => "py-28 px-6 {$borderClass}"]) }}>
-    <div class="max-w-6xl mx-auto">
+         {{ $attributes->merge(['class' => "site-section {$borderClass}"]) }}>
+    <div class="site-shell">
         @if($number !== null && $label !== null)
             <x-site.section-heading :number="$number" :label="$label" />
         @endif

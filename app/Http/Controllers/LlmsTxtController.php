@@ -11,9 +11,19 @@ class LlmsTxtController extends Controller
         protected readonly LlmsTxtBuilder $builder,
     ) {}
 
-    public function __invoke(): Response
+    public function index(): Response
     {
-        return response($this->builder->build(), 200, [
+        return $this->plain($this->builder->build());
+    }
+
+    public function full(): Response
+    {
+        return $this->plain($this->builder->buildFull());
+    }
+
+    protected function plain(string $body): Response
+    {
+        return response($body, 200, [
             'Content-Type' => 'text/plain; charset=utf-8',
             'Cache-Control' => 'public, max-age=3600',
         ]);

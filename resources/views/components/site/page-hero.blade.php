@@ -7,19 +7,19 @@
     'breadcrumbs' => [],
 ])
 
-<section {{ $attributes->merge(['class' => 'relative pt-40 pb-16 px-6 overflow-hidden']) }}>
+<section {{ $attributes->merge(['class' => 'relative site-page-hero overflow-hidden']) }}>
     <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
     <x-site.glow-orb :drift="1" class="-bottom-32 -left-32 w-[600px] h-[600px]" />
     <x-site.glow-orb :drift="2" :strength="0.09" class="-top-32 -right-32 w-[500px] h-[500px]" />
 
-    <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="relative z-10 site-shell">
         @if(count($breadcrumbs) > 0)
-            <x-site.breadcrumbs :items="$breadcrumbs" class="mb-6 hero-enter" style="animation-delay:80ms" />
+            <x-site.breadcrumbs :items="$breadcrumbs" class="mb-8 hero-enter" style="animation-delay:80ms" />
         @endif
         @if($eyebrow)
-            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-6 hero-enter" style="animation-delay:160ms">{{ $eyebrow }}</p>
+            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-8 hero-enter" style="animation-delay:160ms">{{ $eyebrow }}</p>
         @endif
-        <h1 class="font-display text-[clamp(3.5rem,12vw,9rem)] leading-none tracking-wide text-white mb-6 hero-enter" style="animation-delay:240ms">
+        <h1 class="font-display text-[clamp(3.5rem,12vw,9rem)] leading-none tracking-wide text-white mb-8 hero-enter" style="animation-delay:240ms">
             {{ $title }}
         </h1>
         <div class="hero-enter" style="animation-delay:320ms">

@@ -9,16 +9,20 @@
     $isHome = $variant === 'home';
 @endphp
 
-<footer @if($isHome) id="contact" data-section-label="Contact" @endif class="relative z-10 border-t border-neutral-800/50 {{ $isHome ? 'py-24' : 'py-16' }} px-6">
-    <div class="max-w-6xl mx-auto">
-        <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
+<footer @if($isHome) id="contact" data-section-label="Contact" @endif @class(['relative z-10 border-t border-neutral-800/50 site-footer', 'site-footer--home' => $isHome])>
+    <div class="site-shell">
+        <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-14 lg:gap-16">
             <div class="max-w-xl" @if($isHome) data-reveal @endif>
                 @if($isHome && $section)
-                    <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-6">{{ $section }} — Contact</h2>
+                    <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-8">{{ $section }} — Contact</h2>
                 @else
-                    <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Get in Touch</p>
+                    <p class="font-mono text-accent text-xs tracking-widest uppercase mb-5">Get in Touch</p>
                 @endif
-                <p class="font-display {{ $isHome ? 'text-[clamp(3rem,8vw,6rem)] mb-6' : 'text-[clamp(2rem,5vw,3.5rem)] mb-4' }} leading-none tracking-wide">
+                <p @class([
+                    'font-display leading-none tracking-wide text-balance',
+                    'text-[clamp(3rem,8vw,6rem)] mb-6 sm:mb-7' => $isHome,
+                    'text-[clamp(2rem,5vw,3.5rem)] mb-4 sm:mb-5' => ! $isHome,
+                ])>
                     {!! nl2br(e($footer['headline'])) !!}
                 </p>
                 <p class="text-neutral-400 text-sm leading-relaxed max-w-sm">
@@ -26,18 +30,7 @@
                 </p>
 
                 @if($isHome)
-                    @if(session('status') === 'contact-sent')
-                        <p role="status" class="mt-8 max-w-md border border-accent/40 bg-accent/10 text-accent font-mono text-xs uppercase tracking-widest px-4 py-3">
-                            Thanks — your message is on its way. I'll reply from {{ $person['email'] }}.
-                        </p>
-                    @elseif(session('status') === 'contact-failed')
-                        <p role="alert" class="mt-8 max-w-md border border-red-500/40 bg-red-500/10 text-red-300 font-mono text-xs uppercase tracking-widest px-4 py-3 normal-case">
-                            Something went wrong sending your message. Please email me directly at
-                            <a href="mailto:{{ $person['email'] }}" class="underline hover:text-red-200">{{ $person['email'] }}</a>.
-                        </p>
-                    @endif
-
-                    <form id="contact-form" method="POST" action="{{ route('contact.store') }}" class="mt-8 space-y-4 max-w-md" aria-label="Send a message">
+                    <form id="contact-form" method="POST" action="{{ route('contact.store') }}" class="mt-10 space-y-5 max-w-md" aria-label="Send a message">
                         @csrf
 
                         {{-- Honeypot: hidden from people, irresistible to bots. --}}
@@ -74,7 +67,7 @@
                         <div>
                             <label for="contact-message" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-1.5">Message</label>
                             <textarea id="contact-message" name="message" required minlength="10" maxlength="4000" rows="4"
-                                      placeholder="What are you building, and how can I help?"
+                                      placeholder="{{ config('site.footer.contact_placeholder', 'What are you building, and how can I help?') }}"
                                       @if($errors->has('message')) aria-invalid="true" aria-describedby="contact-message-error" @endif
                                       @class([
                                           'contact-textarea w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent resize-y',
@@ -114,6 +107,14 @@
                         </span>
                     </button>
                 </div>
+                @if(filled(config('site.booking.url')))
+                    <a href="{{ config('site.booking.url') }}" target="_blank" rel="noopener noreferrer"
+                       class="btn-sweep inline-flex items-center gap-3 border border-accent/40 text-accent font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">
+                        {{ config('site.booking.label') }}
+                        <span aria-hidden="true">→</span>
+                    </a>
+                @endif
+
                 <a href="{{ $footer['resume'] }}" target="_blank" rel="noopener noreferrer"
                    class="btn-sweep inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">
                     <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -130,18 +131,19 @@
                     <li><a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Work</a></li>
                     <li><a href="/about" class="text-neutral-400 hover:text-accent transition-colors">About</a></li>
                     <li><a href="/blog" class="text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
+                    <li><a href="/now" class="text-neutral-400 hover:text-accent transition-colors">Now</a></li>
                 </ul>
             </nav>
         </div>
         <div @class([
-            'pt-8 border-t border-neutral-800/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4',
-            'mt-20' => $isHome,
-            'mt-12' => ! $isHome,
+            'pt-10 border-t border-neutral-800/50 flex flex-col sm:flex-row sm:items-center justify-between gap-5',
+            'mt-24' => $isHome,
+            'mt-16' => ! $isHome,
         ])>
             <p class="font-display {{ $isHome ? 'text-3xl' : 'text-2xl' }} tracking-widest text-neutral-500">{{ $person['name'] }}</p>
             <p class="font-mono text-xs text-neutral-400">{{ $person['location'] }} &nbsp;·&nbsp; {{ $person['job_title'] }} &nbsp;·&nbsp; 25+ Years</p>
         </div>
-        <div class="mt-6 flex sm:justify-end">
+        <div class="mt-8 flex sm:justify-end">
             <p class="surface-chip inline-flex items-center bg-neutral-900/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-neutral-700 hover:text-neutral-500 hover:border-neutral-700/80 transition-colors duration-300">
                 Built with Laravel {{ \App\Support\Stack::laravelVersion() }} &middot; Tailwind CSS {{ \App\Support\Stack::tailwindVersion() ?? '4' }}
             </p>

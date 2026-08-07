@@ -7,24 +7,37 @@ use Illuminate\Support\Collection;
 class SpeculationRules
 {
     /**
-     * Prefetch likely destinations from the homepage nav and latest-writing promo.
+     * Prefetch likely destinations; prerender the highest-probability next hops.
      *
      * @param  Collection<int, BlogPost>  $latestPosts
      * @return array<string, mixed>
      */
     public static function forHomepage(Collection $latestPosts): array
     {
-        $urls = collect(['/blog', '/work', '/about']);
+        $prerenderUrls = collect(['/work', '/now'])
+            ->merge($latestPosts->take(2)->map(fn (BlogPost $post) => '/blog/'.$post->slug))
+            ->unique()
+            ->values()
+            ->all();
 
-        $urls = $urls->merge(
-            $latestPosts->map(fn (BlogPost $post) => '/blog/'.$post->slug)
-        );
+        $prefetchUrls = collect(['/blog', '/work', '/about', '/now'])
+            ->merge($latestPosts->map(fn (BlogPost $post) => '/blog/'.$post->slug))
+            ->unique()
+            ->values()
+            ->all();
 
         return [
+            'prerender' => [
+                [
+                    'source' => 'list',
+                    'urls' => $prerenderUrls,
+                    'eagerness' => 'moderate',
+                ],
+            ],
             'prefetch' => [
                 [
                     'source' => 'list',
-                    'urls' => $urls->unique()->values()->all(),
+                    'urls' => $prefetchUrls,
                     'eagerness' => 'moderate',
                 ],
                 [
@@ -39,8 +52,6 @@ class SpeculationRules
     }
 
     /**
-     * Prefetch individual posts when a reader explores the writing index.
-     *
      * @param  Collection<int, BlogPost>  $posts
      * @return array<string, mixed>
      */
@@ -50,11 +61,20 @@ class SpeculationRules
             return [];
         }
 
+        $top = $posts->take(3)->map(fn (BlogPost $post) => '/blog/'.$post->slug)->all();
+
         return [
+            'prerender' => [
+                [
+                    'source' => 'list',
+                    'urls' => array_slice($top, 0, 2),
+                    'eagerness' => 'moderate',
+                ],
+            ],
             'prefetch' => [
                 [
                     'source' => 'list',
-                    'urls' => $posts->take(3)->map(fn (BlogPost $post) => '/blog/'.$post->slug)->all(),
+                    'urls' => $top,
                     'eagerness' => 'moderate',
                 ],
                 [
@@ -69,27 +89,34 @@ class SpeculationRules
     }
 
     /**
-     * Prefetch case studies and sibling projects from the work index.
-     *
      * @return array<string, mixed>
      */
     public static function forWorkIndex(): array
     {
-        $urls = collect(['/about', '/blog'])
-            ->merge(
-                ProjectCatalog::withCaseStudies()
-                    ->take(3)
-                    ->map(fn (array $project) => '/work/'.$project['slug'])
-            )
+        $caseStudies = ProjectCatalog::withCaseStudies()
+            ->take(3)
+            ->map(fn (array $project) => '/work/'.$project['slug']);
+
+        $prerenderUrls = $caseStudies->take(2)->values()->all();
+
+        $prefetchUrls = collect(['/about', '/blog'])
+            ->merge($caseStudies)
             ->unique()
             ->values()
             ->all();
 
         return [
+            'prerender' => [
+                [
+                    'source' => 'list',
+                    'urls' => $prerenderUrls,
+                    'eagerness' => 'moderate',
+                ],
+            ],
             'prefetch' => [
                 [
                     'source' => 'list',
-                    'urls' => $urls,
+                    'urls' => $prefetchUrls,
                     'eagerness' => 'moderate',
                 ],
                 [
@@ -120,11 +147,20 @@ class SpeculationRules
             $urls->push('/work/'.$next['slug']);
         }
 
+        $list = $urls->unique()->values()->all();
+
         return [
+            'prerender' => array_filter([
+                $next !== null ? [
+                    'source' => 'list',
+                    'urls' => ['/work/'.$next['slug']],
+                    'eagerness' => 'moderate',
+                ] : null,
+            ]),
             'prefetch' => [
                 [
                     'source' => 'list',
-                    'urls' => $urls->unique()->values()->all(),
+                    'urls' => $list,
                     'eagerness' => 'moderate',
                 ],
             ],
@@ -132,8 +168,6 @@ class SpeculationRules
     }
 
     /**
-     * Prefetch adjacent and related posts while a reader is on an article.
-     *
      * @param  Collection<int, BlogPost>  $related
      * @return array<string, mixed>
      */
@@ -156,14 +190,42 @@ class SpeculationRules
             $related->map(fn (BlogPost $relatedPost) => '/blog/'.$relatedPost->slug)
         );
 
-        return [
-            'prefetch' => [
+        $series = BlogSeries::forPost($post);
+        if ($series !== null) {
+            if ($series['previous'] !== null) {
+                $urls->push('/blog/'.$series['previous']->slug);
+            }
+            if ($series['next'] !== null) {
+                $urls->push('/blog/'.$series['next']->slug);
+            }
+        }
+
+        $list = $urls->unique()->values()->all();
+
+        $prerender = [];
+        if ($series !== null && $series['next'] !== null) {
+            $prerender[] = '/blog/'.$series['next']->slug;
+        }
+        if ($next !== null) {
+            $prerender[] = '/blog/'.$next->slug;
+        }
+        $prerender = array_values(array_unique($prerender));
+
+        return array_filter([
+            'prerender' => $prerender === [] ? null : [
                 [
                     'source' => 'list',
-                    'urls' => $urls->unique()->values()->all(),
+                    'urls' => array_slice($prerender, 0, 2),
                     'eagerness' => 'moderate',
                 ],
             ],
-        ];
+            'prefetch' => [
+                [
+                    'source' => 'list',
+                    'urls' => $list,
+                    'eagerness' => 'moderate',
+                ],
+            ],
+        ]);
     }
 }

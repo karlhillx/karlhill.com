@@ -12,9 +12,7 @@
 ])
 
 @php
-    $webpImg = \App\Support\Images::webp($image);
-    $srcset = \App\Support\Images::srcset($webpImg);
-    $cardClass = 'surface-card surface-card-media bg-bg group relative h-80 lg:h-96 block';
+    $cardClass = 'surface-card surface-card-media pointer-lit bg-bg group relative h-[22rem] sm:h-80 lg:h-96 block';
 @endphp
 
 @if($href)
@@ -28,12 +26,18 @@
              {{ $attributes->merge(['class' => $cardClass]) }}
              data-reveal>
 @endif
-    <img src="{{ $webpImg }}" alt="Screenshot of {{ $title }}"
-         @if($srcset) srcset="{{ $srcset }}" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" @endif
-         width="960" height="720"
-         loading="lazy" decoding="async"
-         @if($slug) style="view-transition-name: work-img-{{ $slug }}; view-transition-class: card-media" @endif
-         class="work-parallax absolute inset-0 w-full h-full object-cover {{ $imagePosition }} opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out">
+    <x-site.responsive-image
+        :src="$image"
+        :alt="'Screenshot of '.$title"
+        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        width="960"
+        height="720"
+        loading="lazy"
+        :lqip="false"
+        :img-style="$slug ? 'view-transition-name: work-img-'.$slug.'; view-transition-class: card-media' : null"
+        img-class="work-parallax absolute inset-0 w-full h-full object-cover {{ $imagePosition }} opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out"
+        class="contents"
+    />
 
     <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/60 to-transparent" aria-hidden="true"></div>
 
@@ -51,15 +55,15 @@
         @endforeach
     </div>
 
-    <div class="absolute inset-x-0 bottom-0 bg-bg/90 backdrop-blur-md border-t border-white/[0.06] px-5 pt-4 pb-5 rounded-b-2xl">
-        <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1.5">{{ $meta }}</p>
+    <div class="absolute inset-x-0 bottom-0 bg-bg/90 backdrop-blur-md border-t border-white/[0.06] px-5 pt-5 pb-6 rounded-b-2xl">
+        <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
         <h3 class="font-display text-lg tracking-wide text-white leading-tight">{{ $title }}</h3>
         {{-- Collapse/expand only on hover-capable (fine pointer) devices; touch
              devices always see the description since they can't hover. --}}
         <div class="work-card-details pointer-fine:max-h-0 pointer-fine:group-hover:max-h-52 pointer-fine:group-focus-within:max-h-52 overflow-hidden transition-[max-height] duration-500 ease-out">
-            <p class="text-neutral-400 text-xs leading-relaxed mt-2 line-clamp-4 pointer-fine:line-clamp-none">{{ $description }}</p>
+            <p class="text-neutral-400 text-xs leading-relaxed mt-3 line-clamp-4 pointer-fine:line-clamp-none">{{ $description }}</p>
             @if($href)
-                <p class="font-mono text-[10px] text-accent uppercase tracking-widest mt-3">
+                <p class="font-mono text-[10px] text-accent uppercase tracking-widest mt-4">
                     @if($external)
                         Visit project
                     @elseif(str_contains($href, '/work/'))

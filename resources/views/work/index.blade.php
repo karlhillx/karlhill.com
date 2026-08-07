@@ -26,8 +26,8 @@
     </x-site.page-hero>
 
     @if($allTags->isNotEmpty())
-        <section class="px-6 pb-4 border-t border-neutral-800">
-            <div class="max-w-6xl mx-auto pt-10">
+        <section class="site-toolbar border-t border-neutral-800">
+            <div class="site-shell">
                 <x-site.tag-filter
                     :all-url="route('work')"
                     :tags="$allTags"

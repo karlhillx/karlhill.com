@@ -39,10 +39,17 @@
 
 @section('content')
 
-<article class="relative pt-28 pb-20 px-6">
+<article class="relative site-article" data-article>
     <x-site.glow-orb :drift="1" :strength="0.10" class="top-24 -left-48 w-[500px] h-[500px]" />
 
-    <div class="relative z-10 max-w-3xl mx-auto">
+    <div class="article-sticky-title" data-article-sticky-title hidden>
+        <div class="site-shell site-gutter flex items-center gap-3 min-h-10">
+            <p class="font-mono text-[10px] text-accent uppercase tracking-widest shrink-0">Writing</p>
+            <p class="font-display text-sm sm:text-base tracking-wide text-neutral-200 truncate">{{ $post->title }}</p>
+        </div>
+    </div>
+
+    <div class="relative z-10 site-prose">
         <x-site.breadcrumbs :items="[
             ['label' => 'Home', 'url' => '/'],
             ['label' => 'Writing', 'url' => '/blog'],
@@ -58,6 +65,7 @@
         </p>
 
         <h1 class="font-display text-[clamp(1.85rem,4vw,3rem)] leading-[1.1] tracking-wide text-white mb-5"
+            data-article-title
             style="view-transition-name: post-{{ $post->slug }}; view-transition-class: post-title">
             {{ $post->title }}
         </h1>
@@ -75,23 +83,20 @@
         </div>
 
         @if($heroPath)
-            @php
-                $heroWebpPath = \App\Support\Images::webp($heroPath);
-                $heroSrcset = \App\Support\Images::srcset($heroWebpPath);
-            @endphp
-            <figure class="mb-8 -mx-6 sm:mx-0">
-                <picture>
-                    @if($heroWebpPath !== $heroPath)
-                        <source srcset="{{ $heroSrcset ?? $heroWebpPath }}"
-                                @if($heroSrcset) sizes="(min-width: 832px) 48rem, 100vw" @endif
-                                type="image/webp">
-                    @endif
-                    <img src="{{ $heroPath }}"
-                         alt=""
-                         loading="eager" decoding="async" fetchpriority="high"
-                         class="w-full aspect-[16/7] sm:aspect-[5/2] object-cover object-center sm:rounded-sm border-y sm:border border-neutral-800/70">
-                </picture>
+            <figure class="mb-8 site-bleed sm:!mx-0">
+                <x-site.responsive-image
+                    :src="$heroPath"
+                    alt=""
+                    sizes="(min-width: 832px) 48rem, 100vw"
+                    loading="eager"
+                    fetchpriority="high"
+                    img-class="w-full aspect-[16/7] sm:aspect-[5/2] object-cover object-center sm:rounded-sm border-y sm:border border-neutral-800/70"
+                />
             </figure>
+        @endif
+
+        @if(! empty($series))
+            <x-site.series-nav :series="$series" />
         @endif
 
         @if(count($post->tableOfContents) >= 2)
@@ -131,12 +136,21 @@
 
         <hr class="border-neutral-800 my-12">
 
-        <x-site.adjacent-nav
-            class="mb-12"
-            aria-label="Post navigation"
-            :previous="$adjacentPosts['previous'] ? ['url' => $adjacentPosts['previous']->url(), 'title' => $adjacentPosts['previous']->title] : null"
-            :next="$adjacentPosts['next'] ? ['url' => $adjacentPosts['next']->url(), 'title' => $adjacentPosts['next']->title] : null"
-        />
+        @if(! empty($series) && ($series['previous'] || $series['next']))
+            <x-site.adjacent-nav
+                class="mb-12"
+                aria-label="Series navigation"
+                :previous="$series['previous'] ? ['url' => $series['previous']->url(), 'title' => $series['previous']->title] : null"
+                :next="$series['next'] ? ['url' => $series['next']->url(), 'title' => $series['next']->title] : null"
+            />
+        @else
+            <x-site.adjacent-nav
+                class="mb-12"
+                aria-label="Post navigation"
+                :previous="$adjacentPosts['previous'] ? ['url' => $adjacentPosts['previous']->url(), 'title' => $adjacentPosts['previous']->title] : null"
+                :next="$adjacentPosts['next'] ? ['url' => $adjacentPosts['next']->url(), 'title' => $adjacentPosts['next']->title] : null"
+            />
+        @endif
 
         <x-site.related-list
             class="mb-12"
@@ -185,6 +199,18 @@
                             <path d="M13.873 3.805C21.21 9.332 29.103 20.537 32 26.55v15.882c0-.338-.13.044-.41.867-1.512 4.456-7.418 21.847-20.923 7.944-7.111-7.32-3.819-14.64 9.125-16.85-7.405 1.264-15.73-.825-18.014-9.015C1.12 23.022 0 8.51 0 6.55 0-3.268 8.579-.182 13.873 3.805ZM50.127 3.805C42.79 9.332 34.897 20.537 32 26.55v15.882c0-.338.13.044.41.867 1.512 4.456 7.418 21.847 20.923 7.944 7.111-7.32 3.819-14.64-9.125-16.85 7.405 1.264 15.73-.825 18.014-9.015C62.88 23.022 64 8.51 64 6.55 64-3.268 55.421-.182 50.127 3.805Z"/>
                         </svg>
                     </a>
+                    <button type="button"
+                            data-native-share
+                            data-share-url="{{ $shareUrl }}"
+                            data-share-title="{{ $post->title }}"
+                            data-share-text="{{ $shareText }}"
+                            hidden
+                            aria-label="Share"
+                            class="text-neutral-400 hover:text-accent transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4-4 4M12 2v13"/>
+                        </svg>
+                    </button>
                     <button type="button"
                             data-copy-link="{{ $shareUrl }}"
                             aria-label="Copy link"

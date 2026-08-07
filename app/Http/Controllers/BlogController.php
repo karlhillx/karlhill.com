@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Support\BlogPostRepository;
+use App\Support\BlogSeries;
 use App\Support\PageMeta;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -49,6 +50,7 @@ class BlogController extends Controller
             'meta' => PageMeta::forPost($post),
             'post' => $post,
             'adjacentPosts' => $this->posts->adjacent($post),
+            'series' => BlogSeries::forPost($post),
             'relatedPosts' => $this->posts->all()
                 ->reject(fn ($candidate) => $candidate->slug === $post->slug)
                 ->filter(fn ($candidate) => count(array_intersect($candidate->tags, $post->tags)) > 0)
@@ -70,6 +72,7 @@ class BlogController extends Controller
             'activeTag' => $activeTag,
             'allTags' => $tagCounts->keys()->values(),
             'tagCounts' => $tagCounts,
+            'seriesList' => $activeTag ? collect() : BlogSeries::published(),
         ]);
     }
 }

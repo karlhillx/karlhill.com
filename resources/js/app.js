@@ -6,6 +6,46 @@ const supportsViewTimeline =
     typeof CSS !== 'undefined' && CSS.supports('animation-timeline', 'view()');
 
 // ---------------------------------------------------------------------------
+// Directional cross-document view transitions (forward / back / same)
+// ---------------------------------------------------------------------------
+function pathDepth(urlLike) {
+    try {
+        return new URL(urlLike, window.location.origin).pathname.split('/').filter(Boolean).length;
+    } catch {
+        return 0;
+    }
+}
+
+function navigationType(fromUrl, toUrl) {
+    const fromDepth = pathDepth(fromUrl);
+    const toDepth = pathDepth(toUrl);
+    if (toDepth > fromDepth) return 'forward';
+    if (toDepth < fromDepth) return 'back';
+    return 'same';
+}
+
+function applyViewTransitionType(event) {
+    if (!event.viewTransition || prefersReducedMotion) return;
+    const fromUrl = event.activation?.from?.url ?? window.location.href;
+    const toUrl = event.activation?.entry?.url ?? window.location.href;
+    const type = navigationType(fromUrl, toUrl);
+    try {
+        event.viewTransition.types.clear();
+    } catch {
+        // ViewTransitionTypeSet.clear() is missing in some early implementations.
+    }
+    event.viewTransition.types.add(type);
+}
+
+window.addEventListener('pageswap', (event) => {
+    applyViewTransitionType(event);
+});
+
+window.addEventListener('pagereveal', (event) => {
+    applyViewTransitionType(event);
+});
+
+// ---------------------------------------------------------------------------
 // Soft radial glow follows the pointer (CSS vars on :root)
 // ---------------------------------------------------------------------------
 if (!prefersReducedMotion && prefersFinePointer) {
@@ -62,6 +102,29 @@ if (!prefersReducedMotion && prefersFinePointer) {
             rect = null;
             el.style.setProperty('--mx', '0px');
             el.style.setProperty('--my', '0px');
+        });
+    });
+}
+
+// ---------------------------------------------------------------------------
+// Pointer-lit work cards — local spotlight tracking
+// ---------------------------------------------------------------------------
+if (!prefersReducedMotion && prefersFinePointer) {
+    document.querySelectorAll('.pointer-lit').forEach((card) => {
+        let rafId = null;
+        let px = 50;
+        let py = 40;
+
+        card.addEventListener('mousemove', (event) => {
+            const rect = card.getBoundingClientRect();
+            px = ((event.clientX - rect.left) / Math.max(rect.width, 1)) * 100;
+            py = ((event.clientY - rect.top) / Math.max(rect.height, 1)) * 100;
+            if (rafId !== null) return;
+            rafId = requestAnimationFrame(() => {
+                rafId = null;
+                card.style.setProperty('--card-x', `${px}%`);
+                card.style.setProperty('--card-y', `${py}%`);
+            });
         });
     });
 }
@@ -211,7 +274,15 @@ if (minimap && sections.length > 0) {
         .map((section) => {
             const id = section.getAttribute('id');
             const label = section.dataset.sectionLabel || id?.replace(/-/g, ' ') || 'section';
-            return `<button type="button" data-jump="${id}" aria-label="Jump to ${label}" title="${label}"></button>`;
+            const anchor = String(id || 'section').replace(/[^a-zA-Z0-9_-]/g, '');
+            const tip = String(label)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/"/g, '&quot;');
+            return `<div class="section-minimap-item">
+                <button type="button" data-jump="${id}" style="anchor-name: --mm-${anchor}" aria-label="Jump to ${tip}"></button>
+                <span class="section-minimap-tip" style="position-anchor: --mm-${anchor}">${tip}</span>
+            </div>`;
         })
         .join('');
 
@@ -326,12 +397,15 @@ const root = document.documentElement;
 const supportsScrollTimeline =
     typeof CSS !== 'undefined' && CSS.supports('animation-timeline', 'scroll()');
 
+const primaryNav = document.querySelector('nav[aria-label="Primary"]');
+
 if (!supportsScrollTimeline) {
     const updateScrollUI = () => {
         const max = root.scrollHeight - window.innerHeight;
         const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
         root.style.setProperty('--scroll-progress', `${Math.min(progress, 100)}%`);
         backTopBtn?.classList.toggle('is-visible', window.scrollY > 560);
+        primaryNav?.classList.toggle('is-compact', window.scrollY > 160);
     };
 
     window.addEventListener('scroll', updateScrollUI, { passive: true });
@@ -360,6 +434,7 @@ function gotoSection(id) {
 
     const pageMap = {
         experience: '/about#experience',
+        'how-i-lead': '/about#how-i-lead',
         research: '/about#research',
         stack: '/about#stack',
         credentials: '/about#credentials',
@@ -396,12 +471,22 @@ const staticCommands = [
     },
     {
         label: 'About — Experience',
-        keywords: 'about experience career background',
+        keywords: 'about experience career background leadership how i lead',
         action: () => window.location.assign('/about'),
     },
     {
+        label: 'How I Lead',
+        keywords: 'how i lead leadership coaching 1:1 feedback em manager',
+        action: () => window.location.assign('/about#how-i-lead'),
+    },
+    {
+        label: 'Now — Current focus',
+        keywords: 'now focus availability engineering manager em staff leadership',
+        action: () => window.location.assign('/now'),
+    },
+    {
         label: 'Writing — Blog',
-        keywords: 'writing blog posts articles essays notes governance',
+        keywords: 'writing blog posts articles essays notes governance leadership',
         action: () => window.location.assign('/blog'),
     },
     {
@@ -437,6 +522,11 @@ const staticCommands = [
         action: () => window.open('/feed.xml', '_blank', 'noopener,noreferrer'),
     },
     {
+        label: 'JSON Feed',
+        keywords: 'json feed subscribe',
+        action: () => window.open('/feed.json', '_blank', 'noopener,noreferrer'),
+    },
+    {
         label: 'LinkedIn',
         keywords: 'linkedin social',
         action: () =>
@@ -451,6 +541,17 @@ const staticCommands = [
 
 function buildCommands() {
     const index = parseCommandIndex();
+    const bookingUrl = document.documentElement.dataset.bookingUrl;
+    const bookingLabel = document.documentElement.dataset.bookingLabel || 'Book a conversation';
+    const bookingCommands = bookingUrl
+        ? [
+              {
+                  label: bookingLabel,
+                  keywords: 'book calendar cal.com calendly schedule conversation meeting hire',
+                  action: () => window.open(bookingUrl, '_blank', 'noopener,noreferrer'),
+              },
+          ]
+        : [];
     const dynamic = [
         ...index.posts.map((post) => ({
             label: post.label,
@@ -464,7 +565,7 @@ function buildCommands() {
         })),
     ];
 
-    return [...staticCommands, ...dynamic];
+    return [...staticCommands, ...bookingCommands, ...dynamic];
 }
 
 const commands = buildCommands();
@@ -633,7 +734,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ---------------------------------------------------------------------------
-// Blog post share — copy permalink to clipboard
+// Blog post share — Web Share API + copy permalink
 // ---------------------------------------------------------------------------
 function flashFeedback(feedback) {
     if (!feedback) return;
@@ -642,6 +743,26 @@ function flashFeedback(feedback) {
     feedback._t = setTimeout(() => {
         feedback.style.opacity = '0';
     }, 1800);
+}
+
+if (typeof navigator.share === 'function') {
+    document.querySelectorAll('[data-native-share]').forEach((btn) => {
+        btn.hidden = false;
+        btn.addEventListener('click', async () => {
+            const url = btn.getAttribute('data-share-url');
+            if (!url) return;
+            try {
+                await navigator.share({
+                    title: btn.getAttribute('data-share-title') || document.title,
+                    text: btn.getAttribute('data-share-text') || '',
+                    url,
+                });
+            } catch (err) {
+                // User dismissed the sheet — not an error worth surfacing.
+                if (err && err.name === 'AbortError') return;
+            }
+        });
+    });
 }
 
 document.querySelectorAll('[data-copy-link]').forEach((btn) => {
@@ -656,6 +777,17 @@ document.querySelectorAll('[data-copy-link]').forEach((btn) => {
         }
     });
 });
+
+// ---------------------------------------------------------------------------
+// Offline reading — register the service worker once, same-origin only.
+// ---------------------------------------------------------------------------
+if ('serviceWorker' in navigator && window.isSecureContext) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {
+            // Registration can fail on file:// or restrictive CSP; ignore.
+        });
+    });
+}
 
 // ---------------------------------------------------------------------------
 // Contact form — refresh the CSRF token so the (publicly cacheable) home page
@@ -757,3 +889,107 @@ document.querySelectorAll('.prose-karl pre.notranslate').forEach((pre) => {
         }
     });
 });
+
+// ---------------------------------------------------------------------------
+// LQIP blur-up — fade the sharp image in once decoded
+// ---------------------------------------------------------------------------
+document.querySelectorAll('[data-lqip-img]').forEach((img) => {
+    const markLoaded = () => {
+        img.classList.add('is-loaded');
+        img.closest('.img-lqip')?.classList.add('is-loaded');
+    };
+    if (img.complete && img.naturalWidth > 0) {
+        markLoaded();
+        return;
+    }
+    img.addEventListener('load', markLoaded, { once: true });
+    img.addEventListener('error', markLoaded, { once: true });
+});
+
+// ---------------------------------------------------------------------------
+// Article sticky mini-title — appears after the H1 leaves the viewport
+// ---------------------------------------------------------------------------
+const articleTitle = document.querySelector('[data-article-title]');
+const stickyTitle = document.querySelector('[data-article-sticky-title]');
+if (articleTitle && stickyTitle) {
+    stickyTitle.hidden = false;
+    const titleObserver = new IntersectionObserver(
+        ([entry]) => {
+            stickyTitle.classList.toggle('is-visible', entry && !entry.isIntersecting);
+        },
+        { rootMargin: '-4.5rem 0px 0px 0px', threshold: 0 }
+    );
+    titleObserver.observe(articleTitle);
+
+    // Hide the sticky bar while the mobile nav drawer is open so they never stack.
+    document.getElementById('mobile-menu')?.addEventListener('toggle', (e) => {
+        stickyTitle.classList.toggle('is-suppressed', e.newState === 'open');
+    });
+}
+
+// Series chapter strip — snap the current chapter into view on small screens.
+document.querySelectorAll('[data-series-chapters]').forEach((strip) => {
+    const current = strip.querySelector('.series-chapters__item.is-current');
+    if (!current || window.matchMedia('(min-width: 768px)').matches) return;
+    requestAnimationFrame(() => {
+        current.scrollIntoView({ inline: 'start', block: 'nearest', behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    });
+});
+
+// ---------------------------------------------------------------------------
+// Contact toast — animated confirmation after form redirect
+// ---------------------------------------------------------------------------
+const toast = document.querySelector('[data-toast]');
+if (toast) {
+    const dismissToast = () => {
+        toast.classList.add('is-leaving');
+        toast.classList.remove('is-visible');
+        window.setTimeout(() => {
+            toast.hidden = true;
+        }, 280);
+    };
+    requestAnimationFrame(() => toast.classList.add('is-visible'));
+    const duration = Number(toast.getAttribute('data-toast-duration') || 5000);
+    const timer = window.setTimeout(dismissToast, duration);
+    toast.querySelector('[data-toast-dismiss]')?.addEventListener('click', () => {
+        window.clearTimeout(timer);
+        dismissToast();
+    });
+}
+
+// ---------------------------------------------------------------------------
+// ⌘K discoverability tip — once per browser, desktop only
+// ---------------------------------------------------------------------------
+const cmdkTip = document.getElementById('cmdk-tip');
+const CMDK_TIP_KEY = 'karlhill.cmdk-tip.dismissed';
+if (cmdkTip && prefersFinePointer && !prefersReducedMotion) {
+    let dismissed = false;
+    try {
+        dismissed = window.localStorage.getItem(CMDK_TIP_KEY) === '1';
+    } catch {
+        dismissed = false;
+    }
+
+    if (!dismissed) {
+        cmdkTip.hidden = false;
+        window.setTimeout(() => cmdkTip.classList.add('is-visible'), 1400);
+
+        const dismissCmdkTip = () => {
+            cmdkTip.classList.remove('is-visible');
+            try {
+                window.localStorage.setItem(CMDK_TIP_KEY, '1');
+            } catch {
+                // private mode / blocked storage
+            }
+            window.setTimeout(() => {
+                cmdkTip.hidden = true;
+            }, 280);
+        };
+
+        cmdkTip.querySelector('[data-cmdk-tip-dismiss]')?.addEventListener('click', dismissCmdkTip);
+        document.getElementById('command-palette')?.addEventListener('toggle', (e) => {
+            if (e.newState === 'open') dismissCmdkTip();
+        });
+        window.setTimeout(dismissCmdkTip, 9000);
+    }
+}

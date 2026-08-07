@@ -38,6 +38,10 @@ class LlmsTxtTest extends TestCase
         $this->assertStringContainsString('What 20 Years Taught Me About Release Governance', $body);
         $this->assertStringContainsString('Preferred name: **Karl Hill**', $body);
         $this->assertStringContainsString('https://karlhill.com/feed.xml', $body);
+        $this->assertStringContainsString('https://karlhill.com/feed.json', $body);
+        $this->assertStringContainsString('https://karlhill.com/llms-full.txt', $body);
+        $this->assertStringContainsString('## Series', $body);
+        $this->assertStringContainsString('Engineering Manager craft', $body);
     }
 
     public function test_llms_txt_builder_lists_social_profiles_and_resume(): void
@@ -52,6 +56,18 @@ class LlmsTxtTest extends TestCase
         $this->assertStringContainsString('GeoHorizons', $body);
     }
 
+    public function test_llms_full_txt_includes_essay_bodies(): void
+    {
+        $response = $this->get('/llms-full.txt');
+
+        $response->assertStatus(200);
+        $response->assertHeader('Content-Type', 'text/plain; charset=utf-8');
+        $body = $response->getContent();
+        $this->assertStringContainsString('## Full essays', $body);
+        $this->assertStringContainsString('A release is a decision', $body);
+        $this->assertStringContainsString('unit of work', $body);
+    }
+
     public function test_homepage_includes_speculation_rules_for_blog_prefetch(): void
     {
         $response = $this->get('/');
@@ -59,7 +75,8 @@ class LlmsTxtTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('<script type="speculationrules"', escape: false);
         $response->assertSee('"/blog"', escape: false);
-        $response->assertSee('"/blog/release-governance"', escape: false);
+        $response->assertSee('"/now"', escape: false);
+        $response->assertSee('"prerender"', escape: false);
         $response->assertSee('"href_matches":"/blog*"', escape: false);
     }
 
@@ -69,7 +86,7 @@ class LlmsTxtTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('<script type="speculationrules"', escape: false);
-        $response->assertSee('"/blog/release-governance"', escape: false);
+        $response->assertSee('"prerender"', escape: false);
         $response->assertSee('"href_matches":"/blog/*"', escape: false);
     }
 }

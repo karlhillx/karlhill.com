@@ -117,8 +117,15 @@ class BlogTest extends TestCase
 
         $response->assertOk();
         $response->assertSee('engineering', false);
-        // All three posts share the engineering tag.
-        $response->assertSee('engineering&nbsp;<span class="tabular-nums opacity-60">(3)</span>', false);
+        // Every published post currently carries the engineering tag.
+        $engineeringCount = app(BlogPostRepository::class)->all()
+            ->filter(fn ($post) => in_array('engineering', $post->tags, true))
+            ->count();
+
+        $response->assertSee(
+            'engineering&nbsp;<span class="tabular-nums opacity-60">('.$engineeringCount.')</span>',
+            false,
+        );
     }
 
     public function test_legacy_blog_tag_query_redirects_to_tag_route(): void
@@ -163,6 +170,63 @@ class BlogTest extends TestCase
         $response->assertSee('linkedin.com/sharing/share-offsite', escape: false);
         $response->assertSee('twitter.com/intent/tweet', escape: false);
         $response->assertSee('data-copy-link', escape: false);
+        $response->assertSee('data-native-share', escape: false);
+    }
+
+    public function test_json_feed_is_valid(): void
+    {
+        $response = $this->get('/feed.json');
+
+        $response->assertStatus(200);
+        $response->assertHeader('Content-Type', 'application/feed+json; charset=utf-8');
+
+        $feed = $response->json();
+        $this->assertSame('https://jsonfeed.org/version/1.1', $feed['version']);
+        $this->assertNotEmpty($feed['items']);
+        $this->assertSame(
+            rtrim(config('app.url'), '/').'/blog/release-governance',
+            collect($feed['items'])->firstWhere('title', 'What 20 Years Taught Me About Release Governance')['url'] ?? null,
+        );
+    }
+
+    public function test_em_craft_series_appears_on_posts_and_index(): void
+    {
+        $index = $this->get('/blog');
+        $index->assertStatus(200);
+        $index->assertSee('Engineering Manager craft', escape: false);
+        $index->assertSee('id="em-craft"', escape: false);
+        $index->assertSee('series-chapters', escape: false);
+        $index->assertSee('Swipe to browse', escape: false);
+
+        $show = $this->get('/blog/staff-to-em-first-90-days');
+        $show->assertStatus(200);
+        $show->assertSee('aria-label="Series"', escape: false);
+        $show->assertSee('Saying No to Roadmap Pressure', escape: false);
+        $show->assertSee('aria-label="Series navigation"', escape: false);
+        $show->assertDontSee('aria-label="Post navigation"', escape: false);
+        $show->assertSee('data-article-sticky-title', escape: false);
+        $show->assertSee('series-chapters', escape: false);
+        $show->assertSee('Part 1 of 3', escape: false);
+    }
+
+    public function test_homepage_hero_is_a_tight_first_viewport(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+        $response->assertSee(config('site.hero.headline'), escape: false);
+        $response->assertSee(config('site.hero.positioning'), escape: false);
+        $response->assertDontSee(config('site.hero.bio'), escape: false);
+        $response->assertDontSee('Platforms · Delivery · Engineering Leadership', escape: false);
+    }
+
+    public function test_command_index_includes_post_body_keywords(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+        // Phrase from the Staff→EM essay body — proves full-text indexing.
+        $response->assertSee('unit of work', escape: false);
     }
 
     public function test_blog_show_renders_heading_anchors_and_table_of_contents(): void

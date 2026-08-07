@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Support\BlogPostRepository;
+use App\Support\Images;
 use Tests\TestCase;
 
 class SiteAssetsTest extends TestCase
@@ -50,6 +51,22 @@ class SiteAssetsTest extends TestCase
         $this->assertSame('/', $manifest['start_url']);
         $this->assertNotEmpty($manifest['description']);
         $this->assertContains('portfolio', $manifest['categories']);
+    }
+
+    public function test_image_helpers_map_avif_and_srcset_widths(): void
+    {
+        $this->assertSame('/img/avif/blog/release-governance.avif', Images::avif('/img/blog/release-governance.jpg'));
+        $this->assertSame('/img/avif/profile.avif', Images::avif('/img/webp/profile.webp'));
+        $this->assertSame([400, 800, 1200, 1600], Images::SRCSET_WIDTHS);
+    }
+
+    public function test_lqip_helper_maps_generated_placeholders(): void
+    {
+        $this->assertSame(
+            '/img/lqip/blog/release-governance.webp',
+            Images::lqip('/img/blog/release-governance.jpg'),
+        );
+        $this->assertFileExists(public_path('img/lqip/blog/release-governance.webp'));
     }
 
     public function test_security_txt_is_present_with_required_fields(): void

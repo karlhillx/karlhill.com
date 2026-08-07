@@ -34,6 +34,11 @@ class ContactTest extends TestCase
             return $mail->hasTo(config('site.person.email'))
                 && $mail->senderEmail === 'ada@example.com';
         });
+
+        $this->followRedirects($response)
+            ->assertOk()
+            ->assertSee('data-toast', false)
+            ->assertSee('Thanks — message sent', false);
     }
 
     public function test_invalid_submission_fails_validation_and_sends_nothing(): void

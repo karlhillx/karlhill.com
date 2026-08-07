@@ -1,12 +1,12 @@
 @extends('layouts.site', ['meta' => \App\Support\PageMeta::notFound()])
 
 @section('content')
-    <section class="relative min-h-[80vh] flex items-center px-6 py-32 overflow-hidden" aria-labelledby="page-not-found-heading">
+    <section class="relative min-h-[80vh] flex items-center site-gutter site-section overflow-hidden" aria-labelledby="page-not-found-heading">
         <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
         <x-site.glow-orb :drift="1" class="-top-32 -left-32 w-[600px] h-[600px]" />
         <x-site.glow-orb :drift="2" :strength="0.09" class="-bottom-40 -right-40 w-[500px] h-[500px]" />
 
-        <div class="relative z-10 max-w-3xl mx-auto text-center">
+        <div class="relative z-10 site-prose text-center">
             <p class="font-mono text-accent text-xs tracking-widest uppercase mb-6 hero-enter" style="animation-delay:100ms">
                 Error &nbsp;·&nbsp; 404
             </p>

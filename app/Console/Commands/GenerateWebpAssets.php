@@ -9,7 +9,7 @@ class GenerateWebpAssets extends Command
 {
     protected $signature = 'assets:webp';
 
-    protected $description = 'Generate WebP variants for raster images under public/img';
+    protected $description = 'Generate WebP + AVIF + LQIP variants for raster images under public/img';
 
     public function handle(): int
     {
@@ -32,7 +32,7 @@ class GenerateWebpAssets extends Command
             return self::FAILURE;
         }
 
-        $this->info('WebP assets generated.');
+        $this->info('WebP/AVIF/LQIP assets generated.');
 
         return self::SUCCESS;
     }

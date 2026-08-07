@@ -9,8 +9,8 @@ return [
         'job_title' => 'Staff Software Engineer',
         'email' => 'karlhillx@gmail.com',
         'location' => 'Washington, DC',
-        'tagline' => 'Staff Software Engineer · 25+ Years',
-        'availability' => 'Available for select consulting',
+        'tagline' => 'Staff Software Engineer · Engineering Leadership · 25+ Years',
+        'availability' => 'Open to Engineering Manager & Staff+ leadership roles',
         'employer' => 'Jacobs',
         'twitter_handle' => '@karl_hill',
     ],
@@ -26,19 +26,39 @@ return [
         ],
     ],
 
+    // Cal.com (or Calendly) scheduling link. When set, "Book a conversation"
+    // CTAs appear on /now, the homepage availability line, and the contact footer.
+    'booking' => [
+        'url' => env('BOOKING_URL'),
+        'label' => env('BOOKING_LABEL', 'Book a conversation'),
+    ],
+
+    // Ordered essay series (slug lists). Used for series nav + writing index cards.
+    'series' => [
+        'em-craft' => [
+            'title' => 'Engineering Manager craft',
+            'description' => 'The Staff→EM bridge: first 90 days, saying no under roadmap pressure, and feedback without politics.',
+            'slugs' => [
+                'staff-to-em-first-90-days',
+                'saying-no-roadmap-pressure',
+                'performance-feedback-without-politics',
+            ],
+        ],
+    ],
+
     // CI-only accessibility fixtures (never enable in production).
     'a11y_fixtures' => filter_var(env('A11Y_FIXTURES', false), FILTER_VALIDATE_BOOLEAN),
 
     'seo' => [
         'home' => [
-            'title' => 'Karl Hill — Staff Software Engineer',
-            'description' => 'Staff Software Engineer with 25+ years building NASA Earth science platforms, flood mapping systems, and mission-critical aerospace software at Jacobs.',
-            'og_description' => '25+ years shipping mission-critical software — NASA Earth science, flood mapping, and aerospace platforms at Jacobs.',
+            'title' => 'Karl Hill — Staff Engineer · Engineering Leadership',
+            'description' => 'Staff Software Engineer moving toward Engineering Manager roles — 25+ years leading platform delivery, coaching engineers, and shipping NASA and aerospace systems people depend on.',
+            'og_description' => 'Platforms, delivery discipline, and engineering leadership — NASA science ops to aerospace mission software at Jacobs.',
         ],
         'blog_index' => [
             'title' => 'Writing — Karl Hill',
-            'description' => 'Reflections on engineering leadership, mission software, and the work that turns code into something people depend on — by Karl Hill.',
-            'og_description' => 'Reflections on engineering leadership, mission software, and the work that turns code into something people depend on.',
+            'description' => 'Essays on engineering leadership, team systems, release governance, and mission software — by Karl Hill.',
+            'og_description' => 'Writing on engineering leadership, team systems, and the work that turns code into something people depend on.',
         ],
         'work' => [
             'title' => 'Work — Karl Hill',
@@ -47,8 +67,13 @@ return [
         ],
         'about' => [
             'title' => 'About — Karl Hill',
-            'description' => 'Experience, research, technical stack, and credentials — 25+ years building and leading engineering teams.',
-            'og_description' => 'Career history, peer-reviewed research, technical stack, and professional certifications.',
+            'description' => 'Staff engineer building Engineering Manager muscles — how I lead, coach, and deliver through NASA science operations and aerospace mission software.',
+            'og_description' => 'How I lead, the experience behind the work, and the path from Staff IC toward Engineering Manager.',
+        ],
+        'now' => [
+            'title' => 'Now — Karl Hill',
+            'description' => 'What Karl Hill is focused on now — Engineering Manager trajectory, aerospace platform delivery, and the leadership craft behind reliable teams.',
+            'og_description' => 'Current focus: shipping aerospace platforms while building Engineering Manager muscles.',
         ],
     ],
 
@@ -74,13 +99,13 @@ return [
 
     'hero' => [
         'headline' => 'Karl Hill',
-        'subtitle' => 'Cloud · Platforms · Engineering Leadership',
-        'positioning' => 'I help mission-driven teams turn hard problems into cloud-native platforms that ship reliably — and keep shipping at scale.',
+        'subtitle' => 'Platforms · Delivery · Engineering Leadership',
+        'positioning' => 'I help mission-driven teams ship reliably — through clear ownership, coaching, and operating standards that outlast any single hero.',
         'bio' => 'I architect systems, lead teams, and ship software that matters — from disaster-response platforms at NASA to mission-critical aerospace systems at Jacobs/BlackLynx.',
-        // Two CTAs, clear hierarchy. Social/email live in the nav and footer.
+        // Two CTAs, clear hierarchy. Lead with the EM funnel; portfolio is one click away.
         'cta' => [
-            ['label' => 'View Work', 'url' => '/work', 'primary' => true],
-            ['label' => 'Get in Touch', 'url' => '#contact'],
+            ['label' => 'Now', 'url' => '/now', 'primary' => true],
+            ['label' => 'How I Lead', 'url' => '/about#how-i-lead'],
         ],
     ],
 
@@ -91,11 +116,11 @@ return [
         ],
         [
             'title' => 'I Lead',
-            'body' => 'Engineering teams from roadmap to release. 1:1s, onboarding, PR standards, definition of done — the unglamorous work that turns a group of developers into a high-performing team that ships consistently.',
+            'body' => 'People and systems together. 1:1s, onboarding, honest feedback, PR standards, and definition of done — the operating work that turns a group of engineers into a team that ships without burning out.',
         ],
         [
             'title' => 'I Deliver',
-            'body' => 'Predictable execution, every sprint. I translate mission needs into sequenced plans, manage stakeholders across technical and non-technical audiences, remove blockers, and ship.',
+            'body' => 'Predictable execution, every sprint. I translate mission needs into sequenced plans, partner with stakeholders, remove blockers for others, and keep trust when priorities collide.',
         ],
     ],
 
@@ -107,6 +132,7 @@ return [
     ],
 
     'experience' => [
+        'intro' => 'Twenty-five years from managed security platforms to NASA science operations to aerospace mission software — the through-line is the same: own the hard systems, raise the team\'s operating standard, and ship work people can depend on.',
         'current' => [
             'label' => 'Current Role',
             'title' => 'Staff Aerospace Software Engineer',
@@ -114,11 +140,9 @@ return [
             'location' => 'Chantilly, VA',
             'period' => 'Sept 2025 — Present',
             'highlights' => [
-                'Lead delivery for cloud-native mission simulation and telemetry services, owning planning, refinement, demos, and stakeholder alignment from concept through execution.',
-                'Drive DevSecOps and release governance through CI/CD, automated testing, quality gates, and security checks that shorten feedback loops and reduce delivery risk.',
-                'Establish engineering standards across multi-repo systems, including branch strategy, PR review discipline, Definition of Done, documentation, and integration readiness.',
-                'Improve team execution through coaching, onboarding, 1:1s, delivery cadence, and clear operating practices across local, cloud, and client environments.',
-                'Translate complex mission, product, and engineering needs into actionable roadmaps that align developers, stakeholders, and delivery priorities.',
+                'Own delivery for cloud-native mission simulation and telemetry services — planning, refinement, demos, and stakeholder alignment from concept through production.',
+                'Coach ~6 engineers across multi-repo mission services through 1:1s, PR discipline, and onboarding patterns that raise the bar without making me the single point of failure.',
+                'Set the engineering operating system across collaborating teams: branch strategy, Definition of Done, and release governance that turns process into predictable shipping.',
             ],
         ],
         'roles' => [
@@ -128,11 +152,10 @@ return [
                 'location' => 'Lanham, MD',
                 'period' => 'Dec 2017 — Sept 2025',
                 'highlights' => [
-                    'Architected NASA\'s cloud-based Flood Mapping System on AWS, delivering near real-time satellite-derived flood products to support global disaster response.',
-                    'Rebuilt the NASA Earth Observatory — a platform serving <strong class="text-white font-semibold">~1.5M monthly visitors</strong> — improving performance, UX, and SEO.',
-                    'Built a high-performance Ceph-based file + metadata platform, improving large dataset discovery and access for researchers.',
-                    'Delivered an automated content registry workflow that boosted data collection efficiency by <strong class="text-white font-semibold">~60%</strong> and accelerated researcher access.',
-                    'Implemented GitLab CI/CD + Docker + Kubernetes delivery — automated deployments, repeatable releases, reliable stakeholder approvals.',
+                    'Led architecture and delivery for NASA\'s Flood Mapping System — automated satellite-to-product pipelines for global disaster response. <a href="/work/flood-mapping-system" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
+                    'Directed the Earth Observatory re-platform for editorial velocity, performance, and long-term maintainability at public scale (1.5M+ monthly visitors). <a href="/work/nasa-earth-observatory" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
+                    'Mentored and coordinated ~4 engineers and content partners across Flood Mapping, Earth Observatory, Direct Readout, and ESSCOR — turning platform ownership into shared delivery discipline instead of heroics.',
+                    'Stood up GitLab CI/CD with Docker and Kubernetes so releases were repeatable, reviewable, and safe for stakeholder-approved science delivery.',
                 ],
             ],
             [
@@ -141,9 +164,18 @@ return [
                 'location' => 'St. Petersburg, FL',
                 'period' => 'Jan 2016 — Dec 2017',
                 'highlights' => [
-                    'Architected a Laravel-based case management platform reducing operational costs by <strong class="text-white font-semibold">$30K/year</strong>.',
-                    'Led CRM enhancements improving client retention and contributing ~15% revenue growth through better lifecycle workflows and reporting.',
-                    'Spearheaded platform upgrades and security improvements, doubling incident response efficiency and strengthening operational readiness.',
+                    'Architected a Laravel case-management platform that cut operational cost by <strong class="text-white font-semibold">$30K/year</strong> while hardening clinical workflow reliability.',
+                    'Partnered with a 2–4 person engineering circle plus product and operations on CRM lifecycle upgrades that improved retention and contributed ~15% revenue growth.',
+                ],
+            ],
+            [
+                'title' => 'Software Developer',
+                'company' => 'Verizon Business',
+                'location' => 'Herndon, VA',
+                'period' => '1999 — 2005',
+                'highlights' => [
+                    'Architected Finium, the multi-tenant managed-security platform that scaled client engagements 10× and directly enabled a <strong class="text-white font-semibold">$105M</strong> acquisition by MCI/Verizon. <a href="/work/finium" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
+                    'Owned platform architecture and delivery for enterprise security customers — coaching 2–4 engineers into shared ownership when reliability and tenancy isolation were the product.',
                 ],
             ],
         ],
@@ -165,11 +197,6 @@ return [
                     'company' => 'Dante Inc.',
                     'meta' => 'Principal Software Engineer · Arlington, VA · 2007–2010',
                     'detail' => 'Delivered enterprise solutions for Comcast and Mastercard that improved operational efficiency ~40%. Owned end-to-end Scrum delivery as technical lead — from backlog planning through retrospectives.',
-                ],
-                [
-                    'company' => 'Verizon Business',
-                    'meta' => 'Software Developer · Herndon, VA · 1999–2005',
-                    'detail' => 'Architected Finium, the multi-tenant managed-security platform that scaled client engagements 10× and directly enabled a $105M acquisition by MCI/Verizon.',
                 ],
                 [
                     'company' => 'Advantage Industries, Inc.',
@@ -194,6 +221,12 @@ return [
             'case_study' => [
                 'lede' => 'A flagship NASA science communication platform serving 1.5M+ monthly visitors — rebuilt for editorial velocity, performance, and long-term maintainability.',
                 'role' => 'Lead engineer — owned the platform re-architecture and publishing pipeline, and set the frontend performance and accessibility standards.',
+                'leadership' => [
+                    'mode' => 'Tech lead / sticky IC across platform engineering and editorial partners',
+                    'team' => '~4 engineers and content partners on a flagship site serving 1.5M+ monthly visitors',
+                    'unblocked' => 'Moved story production off one-off engineering work so editors could ship without waiting on custom builds.',
+                    'decision' => 'Traded short-term feature velocity for a shared publishing model — fewer heroics per story, higher long-term throughput.',
+                ],
                 'problem' => [
                     'Editorial teams relied on brittle, one-off publishing patterns that slowed routine story production.',
                     'Performance, accessibility, and SEO debt accumulated as traffic and content volume grew.',
@@ -229,6 +262,12 @@ return [
             'case_study' => [
                 'lede' => 'Near real-time flood inundation mapping from satellite data — built for disaster response when latency is measured in hours, not sprints.',
                 'role' => 'Architect & lead developer — designed and automated the end-to-end geospatial pipeline on AWS.',
+                'leadership' => [
+                    'mode' => 'Technical lead for a mission-critical geospatial pipeline',
+                    'team' => '~4 engineers and science partners, plus emergency-management users from sensor acquisition through global dissemination',
+                    'unblocked' => 'Removed manual handoffs that forced late-night heroics during active disaster events.',
+                    'decision' => 'Prioritized automation and fault tolerance over ad-hoc speed — latency dropped because the team system was reliable under urgency.',
+                ],
                 'problem' => [
                     'Manual processing steps delayed flood products during active global disaster events.',
                     'End-to-end workflows from sensor acquisition to dissemination spanned multiple teams and environments.',
@@ -263,6 +302,12 @@ return [
             'case_study' => [
                 'lede' => 'A scientific data hub ingesting multi-instrument satellite streams and distributing geophysical products to a global network of ground stations.',
                 'role' => 'Lead developer — designed the ingestion and reformatting architecture and operated the round-the-clock processing infrastructure.',
+                'leadership' => [
+                    'mode' => 'Lead developer / operations owner for continuous science infrastructure',
+                    'team' => '~4 engineers and science operations partners, plus a global network of registered direct-broadcast ground stations',
+                    'unblocked' => 'Made instrument portfolio changes operable without rewriting tribal processing knowledge.',
+                    'decision' => 'Standardized product tiers and distribution paths so partner stations could trust the system instead of individual operators.',
+                ],
                 'problem' => [
                     'Multi-instrument sensor streams required consistent reformatting from Level-0 through Level-2 products.',
                     'Operational centers and research partners depended on predictable, near real-time delivery.',
@@ -325,6 +370,12 @@ return [
             'case_study' => [
                 'lede' => 'A clinical genomics workflow platform that unified case management, counseling routing, and billing across distributed care teams.',
                 'role' => 'Platform architect — designed and delivered the case-management system end-to-end.',
+                'leadership' => [
+                    'mode' => 'Platform architect in a small delivery circle',
+                    'team' => '2–4 engineers, partnering closely with product and clinical operations',
+                    'unblocked' => 'Replaced fragmented manual workflows so care teams were not waiting on ad-hoc engineering for routine cases.',
+                    'decision' => 'Prioritized governed case management and auditability over feature sprawl — reliability was the product.',
+                ],
                 'problem' => [
                     'Fragmented operational processes created manual overhead across case intake, routing, and billing.',
                     'Distributed care teams lacked a governed system with auditability and role-based access.',
@@ -354,6 +405,12 @@ return [
             'case_study' => [
                 'lede' => 'An enterprise managed security services platform that scaled client operations across a national carrier network.',
                 'role' => 'Core developer — built the multi-tenant provisioning, monitoring, and incident-response services.',
+                'leadership' => [
+                    'mode' => 'Core platform owner growing shared engineering ownership',
+                    'team' => '2–4 platform engineers supporting multi-tenant security operations for a Fortune 500 carrier — scaled client engagements 10×',
+                    'unblocked' => 'Automated provisioning and incident orchestration so growth was not gated on tribal knowledge.',
+                    'decision' => 'Invested in multi-tenant platform foundations early — the trade paid off when client engagements scaled 10×.',
+                ],
                 'problem' => [
                     'Multi-tenant security operations required manual provisioning, monitoring, and incident coordination.',
                     'Growth was constrained by operational bottlenecks in client onboarding and response workflows.',
@@ -409,14 +466,63 @@ return [
     ],
 
     'footer' => [
-        'headline' => "Let's Work\nTogether",
-        'body' => 'Building something important and need an engineer who can lead, architect, and deliver? I\'d like to hear about it.',
+        'headline' => "Let's Talk\nLeadership",
+        'body' => 'Open to Engineering Manager and Staff+ leadership conversations — and to select consulting when the mission matters. Building a team or a platform? Reach out.',
         'resume' => '/files/karlhill-resume.pdf',
+        'contact_placeholder' => 'Team leadership, EM opportunities, or a platform that needs to ship — tell me what you\'re working on.',
     ],
 
     'about' => [
-        // A short, human note that rounds out the résumé — kept true and specific.
+        // About-only lede — answers why this career story matters (not a homepage repeat).
+        'lede' => 'I\'m a staff engineer building Engineering Manager muscles — leading platform teams through messy, high-stakes delivery where reliability, coaching, and judgment matter as much as the architecture. This page is the arc behind the work: NASA science operations, aerospace mission software, and how I lead people through hard systems.',
+        'how_i_lead' => [
+            'title' => 'How I lead',
+            'intro' => 'Staff influence becomes manager accountability when people outcomes are as explicit as system outcomes. This is how I work with engineers and stakeholders today.',
+            'items' => [
+                [
+                    'title' => '1:1s that surface risk',
+                    'body' => 'Career growth, feedback, and delivery risk in the same conversation — not three separate rituals. Blockers show up early enough to act.',
+                ],
+                [
+                    'title' => 'Tradeoffs made visible',
+                    'body' => 'What we ship, what we defer, and what we refuse — so the team can protect focus without politics.',
+                ],
+                [
+                    'title' => 'Standards over heroics',
+                    'body' => 'Raise the bar through coaching instead of becoming the bottleneck — PR discipline, Definition of Done, and reviews that teach.',
+                ],
+                [
+                    'title' => 'Stakeholder trust in plain language',
+                    'body' => 'Partner with product and mission partners so trust survives roadmap pressure and surprise constraints.',
+                ],
+                [
+                    'title' => 'Team outcomes over personal touch',
+                    'body' => 'Measure success by predictability and ownership — not by how much I personally touch.',
+                ],
+            ],
+        ],
+        // Human coda — kept true and specific; sits after the résumé sections.
         'beyond' => 'Away from the terminal, I\'m based in Washington, DC, where I write and release music (you\'ll find a back catalog on Discogs). I\'m happiest with a hard problem, a whiteboard, and a team worth building with — and I care as much about mentoring the next engineer as I do about shipping the next release.',
+    ],
+
+    'now' => [
+        'updated' => 'August 7, 2026',
+        'lede' => 'Building Engineering Manager muscles while shipping aerospace platforms — honest about the Staff title, clear about the destination.',
+        'focus' => [
+            [
+                'title' => 'Engineering leadership trajectory',
+                'body' => 'Open to Engineering Manager and Staff+ leadership roles. Practicing the manager craft now: coaching, prioritization, stakeholder trust, and team systems that outlast heroics.',
+            ],
+            [
+                'title' => 'Aerospace platform delivery',
+                'body' => 'At Jacobs, owning cloud-native mission simulation and telemetry services — planning, DevSecOps, and release governance when mission risk is high.',
+            ],
+            [
+                'title' => 'Writing the leadership craft',
+                'body' => 'Publishing the Engineering Manager craft series — Staff→EM first 90 days, saying no under roadmap pressure, and performance feedback without politics.',
+            ],
+        ],
+        'reading' => 'Looking for conversations about team leadership, platform ownership, and roles where technical depth and people leadership reinforce each other.',
     ],
 
     'github' => [
@@ -440,7 +546,7 @@ return [
         'fallback_repos' => [
             [
                 'name' => 'sim-rs',
-                'description' => '🚀 High-performance satellite orbit and telemetry simulation engine. Built with Rust and Tokio for scale-testing mission control pipelines and high-throughput data sinks.',
+                'description' => 'High-performance satellite orbit and telemetry simulation engine. Built with Rust and Tokio for scale-testing mission control pipelines and high-throughput data sinks.',
                 'url' => 'https://github.com/karlhillx/sim-rs',
                 'stars' => 0,
                 'language' => 'Rust',
@@ -448,7 +554,7 @@ return [
             ],
             [
                 'name' => 'pipeguard',
-                'description' => '🛡️ Policy-as-code validator for Bitbucket Pipelines. Enforce CI/CD standards, deployment safety, and organizational consistency across repositories.',
+                'description' => 'Policy-as-code validator for Bitbucket Pipelines. Enforce CI/CD standards, deployment safety, and organizational consistency across repositories.',
                 'url' => 'https://github.com/karlhillx/pipeguard',
                 'stars' => 0,
                 'language' => 'Go',
@@ -456,7 +562,7 @@ return [
             ],
             [
                 'name' => 'bb-run',
-                'description' => '🧪 Run Bitbucket Pipelines locally — execute your bitbucket-pipelines.yml faithfully in Docker or on your host, with parallel steps, fail-fast, and artifacts.',
+                'description' => 'Run Bitbucket Pipelines locally — execute your bitbucket-pipelines.yml faithfully in Docker or on your host, with parallel steps, fail-fast, and artifacts.',
                 'url' => 'https://github.com/karlhillx/bb-run',
                 'stars' => 1,
                 'language' => 'Python',
@@ -464,7 +570,7 @@ return [
             ],
             [
                 'name' => 'driftlens',
-                'description' => '🔍 The observability lens for configuration drift. Detect, classify, and score risky environment differences across .env, YAML, and JSON with policy-as-code.',
+                'description' => 'Observability for configuration drift. Detect, classify, and score risky environment differences across .env, YAML, and JSON with policy-as-code.',
                 'url' => 'https://github.com/karlhillx/driftlens',
                 'stars' => 0,
                 'language' => 'Python',
@@ -472,7 +578,7 @@ return [
             ],
             [
                 'name' => 'drift-rs',
-                'description' => '🛰️ High-performance telemetry and simulation data sink for aerospace operations. Built in Rust for memory safety, ultra-low latency, and mission-critical reliability.',
+                'description' => 'High-performance telemetry and simulation data sink for aerospace operations. Built in Rust for memory safety, ultra-low latency, and mission-critical reliability.',
                 'url' => 'https://github.com/karlhillx/drift-rs',
                 'stars' => 0,
                 'language' => 'Rust',

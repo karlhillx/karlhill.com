@@ -28,10 +28,10 @@
 @endpush
 
 @section('content')
-    <article class="relative pt-36 pb-20 px-6">
+    <article class="relative site-article">
         <x-site.glow-orb :drift="1" :strength="0.10" class="top-24 -left-48 w-[500px] h-[500px]" />
 
-        <div class="relative z-10 max-w-3xl mx-auto">
+        <div class="relative z-10 site-prose">
             <x-site.breadcrumbs :items="[
                 ['label' => 'Home', 'url' => '/'],
                 ['label' => 'Work', 'url' => '/work'],
@@ -60,17 +60,26 @@
                 @endforeach
             </div>
 
-            @php
-                $heroImg = \App\Support\Images::webp($project['image']);
-                $heroSrcset = \App\Support\Images::srcset($heroImg);
-            @endphp
-            <figure class="mb-12 -mx-6 sm:mx-0">
-                <img src="{{ $heroImg }}"
-                     @if($heroSrcset) srcset="{{ $heroSrcset }}" sizes="(min-width: 832px) 48rem, 100vw" @endif
-                     alt="Screenshot of {{ $project['title'] }}"
-                     loading="eager" decoding="async" fetchpriority="high"
-                     style="view-transition-name: work-img-{{ $project['slug'] }}; view-transition-class: card-media"
-                     class="w-full aspect-[16/9] object-cover {{ $project['imagePosition'] ?? 'object-center' }} sm:rounded-sm border-y sm:border border-neutral-800/70">
+            <figure class="case-study-media mb-12 site-bleed sm:!mx-0" data-reveal>
+                <x-site.responsive-image
+                    :src="$project['image']"
+                    :alt="'Screenshot of '.$project['title']"
+                    sizes="(min-width: 832px) 48rem, 100vw"
+                    loading="eager"
+                    fetchpriority="high"
+                    :img-style="'view-transition-name: work-img-'.$project['slug'].'; view-transition-class: card-media'"
+                    img-class="case-study-media__img w-full aspect-[16/9] object-cover {{ $project['imagePosition'] ?? 'object-center' }} sm:rounded-sm border-y sm:border border-neutral-800/70"
+                />
+                <figcaption class="case-study-media__caption site-gutter sm:!px-0">
+                    <span class="case-study-media__label">Case study</span>
+                    <span class="case-study-media__detail">
+                        {{ $project['title'] }}
+                        @if(! empty($project['meta']))
+                            <span class="text-neutral-600" aria-hidden="true">·</span>
+                            {{ $project['meta'] }}
+                        @endif
+                    </span>
+                </figcaption>
             </figure>
 
             @if(! empty($study['metrics']))
@@ -97,6 +106,27 @@
             @endif
 
             <div class="space-y-12">
+                @if(! empty($study['leadership']))
+                    <section data-reveal>
+                        <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Team &amp; leadership</h2>
+                        <dl class="grid sm:grid-cols-2 gap-6 max-w-3xl">
+                            @foreach([
+                                'mode' => 'Leadership mode',
+                                'team' => 'Team & partners',
+                                'unblocked' => 'What I unblocked',
+                                'decision' => 'Hard decision',
+                            ] as $key => $label)
+                                @if(! empty($study['leadership'][$key]))
+                                    <div @class(['sm:col-span-2' => in_array($key, ['unblocked', 'decision'], true)])>
+                                        <dt class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-2">{{ $label }}</dt>
+                                        <dd class="text-neutral-300 text-sm leading-relaxed">{{ $study['leadership'][$key] }}</dd>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </dl>
+                    </section>
+                @endif
+
                 <section data-reveal>
                     <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Problem</h2>
                     <x-site.arrow-list :items="$study['problem']" />

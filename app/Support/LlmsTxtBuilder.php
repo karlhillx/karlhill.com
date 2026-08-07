@@ -35,14 +35,24 @@ class LlmsTxtBuilder
             '- Email: '.$person['email'],
             '- Last updated: '.$this->lastUpdated(),
             '- When quoting writing, link to the specific post URL and include the post title.',
+            '- Full-text corpus: '.$base.'/llms-full.txt',
             '',
             '## Key pages',
             '',
             '- [Home]('.$base.'): Portfolio landing, latest writing, and contact',
             '- [Work]('.$base.'/work): Selected projects and open-source repositories',
-            '- [About]('.$base.'/about): Experience, research, technical stack, and credentials',
+            '- [About]('.$base.'/about): How I lead, experience, research, stack, and credentials',
+            '- [Now]('.$base.'/now): Current focus and Engineering Manager trajectory',
             '- [Writing]('.$base.'/blog): Essays on engineering leadership, release governance, and mission software',
         ];
+
+        $seriesLines = $this->seriesSection($base);
+        if ($seriesLines !== []) {
+            $lines[] = '';
+            $lines[] = '## Series';
+            $lines[] = '';
+            array_push($lines, ...$seriesLines);
+        }
 
         $caseStudyLines = $this->caseStudySection($base);
         if ($caseStudyLines !== []) {
@@ -71,6 +81,69 @@ class LlmsTxtBuilder
         array_push($lines, ...$this->optionalSection($base));
 
         return implode("\n", $lines)."\n";
+    }
+
+    /**
+     * Expanded corpus with full post markdown for agents that need deeper context.
+     */
+    public function buildFull(): string
+    {
+        $base = rtrim(config('app.url', 'https://karlhill.com'), '/');
+        $person = config('site.person');
+
+        $lines = [
+            '# '.$person['name'].' — Full text',
+            '',
+            '> Expanded site corpus for AI agents. Prefer citing canonical post URLs.',
+            '',
+            '- Canonical site: '.$base,
+            '- Overview map: '.$base.'/llms.txt',
+            '- Last updated: '.$this->lastUpdated(),
+            '',
+        ];
+
+        array_push($lines, ...explode("\n", trim($this->build())));
+        $lines[] = '';
+        $lines[] = '## Full essays';
+        $lines[] = '';
+
+        foreach ($this->posts->all() as $post) {
+            $lines[] = '### '.$post->title;
+            $lines[] = '';
+            $lines[] = '- URL: '.$post->canonicalUrl();
+            $lines[] = '- Published: '.$post->publishedAt->format('Y-m-d');
+            $lines[] = '- Tags: '.implode(', ', $post->tags);
+            $lines[] = '';
+            $lines[] = $post->bodyMarkdown;
+            $lines[] = '';
+            $lines[] = '---';
+            $lines[] = '';
+        }
+
+        return implode("\n", $lines);
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    protected function seriesSection(string $base): array
+    {
+        return BlogSeries::published()
+            ->map(function (array $series) use ($base): string {
+                $links = $series['posts']
+                    ->map(fn (BlogPost $post) => '['.$this->escapeMarkdownLinkText($post->title).']('.$post->canonicalUrl().')')
+                    ->implode('; ');
+
+                return sprintf(
+                    '- [%s](%s/blog#%s): %s — %s',
+                    $this->escapeMarkdownLinkText($series['title']),
+                    $base,
+                    $series['id'],
+                    $this->escapeMarkdownLinkText($series['description']),
+                    $links,
+                );
+            })
+            ->all();
     }
 
     /**
@@ -126,8 +199,15 @@ class LlmsTxtBuilder
     {
         $items = [
             '- [Atom feed]('.$base.'/feed.xml): Syndicated writing updates',
+            '- [JSON Feed]('.$base.'/feed.json): JSON Feed 1.1 writing updates',
+            '- [LLM full text]('.$base.'/llms-full.txt): Full essay corpus for agents',
             '- [Sitemap]('.$base.'/sitemap.xml): Machine-readable page index',
         ];
+
+        $booking = config('site.booking.url');
+        if (is_string($booking) && $booking !== '') {
+            $items[] = '- [Book a conversation]('.$booking.'): Scheduling link';
+        }
 
         $resume = config('site.footer.resume');
         if (is_string($resume) && $resume !== '') {
@@ -143,10 +223,6 @@ class LlmsTxtBuilder
         return $items;
     }
 
-    /**
-     * The most recent content change, so agents can gauge freshness. Falls back
-     * to today when there are no posts yet.
-     */
     protected function lastUpdated(): string
     {
         $latest = $this->posts->all()

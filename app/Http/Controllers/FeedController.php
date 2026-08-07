@@ -11,7 +11,7 @@ class FeedController extends Controller
         protected readonly BlogPostRepository $posts,
     ) {}
 
-    public function __invoke(): Response
+    public function atom(): Response
     {
         $posts = $this->posts->all();
         $base = rtrim(config('app.url', 'https://karlhill.com'), '/');
@@ -53,6 +53,7 @@ XML;
   <subtitle>Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on.</subtitle>
   <link rel="alternate" type="text/html" href="{$base}/blog"/>
   <link rel="self" type="application/atom+xml" href="{$feedId}"/>
+  <link rel="alternate" type="application/feed+json" href="{$base}/feed.json"/>
   <id>{$feedId}</id>
   <updated>{$updated}</updated>
   <author><name>Karl Hill</name><uri>{$base}</uri></author>
@@ -64,5 +65,53 @@ XML;
             'Content-Type' => 'application/atom+xml; charset=utf-8',
             'Cache-Control' => 'public, max-age=900',
         ]);
+    }
+
+    public function json(): Response
+    {
+        $posts = $this->posts->all();
+        $base = rtrim(config('app.url', 'https://karlhill.com'), '/');
+
+        $items = $posts->map(function ($post) {
+            return array_filter([
+                'id' => $post->canonicalUrl(),
+                'url' => $post->canonicalUrl(),
+                'title' => $post->title,
+                'content_html' => $post->bodyHtml,
+                'summary' => $post->excerpt,
+                'date_published' => $post->publishedAt->toIso8601String(),
+                'date_modified' => $post->modifiedAt()->toIso8601String(),
+                'authors' => [
+                    ['name' => 'Karl Hill'],
+                ],
+                'tags' => $post->tags,
+                'image' => $post->heroImageUrl(),
+            ], fn ($value) => $value !== null && $value !== []);
+        })->values()->all();
+
+        $feed = [
+            'version' => 'https://jsonfeed.org/version/1.1',
+            'title' => 'Karl Hill — Writing',
+            'home_page_url' => $base.'/blog',
+            'feed_url' => $base.'/feed.json',
+            'description' => 'Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on.',
+            'language' => 'en-US',
+            'authors' => [
+                [
+                    'name' => 'Karl Hill',
+                    'url' => $base,
+                ],
+            ],
+            'items' => $items,
+        ];
+
+        return response(
+            json_encode($feed, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)."\n",
+            200,
+            [
+                'Content-Type' => 'application/feed+json; charset=utf-8',
+                'Cache-Control' => 'public, max-age=900',
+            ],
+        );
     }
 }

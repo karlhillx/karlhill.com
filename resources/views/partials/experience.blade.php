@@ -1,24 +1,33 @@
 @php($experience = config('site.experience'))
 @php($current = $experience['current'])
 
-<x-site.section id="experience" :number="$sectionNumber ?? '01'" label="Experience">
-        <div class="role-active rounded-sm mb-16 p-8 md:p-10 border border-accent/25 bg-accent/[0.03]" data-reveal>
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-8">
-                <div>
+<x-site.section id="experience" section-label="Experience">
+        <div class="site-heading-space max-w-3xl" data-reveal>
+            <x-site.section-heading :number="$sectionNumber ?? '01'" label="Experience" class="!mb-5" />
+            @if(! empty($experience['intro']))
+                <p class="opsz-scroll text-neutral-400 text-base leading-relaxed">
+                    {{ $experience['intro'] }}
+                </p>
+            @endif
+        </div>
+
+        <div class="role-active rounded-sm mb-12 sm:mb-20 p-5 sm:p-8 md:p-12 border border-accent/25 bg-accent/[0.03]" data-reveal>
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 sm:gap-4 mb-8 sm:mb-10">
+                <div class="min-w-0">
                     <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">{{ $current['label'] }}</p>
-                    <h3 class="font-display text-4xl tracking-wide">{{ $current['title'] }}</h3>
-                    <p class="text-accent/80 font-medium mt-1.5">{{ $current['company'] }} &nbsp;·&nbsp; {{ $current['location'] }}</p>
+                    <h3 class="font-display text-3xl sm:text-4xl tracking-wide leading-tight">{{ $current['title'] }}</h3>
+                    <p class="text-accent/80 font-medium mt-1.5 text-sm sm:text-base">{{ $current['company'] }} &nbsp;·&nbsp; {{ $current['location'] }}</p>
                 </div>
-                <span class="font-mono text-xs text-neutral-600 uppercase tracking-widest whitespace-nowrap mt-1">{{ $current['period'] }}</span>
+                <span class="font-mono text-xs text-neutral-600 uppercase tracking-widest md:whitespace-nowrap mt-1 shrink-0">{{ $current['period'] }}</span>
             </div>
             <x-site.arrow-list :items="$current['highlights']" class="text-neutral-300" />
         </div>
 
         <div class="space-y-0 divide-y divide-neutral-800">
             @foreach($experience['roles'] as $role)
-                <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 py-14" data-reveal>
+                <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 site-list-row" data-reveal>
                     <div>
-                        <h3 class="font-display text-2xl tracking-wide leading-tight">{{ $role['title'] }}</h3>
+                        <h3 class="font-display text-xl sm:text-2xl tracking-wide leading-tight">{{ $role['title'] }}</h3>
                         <p class="text-accent text-sm font-medium mt-2">{{ $role['company'] }}</p>
                         <p class="text-neutral-600 text-sm">{{ $role['location'] }}</p>
                         <span class="font-mono text-xs text-neutral-600 mt-3 block">{{ $role['period'] }}</span>
@@ -28,7 +37,7 @@
             @endforeach
 
             @php($earlier = $experience['earlier'])
-            <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 py-14" data-reveal>
+            <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 site-list-row" data-reveal>
                 <div>
                     <h3 class="font-display text-2xl tracking-wide leading-tight">{{ $earlier['title'] }}</h3>
                     <span class="font-mono text-xs text-neutral-600 mt-3 block">{{ $earlier['period'] }}</span>

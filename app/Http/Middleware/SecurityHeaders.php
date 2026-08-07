@@ -86,6 +86,7 @@ class SecurityHeaders
             "frame-ancestors 'none'",
             "object-src 'none'",
             "font-src 'self'",
+            "worker-src 'self'",
             // Inline style attributes (hero animation delays, view-transition
             // names, gradient orbs) require 'unsafe-inline' for styles.
             "style-src 'self' 'unsafe-inline'",

@@ -104,6 +104,25 @@ final class PageMeta
         );
     }
 
+    public static function now(): self
+    {
+        $seo = config('site.seo.now');
+        $url = self::siteUrl();
+
+        return new self(
+            title: $seo['title'],
+            description: $seo['description'],
+            canonical: "{$url}/now",
+            ogTitle: $seo['title'],
+            ogDescription: $seo['og_description'],
+            ogImage: "{$url}/img/og-home.jpg",
+            ogImageAlt: $seo['title'],
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
+            activeNav: 'now',
+        );
+    }
+
     public static function blogTag(string $tag): self
     {
         $label = Str::title(str_replace('-', ' ', $tag));
