@@ -17,8 +17,8 @@ return [
 
     'analytics' => [
         'google' => [
-            'enabled' => env('GOOGLE_ANALYTICS_ENABLED', false),
-            'id' => env('GOOGLE_ANALYTICS_MEASUREMENT_ID'),
+            'enabled' => filter_var(env('GOOGLE_ANALYTICS_ENABLED', true), FILTER_VALIDATE_BOOLEAN),
+            'id' => env('GOOGLE_ANALYTICS_MEASUREMENT_ID', 'G-EZZNL8KY8P'),
         ],
         'plausible' => [
             'enabled' => env('PLAUSIBLE_ENABLED', false),
