@@ -29,7 +29,7 @@ return [
     // Cal.com (or Calendly) scheduling link. When set, "Book a conversation"
     // CTAs appear on /now, the homepage availability line, and the contact footer.
     'booking' => [
-        'url' => env('BOOKING_URL'),
+        'url' => env('BOOKING_URL', 'https://calendly.com/karlhill'),
         'label' => env('BOOKING_LABEL', 'Book a conversation'),
     ],
 
