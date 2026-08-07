@@ -30,57 +30,7 @@
                 </p>
 
                 @if($isHome)
-                    <form id="contact-form" method="POST" action="{{ route('contact.store') }}" class="mt-10 space-y-5 max-w-md" aria-label="Send a message">
-                        @csrf
-
-                        {{-- Honeypot: hidden from people, irresistible to bots. --}}
-                        <div class="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
-                            <label>Company <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-                        </div>
-
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div>
-                                <label for="contact-name" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-1.5">Your name</label>
-                                <input id="contact-name" name="name" type="text" required maxlength="120"
-                                       value="{{ old('name') }}" placeholder="Your name" autocomplete="name"
-                                       @if($errors->has('name')) aria-invalid="true" aria-describedby="contact-name-error" @endif
-                                       @class([
-                                           'w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent',
-                                           'border-red-500/60' => $errors->has('name'),
-                                           'border-neutral-800' => ! $errors->has('name'),
-                                       ])>
-                                @error('name')<p id="contact-name-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
-                            </div>
-                            <div>
-                                <label for="contact-email" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-1.5">Your email</label>
-                                <input id="contact-email" name="email" type="email" required maxlength="190"
-                                       value="{{ old('email') }}" placeholder="you@company.com" autocomplete="email"
-                                       @if($errors->has('email')) aria-invalid="true" aria-describedby="contact-email-error" @endif
-                                       @class([
-                                           'w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent',
-                                           'border-red-500/60' => $errors->has('email'),
-                                           'border-neutral-800' => ! $errors->has('email'),
-                                       ])>
-                                @error('email')<p id="contact-email-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
-                            </div>
-                        </div>
-                        <div>
-                            <label for="contact-message" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-1.5">Message</label>
-                            <textarea id="contact-message" name="message" required minlength="10" maxlength="4000" rows="4"
-                                      placeholder="{{ config('site.footer.contact_placeholder', 'What are you building, and how can I help?') }}"
-                                      @if($errors->has('message')) aria-invalid="true" aria-describedby="contact-message-error" @endif
-                                      @class([
-                                          'contact-textarea w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent resize-y',
-                                          'border-red-500/60' => $errors->has('message'),
-                                          'border-neutral-800' => ! $errors->has('message'),
-                                      ])>{{ old('message') }}</textarea>
-                            @error('message')<p id="contact-message-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $message }}</p>@enderror
-                        </div>
-                        <button type="submit" id="contact-submit"
-                                class="btn-sweep inline-flex items-center gap-2 border border-accent/50 text-accent font-mono text-xs uppercase tracking-widest px-6 py-3">
-                            Send message <span aria-hidden="true">→</span>
-                        </button>
-                    </form>
+                    <x-site.contact-form id-prefix="contact" return-to="/" />
                 @endif
             </div>
             <div class="flex flex-col gap-4 {{ $isHome ? 'lg:pt-16' : '' }} shrink-0" @if($isHome) data-reveal @endif>
@@ -115,12 +65,10 @@
                     </a>
                 @endif
 
-                <a href="{{ $footer['resume'] }}" target="_blank" rel="noopener noreferrer"
+                <a href="/resume"
                    class="btn-sweep inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">
-                    <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                    </svg>
-                    Download Resume
+                    Resume
+                    <span aria-hidden="true">→</span>
                 </a>
 
                 <x-site.social-links />
@@ -132,6 +80,7 @@
                     <li><a href="/about" class="text-neutral-400 hover:text-accent transition-colors">About</a></li>
                     <li><a href="/blog" class="text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
                     <li><a href="/now" class="text-neutral-400 hover:text-accent transition-colors">Now</a></li>
+                    <li><a href="/resume" class="text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
                 </ul>
             </nav>
         </div>

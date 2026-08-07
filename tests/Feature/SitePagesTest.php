@@ -139,6 +139,26 @@ class SitePagesTest extends TestCase
         $response->assertSee('Aerospace platform delivery', escape: false);
         $response->assertSee('August 7, 2026', escape: false);
         $response->assertSee('href="/about#how-i-lead"', escape: false);
+        $response->assertSee('For recruiters', escape: false);
+        $response->assertSee('id="now-contact-form"', escape: false);
+        $response->assertSee('name="return_to"', escape: false);
+        $response->assertSee('linkedin.com/in/khill', escape: false);
+    }
+
+    public function test_about_and_resume_pages_include_contact_and_live_cv(): void
+    {
+        $about = $this->get('/about');
+        $about->assertStatus(200);
+        $about->assertSee('id="about-contact-form"', escape: false);
+        $about->assertSee('href="/resume"', escape: false);
+
+        $resume = $this->get('/resume');
+        $resume->assertStatus(200);
+        $resume->assertSee('Staff Aerospace Software Engineer', escape: false);
+        $resume->assertSee('Jacobs', escape: false);
+        $resume->assertSee('id="resume-contact-form"', escape: false);
+        $resume->assertSee('Print / Save PDF', escape: false);
+        $resume->assertDontSee('<a href="/work/flood-mapping-system"', escape: false);
     }
 
     public function test_booking_cta_appears_when_configured(): void
@@ -159,10 +179,11 @@ class SitePagesTest extends TestCase
         $this->assertFileExists(public_path('sw.js'));
         $this->assertFileExists(public_path('offline.html'));
         $this->assertStringContainsString("You're offline", (string) file_get_contents(public_path('offline.html')));
-        $this->assertStringContainsString('karlhill-offline-v2', (string) file_get_contents(public_path('sw.js')));
+        $this->assertStringContainsString('karlhill-offline-v3', (string) file_get_contents(public_path('sw.js')));
         $this->assertStringContainsString("'/now'", (string) file_get_contents(public_path('sw.js')));
         $this->assertStringContainsString("'/about'", (string) file_get_contents(public_path('sw.js')));
         $this->assertStringContainsString("'/work'", (string) file_get_contents(public_path('sw.js')));
+        $this->assertStringContainsString("'/resume'", (string) file_get_contents(public_path('sw.js')));
     }
 
     public function test_footer_includes_site_explore_links(): void
@@ -185,11 +206,13 @@ class SitePagesTest extends TestCase
         $response->assertSee('Open to Engineering Manager', escape: false);
     }
 
-    public function test_sitemap_includes_now_page(): void
+    public function test_sitemap_includes_now_and_resume_pages(): void
     {
         $response = $this->get('/sitemap.xml');
 
         $response->assertStatus(200);
         $response->assertSee('/now', escape: false);
+        $response->assertSee('/resume', escape: false);
+        $response->assertSee('<priority>0.9</priority>', escape: false);
     }
 }

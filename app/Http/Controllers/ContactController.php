@@ -10,12 +10,24 @@ use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
+    /**
+     * Paths that may receive the post-submit redirect (fragment #contact).
+     *
+     * @var list<string>
+     */
+    protected array $allowedReturnPaths = [
+        '/',
+        '/now',
+        '/about',
+        '/resume',
+    ];
+
     public function store(Request $request): RedirectResponse
     {
         // Honeypot: real people never fill this hidden field. If it's populated
         // we quietly pretend the send succeeded so bots get no useful signal.
         if (filled($request->input('company'))) {
-            return $this->done();
+            return $this->done($request);
         }
 
         $validator = Validator::make($request->only('name', 'email', 'message'), [
@@ -25,9 +37,8 @@ class ContactController extends Controller
         ]);
 
         if ($validator->fails()) {
-            // Redirect with the #contact-form fragment so the visitor lands on
-            // the form (in the footer) and actually sees the error messages.
-            return redirect(route('home').'#contact-form')
+            // Land on the form that submitted so validation feedback is visible.
+            return redirect($this->returnUrl($request, fragment: 'contact-form'))
                 ->withErrors($validator)
                 ->withInput($request->only('name', 'email', 'message'));
         }
@@ -46,16 +57,39 @@ class ContactController extends Controller
             // graceful fallback with their message preserved.
             report($e);
 
-            return redirect(route('home').'#contact')
+            return redirect($this->returnUrl($request, fragment: 'contact'))
                 ->withInput($request->only('name', 'email', 'message'))
                 ->with('status', 'contact-failed');
         }
 
-        return $this->done();
+        return $this->done($request);
     }
 
-    protected function done(): RedirectResponse
+    protected function done(Request $request): RedirectResponse
     {
-        return redirect(route('home').'#contact')->with('status', 'contact-sent');
+        return redirect($this->returnUrl($request, fragment: 'contact'))
+            ->with('status', 'contact-sent');
+    }
+
+    protected function returnUrl(Request $request, string $fragment): string
+    {
+        $candidate = (string) $request->input('return_to', '');
+        $path = parse_url($candidate, PHP_URL_PATH);
+
+        if (! is_string($path) || $path === '') {
+            $path = '/';
+        }
+
+        if (! in_array($path, $this->allowedReturnPaths, true)) {
+            $path = '/';
+        }
+
+        // Preserve unique form ids: home uses #contact-form; other pages use
+        // "{prefix}-form" but the section anchor is always #contact.
+        if ($fragment === 'contact-form' && $path !== '/') {
+            $fragment = 'contact';
+        }
+
+        return url($path).'#'.$fragment;
     }
 }

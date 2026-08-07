@@ -2945,10 +2945,7 @@ a.series-chapters__card:hover .series-chapters__title,
     #quick-back-top,
     .article-sticky-title,
     .site-toast,
-    .cmdk-tip {
-        display: none !important;
-    }
-
+    .cmdk-tip,
     html {
         scroll-behavior: auto;
     }
@@ -2956,6 +2953,34 @@ a.series-chapters__card:hover .series-chapters__title,
     body {
         background: #fff !important;
         color: #111 !important;
+    }
+
+    /* Resume print: content only — hero/contact/footer are screen affordances. */
+    body:has(.resume-doc) .site-page-hero,
+    body:has(.resume-doc) #contact,
+    body:has(.resume-doc) .site-footer {
+        display: none !important;
+    }
+
+    .resume-doc {
+        padding-block: 0 !important;
+        border: 0 !important;
+    }
+
+    .resume-doc h2,
+    .resume-doc h3,
+    .resume-doc h4,
+    .resume-doc .text-white,
+    .resume-doc .text-neutral-200,
+    .resume-doc .text-neutral-300 {
+        color: #111 !important;
+    }
+
+    .resume-doc .text-accent,
+    .resume-doc .text-neutral-400,
+    .resume-doc .text-neutral-500,
+    .resume-doc .text-neutral-600 {
+        color: #333 !important;
     }
 
     main {

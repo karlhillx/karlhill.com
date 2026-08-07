@@ -481,8 +481,21 @@ const staticCommands = [
     },
     {
         label: 'Now — Current focus',
-        keywords: 'now focus availability engineering manager em staff leadership',
+        keywords: 'now focus availability engineering manager em staff leadership recruiters',
         action: () => window.location.assign('/now'),
+    },
+    {
+        label: 'Resume',
+        keywords: 'resume cv curriculum vitae experience pdf download',
+        action: () => window.location.assign('/resume'),
+    },
+    {
+        label: 'Book a conversation',
+        keywords: 'book calendly schedule call conversation hiring recruiter',
+        action: () => {
+            const url = document.documentElement.dataset.bookingUrl;
+            window.location.assign(url || '/now#contact');
+        },
     },
     {
         label: 'Writing — Blog',
@@ -793,10 +806,9 @@ if ('serviceWorker' in navigator && window.isSecureContext) {
 // Contact form — refresh the CSRF token so the (publicly cacheable) home page
 // can never submit a stale/absent token behind a shared cache or CDN.
 // ---------------------------------------------------------------------------
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
+document.querySelectorAll('[data-contact-form], .js-contact-form').forEach((contactForm) => {
     const tokenInput = contactForm.querySelector('input[name="_token"]');
-    const submitBtn = contactForm.querySelector('#contact-submit');
+    const submitBtn = contactForm.querySelector('[data-contact-submit]');
 
     const setSubmitting = () => {
         if (!submitBtn) return;
@@ -839,7 +851,7 @@ if (contactForm) {
             contactForm.submit();
         });
     });
-}
+});
 
 // Generic copy-to-clipboard (e.g. email address) with a scoped confirmation.
 document.querySelectorAll('[data-copy-text]').forEach((btn) => {

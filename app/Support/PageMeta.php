@@ -123,6 +123,25 @@ final class PageMeta
         );
     }
 
+    public static function resume(): self
+    {
+        $seo = config('site.seo.resume');
+        $url = self::siteUrl();
+
+        return new self(
+            title: $seo['title'],
+            description: $seo['description'],
+            canonical: "{$url}/resume",
+            ogTitle: $seo['title'],
+            ogDescription: $seo['og_description'],
+            ogImage: "{$url}/img/og-home.jpg",
+            ogImageAlt: $seo['title'],
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
+            activeNav: 'about',
+        );
+    }
+
     public static function blogTag(string $tag): self
     {
         $label = Str::title(str_replace('-', ' ', $tag));

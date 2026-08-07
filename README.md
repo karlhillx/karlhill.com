@@ -50,23 +50,22 @@ GITHUB_TOKEN=ghp_xxx
 GITHUB_USERNAME=karlhillx
 ```
 
-Optional analytics (pick one — needed to measure the EM funnel):
+Analytics (GA4 is enabled by default for karlhill.com):
 
 ```env
-# Privacy-friendly (recommended)
-PLAUSIBLE_ENABLED=true
-PLAUSIBLE_DOMAIN=karlhill.com
-
-# Or GA4
 GOOGLE_ANALYTICS_ENABLED=true
-GOOGLE_ANALYTICS_MEASUREMENT_ID=G-XXXXXXXXXX
+GOOGLE_ANALYTICS_MEASUREMENT_ID=G-EZZNL8KY8P
+
+# Optional privacy-friendly alternative / complement
+PLAUSIBLE_ENABLED=false
+PLAUSIBLE_DOMAIN=karlhill.com
 ```
 
-Optional booking CTA (Cal.com / Calendly). When set, CTAs appear on `/now`,
-the homepage availability line, and the contact footer:
+Booking CTA (Calendly). Shown on `/now`, homepage availability, contact
+sections, and the mobile menu:
 
 ```env
-BOOKING_URL=https://cal.com/your-username
+BOOKING_URL=https://calendly.com/karlhill
 BOOKING_LABEL="Book a conversation"
 ```
 
@@ -77,8 +76,9 @@ APP_URL=https://karlhill.com
 APP_DEBUG=false
 ```
 
-Keep `public/files/karlhill-resume.pdf` aligned with `/about` and `/now`
-(Jacobs role + Engineering Manager trajectory).
+The live resume is `/resume` (generated from `config/site.php`, same source as
+`/about`). Keep `public/files/karlhill-resume.pdf` roughly aligned for ATS
+uploads; when they disagree, `/resume` is canonical.
 
 ## Project Layout
 
@@ -86,6 +86,7 @@ Keep `public/files/karlhill-resume.pdf` aligned with `/about` and `/now`
 app/Http/Controllers/HomeController.php      # homepage
 app/Http/Controllers/BlogController.php    # /blog index + /blog/{slug}
 app/Http/Controllers/NowController.php       # /now (current focus)
+app/Http/Controllers/ResumeController.php    # /resume (live HTML CV)
 app/Http/Controllers/FeedController.php      # /feed.xml (Atom) + /feed.json
 app/Http/Controllers/SitemapController.php  # /sitemap.xml
 app/Http/Controllers/LlmsTxtController.php  # /llms.txt + /llms-full.txt

@@ -62,14 +62,31 @@
     </div>
     <div id="mobile-menu" popover="auto" class="md:hidden border-t border-neutral-800 bg-bg/98 backdrop-blur-sm">
         <div class="site-shell site-gutter py-3 flex flex-col gap-0.5 font-mono text-xs text-neutral-500 uppercase tracking-widest">
+            @php
+                $bookingUrl = config('site.booking.url');
+                $linkedin = collect(config('site.social'))->first(fn ($link) => ($link['icon'] ?? '') === 'linkedin');
+            @endphp
             <a href="/work" class="{{ $mobileLinkClass('work') }}">Work</a>
             <a href="/about" class="{{ $mobileLinkClass('about') }}">About</a>
             <a href="/blog" class="{{ $mobileLinkClass('writing') }}">Writing</a>
             <a href="/now" class="{{ $mobileLinkClass('now') }}">Now</a>
+            <a href="/resume" class="{{ $mobileLinkClass('about') }}">Resume</a>
             <a href="/#contact" class="{{ $mobileLinkClass('contact') }}">Contact</a>
+            @if(filled($bookingUrl))
+                <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer"
+                   class="min-h-11 flex items-center py-3.5 text-accent hover:text-accent transition-colors">
+                    {{ config('site.booking.label') }}
+                </a>
+            @endif
+            @if($linkedin)
+                <a href="{{ $linkedin['url'] }}" target="_blank" rel="me noopener noreferrer"
+                   class="min-h-11 flex items-center py-3.5 hover:text-accent transition-colors">
+                    LinkedIn
+                </a>
+            @endif
             <a href="mailto:{{ config('site.person.email') }}"
-               class="min-h-11 flex items-center py-3.5 text-accent hover:text-accent transition-colors">
-                Get in Touch
+               class="min-h-11 flex items-center py-3.5 hover:text-accent transition-colors">
+                Email
             </a>
             <button type="button"
                     popovertarget="command-palette"

@@ -43,6 +43,7 @@ class LlmsTxtBuilder
             '- [Work]('.$base.'/work): Selected projects and open-source repositories',
             '- [About]('.$base.'/about): How I lead, experience, research, stack, and credentials',
             '- [Now]('.$base.'/now): Current focus and Engineering Manager trajectory',
+            '- [Resume]('.$base.'/resume): Live curriculum vitae (source of truth vs static PDF)',
             '- [Writing]('.$base.'/blog): Essays on engineering leadership, release governance, and mission software',
         ];
 
@@ -209,9 +210,11 @@ class LlmsTxtBuilder
             $items[] = '- [Book a conversation]('.$booking.'): Scheduling link';
         }
 
+        $items[] = '- [Resume]('.$base.'/resume): Live HTML resume generated from site content';
+
         $resume = config('site.footer.resume');
         if (is_string($resume) && $resume !== '') {
-            $items[] = '- [Resume PDF]('.$base.$resume.'): Downloadable curriculum vitae';
+            $items[] = '- [Resume PDF]('.$base.$resume.'): Static PDF download (prefer /resume when they disagree)';
         }
 
         $research = config('site.research');
@@ -225,9 +228,20 @@ class LlmsTxtBuilder
 
     protected function lastUpdated(): string
     {
-        $latest = $this->posts->all()
+        $dates = $this->posts->all()
             ->map(fn (BlogPost $post) => $post->modifiedAt())
-            ->max();
+            ->all();
+
+        $nowUpdated = config('site.now.updated');
+        if (is_string($nowUpdated) && $nowUpdated !== '') {
+            try {
+                $dates[] = CarbonImmutable::parse($nowUpdated);
+            } catch (\Throwable) {
+                // Ignore unparseable editorial dates.
+            }
+        }
+
+        $latest = collect($dates)->filter()->max();
 
         return ($latest ?? CarbonImmutable::now())->format('F j, Y');
     }

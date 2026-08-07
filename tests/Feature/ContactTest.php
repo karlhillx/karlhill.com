@@ -116,4 +116,20 @@ class ContactTest extends TestCase
 
         Mail::assertNothingSent();
     }
+
+    public function test_submission_from_now_returns_to_now_contact(): void
+    {
+        Mail::fake();
+
+        $response = $this->post('/contact', [
+            'name' => 'Recruiter Example',
+            'email' => 'recruiter@example.com',
+            'message' => 'We have an Engineering Manager role that fits your background.',
+            'return_to' => url('/now'),
+        ]);
+
+        $response->assertRedirect(url('/now').'#contact');
+        $response->assertSessionHas('status', 'contact-sent');
+        Mail::assertSent(ContactMessage::class);
+    }
 }

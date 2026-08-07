@@ -1,6 +1,6 @@
 /* Offline reading for karlhill.com — network-first HTML, cache-first static. */
-const CACHE = 'karlhill-offline-v2';
-const PRECACHE = ['/', '/blog', '/now', '/about', '/work', '/offline.html', '/site.webmanifest'];
+const CACHE = 'karlhill-offline-v3';
+const PRECACHE = ['/', '/blog', '/now', '/about', '/work', '/resume', '/offline.html', '/site.webmanifest'];
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
@@ -42,6 +42,7 @@ function isReadablePage(url) {
             url.pathname.startsWith('/blog/') ||
             url.pathname === '/now' ||
             url.pathname === '/about' ||
+            url.pathname === '/resume' ||
             url.pathname === '/work' ||
             url.pathname.startsWith('/work/'))
     );

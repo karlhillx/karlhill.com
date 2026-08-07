@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LlmsTxtController;
 use App\Http\Controllers\NowController;
 use App\Http\Controllers\OgImageController;
+use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\WorkController;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +44,7 @@ Route::middleware('cache.headers:public;max_age=300;etag')->group(function (): v
         ->name('work.show');
     Route::get('/about', AboutController::class)->name('about');
     Route::get('/now', NowController::class)->name('now');
+    Route::get('/resume', ResumeController::class)->name('resume');
 
     Route::get('/blog/tag/{tag}', [BlogController::class, 'tag'])
         ->where('tag', '[a-z0-9-]+')

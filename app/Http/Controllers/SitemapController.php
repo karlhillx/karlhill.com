@@ -34,7 +34,12 @@ class SitemapController extends Controller
                 $today,
             ),
             sprintf(
-                "  <url>\n    <loc>%s/now</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>",
+                "  <url>\n    <loc>%s/now</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>",
+                $base,
+                $today,
+            ),
+            sprintf(
+                "  <url>\n    <loc>%s/resume</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.85</priority>\n  </url>",
                 $base,
                 $today,
             ),

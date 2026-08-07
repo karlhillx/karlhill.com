@@ -75,6 +75,11 @@ return [
             'description' => 'What Karl Hill is focused on now — Engineering Manager trajectory, aerospace platform delivery, and the leadership craft behind reliable teams.',
             'og_description' => 'Current focus: shipping aerospace platforms while building Engineering Manager muscles.',
         ],
+        'resume' => [
+            'title' => 'Resume — Karl Hill',
+            'description' => 'Live resume for Karl Hill — Staff Software Engineer targeting Engineering Manager and Staff+ leadership roles. Experience across NASA, Jacobs, and enterprise platforms.',
+            'og_description' => 'Curriculum vitae generated from the same source as karlhill.com/about — always current.',
+        ],
     ],
 
     'social' => [
@@ -508,6 +513,15 @@ return [
     'now' => [
         'updated' => 'August 7, 2026',
         'lede' => 'Building Engineering Manager muscles while shipping aerospace platforms — honest about the Staff title, clear about the destination.',
+        'recruiters' => [
+            'eyebrow' => 'For recruiters & hiring managers',
+            'body' => 'If you are hiring an Engineering Manager or Staff+ leader who can still go deep on platforms, start here — then book time or send a note. I reply personally.',
+            'bullets' => [
+                'Target: Engineering Manager and Staff+ leadership roles',
+                'Location: Washington, DC metro · open to hybrid / remote-friendly teams',
+                'Signal: NASA science ops → aerospace mission software at Jacobs, plus the EM craft writing series',
+            ],
+        ],
         'focus' => [
             [
                 'title' => 'Engineering leadership trajectory',
