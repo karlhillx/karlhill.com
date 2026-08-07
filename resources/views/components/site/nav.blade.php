@@ -48,7 +48,7 @@
                       class="surface-chip ml-1 px-1.5 py-0.5 text-[9px] leading-none text-neutral-500 normal-case tracking-normal">⌘K</span>
             </button>
             <a href="mailto:{{ config('site.person.email') }}"
-               class="btn-sweep hidden sm:inline-flex text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest">
+               class="btn-sweep hidden md:inline-flex text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest">
                 Get in Touch
             </a>
             <button id="nav-toggle" type="button" popovertarget="mobile-menu"
@@ -67,6 +67,10 @@
             <a href="/blog" class="{{ $mobileLinkClass('writing') }}">Writing</a>
             <a href="/now" class="{{ $mobileLinkClass('now') }}">Now</a>
             <a href="/#contact" class="{{ $mobileLinkClass('contact') }}">Contact</a>
+            <a href="mailto:{{ config('site.person.email') }}"
+               class="min-h-11 flex items-center py-3.5 text-accent hover:text-accent transition-colors">
+                Get in Touch
+            </a>
             <button type="button"
                     popovertarget="command-palette"
                     class="min-h-11 py-3.5 text-left hover:text-accent transition-colors">
