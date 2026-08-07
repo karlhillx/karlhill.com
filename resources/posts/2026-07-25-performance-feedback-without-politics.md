@@ -1,16 +1,16 @@
 ---
-title: "Performance Feedback Without Politics"
+title: 'Performance Feedback Without Politics'
 slug: performance-feedback-without-politics
-date: 2026-07-25
-excerpt: "Useful feedback is specific, timely, and about observed work — not personality theater. The goal is growth and clarity, not a paper trail built in panic."
+date: 1784937600
+excerpt: 'Useful feedback is specific, timely, and about observed work — not personality theater. The goal is growth and clarity, not a paper trail built in panic.'
 tags:
   - leadership
   - engineering
   - management
   - teams
 hero_image: img/blog/performance-feedback-without-politics.jpg
+dev_to_id: 4341523
 ---
-
 Performance conversations go political when they become vague, late, or surprising.
 
 Engineers can handle hard truth. What they cannot handle is fog: “be more proactive,” “improve communication,” “raise your impact” — with no examples, no path, and no shared definition of success.

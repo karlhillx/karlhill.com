@@ -1,16 +1,16 @@
 ---
-title: "Saying No to Roadmap Pressure Without Losing Trust"
+title: 'Saying No to Roadmap Pressure Without Losing Trust'
 slug: saying-no-roadmap-pressure
-date: 2026-07-18
-excerpt: "Stakeholders do not need unlimited yes. They need engineering partners who make tradeoffs visible early — and keep their word when priorities collide."
+date: 1784332800
+excerpt: 'Stakeholders do not need unlimited yes. They need engineering partners who make tradeoffs visible early — and keep their word when priorities collide.'
 tags:
   - leadership
   - engineering
   - delivery
   - product
 hero_image: img/blog/saying-no-roadmap-pressure.jpg
+dev_to_id: 4341518
 ---
-
 Roadmap pressure is not a villain story.
 
 Product wants progress. Mission owners want outcomes. Engineers want work that is finishable. The conflict is usually real, not political theater.

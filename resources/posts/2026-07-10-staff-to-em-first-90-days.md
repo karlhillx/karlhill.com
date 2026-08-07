@@ -1,16 +1,16 @@
 ---
-title: "Staff IC to Engineering Manager: What Changes in the First 90 Days"
+title: 'Staff IC to Engineering Manager: What Changes in the First 90 Days'
 slug: staff-to-em-first-90-days
-date: 2026-07-10
-excerpt: "The Staff-to-EM transition is not a promotion into more architecture. It is a shift from being the strongest contributor to building a team that no longer needs you to be."
+date: 1783641600
+excerpt: 'The Staff-to-EM transition is not a promotion into more architecture. It is a shift from being the strongest contributor to building a team that no longer needs you to be.'
 tags:
   - leadership
   - engineering
   - management
   - career
 hero_image: img/blog/staff-to-em-first-90-days.jpg
+dev_to_id: 4341513
 ---
-
 Moving from Staff IC toward Engineering Manager is often sold as a title change.
 
 It is not.
