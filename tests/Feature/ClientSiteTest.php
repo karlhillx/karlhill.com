@@ -53,4 +53,23 @@ class ClientSiteTest extends TestCase
             ->assertStatus(200)
             ->assertDontSee('/clients', escape: false);
     }
+
+    public function test_octaves_of_love_landing_page_is_served(): void
+    {
+        $response = $this->get('/clients/keithhillmusic.com/octaves-of-love/');
+
+        $response->assertStatus(200);
+        $response->assertSee('Octaves of Love', escape: false);
+        $response->assertSee('Contact@octavesoflove.com', escape: false);
+        $response->assertSee('<base href="/clients/keithhillmusic.com/octaves-of-love/">', escape: false);
+        $response->assertDontSee('Join the mailing list', escape: false);
+    }
+
+    public function test_octavesoflove_domain_stub_forwards_to_landing_page(): void
+    {
+        $response = $this->get('/clients/octavesoflove.com/');
+
+        $response->assertStatus(200);
+        $response->assertSee('/clients/keithhillmusic.com/octaves-of-love/', escape: false);
+    }
 }

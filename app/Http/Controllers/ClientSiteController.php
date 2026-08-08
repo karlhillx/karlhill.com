@@ -48,7 +48,7 @@ class ClientSiteController extends Controller
                 abort(404);
             }
 
-            return response($this->withBaseHref($html, $client), 200, $headers);
+            return response($this->withBaseHref($html, $client, $file), 200, $headers);
         }
 
         return response()->file($file, $headers);
@@ -63,13 +63,22 @@ class ClientSiteController extends Controller
             || str_ends_with(strtolower($file), '.htm');
     }
 
-    protected function withBaseHref(string $html, string $client): string
+    protected function withBaseHref(string $html, string $client, string $file): string
     {
         if (preg_match('/<base\s/i', $html) === 1) {
             return $html;
         }
 
-        $base = '/clients/'.$client.'/';
+        $clientRoot = realpath(base_path('clients'.DIRECTORY_SEPARATOR.$client));
+        $fileDir = realpath(dirname($file));
+        $suffix = '';
+
+        if ($clientRoot && $fileDir && str_starts_with($fileDir, $clientRoot)) {
+            $relativeDir = trim(str_replace('\\', '/', substr($fileDir, strlen($clientRoot))), '/');
+            $suffix = $relativeDir === '' ? '' : $relativeDir.'/';
+        }
+
+        $base = '/clients/'.$client.'/'.$suffix;
         $tag = '<base href="'.e($base).'">';
 
         if (preg_match('/<head([^>]*)>/i', $html) === 1) {

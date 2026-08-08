@@ -86,6 +86,12 @@ final class ClientSiteCatalog
         }
 
         $candidate = $clientRoot.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $relativePath);
+
+        // Directory URLs (e.g. octaves-of-love) resolve to their index.html.
+        if (is_dir($candidate) && is_file($candidate.DIRECTORY_SEPARATOR.'index.html')) {
+            $candidate = $candidate.DIRECTORY_SEPARATOR.'index.html';
+        }
+
         $real = realpath($candidate);
 
         if ($real === false || ! is_file($real)) {

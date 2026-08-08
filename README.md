@@ -103,6 +103,11 @@ and are served at:
 Not linked from the main nav or sitemap. Add a new folder under `clients/` to
 stage the next preview.
 
+**Octaves of Love** (sound baths) lives at
+`/clients/keithhillmusic.com/octaves-of-love/` (production path:
+`keithhillmusic.com/octaves-of-love/`). Point `octavesoflove.com` DNS forward
+at that URL. Email alias setup: `clients/EMAIL-SETUP.md`.
+
 ## Project Layout
 
 ```
