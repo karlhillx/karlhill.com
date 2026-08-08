@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ClientSiteController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\HomeController;
@@ -45,6 +46,15 @@ Route::middleware('cache.headers:public;max_age=300;etag')->group(function (): v
     Route::get('/about', AboutController::class)->name('about');
     Route::get('/now', NowController::class)->name('now');
     Route::get('/resume', ResumeController::class)->name('resume');
+
+    // Client staging — static sites under /clients/{slug}/ (noindex, not in nav/sitemap).
+    Route::get('/clients', [ClientSiteController::class, 'index'])->name('clients.index');
+    Route::get('/clients/{client}/{path?}', [ClientSiteController::class, 'show'])
+        ->where([
+            'client' => '[A-Za-z0-9][A-Za-z0-9.-]*',
+            'path' => '.*',
+        ])
+        ->name('clients.show');
 
     Route::get('/blog/tag/{tag}', [BlogController::class, 'tag'])
         ->where('tag', '[a-z0-9-]+')

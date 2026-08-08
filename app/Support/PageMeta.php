@@ -142,6 +142,24 @@ final class PageMeta
         );
     }
 
+    public static function clients(): self
+    {
+        $url = self::siteUrl();
+
+        return new self(
+            title: 'Client staging — Karl Hill',
+            description: 'Staging previews for client websites in progress.',
+            canonical: "{$url}/clients",
+            ogTitle: 'Client staging — Karl Hill',
+            ogDescription: 'Staging previews for client websites in progress.',
+            ogImage: "{$url}/img/og-home.jpg",
+            ogImageAlt: 'Client staging — Karl Hill',
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
+            noindex: true,
+        );
+    }
+
     public static function blogTag(string $tag): self
     {
         $label = Str::title(str_replace('-', ' ', $tag));

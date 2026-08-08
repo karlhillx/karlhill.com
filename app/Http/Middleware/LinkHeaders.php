@@ -22,7 +22,7 @@ class LinkHeaders
         /** @var Response $response */
         $response = $next($request);
 
-        if (! $this->shouldAnnotate($response)) {
+        if (! $this->shouldAnnotate($request, $response)) {
             return $response;
         }
 
@@ -41,8 +41,13 @@ class LinkHeaders
         return $response;
     }
 
-    protected function shouldAnnotate(Response $response): bool
+    protected function shouldAnnotate(Request $request, Response $response): bool
     {
+        // Don't preload karlhill.com Vite assets into client staging HTML.
+        if (str_starts_with($request->path(), 'clients/')) {
+            return false;
+        }
+
         $contentType = (string) $response->headers->get('Content-Type', '');
 
         return $contentType === '' || str_contains($contentType, 'text/html');

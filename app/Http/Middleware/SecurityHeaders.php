@@ -45,6 +45,11 @@ class SecurityHeaders
             return false;
         }
 
+        // Client staging sites are third-party static HTML (fonts/CDNs vary).
+        if (str_starts_with($request->path(), 'clients/') && $request->path() !== 'clients') {
+            return false;
+        }
+
         // Avoid breaking `npm run dev` when APP_ENV is accidentally
         // production — but never skip CSP in the test suite.
         if (! app()->runningUnitTests() && file_exists(public_path('hot'))) {

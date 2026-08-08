@@ -92,11 +92,23 @@ When you update the PDF, sync these keys (then spot-check `/resume` + `/about`):
    shown on home + `/now`, not repeated on the CV body)
 4. Replace `public/files/karlhill-resume.pdf`
 
+### Client staging
+
+Static client previews live in `clients/{domain}/` (must include `index.html`)
+and are served at:
+
+- `/clients` — staging index (noindex)
+- `/clients/{domain}/` — the client site
+
+Not linked from the main nav or sitemap. Add a new folder under `clients/` to
+stage the next preview.
+
 ## Project Layout
 
 ```
 app/Http/Controllers/HomeController.php      # homepage
 app/Http/Controllers/BlogController.php    # /blog index + /blog/{slug}
+app/Http/Controllers/ClientSiteController.php # /clients staging previews
 app/Http/Controllers/NowController.php       # /now (current focus)
 app/Http/Controllers/ResumeController.php    # /resume (live HTML CV)
 app/Http/Controllers/FeedController.php      # /feed.xml (Atom) + /feed.json
@@ -111,6 +123,7 @@ app/Support/BlogSeries.php                    # ordered essay series
 app/Support/GitHubRepository.php              # server-side GitHub API client
 app/Support/PageMeta.php                      # SEO meta for all pages
 app/Support/HomeStructuredData.php            # homepage JSON-LD
+clients/{domain}/                             # client staging sites (static HTML)
 config/site.php                               # aggregator (env flags, sameAs)
 config/site/*.php                             # content fragments (experience, projects, now, …)
 resources/js/app.js                           # modular UI entry
