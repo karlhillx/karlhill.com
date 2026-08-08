@@ -212,9 +212,9 @@ class LlmsTxtBuilder
 
         $items[] = '- [Resume]('.$base.'/resume): Live HTML resume generated from site content';
 
-        $resume = config('site.footer.resume');
-        if (is_string($resume) && $resume !== '') {
-            $items[] = '- [Resume PDF]('.$base.$resume.'): Static PDF download (prefer /resume when they disagree)';
+        $resumePdf = config('site.footer.resume');
+        if (is_string($resumePdf) && $resumePdf !== '') {
+            $items[] = '- [Resume PDF]('.$base.$resumePdf.'): 2-page downloadable CV (classic layout)';
         }
 
         $research = config('site.research');

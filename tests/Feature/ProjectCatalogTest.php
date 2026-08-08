@@ -1,86 +1,72 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Support\ProjectCatalog;
-use Tests\TestCase;
 
-class ProjectCatalogTest extends TestCase
-{
-    public function test_flood_mapping_is_always_first(): void
-    {
-        $this->assertSame('flood-mapping-system', ProjectCatalog::all()->first()['slug']);
-        $this->assertSame('flood-mapping-system', ProjectCatalog::featured()->first()['slug']);
-        $this->assertSame('flood-mapping-system', ProjectCatalog::filteredByTag('AWS')->first()['slug']);
+it('flood mapping is always first', function () {
+    $this->assertSame('flood-mapping-system', ProjectCatalog::all()->first()['slug']);
+    $this->assertSame('flood-mapping-system', ProjectCatalog::featured()->first()['slug']);
+    $this->assertSame('flood-mapping-system', ProjectCatalog::filteredByTag('AWS')->first()['slug']);
+});
+
+it('featured projects have case studies', function () {
+    $featured = ProjectCatalog::all()->where('featured', true);
+
+    $this->assertGreaterThan(0, $featured->count());
+    foreach ($featured as $project) {
+        $this->assertTrue(ProjectCatalog::hasCaseStudy($project), $project['slug']);
+        $this->assertStringContainsString('/work/', ProjectCatalog::cardUrl($project));
     }
+});
 
-    public function test_featured_projects_have_case_studies(): void
-    {
-        $featured = ProjectCatalog::all()->where('featured', true);
+it('unknown case study returns 404', function () {
+    $response = $this->get('/work/not-a-real-project');
 
-        $this->assertGreaterThan(0, $featured->count());
-        foreach ($featured as $project) {
-            $this->assertTrue(ProjectCatalog::hasCaseStudy($project), $project['slug']);
-            $this->assertStringContainsString('/work/', ProjectCatalog::cardUrl($project));
-        }
+    $response->assertStatus(404);
+});
+
+it('adjacent case studies', function () {
+    $studies = ProjectCatalog::withCaseStudies()->values();
+    $this->assertGreaterThan(2, $studies->count());
+
+    $middle = $studies[1];
+    $adjacent = ProjectCatalog::adjacent($middle['slug']);
+
+    $this->assertSame($studies[0]['slug'], $adjacent['previous']['slug']);
+    $this->assertSame($studies[2]['slug'], $adjacent['next']['slug']);
+});
+
+it('related projects share tags', function () {
+    $project = ProjectCatalog::find('nasa-earth-observatory');
+    $related = ProjectCatalog::related($project);
+
+    $this->assertGreaterThan(0, $related->count());
+    foreach ($related as $candidate) {
+        $this->assertNotSame($project['slug'], $candidate['slug']);
+        $this->assertNotEmpty(array_intersect($project['tags'], $candidate['tags']));
     }
+});
 
-    public function test_unknown_case_study_returns_404(): void
-    {
-        $response = $this->get('/work/not-a-real-project');
+it('tag slug round trip', function () {
+    $slug = ProjectCatalog::tagSlug('RESTful APIs');
+    $this->assertSame('restful-apis', $slug);
+    $this->assertSame('RESTful APIs', ProjectCatalog::tagFromSlug($slug));
+});
 
-        $response->assertStatus(404);
-    }
+it('tag counts match project membership', function () {
+    $counts = ProjectCatalog::tagCounts();
 
-    public function test_adjacent_case_studies(): void
-    {
-        $studies = ProjectCatalog::withCaseStudies()->values();
-        $this->assertGreaterThan(2, $studies->count());
+    $this->assertTrue($counts->has('AWS'));
+    $this->assertSame(
+        ProjectCatalog::filteredByTag('AWS')->count(),
+        $counts->get('AWS'),
+    );
+});
 
-        $middle = $studies[1];
-        $adjacent = ProjectCatalog::adjacent($middle['slug']);
+it('work index shows tag counts', function () {
+    $count = ProjectCatalog::tagCounts()->get('AWS');
 
-        $this->assertSame($studies[0]['slug'], $adjacent['previous']['slug']);
-        $this->assertSame($studies[2]['slug'], $adjacent['next']['slug']);
-    }
-
-    public function test_related_projects_share_tags(): void
-    {
-        $project = ProjectCatalog::find('nasa-earth-observatory');
-        $related = ProjectCatalog::related($project);
-
-        $this->assertGreaterThan(0, $related->count());
-        foreach ($related as $candidate) {
-            $this->assertNotSame($project['slug'], $candidate['slug']);
-            $this->assertNotEmpty(array_intersect($project['tags'], $candidate['tags']));
-        }
-    }
-
-    public function test_tag_slug_round_trip(): void
-    {
-        $slug = ProjectCatalog::tagSlug('RESTful APIs');
-        $this->assertSame('restful-apis', $slug);
-        $this->assertSame('RESTful APIs', ProjectCatalog::tagFromSlug($slug));
-    }
-
-    public function test_tag_counts_match_project_membership(): void
-    {
-        $counts = ProjectCatalog::tagCounts();
-
-        $this->assertTrue($counts->has('AWS'));
-        $this->assertSame(
-            ProjectCatalog::filteredByTag('AWS')->count(),
-            $counts->get('AWS'),
-        );
-    }
-
-    public function test_work_index_shows_tag_counts(): void
-    {
-        $count = ProjectCatalog::tagCounts()->get('AWS');
-
-        $this->get('/work')
-            ->assertOk()
-            ->assertSee('AWS', false)
-            ->assertSee('('.$count.')', false);
-    }
-}
+    $this->get('/work')
+        ->assertOk()
+        ->assertSee('AWS', false)
+        ->assertSee('('.$count.')', false);
+});

@@ -1,7 +1,6 @@
-{{-- Shared inner-page hero scaffold: dot grid, glow orbs, breadcrumbs,
-     eyebrow, display h1. Everything below the h1 (lede, actions) goes in
-     the default slot; the title itself is the `title` slot so it can carry
-     markup like <br>. --}}
+{{-- Shared inner-page hero scaffold: dot grid, breadcrumbs, eyebrow,
+     display h1. Everything below the h1 (lede, actions) goes in the default
+     slot; the title itself is the `title` slot so it can carry markup like <br>. --}}
 @props([
     'eyebrow' => null,
     'breadcrumbs' => [],
@@ -9,8 +8,6 @@
 
 <section {{ $attributes->merge(['class' => 'relative site-page-hero overflow-hidden']) }}>
     <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
-    <x-site.glow-orb :drift="1" class="-bottom-32 -left-32 w-[600px] h-[600px]" />
-    <x-site.glow-orb :drift="2" :strength="0.09" class="-top-32 -right-32 w-[500px] h-[500px]" />
 
     <div class="relative z-10 site-shell">
         @if(count($breadcrumbs) > 0)

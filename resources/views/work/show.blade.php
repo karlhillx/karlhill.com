@@ -29,8 +29,6 @@
 
 @section('content')
     <article class="relative site-article">
-        <x-site.glow-orb :drift="1" :strength="0.10" class="top-24 -left-48 w-[500px] h-[500px]" />
-
         <div class="relative z-10 site-prose">
             <x-site.breadcrumbs :items="[
                 ['label' => 'Home', 'url' => '/'],

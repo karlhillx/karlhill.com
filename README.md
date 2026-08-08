@@ -7,8 +7,8 @@ Personal site for Karl Hill — Staff Software Engineer. A Laravel 13 + Tailwind
 - **Backend:** Laravel 13 (PHP 8.4+)
 - **Frontend:** Tailwind CSS v4, vanilla JS (no SPA framework)
 - **Build:** Vite 8 with `laravel-vite-plugin`
-- **Fonts:** Inter Variable, Bebas Neue, JetBrains Mono (self-hosted via `@fontsource`)
-- **Testing:** PHPUnit 12, Laravel Pint
+- **Fonts:** IBM Plex Sans, Bebas Neue, JetBrains Mono (self-hosted via `@fontsource`)
+- **Testing:** Pest 4, Laravel Pint
 
 ## Getting Started
 
@@ -79,18 +79,26 @@ APP_DEBUG=false
 
 ### Resume source of truth
 
-- **Canonical:** `/resume` (HTML generated from `config/site/experience.php` +
-  related fragments — same experience data as `/about`).
-- **ATS download:** `public/files/karlhill-resume.pdf` linked from the footer
-  and resume page. When PDF and HTML disagree, **HTML wins**.
+- **Canonical HTML:** `/resume` (from `config/site/experience.php` + related
+  fragments — same experience data as `/about`).
+- **Downloadable PDF:** `public/files/karlhill-resume.pdf` — classic 2-page
+  navy-sidebar layout, generated with Puppeteer (not browser Print).
 
-When you update the PDF, sync these keys (then spot-check `/resume` + `/about`):
+Regenerate after content changes:
+
+```bash
+php artisan resume:pdf
+# or: make resume-pdf
+```
+
+When experience changes, update these keys (then regenerate the PDF and
+spot-check `/resume` + `/about`):
 
 1. `config/site/experience.php` — roles, dates, bullets
 2. `config/site/education.php` / `certifications.php` / `stack.php`
-3. `config/site/person.php` — title, location, availability (availability is
+3. `config/site/resume.php` — phone, ZIP, tagline, impact, expertise
+4. `config/site/person.php` — title, location, availability (availability is
    shown on home + `/now`, not repeated on the CV body)
-4. Replace `public/files/karlhill-resume.pdf`
 
 ### Client staging
 
@@ -139,13 +147,13 @@ resources/views/home/partials/*               # homepage sections
 resources/views/now/index.blade.php           # /now page
 resources/views/components/site/*             # nav, footer, cards, series, images
 resources/views/layouts/site.blade.php        # shared layout
-resources/css/app.css                         # design tokens, animations
+resources/css/app.css                         # CSS entry (imports tokens/base/layout/…)
+app/Console/Commands/PublishPost.php          # php artisan post:publish {slug}
 public/sw.js                                  # offline service worker
 public/offline.html                           # offline fallback
 scripts/deploy.sh                             # production deploy entrypoint
 scripts/generate-og-images.py                 # OG card generator
 scripts/generate-webp.py                      # batch WebP / AVIF / LQIP
-public/files/karlhill-resume.pdf              # resume linked from footer
 routes/web.php                                # all routes
 ```
 
@@ -169,9 +177,15 @@ The blog at `/blog` is a flat-file Markdown system — no DB, no admin UI. To ad
    Body in standard markdown. GFM tables, fenced code, blockquotes all supported.
    ```
 
-2. Drop a hero image at `public/img/blog/{slug}.jpg`. Run `php artisan assets:webp` to generate WebP, AVIF, and LQIP variants under `public/img/webp/`, `public/img/avif/`, and `public/img/lqip/`.
+2. Drop a hero image at `public/img/blog/{slug}.jpg`.
 
-3. Generate a social card: `php artisan og:generate your-post-slug`
+3. Run the one-shot publish pipeline (WebP/AVIF/LQIP + OG card):
+
+   ```bash
+   php artisan post:publish your-post-slug
+   # or: make publish SLUG=your-post-slug
+   # optional syndication: make publish SLUG=your-post-slug SYNDICATE=1
+   ```
 
 4. Done. The post is live at `/blog/{slug}`, listed on `/blog`, in `/feed.xml`, and in `/sitemap.xml`.
 
@@ -182,17 +196,21 @@ To add a post to an essay series, append its slug under `config/site.php` → `s
 Posts are canonical on karlhill.com. Cross-post new essays so the EM craft series is discoverable:
 
 ```bash
+php artisan post:publish staff-to-em-first-90-days --syndicate
+# or syndicate alone:
 php artisan post:syndicate staff-to-em-first-90-days --dry-run
 php artisan post:syndicate staff-to-em-first-90-days
-php artisan post:syndicate saying-no-roadmap-pressure
-php artisan post:syndicate performance-feedback-without-politics
 ```
 
 Set `DEVTO_API_KEY` in `.env` (generate at https://dev.to/settings/extensions).
 
 ## Deployment
 
-CI runs on every push to `main` (tests, build, Pint). Deploy is triggered manually or automatically after a green CI run on `main`.
+CI runs on every push to `main` (tests, build, Pint, bundle budget, a11y). Deploy is triggered manually or automatically after a green CI run on `main`.
+
+When you change the HTML shell, offline fallback, or the precache list in
+`public/sw.js`, bump the `CACHE` version string (e.g. `karlhill-offline-v4` →
+`v5`) so clients drop stale caches on activate.
 
 On the server:
 

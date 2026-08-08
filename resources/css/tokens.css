@@ -1,0 +1,93 @@
+/* Design tokens + Tailwind @theme font/color bridges */
+/* Pointer spotlight vars still drive work-card local lighting (see pointer.js). */
+:root {
+    --spot-x: 50%;
+    --spot-y: 35%;
+    --bg: #0a0a0a;
+    --panel: #141414;
+    --text: #f5f5f5;
+    --muted: #a3a3a3;
+    --muted-2: #737373;
+    --border: #262626;
+    --border-strong: #2a2a2a;
+    --surface-hover: rgb(23 23 23 / 0.4);
+    /* Softer signal amber — less “glow kit”, still warm on dark. */
+    --accent: oklch(72% 0.14 55);
+    --focus: oklch(78% 0.12 55);
+    --success: oklch(72% 0.16 150);
+    /* Spring easings via CSS linear() — physical settle instead of generic ease-out. */
+    --ease-out-spring: linear(
+        0,
+        0.006,
+        0.025 2.8%,
+        0.101 6.1%,
+        0.539 18.9%,
+        0.721 25.3%,
+        0.849 31.2%,
+        0.937 38.1%,
+        0.991 47%,
+        1.019 57.1%,
+        1.022 64.5%,
+        1.013 72.4%,
+        1
+    );
+    --ease-out-soft: linear(
+        0,
+        0.2178 2.1%,
+        0.337 4.5%,
+        0.547 10.1%,
+        0.718 16.5%,
+        0.849 23.7%,
+        0.937 32.3%,
+        0.991 42.5%,
+        1.019 55%,
+        1.016 63%,
+        1
+    );
+    --nav-py: 1.35rem;
+    --nav-brand-size: 1.5rem;
+    /* Vertical rhythm — roomy by default, fluid across breakpoints.
+       Gutters stay modest so content can breathe; section blocks carry the air. */
+    --space-gutter: clamp(1.25rem, 4vw, 2rem);
+    --space-section: clamp(6.5rem, 12vw, 9.5rem);
+    --space-section-soft: clamp(4.5rem, 8vw, 7rem);
+    --space-heading: clamp(2.5rem, 4vw, 3.5rem);
+    --space-stack: clamp(1.5rem, 2.5vw, 2rem);
+    --space-card-gap: clamp(1rem, 2vw, 1.5rem);
+    --space-list-row: clamp(2.5rem, 4vw, 3.5rem);
+    --space-prose: 48rem;
+    --space-pillar: clamp(2rem, 3vw, 3.25rem);
+    /* The site is dark by design: tell the UA so form controls, scrollbars,
+       and the default canvas render dark instead of light-on-dark. */
+    color-scheme: dark;
+}
+
+/* Wide-gamut escalation on Display-P3 hardware. Falls back silently on sRGB. */
+@supports (color: color(display-p3 1 0 0)) {
+    :root {
+        --accent: oklch(74% 0.16 55);
+        --focus: oklch(80% 0.14 55);
+    }
+}
+
+/* Relative color surfaces — panels/borders inherit hue from --accent. */
+@supports (color: oklch(from red l c h)) {
+    :root {
+        --panel: oklch(from var(--accent) 14% 0.014 h);
+        --border: oklch(from var(--accent) 22% 0.016 h);
+        --border-strong: oklch(from var(--accent) 26% 0.02 h);
+        --surface-hover: oklch(from var(--accent) 18% 0.028 h / 0.45);
+    }
+}
+
+@theme {
+    --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --color-bg: var(--bg);
+    --color-panel: var(--panel);
+    --color-accent: var(--accent);
+    --color-focus: var(--focus);
+    --color-muted: var(--muted);
+    --color-ink: var(--text);
+}

@@ -40,6 +40,9 @@ jobs:
       - name: Build assets
         run: npm run build
 
+      - name: Check bundle size budget
+        run: bash scripts/check-bundle-size.sh
+
       - name: Lint PHP
         run: ./vendor/bin/pint --test
 

@@ -8,8 +8,8 @@ class CommandIndex
      * Search index for the command palette (embedded once per page).
      *
      * @return array{
-     *     posts: array<int, array{label: string, url: string, keywords: string}>,
-     *     projects: array<int, array{label: string, url: string, keywords: string}>
+     *     posts: array<int, array{label: string, url: string, keywords: string, group: string}>,
+     *     projects: array<int, array{label: string, url: string, keywords: string, group: string}>
      * }
      */
     public static function build(): array
@@ -21,6 +21,7 @@ class CommandIndex
                 'label' => $post->title,
                 'url' => '/blog/'.$post->slug,
                 'keywords' => self::postKeywords($post),
+                'group' => 'writing',
             ])->values()->all(),
             'projects' => ProjectCatalog::withCaseStudies()
                 ->map(fn (array $project) => [
@@ -31,6 +32,7 @@ class CommandIndex
                         $project['description'] ?? '',
                         'work portfolio case study',
                     ])),
+                    'group' => 'work',
                 ])
                 ->values()
                 ->all(),

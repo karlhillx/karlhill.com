@@ -1,5 +1,5 @@
 /* Offline reading for karlhill.com — network-first HTML, cache-first static. */
-const CACHE = 'karlhill-offline-v3';
+const CACHE = 'karlhill-offline-v4';
 const PRECACHE = ['/', '/blog', '/now', '/about', '/work', '/resume', '/offline.html', '/site.webmanifest'];
 
 self.addEventListener('install', (event) => {

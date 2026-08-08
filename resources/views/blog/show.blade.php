@@ -40,8 +40,6 @@
 @section('content')
 
 <article class="relative site-article" data-article>
-    <x-site.glow-orb :drift="1" :strength="0.10" class="top-24 -left-48 w-[500px] h-[500px]" />
-
     <div class="article-sticky-title" data-article-sticky-title hidden>
         <div class="site-shell site-gutter flex items-center gap-3 min-h-10">
             <p class="font-mono text-[10px] text-accent uppercase tracking-widest shrink-0">Writing</p>

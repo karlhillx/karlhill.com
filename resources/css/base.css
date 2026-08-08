@@ -1,0 +1,339 @@
+/* Document base, layout rhythm, surfaces, global polish */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Keep in-page anchor targets clear of the fixed nav (overridden taller on
+       mobile where the section rail adds a second sticky row). */
+    scroll-padding-top: 6.5rem;
+    /* Reserve the scrollbar's width so opening overlays never shifts layout. */
+    scrollbar-gutter: stable;
+    /* Clip rather than scroll when decorative bleed/orbs paint past the edge. */
+    overflow-x: clip;
+}
+
+body {
+    background: var(--bg);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+}
+
+/* Shared layout rhythm — sections, heroes, and list rows pull from tokens
+   so breathing room stays consistent without per-page fudging. */
+.site-section {
+    padding-block: var(--space-section);
+    padding-inline: var(--space-gutter);
+}
+
+.site-section--soft {
+    padding-block: var(--space-section-soft);
+    padding-inline: var(--space-gutter);
+}
+
+.site-shell {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+}
+
+.site-prose {
+    width: 100%;
+    max-width: var(--space-prose);
+    margin-inline: auto;
+}
+
+.site-gutter {
+    padding-inline: var(--space-gutter);
+}
+
+.site-heading-space {
+    margin-bottom: var(--space-heading);
+}
+
+.site-heading-space.mb-0,
+.site-heading-space.\!mb-0 {
+    margin-bottom: 0;
+}
+
+.site-card-grid {
+    display: grid;
+    gap: var(--space-card-gap);
+}
+
+@media (min-width: 640px) {
+    .site-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .site-card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.site-list-row {
+    padding-block: var(--space-list-row);
+}
+
+/* Negative-margin bleed so hover washes reach the section edges while
+   text stays on the gutter rhythm. Restore inline padding only inside bleeds
+   so nested list rows (e.g. Experience) are not double-guttered. */
+.site-bleed {
+    margin-inline: calc(var(--space-gutter) * -1);
+}
+
+.site-bleed .site-list-row {
+    padding-inline: var(--space-gutter);
+}
+
+.site-pillars {
+    display: grid;
+}
+
+.site-pillars > * {
+    padding-block: 3rem;
+}
+
+@media (min-width: 768px) {
+    .site-pillars {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .site-pillars > * {
+        padding-block: var(--space-pillar);
+        padding-inline: var(--space-pillar);
+    }
+
+    .site-pillars > *:first-child {
+        padding-left: 0;
+    }
+
+    .site-pillars > *:last-child {
+        padding-right: 0;
+    }
+}
+
+.site-footer {
+    padding-block: var(--space-section-soft);
+    padding-inline: var(--space-gutter);
+}
+
+.site-footer--home {
+    padding-block: var(--space-section);
+}
+
+.site-page-hero {
+    padding-block: 11rem var(--space-section-soft);
+    padding-inline: var(--space-gutter);
+}
+
+.site-article {
+    padding-block: 8rem var(--space-section-soft);
+    padding-inline: var(--space-gutter);
+}
+
+/* Compact strip under page heroes (tag filters, toolbars). */
+.site-toolbar {
+    padding-block: clamp(1.75rem, 3vw, 2.5rem) 1.25rem;
+    padding-inline: var(--space-gutter);
+}
+
+/* ---------------------------------------------------------------------------
+   Surface language — sharp structure, rounded interactive cards, square chips.
+   --------------------------------------------------------------------------- */
+.surface-card {
+    border-radius: 1rem;
+    background-color: rgb(23 23 23 / 0.2);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.06);
+    transition:
+        box-shadow 320ms var(--ease-out-soft),
+        background-color 320ms var(--ease-out-soft),
+        transform 320ms var(--ease-out-spring);
+}
+
+a.surface-card:hover,
+a.surface-card:focus-visible,
+article.surface-card:hover,
+article.surface-card:focus-within {
+    background-color: var(--surface-hover);
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 40%, transparent);
+    transform: translateY(-0.25rem);
+}
+
+a.surface-card:focus-visible,
+article.surface-card:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 60%, transparent);
+}
+
+.surface-card-media {
+    background-color: var(--bg);
+    overflow: hidden;
+}
+
+.surface-card-static {
+    border-radius: 1rem;
+    background-color: rgb(23 23 23 / 0.2);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.06);
+    transition:
+        box-shadow 300ms ease,
+        background-color 300ms ease;
+}
+
+.surface-card-static:hover {
+    background-color: var(--surface-hover);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.12);
+}
+
+/* Pointer-lit work cards — local spotlight that tracks the cursor. */
+.surface-card-media.pointer-lit {
+    --card-x: 50%;
+    --card-y: 40%;
+    isolation: isolate;
+}
+
+.surface-card-media.pointer-lit::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(
+        320px circle at var(--card-x) var(--card-y),
+        color-mix(in oklab, var(--accent) 18%, transparent),
+        transparent 58%
+    );
+    opacity: 0;
+    transition: opacity 0.28s var(--ease-out-soft);
+    mix-blend-mode: soft-light;
+}
+
+.surface-card-media.pointer-lit:hover::after,
+.surface-card-media.pointer-lit:focus-visible::after {
+    opacity: 1;
+}
+
+@media (pointer: coarse) {
+    .surface-card-media.pointer-lit::after {
+        display: none;
+    }
+}
+
+.surface-chip {
+    border-radius: 0.125rem;
+    border: 1px solid var(--border);
+}
+
+.surface-chip-overlay {
+    border-radius: 0.125rem;
+    border: 1px solid rgb(64 64 64 / 0.5);
+    background-color: rgb(0 0 0 / 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.surface-chip-accent {
+    border-radius: 0.125rem;
+    border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+    background-color: color-mix(in oklab, var(--accent) 10%, transparent);
+}
+
+/* Better paragraph rag — eliminates orphans without the cost of `balance` */
+p {
+    text-wrap: pretty;
+}
+
+.font-display {
+    text-wrap: balance;
+}
+
+/* Trim Bebas Neue's generous built-in leading so display headings sit
+   optically tight against surrounding content (no margin fudging).
+   Skip the homepage hero wordmark — trim collapses the gap into the
+   eyebrow row and reads as an overlap on narrow viewports. */
+@supports (text-box: trim-both cap alphabetic) {
+    h1.font-display:not(.hero-title),
+    .prose-karl h2,
+    .prose-karl h3 {
+        text-box: trim-both cap alphabetic;
+    }
+}
+
+/* Optical-size axis driven by scroll entry — body text opens as it arrives. */
+@property --opsz {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 16;
+}
+
+.opsz-scroll {
+    font-optical-sizing: none;
+    font-variation-settings: 'opsz' var(--opsz);
+}
+
+@supports (animation-timeline: view()) {
+    .opsz-scroll {
+        animation: opszOpen linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 35%;
+    }
+
+    @keyframes opszOpen {
+        from {
+            --opsz: 14;
+        }
+        to {
+            --opsz: 22;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .opsz-scroll {
+        animation: none;
+        font-optical-sizing: auto;
+        font-variation-settings: normal;
+    }
+}
+
+/* Contact textarea grows with its content instead of a fixed rows count. */
+@supports (field-sizing: content) {
+    .contact-textarea {
+        field-sizing: content;
+        min-height: 6.5rem;
+        max-height: 20rem;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Global micro-polish — selection, scrollbars, tap feedback
+--------------------------------------------------------------------------- */
+::selection {
+    background: color-mix(in oklab, var(--accent) 32%, transparent);
+    color: #fff;
+    text-shadow: none;
+}
+
+/* Slim, on-brand scrollbars on the dark canvas (pointer devices only, so the
+   mobile section rail keeps its hidden bar). */
+@media (min-width: 769px) {
+    html,
+    .command-results {
+        scrollbar-width: thin;
+        scrollbar-color: color-mix(in oklab, var(--accent) 40%, var(--border-strong)) transparent;
+    }
+}
+
+/* Drop the grey tap flash for a cleaner, app-like feel on touch. */
+:where(a, button, [role='button'], summary, [popovertarget]) {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';

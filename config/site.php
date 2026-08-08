@@ -69,5 +69,6 @@ return [
     'about' => require __DIR__.'/site/about.php',
     'now' => require __DIR__.'/site/now.php',
     'github' => require __DIR__.'/site/github.php',
+    'resume' => require __DIR__.'/site/resume.php',
 
 ];

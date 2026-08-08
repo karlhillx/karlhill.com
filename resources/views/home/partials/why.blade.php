@@ -1,4 +1,4 @@
-<x-site.section id="why" section-label="Why Me" :number="$sectionNumber ?? '01'" label="Why Me">
+<x-site.section id="why" section-label="Why Me" :number="$sectionNumber ?? '03'" label="Why Me">
         <div class="site-pillars divide-y md:divide-y-0 md:divide-x divide-neutral-800">
             @foreach(config('site.pillars') as $pillar)
                 <div data-reveal>

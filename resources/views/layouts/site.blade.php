@@ -85,19 +85,6 @@
 
     <div class="scroll-progress" aria-hidden="true"></div>
 
-    <div class="cursor-spotlight" aria-hidden="true"></div>
-
-    <svg class="grain" aria-hidden="true" preserveAspectRatio="none">
-        <filter id="grain-noise">
-            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
-            <feColorMatrix values="0 0 0 0 1
-                                   0 0 0 0 1
-                                   0 0 0 0 1
-                                   0 0 0 0.045 0"/>
-        </filter>
-        <rect width="100%" height="100%" filter="url(#grain-noise)"/>
-    </svg>
-
     <a href="#main-content"
        class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-black focus:font-semibold focus:text-xs focus:uppercase focus:tracking-widest">
         Skip to content

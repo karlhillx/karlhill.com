@@ -2,7 +2,7 @@
     <div class="site-shell">
         <h2 class="inline-flex items-center gap-3 font-mono text-accent text-xs tracking-widest uppercase site-heading-space" data-reveal>
             <span aria-hidden="true" class="section-accent-line h-px w-8 bg-accent/60 shrink-0"></span>
-            <span>00 — Impact</span>
+            <span>04 — Impact</span>
         </h2>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-800/50">
             @foreach(config('site.stats') as $stat)

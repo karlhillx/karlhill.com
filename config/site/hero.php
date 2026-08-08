@@ -12,8 +12,8 @@ return [
             'primary' => true,
         ],
         1 => [
-            'label' => 'How I Lead',
-            'url' => '/about#how-i-lead',
+            'label' => 'Work',
+            'url' => '/work',
         ],
     ],
 ];

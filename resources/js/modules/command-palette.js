@@ -1,5 +1,11 @@
 import { prefersReducedMotion } from '../lib/prefs.js';
 
+const GROUP_LABELS = {
+    page: 'Page',
+    writing: 'Writing',
+    work: 'Work',
+};
+
 function gotoSection(id) {
     const el = document.getElementById(id);
     if (el) {
@@ -60,6 +66,23 @@ function fuzzyScore(query, haystack) {
     return qi === q.length ? score : 0;
 }
 
+/** Prefer title hits over body/keyword matches. */
+function commandScore(query, cmd) {
+    const q = query.trim();
+    if (!q) return 1;
+
+    const titleScore = fuzzyScore(q, cmd.label);
+    if (titleScore > 0) {
+        return titleScore + 400;
+    }
+
+    return fuzzyScore(q, cmd.keywords ?? '');
+}
+
+function withGroup(cmd, group = 'page') {
+    return { group, ...cmd };
+}
+
 export function initCommandPalette() {
     const palette = document.getElementById('command-palette');
     const commandInput = document.getElementById('command-input');
@@ -67,102 +90,106 @@ export function initCommandPalette() {
     if (!palette || !commandInput || !commandResults) return;
 
     const staticCommands = [
-        {
+        withGroup({
             label: 'Home',
             keywords: 'home landing portfolio',
             action: () => window.location.assign('/'),
-        },
-        {
+        }),
+        withGroup({
             label: 'Work — Portfolio',
             keywords: 'work portfolio projects nasa',
             action: () => window.location.assign('/work'),
-        },
-        {
+        }),
+        withGroup({
             label: 'About — Experience',
             keywords: 'about experience career background leadership how i lead',
             action: () => window.location.assign('/about'),
-        },
-        {
+        }),
+        withGroup({
             label: 'How I Lead',
             keywords: 'how i lead leadership coaching 1:1 feedback em manager',
             action: () => window.location.assign('/about#how-i-lead'),
-        },
-        {
+        }),
+        withGroup({
             label: 'Now — Current focus',
             keywords: 'now focus availability engineering manager em staff leadership recruiters',
             action: () => window.location.assign('/now'),
-        },
-        {
+        }),
+        withGroup({
             label: 'Resume',
-            keywords: 'resume cv curriculum vitae experience pdf download',
+            keywords: 'resume cv curriculum vitae experience pdf print',
             action: () => window.location.assign('/resume'),
-        },
-        {
+        }),
+        withGroup({
             label: 'Book a conversation',
             keywords: 'book calendly schedule call conversation hiring recruiter',
             action: () => {
                 const url = document.documentElement.dataset.bookingUrl;
                 window.location.assign(url || '/now#contact');
             },
-        },
-        {
+        }),
+        withGroup({
             label: 'Writing — Blog',
             keywords: 'writing blog posts articles essays notes governance leadership',
             action: () => window.location.assign('/blog'),
-        },
-        {
+        }),
+        withGroup({
             label: 'Experience',
             keywords: 'experience career nasa jacobs',
             action: () => gotoSection('experience'),
-        },
-        {
+        }),
+        withGroup({
             label: 'Selected Work',
             keywords: 'work portfolio projects',
             action: () => gotoSection('work'),
-        },
-        {
+        }),
+        withGroup({
             label: 'Research',
             keywords: 'research publication paper doi geohorizons flood mapping',
             action: () => gotoSection('research'),
-        },
-        {
+        }),
+        withGroup({
             label: 'Stack',
             keywords: 'stack tech tools languages',
             action: () => gotoSection('stack'),
-        },
-        {
+        }),
+        withGroup({
             label: 'Credentials',
             keywords: 'certs certifications education scrum stats',
             action: () => gotoSection('credentials'),
-        },
-        {
+        }),
+        withGroup({
             label: 'Open Source',
             keywords: 'github repos open source',
             action: () => gotoSection('open-source'),
-        },
-        { label: 'Contact', keywords: 'contact email hire', action: () => gotoSection('contact') },
-        {
+        }),
+        withGroup({
+            label: 'Contact',
+            keywords: 'contact email hire',
+            action: () => gotoSection('contact'),
+        }),
+        withGroup({
             label: 'RSS Feed',
             keywords: 'rss atom feed subscribe',
             action: () => window.open('/feed.xml', '_blank', 'noopener,noreferrer'),
-        },
-        {
+        }),
+        withGroup({
             label: 'JSON Feed',
             keywords: 'json feed subscribe',
             action: () => window.open('/feed.json', '_blank', 'noopener,noreferrer'),
-        },
-        {
+        }),
+        withGroup({
             label: 'LinkedIn',
             keywords: 'linkedin social',
             action: () =>
                 window.open('https://www.linkedin.com/in/khill/', '_blank', 'noopener,noreferrer'),
-        },
-        {
+        }),
+        withGroup({
             label: 'GitHub',
             keywords: 'github code',
             action: () =>
                 window.open('https://github.com/karlhillx', '_blank', 'noopener,noreferrer'),
-        },
+        }),
     ];
 
     const index = parseCommandIndex();
@@ -170,26 +197,36 @@ export function initCommandPalette() {
     const bookingLabel = document.documentElement.dataset.bookingLabel || 'Book a conversation';
     const bookingCommands = bookingUrl
         ? [
-              {
+              withGroup({
                   label: bookingLabel,
                   keywords: 'book calendar cal.com calendly schedule conversation meeting hire',
                   action: () => window.open(bookingUrl, '_blank', 'noopener,noreferrer'),
-              },
+              }),
           ]
         : [];
     const commands = [
         ...staticCommands,
         ...bookingCommands,
-        ...index.posts.map((post) => ({
-            label: post.label,
-            keywords: post.keywords ?? 'writing blog',
-            action: () => window.location.assign(post.url),
-        })),
-        ...index.projects.map((project) => ({
-            label: `Work — ${project.label}`,
-            keywords: project.keywords ?? 'work portfolio',
-            action: () => window.location.assign(project.url),
-        })),
+        ...index.posts.map((post) =>
+            withGroup(
+                {
+                    label: post.label,
+                    keywords: post.keywords ?? 'writing blog',
+                    action: () => window.location.assign(post.url),
+                },
+                post.group ?? 'writing'
+            )
+        ),
+        ...index.projects.map((project) =>
+            withGroup(
+                {
+                    label: project.label,
+                    keywords: project.keywords ?? 'work portfolio',
+                    action: () => window.location.assign(project.url),
+                },
+                project.group ?? 'work'
+            )
+        ),
     ];
 
     let activeCommandIndex = 0;
@@ -202,7 +239,7 @@ export function initCommandPalette() {
         return commands
             .map((cmd) => ({
                 cmd,
-                score: fuzzyScore(q, `${cmd.label} ${cmd.keywords}`),
+                score: commandScore(q, cmd),
             }))
             .filter(({ score }) => score > 0)
             .sort((a, b) => b.score - a.score || a.cmd.label.localeCompare(b.cmd.label))
@@ -214,17 +251,19 @@ export function initCommandPalette() {
         activeCommandIndex = Math.min(activeCommandIndex, Math.max(filtered.length - 1, 0));
         commandResults.innerHTML = filtered.length
             ? filtered
-                  .map(
-                      (cmd, i) => `
+                  .map((cmd, i) => {
+                      const group = GROUP_LABELS[cmd.group] ?? GROUP_LABELS.page;
+                      return `
                 <button type="button"
                         id="command-result-${i}"
                         role="option"
                         aria-selected="${i === activeCommandIndex ? 'true' : 'false'}"
                         class="command-result ${i === activeCommandIndex ? 'is-active' : ''}"
                         data-command-index="${i}">
+                    <span class="command-result__group font-mono">${group}</span>
                     <span class="font-mono text-xs">${cmd.label}</span>
-                </button>`
-                  )
+                </button>`;
+                  })
                   .join('')
             : '<p class="font-mono text-xs text-neutral-500 px-2 py-2">No matches</p>';
         commandInput.setAttribute(

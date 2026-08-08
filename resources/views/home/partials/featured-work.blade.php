@@ -4,7 +4,7 @@
 
 @include('partials.work', [
     'projects' => $featured,
-    'sectionNumber' => '02',
+    'sectionNumber' => '01',
     'heading' => 'Selected Work',
     'showViewAll' => true,
 ])

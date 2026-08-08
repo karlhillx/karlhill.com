@@ -33,9 +33,9 @@ return [
             ],
         ],
         1 => [
-            'title' => 'Sr. Software Engineer',
+            'title' => 'Senior Software Engineer',
             'company' => 'InformedDNA',
-            'location' => 'St. Petersburg, FL',
+            'location' => 'Washington, D.C.',
             'period' => 'Jan 2016 — Dec 2017',
             'highlights' => [
                 0 => 'Architected and delivered a Laravel-based case management platform, reducing operational costs by <strong class="text-white font-semibold">$30K/year</strong>. <a href="/work/informeddna-platform" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
@@ -45,7 +45,7 @@ return [
             ],
         ],
         2 => [
-            'title' => 'Sr. Software Engineer',
+            'title' => 'Senior Software Engineer',
             'company' => 'Ticomix, Inc.',
             'location' => 'Washington, D.C.',
             'period' => 'Jun 2012 — Mar 2015',
@@ -60,6 +60,14 @@ return [
     'earlier' => [
         'title' => 'Earlier Engineering Experience',
         'period' => '1997 — 2012',
+        'company' => 'Sabre Corporation · Dante Inc. · Visitar Inc. · Verizon Business',
+        'highlights' => [
+            'Held software engineering and principal engineering roles across travel, enterprise CRM, telecommunications, managed security services, and large-scale client platforms.',
+            'Built Java, PHP, CRM, telephony, and internal operations systems for enterprise clients including Comcast, Mastercard, Verizon/MCI, and global travel customers.',
+            'Delivered production systems, workflow automation, client onboarding platforms, API integrations, and reliability improvements — including Finium, the multi-tenant managed-security platform that enabled a <strong class="text-white font-semibold">$105M</strong> acquisition. <a href="/work/finium" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
+            'Helped mature engineering practices through Scrum adoption, testing discipline, code quality, junior developer mentoring, and cross-functional delivery.',
+        ],
+        // Legacy single-entry shape kept for any older consumers; prefer highlights above.
         'entries' => [
             0 => [
                 'company' => 'Sabre Corporation · Dante Inc. · Visitar Inc. · Verizon Business',

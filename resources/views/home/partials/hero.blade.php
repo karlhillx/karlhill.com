@@ -1,8 +1,5 @@
 <section id="hero" data-section-label="Top" class="hero relative min-h-[100svh] flex flex-col justify-end overflow-hidden site-gutter">
-    <div class="hero-mesh" aria-hidden="true"></div>
     <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
-    <x-site.glow-orb :drift="1" class="-bottom-32 -left-32 w-[600px] h-[600px]" />
-    <x-site.glow-orb :drift="2" :strength="0.09" class="-top-48 -right-48 w-[500px] h-[500px]" />
 
     <div class="relative z-10 site-shell w-full">
         <div class="hero-copy">
@@ -18,7 +15,7 @@
                     fetchpriority="high"
                     :lqip="false"
                     img-style="view-transition-name: portrait"
-                    img-class="portrait-glow hero-portrait rounded-full object-cover ring-2 ring-accent/30 shrink-0"
+                    img-class="hero-portrait rounded-full object-cover ring-2 ring-accent/30 shrink-0"
                 />
                 <p class="hero-eyebrow-label font-mono text-accent uppercase">
                     <span>{{ $person['job_title'] }}</span>

@@ -1,106 +1,94 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Support\GitHubRepository;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
-use Tests\TestCase;
 
-class GitHubRepositoryTest extends TestCase
-{
-    protected function setUp(): void
-    {
-        parent::setUp();
-        Cache::flush();
-    }
+beforeEach(function () {
+    Cache::flush();
+});
 
-    public function test_top_repos_returns_featured_public_repositories(): void
-    {
-        Http::preventStrayRequests();
+it('top repos returns featured public repositories', function () {
+    Http::preventStrayRequests();
 
-        Http::fake([
-            'api.github.com/*' => Http::response([
-                [
-                    'name' => 'drift-rs',
-                    'description' => 'Rust drift detection',
-                    'html_url' => 'https://github.com/karlhillx/drift-rs',
-                    'stargazers_count' => 12,
-                    'language' => 'Rust',
-                    'topics' => ['rust'],
-                    'fork' => false,
-                    'archived' => false,
-                    'updated_at' => '2026-06-01T00:00:00Z',
-                ],
-                [
-                    'name' => 'karlhill.com',
-                    'description' => 'Site repo',
-                    'html_url' => 'https://github.com/karlhillx/karlhill.com',
-                    'stargazers_count' => 1,
-                    'language' => 'PHP',
-                    'topics' => [],
-                    'fork' => false,
-                    'archived' => false,
-                    'updated_at' => '2026-06-02T00:00:00Z',
-                ],
-            ], 200),
-        ]);
+    Http::fake([
+        'api.github.com/*' => Http::response([
+            [
+                'name' => 'drift-rs',
+                'description' => 'Rust drift detection',
+                'html_url' => 'https://github.com/karlhillx/drift-rs',
+                'stargazers_count' => 12,
+                'language' => 'Rust',
+                'topics' => ['rust'],
+                'fork' => false,
+                'archived' => false,
+                'updated_at' => '2026-06-01T00:00:00Z',
+            ],
+            [
+                'name' => 'karlhill.com',
+                'description' => 'Site repo',
+                'html_url' => 'https://github.com/karlhillx/karlhill.com',
+                'stargazers_count' => 1,
+                'language' => 'PHP',
+                'topics' => [],
+                'fork' => false,
+                'archived' => false,
+                'updated_at' => '2026-06-02T00:00:00Z',
+            ],
+        ], 200),
+    ]);
 
-        $repos = app(GitHubRepository::class)->topRepos();
+    $repos = app(GitHubRepository::class)->topRepos();
 
-        $this->assertGreaterThanOrEqual(1, $repos->count());
-        $this->assertTrue($repos->contains(fn ($repo) => $repo->name === 'drift-rs'));
-        $this->assertFalse($repos->contains(fn ($repo) => $repo->name === 'karlhill.com'));
-    }
+    $this->assertGreaterThanOrEqual(1, $repos->count());
+    $this->assertTrue($repos->contains(fn ($repo) => $repo->name === 'drift-rs'));
+    $this->assertFalse($repos->contains(fn ($repo) => $repo->name === 'karlhill.com'));
+});
 
-    public function test_falls_back_to_curated_repos_when_api_fails(): void
-    {
-        Http::fake([
-            'api.github.com/*' => Http::response('rate limited', 403),
-        ]);
+it('falls back to curated repos when api fails', function () {
+    Http::fake([
+        'api.github.com/*' => Http::response('rate limited', 403),
+    ]);
 
-        $repos = app(GitHubRepository::class)->topRepos();
+    $repos = app(GitHubRepository::class)->topRepos();
 
-        $this->assertGreaterThanOrEqual(1, $repos->count());
-        $this->assertTrue($repos->contains(fn ($repo) => $repo->name === 'sim-rs'));
-    }
+    $this->assertGreaterThanOrEqual(1, $repos->count());
+    $this->assertTrue($repos->contains(fn ($repo) => $repo->name === 'sim-rs'));
+});
 
-    public function test_work_page_shows_fallback_repos_instead_of_empty_state(): void
-    {
-        Http::fake([
-            'api.github.com/*' => Http::response('server error', 500),
-        ]);
+it('work page shows fallback repos instead of empty state', function () {
+    Http::fake([
+        'api.github.com/*' => Http::response('server error', 500),
+    ]);
 
-        $response = $this->get('/work');
+    $response = $this->get('/work');
 
-        $response->assertOk();
-        $response->assertSee('id="open-source"', escape: false);
-        $response->assertDontSee('No public repositories were returned');
-    }
+    $response->assertOk();
+    $response->assertSee('id="open-source"', escape: false);
+    $response->assertDontSee('No public repositories were returned');
+});
 
-    public function test_work_page_renders_server_side_github_repos(): void
-    {
-        Http::fake([
-            'api.github.com/*' => Http::response([
-                [
-                    'name' => 'sim-rs',
-                    'description' => 'Simulation runtime',
-                    'html_url' => 'https://github.com/karlhillx/sim-rs',
-                    'stargazers_count' => 4,
-                    'language' => 'Rust',
-                    'topics' => ['simulation'],
-                    'fork' => false,
-                    'archived' => false,
-                    'updated_at' => '2026-06-01T00:00:00Z',
-                ],
-            ], 200),
-        ]);
+it('work page renders server side github repos', function () {
+    Http::fake([
+        'api.github.com/*' => Http::response([
+            [
+                'name' => 'sim-rs',
+                'description' => 'Simulation runtime',
+                'html_url' => 'https://github.com/karlhillx/sim-rs',
+                'stargazers_count' => 4,
+                'language' => 'Rust',
+                'topics' => ['simulation'],
+                'fork' => false,
+                'archived' => false,
+                'updated_at' => '2026-06-01T00:00:00Z',
+            ],
+        ], 200),
+    ]);
 
-        $response = $this->get('/work');
+    $response = $this->get('/work');
 
-        $response->assertOk();
-        $response->assertSee('id="open-source"', escape: false);
-        $response->assertSee('sim-rs', escape: false);
-        $response->assertDontSee('id="github-repos"', escape: false);
-    }
-}
+    $response->assertOk();
+    $response->assertSee('id="open-source"', escape: false);
+    $response->assertSee('sim-rs', escape: false);
+    $response->assertDontSee('id="github-repos"', escape: false);
+});

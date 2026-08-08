@@ -1,0 +1,1202 @@
+/* Prose, syntax, series, cards, chrome components */
+/* ---------------------------------------------------------------------------
+   Long-form prose for the blog. Hand-rolled to match the site's design tokens
+   without pulling in @tailwindcss/typography (which would override the
+   Bebas Neue display font and OKLCH oranges).
+--------------------------------------------------------------------------- */
+.prose-karl {
+    color: oklch(84% 0.012 250);
+    font-size: 0.9375rem; /* 15px — tighter for laptop reading */
+    line-height: 1.6;
+    max-width: 66ch;
+}
+
+.prose-karl p,
+.prose-karl ul,
+.prose-karl ol,
+.prose-karl blockquote,
+.prose-karl pre,
+.prose-karl figure {
+    margin: 0;
+}
+
+.prose-karl > * + * {
+    margin-top: 0.85em;
+}
+
+.prose-karl > p + p {
+    margin-top: 0.95em;
+}
+
+/* Extra breathing room around lists and blockquotes — they should feel like distinct blocks */
+.prose-karl > * + ul,
+.prose-karl > * + ol,
+.prose-karl > * + blockquote,
+.prose-karl > ul + *,
+.prose-karl > ol + *,
+.prose-karl > blockquote + * {
+    margin-top: 1.5em;
+}
+
+.prose-karl h2,
+.prose-karl h3,
+.prose-karl h4 {
+    font-family: var(--font-display);
+    color: #fafafa;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+}
+
+.prose-karl h2 {
+    font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+    margin-top: 1.9em;
+    margin-bottom: 0.5em;
+    padding-top: 0.85em;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 6.5rem;
+}
+
+.prose-karl h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.prose-karl h3 {
+    font-size: clamp(1.15rem, 1.9vw, 1.3rem);
+    margin-top: 1.5em;
+    margin-bottom: 0.3em;
+    scroll-margin-top: 6.5rem;
+}
+
+.prose-karl h4 {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #f5f5f5;
+    margin-top: 1.4em;
+    margin-bottom: 0.15em;
+    letter-spacing: 0;
+    scroll-margin-top: 6.5rem;
+}
+
+/* Heading permalink anchors — visible on hover/focus */
+.prose-karl .heading-anchor-wrap {
+    position: relative;
+}
+
+.prose-karl .heading-permalink {
+    position: absolute;
+    right: 100%;
+    margin-right: 0.45rem;
+    top: 0.12em;
+    color: var(--muted-2);
+    text-decoration: none;
+    opacity: 0;
+    transition:
+        opacity 0.16s ease,
+        color 0.16s ease;
+    font-family: var(--font-mono);
+    font-size: 0.72em;
+    line-height: 1;
+}
+
+.prose-karl .heading-anchor-wrap:hover .heading-permalink,
+.prose-karl .heading-anchor-wrap:focus-within .heading-permalink,
+.prose-karl .heading-permalink:focus-visible {
+    opacity: 1;
+}
+
+.prose-karl .heading-permalink:hover,
+.prose-karl .heading-permalink:focus-visible {
+    color: var(--accent);
+}
+
+/* Article table of contents */
+.article-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.article-toc-item--child {
+    padding-left: 0.75rem;
+}
+
+.article-toc-link {
+    display: block;
+    line-height: 1.35;
+    text-decoration: none;
+    border-left: 1px solid transparent;
+    padding-left: 0.55rem;
+    transition:
+        color 0.16s ease,
+        border-color 0.16s ease;
+}
+
+.article-toc-link.is-active,
+.article-toc-link[aria-current='location'] {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: color-mix(in oklab, var(--accent) 10%, transparent);
+    box-shadow: inset 2px 0 0 var(--accent);
+    padding-block: 0.2rem;
+    margin-block: -0.2rem;
+}
+
+.article-toc-mobile summary::-webkit-details-marker {
+    display: none;
+}
+
+.article-toc-mobile summary::after {
+    content: '+';
+    float: right;
+    color: var(--muted-2);
+    font-family: var(--font-mono);
+}
+
+.article-toc-mobile[open] summary::after {
+    content: '−';
+}
+
+.prose-karl strong {
+    color: #fafafa;
+    font-weight: 600;
+}
+
+.prose-karl em {
+    color: oklch(92% 0.015 250);
+}
+
+/* Inline article links keep a faint resting underline for affordance, then a
+   solid accent underline sweeps across on hover as the faint one fades out. */
+.prose-karl a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 35%, transparent);
+    text-underline-offset: 3px;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    transition:
+        background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        text-decoration-color 0.18s ease,
+        color 0.18s ease;
+}
+
+.prose-karl a:hover {
+    color: oklch(80% 0.18 50);
+    text-decoration-color: transparent;
+    background-size: 100% 2px;
+}
+
+.prose-karl code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    color: oklch(82% 0.12 50);
+    background: color-mix(in oklab, var(--accent) 8%, transparent);
+    border: 1px solid color-mix(in oklab, var(--accent) 18%, transparent);
+    padding: 0.08em 0.4em;
+    border-radius: 3px;
+}
+
+.prose-karl pre {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    line-height: 1.65;
+    background: #0d0d0d;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.1em 1.3em;
+    overflow-x: auto;
+    color: #e5e5e5;
+}
+
+.prose-karl pre code {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* ---------------------------------------------------------------------------
+   Syntax highlighting — token colors for tempest/highlight output
+   (<pre class="notranslate"> with hl-* spans). Tuned in OKLCH to sit on the
+   #0d0d0d code surface and harmonize with the site's warm accent.
+--------------------------------------------------------------------------- */
+.prose-karl pre.notranslate {
+    position: relative;
+    color: oklch(88% 0.008 250);
+}
+
+.prose-karl .code-copy-btn {
+    position: absolute;
+    top: 0.45em;
+    right: 0.45em;
+    z-index: 1;
+    border: 1px solid var(--border-strong);
+    background: color-mix(in oklab, var(--bg) 88%, #000);
+    color: var(--muted);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.28rem 0.5rem;
+    border-radius: 0.25rem;
+    opacity: 0;
+    transition:
+        opacity 0.16s ease,
+        color 0.16s ease,
+        border-color 0.16s ease;
+}
+
+.prose-karl pre.notranslate:hover .code-copy-btn,
+.prose-karl pre.notranslate:focus-within .code-copy-btn,
+.prose-karl .code-copy-btn:focus-visible {
+    opacity: 1;
+}
+
+.prose-karl .code-copy-btn:hover,
+.prose-karl .code-copy-btn:focus-visible {
+    color: var(--accent);
+    border-color: color-mix(in oklab, var(--accent) 50%, var(--border-strong));
+}
+
+.prose-karl .code-copy-feedback {
+    position: absolute;
+    top: 0.45em;
+    right: 3.4rem;
+    z-index: 1;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    pointer-events: none;
+}
+
+.prose-karl .code-copy-feedback.is-visible {
+    opacity: 1;
+}
+
+/* Language label in the corner (skips the plain-text default) */
+.prose-karl pre.notranslate[data-lang]:not([data-lang='txt'])::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0.5em;
+    right: 0.7em;
+    font-family: var(--font-mono);
+    font-size: 0.68em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #525252;
+    pointer-events: none;
+    transition: opacity 0.16s ease;
+}
+
+.prose-karl pre.notranslate[data-lang]:not([data-lang='txt']):is(:hover, :focus-within)::before {
+    opacity: 0;
+}
+
+.prose-karl .hl-comment {
+    color: oklch(58% 0.02 250);
+    font-style: italic;
+}
+.prose-karl .hl-keyword {
+    color: oklch(74% 0.16 25);
+}
+.prose-karl .hl-operator {
+    color: oklch(72% 0.03 250);
+}
+.prose-karl .hl-type {
+    color: oklch(80% 0.12 200);
+}
+.prose-karl .hl-generic {
+    color: oklch(82% 0.1 300);
+}
+.prose-karl .hl-value,
+.prose-karl .hl-literal,
+.prose-karl .hl-number {
+    color: oklch(82% 0.13 145);
+}
+.prose-karl .hl-property,
+.prose-karl .hl-attribute {
+    color: oklch(82% 0.12 250);
+}
+.prose-karl .hl-variable {
+    color: oklch(80% 0.1 55);
+}
+.prose-karl .hl-injection {
+    color: var(--accent);
+}
+
+.prose-karl blockquote {
+    border-left: 2px solid var(--accent);
+    padding: 0.15em 0 0.15em 1.2em;
+    margin-left: 0;
+    color: oklch(82% 0.02 250);
+    font-style: normal;
+}
+
+/* Short single-paragraph quotes read as pull quotes. */
+.prose-karl blockquote:not(:has(p + p)) {
+    margin-block: 1.75em;
+    padding: 0.35em 0 0.35em 1.35em;
+    font-family: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(1.45rem, 2.6vw, 1.85rem);
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    color: oklch(92% 0.02 80);
+}
+
+.prose-karl blockquote:not(:has(p + p)) p {
+    text-wrap: balance;
+}
+
+.prose-karl blockquote p + p {
+    margin-top: 0.5em;
+}
+
+.prose-karl ul,
+.prose-karl ol {
+    padding-left: 1.4em;
+    list-style-position: outside;
+}
+
+.prose-karl ul {
+    list-style-type: disc;
+}
+
+.prose-karl ol {
+    list-style-type: decimal;
+}
+
+.prose-karl ul li,
+.prose-karl ol li {
+    margin-top: 0.35em;
+    padding-left: 0.2em;
+}
+
+.prose-karl ul li:first-child,
+.prose-karl ol li:first-child {
+    margin-top: 0;
+}
+
+.prose-karl ul li::marker {
+    color: var(--accent);
+}
+
+.prose-karl ol li::marker {
+    color: oklch(72% 0.04 50);
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+}
+
+/* Task lists — GFM `- [x]` syntax. Used as a visual device for lines that
+   represent "boxes that got checked" (e.g. CI green, PR approved). */
+.prose-karl ul:has(> li > input[type='checkbox']) {
+    list-style: none;
+    padding-left: 0;
+}
+
+.prose-karl li:has(> input[type='checkbox']) {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.7em;
+}
+
+.prose-karl li:has(> input[type='checkbox'])::marker {
+    content: '';
+}
+
+.prose-karl li > input[type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+    flex-shrink: 0;
+    width: 1.05em;
+    height: 1.05em;
+    border: 1px solid color-mix(in oklab, var(--success) 55%, var(--border-strong));
+    border-radius: 3px;
+    background: color-mix(in oklab, var(--success) 8%, #0a0a0a);
+    position: relative;
+    transform: translateY(0.15em);
+    cursor: default;
+    margin: 0;
+}
+
+.prose-karl li > input[type='checkbox']:checked::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    width: 0.3em;
+    height: 0.55em;
+    border: solid oklch(78% 0.2 150);
+    border-width: 0 0.14em 0.14em 0;
+    transform: translate(-55%, -60%) rotate(45deg);
+}
+
+/* Cadence block — used at section codas to evoke a drum-fill rhythm.
+   Markdown: wrap three short lines in <div class="cadence">…</div>. */
+.prose-karl > * + .cadence,
+.prose-karl > .cadence + * {
+    margin-top: 1.7em;
+}
+
+.prose-karl .cadence p {
+    color: #fafafa;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+    padding-left: 1.5em;
+    position: relative;
+}
+
+.prose-karl .cadence p + p {
+    margin-top: 0.5em;
+}
+
+.prose-karl .cadence p::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* Signoff block — used to mark the final lines of an article. */
+.prose-karl > * + .signoff {
+    margin-top: 2.4em;
+    padding-top: 1.6em;
+    border-top: 1px solid color-mix(in oklab, var(--accent) 30%, #1a1a1a);
+}
+
+.prose-karl .signoff p {
+    margin: 0;
+    color: #e5e5e5;
+}
+
+.prose-karl .signoff p + p {
+    margin-top: 0.7em;
+}
+
+.prose-karl .signoff p:last-child {
+    margin-top: 1em;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.4vw, 1.65rem);
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    color: #fafafa;
+}
+
+.prose-karl .signoff p:last-child strong {
+    font-weight: inherit;
+}
+
+.prose-karl hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 2em 0;
+}
+
+.prose-karl img {
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    max-width: 100%;
+    height: auto;
+}
+
+.prose-karl figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--muted-2);
+    text-align: center;
+    margin-top: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.prose-karl table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+
+.prose-karl th,
+.prose-karl td {
+    border-bottom: 1px solid var(--border);
+    padding: 0.65em 0.9em;
+    text-align: left;
+}
+
+.prose-karl th {
+    font-family: var(--font-mono);
+    font-size: 0.78em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+@media (max-width: 640px) {
+    .prose-karl {
+        font-size: 0.9375rem;
+        line-height: 1.58;
+    }
+
+    .prose-karl h2 {
+        margin-top: 1.6em;
+    }
+
+    .prose-karl .heading-permalink {
+        opacity: 1;
+        position: static;
+        display: inline-block;
+        margin-right: 0.35rem;
+    }
+}
+
+@media (pointer: coarse) {
+    .prose-karl .code-copy-btn {
+        opacity: 1;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Outbound link marker — subtle ↗ on absolute external URLs. Social icons and
+   other intentional exceptions opt out with [data-no-ext].
+--------------------------------------------------------------------------- */
+a[href^='http://']:not([href*='karlhill.com']):not([data-no-ext])::after,
+a[href^='https://']:not([href*='karlhill.com']):not([data-no-ext])::after {
+    content: ' ↗';
+    font-size: 0.85em;
+    opacity: 0.55;
+    speak: never;
+}
+
+/* Icon-only social links: suppress the marker even if data-no-ext is missed. */
+.social-links a::after {
+    content: none !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Mobile nav toggle — hamburger → X when the popover is open
+--------------------------------------------------------------------------- */
+#nav-toggle {
+    position: relative;
+}
+
+#nav-toggle .nav-toggle-bar {
+    display: block;
+    width: 1rem;
+    height: 1px;
+    background: currentColor;
+    transform-origin: center;
+    transition:
+        transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.18s ease;
+}
+
+#nav-toggle[aria-expanded='true'] .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+#nav-toggle[aria-expanded='true'] .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+#nav-toggle[aria-expanded='true'] .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #nav-toggle .nav-toggle-bar {
+        transition: none;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Print — strip chrome, keep the writing readable
+--------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------
+   Series chapter strip
+--------------------------------------------------------------------------- */
+.series-chapters {
+    margin-inline: calc(var(--space-gutter) * -1);
+    padding-inline: var(--space-gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--accent) 35%, transparent) transparent;
+    -webkit-overflow-scrolling: touch;
+}
+
+.series-chapters__track {
+    list-style: none;
+    margin: 0;
+    padding: 0.25rem 0 0.75rem;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    min-width: min-content;
+}
+
+.series-chapters__item {
+    position: relative;
+    flex: 0 0 auto;
+    width: min(16.5rem, 72vw);
+    padding-right: 1.25rem;
+}
+
+.series-chapters__item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 1.55rem;
+    right: 0.15rem;
+    width: 0.95rem;
+    height: 1px;
+    background: color-mix(in oklab, var(--accent) 35%, var(--border));
+}
+
+.series-chapters__item.is-past:not(:last-child)::after {
+    background: color-mix(in oklab, var(--accent) 70%, transparent);
+}
+
+.series-chapters__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    height: 100%;
+    min-height: 7.5rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border);
+    background: color-mix(in oklab, var(--panel) 88%, transparent);
+    text-decoration: none;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s var(--ease-out-soft);
+}
+
+a.series-chapters__card:hover {
+    border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+    background: color-mix(in oklab, var(--accent) 6%, var(--panel));
+}
+
+.series-chapters__item.is-current .series-chapters__card {
+    border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
+    background: color-mix(in oklab, var(--accent) 10%, var(--panel));
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--accent) 20%, transparent);
+}
+
+.series-chapters__num {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+}
+
+.series-chapters__meta {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: color-mix(in oklab, var(--accent) 75%, var(--muted-2));
+}
+
+.series-chapters__item.is-current .series-chapters__num,
+.series-chapters__item.is-past .series-chapters__num {
+    color: var(--accent);
+}
+
+.series-chapters__title {
+    font-family: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    color: #e5e5e5;
+    text-wrap: balance;
+}
+
+a.series-chapters__card:hover .series-chapters__title,
+.series-chapters__item.is-current .series-chapters__title {
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+    .series-chapters {
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: var(--space-gutter);
+    }
+
+    .series-chapters__track {
+        gap: 0.75rem;
+        padding-bottom: 1rem;
+    }
+
+    .series-chapters__item {
+        width: min(82vw, 19rem);
+        padding-right: 0;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+
+    .series-chapters__item:not(:last-child)::after {
+        display: none;
+    }
+
+    .series-chapters__card {
+        min-height: 8.25rem;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Article sticky title + LQIP + toasts + ⌘K tip
+--------------------------------------------------------------------------- */
+.article-sticky-title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* Sit under the primary nav (z-50), never over the mobile menu. */
+    z-index: 40;
+    padding-top: 3.75rem;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-0.35rem);
+    transition:
+        opacity 0.22s var(--ease-out-soft),
+        transform 0.22s var(--ease-out-soft);
+}
+
+@media (min-width: 768px) {
+    .article-sticky-title {
+        padding-top: 4.75rem;
+    }
+
+    nav[aria-label='Primary'].is-compact ~ * .article-sticky-title,
+    body:has(nav[aria-label='Primary'].is-compact) .article-sticky-title {
+        padding-top: 4rem;
+    }
+}
+
+.article-sticky-title.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.article-sticky-title.is-suppressed {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.article-sticky-title > div {
+    pointer-events: auto;
+    border-bottom: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+    background: color-mix(in oklab, var(--bg) 92%, transparent);
+    backdrop-filter: blur(10px) saturate(1.15);
+    min-height: 2.5rem;
+}
+
+.img-lqip {
+    display: block;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.img-lqip__media {
+    opacity: 0;
+    transition: opacity 0.45s var(--ease-out-soft);
+}
+
+.img-lqip.is-loaded .img-lqip__media,
+.img-lqip__media.is-loaded {
+    opacity: 1;
+}
+
+.site-toast,
+.cmdk-tip {
+    position: fixed;
+    z-index: 80;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    max-width: min(26rem, calc(100vw - 2rem));
+    padding: 0.9rem 1rem;
+    border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--border));
+    background: color-mix(in oklab, var(--panel) 92%, transparent);
+    backdrop-filter: blur(14px) saturate(1.2);
+    box-shadow: 0 18px 50px rgb(0 0 0 / 0.45);
+}
+
+.site-toast {
+    right: 1rem;
+    bottom: 1rem;
+    opacity: 0;
+    transform: translateY(0.6rem) scale(0.98);
+    transition:
+        opacity 0.28s var(--ease-out-soft),
+        transform 0.28s var(--ease-out-soft);
+    overflow: hidden;
+}
+
+.site-toast.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.site-toast.is-leaving {
+    opacity: 0;
+    transform: translateY(0.4rem) scale(0.98);
+}
+
+.site-toast--error {
+    border-color: color-mix(in oklab, oklch(65% 0.18 25) 50%, var(--border));
+}
+
+.site-toast__progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    transform-origin: left center;
+    background: color-mix(in oklab, var(--accent) 80%, transparent);
+    transform: scaleX(1);
+}
+
+.site-toast.is-visible .site-toast__progress {
+    animation: toastProgress var(--toast-duration, 5.2s) linear forwards;
+}
+
+.site-toast--error .site-toast__progress {
+    background: color-mix(in oklab, oklch(65% 0.18 25) 80%, transparent);
+}
+
+@keyframes toastProgress {
+    from {
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(0);
+    }
+}
+
+/* Tag filter + adjacent nav micro-interactions */
+.tag-filter__chip {
+    transition:
+        color 0.16s ease,
+        border-color 0.16s ease,
+        background-color 0.16s ease,
+        transform 0.16s var(--ease-out-soft);
+}
+
+.tag-filter__chip:hover {
+    border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
+    color: var(--accent);
+}
+
+.tag-filter__chip:active {
+    transform: scale(0.97);
+}
+
+.tag-filter__chip.is-active {
+    background: color-mix(in oklab, var(--accent) 10%, transparent);
+}
+
+.adjacent-nav__card {
+    transition:
+        transform 0.22s var(--ease-out-soft),
+        border-color 0.2s ease;
+}
+
+.adjacent-nav__card:hover {
+    transform: translateY(-2px);
+}
+
+.adjacent-nav__arrow {
+    display: inline-block;
+    transition: transform 0.22s var(--ease-out-soft);
+}
+
+.adjacent-nav__card--prev:hover .adjacent-nav__arrow {
+    transform: translateX(-3px);
+}
+
+.adjacent-nav__card--next:hover .adjacent-nav__arrow {
+    transform: translateX(3px);
+}
+
+/* Case study media caption hierarchy */
+.case-study-media {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.case-study-media__caption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.65rem 1rem;
+}
+
+.case-study-media__label {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.case-study-media__detail {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+}
+
+/* How I lead — numbered principles */
+.lead-principles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+    max-width: 48rem;
+    border-top: 1px solid var(--border);
+}
+
+.lead-principles__item {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    gap: 1rem 1.25rem;
+    padding-block: 1.5rem;
+    border-bottom: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+}
+
+@media (min-width: 640px) {
+    .lead-principles__item {
+        grid-template-columns: 4rem minmax(0, 1fr);
+        gap: 1.25rem 1.75rem;
+        padding-block: 1.75rem;
+    }
+}
+
+.lead-principles__num {
+    font-family: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.75rem;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    color: color-mix(in oklab, var(--accent) 85%, white);
+    padding-top: 0.15rem;
+}
+
+.lead-principles__title {
+    font-family: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(1.35rem, 2.4vw, 1.65rem);
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    color: #fff;
+    margin: 0 0 0.55rem;
+    text-wrap: balance;
+}
+
+.lead-principles__text {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    max-width: 40rem;
+    text-wrap: pretty;
+}
+
+.site-toast__dismiss,
+.cmdk-tip__dismiss {
+    margin-left: auto;
+    margin-top: -0.1rem;
+    border: 0;
+    background: transparent;
+    color: var(--muted-2);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.site-toast__dismiss:hover,
+.cmdk-tip__dismiss:hover {
+    color: var(--text);
+}
+
+.cmdk-tip {
+    left: 50%;
+    bottom: 1.25rem;
+    transform: translate(-50%, 0.5rem);
+    opacity: 0;
+    transition:
+        opacity 0.28s var(--ease-out-soft),
+        transform 0.28s var(--ease-out-soft);
+}
+
+.cmdk-tip.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.cmdk-tip__kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.35rem;
+    padding: 0.15rem 0.35rem;
+    margin-inline: 0.1rem;
+    border: 1px solid var(--border-strong);
+    background: color-mix(in oklab, var(--bg) 70%, transparent);
+    color: var(--accent);
+    font-size: 0.65rem;
+    line-height: 1;
+}
+
+@media (max-width: 767px) {
+    .cmdk-tip {
+        display: none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .img-lqip__media,
+    .site-toast,
+    .cmdk-tip,
+    .article-sticky-title,
+    .series-chapters__card,
+    .tag-filter__chip,
+    .adjacent-nav__card,
+    .adjacent-nav__arrow {
+        transition: none;
+    }
+
+    .site-toast.is-visible .site-toast__progress {
+        animation: none;
+    }
+
+    .adjacent-nav__card:hover {
+        transform: none;
+    }
+}
+
+/* Resume document — screen layout mirrors the classic two-column CV. */
+.resume-shell {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+@media (min-width: 900px) {
+    .resume-shell {
+        grid-template-columns: minmax(0, 1fr) 16.5rem;
+        align-items: start;
+    }
+
+    .resume-aside {
+        order: 2;
+        position: sticky;
+        top: 6.5rem;
+    }
+
+    .resume-main {
+        order: 1;
+    }
+}
+
+.resume-aside {
+    border: 1px solid var(--border);
+    background: color-mix(in oklab, var(--panel) 92%, var(--accent));
+    padding: 1.25rem 1.15rem;
+}
+
+.resume-aside-block + .resume-aside-block {
+    margin-top: 1.25rem;
+}
+
+.resume-aside-title {
+    margin: 0 0 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.resume-aside-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    word-break: break-word;
+}
+
+.resume-aside-list a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 0.14em;
+    text-decoration-color: color-mix(in oklab, var(--accent) 40%, transparent);
+}
+
+.resume-aside-list a:hover {
+    color: var(--accent);
+}
+
+.resume-expertise {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.resume-expertise li {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.8rem;
+    line-height: 1.35;
+    color: var(--text);
+}
+
+.resume-aside-stack .resume-stack-line {
+    margin: 0 0 0.4rem;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--muted);
+}
+
+.resume-aside-stack .resume-stack-label {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.resume-roles {
+    display: grid;
+    gap: 1.75rem;
+}
+
+.resume-section + .resume-section {
+    margin-top: 2.25rem;
+}
+
+.resume-section-title {
+    margin-bottom: 0.85rem;
+}

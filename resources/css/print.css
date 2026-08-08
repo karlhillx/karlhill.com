@@ -1,0 +1,367 @@
+/* Print / resume export */
+@media print {
+    @page {
+        margin: 0.4in 0.45in;
+        size: letter;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    /* Site chrome must not appear on paper (was incorrectly only setting scroll-behavior). */
+    .scroll-progress,
+    .quick-back-top,
+    nav[aria-label='Primary'],
+    .section-rail,
+    .section-minimap,
+    #command-palette,
+    .hero-dot-grid,
+    #nav-toggle,
+    #quick-back-top,
+    .article-sticky-title,
+    .site-toast,
+    .cmdk-tip,
+    .article-toc,
+    .article-toc-mobile {
+        display: none !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Reveal / view-timeline entries must print fully visible. */
+    [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    body {
+        background: #fff !important;
+        color: #111 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    main {
+        padding-top: 0 !important;
+    }
+
+    a {
+        color: inherit !important;
+        text-decoration: underline !important;
+        background: none !important;
+    }
+
+    /* Classic karlhill-resume.pdf layout: navy sidebar + main column, densified to 2 pages. */
+    body:has(.resume-doc) .site-page-hero,
+    body:has(.resume-doc) #contact,
+    body:has(.resume-doc) .site-footer {
+        display: none !important;
+    }
+
+    body:has(.resume-doc) {
+        --resume-navy: #0b1f3a;
+        --resume-ink: #141414;
+        --resume-muted: #5a6578;
+        font-size: 8.6pt;
+        line-height: 1.28;
+        font-family:
+            Helvetica,
+            Arial,
+            'Segoe UI',
+            -apple-system,
+            BlinkMacSystemFont,
+            sans-serif !important;
+    }
+
+    body:has(.resume-doc) a::after {
+        content: none !important;
+    }
+
+    .resume-doc,
+    .resume-doc * {
+        font-family: inherit !important;
+    }
+
+    .resume-doc {
+        padding: 0 !important;
+        border: 0 !important;
+        background: #fff !important;
+        color: var(--resume-ink) !important;
+        overflow: visible !important;
+    }
+
+    .resume-doc .resume-shell,
+    .resume-doc .site-shell {
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    /* Float sidebar like the classic PDF: beside page-1 content, then main goes full-width. */
+    .resume-doc .resume-aside {
+        float: right;
+        width: 2.15in;
+        margin: 0 0 0.35rem 0.35rem;
+        padding: 0.42rem 0.38rem 0.5rem;
+        background: var(--resume-navy) !important;
+        color: #f3f6fb !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        break-inside: avoid;
+    }
+
+    .resume-doc .resume-aside a {
+        color: #ffffff !important;
+        text-decoration: underline !important;
+        text-underline-offset: 0.1em;
+        word-break: break-all;
+    }
+
+    .resume-doc .resume-aside-block + .resume-aside-block {
+        margin-top: 0.42rem;
+    }
+
+    .resume-doc .resume-aside-title {
+        margin: 0 0 0.2rem !important;
+        font-size: 8pt !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.08em !important;
+        text-transform: uppercase !important;
+        color: #ffffff !important;
+        border: 0 !important;
+        padding: 0 !important;
+    }
+
+    .resume-doc .resume-aside-list {
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 7.6pt !important;
+        line-height: 1.35 !important;
+    }
+
+    .resume-doc .resume-aside-list li {
+        margin: 0 0 0.12rem !important;
+    }
+
+    .resume-doc .resume-expertise {
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .resume-doc .resume-expertise li {
+        margin: 0 !important;
+        padding: 0.16rem 0 !important;
+        border-bottom: 1px solid rgb(255 255 255 / 0.28);
+        font-size: 7.4pt !important;
+        line-height: 1.25 !important;
+        color: #f3f6fb !important;
+    }
+
+    .resume-doc .resume-aside-stack .resume-stack-line {
+        margin: 0 0 0.14rem !important;
+        font-size: 7pt !important;
+        line-height: 1.25 !important;
+        color: #e8eef8 !important;
+    }
+
+    .resume-doc .resume-aside-stack .resume-stack-label {
+        font-weight: 700 !important;
+        color: #ffffff !important;
+    }
+
+    .resume-doc .resume-contact--screen {
+        display: none !important;
+    }
+
+    .resume-doc .resume-main {
+        display: block;
+    }
+
+    .resume-doc .resume-header {
+        margin: 0 0 0.4rem !important;
+        padding: 0 !important;
+        border: 0 !important;
+    }
+
+    .resume-doc .resume-name {
+        font-size: 20pt !important;
+        font-weight: 700 !important;
+        letter-spacing: -0.015em !important;
+        line-height: 1 !important;
+        color: #0a0a0a !important;
+    }
+
+    .resume-doc .resume-tagline {
+        margin-top: 0.18rem !important;
+        font-size: 7pt !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.07em !important;
+        text-transform: uppercase !important;
+        color: var(--resume-muted) !important;
+        max-width: 4.8in;
+    }
+
+    .resume-doc .resume-section {
+        margin: 0 0 0.38rem !important;
+        break-inside: auto;
+    }
+
+    .resume-doc .resume-section-title {
+        margin: 0 0 0.16rem !important;
+        padding: 0 0 0.08rem !important;
+        border-bottom: 1.25px solid #111;
+        font-size: 9pt !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.02em !important;
+        text-transform: none !important;
+        color: #111 !important;
+        break-after: avoid;
+    }
+
+    .resume-doc .resume-roles {
+        margin: 0 !important;
+    }
+
+    .resume-doc .resume-role {
+        margin: 0 0 0.32rem !important;
+        /* Allow roles to split so pages fill evenly (avoids a sparse page 1 / overflow page 3). */
+        break-inside: auto;
+        page-break-inside: auto;
+    }
+
+    .resume-doc .resume-role-title {
+        margin: 0 !important;
+        font-size: 9pt !important;
+        font-weight: 700 !important;
+        letter-spacing: 0 !important;
+        text-transform: none !important;
+        color: #111 !important;
+        break-after: avoid;
+    }
+
+    .resume-doc .resume-meta {
+        margin: 0.04rem 0 0 !important;
+        font-size: 7.2pt !important;
+        color: var(--resume-muted) !important;
+        letter-spacing: 0 !important;
+        text-transform: none !important;
+    }
+
+    .resume-doc .resume-dates {
+        letter-spacing: 0.08em !important;
+        text-transform: uppercase !important;
+    }
+
+    .resume-doc .resume-summary,
+    .resume-doc .resume-bullets,
+    .resume-doc .resume-education li,
+    .resume-doc .resume-certs li {
+        font-size: 8.2pt !important;
+        line-height: 1.26 !important;
+        color: var(--resume-ink) !important;
+    }
+
+    .resume-doc .resume-summary {
+        margin: 0 !important;
+    }
+
+    .resume-doc .resume-bullets {
+        margin: 0.1rem 0 0 !important;
+        padding-left: 0.85rem !important;
+        list-style: disc !important;
+    }
+
+    .resume-doc .resume-bullets li {
+        margin: 0.04rem 0 !important;
+        padding: 0 !important;
+        display: list-item !important;
+    }
+
+    /* Cap role bullets in print so the classic layout stays on 2 pages. */
+    .resume-doc .resume-role .resume-bullets li:nth-child(n + 5) {
+        display: none !important;
+    }
+
+
+    .resume-doc .resume-education,
+    .resume-doc .resume-certs {
+        margin: 0 !important;
+    }
+
+    .resume-doc .resume-education li,
+    .resume-doc .resume-certs li {
+        margin: 0.04rem 0 !important;
+    }
+
+    .resume-doc .space-y-2,
+    .resume-doc .space-y-8,
+    .resume-doc .mt-1,
+    .resume-doc .mt-3,
+    .resume-doc .mt-4,
+    .resume-doc .mb-4,
+    .resume-doc .mb-6,
+    .resume-doc .mb-10,
+    .resume-doc .sm\:mb-12 {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .resume-doc h1,
+    .resume-doc h2,
+    .resume-doc h3,
+    .resume-doc h4,
+    .resume-doc .text-white,
+    .resume-doc .text-neutral-200,
+    .resume-doc .text-neutral-300,
+    .resume-doc .text-accent,
+    .resume-doc .text-neutral-400,
+    .resume-doc .text-neutral-500,
+    .resume-doc .text-neutral-600 {
+        color: inherit !important;
+    }
+
+    /* Show destination URLs for external links in blog print. */
+    .prose-karl a[href^='http']::after {
+        content: ' (' attr(href) ')';
+        font-size: 0.85em;
+        word-break: break-all;
+        opacity: 0.75;
+    }
+
+    .prose-karl a[href^='#']::after,
+    .prose-karl a.heading-permalink::after {
+        content: none;
+    }
+
+    .prose-karl {
+        max-width: none !important;
+        font-size: 11pt;
+        line-height: 1.5;
+        color: #111;
+    }
+
+    .prose-karl pre,
+    .prose-karl code {
+        background: #f5f5f5 !important;
+        color: #111 !important;
+        box-shadow: none !important;
+    }
+
+    .prose-karl .code-copy-btn,
+    .prose-karl .code-copy-feedback,
+    .prose-karl .heading-permalink {
+        display: none !important;
+    }
+}

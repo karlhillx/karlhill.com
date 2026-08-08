@@ -41,3 +41,8 @@ yarn-error.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# Accidental media dumps at repo root (client assets under clients/ are fine)
+/*.mp4
+/*.mov
+/*.webm

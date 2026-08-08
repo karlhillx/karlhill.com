@@ -14,6 +14,7 @@ class ResumeController extends Controller
         return view('resume.index', [
             'meta' => PageMeta::resume(),
             'person' => config('site.person'),
+            'resume' => config('site.resume'),
             'experience' => config('site.experience'),
             'education' => config('site.education', []),
             'certifications' => config('site.certifications', []),

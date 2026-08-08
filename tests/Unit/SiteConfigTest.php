@@ -1,40 +1,32 @@
 <?php
 
-namespace Tests\Unit;
+it('same as is derived from social urls', function () {
+    $socialUrls = collect(config('site.social'))
+        ->pluck('url')
+        ->map(fn (string $url) => rtrim($url, '/'))
+        ->unique()
+        ->values()
+        ->all();
 
-use PHPUnit\Framework\Attributes\Test;
-use Tests\TestCase;
+    expect(config('site.same_as'))->toBe($socialUrls);
+});
 
-class SiteConfigTest extends TestCase
-{
-    #[Test]
-    public function same_as_is_derived_from_social_urls(): void
-    {
-        $socialUrls = collect(config('site.social'))
-            ->pluck('url')
-            ->map(fn (string $url) => rtrim($url, '/'))
-            ->unique()
-            ->values()
-            ->all();
+it('google is the default analytics provider', function () {
+    expect(config('site.analytics.provider'))->toBe('google')
+        ->and(config('site.analytics.google.enabled'))->toBeTrue()
+        ->and(config('site.analytics.plausible.enabled'))->toBeFalse();
+});
 
-        $this->assertSame($socialUrls, config('site.same_as'));
-    }
+it('experience fragment powers about and resume', function () {
+    expect(config('site.experience.current.title'))->not->toBeEmpty()
+        ->and(config('site.experience.roles'))->not->toBeEmpty();
 
-    #[Test]
-    public function google_is_the_default_analytics_provider(): void
-    {
-        $this->assertSame('google', config('site.analytics.provider'));
-        $this->assertTrue(config('site.analytics.google.enabled'));
-        $this->assertFalse(config('site.analytics.plausible.enabled'));
-    }
+    expect(config_path('site/experience.php'))->toBeFile()
+        ->and(config_path('site/now.php'))->toBeFile()
+        ->and(config_path('site/projects.php'))->toBeFile()
+        ->and(config_path('site/resume.php'))->toBeFile();
 
-    #[Test]
-    public function experience_fragment_powers_about_and_resume(): void
-    {
-        $this->assertNotEmpty(config('site.experience.current.title'));
-        $this->assertNotEmpty(config('site.experience.roles'));
-        $this->assertFileExists(config_path('site/experience.php'));
-        $this->assertFileExists(config_path('site/now.php'));
-        $this->assertFileExists(config_path('site/projects.php'));
-    }
-}
+    expect(config('site.resume.phone'))->not->toBeEmpty()
+        ->and(config('site.resume.impact'))->not->toBeEmpty()
+        ->and(config('site.resume.expertise'))->not->toBeEmpty();
+});
