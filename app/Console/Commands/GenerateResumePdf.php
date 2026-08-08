@@ -10,7 +10,7 @@ class GenerateResumePdf extends Command
 {
     protected $signature = 'resume:pdf';
 
-    protected $description = 'Generate public/files/karlhill-resume.pdf via Puppeteer (classic 2-page layout)';
+    protected $description = 'Generate public/files/Karl-Hill-Resume.pdf via Puppeteer (classic 2-page layout)';
 
     public function handle(): int
     {
@@ -34,11 +34,16 @@ class GenerateResumePdf extends Command
         ])->render();
 
         $htmlPath = storage_path('app/resume-print.html');
-        $pdfPath = public_path('files/karlhill-resume.pdf');
+        $pdfPath = public_path('files/Karl-Hill-Resume.pdf');
+        $legacyPath = public_path('files/karlhill-resume.pdf');
 
         File::ensureDirectoryExists(dirname($htmlPath));
         File::ensureDirectoryExists(dirname($pdfPath));
         File::put($htmlPath, $html);
+
+        if (is_file($legacyPath)) {
+            File::delete($legacyPath);
+        }
 
         $env = array_merge($_ENV, $_SERVER, [
             'PUPPETEER_CACHE_DIR' => getenv('PUPPETEER_CACHE_DIR')

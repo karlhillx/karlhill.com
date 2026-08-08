@@ -152,7 +152,7 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('resume-aside', escape: false);
     $resume->assertSee('id="contact-form"', escape: false);
     $resume->assertSee('Download PDF', escape: false);
-    $resume->assertSee('/files/karlhill-resume.pdf', escape: false);
+    $resume->assertSee('/files/Karl-Hill-Resume.pdf', escape: false);
     $resume->assertDontSee('Download ATS PDF', escape: false);
     $resume->assertDontSee('Print / Save PDF', escape: false);
     $resume->assertDontSee('<a href="/work/flood-mapping-system"', escape: false);

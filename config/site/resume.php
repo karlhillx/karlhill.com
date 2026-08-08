@@ -7,10 +7,9 @@ return [
     'postal' => '',
     'tagline' => 'Software Engineering Leader | Cloud-Native Platforms · DevSecOps · Mission-Ready Delivery',
     'impact' => [
-        'Lead cloud-native mission software delivery across aerospace, NASA, federal, and high-assurance environments.',
-        'Improve engineering discipline through CI/CD, release governance, PR standards, and Definition of Done practices.',
-        'Modernize platforms supporting disaster response, Earth science, telemetry, algorithms, and high-volume public systems.',
-        'Bridge technical execution and stakeholder alignment across engineering, product, operations, and mission teams.',
+        'Lead cloud-native mission delivery across aerospace, NASA, federal, and high-assurance environments.',
+        'Raise engineering discipline via CI/CD, release governance, PR standards, and Definition of Done.',
+        'Align technical execution with stakeholders across engineering, product, ops, and mission teams.',
     ],
     'expertise' => [
         'Engineering Leadership & Team Development',

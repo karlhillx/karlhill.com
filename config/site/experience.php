@@ -53,7 +53,7 @@ return [
                 0 => 'Delivered SugarCRM solutions for 20+ clients (including Virginia Department of Transportation, Washington Redskins, and Kastle Systems), improving sales operations, visibility, and team productivity.',
                 1 => 'Drove execution discipline to cut backlog ~90%, improving delivery predictability, product quality, and customer satisfaction.',
                 2 => 'Built a lightweight opportunity-identification application that helped customers surface and prioritize new business opportunities.',
-                3 => 'Collaborated effectively on distributed teams — clear async communication, strong documentation, and reliable cross-time-zone delivery.',
+                3 => "Collaborated effectively on distributed teams — clear async communication, strong documentation, and reliable delivery across\u{00A0}time\u{00A0}zones.",
             ],
         ],
     ],

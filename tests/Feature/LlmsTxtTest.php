@@ -43,7 +43,7 @@ it('llms txt builder lists social profiles and resume', function () {
     $this->assertStringContainsString('[LinkedIn](https://www.linkedin.com/in/khill/)', $body);
     $this->assertStringContainsString('[GitHub](https://github.com/karlhillx)', $body);
     $this->assertStringContainsString('/resume', $body);
-    $this->assertStringContainsString('/files/karlhill-resume.pdf', $body);
+    $this->assertStringContainsString('/files/Karl-Hill-Resume.pdf', $body);
     $this->assertStringContainsString('GeoHorizons', $body);
     $this->assertStringContainsString('August 7, 2026', $body);
 });

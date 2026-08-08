@@ -1,5 +1,6 @@
 /**
- * Render a letter-size résumé HTML file to PDF via Puppeteer (Chrome).
+ * Render a letter-size résumé HTML file to PDF via Puppeteer (Chrome),
+ * then attach intentional document metadata with pdf-lib.
  *
  * Usage:
  *   node scripts/generate-resume-pdf.mjs <input.html> <output.pdf>
@@ -9,6 +10,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import os from 'node:os';
 import puppeteer from 'puppeteer';
+import { PDFDocument } from 'pdf-lib';
 
 const [, , inputArg, outputArg] = process.argv;
 
@@ -46,6 +48,7 @@ if (fs.existsSync(macChrome)) {
 
 const browser = await puppeteer.launch(launchOptions);
 
+let pdfBytes;
 try {
     const page = await browser.newPage();
     await page.goto(pathToFileURL(inputPath).href, {
@@ -57,15 +60,33 @@ try {
         }
     });
 
-    await page.pdf({
-        path: outputPath,
+    pdfBytes = await page.pdf({
         format: 'Letter',
         printBackground: true,
         preferCSSPageSize: true,
+        // Embed HTML structure so ATS / accessibility tools follow DOM reading order
+        // instead of pure geometric (left-to-right) extraction across the sidebar.
+        tagged: true,
         margin: { top: '0', right: '0', bottom: '0', left: '0' },
     });
-
-    console.log(`Wrote ${outputPath}`);
 } finally {
     await browser.close();
 }
+
+const pdfDoc = await PDFDocument.load(pdfBytes);
+
+pdfDoc.setTitle('Karl Hill — Resume');
+pdfDoc.setAuthor('Karl Hill');
+pdfDoc.setSubject('Software Engineering Leadership Resume');
+pdfDoc.setKeywords([
+    'Software Engineering Leadership',
+    'Platform Engineering',
+    'DevSecOps',
+    'Cloud-Native',
+    'Aerospace',
+]);
+
+const withMeta = await pdfDoc.save({ useObjectStreams: false });
+fs.writeFileSync(outputPath, withMeta);
+
+console.log(`Wrote ${outputPath}`);

@@ -31,6 +31,16 @@
     $summaryRest = str_starts_with($summaryFull, $summaryLead)
         ? substr($summaryFull, strlen($summaryLead))
         : '';
+
+    $nowrapHtml = static function (string $text): string {
+        $escaped = e($text);
+
+        return str_replace(
+            'high-assurance',
+            '<span class="nowrap">high-assurance</span>',
+            $escaped,
+        );
+    };
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -71,13 +81,13 @@
             --rule: #1a1f2a;
             /* Sampled from classic karlhill-resume.pdf sidebar */
             --navy: #03385f;
-            --navy-ink: #f7fafc;
-            --navy-muted: rgb(247 250 252 / 0.7);
-            --navy-rule: rgb(255 255 255 / 0.22);
+            --navy-ink: #ffffff;
+            --navy-muted: rgb(255 255 255 / 0.88);
+            --navy-rule: rgb(255 255 255 / 0.28);
             --accent: #03385f;
             --sidebar: 2.42in;
             --gutter: 0.42in;
-            --main-pad-right: calc(var(--sidebar) + 0.22in);
+            --track: 0.07em;
         }
 
         * {
@@ -91,6 +101,7 @@
             color: var(--ink);
             font-family: "Lato", Helvetica, Arial, sans-serif;
             font-weight: 400;
+            font-size: 9.1pt;
             -webkit-font-smoothing: antialiased;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
@@ -99,6 +110,10 @@
         a {
             color: inherit;
             text-decoration: none;
+        }
+
+        .nowrap {
+            white-space: nowrap;
         }
 
         .page {
@@ -114,8 +129,18 @@
             page-break-after: auto;
         }
 
-        /* —— Sidebar —— */
-        .sidebar {
+        /*
+         * Page 1 siblings are ONLY <main> then <aside>.
+         * Main is normal flow; aside is absolutely positioned so Chrome paints the
+         * entire main column into the PDF content stream before any sidebar text.
+         * (CSS Grid was interleaving sidebar fragments between job headings/bullets.)
+         */
+        .page-1 > main {
+            height: 100%;
+            padding: 0.45in calc(var(--sidebar) + 0.2in) 0.34in var(--gutter);
+        }
+
+        .page-1 > aside {
             position: absolute;
             top: 0;
             right: 0;
@@ -123,87 +148,11 @@
             width: var(--sidebar);
             background: var(--navy);
             color: var(--navy-ink);
-            padding: 0.48in 0.32in 0.4in;
-        }
-
-        .sidebar-block + .sidebar-block {
-            margin-top: 0.32in;
-        }
-
-        .sidebar-title {
-            font-size: 7.4pt;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #fff;
-            margin-bottom: 0.11in;
-            padding-bottom: 0.06in;
-            border-bottom: 1px solid var(--navy-rule);
-        }
-
-        .sidebar-list {
-            list-style: none;
-            font-size: 8pt;
-            line-height: 1.48;
-            color: var(--navy-ink);
-        }
-
-        .sidebar-list li + li {
-            margin-top: 0.06in;
-        }
-
-        .sidebar-list a {
-            color: #fff;
-        }
-
-        .sidebar-link-label {
-            display: block;
-            font-size: 8.2pt;
-            font-weight: 600;
-            color: #fff;
-            letter-spacing: 0.01em;
-        }
-
-        .sidebar-link-url {
-            display: block;
-            margin-top: 0.02in;
-            font-size: 6.8pt;
-            line-height: 1.35;
-            color: var(--navy-muted);
-            word-break: break-all;
-        }
-
-        .expertise {
-            list-style: none;
-        }
-
-        .expertise li {
-            position: relative;
-            font-size: 7.55pt;
-            line-height: 1.3;
-            padding: 0.055in 0 0.055in 0.11in;
-            color: var(--navy-ink);
-        }
-
-        .expertise li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0.12in;
-            width: 0.03in;
-            height: 0.03in;
-            border-radius: 50%;
-            background: rgb(255 255 255 / 0.55);
-        }
-
-        /* —— Main column —— */
-        .main {
-            height: 100%;
-            padding: 0.48in var(--main-pad-right) 0.36in var(--gutter);
+            padding: 0.45in 0.3in 0.38in;
         }
 
         .masthead {
-            padding: 0 0 0.155in;
+            padding: 0 0 0.14in;
             border-bottom: 2px solid var(--rule);
         }
 
@@ -219,9 +168,9 @@
 
         .tagline {
             margin-top: 0.1in;
-            font-size: 6.85pt;
-            font-weight: 600;
-            letter-spacing: 0.12em;
+            font-size: 7.5pt;
+            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
             color: var(--muted);
             line-height: 1.45;
@@ -237,147 +186,211 @@
         }
 
         .section {
-            margin-top: 0.24in;
+            margin-top: 0.2in;
         }
 
         .section-title {
-            display: flex;
-            align-items: center;
-            gap: 0.08in;
-            font-size: 7.5pt;
+            font-size: 8.25pt;
             font-weight: 700;
-            letter-spacing: 0.135em;
+            letter-spacing: var(--track);
             text-transform: uppercase;
             color: var(--ink);
-            margin-bottom: 0.1in;
-        }
-
-        .section-title::after {
-            content: "";
-            flex: 1 1 auto;
-            height: 1px;
-            background: var(--rule);
-            opacity: 0.85;
-            transform: translateY(-0.01in);
+            margin-bottom: 0.09in;
+            padding-bottom: 0.045in;
+            border-bottom: 1px solid var(--rule);
         }
 
         .summary {
-            font-size: 8.35pt;
-            line-height: 1.35;
+            font-size: 9.1pt;
+            line-height: 1.38;
             color: var(--ink-soft);
             text-wrap: pretty;
+        }
+
+        .summary strong {
+            font-weight: 700;
+            color: var(--ink);
         }
 
         .bullets {
             list-style: none;
             margin: 0.055in 0 0;
+            padding-left: 0;
         }
 
         .bullets li {
-            position: relative;
-            margin: 0 0 0.028in;
-            padding-left: 0.13in;
-            font-size: 8.1pt;
-            line-height: 1.28;
+            margin: 0 0 0.04in;
+            padding-left: 0.15in;
+            text-indent: -0.15in;
+            font-size: 9.1pt;
+            line-height: 1.34;
             color: var(--ink-soft);
             text-wrap: pretty;
         }
 
+        /* Text bullet (not ::marker / absolute) — Chrome PDF drops some disc markers. */
         .bullets li::before {
-            content: "";
-            position: absolute;
-            top: 0.075in;
-            left: 0;
-            width: 0.035in;
-            height: 0.035in;
-            border-radius: 50%;
-            background: var(--accent);
+            content: "•";
+            color: var(--accent);
+            padding-right: 0.08in;
+            text-indent: 0;
         }
 
-        .role {
-            margin-top: 0.15in;
+        article.role {
+            display: block;
+            margin-top: 0.14in;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
-        .role:first-child {
+        article.role:first-of-type {
             margin-top: 0;
         }
 
+        /* Table (not flex/float) keeps title→date order in the PDF content stream. */
         .role-header {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 0.12in;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .role-header td {
+            vertical-align: baseline;
+            padding: 0;
         }
 
         .role-title {
-            font-size: 9pt;
+            font-size: 9.75pt;
             font-weight: 700;
             line-height: 1.25;
             color: var(--ink);
             letter-spacing: -0.01em;
         }
 
+        .role-dates {
+            width: 1%;
+            white-space: nowrap;
+            text-align: right;
+            padding-left: 0.12in;
+            font-size: 7.5pt;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
         .role-meta {
-            margin-top: 0.018in;
-            font-size: 7.8pt;
-            font-weight: 500;
+            margin-top: 0.015in;
+            font-size: 8.5pt;
+            font-weight: 400;
             color: var(--ink-soft);
             line-height: 1.3;
         }
 
-        .role-dates {
-            flex: 0 0 auto;
-            font-size: 7pt;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--muted);
-            white-space: nowrap;
-        }
-
         .role-company {
-            margin-top: 0.018in;
-            font-size: 7.8pt;
-            font-weight: 500;
+            margin-top: 0.02in;
+            font-size: 8.5pt;
+            font-weight: 400;
             color: var(--ink-soft);
         }
 
-        /* —— Page 2 —— */
-        .page-2 .accent {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 0.12in;
-            background: var(--navy);
+        .sidebar-block + .sidebar-block {
+            margin-top: 0.3in;
         }
 
+        .sidebar-title {
+            font-size: 8pt;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 0.11in;
+            padding-bottom: 0.06in;
+            border-bottom: 1px solid var(--navy-rule);
+        }
+
+        .sidebar-list {
+            list-style: none;
+            font-size: 8.25pt;
+            line-height: 1.45;
+            color: var(--navy-ink);
+        }
+
+        .sidebar-list li + li {
+            margin-top: 0.065in;
+        }
+
+        .sidebar-list a {
+            color: #fff;
+        }
+
+        .sidebar-link-label {
+            display: block;
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.01em;
+        }
+
+        .sidebar-link-url {
+            display: block;
+            margin-top: 0.02in;
+            font-size: 7.5pt;
+            line-height: 1.35;
+            color: var(--navy-muted);
+            word-break: break-all;
+        }
+
+        .expertise {
+            list-style: disc;
+            padding-left: 0.14in;
+        }
+
+        .expertise li {
+            font-size: 8pt;
+            line-height: 1.32;
+            padding: 0.05in 0;
+            color: #fff;
+        }
+
+        .expertise li::marker {
+            color: #fff;
+            font-size: 0.8em;
+        }
+
+        /* —— Page 2 —— */
         .page-2 .content {
             height: 100%;
-            padding: 0.48in 0.55in 0.38in var(--gutter);
+            padding: 0.45in 0.55in 0.36in var(--gutter);
         }
 
         .page-2-kicker {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            margin-bottom: 0.22in;
-            padding: 0 0 0.1in;
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 0.2in;
+            padding-bottom: 0.1in;
             border-bottom: 2px solid var(--rule);
+        }
+
+        .page-2-kicker td {
+            vertical-align: baseline;
+            padding: 0;
         }
 
         .page-2-kicker strong {
             font-family: "Oswald", "Arial Narrow", sans-serif;
-            font-size: 14pt;
+            font-size: 15pt;
             font-weight: 500;
             letter-spacing: 0.02em;
             text-transform: uppercase;
         }
 
-        .page-2-kicker span {
-            font-size: 6.8pt;
-            font-weight: 600;
-            letter-spacing: 0.12em;
+        .page-2-kicker .page-label {
+            width: 1%;
+            white-space: nowrap;
+            text-align: right;
+            font-size: 7.5pt;
+            font-weight: 700;
+            letter-spacing: 0.07em;
             text-transform: uppercase;
             color: var(--muted);
         }
@@ -389,27 +402,27 @@
 
         .edu-list li,
         .cert-list li {
-            font-size: 8.1pt;
-            line-height: 1.32;
+            font-size: 9.1pt;
+            line-height: 1.35;
             color: var(--ink-soft);
-            margin: 0 0 0.045in;
+            margin: 0 0 0.05in;
         }
 
         .edu-list li strong,
         .cert-list li strong {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--ink);
         }
 
         .stack-block {
-            margin-top: 0.24in;
+            margin-top: 0.2in;
         }
 
         .stack-line {
-            font-size: 7.7pt;
-            line-height: 1.34;
+            font-size: 8.5pt;
+            line-height: 1.38;
             color: var(--ink-soft);
-            margin: 0 0 0.035in;
+            margin: 0 0 0.04in;
         }
 
         .stack-label {
@@ -419,19 +432,86 @@
     </style>
 </head>
 <body>
+    {{-- Page 1: grid siblings are only <main> then <aside>. Each job is one <article>. --}}
     <section class="page page-1">
-        <aside class="sidebar">
-            <div class="sidebar-block">
-                <h2 class="sidebar-title">Details</h2>
+        <main>
+            <header class="masthead">
+                <h1 class="name">{{ $person['name'] }}</h1>
+                <p class="tagline">
+                    <span class="tagline-line tagline-lead">{{ $taglineLead }}</span>
+                    @if($taglineRest !== '')
+                        <span class="tagline-line">{{ $taglineRest }}</span>
+                    @endif
+                </p>
+            </header>
+
+            <section class="section" aria-labelledby="summary-heading">
+                <h2 id="summary-heading" class="section-title">Summary</h2>
+                <p class="summary">
+                    @if($summaryRest !== '')
+                        <strong>{{ $summaryLead }}</strong>{{ $summaryRest }}
+                    @else
+                        {{ $summaryFull }}
+                    @endif
+                </p>
+            </section>
+
+            <section class="section" aria-labelledby="impact-heading">
+                <h2 id="impact-heading" class="section-title">Selected Leadership Impact</h2>
+                <ul class="bullets">
+                    @foreach($resume['impact'] as $item)
+                        <li>{!! $nowrapHtml($item) !!}</li>
+                    @endforeach
+                </ul>
+            </section>
+
+            <section class="section" aria-labelledby="experience-heading">
+                <h2 id="experience-heading" class="section-title">Professional Experience</h2>
+
+                <article class="role">
+                    <table class="role-header">
+                        <tr>
+                            <td><h3 class="role-title">{{ $experience['current']['title'] }}</h3></td>
+                            <td class="role-dates">{{ $experience['current']['period'] }}</td>
+                        </tr>
+                    </table>
+                    <p class="role-meta">{{ $experience['current']['company'] }} · {{ $experience['current']['location'] }}</p>
+                    <ul class="bullets">
+                        @foreach($jacobs as $item)
+                            <li>{{ $item }}</li>
+                        @endforeach
+                    </ul>
+                </article>
+
+                <article class="role">
+                    <table class="role-header">
+                        <tr>
+                            <td><h3 class="role-title">{{ $experience['roles'][0]['title'] }}</h3></td>
+                            <td class="role-dates">{{ $experience['roles'][0]['period'] }}</td>
+                        </tr>
+                    </table>
+                    <p class="role-meta">{{ $experience['roles'][0]['company'] }} · {{ $experience['roles'][0]['location'] }}</p>
+                    <ul class="bullets">
+                        @foreach($nasa as $item)
+                            <li>{{ $item }}</li>
+                        @endforeach
+                    </ul>
+                </article>
+            </section>
+        </main>
+
+        <aside aria-label="Contact and expertise">
+            <section class="sidebar-block" aria-labelledby="details-heading">
+                <h2 id="details-heading" class="sidebar-title">Details</h2>
                 <ul class="sidebar-list">
                     <li>{{ $locationLine }}</li>
                     <li><a href="tel:+1{{ preg_replace('/\D+/', '', $resume['phone']) }}">{{ $resume['phone'] }}</a></li>
                     <li><a href="mailto:{{ $person['email'] }}">{{ $person['email'] }}</a></li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="sidebar-block">
-                <h2 class="sidebar-title">Links</h2>
+            <section class="sidebar-block" aria-labelledby="links-heading">
+                <h2 id="links-heading" class="sidebar-title">Links</h2>
                 <ul class="sidebar-list">
                     <li>
                         <a href="{{ $linkedinUrl }}">
@@ -452,134 +532,79 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="sidebar-block">
-                <h2 class="sidebar-title">Areas of Expertise</h2>
+            <section class="sidebar-block" aria-labelledby="expertise-heading">
+                <h2 id="expertise-heading" class="sidebar-title">Areas of Expertise</h2>
                 <ul class="expertise">
                     @foreach($resume['expertise'] as $item)
                         <li>{{ $item }}</li>
                     @endforeach
                 </ul>
-            </div>
+            </section>
         </aside>
-
-        <div class="main">
-            <header class="masthead">
-                <h1 class="name">{{ $person['name'] }}</h1>
-                <p class="tagline">
-                    <span class="tagline-line tagline-lead">{{ $taglineLead }}</span>
-                    @if($taglineRest !== '')
-                        <span class="tagline-line">{{ $taglineRest }}</span>
-                    @endif
-                </p>
-            </header>
-
-            <section class="section">
-                <h2 class="section-title">Summary</h2>
-                <p class="summary">
-                    @if($summaryRest !== '')
-                        <strong>{{ $summaryLead }}</strong>{{ $summaryRest }}
-                    @else
-                        {{ $summaryFull }}
-                    @endif
-                </p>
-            </section>
-
-            <section class="section">
-                <h2 class="section-title">Selected Leadership Impact</h2>
-                <ul class="bullets">
-                    @foreach($resume['impact'] as $item)
-                        <li>{{ $item }}</li>
-                    @endforeach
-                </ul>
-            </section>
-
-            <section class="section">
-                <h2 class="section-title">Professional Experience</h2>
-
-                <div class="role">
-                    <div class="role-header">
-                        <p class="role-title">{{ $experience['current']['title'] }}</p>
-                        <p class="role-dates">{{ $experience['current']['period'] }}</p>
-                    </div>
-                    <p class="role-meta">{{ $experience['current']['company'] }} · {{ $experience['current']['location'] }}</p>
-                    <ul class="bullets">
-                        @foreach($jacobs as $item)
-                            <li>{{ $item }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-
-                <div class="role">
-                    <div class="role-header">
-                        <p class="role-title">{{ $experience['roles'][0]['title'] }}</p>
-                        <p class="role-dates">{{ $experience['roles'][0]['period'] }}</p>
-                    </div>
-                    <p class="role-meta">{{ $experience['roles'][0]['company'] }} · {{ $experience['roles'][0]['location'] }}</p>
-                    <ul class="bullets">
-                        @foreach($nasa as $item)
-                            <li>{{ $item }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </section>
-        </div>
     </section>
 
     <section class="page page-2">
-        <div class="accent" aria-hidden="true"></div>
         <div class="content">
-            <div class="page-2-kicker">
-                <strong>{{ $person['name'] }}</strong>
-                <span>Resume · 2 / 2</span>
-            </div>
+            <table class="page-2-kicker">
+                <tr>
+                    <td><strong>{{ $person['name'] }}</strong></td>
+                    <td class="page-label">Resume · 2 / 2</td>
+                </tr>
+            </table>
 
-            <section class="section" style="margin-top:0">
-                <h2 class="section-title">Professional Experience</h2>
+            <section class="section" style="margin-top:0" aria-labelledby="experience-2-heading">
+                <h2 id="experience-2-heading" class="section-title">Professional Experience</h2>
 
-                <div class="role">
-                    <div class="role-header">
-                        <p class="role-title">{{ $experience['roles'][1]['title'] }}</p>
-                        <p class="role-dates">{{ $experience['roles'][1]['period'] }}</p>
-                    </div>
+                <article class="role">
+                    <table class="role-header">
+                        <tr>
+                            <td><h3 class="role-title">{{ $experience['roles'][1]['title'] }}</h3></td>
+                            <td class="role-dates">{{ $experience['roles'][1]['period'] }}</td>
+                        </tr>
+                    </table>
                     <p class="role-meta">{{ $experience['roles'][1]['company'] }} · {{ $experience['roles'][1]['location'] }}</p>
                     <ul class="bullets">
                         @foreach($informed as $item)
                             <li>{{ $item }}</li>
                         @endforeach
                     </ul>
-                </div>
+                </article>
 
-                <div class="role">
-                    <div class="role-header">
-                        <p class="role-title">{{ $experience['roles'][2]['title'] }}</p>
-                        <p class="role-dates">{{ $experience['roles'][2]['period'] }}</p>
-                    </div>
+                <article class="role">
+                    <table class="role-header">
+                        <tr>
+                            <td><h3 class="role-title">{{ $experience['roles'][2]['title'] }}</h3></td>
+                            <td class="role-dates">{{ $experience['roles'][2]['period'] }}</td>
+                        </tr>
+                    </table>
                     <p class="role-meta">{{ $experience['roles'][2]['company'] }} · {{ $experience['roles'][2]['location'] }}</p>
                     <ul class="bullets">
                         @foreach($ticomix as $item)
                             <li>{{ $item }}</li>
                         @endforeach
                     </ul>
-                </div>
+                </article>
 
-                <div class="role">
-                    <div class="role-header">
-                        <p class="role-title">{{ $experience['earlier']['title'] }}</p>
-                        <p class="role-dates">{{ $experience['earlier']['period'] }}</p>
-                    </div>
+                <article class="role">
+                    <table class="role-header">
+                        <tr>
+                            <td><h3 class="role-title">{{ $experience['earlier']['title'] }}</h3></td>
+                            <td class="role-dates">{{ $experience['earlier']['period'] }}</td>
+                        </tr>
+                    </table>
                     <p class="role-company">{{ $experience['earlier']['company'] }}</p>
                     <ul class="bullets">
                         @foreach($earlier as $item)
                             <li>{{ $item }}</li>
                         @endforeach
                     </ul>
-                </div>
+                </article>
             </section>
 
-            <section class="section">
-                <h2 class="section-title">Education</h2>
+            <section class="section" aria-labelledby="education-heading">
+                <h2 id="education-heading" class="section-title">Education</h2>
                 <ul class="edu-list">
                     @foreach($education as $item)
                         <li><strong>{{ $item['degree'] }}</strong>, {{ $item['school'] }}</li>
@@ -587,8 +612,8 @@
                 </ul>
             </section>
 
-            <section class="section">
-                <h2 class="section-title">Certifications</h2>
+            <section class="section" aria-labelledby="certifications-heading">
+                <h2 id="certifications-heading" class="section-title">Certifications</h2>
                 <ul class="cert-list">
                     @foreach($certifications as $cert)
                         <li><strong>{{ $cert['name'] }}</strong>@if(! empty($cert['issuer']))<span>, {{ $cert['issuer'] }}</span>@endif</li>
@@ -596,8 +621,8 @@
                 </ul>
             </section>
 
-            <section class="stack-block">
-                <h2 class="section-title">Technical Leadership, Platforms &amp; Engineering Stack</h2>
+            <section class="stack-block" aria-labelledby="stack-heading">
+                <h2 id="stack-heading" class="section-title">Technical Leadership, Platforms &amp; Engineering Stack</h2>
                 @foreach($stack as $group)
                     <p class="stack-line">
                         <span class="stack-label">{{ $group['category'] }}:</span>

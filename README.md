@@ -81,7 +81,7 @@ APP_DEBUG=false
 
 - **Canonical HTML:** `/resume` (from `config/site/experience.php` + related
   fragments — same experience data as `/about`).
-- **Downloadable PDF:** `public/files/karlhill-resume.pdf` — classic 2-page
+- **Downloadable PDF:** `public/files/Karl-Hill-Resume.pdf` — classic 2-page
   navy-sidebar layout, generated with Puppeteer (not browser Print).
 
 Regenerate after content changes:
