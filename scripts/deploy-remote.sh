@@ -9,7 +9,8 @@ echo "→ Installing PHP dependencies"
 composer install --no-dev --optimize-autoloader --no-interaction
 
 echo "→ Installing JS dependencies and building assets"
-npm ci
+# Always include devDependencies for the Vite build, even when NODE_ENV=production.
+npm ci --include=dev
 npm run build
 
 ensure_pillow() {

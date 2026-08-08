@@ -34,8 +34,7 @@ COPY composer.* ./
 RUN composer install --no-scripts --no-autoloader
 
 COPY package*.json ./
-RUN npm i npm@latest -g
-RUN npm rebuild esbuild
+RUN npm ci --include=dev
 
 COPY .. .
 
