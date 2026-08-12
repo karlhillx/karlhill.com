@@ -3,6 +3,17 @@ import AxeBuilder from '@axe-core/playwright';
 
 /** Shared axe scan — serious/critical WCAG2 A/AA findings. */
 async function assertA11y(page, { exclude = [] } = {}) {
+    // Freeze motion so axe samples real painted colors (not mid-animation layers).
+    await page.addStyleTag({
+        content: `
+          *, *::before, *::after {
+            animation: none !important;
+            transition: none !important;
+            scroll-behavior: auto !important;
+          }
+        `,
+    });
+
     let builder = new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']);
     for (const selector of exclude) {
         builder = builder.exclude(selector);

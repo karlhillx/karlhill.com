@@ -2,6 +2,13 @@ import { defineConfig, devices } from '@playwright/test';
 
 const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:8000';
 
+/** Shared browser defaults — keep on projects so device presets cannot drop them. */
+const a11yStable = {
+    colorScheme: 'dark',
+    // Hero/magnetic transforms make axe color-contrast sample compositing layers.
+    reducedMotion: 'reduce',
+};
+
 export default defineConfig({
     testDir: './tests/e2e',
     fullyParallel: true,
@@ -12,7 +19,7 @@ export default defineConfig({
     use: {
         baseURL,
         trace: 'on-first-retry',
-        colorScheme: 'dark',
+        ...a11yStable,
     },
     webServer: process.env.PLAYWRIGHT_SKIP_WEBSERVER
         ? undefined
@@ -25,11 +32,11 @@ export default defineConfig({
     projects: [
         {
             name: 'chromium',
-            use: { ...devices['Desktop Chrome'] },
+            use: { ...devices['Desktop Chrome'], ...a11yStable },
         },
         {
             name: 'mobile',
-            use: { ...devices['Pixel 7'] },
+            use: { ...devices['Pixel 7'], ...a11yStable },
         },
     ],
 });
