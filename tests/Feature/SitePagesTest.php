@@ -252,6 +252,10 @@ it('homepage hero links to em funnel', function () {
     $response->assertSee('>Work<', escape: false);
     $response->assertSee('href="/work"', escape: false);
     $response->assertSee('href="/#contact"', escape: false);
+    $response->assertSee('Resume PDF', escape: false);
+    $response->assertSee('download="Karl-Hill-Resume.pdf"', escape: false);
+    $response->assertSee('Jacobs', escape: false);
+    $response->assertSee(config('site.hero.subtitle'), escape: false);
     $response->assertSee('Open to Engineering Manager', escape: false);
 });
 
@@ -310,6 +314,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('Recruiter kit', escape: false);
     $response->assertSee(config('site.footer.resume'), escape: false);
     $response->assertSee('Download resume PDF', escape: false);
+    $response->assertSee('download="Karl-Hill-Resume.pdf"', escape: false);
     $response->assertSee('/now#book', escape: false);
     $response->assertSee('/work/nasa-earth-observatory', escape: false);
     $response->assertSee('/work/flood-mapping-system', escape: false);

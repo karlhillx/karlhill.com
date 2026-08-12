@@ -309,6 +309,19 @@ article.surface-card:focus-within {
     background-color: color-mix(in oklab, var(--accent) 10%, transparent);
 }
 
+/* Primary fill CTA — hex solid so contrast stays AA under animation/compositing. */
+.btn-accent-fill {
+    background-color: var(--accent-solid);
+    color: var(--accent-ink);
+    font-weight: 700;
+}
+
+.btn-accent-fill:hover,
+.btn-accent-fill:focus-visible {
+    background-color: color-mix(in oklab, var(--accent-solid) 82%, white);
+    color: var(--accent-ink);
+}
+
 /* Better paragraph rag — eliminates orphans without the cost of `balance` */
 p {
     text-wrap: pretty;

@@ -38,6 +38,9 @@ it('unknown web route renders custom 404', function () {
     $response->assertStatus(404);
     $response->assertSee('Page not found', escape: false);
     $response->assertSee('name="robots" content="noindex"', escape: false);
+    $response->assertSee('href="/kit"', escape: false);
+    $response->assertSee('href="/resume"', escape: false);
+    $response->assertSee('href="/now"', escape: false);
 });
 
 it('blog post repository parses frontmatter', function () {
@@ -190,6 +193,7 @@ it('homepage hero is a tight first viewport', function () {
 
     $response->assertStatus(200);
     $response->assertSee(config('site.hero.headline'), escape: false);
+    $response->assertSee(config('site.hero.subtitle'), escape: false);
     $response->assertSee(config('site.hero.positioning'), escape: false);
     $response->assertDontSee(config('site.hero.bio'), escape: false);
     $response->assertDontSee('Platforms · Delivery · Engineering Leadership', escape: false);

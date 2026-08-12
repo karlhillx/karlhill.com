@@ -15,6 +15,9 @@
     --surface-hover: rgb(23 23 23 / 0.4);
     /* Softer signal amber — less “glow kit”, still warm on dark. */
     --accent: oklch(72% 0.14 55);
+    /* sRGB solid for primary fill CTAs (axe-stable contrast on black text). */
+    --accent-solid: #d4923a;
+    --accent-ink: #0a0a0a;
     --focus: oklch(78% 0.12 55);
     --success: oklch(72% 0.16 150);
     /* Spring easings via CSS linear() — physical settle instead of generic ease-out. */

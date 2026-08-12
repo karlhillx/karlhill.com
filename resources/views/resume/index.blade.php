@@ -15,6 +15,7 @@
         <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-8 sm:mt-10">
             @if(! empty($pdf))
                 <a href="{{ $pdf }}"
+                   download="Karl-Hill-Resume.pdf"
                    class="btn-sweep inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs text-accent border border-accent/40 px-5 py-3 uppercase tracking-widest transition-colors">
                     Download PDF
                 </a>

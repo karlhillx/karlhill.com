@@ -5,7 +5,8 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "a11y": "pa11y-ci",
+        "a11y": "node scripts/run-pa11y.mjs",
+        "a11y:browsers": "node scripts/run-pa11y.mjs --install-only",
         "test:e2e": "playwright test",
         "lint": "eslint resources/js",
         "format": "prettier --write resources/js resources/css eslint.config.js",

@@ -22,13 +22,14 @@
             </p>
             <div class="hero-enter" style="animation-delay:480ms">
                 <a href="/"
-                   class="inline-block font-bold px-8 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200 bg-accent text-black hover:bg-accent/80">
+                   class="inline-block font-bold px-8 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200 btn-accent-fill">
                     Back home
                 </a>
                 <div class="flex flex-wrap items-center justify-center gap-6 mt-8 font-mono text-xs uppercase tracking-widest">
+                    <a href="/kit" class="text-neutral-400 hover:text-accent transition-colors">Recruiter kit →</a>
+                    <a href="/resume" class="text-neutral-400 hover:text-accent transition-colors">Resume →</a>
                     <a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Work →</a>
-                    <a href="/about" class="text-neutral-400 hover:text-accent transition-colors">About →</a>
-                    <a href="/blog" class="text-neutral-400 hover:text-accent transition-colors">Writing →</a>
+                    <a href="/now" class="text-neutral-400 hover:text-accent transition-colors">Now →</a>
                 </div>
                 <p class="font-mono text-[11px] text-neutral-600 uppercase tracking-widest mt-8">
                     Or press <kbd class="surface-chip px-1.5 py-0.5 text-[10px] text-neutral-500 normal-case tracking-normal">⌘K</kbd> to jump anywhere

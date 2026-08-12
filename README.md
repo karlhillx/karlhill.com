@@ -37,7 +37,14 @@ The site is then available at `http://localhost:8000`.
 npm run build
 composer test
 ./vendor/bin/pint --test
+# with the app on :8000:
+# A11Y_FIXTURES=true php artisan serve --host=127.0.0.1 --port=8000
+npm run a11y            # uses system Chrome when available; else installs pa11y’s Chrome
+npm run a11y:browsers   # optional: pre-install bundled Chrome for CI/Linux
+npm run test:e2e
 ```
+
+`npm run a11y` runs `scripts/run-pa11y.mjs`, which targets pa11y-ci’s nested Puppeteer (not the top-level package used for resume PDFs) and avoids broken sandbox browser caches.
 
 ## Configuration
 

@@ -101,6 +101,17 @@ final class HomeStructuredData
             'about' => ['@id' => $personId],
         ];
 
+        $profilePageLd = [
+            '@type' => 'ProfilePage',
+            '@id' => $url.'/#profile',
+            'url' => $url.'/',
+            'name' => $person['name'].' — Professional profile',
+            'description' => $seo['description'],
+            'inLanguage' => 'en-US',
+            'mainEntity' => ['@id' => $personId],
+            'isPartOf' => ['@id' => $websiteId],
+        ];
+
         $blogPostsLd = $posts->map(fn (BlogPost $post) => [
             '@type' => 'BlogPosting',
             'headline' => $post->title,
@@ -122,7 +133,7 @@ final class HomeStructuredData
 
         return [
             '@context' => 'https://schema.org',
-            '@graph' => [$personLd, $websiteLd, $blogLd],
+            '@graph' => [$personLd, $websiteLd, $profilePageLd, $blogLd],
         ];
     }
 }

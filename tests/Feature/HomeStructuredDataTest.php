@@ -7,7 +7,7 @@ it('homepage structured data describes the person website and blog graph', funct
     $graph = $data['@graph'];
 
     $types = collect($graph)->pluck('@type')->all();
-    expect($types)->toContain('Person', 'WebSite', 'Blog');
+    expect($types)->toContain('Person', 'WebSite', 'ProfilePage', 'Blog');
 
     $person = collect($graph)->firstWhere('@type', 'Person');
     expect($person['name'])->toBe('Karl Hill')
@@ -30,5 +30,6 @@ it('homepage html includes brand-disambiguating title and json-ld', function () 
     $response->assertSee('<title>Karl Hill — Staff Aerospace Software Engineer · NASA · Jacobs</title>', escape: false);
     $response->assertSee('"@type": "WebSite"', escape: false);
     $response->assertSee('"@type": "Person"', escape: false);
+    $response->assertSee('"@type": "ProfilePage"', escape: false);
     $response->assertSee('NASA Goddard Space Flight Center', escape: false);
 });
