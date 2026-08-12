@@ -1,12 +1,18 @@
 import { prefersReducedMotion } from '../lib/prefs.js';
 
+/**
+ * LQIP fade-in, case-study sticky title, series chapter scroll, media lightbox.
+ */
 export function initMediaEnhancements() {
     document.querySelectorAll('[data-lqip-img]').forEach((img) => {
+        const wrap = img.closest('.img-lqip');
+        wrap?.classList.add('img-lqip--enhance');
+
         const markLoaded = () => {
             img.classList.add('is-loaded');
-            img.closest('.img-lqip')?.classList.add('is-loaded');
+            wrap?.classList.add('is-loaded');
         };
-        if (img.complete && img.naturalWidth > 0) {
+        if (img instanceof HTMLImageElement && img.complete && img.naturalWidth > 0) {
             markLoaded();
             return;
         }
@@ -19,11 +25,11 @@ export function initMediaEnhancements() {
 
     const articleTitle = document.querySelector('[data-article-title]');
     const stickyTitle = document.querySelector('[data-article-sticky-title]');
-    if (articleTitle && stickyTitle) {
+    if (articleTitle && stickyTitle instanceof HTMLElement) {
         stickyTitle.hidden = false;
         const titleObserver = new IntersectionObserver(
             ([entry]) => {
-                stickyTitle.classList.toggle('is-visible', entry && !entry.isIntersecting);
+                stickyTitle.classList.toggle('is-visible', Boolean(entry && !entry.isIntersecting));
             },
             // IntersectionObserver rootMargin only accepts px/% — rem throws and
             // used to abort the rest of media init (including the screenshot lightbox).
@@ -32,7 +38,8 @@ export function initMediaEnhancements() {
         titleObserver.observe(articleTitle);
 
         document.getElementById('mobile-menu')?.addEventListener('toggle', (e) => {
-            stickyTitle.classList.toggle('is-suppressed', e.newState === 'open');
+            const event = /** @type {ToggleEvent} */ (e);
+            stickyTitle.classList.toggle('is-suppressed', event.newState === 'open');
         });
     }
 
@@ -49,13 +56,24 @@ export function initMediaEnhancements() {
     });
 }
 
+/**
+ * Screenshot / figure lightbox via <dialog data-media-lightbox>.
+ */
 function initMediaLightbox() {
     const dialog = document.querySelector('[data-media-lightbox]');
     const img = dialog?.querySelector('[data-lightbox-img]');
-    if (!dialog || !img || typeof dialog.showModal !== 'function') return;
+    if (
+        !(dialog instanceof HTMLDialogElement) ||
+        !(img instanceof HTMLImageElement) ||
+        typeof dialog.showModal !== 'function'
+    ) {
+        return;
+    }
 
+    /** @type {HTMLElement|null} */
     let lastTrigger = null;
 
+    /** @param {HTMLElement} trigger */
     const open = (trigger) => {
         const src = trigger.getAttribute('data-lightbox-src');
         if (!src) return;
@@ -68,8 +86,11 @@ function initMediaLightbox() {
 
     // Event delegation so triggers work even if markup is re-rendered.
     document.addEventListener('click', (event) => {
-        const trigger = event.target.closest?.('[data-lightbox-open]');
-        if (!trigger) return;
+        const target = /** @type {Element|null} */ (
+            event.target instanceof Element ? event.target : null
+        );
+        const trigger = target?.closest?.('[data-lightbox-open]');
+        if (!(trigger instanceof HTMLElement)) return;
         event.preventDefault();
         open(trigger);
     });
@@ -81,9 +102,8 @@ function initMediaLightbox() {
     });
 
     dialog.addEventListener('close', () => {
-        img.removeAttribute('src');
-        img.alt = '';
-        lastTrigger?.focus();
+        lastTrigger?.focus?.();
         lastTrigger = null;
+        img.removeAttribute('src');
     });
 }

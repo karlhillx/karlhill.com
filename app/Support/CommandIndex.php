@@ -43,7 +43,8 @@ class CommandIndex
     {
         $body = preg_replace('/[#>*_`\[\]\(\)!-]/', ' ', $post->bodyMarkdown) ?? '';
         $body = preg_replace('/\s+/', ' ', strip_tags($body)) ?? '';
-        $body = mb_substr(trim($body), 0, 800);
+        // Full-text search in ⌘K — enough body to match EM-series phrases.
+        $body = mb_substr(trim($body), 0, 2400);
 
         $series = BlogSeries::forPost($post);
         $seriesBits = $series
@@ -51,6 +52,7 @@ class CommandIndex
             : '';
 
         return trim(implode(' ', [
+            $post->title,
             implode(' ', $post->tags),
             $post->excerpt,
             $body,

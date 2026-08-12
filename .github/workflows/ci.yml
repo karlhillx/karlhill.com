@@ -49,9 +49,13 @@ jobs:
       - name: Run tests
         run: composer test
 
-      - name: Accessibility audit
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Accessibility audit + Playwright smoke
         env:
-          A11Y_FIXTURES: "true"
+              A11Y_FIXTURES: "true"
+              PLAYWRIGHT_BASE_URL: "http://127.0.0.1:8000"
         run: |
           A11Y_FIXTURES=true php artisan serve --host=127.0.0.1 --port=8000 > /dev/null 2>&1 &
           for i in $(seq 1 30); do
@@ -59,3 +63,4 @@ jobs:
             sleep 1
           done
           npm run a11y
+          PLAYWRIGHT_SKIP_WEBSERVER=1 npm run test:e2e -- --project=chromium

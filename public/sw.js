@@ -1,5 +1,5 @@
 /* Offline reading for karlhill.com — network-first HTML, cache-first static. */
-const CACHE = 'karlhill-offline-v6';
+const CACHE = 'karlhill-offline-v7';
 const PRECACHE = ['/', '/blog', '/now', '/about', '/work', '/resume', '/kit', '/offline.html', '/site.webmanifest'];
 
 self.addEventListener('install', (event) => {
@@ -43,6 +43,7 @@ function isReadablePage(url) {
             url.pathname === '/now' ||
             url.pathname === '/about' ||
             url.pathname === '/resume' ||
+            url.pathname === '/kit' ||
             url.pathname === '/work' ||
             url.pathname.startsWith('/work/'))
     );
@@ -73,12 +74,16 @@ async function cacheFirst(request) {
     const cached = await caches.match(request);
     if (cached) return cached;
 
-    const response = await fetch(request);
-    if (response.ok) {
-        const cache = await caches.open(CACHE);
-        cache.put(request, response.clone());
+    try {
+        const response = await fetch(request);
+        if (response.ok) {
+            const cache = await caches.open(CACHE);
+            cache.put(request, response.clone());
+        }
+        return response;
+    } catch {
+        return cached || Response.error();
     }
-    return response;
 }
 
 async function networkFirstPage(request) {

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth"
+      data-features="{{ implode(' ', $pageFeatures ?? ['contact', 'share']) }}"
+      @if(! app()->isProduction()) data-sw="off" @endif
       @if(filled(config('site.booking.url')))
           data-booking-url="{{ config('site.booking.url') }}"
           data-booking-label="{{ config('site.booking.label') }}"

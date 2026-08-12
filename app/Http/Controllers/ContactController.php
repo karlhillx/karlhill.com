@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactMessage;
 use App\Support\Turnstile;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class ContactController extends Controller
 {
@@ -23,9 +25,10 @@ class ContactController extends Controller
         '/resume',
         '/work',
         '/blog',
+        '/kit',
     ];
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request): RedirectResponse|JsonResponse
     {
         // Honeypot: real people never fill this hidden field. If it's populated
         // we quietly pretend the send succeeded so bots get no useful signal.
@@ -34,9 +37,11 @@ class ContactController extends Controller
         }
 
         if (! Turnstile::verify($request->input('cf-turnstile-response'), $request->ip())) {
-            return redirect($this->returnUrl($request, fragment: 'contact-form'))
-                ->withErrors(['turnstile' => 'Please complete the spam check and try again.'])
-                ->withInput($request->only('name', 'email', 'message'));
+            return $this->fail(
+                $request,
+                ['turnstile' => 'Please complete the spam check and try again.'],
+                $request->only('name', 'email', 'message'),
+            );
         }
 
         $validator = Validator::make($request->only('name', 'email', 'message'), [
@@ -46,10 +51,11 @@ class ContactController extends Controller
         ]);
 
         if ($validator->fails()) {
-            // Land on the form that submitted so validation feedback is visible.
-            return redirect($this->returnUrl($request, fragment: 'contact-form'))
-                ->withErrors($validator)
-                ->withInput($request->only('name', 'email', 'message'));
+            return $this->fail(
+                $request,
+                $validator->errors()->toArray(),
+                $request->only('name', 'email', 'message'),
+            );
         }
 
         $validated = $validator->validated();
@@ -66,18 +72,61 @@ class ContactController extends Controller
             // graceful fallback with their message preserved.
             report($e);
 
-            return redirect($this->returnUrl($request, fragment: 'contact'))
-                ->withInput($request->only('name', 'email', 'message'))
-                ->with('status', 'contact-failed');
+            return $this->failedDelivery($request);
         }
 
         return $this->done($request);
     }
 
-    protected function done(Request $request): RedirectResponse
+    /**
+     * @param  array<string, array<int, string>|string>  $errors
+     * @param  array<string, mixed>  $input
+     */
+    protected function fail(Request $request, array $errors, array $input): RedirectResponse|JsonResponse
     {
+        if ($this->wantsJson($request)) {
+            throw ValidationException::withMessages($errors);
+        }
+
+        return redirect($this->returnUrl($request, fragment: 'contact-form'))
+            ->withErrors($errors)
+            ->withInput($input);
+    }
+
+    protected function failedDelivery(Request $request): RedirectResponse|JsonResponse
+    {
+        if ($this->wantsJson($request)) {
+            return response()->json([
+                'status' => 'contact-failed',
+                'message' => 'Couldn\'t send that. Email me at '.config('site.person.email').'.',
+                'email' => config('site.person.email'),
+            ], 503);
+        }
+
+        return redirect($this->returnUrl($request, fragment: 'contact'))
+            ->withInput($request->only('name', 'email', 'message'))
+            ->with('status', 'contact-failed');
+    }
+
+    protected function done(Request $request): RedirectResponse|JsonResponse
+    {
+        if ($this->wantsJson($request)) {
+            return response()->json([
+                'status' => 'contact-sent',
+                'message' => 'Thanks — message sent. I\'ll reply from '.config('site.person.email').'.',
+                'email' => config('site.person.email'),
+            ]);
+        }
+
         return redirect($this->returnUrl($request, fragment: 'contact'))
             ->with('status', 'contact-sent');
+    }
+
+    protected function wantsJson(Request $request): bool
+    {
+        return $request->expectsJson()
+            || $request->ajax()
+            || $request->header('X-Contact-Ajax') === '1';
     }
 
     protected function returnUrl(Request $request, string $fragment): string

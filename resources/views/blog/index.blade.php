@@ -130,7 +130,7 @@
                                             {{ $tag }}
                                         </a>
                                     @endforeach
-                                    <span class="blog-read-cta font-mono text-xs text-accent ml-auto opacity-60 group-hover:opacity-100 transition-opacity pointer-coarse:opacity-100">
+                                    <span class="blog-read-cta font-mono text-xs text-neutral-400 ml-auto group-hover:text-accent transition-colors">
                                         Read <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
                                     </span>
                                 </div>

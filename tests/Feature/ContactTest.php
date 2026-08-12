@@ -144,3 +144,36 @@ it('submission from now returns to now contact', function () {
     $response->assertSessionHas('status', 'contact-sent');
     Mail::assertSent(ContactMessage::class);
 });
+
+it('ajax submission returns json success without redirect', function () {
+    Mail::fake();
+
+    $response = $this->postJson('/contact', [
+        'name' => 'Ada Lovelace',
+        'email' => 'ada@example.com',
+        'message' => 'I would love to talk about a platform build.',
+    ], [
+        'X-Contact-Ajax' => '1',
+    ]);
+
+    $response->assertOk()
+        ->assertJsonPath('status', 'contact-sent')
+        ->assertJsonStructure(['status', 'message', 'email']);
+
+    Mail::assertSent(ContactMessage::class);
+});
+
+it('ajax validation returns 422 json errors', function () {
+    Mail::fake();
+
+    $this->postJson('/contact', [
+        'name' => '',
+        'email' => 'not-an-email',
+        'message' => 'too short',
+    ], [
+        'X-Contact-Ajax' => '1',
+    ])->assertStatus(422)
+        ->assertJsonValidationErrors(['name', 'email', 'message']);
+
+    Mail::assertNothingSent();
+});

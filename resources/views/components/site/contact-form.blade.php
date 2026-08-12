@@ -94,4 +94,6 @@
             class="btn-sweep inline-flex items-center gap-2 border border-accent/50 text-accent font-mono text-xs uppercase tracking-widest px-6 py-3">
         Send message <span aria-hidden="true">→</span>
     </button>
+
+    <div data-contact-status class="contact-form-status" hidden tabindex="-1"></div>
 </form>

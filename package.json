@@ -6,6 +6,7 @@
         "build": "vite build",
         "dev": "vite",
         "a11y": "pa11y-ci",
+        "test:e2e": "playwright test",
         "lint": "eslint resources/js",
         "format": "prettier --write resources/js resources/css eslint.config.js",
         "format:check": "prettier --check resources/js resources/css eslint.config.js"
@@ -26,6 +27,9 @@
         "laravel-vite-plugin": "^3.2.0",
         "pa11y-ci": "^4.1.1",
         "pdf-lib": "^1.17.1",
+        "@axe-core/playwright": "^4.10.2",
+        "@playwright/test": "^1.55.0",
+        "playwright": "^1.55.0",
         "prettier": "^3.9.6",
         "puppeteer": "^25.6.0",
         "tailwindcss": "^4.3.3",

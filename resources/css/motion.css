@@ -625,17 +625,23 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     }
 
     .hero-mesh__blob,
-    #hero .hero-portrait {
+    #hero .hero-portrait,
+    .hero-wordmark,
+    .surface-card-media {
         animation: none !important;
     }
 
     .hero-mesh__blob {
-        opacity: 0.28;
-        filter: blur(40px);
+        opacity: 0.22;
+        filter: blur(36px);
     }
 
     .surface-card-media.pointer-lit {
         transform: none !important;
+    }
+
+    .magnetic-btn:hover {
+        transform: none;
     }
 }
 
@@ -645,14 +651,32 @@ nav[aria-label='Primary'].is-compact .nav-bar {
         display: none !important;
     }
 
-    .hero-mesh__blob {
-        animation: none;
-        opacity: 0.3;
+    .hero-mesh__blob,
+    #hero .hero-portrait,
+    .hero-wordmark,
+    .surface-card-media {
+        animation: none !important;
     }
 
-    #hero .hero-portrait {
-        animation: none;
+    .hero-mesh__blob {
+        opacity: 0.28;
     }
+
+    .magnetic-btn:hover {
+        transform: none;
+    }
+}
+
+/* Navigator saveData (Chromium) — mirror prefers-reduced-data when JS sets the class. */
+html.save-data .page-spotlight,
+html.save-data .has-page-spotlight .page-spotlight {
+    display: none !important;
+}
+
+html.save-data .hero-mesh__blob,
+html.save-data #hero .hero-portrait,
+html.save-data .surface-card-media {
+    animation: none !important;
 }
 
 /* Booking embed (Calendly / Cal.com iframe) */
@@ -715,19 +739,23 @@ nav[aria-label='Primary'].is-compact .nav-bar {
 }
 
 [data-reveal].revealed {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
 }
 
-/* Modern browsers: pure-CSS scroll-driven entry, also reverses on scroll-up.
-   The JS reveal observer is skipped entirely here (see app.js), so the
-   section-heading accent dash needs its own scroll-driven growth too. */
+/* Modern browsers: pure-CSS scroll-driven entry. Avoid fill-mode `both` — if the
+   view() timeline never attaches, `both` freezes the from-keyframe (opacity:0)
+   and cards/images stay invisible. JS still adds .revealed as a safety net. */
 @supports (animation-timeline: view()) {
     [data-reveal] {
         opacity: 1;
         transform: none;
         transition: none;
-        animation: fadeUp linear both;
+        animation: fadeUp linear;
         animation-timeline: view();
         animation-range: entry 0% cover 22%;
     }

@@ -1,6 +1,7 @@
 @extends('layouts.site', ['meta' => $meta])
 
 @section('content')
+    <div class="kit-doc">
     <x-site.page-hero :eyebrow="$kit['eyebrow'] ?? 'Recruiter kit'" :breadcrumbs="[
         ['label' => 'Home', 'url' => '/'],
         ['label' => 'Kit'],
@@ -24,6 +25,11 @@
                     {{ $bookingLabel }}
                 </a>
             @endif
+            <button type="button"
+                    class="kit-print-btn inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors"
+                    onclick="window.print()">
+                Print kit
+            </button>
             <a href="/#contact"
                class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
                 Contact
@@ -136,6 +142,7 @@
             </ul>
         </div>
     </section>
+    </div>
 @endsection
 
 @section('page_footer')

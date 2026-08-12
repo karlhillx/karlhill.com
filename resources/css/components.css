@@ -818,7 +818,12 @@ a.series-chapters__card:hover .series-chapters__title,
     overflow: hidden;
 }
 
+/* Visible without JS. media.js opts into a fade-up only when it runs. */
 .img-lqip__media {
+    opacity: 1;
+}
+
+.img-lqip--enhance:not(.is-loaded) .img-lqip__media {
     opacity: 0;
     transition: opacity 0.45s var(--ease-out-soft);
 }
@@ -841,6 +846,30 @@ a.series-chapters__card:hover .series-chapters__title,
     background: color-mix(in oklab, var(--panel) 92%, transparent);
     backdrop-filter: blur(14px) saturate(1.2);
     box-shadow: 0 18px 50px rgb(0 0 0 / 0.45);
+}
+
+.contact-form-status {
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.45;
+    border: 1px solid var(--border);
+    outline: none;
+}
+
+.contact-form-status--success {
+    border-color: color-mix(in oklab, var(--success) 45%, var(--border));
+    color: color-mix(in oklab, var(--success) 85%, var(--text));
+    background: color-mix(in oklab, var(--success) 10%, transparent);
+}
+
+.contact-form-status--error {
+    border-color: color-mix(in oklab, oklch(65% 0.18 25) 50%, var(--border));
+    color: oklch(78% 0.14 25);
+    background: color-mix(in oklab, oklch(55% 0.16 25) 12%, transparent);
 }
 
 .site-toast {

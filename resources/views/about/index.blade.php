@@ -28,10 +28,11 @@
     </x-site.page-hero>
 
     @include('about.partials.how-i-lead', ['sectionNumber' => '01'])
-    @include('partials.experience', ['sectionNumber' => '02'])
-    @include('partials.research', ['sectionNumber' => '03'])
-    @include('partials.stack', ['sectionNumber' => '04'])
-    @include('about.partials.credentials', ['sectionNumber' => '05'])
+    @include('about.partials.social-proof', ['sectionNumber' => '02'])
+    @include('partials.experience', ['sectionNumber' => '03'])
+    @include('partials.research', ['sectionNumber' => '04'])
+    @include('partials.stack', ['sectionNumber' => '05'])
+    @include('about.partials.credentials', ['sectionNumber' => '06'])
 
     @if(config('site.about.beyond'))
         @php

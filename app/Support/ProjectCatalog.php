@@ -14,7 +14,18 @@ final class ProjectCatalog
      */
     public static function all(): Collection
     {
-        return self::ordered(collect(config('site.projects', [])));
+        $studies = app(CaseStudyRepository::class)->all();
+
+        $projects = collect(config('site.projects', []))->map(function (array $project) use ($studies): array {
+            $slug = $project['slug'] ?? '';
+            if (is_string($slug) && isset($studies[$slug])) {
+                $project['case_study'] = $studies[$slug];
+            }
+
+            return $project;
+        });
+
+        return self::ordered($projects);
     }
 
     /**

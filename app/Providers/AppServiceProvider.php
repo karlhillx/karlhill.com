@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Support\BlogPostRepository;
+use App\Support\CaseStudyRepository;
 use App\Support\CommandIndex;
 use App\Support\GitHubRepository;
+use App\Support\PageFeatures;
 use App\Support\PageMeta;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Vite;
@@ -17,6 +19,12 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(BlogPostRepository::class, function () {
             return new BlogPostRepository(
                 directory: resource_path('posts'),
+            );
+        });
+
+        $this->app->singleton(CaseStudyRepository::class, function () {
+            return new CaseStudyRepository(
+                directory: resource_path('work'),
             );
         });
 
@@ -40,6 +48,7 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $view->with('commandIndex', CommandIndex::build());
+            $view->with('pageFeatures', PageFeatures::forRequest());
         });
     }
 }

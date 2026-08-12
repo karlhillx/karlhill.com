@@ -28,6 +28,8 @@ it('about page renders experience and credentials', function () {
     $response->assertSee('lead-principles', escape: false);
     $response->assertSee('1:1s that surface risk', escape: false);
     $response->assertSee('Standards over heroics', escape: false);
+    $response->assertSee('Worked with', escape: false);
+    $response->assertSee('SSAI / NASA Goddard', escape: false);
     $response->assertSee('id="experience"', escape: false);
     $response->assertSee('id="credentials"', escape: false);
     $response->assertSee('GeoHorizons', escape: false);
@@ -226,7 +228,7 @@ it('service worker and offline page are available', function () {
     $this->assertFileExists(public_path('sw.js'));
     $this->assertFileExists(public_path('offline.html'));
     $this->assertStringContainsString("You're offline", (string) file_get_contents(public_path('offline.html')));
-    $this->assertStringContainsString('karlhill-offline-v6', (string) file_get_contents(public_path('sw.js')));
+    $this->assertStringContainsString('karlhill-offline-v7', (string) file_get_contents(public_path('sw.js')));
     $this->assertStringContainsString("'/now'", (string) file_get_contents(public_path('sw.js')));
     $this->assertStringContainsString("'/about'", (string) file_get_contents(public_path('sw.js')));
     $this->assertStringContainsString("'/work'", (string) file_get_contents(public_path('sw.js')));
@@ -312,6 +314,8 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('/work/nasa-earth-observatory', escape: false);
     $response->assertSee('/work/flood-mapping-system', escape: false);
     $response->assertSee(config('site.person.email'), escape: false);
+    $response->assertSee('kit-doc', escape: false);
+    $response->assertSee('Print kit', escape: false);
 });
 
 it('now page shows a fresh updated date and kit link', function () {

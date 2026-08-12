@@ -29,14 +29,25 @@
             margin: 0 0 1rem;
         }
         p { color: #a3a3a3; line-height: 1.6; max-width: 28rem; margin: 0 auto 1.5rem; }
-        a { color: #c8f542; }
+        a, button {
+            color: #c8f542;
+            background: none;
+            border: 0;
+            font: inherit;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .actions { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
     </style>
 </head>
 <body>
     <main>
         <h1>You're offline</h1>
         <p>This page isn't cached yet. Reconnect, or open a post you visited earlier — writing stays available offline once loaded.</p>
-        <p><a href="/blog">Back to writing</a></p>
+        <p class="actions">
+            <button type="button" onclick="location.reload()">Try again</button>
+            <a href="/blog">Back to writing</a>
+        </p>
     </main>
 </body>
 </html>

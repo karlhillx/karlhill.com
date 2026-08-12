@@ -30,4 +30,22 @@ return [
         ],
     ],
     'beyond' => 'Away from the terminal, I\'m based in Washington, DC, where I write and release music (you\'ll find a back catalog on Discogs). I\'m happiest with a hard problem, a whiteboard, and a team worth building with — and I care as much about mentoring the next engineer as I do about shipping the next release.',
+    // Hiring signal — concrete contexts, not invented named testimonials.
+    'social_proof' => [
+        'eyebrow' => 'Worked with',
+        'items' => [
+            [
+                'quote' => 'NASA Earth science editorial and ops partners — Earth Observatory publishing at 1.5M+ monthly visitors, plus flood mapping under disaster urgency.',
+                'attribution' => 'SSAI / NASA Goddard',
+            ],
+            [
+                'quote' => 'Aerospace platform teams shipping mission simulation and telemetry services — planning, DevSecOps, and release governance when mission risk is high.',
+                'attribution' => 'Jacobs',
+            ],
+            [
+                'quote' => 'Hiring managers exploring Engineering Manager and Staff+ leadership roles — technical depth that still coaches, standards that outlast heroics.',
+                'attribution' => 'Open conversations · 2026',
+            ],
+        ],
+    ],
 ];

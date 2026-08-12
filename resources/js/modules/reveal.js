@@ -40,40 +40,41 @@ function animateCounter(el) {
     const start = performance.now();
 
     const step = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = to * eased;
-        el.textContent = prefix + (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
-        if (progress < 1) {
-            requestAnimationFrame(step);
-        } else {
-            el.textContent = final;
-        }
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const value = to * eased;
+        el.textContent =
+            prefix + (isFloat ? value.toFixed(1) : Math.round(value).toLocaleString()) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = final;
     };
 
     requestAnimationFrame(step);
 }
 
 export function initRevealAndCounters() {
-    if (!supportsViewTimeline) {
-        const revealObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                        revealObserver.unobserve(entry.target);
-                    }
-                });
-            },
-            // px/% only — rem units throw and break reveal init.
-            { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
-        );
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        },
+        // px/% only — rem units throw and break reveal init.
+        { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
+    );
 
-        document.querySelectorAll('[data-reveal]').forEach((el) => {
-            if (prefersReducedMotion) {
-                el.classList.add('revealed');
-                return;
-            }
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+        if (prefersReducedMotion) {
+            el.classList.add('revealed');
+            return;
+        }
+
+        // CSS view() timelines are progressive enhancement. Always run IO so a
+        // stuck fill-mode / timeline quirk cannot leave cards at opacity:0.
+        if (!supportsViewTimeline) {
             const siblings = Array.from(
                 el.parentElement.querySelectorAll(':scope > [data-reveal]')
             );
@@ -81,9 +82,21 @@ export function initRevealAndCounters() {
             if (siblings.length > 1) {
                 el.style.transitionDelay = `${index * 100}ms`;
             }
-            revealObserver.observe(el);
+        }
+
+        revealObserver.observe(el);
+    });
+
+    // Above-the-fold safety: mark anything already on screen after first paint.
+    requestAnimationFrame(() => {
+        document.querySelectorAll('[data-reveal]:not(.revealed)').forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                el.classList.add('revealed');
+                revealObserver.unobserve(el);
+            }
         });
-    }
+    });
 
     const counterObserver = new IntersectionObserver(
         (entries) => {

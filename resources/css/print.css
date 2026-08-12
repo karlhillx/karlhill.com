@@ -297,7 +297,6 @@
         display: none !important;
     }
 
-
     .resume-doc .resume-education,
     .resume-doc .resume-certs {
         margin: 0 !important;
@@ -366,5 +365,60 @@
     .prose-karl .code-copy-feedback,
     .prose-karl .heading-permalink {
         display: none !important;
+    }
+
+    /* Recruiter kit — dense one-page print for forwarding. */
+    body:has(.kit-doc) .site-footer,
+    body:has(.kit-doc) #contact,
+    body:has(.kit-doc) .kit-print-btn,
+    body:has(.kit-doc) .magnetic-btn,
+    body:has(.kit-doc) .page-spotlight,
+    body:has(.kit-doc) .breadcrumbs {
+        display: none !important;
+    }
+
+    body:has(.kit-doc) {
+        font-size: 10pt;
+        line-height: 1.35;
+        color: #111;
+    }
+
+    body:has(.kit-doc) .kit-doc {
+        max-width: none !important;
+    }
+
+    body:has(.kit-doc) .site-page-hero {
+        padding-block: 0.4in 0.25in !important;
+        border: 0 !important;
+    }
+
+    body:has(.kit-doc) .site-section {
+        padding-block: 0.2in !important;
+        border-color: #ddd !important;
+    }
+
+    body:has(.kit-doc) .text-neutral-200,
+    body:has(.kit-doc) .text-neutral-300,
+    body:has(.kit-doc) .text-neutral-400,
+    body:has(.kit-doc) .text-accent,
+    body:has(.kit-doc) .text-white {
+        color: #111 !important;
+    }
+
+    body:has(.kit-doc) a {
+        text-decoration: none !important;
+    }
+
+    body:has(.kit-doc) a[href^='http']::after,
+    body:has(.kit-doc) a[href^='/']::after,
+    body:has(.kit-doc) a[href^='mailto:']::after {
+        content: ' — ' attr(href);
+        font-size: 8.5pt;
+        color: #444;
+        word-break: break-all;
+    }
+
+    body:has(.kit-doc) a[href^='#']::after {
+        content: none;
     }
 }
