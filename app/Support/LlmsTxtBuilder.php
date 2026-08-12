@@ -44,6 +44,7 @@ class LlmsTxtBuilder
             '- [About]('.$base.'/about): How I lead, experience, research, stack, and credentials',
             '- [Now]('.$base.'/now): Current focus and Engineering Manager trajectory',
             '- [Resume]('.$base.'/resume): Live curriculum vitae (source of truth vs static PDF)',
+            '- [Recruiter kit]('.$base.'/kit): One-pager with resume PDF, bio, and canonical links',
             '- [Writing]('.$base.'/blog): Essays on engineering leadership, release governance, and mission software',
         ];
 

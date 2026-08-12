@@ -122,11 +122,13 @@ export function initCommandPalette() {
         }),
         withGroup({
             label: 'Book a conversation',
-            keywords: 'book calendly schedule call conversation hiring recruiter',
-            action: () => {
-                const url = document.documentElement.dataset.bookingUrl;
-                window.location.assign(url || '/now#contact');
-            },
+            keywords: 'book calendly cal.com schedule call conversation hiring recruiter #book',
+            action: () => window.location.assign('/now#book'),
+        }),
+        withGroup({
+            label: 'Recruiter kit',
+            keywords: 'recruiter kit hire pdf bio resume one-pager',
+            action: () => window.location.assign('/kit'),
         }),
         withGroup({
             label: 'Writing — Blog',
@@ -193,20 +195,8 @@ export function initCommandPalette() {
     ];
 
     const index = parseCommandIndex();
-    const bookingUrl = document.documentElement.dataset.bookingUrl;
-    const bookingLabel = document.documentElement.dataset.bookingLabel || 'Book a conversation';
-    const bookingCommands = bookingUrl
-        ? [
-              withGroup({
-                  label: bookingLabel,
-                  keywords: 'book calendar cal.com calendly schedule conversation meeting hire',
-                  action: () => window.open(bookingUrl, '_blank', 'noopener,noreferrer'),
-              }),
-          ]
-        : [];
     const commands = [
         ...staticCommands,
-        ...bookingCommands,
         ...index.posts.map((post) =>
             withGroup(
                 {

@@ -7,7 +7,9 @@
     --panel: #141414;
     --text: #f5f5f5;
     --muted: #a3a3a3;
-    --muted-2: #737373;
+    /* Raised for small mono chrome (filters, captions, form hints) on #0a0a0a —
+       sunlight / cheap screens still need ~3:1 on dark. */
+    --muted-2: #9a9a9a;
     --border: #262626;
     --border-strong: #2a2a2a;
     --surface-hover: rgb(23 23 23 / 0.4);
@@ -90,4 +92,6 @@
     --color-focus: var(--focus);
     --color-muted: var(--muted);
     --color-ink: var(--text);
+    /* Lift mid neutrals used by small mono labels (nav, filters, captions). */
+    --color-neutral-500: #949494;
 }

@@ -139,7 +139,58 @@ body {
 /* Compact strip under page heroes (tag filters, toolbars). */
 .site-toolbar {
     padding-block: clamp(1.75rem, 3vw, 2.5rem) 1.25rem;
-    padding-inline: var(--space-gutter);
+    padding-inline: max(var(--space-gutter), env(safe-area-inset-left, 0px))
+        max(var(--space-gutter), env(safe-area-inset-right, 0px));
+}
+
+.site-toolbar--sticky {
+    position: sticky;
+    /* Fallback under fixed nav; upgraded to anchor(bottom) where supported. */
+    top: max(3.75rem, calc(env(safe-area-inset-top, 0px) + 3.25rem));
+    z-index: 35;
+    background: color-mix(in oklab, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px) saturate(1.15);
+    border-bottom: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+}
+
+@media (min-width: 768px) {
+    .site-toolbar--sticky {
+        top: max(4.75rem, calc(env(safe-area-inset-top, 0px) + 4.25rem));
+    }
+
+    nav[aria-label='Primary'].is-compact ~ * .site-toolbar--sticky,
+    body:has(nav[aria-label='Primary'].is-compact) .site-toolbar--sticky {
+        top: max(4rem, calc(env(safe-area-inset-top, 0px) + 3.5rem));
+    }
+}
+
+/* When the nav shrinks via scroll-timeline (no is-compact class), keep the
+   toolbar tucked under the compact height. Anchor positioning below wins. */
+@supports (animation-timeline: scroll()) {
+    @media (min-width: 768px) {
+        .site-toolbar--sticky {
+            animation: toolbarUnderNav linear forwards;
+            animation-timeline: scroll(root);
+            animation-range: 160px 320px;
+        }
+    }
+
+    @keyframes toolbarUnderNav {
+        from {
+            top: max(4.75rem, calc(env(safe-area-inset-top, 0px) + 4.25rem));
+        }
+        to {
+            top: max(4rem, calc(env(safe-area-inset-top, 0px) + 3.5rem));
+        }
+    }
+}
+
+@supports (anchor-name: --a) {
+    .site-toolbar--sticky {
+        position-anchor: --site-nav;
+        top: anchor(bottom);
+        animation: none;
+    }
 }
 
 /* ---------------------------------------------------------------------------

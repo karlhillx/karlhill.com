@@ -918,6 +918,197 @@ a.series-chapters__card:hover .series-chapters__title,
     background: color-mix(in oklab, var(--accent) 10%, transparent);
 }
 
+/* Work index: horizontal chip scroller on narrow viewports. */
+.tag-filter--scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    padding-bottom: 0.15rem;
+    mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 1.5rem), transparent);
+}
+
+@media (min-width: 768px) {
+    .tag-filter--scroll {
+        flex-wrap: wrap;
+        overflow: visible;
+        mask-image: none;
+        padding-bottom: 0;
+    }
+}
+
+/* Case study — Outcome / Stack / Role skim panel */
+.case-study-glance {
+    display: grid;
+    gap: 1.25rem;
+    padding: 1.25rem 0;
+    border-block: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+}
+
+@media (min-width: 640px) {
+    .case-study-glance {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem 2rem;
+        padding: 1.5rem 0;
+    }
+
+    .case-study-glance__cell--role {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 1024px) {
+    .case-study-glance {
+        grid-template-columns: 1.2fr 0.9fr 1.2fr;
+        gap: 1.75rem;
+    }
+
+    .case-study-glance__cell--role {
+        grid-column: auto;
+    }
+}
+
+.case-study-glance__label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.65rem;
+}
+
+.case-study-glance__body {
+    margin: 0;
+    color: color-mix(in oklab, var(--text) 88%, var(--muted));
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    max-width: 36rem;
+}
+
+.case-study-glance__stack {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.case-study-media__trigger {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+    text-align: left;
+}
+
+.case-study-media__trigger:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+}
+
+.case-study-media__zoom {
+    position: absolute;
+    right: 0.85rem;
+    bottom: 0.85rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.55rem;
+    border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--border-strong));
+    border-radius: 0.25rem;
+    background: color-mix(in oklab, var(--bg) 82%, transparent);
+    backdrop-filter: blur(6px);
+    color: color-mix(in oklab, var(--accent) 80%, white);
+    opacity: 0;
+    transform: translateY(4px);
+    transition:
+        opacity 0.2s var(--ease-out-soft),
+        transform 0.22s var(--ease-out-spring),
+        border-color 0.2s ease;
+}
+
+.case-study-media__trigger:hover .case-study-media__zoom,
+.case-study-media__trigger:focus-visible .case-study-media__zoom {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (pointer: coarse) {
+    .case-study-media__zoom {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Fullscreen screenshot lightbox */
+.media-lightbox {
+    width: min(96vw, 72rem);
+    max-width: 96vw;
+    max-height: 92vh;
+    margin: auto;
+    padding: 0;
+    border: 1px solid color-mix(in oklab, var(--accent) 22%, var(--border-strong));
+    border-radius: 0.5rem;
+    background: color-mix(in oklab, var(--bg) 94%, black);
+    color: var(--text);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+}
+
+.media-lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(6px);
+}
+
+.media-lightbox__chrome {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.media-lightbox__close {
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 0.35rem 0.55rem;
+    cursor: pointer;
+    transition:
+        color 0.16s ease,
+        border-color 0.16s ease;
+}
+
+.media-lightbox__close:hover,
+.media-lightbox__close:focus-visible {
+    color: var(--accent);
+    border-color: color-mix(in oklab, var(--accent) 40%, transparent);
+}
+
+.media-lightbox__img {
+    display: block;
+    width: 100%;
+    max-height: calc(92vh - 3rem);
+    object-fit: contain;
+    background: #050505;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    .site-toolbar--sticky,
+    .case-study-media__zoom,
+    .media-lightbox::backdrop {
+        backdrop-filter: none;
+    }
+
+    .site-toolbar--sticky {
+        background: var(--bg);
+    }
+}
+
 .adjacent-nav__card {
     transition:
         transform 0.22s var(--ease-out-soft),

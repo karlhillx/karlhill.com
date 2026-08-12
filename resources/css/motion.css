@@ -617,6 +617,70 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     }
 }
 
+/* Save-data / reduced-data: drop ambient layers that cost paint for little clarity. */
+@media (prefers-reduced-data: reduce) {
+    .page-spotlight,
+    .has-page-spotlight .page-spotlight {
+        display: none !important;
+    }
+
+    .hero-mesh__blob,
+    #hero .hero-portrait {
+        animation: none !important;
+    }
+
+    .hero-mesh__blob {
+        opacity: 0.28;
+        filter: blur(40px);
+    }
+
+    .surface-card-media.pointer-lit {
+        transform: none !important;
+    }
+}
+
+@media (pointer: coarse) {
+    .page-spotlight,
+    .has-page-spotlight .page-spotlight {
+        display: none !important;
+    }
+
+    .hero-mesh__blob {
+        animation: none;
+        opacity: 0.3;
+    }
+
+    #hero .hero-portrait {
+        animation: none;
+    }
+}
+
+/* Booking embed (Calendly / Cal.com iframe) */
+.booking-embed {
+    margin-top: 2rem;
+    border: 1px solid color-mix(in oklab, var(--accent) 22%, var(--border));
+    border-radius: 0.35rem;
+    overflow: hidden;
+    background: color-mix(in oklab, var(--bg) 92%, black);
+}
+
+.booking-embed__frame {
+    display: block;
+    width: 100%;
+    min-height: 720px;
+    height: min(78vh, 760px);
+    border: 0;
+    background: transparent;
+}
+
+@media (max-width: 640px) {
+    .booking-embed__frame {
+        /* Calendly’s mobile UI needs vertical room; dvh tracks real device chrome. */
+        min-height: 720px;
+        height: max(720px, min(92dvh, 900px));
+    }
+}
+
 /* Lead-principle numbers: a quiet scale-in as each row enters view. */
 @supports (animation-timeline: view()) {
     .lead-principles__num {

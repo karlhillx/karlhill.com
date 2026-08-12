@@ -1,4 +1,4 @@
-import { prefersFinePointer, prefersReducedMotion } from '../lib/prefs.js';
+import { allowAmbientMotion, prefersFinePointer, prefersReducedMotion } from '../lib/prefs.js';
 
 export function initPointerEffects() {
     if (prefersReducedMotion || !prefersFinePointer) return;
@@ -8,23 +8,27 @@ export function initPointerEffects() {
     let lx = 0;
     let ly = 0;
 
-    document.addEventListener(
-        'mousemove',
-        (e) => {
-            lx = e.clientX;
-            ly = e.clientY;
-            if (spotRaf !== null) return;
-            spotRaf = requestAnimationFrame(() => {
-                spotRaf = null;
-                const w = window.innerWidth || 1;
-                const h = window.innerHeight || 1;
-                root.style.setProperty('--spot-x', `${(lx / w) * 100}%`);
-                root.style.setProperty('--spot-y', `${(ly / h) * 100}%`);
-            });
-        },
-        { passive: true }
-    );
+    // Spotlight tracking only when ambient motion is allowed (skips save-data).
+    if (allowAmbientMotion) {
+        document.addEventListener(
+            'mousemove',
+            (e) => {
+                lx = e.clientX;
+                ly = e.clientY;
+                if (spotRaf !== null) return;
+                spotRaf = requestAnimationFrame(() => {
+                    spotRaf = null;
+                    const w = window.innerWidth || 1;
+                    const h = window.innerHeight || 1;
+                    root.style.setProperty('--spot-x', `${(lx / w) * 100}%`);
+                    root.style.setProperty('--spot-y', `${(ly / h) * 100}%`);
+                });
+            },
+            { passive: true }
+        );
+    }
 
+    // Solid primary CTAs only — outline actions use btn-sweep.
     document.querySelectorAll('.magnetic-btn').forEach((el) => {
         let rect = null;
         let rafId = null;
@@ -52,6 +56,8 @@ export function initPointerEffects() {
         });
     });
 
+    if (!allowAmbientMotion) return;
+
     document.querySelectorAll('.pointer-lit').forEach((card) => {
         let rafId = null;
         let px = 50;
@@ -71,7 +77,6 @@ export function initPointerEffects() {
                 rafId = null;
                 card.style.setProperty('--card-x', `${px}%`);
                 card.style.setProperty('--card-y', `${py}%`);
-                // Soft perspective tilt — capped so cards stay readable.
                 const tiltX = Math.max(Math.min(((py - 50) / 50) * -3.5, 3.5), -3.5);
                 const tiltY = Math.max(Math.min(((px - 50) / 50) * 4, 4), -4);
                 card.style.setProperty('--tilt-x', `${tiltX}deg`);

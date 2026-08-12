@@ -1,6 +1,7 @@
 <?php
 
 use App\Mail\ContactMessage;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 it('home page renders the contact form', function () {
@@ -101,6 +102,30 @@ it('honeypot silently drops spam', function () {
         'message' => 'Buy my links, definitely not spam at all.',
         'company' => 'Totally A Real Company',
     ])->assertRedirect(route('home').'#contact');
+
+    Mail::assertNothingSent();
+});
+
+it('turnstile failure blocks send when configured', function () {
+    Mail::fake();
+    config([
+        'site.turnstile.site_key' => '1x00000000000000000000AA',
+        'site.turnstile.secret_key' => '1x0000000000000000000000000000000AA',
+    ]);
+
+    Http::fake([
+        'challenges.cloudflare.com/*' => Http::response(['success' => false], 200),
+    ]);
+
+    $this->from('/')
+        ->post('/contact', [
+            'name' => 'Ada Lovelace',
+            'email' => 'ada@example.com',
+            'message' => 'I would love to talk about a platform build.',
+            'cf-turnstile-response' => 'invalid',
+        ])
+        ->assertRedirect(route('home').'#contact-form')
+        ->assertSessionHasErrors('turnstile');
 
     Mail::assertNothingSent();
 });

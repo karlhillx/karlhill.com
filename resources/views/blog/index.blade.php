@@ -44,9 +44,6 @@
     <p class="text-neutral-300 text-base leading-relaxed max-w-2xl">
         Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on.
     </p>
-    <p class="text-neutral-400 text-base leading-relaxed max-w-2xl mt-5">
-        I write to think in public — to work out hard-won lessons on architecture, delivery, and leading teams, and to leave a trail worth following.
-    </p>
     <div class="flex flex-wrap items-center gap-4 mt-10">
         <a href="{{ route('feed') }}"
            class="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">

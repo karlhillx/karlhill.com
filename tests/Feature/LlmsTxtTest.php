@@ -25,6 +25,7 @@ it('llms txt returns plain text with required sections', function () {
     $this->assertStringContainsString('## Optional', $body);
     $this->assertStringContainsString('## Case studies', $body);
     $this->assertStringContainsString('/work/nasa-earth-observatory', $body);
+    $this->assertStringContainsString('/kit', $body);
     $this->assertStringContainsString('/blog/release-governance', $body);
     $this->assertStringContainsString('What 20 Years Taught Me About Release Governance', $body);
     $this->assertStringContainsString('Preferred name: **Karl Hill**', $body);
@@ -45,7 +46,7 @@ it('llms txt builder lists social profiles and resume', function () {
     $this->assertStringContainsString('/resume', $body);
     $this->assertStringContainsString('/files/Karl-Hill-Resume.pdf', $body);
     $this->assertStringContainsString('GeoHorizons', $body);
-    $this->assertStringContainsString('August 7, 2026', $body);
+    $this->assertStringContainsString('August 12, 2026', $body);
 });
 
 it('llms full txt includes essay bodies', function () {

@@ -22,7 +22,7 @@
                 <a href="{{ $research['doi'] }}"
                    target="_blank"
                    rel="noopener noreferrer"
-                   class="magnetic-btn inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-colors duration-200">
+                   class="btn-sweep inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest">
                     {{ $research['doi_label'] }}
                     <span aria-hidden="true">↗</span>
                 </a>

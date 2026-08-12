@@ -1,16 +1,17 @@
 <?php
 
 return [
-    'updated' => 'August 7, 2026',
+    'updated' => 'August 12, 2026',
     // /now owns current focus + recruiter path (availability lives here, not on every page).
     'lede' => 'Building toward Engineering Manager while shipping aerospace platforms — honest about the Staff title, clear about the destination.',
     'recruiters' => [
         'eyebrow' => 'For recruiters & hiring managers',
-        'body' => 'Hiring an Engineering Manager or Staff+ leader who can still go deep on platforms? Start here — then book time or send a note. I reply personally.',
+        'body' => 'Hiring an Engineering Manager or Staff+ leader who can still go deep on platforms? Start with the kit — then book time or send a note. I reply personally.',
         'bullets' => [
             'Target: Engineering Manager and Staff+ leadership roles',
             'Location: Washington, DC metro · open to hybrid / remote-friendly teams',
             'Signal: SSAI/NASA Goddard → aerospace mission software at Jacobs, plus the EM craft writing series',
+            'Kit: one-pager with resume PDF, short bio, and canonical links',
         ],
     ],
     'focus' => [

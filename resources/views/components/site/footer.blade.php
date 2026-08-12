@@ -54,7 +54,7 @@
                     </button>
                 </div>
                 @if(filled(config('site.booking.url')))
-                    <a href="{{ config('site.booking.url') }}" target="_blank" rel="noopener noreferrer"
+                    <a href="/now#book"
                        class="btn-sweep inline-flex items-center gap-3 border border-accent/40 text-accent font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">
                         {{ config('site.booking.label') }}
                         <span aria-hidden="true">→</span>
@@ -64,6 +64,12 @@
                 <a href="/resume"
                    class="btn-sweep inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">
                     Resume
+                    <span aria-hidden="true">→</span>
+                </a>
+
+                <a href="/kit"
+                   class="btn-sweep inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">
+                    Recruiter kit
                     <span aria-hidden="true">→</span>
                 </a>
 
@@ -77,6 +83,7 @@
                     <li><a href="/blog" class="text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
                     <li><a href="/now" class="text-neutral-400 hover:text-accent transition-colors">Now</a></li>
                     <li><a href="/resume" class="text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
+                    <li><a href="/kit" class="text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
                 </ul>
             </nav>
         </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\ClientSiteController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KitController;
 use App\Http\Controllers\LlmsTxtController;
 use App\Http\Controllers\NowController;
 use App\Http\Controllers\OgImageController;
@@ -46,6 +47,7 @@ Route::middleware('cache.headers:public;max_age=300;etag')->group(function (): v
     Route::get('/about', AboutController::class)->name('about');
     Route::get('/now', NowController::class)->name('now');
     Route::get('/resume', ResumeController::class)->name('resume');
+    Route::get('/kit', KitController::class)->name('kit');
 
     // Client staging — static sites under /clients/{slug}/ (noindex, not in nav/sitemap).
     Route::get('/clients', [ClientSiteController::class, 'index'])->name('clients.index');

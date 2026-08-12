@@ -9,6 +9,8 @@
         <div class="hero-copy">
             @php($person = config('site.person'))
             @php($hero = config('site.hero'))
+            @php($bookingUrl = config('site.booking.url'))
+            @php($bookingLabel = config('site.booking.label'))
             <div class="hero-eyebrow hero-enter" style="animation-delay:100ms">
                 <x-site.responsive-image
                     src="/img/webp/profile.webp"
@@ -35,22 +37,29 @@
                     {{ $hero['positioning'] }}
                 </p>
             @endif
-            <div class="hero-cta flex flex-wrap hero-enter" style="animation-delay:420ms">
-                @foreach($hero['cta'] as $link)
-                    @php($isExternal = str_starts_with($link['url'], 'http'))
-                    <a href="{{ $link['url'] }}" @if($isExternal) target="_blank" rel="noopener noreferrer" @endif
-                       @class([
-                           'hero-cta-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200',
-                           'magnetic-btn bg-accent text-black font-bold hover:bg-accent/80' => $link['primary'] ?? false,
-                           'btn-sweep border border-neutral-700 text-neutral-300' => ! ($link['primary'] ?? false),
-                       ])>
-                        {{ $link['label'] }}
+            {{-- Hire hierarchy: Book/Now primary → Work secondary → Contact tertiary --}}
+            <div class="hero-cta flex flex-wrap items-center hero-enter" style="animation-delay:420ms">
+                @if(filled($bookingUrl))
+                    <a href="/now#book"
+                       class="hero-cta-btn magnetic-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200 bg-accent text-black font-bold hover:bg-accent/80">
+                        {{ $bookingLabel }}
                     </a>
-                @endforeach
+                @else
+                    <a href="/now"
+                       class="hero-cta-btn magnetic-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200 bg-accent text-black font-bold hover:bg-accent/80">
+                        Now
+                    </a>
+                @endif
+                <a href="/work"
+                   class="hero-cta-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200 btn-sweep border border-neutral-700 text-neutral-300">
+                    Work
+                </a>
+                <a href="/#contact"
+                   class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors px-1">
+                    Contact
+                </a>
             </div>
-            @php($bookingUrl = config('site.booking.url'))
-            <a href="{{ filled($bookingUrl) ? $bookingUrl : '/now' }}"
-               @if(filled($bookingUrl)) target="_blank" rel="noopener noreferrer" @endif
+            <a href="{{ filled($bookingUrl) ? '/now#book' : '/now' }}"
                class="hero-availability group flex items-start w-fit max-w-full hero-enter" style="animation-delay:520ms">
                 <span class="hero-availability-dot rounded-full bg-green-500 availability-pulse shrink-0" aria-hidden="true"></span>
                 <span class="availability-label font-mono text-neutral-500 group-hover:text-accent uppercase transition-colors">

@@ -65,6 +65,7 @@ export function initRevealAndCounters() {
                     }
                 });
             },
+            // px/% only — rem units throw and break reveal init.
             { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
         );
 

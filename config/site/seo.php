@@ -31,4 +31,9 @@ return [
         'description' => 'Resume for Karl Hill — software engineering leader in cloud-native platforms, DevSecOps, and mission-ready delivery. Experience across Jacobs, NASA, and enterprise systems.',
         'og_description' => 'Curriculum vitae from karlhill.com — cloud-native platforms, DevSecOps, and engineering leadership.',
     ],
+    'kit' => [
+        'title' => 'Recruiter kit — Karl Hill',
+        'description' => 'Hiring kit for Karl Hill — resume PDF, short bio, booking link, and flagship case studies for Engineering Manager and Staff+ roles.',
+        'og_description' => 'One-pager for recruiters: resume PDF, bio, LinkedIn/GitHub, booking, and flagship work.',
+    ],
 ];

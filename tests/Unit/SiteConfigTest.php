@@ -1,5 +1,7 @@
 <?php
 
+use App\Support\Booking;
+
 it('same as is derived from social urls', function () {
     $socialUrls = collect(config('site.social'))
         ->pluck('url')
@@ -11,10 +13,24 @@ it('same as is derived from social urls', function () {
     expect(config('site.same_as'))->toBe($socialUrls);
 });
 
-it('google is the default analytics provider', function () {
-    expect(config('site.analytics.provider'))->toBe('google')
-        ->and(config('site.analytics.google.enabled'))->toBeTrue()
-        ->and(config('site.analytics.plausible.enabled'))->toBeFalse();
+it('analytics providers are mutually exclusive', function () {
+    $google = (bool) config('site.analytics.google.enabled');
+    $plausible = (bool) config('site.analytics.plausible.enabled');
+
+    expect($google && $plausible)->toBeFalse();
+    expect(config('site.analytics.provider'))->toBeIn(['plausible', 'google', 'none']);
+});
+
+it('booking embed src normalizes calendly and cal urls', function () {
+    expect(Booking::embedSrc('https://calendly.com/karlhill'))
+        ->toContain('hide_gdpr_banner=1')
+        ->toContain('hide_landing_page_details=1');
+
+    expect(Booking::embedSrc('https://cal.com/example'))
+        ->toContain('embed=true');
+
+    expect(Booking::embedSrc(null))->toBeNull();
+    expect(Booking::embedSrc('not-a-url'))->toBeNull();
 });
 
 it('experience fragment powers about and resume', function () {

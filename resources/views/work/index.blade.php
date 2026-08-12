@@ -6,6 +6,7 @@
 
 @section('content')
     @php
+        $projectCount = $projects->count();
         $breadcrumbs = [
             ['label' => 'Home', 'url' => '/'],
         ];
@@ -26,9 +27,26 @@
     </x-site.page-hero>
 
     @if($allTags->isNotEmpty())
-        <section class="site-toolbar border-t border-neutral-800">
-            <div class="site-shell">
+        <section class="site-toolbar site-toolbar--sticky border-t border-neutral-800/80" aria-label="Filter projects">
+            <div class="site-shell flex flex-col gap-4">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
+                    <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest" aria-live="polite">
+                        <span class="text-neutral-300 tabular-nums">{{ $projectCount }}</span>
+                        {{ \Illuminate\Support\Str::plural('project', $projectCount) }}
+                        @if($activeTag)
+                            <span class="text-neutral-600" aria-hidden="true">·</span>
+                            <span class="text-accent">{{ $activeTag }}</span>
+                        @endif
+                    </p>
+                    @if($activeTag)
+                        <a href="{{ route('work') }}"
+                           class="font-mono text-[10px] text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
+                            Clear filter
+                        </a>
+                    @endif
+                </div>
                 <x-site.tag-filter
+                    class="tag-filter--scroll"
                     :all-url="route('work')"
                     :tags="$allTags"
                     :counts="$tagCounts"

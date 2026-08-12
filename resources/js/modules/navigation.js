@@ -61,6 +61,8 @@ export function initNavigation() {
         });
     }
 
+    // IntersectionObserver rootMargin must use px or % only (rem throws in
+    // browsers and historically aborted media.js before the lightbox wired up).
     const spyObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {

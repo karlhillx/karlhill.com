@@ -65,9 +65,11 @@ it('html responses include link preload headers when built', function () {
     }
 });
 
-it('csp allows same origin service workers', function () {
+it('csp allows booking embeds and same origin service workers', function () {
     $response = $this->get('/');
 
     $csp = $response->headers->get('Content-Security-Policy');
     $this->assertStringContainsString("worker-src 'self'", (string) $csp);
+    $this->assertStringContainsString('frame-src', (string) $csp);
+    $this->assertStringContainsString('calendly.com', (string) $csp);
 });

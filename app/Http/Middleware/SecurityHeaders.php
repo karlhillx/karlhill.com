@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Support\Turnstile;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Vite;
@@ -69,6 +70,7 @@ class SecurityHeaders
         $scriptSrc = ["'self'".$scriptNonce];
         $connectSrc = ["'self'"];
         $imgSrc = ["'self'", 'data:'];
+        $frameSrc = ["'self'"];
 
         if (config('site.analytics.google.enabled') && filled(config('site.analytics.google.id'))) {
             $scriptSrc[] = 'https://www.googletagmanager.com';
@@ -82,6 +84,26 @@ class SecurityHeaders
         if (config('site.analytics.plausible.enabled') && filled(config('site.analytics.plausible.domain'))) {
             $scriptSrc[] = 'https://plausible.io';
             $connectSrc[] = 'https://plausible.io';
+        }
+
+        if (Turnstile::enabled()) {
+            $scriptSrc[] = 'https://challenges.cloudflare.com';
+            $frameSrc[] = 'https://challenges.cloudflare.com';
+            $connectSrc[] = 'https://challenges.cloudflare.com';
+        }
+
+        $bookingHost = parse_url((string) config('site.booking.url'), PHP_URL_HOST);
+        if (is_string($bookingHost) && $bookingHost !== '') {
+            $frameSrc[] = 'https://'.$bookingHost;
+            // Calendly assets sometimes frame through www / app subdomains.
+            if (str_ends_with($bookingHost, 'calendly.com')) {
+                $frameSrc[] = 'https://calendly.com';
+                $frameSrc[] = 'https://www.calendly.com';
+            }
+            if (str_ends_with($bookingHost, 'cal.com')) {
+                $frameSrc[] = 'https://cal.com';
+                $frameSrc[] = 'https://app.cal.com';
+            }
         }
 
         $directives = [
@@ -98,6 +120,7 @@ class SecurityHeaders
             'img-src '.implode(' ', $imgSrc),
             'script-src '.implode(' ', $scriptSrc),
             'connect-src '.implode(' ', $connectSrc),
+            'frame-src '.implode(' ', $frameSrc),
         ];
 
         if ($request->secure()) {

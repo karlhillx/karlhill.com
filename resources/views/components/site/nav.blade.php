@@ -14,11 +14,12 @@
     <div class="nav-bar site-shell site-gutter flex items-center justify-between gap-4">
         <div class="flex items-center gap-6 lg:gap-10 min-w-0">
             <a href="/" class="font-display tracking-wider text-accent shrink-0" style="view-transition-name: brand">KARL HILL</a>
-            <div class="hidden md:flex items-center gap-6 lg:gap-8 font-mono text-xs text-neutral-500 uppercase tracking-widest">
+            <div class="hidden md:flex items-center gap-5 lg:gap-7 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="/work" class="{{ $navLinkClass('work') }}">Work</a>
                 <a href="/about" class="{{ $navLinkClass('about') }}">About</a>
                 <a href="/blog" class="{{ $navLinkClass('writing') }}">Writing</a>
                 <a href="/now" class="{{ $navLinkClass('now') }}">Now</a>
+                <a href="/resume" class="{{ $navLinkClass('resume') }}">Resume</a>
                 <a href="/#contact" data-nav-section="contact" class="{{ $navLinkClass('contact') }}">Contact</a>
             </div>
         </div>
@@ -47,7 +48,7 @@
                 <span aria-hidden="true"
                       class="surface-chip ml-1 px-1.5 py-0.5 text-[9px] leading-none text-neutral-500 normal-case tracking-normal">⌘K</span>
             </button>
-            <a href="mailto:{{ config('site.person.email') }}"
+            <a href="/#contact"
                class="btn-sweep hidden md:inline-flex text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest">
                 Get in Touch
             </a>
@@ -70,10 +71,10 @@
             <a href="/about" class="{{ $mobileLinkClass('about') }}">About</a>
             <a href="/blog" class="{{ $mobileLinkClass('writing') }}">Writing</a>
             <a href="/now" class="{{ $mobileLinkClass('now') }}">Now</a>
-            <a href="/resume" class="{{ $mobileLinkClass('about') }}">Resume</a>
+            <a href="/resume" class="{{ $mobileLinkClass('resume') }}">Resume</a>
             <a href="/#contact" class="{{ $mobileLinkClass('contact') }}">Contact</a>
             @if(filled($bookingUrl))
-                <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer"
+                <a href="/now#book"
                    class="min-h-11 flex items-center py-3.5 text-accent hover:text-accent transition-colors">
                     {{ config('site.booking.label') }}
                 </a>

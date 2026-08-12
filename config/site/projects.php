@@ -19,7 +19,7 @@ return [
             'class' => 'h-8',
         ],
         'case_study' => [
-            'lede' => 'A flagship NASA science communication platform serving 1.5M+ monthly visitors — rebuilt for editorial velocity, performance, and long-term maintainability.',
+            'lede' => 'A flagship NASA science communication platform serving 1.5M+ monthly visitors — rebuilt so editors ship without waiting on engineering, and the stack stays maintainable for the next decade.',
             'role' => 'Lead engineer — owned the platform re-architecture and publishing pipeline, and set the frontend performance and accessibility standards.',
             'leadership' => [
                 'mode' => 'Tech lead / sticky IC across platform engineering and editorial partners',
@@ -28,19 +28,24 @@ return [
                 'decision' => 'Traded short-term feature velocity for a shared publishing model — fewer heroics per story, higher long-term throughput.',
             ],
             'problem' => [
-                0 => 'Editorial teams relied on brittle, one-off publishing patterns that slowed routine story production.',
-                1 => 'Performance, accessibility, and SEO debt accumulated as traffic and content volume grew.',
-                2 => 'Distributed content teams needed a shared workflow without engineering becoming the bottleneck.',
+                0 => 'Routine stories still needed custom engineering — brittle, one-off publishing patterns made editorial velocity a queue, not a system.',
+                1 => 'Traffic and imagery volume exposed performance, accessibility, and SEO debt that could not be patched story-by-story.',
+                2 => 'Distributed content teams lacked a shared workflow — engineering had become the bottleneck for science communication at scale.',
+            ],
+            'decisions' => [
+                0 => 'Standardize on repeatable story templates and a shared publishing model instead of per-story builds — accept slower net-new features to unlock editorial self-service.',
+                1 => 'Treat large imagery, metadata consistency, and non-engineer workflows as first-class pipeline concerns, not afterthoughts bolted onto the CMS.',
+                2 => 'Gate releases on frontend performance, accessibility, and search discoverability so public science traffic and WCAG expectations stay non-negotiable.',
             ],
             'approach' => [
-                0 => 'Redesigned the information architecture and publishing model around repeatable story templates.',
-                1 => 'Rebuilt delivery pipelines for large imagery, metadata consistency, and non-engineer self-service.',
-                2 => 'Improved frontend performance, accessibility compliance, and search discoverability as first-class requirements.',
+                0 => 'Standardize on repeatable story templates and a shared publishing model instead of per-story builds — accept slower net-new features to unlock editorial self-service.',
+                1 => 'Treat large imagery, metadata consistency, and non-engineer workflows as first-class pipeline concerns, not afterthoughts bolted onto the CMS.',
+                2 => 'Gate releases on frontend performance, accessibility, and search discoverability so public science traffic and WCAG expectations stay non-negotiable.',
             ],
             'outcome' => [
-                0 => 'Unified editorial workflows across distributed teams with less custom engineering per story.',
-                1 => 'Strengthened platform performance and accessibility for a high-traffic public science audience.',
-                2 => 'Created a maintainable foundation for ongoing Earth science communication at scale.',
+                0 => 'Editors ship routine stories without waiting on custom engineering — throughput became a product of the system, not heroics.',
+                1 => 'High-traffic public science audience got a stronger performance and accessibility baseline.',
+                2 => 'Left a maintainable foundation for ongoing Earth science communication instead of another round of one-off platform debt.',
             ],
             'metrics' => [
                 0 => [
@@ -48,8 +53,8 @@ return [
                     'label' => 'Monthly visitors',
                 ],
                 1 => [
-                    'value' => '25+',
-                    'label' => 'Years platform evolution',
+                    'value' => 'Self-serve',
+                    'label' => 'Editorial publishing',
                 ],
             ],
         ],
@@ -74,7 +79,7 @@ return [
             'class' => 'h-8',
         ],
         'case_study' => [
-            'lede' => 'Near real-time flood inundation mapping from satellite data — built for disaster response when latency is measured in hours, not sprints.',
+            'lede' => 'Near real-time flood inundation mapping from satellite data — built so disaster responders get trustworthy products in hours, without overnight engineering heroics.',
             'role' => 'Architect & lead developer — designed and automated the end-to-end geospatial pipeline on AWS.',
             'leadership' => [
                 'mode' => 'Technical lead for a mission-critical geospatial pipeline',
@@ -83,28 +88,33 @@ return [
                 'decision' => 'Prioritized automation and fault tolerance over ad-hoc speed — latency dropped because the team system was reliable under urgency.',
             ],
             'problem' => [
-                0 => 'Manual processing steps delayed flood products during active global disaster events.',
-                1 => 'End-to-end workflows from sensor acquisition to dissemination spanned multiple teams and environments.',
-                2 => 'Operational users needed trustworthy, repeatable products — not one-off engineering heroics.',
+                0 => 'Manual processing steps sat on the critical path — flood products lagged during active global disaster events when hours mattered.',
+                1 => 'Sensor acquisition → product generation → dissemination crossed teams and environments with fragile handoffs.',
+                2 => 'Emergency-management users needed repeatable, trustworthy maps — not one-off runs that only the on-call engineer could reproduce.',
+            ],
+            'decisions' => [
+                0 => 'Automate end-to-end from raw sensor ingestion through geospatial product generation — remove humans from the latency path under urgency.',
+                1 => 'Containerize processing stages so the same pipeline is deployable and recoverable across environments, not a snowflake workstation.',
+                2 => 'Integrate outputs with emergency-management and research distribution networks so “done” means disseminated, not merely generated.',
             ],
             'approach' => [
-                0 => 'Automated the pipeline from raw sensor ingestion through geospatial product generation.',
-                1 => 'Containerized processing stages for repeatable deployments across environments.',
-                2 => 'Integrated outputs with emergency management and research distribution networks.',
+                0 => 'Automate end-to-end from raw sensor ingestion through geospatial product generation — remove humans from the latency path under urgency.',
+                1 => 'Containerize processing stages so the same pipeline is deployable and recoverable across environments, not a snowflake workstation.',
+                2 => 'Integrate outputs with emergency-management and research distribution networks so “done” means disseminated, not merely generated.',
             ],
             'outcome' => [
-                0 => 'Delivered near real-time flood inundation maps during active disaster events worldwide.',
-                1 => 'Reduced manual handoffs that introduced latency and inconsistency under urgency.',
+                0 => 'Near real-time flood inundation maps during active disaster events worldwide — latency measured in hours, not overnight queues.',
+                1 => 'Fewer manual handoffs under urgency — consistency came from the pipeline, not who was awake.',
                 2 => 'Supported peer-reviewed research on global water and flood mapping (GeoHorizons).',
             ],
             'metrics' => [
                 0 => [
-                    'value' => 'Near RT',
-                    'label' => 'Product generation',
+                    'value' => 'Hours',
+                    'label' => 'Not overnight latency',
                 ],
                 1 => [
-                    'value' => 'Global',
-                    'label' => 'Disaster coverage',
+                    'value' => 'E2E',
+                    'label' => 'Automated pipeline',
                 ],
             ],
         ],

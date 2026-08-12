@@ -23,7 +23,10 @@
     .site-toast,
     .cmdk-tip,
     .article-toc,
-    .article-toc-mobile {
+    .article-toc-mobile,
+    .media-lightbox,
+    .case-study-media__zoom,
+    .site-toolbar--sticky {
         display: none !important;
     }
 

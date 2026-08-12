@@ -74,6 +74,22 @@
             <p id="{{ $messageId }}-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $errorBag->first('message') }}</p>
         @endif
     </div>
+
+    @if(\App\Support\Turnstile::enabled())
+        <div>
+            <div class="cf-turnstile"
+                 data-sitekey="{{ config('site.turnstile.site_key') }}"
+                 data-theme="dark"
+                 data-size="flexible"></div>
+            @if($errorBag->has('turnstile'))
+                <p id="{{ $idPrefix }}-turnstile-error" class="mt-2 font-mono text-[11px] text-red-400" role="alert">
+                    {{ $errorBag->first('turnstile') }}
+                </p>
+            @endif
+            <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer nonce="{{ Vite::cspNonce() }}"></script>
+        </div>
+    @endif
+
     <button type="submit" id="{{ $submitId }}" data-contact-submit
             class="btn-sweep inline-flex items-center gap-2 border border-accent/50 text-accent font-mono text-xs uppercase tracking-widest px-6 py-3">
         Send message <span aria-hidden="true">→</span>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\ProjectCatalog;
 use Illuminate\Support\Facades\Cache;
 
 beforeEach(function () {
@@ -67,13 +68,53 @@ it('work cards link to case studies and live projects', function () {
 
     $response->assertSee('nasa-earth-observatory', escape: false);
     $response->assertSee('Read case study', escape: false);
+});
 
+it('work index shows sticky filter chrome and project count', function () {
+    $count = ProjectCatalog::all()->count();
+
+    $this->get('/work')
+        ->assertOk()
+        ->assertSee('site-toolbar--sticky', escape: false)
+        ->assertSee('tag-filter--scroll', escape: false)
+        ->assertSee((string) $count, escape: false)
+        ->assertDontSee('Clear filter', escape: false);
+
+    $this->get('/work/tag/laravel')
+        ->assertOk()
+        ->assertSee('Clear filter', escape: false)
+        ->assertSee('Laravel', escape: false);
+});
+
+it('case study pages expose skim path, toc, and lightbox', function () {
     $caseStudy = $this->get('/work/nasa-earth-observatory');
     $caseStudy->assertStatus(200);
     $caseStudy->assertSee('Visit live project', escape: false);
     $caseStudy->assertSee('https://earthobservatory.nasa.gov', escape: false);
     $caseStudy->assertSee('case-study-media', escape: false);
     $caseStudy->assertSee('Case study', escape: false);
+    $caseStudy->assertSee('case-study-glance', escape: false);
+    $caseStudy->assertSee('id="overview"', escape: false);
+    $caseStudy->assertSee('id="snapshot"', escape: false);
+    $caseStudy->assertSee('id="article-toc"', escape: false);
+    $caseStudy->assertSee('data-lightbox-open', escape: false);
+    $caseStudy->assertSee('data-media-lightbox', escape: false);
+    $caseStudy->assertSee('>Outcome</h2>', escape: false);
+    $caseStudy->assertSee('>Stack</h2>', escape: false);
+    $caseStudy->assertSee('>Role</h2>', escape: false);
+    $caseStudy->assertSee('id="decisions"', escape: false);
+    $caseStudy->assertSee('>Decisions</h2>', escape: false);
+    $caseStudy->assertSee('1.5M+', escape: false);
+    $caseStudy->assertSee('Self-serve', escape: false);
+});
+
+it('flagship flood mapping case study centers decisions and latency', function () {
+    $this->get('/work/flood-mapping-system')
+        ->assertOk()
+        ->assertSee('id="decisions"', escape: false)
+        ->assertSee('Hours', escape: false)
+        ->assertSee('Automated pipeline', escape: false)
+        ->assertSee('remove humans from the latency path', escape: false);
 });
 
 it('case study pages are in sitemap', function () {
@@ -117,6 +158,8 @@ it('case study includes navigation and structured data', function () {
     $response->assertSee('CreativeWork', escape: false);
     $response->assertSee('Team &amp; leadership', escape: false);
     $response->assertSee('Hard decision', escape: false);
+    $response->assertSee('id="leadership"', escape: false);
+    $response->assertSee('article-sticky-title', escape: false);
 });
 
 it('now page renders focus and em intent', function () {
@@ -125,7 +168,7 @@ it('now page renders focus and em intent', function () {
     $response->assertStatus(200);
     $response->assertSee('Engineering Manager', escape: false);
     $response->assertSee('Aerospace platform delivery', escape: false);
-    $response->assertSee('August 7, 2026', escape: false);
+    $response->assertSee('August 12, 2026', escape: false);
     $response->assertSee('href="/about#how-i-lead"', escape: false);
     $response->assertSee('For recruiters', escape: false);
     $response->assertSee('id="contact-form"', escape: false);
@@ -162,12 +205,18 @@ it('about and resume pages include contact and live cv', function () {
 });
 
 it('booking cta appears when configured', function () {
-    config(['site.booking.url' => 'https://cal.com/example', 'site.booking.label' => 'Book a conversation']);
+    config([
+        'site.booking.url' => 'https://cal.com/example',
+        'site.booking.label' => 'Book a conversation',
+        'site.booking.embed_src' => 'https://cal.com/example?embed=true',
+    ]);
 
     $now = $this->get('/now');
     $now->assertStatus(200);
     $now->assertSee('https://cal.com/example', escape: false);
     $now->assertSee('Book a conversation', escape: false);
+    $now->assertSee('id="book"', escape: false);
+    $now->assertSee('booking-embed__frame', escape: false);
 
     $home = $this->get('/');
     $home->assertSee('data-booking-url="https://cal.com/example"', escape: false);
@@ -177,11 +226,12 @@ it('service worker and offline page are available', function () {
     $this->assertFileExists(public_path('sw.js'));
     $this->assertFileExists(public_path('offline.html'));
     $this->assertStringContainsString("You're offline", (string) file_get_contents(public_path('offline.html')));
-    $this->assertStringContainsString('karlhill-offline-v4', (string) file_get_contents(public_path('sw.js')));
+    $this->assertStringContainsString('karlhill-offline-v6', (string) file_get_contents(public_path('sw.js')));
     $this->assertStringContainsString("'/now'", (string) file_get_contents(public_path('sw.js')));
     $this->assertStringContainsString("'/about'", (string) file_get_contents(public_path('sw.js')));
     $this->assertStringContainsString("'/work'", (string) file_get_contents(public_path('sw.js')));
     $this->assertStringContainsString("'/resume'", (string) file_get_contents(public_path('sw.js')));
+    $this->assertStringContainsString("'/kit'", (string) file_get_contents(public_path('sw.js')));
 });
 
 it('footer includes site explore links', function () {
@@ -195,11 +245,29 @@ it('footer includes site explore links', function () {
 it('homepage hero links to em funnel', function () {
     $response = $this->get('/');
 
-    $response->assertSee('>Now<', escape: false);
-    $response->assertSee('href="/now"', escape: false);
+    $response->assertSee('Book a conversation', escape: false);
+    $response->assertSee('href="/now#book"', escape: false);
     $response->assertSee('>Work<', escape: false);
     $response->assertSee('href="/work"', escape: false);
+    $response->assertSee('href="/#contact"', escape: false);
     $response->assertSee('Open to Engineering Manager', escape: false);
+});
+
+it('desktop nav includes resume and contact form funnel', function () {
+    $response = $this->get('/');
+
+    $response->assertSee('href="/resume"', escape: false);
+    $response->assertSee('Get in Touch', escape: false);
+    $response->assertDontSee('href="mailto:'.config('site.person.email').'" class="btn-sweep hidden md:inline-flex', escape: false);
+});
+
+it('now page embeds the booking scheduler', function () {
+    $response = $this->get('/now');
+
+    $response->assertOk();
+    $response->assertSee('id="book"', escape: false);
+    $response->assertSee('booking-embed', escape: false);
+    $response->assertSee('calendly.com/karlhill', escape: false);
 });
 
 it('homepage sections follow the hire-me funnel order', function () {
@@ -229,5 +297,27 @@ it('sitemap includes now and resume pages', function () {
     $response->assertStatus(200);
     $response->assertSee('/now', escape: false);
     $response->assertSee('/resume', escape: false);
+    $response->assertSee('/kit', escape: false);
     $response->assertSee('<priority>0.9</priority>', escape: false);
+});
+
+it('recruiter kit one-pager links resume pdf bio and booking', function () {
+    $response = $this->get('/kit');
+
+    $response->assertOk();
+    $response->assertSee('Recruiter kit', escape: false);
+    $response->assertSee(config('site.footer.resume'), escape: false);
+    $response->assertSee('Download resume PDF', escape: false);
+    $response->assertSee('/now#book', escape: false);
+    $response->assertSee('/work/nasa-earth-observatory', escape: false);
+    $response->assertSee('/work/flood-mapping-system', escape: false);
+    $response->assertSee(config('site.person.email'), escape: false);
+});
+
+it('now page shows a fresh updated date and kit link', function () {
+    $this->get('/now')
+        ->assertOk()
+        ->assertSee('Updated August 12, 2026', escape: false)
+        ->assertSee('href="/kit"', escape: false)
+        ->assertSee('Recruiter kit', escape: false);
 });

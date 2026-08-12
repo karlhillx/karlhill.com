@@ -1,6 +1,4 @@
 /* Atmosphere overlays, chrome, responsive shell adjustments */
-@media (prefers-reduced-motion: reduce) {
-}
 
 /* ---------------------------------------------------------------------------
    Animated conic-gradient border for the active "Current Role" card.
@@ -60,9 +58,6 @@ main > section:not(#hero),
 footer#contact {
     content-visibility: auto;
     contain-intrinsic-size: 1px 1000px;
-}
-
-@media (pointer: coarse) {
 }
 
 /* Tone down continuously animating backgrounds on smaller devices */

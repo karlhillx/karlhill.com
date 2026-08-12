@@ -13,22 +13,24 @@
     $counts = collect($counts);
 @endphp
 
-<div {{ $attributes->merge(['class' => 'tag-filter flex flex-wrap gap-2']) }} data-reveal>
+<div {{ $attributes->merge(['class' => 'tag-filter flex flex-wrap gap-2']) }} data-reveal role="navigation" aria-label="Filter by tag">
     <a href="{{ $allUrl }}"
        @class([
-           'tag-filter__chip font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 surface-chip',
+           'tag-filter__chip font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 surface-chip shrink-0',
            'is-active border-accent text-accent' => ! $activeTag,
            'border-neutral-800 text-neutral-500' => $activeTag,
-       ])>
+       ])
+       @if(! $activeTag) aria-current="page" @endif>
         All
     </a>
     @foreach($tags as $tag)
         <a href="{{ $urlFor($tag) }}"
            @class([
-               'tag-filter__chip font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 surface-chip',
+               'tag-filter__chip font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 surface-chip shrink-0',
                'is-active border-accent text-accent' => $activeTag === $tag,
                'border-neutral-800 text-neutral-500' => $activeTag !== $tag,
-           ])>
+           ])
+           @if($activeTag === $tag) aria-current="page" @endif>
             {{ $tag }}@if($counts->has($tag))&nbsp;<span class="tabular-nums opacity-60">({{ $counts->get($tag) }})</span>@endif
         </a>
     @endforeach

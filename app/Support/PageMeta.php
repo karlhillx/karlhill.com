@@ -138,7 +138,26 @@ final class PageMeta
             ogImageAlt: $seo['title'],
             ogImageWidth: 1200,
             ogImageHeight: 630,
-            activeNav: 'about',
+            activeNav: 'resume',
+        );
+    }
+
+    public static function kit(): self
+    {
+        $seo = config('site.seo.kit');
+        $url = self::siteUrl();
+
+        return new self(
+            title: $seo['title'],
+            description: $seo['description'],
+            canonical: "{$url}/kit",
+            ogTitle: $seo['title'],
+            ogDescription: $seo['og_description'],
+            ogImage: "{$url}/img/og-home.jpg",
+            ogImageAlt: $seo['title'],
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
+            activeNav: 'now',
         );
     }
 

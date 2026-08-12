@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMessage;
+use App\Support\Turnstile;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -30,6 +31,12 @@ class ContactController extends Controller
         // we quietly pretend the send succeeded so bots get no useful signal.
         if (filled($request->input('company'))) {
             return $this->done($request);
+        }
+
+        if (! Turnstile::verify($request->input('cf-turnstile-response'), $request->ip())) {
+            return redirect($this->returnUrl($request, fragment: 'contact-form'))
+                ->withErrors(['turnstile' => 'Please complete the spam check and try again.'])
+                ->withInput($request->only('name', 'email', 'message'));
         }
 
         $validator = Validator::make($request->only('name', 'email', 'message'), [

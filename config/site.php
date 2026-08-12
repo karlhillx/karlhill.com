@@ -1,5 +1,7 @@
 <?php
 
+use App\Support\Booking;
+
 /**
  * Site content aggregator.
  *
@@ -9,6 +11,7 @@
  * Page roles (avoid repeating the same pitch everywhere):
  * - /        positioning + proof hooks
  * - /now     current focus + recruiter path
+ * - /kit     recruiter one-pager (PDF + bio + links)
  * - /about   career arc + how I lead
  * - /resume  facts (canonical HTML CV)
  * - footer   single contact CTA
@@ -21,10 +24,12 @@ $sameAs = array_values(array_unique(array_map(
     array_column($social, 'url')
 )));
 
-// Analytics: GA4 is the default primary. Enabling Plausible opts into it as
-// the sole provider (avoids dual tracking).
-$usePlausible = filter_var(env('PLAUSIBLE_ENABLED', false), FILTER_VALIDATE_BOOLEAN);
-$useGoogle = ! $usePlausible && filter_var(env('GOOGLE_ANALYTICS_ENABLED', true), FILTER_VALIDATE_BOOLEAN);
+// Analytics: Plausible is the default primary. GA4 only when explicitly enabled
+// and Plausible is off (avoids dual tracking).
+$usePlausible = filter_var(env('PLAUSIBLE_ENABLED', true), FILTER_VALIDATE_BOOLEAN);
+$useGoogle = ! $usePlausible && filter_var(env('GOOGLE_ANALYTICS_ENABLED', false), FILTER_VALIDATE_BOOLEAN);
+
+$bookingUrl = env('BOOKING_URL', 'https://calendly.com/karlhill');
 
 return [
 
@@ -44,8 +49,16 @@ return [
 
     // Cal.com (or Calendly). CTAs on /now, homepage availability, footer, menu.
     'booking' => [
-        'url' => env('BOOKING_URL', 'https://calendly.com/karlhill'),
+        'url' => $bookingUrl,
         'label' => env('BOOKING_LABEL', 'Book a conversation'),
+        'embed_src' => Booking::embedSrc($bookingUrl),
+    ],
+
+    // Cloudflare Turnstile — optional; when both keys are set the contact form
+    // requires a successful challenge (progressive hardening).
+    'turnstile' => [
+        'site_key' => env('TURNSTILE_SITE_KEY'),
+        'secret_key' => env('TURNSTILE_SECRET_KEY'),
     ],
 
     'series' => require __DIR__.'/site/series.php',
@@ -68,6 +81,7 @@ return [
     'footer' => require __DIR__.'/site/footer.php',
     'about' => require __DIR__.'/site/about.php',
     'now' => require __DIR__.'/site/now.php',
+    'kit' => require __DIR__.'/site/kit.php',
     'github' => require __DIR__.'/site/github.php',
     'resume' => require __DIR__.'/site/resume.php',
 

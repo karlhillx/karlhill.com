@@ -50,24 +50,33 @@ GITHUB_TOKEN=ghp_xxx
 GITHUB_USERNAME=karlhillx
 ```
 
-Analytics — **GA4 is the primary provider**. Enabling Plausible turns GA off
-(no dual tracking):
+Analytics — **Plausible is the primary provider**. Enabling GA4 requires
+turning Plausible off (no dual tracking):
 
 ```env
-GOOGLE_ANALYTICS_ENABLED=true
-GOOGLE_ANALYTICS_MEASUREMENT_ID=G-EZZNL8KY8P
-
-# Set true to use Plausible instead of GA4
-PLAUSIBLE_ENABLED=false
+PLAUSIBLE_ENABLED=true
 PLAUSIBLE_DOMAIN=karlhill.com
+
+# Optional GA4 instead of Plausible:
+# PLAUSIBLE_ENABLED=false
+# GOOGLE_ANALYTICS_ENABLED=true
+# GOOGLE_ANALYTICS_MEASUREMENT_ID=G-EZZNL8KY8P
 ```
 
-Booking CTA (Calendly). Shown on `/now`, homepage availability, footer, and
-the mobile menu:
+Booking (Calendly or Cal.com). Shown as an **inline embed on `/now#book`**,
+plus CTAs on the homepage, footer, and mobile menu:
 
 ```env
 BOOKING_URL=https://calendly.com/karlhill
 BOOKING_LABEL="Book a conversation"
+```
+
+Optional Cloudflare Turnstile for the contact form (skipped until both keys
+are set):
+
+```env
+TURNSTILE_SITE_KEY=
+TURNSTILE_SECRET_KEY=
 ```
 
 Production should always set:
@@ -77,6 +86,21 @@ APP_URL=https://karlhill.com
 APP_DEBUG=false
 ```
 
+### CDN (recommended)
+
+Point DNS through **Cloudflare** (or similar) in front of the Docker host.
+The app already emits `Cache-Control` + `ETag` on HTML/feeds — a CDN turns
+those into cheap global 304s.
+
+Suggested Cloudflare settings:
+
+1. Proxy the apex (`karlhill.com`) orange-cloud.
+2. SSL/TLS: Full (strict) with a valid origin cert.
+3. Caching: respect origin `Cache-Control` (do not override HTML to “cache everything”).
+4. Optional Cache Rule: cache `/build/*`, `/img/*`, `/fonts/*` as static.
+5. Bypass cache for `POST /contact` and `/csrf-token` (already `no-store`).
+
+No app code changes are required for a basic CDN pass-through.
 ### Resume source of truth
 
 - **Canonical HTML:** `/resume` (from `config/site/experience.php` + related
