@@ -2,15 +2,18 @@
 
 use App\Support\Booking;
 
-it('same as is derived from social urls', function () {
+it('same as is derived from schema-eligible social urls', function () {
     $socialUrls = collect(config('site.social'))
+        ->filter(fn (array $link) => ($link['schema'] ?? true) !== false)
         ->pluck('url')
         ->map(fn (string $url) => rtrim($url, '/'))
         ->unique()
         ->values()
         ->all();
 
-    expect(config('site.same_as'))->toBe($socialUrls);
+    expect(config('site.same_as'))->toBe($socialUrls)
+        ->and(collect(config('site.same_as'))->implode(' '))->not->toContain('discogs.com')
+        ->and(collect(config('site.social'))->pluck('url')->implode(' '))->toContain('discogs.com');
 });
 
 it('analytics providers are mutually exclusive', function () {
