@@ -32,6 +32,9 @@ it('llms txt returns plain text with required sections', function () {
     $this->assertStringContainsString('https://karlhill.com/feed.xml', $body);
     $this->assertStringContainsString('https://karlhill.com/feed.json', $body);
     $this->assertStringContainsString('https://karlhill.com/llms-full.txt', $body);
+    $this->assertStringContainsString('## For recruiters & hiring managers', $body);
+    $this->assertStringContainsString('Seeking:', $body);
+    $this->assertStringContainsString('Engineering Manager', $body);
     $this->assertStringContainsString('## Series', $body);
     $this->assertStringContainsString('Engineering Manager craft', $body);
 });

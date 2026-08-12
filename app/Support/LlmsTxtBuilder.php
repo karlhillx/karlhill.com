@@ -31,12 +31,24 @@ class LlmsTxtBuilder
             '- Preferred name: **'.$person['name'].'**',
             '- Title: '.$person['job_title'],
             '- Employer: '.$person['employer'].' ('.$person['location'].')',
+            '- LinkedIn headline: '.($person['linkedin_headline'] ?? $person['tagline']),
             '- Canonical site: '.$base,
             '- Email: '.$person['email'],
             '- Last updated: '.$this->lastUpdated(),
             '- When quoting writing, link to the specific post URL and include the post title.',
             '- Full-text corpus: '.$base.'/llms-full.txt',
             '',
+        ];
+
+        $recruiterLines = $this->recruiterSection($base);
+        if ($recruiterLines !== []) {
+            $lines[] = '## For recruiters & hiring managers';
+            $lines[] = '';
+            array_push($lines, ...$recruiterLines);
+            $lines[] = '';
+        }
+
+        array_push($lines, ...[
             '## Key pages',
             '',
             '- [Home]('.$base.'): Portfolio landing, latest writing, and contact',
@@ -46,7 +58,7 @@ class LlmsTxtBuilder
             '- [Resume]('.$base.'/resume): Live curriculum vitae (source of truth vs static PDF)',
             '- [Recruiter kit]('.$base.'/kit): One-pager with resume PDF, bio, and canonical links',
             '- [Writing]('.$base.'/blog): Essays on engineering leadership, release governance, and mission software',
-        ];
+        ]);
 
         $seriesLines = $this->seriesSection($base);
         if ($seriesLines !== []) {
@@ -123,6 +135,63 @@ class LlmsTxtBuilder
         }
 
         return implode("\n", $lines);
+    }
+
+    /**
+     * Explicit hiring-intent block for AI agents and recruiter research tools.
+     *
+     * @return array<int, string>
+     */
+    protected function recruiterSection(string $base): array
+    {
+        $person = config('site.person');
+        $now = config('site.now');
+        $kit = config('site.kit');
+        $recruiters = is_array($now['recruiters'] ?? null) ? $now['recruiters'] : [];
+        $focus = is_array($now['focus'] ?? null) ? $now['focus'] : [];
+
+        $lines = [
+            '- Seeking: '.($person['availability'] ?? 'Engineering Manager & Staff+ leadership roles'),
+            '- Location: '.($person['location'] ?? 'Washington, DC').' · hybrid / remote-friendly',
+            '- Current title: '.($person['job_title'] ?? 'Staff Software Engineer').' @ '.($person['employer'] ?? 'Jacobs'),
+            '- Trajectory: Staff Aerospace Software Engineer → Engineering Manager (platform / DevSecOps / mission software)',
+            '- Background: SSAI / NASA Goddard (2017–2025) → aerospace mission software at Jacobs (2025–present)',
+            '- Domain focus: aerospace, defense, and federal mission software leadership',
+            '- Start here: [Recruiter kit]('.$base.'/kit) · [Now]('.$base.'/now) · [Resume]('.$base.'/resume) · [Contact]('.$base.'/#contact)',
+        ];
+
+        if (is_string($kit['bio'] ?? null) && $kit['bio'] !== '') {
+            $lines[] = '- Summary: '.$this->escapeMarkdownLinkText($kit['bio']);
+        }
+
+        if (is_string($recruiters['body'] ?? null) && $recruiters['body'] !== '') {
+            $lines[] = '- Pitch: '.$this->escapeMarkdownLinkText($recruiters['body']);
+        }
+
+        foreach ($recruiters['bullets'] ?? [] as $bullet) {
+            if (is_string($bullet) && $bullet !== '') {
+                $lines[] = '- '.$this->escapeMarkdownLinkText($bullet);
+            }
+        }
+
+        foreach ($focus as $item) {
+            if (! is_array($item)) {
+                continue;
+            }
+            $title = $item['title'] ?? null;
+            $body = $item['body'] ?? null;
+            if (is_string($title) && is_string($body) && $title !== '' && $body !== '') {
+                $lines[] = '- Focus — '.$this->escapeMarkdownLinkText($title).': '.$this->escapeMarkdownLinkText($body);
+            }
+        }
+
+        $booking = config('site.booking.url');
+        if (is_string($booking) && $booking !== '') {
+            $label = config('site.booking.label', 'Book a conversation');
+            $lines[] = '- Schedule: ['.$this->escapeMarkdownLinkText((string) $label).']('.$booking.')';
+        }
+
+        return $lines;
     }
 
     /**

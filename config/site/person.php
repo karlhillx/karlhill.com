@@ -2,11 +2,13 @@
 
 return [
     'name' => 'Karl Hill',
-    'job_title' => 'Staff Software Engineer',
+    'job_title' => 'Staff Aerospace Software Engineer',
     'email' => 'karlhillx@gmail.com',
     'location' => 'Washington, DC',
-    'tagline' => 'Software Engineering Leader · Cloud-Native Platforms · DevSecOps',
-    'availability' => 'Open to Engineering Manager & Staff+ leadership roles',
+    'tagline' => 'Aerospace Mission Software · Platform Engineering · DevSecOps',
+    // LinkedIn-ready headline (copy/paste); keep in sync with public positioning.
+    'linkedin_headline' => 'Staff Aerospace Software Engineer @ Jacobs | ex-NASA Goddard | EM-track · Platform · DevSecOps · Mission software',
+    'availability' => 'Open to Engineering Manager & Staff+ roles in aerospace, defense & federal mission software',
     'employer' => 'Jacobs',
     'twitter_handle' => '@karl_hill',
 ];

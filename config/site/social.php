@@ -35,5 +35,8 @@ return [
         'label' => 'Discogs',
         'url' => 'https://www.discogs.com/artist/1286669-Karl-Hill?superFilter=Credits&sort=year,desc',
         'icon' => 'discogs',
+        // Keep on the site for humans; omit from JSON-LD sameAs so Google
+        // does not conflate this entity with unrelated music credits.
+        'schema' => false,
     ],
 ];

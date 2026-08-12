@@ -2,7 +2,7 @@
 
 return [
     // Career arc + how I lead — not the availability pitch (that lives on /now).
-    'lede' => 'This page is the arc behind the work: NASA science operations, aerospace mission software at Jacobs, and how I lead people through hard systems — where reliability, coaching, and judgment matter as much as the architecture.',
+    'lede' => 'This page is the arc behind the work: NASA Earth science operations at scale, aerospace mission software at Jacobs, and how I lead people through hard systems — where reliability, coaching, and judgment matter as much as the architecture.',
     'how_i_lead' => [
         'title' => 'How I lead',
         'intro' => 'Staff influence becomes manager accountability when people outcomes are as explicit as system outcomes. This is how I work with engineers and stakeholders today.',
@@ -43,7 +43,7 @@ return [
                 'attribution' => 'Jacobs',
             ],
             [
-                'quote' => 'Hiring managers exploring Engineering Manager and Staff+ leadership roles — technical depth that still coaches, standards that outlast heroics.',
+                'quote' => 'Hiring managers exploring Engineering Manager and Staff+ leadership for aerospace, defense, and federal mission software — technical depth that still coaches, standards that outlast heroics.',
                 'attribution' => 'Open conversations · 2026',
             ],
         ],

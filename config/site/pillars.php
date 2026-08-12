@@ -3,7 +3,7 @@
 return [
     0 => [
         'title' => 'I Build',
-        'body' => 'Cloud-native platforms on AWS. Containerized services with Docker and Kubernetes. High-traffic web systems. Secure CI/CD pipelines. Built to last and operate reliably at scale — not just to demo well.',
+        'body' => 'Cloud-native mission platforms on AWS. Containerized services with Docker and Kubernetes. Secure CI/CD pipelines and multi-environment delivery. Built to operate reliably under real mission pressure — not just to demo well.',
     ],
     1 => [
         'title' => 'I Lead',
@@ -11,6 +11,6 @@ return [
     ],
     2 => [
         'title' => 'I Deliver',
-        'body' => 'Predictable execution, every sprint. I translate mission needs into sequenced plans, partner with stakeholders, remove blockers for others, and keep trust when priorities collide.',
+        'body' => 'Predictable execution when integration risk is high. I translate mission needs into sequenced plans, partner with stakeholders, remove blockers for others, and keep trust when priorities collide.',
     ],
 ];

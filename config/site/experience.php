@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'intro' => 'Software engineering leader with 20+ years building secure, cloud-native platforms for aerospace, NASA, federal, and mission-critical environments. Hands-on architecture, DevSecOps governance, platform engineering, Agile delivery leadership, and stakeholder alignment — so teams build, test, release, and operate mission-ready software.',
+    'intro' => 'Software engineering leader with 20+ years building secure, cloud-native platforms for aerospace, NASA, federal, and high-assurance environments. Hands-on architecture, DevSecOps governance, platform engineering, Agile delivery leadership, and stakeholder alignment — so teams build, test, release, and operate mission-ready software when failure is expensive.',
     'current' => [
         'label' => 'Current Role',
         'title' => 'Staff Aerospace Software Engineer',

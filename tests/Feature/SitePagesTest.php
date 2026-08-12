@@ -169,7 +169,7 @@ it('now page renders focus and em intent', function () {
 
     $response->assertStatus(200);
     $response->assertSee('Engineering Manager', escape: false);
-    $response->assertSee('Aerospace platform delivery', escape: false);
+    $response->assertSee('Aerospace mission software delivery', escape: false);
     $response->assertSee('August 12, 2026', escape: false);
     $response->assertSee('href="/about#how-i-lead"', escape: false);
     $response->assertSee('For recruiters', escape: false);

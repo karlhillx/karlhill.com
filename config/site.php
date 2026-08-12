@@ -18,10 +18,16 @@ use App\Support\Booking;
  */
 $social = require __DIR__.'/site/social.php';
 
-// Structured-data sameAs: one URL list derived from social links.
+// Structured-data sameAs: professional profiles only (skip schema:false entries).
 $sameAs = array_values(array_unique(array_map(
     static fn (string $url): string => rtrim($url, '/'),
-    array_column($social, 'url')
+    array_column(
+        array_values(array_filter(
+            $social,
+            static fn (array $link): bool => ($link['schema'] ?? true) !== false
+        )),
+        'url'
+    )
 )));
 
 // Analytics: Plausible is the default primary. GA4 only when explicitly enabled

@@ -15,14 +15,24 @@ final class HomeStructuredData
         $url = PageMeta::siteUrl();
         $person = config('site.person');
         $research = config('site.research');
+        $seo = config('site.seo.home');
+        $personId = "{$url}/#person";
+        $websiteId = "{$url}/#website";
 
         $personLd = [
             '@type' => 'Person',
+            '@id' => $personId,
             'name' => $person['name'],
+            'alternateName' => ['karlhillx'],
+            'description' => $seo['description'],
             'jobTitle' => $person['job_title'],
             'url' => $url,
-            'image' => "{$url}/img/webp/profile.webp",
-            'email' => $person['email'],
+            'image' => [
+                '@type' => 'ImageObject',
+                'url' => "{$url}/img/webp/profile.webp",
+                'contentUrl' => "{$url}/img/webp/profile.webp",
+            ],
+            'email' => 'mailto:'.$person['email'],
             'address' => [
                 '@type' => 'PostalAddress',
                 'addressLocality' => 'Washington',
@@ -32,6 +42,36 @@ final class HomeStructuredData
             'worksFor' => [
                 '@type' => 'Organization',
                 'name' => $person['employer'],
+                'url' => 'https://www.jacobs.com',
+            ],
+            'alumniOf' => [
+                [
+                    '@type' => 'Organization',
+                    'name' => 'NASA Goddard Space Flight Center',
+                    'url' => 'https://www.nasa.gov/goddard',
+                ],
+                [
+                    '@type' => 'Organization',
+                    'name' => 'Science Systems and Applications, Inc.',
+                ],
+                [
+                    '@type' => 'CollegeOrUniversity',
+                    'name' => 'University of Maryland',
+                ],
+                [
+                    '@type' => 'CollegeOrUniversity',
+                    'name' => 'Howard Community College',
+                ],
+            ],
+            'knowsAbout' => [
+                'Cloud-native platforms',
+                'DevSecOps',
+                'Engineering leadership',
+                'Platform engineering',
+                'Aerospace software',
+                'NASA Earth science software',
+                'Flood mapping systems',
+                'Release governance',
             ],
             'subjectOf' => [
                 [
@@ -49,25 +89,40 @@ final class HomeStructuredData
             'sameAs' => config('site.same_as'),
         ];
 
+        $websiteLd = [
+            '@type' => 'WebSite',
+            '@id' => $websiteId,
+            'url' => $url.'/',
+            'name' => $person['name'],
+            'alternateName' => 'karlhill.com',
+            'description' => $seo['description'],
+            'inLanguage' => 'en-US',
+            'publisher' => ['@id' => $personId],
+            'about' => ['@id' => $personId],
+        ];
+
         $blogPostsLd = $posts->map(fn (BlogPost $post) => [
             '@type' => 'BlogPosting',
             'headline' => $post->title,
             'url' => $post->canonicalUrl(),
             'datePublished' => $post->publishedAt->toIso8601String(),
             'description' => $post->excerpt,
+            'author' => ['@id' => $personId],
         ])->values()->all();
 
         $blogLd = [
             '@type' => 'Blog',
+            '@id' => "{$url}/blog#blog",
             'name' => 'Karl Hill — Writing',
             'url' => "{$url}/blog",
-            'author' => ['@type' => 'Person', 'name' => $person['name'], 'url' => $url],
+            'author' => ['@id' => $personId],
+            'publisher' => ['@id' => $personId],
             'blogPost' => $blogPostsLd,
         ];
 
         return [
             '@context' => 'https://schema.org',
-            '@graph' => [$personLd, $blogLd],
+            '@graph' => [$personLd, $websiteLd, $blogLd],
         ];
     }
 }
