@@ -316,6 +316,10 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee(config('site.person.email'), escape: false);
     $response->assertSee('kit-doc', escape: false);
     $response->assertSee('Print kit', escape: false);
+    $response->assertSee('href="#contact"', escape: false);
+    $response->assertSee('id="kit-glance-heading"', escape: false);
+    $response->assertSee('id="kit-links-heading"', escape: false);
+    $response->assertSee('data-print', escape: false);
 });
 
 it('now page shows a fresh updated date and kit link', function () {

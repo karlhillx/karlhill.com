@@ -44,6 +44,7 @@ final class PageMeta
             ogImageAlt: $seo['title'],
             ogImageWidth: 1200,
             ogImageHeight: 630,
+            activeNav: 'home',
         );
     }
 
@@ -157,7 +158,7 @@ final class PageMeta
             ogImageAlt: $seo['title'],
             ogImageWidth: 1200,
             ogImageHeight: 630,
-            activeNav: 'now',
+            activeNav: null,
         );
     }
 

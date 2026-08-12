@@ -12,20 +12,29 @@
 ])
 
 @php
+    $titleId = $slug ? 'work-card-title-'.$slug : null;
     $cardClass = 'surface-card surface-card-media pointer-lit bg-bg group relative h-[22rem] sm:h-80 lg:h-96 block';
+    $cta = $external
+        ? 'Visit project'
+        : (is_string($href) && str_contains($href, '/work/') ? 'Read case study' : 'View details');
 @endphp
 
-@if($href)
-    <a href="{{ $href }}"
-       @if($external) target="_blank" rel="noopener noreferrer" @endif
-       @if($slug) id="{{ $slug }}" @endif
-       {{ $attributes->merge(['class' => $cardClass]) }}
-       data-reveal>
-@else
-    <article @if($slug) id="{{ $slug }}" @endif
-             {{ $attributes->merge(['class' => $cardClass]) }}
-             data-reveal>
-@endif
+<article
+    @if($slug) id="{{ $slug }}" @endif
+    {{ $attributes->merge(['class' => $cardClass]) }}
+    data-reveal
+>
+    @if($href)
+        <a href="{{ $href }}"
+           @if($external) target="_blank" rel="noopener noreferrer" @endif
+           class="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-none"
+           @if($titleId) aria-labelledby="{{ $titleId }}" @else aria-label="{{ $title }}" @endif>
+            <span class="sr-only">
+                {{ $cta }}: {{ $title }}@if($external) (opens in a new tab)@endif
+            </span>
+        </a>
+    @endif
+
     <x-site.responsive-image
         :src="$image"
         :alt="'Screenshot of '.$title"
@@ -49,7 +58,7 @@
         </div>
     @endif
 
-    <div class="absolute top-4 left-4 flex flex-wrap gap-1.5">
+    <div class="absolute top-4 left-4 flex flex-wrap gap-1.5" aria-hidden="true">
         @foreach($tags as $tag)
             <span class="surface-chip-overlay font-mono text-[10px] px-2 py-0.5 text-neutral-400">{{ $tag }}</span>
         @endforeach
@@ -57,27 +66,17 @@
 
     <div class="absolute inset-x-0 bottom-0 bg-bg/90 backdrop-blur-md border-t border-white/[0.06] px-5 pt-5 pb-6 rounded-b-2xl">
         <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
-        <h3 class="font-display text-lg tracking-wide text-white leading-tight">{{ $title }}</h3>
+        <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-display text-lg tracking-wide text-white leading-tight">{{ $title }}</h3>
         {{-- Collapse/expand only on hover-capable (fine pointer) devices; touch
              devices always see the description since they can't hover. --}}
         <div class="work-card-details pointer-fine:max-h-0 pointer-fine:group-hover:max-h-52 pointer-fine:group-focus-within:max-h-52 overflow-hidden transition-[max-height] duration-500 ease-out">
             <p class="text-neutral-400 text-xs leading-relaxed mt-3 line-clamp-4 pointer-fine:line-clamp-none">{{ $description }}</p>
             @if($href)
-                <p class="font-mono text-[10px] text-accent uppercase tracking-widest mt-4">
-                    @if($external)
-                        Visit project
-                    @elseif(str_contains($href, '/work/'))
-                        Read case study
-                    @else
-                        View details
-                    @endif
-                    <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
+                <p class="font-mono text-[10px] text-accent uppercase tracking-widest mt-4" aria-hidden="true">
+                    {{ $cta }}
+                    <span class="arrow-nudge inline-block">→</span>
                 </p>
             @endif
         </div>
     </div>
-@if($href)
-    </a>
-@else
-    </article>
-@endif
+</article>

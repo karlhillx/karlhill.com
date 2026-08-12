@@ -130,7 +130,9 @@ export function initNavigation() {
     const mobileMenu = document.getElementById('mobile-menu');
 
     mobileMenu?.addEventListener('toggle', (e) => {
-        navToggle?.setAttribute('aria-expanded', e.newState === 'open' ? 'true' : 'false');
+        const open = e.newState === 'open';
+        navToggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
+        navToggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
 
     mobileMenu?.querySelectorAll('a').forEach((link) => {

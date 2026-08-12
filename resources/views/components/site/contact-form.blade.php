@@ -27,7 +27,7 @@
 
     {{-- Honeypot: hidden from people, irresistible to bots. --}}
     <div class="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
-        <label>Company <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+        <label>Company <input type="text" name="company" tabindex="-1" autocomplete="off" inputmode="none"></label>
     </div>
 
     <div class="grid sm:grid-cols-2 gap-4">
@@ -95,5 +95,5 @@
         Send message <span aria-hidden="true">→</span>
     </button>
 
-    <div data-contact-status class="contact-form-status" hidden tabindex="-1"></div>
+    <div data-contact-status class="contact-form-status" hidden tabindex="-1" aria-live="polite"></div>
 </form>

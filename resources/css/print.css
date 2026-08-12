@@ -463,6 +463,7 @@
         text-transform: uppercase !important;
         color: #0b1f3a !important;
         border-bottom: 0.75pt solid #ccc;
+        line-height: 1.2 !important;
     }
 
     body:has(.kit-doc) .kit-bio {

@@ -1,10 +1,5 @@
 @extends('layouts.site', ['meta' => $meta])
 
-@php
-    $origin = rtrim((string) config('app.url'), '/');
-    $pdfHref = filled($pdf) ? (str_starts_with($pdf, 'http') ? $pdf : $origin.$pdf) : null;
-@endphp
-
 @section('content')
     <div class="kit-doc">
     {{-- Print-only masthead: name + reachability first (screen uses the page hero). --}}
@@ -42,6 +37,7 @@
         <div class="kit-screen-actions flex flex-wrap items-center gap-x-4 gap-y-3 mt-8 sm:mt-10">
             @if($pdfHref)
                 <a href="{{ $pdfHref }}"
+                   download
                    class="btn-sweep inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs text-accent border border-accent/40 px-5 py-3 uppercase tracking-widest transition-colors">
                     Download resume PDF
                 </a>
@@ -54,19 +50,20 @@
             @endif
             <button type="button"
                     data-print
-                    class="kit-print-btn cursor-pointer inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
+                    title="Print or save as PDF"
+                    class="kit-print-btn cursor-pointer inline-flex items-center justify-center min-h-11 font-mono text-xs text-neutral-300 border border-neutral-700 hover:border-accent hover:text-accent px-4 uppercase tracking-widest transition-colors">
                 Print kit
             </button>
-            <a href="/#contact"
+            <a href="#contact"
                class="cursor-pointer inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
                 Contact
             </a>
         </div>
     </x-site.page-hero>
 
-    <section class="site-section site-section--soft border-t border-neutral-800/50" aria-label="Bio and highlights">
+    <section class="site-section site-section--soft border-t border-neutral-800/50" aria-labelledby="kit-glance-heading">
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-            <p class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">At a glance</p>
+            <h2 id="kit-glance-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">At a glance</h2>
             <div class="max-w-2xl">
                 <p class="kit-bio text-neutral-200 text-lg leading-relaxed">{{ $kit['bio'] }}</p>
                 <dl class="kit-facts mt-8 grid sm:grid-cols-2 gap-4 text-sm">
@@ -98,74 +95,28 @@
         </div>
     </section>
 
-    <section class="site-section border-t border-neutral-800/50" aria-label="Canonical links">
+    <section class="site-section border-t border-neutral-800/50" aria-labelledby="kit-links-heading">
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-            <p class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">Links</p>
+            <h2 id="kit-links-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">Links</h2>
             <ul class="kit-links max-w-2xl divide-y divide-neutral-800/80">
-                @if($pdfHref)
-                    <li class="py-4 first:pt-0">
-                        <a href="{{ $pdfHref }}" class="group flex flex-wrap items-baseline justify-between gap-2">
-                            <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">Resume PDF</span>
-                            <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">Download</span>
+                @foreach($links as $link)
+                    <li @class(['kit-link-email' => $link['email'], 'py-1'])>
+                        <a href="{{ $link['href'] }}"
+                           @if($link['external']) target="_blank" rel="me noopener noreferrer" @endif
+                           @if($link['download']) download @endif
+                           class="group flex flex-wrap items-center justify-between gap-2 min-h-11 py-3">
+                            <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">
+                                {{ $link['label'] }}
+                                @if($link['external'])
+                                    <span class="sr-only"> (opens in a new tab)</span>
+                                @endif
+                            </span>
+                            @if($link['meta'] !== '')
+                                <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">{{ $link['meta'] }}</span>
+                            @endif
                         </a>
                     </li>
-                @endif
-                <li class="py-4">
-                    <a href="{{ url('/resume') }}" class="group flex flex-wrap items-baseline justify-between gap-2">
-                        <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">Live resume (HTML)</span>
-                        <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">/resume</span>
-                    </a>
-                </li>
-                <li class="py-4">
-                    <a href="{{ url('/now') }}" class="group flex flex-wrap items-baseline justify-between gap-2">
-                        <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">Now — focus & booking</span>
-                        <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">/now</span>
-                    </a>
-                </li>
-                @if(filled($bookingUrl))
-                    <li class="py-4">
-                        <a href="{{ url('/now#book') }}" class="group flex flex-wrap items-baseline justify-between gap-2">
-                            <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">{{ $bookingLabel }}</span>
-                            <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">#book</span>
-                        </a>
-                    </li>
-                @endif
-                @if($linkedin)
-                    <li class="py-4">
-                        <a href="{{ $linkedin['url'] }}" target="_blank" rel="me noopener noreferrer"
-                           class="group flex flex-wrap items-baseline justify-between gap-2">
-                            <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">LinkedIn</span>
-                            <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">Profile</span>
-                        </a>
-                    </li>
-                @endif
-                @if($github)
-                    <li class="py-4">
-                        <a href="{{ $github['url'] }}" target="_blank" rel="me noopener noreferrer"
-                           class="group flex flex-wrap items-baseline justify-between gap-2">
-                            <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">GitHub</span>
-                            <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">Code</span>
-                        </a>
-                    </li>
-                @endif
-                <li class="py-4">
-                    <a href="{{ url('/work/nasa-earth-observatory') }}" class="group flex flex-wrap items-baseline justify-between gap-2">
-                        <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">Case study — NASA Earth Observatory</span>
-                        <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">Flagship</span>
-                    </a>
-                </li>
-                <li class="py-4">
-                    <a href="{{ url('/work/flood-mapping-system') }}" class="group flex flex-wrap items-baseline justify-between gap-2">
-                        <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">Case study — Flood Mapping System</span>
-                        <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">Flagship</span>
-                    </a>
-                </li>
-                <li class="kit-link-email py-4 last:pb-0">
-                    <a href="mailto:{{ $person['email'] }}" class="group flex flex-wrap items-baseline justify-between gap-2">
-                        <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">{{ $person['email'] }}</span>
-                        <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">Email</span>
-                    </a>
-                </li>
+                @endforeach
             </ul>
         </div>
     </section>

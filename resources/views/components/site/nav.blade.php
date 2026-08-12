@@ -1,25 +1,26 @@
 @props(['activeNav' => null])
 
 @php
-    $navLinkClass = static function (string $key) use ($activeNav): string {
-        return 'nav-link transition-colors duration-200 '.($activeNav === $key ? 'text-accent' : 'hover:text-accent');
+    $isActive = static fn (?string $key): bool => filled($key) && $activeNav === $key;
+    $navLinkClass = static function (string $key) use ($isActive): string {
+        return 'nav-link transition-colors duration-200 '.($isActive($key) ? 'text-accent' : 'hover:text-accent');
     };
-    $mobileLinkClass = static function (string $key) use ($activeNav): string {
+    $mobileLinkClass = static function (string $key) use ($isActive): string {
         return 'min-h-11 flex items-center py-3.5 border-b border-neutral-800/50 transition-colors '
-            .($activeNav === $key ? 'text-accent' : 'hover:text-accent');
+            .($isActive($key) ? 'text-accent' : 'hover:text-accent');
     };
 @endphp
 
 <nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-bg/90 backdrop-blur-sm nav-enter">
     <div class="nav-bar site-shell site-gutter flex items-center justify-between gap-4">
         <div class="flex items-center gap-6 lg:gap-10 min-w-0">
-            <a href="/" class="font-display tracking-wider text-accent shrink-0" style="view-transition-name: brand">KARL HILL</a>
+            <a href="/" class="font-display tracking-wider text-accent shrink-0" style="view-transition-name: brand" @if($isActive('home')) aria-current="page" @endif>KARL HILL</a>
             <div class="hidden md:flex items-center gap-5 lg:gap-7 font-mono text-xs text-neutral-500 uppercase tracking-widest">
-                <a href="/work" class="{{ $navLinkClass('work') }}">Work</a>
-                <a href="/about" class="{{ $navLinkClass('about') }}">About</a>
-                <a href="/blog" class="{{ $navLinkClass('writing') }}">Writing</a>
-                <a href="/now" class="{{ $navLinkClass('now') }}">Now</a>
-                <a href="/resume" class="{{ $navLinkClass('resume') }}">Resume</a>
+                <a href="/work" class="{{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
+                <a href="/about" class="{{ $navLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
+                <a href="/blog" class="{{ $navLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
+                <a href="/now" class="{{ $navLinkClass('now') }}" @if($isActive('now')) aria-current="page" @endif>Now</a>
+                <a href="/resume" class="{{ $navLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
                 <a href="/#contact" data-nav-section="contact" class="{{ $navLinkClass('contact') }}">Contact</a>
             </div>
         </div>
@@ -49,11 +50,11 @@
                       class="surface-chip ml-1 px-1.5 py-0.5 text-[9px] leading-none text-neutral-500 normal-case tracking-normal">⌘K</span>
             </button>
             <a href="/#contact"
-               class="btn-sweep hidden md:inline-flex text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest">
+               class="btn-sweep hidden md:inline-flex items-center min-h-11 text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest">
                 Get in Touch
             </a>
             <button id="nav-toggle" type="button" popovertarget="mobile-menu"
-                    aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation"
+                    aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu"
                     class="md:hidden flex flex-col justify-center items-center min-h-11 min-w-11 gap-1.5 border border-neutral-700 hover:border-accent transition-colors shrink-0">
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
@@ -67,11 +68,11 @@
                 $bookingUrl = config('site.booking.url');
                 $linkedin = collect(config('site.social'))->first(fn ($link) => ($link['icon'] ?? '') === 'linkedin');
             @endphp
-            <a href="/work" class="{{ $mobileLinkClass('work') }}">Work</a>
-            <a href="/about" class="{{ $mobileLinkClass('about') }}">About</a>
-            <a href="/blog" class="{{ $mobileLinkClass('writing') }}">Writing</a>
-            <a href="/now" class="{{ $mobileLinkClass('now') }}">Now</a>
-            <a href="/resume" class="{{ $mobileLinkClass('resume') }}">Resume</a>
+            <a href="/work" class="{{ $mobileLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
+            <a href="/about" class="{{ $mobileLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
+            <a href="/blog" class="{{ $mobileLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
+            <a href="/now" class="{{ $mobileLinkClass('now') }}" @if($isActive('now')) aria-current="page" @endif>Now</a>
+            <a href="/resume" class="{{ $mobileLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
             <a href="/#contact" class="{{ $mobileLinkClass('contact') }}">Contact</a>
             @if(filled($bookingUrl))
                 <a href="/now#book"

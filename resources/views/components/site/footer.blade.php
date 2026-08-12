@@ -16,7 +16,7 @@
                 @if($isHome && $section)
                     <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-8">{{ $section }} — Contact</h2>
                 @else
-                    <p class="font-mono text-accent text-xs tracking-widest uppercase mb-5">Get in Touch</p>
+                    <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-5">Get in Touch</h2>
                 @endif
                 <p @class([
                     'font-display leading-none tracking-wide text-balance',
@@ -40,7 +40,7 @@
                         {{ $person['email'] }}
                     </a>
                     <button type="button" data-copy-text="{{ $person['email'] }}" aria-label="Copy email address"
-                            class="relative text-neutral-500 hover:text-accent transition-colors">
+                            class="relative inline-flex items-center justify-center min-h-11 min-w-11 text-neutral-500 hover:text-accent transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5a2 2 0 012-2h9a2 2 0 012 2v9a2 2 0 01-2 2h-2M5 8h9a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a2 2 0 012-2z"/>
                         </svg>
@@ -76,14 +76,14 @@
                 <x-site.social-links />
             </div>
             <nav class="shrink-0" aria-label="Site">
-                <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Explore</p>
-                <ul class="space-y-3 font-mono text-sm">
-                    <li><a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Work</a></li>
-                    <li><a href="/about" class="text-neutral-400 hover:text-accent transition-colors">About</a></li>
-                    <li><a href="/blog" class="text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
-                    <li><a href="/now" class="text-neutral-400 hover:text-accent transition-colors">Now</a></li>
-                    <li><a href="/resume" class="text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
-                    <li><a href="/kit" class="text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
+                <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Explore</h2>
+                <ul class="space-y-1 font-mono text-sm">
+                    <li><a href="/work" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Work</a></li>
+                    <li><a href="/about" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">About</a></li>
+                    <li><a href="/blog" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
+                    <li><a href="/now" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Now</a></li>
+                    <li><a href="/resume" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
+                    <li><a href="/kit" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
                 </ul>
             </nav>
         </div>
