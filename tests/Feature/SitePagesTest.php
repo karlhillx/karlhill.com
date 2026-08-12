@@ -55,6 +55,9 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('id="why"', escape: false);
     $response->assertSee('id="work"', escape: false);
     $response->assertSee('View all work', escape: false);
+    $response->assertSee('hero-mesh', escape: false);
+    $response->assertSee('page-spotlight', escape: false);
+    $response->assertSee('magnetic-btn', escape: false);
     $response->assertDontSee('id="experience"', escape: false);
     $response->assertDontSee('id="open-source"', escape: false);
 });

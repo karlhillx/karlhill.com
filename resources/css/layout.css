@@ -67,6 +67,21 @@ footer#contact {
 
 /* Tone down continuously animating backgrounds on smaller devices */
 @media (max-width: 768px) {
+    .hero-mesh__blob {
+        opacity: 0.35;
+        filter: blur(48px);
+        animation: none;
+        /* Park blobs in fixed spots when pointer tracking is off. */
+        left: 8%;
+        right: auto;
+    }
+
+    .hero-mesh__blob--b {
+        left: auto;
+        right: 0;
+        bottom: 12%;
+    }
+
     :root {
         --space-gutter: clamp(1rem, 4.5vw, 1.5rem);
         --space-section: clamp(4.5rem, 14vw, 6.5rem);
@@ -98,7 +113,10 @@ footer#contact {
 
     .hero-dot-grid,
     .hero-shine,
-    .hero-mask {
+    .hero-mask,
+    .hero-mesh__blob,
+    #hero .hero-portrait,
+    #hero .hero-mesh {
         animation: none;
     }
     .hero-mask {

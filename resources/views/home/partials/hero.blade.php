@@ -1,5 +1,9 @@
 <section id="hero" data-section-label="Top" class="hero relative min-h-[100svh] flex flex-col justify-end overflow-hidden site-gutter">
     <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="hero-mesh pointer-events-none absolute inset-0" aria-hidden="true">
+        <span class="hero-mesh__blob hero-mesh__blob--a"></span>
+        <span class="hero-mesh__blob hero-mesh__blob--b"></span>
+    </div>
 
     <div class="relative z-10 site-shell w-full">
         <div class="hero-copy">
@@ -37,7 +41,7 @@
                     <a href="{{ $link['url'] }}" @if($isExternal) target="_blank" rel="noopener noreferrer" @endif
                        @class([
                            'hero-cta-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200',
-                           'bg-accent text-black font-bold hover:bg-accent/80' => $link['primary'] ?? false,
+                           'magnetic-btn bg-accent text-black font-bold hover:bg-accent/80' => $link['primary'] ?? false,
                            'btn-sweep border border-neutral-700 text-neutral-300' => ! ($link['primary'] ?? false),
                        ])>
                         {{ $link['label'] }}

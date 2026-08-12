@@ -444,6 +444,99 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     background-size: 48px 48px;
     animation: dotScroll 8s linear infinite;
+    will-change: transform, opacity;
+}
+
+/* Hero portrait — slow accent halo (keyframes above). */
+#hero .hero-portrait {
+    animation: portraitBreathe 5.5s ease-in-out infinite;
+}
+
+/* Hero mesh — soft accent blobs that drift and track the pointer spotlight. */
+.hero-mesh {
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero-mesh__blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(64px);
+    opacity: 0.55;
+    will-change: transform;
+    background: radial-gradient(
+        circle at 40% 40%,
+        color-mix(in oklab, var(--accent) 42%, transparent),
+        transparent 68%
+    );
+}
+
+.hero-mesh__blob--a {
+    width: min(42vw, 28rem);
+    height: min(42vw, 28rem);
+    top: 8%;
+    left: calc(var(--spot-x) - 22%);
+    animation: glowDrift1 14s ease-in-out infinite alternate;
+}
+
+.hero-mesh__blob--b {
+    width: min(48vw, 34rem);
+    height: min(48vw, 34rem);
+    bottom: 4%;
+    right: calc(100% - var(--spot-x) - 18%);
+    opacity: 0.4;
+    background: radial-gradient(
+        circle at 60% 50%,
+        color-mix(in oklab, var(--accent) 28%, transparent),
+        transparent 70%
+    );
+    animation: glowDrift2 18s ease-in-out infinite alternate;
+}
+
+/* Background layers ease away as the hero leaves the viewport — presence
+   without fighting the entrance animations on the copy. */
+@supports (animation-timeline: view()) {
+    #hero .hero-dot-grid,
+    #hero .hero-mesh {
+        animation: heroBgExit linear both;
+        animation-timeline: view();
+        animation-range: cover;
+    }
+
+    #hero .hero-dot-grid {
+        /* Keep the grid crawl; compose with the scroll exit. */
+        animation:
+            dotScroll 8s linear infinite,
+            heroBgExit linear both;
+        animation-timeline: auto, view();
+        animation-range: normal, cover;
+    }
+}
+
+@keyframes heroBgExit {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(14%);
+        opacity: 0.25;
+    }
+}
+
+@media (pointer: coarse) {
+    .hero-mesh__blob--a,
+    .hero-mesh__blob--b {
+        left: 10%;
+        right: auto;
+        animation-duration: 20s;
+    }
+
+    .hero-mesh__blob--b {
+        left: auto;
+        right: 5%;
+        bottom: 10%;
+    }
 }
 
 /* Hero wordmark — mask wipe on first paint, then a slow warm shine drifts
@@ -501,11 +594,50 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     }
 }
 
-/* Hero mesh field — soft accent blobs that track the pointer spotlight. */
-@media (pointer: coarse) {
+/* Full-page spotlight that follows the pointer (Gauntlet-style ambient lift).
+   Sits behind main content; fine-pointer only so touch devices stay calm. */
+.page-spotlight {
+    display: none;
 }
 
-/* Full-page spotlight that follows the pointer (Gauntlet-style ambient lift) */
+@media (pointer: fine) {
+    .has-page-spotlight .page-spotlight {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: radial-gradient(
+            520px circle at var(--spot-x) var(--spot-y),
+            color-mix(in oklab, var(--accent) 9%, transparent),
+            transparent 62%
+        );
+        opacity: 0.9;
+        transition: opacity 0.4s var(--ease-out-soft);
+    }
+}
+
+/* Lead-principle numbers: a quiet scale-in as each row enters view. */
+@supports (animation-timeline: view()) {
+    .lead-principles__num {
+        animation: principleNumIn linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 28%;
+        transform-origin: left center;
+    }
+}
+
+@keyframes principleNumIn {
+    from {
+        opacity: 0.25;
+        transform: translateY(0.35em) scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 /* ---------------------------------------------------------------------------
    Scroll-reveal — JS IntersectionObserver fallback for browsers without
    scroll-driven animation support (Safari today, behind a flag).
@@ -970,15 +1102,29 @@ nav[aria-label='Primary'] {
         transform: scaleX(1);
     }
     .hero-dot-grid,
-    .hero-shine {
+    .hero-shine,
+    .hero-mesh__blob,
+    #hero .hero-portrait,
+    #hero .hero-mesh {
         animation: none;
     }
+    .hero-mesh__blob {
+        opacity: 0.35;
+        filter: blur(48px);
+    }
     .availability-pulse,
-    .work-parallax {
+    .work-parallax,
+    .lead-principles__num {
         animation: none;
     }
     .availability-pulse::after {
         display: none;
+    }
+    .page-spotlight {
+        display: none !important;
+    }
+    .surface-card-media.pointer-lit {
+        transform: none !important;
     }
     [data-reveal] {
         animation: none;

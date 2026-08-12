@@ -57,6 +57,11 @@ export function initPointerEffects() {
         let px = 50;
         let py = 40;
 
+        const resetTilt = () => {
+            card.style.setProperty('--tilt-x', '0deg');
+            card.style.setProperty('--tilt-y', '0deg');
+        };
+
         card.addEventListener('mousemove', (event) => {
             const rect = card.getBoundingClientRect();
             px = ((event.clientX - rect.left) / Math.max(rect.width, 1)) * 100;
@@ -66,7 +71,13 @@ export function initPointerEffects() {
                 rafId = null;
                 card.style.setProperty('--card-x', `${px}%`);
                 card.style.setProperty('--card-y', `${py}%`);
+                // Soft perspective tilt — capped so cards stay readable.
+                const tiltX = Math.max(Math.min(((py - 50) / 50) * -3.5, 3.5), -3.5);
+                const tiltY = Math.max(Math.min(((px - 50) / 50) * 4, 4), -4);
+                card.style.setProperty('--tilt-x', `${tiltX}deg`);
+                card.style.setProperty('--tilt-y', `${tiltY}deg`);
             });
         });
+        card.addEventListener('mouseleave', resetTilt);
     });
 }

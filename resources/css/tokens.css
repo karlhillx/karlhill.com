@@ -1,5 +1,5 @@
 /* Design tokens + Tailwind @theme font/color bridges */
-/* Pointer spotlight vars still drive work-card local lighting (see pointer.js). */
+/* Pointer spotlight vars drive the page ambient wash + hero mesh (pointer.js). */
 :root {
     --spot-x: 50%;
     --spot-y: 35%;

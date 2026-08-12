@@ -164,6 +164,13 @@ article.surface-card:focus-within {
     transform: translateY(-0.25rem);
 }
 
+a.surface-card.pointer-lit:hover,
+a.surface-card.pointer-lit:focus-visible,
+article.surface-card.pointer-lit:hover,
+article.surface-card.pointer-lit:focus-within {
+    transform: perspective(920px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-0.25rem);
+}
+
 a.surface-card:focus-visible,
 article.surface-card:focus-within {
     outline: none;
@@ -189,11 +196,16 @@ article.surface-card:focus-within {
     box-shadow: 0 0 0 1px rgb(255 255 255 / 0.12);
 }
 
-/* Pointer-lit work cards — local spotlight that tracks the cursor. */
+/* Pointer-lit work cards — local spotlight + soft perspective tilt. */
 .surface-card-media.pointer-lit {
     --card-x: 50%;
     --card-y: 40%;
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
     isolation: isolate;
+    transform: perspective(920px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    transform-style: preserve-3d;
+    transition: transform 0.35s var(--ease-out-spring);
 }
 
 .surface-card-media.pointer-lit::after {
@@ -221,6 +233,10 @@ article.surface-card:focus-within {
 @media (pointer: coarse) {
     .surface-card-media.pointer-lit::after {
         display: none;
+    }
+
+    .surface-card-media.pointer-lit {
+        transform: none;
     }
 }
 
