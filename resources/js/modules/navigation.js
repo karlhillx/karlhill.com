@@ -158,4 +158,9 @@ export function initNavigation() {
     backTopBtn?.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     });
+
+    // CSP blocks inline onclick — print triggers must live in bundled JS.
+    document.querySelectorAll('[data-print]').forEach((btn) => {
+        btn.addEventListener('click', () => window.print());
+    });
 }
