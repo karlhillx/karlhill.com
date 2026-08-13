@@ -16,8 +16,33 @@ it('client site serves html with base href', function () {
         $html->assertStatus(200);
         $html->assertHeader('X-Robots-Tag', 'noindex, nofollow');
         $html->assertSee('Keith Hill', escape: false);
+        $html->assertSee('Music. Nature. Connection. Experience.', escape: false);
         $html->assertSee('<base href="/clients/keithhillmusic.com/">', escape: false);
+        $html->assertSee('tel:+18303088444', escape: false);
+        $html->assertSee('mailto:khillcorp@gmail.com', escape: false);
+        $html->assertDontSee('615-480-2475', escape: false);
+        $html->assertDontSee('Join the mailing list', escape: false);
     }
+});
+
+it('keith site offering pages are live', function () {
+    foreach ([
+        '/clients/keithhillmusic.com/live-music/',
+        '/clients/keithhillmusic.com/soundbaths/',
+        '/clients/keithhillmusic.com/jeep-tours/',
+        '/clients/keithhillmusic.com/hospitality-retreats/',
+        '/clients/keithhillmusic.com/contact/',
+    ] as $url) {
+        $this->get($url)->assertStatus(200)->assertSee('830-308-8444', escape: false);
+    }
+
+    $this->get('/clients/keithhillmusic.com/live-music/')
+        ->assertSee('Vino Di Sedona', escape: false)
+        ->assertSee('August 24', escape: false)
+        ->assertSee('live-music-promo.mp4', escape: false);
+
+    $this->get('/clients/keithhillmusic.com/soundbaths/')
+        ->assertSee('soundbath-flute-main.mp4', escape: false);
 });
 
 it('client site serves static assets', function () {
