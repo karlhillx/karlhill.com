@@ -30,7 +30,6 @@ Replace any placeholder/sample show dates currently on the site with this real s
 Images (`Images/Live-Music/`):
 - `live-music-photo-01.jpg` — primary promo photo, good hero candidate
 - `live-music-facetune-01.jpg` — additional promo photo
-- `live-music-screenshot-01.jpg` — converted from the original .heic file for web compatibility
 
 Videos (`Videos/Live-Music/`):
 - `live-music-bring-it-on-home.mp4` — performance clip
