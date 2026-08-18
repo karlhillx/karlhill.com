@@ -5,7 +5,7 @@ Personal site for Karl Hill — Staff Software Engineer. A Laravel 13 + Tailwind
 ## Stack
 
 - **Backend:** Laravel 13 (PHP 8.4+)
-- **Frontend:** Tailwind CSS v4, vanilla JS (no SPA framework)
+- **Frontend:** Tailwind CSS v4, vanilla JS (no SPA framework), CSS scroll/view timelines + gated idle motion
 - **Build:** Vite 8 with `laravel-vite-plugin`
 - **Fonts:** IBM Plex Sans, Bebas Neue, JetBrains Mono (self-hosted via `@fontsource`)
 - **Testing:** Pest 4, Laravel Pint
@@ -48,7 +48,11 @@ npm run test:e2e
 
 ## Configuration
 
-Site content lives in `config/site.php` (hero, experience, projects, stack, SEO copy, etc.).
+Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, kit, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
+
+Hire bio is canonical in `config/site/person.php` (`bio`). `/kit` uses that string; the homepage lede stays `config/site/hero.php` `positioning`.
+
+`app/Support/SiteCatalog.php` is the shared read model for posts, case studies, series, person, and sitemap/feed URLs. Machine surfaces (`/api/site.json`, `/llms.txt`, `/api/commands.json`, the sitemap) project from it — do not duplicate lists in those formatters.
 
 GitHub repos on the homepage are fetched server-side and cached for one hour. To raise the API rate limit:
 
@@ -93,6 +97,33 @@ APP_URL=https://karlhill.com
 APP_DEBUG=false
 ```
 
+### Motion and idle UI
+
+Ambient motion is progressive. `resources/js/lib/prefs.js` sets `allowAmbientMotion` only when the pointer is fine, Save-Data / `prefers-reduced-data` is off, and `prefers-reduced-motion` is not reduce.
+
+When that gate is on:
+
+- After **6s** idle, the page spotlight wanders (`--spot-x` / `--spot-y` in `pointer.js`). The next pointer move, scroll, or key cancels it.
+- After **8s** idle, the Book CTA on home and `/now` settles once (`data-idle-cta`).
+- Homepage infinite loops (mesh, dot grid, shine, portrait, availability ping) **pause** when `#hero` is off-screen or the tab is hidden (`html.hero-ambient-paused`).
+
+Interior pages stay scroll-driven (`view()` timelines). Touch, reduced-motion, and Save-Data drop the ambient layers in CSS. Styles live in `resources/css/motion.css`.
+
+### Optional platform surfaces
+
+Kill switches default **on**. Set `false` in `.env` to park a cluster without deleting code:
+
+```env
+WEBMENTION_ENABLED=true
+REPORTING_ENABLED=true
+COMPRESSION_DICTIONARY=true
+CONTENT_CREDENTIALS=true
+WEBGPU_FLOOD=true
+EARLY_HINTS=false          # FrankenPHP 103 only; Link preloads already emit
+```
+
+Web Push subscribe UI appears only when both VAPID keys are set (`php artisan push:vapid`).
+
 ### CDN (recommended)
 
 Point DNS through **Cloudflare** (or similar) in front of the Docker host.
@@ -108,6 +139,7 @@ Suggested Cloudflare settings:
 5. Bypass cache for `POST /contact` and `/csrf-token` (already `no-store`).
 
 No app code changes are required for a basic CDN pass-through.
+
 ### Resume source of truth
 
 - **Canonical HTML:** `/resume` (from `config/site/experience.php` + related
@@ -150,17 +182,21 @@ at that URL. Email alias setup: `clients/EMAIL-SETUP.md`.
 ## Project Layout
 
 ```
-app/Http/Controllers/HomeController.php      # homepage
-app/Http/Controllers/BlogController.php    # /blog index + /blog/{slug}
+app/Http/Controllers/HomeController.php       # homepage
+app/Http/Controllers/BlogController.php       # /blog index + /blog/{slug}
 app/Http/Controllers/ClientSiteController.php # /clients staging previews
-app/Http/Controllers/NowController.php       # /now (current focus)
-app/Http/Controllers/ResumeController.php    # /resume (live HTML CV)
-app/Http/Controllers/FeedController.php      # /feed.xml (Atom) + /feed.json
-app/Http/Controllers/SitemapController.php  # /sitemap.xml
-app/Http/Controllers/LlmsTxtController.php  # /llms.txt + /llms-full.txt
-app/Console/Commands/GenerateOgImages.php   # php artisan og:generate
+app/Http/Controllers/NowController.php        # /now (current focus)
+app/Http/Controllers/ResumeController.php     # /resume (live HTML CV)
+app/Http/Controllers/FeedController.php       # /feed.xml (Atom) + /feed.json
+app/Http/Controllers/SitemapController.php    # /sitemap.xml
+app/Http/Controllers/LlmsTxtController.php    # /llms.txt + /llms-full.txt
+app/Http/Controllers/AgentPacketController.php # /api/site.json + /api/commands.json
+app/Console/Commands/GenerateOgImages.php     # php artisan og:generate (static JPG cards)
 app/Console/Commands/GenerateWebpAssets.php   # php artisan assets:webp (WebP + AVIF + LQIP)
 app/Console/Commands/SyndicatePost.php        # php artisan post:syndicate
+app/Support/SiteCatalog.php                   # shared catalog (posts, studies, person, URLs)
+app/Support/SiteFeatures.php                  # optional platform kill switches
+app/Support/PageFeatures.php                  # per-route JS chunks (pointer, reveal, …)
 app/Support/BlogPost.php                      # blog post value object
 app/Support/BlogPostRepository.php            # markdown loader + cache
 app/Support/BlogSeries.php                    # ordered essay series
@@ -171,6 +207,8 @@ clients/{domain}/                             # client staging sites (static HTM
 config/site.php                               # aggregator (env flags, sameAs)
 config/site/*.php                             # content fragments (experience, projects, now, …)
 resources/js/app.js                           # modular UI entry
+resources/js/lib/prefs.js                     # reduced-motion / Save-Data / pointer gates
+resources/js/modules/pointer.js               # spotlight wander, idle CTA, hero pause
 resources/js/modules/*                        # view transitions, palette, contact, …
 resources/posts/*.md                          # blog posts (YAML frontmatter)
 resources/views/home/index.blade.php          # homepage shell
@@ -179,7 +217,9 @@ resources/views/now/index.blade.php           # /now page
 resources/views/components/site/*             # nav, footer, cards, series, images
 resources/views/layouts/site.blade.php        # shared layout
 resources/css/app.css                         # CSS entry (imports tokens/base/layout/…)
+resources/css/motion.css                      # entrance, scroll-driven, and idle motion
 app/Console/Commands/PublishPost.php          # php artisan post:publish {slug}
+public/img/og/                                # static OG cards (og:generate)
 public/sw.js                                  # offline service worker
 public/offline.html                           # offline fallback
 scripts/deploy.sh                             # production deploy entrypoint
@@ -220,7 +260,9 @@ The blog at `/blog` is a flat-file Markdown system — no DB, no admin UI. To ad
 
 4. Done. The post is live at `/blog/{slug}`, listed on `/blog`, in `/feed.xml`, and in `/sitemap.xml`.
 
-To add a post to an essay series, append its slug under `config/site.php` → `series`.
+To add a post to an essay series, append its slug under `config/site/series.php`.
+
+OG cards are static JPGs from `php artisan og:generate` (`public/img/og/blog/{slug}.jpg`, else `/img/og-home.jpg`) — there is no runtime PNG route. The command palette fetches `/api/commands.json` on idle / first open instead of inlining the index in every HTML page.
 
 ### Syndicating to dev.to
 
