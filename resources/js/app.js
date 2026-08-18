@@ -43,3 +43,7 @@ loadWhen(
 );
 loadWhen(features.has('share'), () => import('./modules/share.js'), 'initShareAndCopy');
 loadWhen(features.has('cmdk-tip'), () => import('./modules/cmdk-tip.js'), 'initCmdkTip');
+loadWhen(features.has('push'), () => import('./modules/push.js'), 'initPushSubscribe');
+loadWhen(features.has('highlight'), () => import('./modules/highlight.js'), 'initHighlight');
+loadWhen(features.has('soft-nav'), () => import('./modules/soft-nav.js'), 'initSoftNav');
+loadWhen(features.has('webgpu'), () => import('./modules/webgpu-flood.js'), 'initWebGpuFlood');

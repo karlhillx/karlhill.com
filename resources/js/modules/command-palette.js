@@ -29,13 +29,23 @@ function gotoSection(id) {
     window.location.assign(pageMap[id] ?? `/#${id}`);
 }
 
-function parseCommandIndex() {
-    const el = document.getElementById('command-index');
-    if (!el) return { posts: [], projects: [] };
+function emptyIndex() {
+    return { posts: [], projects: [] };
+}
+
+async function loadCommandIndex() {
     try {
-        return JSON.parse(el.textContent);
+        const response = await fetch('/api/commands.json', {
+            headers: { Accept: 'application/json' },
+        });
+        if (!response.ok) return emptyIndex();
+        const data = await response.json();
+        return {
+            posts: Array.isArray(data.posts) ? data.posts : [],
+            projects: Array.isArray(data.projects) ? data.projects : [],
+        };
     } catch {
-        return { posts: [], projects: [] };
+        return emptyIndex();
     }
 }
 
@@ -66,17 +76,37 @@ function fuzzyScore(query, haystack) {
     return qi === q.length ? score : 0;
 }
 
-/** Prefer title hits over body/keyword matches. */
+/** Prefer title hits over body/keyword matches; add on-device TF-IDF cosine. */
+function cosine(query, terms) {
+    if (!terms || typeof terms !== 'object') return 0;
+    const parts = query
+        .toLowerCase()
+        .split(/\s+/)
+        .filter((part) => part.length >= 3);
+    if (!parts.length) return 0;
+
+    /** @type {Record<string, number>} */
+    const qtf = {};
+    for (const part of parts) qtf[part] = (qtf[part] || 0) + 1;
+
+    let dot = 0;
+    let qNorm = 0;
+    for (const [term, weight] of Object.entries(qtf)) {
+        qNorm += weight * weight;
+        if (typeof terms[term] === 'number') dot += weight * terms[term];
+    }
+    if (!qNorm || !dot) return 0;
+    return dot / Math.sqrt(qNorm);
+}
+
 function commandScore(query, cmd) {
     const q = query.trim();
     if (!q) return 1;
 
     const titleScore = fuzzyScore(q, cmd.label);
-    if (titleScore > 0) {
-        return titleScore + 400;
-    }
+    const score = titleScore > 0 ? titleScore + 400 : fuzzyScore(q, cmd.keywords ?? '');
 
-    return fuzzyScore(q, cmd.keywords ?? '');
+    return score + cosine(q, cmd.terms) * 180;
 }
 
 function withGroup(cmd, group = 'page') {
@@ -194,30 +224,42 @@ export function initCommandPalette() {
         }),
     ];
 
-    const index = parseCommandIndex();
-    const commands = [
-        ...staticCommands,
-        ...index.posts.map((post) =>
-            withGroup(
-                {
-                    label: post.label,
-                    keywords: post.keywords ?? 'writing blog',
-                    action: () => window.location.assign(post.url),
-                },
-                post.group ?? 'writing'
-            )
-        ),
-        ...index.projects.map((project) =>
-            withGroup(
-                {
-                    label: project.label,
-                    keywords: project.keywords ?? 'work portfolio',
-                    action: () => window.location.assign(project.url),
-                },
-                project.group ?? 'work'
-            )
-        ),
-    ];
+    let commands = [...staticCommands];
+
+    const applyIndex = (index) => {
+        commands = [
+            ...staticCommands,
+            ...index.posts.map((post) =>
+                withGroup(
+                    {
+                        label: post.label,
+                        keywords: post.keywords ?? 'writing blog',
+                        terms: post.terms,
+                        action: () => window.location.assign(post.url),
+                    },
+                    post.group ?? 'writing'
+                )
+            ),
+            ...index.projects.map((project) =>
+                withGroup(
+                    {
+                        label: project.label,
+                        keywords: project.keywords ?? 'work portfolio',
+                        terms: project.terms,
+                        action: () => window.location.assign(project.url),
+                    },
+                    project.group ?? 'work'
+                )
+            ),
+        ];
+    };
+
+    const hydrateIndex = loadCommandIndex().then(applyIndex);
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+            hydrateIndex.catch(() => {});
+        });
+    }
 
     let activeCommandIndex = 0;
     const paletteIsOpen = () => palette.matches(':popover-open') ?? false;
@@ -283,6 +325,7 @@ export function initCommandPalette() {
             document.body.style.overflow = 'hidden';
             commandInput.value = '';
             activeCommandIndex = 0;
+            hydrateIndex.then(() => renderCommands(''));
             renderCommands('');
             setTimeout(() => commandInput.focus(), 0);
         } else {

@@ -1393,3 +1393,31 @@ html:active-view-transition-type(same)::view-transition-new(root) {
         animation: none;
     }
 }
+
+::highlight(search) {
+    background-color: color-mix(in oklab, var(--accent) 42%, transparent);
+    color: var(--text);
+}
+
+.interest-preview {
+    display: none;
+    margin: 0;
+    max-width: 20rem;
+    padding: 0.9rem 1rem;
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 0.85rem;
+}
+
+.interest-preview:popover-open {
+    display: block;
+    position: absolute;
+    inset: auto;
+}
+
+@supports (position-anchor: --a) {
+    .interest-preview:popover-open {
+        position-try-fallbacks: flip-block, flip-inline;
+    }
+}

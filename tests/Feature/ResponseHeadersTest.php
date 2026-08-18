@@ -57,8 +57,8 @@ it('html responses include link preload headers when built', function () {
     // they should advertise font/style preloads for CDN Early Hints.
     if ($link !== null) {
         $this->assertTrue(
-            str_contains($link, 'rel=preload'),
-            'Expected Link header to include rel=preload when assets are built.',
+            str_contains($link, 'rel=preload') || str_contains($link, 'compression-dictionary'),
+            'Expected Link header to include rel=preload or compression-dictionary when present.',
         );
     } else {
         $this->assertTrue(true);

@@ -1420,3 +1420,12 @@ a.series-chapters__card:hover .series-chapters__title,
 .resume-section-title {
     margin-bottom: 0.85rem;
 }
+
+.work-card-details {
+    interpolate-size: allow-keywords;
+}
+
+.webgpu-flood__canvas {
+    display: block;
+    background: #0a0a0a;
+}

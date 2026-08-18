@@ -53,3 +53,11 @@ Thumbs.db
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Optional no-db feature stores
+/storage/app/webmentions
+/storage/app/push
+/storage/app/reports
+/storage/app/dict
+/public/files/content-credentials.json
+/public/files/*.c2pa.json

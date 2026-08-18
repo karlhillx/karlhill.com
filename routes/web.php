@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AgentPacketController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientSiteController;
 use App\Http\Controllers\ContactController;
@@ -8,10 +9,13 @@ use App\Http\Controllers\FeedController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
 use App\Http\Controllers\LlmsTxtController;
+use App\Http\Controllers\MachineAssetController;
 use App\Http\Controllers\NowController;
-use App\Http\Controllers\OgImageController;
+use App\Http\Controllers\PushController;
+use App\Http\Controllers\ReportingController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\WebmentionController;
 use App\Http\Controllers\WorkController;
 use Illuminate\Support\Facades\Route;
 
@@ -88,11 +92,27 @@ Route::middleware('cache.headers:public;max_age=3600;etag')->group(function (): 
     Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
     Route::get('/llms.txt', [LlmsTxtController::class, 'index'])->name('llms');
     Route::get('/llms-full.txt', [LlmsTxtController::class, 'full'])->name('llms.full');
+    Route::get('/api/site.json', [AgentPacketController::class, 'site'])->name('api.site');
+    Route::get('/api/commands.json', [AgentPacketController::class, 'commands'])->name('api.commands');
+    Route::get('/.well-known/mcp.json', [AgentPacketController::class, 'mcp'])->name('well-known.mcp');
+    Route::get('/api/credentials.json', [MachineAssetController::class, 'credentials'])->name('api.credentials');
 });
 
-// Dynamically-generated per-post Open Graph cards (1200×630 PNG), cached hard.
 Route::middleware('cache.headers:public;max_age=86400;etag')->group(function (): void {
-    Route::get('/og/blog/{slug}.png', [OgImageController::class, 'blog'])
-        ->where('slug', '[a-z0-9-]+')
-        ->name('og.blog');
+    Route::get('/dict/html-shell.dat', [MachineAssetController::class, 'dictionary'])->name('dict.shell');
 });
+
+Route::post('/webmention', [WebmentionController::class, 'store'])
+    ->middleware('throttle:20,1')
+    ->name('webmention.store');
+
+Route::post('/push/subscribe', [PushController::class, 'subscribe'])
+    ->middleware('throttle:10,1')
+    ->name('push.subscribe');
+Route::post('/push/unsubscribe', [PushController::class, 'unsubscribe'])
+    ->middleware('throttle:10,1')
+    ->name('push.unsubscribe');
+
+Route::post('/report', [ReportingController::class, 'store'])
+    ->middleware('throttle:60,1')
+    ->name('report.store');

@@ -11,7 +11,9 @@ class PublishPost extends Command
         {slug : Blog post slug (e.g. release-governance)}
         {--syndicate : Also cross-post to dev.to after assets are ready}
         {--skip-assets : Skip WebP/AVIF/LQIP generation}
-        {--skip-og : Skip Open Graph card generation}';
+        {--skip-og : Skip Open Graph card generation}
+        {--skip-webmentions : Skip outbound webmentions}
+        {--skip-push : Skip Web Push broadcast}';
 
     protected $description = 'Prepare a blog post for publish: assets, OG card, optional syndication';
 
@@ -43,6 +45,18 @@ class PublishPost extends Command
         if ($this->option('syndicate')) {
             $this->components->task('Syndicating to dev.to', function () use ($slug) {
                 return $this->call('post:syndicate', ['slug' => $slug]) === self::SUCCESS;
+            });
+        }
+
+        if (! $this->option('skip-webmentions')) {
+            $this->components->task('Sending webmentions', function () use ($slug) {
+                return $this->call('webmention:send', ['slug' => $slug]) === self::SUCCESS;
+            });
+        }
+
+        if (! $this->option('skip-push')) {
+            $this->components->task('Notifying push subscribers', function () use ($slug) {
+                return $this->call('push:broadcast', ['slug' => $slug]) === self::SUCCESS;
             });
         }
 

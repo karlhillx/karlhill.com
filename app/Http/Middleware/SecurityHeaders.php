@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Support\CompressionDictionary;
+use App\Support\SiteFeatures;
 use App\Support\Turnstile;
 use Closure;
 use Illuminate\Http\Request;
@@ -21,17 +23,76 @@ class SecurityHeaders
         $response->headers->set('X-Frame-Options', 'DENY');
         $response->headers->set('X-Content-Type-Options', 'nosniff');
         $response->headers->set('Referrer-Policy', 'strict-origin-when-cross-origin');
-        $response->headers->set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+        $response->headers->set('Permissions-Policy', implode(', ', [
+            'accelerometer=()',
+            'autoplay=()',
+            'camera=()',
+            'display-capture=()',
+            'encrypted-media=()',
+            'fullscreen=(self)',
+            'geolocation=()',
+            'gyroscope=()',
+            'magnetometer=()',
+            'microphone=()',
+            'midi=()',
+            'payment=()',
+            'picture-in-picture=()',
+            'publickey-credentials-get=()',
+            'screen-wake-lock=()',
+            'usb=()',
+            'web-share=(self)',
+            'xr-spatial-tracking=()',
+        ]));
 
         if ($request->secure()) {
             $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
         }
 
+        $reportUrl = $this->reportUrl($request);
+        $response->headers->set('Reporting-Endpoints', 'default="'.$reportUrl.'"');
+        $response->headers->set(
+            'NEL',
+            '{"report_to":"default","max_age":86400,"include_subdomains":true,"success_fraction":0.0,"failure_fraction":1.0}',
+        );
+        // Report-Only so missing SRI on Vite tags cannot break the site.
+        $response->headers->set(
+            'Integrity-Policy-Report-Only',
+            'blocked-destinations=(script), endpoints=(default)',
+        );
+
         if ($this->shouldSendCsp($request, $response)) {
             $response->headers->set('Content-Security-Policy', $this->contentSecurityPolicy($request));
         }
 
+        $this->annotateDocumentDictionary($request, $response);
+
         return $response;
+    }
+
+    protected function reportUrl(Request $request): string
+    {
+        $base = rtrim((string) config('app.url', $request->getSchemeAndHttpHost()), '/');
+
+        return $base.'/report';
+    }
+
+    protected function annotateDocumentDictionary(Request $request, Response $response): void
+    {
+        if (! SiteFeatures::compressionDictionary()) {
+            return;
+        }
+        $contentType = (string) $response->headers->get('Content-Type', '');
+        if (! str_contains($contentType, 'text/html') && $contentType !== '') {
+            return;
+        }
+        if (str_starts_with($request->path(), 'clients/')) {
+            return;
+        }
+
+        $response->headers->set(
+            'Available-Dictionary',
+            ':'.CompressionDictionary::hash().':',
+        );
     }
 
     /**
@@ -46,13 +107,10 @@ class SecurityHeaders
             return false;
         }
 
-        // Client staging sites are third-party static HTML (fonts/CDNs vary).
         if (str_starts_with($request->path(), 'clients/') && $request->path() !== 'clients') {
             return false;
         }
 
-        // Avoid breaking `npm run dev` when APP_ENV is accidentally
-        // production — but never skip CSP in the test suite.
         if (! app()->runningUnitTests() && file_exists(public_path('hot'))) {
             return false;
         }
@@ -95,7 +153,6 @@ class SecurityHeaders
         $bookingHost = parse_url((string) config('site.booking.url'), PHP_URL_HOST);
         if (is_string($bookingHost) && $bookingHost !== '') {
             $frameSrc[] = 'https://'.$bookingHost;
-            // Calendly assets sometimes frame through www / app subdomains.
             if (str_ends_with($bookingHost, 'calendly.com')) {
                 $frameSrc[] = 'https://calendly.com';
                 $frameSrc[] = 'https://www.calendly.com';
@@ -106,6 +163,8 @@ class SecurityHeaders
             }
         }
 
+        $reportUrl = $this->reportUrl($request);
+
         $directives = [
             "default-src 'self'",
             "base-uri 'self'",
@@ -114,13 +173,13 @@ class SecurityHeaders
             "object-src 'none'",
             "font-src 'self'",
             "worker-src 'self'",
-            // Inline style attributes (hero animation delays, view-transition
-            // names, gradient orbs) require 'unsafe-inline' for styles.
             "style-src 'self' 'unsafe-inline'",
             'img-src '.implode(' ', $imgSrc),
             'script-src '.implode(' ', $scriptSrc),
             'connect-src '.implode(' ', $connectSrc),
             'frame-src '.implode(' ', $frameSrc),
+            'report-uri '.$reportUrl,
+            'report-to default',
         ];
 
         if ($request->secure()) {

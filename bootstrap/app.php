@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\EarlyHints;
 use App\Http\Middleware\LinkHeaders;
 use App\Http\Middleware\SecurityHeaders;
 use Illuminate\Foundation\Application;
@@ -16,8 +17,13 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->trustProxies(at: '*');
+        $middleware->append(EarlyHints::class);
         $middleware->append(SecurityHeaders::class);
         $middleware->append(LinkHeaders::class);
+        $middleware->validateCsrfTokens(except: [
+            'report',
+            'webmention',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function (NotFoundHttpException $e, Request $request) {

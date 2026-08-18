@@ -4,10 +4,10 @@ namespace App\Providers;
 
 use App\Support\BlogPostRepository;
 use App\Support\CaseStudyRepository;
-use App\Support\CommandIndex;
 use App\Support\GitHubRepository;
 use App\Support\PageFeatures;
 use App\Support\PageMeta;
+use App\Support\SiteCatalog;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
             );
         });
 
+        $this->app->singleton(SiteCatalog::class);
         $this->app->singleton(GitHubRepository::class);
     }
 
@@ -47,7 +48,6 @@ class AppServiceProvider extends ServiceProvider
                 }
             }
 
-            $view->with('commandIndex', CommandIndex::build());
             $view->with('pageFeatures', PageFeatures::forRequest());
         });
     }

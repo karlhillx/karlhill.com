@@ -33,8 +33,7 @@ final class BlogPost
 
     public function canonicalUrl(): string
     {
-        return rtrim(config('app.url', 'https://karlhill.com'), '/')
-            .'/blog/'.$this->slug;
+        return PageMeta::siteUrl().'/blog/'.$this->slug;
     }
 
     /**
@@ -54,19 +53,19 @@ final class BlogPost
     }
 
     /**
-     * Absolute URL for Open Graph / Twitter cards. A hand-made card at
-     * public/img/og/blog/{slug}.jpg always wins; otherwise we serve a branded
-     * card generated on the fly at /og/blog/{slug}.png.
+     * Absolute URL for Open Graph / Twitter cards. Prefers the static card
+     * at public/img/og/blog/{slug}.jpg (see `og:generate`); otherwise the
+     * homepage card.
      */
     public function ogImageUrl(): string
     {
-        $base = rtrim(config('app.url', 'https://karlhill.com'), '/');
+        $base = PageMeta::siteUrl();
 
         if (is_file(public_path("img/og/blog/{$this->slug}.jpg"))) {
             return "{$base}/img/og/blog/{$this->slug}.jpg";
         }
 
-        return route('og.blog', ['slug' => $this->slug]);
+        return "{$base}/img/og-home.jpg";
     }
 
     /**
@@ -83,7 +82,7 @@ final class BlogPost
             return $path;
         }
 
-        return rtrim(config('app.url', 'https://karlhill.com'), '/').$path;
+        return PageMeta::siteUrl().$path;
     }
 
     public function isoDate(): string

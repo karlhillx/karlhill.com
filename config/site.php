@@ -91,4 +91,20 @@ return [
     'github' => require __DIR__.'/site/github.php',
     'resume' => require __DIR__.'/site/resume.php',
 
+    'push' => [
+        'public_key' => env('VAPID_PUBLIC_KEY'),
+        'private_key' => env('VAPID_PRIVATE_KEY'),
+        'subject' => env('VAPID_SUBJECT', 'mailto:karlhillx@gmail.com'),
+    ],
+
+    'early_hints' => filter_var(env('EARLY_HINTS', false), FILTER_VALIDATE_BOOLEAN),
+
+    'features' => [
+        'webmention' => filter_var(env('WEBMENTION_ENABLED', true), FILTER_VALIDATE_BOOLEAN),
+        'reporting' => filter_var(env('REPORTING_ENABLED', true), FILTER_VALIDATE_BOOLEAN),
+        'compression_dictionary' => filter_var(env('COMPRESSION_DICTIONARY', true), FILTER_VALIDATE_BOOLEAN),
+        'content_credentials' => filter_var(env('CONTENT_CREDENTIALS', true), FILTER_VALIDATE_BOOLEAN),
+        'webgpu' => filter_var(env('WEBGPU_FLOOD', true), FILTER_VALIDATE_BOOLEAN),
+    ],
+
 ];

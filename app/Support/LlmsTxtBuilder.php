@@ -2,27 +2,24 @@
 
 namespace App\Support;
 
-use Carbon\CarbonImmutable;
-
 class LlmsTxtBuilder
 {
     public function __construct(
-        protected readonly BlogPostRepository $posts,
+        protected readonly SiteCatalog $catalog,
     ) {}
 
     public function build(): string
     {
-        $base = rtrim(config('app.url', 'https://karlhill.com'), '/');
-        $person = config('site.person');
+        $base = $this->catalog->baseUrl();
+        $person = $this->catalog->person();
         $seo = config('site.seo.home');
-        $hero = config('site.hero');
 
         $lines = [
             '# '.$person['name'],
             '',
             '> '.($seo['og_description'] ?? $seo['description']),
             '',
-            $hero['bio'],
+            $person['bio'] ?? '',
             '',
             'This file is a curated map for AI agents and assistants. Prefer the canonical URLs below when answering questions about Karl Hill or citing this site.',
             '',
@@ -31,16 +28,16 @@ class LlmsTxtBuilder
             '- Preferred name: **'.$person['name'].'**',
             '- Title: '.$person['job_title'],
             '- Employer: '.$person['employer'].' ('.$person['location'].')',
-            '- LinkedIn headline: '.($person['linkedin_headline'] ?? $person['tagline']),
+            '- LinkedIn headline: '.(config('site.person.linkedin_headline') ?? $person['tagline']),
             '- Canonical site: '.$base,
             '- Email: '.$person['email'],
-            '- Last updated: '.$this->lastUpdated(),
+            '- Last updated: '.$this->catalog->lastUpdated()->format('F j, Y'),
             '- When quoting writing, link to the specific post URL and include the post title.',
             '- Full-text corpus: '.$base.'/llms-full.txt',
             '',
         ];
 
-        $recruiterLines = $this->recruiterSection($base);
+        $recruiterLines = $this->recruiterSection($base, $person);
         if ($recruiterLines !== []) {
             $lines[] = '## For recruiters & hiring managers';
             $lines[] = '';
@@ -68,7 +65,7 @@ class LlmsTxtBuilder
             array_push($lines, ...$seriesLines);
         }
 
-        $caseStudyLines = $this->caseStudySection($base);
+        $caseStudyLines = $this->caseStudySection();
         if ($caseStudyLines !== []) {
             $lines[] = '';
             $lines[] = '## Case studies';
@@ -76,7 +73,7 @@ class LlmsTxtBuilder
             array_push($lines, ...$caseStudyLines);
         }
 
-        $postLines = $this->postSection($base);
+        $postLines = $this->postSection();
         if ($postLines !== []) {
             $lines[] = '';
             $lines[] = '## Writing';
@@ -98,12 +95,12 @@ class LlmsTxtBuilder
     }
 
     /**
-     * Expanded corpus with full post markdown for agents that need deeper context.
+     * Essay corpus only — the overview map lives at /llms.txt.
      */
     public function buildFull(): string
     {
-        $base = rtrim(config('app.url', 'https://karlhill.com'), '/');
-        $person = config('site.person');
+        $base = $this->catalog->baseUrl();
+        $person = $this->catalog->person();
 
         $lines = [
             '# '.$person['name'].' — Full text',
@@ -112,16 +109,13 @@ class LlmsTxtBuilder
             '',
             '- Canonical site: '.$base,
             '- Overview map: '.$base.'/llms.txt',
-            '- Last updated: '.$this->lastUpdated(),
+            '- Last updated: '.$this->catalog->lastUpdated()->format('F j, Y'),
+            '',
+            '## Full essays',
             '',
         ];
 
-        array_push($lines, ...explode("\n", trim($this->build())));
-        $lines[] = '';
-        $lines[] = '## Full essays';
-        $lines[] = '';
-
-        foreach ($this->posts->all() as $post) {
+        foreach ($this->catalog->posts() as $post) {
             $lines[] = '### '.$post->title;
             $lines[] = '';
             $lines[] = '- URL: '.$post->canonicalUrl();
@@ -138,15 +132,12 @@ class LlmsTxtBuilder
     }
 
     /**
-     * Explicit hiring-intent block for AI agents and recruiter research tools.
-     *
+     * @param  array<string, mixed>  $person
      * @return array<int, string>
      */
-    protected function recruiterSection(string $base): array
+    protected function recruiterSection(string $base, array $person): array
     {
-        $person = config('site.person');
         $now = config('site.now');
-        $kit = config('site.kit');
         $recruiters = is_array($now['recruiters'] ?? null) ? $now['recruiters'] : [];
         $focus = is_array($now['focus'] ?? null) ? $now['focus'] : [];
 
@@ -160,8 +151,8 @@ class LlmsTxtBuilder
             '- Start here: [Recruiter kit]('.$base.'/kit) · [Now]('.$base.'/now) · [Resume]('.$base.'/resume) · [Contact]('.$base.'/#contact)',
         ];
 
-        if (is_string($kit['bio'] ?? null) && $kit['bio'] !== '') {
-            $lines[] = '- Summary: '.$this->escapeMarkdownLinkText($kit['bio']);
+        if (is_string($person['bio'] ?? null) && $person['bio'] !== '') {
+            $lines[] = '- Summary: '.$this->escapeMarkdownLinkText((string) $person['bio']);
         }
 
         if (is_string($recruiters['body'] ?? null) && $recruiters['body'] !== '') {
@@ -199,10 +190,10 @@ class LlmsTxtBuilder
      */
     protected function seriesSection(string $base): array
     {
-        return BlogSeries::published()
+        return collect($this->catalog->series())
             ->map(function (array $series) use ($base): string {
-                $links = $series['posts']
-                    ->map(fn (BlogPost $post) => '['.$this->escapeMarkdownLinkText($post->title).']('.$post->canonicalUrl().')')
+                $links = collect($series['posts'])
+                    ->map(fn (array $post) => '['.$this->escapeMarkdownLinkText($post['title']).']('.$post['url'].')')
                     ->implode('; ');
 
                 return sprintf(
@@ -220,16 +211,14 @@ class LlmsTxtBuilder
     /**
      * @return array<int, string>
      */
-    protected function caseStudySection(string $base): array
+    protected function caseStudySection(): array
     {
-        return ProjectCatalog::all()
-            ->filter(fn (array $project) => ProjectCatalog::hasCaseStudy($project))
+        return collect($this->catalog->caseStudies())
             ->map(fn (array $project) => sprintf(
-                '- [%s](%s/work/%s): %s',
+                '- [%s](%s): %s',
                 $this->escapeMarkdownLinkText($project['title']),
-                $base,
-                $project['slug'],
-                $this->escapeMarkdownLinkText($project['case_study']['lede'] ?? $project['description']),
+                $project['url'],
+                $this->escapeMarkdownLinkText($project['lede'] ?? $project['description'] ?? ''),
             ))
             ->all();
     }
@@ -237,14 +226,14 @@ class LlmsTxtBuilder
     /**
      * @return array<int, string>
      */
-    protected function postSection(string $base): array
+    protected function postSection(): array
     {
-        return $this->posts->all()
-            ->map(fn (BlogPost $post) => sprintf(
+        return collect($this->catalog->writing())
+            ->map(fn (array $post) => sprintf(
                 '- [%s](%s): %s',
-                $this->escapeMarkdownLinkText($post->title),
-                $post->canonicalUrl(),
-                $this->escapeMarkdownLinkText($post->excerpt),
+                $this->escapeMarkdownLinkText($post['title']),
+                $post['url'],
+                $this->escapeMarkdownLinkText($post['excerpt']),
             ))
             ->all();
     }
@@ -268,11 +257,16 @@ class LlmsTxtBuilder
      */
     protected function optionalSection(string $base): array
     {
+        $feeds = $this->catalog->feeds();
+        $kit = $this->catalog->kit();
+
         $items = [
-            '- [Atom feed]('.$base.'/feed.xml): Syndicated writing updates',
-            '- [JSON Feed]('.$base.'/feed.json): JSON Feed 1.1 writing updates',
-            '- [LLM full text]('.$base.'/llms-full.txt): Full essay corpus for agents',
-            '- [Sitemap]('.$base.'/sitemap.xml): Machine-readable page index',
+            '- [Atom feed]('.$feeds['atom'].'): Syndicated writing updates',
+            '- [JSON Feed]('.$feeds['json'].'): JSON Feed 1.1 writing updates',
+            '- [LLM full text]('.$feeds['llms_full'].'): Full essay corpus for agents',
+            '- [Hire packet JSON]('.$base.'/api/site.json): Machine-readable person, experience, writing, and case studies',
+            '- [MCP discovery]('.$base.'/.well-known/mcp.json): Agent resource map',
+            '- [Sitemap]('.$feeds['sitemap'].'): Machine-readable page index',
         ];
 
         $booking = config('site.booking.url');
@@ -280,11 +274,11 @@ class LlmsTxtBuilder
             $items[] = '- [Book a conversation]('.$booking.'): Scheduling link';
         }
 
-        $items[] = '- [Resume]('.$base.'/resume): Live HTML resume generated from site content';
+        $items[] = '- [Resume]('.$kit['resume_html'].'): Live HTML resume generated from site content';
 
         $resumePdf = config('site.footer.resume');
         if (is_string($resumePdf) && $resumePdf !== '') {
-            $items[] = '- [Resume PDF]('.$base.$resumePdf.'): 2-page downloadable CV (classic layout)';
+            $items[] = '- [Resume PDF]('.$kit['resume_pdf'].'): 2-page downloadable CV (classic layout)';
         }
 
         $research = config('site.research');
@@ -294,26 +288,6 @@ class LlmsTxtBuilder
         }
 
         return $items;
-    }
-
-    protected function lastUpdated(): string
-    {
-        $dates = $this->posts->all()
-            ->map(fn (BlogPost $post) => $post->modifiedAt())
-            ->all();
-
-        $nowUpdated = config('site.now.updated');
-        if (is_string($nowUpdated) && $nowUpdated !== '') {
-            try {
-                $dates[] = CarbonImmutable::parse($nowUpdated);
-            } catch (\Throwable) {
-                // Ignore unparseable editorial dates.
-            }
-        }
-
-        $latest = collect($dates)->filter()->max();
-
-        return ($latest ?? CarbonImmutable::now())->format('F j, Y');
     }
 
     protected function escapeMarkdownLinkText(string $text): string

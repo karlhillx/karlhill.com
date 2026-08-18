@@ -1,7 +1,7 @@
 @php
     $study = $caseStudy;
     $liveUrl = ($project['url'] ?? null) && str_starts_with($project['url'], 'http') ? $project['url'] : null;
-    $canonical = rtrim(config('app.url', 'https://karlhill.com'), '/').'/work/'.$project['slug'];
+    $canonical = \App\Support\PageMeta::siteUrl().'/work/'.$project['slug'];
     $ogImage = $meta->ogImage;
     $headlineOutcome = $study['outcome'][0] ?? null;
     $decisions = $study['decisions'] ?? $study['approach'] ?? [];
@@ -30,7 +30,7 @@
     'author' => [
         '@type' => 'Person',
         'name' => config('site.person.name'),
-        'url' => rtrim(config('app.url', 'https://karlhill.com'), '/'),
+        'url' => \App\Support\PageMeta::siteUrl(),
     ],
     'keywords' => implode(', ', $project['tags'] ?? []),
 ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
@@ -156,6 +156,20 @@
                                         label-class="text-neutral-400"
                                     />
                                 @endforeach
+                            </div>
+                        @endif
+
+                        @if(($project['slug'] ?? '') === 'flood-mapping-system')
+                            <div class="webgpu-flood mt-8" data-reveal>
+                                <canvas data-webgpu-flood
+                                        class="webgpu-flood__canvas w-full aspect-[16/9] sm:rounded-sm border-y sm:border border-neutral-800/70 bg-neutral-950"
+                                        aria-label="Animated flood-extent field"></canvas>
+                                <p data-webgpu-fallback hidden class="font-mono text-[11px] text-neutral-500 uppercase tracking-widest mt-3">
+                                    Interactive field requires WebGPU. The still above is the canonical visual.
+                                </p>
+                                <p class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest mt-3">
+                                    WebGPU flood field — reduced-motion and unsupported browsers keep the photograph.
+                                </p>
                             </div>
                         @endif
                     </section>

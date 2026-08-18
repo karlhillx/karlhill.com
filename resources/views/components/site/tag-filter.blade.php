@@ -13,7 +13,7 @@
     $counts = collect($counts);
 @endphp
 
-<nav {{ $attributes->merge(['class' => 'tag-filter flex flex-wrap gap-2']) }} data-reveal aria-label="Filter by tag">
+<nav {{ $attributes->merge(['class' => 'tag-filter flex flex-wrap gap-2']) }} data-reveal data-soft-nav aria-label="Filter by tag">
     <a href="{{ $allUrl }}"
        @class([
            'tag-filter__chip font-mono text-[10px] uppercase tracking-widest px-3 py-2.5 min-h-11 inline-flex items-center surface-chip shrink-0',

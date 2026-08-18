@@ -195,16 +195,14 @@ it('homepage hero is a tight first viewport', function () {
     $response->assertSee(config('site.hero.headline'), escape: false);
     $response->assertSee(config('site.hero.subtitle'), escape: false);
     $response->assertSee(config('site.hero.positioning'), escape: false);
-    $response->assertDontSee(config('site.hero.bio'), escape: false);
+    $response->assertDontSee(config('site.person.bio'), escape: false);
     $response->assertDontSee('Platforms · Delivery · Engineering Leadership', escape: false);
 });
 
 it('command index includes post body keywords', function () {
-    $response = $this->get('/');
-
-    $response->assertStatus(200);
-    // Phrase from the Staff→EM essay body — proves full-text indexing.
-    $response->assertSee('unit of work', escape: false);
+    $this->get('/api/commands.json')
+        ->assertOk()
+        ->assertSee('unit of work', escape: false);
 });
 
 it('blog show renders heading anchors and table of contents', function () {
@@ -234,15 +232,17 @@ it('blog show includes speculation rules for adjacent posts', function () {
     $response->assertSee('"/blog"', escape: false);
 });
 
-it('layout includes command index for palette search', function () {
-    $response = $this->get('/');
+it('command index is served as a lazy json endpoint', function () {
+    $this->get('/')
+        ->assertOk()
+        ->assertDontSee('id="command-index"', escape: false);
 
-    $response->assertStatus(200);
-    $response->assertSee('id="command-index"', escape: false);
-    $response->assertSee('What 20 Years Taught Me About Release Governance', escape: false);
-    $response->assertSee('"/blog/release-governance"', escape: false);
-    $response->assertSee('"group":"writing"', escape: false);
-    $response->assertSee('"group":"work"', escape: false);
+    $this->get('/api/commands.json')
+        ->assertOk()
+        ->assertJsonPath('posts.0.group', 'writing')
+        ->assertJsonFragment(['url' => '/blog/release-governance'])
+        ->assertSee('What 20 Years Taught Me About Release Governance', escape: false)
+        ->assertSee('"group":"work"', escape: false);
 });
 
 it('repository caches primitive arrays only', function () {

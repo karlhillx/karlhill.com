@@ -1,11 +1,10 @@
-<x-site.section id="open-source" section-label="Open Source" border="soft">
-        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 site-heading-space" data-reveal>
-            <x-site.section-heading :number="$sectionNumber ?? '02'" label="Open Source" class="!mb-0" />
+<x-site.section id="open-source" section-label="Open Source" border="soft" :number="$sectionNumber ?? '02'" label="Open Source">
+        <x-slot:actions>
             <a href="https://github.com/karlhillx" target="_blank" rel="noopener noreferrer"
                class="font-mono text-xs text-neutral-600 hover:text-accent transition-colors">
                 github.com/karlhillx ↗
             </a>
-        </div>
+        </x-slot:actions>
 
         @if($githubRepos->isEmpty())
             <div class="surface-card-static bg-bg p-8" data-reveal>

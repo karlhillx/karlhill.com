@@ -68,6 +68,8 @@ class GenerateResumePdf extends Command
             return self::FAILURE;
         }
 
+        $this->call('credentials:generate');
+
         $this->info('Generated '.str_replace(base_path().'/', '', $pdfPath).' ('.number_format(filesize($pdfPath) / 1024, 1).' KB)');
 
         return self::SUCCESS;

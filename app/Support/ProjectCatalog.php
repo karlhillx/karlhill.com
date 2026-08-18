@@ -217,7 +217,7 @@ final class ProjectCatalog
             return null;
         }
 
-        return rtrim(config('app.url', 'https://karlhill.com'), '/')."/img/og/work/{$slug}.jpg";
+        return PageMeta::siteUrl()."/img/og/work/{$slug}.jpg";
     }
 
     /**

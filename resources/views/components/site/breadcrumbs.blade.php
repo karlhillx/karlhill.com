@@ -4,7 +4,7 @@
 
 @if(count($items) > 0)
     @php
-        $siteUrl = rtrim(config('app.url', 'https://karlhill.com'), '/');
+        $siteUrl = \App\Support\PageMeta::siteUrl();
         $listItems = collect($items)->values()->map(fn ($item, $index) => array_filter([
             '@type' => 'ListItem',
             'position' => $index + 1,

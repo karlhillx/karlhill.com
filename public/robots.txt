@@ -3,3 +3,5 @@ Disallow:
 
 Sitemap: https://karlhill.com/sitemap.xml
 # Curated overview for AI agents: https://karlhill.com/llms.txt
+# Machine-readable hire packet: https://karlhill.com/api/site.json
+# MCP discovery: https://karlhill.com/.well-known/mcp.json

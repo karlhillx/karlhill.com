@@ -3,7 +3,6 @@
 namespace App\Support;
 
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\File;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 /**
@@ -50,11 +49,7 @@ final class CaseStudyRepository
         }
 
         $studies = [];
-        foreach (File::files($this->directory) as $file) {
-            if (! str_ends_with($file->getFilename(), '.md')) {
-                continue;
-            }
-
+        foreach (MarkdownDirectory::files($this->directory) as $file) {
             $slug = pathinfo($file->getFilename(), PATHINFO_FILENAME);
             $parsed = $this->parse($file->getPathname());
             if ($parsed !== null) {
@@ -97,20 +92,6 @@ final class CaseStudyRepository
 
     protected function signature(): string
     {
-        if (! is_dir($this->directory)) {
-            return 'empty';
-        }
-
-        $bits = [];
-        foreach (File::files($this->directory) as $file) {
-            if (! str_ends_with($file->getFilename(), '.md')) {
-                continue;
-            }
-            $bits[] = $file->getFilename().':'.$file->getMTime().':'.$file->getSize();
-        }
-
-        sort($bits);
-
-        return md5(implode('|', $bits));
+        return MarkdownDirectory::signature($this->directory);
     }
 }

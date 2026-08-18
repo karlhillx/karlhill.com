@@ -7,6 +7,7 @@
     'label' => null,
     'border' => 'default',
     'sectionLabel' => null,
+    'headingClass' => '!mb-0',
 ])
 
 @php
@@ -16,6 +17,7 @@
         default => 'border-t border-neutral-800',
     };
     $minimapLabel = $sectionLabel ?? $label;
+    $hasActions = isset($actions) && trim((string) $actions) !== '';
 @endphp
 
 <section @if($id) id="{{ $id }}" @endif
@@ -23,7 +25,14 @@
          {{ $attributes->merge(['class' => "site-section {$borderClass}"]) }}>
     <div class="site-shell">
         @if($number !== null && $label !== null)
-            <x-site.section-heading :number="$number" :label="$label" />
+            <div @class([
+                'flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 site-heading-space' => $hasActions,
+            ]) @if($hasActions) data-reveal @endif>
+                <x-site.section-heading :number="$number" :label="$label" :class="$headingClass" />
+                @if($hasActions)
+                    {{ $actions }}
+                @endif
+            </div>
         @endif
         {{ $slot }}
     </div>

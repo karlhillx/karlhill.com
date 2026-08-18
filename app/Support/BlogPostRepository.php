@@ -74,6 +74,18 @@ class BlogPostRepository
         ];
     }
 
+    /**
+     * @return Collection<int, BlogPost>
+     */
+    public function related(BlogPost $post, int $limit = 2): Collection
+    {
+        return $this->all()
+            ->reject(fn (BlogPost $candidate) => $candidate->slug === $post->slug)
+            ->filter(fn (BlogPost $candidate) => count(array_intersect($candidate->tags, $post->tags)) > 0)
+            ->take($limit)
+            ->values();
+    }
+
     public function pathFor(string $slug): ?string
     {
         return $this->all()->firstWhere('slug', $slug)?->sourcePath;
@@ -89,10 +101,7 @@ class BlogPostRepository
         }
 
         $rows = [];
-        foreach (File::files($this->directory) as $file) {
-            if (! str_ends_with($file->getFilename(), '.md')) {
-                continue;
-            }
+        foreach (MarkdownDirectory::files($this->directory) as $file) {
             $row = $this->parseToArray($file->getPathname());
             if ($row !== null) {
                 $rows[] = $row;
@@ -312,21 +321,8 @@ class BlogPostRepository
         return null;
     }
 
-    /**
-     * Cache invalidation signature: changes when any post is added/edited.
-     */
     protected function signature(): string
     {
-        if (! is_dir($this->directory)) {
-            return 'empty';
-        }
-
-        $entries = collect(File::files($this->directory))
-            ->map(fn ($file) => $file->getFilename().':'.$file->getMTime())
-            ->sort()
-            ->values()
-            ->all();
-
-        return md5(implode('|', $entries));
+        return MarkdownDirectory::signature($this->directory);
     }
 }

@@ -44,25 +44,7 @@ final class HomeStructuredData
                 'name' => $person['employer'],
                 'url' => 'https://www.jacobs.com',
             ],
-            'alumniOf' => [
-                [
-                    '@type' => 'Organization',
-                    'name' => 'NASA Goddard Space Flight Center',
-                    'url' => 'https://www.nasa.gov/goddard',
-                ],
-                [
-                    '@type' => 'Organization',
-                    'name' => 'Science Systems and Applications, Inc.',
-                ],
-                [
-                    '@type' => 'CollegeOrUniversity',
-                    'name' => 'University of Maryland',
-                ],
-                [
-                    '@type' => 'CollegeOrUniversity',
-                    'name' => 'Howard Community College',
-                ],
-            ],
+            'alumniOf' => self::alumniOf(),
             'knowsAbout' => [
                 'Cloud-native platforms',
                 'DevSecOps',
@@ -135,5 +117,36 @@ final class HomeStructuredData
             '@context' => 'https://schema.org',
             '@graph' => [$personLd, $websiteLd, $profilePageLd, $blogLd],
         ];
+    }
+
+    /**
+     * @return list<array<string, string>>
+     */
+    protected static function alumniOf(): array
+    {
+        $orgs = [
+            [
+                '@type' => 'Organization',
+                'name' => 'NASA Goddard Space Flight Center',
+                'url' => 'https://www.nasa.gov/goddard',
+            ],
+            [
+                '@type' => 'Organization',
+                'name' => 'Science Systems and Applications, Inc.',
+            ],
+        ];
+
+        foreach (config('site.education', []) as $entry) {
+            if (! is_array($entry) || empty($entry['school'])) {
+                continue;
+            }
+
+            $orgs[] = [
+                '@type' => 'CollegeOrUniversity',
+                'name' => $entry['school'],
+            ];
+        }
+
+        return $orgs;
     }
 }

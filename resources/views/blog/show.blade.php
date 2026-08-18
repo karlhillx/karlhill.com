@@ -24,17 +24,20 @@
     'author' => [
         '@type' => 'Person',
         'name'  => config('site.person.name'),
-        'url'   => rtrim(config('app.url', 'https://karlhill.com'), '/'),
+        'url'   => \App\Support\PageMeta::siteUrl(),
     ],
     'publisher' => [
         '@type' => 'Organization',
         'name'  => 'Karl Hill',
-        'url'   => rtrim(config('app.url', 'https://karlhill.com'), '/'),
+        'url'   => \App\Support\PageMeta::siteUrl(),
     ],
     'keywords' => implode(', ', $post->tags),
 ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
 <x-site.speculation-rules :rules="\App\Support\SpeculationRules::forBlogPost($post, $adjacentPosts['previous'], $adjacentPosts['next'], $relatedPosts)" />
+@if(\App\Support\SiteFeatures::webmention())
+<link rel="webmention" href="{{ url('/webmention') }}">
+@endif
 @endpush
 
 @section('content')
@@ -159,6 +162,8 @@
                 'excerpt' => $related->excerpt,
             ])->all()"
         />
+
+        <x-site.webmentions :mentions="$webmentions ?? []" :target="$shareUrl" />
 
         <div class="surface-card-static p-5 mb-12" data-reveal>
             <p class="font-mono text-accent text-xs tracking-widest uppercase mb-3">On this site</p>

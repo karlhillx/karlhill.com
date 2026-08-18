@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth"
-      data-features="{{ implode(' ', $pageFeatures ?? ['contact', 'share']) }}"
+      data-features="{{ implode(' ', $pageFeatures ?? ['contact']) }}"
       @if(! app()->isProduction()) data-sw="off" @endif
+      @if(filled(config('site.push.public_key')))
+          data-vapid-public="{{ config('site.push.public_key') }}"
+      @endif
       @if(filled(config('site.booking.url')))
           data-booking-url="{{ config('site.booking.url') }}"
           data-booking-label="{{ config('site.booking.label') }}"
       @endif
 >
 <head>
-    @php($siteUrl = rtrim(config('app.url', 'https://karlhill.com'), '/'))
+    @php($siteUrl = \App\Support\PageMeta::siteUrl())
     @php($defaultTitle = config('site.seo.home.title'))
     @php($twitterHandle = config('site.person.twitter_handle'))
     <meta charset="utf-8">
@@ -75,12 +78,11 @@
     <link rel="alternate" type="application/feed+json" title="Karl Hill — Writing (JSON Feed)" href="/feed.json">
     <link rel="alternate" type="text/plain" title="Karl Hill — LLM-friendly overview" href="/llms.txt">
     <link rel="alternate" type="text/plain" title="Karl Hill — LLM full text" href="/llms-full.txt">
+    <link rel="alternate" type="application/json" title="Karl Hill — Hire packet" href="/api/site.json">
+    <link rel="author" href="/.well-known/mcp.json">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <x-site.analytics />
-    <script id="command-index" type="application/json" nonce="{{ Vite::cspNonce() }}">
-{!! json_encode($commandIndex, JSON_UNESCAPED_SLASHES) !!}
-    </script>
     @stack('head')
 </head>
 <body class="bg-bg text-neutral-100 antialiased has-page-spotlight">

@@ -65,6 +65,7 @@
     /* The site is dark by design: tell the UA so form controls, scrollbars,
        and the default canvas render dark instead of light-on-dark. */
     color-scheme: dark;
+    interpolate-size: allow-keywords;
 }
 
 /* Wide-gamut escalation on Display-P3 hardware. Falls back silently on sRGB. */

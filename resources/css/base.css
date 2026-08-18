@@ -75,6 +75,24 @@ body {
     }
 }
 
+@supports (grid-template-rows: masonry) {
+    @media (min-width: 640px) {
+        .site-card-grid {
+            grid-template-rows: masonry;
+            align-items: start;
+        }
+    }
+}
+
+@supports (display: masonry) {
+    @media (min-width: 640px) {
+        .site-card-grid {
+            display: masonry;
+            gap: var(--space-card-gap);
+        }
+    }
+}
+
 .site-list-row {
     padding-block: var(--space-list-row);
 }
@@ -190,6 +208,19 @@ body {
         position-anchor: --site-nav;
         top: anchor(bottom);
         animation: none;
+    }
+}
+
+@supports (container-type: scroll-state) {
+    .site-toolbar--sticky {
+        container-type: scroll-state;
+    }
+
+    @container scroll-state(stuck: top) {
+        .site-toolbar--sticky {
+            background: color-mix(in oklab, var(--bg) 94%, transparent);
+            border-bottom-color: color-mix(in oklab, var(--accent) 22%, var(--border));
+        }
     }
 }
 

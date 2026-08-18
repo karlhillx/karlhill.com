@@ -1,5 +1,5 @@
 /* Offline reading for karlhill.com — network-first HTML, cache-first static. */
-const CACHE = 'karlhill-offline-v7';
+const CACHE = 'karlhill-offline-v8';
 const PRECACHE = ['/', '/blog', '/now', '/about', '/work', '/resume', '/kit', '/offline.html', '/site.webmanifest'];
 
 self.addEventListener('install', (event) => {
@@ -101,3 +101,24 @@ async function networkFirstPage(request) {
         return offline || Response.error();
     }
 }
+
+self.addEventListener('push', (event) => {
+    let data = { title: 'Karl Hill', body: 'New writing is live.', url: '/blog' };
+    try {
+        data = { ...data, ...(event.data?.json() ?? {}) };
+    } catch {
+        /* keep defaults */
+    }
+    event.waitUntil(
+        self.registration.showNotification(data.title, {
+            body: data.body,
+            data: { url: data.url || '/blog' },
+        })
+    );
+});
+
+self.addEventListener('notificationclick', (event) => {
+    event.notification.close();
+    const url = event.notification.data?.url || '/blog';
+    event.waitUntil(self.clients.openWindow(url));
+});

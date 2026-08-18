@@ -7,48 +7,18 @@ use Illuminate\Support\Collection;
 class SpeculationRules
 {
     /**
-     * Prefetch likely destinations; prerender the highest-probability next hops.
-     *
      * @param  Collection<int, BlogPost>  $latestPosts
      * @return array<string, mixed>
      */
     public static function forHomepage(Collection $latestPosts): array
     {
-        $prerenderUrls = collect(['/work', '/now'])
-            ->merge($latestPosts->take(2)->map(fn (BlogPost $post) => '/blog/'.$post->slug))
-            ->unique()
-            ->values()
-            ->all();
+        $postUrls = $latestPosts->map(fn (BlogPost $post) => '/blog/'.$post->slug);
 
-        $prefetchUrls = collect(['/blog', '/work', '/about', '/now'])
-            ->merge($latestPosts->map(fn (BlogPost $post) => '/blog/'.$post->slug))
-            ->unique()
-            ->values()
-            ->all();
-
-        return [
-            'prerender' => [
-                [
-                    'source' => 'list',
-                    'urls' => $prerenderUrls,
-                    'eagerness' => 'moderate',
-                ],
-            ],
-            'prefetch' => [
-                [
-                    'source' => 'list',
-                    'urls' => $prefetchUrls,
-                    'eagerness' => 'moderate',
-                ],
-                [
-                    'source' => 'document',
-                    'where' => [
-                        'href_matches' => '/blog*',
-                    ],
-                    'eagerness' => 'conservative',
-                ],
-            ],
-        ];
+        return self::document(
+            prerender: collect(['/work', '/now'])->merge($postUrls->take(2))->all(),
+            prefetch: collect(['/blog', '/work', '/about', '/now'])->merge($postUrls)->all(),
+            hrefMatches: '/blog*',
+        );
     }
 
     /**
@@ -63,29 +33,11 @@ class SpeculationRules
 
         $top = $posts->take(3)->map(fn (BlogPost $post) => '/blog/'.$post->slug)->all();
 
-        return [
-            'prerender' => [
-                [
-                    'source' => 'list',
-                    'urls' => array_slice($top, 0, 2),
-                    'eagerness' => 'moderate',
-                ],
-            ],
-            'prefetch' => [
-                [
-                    'source' => 'list',
-                    'urls' => $top,
-                    'eagerness' => 'moderate',
-                ],
-                [
-                    'source' => 'document',
-                    'where' => [
-                        'href_matches' => '/blog/*',
-                    ],
-                    'eagerness' => 'conservative',
-                ],
-            ],
-        ];
+        return self::document(
+            prerender: array_slice($top, 0, 2),
+            prefetch: $top,
+            hrefMatches: '/blog/*',
+        );
     }
 
     /**
@@ -97,37 +49,11 @@ class SpeculationRules
             ->take(3)
             ->map(fn (array $project) => '/work/'.$project['slug']);
 
-        $prerenderUrls = $caseStudies->take(2)->values()->all();
-
-        $prefetchUrls = collect(['/about', '/blog'])
-            ->merge($caseStudies)
-            ->unique()
-            ->values()
-            ->all();
-
-        return [
-            'prerender' => [
-                [
-                    'source' => 'list',
-                    'urls' => $prerenderUrls,
-                    'eagerness' => 'moderate',
-                ],
-            ],
-            'prefetch' => [
-                [
-                    'source' => 'list',
-                    'urls' => $prefetchUrls,
-                    'eagerness' => 'moderate',
-                ],
-                [
-                    'source' => 'document',
-                    'where' => [
-                        'href_matches' => '/work/*',
-                    ],
-                    'eagerness' => 'conservative',
-                ],
-            ],
-        ];
+        return self::document(
+            prerender: $caseStudies->take(2)->values()->all(),
+            prefetch: collect(['/about', '/blog'])->merge($caseStudies)->all(),
+            hrefMatches: '/work/*',
+        );
     }
 
     /**
@@ -147,24 +73,10 @@ class SpeculationRules
             $urls->push('/work/'.$next['slug']);
         }
 
-        $list = $urls->unique()->values()->all();
-
-        return [
-            'prerender' => array_filter([
-                $next !== null ? [
-                    'source' => 'list',
-                    'urls' => ['/work/'.$next['slug']],
-                    'eagerness' => 'moderate',
-                ] : null,
-            ]),
-            'prefetch' => [
-                [
-                    'source' => 'list',
-                    'urls' => $list,
-                    'eagerness' => 'moderate',
-                ],
-            ],
-        ];
+        return self::document(
+            prerender: $next !== null ? ['/work/'.$next['slug']] : [],
+            prefetch: $urls->all(),
+        );
     }
 
     /**
@@ -200,8 +112,6 @@ class SpeculationRules
             }
         }
 
-        $list = $urls->unique()->values()->all();
-
         $prerender = [];
         if ($series !== null && $series['next'] !== null) {
             $prerender[] = '/blog/'.$series['next']->slug;
@@ -209,7 +119,40 @@ class SpeculationRules
         if ($next !== null) {
             $prerender[] = '/blog/'.$next->slug;
         }
+
+        return self::document(
+            prerender: $prerender,
+            prefetch: $urls->all(),
+        );
+    }
+
+    /**
+     * @param  list<string>  $prerender
+     * @param  list<string>  $prefetch
+     * @return array<string, mixed>
+     */
+    protected static function document(array $prerender, array $prefetch, ?string $hrefMatches = null): array
+    {
         $prerender = array_values(array_unique($prerender));
+        $prefetch = array_values(array_unique($prefetch));
+
+        $prefetchRules = [
+            [
+                'source' => 'list',
+                'urls' => $prefetch,
+                'eagerness' => 'moderate',
+            ],
+        ];
+
+        if ($hrefMatches !== null) {
+            $prefetchRules[] = [
+                'source' => 'document',
+                'where' => [
+                    'href_matches' => $hrefMatches,
+                ],
+                'eagerness' => 'conservative',
+            ];
+        }
 
         return array_filter([
             'prerender' => $prerender === [] ? null : [
@@ -219,13 +162,7 @@ class SpeculationRules
                     'eagerness' => 'moderate',
                 ],
             ],
-            'prefetch' => [
-                [
-                    'source' => 'list',
-                    'urls' => $list,
-                    'eagerness' => 'moderate',
-                ],
-            ],
+            'prefetch' => $prefetchRules,
         ]);
     }
 }

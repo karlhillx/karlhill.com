@@ -1,12 +1,11 @@
 @if($latestPosts->isNotEmpty())
-    <x-site.section id="writing" section-label="Latest Writing" border="soft" aria-label="Latest writing">
-        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 site-heading-space" data-reveal>
-            <x-site.section-heading number="02" label="Latest Writing" class="!mb-0" />
+    <x-site.section id="writing" section-label="Latest Writing" border="soft" aria-label="Latest writing" number="02" label="Latest Writing">
+        <x-slot:actions>
             <a href="/blog"
                class="font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors shrink-0">
                 All writing <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
             </a>
-        </div>
+        </x-slot:actions>
 
         <ul class="divide-y divide-neutral-800/70 site-bleed">
             @foreach($latestPosts as $post)

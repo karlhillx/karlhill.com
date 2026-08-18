@@ -228,7 +228,7 @@ it('service worker and offline page are available', function () {
     $this->assertFileExists(public_path('sw.js'));
     $this->assertFileExists(public_path('offline.html'));
     $this->assertStringContainsString("You're offline", (string) file_get_contents(public_path('offline.html')));
-    $this->assertStringContainsString('karlhill-offline-v7', (string) file_get_contents(public_path('sw.js')));
+    $this->assertStringContainsString('karlhill-offline-v8', (string) file_get_contents(public_path('sw.js')));
     $this->assertStringContainsString("'/now'", (string) file_get_contents(public_path('sw.js')));
     $this->assertStringContainsString("'/about'", (string) file_get_contents(public_path('sw.js')));
     $this->assertStringContainsString("'/work'", (string) file_get_contents(public_path('sw.js')));

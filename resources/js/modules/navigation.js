@@ -1,11 +1,9 @@
 import { prefersReducedMotion, supportsScrollTimeline } from '../lib/prefs.js';
 
 export function initNavigation() {
-    const minimap = document.getElementById('section-minimap');
     const sections = Array.from(document.querySelectorAll('main section[id], footer[id]'));
     const navSpyLinks = document.querySelectorAll('nav[aria-label="Primary"] a[data-nav-section]');
     const railLinks = document.querySelectorAll('#section-rail a[data-rail-section]');
-    let minimapButtons = [];
 
     const setActiveSection = (sectionId) => {
         navSpyLinks.forEach((link) => {
@@ -21,45 +19,7 @@ export function initNavigation() {
                 link.removeAttribute('aria-current');
             }
         });
-
-        minimapButtons.forEach((btn) => {
-            btn.setAttribute(
-                'aria-current',
-                btn.getAttribute('data-jump') === sectionId ? 'true' : 'false'
-            );
-        });
     };
-
-    if (minimap && sections.length > 0) {
-        minimap.innerHTML = sections
-            .map((section) => {
-                const id = section.getAttribute('id');
-                const label = section.dataset.sectionLabel || id?.replace(/-/g, ' ') || 'section';
-                const anchor = String(id || 'section').replace(/[^a-zA-Z0-9_-]/g, '');
-                const tip = String(label)
-                    .replace(/&/g, '&amp;')
-                    .replace(/</g, '&lt;')
-                    .replace(/"/g, '&quot;');
-                return `<div class="section-minimap-item">
-                <button type="button" data-jump="${id}" style="anchor-name: --mm-${anchor}" aria-label="Jump to ${tip}"></button>
-                <span class="section-minimap-tip" style="position-anchor: --mm-${anchor}">${tip}</span>
-            </div>`;
-            })
-            .join('');
-
-        minimapButtons = Array.from(minimap.querySelectorAll('button[data-jump]'));
-
-        minimapButtons.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                const id = btn.getAttribute('data-jump');
-                const target = id ? document.getElementById(id) : null;
-                target?.scrollIntoView({
-                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
-                    block: 'start',
-                });
-            });
-        });
-    }
 
     // IntersectionObserver rootMargin must use px or % only (rem throws in
     // browsers and historically aborted media.js before the lightbox wired up).

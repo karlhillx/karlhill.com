@@ -9,14 +9,6 @@ use Illuminate\Support\Facades\Log;
 
 class GitHubRepository
 {
-    private const FEATURED_REPOS = [
-        'sim-rs',
-        'pipeguard',
-        'bb-run',
-        'driftlens',
-        'drift-rs',
-    ];
-
     /**
      * @return Collection<int, GitHubRepo>
      */
@@ -142,7 +134,7 @@ class GitHubRepository
 
     protected function sortFeaturedRepos(array $repos): array
     {
-        $featuredRank = array_flip(self::FEATURED_REPOS);
+        $featuredRank = array_flip($this->featuredSlugs());
 
         usort($repos, function ($a, $b) use ($featuredRank) {
             $aName = strtolower((string) ($a['name'] ?? ''));
@@ -159,5 +151,21 @@ class GitHubRepository
         });
 
         return $repos;
+    }
+
+    /**
+     * @return list<string>
+     */
+    protected function featuredSlugs(): array
+    {
+        $fallback = config('site.github.fallback_repos', []);
+        if (! is_array($fallback)) {
+            return [];
+        }
+
+        return array_values(array_filter(array_map(
+            static fn ($row): string => strtolower((string) (is_array($row) ? ($row['name'] ?? '') : '')),
+            $fallback,
+        )));
     }
 }

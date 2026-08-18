@@ -26,6 +26,8 @@
         </div>
         <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <button type="button"
+                    command="toggle-popover"
+                    commandfor="command-palette"
                     popovertarget="command-palette"
                     aria-label="Jump to a page or section"
                     aria-keyshortcuts="Meta+K"
@@ -37,6 +39,8 @@
                 <span class="sr-only">Jump</span>
             </button>
             <button type="button"
+                    command="toggle-popover"
+                    commandfor="command-palette"
                     popovertarget="command-palette"
                     aria-label="Jump to a page or section"
                     aria-keyshortcuts="Meta+K"
@@ -53,7 +57,10 @@
                class="btn-sweep hidden md:inline-flex items-center min-h-11 text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest">
                 Get in Touch
             </a>
-            <button id="nav-toggle" type="button" popovertarget="mobile-menu"
+            <button id="nav-toggle" type="button"
+                    command="toggle-popover"
+                    commandfor="mobile-menu"
+                    popovertarget="mobile-menu"
                     aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu"
                     class="md:hidden flex flex-col justify-center items-center min-h-11 min-w-11 gap-1.5 border border-neutral-700 hover:border-accent transition-colors shrink-0">
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
@@ -91,6 +98,8 @@
                 Email
             </a>
             <button type="button"
+                    command="show-popover"
+                    commandfor="command-palette"
                     popovertarget="command-palette"
                     class="min-h-11 py-3.5 text-left hover:text-accent transition-colors">
                 Jump to page or section

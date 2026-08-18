@@ -26,140 +26,42 @@ final class PageMeta
 
     public static function siteUrl(): string
     {
-        return rtrim(config('app.url', 'https://karlhill.com'), '/');
+        return rtrim((string) config('app.url', 'https://karlhill.com'), '/');
     }
 
     public static function home(): self
     {
-        $seo = config('site.seo.home');
-        $url = self::siteUrl();
-
-        return new self(
-            title: $seo['title'],
-            description: $seo['description'],
-            canonical: $url,
-            ogTitle: $seo['title'],
-            ogDescription: $seo['og_description'],
-            ogImage: "{$url}/img/og-home.jpg",
-            ogImageAlt: $seo['title'],
-            ogImageWidth: 1200,
-            ogImageHeight: 630,
-            activeNav: 'home',
-        );
+        return self::fromSeo('home', '/', 'home');
     }
 
     public static function blogIndex(): self
     {
-        $seo = config('site.seo.blog_index');
-        $url = self::siteUrl();
-
-        return new self(
-            title: $seo['title'],
-            description: $seo['description'],
-            canonical: "{$url}/blog",
-            ogTitle: $seo['title'],
-            ogDescription: $seo['og_description'],
-            ogImage: "{$url}/img/og-home.jpg",
-            ogImageAlt: $seo['title'],
-            ogImageWidth: 1200,
-            ogImageHeight: 630,
-            activeNav: 'writing',
-        );
+        return self::fromSeo('blog_index', '/blog', 'writing');
     }
 
     public static function work(): self
     {
-        $seo = config('site.seo.work');
-        $url = self::siteUrl();
-
-        return new self(
-            title: $seo['title'],
-            description: $seo['description'],
-            canonical: "{$url}/work",
-            ogTitle: $seo['title'],
-            ogDescription: $seo['og_description'],
-            ogImage: "{$url}/img/og-home.jpg",
-            ogImageAlt: $seo['title'],
-            ogImageWidth: 1200,
-            ogImageHeight: 630,
-            activeNav: 'work',
-        );
+        return self::fromSeo('work', '/work', 'work');
     }
 
     public static function about(): self
     {
-        $seo = config('site.seo.about');
-        $url = self::siteUrl();
-
-        return new self(
-            title: $seo['title'],
-            description: $seo['description'],
-            canonical: "{$url}/about",
-            ogTitle: $seo['title'],
-            ogDescription: $seo['og_description'],
-            ogImage: "{$url}/img/og-home.jpg",
-            ogImageAlt: $seo['title'],
-            ogImageWidth: 1200,
-            ogImageHeight: 630,
-            activeNav: 'about',
-        );
+        return self::fromSeo('about', '/about', 'about');
     }
 
     public static function now(): self
     {
-        $seo = config('site.seo.now');
-        $url = self::siteUrl();
-
-        return new self(
-            title: $seo['title'],
-            description: $seo['description'],
-            canonical: "{$url}/now",
-            ogTitle: $seo['title'],
-            ogDescription: $seo['og_description'],
-            ogImage: "{$url}/img/og-home.jpg",
-            ogImageAlt: $seo['title'],
-            ogImageWidth: 1200,
-            ogImageHeight: 630,
-            activeNav: 'now',
-        );
+        return self::fromSeo('now', '/now', 'now');
     }
 
     public static function resume(): self
     {
-        $seo = config('site.seo.resume');
-        $url = self::siteUrl();
-
-        return new self(
-            title: $seo['title'],
-            description: $seo['description'],
-            canonical: "{$url}/resume",
-            ogTitle: $seo['title'],
-            ogDescription: $seo['og_description'],
-            ogImage: "{$url}/img/og-home.jpg",
-            ogImageAlt: $seo['title'],
-            ogImageWidth: 1200,
-            ogImageHeight: 630,
-            activeNav: 'resume',
-        );
+        return self::fromSeo('resume', '/resume', 'resume');
     }
 
     public static function kit(): self
     {
-        $seo = config('site.seo.kit');
-        $url = self::siteUrl();
-
-        return new self(
-            title: $seo['title'],
-            description: $seo['description'],
-            canonical: "{$url}/kit",
-            ogTitle: $seo['title'],
-            ogDescription: $seo['og_description'],
-            ogImage: "{$url}/img/og-home.jpg",
-            ogImageAlt: $seo['title'],
-            ogImageWidth: 1200,
-            ogImageHeight: 630,
-            activeNav: null,
-        );
+        return self::fromSeo('kit', '/kit', null);
     }
 
     public static function clients(): self
@@ -169,10 +71,10 @@ final class PageMeta
         return new self(
             title: 'Client staging — Karl Hill',
             description: 'Staging previews for client websites in progress.',
-            canonical: "{$url}/clients",
+            canonical: $url.'/clients',
             ogTitle: 'Client staging — Karl Hill',
             ogDescription: 'Staging previews for client websites in progress.',
-            ogImage: "{$url}/img/og-home.jpg",
+            ogImage: $url.'/img/og-home.jpg',
             ogImageAlt: 'Client staging — Karl Hill',
             ogImageWidth: 1200,
             ogImageHeight: 630,
@@ -226,8 +128,6 @@ final class PageMeta
         $slug = $project['slug'];
         $study = $project['case_study'];
 
-        // Generated OG cards are always 1200×630; the raw project screenshot
-        // fallback has unknown dimensions, so we omit them rather than lie.
         $ogCard = ProjectCatalog::ogImageUrl($slug);
 
         return new self(
@@ -268,8 +168,6 @@ final class PageMeta
 
     public static function notFound(): self
     {
-        // No canonical: a 404 must not claim another URL as its canonical
-        // version (it's already noindex).
         return new self(
             title: 'Page not found — Karl Hill',
             description: 'This page does not exist or has moved.',
@@ -303,5 +201,25 @@ final class PageMeta
             'articleModifiedTime' => $this->articleModifiedTime,
             'articleAuthor' => $this->articleAuthor,
         ];
+    }
+
+    private static function fromSeo(string $key, string $path, ?string $activeNav): self
+    {
+        $seo = config('site.seo.'.$key);
+        $url = self::siteUrl();
+        $canonical = $path === '/' ? $url : $url.$path;
+
+        return new self(
+            title: $seo['title'],
+            description: $seo['description'],
+            canonical: $canonical,
+            ogTitle: $seo['title'],
+            ogDescription: $seo['og_description'],
+            ogImage: $url.'/img/og-home.jpg',
+            ogImageAlt: $seo['title'],
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
+            activeNav: $activeNav,
+        );
     }
 }

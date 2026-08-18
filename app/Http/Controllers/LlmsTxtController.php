@@ -25,7 +25,6 @@ class LlmsTxtController extends Controller
     {
         return response($body, 200, [
             'Content-Type' => 'text/plain; charset=utf-8',
-            'Cache-Control' => 'public, max-age=3600',
         ]);
     }
 }

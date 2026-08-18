@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Support\BlogPostRepository;
 use App\Support\BlogSeries;
 use App\Support\PageMeta;
+use App\Support\WebmentionStore;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -51,11 +52,8 @@ class BlogController extends Controller
             'post' => $post,
             'adjacentPosts' => $this->posts->adjacent($post),
             'series' => BlogSeries::forPost($post),
-            'relatedPosts' => $this->posts->all()
-                ->reject(fn ($candidate) => $candidate->slug === $post->slug)
-                ->filter(fn ($candidate) => count(array_intersect($candidate->tags, $post->tags)) > 0)
-                ->take(2)
-                ->values(),
+            'relatedPosts' => $this->posts->related($post),
+            'webmentions' => WebmentionStore::forSlug($post->slug),
         ]);
     }
 

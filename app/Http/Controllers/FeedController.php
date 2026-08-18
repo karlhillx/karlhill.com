@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Support\BlogPostRepository;
+use App\Support\PageMeta;
 use Illuminate\Http\Response;
 
 class FeedController extends Controller
@@ -14,7 +15,7 @@ class FeedController extends Controller
     public function atom(): Response
     {
         $posts = $this->posts->all();
-        $base = rtrim(config('app.url', 'https://karlhill.com'), '/');
+        $base = PageMeta::siteUrl();
         $updated = $posts->isNotEmpty() ? $posts->first()->isoDate() : now()->toIso8601String();
 
         $feedId = $base.'/feed.xml';
@@ -63,14 +64,13 @@ XML;
 
         return response($xml, 200, [
             'Content-Type' => 'application/atom+xml; charset=utf-8',
-            'Cache-Control' => 'public, max-age=900',
         ]);
     }
 
     public function json(): Response
     {
         $posts = $this->posts->all();
-        $base = rtrim(config('app.url', 'https://karlhill.com'), '/');
+        $base = PageMeta::siteUrl();
 
         $items = $posts->map(function ($post) {
             return array_filter([
@@ -110,7 +110,6 @@ XML;
             200,
             [
                 'Content-Type' => 'application/feed+json; charset=utf-8',
-                'Cache-Control' => 'public, max-age=900',
             ],
         );
     }

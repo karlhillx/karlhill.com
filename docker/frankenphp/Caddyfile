@@ -1,0 +1,15 @@
+{
+	frankenphp
+	order php_server before file_server
+}
+
+:80 {
+	root * /app/public
+	encode zstd gzip
+	php_server
+	header {
+		# Origin Link preloads (fonts, Vite, compression dictionary) are
+		# eligible for 103 Early Hints on HTTP/2 and HTTP/3.
+		defer
+	}
+}

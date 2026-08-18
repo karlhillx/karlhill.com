@@ -19,7 +19,7 @@ final class PageFeatures
         $name = $request->route()?->getName() ?? '';
 
         // Footer contact form is on nearly every page.
-        $features = ['contact', 'share'];
+        $features = ['contact'];
 
         if ($name === 'home') {
             $features[] = 'pointer';
@@ -34,6 +34,16 @@ final class PageFeatures
         if (in_array($name, ['work.show', 'blog.show'], true)) {
             $features[] = 'media';
             $features[] = 'reveal';
+            $features[] = 'highlight';
+
+            if ($name === 'blog.show') {
+                $features[] = 'push';
+                $features[] = 'share';
+            }
+
+            if ($name === 'work.show' && $request->route('slug') === 'flood-mapping-system' && SiteFeatures::webgpu()) {
+                $features[] = 'webgpu';
+            }
 
             return array_values(array_unique($features));
         }
@@ -46,9 +56,13 @@ final class PageFeatures
             $features[] = 'reveal';
         }
 
-        // Work/blog indexes render LQIP cards — need media.js or images stay blank.
         if (str_starts_with((string) $name, 'work') || str_starts_with((string) $name, 'blog')) {
             $features[] = 'media';
+            $features[] = 'soft-nav';
+        }
+
+        if (str_starts_with((string) $name, 'blog')) {
+            $features[] = 'push';
         }
 
         return array_values(array_unique($features));

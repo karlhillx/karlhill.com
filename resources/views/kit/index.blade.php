@@ -65,7 +65,7 @@
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
             <h2 id="kit-glance-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">At a glance</h2>
             <div class="max-w-2xl">
-                <p class="kit-bio text-neutral-200 text-lg leading-relaxed">{{ $kit['bio'] }}</p>
+                <p class="kit-bio text-neutral-200 text-lg leading-relaxed">{{ $person['bio'] }}</p>
                 <dl class="kit-facts mt-8 grid sm:grid-cols-2 gap-4 text-sm">
                     <div>
                         <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Name</dt>
@@ -117,6 +117,15 @@
                         </a>
                     </li>
                 @endforeach
+                <li class="py-1">
+                    <a href="{{ url('/api/credentials.json') }}"
+                       class="group flex flex-wrap items-center justify-between gap-2 min-h-11 py-3">
+                        <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">
+                            Content credentials
+                        </span>
+                        <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">C2PA sidecar</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </section>

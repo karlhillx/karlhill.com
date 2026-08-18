@@ -3,7 +3,6 @@
 return [
     'eyebrow' => 'Recruiter kit',
     'lede' => 'Hire packet for aerospace and mission software leadership — resume PDF, bio, and the links that matter.',
-    'bio' => 'Eight years shipping NASA Earth science platforms under real operational pressure. Now leading cloud-native mission software delivery in aerospace at Jacobs — planning, DevSecOps, and release discipline across constrained environments. Targeting Engineering Manager and Staff+ platform leadership roles in aerospace, defense, and federal mission software.',
     'highlights' => [
         'Staff Aerospace Software Engineer at Jacobs — mission simulation & telemetry platforms',
         'Prior: Lead Software Engineer, SSAI / NASA Goddard — Earth science platforms & flood mapping at scale',

@@ -11,6 +11,8 @@ it('accepts a known slug when asset steps are skipped', function () {
         'slug' => 'release-governance',
         '--skip-assets' => true,
         '--skip-og' => true,
+        '--skip-webmentions' => true,
+        '--skip-push' => true,
     ])
         ->expectsOutputToContain('Publishing')
         ->expectsOutputToContain('/blog/release-governance')

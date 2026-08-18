@@ -27,6 +27,7 @@
     @if($href)
         <a href="{{ $href }}"
            @if($external) target="_blank" rel="noopener noreferrer" @endif
+           @if($slug) interestfor="work-preview-{{ $slug }}" @endif
            class="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-none"
            @if($titleId) aria-labelledby="{{ $titleId }}" @else aria-label="{{ $title }}" @endif>
             <span class="sr-only">
@@ -80,3 +81,10 @@
         </div>
     </div>
 </article>
+@if($slug && $href && ! $external)
+    <div id="work-preview-{{ $slug }}" popover="hint" class="interest-preview">
+        <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">{{ $meta }}</p>
+        <p class="font-display text-base tracking-wide text-white leading-tight mb-2">{{ $title }}</p>
+        <p class="text-neutral-400 text-xs leading-relaxed">{{ $description }}</p>
+    </div>
+@endif

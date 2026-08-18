@@ -1,0 +1,16 @@
+services:
+  frankenphp:
+    build:
+      context: .
+      dockerfile: docker/frankenphp/Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      APP_ENV: production
+      EARLY_HINTS: "true"
+    volumes:
+      - .:/app
+      - /app/vendor
+      - /app/node_modules
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

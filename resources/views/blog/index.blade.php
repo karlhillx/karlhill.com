@@ -6,11 +6,11 @@
     '@context' => 'https://schema.org',
     '@type'    => 'Blog',
     'name'     => 'Karl Hill — Writing',
-    'url'      => rtrim(config('app.url', 'https://karlhill.com'), '/') . '/blog',
+    'url'      => \App\Support\PageMeta::siteUrl() . '/blog',
     'author'   => [
         '@type' => 'Person',
         'name'  => config('site.person.name'),
-        'url'   => rtrim(config('app.url', 'https://karlhill.com'), '/'),
+        'url'   => \App\Support\PageMeta::siteUrl(),
     ],
     'blogPost' => $posts->map(fn($p) => [
         '@type'         => 'BlogPosting',
@@ -54,6 +54,7 @@
            class="inline-flex items-center gap-2 font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors">
             JSON Feed
         </a>
+        <x-site.push-subscribe />
         <span class="font-mono text-[11px] text-neutral-500 uppercase tracking-widest">No newsletter, no spam — just the feed.</span>
     </div>
 </x-site.page-hero>
@@ -99,7 +100,7 @@
                 @endif
             </p>
         @else
-            <ul class="divide-y divide-neutral-800/70 site-bleed">
+            <ul class="divide-y divide-neutral-800/70 site-bleed" data-soft-nav-target style="view-transition-name: writing-list">
                 @foreach($posts as $post)
                     <li class="group" data-reveal>
                         <div class="site-list-row grid md:grid-cols-[200px_1fr] gap-6 md:gap-12 hover:bg-neutral-900/30 transition-colors relative">
@@ -116,6 +117,7 @@
                                 <h2 class="font-display text-2xl sm:text-3xl md:text-4xl tracking-wide text-neutral-100 group-hover:text-accent transition-colors mb-4 leading-tight text-balance"
                                     style="view-transition-name: post-{{ $post->slug }}; view-transition-class: post-title">
                                     <a href="{{ $post->url() }}"
+                                       interestfor="post-preview-{{ $post->slug }}"
                                        class="inline-block after:absolute after:inset-0 after:content-['']">
                                         {{ $post->title }}
                                     </a>
@@ -135,6 +137,11 @@
                                     </span>
                                 </div>
                             </div>
+                        </div>
+                        <div id="post-preview-{{ $post->slug }}" popover="hint" class="interest-preview">
+                            <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">{{ $post->publishedAt->format('M j, Y') }} · {{ $post->readMinutes }} min</p>
+                            <p class="font-display text-base tracking-wide text-white leading-tight mb-2">{{ $post->title }}</p>
+                            <p class="text-neutral-400 text-xs leading-relaxed">{{ $post->excerpt }}</p>
                         </div>
                     </li>
                 @endforeach

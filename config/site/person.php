@@ -11,4 +11,5 @@ return [
     'availability' => 'Open to Engineering Manager & Staff+ roles in aerospace, defense & federal mission software',
     'employer' => 'Jacobs',
     'twitter_handle' => '@karl_hill',
+    'bio' => 'Eight years shipping NASA Earth science platforms under real operational pressure. Now leading cloud-native mission software delivery in aerospace at Jacobs — planning, DevSecOps, and release discipline across constrained environments. Targeting Engineering Manager and Staff+ platform leadership roles in aerospace, defense, and federal mission software.',
 ];
