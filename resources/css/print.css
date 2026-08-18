@@ -39,6 +39,13 @@
         text-shadow: none !important;
     }
 
+    main > section,
+    main > article.site-section,
+    footer#contact {
+        content-visibility: visible !important;
+        contain-intrinsic-size: auto !important;
+    }
+
     /* Reveal / view-timeline entries must print fully visible. */
     [data-reveal] {
         opacity: 1 !important;

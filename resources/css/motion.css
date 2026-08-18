@@ -972,6 +972,33 @@ html.save-data .surface-card-media {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
+/* One-shot Book CTA settle after idle (class added by pointer.js). */
+@keyframes ctaIdleSettle {
+    0%,
+    100% {
+        transform: translate3d(var(--mx, 0px), var(--my, 0px), 0);
+    }
+    38% {
+        transform: translate3d(calc(var(--mx, 0px) + 4px), calc(var(--my, 0px) - 2px), 0);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    [data-idle-cta].is-idle-settle {
+        animation: ctaIdleSettle 0.9s var(--ease-out-spring) 1;
+    }
+}
+
+/* Pause homepage infinite loops when the hero is off-screen or the tab is hidden. */
+html.hero-ambient-paused .hero-dot-grid,
+html.hero-ambient-paused .hero-mesh__blob,
+html.hero-ambient-paused #hero .hero-portrait,
+html.hero-ambient-paused .hero-shine,
+html.hero-ambient-paused #hero .availability-pulse,
+html.hero-ambient-paused #hero .availability-pulse::after {
+    animation-play-state: paused;
+}
+
 /* Command palette — liquid glass surface with staggered result entrance. */
 .command-palette {
     inset: 12vh 0 auto 0;
@@ -1232,6 +1259,9 @@ nav[aria-label='Primary'] {
     .magnetic-btn {
         transform: none !important;
         transition: none;
+    }
+    [data-idle-cta].is-idle-settle {
+        animation: none;
     }
     a.surface-card:hover,
     a.surface-card:focus-visible,

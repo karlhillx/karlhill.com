@@ -49,11 +49,13 @@
             <div class="hero-cta flex flex-wrap items-center hero-enter" style="animation-delay:420ms">
                 @if(filled($bookingUrl))
                     <a href="/now#book"
+                       data-idle-cta
                        class="hero-cta-btn btn-accent-fill magnetic-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200">
                         {{ $bookingLabel }}
                     </a>
                 @else
                     <a href="/now"
+                       data-idle-cta
                        class="hero-cta-btn btn-accent-fill magnetic-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200">
                         Now
                     </a>

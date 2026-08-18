@@ -18,11 +18,12 @@ final class PageFeatures
         $request ??= request();
         $name = $request->route()?->getName() ?? '';
 
-        // Footer contact form is on nearly every page.
-        $features = ['contact'];
+        // Footer contact form is on nearly every page. Pointer loads site-wide
+        // so the page spotlight can wander on idle; magnetic/tilt no-op when
+        // those nodes are absent.
+        $features = ['contact', 'pointer'];
 
         if ($name === 'home') {
-            $features[] = 'pointer';
             $features[] = 'reveal';
             $features[] = 'cmdk-tip';
             // Portrait + work cards use LQIP / media enhancements.

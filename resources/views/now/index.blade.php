@@ -41,6 +41,7 @@
                     <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-8">
                         @if(filled($bookingUrl))
                             <a href="#book"
+                               data-idle-cta
                                class="btn-sweep inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs text-accent border border-accent/40 px-5 py-3 uppercase tracking-widest transition-colors">
                                 {{ $bookingLabel }} →
                             </a>

@@ -60,7 +60,7 @@
                 style="view-transition-name: work-title-{{ $project['slug'] }}">
                 {{ $project['title'] }}
             </h1>
-            <p class="text-neutral-400 text-base leading-relaxed mb-10 max-w-2xl">{{ $study['lede'] }}</p>
+            <p class="case-study-lede text-neutral-400 text-base leading-relaxed mb-10 max-w-2xl">{{ $study['lede'] }}</p>
 
             <details class="article-toc-mobile lg:hidden mb-6 surface-card-static p-4">
                 <summary class="font-mono text-xs text-accent uppercase tracking-widest cursor-pointer select-none">

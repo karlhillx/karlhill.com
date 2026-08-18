@@ -20,6 +20,11 @@
     margin: 0;
 }
 
+.prose-karl p,
+.prose-karl li {
+    text-wrap: pretty;
+}
+
 .prose-karl > * + * {
     margin-top: 0.85em;
 }
@@ -954,6 +959,7 @@ a.series-chapters__card:hover .series-chapters__title,
     overscroll-behavior-x: contain;
     scrollbar-width: thin;
     padding-bottom: 0.15rem;
+    scroll-behavior: smooth;
     mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 1.5rem), transparent);
 }
 
@@ -963,7 +969,56 @@ a.series-chapters__card:hover .series-chapters__title,
         overflow: visible;
         mask-image: none;
         padding-bottom: 0;
+        scroll-behavior: auto;
     }
+}
+
+/* Native overflow buttons — progressive; swipe + fade remain the fallback. */
+@media (max-width: 767px) {
+    @supports selector(::scroll-button(inline-end)) {
+        .tag-filter--scroll {
+            mask-image: none;
+        }
+
+        .tag-filter--scroll::scroll-button(inline-start),
+        .tag-filter--scroll::scroll-button(inline-end) {
+            flex-shrink: 0;
+            inline-size: 2.25rem;
+            block-size: 2.25rem;
+            margin: 0;
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            background: color-mix(in oklab, var(--bg) 88%, var(--panel));
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .tag-filter--scroll::scroll-button(inline-start) {
+            content: '←';
+        }
+
+        .tag-filter--scroll::scroll-button(inline-end) {
+            content: '→';
+        }
+
+        .tag-filter--scroll::scroll-button(inline-start):hover,
+        .tag-filter--scroll::scroll-button(inline-end):hover {
+            border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
+        }
+
+        .tag-filter--scroll::scroll-button(inline-start):disabled,
+        .tag-filter--scroll::scroll-button(inline-end):disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+    }
+}
+
+.case-study-lede {
+    text-wrap: pretty;
 }
 
 /* Case study — Outcome / Stack / Role skim panel */

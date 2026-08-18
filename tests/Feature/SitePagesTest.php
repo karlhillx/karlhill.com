@@ -61,6 +61,8 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('hero-mesh', escape: false);
     $response->assertSee('page-spotlight', escape: false);
     $response->assertSee('magnetic-btn', escape: false);
+    $response->assertSee('data-idle-cta', escape: false);
+    $response->assertSee('data-features="contact pointer', escape: false);
     $response->assertDontSee('id="experience"', escape: false);
     $response->assertDontSee('id="open-source"', escape: false);
 });
@@ -219,6 +221,7 @@ it('booking cta appears when configured', function () {
     $now->assertSee('Book a conversation', escape: false);
     $now->assertSee('id="book"', escape: false);
     $now->assertSee('booking-embed__frame', escape: false);
+    $now->assertSee('data-idle-cta', escape: false);
 
     $home = $this->get('/');
     $home->assertSee('data-booking-url="https://cal.com/example"', escape: false);
@@ -333,4 +336,11 @@ it('now page shows a fresh updated date and kit link', function () {
         ->assertSee('Updated August 12, 2026', escape: false)
         ->assertSee('href="/kit"', escape: false)
         ->assertSee('Recruiter kit', escape: false);
+});
+
+it('loads pointer effects on hire and interior pages', function () {
+    $this->get('/')->assertSee('data-features="contact pointer', escape: false);
+    $this->get('/now')->assertSee('data-features="contact pointer', escape: false);
+    $this->get('/work')->assertSee('data-features="contact pointer', escape: false);
+    $this->get('/about')->assertSee('data-features="contact pointer', escape: false);
 });

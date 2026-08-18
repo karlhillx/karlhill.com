@@ -53,11 +53,14 @@
     }
 }
 
-/* Defer expensive layout/paint work for below-the-fold sections */
-main > section:not(#hero),
+/* Defer expensive layout/paint for below-the-fold sections. Keep the first two
+   blocks (hero / page-hero + first content) eager so LCP and the first reveal
+   do not jump. */
+main > section:nth-of-type(n + 3),
+main > article.site-section,
 footer#contact {
     content-visibility: auto;
-    contain-intrinsic-size: 1px 1000px;
+    contain-intrinsic-size: auto 1000px;
 }
 
 /* Tone down continuously animating backgrounds on smaller devices */

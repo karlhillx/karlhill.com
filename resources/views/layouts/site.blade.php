@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth"
-      data-features="{{ implode(' ', $pageFeatures ?? ['contact']) }}"
+      data-features="{{ implode(' ', $pageFeatures ?? ['contact', 'pointer']) }}"
       @if(! app()->isProduction()) data-sw="off" @endif
       @if(filled(config('site.push.public_key')))
           data-vapid-public="{{ config('site.push.public_key') }}"
