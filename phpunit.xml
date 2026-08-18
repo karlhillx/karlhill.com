@@ -34,5 +34,11 @@
         <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
         <env name="NIGHTWATCH_ENABLED" value="false"/>
+        <env name="A11Y_FIXTURES" value="true"/>
+        <env name="WEBMENTION_ENABLED" value="true"/>
+        <env name="REPORTING_ENABLED" value="true"/>
+        <env name="COMPRESSION_DICTIONARY" value="true"/>
+        <env name="CONTENT_CREDENTIALS" value="true"/>
+        <env name="WEBGPU_FLOOD" value="true"/>
     </php>
 </phpunit>

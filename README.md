@@ -111,18 +111,18 @@ Interior pages stay scroll-driven (`view()` timelines). Touch, reduced-motion, a
 
 ### Optional platform surfaces
 
-Kill switches default **on**. Set `false` in `.env` to park a cluster without deleting code:
+Kill switches default **off**. Pest enables them via `phpunit.xml` so the
+code paths stay covered. In production, set `true` only for clusters you
+operate. Turnstile stays off until both keys are set (see above).
 
 ```env
-WEBMENTION_ENABLED=true
-REPORTING_ENABLED=true
-COMPRESSION_DICTIONARY=true
-CONTENT_CREDENTIALS=true
-WEBGPU_FLOOD=true
+WEBMENTION_ENABLED=false
+REPORTING_ENABLED=false
+COMPRESSION_DICTIONARY=false
+CONTENT_CREDENTIALS=false
+WEBGPU_FLOOD=false
 EARLY_HINTS=false          # FrankenPHP 103 only; Link preloads already emit
 ```
-
-Web Push subscribe UI appears only when both VAPID keys are set (`php artisan push:vapid`).
 
 ### CDN (recommended)
 
@@ -139,6 +139,8 @@ Suggested Cloudflare settings:
 5. Bypass cache for `POST /contact` and `/csrf-token` (already `no-store`).
 
 No app code changes are required for a basic CDN pass-through.
+
+Web Push subscribe UI appears only when both VAPID keys are set (`php artisan push:vapid`).
 
 ### Resume source of truth
 
@@ -173,11 +175,6 @@ and are served at:
 
 Not linked from the main nav or sitemap. Add a new folder under `clients/` to
 stage the next preview.
-
-**Octaves of Love** (sound baths) lives at
-`/clients/keithhillmusic.com/octaves-of-love/` (production path:
-`keithhillmusic.com/octaves-of-love/`). Point `octavesoflove.com` DNS forward
-at that URL. Email alias setup: `clients/EMAIL-SETUP.md`.
 
 ## Project Layout
 

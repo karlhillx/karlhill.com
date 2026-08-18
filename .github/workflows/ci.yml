@@ -16,7 +16,8 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
-          # gd (with FreeType) powers the dynamic per-post Open Graph cards.
+          # gd is unused for OG cards (static JPGs from og:generate) but kept
+          # for any remaining image helpers.
           extensions: dom, mbstring, fileinfo, gd
           coverage: none
 
@@ -52,15 +53,39 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
+      - name: Prepare application env
+        run: |
+          if [ ! -f .env ]; then cp .env.example .env; fi
+          php artisan key:generate --force
+
       - name: Accessibility audit + Playwright smoke
         env:
-              A11Y_FIXTURES: "true"
-              PLAYWRIGHT_BASE_URL: "http://127.0.0.1:8000"
+          A11Y_FIXTURES: "true"
+          PLAYWRIGHT_BASE_URL: "http://127.0.0.1:8000"
         run: |
-          A11Y_FIXTURES=true php artisan serve --host=127.0.0.1 --port=8000 > /dev/null 2>&1 &
+          set -euo pipefail
+          mkdir -p storage/logs
+          A11Y_FIXTURES=true php artisan serve --host=127.0.0.1 --port=8000 > storage/logs/artisan-serve.log 2>&1 &
+          SERVE_PID=$!
+          trap 'kill "$SERVE_PID" 2>/dev/null || true' EXIT
+          ready=0
           for i in $(seq 1 30); do
-            curl -sf http://127.0.0.1:8000/up > /dev/null && break
+            if curl -sf http://127.0.0.1:8000/up > /dev/null; then
+              ready=1
+              break
+            fi
             sleep 1
           done
+          if [ "$ready" != "1" ]; then
+            echo "artisan serve failed to become ready"
+            cat storage/logs/artisan-serve.log
+            exit 1
+          fi
+          HOME_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8000/)
+          if [ "$HOME_STATUS" != "200" ]; then
+            echo "Homepage returned HTTP $HOME_STATUS"
+            cat storage/logs/artisan-serve.log
+            exit 1
+          fi
           npm run a11y
           PLAYWRIGHT_SKIP_WEBSERVER=1 npm run test:e2e -- --project=chromium

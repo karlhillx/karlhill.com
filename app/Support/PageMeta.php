@@ -64,6 +64,15 @@ final class PageMeta
         return self::fromSeo('kit', '/kit', null);
     }
 
+    public static function a11yContactErrors(): self
+    {
+        return new self(
+            title: 'Contact validation fixture — Karl Hill',
+            description: 'CI-only contact form error state for accessibility audits.',
+            noindex: true,
+        );
+    }
+
     public static function clients(): self
     {
         $url = self::siteUrl();

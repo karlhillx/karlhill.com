@@ -53,12 +53,11 @@
     }
 }
 
-/* Defer expensive layout/paint for below-the-fold sections. Keep the first two
-   blocks (hero / page-hero + first content) eager so LCP and the first reveal
-   do not jump. */
-main > section:nth-of-type(n + 3),
-main > article.site-section,
-footer#contact {
+/* Defer expensive layout/paint for below-the-fold anonymous sections.
+   Never skip hash targets ([id]) or the contact footer — Chromium omits
+   content-visibility: auto subtrees from layout until they near the viewport,
+   which breaks #contact / #book jumps and Playwright visibility. */
+main > section:nth-of-type(n + 3):not([id]) {
     content-visibility: auto;
     contain-intrinsic-size: auto 1000px;
 }

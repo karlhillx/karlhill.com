@@ -17,22 +17,33 @@ use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\WebmentionController;
 use App\Http\Controllers\WorkController;
+use App\Support\PageMeta;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\ViewErrorBag;
 
 // Accessibility fixtures — only registered when A11Y_FIXTURES=true (CI).
 if (config('site.a11y_fixtures')) {
     Route::get('/__a11y/contact-errors', function () {
-        return redirect('/#contact-form')
-            ->withErrors([
-                'name' => 'The name field is required.',
-                'email' => 'The email field must be a valid email address.',
-                'message' => 'The message field must be at least 10 characters.',
+        $errors = new ViewErrorBag;
+        $errors->put('default', new MessageBag([
+            'name' => ['The name field is required.'],
+            'email' => ['The email field must be a valid email address.'],
+            'message' => ['The message field must be at least 10 characters.'],
+        ]));
+        View::share('errors', $errors);
+        request()->session()->flashInput([
+            'name' => '',
+            'email' => 'not-an-email',
+            'message' => 'too short',
+        ]);
+
+        return response()
+            ->view('a11y.contact-errors', [
+                'meta' => PageMeta::a11yContactErrors(),
             ])
-            ->withInput([
-                'name' => '',
-                'email' => 'not-an-email',
-                'message' => 'too short',
-            ]);
+            ->header('Cache-Control', 'no-store, private');
     })->name('a11y.contact-errors');
 }
 

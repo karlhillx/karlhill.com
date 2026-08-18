@@ -117,15 +117,17 @@
                         </a>
                     </li>
                 @endforeach
-                <li class="py-1">
-                    <a href="{{ url('/api/credentials.json') }}"
-                       class="group flex flex-wrap items-center justify-between gap-2 min-h-11 py-3">
-                        <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">
-                            Content credentials
-                        </span>
-                        <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">C2PA sidecar</span>
-                    </a>
-                </li>
+                @if(\App\Support\SiteFeatures::contentCredentials())
+                    <li class="py-1">
+                        <a href="{{ url('/api/credentials.json') }}"
+                           class="group flex flex-wrap items-center justify-between gap-2 min-h-11 py-3">
+                            <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">
+                                Content credentials
+                            </span>
+                            <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">C2PA sidecar</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </section>

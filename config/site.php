@@ -100,11 +100,11 @@ return [
     'early_hints' => filter_var(env('EARLY_HINTS', false), FILTER_VALIDATE_BOOLEAN),
 
     'features' => [
-        'webmention' => filter_var(env('WEBMENTION_ENABLED', true), FILTER_VALIDATE_BOOLEAN),
-        'reporting' => filter_var(env('REPORTING_ENABLED', true), FILTER_VALIDATE_BOOLEAN),
-        'compression_dictionary' => filter_var(env('COMPRESSION_DICTIONARY', true), FILTER_VALIDATE_BOOLEAN),
-        'content_credentials' => filter_var(env('CONTENT_CREDENTIALS', true), FILTER_VALIDATE_BOOLEAN),
-        'webgpu' => filter_var(env('WEBGPU_FLOOD', true), FILTER_VALIDATE_BOOLEAN),
+        'webmention' => filter_var(env('WEBMENTION_ENABLED', false), FILTER_VALIDATE_BOOLEAN),
+        'reporting' => filter_var(env('REPORTING_ENABLED', false), FILTER_VALIDATE_BOOLEAN),
+        'compression_dictionary' => filter_var(env('COMPRESSION_DICTIONARY', false), FILTER_VALIDATE_BOOLEAN),
+        'content_credentials' => filter_var(env('CONTENT_CREDENTIALS', false), FILTER_VALIDATE_BOOLEAN),
+        'webgpu' => filter_var(env('WEBGPU_FLOOD', false), FILTER_VALIDATE_BOOLEAN),
     ],
 
 ];

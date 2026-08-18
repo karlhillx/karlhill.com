@@ -58,7 +58,7 @@ test.describe('smoke + a11y', () => {
         const response = await page.goto('/__a11y/contact-errors');
         test.skip(response?.status() === 404, 'A11Y_FIXTURES not enabled on this server');
         await expect(page.locator('[aria-invalid="true"]').first()).toBeVisible();
-        await expect(page.locator('#contact-name-error')).toBeVisible();
+        await expect(page.locator('#a11y-name-error')).toBeVisible();
         await assertA11y(page);
     });
 

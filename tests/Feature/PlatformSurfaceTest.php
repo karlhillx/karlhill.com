@@ -91,3 +91,27 @@ it('blog index includes interest previews and highlight is on posts', function (
     $html = $this->get('/blog/release-governance')->assertOk()->getContent();
     expect($html)->toContain('highlight');
 });
+
+it('contact error fixture is uncached and exposes invalid fields', function () {
+    $this->get('/__a11y/contact-errors')
+        ->assertOk()
+        ->assertSee('aria-invalid="true"', escape: false)
+        ->assertSee('id="a11y-name-error"', escape: false)
+        ->assertSee('noindex', escape: false);
+
+    $cache = (string) $this->get('/__a11y/contact-errors')->headers->get('Cache-Control');
+    expect($cache)->toContain('no-store');
+});
+
+it('omits reporting and dictionary headers when those features are off', function () {
+    config([
+        'site.features.reporting' => false,
+        'site.features.compression_dictionary' => false,
+    ]);
+
+    $response = $this->get('/');
+    $response->assertOk();
+    expect($response->headers->get('Reporting-Endpoints'))->toBeNull()
+        ->and($response->headers->get('NEL'))->toBeNull()
+        ->and($response->headers->get('Available-Dictionary'))->toBeNull();
+});
