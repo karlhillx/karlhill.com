@@ -8,6 +8,41 @@ beforeEach(function () {
     Cache::flush();
 });
 
+it('ranks featured fallback order so bb-run leads live results', function () {
+    Http::preventStrayRequests();
+
+    Http::fake([
+        'api.github.com/*' => Http::response([
+            [
+                'name' => 'sim-rs',
+                'description' => 'Simulation runtime',
+                'html_url' => 'https://github.com/karlhillx/sim-rs',
+                'stargazers_count' => 0,
+                'language' => 'Rust',
+                'topics' => ['simulation'],
+                'fork' => false,
+                'archived' => false,
+                'updated_at' => '2026-06-02T00:00:00Z',
+            ],
+            [
+                'name' => 'bb-run',
+                'description' => 'Run Bitbucket Pipelines locally',
+                'html_url' => 'https://github.com/karlhillx/bb-run',
+                'stargazers_count' => 12,
+                'language' => 'Python',
+                'topics' => ['devops'],
+                'fork' => false,
+                'archived' => false,
+                'updated_at' => '2026-06-01T00:00:00Z',
+            ],
+        ], 200),
+    ]);
+
+    $repos = app(GitHubRepository::class)->topRepos();
+
+    expect($repos->first()->name)->toBe('bb-run');
+});
+
 it('top repos returns featured public repositories', function () {
     Http::preventStrayRequests();
 
@@ -53,6 +88,7 @@ it('falls back to curated repos when api fails', function () {
     $repos = app(GitHubRepository::class)->topRepos();
 
     $this->assertGreaterThanOrEqual(1, $repos->count());
+    $this->assertSame('bb-run', $repos->first()->name);
     $this->assertTrue($repos->contains(fn ($repo) => $repo->name === 'sim-rs'));
 });
 

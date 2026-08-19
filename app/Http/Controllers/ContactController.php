@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMessage;
+use App\Support\ContactReturn;
 use App\Support\Turnstile;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -13,21 +14,6 @@ use Illuminate\Validation\ValidationException;
 
 class ContactController extends Controller
 {
-    /**
-     * Paths that may receive the post-submit redirect (fragment #contact).
-     *
-     * @var list<string>
-     */
-    protected array $allowedReturnPaths = [
-        '/',
-        '/now',
-        '/about',
-        '/resume',
-        '/work',
-        '/blog',
-        '/kit',
-    ];
-
     public function store(Request $request): RedirectResponse|JsonResponse
     {
         // Honeypot: real people never fill this hidden field. If it's populated
@@ -111,11 +97,7 @@ class ContactController extends Controller
     protected function done(Request $request): RedirectResponse|JsonResponse
     {
         if ($this->wantsJson($request)) {
-            return response()->json([
-                'status' => 'contact-sent',
-                'message' => 'Thanks — message sent. I\'ll reply from '.config('site.person.email').'.',
-                'email' => config('site.person.email'),
-            ]);
+            return response()->json($this->sentPayload());
         }
 
         return redirect($this->returnUrl($request, fragment: 'contact'))
@@ -129,19 +111,24 @@ class ContactController extends Controller
             || $request->header('X-Contact-Ajax') === '1';
     }
 
+    /**
+     * @return array{status: string, message: string, email: string, booking_url: ?string, booking_label: ?string}
+     */
+    protected function sentPayload(): array
+    {
+        $bookingUrl = filled(config('site.booking.url')) ? url('/now').'#book' : null;
+
+        return [
+            'status' => 'contact-sent',
+            'message' => 'Thanks — message sent. I\'ll reply from '.config('site.person.email').'.',
+            'email' => config('site.person.email'),
+            'booking_url' => $bookingUrl,
+            'booking_label' => $bookingUrl ? (string) config('site.booking.label') : null,
+        ];
+    }
+
     protected function returnUrl(Request $request, string $fragment): string
     {
-        $candidate = (string) $request->input('return_to', '');
-        $path = parse_url($candidate, PHP_URL_PATH);
-
-        if (! is_string($path) || $path === '') {
-            $path = '/';
-        }
-
-        if (! in_array($path, $this->allowedReturnPaths, true)) {
-            $path = '/';
-        }
-
-        return url($path).'#'.$fragment;
+        return url(ContactReturn::path($request->input('return_to'))).'#'.$fragment;
     }
 }

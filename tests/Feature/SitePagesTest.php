@@ -39,7 +39,9 @@ it('about page renders experience and credentials', function () {
     $response->assertSee('Verizon Business', escape: false);
     $response->assertSee('$105M', escape: false);
     $response->assertSee('Ticomix', escape: false);
-    $response->assertSee('Certified ScrumMaster', escape: false);
+    $response->assertSee('SAFe® Agilist', escape: false);
+    $response->assertSee('In progress', escape: false);
+    $response->assertDontSee('Certified ScrumMaster', escape: false);
     $response->assertSee('href="/work/flood-mapping-system"', escape: false);
     $response->assertSee('href="/work/nasa-earth-observatory"', escape: false);
     $response->assertSee('href="/work/finium"', escape: false);
@@ -262,12 +264,15 @@ it('homepage hero links to em funnel', function () {
     $response->assertSee('Open to Engineering Manager', escape: false);
 });
 
-it('desktop nav includes resume and contact form funnel', function () {
-    $response = $this->get('/');
+it('desktop nav includes resume and a single contact CTA', function () {
+    $html = $this->get('/')->assertOk()->getContent();
 
-    $response->assertSee('href="/resume"', escape: false);
-    $response->assertSee('Get in Touch', escape: false);
-    $response->assertDontSee('href="mailto:'.config('site.person.email').'" class="btn-sweep hidden md:inline-flex', escape: false);
+    expect($html)
+        ->toContain('href="/resume"')
+        ->toContain('Get in Touch')
+        ->not->toContain('href="mailto:'.config('site.person.email').'" class="btn-sweep hidden md:inline-flex');
+
+    expect(substr_count($html, 'data-nav-section="contact"'))->toBe(1);
 });
 
 it('now page embeds the booking scheduler', function () {
@@ -336,6 +341,17 @@ it('now page shows a fresh updated date and kit link', function () {
         ->assertSee('Updated August 12, 2026', escape: false)
         ->assertSee('href="/kit"', escape: false)
         ->assertSee('Recruiter kit', escape: false);
+});
+
+it('footer hides resume and kit self-links', function () {
+    $this->get('/resume')
+        ->assertOk()
+        ->assertSee('href="/kit"', escape: false)
+        ->assertSee('Recruiter kit', escape: false);
+
+    $kit = $this->get('/kit')->assertOk()->getContent();
+    expect($kit)->toContain('href="/resume"')
+        ->and($kit)->not->toContain('btn-sweep inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">');
 });
 
 it('loads pointer effects on hire and interior pages', function () {

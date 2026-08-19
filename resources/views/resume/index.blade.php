@@ -175,7 +175,7 @@
                         <ul class="resume-certs list-disc pl-5">
                             @foreach($certifications as $cert)
                                 <li class="text-sm text-neutral-300">
-                                    {{ $cert['name'] }}{{ ! empty($cert['issuer']) ? ', '.$cert['issuer'] : '' }}
+                                    {{ $cert['name'] }}{{ ! empty($cert['issuer']) ? ', '.$cert['issuer'] : '' }}{{ ! empty($cert['status']) ? ' ('.strtolower($cert['status']).')' : '' }}
                                 </li>
                             @endforeach
                         </ul>

@@ -2,7 +2,9 @@
 
 namespace App\Support;
 
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 final class Turnstile
 {
@@ -22,14 +24,27 @@ final class Turnstile
             return false;
         }
 
-        $response = Http::asForm()
-            ->timeout(5)
-            ->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', array_filter([
-                'secret' => config('site.turnstile.secret_key'),
-                'response' => $token,
-                'remoteip' => $remoteIp,
-            ]));
+        try {
+            $response = Http::asForm()
+                ->timeout(5)
+                ->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', array_filter([
+                    'secret' => config('site.turnstile.secret_key'),
+                    'response' => $token,
+                    'remoteip' => $remoteIp,
+                ]));
+        } catch (ConnectionException $e) {
+            // Cloudflare blip / timeout — do not 500 the form or block a recruiter.
+            Log::warning('Turnstile siteverify unreachable', ['message' => $e->getMessage()]);
 
-        return $response->successful() && ($response->json('success') === true);
+            return true;
+        }
+
+        if (! $response->successful()) {
+            Log::warning('Turnstile siteverify HTTP error', ['status' => $response->status()]);
+
+            return true;
+        }
+
+        return $response->json('success') === true;
     }
 }

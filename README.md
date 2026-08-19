@@ -83,7 +83,8 @@ BOOKING_LABEL="Book a conversation"
 ```
 
 Optional Cloudflare Turnstile for the contact form (skipped until both keys
-are set):
+are set). The widget script loads on form focus or when the footer is near
+the viewport — not on every page's first paint.
 
 ```env
 TURNSTILE_SITE_KEY=
@@ -95,7 +96,11 @@ Production should always set:
 ```env
 APP_URL=https://karlhill.com
 APP_DEBUG=false
+MAIL_MAILER=resend
+MAIL_FROM_ADDRESS="contact@karlhill.com"
 ```
+
+`MAIL_FROM_ADDRESS` must be on a domain verified in Resend. The onboarding sender only delivers to the Resend account inbox.
 
 ### Motion and idle UI
 

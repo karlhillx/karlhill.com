@@ -877,6 +877,13 @@ a.series-chapters__card:hover .series-chapters__title,
     background: color-mix(in oklab, oklch(55% 0.16 25) 12%, transparent);
 }
 
+.contact-form-status__next {
+    margin-top: 0.75rem;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: 0.75rem;
+}
+
 .site-toast {
     right: 1rem;
     bottom: 1rem;

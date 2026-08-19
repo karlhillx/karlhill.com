@@ -54,24 +54,26 @@
                     </button>
                 </div>
                 @if(filled(config('site.booking.url')))
-                    <a href="/now#book"
+                    <a href="{{ request()->routeIs('now') ? '#book' : '/now#book' }}"
                        class="btn-sweep inline-flex items-center gap-3 border border-accent/40 text-accent font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">
                         {{ config('site.booking.label') }}
                         <span aria-hidden="true">→</span>
                     </a>
                 @endif
 
-                <a href="/resume"
-                   class="btn-sweep inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">
-                    Resume
-                    <span aria-hidden="true">→</span>
-                </a>
+                @unless(request()->routeIs('resume'))
+                    <a href="/resume"
+                       class="inline-flex items-center min-h-11 font-mono text-sm text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors w-fit">
+                        Resume
+                    </a>
+                @endunless
 
-                <a href="/kit"
-                   class="btn-sweep inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">
-                    Recruiter kit
-                    <span aria-hidden="true">→</span>
-                </a>
+                @unless(request()->routeIs('kit'))
+                    <a href="/kit"
+                       class="inline-flex items-center min-h-11 font-mono text-sm text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors w-fit">
+                        Recruiter kit
+                    </a>
+                @endunless
 
                 <x-site.social-links />
             </div>

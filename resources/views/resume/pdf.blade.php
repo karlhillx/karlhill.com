@@ -616,7 +616,7 @@
                 <h2 id="certifications-heading" class="section-title">Certifications</h2>
                 <ul class="cert-list">
                     @foreach($certifications as $cert)
-                        <li><strong>{{ $cert['name'] }}</strong>@if(! empty($cert['issuer']))<span>, {{ $cert['issuer'] }}</span>@endif</li>
+                        <li><strong>{{ $cert['name'] }}</strong>@if(! empty($cert['issuer']))<span>, {{ $cert['issuer'] }}</span>@endif@if(! empty($cert['status']))<span> ({{ strtolower($cert['status']) }})</span>@endif</li>
                     @endforeach
                 </ul>
             </section>

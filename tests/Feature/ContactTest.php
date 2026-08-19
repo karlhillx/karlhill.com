@@ -1,6 +1,7 @@
 <?php
 
 use App\Mail\ContactMessage;
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
@@ -32,7 +33,10 @@ it('valid submission sends mail and redirects', function () {
     $this->followRedirects($response)
         ->assertOk()
         ->assertSee('data-toast', false)
-        ->assertSee('Thanks — message sent', false);
+        ->assertSee('Thanks — message sent', false)
+        ->assertSee('data-contact-complete', false)
+        ->assertSee('Or pick a time', false)
+        ->assertSee(url('/now').'#book', false);
 });
 
 it('invalid submission fails validation and sends nothing', function () {
@@ -158,7 +162,8 @@ it('ajax submission returns json success without redirect', function () {
 
     $response->assertOk()
         ->assertJsonPath('status', 'contact-sent')
-        ->assertJsonStructure(['status', 'message', 'email']);
+        ->assertJsonStructure(['status', 'message', 'email', 'booking_url', 'booking_label'])
+        ->assertJsonPath('booking_url', url('/now').'#book');
 
     Mail::assertSent(ContactMessage::class);
 });
@@ -174,6 +179,98 @@ it('ajax validation returns 422 json errors', function () {
         'X-Contact-Ajax' => '1',
     ])->assertStatus(422)
         ->assertJsonValidationErrors(['name', 'email', 'message']);
+
+    Mail::assertNothingSent();
+});
+
+it('submission from a case study returns to that page', function () {
+    Mail::fake();
+
+    $this->post('/contact', [
+        'name' => 'Ada Lovelace',
+        'email' => 'ada@example.com',
+        'message' => 'I would love to talk about a platform build.',
+        'return_to' => url('/work/nasa-earth-observatory'),
+    ])->assertRedirect(url('/work/nasa-earth-observatory').'#contact');
+});
+
+it('submission from a blog post returns to that page', function () {
+    Mail::fake();
+
+    $this->post('/contact', [
+        'name' => 'Ada Lovelace',
+        'email' => 'ada@example.com',
+        'message' => 'I would love to talk about a platform build.',
+        'return_to' => url('/blog/staff-to-em-first-90-days'),
+    ])->assertRedirect(url('/blog/staff-to-em-first-90-days').'#contact');
+});
+
+it('rejects return_to paths outside the public site', function () {
+    Mail::fake();
+
+    $this->post('/contact', [
+        'name' => 'Ada Lovelace',
+        'email' => 'ada@example.com',
+        'message' => 'I would love to talk about a platform build.',
+        'return_to' => url('/clients/keithhillmusic.com'),
+    ])->assertRedirect(route('home').'#contact');
+});
+
+it('turnstile outage fails open so the message still sends', function () {
+    Mail::fake();
+    config([
+        'site.turnstile.site_key' => '1x00000000000000000000AA',
+        'site.turnstile.secret_key' => '1x0000000000000000000000000000000AA',
+    ]);
+
+    Http::fake([
+        'challenges.cloudflare.com/*' => Http::response('unavailable', 502),
+    ]);
+
+    $this->post('/contact', [
+        'name' => 'Ada Lovelace',
+        'email' => 'ada@example.com',
+        'message' => 'I would love to talk about a platform build.',
+        'cf-turnstile-response' => 'token',
+    ])->assertSessionHas('status', 'contact-sent');
+
+    Mail::assertSent(ContactMessage::class);
+});
+
+it('turnstile timeout fails open instead of 500', function () {
+    Mail::fake();
+    config([
+        'site.turnstile.site_key' => '1x00000000000000000000AA',
+        'site.turnstile.secret_key' => '1x0000000000000000000000000000000AA',
+    ]);
+
+    Http::fake(fn () => throw new ConnectionException('timed out'));
+
+    $this->post('/contact', [
+        'name' => 'Ada Lovelace',
+        'email' => 'ada@example.com',
+        'message' => 'I would love to talk about a platform build.',
+        'cf-turnstile-response' => 'token',
+    ])->assertSessionHas('status', 'contact-sent');
+
+    Mail::assertSent(ContactMessage::class);
+});
+
+it('turnstile still requires a token when configured', function () {
+    Mail::fake();
+    config([
+        'site.turnstile.site_key' => '1x00000000000000000000AA',
+        'site.turnstile.secret_key' => '1x0000000000000000000000000000000AA',
+    ]);
+
+    $this->from('/')
+        ->post('/contact', [
+            'name' => 'Ada Lovelace',
+            'email' => 'ada@example.com',
+            'message' => 'I would love to talk about a platform build.',
+        ])
+        ->assertRedirect(route('home').'#contact-form')
+        ->assertSessionHasErrors('turnstile');
 
     Mail::assertNothingSent();
 });

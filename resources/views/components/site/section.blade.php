@@ -7,7 +7,7 @@
     'label' => null,
     'border' => 'default',
     'sectionLabel' => null,
-    'headingClass' => '!mb-0',
+    'headingClass' => null,
 ])
 
 @php
@@ -18,6 +18,9 @@
     };
     $minimapLabel = $sectionLabel ?? $label;
     $hasActions = isset($actions) && trim((string) $actions) !== '';
+    // Actions row already carries site-heading-space; otherwise keep the
+    // heading's own bottom margin so labels like "Languages" are not flush.
+    $headingClass ??= $hasActions ? '!mb-0' : '';
 @endphp
 
 <section @if($id) id="{{ $id }}" @endif

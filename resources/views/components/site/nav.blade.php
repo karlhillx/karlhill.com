@@ -21,7 +21,6 @@
                 <a href="/blog" class="{{ $navLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/now" class="{{ $navLinkClass('now') }}" @if($isActive('now')) aria-current="page" @endif>Now</a>
                 <a href="/resume" class="{{ $navLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
-                <a href="/#contact" data-nav-section="contact" class="{{ $navLinkClass('contact') }}">Contact</a>
             </div>
         </div>
         <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
@@ -54,6 +53,7 @@
                       class="surface-chip ml-1 px-1.5 py-0.5 text-[9px] leading-none text-neutral-500 normal-case tracking-normal">⌘K</span>
             </button>
             <a href="/#contact"
+               data-nav-section="contact"
                class="btn-sweep hidden md:inline-flex items-center min-h-11 text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest">
                 Get in Touch
             </a>
