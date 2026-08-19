@@ -16,6 +16,7 @@
                     :description="$project['description']"
                     :image="$project['image']"
                     :imagePosition="$project['imagePosition'] ?? 'object-top'"
+                    :image-alt="$project['image_alt'] ?? null"
                     :tags="$project['tags']"
                     :logo="$project['logo']"
                     :href="$cardUrl"

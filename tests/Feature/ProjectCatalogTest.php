@@ -2,10 +2,12 @@
 
 use App\Support\ProjectCatalog;
 
-it('flood mapping is always first', function () {
-    $this->assertSame('flood-mapping-system', ProjectCatalog::all()->first()['slug']);
-    $this->assertSame('flood-mapping-system', ProjectCatalog::featured()->first()['slug']);
-    $this->assertSame('flood-mapping-system', ProjectCatalog::filteredByTag('AWS')->first()['slug']);
+it('jacobs mission software is always first', function () {
+    $this->assertSame('jacobs-mission-software', ProjectCatalog::all()->first()['slug']);
+    $this->assertSame('jacobs-mission-software', ProjectCatalog::featured()->first()['slug']);
+    $this->assertSame('jacobs-mission-software', ProjectCatalog::filteredByTag('AWS')->first()['slug']);
+    $this->assertSame('flood-mapping-system', ProjectCatalog::all()[1]['slug']);
+    $this->assertSame('flood-mapping-system', ProjectCatalog::featured()[1]['slug']);
 });
 
 it('featured projects have case studies', function () {

@@ -20,6 +20,12 @@ it('loads case studies from markdown front matter', function () {
 
     $project = ProjectCatalog::findOrFail('nasa-earth-observatory');
     expect($project['case_study']['lede'])->toBe($eo['lede']);
+
+    $jacobs = $this->get('/work/jacobs-mission-software');
+    $jacobs->assertOk()
+        ->assertSee('Aerospace mission software', escape: false)
+        ->assertSee('program names', escape: false)
+        ->assertDontSee('Visit live project', escape: false);
 });
 
 it('case study markdown files exist for every catalog study', function () {

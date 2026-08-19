@@ -13,12 +13,13 @@ it('work page renders projects and open source', function () {
     $response->assertStatus(200);
     $response->assertSee('Selected Work', escape: false);
     $response->assertSee('NASA Earth Observatory', escape: false);
+    $response->assertSee('jacobs-mission-software', escape: false);
     $response->assertSee('id="open-source"', escape: false);
     $response->assertSee('scroll-progress', escape: false);
     $response->assertSee('section-rail', escape: false);
 });
 
-it('about page renders experience and credentials', function () {
+it('about page renders leadership, arc, and research — not a second CV', function () {
     $response = $this->get('/about');
 
     $response->assertStatus(200);
@@ -30,30 +31,23 @@ it('about page renders experience and credentials', function () {
     $response->assertSee('Standards over heroics', escape: false);
     $response->assertSee('Worked with', escape: false);
     $response->assertSee('SSAI / NASA Goddard', escape: false);
-    $response->assertSee('id="experience"', escape: false);
-    $response->assertSee('id="credentials"', escape: false);
     $response->assertSee('GeoHorizons', escape: false);
+    $response->assertSee('id="experience"', escape: false);
+    $response->assertSee('Career arc', escape: false);
+    $response->assertSee('Jacobs — National Security', escape: false);
+    $response->assertSee('Program specifics stay unpublished', escape: false);
+    $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
+    $response->assertSee('href="/resume"', escape: false);
     $response->assertSee('ss-geohorizons', escape: false);
     $response->assertSee('Karl M. Hill', escape: false);
     $response->assertSee('Published 5 May 2026', escape: false);
     $response->assertSee('Global Water and Flood Mapping System', escape: false);
-    $response->assertSee('arc behind the work', escape: false);
-    $response->assertSee('cloud-native platforms for aerospace, NASA', escape: false);
-    $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
-    $response->assertSee('Verizon Business', escape: false);
-    $response->assertSee('$105M', escape: false);
-    $response->assertSee('Ticomix', escape: false);
-    $response->assertSee('SAFe® Agilist', escape: false);
-    $response->assertSee('In progress', escape: false);
-    $response->assertDontSee('Certified ScrumMaster', escape: false);
-    $response->assertSee('href="/work/flood-mapping-system"', escape: false);
-    $response->assertSee('href="/work/nasa-earth-observatory"', escape: false);
-    $response->assertSee('href="/work/finium"', escape: false);
     $response->assertSee('Beyond the work', escape: false);
-    $response->assertSee('multi-environment release readiness', escape: false);
-    $response->assertSee('Flood Mapping System on AWS', escape: false);
-    $response->assertSee('Laravel-based case management platform', escape: false);
-    $response->assertSee('cut backlog ~90%', escape: false);
+    $response->assertDontSee('id="credentials"', escape: false);
+    $response->assertDontSee('id="stack"', escape: false);
+    $response->assertDontSee('Ticomix', escape: false);
+    $response->assertDontSee('Certified ScrumMaster', escape: false);
+    $response->assertDontSee('Open conversations', escape: false);
 });
 
 it('homepage is a focused landing page', function () {
@@ -177,8 +171,8 @@ it('now page renders focus and em intent', function () {
 
     $response->assertStatus(200);
     $response->assertSee('Engineering Manager', escape: false);
-    $response->assertSee('Aerospace mission software delivery', escape: false);
-    $response->assertSee('August 12, 2026', escape: false);
+    $response->assertSee('Jacobs National Security', escape: false);
+    $response->assertSee('August 19, 2026', escape: false);
     $response->assertSee('href="/about#how-i-lead"', escape: false);
     $response->assertSee('For recruiters', escape: false);
     $response->assertSee('id="contact-form"', escape: false);
@@ -328,6 +322,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('Download resume PDF', escape: false);
     $response->assertSee('download="Karl-Hill-Resume.pdf"', escape: false);
     $response->assertSee('/now#book', escape: false);
+    $response->assertSee('/work/jacobs-mission-software', escape: false);
     $response->assertSee('/work/nasa-earth-observatory', escape: false);
     $response->assertSee('/work/flood-mapping-system', escape: false);
     $response->assertSee(config('site.person.email'), escape: false);
@@ -342,7 +337,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
 it('now page shows a fresh updated date and kit link', function () {
     $this->get('/now')
         ->assertOk()
-        ->assertSee('Updated August 12, 2026', escape: false)
+        ->assertSee('Updated August 19, 2026', escape: false)
         ->assertSee('href="/kit"', escape: false)
         ->assertSee('Recruiter kit', escape: false);
 });

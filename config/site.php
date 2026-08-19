@@ -9,12 +9,13 @@ use App\Support\Booking;
  * derived values (sameAs, analytics primary) stay here so fragments stay pure.
  *
  * Page roles (avoid repeating the same pitch everywhere):
- * - /        positioning + proof hooks
- * - /now     current focus + recruiter path
- * - /kit     recruiter one-pager (PDF + bio + links)
- * - /about   career arc + how I lead
+ * - /        positioning + proof hooks (availability ping only)
+ * - /now     current focus first; short recruiter strip; booking
+ * - /kit     one-pager: PDF + bio + links
+ * - /about   how I lead + arc teaser + research
  * - /resume  facts (canonical HTML CV)
- * - footer   single contact CTA
+ * - /work    current Jacobs chapter + public NASA/older proof
+ * - footer   contact CTA (not a second hire ask)
  */
 $social = require __DIR__.'/site/social.php';
 

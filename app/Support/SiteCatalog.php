@@ -40,6 +40,7 @@ final class SiteCatalog
             'name' => $person['name'],
             'job_title' => $person['job_title'],
             'employer' => $person['employer'],
+            'employer_display' => $person['employer_display'] ?? $person['employer'],
             'location' => $person['location'],
             'email' => $person['email'],
             'tagline' => $person['tagline'] ?? null,
@@ -65,6 +66,7 @@ final class SiteCatalog
                 ->map(fn (array $item): array => [
                     'title' => $item['title'] ?? '',
                     'body' => $item['body'] ?? '',
+                    'link' => $item['link'] ?? null,
                 ])
                 ->values()
                 ->all(),

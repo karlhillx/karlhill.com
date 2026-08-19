@@ -144,9 +144,9 @@ class LlmsTxtBuilder
         $lines = [
             '- Seeking: '.($person['availability'] ?? 'Engineering Manager & Staff / Principal leadership roles'),
             '- Location: '.($person['location'] ?? 'Washington, DC').' · hybrid / remote-friendly',
-            '- Current title: '.($person['job_title'] ?? 'Staff Software Engineer').' @ '.($person['employer'] ?? 'Jacobs'),
+            '- Current title: '.($person['job_title'] ?? 'Staff Software Engineer').' @ '.($person['employer_display'] ?? $person['employer'] ?? 'Jacobs'),
             '- Trajectory: Staff Aerospace Software Engineer → Engineering Manager (platform / DevSecOps / mission software)',
-            '- Background: SSAI / NASA Goddard (2017–2025) → aerospace mission software at Jacobs (2025–present)',
+            '- Background: SSAI / NASA Goddard (2017–2025) → Jacobs National Security, government aerospace and defense mission software (2025–present)',
             '- Domain focus: aerospace, defense, and federal mission software leadership',
             '- Start here: [Recruiter kit]('.$base.'/kit) · [Now]('.$base.'/now) · [Resume]('.$base.'/resume) · [Contact]('.$base.'/#contact)',
         ];

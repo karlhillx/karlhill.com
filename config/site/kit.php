@@ -2,11 +2,11 @@
 
 return [
     'eyebrow' => 'Recruiter kit',
-    'lede' => 'Hire packet for aerospace and mission software leadership — resume PDF, bio, and the links that matter.',
+    'lede' => 'Resume PDF, bio, and the links that matter — not another copy of the hire ask.',
     'highlights' => [
-        'Staff Aerospace Software Engineer at Jacobs — mission simulation & telemetry platforms',
-        'Prior: Lead Software Engineer, SSAI / NASA Goddard — Earth science platforms & flood mapping at scale',
-        'Washington, DC metro · open to hybrid / remote-friendly mission software teams',
+        'Jacobs — aerospace mission software: mission simulation and telemetry',
+        'Prior: Lead Software Engineer, SSAI / NASA Goddard — Earth science platforms and flood mapping at scale',
+        'Washington, DC metro · open to hybrid / remote-friendly teams',
     ],
     /*
      | Canonical outbound links for the kit (and its print leave-behind).
@@ -47,6 +47,11 @@ return [
             'social' => 'github',
             'meta' => 'Code',
             'external' => true,
+        ],
+        [
+            'label' => 'Current work — Aerospace mission software',
+            'path' => '/work/jacobs-mission-software',
+            'meta' => 'Current',
         ],
         [
             'label' => 'Case study — NASA Earth Observatory',

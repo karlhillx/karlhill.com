@@ -5,7 +5,7 @@
     {{-- Print-only masthead: name + reachability first (screen uses the page hero). --}}
     <header class="kit-print-masthead" aria-hidden="true">
         <p class="kit-print-masthead__name">{{ $person['name'] }}</p>
-        <p class="kit-print-masthead__role">{{ $person['job_title'] }} · {{ $person['employer'] }} · {{ $person['location'] }}</p>
+        <p class="kit-print-masthead__role">{{ $person['job_title'] }} · {{ $person['employer_display'] ?? $person['employer'] }} · {{ $person['location'] }}</p>
         <p class="kit-print-masthead__open">{{ $person['availability'] }}</p>
         <p class="kit-print-masthead__contact">
             <a href="mailto:{{ $person['email'] }}">{{ $person['email'] }}</a>
@@ -73,7 +73,7 @@
                     </div>
                     <div>
                         <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Title</dt>
-                        <dd class="text-neutral-300">{{ $person['job_title'] }} · {{ $person['employer'] }}</dd>
+                        <dd class="text-neutral-300">{{ $person['job_title'] }} · {{ $person['employer_display'] ?? $person['employer'] }}</dd>
                     </div>
                     <div>
                         <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Location</dt>

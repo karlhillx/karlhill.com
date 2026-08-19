@@ -27,7 +27,7 @@
                 <p class="hero-eyebrow-label font-mono text-accent uppercase">
                     <span>{{ $person['job_title'] }}</span>
                     <span class="hero-eyebrow-sep" aria-hidden="true">·</span>
-                    <span>{{ $person['employer'] }}</span>
+                    <span>{{ $person['employer_display'] ?? $person['employer'] }}</span>
                     <span class="hero-eyebrow-sep" aria-hidden="true">·</span>
                     <span>20+ Years</span>
                 </p>

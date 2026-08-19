@@ -9,6 +9,7 @@
     'href' => null,
     'slug' => null,
     'external' => false,
+    'imageAlt' => null,
 ])
 
 @php
@@ -17,6 +18,7 @@
     $cta = $external
         ? 'Visit project'
         : (is_string($href) && str_contains($href, '/work/') ? 'Read case study' : 'View details');
+    $imageAlt = $imageAlt ?: 'Screenshot of '.$title;
 @endphp
 
 <article
@@ -38,7 +40,7 @@
 
     <x-site.responsive-image
         :src="$image"
-        :alt="'Screenshot of '.$title"
+                    :alt="$imageAlt"
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
         width="960"
         height="720"

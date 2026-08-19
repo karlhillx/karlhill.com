@@ -1,15 +1,16 @@
 <?php
 
 return [
-    'intro' => 'Software engineering leader with 20+ years building secure, cloud-native platforms for aerospace, NASA, federal, and high-assurance environments. Hands-on architecture, DevSecOps governance, platform engineering, Agile delivery leadership, and stakeholder alignment — so teams build, test, release, and operate mission-ready software when failure is expensive.',
+    'intro' => 'Software engineering leader with 20+ years building secure, cloud-native platforms — NASA Earth science, and now government aerospace and defense mission software at Jacobs. Hands-on architecture, DevSecOps, platform engineering, and delivery leadership in constrained, high-assurance environments.',
     'current' => [
         'label' => 'Current Role',
         'title' => 'Staff Aerospace Software Engineer',
-        'company' => 'Jacobs',
+        'company' => 'Jacobs — National Security',
         'location' => 'Chantilly, VA',
         'period' => 'Sept 2025 — Present',
+        'summary' => 'Cloud-native mission simulation and telemetry for government aerospace and defense programs. Program specifics stay unpublished.',
         'highlights' => [
-            0 => 'Lead cross-functional engineering execution across cloud-native mission services, CI/CD pipelines, multi-repo delivery, release readiness, and integration risk management.',
+            0 => 'Lead cross-functional delivery of cloud-native mission simulation and telemetry for government aerospace and defense programs — CI/CD, multi-repo delivery, release readiness, and integration risk in constrained environments.',
             1 => 'Guide team execution, onboarding, coaching, and delivery discipline while strengthening engineering quality, ownership, and accountability.',
             2 => 'Coordinate multi-environment release readiness across isolated and integrated systems, reducing late-stage integration risk and improving baseline alignment and traceability.',
             3 => 'Establish and enforce engineering standards — repo and branch governance, PR/review practices, Definition of Done, and documentation — to reduce integration risk across multi-repo and multi-environment systems.',
@@ -23,6 +24,7 @@ return [
             'company' => 'SSAI / NASA Goddard Space Flight Center',
             'location' => 'Greenbelt, MD',
             'period' => 'Dec 2017 — Sept 2025',
+            'summary' => 'Earth science platforms at operational scale — flood mapping, Earth Observatory, and scientific data systems.',
             'highlights' => [
                 0 => 'Architected NASA\'s cloud-based Flood Mapping System on AWS, delivering near real-time, satellite-derived flood products to support disaster response. <a href="/work/flood-mapping-system" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
                 1 => 'Built a high-performance file and metadata platform on Ceph, improving virtual directory mapping and accelerating discovery and access for large scientific datasets. <a href="/work/direct-readout-laboratory" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',

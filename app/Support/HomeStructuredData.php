@@ -51,6 +51,7 @@ final class HomeStructuredData
                 'Engineering leadership',
                 'Platform engineering',
                 'Aerospace software',
+                'Defense mission software',
                 'NASA Earth science software',
                 'Flood mapping systems',
                 'Release governance',

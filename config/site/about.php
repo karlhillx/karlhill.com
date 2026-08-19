@@ -2,7 +2,7 @@
 
 return [
     // Career arc + how I lead — not the availability pitch (that lives on /now).
-    'lede' => 'This page is the arc behind the work: NASA Earth science operations at scale, aerospace mission software at Jacobs, and how I lead people through hard systems — where reliability, coaching, and judgment matter as much as the architecture.',
+    'lede' => 'NASA Earth science operations at scale, then government aerospace and defense mission software at Jacobs National Security — and how I lead people through hard systems.',
     'how_i_lead' => [
         'title' => 'How I lead',
         'intro' => 'Staff influence becomes manager accountability when people outcomes are as explicit as system outcomes. This is how I work with engineers and stakeholders today.',
@@ -29,6 +29,11 @@ return [
             ],
         ],
     ],
+    'arc' => [
+        'intro' => 'Two public chapters. Full dates and bullets live on the resume.',
+        'cta_label' => 'Full resume',
+        'cta_href' => '/resume',
+    ],
     'beyond' => 'Away from the terminal, I\'m based in Washington, DC, where I write and release music (you\'ll find a back catalog on Discogs). I\'m happiest with a hard problem, a whiteboard, and a team worth building with — and I care as much about mentoring the next engineer as I do about shipping the next release.',
     // Hiring signal — concrete contexts, not invented named testimonials.
     'social_proof' => [
@@ -39,12 +44,12 @@ return [
                 'attribution' => 'SSAI / NASA Goddard',
             ],
             [
-                'quote' => 'Aerospace platform teams shipping mission simulation and telemetry services — planning, DevSecOps, and release governance when mission risk is high.',
+                'quote' => 'National Security platform teams shipping mission simulation and telemetry for government aerospace and defense programs — planning, DevSecOps, and release governance in constrained environments.',
                 'attribution' => 'Jacobs',
             ],
             [
-                'quote' => 'Hiring managers exploring Engineering Manager and Staff / Principal leadership for aerospace, defense, and federal mission software — technical depth that still coaches, standards that outlast heroics.',
-                'attribution' => 'Open conversations · 2026',
+                'quote' => 'Co-author on a Geological Society / AGU paper: a web-based high-resolution global water and flood mapping platform, published 5 May 2026.',
+                'attribution' => 'GeoHorizons · Policelli, Kettner, Hill, Maloney',
             ],
         ],
     ],

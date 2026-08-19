@@ -1,33 +1,36 @@
 <?php
 
 return [
-    'updated' => 'August 12, 2026',
-    // /now owns current focus + recruiter path (availability lives here, not on every page).
-    'lede' => 'Building toward Engineering Manager while shipping aerospace mission software — honest about the Staff title, clear about the destination: platform leadership in high-assurance environments.',
+    'updated' => 'August 19, 2026',
+    // /now owns current focus. Recruiter path is a short strip — the ask lives in person.availability.
+    'lede' => 'Building toward Engineering Manager while shipping aerospace mission software at Jacobs. Honest about the Staff title. Staff / Principal IC is a fit when the work is still platform leadership.',
     'recruiters' => [
         'eyebrow' => 'For recruiters & hiring managers',
-        'body' => 'Hiring an Engineering Manager or Staff / Principal leader for aerospace, defense, or federal mission software — someone who can still go deep on platforms? Start with the kit — then book time or send a note. I reply personally.',
+        'body' => 'Hiring against that background? Start with the kit, then book a slot or send a note.',
         'bullets' => [
-            'Target: Engineering Manager and Staff / Principal platform / mission software leadership (aerospace, defense, federal)',
-            'Location: Washington, DC metro · open to hybrid / remote-friendly teams',
-            'Signal: SSAI/NASA Goddard (Earth science ops at scale) → Jacobs aerospace mission simulation & telemetry',
-            'Proof: flood mapping, Earth Observatory, plus EM craft writing on coaching, prioritization, and release discipline',
-            'Kit: one-pager with resume PDF, short bio, and canonical links',
+            'Washington, DC metro · open to hybrid / remote-friendly teams',
+            'Now: Jacobs — aerospace mission software, mission simulation and telemetry',
+            'Proof: NASA flood mapping, Earth Observatory, and the EM craft series',
         ],
     ],
     'focus' => [
         [
             'title' => 'Engineering leadership trajectory',
-            'body' => 'Practicing the manager craft now: coaching, prioritization, stakeholder trust, and team systems that outlast heroics — aimed at EM roles in mission software.',
+            'body' => 'Practicing the manager craft now — aimed at Engineering Manager roles in mission software.',
+            'link' => '/about#how-i-lead',
+            'link_label' => 'How I lead',
         ],
         [
-            'title' => 'Aerospace mission software delivery',
-            'body' => 'At Jacobs, owning cloud-native mission simulation and telemetry services — multi-environment release readiness, DevSecOps, and integration risk when mission failure is expensive.',
+            'title' => 'Jacobs National Security',
+            'body' => 'Owning cloud-native mission simulation and telemetry — multi-environment release readiness, DevSecOps, and integration risk in constrained environments.',
+            'link' => '/work/jacobs-mission-software',
+            'link_label' => 'What I can publish',
         ],
         [
             'title' => 'Writing the leadership craft',
-            'body' => 'Publishing the Engineering Manager craft series — Staff→EM first 90 days, saying no under roadmap pressure, and performance feedback without politics.',
+            'body' => 'The Engineering Manager craft series — Staff→EM first 90 days, saying no under roadmap pressure, and performance feedback without politics.',
+            'link' => '/blog/staff-to-em-first-90-days',
+            'link_label' => 'Staff→EM, first 90 days',
         ],
     ],
-    'reading' => 'Looking for conversations about aerospace and federal mission software leadership — roles where technical depth, assurance habits, and people leadership reinforce each other.',
 ];

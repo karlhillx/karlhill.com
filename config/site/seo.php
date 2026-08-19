@@ -3,8 +3,8 @@
 return [
     'home' => [
         'title' => 'Karl Hill — Staff Aerospace Software Engineer · NASA · Jacobs',
-        'description' => 'Karl Hill — Staff Aerospace Software Engineer at Jacobs, formerly Lead Software Engineer at NASA Goddard. Mission software platforms, DevSecOps, flood mapping, and engineering leadership for high-assurance environments.',
-        'og_description' => 'Karl Hill — Staff Aerospace Software Engineer @ Jacobs · ex-NASA Goddard. Mission software, DevSecOps, and platform leadership.',
+        'description' => 'Karl Hill — Staff Aerospace Software Engineer at Jacobs National Security, formerly NASA Goddard. Government aerospace and defense mission software, Earth science platforms, and engineering leadership.',
+        'og_description' => 'Staff Aerospace Software Engineer @ Jacobs National Security · ex-NASA Goddard. Mission software, DevSecOps, and platform leadership.',
     ],
     'blog_index' => [
         'title' => 'Writing — Karl Hill',
@@ -12,19 +12,19 @@ return [
         'og_description' => 'Writing on engineering leadership, team systems, and the work that turns code into something people depend on.',
     ],
     'work' => [
-        'title' => 'Work — Karl Hill · NASA & aerospace mission software',
-        'description' => 'Selected work — NASA Earth science platforms, flood mapping systems, and aerospace mission software delivery; plus clinical genomics and enterprise security.',
-        'og_description' => 'NASA Earth science platforms, flood mapping, and aerospace mission software — with additional work in healthcare and enterprise security.',
+        'title' => 'Work — Karl Hill · Jacobs National Security & NASA',
+        'description' => 'Current: government aerospace and defense mission software at Jacobs. Public case studies: NASA Earth science, flood mapping, clinical genomics, and enterprise security.',
+        'og_description' => 'Jacobs National Security mission software, NASA Earth science platforms, and earlier work in healthcare and enterprise security.',
     ],
     'about' => [
         'title' => 'About — Karl Hill · Aerospace & mission software leadership',
-        'description' => 'How Karl Hill leads and delivers — coaching, standards, and mission software from NASA Earth science operations to aerospace platforms at Jacobs.',
-        'og_description' => 'NASA → Jacobs: how I lead people and ship mission software when reliability and judgment matter as much as architecture.',
+        'description' => 'How Karl Hill leads — coaching, standards, and judgment — from NASA Earth science operations to government aerospace and defense programs at Jacobs.',
+        'og_description' => 'NASA → Jacobs National Security: how I lead people and ship mission software.',
     ],
     'now' => [
-        'title' => 'Now — Karl Hill · EM track in aerospace mission software',
-        'description' => 'Karl Hill is open to Engineering Manager and Staff / Principal roles in aerospace, defense, and federal mission software — Staff Aerospace Software Engineer at Jacobs, ex-NASA Goddard.',
-        'og_description' => 'Open to EM & Staff / Principal in aerospace / defense / federal mission software. Current: Jacobs platforms + EM leadership craft.',
+        'title' => 'Now — Karl Hill · Jacobs National Security & EM track',
+        'description' => 'Current focus: government aerospace and defense mission software at Jacobs, and the Staff→EM leadership craft. Book a conversation or start with the kit.',
+        'og_description' => 'Jacobs National Security mission software + EM craft. Book time or start with the kit.',
     ],
     'resume' => [
         'title' => 'Resume — Karl Hill · Aerospace mission software',
@@ -32,8 +32,8 @@ return [
         'og_description' => 'CV from karlhill.com — aerospace mission software, DevSecOps, and engineering leadership.',
     ],
     'kit' => [
-        'title' => 'Recruiter kit — Karl Hill · Aerospace & mission software EM hire packet',
-        'description' => 'Hire Karl Hill for Engineering Manager or Staff / Principal platform leadership in aerospace, defense, or federal mission software — resume PDF, bio, booking, and NASA/aerospace case studies.',
-        'og_description' => 'Recruiter one-pager: resume PDF, bio, LinkedIn/GitHub, booking, and flagship NASA/aerospace work.',
+        'title' => 'Recruiter kit — Karl Hill · Aerospace & defense mission software',
+        'description' => 'Resume PDF, bio, booking, and case studies for Karl Hill — Staff Aerospace Software Engineer at Jacobs National Security, formerly NASA Goddard.',
+        'og_description' => 'Recruiter one-pager: resume PDF, bio, LinkedIn/GitHub, booking, and flagship NASA plus current Jacobs work.',
     ],
 ];

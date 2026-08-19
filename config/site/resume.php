@@ -7,7 +7,7 @@ return [
     'postal' => '',
     'tagline' => 'Aerospace Mission Software | Platform Engineering · DevSecOps · High-Assurance Delivery',
     'impact' => [
-        'Lead cloud-native mission software delivery across aerospace, NASA, federal, and high-assurance environments.',
+        'Own cloud-native mission simulation and telemetry for government aerospace and defense programs at Jacobs, after eight years of NASA Earth science platforms.',
         'Raise engineering discipline via CI/CD, release governance, PR standards, and Definition of Done.',
         'Reduce integration risk across multi-environment baselines — planning, traceability, and release readiness.',
         'Align technical execution with stakeholders across engineering, product, ops, and mission teams.',

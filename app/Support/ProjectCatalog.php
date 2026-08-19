@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 final class ProjectCatalog
 {
-    private const string PRIMARY_SLUG = 'flood-mapping-system';
+    private const string PRIMARY_SLUG = 'jacobs-mission-software';
 
     /**
      * @return Collection<int, array<string, mixed>>

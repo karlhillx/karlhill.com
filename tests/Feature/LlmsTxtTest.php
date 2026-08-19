@@ -51,7 +51,7 @@ it('llms txt builder lists social profiles and resume', function () {
     $this->assertStringContainsString('/resume', $body);
     $this->assertStringContainsString('/files/Karl-Hill-Resume.pdf', $body);
     $this->assertStringContainsString('GeoHorizons', $body);
-    $this->assertStringContainsString('August 12, 2026', $body);
+    $this->assertStringContainsString('August 19, 2026', $body);
 });
 
 it('llms full txt includes essay bodies', function () {

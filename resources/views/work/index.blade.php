@@ -22,7 +22,7 @@
         <x-slot:title>Selected Work</x-slot:title>
 
         <p class="text-neutral-400 text-base leading-relaxed max-w-2xl">
-            Mission-critical platforms across NASA Earth science, disaster response, clinical genomics, and enterprise security.
+            Current work is aerospace mission software at Jacobs. Public case studies cover NASA Earth science, disaster response, and earlier healthcare and enterprise security.
         </p>
     </x-site.page-hero>
 

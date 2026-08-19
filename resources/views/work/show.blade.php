@@ -5,6 +5,7 @@
     $ogImage = $meta->ogImage;
     $headlineOutcome = $study['outcome'][0] ?? null;
     $decisions = $study['decisions'] ?? $study['approach'] ?? [];
+    $imageAlt = $project['image_alt'] ?? ('Screenshot of '.$project['title']);
     $toc = array_values(array_filter([
         ['id' => 'overview', 'text' => 'Overview', 'level' => 2],
         ['id' => 'snapshot', 'text' => 'Snapshot', 'level' => 2],
@@ -118,16 +119,22 @@
                                     class="case-study-media__trigger group"
                                     data-lightbox-open
                                     data-lightbox-src="{{ $project['image'] }}"
-                                    data-lightbox-alt="Screenshot of {{ $project['title'] }}">
+                                    data-lightbox-alt="{{ $imageAlt }}">
                                 <x-site.responsive-image
                                     :src="$project['image']"
-                                    :alt="'Screenshot of '.$project['title']"
+                                    :alt="$imageAlt"
                                     sizes="(min-width: 832px) 48rem, 100vw"
                                     loading="eager"
                                     fetchpriority="high"
                                     :img-style="'view-transition-name: work-img-'.$project['slug'].'; view-transition-class: card-media'"
                                     img-class="case-study-media__img w-full aspect-[16/9] object-cover {{ $project['imagePosition'] ?? 'object-center' }} sm:rounded-sm border-y sm:border border-neutral-800/70 transition-[opacity,filter] duration-300 group-hover:opacity-90"
                                 />
+                                @if(! empty($project['logo']['path']))
+                                    <img src="{{ $project['logo']['path'] }}" alt="" aria-hidden="true"
+                                         loading="lazy" decoding="async"
+                                         @if(! empty($project['logo']['filter'])) style="filter: {{ $project['logo']['filter'] }};" @endif
+                                         class="{{ $project['logo']['class'] ?? 'h-8' }} pointer-events-none absolute top-4 right-4 z-[1] w-auto object-contain opacity-80">
+                                @endif
                                 <span class="case-study-media__zoom font-mono text-[10px] uppercase tracking-widest">
                                     Expand <span aria-hidden="true">↗</span>
                                 </span>
