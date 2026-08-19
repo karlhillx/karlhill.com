@@ -13,7 +13,7 @@
 
     $linkedinUrl = $linkedin['url'] ?? 'https://www.linkedin.com/in/khill/';
     $githubUrl = $github['url'] ?? 'https://github.com/karlhillx';
-    $jacobs = $bullets($experience['current']['highlights'], 4);
+    $jacobs = $bullets($experience['current']['highlights'], 6);
     $nasa = $bullets($experience['roles'][0]['highlights'], 6);
     $informed = $bullets($experience['roles'][1]['highlights'], 4);
     $ticomix = $bullets($experience['roles'][2]['highlights'], 4);
