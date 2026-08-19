@@ -67,3 +67,11 @@ it('security txt is present with required fields', function () {
     $this->assertStringContainsString('Canonical: https://karlhill.com/.well-known/security.txt', $body);
     $this->assertStringContainsString('Expires:', $body);
 });
+
+it('progressive css is linked for selectors lightningcss cannot parse', function () {
+    $this->assertFileExists(public_path('css/progressive.css'));
+
+    $this->get('/')
+        ->assertOk()
+        ->assertSee('css/progressive.css', escape: false);
+});

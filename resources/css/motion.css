@@ -1424,11 +1424,6 @@ html:active-view-transition-type(same)::view-transition-new(root) {
     }
 }
 
-::highlight(search) {
-    background-color: color-mix(in oklab, var(--accent) 42%, transparent);
-    color: var(--text);
-}
-
 .interest-preview {
     display: none;
     margin: 0;

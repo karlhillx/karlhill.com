@@ -82,6 +82,7 @@
     <link rel="author" href="/.well-known/mcp.json">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('css/progressive.css') }}?v={{ filemtime(public_path('css/progressive.css')) }}">
     <x-site.analytics />
     @stack('head')
 </head>
