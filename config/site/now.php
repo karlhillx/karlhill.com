@@ -6,9 +6,9 @@ return [
     'lede' => 'Building toward Engineering Manager while shipping aerospace mission software — honest about the Staff title, clear about the destination: platform leadership in high-assurance environments.',
     'recruiters' => [
         'eyebrow' => 'For recruiters & hiring managers',
-        'body' => 'Hiring an Engineering Manager or Staff+ leader for aerospace, defense, or federal mission software — someone who can still go deep on platforms? Start with the kit — then book time or send a note. I reply personally.',
+        'body' => 'Hiring an Engineering Manager or Staff / Principal leader for aerospace, defense, or federal mission software — someone who can still go deep on platforms? Start with the kit — then book time or send a note. I reply personally.',
         'bullets' => [
-            'Target: Engineering Manager and Staff+ platform / mission software leadership (aerospace, defense, federal)',
+            'Target: Engineering Manager and Staff / Principal platform / mission software leadership (aerospace, defense, federal)',
             'Location: Washington, DC metro · open to hybrid / remote-friendly teams',
             'Signal: SSAI/NASA Goddard (Earth science ops at scale) → Jacobs aerospace mission simulation & telemetry',
             'Proof: flood mapping, Earth Observatory, plus EM craft writing on coaching, prioritization, and release discipline',

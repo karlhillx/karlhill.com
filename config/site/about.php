@@ -43,7 +43,7 @@ return [
                 'attribution' => 'Jacobs',
             ],
             [
-                'quote' => 'Hiring managers exploring Engineering Manager and Staff+ leadership for aerospace, defense, and federal mission software — technical depth that still coaches, standards that outlast heroics.',
+                'quote' => 'Hiring managers exploring Engineering Manager and Staff / Principal leadership for aerospace, defense, and federal mission software — technical depth that still coaches, standards that outlast heroics.',
                 'attribution' => 'Open conversations · 2026',
             ],
         ],

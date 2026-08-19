@@ -142,7 +142,7 @@ class LlmsTxtBuilder
         $focus = is_array($now['focus'] ?? null) ? $now['focus'] : [];
 
         $lines = [
-            '- Seeking: '.($person['availability'] ?? 'Engineering Manager & Staff+ leadership roles'),
+            '- Seeking: '.($person['availability'] ?? 'Engineering Manager & Staff / Principal leadership roles'),
             '- Location: '.($person['location'] ?? 'Washington, DC').' · hybrid / remote-friendly',
             '- Current title: '.($person['job_title'] ?? 'Staff Software Engineer').' @ '.($person['employer'] ?? 'Jacobs'),
             '- Trajectory: Staff Aerospace Software Engineer → Engineering Manager (platform / DevSecOps / mission software)',

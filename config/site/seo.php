@@ -23,8 +23,8 @@ return [
     ],
     'now' => [
         'title' => 'Now — Karl Hill · EM track in aerospace mission software',
-        'description' => 'Karl Hill is open to Engineering Manager and Staff+ roles in aerospace, defense, and federal mission software — Staff Aerospace Software Engineer at Jacobs, ex-NASA Goddard.',
-        'og_description' => 'Open to EM & Staff+ in aerospace / defense / federal mission software. Current: Jacobs platforms + EM leadership craft.',
+        'description' => 'Karl Hill is open to Engineering Manager and Staff / Principal roles in aerospace, defense, and federal mission software — Staff Aerospace Software Engineer at Jacobs, ex-NASA Goddard.',
+        'og_description' => 'Open to EM & Staff / Principal in aerospace / defense / federal mission software. Current: Jacobs platforms + EM leadership craft.',
     ],
     'resume' => [
         'title' => 'Resume — Karl Hill · Aerospace mission software',
@@ -33,7 +33,7 @@ return [
     ],
     'kit' => [
         'title' => 'Recruiter kit — Karl Hill · Aerospace & mission software EM hire packet',
-        'description' => 'Hire Karl Hill for Engineering Manager or Staff+ platform leadership in aerospace, defense, or federal mission software — resume PDF, bio, booking, and NASA/aerospace case studies.',
+        'description' => 'Hire Karl Hill for Engineering Manager or Staff / Principal platform leadership in aerospace, defense, or federal mission software — resume PDF, bio, booking, and NASA/aerospace case studies.',
         'og_description' => 'Recruiter one-pager: resume PDF, bio, LinkedIn/GitHub, booking, and flagship NASA/aerospace work.',
     ],
 ];
