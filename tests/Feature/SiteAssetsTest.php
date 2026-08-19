@@ -8,6 +8,7 @@ it('configured site image paths exist', function () {
 
     $paths[] = '/img/webp/profile.webp';
     $paths[] = '/img/og-home.jpg';
+    $paths[] = config('site.research.image');
 
     foreach (config('site.projects', []) as $project) {
         $paths[] = $project['image'];

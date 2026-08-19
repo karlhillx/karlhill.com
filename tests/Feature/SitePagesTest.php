@@ -33,6 +33,10 @@ it('about page renders experience and credentials', function () {
     $response->assertSee('id="experience"', escape: false);
     $response->assertSee('id="credentials"', escape: false);
     $response->assertSee('GeoHorizons', escape: false);
+    $response->assertSee('ss-geohorizons', escape: false);
+    $response->assertSee('Karl M. Hill', escape: false);
+    $response->assertSee('Published 5 May 2026', escape: false);
+    $response->assertSee('Global Water and Flood Mapping System', escape: false);
     $response->assertSee('arc behind the work', escape: false);
     $response->assertSee('cloud-native platforms for aerospace, NASA', escape: false);
     $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);

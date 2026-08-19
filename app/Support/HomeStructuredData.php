@@ -62,6 +62,13 @@ final class HomeStructuredData
                     'url' => $research['doi'],
                     'identifier' => $research['doi'],
                     'datePublished' => '2026-05-05',
+                    'image' => $url.($research['image'] ?? '/img/ss-geohorizons.png'),
+                    'author' => [
+                        ['@type' => 'Person', 'name' => 'Frederick S. Policelli'],
+                        ['@type' => 'Person', 'name' => 'Albert J. Kettner'],
+                        ['@type' => 'Person', 'name' => 'Karl M. Hill'],
+                        ['@type' => 'Person', 'name' => 'Devon V. Maloney'],
+                    ],
                     'isPartOf' => [
                         '@type' => 'Periodical',
                         'name' => $research['publication'],
