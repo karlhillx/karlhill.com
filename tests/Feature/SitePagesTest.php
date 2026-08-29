@@ -160,6 +160,14 @@ it('work tag route filters projects', function () {
     $response->assertSee('/work/tag/laravel', escape: false);
 });
 
+it('single-metric case studies do not leave an empty grid cell', function () {
+    $html = $this->get('/work/esscor')->assertOk()->getContent();
+
+    expect($html)
+        ->toContain('grid-cols-1')
+        ->not->toContain('grid grid-cols-2');
+});
+
 it('case study includes navigation and structured data', function () {
     $response = $this->get('/work/flood-mapping-system');
 

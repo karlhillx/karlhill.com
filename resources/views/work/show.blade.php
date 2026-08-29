@@ -152,8 +152,15 @@
                         </figure>
 
                         @if(! empty($study['metrics']))
-                            @php($metricCols = count($study['metrics']) >= 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2')
-                            <div class="grid grid-cols-2 {{ $metricCols }} gap-px bg-neutral-800 mt-8" data-reveal>
+                            @php
+                                $metricCount = count($study['metrics']);
+                                $metricCols = match (true) {
+                                    $metricCount <= 1 => 'grid-cols-1',
+                                    $metricCount === 2 => 'grid-cols-2',
+                                    default => 'grid-cols-2 sm:grid-cols-3',
+                                };
+                            @endphp
+                            <div class="grid {{ $metricCols }} gap-px bg-neutral-800 mt-8" data-reveal>
                                 @foreach($study['metrics'] as $metric)
                                     <x-site.stat
                                         padding="p-6"
