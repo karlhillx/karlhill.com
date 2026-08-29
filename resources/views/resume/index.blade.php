@@ -102,7 +102,7 @@
                         {{ $resume['tagline'] }}
                     </p>
                     {{-- Screen-only contact strip; print uses the navy sidebar. --}}
-                    <p class="resume-contact resume-contact--screen mt-4 font-mono text-xs text-neutral-500">
+                    <p class="resume-contact resume-contact--screen mt-4 font-mono text-sm text-neutral-400">
                         <span>{{ $person['location'] }}{{ ! empty($resume['postal']) ? ' '.$resume['postal'] : '' }}</span>
                         <span aria-hidden="true"> · </span>
                         <a href="tel:+1{{ preg_replace('/\D+/', '', $resume['phone']) }}" class="hover:text-accent">{{ $resume['phone'] }}</a>
@@ -121,7 +121,7 @@
                 @if(! empty($resume['impact']))
                     <section class="resume-section" aria-labelledby="resume-impact" data-reveal>
                         <h2 id="resume-impact" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Selected Leadership Impact</h2>
-                        <ul class="resume-bullets resume-impact list-disc pl-5 text-neutral-300 text-base leading-relaxed">
+                        <ul class="resume-bullets resume-impact list-disc pl-5 text-neutral-300">
                             @foreach($resume['impact'] as $item)
                                 <li>{{ $item }}</li>
                             @endforeach
@@ -134,39 +134,42 @@
 
                     <div class="resume-roles">
                         <div class="resume-role resume-role--current">
-                            <h3 class="resume-role-title text-white text-xl sm:text-2xl font-semibold">
+                            @if(! empty($experience['current']['label']))
+                                <p class="resume-role-kicker">{{ $experience['current']['label'] }}</p>
+                            @endif
+                            <h3 class="resume-role-title">
                                 {{ $experience['current']['title'] }}, {{ $experience['current']['company'] }}, {{ $experience['current']['location'] }}
                             </h3>
-                            <p class="resume-meta resume-dates font-mono text-[11px] text-neutral-500 uppercase tracking-wider">
+                            <p class="resume-meta resume-dates">
                                 {{ $experience['current']['period'] }}
                             </p>
-                            <x-site.role-highlights class="resume-bullets text-base" :items="$experience['current']['highlights']" plain />
+                            <x-site.role-highlights class="resume-bullets" :items="$experience['current']['highlights']" plain />
                         </div>
 
                         @foreach($experience['roles'] as $role)
                             <div @class(['resume-role', 'resume-role--anchor' => $loop->first, 'resume-role--compact' => ! $loop->first])>
-                                <h3 @class(['resume-role-title text-white font-semibold', 'text-xl' => $loop->first, 'text-lg' => ! $loop->first])>
+                                <h3 class="resume-role-title">
                                     {{ $role['title'] }}, {{ $role['company'] }}, {{ $role['location'] }}
                                 </h3>
-                                <p class="resume-meta resume-dates font-mono text-[11px] text-neutral-500 uppercase tracking-wider">
+                                <p class="resume-meta resume-dates">
                                     {{ $role['period'] }}
                                 </p>
-                                <x-site.role-highlights class="resume-bullets {{ $loop->first ? 'text-base' : 'text-sm' }}" :items="$role['highlights']" plain />
+                                <x-site.role-highlights class="resume-bullets" :items="$role['highlights']" plain />
                             </div>
                         @endforeach
 
                         @if(! empty($experience['earlier']['highlights']))
                             <div class="resume-role resume-role--compact">
-                                <h3 class="resume-role-title text-white text-lg font-semibold">
+                                <h3 class="resume-role-title">
                                     {{ $experience['earlier']['title'] }}
                                 </h3>
-                                <p class="resume-meta text-neutral-300 text-sm">
+                                <p class="resume-meta">
                                     {{ $experience['earlier']['company'] }}
                                 </p>
-                                <p class="resume-meta resume-dates font-mono text-[11px] text-neutral-500 uppercase tracking-wider">
+                                <p class="resume-meta resume-dates">
                                     {{ $experience['earlier']['period'] }}
                                 </p>
-                                <x-site.role-highlights class="resume-bullets text-sm" :items="$experience['earlier']['highlights']" plain />
+                                <x-site.role-highlights class="resume-bullets" :items="$experience['earlier']['highlights']" plain />
                             </div>
                         @endif
                     </div>
@@ -177,7 +180,7 @@
                         <h2 id="resume-education" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Education</h2>
                         <ul class="resume-education">
                             @foreach($education as $item)
-                                <li class="text-sm sm:text-base text-neutral-300">
+                                <li class="text-neutral-300">
                                     <strong class="text-neutral-200 font-medium">{{ $item['degree'] }}</strong>, {{ $item['school'] }}
                                 </li>
                             @endforeach
@@ -190,7 +193,7 @@
                         <h2 id="resume-certifications" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Certifications</h2>
                         <ul class="resume-certs list-disc pl-5">
                             @foreach($certifications as $cert)
-                                <li class="text-sm text-neutral-300">
+                                <li class="text-neutral-300">
                                     {{ $cert['name'] }}{{ ! empty($cert['issuer']) ? ', '.$cert['issuer'] : '' }}{{ ! empty($cert['status']) ? ' ('.strtolower($cert['status']).')' : '' }}
                                 </li>
                             @endforeach

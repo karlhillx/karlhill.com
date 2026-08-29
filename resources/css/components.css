@@ -1440,26 +1440,90 @@ a.series-chapters__card:hover .series-chapters__title,
     font-weight: 600;
 }
 
+.resume-header {
+    margin-bottom: 2.75rem;
+}
+
 .resume-roles {
     display: grid;
-    gap: 1.75rem;
+    gap: 2.5rem;
 }
 
 .resume-role--current {
-    padding-left: 1rem;
+    padding: 0.15rem 0 0.15rem 1.15rem;
     border-left: 2px solid color-mix(in oklab, var(--accent) 60%, transparent);
 }
 
-.resume-role--compact {
-    opacity: 0.92;
+.resume-role-kicker {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.resume-role-title {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+}
+
+.resume-meta {
+    margin: 0.35rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.resume-dates {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+}
+
+.resume-doc .resume-summary {
+    line-height: 1.7;
+}
+
+.resume-doc .resume-bullets,
+.resume-doc .resume-education,
+.resume-doc .resume-certs {
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.resume-doc .resume-bullets {
+    margin-top: 0.9rem;
+}
+
+.resume-doc .resume-bullets > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.7rem;
+}
+
+.resume-education,
+.resume-certs {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.resume-education {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .resume-section + .resume-section {
-    margin-top: 2.25rem;
+    margin-top: 3rem;
 }
 
 .resume-section-title {
-    margin-bottom: 0.85rem;
+    margin-bottom: 1.05rem;
 }
 
 .work-card-details {
