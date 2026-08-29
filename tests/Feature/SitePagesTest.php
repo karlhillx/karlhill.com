@@ -202,6 +202,9 @@ it('about and resume pages include contact and live cv', function () {
     $about = $this->get('/about');
     $about->assertStatus(200);
     $about->assertSee('"@type": "Person"', escape: false);
+    $about->assertSee('"@type": "ProfilePage"', escape: false);
+    $about->assertSee('"headline":', escape: false);
+    $about->assertSee('T00:00:00', escape: false);
     $about->assertDontSee('id="contact-form"', escape: false);
     $about->assertSee('href="/resume"', escape: false);
     $about->assertSee('id="contact"', escape: false);

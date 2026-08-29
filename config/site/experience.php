@@ -16,6 +16,16 @@ return [
             'Drive DevSecOps and platform engineering with CI/CD, automated testing, quality gates, and security checks that shorten feedback loops.',
             'Define engineering governance — repository standards, PR/review policy, Definition of Done, and release process — across multi-repo, multi-environment systems.',
         ],
+        'skills' => [
+            'Cloud-native platforms',
+            'Mission simulation',
+            'Telemetry',
+            'CI/CD',
+            'DevSecOps',
+            'Platform engineering',
+            'Release governance',
+            'Multi-repo delivery',
+        ],
     ],
     'roles' => [
         [
@@ -31,6 +41,17 @@ return [
                 'Implemented containerized delivery with GitLab CI/CD, Docker, and Kubernetes — automated deployments, repeatable releases, and reliable stakeholder approvals.',
                 'Built a high-performance file and metadata platform on Ceph, improving virtual directory mapping and accelerating discovery for large scientific datasets. <a href="/work/direct-readout-laboratory" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
             ],
+            'skills' => [
+                'AWS',
+                'Flood mapping',
+                'Earth science software',
+                'GitLab CI/CD',
+                'Docker',
+                'Kubernetes',
+                'Ceph',
+                'High-traffic web',
+                'Scientific data systems',
+            ],
         ],
         [
             'title' => 'Senior Software Engineer',
@@ -42,6 +63,13 @@ return [
                 'Led CRM enhancements that improved retention and contributed ~15% revenue growth through better lifecycle workflows and reporting.',
                 'Spearheaded platform upgrades and security process improvements, doubling incident response efficiency and strengthening operational readiness.',
             ],
+            'skills' => [
+                'Laravel',
+                'Case management',
+                'CRM',
+                'Healthcare software',
+                'Security operations',
+            ],
         ],
         [
             'title' => 'Senior Software Engineer',
@@ -52,6 +80,11 @@ return [
                 'Delivered SugarCRM solutions for 20+ clients (including Virginia Department of Transportation, Washington Redskins, and Kastle Systems), improving sales operations and team productivity.',
                 'Drove execution discipline that cut backlog ~90%, improving delivery predictability, product quality, and customer satisfaction.',
             ],
+            'skills' => [
+                'SugarCRM',
+                'Enterprise CRM',
+                'Delivery management',
+            ],
         ],
     ],
     'earlier' => [
@@ -61,6 +94,13 @@ return [
         'highlights' => [
             'Held software engineering and principal roles across travel, enterprise CRM, telecommunications, and managed security — delivering production systems for clients including Comcast, Mastercard, Verizon/MCI, and global travel customers.',
             'Shipped Finium, the multi-tenant managed-security platform that enabled a <strong class="text-white font-semibold">$105M</strong> acquisition, and helped mature engineering practices around testing, code quality, and cross-functional delivery. <a href="/work/finium" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
+        ],
+        'skills' => [
+            'Managed security',
+            'Multi-tenant platforms',
+            'CRM',
+            'Telecommunications',
+            'Travel systems',
         ],
         // Legacy single-entry shape kept for any older consumers; prefer highlights above.
         'entries' => [

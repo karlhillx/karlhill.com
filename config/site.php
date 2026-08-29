@@ -83,6 +83,7 @@ return [
     'projects' => require __DIR__.'/site/projects.php',
     'research' => require __DIR__.'/site/research.php',
     'stack' => require __DIR__.'/site/stack.php',
+    'skills' => require __DIR__.'/site/skills.php',
     'certifications' => require __DIR__.'/site/certifications.php',
     'education' => require __DIR__.'/site/education.php',
     'footer' => require __DIR__.'/site/footer.php',

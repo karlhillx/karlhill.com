@@ -46,6 +46,7 @@ final class SiteCatalog
             'location' => $person['location'],
             'email' => $person['email'],
             'tagline' => $person['tagline'] ?? null,
+            'headline' => $person['linkedin_headline'] ?? $person['tagline'] ?? null,
             'linkedin_headline' => $person['linkedin_headline'] ?? null,
             'bio' => $person['bio'] ?? null,
             'availability' => $person['availability'] ?? null,
@@ -100,6 +101,91 @@ final class SiteCatalog
         }
 
         return $roles;
+    }
+
+    /**
+     * Grouped + flat skills for recruiter/AI matchers (resume stack + search terms).
+     *
+     * @return array{grouped: list<array{category: string, skills: list<string>}>, flat: list<string>}
+     */
+    public function skills(): array
+    {
+        $grouped = collect(config('site.stack', []))
+            ->merge(config('site.skills', []))
+            ->filter(fn ($group): bool => is_array($group) && ! empty($group['skills']))
+            ->map(fn (array $group): array => [
+                'category' => (string) ($group['category'] ?? ''),
+                'skills' => collect($group['skills'] ?? [])
+                    ->filter(fn ($skill): bool => is_string($skill) && $skill !== '')
+                    ->values()
+                    ->all(),
+            ])
+            ->values()
+            ->all();
+
+        $flat = collect($grouped)
+            ->pluck('skills')
+            ->flatten()
+            ->unique()
+            ->values()
+            ->all();
+
+        return [
+            'grouped' => $grouped,
+            'flat' => $flat,
+        ];
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    public function education(): array
+    {
+        return collect(config('site.education', []))
+            ->filter(fn ($entry): bool => is_array($entry) && ! empty($entry['school']))
+            ->map(fn (array $entry): array => [
+                'degree' => $entry['degree'] ?? null,
+                'school' => $entry['school'],
+            ])
+            ->values()
+            ->all();
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    public function certifications(): array
+    {
+        return collect(config('site.certifications', []))
+            ->filter(fn ($entry): bool => is_array($entry) && ! empty($entry['name']))
+            ->map(fn (array $entry): array => [
+                'abbr' => $entry['abbr'] ?? null,
+                'name' => $entry['name'],
+                'issuer' => $entry['issuer'] ?? null,
+                'url' => $entry['url'] ?? null,
+                'status' => $entry['status'] ?? null,
+            ])
+            ->values()
+            ->all();
+    }
+
+    /**
+     * @return array<string, mixed>|null
+     */
+    public function publication(): ?array
+    {
+        $research = config('site.research');
+        if (! is_array($research) || empty($research['title'])) {
+            return null;
+        }
+
+        return [
+            'title' => $research['title'],
+            'publication' => $research['publication'] ?? null,
+            'citation' => $research['citation'] ?? null,
+            'doi' => $research['doi'] ?? null,
+            'published' => $research['published'] ?? null,
+        ];
     }
 
     /**
@@ -289,13 +375,20 @@ final class SiteCatalog
             ->values()
             ->all();
 
+        $skills = collect($role['skills'] ?? [])
+            ->filter(fn ($skill): bool => is_string($skill) && $skill !== '')
+            ->values()
+            ->all();
+
         return [
             'title' => $role['title'] ?? null,
             'company' => $role['company'] ?? null,
             'location' => $role['location'] ?? null,
             'period' => $role['period'] ?? null,
             'current' => $current,
+            'summary' => $role['summary'] ?? null,
             'highlights' => $highlights,
+            'skills' => $skills,
         ];
     }
 }

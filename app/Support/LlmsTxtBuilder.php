@@ -151,6 +151,23 @@ class LlmsTxtBuilder
             '- Start here: [Recruiter kit]('.$base.'/kit) · [Now]('.$base.'/now) · [Resume]('.$base.'/resume) · [Contact]('.$base.'/#contact)',
         ];
 
+        $skills = $this->catalog->skills()['flat'];
+        if ($skills !== []) {
+            $lines[] = '- Skills: '.implode(', ', $skills);
+        }
+
+        $education = $this->catalog->education();
+        if ($education !== []) {
+            $lines[] = '- Education: '.collect($education)
+                ->map(fn (array $entry): string => trim(($entry['degree'] ?? '').' — '.($entry['school'] ?? ''), ' —'))
+                ->implode('; ');
+        }
+
+        $publication = $this->catalog->publication();
+        if (is_array($publication) && ! empty($publication['title'])) {
+            $lines[] = '- Publication: '.$publication['title'].(empty($publication['doi']) ? '' : ' ('.$publication['doi'].')');
+        }
+
         if (is_string($person['bio'] ?? null) && $person['bio'] !== '') {
             $lines[] = '- Summary: '.$this->escapeMarkdownLinkText((string) $person['bio']);
         }

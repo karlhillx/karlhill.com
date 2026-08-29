@@ -37,6 +37,8 @@ it('llms txt returns plain text with required sections', function () {
     $this->assertStringContainsString('## For recruiters & hiring managers', $body);
     $this->assertStringContainsString('Seeking:', $body);
     $this->assertStringContainsString('Engineering Manager', $body);
+    $this->assertStringContainsString('Skills:', $body);
+    $this->assertStringContainsString('Python', $body);
     $this->assertStringContainsString('## Series', $body);
     $this->assertStringContainsString('Engineering Manager craft', $body);
 });

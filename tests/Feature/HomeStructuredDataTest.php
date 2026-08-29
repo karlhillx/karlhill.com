@@ -19,7 +19,16 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($person['alumniOf'])->toBeArray()
         ->and($person['knowsAbout'])->toContain('DevSecOps')
         ->and($person['knowsAbout'])->toContain('Engineering Manager')
-        ->and($person['hasOccupation'][0]['@type'])->toBe('Occupation');
+        ->and($person['knowsAbout'])->toContain('Python')
+        ->and($person['hasOccupation'][0]['@type'])->toBe('Occupation')
+        ->and($person['hasCredential'])->toBeArray()->not->toBeEmpty();
+
+    $article = $person['subjectOf'][0];
+    expect($article['@type'])->toBe('ScholarlyArticle')
+        ->and($article['headline'])->toBe($article['name'])
+        ->and($article['datePublished'])->toMatch('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/')
+        ->and(collect($article['author'])->pluck('url')->filter())->toHaveCount(4)
+        ->and(collect($article['author'])->firstWhere('name', 'Karl M. Hill')['url'])->toContain('karlhill.com');
 
     expect(collect($person['sameAs'])->implode(' '))->not->toContain('discogs.com');
 

@@ -18,6 +18,12 @@ it('hire packet json includes person experience writing and case studies', funct
 
     $json = $response->json();
     expect($json['experience'])->toBeArray()->not->toBeEmpty()
+        ->and($json['skills']['flat'])->toContain('Python')
+        ->and($json['skills']['flat'])->toContain('Engineering leadership')
+        ->and($json['education'])->not->toBeEmpty()
+        ->and($json['certifications'])->not->toBeEmpty()
+        ->and($json['publication']['doi'])->toContain('gh2025-7')
+        ->and($json['experience'][0]['skills'])->toContain('DevSecOps')
         ->and($json['case_studies'])->toBeArray()->not->toBeEmpty()
         ->and($json['writing'])->toBeArray()->not->toBeEmpty()
         ->and(collect($json['case_studies'])->pluck('slug'))->toContain('flood-mapping-system')
@@ -41,7 +47,9 @@ it('agent packet builder matches the public json', function () {
     expect($site['person']['email'])->toBe(config('site.person.email'))
         ->and($site['seeking'])->toContain('Engineering Manager')
         ->and($site['trajectory'])->toContain('Engineering Manager')
-        ->and($site['person']['trajectory'])->toContain('Engineering Manager');
+        ->and($site['person']['trajectory'])->toContain('Engineering Manager')
+        ->and($site['headline'])->toContain('EM & Staff / Principal')
+        ->and($site['person']['headline'])->toContain('Jacobs');
 });
 
 it('pages advertise the hire packet alternate', function () {
