@@ -201,6 +201,7 @@ it('now page renders focus and em intent', function () {
 it('about and resume pages include contact and live cv', function () {
     $about = $this->get('/about');
     $about->assertStatus(200);
+    $about->assertSee('"@type": "Person"', escape: false);
     $about->assertDontSee('id="contact-form"', escape: false);
     $about->assertSee('href="/resume"', escape: false);
     $about->assertSee('id="contact"', escape: false);

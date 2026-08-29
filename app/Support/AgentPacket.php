@@ -28,6 +28,7 @@ final class AgentPacket
             'canonical' => $base,
             'person' => $person,
             'seeking' => $person['availability'] ?? null,
+            'trajectory' => $person['trajectory'] ?? null,
             'now' => $this->catalog->now(),
             'experience' => $this->catalog->experience(),
             'case_studies' => $this->catalog->caseStudies(),

@@ -1,5 +1,9 @@
 @extends('layouts.site', ['meta' => $meta])
 
+@push('head')
+    <x-site.json-ld :data="\App\Support\PersonJsonLd::forNamedPage('about', '/about')" />
+@endpush
+
 @section('content')
     <x-site.page-hero eyebrow="Background" :breadcrumbs="[
         ['label' => 'Home', 'url' => '/'],

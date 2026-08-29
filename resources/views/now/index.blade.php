@@ -1,5 +1,9 @@
 @extends('layouts.site', ['meta' => $meta])
 
+@push('head')
+    <x-site.json-ld :data="\App\Support\PersonJsonLd::forNamedPage('now', '/now')" />
+@endpush
+
 @section('content')
     @php
         $bookingUrl = config('site.booking.url');

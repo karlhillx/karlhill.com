@@ -77,13 +77,19 @@ const pdfDoc = await PDFDocument.load(pdfBytes);
 
 pdfDoc.setTitle('Karl Hill — Resume');
 pdfDoc.setAuthor('Karl Hill');
-pdfDoc.setSubject('Software Engineering Leadership Resume');
+pdfDoc.setSubject('Staff Aerospace Software Engineer — Engineering Manager trajectory · Jacobs · NASA Goddard');
 pdfDoc.setKeywords([
-    'Software Engineering Leadership',
+    'Karl Hill',
+    'Engineering Manager',
+    'Staff Aerospace Software Engineer',
     'Platform Engineering',
     'DevSecOps',
     'Cloud-Native',
     'Aerospace',
+    'Defense',
+    'Mission software',
+    'NASA Goddard',
+    'Jacobs National Security',
 ]);
 
 const withMeta = await pdfDoc.save({ useObjectStreams: false });

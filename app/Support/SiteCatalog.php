@@ -38,14 +38,18 @@ final class SiteCatalog
 
         return [
             'name' => $person['name'],
+            'given_name' => $person['given_name'] ?? null,
+            'family_name' => $person['family_name'] ?? null,
             'job_title' => $person['job_title'],
             'employer' => $person['employer'],
             'employer_display' => $person['employer_display'] ?? $person['employer'],
             'location' => $person['location'],
             'email' => $person['email'],
             'tagline' => $person['tagline'] ?? null,
+            'linkedin_headline' => $person['linkedin_headline'] ?? null,
             'bio' => $person['bio'] ?? null,
             'availability' => $person['availability'] ?? null,
+            'trajectory' => $person['trajectory'] ?? null,
             'url' => $base,
             'image' => $base.'/img/webp/profile.webp',
         ];

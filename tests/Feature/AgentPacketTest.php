@@ -39,7 +39,9 @@ it('agent packet builder matches the public json', function () {
     $site = $packet->site();
 
     expect($site['person']['email'])->toBe(config('site.person.email'))
-        ->and($site['seeking'])->toContain('Engineering Manager');
+        ->and($site['seeking'])->toContain('Engineering Manager')
+        ->and($site['trajectory'])->toContain('Engineering Manager')
+        ->and($site['person']['trajectory'])->toContain('Engineering Manager');
 });
 
 it('pages advertise the hire packet alternate', function () {

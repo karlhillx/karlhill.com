@@ -1,5 +1,9 @@
 @extends('layouts.site', ['meta' => $meta])
 
+@push('head')
+    <x-site.json-ld :data="\App\Support\PersonJsonLd::forNamedPage('kit', '/kit')" />
+@endpush
+
 @section('content')
     <div class="kit-doc">
     {{-- Print-only masthead: name + reachability first (screen uses the page hero). --}}

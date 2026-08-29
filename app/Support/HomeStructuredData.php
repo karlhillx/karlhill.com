@@ -14,70 +14,10 @@ final class HomeStructuredData
     {
         $url = PageMeta::siteUrl();
         $person = config('site.person');
-        $research = config('site.research');
         $seo = config('site.seo.home');
-        $personId = "{$url}/#person";
+        $personLd = PersonJsonLd::node();
+        $personId = $personLd['@id'];
         $websiteId = "{$url}/#website";
-
-        $personLd = [
-            '@type' => 'Person',
-            '@id' => $personId,
-            'name' => $person['name'],
-            'alternateName' => ['karlhillx'],
-            'description' => $seo['description'],
-            'jobTitle' => $person['job_title'],
-            'url' => $url,
-            'image' => [
-                '@type' => 'ImageObject',
-                'url' => "{$url}/img/webp/profile.webp",
-                'contentUrl' => "{$url}/img/webp/profile.webp",
-            ],
-            'email' => 'mailto:'.$person['email'],
-            'address' => [
-                '@type' => 'PostalAddress',
-                'addressLocality' => 'Washington',
-                'addressRegion' => 'DC',
-                'addressCountry' => 'US',
-            ],
-            'worksFor' => [
-                '@type' => 'Organization',
-                'name' => $person['employer'],
-                'url' => 'https://www.jacobs.com',
-            ],
-            'alumniOf' => self::alumniOf(),
-            'knowsAbout' => [
-                'Cloud-native platforms',
-                'DevSecOps',
-                'Engineering leadership',
-                'Platform engineering',
-                'Aerospace software',
-                'Defense mission software',
-                'NASA Earth science software',
-                'Flood mapping systems',
-                'Release governance',
-            ],
-            'subjectOf' => [
-                [
-                    '@type' => 'ScholarlyArticle',
-                    'name' => $research['title'],
-                    'url' => $research['doi'],
-                    'identifier' => $research['doi'],
-                    'datePublished' => '2026-05-05',
-                    'image' => $url.($research['image'] ?? '/img/ss-geohorizons.png'),
-                    'author' => [
-                        ['@type' => 'Person', 'name' => 'Frederick S. Policelli'],
-                        ['@type' => 'Person', 'name' => 'Albert J. Kettner'],
-                        ['@type' => 'Person', 'name' => 'Karl M. Hill'],
-                        ['@type' => 'Person', 'name' => 'Devon V. Maloney'],
-                    ],
-                    'isPartOf' => [
-                        '@type' => 'Periodical',
-                        'name' => $research['publication'],
-                    ],
-                ],
-            ],
-            'sameAs' => config('site.same_as'),
-        ];
 
         $websiteLd = [
             '@type' => 'WebSite',
@@ -125,36 +65,5 @@ final class HomeStructuredData
             '@context' => 'https://schema.org',
             '@graph' => [$personLd, $websiteLd, $profilePageLd, $blogLd],
         ];
-    }
-
-    /**
-     * @return list<array<string, string>>
-     */
-    protected static function alumniOf(): array
-    {
-        $orgs = [
-            [
-                '@type' => 'Organization',
-                'name' => 'NASA Goddard Space Flight Center',
-                'url' => 'https://www.nasa.gov/goddard',
-            ],
-            [
-                '@type' => 'Organization',
-                'name' => 'Science Systems and Applications, Inc.',
-            ],
-        ];
-
-        foreach (config('site.education', []) as $entry) {
-            if (! is_array($entry) || empty($entry['school'])) {
-                continue;
-            }
-
-            $orgs[] = [
-                '@type' => 'CollegeOrUniversity',
-                'name' => $entry['school'],
-            ];
-        }
-
-        return $orgs;
     }
 }

@@ -3,7 +3,7 @@
 return [
     'home' => [
         'title' => 'Karl Hill — Staff Aerospace Software Engineer · NASA · Jacobs',
-        'description' => 'Karl Hill — Staff Aerospace Software Engineer at Jacobs National Security, formerly NASA Goddard. Government aerospace and defense mission software, Earth science platforms, and engineering leadership.',
+        'description' => 'Karl Hill — Staff Aerospace Software Engineer at Jacobs National Security, formerly NASA Goddard. Open to Engineering Manager and Staff / Principal roles in aerospace, defense, and federal mission software.',
         'og_description' => 'Staff Aerospace Software Engineer @ Jacobs National Security · ex-NASA Goddard. Mission software, DevSecOps, and platform leadership.',
     ],
     'blog_index' => [
@@ -28,12 +28,12 @@ return [
     ],
     'resume' => [
         'title' => 'Resume — Karl Hill · Aerospace mission software',
-        'description' => 'Resume for Karl Hill — Staff Aerospace Software Engineer. Cloud-native mission software, DevSecOps, and high-assurance delivery across Jacobs, NASA, and enterprise systems.',
-        'og_description' => 'CV from karlhill.com — aerospace mission software, DevSecOps, and engineering leadership.',
+        'description' => 'Resume for Karl Hill — Staff Aerospace Software Engineer at Jacobs, formerly NASA Goddard. Evidence for Engineering Manager and Staff / Principal searches in aerospace, defense, and federal mission software.',
+        'og_description' => 'CV from karlhill.com — Staff→EM trajectory, aerospace mission software, DevSecOps.',
     ],
     'kit' => [
         'title' => 'Recruiter kit — Karl Hill · Aerospace & defense mission software',
-        'description' => 'Resume PDF, bio, booking, and case studies for Karl Hill — Staff Aerospace Software Engineer at Jacobs National Security, formerly NASA Goddard.',
+        'description' => 'Recruiter kit for Karl Hill — resume PDF, bio, and links for Engineering Manager and Staff / Principal searches in aerospace, defense, and federal mission software.',
         'og_description' => 'Recruiter one-pager: resume PDF, bio, LinkedIn/GitHub, booking, and flagship NASA plus current Jacobs work.',
     ],
 ];
