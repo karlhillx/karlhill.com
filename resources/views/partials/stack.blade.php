@@ -1,4 +1,4 @@
-<x-site.section id="stack" :number="$sectionNumber ?? '03'" label="Technical Stack">
+<x-site.section id="stack" :number="$sectionNumber ?? '03'" label="Technical Expertise">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
             @foreach(config('site.stack') as $group)
                 <div data-reveal>

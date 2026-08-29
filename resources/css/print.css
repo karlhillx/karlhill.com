@@ -136,6 +136,14 @@
         word-break: break-all;
     }
 
+    .resume-doc .resume-link-label {
+        display: none !important;
+    }
+
+    .resume-doc .resume-link-url {
+        display: inline !important;
+    }
+
     .resume-doc .resume-aside-block + .resume-aside-block {
         margin-top: 0.42rem;
     }
@@ -298,8 +306,8 @@
         display: list-item !important;
     }
 
-    /* Cap role bullets in print so the classic layout stays on 2 pages. */
-    .resume-doc .resume-role .resume-bullets li:nth-child(n + 5) {
+    /* Cap compact roles in print; Jacobs/NASA keep their five bullets. */
+    .resume-doc .resume-role--compact .resume-bullets li:nth-child(n + 4) {
         display: none !important;
     }
 

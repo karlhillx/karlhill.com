@@ -7,7 +7,7 @@
     'suffix' => null,
     'padding' => 'p-8',
     'valueClass' => 'text-5xl mb-2',
-    'labelClass' => 'text-neutral-500',
+    'labelClass' => 'text-neutral-400',
 ])
 
 <div {{ $attributes->merge(['class' => "bg-bg {$padding} text-center"]) }}>

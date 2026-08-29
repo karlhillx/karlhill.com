@@ -144,8 +144,12 @@ body {
     padding-block: var(--space-section);
 }
 
+.site-footer--compact {
+    padding-block: clamp(3.25rem, 7vw, 4.5rem);
+}
+
 .site-page-hero {
-    padding-block: 11rem var(--space-section-soft);
+    padding-block: 9rem var(--space-section-soft);
     padding-inline: var(--space-gutter);
 }
 

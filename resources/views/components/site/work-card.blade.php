@@ -70,10 +70,8 @@
     <div class="absolute inset-x-0 bottom-0 bg-bg/90 backdrop-blur-md border-t border-white/[0.06] px-5 pt-5 pb-6 rounded-b-2xl">
         <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
         <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-display text-lg tracking-wide text-white leading-tight">{{ $title }}</h3>
-        {{-- Collapse/expand only on hover-capable (fine pointer) devices; touch
-             devices always see the description since they can't hover. --}}
-        <div class="work-card-details pointer-fine:max-h-0 pointer-fine:group-hover:max-h-52 pointer-fine:group-focus-within:max-h-52 overflow-hidden transition-[max-height] duration-500 ease-out">
-            <p class="text-neutral-400 text-xs leading-relaxed mt-3 line-clamp-4 pointer-fine:line-clamp-none">{{ $description }}</p>
+        <div class="work-card-details overflow-hidden">
+            <p class="text-neutral-400 text-xs leading-relaxed mt-3 line-clamp-2 pointer-fine:group-hover:line-clamp-4 pointer-fine:group-focus-within:line-clamp-4">{{ $description }}</p>
             @if($href)
                 <p class="font-mono text-[10px] text-accent uppercase tracking-widest mt-4" aria-hidden="true">
                     {{ $cta }}

@@ -20,10 +20,4 @@ return [
         'issuer' => 'Scrum.org',
         'url' => 'https://www.credly.com/badges/da27e50e-ef55-41f0-bc14-ca26d9e3e0ff',
     ],
-    [
-        'abbr' => 'PSD I',
-        'name' => 'Professional Scrum Developer™ I',
-        'issuer' => 'Scrum.org',
-        'url' => 'https://www.credly.com/badges/937b37cf-6fa7-49dd-8c70-e43378feda5b',
-    ],
 ];

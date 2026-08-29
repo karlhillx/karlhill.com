@@ -1,81 +1,67 @@
 <?php
 
 return [
-    0 => [
+    [
         'category' => 'Languages',
         'skills' => [
-            0 => 'Python',
-            1 => 'TypeScript',
-            2 => 'Java',
-            3 => 'Bash',
+            'Python',
+            'TypeScript',
+            'Java',
+            'Bash',
         ],
     ],
-    1 => [
+    [
         'category' => 'Cloud & Platform',
         'skills' => [
-            0 => 'AWS',
-            1 => 'Docker',
-            2 => 'Kubernetes',
-            3 => 'Helm/OCI',
-            4 => 'Cloud-Native Architecture',
+            'AWS',
+            'Docker',
+            'Kubernetes',
+            'Helm/OCI',
         ],
     ],
-    2 => [
-        'category' => 'DevSecOps & Release',
+    [
+        'category' => 'DevSecOps',
         'skills' => [
-            0 => 'Bitbucket',
-            1 => 'GitLab CI',
-            2 => 'GitHub Actions',
-            3 => 'CI/CD',
-            4 => 'Quality Gates',
+            'Bitbucket Pipelines',
+            'GitLab CI',
+            'GitHub Actions',
+            'CI/CD',
+            'Release Automation',
         ],
     ],
-    3 => [
-        'category' => 'APIs & Integration',
+    [
+        'category' => 'Python',
         'skills' => [
-            0 => 'REST/JSON',
-            1 => 'OpenAPI/Swagger',
-            2 => 'Service Integration',
-            3 => 'Distributed Systems',
+            'uv',
+            'Ruff',
+            'pytest',
+            'ty',
+            'pre-commit',
         ],
     ],
-    4 => [
-        'category' => 'Web & Application',
+    [
+        'category' => 'Integration',
         'skills' => [
-            0 => 'Node.js',
-            1 => 'React',
-            2 => 'Vite',
-            3 => 'Tailwind',
-            4 => 'Laravel/PHP',
+            'REST/OpenAPI',
+            'RabbitMQ',
+            'ActiveMQ',
+            'Distributed Systems',
         ],
     ],
-    5 => [
-        'category' => 'Data & Search',
+    [
+        'category' => 'Data',
         'skills' => [
-            0 => 'PostgreSQL',
-            1 => 'MySQL',
-            2 => 'MongoDB',
-            3 => 'Redis',
-            4 => 'Elasticsearch/OpenSearch',
+            'PostgreSQL',
+            'Elasticsearch/OpenSearch',
+            'Redis',
         ],
     ],
-    6 => [
-        'category' => 'Engineering Ops',
+    [
+        'category' => 'AI Engineering',
         'skills' => [
-            0 => 'Git',
-            1 => 'Jira',
-            2 => 'Confluence',
-            3 => 'PR/Review Workflows',
-            4 => 'Engineering Standards',
-        ],
-    ],
-    7 => [
-        'category' => 'AI-Enabled Engineering',
-        'skills' => [
-            0 => 'Cursor',
-            1 => 'GitHub Copilot',
-            2 => 'Claude',
-            3 => 'LLM-Assisted Development',
+            'Cursor',
+            'GitHub Copilot',
+            'LLM-Assisted Development',
         ],
     ],
 ];

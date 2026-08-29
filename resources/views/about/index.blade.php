@@ -18,11 +18,11 @@
             </a>
             <a href="#contact"
                class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                Talk about leadership
+                Contact
             </a>
             <a href="/now"
                class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors">
-                What I'm doing now
+                Now
             </a>
         </div>
     </x-site.page-hero>
@@ -37,7 +37,7 @@
             $discogs = collect(config('site.social'))->first(fn ($link) => ($link['icon'] ?? '') === 'discogs');
             $beyond = config('site.about.beyond');
         @endphp
-        <section aria-label="Beyond the work" class="site-section site-section--soft border-t border-neutral-800/50">
+        <section id="beyond" aria-label="Beyond the work" class="site-section site-section--soft border-t border-neutral-800/50">
             <div class="site-shell grid md:grid-cols-[200px_1fr] gap-8 md:gap-14" data-reveal>
                 <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">Beyond the work</p>
                 <p class="text-neutral-300 text-lg leading-relaxed max-w-2xl">

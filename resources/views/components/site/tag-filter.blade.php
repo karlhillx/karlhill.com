@@ -18,7 +18,7 @@
        @class([
            'tag-filter__chip font-mono text-[10px] uppercase tracking-widest px-3 py-2.5 min-h-11 inline-flex items-center surface-chip shrink-0',
            'is-active border-accent text-accent' => ! $activeTag,
-           'border-neutral-800 text-neutral-500' => $activeTag,
+           'border-neutral-800 text-neutral-400' => $activeTag,
        ])
        @if(! $activeTag) aria-current="page" @endif>
         All
@@ -28,7 +28,7 @@
            @class([
                'tag-filter__chip font-mono text-[10px] uppercase tracking-widest px-3 py-2.5 min-h-11 inline-flex items-center surface-chip shrink-0',
                'is-active border-accent text-accent' => $activeTag === $tag,
-               'border-neutral-800 text-neutral-500' => $activeTag !== $tag,
+               'border-neutral-800 text-neutral-400' => $activeTag !== $tag,
            ])
            @if($activeTag === $tag) aria-current="page" @endif>
             {{ $tag }}@if($counts->has($tag))&nbsp;<span class="tabular-nums opacity-60">({{ $counts->get($tag) }})</span>@endif

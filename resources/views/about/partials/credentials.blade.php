@@ -25,7 +25,7 @@
                 {{ $verifiedCount }} verified{{ $inProgressCount ? " · {$inProgressCount} in progress" : '' }}
             </p>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             @foreach($certifications as $cert)
                 <a href="{{ $cert['url'] }}" target="_blank" rel="noopener noreferrer"
                    class="surface-card group relative flex flex-col p-6"

@@ -82,7 +82,7 @@ class KitController extends Controller
                 $href = url($def['path'] ?? '/now#book');
                 $label = is_string($bookingLabel) && $bookingLabel !== ''
                     ? $bookingLabel
-                    : 'Book a call';
+                    : 'Book a conversation';
             } elseif ($type === 'email') {
                 $mail = $person['email'] ?? null;
                 if (! filled($mail)) {

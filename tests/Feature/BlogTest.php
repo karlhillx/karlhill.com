@@ -25,6 +25,7 @@ it('blog show renders for known slug', function () {
     $response->assertSee('rel="canonical" href="', escape: false);
     $response->assertSee('/blog/release-governance', escape: false);
     $response->assertSee('BlogPosting', escape: false);
+    $response->assertSee('/blog/tag/engineering', escape: false);
 });
 
 it('blog show returns 404 for unknown slug', function () {

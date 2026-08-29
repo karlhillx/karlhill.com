@@ -16,7 +16,7 @@
         @if($eyebrow)
             <p class="font-mono text-accent text-xs tracking-widest uppercase mb-8 hero-enter" style="animation-delay:160ms">{{ $eyebrow }}</p>
         @endif
-        <h1 class="font-display text-[clamp(3.5rem,12vw,9rem)] leading-none tracking-wide text-white mb-8 hero-enter" style="animation-delay:240ms">
+        <h1 class="font-display text-[clamp(3rem,10vw,7rem)] leading-none tracking-wide text-white mb-6 hero-enter" style="animation-delay:240ms">
             {{ $title }}
         </h1>
         <div class="hero-enter" style="animation-delay:320ms">

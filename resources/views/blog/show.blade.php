@@ -77,9 +77,10 @@
 
         <div class="flex flex-wrap items-center gap-2 mb-10">
             @foreach($post->tags as $tag)
-                <span class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1">
+                <a href="{{ route('blog.tag', $tag) }}"
+                   class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
                     {{ $tag }}
-                </span>
+                </a>
             @endforeach
         </div>
 

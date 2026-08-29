@@ -5,7 +5,7 @@ return [
     'job_title' => 'Staff Aerospace Software Engineer',
     'email' => 'karlhillx@gmail.com',
     'location' => 'Washington, DC',
-    'tagline' => 'Aerospace Mission Software · Platform Engineering · DevSecOps · High-Assurance Delivery',
+    'tagline' => 'Aerospace Mission Software | Platform Engineering | DevSecOps | Technical Leadership',
     // LinkedIn-ready headline (copy/paste); keep in sync with public positioning.
     'linkedin_headline' => 'Staff Aerospace Software Engineer @ Jacobs National Security | ex-NASA Goddard | EM & Staff / Principal · Platform · DevSecOps',
     // Canonical hire ask — hero ping, kit “Open to”, and llms.txt. Do not rewrite on /now or in the bio.

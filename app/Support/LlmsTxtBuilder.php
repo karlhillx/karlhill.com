@@ -50,7 +50,7 @@ class LlmsTxtBuilder
             '',
             '- [Home]('.$base.'): Portfolio landing, latest writing, and contact',
             '- [Work]('.$base.'/work): Selected projects and open-source repositories',
-            '- [About]('.$base.'/about): How I lead, experience, research, stack, and credentials',
+            '- [About]('.$base.'/about): How I lead, experience, research, technical expertise, and credentials',
             '- [Now]('.$base.'/now): Current focus and Engineering Manager trajectory',
             '- [Resume]('.$base.'/resume): Live curriculum vitae (source of truth vs static PDF)',
             '- [Recruiter kit]('.$base.'/kit): One-pager with resume PDF, bio, and canonical links',

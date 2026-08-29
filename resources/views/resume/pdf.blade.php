@@ -13,11 +13,11 @@
 
     $linkedinUrl = $linkedin['url'] ?? 'https://www.linkedin.com/in/khill/';
     $githubUrl = $github['url'] ?? 'https://github.com/karlhillx';
-    $jacobs = $bullets($experience['current']['highlights'], 6);
-    $nasa = $bullets($experience['roles'][0]['highlights'], 6);
-    $informed = $bullets($experience['roles'][1]['highlights'], 4);
-    $ticomix = $bullets($experience['roles'][2]['highlights'], 4);
-    $earlier = $bullets($experience['earlier']['highlights'], 3);
+    $jacobs = $bullets($experience['current']['highlights'], 5);
+    $nasa = $bullets($experience['roles'][0]['highlights'], 5);
+    $informed = $bullets($experience['roles'][1]['highlights'], 3);
+    $ticomix = $bullets($experience['roles'][2]['highlights'], 3);
+    $earlier = $bullets($experience['earlier']['highlights'], 2);
 
     $locationLine = trim(($person['location'] ?? '').(! empty($resume['postal']) ? ' '.$resume['postal'] : ''));
 
@@ -26,7 +26,7 @@
     $taglineLead = trim($taglineParts[0] ?? '');
     $taglineRest = trim($taglineParts[1] ?? '');
 
-    $summaryLead = 'Software engineering leader with 20+ years building secure, cloud-native platforms';
+    $summaryLead = 'Staff Aerospace Software Engineer and technical lead with 20+ years building mission-critical software, cloud-native platforms, and high-assurance delivery systems across NASA, aerospace, and defense environments.';
     $summaryFull = (string) ($experience['intro'] ?? '');
     $summaryRest = str_starts_with($summaryFull, $summaryLead)
         ? substr($summaryFull, strlen($summaryLead))
@@ -535,7 +535,7 @@
             </section>
 
             <section class="sidebar-block" aria-labelledby="expertise-heading">
-                <h2 id="expertise-heading" class="sidebar-title">Areas of Expertise</h2>
+                <h2 id="expertise-heading" class="sidebar-title">Core Competencies</h2>
                 <ul class="expertise">
                     @foreach($resume['expertise'] as $item)
                         <li>{{ $item }}</li>
@@ -622,7 +622,7 @@
             </section>
 
             <section class="stack-block" aria-labelledby="stack-heading">
-                <h2 id="stack-heading" class="section-title">Technical Leadership, Platforms &amp; Engineering Stack</h2>
+                <h2 id="stack-heading" class="section-title">Technical Expertise</h2>
                 @foreach($stack as $group)
                     <p class="stack-line">
                         <span class="stack-label">{{ $group['category'] }}:</span>

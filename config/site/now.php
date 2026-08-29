@@ -5,13 +5,8 @@ return [
     // /now owns current focus. Recruiter path is a short strip — the ask lives in person.availability.
     'lede' => 'Building toward Engineering Manager while shipping aerospace mission software at Jacobs. Honest about the Staff title. Staff / Principal IC is a fit when the work is still platform leadership.',
     'recruiters' => [
-        'eyebrow' => 'For recruiters & hiring managers',
-        'body' => 'Hiring against that background? Start with the kit, then book a slot or send a note.',
-        'bullets' => [
-            'Washington, DC metro · open to hybrid / remote-friendly teams',
-            'Now: Jacobs — aerospace mission software, mission simulation and telemetry',
-            'Proof: NASA flood mapping, Earth Observatory, and the EM craft series',
-        ],
+        'eyebrow' => 'Hiring',
+        'body' => 'The kit is the packet. The resume is the evidence. This page is what I am doing now — book if the timing is right.',
     ],
     'focus' => [
         [

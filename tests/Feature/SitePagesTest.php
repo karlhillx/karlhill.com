@@ -43,6 +43,12 @@ it('about page renders leadership, arc, and research — not a second CV', funct
     $response->assertSee('Published 5 May 2026', escape: false);
     $response->assertSee('Global Water and Flood Mapping System', escape: false);
     $response->assertSee('Beyond the work', escape: false);
+    $response->assertSee('id="beyond"', escape: false);
+    $response->assertSee('href="#how-i-lead"', escape: false);
+    $response->assertSee('href="#experience"', escape: false);
+    $response->assertSee('href="#research"', escape: false);
+    $response->assertDontSee('href="#stack"', escape: false);
+    $response->assertDontSee('href="#credentials"', escape: false);
     $response->assertDontSee('id="credentials"', escape: false);
     $response->assertDontSee('id="stack"', escape: false);
     $response->assertDontSee('Ticomix', escape: false);
@@ -63,6 +69,7 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('magnetic-btn', escape: false);
     $response->assertSee('data-idle-cta', escape: false);
     $response->assertSee('data-features="contact pointer', escape: false);
+    $response->assertSee('id="contact-form"', escape: false);
     $response->assertDontSee('id="experience"', escape: false);
     $response->assertDontSee('id="open-source"', escape: false);
 });
@@ -174,19 +181,22 @@ it('now page renders focus and em intent', function () {
     $response->assertSee('Jacobs National Security', escape: false);
     $response->assertSee('August 19, 2026', escape: false);
     $response->assertSee('href="/about#how-i-lead"', escape: false);
-    $response->assertSee('For recruiters', escape: false);
-    $response->assertSee('id="contact-form"', escape: false);
-    $response->assertSee('name="return_to"', escape: false);
+    $response->assertSee('Hiring', escape: false);
+    $response->assertSee('The kit is the packet', escape: false);
+    $response->assertDontSee('id="contact-form"', escape: false);
     $response->assertSee('id="contact"', escape: false);
-    $response->assertSee('Get in Touch', escape: false);
+    $response->assertSee('id="focus"', escape: false);
+    $response->assertSee('section-rail', escape: false);
+    $response->assertSee('Book a time, or email me', escape: false);
 });
 
 it('about and resume pages include contact and live cv', function () {
     $about = $this->get('/about');
     $about->assertStatus(200);
-    $about->assertSee('id="contact-form"', escape: false);
+    $about->assertDontSee('id="contact-form"', escape: false);
     $about->assertSee('href="/resume"', escape: false);
     $about->assertSee('id="contact"', escape: false);
+    $about->assertSee('Book a time, or email me', escape: false);
 
     $resume = $this->get('/resume');
     $resume->assertStatus(200);
@@ -194,15 +204,22 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('Jacobs', escape: false);
     $resume->assertSee('class="resume-doc', escape: false);
     $resume->assertSee('Professional Scrum Master', escape: false);
-    $resume->assertSee('Tech Stack', escape: false);
+    $resume->assertSee('Technical Expertise', escape: false);
     $resume->assertSee('Selected Leadership Impact', escape: false);
-    $resume->assertSee('Areas of Expertise', escape: false);
+    $resume->assertSee('Core Competencies', escape: false);
     $resume->assertSee('(202) 599-1442', escape: false);
     $resume->assertSee('https://karlhill.com', escape: false);
     $resume->assertSee('resume-aside', escape: false);
-    $resume->assertSee('id="contact-form"', escape: false);
+    $resume->assertSee('id="stack"', escape: false);
+    $resume->assertSee('id="credentials"', escape: false);
+    $resume->assertSee('section-rail', escape: false);
+    $resume->assertDontSee('id="contact-form"', escape: false);
     $resume->assertSee('Download PDF', escape: false);
     $resume->assertSee('/files/Karl-Hill-Resume.pdf', escape: false);
+    $resume->assertSee('Technical Leadership', escape: false);
+    $resume->assertSee('Engineering Governance', escape: false);
+    $resume->assertSee('Bachelor of Science in Computer Science coursework', escape: false);
+    $resume->assertDontSee('Professional Scrum Developer', escape: false);
     $resume->assertDontSee('Download ATS PDF', escape: false);
     $resume->assertDontSee('Print / Save PDF', escape: false);
     $resume->assertDontSee('<a href="/work/flood-mapping-system"', escape: false);
@@ -255,6 +272,7 @@ it('homepage hero links to em funnel', function () {
     $response->assertSee('>Work<', escape: false);
     $response->assertSee('href="/work"', escape: false);
     $response->assertSee('href="/#contact"', escape: false);
+    $response->assertSee('id="contact-form"', escape: false);
     $response->assertSee('Resume PDF', escape: false);
     $response->assertSee('download="Karl-Hill-Resume.pdf"', escape: false);
     $response->assertSee('Jacobs', escape: false);
@@ -267,7 +285,8 @@ it('desktop nav includes resume and a single contact CTA', function () {
 
     expect($html)
         ->toContain('href="/resume"')
-        ->toContain('Get in Touch')
+        ->toContain('>Contact</a>')
+        ->not->toContain('Get in Touch')
         ->not->toContain('href="mailto:'.config('site.person.email').'" class="btn-sweep hidden md:inline-flex');
 
     expect(substr_count($html, 'data-nav-section="contact"'))->toBe(1);

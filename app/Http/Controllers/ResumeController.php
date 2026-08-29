@@ -13,6 +13,13 @@ class ResumeController extends Controller
 
         return view('resume.index', [
             'meta' => PageMeta::resume(),
+            'sectionRail' => [
+                ['id' => 'resume-summary', 'label' => 'Summary', 'href' => '#resume-summary'],
+                ['id' => 'resume-experience', 'label' => 'Experience', 'href' => '#resume-experience'],
+                ['id' => 'stack', 'label' => 'Expertise', 'href' => '#stack'],
+                ['id' => 'credentials', 'label' => 'Credentials', 'href' => '#credentials'],
+                ['id' => 'contact', 'label' => 'Contact', 'href' => '#contact'],
+            ],
             'person' => config('site.person'),
             'resume' => config('site.resume'),
             'experience' => config('site.experience'),

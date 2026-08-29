@@ -38,7 +38,7 @@
     }
 @endphp
 
-<x-site.page-hero eyebrow="Writing" :breadcrumbs="$breadcrumbs" class="pb-28">
+<x-site.page-hero eyebrow="Writing" :breadcrumbs="$breadcrumbs">
     <x-slot:title>Notes from<br>the field</x-slot:title>
 
     <p class="text-neutral-300 text-base leading-relaxed max-w-2xl">

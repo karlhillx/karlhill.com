@@ -8,8 +8,9 @@
         <x-slot:title>Resume</x-slot:title>
 
         <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Canonical HTML CV from the same source as <a href="/about" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">About</a>.
-            Download the generated <strong class="text-neutral-200 font-semibold">2-page PDF</strong> for applications (classic navy layout, ATS-readable text).
+            The evidence — roles, impact, and stack. Same source as
+            <a href="/about" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">About</a>.
+            Download the generated <strong class="text-neutral-200 font-semibold">2-page PDF</strong> for applications.
         </p>
 
         <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-8 sm:mt-10">
@@ -46,18 +47,33 @@
                     <h2 class="resume-aside-title">Links</h2>
                     <ul class="resume-aside-list resume-aside-links">
                         @if(! empty($linkedin))
-                            <li><a href="{{ $linkedin['url'] }}" target="_blank" rel="me noopener noreferrer">{{ $linkedin['url'] }}</a></li>
+                            <li>
+                                <a href="{{ $linkedin['url'] }}" target="_blank" rel="me noopener noreferrer">
+                                    <span class="resume-link-label">LinkedIn</span>
+                                    <span class="resume-link-url">{{ $linkedin['url'] }}</span>
+                                </a>
+                            </li>
                         @endif
                         @if(! empty($github))
-                            <li><a href="{{ $github['url'] }}" target="_blank" rel="me noopener noreferrer">{{ $github['url'] }}</a></li>
+                            <li>
+                                <a href="{{ $github['url'] }}" target="_blank" rel="me noopener noreferrer">
+                                    <span class="resume-link-label">GitHub</span>
+                                    <span class="resume-link-url">{{ $github['url'] }}</span>
+                                </a>
+                            </li>
                         @endif
-                        <li><a href="https://karlhill.com" target="_blank" rel="noopener noreferrer">https://karlhill.com</a></li>
+                        <li>
+                            <a href="https://karlhill.com" target="_blank" rel="noopener noreferrer">
+                                <span class="resume-link-label">Website</span>
+                                <span class="resume-link-url">https://karlhill.com</span>
+                            </a>
+                        </li>
                     </ul>
                 </section>
 
                 @if(! empty($resume['expertise']))
                     <section class="resume-aside-block">
-                        <h2 class="resume-aside-title">Areas of Expertise</h2>
+                        <h2 class="resume-aside-title">Core Competencies</h2>
                         <ul class="resume-expertise">
                             @foreach($resume['expertise'] as $item)
                                 <li>{{ $item }}</li>
@@ -67,8 +83,8 @@
                 @endif
 
                 @if(! empty($stack))
-                    <section class="resume-aside-block resume-aside-stack">
-                        <h2 class="resume-aside-title">Tech Stack</h2>
+                    <section class="resume-aside-block resume-aside-stack" id="stack">
+                        <h2 class="resume-aside-title">Technical Expertise</h2>
                         @foreach($stack as $group)
                             <p class="resume-stack-line">
                                 <span class="resume-stack-label">{{ $group['category'] }}:</span>
@@ -82,7 +98,7 @@
             <div class="resume-main">
                 <header class="resume-header" data-reveal>
                     <h1 class="resume-name font-display text-4xl sm:text-5xl tracking-wide text-white">{{ $person['name'] }}</h1>
-                    <p class="resume-tagline mt-3 font-mono text-sm text-accent uppercase tracking-widest">
+                    <p class="resume-tagline mt-3 font-mono text-sm sm:text-base text-accent uppercase tracking-widest">
                         {{ $resume['tagline'] }}
                     </p>
                     {{-- Screen-only contact strip; print uses the navy sidebar. --}}
@@ -99,13 +115,13 @@
 
                 <section class="resume-section" aria-labelledby="resume-summary" data-reveal>
                     <h2 id="resume-summary" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Summary</h2>
-                    <p class="resume-summary text-neutral-300 text-base leading-relaxed">{{ $experience['intro'] }}</p>
+                    <p class="resume-summary text-neutral-300 text-lg leading-relaxed">{{ $experience['intro'] }}</p>
                 </section>
 
                 @if(! empty($resume['impact']))
                     <section class="resume-section" aria-labelledby="resume-impact" data-reveal>
                         <h2 id="resume-impact" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Selected Leadership Impact</h2>
-                        <ul class="resume-bullets resume-impact list-disc pl-5 text-neutral-300 text-sm leading-relaxed">
+                        <ul class="resume-bullets resume-impact list-disc pl-5 text-neutral-300 text-base leading-relaxed">
                             @foreach($resume['impact'] as $item)
                                 <li>{{ $item }}</li>
                             @endforeach
@@ -117,30 +133,30 @@
                     <h2 id="resume-experience" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Professional Experience</h2>
 
                     <div class="resume-roles">
-                        <div class="resume-role">
-                            <h3 class="resume-role-title text-white text-lg font-semibold">
+                        <div class="resume-role resume-role--current">
+                            <h3 class="resume-role-title text-white text-xl sm:text-2xl font-semibold">
                                 {{ $experience['current']['title'] }}, {{ $experience['current']['company'] }}, {{ $experience['current']['location'] }}
                             </h3>
                             <p class="resume-meta resume-dates font-mono text-[11px] text-neutral-500 uppercase tracking-wider">
                                 {{ $experience['current']['period'] }}
                             </p>
-                            <x-site.role-highlights class="resume-bullets" :items="$experience['current']['highlights']" plain />
+                            <x-site.role-highlights class="resume-bullets text-base" :items="$experience['current']['highlights']" plain />
                         </div>
 
                         @foreach($experience['roles'] as $role)
-                            <div class="resume-role">
-                                <h3 class="resume-role-title text-white text-lg font-semibold">
+                            <div @class(['resume-role', 'resume-role--anchor' => $loop->first, 'resume-role--compact' => ! $loop->first])>
+                                <h3 @class(['resume-role-title text-white font-semibold', 'text-xl' => $loop->first, 'text-lg' => ! $loop->first])>
                                     {{ $role['title'] }}, {{ $role['company'] }}, {{ $role['location'] }}
                                 </h3>
                                 <p class="resume-meta resume-dates font-mono text-[11px] text-neutral-500 uppercase tracking-wider">
                                     {{ $role['period'] }}
                                 </p>
-                                <x-site.role-highlights class="resume-bullets" :items="$role['highlights']" plain />
+                                <x-site.role-highlights class="resume-bullets {{ $loop->first ? 'text-base' : 'text-sm' }}" :items="$role['highlights']" plain />
                             </div>
                         @endforeach
 
                         @if(! empty($experience['earlier']['highlights']))
-                            <div class="resume-role">
+                            <div class="resume-role resume-role--compact">
                                 <h3 class="resume-role-title text-white text-lg font-semibold">
                                     {{ $experience['earlier']['title'] }}
                                 </h3>
@@ -150,7 +166,7 @@
                                 <p class="resume-meta resume-dates font-mono text-[11px] text-neutral-500 uppercase tracking-wider">
                                     {{ $experience['earlier']['period'] }}
                                 </p>
-                                <x-site.role-highlights class="resume-bullets" :items="$experience['earlier']['highlights']" plain />
+                                <x-site.role-highlights class="resume-bullets text-sm" :items="$experience['earlier']['highlights']" plain />
                             </div>
                         @endif
                     </div>
@@ -161,8 +177,8 @@
                         <h2 id="resume-education" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Education</h2>
                         <ul class="resume-education">
                             @foreach($education as $item)
-                                <li class="text-sm text-neutral-300">
-                                    {{ $item['degree'] }}, {{ $item['school'] }}
+                                <li class="text-sm sm:text-base text-neutral-300">
+                                    <strong class="text-neutral-200 font-medium">{{ $item['degree'] }}</strong>, {{ $item['school'] }}
                                 </li>
                             @endforeach
                         </ul>
@@ -170,7 +186,7 @@
                 @endif
 
                 @if(! empty($certifications))
-                    <section class="resume-section" aria-labelledby="resume-certifications" data-reveal>
+                    <section id="credentials" class="resume-section" aria-labelledby="resume-certifications" data-reveal>
                         <h2 id="resume-certifications" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Certifications</h2>
                         <ul class="resume-certs list-disc pl-5">
                             @foreach($certifications as $cert)

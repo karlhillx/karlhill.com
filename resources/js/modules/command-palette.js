@@ -17,8 +17,8 @@ function gotoSection(id) {
         experience: '/about#experience',
         'how-i-lead': '/about#how-i-lead',
         research: '/about#research',
-        stack: '/about#stack',
-        credentials: '/about#credentials',
+        stack: '/resume#stack',
+        credentials: '/resume#credentials',
         work: '/work#work',
         'open-source': '/work#open-source',
         contact: '/#contact',
@@ -181,8 +181,8 @@ export function initCommandPalette() {
             action: () => gotoSection('research'),
         }),
         withGroup({
-            label: 'Stack',
-            keywords: 'stack tech tools languages',
+            label: 'Technical Expertise',
+            keywords: 'stack tech tools languages expertise',
             action: () => gotoSection('stack'),
         }),
         withGroup({

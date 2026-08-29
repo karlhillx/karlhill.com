@@ -1,16 +1,16 @@
 <?php
 
 return [
-    0 => [
-        'degree' => 'Bachelor of Science, Computer Science coursework',
+    [
+        'degree' => 'Bachelor of Science in Computer Science coursework',
         'school' => 'University of Maryland',
     ],
-    1 => [
-        'degree' => 'Associate of Arts, General Studies',
+    [
+        'degree' => 'Associate of Arts, General Studies — Computer Science Curriculum',
         'school' => 'Howard Community College',
     ],
-    2 => [
-        'degree' => 'Project Management',
+    [
+        'degree' => 'Project Management Certificate',
         'school' => 'Rutgers University',
     ],
 ];

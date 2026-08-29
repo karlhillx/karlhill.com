@@ -55,7 +55,7 @@
             <a href="/#contact"
                data-nav-section="contact"
                class="btn-sweep hidden md:inline-flex items-center min-h-11 text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest">
-                Get in Touch
+                Contact
             </a>
             <button id="nav-toggle" type="button"
                     command="toggle-popover"

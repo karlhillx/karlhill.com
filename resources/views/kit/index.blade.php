@@ -44,7 +44,7 @@
             @endif
             @if(filled($bookingUrl))
                 <a href="{{ url('/now#book') }}"
-                   class="btn-sweep magnetic-btn inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs text-bg bg-accent border border-accent px-5 py-3 uppercase tracking-widest transition-colors">
+                   class="btn-accent-fill magnetic-btn inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs uppercase tracking-widest px-5 py-3">
                     {{ $bookingLabel }}
                 </a>
             @endif

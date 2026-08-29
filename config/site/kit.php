@@ -2,12 +2,8 @@
 
 return [
     'eyebrow' => 'Recruiter kit',
-    'lede' => 'Resume PDF, bio, and the links that matter — not another copy of the hire ask.',
-    'highlights' => [
-        'Jacobs — aerospace mission software: mission simulation and telemetry',
-        'Prior: Lead Software Engineer, SSAI / NASA Goddard — Earth science platforms and flood mapping at scale',
-        'Washington, DC metro · open to hybrid / remote-friendly teams',
-    ],
+    'lede' => 'A leave-behind: PDF, short bio, and canonical links. Status lives on Now. Evidence lives on the resume.',
+    'highlights' => [],
     /*
      | Canonical outbound links for the kit (and its print leave-behind).
      | `path` is site-relative; `social` resolves from config('site.social');

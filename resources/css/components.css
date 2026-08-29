@@ -1337,14 +1337,18 @@ a.series-chapters__card:hover .series-chapters__title,
 }
 
 /* Resume document — screen layout mirrors the classic two-column CV. */
+.resume-doc .resume-shell {
+    max-width: 86rem;
+}
+
 .resume-shell {
     display: grid;
-    gap: clamp(1.5rem, 3vw, 2.5rem);
+    gap: clamp(1.75rem, 3.5vw, 3rem);
 }
 
 @media (min-width: 900px) {
     .resume-shell {
-        grid-template-columns: minmax(0, 1fr) 16.5rem;
+        grid-template-columns: minmax(0, 1fr) 18.5rem;
         align-items: start;
     }
 
@@ -1359,20 +1363,26 @@ a.series-chapters__card:hover .series-chapters__title,
     }
 }
 
+@media (min-width: 1200px) {
+    .resume-shell {
+        grid-template-columns: minmax(0, 1fr) 22rem;
+    }
+}
+
 .resume-aside {
     border: 1px solid var(--border);
     background: color-mix(in oklab, var(--panel) 92%, var(--accent));
-    padding: 1.25rem 1.15rem;
+    padding: 1.4rem 1.3rem;
 }
 
 .resume-aside-block + .resume-aside-block {
-    margin-top: 1.25rem;
+    margin-top: 1.4rem;
 }
 
 .resume-aside-title {
-    margin: 0 0 0.55rem;
+    margin: 0 0 0.65rem;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -1383,8 +1393,8 @@ a.series-chapters__card:hover .series-chapters__title,
     margin: 0;
     padding: 0;
     display: grid;
-    gap: 0.35rem;
-    font-size: 0.8rem;
+    gap: 0.4rem;
+    font-size: 0.9rem;
     color: var(--muted);
     word-break: break-word;
 }
@@ -1400,6 +1410,10 @@ a.series-chapters__card:hover .series-chapters__title,
     color: var(--accent);
 }
 
+.resume-link-url {
+    display: none;
+}
+
 .resume-expertise {
     list-style: none;
     margin: 0;
@@ -1407,17 +1421,17 @@ a.series-chapters__card:hover .series-chapters__title,
 }
 
 .resume-expertise li {
-    padding: 0.45rem 0;
+    padding: 0.5rem 0;
     border-bottom: 1px solid var(--border);
-    font-size: 0.8rem;
-    line-height: 1.35;
+    font-size: 0.95rem;
+    line-height: 1.4;
     color: var(--text);
 }
 
 .resume-aside-stack .resume-stack-line {
-    margin: 0 0 0.4rem;
-    font-size: 0.75rem;
-    line-height: 1.35;
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
     color: var(--muted);
 }
 
@@ -1429,6 +1443,15 @@ a.series-chapters__card:hover .series-chapters__title,
 .resume-roles {
     display: grid;
     gap: 1.75rem;
+}
+
+.resume-role--current {
+    padding-left: 1rem;
+    border-left: 2px solid color-mix(in oklab, var(--accent) 60%, transparent);
+}
+
+.resume-role--compact {
+    opacity: 0.92;
 }
 
 .resume-section + .resume-section {

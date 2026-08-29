@@ -10,12 +10,12 @@ use App\Support\Booking;
  *
  * Page roles (avoid repeating the same pitch everywhere):
  * - /        positioning + proof hooks (availability ping only)
- * - /now     current focus first; short recruiter strip; booking
- * - /kit     one-pager: PDF + bio + links
+ * - /now     living status + booking
+ * - /kit     leave-behind: PDF + bio + links
  * - /about   how I lead + arc teaser + research
- * - /resume  facts (canonical HTML CV)
+ * - /resume  evidence (canonical HTML CV)
  * - /work    current Jacobs chapter + public NASA/older proof
- * - footer   contact CTA (not a second hire ask)
+ * - footer   home = contact form; other pages = Book + email
  */
 $social = require __DIR__.'/site/social.php';
 
