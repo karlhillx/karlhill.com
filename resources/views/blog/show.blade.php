@@ -75,6 +75,14 @@
             {{ $post->excerpt }}
         </p>
 
+        <x-site.on-device-summary
+            source=".prose-karl"
+            type="tldr"
+            length="short"
+            label="Summarize this essay"
+            :context="'Essay by Karl Hill: '.$post->title"
+        />
+
         <div class="flex flex-wrap items-center gap-2 mb-10">
             @foreach($post->tags as $tag)
                 <a href="{{ route('blog.tag', $tag) }}"

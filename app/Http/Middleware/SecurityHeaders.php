@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Support\CompressionDictionary;
+use App\Support\PrerenderHeaders;
 use App\Support\SiteFeatures;
 use App\Support\Turnstile;
 use Closure;
@@ -41,6 +42,7 @@ class SecurityHeaders
             'screen-wake-lock=()',
             'usb=()',
             'web-share=(self)',
+            'summarizer=(self)',
             'xr-spatial-tracking=()',
         ]));
 
@@ -67,6 +69,7 @@ class SecurityHeaders
         }
 
         $this->annotateDocumentDictionary($request, $response);
+        $this->annotatePrerender($request, $response);
 
         return $response;
     }
@@ -95,6 +98,16 @@ class SecurityHeaders
             'Available-Dictionary',
             ':'.CompressionDictionary::hash().':',
         );
+    }
+
+    protected function annotatePrerender(Request $request, Response $response): void
+    {
+        if (! PrerenderHeaders::shouldAnnotate($request, $response)) {
+            return;
+        }
+
+        $response->headers->set('Supports-Loading-Mode', PrerenderHeaders::SUPPORTS_LOADING_MODE);
+        $response->headers->set('No-Vary-Search', PrerenderHeaders::NO_VARY_SEARCH);
     }
 
     /**

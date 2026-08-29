@@ -23,6 +23,11 @@ class AgentPacketController extends Controller
         return $this->json($this->packet->mcp());
     }
 
+    public function agentCard(): JsonResponse
+    {
+        return $this->json($this->packet->agentCard());
+    }
+
     public function commands(): JsonResponse
     {
         return $this->json($this->commands->build());

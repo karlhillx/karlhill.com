@@ -37,7 +37,28 @@ it('mcp well-known document points at the hire packet', function () {
         ->assertOk()
         ->assertJsonPath('name', 'karlhill.com')
         ->assertJsonPath('authentication', 'none')
-        ->assertJsonFragment(['uri' => 'https://karlhill.com/api/site.json']);
+        ->assertJsonFragment(['uri' => 'https://karlhill.com/api/site.json'])
+        ->assertJsonFragment(['uri' => 'https://karlhill.com/.well-known/agent-card.json']);
+});
+
+it('a2a agent card is a read-only http discovery document', function () {
+    $response = $this->get('/.well-known/agent-card.json');
+
+    $response->assertOk()
+        ->assertJsonPath('protocolVersion', '0.3.0')
+        ->assertJsonPath('name', 'Karl Hill')
+        ->assertJsonPath('preferredTransport', 'HTTP+JSON')
+        ->assertJsonPath('url', 'https://karlhill.com/api/site.json')
+        ->assertJsonPath('capabilities.streaming', false)
+        ->assertJsonPath('skills.0.id', 'hire-packet');
+
+    $json = $response->json();
+    expect(collect($json['skills'])->pluck('id'))->toContain('hire-packet', 'recruiter-kit', 'site-map')
+        ->and($json['description'])->toContain('JSON-RPC');
+
+    $this->get('/.well-known/agent.json')
+        ->assertOk()
+        ->assertJsonPath('protocolVersion', '0.3.0');
 });
 
 it('agent packet builder matches the public json', function () {
@@ -56,5 +77,6 @@ it('pages advertise the hire packet alternate', function () {
     $this->get('/')
         ->assertOk()
         ->assertSee('href="/api/site.json"', escape: false)
-        ->assertSee('href="/.well-known/mcp.json"', escape: false);
+        ->assertSee('href="/.well-known/mcp.json"', escape: false)
+        ->assertSee('href="/.well-known/agent-card.json"', escape: false);
 });

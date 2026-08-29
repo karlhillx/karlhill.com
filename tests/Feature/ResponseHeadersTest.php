@@ -65,6 +65,19 @@ it('html responses include link preload headers when built', function () {
     }
 });
 
+it('html documents opt into credentialed prerender and ignore tracking params', function () {
+    $home = $this->get('/');
+    $home->assertOk();
+    expect($home->headers->get('Supports-Loading-Mode'))->toBe('credentialed-prerender')
+        ->and($home->headers->get('No-Vary-Search'))->toContain('utm_source')
+        ->and($home->headers->get('Permissions-Policy'))->toContain('summarizer=(self)');
+
+    $json = $this->get('/api/site.json');
+    $json->assertOk();
+    expect($json->headers->get('Supports-Loading-Mode'))->toBeNull()
+        ->and($json->headers->get('No-Vary-Search'))->toBeNull();
+});
+
 it('csp allows booking embeds and same origin service workers', function () {
     $response = $this->get('/');
 

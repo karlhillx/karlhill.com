@@ -1534,3 +1534,41 @@ a.series-chapters__card:hover .series-chapters__title,
     display: block;
     background: #0a0a0a;
 }
+
+.on-device-summary {
+    margin: 0 0 1.75rem;
+    max-width: 40rem;
+}
+
+.on-device-summary__btn {
+    min-height: 2.75rem;
+    padding: 0 1rem;
+    color: var(--accent);
+    border: 1px solid color-mix(in oklab, var(--accent) 40%, var(--border));
+    background: transparent;
+    cursor: pointer;
+}
+
+.on-device-summary__btn:hover,
+.on-device-summary__btn:focus-visible {
+    border-color: var(--accent);
+}
+
+.on-device-summary__btn:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.on-device-summary__hint {
+    margin: 0.55rem 0 0;
+}
+
+.on-device-summary__output {
+    margin-top: 0.85rem;
+    padding: 0.9rem 1rem;
+    color: var(--text);
+    white-space: pre-wrap;
+    text-wrap: pretty;
+    background: var(--panel);
+    border: 1px solid var(--border);
+}

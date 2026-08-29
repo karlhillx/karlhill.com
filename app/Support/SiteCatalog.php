@@ -282,6 +282,8 @@ final class SiteCatalog
             'llms' => $base.'/llms.txt',
             'llms_full' => $base.'/llms-full.txt',
             'sitemap' => $base.'/sitemap.xml',
+            'mcp' => $base.'/.well-known/mcp.json',
+            'agent_card' => $base.'/.well-known/agent-card.json',
             'webmention' => $base.'/webmention',
             'commands' => $base.'/api/commands.json',
         ];

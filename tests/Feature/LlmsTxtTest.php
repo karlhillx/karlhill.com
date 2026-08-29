@@ -34,6 +34,7 @@ it('llms txt returns plain text with required sections', function () {
     $this->assertStringContainsString('https://karlhill.com/llms-full.txt', $body);
     $this->assertStringContainsString('https://karlhill.com/api/site.json', $body);
     $this->assertStringContainsString('https://karlhill.com/.well-known/mcp.json', $body);
+    $this->assertStringContainsString('https://karlhill.com/.well-known/agent-card.json', $body);
     $this->assertStringContainsString('## For recruiters & hiring managers', $body);
     $this->assertStringContainsString('Seeking:', $body);
     $this->assertStringContainsString('Engineering Manager', $body);
@@ -76,6 +77,8 @@ it('homepage includes speculation rules for blog prefetch', function () {
     $response->assertSee('"/now"', escape: false);
     $response->assertSee('"prerender"', escape: false);
     $response->assertSee('"href_matches":"/blog*"', escape: false);
+    $response->assertSee('expects_no_vary_search', escape: false);
+    $response->assertSee('utm_source', escape: false);
 });
 
 it('blog index includes speculation rules for post prefetch', function () {

@@ -1,7 +1,10 @@
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Disallow:
 
 Sitemap: https://karlhill.com/sitemap.xml
 # Curated overview for AI agents: https://karlhill.com/llms.txt
 # Machine-readable hire packet: https://karlhill.com/api/site.json
 # MCP discovery: https://karlhill.com/.well-known/mcp.json
+# A2A agent card: https://karlhill.com/.well-known/agent-card.json
+# Content-Signal (contentsignals.org): search index and live AI answers yes; model training no.

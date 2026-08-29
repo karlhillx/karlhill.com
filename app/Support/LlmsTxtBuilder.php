@@ -282,7 +282,8 @@ class LlmsTxtBuilder
             '- [JSON Feed]('.$feeds['json'].'): JSON Feed 1.1 writing updates',
             '- [LLM full text]('.$feeds['llms_full'].'): Full essay corpus for agents',
             '- [Hire packet JSON]('.$base.'/api/site.json): Machine-readable person, experience, writing, and case studies',
-            '- [MCP discovery]('.$base.'/.well-known/mcp.json): Agent resource map',
+            '- [MCP discovery]('.$feeds['mcp'].'): Agent resource map',
+            '- [A2A agent card]('.$feeds['agent_card'].'): Skills and HTTP resources (read-only, no JSON-RPC)',
             '- [Sitemap]('.$feeds['sitemap'].'): Machine-readable page index',
         ];
 

@@ -26,7 +26,8 @@
     .article-toc-mobile,
     .media-lightbox,
     .case-study-media__zoom,
-    .site-toolbar--sticky {
+    .site-toolbar--sticky,
+    .on-device-summary {
         display: none !important;
     }
 

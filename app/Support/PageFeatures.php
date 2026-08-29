@@ -40,6 +40,7 @@ final class PageFeatures
             if ($name === 'blog.show') {
                 $features[] = 'push';
                 $features[] = 'share';
+                $features[] = 'summarizer';
             }
 
             if ($name === 'work.show' && $request->route('slug') === 'flood-mapping-system' && SiteFeatures::webgpu()) {
@@ -64,6 +65,10 @@ final class PageFeatures
 
         if (str_starts_with((string) $name, 'blog')) {
             $features[] = 'push';
+        }
+
+        if ($name === 'kit') {
+            $features[] = 'summarizer';
         }
 
         return array_values(array_unique($features));

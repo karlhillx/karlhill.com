@@ -69,6 +69,17 @@ it('security txt is present with required fields', function () {
     $this->assertStringContainsString('Expires:', $body);
 });
 
+it('robots txt allows search and live ai answers but not training', function () {
+    $path = public_path('robots.txt');
+    $this->assertFileExists($path);
+
+    $body = file_get_contents($path);
+    $this->assertStringContainsString('Content-Signal: search=yes, ai-input=yes, ai-train=no', $body);
+    $this->assertStringContainsString('Sitemap: https://karlhill.com/sitemap.xml', $body);
+    $this->assertStringContainsString('/.well-known/agent-card.json', $body);
+    $this->assertStringContainsString('User-agent: *', $body);
+});
+
 it('progressive css is linked for selectors lightningcss cannot parse', function () {
     $this->assertFileExists(public_path('css/progressive.css'));
 

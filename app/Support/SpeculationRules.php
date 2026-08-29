@@ -141,6 +141,7 @@ class SpeculationRules
                 'source' => 'list',
                 'urls' => $prefetch,
                 'eagerness' => 'moderate',
+                'expects_no_vary_search' => PrerenderHeaders::NO_VARY_SEARCH,
             ],
         ];
 
@@ -151,6 +152,7 @@ class SpeculationRules
                     'href_matches' => $hrefMatches,
                 ],
                 'eagerness' => 'conservative',
+                'expects_no_vary_search' => PrerenderHeaders::NO_VARY_SEARCH,
             ];
         }
 
@@ -160,6 +162,7 @@ class SpeculationRules
                     'source' => 'list',
                     'urls' => array_slice($prerender, 0, 2),
                     'eagerness' => 'moderate',
+                    'expects_no_vary_search' => PrerenderHeaders::NO_VARY_SEARCH,
                 ],
             ],
             'prefetch' => $prefetchRules,

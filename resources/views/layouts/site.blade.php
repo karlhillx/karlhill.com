@@ -80,6 +80,7 @@
     <link rel="alternate" type="text/plain" title="Karl Hill — LLM full text" href="/llms-full.txt">
     <link rel="alternate" type="application/json" title="Karl Hill — Hire packet" href="/api/site.json">
     <link rel="author" href="/.well-known/mcp.json">
+    <link rel="alternate" type="application/json" title="Karl Hill — Agent card" href="/.well-known/agent-card.json">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/progressive.css') }}?v={{ filemtime(public_path('css/progressive.css')) }}">

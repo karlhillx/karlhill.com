@@ -103,6 +103,23 @@ it('contact error fixture is uncached and exposes invalid fields', function () {
     expect($cache)->toContain('no-store');
 });
 
+it('essays and kit ship a hidden on-device summarizer hook', function () {
+    $this->get('/blog/release-governance')
+        ->assertOk()
+        ->assertSee('data-on-device-summary', escape: false)
+        ->assertSee('data-summary-type="tldr"', escape: false)
+        ->assertSee('Summarize this essay', escape: false);
+
+    $html = $this->get('/blog/release-governance')->getContent();
+    expect($html)->toContain('summarizer');
+
+    $this->get('/kit')
+        ->assertOk()
+        ->assertSee('data-on-device-summary', escape: false)
+        ->assertSee('data-summary-source', escape: false)
+        ->assertSee('data-summary-type="key-points"', escape: false);
+});
+
 it('omits reporting and dictionary headers when those features are off', function () {
     config([
         'site.features.reporting' => false,

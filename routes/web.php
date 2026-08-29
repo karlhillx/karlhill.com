@@ -106,6 +106,8 @@ Route::middleware('cache.headers:public;max_age=3600;etag')->group(function (): 
     Route::get('/api/site.json', [AgentPacketController::class, 'site'])->name('api.site');
     Route::get('/api/commands.json', [AgentPacketController::class, 'commands'])->name('api.commands');
     Route::get('/.well-known/mcp.json', [AgentPacketController::class, 'mcp'])->name('well-known.mcp');
+    Route::get('/.well-known/agent-card.json', [AgentPacketController::class, 'agentCard'])->name('well-known.agent-card');
+    Route::get('/.well-known/agent.json', [AgentPacketController::class, 'agentCard'])->name('well-known.agent');
     Route::get('/api/credentials.json', [MachineAssetController::class, 'credentials'])->name('api.credentials');
 });
 

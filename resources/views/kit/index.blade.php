@@ -69,25 +69,34 @@
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
             <h2 id="kit-glance-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">At a glance</h2>
             <div class="max-w-2xl">
-                <p class="kit-bio text-neutral-200 text-lg leading-relaxed">{{ $person['bio'] }}</p>
-                <dl class="kit-facts mt-8 grid sm:grid-cols-2 gap-4 text-sm">
-                    <div>
-                        <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Name</dt>
-                        <dd class="text-neutral-300">{{ $person['name'] }}</dd>
-                    </div>
-                    <div>
-                        <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Title</dt>
-                        <dd class="text-neutral-300">{{ $person['job_title'] }} · {{ $person['employer_display'] ?? $person['employer'] }}</dd>
-                    </div>
-                    <div>
-                        <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Location</dt>
-                        <dd class="text-neutral-300">{{ $person['location'] }}</dd>
-                    </div>
-                    <div>
-                        <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Open to</dt>
-                        <dd class="text-neutral-300">{{ $person['availability'] }}</dd>
-                    </div>
-                </dl>
+                <div data-summary-source>
+                    <p class="kit-bio text-neutral-200 text-lg leading-relaxed">{{ $person['bio'] }}</p>
+                    <dl class="kit-facts mt-8 grid sm:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Name</dt>
+                            <dd class="text-neutral-300">{{ $person['name'] }}</dd>
+                        </div>
+                        <div>
+                            <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Title</dt>
+                            <dd class="text-neutral-300">{{ $person['job_title'] }} · {{ $person['employer_display'] ?? $person['employer'] }}</dd>
+                        </div>
+                        <div>
+                            <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Location</dt>
+                            <dd class="text-neutral-300">{{ $person['location'] }}</dd>
+                        </div>
+                        <div>
+                            <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Open to</dt>
+                            <dd class="text-neutral-300">{{ $person['availability'] }}</dd>
+                        </div>
+                    </dl>
+                </div>
+                <x-site.on-device-summary
+                    class="mt-8"
+                    type="key-points"
+                    length="short"
+                    label="Summarize this kit"
+                    :context="'Recruiter kit for '.$person['name'].'. '.$person['availability']"
+                />
                 @if(! empty($kit['highlights']))
                     <ul class="kit-highlights mt-8 space-y-2 text-neutral-400 text-sm leading-relaxed list-disc pl-5">
                         @foreach($kit['highlights'] as $item)
