@@ -187,7 +187,7 @@ it('now page renders focus and em intent', function () {
     $response->assertStatus(200);
     $response->assertSee('Engineering Manager', escape: false);
     $response->assertSee('Jacobs National Security', escape: false);
-    $response->assertSee('August 19, 2026', escape: false);
+    $response->assertSee('August 29, 2026', escape: false);
     $response->assertSee('href="/about#how-i-lead"', escape: false);
     $response->assertSee('Hiring', escape: false);
     $response->assertSee('The kit is the packet', escape: false);
@@ -368,7 +368,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
 it('now page shows a fresh updated date and kit link', function () {
     $this->get('/now')
         ->assertOk()
-        ->assertSee('Updated August 19, 2026', escape: false)
+        ->assertSee('Updated August 29, 2026', escape: false)
         ->assertSee('href="/kit"', escape: false)
         ->assertSee('Recruiter kit', escape: false);
 });

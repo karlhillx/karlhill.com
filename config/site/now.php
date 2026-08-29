@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'updated' => 'August 19, 2026',
+    'updated' => 'August 29, 2026',
     // /now owns current focus. Recruiter path is a short strip — the ask lives in person.availability.
     'lede' => 'Building toward Engineering Manager while shipping aerospace mission software at Jacobs. Honest about the Staff title. Staff / Principal IC is a fit when the work is still platform leadership.',
     'recruiters' => [
