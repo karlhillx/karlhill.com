@@ -46,5 +46,9 @@ loadWhen(features.has('cmdk-tip'), () => import('./modules/cmdk-tip.js'), 'initC
 loadWhen(features.has('push'), () => import('./modules/push.js'), 'initPushSubscribe');
 loadWhen(features.has('highlight'), () => import('./modules/highlight.js'), 'initHighlight');
 loadWhen(features.has('soft-nav'), () => import('./modules/soft-nav.js'), 'initSoftNav');
-loadWhen(features.has('summarizer'), () => import('./modules/summarizer.js'), 'initOnDeviceSummary');
+loadWhen(
+    features.has('summarizer'),
+    () => import('./modules/summarizer.js'),
+    'initOnDeviceSummary'
+);
 loadWhen(features.has('webgpu'), () => import('./modules/webgpu-flood.js'), 'initWebGpuFlood');
