@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'intro' => 'Staff Aerospace Software Engineer and technical lead with 20+ years building mission-critical software, cloud-native platforms, and high-assurance delivery systems across NASA, aerospace, and defense environments. Hands-on leader spanning Python engineering, platform engineering, DevSecOps, CI/CD, systems integration, and cross-team software delivery.',
+    'intro' => 'Staff Aerospace Software Engineer and technical lead with 20+ years building mission-critical software, cloud-native platforms, and high-assurance delivery systems across NASA, aerospace, and defense environments. Hands-on across cloud platforms, Kubernetes, CI/CD, and developer tooling — plus Python, DevSecOps, and cross-team software delivery.',
     'current' => [
         'label' => 'Current Role',
         'title' => 'Staff Aerospace Software Engineer',
@@ -13,7 +13,7 @@ return [
             'Lead delivery of cloud-native mission simulation and telemetry for government aerospace and defense programs — CI/CD, multi-repo delivery, and release readiness in constrained environments.',
             'Guide team execution through onboarding, coaching, and delivery discipline, raising engineering quality, ownership, and accountability.',
             'Coordinate multi-environment release readiness across isolated and integrated systems, reducing late-stage integration risk and improving baseline traceability.',
-            'Drive DevSecOps and platform engineering with CI/CD, automated testing, quality gates, and security checks that shorten feedback loops.',
+            'Drive platform engineering and developer tooling — CI/CD, automated testing, quality gates, and security checks that shorten feedback loops in cloud-native environments.',
             'Define engineering governance — repository standards, PR/review policy, Definition of Done, and release process — across multi-repo, multi-environment systems.',
         ],
         'skills' => [
@@ -23,6 +23,7 @@ return [
             'CI/CD',
             'DevSecOps',
             'Platform engineering',
+            'Developer tooling',
             'Release governance',
             'Multi-repo delivery',
         ],
@@ -38,7 +39,7 @@ return [
                 'Architected NASA\'s cloud-based Flood Mapping System on AWS, delivering near real-time, satellite-derived flood products to support disaster response. <a href="/work/flood-mapping-system" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
                 'Rebuilt NASA Earth Observatory\'s high-traffic web platform, supporting ~1.5M monthly visitors while improving performance, UX, and SEO. <a href="/work/nasa-earth-observatory" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
                 'Delivered an automated content registry workflow, boosting data collection efficiency by ~60% and accelerating researcher access to new datasets. <a href="/work/esscor" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
-                'Implemented containerized delivery with GitLab CI/CD, Docker, and Kubernetes — automated deployments, repeatable releases, and reliable stakeholder approvals.',
+                'Implemented Kubernetes delivery with GitLab CI/CD, Docker, and Helm — automated deployments, repeatable releases, and a consistent path through stakeholder approvals.',
                 'Built a high-performance file and metadata platform on Ceph, improving virtual directory mapping and accelerating discovery for large scientific datasets. <a href="/work/direct-readout-laboratory" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
             ],
             'skills' => [
@@ -48,6 +49,7 @@ return [
                 'GitLab CI/CD',
                 'Docker',
                 'Kubernetes',
+                'Helm',
                 'Ceph',
                 'High-traffic web',
                 'Scientific data systems',

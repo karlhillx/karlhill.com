@@ -7,7 +7,7 @@ beforeEach(function () {
     Cache::flush();
 });
 
-it('llms txt returns plain text with required sections', function () {
+it('llms txt returns a v2 file-list map', function () {
     $response = $this->get('/llms.txt');
 
     $response->assertStatus(200);
@@ -17,44 +17,100 @@ it('llms txt returns plain text with required sections', function () {
 
     $this->assertStringStartsWith('# Karl Hill', $body);
     $this->assertStringContainsString('> '.config('site.seo.home.og_description'), $body);
-    $this->assertStringContainsString('## Citation', $body);
-    $this->assertStringContainsString('Last updated:', $body);
-    $this->assertStringContainsString('## Key pages', $body);
+    $this->assertStringContainsString('open to two paths: Engineering Manager or Staff/Principal roles', $body);
+    $this->assertStringContainsString('Last updated', $body);
+    $this->assertStringContainsString('August 29, 2026', $body);
+    $this->assertStringContainsString('## Pages', $body);
     $this->assertStringContainsString('## Writing', $body);
-    $this->assertStringContainsString('## Professional profiles', $body);
+    $this->assertStringContainsString('## Profiles', $body);
     $this->assertStringContainsString('## Optional', $body);
     $this->assertStringContainsString('## Case studies', $body);
+    $this->assertStringContainsString('## Series', $body);
+    $this->assertStringContainsString('Engineering Manager craft', $body);
     $this->assertStringContainsString('/work/nasa-earth-observatory', $body);
     $this->assertStringContainsString('/kit', $body);
     $this->assertStringContainsString('/blog/release-governance', $body);
     $this->assertStringContainsString('What 20 Years Taught Me About Release Governance', $body);
-    $this->assertStringContainsString('Preferred name: **Karl Hill**', $body);
-    $this->assertStringContainsString('https://karlhill.com/feed.xml', $body);
-    $this->assertStringContainsString('https://karlhill.com/feed.json', $body);
+    $this->assertStringContainsString('Preferred name Karl Hill', $body);
     $this->assertStringContainsString('https://karlhill.com/llms-full.txt', $body);
     $this->assertStringContainsString('https://karlhill.com/api/site.json', $body);
     $this->assertStringContainsString('https://karlhill.com/.well-known/mcp.json', $body);
-    $this->assertStringContainsString('https://karlhill.com/.well-known/agent-card.json', $body);
-    $this->assertStringContainsString('## For recruiters & hiring managers', $body);
-    $this->assertStringContainsString('Seeking:', $body);
-    $this->assertStringContainsString('Engineering Manager', $body);
-    $this->assertStringContainsString('Skills:', $body);
-    $this->assertStringContainsString('Python', $body);
-    $this->assertStringContainsString('## Series', $body);
-    $this->assertStringContainsString('Engineering Manager craft', $body);
+
+    $this->assertStringNotContainsString('## Citation', $body);
+    $this->assertStringNotContainsString('## For recruiters', $body);
+    $this->assertStringNotContainsString('Skills:', $body);
+    $this->assertStringNotContainsString('/files/Karl-Hill-Resume.pdf', $body);
+    $this->assertStringNotContainsString('https://karlhill.com/feed.xml', $body);
+    $this->assertStringNotContainsString('rel="alternate"', $body);
 });
 
-it('llms txt builder lists social profiles and resume', function () {
+it('every h2 section is a markdown file list with unique urls', function () {
+    /** @var LlmsTxtBuilder $builder */
+    $builder = $this->app->make(LlmsTxtBuilder::class);
+    $body = $builder->build();
+
+    $inFileList = false;
+    foreach (explode("\n", $body) as $line) {
+        if (str_starts_with($line, '## ')) {
+            $inFileList = true;
+
+            continue;
+        }
+
+        if ($inFileList && $line === '') {
+            continue;
+        }
+
+        if ($inFileList && $line !== '') {
+            expect($line)->toMatch('/^- \[[^\[\]]+\]\([^)]+\)(: .+)?$/');
+        }
+    }
+
+    preg_match_all('/\[[^\[\]]+\]\((https?:[^)]+)\)/', $body, $matches);
+    $urls = $matches[1];
+    $unique = array_values(array_unique($urls));
+
+    expect($urls)->not->toBeEmpty()
+        ->and($urls)->toHaveCount(count($unique))
+        ->and(count($unique))->toBeGreaterThanOrEqual(25)
+        ->and(count($unique))->toBeLessThanOrEqual(32);
+
+    $withoutUrls = preg_replace('~https?://\S+~', '', $body) ?? $body;
+    $words = str_word_count($withoutUrls);
+    expect($words)->toBeGreaterThanOrEqual(400)
+        ->and($words)->toBeLessThanOrEqual(900);
+});
+
+it('llms txt builder lists professional profiles and resume once', function () {
     /** @var LlmsTxtBuilder $builder */
     $builder = $this->app->make(LlmsTxtBuilder::class);
     $body = $builder->build();
 
     $this->assertStringContainsString('[LinkedIn](https://www.linkedin.com/in/khill/)', $body);
     $this->assertStringContainsString('[GitHub](https://github.com/karlhillx)', $body);
-    $this->assertStringContainsString('/resume', $body);
-    $this->assertStringContainsString('/files/Karl-Hill-Resume.pdf', $body);
+    $this->assertSame(1, substr_count($body, '/resume'));
+    $this->assertSame(1, substr_count($body, '/kit'));
+    $this->assertSame(1, substr_count($body, '/now'));
     $this->assertStringContainsString('GeoHorizons', $body);
     $this->assertStringContainsString('August 29, 2026', $body);
+});
+
+it('llms txt is served without a session', function () {
+    $response = $this->get('/llms.txt');
+
+    $response->assertOk();
+    expect($response->headers->get('Set-Cookie'))->toBeNull()
+        ->and($response->headers->get('X-Powered-By'))->toBeNull();
+});
+
+it('homepage advertises llms txt as describedby', function () {
+    $response = $this->get('/');
+
+    $response->assertOk();
+    $response->assertSee('<link rel="describedby" href="/llms.txt">', escape: false);
+    $response->assertDontSee('rel="alternate" type="text/plain"', escape: false);
+    expect((string) $response->headers->get('Link'))->toContain('rel="describedby"')
+        ->and((string) $response->headers->get('Link'))->toContain('/llms.txt');
 });
 
 it('llms full txt includes essay bodies', function () {

@@ -32,6 +32,8 @@ class LinkHeaders
             $links[] = '</webmention>; rel="webmention"';
         }
 
+        $links[] = '</llms.txt>; rel="describedby"; type="text/plain"';
+
         if ($links === []) {
             return $response;
         }

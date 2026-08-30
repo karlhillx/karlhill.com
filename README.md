@@ -227,7 +227,8 @@ public/offline.html                           # offline fallback
 scripts/deploy.sh                             # production deploy entrypoint
 scripts/generate-og-images.py                 # OG card generator
 scripts/generate-webp.py                      # batch WebP / AVIF / LQIP
-routes/web.php                                # all routes
+routes/web.php                                # HTML and form routes
+routes/machine.php                            # cacheable machine GETs (no session)
 ```
 
 ## Writing

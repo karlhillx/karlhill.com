@@ -46,6 +46,15 @@ it('feed is cached for longer', function () {
 
     $response->assertStatus(200);
     $this->assertStringContainsString('max-age=3600', $response->headers->get('Cache-Control'));
+    expect($response->headers->get('Set-Cookie'))->toBeNull();
+});
+
+it('machine readable json omits session cookies', function () {
+    $response = $this->get('/api/site.json');
+
+    $response->assertOk();
+    expect($response->headers->get('Set-Cookie'))->toBeNull()
+        ->and($response->headers->get('X-Powered-By'))->toBeNull();
 });
 
 it('html responses include link preload headers when built', function () {

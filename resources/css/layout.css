@@ -157,7 +157,7 @@ main > section:nth-of-type(n + 3):not([id]) {
         justify-content: center;
     }
     #hero .availability-label {
-        letter-spacing: 0.1em;
+        letter-spacing: 0.04em;
         line-height: 1.45;
         max-width: 100%;
     }

@@ -179,6 +179,24 @@
                     </div>
                 </section>
 
+                @if(! empty($resume['tooling']))
+                    <section class="resume-section" aria-labelledby="resume-tooling" data-reveal>
+                        <h2 id="resume-tooling" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Developer Tooling</h2>
+                        <ul class="resume-bullets list-disc pl-5 text-neutral-300">
+                            @foreach($resume['tooling'] as $item)
+                                <li>
+                                    @if(! empty($item['url']))
+                                        <a href="{{ $item['url'] }}" target="_blank" rel="me noopener noreferrer" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">{{ $item['name'] }}</a>
+                                    @else
+                                        <strong class="text-neutral-200 font-medium">{{ $item['name'] }}</strong>
+                                    @endif
+                                    — {{ $item['note'] }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    </section>
+                @endif
+
                 @if(! empty($education))
                     <section class="resume-section" aria-labelledby="resume-education" data-reveal>
                         <h2 id="resume-education" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Education</h2>

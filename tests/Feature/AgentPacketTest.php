@@ -78,5 +78,7 @@ it('pages advertise the hire packet alternate', function () {
         ->assertOk()
         ->assertSee('href="/api/site.json"', escape: false)
         ->assertSee('href="/.well-known/mcp.json"', escape: false)
-        ->assertSee('href="/.well-known/agent-card.json"', escape: false);
+        ->assertSee('href="/.well-known/agent-card.json"', escape: false)
+        ->assertSee('rel="describedby"', escape: false)
+        ->assertSee('href="/llms.txt"', escape: false);
 });

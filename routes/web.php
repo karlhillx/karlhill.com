@@ -1,20 +1,15 @@
 <?php
 
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AgentPacketController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientSiteController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\FeedController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
-use App\Http\Controllers\LlmsTxtController;
-use App\Http\Controllers\MachineAssetController;
 use App\Http\Controllers\NowController;
 use App\Http\Controllers\PushController;
 use App\Http\Controllers\ReportingController;
 use App\Http\Controllers\ResumeController;
-use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\WebmentionController;
 use App\Http\Controllers\WorkController;
 use App\Support\PageMeta;
@@ -95,25 +90,6 @@ Route::get('/csrf-token', fn () => response()
     ->json(['token' => csrf_token()])
     ->header('Cache-Control', 'no-store, private'))
     ->name('csrf-token');
-
-// Machine-readable feeds change less often — cache them for an hour.
-Route::middleware('cache.headers:public;max_age=3600;etag')->group(function (): void {
-    Route::get('/feed.xml', [FeedController::class, 'atom'])->name('feed');
-    Route::get('/feed.json', [FeedController::class, 'json'])->name('feed.json');
-    Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
-    Route::get('/llms.txt', [LlmsTxtController::class, 'index'])->name('llms');
-    Route::get('/llms-full.txt', [LlmsTxtController::class, 'full'])->name('llms.full');
-    Route::get('/api/site.json', [AgentPacketController::class, 'site'])->name('api.site');
-    Route::get('/api/commands.json', [AgentPacketController::class, 'commands'])->name('api.commands');
-    Route::get('/.well-known/mcp.json', [AgentPacketController::class, 'mcp'])->name('well-known.mcp');
-    Route::get('/.well-known/agent-card.json', [AgentPacketController::class, 'agentCard'])->name('well-known.agent-card');
-    Route::get('/.well-known/agent.json', [AgentPacketController::class, 'agentCard'])->name('well-known.agent');
-    Route::get('/api/credentials.json', [MachineAssetController::class, 'credentials'])->name('api.credentials');
-});
-
-Route::middleware('cache.headers:public;max_age=86400;etag')->group(function (): void {
-    Route::get('/dict/html-shell.dat', [MachineAssetController::class, 'dictionary'])->name('dict.shell');
-});
 
 Route::post('/webmention', [WebmentionController::class, 'store'])
     ->middleware('throttle:20,1')

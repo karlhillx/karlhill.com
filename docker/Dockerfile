@@ -24,6 +24,9 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
+# Do not advertise the PHP version to clients.
+RUN echo 'expose_php = Off' > /usr/local/etc/php/conf.d/zz-security.ini
+
 # Get Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 

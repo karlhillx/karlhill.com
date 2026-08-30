@@ -11,7 +11,7 @@ return [
         ],
     ],
     [
-        'category' => 'Cloud & Platform',
+        'category' => 'Cloud & Kubernetes',
         'skills' => [
             'AWS',
             'Docker',
@@ -20,17 +20,16 @@ return [
         ],
     ],
     [
-        'category' => 'DevSecOps',
+        'category' => 'CI/CD & Developer Tooling',
         'skills' => [
             'Bitbucket Pipelines',
             'GitLab CI',
             'GitHub Actions',
-            'CI/CD',
             'Release Automation',
         ],
     ],
     [
-        'category' => 'Python',
+        'category' => 'Python Tooling',
         'skills' => [
             'uv',
             'Ruff',
@@ -54,14 +53,6 @@ return [
             'PostgreSQL',
             'Elasticsearch/OpenSearch',
             'Redis',
-        ],
-    ],
-    [
-        'category' => 'AI Engineering',
-        'skills' => [
-            'Cursor',
-            'GitHub Copilot',
-            'LLM-Assisted Development',
         ],
     ],
 ];

@@ -258,9 +258,9 @@
 
 #hero .availability-label {
     font-size: 0.6875rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.04em;
     line-height: 1.5;
-    max-width: min(22rem, 100%);
+    max-width: min(36rem, 100%);
     min-width: 0;
     white-space: normal;
 }
@@ -290,7 +290,7 @@
 
     #hero .availability-label {
         font-size: 0.75rem;
-        max-width: 28rem;
+        max-width: 40rem;
     }
 }
 

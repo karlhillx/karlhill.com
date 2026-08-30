@@ -70,6 +70,7 @@ class SecurityHeaders
 
         $this->annotateDocumentDictionary($request, $response);
         $this->annotatePrerender($request, $response);
+        $this->suppressVersionHeaders($response);
 
         return $response;
     }
@@ -108,6 +109,16 @@ class SecurityHeaders
 
         $response->headers->set('Supports-Loading-Mode', PrerenderHeaders::SUPPORTS_LOADING_MODE);
         $response->headers->set('No-Vary-Search', PrerenderHeaders::NO_VARY_SEARCH);
+    }
+
+    protected function suppressVersionHeaders(Response $response): void
+    {
+        if (function_exists('header_remove')) {
+            header_remove('X-Powered-By');
+        }
+
+        $response->headers->remove('X-Powered-By');
+        $response->headers->remove('Server');
     }
 
     /**

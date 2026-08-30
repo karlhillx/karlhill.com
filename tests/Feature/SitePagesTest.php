@@ -230,11 +230,33 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('/files/Karl-Hill-Resume.pdf', escape: false);
     $resume->assertSee('Technical Leadership', escape: false);
     $resume->assertSee('Engineering Governance', escape: false);
+    $resume->assertSee('Cloud Platforms', escape: false);
+    $resume->assertSee('CI/CD', escape: false);
+    $resume->assertSee('bb-run', escape: false);
+    $resume->assertSee('pipeguard', escape: false);
+    $resume->assertSee('Kubernetes delivery', escape: false);
     $resume->assertSee('Bachelor of Science in Computer Science coursework', escape: false);
     $resume->assertDontSee('Professional Scrum Developer', escape: false);
     $resume->assertDontSee('Download ATS PDF', escape: false);
     $resume->assertDontSee('Print / Save PDF', escape: false);
     $resume->assertDontSee('<a href="/work/flood-mapping-system"', escape: false);
+});
+
+it('resume pdf template lists ty not mypy', function () {
+    $html = view('resume.pdf', [
+        'person' => config('site.person'),
+        'resume' => config('site.resume'),
+        'experience' => config('site.experience'),
+        'education' => config('site.education', []),
+        'certifications' => config('site.certifications', []),
+        'stack' => config('site.stack', []),
+        'linkedin' => ['url' => 'https://www.linkedin.com/in/khill/'],
+        'github' => ['url' => 'https://github.com/karlhillx'],
+    ])->render();
+
+    expect($html)
+        ->toContain('pytest, ty, pre-commit')
+        ->and($html)->not->toContain('mypy');
 });
 
 it('booking cta appears when configured', function () {
@@ -289,7 +311,7 @@ it('homepage hero links to em funnel', function () {
     $response->assertSee('download="Karl-Hill-Resume.pdf"', escape: false);
     $response->assertSee('Jacobs', escape: false);
     $response->assertSee(config('site.hero.subtitle'), escape: false);
-    $response->assertSee('Open to Engineering Manager', escape: false);
+    $response->assertSee('open to two paths', escape: false);
 });
 
 it('desktop nav includes resume and a single contact CTA', function () {

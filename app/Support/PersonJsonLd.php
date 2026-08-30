@@ -18,10 +18,16 @@ final class PersonJsonLd
         $person = config('site.person');
         $personId = "{$url}/#person";
 
+        $availability = is_string($person['availability'] ?? null) ? $person['availability'] : null;
+        $trajectory = is_string($person['trajectory'] ?? null) ? $person['trajectory'] : null;
+        if ($trajectory !== null && $trajectory === $availability) {
+            $trajectory = null;
+        }
+
         $description = trim(implode(' ', array_filter([
             is_string($person['bio'] ?? null) ? $person['bio'] : null,
-            is_string($person['availability'] ?? null) ? $person['availability'] : null,
-            is_string($person['trajectory'] ?? null) ? $person['trajectory'] : null,
+            $availability,
+            $trajectory,
         ])));
 
         return [
@@ -195,6 +201,9 @@ final class PersonJsonLd
             'Engineering Manager',
             'Staff to Engineering Manager',
             'Platform engineering',
+            'Kubernetes',
+            'CI/CD',
+            'Developer tooling',
             'Aerospace software',
             'Defense mission software',
             'High-assurance software',

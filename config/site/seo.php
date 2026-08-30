@@ -3,7 +3,7 @@
 return [
     'home' => [
         'title' => 'Karl Hill — Staff Aerospace Software Engineer · NASA · Jacobs',
-        'description' => 'Karl Hill — Staff Aerospace Software Engineer at Jacobs National Security, formerly NASA Goddard. Open to Engineering Manager and Staff / Principal roles in aerospace, defense, and federal mission software.',
+        'description' => 'Karl Hill — Staff Aerospace Software Engineer at Jacobs National Security, formerly NASA Goddard. Open to two paths: Engineering Manager or Staff/Principal roles in mission software.',
         'og_description' => 'Staff Aerospace Software Engineer @ Jacobs National Security · ex-NASA Goddard. Mission software, DevSecOps, and platform leadership.',
     ],
     'blog_index' => [

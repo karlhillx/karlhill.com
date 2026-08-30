@@ -76,8 +76,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="alternate" type="application/atom+xml" title="Karl Hill — Writing" href="/feed.xml">
     <link rel="alternate" type="application/feed+json" title="Karl Hill — Writing (JSON Feed)" href="/feed.json">
-    <link rel="alternate" type="text/plain" title="Karl Hill — LLM-friendly overview" href="/llms.txt">
-    <link rel="alternate" type="text/plain" title="Karl Hill — LLM full text" href="/llms-full.txt">
+    <link rel="describedby" href="/llms.txt">
     <link rel="alternate" type="application/json" title="Karl Hill — Hire packet" href="/api/site.json">
     <link rel="author" href="/.well-known/mcp.json">
     <link rel="alternate" type="application/json" title="Karl Hill — Agent card" href="/.well-known/agent-card.json">

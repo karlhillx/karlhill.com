@@ -16,6 +16,7 @@ class ResumeController extends Controller
             'sectionRail' => [
                 ['id' => 'resume-summary', 'label' => 'Summary', 'href' => '#resume-summary'],
                 ['id' => 'resume-experience', 'label' => 'Experience', 'href' => '#resume-experience'],
+                ['id' => 'resume-tooling', 'label' => 'Tooling', 'href' => '#resume-tooling'],
                 ['id' => 'stack', 'label' => 'Expertise', 'href' => '#stack'],
                 ['id' => 'credentials', 'label' => 'Credentials', 'href' => '#credentials'],
                 ['id' => 'contact', 'label' => 'Contact', 'href' => '#contact'],

@@ -11,9 +11,9 @@ return [
     'tagline' => 'Aerospace Mission Software | Platform Engineering | DevSecOps | Technical Leadership',
     // LinkedIn-ready headline (copy/paste); keep in sync with public positioning.
     'linkedin_headline' => 'Staff Aerospace Software Engineer @ Jacobs National Security | ex-NASA Goddard | EM & Staff / Principal · Platform · DevSecOps',
-    // Canonical hire ask — hero ping, kit “Open to”, and llms.txt. Do not rewrite on /now or in the bio.
-    'availability' => 'Open to Engineering Manager & Staff / Principal roles in aerospace, defense & federal mission software',
-    'trajectory' => 'Staff Aerospace Software Engineer → Engineering Manager (platform / DevSecOps / mission software)',
+    // Canonical hire ask — hero ping, kit “Open to”, llms.txt, and JSON-LD.
+    'availability' => 'Current Staff Aerospace Software Engineer, open to two paths: Engineering Manager or Staff/Principal roles in mission software.',
+    'trajectory' => 'Current Staff Aerospace Software Engineer, open to two paths: Engineering Manager or Staff/Principal roles in mission software.',
     'employer' => 'Jacobs',
     'employer_display' => 'Jacobs National Security',
     'twitter_handle' => '@karl_hill',

@@ -621,6 +621,17 @@
                 </ul>
             </section>
 
+            @if(! empty($resume['tooling']))
+                <section class="section" aria-labelledby="tooling-heading">
+                    <h2 id="tooling-heading" class="section-title">Developer Tooling</h2>
+                    <ul class="edu-list">
+                        @foreach($resume['tooling'] as $item)
+                            <li><strong>{{ $item['name'] }}</strong> — {{ $item['note'] }}</li>
+                        @endforeach
+                    </ul>
+                </section>
+            @endif
+
             <section class="stack-block" aria-labelledby="stack-heading">
                 <h2 id="stack-heading" class="section-title">Technical Expertise</h2>
                 @foreach($stack as $group)

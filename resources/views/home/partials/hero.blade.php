@@ -79,7 +79,7 @@
             <a href="{{ filled($bookingUrl) ? '/now#book' : '/now' }}"
                class="hero-availability group flex items-start w-fit max-w-full hero-enter" style="animation-delay:520ms">
                 <span class="hero-availability-dot rounded-full bg-green-500 availability-pulse shrink-0" aria-hidden="true"></span>
-                <span class="availability-label font-mono text-neutral-400 group-hover:text-accent uppercase transition-colors">
+                <span class="availability-label font-mono text-neutral-400 group-hover:text-accent transition-colors">
                     {{ $person['availability'] }}
                     <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
                 </span>
