@@ -73,19 +73,19 @@
                     <p class="kit-bio text-neutral-200 text-lg leading-relaxed">{{ $person['bio'] }}</p>
                     <dl class="kit-facts mt-8 grid sm:grid-cols-2 gap-4 text-sm">
                         <div>
-                            <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Name</dt>
+                            <dt class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1">Name</dt>
                             <dd class="text-neutral-300">{{ $person['name'] }}</dd>
                         </div>
                         <div>
-                            <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Title</dt>
+                            <dt class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1">Title</dt>
                             <dd class="text-neutral-300">{{ $person['job_title'] }} · {{ $person['employer_display'] ?? $person['employer'] }}</dd>
                         </div>
                         <div>
-                            <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Location</dt>
+                            <dt class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1">Location</dt>
                             <dd class="text-neutral-300">{{ $person['location'] }}</dd>
                         </div>
                         <div>
-                            <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1">Open to</dt>
+                            <dt class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1">Open to</dt>
                             <dd class="text-neutral-300">{{ $person['availability'] }}</dd>
                         </div>
                     </dl>
@@ -125,7 +125,7 @@
                                 @endif
                             </span>
                             @if($link['meta'] !== '')
-                                <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">{{ $link['meta'] }}</span>
+                                <span class="kit-link-meta font-mono text-caption text-neutral-500 uppercase tracking-widest">{{ $link['meta'] }}</span>
                             @endif
                         </a>
                     </li>
@@ -137,7 +137,7 @@
                             <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">
                                 Content credentials
                             </span>
-                            <span class="kit-link-meta font-mono text-[10px] text-neutral-500 uppercase tracking-widest">C2PA sidecar</span>
+                            <span class="kit-link-meta font-mono text-caption text-neutral-500 uppercase tracking-widest">C2PA sidecar</span>
                         </a>
                     </li>
                 @endif

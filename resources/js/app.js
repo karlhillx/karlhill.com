@@ -5,9 +5,11 @@ import { initNavigation } from './modules/navigation.js';
 import { initCommandPalette } from './modules/command-palette.js';
 import { initToast } from './modules/toast.js';
 import { initServiceWorker } from './modules/service-worker.js';
+import { initThemeToggle } from './modules/theme.js';
 
 initViewTransitions();
 initNavigation();
+initThemeToggle();
 initCommandPalette();
 initToast();
 initServiceWorker();

@@ -23,7 +23,7 @@
         </p>
 
         @if(! empty($now['updated']))
-            <p class="mt-6 font-mono text-[10px] text-neutral-400 uppercase tracking-widest">
+            <p class="mt-6 font-mono text-caption text-neutral-400 uppercase tracking-widest">
                 Updated {{ $now['updated'] }}
             </p>
         @endif
@@ -33,7 +33,7 @@
         <div class="site-shell space-y-12">
             @foreach($now['focus'] as $item)
                 <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-                    <h2 class="font-display text-2xl tracking-wide leading-tight text-white">{{ $item['title'] }}</h2>
+                    <h2 class="font-sans font-semibold text-lg sm:text-xl tracking-tight leading-snug text-neutral-100">{{ $item['title'] }}</h2>
                     <div class="max-w-2xl">
                         <p class="text-neutral-400 text-base leading-relaxed">{{ $item['body'] }}</p>
                         @if(! empty($item['link']))
@@ -93,10 +93,10 @@
                 <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 mb-8">
                     <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">Book time</p>
                     <div class="max-w-2xl">
-                        <h2 class="font-display text-3xl tracking-wide text-white mb-3">{{ $bookingLabel }}</h2>
+                        <h2 class="font-sans font-semibold text-2xl sm:text-3xl tracking-tight text-neutral-100 mb-3">{{ $bookingLabel }}</h2>
                         <p class="text-neutral-400 text-sm leading-relaxed">
                             Pick a slot below — or
-                            <a href="#contact" class="text-accent hover:underline underline-offset-2">email me</a>
+                            <a href="#contact" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">email me</a>
                             if that works better.
                         </p>
                     </div>
@@ -112,9 +112,9 @@
                     ></iframe>
                 </div>
                 @if(filled($bookingUrl))
-                    <p class="mt-4 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
+                    <p class="mt-4 font-mono text-caption text-neutral-500 uppercase tracking-widest">
                         Embed not loading?
-                        <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
+                        <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer" data-no-ext class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">
                             Open scheduler ↗
                         </a>
                     </p>

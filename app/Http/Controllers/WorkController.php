@@ -65,6 +65,8 @@ class WorkController extends Controller
             'activeTag' => $activeTag,
             'allTags' => ProjectCatalog::allTags(),
             'tagCounts' => ProjectCatalog::tagCounts(),
+            'sectors' => ProjectCatalog::sectors(),
+            'sectorCounts' => ProjectCatalog::sectorCounts(),
             'githubRepos' => $this->github->topRepos(),
             'sectionRail' => [
                 ['id' => 'work', 'label' => 'Projects', 'href' => '#work'],

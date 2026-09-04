@@ -5,7 +5,8 @@
    Bebas Neue display font and OKLCH oranges).
 --------------------------------------------------------------------------- */
 .prose-karl {
-    color: oklch(84% 0.012 250);
+    /* Cool-tinted body grey on dark; warm near-black on light. */
+    color: light-dark(oklch(30% 0.01 250), oklch(84% 0.012 250));
     font-size: 0.9375rem; /* 15px — tighter for laptop reading */
     line-height: 1.6;
     max-width: 66ch;
@@ -47,7 +48,7 @@
 .prose-karl h3,
 .prose-karl h4 {
     font-family: var(--font-display);
-    color: #fafafa;
+    color: var(--text);
     letter-spacing: 0.02em;
     line-height: 1.05;
 }
@@ -78,7 +79,7 @@
     font-family: var(--font-sans);
     font-size: 0.95rem;
     font-weight: 600;
-    color: #f5f5f5;
+    color: var(--text);
     margin-top: 1.4em;
     margin-bottom: 0.15em;
     letter-spacing: 0;
@@ -167,12 +168,12 @@
 }
 
 .prose-karl strong {
-    color: #fafafa;
+    color: var(--text);
     font-weight: 600;
 }
 
 .prose-karl em {
-    color: oklch(92% 0.015 250);
+    color: light-dark(oklch(22% 0.015 250), oklch(92% 0.015 250));
 }
 
 /* Inline article links keep a faint resting underline for affordance, then a
@@ -193,7 +194,7 @@
 }
 
 .prose-karl a:hover {
-    color: oklch(80% 0.18 50);
+    color: light-dark(oklch(48% 0.17 50), oklch(80% 0.18 50));
     text-decoration-color: transparent;
     background-size: 100% 2px;
 }
@@ -245,8 +246,8 @@
     z-index: 1;
     border: 1px solid var(--border-strong);
     background: color-mix(in oklab, var(--bg) 88%, #000);
-    color: var(--muted);
-    font-size: 0.62rem;
+    color: #a3a3a3;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.28rem 0.5rem;
@@ -275,7 +276,7 @@
     top: 0.45em;
     right: 3.4rem;
     z-index: 1;
-    font-size: 0.62rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--accent);
@@ -295,10 +296,10 @@
     top: 0.5em;
     right: 0.7em;
     font-family: var(--font-mono);
-    font-size: 0.68em;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #525252;
+    color: #737373;
     pointer-events: none;
     transition: opacity 0.16s ease;
 }
@@ -343,7 +344,7 @@
     border-left: 2px solid var(--accent);
     padding: 0.15em 0 0.15em 1.2em;
     margin-left: 0;
-    color: oklch(82% 0.02 250);
+    color: light-dark(oklch(34% 0.02 250), oklch(82% 0.02 250));
     font-style: normal;
 }
 
@@ -355,7 +356,7 @@
     font-size: clamp(1.45rem, 2.6vw, 1.85rem);
     line-height: 1.25;
     letter-spacing: 0.04em;
-    color: oklch(92% 0.02 80);
+    color: light-dark(oklch(24% 0.02 80), oklch(92% 0.02 80));
 }
 
 .prose-karl blockquote:not(:has(p + p)) p {
@@ -396,7 +397,7 @@
 }
 
 .prose-karl ol li::marker {
-    color: oklch(72% 0.04 50);
+    color: light-dark(oklch(48% 0.06 50), oklch(72% 0.04 50));
     font-family: var(--font-mono);
     font-size: 0.85em;
 }
@@ -428,7 +429,7 @@
     height: 1.05em;
     border: 1px solid color-mix(in oklab, var(--success) 55%, var(--border-strong));
     border-radius: 3px;
-    background: color-mix(in oklab, var(--success) 8%, #0a0a0a);
+    background: color-mix(in oklab, var(--success) 8%, var(--bg));
     position: relative;
     transform: translateY(0.15em);
     cursor: default;
@@ -455,7 +456,7 @@
 }
 
 .prose-karl .cadence p {
-    color: #fafafa;
+    color: var(--text);
     font-weight: 500;
     line-height: 1.4;
     margin: 0;
@@ -482,12 +483,12 @@
 .prose-karl > * + .signoff {
     margin-top: 2.4em;
     padding-top: 1.6em;
-    border-top: 1px solid color-mix(in oklab, var(--accent) 30%, #1a1a1a);
+    border-top: 1px solid color-mix(in oklab, var(--accent) 30%, var(--border));
 }
 
 .prose-karl .signoff p {
     margin: 0;
-    color: #e5e5e5;
+    color: var(--color-neutral-200);
 }
 
 .prose-karl .signoff p + p {
@@ -500,7 +501,7 @@
     font-size: clamp(1.3rem, 2.4vw, 1.65rem);
     line-height: 1.15;
     letter-spacing: 0.02em;
-    color: #fafafa;
+    color: var(--text);
 }
 
 .prose-karl .signoff p:last-child strong {
@@ -580,16 +581,23 @@
    Outbound link marker — subtle ↗ on absolute external URLs. Social icons and
    other intentional exceptions opt out with [data-no-ext].
 --------------------------------------------------------------------------- */
-a[href^='http://']:not([href*='karlhill.com']):not([data-no-ext])::after,
-a[href^='https://']:not([href*='karlhill.com']):not([data-no-ext])::after {
+/* Qualifiers sit in :where() so this stays at element specificity — any
+   utility on the link (e.g. a stretched-link `after:content-['']`) overrides
+   it instead of the marker leaking into card overlays. */
+a:where([href^='http://'], [href^='https://']):not(
+        :where([href*='karlhill.com'], [href*='localhost'], [href*='127.0.0.1'], [data-no-ext])
+    )::after {
     content: ' ↗';
     font-size: 0.85em;
     opacity: 0.55;
     speak: never;
 }
 
-/* Icon-only social links: suppress the marker even if data-no-ext is missed. */
-.social-links a::after {
+/* Internal taxonomy, surface chips, and icon-only links: suppress outbound arrow. */
+.social-links a::after,
+.surface-chip::after,
+.surface-chip-overlay::after,
+.case-study-glance__stack a::after {
     content: none !important;
 }
 
@@ -705,16 +713,16 @@ a.series-chapters__card:hover {
 }
 
 .series-chapters__num {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.65rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--muted-2);
 }
 
 .series-chapters__meta {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: color-mix(in oklab, var(--accent) 75%, var(--muted-2));
@@ -725,18 +733,35 @@ a.series-chapters__card:hover {
     color: var(--accent);
 }
 
+/* Chapter titles are long sentences — sentence-case sans scans faster than
+   all-caps display type at card size. */
 .series-chapters__title {
-    font-family: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.2;
-    letter-spacing: 0.04em;
-    color: #e5e5e5;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--color-neutral-200);
     text-wrap: balance;
 }
 
 a.series-chapters__card:hover .series-chapters__title,
 .series-chapters__item.is-current .series-chapters__title {
-    color: #fff;
+    color: var(--text);
+}
+
+/* Desktop: wrap into rows instead of a horizontal scroller, so a long series
+   never clips its last chapter at the shell edge. */
+@media (min-width: 768px) {
+    .series-chapters {
+        overflow-x: visible;
+    }
+
+    .series-chapters__track {
+        flex-wrap: wrap;
+        row-gap: 1.25rem;
+        min-width: 0;
+    }
 }
 
 @media (max-width: 767px) {
@@ -850,7 +875,7 @@ a.series-chapters__card:hover .series-chapters__title,
     border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--border));
     background: color-mix(in oklab, var(--panel) 92%, transparent);
     backdrop-filter: blur(14px) saturate(1.2);
-    box-shadow: 0 18px 50px rgb(0 0 0 / 0.45);
+    box-shadow: 0 18px 50px light-dark(rgb(20 20 20 / 0.14), rgb(0 0 0 / 0.45));
 }
 
 .contact-form-status {
@@ -937,6 +962,30 @@ a.series-chapters__card:hover .series-chapters__title,
     }
 }
 
+/* Theme toggle — icon shows the scheme you'd switch *to*. Pure CSS state:
+   an explicit [data-theme] pin wins, otherwise the OS preference decides. */
+.theme-toggle__icon--moon {
+    display: none;
+}
+
+:root[data-theme='light'] .theme-toggle__icon--sun {
+    display: none;
+}
+
+:root[data-theme='light'] .theme-toggle__icon--moon {
+    display: block;
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) .theme-toggle__icon--sun {
+        display: none;
+    }
+
+    :root:not([data-theme]) .theme-toggle__icon--moon {
+        display: block;
+    }
+}
+
 /* Tag filter + adjacent nav micro-interactions */
 .tag-filter__chip {
     transition:
@@ -959,29 +1008,113 @@ a.series-chapters__card:hover .series-chapters__title,
     background: color-mix(in oklab, var(--accent) 10%, transparent);
 }
 
-/* Work index: horizontal chip scroller on narrow viewports. */
+/* Work index: the stack facet is a single scrollable row at every width so
+   18 tech chips never wrap into a wall. Native ::scroll-button() arrows are
+   attached in public/css/progressive.css; they are laid out as siblings of
+   the scroller, so the wrapper below keeps them inline rather than stacked. */
+.tag-filter-scroller {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.tag-filter-scroller__label {
+    flex-shrink: 0;
+    padding-right: 0.25rem;
+}
+
 .tag-filter--scroll {
+    flex: 1 1 auto;
+    min-width: 0;
     flex-wrap: nowrap;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    scrollbar-width: thin;
+    scrollbar-width: none;
     padding-bottom: 0.15rem;
     scroll-behavior: smooth;
     mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 1.5rem), transparent);
 }
 
-@media (min-width: 768px) {
-    .tag-filter--scroll {
-        flex-wrap: wrap;
-        overflow: visible;
-        mask-image: none;
-        padding-bottom: 0;
-        scroll-behavior: auto;
+.tag-filter--scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.tag-filter--scroll .tag-filter__chip {
+    min-height: 2.25rem;
+    padding-block: 0.4rem;
+}
+
+/* Domain facet: wraps on desktop (it's only a handful of chips) but becomes
+   the same one-line scroller on phones so the sticky toolbar stays compact. */
+@media (max-width: 767px) {
+    .tag-filter--scroll-mobile {
+        flex: 1 1 auto;
+        min-width: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        padding-bottom: 0.15rem;
+        scroll-behavior: smooth;
+        mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 1.5rem), transparent);
+    }
+
+    .tag-filter--scroll-mobile::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tag-filter--scroll-mobile .tag-filter__chip {
+        min-height: 2.25rem;
+        padding-block: 0.4rem;
     }
 }
 
 .case-study-lede {
     text-wrap: pretty;
+}
+
+/* Qualitative "metrics" (no digits) render as a key/value strip rather than
+   fake big-number stats. */
+.case-study-facts {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    border-block: 1px solid var(--border);
+}
+
+.case-study-facts__row {
+    display: grid;
+    grid-template-columns: minmax(9rem, 14rem) 1fr;
+    gap: 1rem 1.5rem;
+    align-items: baseline;
+    padding: 0.85rem 0;
+}
+
+.case-study-facts__row + .case-study-facts__row {
+    border-top: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+}
+
+.case-study-facts__label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+}
+
+.case-study-facts__value {
+    margin: 0;
+    font-weight: 600;
+    color: var(--text);
+    text-wrap: pretty;
+}
+
+@media (max-width: 480px) {
+    .case-study-facts__row {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+    }
 }
 
 /* Case study — Outcome / Stack / Role skim panel */
@@ -1017,7 +1150,7 @@ a.series-chapters__card:hover .series-chapters__title,
 
 .case-study-glance__label {
     font-family: var(--font-mono);
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--accent);
@@ -1070,7 +1203,7 @@ a.series-chapters__card:hover .series-chapters__title,
     border-radius: 0.25rem;
     background: color-mix(in oklab, var(--bg) 82%, transparent);
     backdrop-filter: blur(6px);
-    color: color-mix(in oklab, var(--accent) 80%, white);
+    color: color-mix(in oklab, var(--accent) 80%, var(--text));
     opacity: 0;
     transform: translateY(4px);
     transition:
@@ -1101,14 +1234,14 @@ a.series-chapters__card:hover .series-chapters__title,
     padding: 0;
     border: 1px solid color-mix(in oklab, var(--accent) 22%, var(--border-strong));
     border-radius: 0.5rem;
-    background: color-mix(in oklab, var(--bg) 94%, black);
+    background: color-mix(in oklab, var(--bg) 94%, light-dark(#fff, #000));
     color: var(--text);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 30px 80px light-dark(rgb(20 20 20 / 0.22), rgb(0 0 0 / 0.55));
     overflow: hidden;
 }
 
 .media-lightbox::backdrop {
-    background: rgba(0, 0, 0, 0.72);
+    background: light-dark(rgb(250 250 249 / 0.82), rgb(0 0 0 / 0.72));
     backdrop-filter: blur(6px);
 }
 
@@ -1193,16 +1326,16 @@ a.series-chapters__card:hover .series-chapters__title,
 }
 
 .case-study-media__label {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.625rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent);
 }
 
 .case-study-media__detail {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.6875rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted-2);
@@ -1240,16 +1373,17 @@ a.series-chapters__card:hover .series-chapters__title,
     font-size: 1.75rem;
     line-height: 1;
     letter-spacing: 0.06em;
-    color: color-mix(in oklab, var(--accent) 85%, white);
+    color: color-mix(in oklab, var(--accent) 85%, var(--text));
     padding-top: 0.15rem;
 }
 
 .lead-principles__title {
-    font-family: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
-    font-size: clamp(1.35rem, 2.4vw, 1.65rem);
-    line-height: 1.15;
-    letter-spacing: 0.04em;
-    color: #fff;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: var(--text);
     margin: 0 0 0.55rem;
     text-wrap: balance;
 }
@@ -1305,7 +1439,7 @@ a.series-chapters__card:hover .series-chapters__title,
     border: 1px solid var(--border-strong);
     background: color-mix(in oklab, var(--bg) 70%, transparent);
     color: var(--accent);
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     line-height: 1;
 }
 
@@ -1457,7 +1591,7 @@ a.series-chapters__card:hover .series-chapters__title,
 .resume-role-kicker {
     margin: 0 0 0.4rem;
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -1530,9 +1664,22 @@ a.series-chapters__card:hover .series-chapters__title,
     interpolate-size: allow-keywords;
 }
 
+/* Generative WebGPU field — mounted by webgpu-flood.js only after an adapter
+   and device are acquired, so no visitor ever sees an empty canvas box. The
+   canvas is always dark: it renders a night-time flood scene, not UI. */
+.webgpu-flood[hidden] {
+    display: none;
+}
+
 .webgpu-flood__canvas {
     display: block;
     background: #0a0a0a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .webgpu-flood {
+        display: none;
+    }
 }
 
 .on-device-summary {
@@ -1557,6 +1704,17 @@ a.series-chapters__card:hover .series-chapters__title,
 .on-device-summary__btn:disabled {
     cursor: wait;
     opacity: 0.65;
+}
+
+.on-device-summary__cancel {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.on-device-summary__cancel:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
 }
 
 .on-device-summary__hint {

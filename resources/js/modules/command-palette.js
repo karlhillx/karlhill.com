@@ -292,8 +292,8 @@ export function initCommandPalette() {
                         aria-selected="${i === activeCommandIndex ? 'true' : 'false'}"
                         class="command-result ${i === activeCommandIndex ? 'is-active' : ''}"
                         data-command-index="${i}">
-                    <span class="command-result__group font-mono">${group}</span>
-                    <span class="font-mono text-xs">${cmd.label}</span>
+                    <span class="command-result__group font-mono text-caption text-neutral-400">${group}</span>
+                    <span class="font-sans font-medium text-xs sm:text-sm text-neutral-200 truncate">${cmd.label}</span>
                 </button>`;
                   })
                   .join('')

@@ -16,5 +16,5 @@
        data-final="{{ $value }}"
        @if($to !== null) data-to="{{ $to }}" data-prefix="{{ $prefix }}" data-suffix="{{ $suffix }}" @endif
        aria-label="{{ $value }} — {{ $label }}">{{ $value }}</p>
-    <p class="font-mono text-[10px] {{ $labelClass }} uppercase tracking-widest leading-relaxed">{{ $label }}</p>
+    <p class="font-mono text-caption {{ $labelClass }} uppercase tracking-widest leading-relaxed">{{ $label }}</p>
 </div>

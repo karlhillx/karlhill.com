@@ -161,11 +161,31 @@ it('work tag route filters projects', function () {
 });
 
 it('single-metric case studies do not leave an empty grid cell', function () {
-    $html = $this->get('/work/esscor')->assertOk()->getContent();
+    // InformedDNA has exactly one numeric metric ($30K) — it must render as a
+    // single stat cell, never a two-column grid with an empty half.
+    $html = $this->get('/work/informeddna-platform')->assertOk()->getContent();
 
     expect($html)
         ->toContain('grid-cols-1')
         ->not->toContain('grid grid-cols-2');
+});
+
+it('qualitative metrics render as a facts strip instead of fake big-number stats', function () {
+    // ESSCOR's only "metric" is the word "Granule" — no digits, so it belongs
+    // in the key/value strip, and no stat grid should be emitted at all.
+    $html = $this->get('/work/esscor')->assertOk()->getContent();
+
+    expect($html)
+        ->toContain('case-study-facts')
+        ->toContain('Granule')
+        ->not->toContain('data-counter');
+
+    // Mixed case studies split: numeric values stay stats, prose values move to facts.
+    $eo = $this->get('/work/nasa-earth-observatory')->assertOk()->getContent();
+
+    expect($eo)
+        ->toContain('data-final="1.5M+"')
+        ->toContain('case-study-facts__value">Self-serve');
 });
 
 it('case study includes navigation and structured data', function () {
@@ -179,6 +199,15 @@ it('case study includes navigation and structured data', function () {
     $response->assertSee('Hard decision', escape: false);
     $response->assertSee('id="leadership"', escape: false);
     $response->assertSee('article-sticky-title', escape: false);
+});
+
+it('resume page shows the phone number when opted in', function () {
+    config()->set('site.resume.phone_on_web', true);
+
+    $this->get('/resume')
+        ->assertOk()
+        ->assertSee('(202) 599-1442', escape: false)
+        ->assertSee('href="tel:+12025991442"', escape: false);
 });
 
 it('now page renders focus and em intent', function () {
@@ -219,7 +248,9 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('Technical Expertise', escape: false);
     $resume->assertSee('Selected Leadership Impact', escape: false);
     $resume->assertSee('Core Competencies', escape: false);
-    $resume->assertSee('(202) 599-1442', escape: false);
+    // Phone is PDF-only unless site.resume.phone_on_web opts in.
+    $resume->assertDontSee('(202) 599-1442', escape: false);
+    $resume->assertSee('Phone on the PDF', escape: false);
     $resume->assertSee('https://karlhill.com', escape: false);
     $resume->assertSee('resume-aside', escape: false);
     $resume->assertSee('id="stack"', escape: false);

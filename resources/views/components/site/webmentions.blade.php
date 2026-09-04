@@ -25,7 +25,7 @@
             No webmentions yet.
             @if($target)
                 This post accepts mentions at
-                <span class="font-mono text-[11px] text-neutral-400">{{ url('/webmention') }}</span>.
+                <span class="font-mono text-caption text-neutral-400">{{ url('/webmention') }}</span>.
             @endif
         </p>
     @endif

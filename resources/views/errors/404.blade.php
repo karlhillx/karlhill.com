@@ -31,8 +31,8 @@
                     <a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Work →</a>
                     <a href="/now" class="text-neutral-400 hover:text-accent transition-colors">Now →</a>
                 </div>
-                <p class="hidden sm:block font-mono text-[11px] text-neutral-500 uppercase tracking-widest mt-8">
-                    Or press <kbd class="surface-chip px-1.5 py-0.5 text-[10px] text-neutral-400 normal-case tracking-normal">⌘K</kbd> to jump anywhere
+                <p class="hidden sm:block font-mono text-caption text-neutral-500 uppercase tracking-widest mt-8">
+                    Or press <kbd class="surface-chip px-1.5 py-0.5 text-caption text-neutral-400 normal-case tracking-normal">⌘K</kbd> to jump anywhere
                 </p>
             </div>
         </div>

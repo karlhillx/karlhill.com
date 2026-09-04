@@ -192,7 +192,7 @@
     align-items: baseline;
     column-gap: 0.5rem;
     row-gap: 0.15rem;
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     letter-spacing: 0.14em;
     line-height: 1.35;
     min-width: 0;
@@ -243,24 +243,38 @@
 }
 
 #hero .hero-availability {
-    gap: 0.65rem;
-    margin-top: clamp(1.5rem, 3.5vw, 2.5rem);
-    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: clamp(1.5rem, 3vw, 2.25rem);
+    padding: 0.55rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid var(--hairline-strong);
+    background: color-mix(in oklab, var(--panel) 60%, transparent);
+    backdrop-filter: blur(8px);
+    width: fit-content;
     max-width: 100%;
     min-width: 0;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+#hero .hero-availability:hover {
+    border-color: color-mix(in oklab, var(--accent) 50%, var(--border));
+    background: color-mix(in oklab, var(--panel) 85%, transparent);
 }
 
 #hero .hero-availability-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    margin-top: 0.35rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-top: 0;
+    flex-shrink: 0;
 }
 
 #hero .availability-label {
-    font-size: 0.6875rem;
-    letter-spacing: 0.04em;
-    line-height: 1.5;
-    max-width: min(36rem, 100%);
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+    max-width: min(38rem, 100%);
     min-width: 0;
     white-space: normal;
 }
@@ -435,7 +449,7 @@ nav[aria-label='Primary'].is-compact .nav-bar {
 }
 .btn-sweep:hover,
 .btn-sweep:focus-visible {
-    color: #000;
+    color: var(--accent-ink);
     border-color: var(--accent);
 }
 .btn-sweep:hover::before,
@@ -446,7 +460,11 @@ nav[aria-label='Primary'].is-compact .nav-bar {
 /* Hero ambient glow orbs */
 /* Hero dot-grid overlay */
 .hero-dot-grid {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-image: radial-gradient(
+        circle,
+        light-dark(rgb(20 20 20 / 0.07), rgb(255 255 255 / 0.04)) 1px,
+        transparent 1px
+    );
     background-size: 48px 48px;
     animation: dotScroll 8s linear infinite;
     will-change: transform, opacity;
@@ -467,11 +485,11 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     position: absolute;
     border-radius: 9999px;
     filter: blur(64px);
-    opacity: 0.55;
+    opacity: light-dark(0.12, 0.55);
     will-change: transform;
     background: radial-gradient(
         circle at 40% 40%,
-        color-mix(in oklab, var(--accent) 42%, transparent),
+        color-mix(in oklab, var(--accent) light-dark(22%, 42%), transparent),
         transparent 68%
     );
 }
@@ -489,10 +507,10 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     height: min(48vw, 34rem);
     bottom: 4%;
     right: calc(100% - var(--spot-x) - 18%);
-    opacity: 0.4;
+    opacity: light-dark(0.08, 0.4);
     background: radial-gradient(
         circle at 60% 50%,
-        color-mix(in oklab, var(--accent) 28%, transparent),
+        color-mix(in oklab, var(--accent) light-dark(16%, 28%), transparent),
         transparent 70%
     );
     animation: glowDrift2 18s ease-in-out infinite alternate;
@@ -565,18 +583,18 @@ nav[aria-label='Primary'].is-compact .nav-bar {
 }
 
 .hero-shine {
-    color: #ffffff;
+    color: var(--text);
 }
 
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
     .hero-shine {
         background-image: linear-gradient(
             100deg,
-            #ffffff 0%,
-            #ffffff 38%,
-            color-mix(in oklab, var(--accent) 60%, #ffffff) 50%,
-            #ffffff 62%,
-            #ffffff 100%
+            var(--text) 0%,
+            var(--text) 38%,
+            color-mix(in oklab, var(--accent) 60%, var(--text)) 50%,
+            var(--text) 62%,
+            var(--text) 100%
         );
         background-size: 220% 100%;
         background-position: 0% 0;
@@ -904,8 +922,8 @@ html.save-data .surface-card-media {
     width: 0.56rem;
     height: 0.56rem;
     border-radius: 999px;
-    border: 1px solid #404040;
-    background: #171717;
+    border: 1px solid var(--color-neutral-700);
+    background: var(--color-neutral-900);
     transition:
         transform 0.22s var(--ease-out-spring),
         background-color 0.2s var(--ease-out-soft),
@@ -931,7 +949,7 @@ html.save-data .surface-card-media {
     backdrop-filter: blur(6px);
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     opacity: 0;
@@ -969,7 +987,7 @@ html.save-data .surface-card-media {
 }
 
 .magnetic-btn:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 30px light-dark(rgb(20 20 20 / 0.12), rgb(0 0 0 / 0.25));
 }
 
 /* One-shot Book CTA settle after idle (class added by pointer.js). */
@@ -1017,8 +1035,8 @@ html.hero-ambient-paused #hero .availability-pulse::after {
     backdrop-filter: blur(18px) saturate(1.25);
     border-radius: 0.9rem;
     box-shadow:
-        inset 0 1px 0 color-mix(in oklab, #fff 10%, transparent),
-        0 30px 80px rgba(0, 0, 0, 0.55);
+        inset 0 1px 0 var(--hairline-strong),
+        0 30px 80px light-dark(rgb(20 20 20 / 0.18), rgb(0 0 0 / 0.55));
     padding: 0.95rem;
     opacity: 0;
     transform: translateY(-8px) scale(0.98);
@@ -1042,7 +1060,7 @@ html.hero-ambient-paused #hero .availability-pulse::after {
 }
 
 .command-palette::backdrop {
-    background: rgba(0, 0, 0, 0.55);
+    background: var(--scrim);
     backdrop-filter: blur(8px) saturate(1.1);
     opacity: 0;
     transition:
@@ -1061,13 +1079,20 @@ html.hero-ambient-paused #hero .availability-pulse::after {
     }
 }
 
-/* Mobile navigation menu — also a native popover, anchored under the fixed nav. */
+/* Mobile navigation menu — also a native popover, anchored under the fixed
+   nav. It fills the viewport below the nav (not just its content height) so
+   page content can't bleed through underneath, and scrolls internally if the
+   list outgrows a short landscape phone. */
 #mobile-menu {
-    inset: 4.75rem 0 auto 0;
+    inset: 4.75rem 0 0 0;
     margin: 0;
     width: 100%;
     max-width: 100%;
+    height: auto;
+    max-height: none;
     padding: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     opacity: 0;
     transform: translateY(-6px);
     transition:
@@ -1080,6 +1105,11 @@ html.hero-ambient-paused #hero .availability-pulse::after {
 #mobile-menu:popover-open {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Lock the document while the menu is open — pure CSS, no JS class toggling. */
+body:has(#mobile-menu:popover-open) {
+    overflow: hidden;
 }
 
 @starting-style {
@@ -1100,7 +1130,7 @@ nav[aria-label='Primary'] {
 @supports (anchor-name: --a) {
     #mobile-menu {
         position-anchor: --site-nav;
-        inset: auto 0;
+        inset: auto 0 0 0;
         top: anchor(bottom);
     }
 
@@ -1112,8 +1142,8 @@ nav[aria-label='Primary'] {
 
 .command-input {
     width: 100%;
-    border: 1px solid #3f3f46;
-    background: rgba(12, 12, 12, 0.7);
+    border: 1px solid var(--border-strong);
+    background: color-mix(in oklab, var(--panel) 75%, transparent);
     color: var(--text);
     border-radius: 0.55rem;
     padding: 0.7rem 0.8rem;
@@ -1128,18 +1158,19 @@ nav[aria-label='Primary'] {
 }
 
 .command-result {
-    border: 1px solid #27272a;
+    border: 1px solid var(--border);
     border-radius: 0.55rem;
-    background: #0f0f10;
+    background: var(--panel);
     color: var(--text);
-    padding: 0.65rem 0.7rem;
+    padding: 0.65rem 0.85rem;
     text-align: left;
     width: 100%;
     display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.85rem;
     transition:
         border-color 0.18s var(--ease-out-soft),
+        background-color 0.18s var(--ease-out-soft),
         transform 0.2s var(--ease-out-spring),
         color 0.18s var(--ease-out-soft);
     animation: fadeUp 0.32s var(--ease-out-spring) both;
@@ -1147,8 +1178,8 @@ nav[aria-label='Primary'] {
 
 .command-result__group {
     flex-shrink: 0;
-    width: 4.25rem;
-    font-size: 0.625rem;
+    width: 4.5rem;
+    font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted-2);
@@ -1162,9 +1193,15 @@ nav[aria-label='Primary'] {
 
 .command-result:hover,
 .command-result.is-active {
-    border-color: color-mix(in oklab, var(--accent) 70%, #3f3f46);
-    color: color-mix(in oklab, var(--accent) 60%, var(--text));
-    transform: translateX(2px);
+    border-color: color-mix(in oklab, var(--accent) 70%, var(--border-strong));
+    background: color-mix(in oklab, var(--accent) 22%, var(--panel));
+    color: var(--text);
+    transform: translateX(3px);
+}
+
+.command-result.is-active .command-result__group,
+.command-result:hover .command-result__group {
+    color: var(--accent);
 }
 
 .command-hint {
@@ -1173,12 +1210,12 @@ nav[aria-label='Primary'] {
     gap: 1rem;
     margin-top: 0.85rem;
     padding-top: 0.75rem;
-    border-top: 1px solid #1f1f22;
+    border-top: 1px solid var(--border);
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #8a8a8a;
+    color: var(--muted-2);
 }
 
 .command-hint span {
@@ -1194,11 +1231,11 @@ nav[aria-label='Primary'] {
     min-width: 1.15rem;
     height: 1.15rem;
     padding: 0 0.3rem;
-    border: 1px solid #3a3a3a;
+    border: 1px solid var(--border-strong);
     border-radius: 0.3rem;
-    background: #141416;
-    color: #b5b5b5;
-    font-size: 0.62rem;
+    background: var(--panel);
+    color: var(--muted);
+    font-size: 0.75rem;
     line-height: 1;
 }
 
@@ -1283,13 +1320,13 @@ nav[aria-label='Primary'] {
     .scroll-progress {
         animation: none;
     }
-    /* Keep the button reachable without the animated reveal. */
+    /* No scroll-driven reveal: navigation.js toggles `.is-visible` past a
+       scroll threshold instead, so the button isn't parked at the top of a
+       page the user hasn't scrolled yet. */
     .quick-back-top {
         animation: none;
         transition: none;
-        opacity: 1;
         transform: none;
-        pointer-events: auto;
     }
 }
 
@@ -1318,13 +1355,14 @@ nav[aria-label='Primary'] {
    secondary text so 3:1 contrast is met for users who opt in. */
 @media (prefers-contrast: more) {
     :root {
-        --accent: oklch(78% 0.24 50);
-        --focus: oklch(82% 0.2 55);
-        /* Lighten the low-tier neutrals at the token level so every utility
-           that references them (text, border, …) picks up the boost. */
-        --color-neutral-500: oklch(72% 0.02 250);
-        --color-neutral-600: oklch(64% 0.02 250);
-        --color-neutral-700: oklch(58% 0.02 250);
+        --accent: light-dark(oklch(48% 0.2 50), oklch(78% 0.24 50));
+        --focus: light-dark(oklch(50% 0.18 55), oklch(82% 0.2 55));
+        /* Push the low-tier neutrals further from the canvas at the token
+           level so every utility that references them (text, border, …)
+           picks up the boost in either scheme. */
+        --color-neutral-500: light-dark(oklch(42% 0.02 250), oklch(72% 0.02 250));
+        --color-neutral-600: light-dark(oklch(50% 0.02 250), oklch(64% 0.02 250));
+        --color-neutral-700: light-dark(oklch(66% 0.02 250), oklch(58% 0.02 250));
     }
 }
 

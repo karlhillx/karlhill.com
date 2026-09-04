@@ -13,14 +13,22 @@
      data-summary-context="{{ $context }}"
      data-summary-type="{{ $type }}"
      data-summary-length="{{ $length }}">
-    <button type="button"
-            class="on-device-summary__btn font-mono text-[10px] uppercase tracking-widest"
-            data-summary-run
-            aria-expanded="false"
-            aria-controls="on-device-summary-output">
-        {{ $label }}
-    </button>
-    <p class="on-device-summary__hint font-mono text-[10px] text-neutral-500 uppercase tracking-widest"
+    <div class="flex items-center gap-3">
+        <button type="button"
+                class="on-device-summary__btn font-mono text-caption uppercase tracking-widest"
+                data-summary-run
+                aria-expanded="false"
+                aria-controls="on-device-summary-output">
+            {{ $label }}
+        </button>
+        <button type="button"
+                class="on-device-summary__cancel font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors py-2 px-1"
+                data-summary-cancel
+                hidden>
+            Cancel
+        </button>
+    </div>
+    <p class="on-device-summary__hint font-mono text-caption text-neutral-500 uppercase tracking-widest"
        data-summary-status>
         Chrome on-device · nothing leaves this device
     </p>

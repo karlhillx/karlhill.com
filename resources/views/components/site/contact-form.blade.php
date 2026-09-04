@@ -37,7 +37,7 @@
 
         <div class="grid sm:grid-cols-2 gap-4">
             <div>
-                <label for="{{ $nameId }}" class="block font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1.5">Your name</label>
+                <label for="{{ $nameId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1.5">Your name</label>
                 <input id="{{ $nameId }}" name="name" type="text" required maxlength="120"
                        value="{{ old('name') }}" placeholder="Your name" autocomplete="name"
                        @if($errorBag->has('name')) aria-invalid="true" aria-describedby="{{ $nameId }}-error" @endif
@@ -47,11 +47,11 @@
                            'border-neutral-800' => ! $errorBag->has('name'),
                        ])>
                 @if($errorBag->has('name'))
-                    <p id="{{ $nameId }}-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $errorBag->first('name') }}</p>
+                    <p id="{{ $nameId }}-error" class="mt-1 font-mono text-caption text-red-400">{{ $errorBag->first('name') }}</p>
                 @endif
             </div>
             <div>
-                <label for="{{ $emailId }}" class="block font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1.5">Your email</label>
+                <label for="{{ $emailId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1.5">Your email</label>
                 <input id="{{ $emailId }}" name="email" type="email" required maxlength="190"
                        value="{{ old('email') }}" placeholder="you@company.com" autocomplete="email"
                        @if($errorBag->has('email')) aria-invalid="true" aria-describedby="{{ $emailId }}-error" @endif
@@ -61,12 +61,12 @@
                            'border-neutral-800' => ! $errorBag->has('email'),
                        ])>
                 @if($errorBag->has('email'))
-                    <p id="{{ $emailId }}-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $errorBag->first('email') }}</p>
+                    <p id="{{ $emailId }}-error" class="mt-1 font-mono text-caption text-red-400">{{ $errorBag->first('email') }}</p>
                 @endif
             </div>
         </div>
         <div>
-            <label for="{{ $messageId }}" class="block font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-1.5">Message</label>
+            <label for="{{ $messageId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1.5">Message</label>
             <textarea id="{{ $messageId }}" name="message" required minlength="10" maxlength="4000" rows="4"
                       placeholder="{{ config('site.footer.contact_placeholder', 'What are you building, and how can I help?') }}"
                       @if($errorBag->has('message')) aria-invalid="true" aria-describedby="{{ $messageId }}-error" @endif
@@ -76,7 +76,7 @@
                           'border-neutral-800' => ! $errorBag->has('message'),
                       ])>{{ old('message') }}</textarea>
             @if($errorBag->has('message'))
-                <p id="{{ $messageId }}-error" class="mt-1 font-mono text-[11px] text-red-400">{{ $errorBag->first('message') }}</p>
+                <p id="{{ $messageId }}-error" class="mt-1 font-mono text-caption text-red-400">{{ $errorBag->first('message') }}</p>
             @endif
         </div>
 
@@ -89,7 +89,7 @@
                      data-size="flexible"></div>
                 <div data-turnstile-error>
                     @if($errorBag->has('turnstile'))
-                        <p id="{{ $idPrefix }}-turnstile-error" class="mt-2 font-mono text-[11px] text-red-400" role="alert">
+                        <p id="{{ $idPrefix }}-turnstile-error" class="mt-2 font-mono text-caption text-red-400" role="alert">
                             {{ $errorBag->first('turnstile') }}
                         </p>
                     @endif

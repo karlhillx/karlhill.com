@@ -37,36 +37,27 @@ fn fs(@builtin(position) frag: vec4f) -> @location(0) vec4f {
 `;
 
 /**
- * Case-study WebGPU field for flood mapping. Photograph remains the LCP;
- * this canvas is progressive and hidden when WebGPU or motion is unavailable.
+ * Case-study WebGPU field for flood mapping. The photograph remains the LCP
+ * and the canonical visual; this block ships `hidden` and is only revealed
+ * once an adapter *and* device are acquired, so no visitor ever sees an
+ * empty canvas box. Rendering pauses while off-screen or the tab is hidden.
  */
 export async function initWebGpuFlood() {
     const canvas = document.querySelector('[data-webgpu-flood]');
-    const fallback = document.querySelector('[data-webgpu-fallback]');
-    if (!canvas) return;
+    const root = canvas?.closest('[data-webgpu-flood-root]') ?? canvas;
+    if (!canvas || !root) return;
 
-    const fail = () => {
-        canvas.hidden = true;
-        fallback?.removeAttribute('hidden');
-    };
-
-    if (prefersReducedMotion || !navigator.gpu) {
-        fail();
-        return;
-    }
+    if (prefersReducedMotion || !navigator.gpu) return;
 
     try {
         const adapter = await navigator.gpu.requestAdapter();
-        if (!adapter) {
-            fail();
-            return;
-        }
+        if (!adapter) return;
         const device = await adapter.requestDevice();
         const context = canvas.getContext('webgpu');
-        if (!context) {
-            fail();
-            return;
-        }
+        if (!context) return;
+
+        // Reveal before measuring — a hidden canvas has no client box.
+        root.hidden = false;
 
         const format = navigator.gpu.getPreferredCanvasFormat();
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -94,7 +85,12 @@ export async function initWebGpuFlood() {
         });
 
         const start = performance.now();
+        let raf = 0;
+        let inView = true;
+
         const frame = (now) => {
+            raf = 0;
+            if (!inView || document.hidden) return;
             const time = (now - start) / 1000;
             device.queue.writeBuffer(uniformBuffer, 0, new Float32Array([time, 0, 0, 0]));
             const encoder = device.createCommandEncoder();
@@ -113,10 +109,24 @@ export async function initWebGpuFlood() {
             pass.draw(3);
             pass.end();
             device.queue.submit([encoder.finish()]);
-            canvas._raf = requestAnimationFrame(frame);
+            raf = requestAnimationFrame(frame);
         };
-        canvas._raf = requestAnimationFrame(frame);
+
+        const resume = () => {
+            if (!raf && inView && !document.hidden) raf = requestAnimationFrame(frame);
+        };
+
+        new IntersectionObserver(
+            ([entry]) => {
+                inView = entry.isIntersecting;
+                resume();
+            },
+            { rootMargin: '120px' }
+        ).observe(canvas);
+
+        document.addEventListener('visibilitychange', resume);
+        resume();
     } catch {
-        fail();
+        root.hidden = true;
     }
 }

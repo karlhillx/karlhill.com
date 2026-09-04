@@ -45,8 +45,8 @@
 <article class="relative site-article" data-article>
     <div class="article-sticky-title" data-article-sticky-title hidden>
         <div class="site-shell site-gutter flex items-center gap-3 min-h-10">
-            <p class="font-mono text-[10px] text-accent uppercase tracking-widest shrink-0">Writing</p>
-            <p class="font-display text-sm sm:text-base tracking-wide text-neutral-200 truncate">{{ $post->title }}</p>
+            <p class="font-mono text-caption text-accent uppercase tracking-widest shrink-0">Writing</p>
+            <p class="font-sans font-semibold text-sm sm:text-base tracking-tight text-neutral-200 truncate">{{ $post->title }}</p>
         </div>
     </div>
 
@@ -65,7 +65,7 @@
             &nbsp;·&nbsp; {{ $post->readMinutes }} min read
         </p>
 
-        <h1 class="font-display text-[clamp(1.85rem,4vw,3rem)] leading-[1.1] tracking-wide text-white mb-5"
+        <h1 class="font-sans font-semibold text-[clamp(1.85rem,4vw,2.75rem)] leading-[1.2] tracking-tight text-neutral-100 text-balance mb-5"
             data-article-title
             style="view-transition-name: post-{{ $post->slug }}; view-transition-class: post-title">
             {{ $post->title }}
@@ -86,7 +86,7 @@
         <div class="flex flex-wrap items-center gap-2 mb-10">
             @foreach($post->tags as $tag)
                 <a href="{{ route('blog.tag', $tag) }}"
-                   class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
+                   class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
                     {{ $tag }}
                 </a>
             @endforeach
@@ -122,7 +122,7 @@
                         ])>
                             <a href="#{{ $item['id'] }}"
                                data-toc-link
-                               class="article-toc-link font-mono text-[11px] text-neutral-500 hover:text-accent transition-colors">
+                               class="article-toc-link font-mono text-caption text-neutral-500 hover:text-accent transition-colors">
                                 {{ $item['text'] }}
                             </a>
                         </li>
@@ -176,7 +176,7 @@
 
         <div class="surface-card-static p-5 mb-12" data-reveal>
             <p class="font-mono text-accent text-xs tracking-widest uppercase mb-3">On this site</p>
-            <div class="flex flex-wrap gap-4 font-mono text-[11px] uppercase tracking-widest">
+            <div class="flex flex-wrap gap-4 font-mono text-caption uppercase tracking-widest">
                 <a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Selected work →</a>
                 <a href="/about#experience" class="text-neutral-400 hover:text-accent transition-colors">Experience →</a>
                 <a href="/about#research" class="text-neutral-400 hover:text-accent transition-colors">Research →</a>
@@ -231,11 +231,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 010 5.656l-3 3a4 4 0 11-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l3-3a4 4 0 115.656 5.656l-1.5 1.5"/>
                         </svg>
                     </button>
-                    <span data-copy-feedback class="font-mono text-[10px] text-accent uppercase tracking-widest opacity-0 transition-opacity">Copied</span>
+                    <span data-copy-feedback class="font-mono text-caption text-accent uppercase tracking-widest opacity-0 transition-opacity">Copied</span>
                 </div>
             </div>
             <div class="text-right">
-                <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">Written by</p>
+                <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-2">Written by</p>
                 <a href="/" class="font-display text-2xl text-neutral-300 hover:text-accent tracking-widest transition-colors">
                     Karl Hill
                 </a>

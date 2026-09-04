@@ -58,7 +58,20 @@
     <meta name="twitter:image" content="{{ $ogImage ?? $siteUrl.'/img/og-home.jpg' }}">
 
     <meta name="theme-color" content="#080808">
-    <meta name="color-scheme" content="dark">
+    <meta name="color-scheme" content="light dark">
+    {{-- Pre-paint theme pin: a stored preference wins over the OS scheme. Runs
+         before CSS applies so there is no flash between schemes. Without a
+         stored value the tokens follow prefers-color-scheme on their own. --}}
+    <script nonce="{{ Vite::cspNonce() }}">
+        (() => {
+            try {
+                const t = localStorage.getItem('theme');
+                const light = t === 'light' || (t !== 'dark' && matchMedia('(prefers-color-scheme: light)').matches);
+                if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+                if (light) document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#fafaf9');
+            } catch {}
+        })();
+    </script>
     @if($canonical ?? null)
         <link rel="canonical" href="{{ $canonical }}">
     @endif
@@ -113,13 +126,13 @@
     @endif
 
     <button id="quick-back-top" type="button"
-            class="quick-back-top font-mono text-[10px] uppercase tracking-widest"
+            class="quick-back-top font-mono text-caption uppercase tracking-widest"
             aria-label="Back to top">
         ↑ Top
     </button>
 
     <div id="cmdk-tip" class="cmdk-tip" hidden role="status">
-        <p class="font-mono text-[11px] uppercase tracking-widest text-neutral-300">
+        <p class="font-mono text-caption uppercase tracking-widest text-neutral-300">
             Press <kbd class="cmdk-tip__kbd">⌘</kbd><kbd class="cmdk-tip__kbd">K</kbd> to jump anywhere
         </p>
         <button type="button" class="cmdk-tip__dismiss" data-cmdk-tip-dismiss aria-label="Dismiss tip">×</button>

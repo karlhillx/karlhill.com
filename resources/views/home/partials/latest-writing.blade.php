@@ -16,15 +16,15 @@
                                   class="font-mono text-xs text-neutral-400 uppercase tracking-widest">
                                 {{ $post->publishedAt->format('M j, Y') }}
                             </time>
-                            <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">
+                            <span class="font-mono text-caption text-neutral-400 uppercase tracking-widest">
                                 {{ $post->readMinutes }} min read
                             </span>
                         </div>
                         <div class="relative z-10 min-w-0">
                             <h3 @class([
-                                'font-display tracking-wide text-neutral-100 group-hover:text-accent transition-colors leading-tight mb-4 text-balance',
-                                'text-2xl sm:text-3xl md:text-4xl' => $loop->first,
-                                'text-xl sm:text-2xl md:text-3xl' => ! $loop->first,
+                                'post-list-title font-sans font-semibold tracking-tight text-neutral-100 group-hover:text-accent transition-colors leading-snug mb-3 text-balance',
+                                'text-xl sm:text-2xl md:text-[1.75rem]' => $loop->first,
+                                'text-lg sm:text-xl md:text-2xl' => ! $loop->first,
                             ])>
                                 <a href="{{ $post->url() }}"
                                    class="inline-block after:absolute after:inset-0 after:content-['']">
@@ -39,7 +39,7 @@
                             <div class="relative z-20 flex flex-wrap items-center gap-4">
                                 @foreach($post->tags as $tag)
                                     <a href="{{ route('blog.tag', $tag) }}"
-                                       class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
+                                       class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
                                         {{ $tag }}
                                     </a>
                                 @endforeach

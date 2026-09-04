@@ -36,7 +36,7 @@
                     <x-site.contact-form id-prefix="contact" :return-to="url()->current()" />
                 </div>
                 <div class="flex flex-col gap-4 lg:pt-16 shrink-0" data-reveal>
-                    <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">Prefer to reach me directly?</p>
+                    <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest">Prefer to reach me directly?</p>
                     <div class="flex items-center gap-3">
                         <a href="mailto:{{ $person['email'] }}"
                            class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-accent transition-colors group">
@@ -49,7 +49,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5a2 2 0 012-2h9a2 2 0 012 2v9a2 2 0 01-2 2h-2M5 8h9a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a2 2 0 012-2z"/>
                             </svg>
                             <span data-copy-feedback role="status" aria-live="polite"
-                                  class="surface-chip-accent pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1 font-mono text-[10px] text-accent uppercase tracking-widest opacity-0 transition-opacity duration-200 shadow-lg shadow-black/40">
+                                  class="surface-chip-accent pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1 font-mono text-caption text-accent uppercase tracking-widest opacity-0 transition-opacity duration-200 shadow-lg shadow-black/40">
                                 <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                                 </svg>
@@ -65,20 +65,6 @@
                         </a>
                     @endif
 
-                    @unless(request()->routeIs('resume'))
-                        <a href="/resume"
-                           class="inline-flex items-center min-h-11 font-mono text-sm text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors w-fit">
-                            Resume
-                        </a>
-                    @endunless
-
-                    @unless(request()->routeIs('kit'))
-                        <a href="/kit"
-                           class="inline-flex items-center min-h-11 font-mono text-sm text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors w-fit">
-                            Recruiter kit
-                        </a>
-                    @endunless
-
                     <x-site.social-links />
                 </div>
                 <nav class="shrink-0" aria-label="Site">
@@ -88,8 +74,12 @@
                         <li><a href="/about" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">About</a></li>
                         <li><a href="/blog" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
                         <li><a href="/now" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Now</a></li>
-                        <li><a href="/resume" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
-                        <li><a href="/kit" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
+                        @unless(request()->routeIs('resume'))
+                            <li><a href="/resume" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
+                        @endunless
+                        @unless(request()->routeIs('kit'))
+                            <li><a href="/kit" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
+                        @endunless
                     </ul>
                 </nav>
             </div>
@@ -118,7 +108,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5a2 2 0 012-2h9a2 2 0 012 2v9a2 2 0 01-2 2h-2M5 8h9a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a2 2 0 012-2z"/>
                                 </svg>
                                 <span data-copy-feedback role="status" aria-live="polite"
-                                      class="surface-chip-accent pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1 font-mono text-[10px] text-accent uppercase tracking-widest opacity-0 transition-opacity duration-200 shadow-lg shadow-black/40">
+                                      class="surface-chip-accent pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1 font-mono text-caption text-accent uppercase tracking-widest opacity-0 transition-opacity duration-200 shadow-lg shadow-black/40">
                                     <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                                     </svg>
@@ -135,8 +125,12 @@
                         <li><a href="/about" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">About</a></li>
                         <li><a href="/blog" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
                         <li><a href="/now" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Now</a></li>
-                        <li><a href="/resume" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
-                        <li><a href="/kit" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
+                        @unless(request()->routeIs('resume'))
+                            <li><a href="/resume" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
+                        @endunless
+                        @unless(request()->routeIs('kit'))
+                            <li><a href="/kit" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
+                        @endunless
                     </ul>
                 </nav>
             </div>
@@ -150,7 +144,7 @@
             <p class="font-mono text-xs text-neutral-400">{{ $person['location'] }} &nbsp;·&nbsp; {{ $person['job_title'] }} &nbsp;·&nbsp; 20+ Years</p>
         </div>
         <div class="mt-8 flex sm:justify-end">
-            <p class="surface-chip inline-flex items-center bg-neutral-900/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-neutral-500 hover:text-neutral-400 hover:border-neutral-600 transition-colors duration-300">
+            <p class="surface-chip inline-flex items-center bg-neutral-900/40 px-2.5 py-1 font-mono text-caption uppercase tracking-widest text-neutral-500 hover:text-neutral-400 hover:border-neutral-600 transition-colors duration-300">
                 Built with Laravel {{ \App\Support\Stack::laravelVersion() }} &middot; Tailwind CSS {{ \App\Support\Stack::tailwindVersion() ?? '4' }}
             </p>
         </div>

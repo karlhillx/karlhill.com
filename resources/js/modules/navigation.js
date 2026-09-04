@@ -102,20 +102,55 @@ export function initNavigation() {
     const backTopBtn = document.getElementById('quick-back-top');
     const root = document.documentElement;
     const primaryNav = document.querySelector('nav[aria-label="Primary"]');
+    const sectionRail = document.getElementById('section-rail');
 
-    if (!supportsScrollTimeline) {
-        const updateScrollUI = () => {
+    // Scroll-driven CSS handles the progress bar + back-to-top reveal where
+    // supported. Under reduced motion those animations are switched off, so
+    // the JS fallback runs there too — otherwise the button is parked at the
+    // top of an unscrolled page.
+    const needsScrollFallback = !supportsScrollTimeline || prefersReducedMotion;
+
+    // Mobile section rail: tuck it away on downward scroll, restore on the
+    // first upward nudge. Frees ~60px of a small viewport while reading.
+    let lastY = window.scrollY;
+    let railTicking = false;
+    const updateRail = () => {
+        railTicking = false;
+        if (!sectionRail) return;
+        const y = window.scrollY;
+        const delta = y - lastY;
+        lastY = y;
+        if (Math.abs(delta) < 6) return;
+        const hide = delta > 0 && y > 140;
+        sectionRail.classList.toggle('is-hidden', hide);
+    };
+
+    const updateScrollUI = () => {
+        if (needsScrollFallback) {
             const max = root.scrollHeight - window.innerHeight;
             const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
             root.style.setProperty('--scroll-progress', `${Math.min(progress, 100)}%`);
             backTopBtn?.classList.toggle('is-visible', window.scrollY > 560);
             primaryNav?.classList.toggle('is-compact', window.scrollY > 160);
-        };
+        }
+        if (sectionRail && !railTicking) {
+            railTicking = true;
+            requestAnimationFrame(updateRail);
+        }
+    };
 
+    if (needsScrollFallback || sectionRail) {
         window.addEventListener('scroll', updateScrollUI, { passive: true });
         window.addEventListener('resize', updateScrollUI);
         updateScrollUI();
     }
+
+    // Rail links jump within the page — make sure the rail is visible again
+    // once the target section lands so the reader can keep navigating.
+    sectionRail?.addEventListener('click', () => {
+        sectionRail.classList.remove('is-hidden');
+        lastY = window.scrollY;
+    });
 
     backTopBtn?.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });

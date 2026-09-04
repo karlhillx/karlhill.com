@@ -42,7 +42,11 @@
                     <h2 class="resume-aside-title">Details</h2>
                     <ul class="resume-aside-list">
                         <li>{{ $person['location'] }}{{ ! empty($resume['postal']) ? ' '.$resume['postal'] : '' }}</li>
-                        <li><a href="tel:+1{{ preg_replace('/\D+/', '', $resume['phone']) }}">{{ $resume['phone'] }}</a></li>
+                        @if(! empty($resume['phone_on_web']) && ! empty($resume['phone']))
+                            <li><a href="tel:+1{{ preg_replace('/\D+/', '', $resume['phone']) }}">{{ $resume['phone'] }}</a></li>
+                        @else
+                            <li class="text-neutral-500">Phone on the PDF</li>
+                        @endif
                         <li><a href="mailto:{{ $person['email'] }}">{{ $person['email'] }}</a></li>
                     </ul>
                 </section>
@@ -105,16 +109,8 @@
                     <p class="resume-tagline mt-3 font-mono text-sm sm:text-base text-accent uppercase tracking-widest">
                         {{ $resume['tagline'] }}
                     </p>
-                    {{-- Screen-only contact strip; print uses the navy sidebar. --}}
-                    <p class="resume-contact resume-contact--screen mt-4 font-mono text-sm text-neutral-400">
-                        <span>{{ $person['location'] }}{{ ! empty($resume['postal']) ? ' '.$resume['postal'] : '' }}</span>
-                        <span aria-hidden="true"> · </span>
-                        <a href="tel:+1{{ preg_replace('/\D+/', '', $resume['phone']) }}" class="hover:text-accent">{{ $resume['phone'] }}</a>
-                        <span aria-hidden="true"> · </span>
-                        <a href="mailto:{{ $person['email'] }}" class="hover:text-accent">{{ $person['email'] }}</a>
-                        <span aria-hidden="true"> · </span>
-                        <a href="https://karlhill.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent underline underline-offset-2">karlhill.com</a>
-                    </p>
+                    {{-- Contact details live once, in the Details/Links sidebar (also the
+                         print sidebar) — no duplicate strip under the name. --}}
                 </header>
 
                 <section class="resume-section" aria-labelledby="resume-summary" data-reveal>

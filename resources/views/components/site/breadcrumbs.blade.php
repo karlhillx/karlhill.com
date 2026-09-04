@@ -20,7 +20,7 @@
         ], JSON_UNESCAPED_SLASHES) !!}
     </script>
     <nav aria-label="Breadcrumb" {{ $attributes->merge(['class' => 'mb-8']) }}>
-        <ol class="flex flex-wrap items-center gap-2 font-mono text-[11px] text-neutral-500 uppercase tracking-widest">
+        <ol class="flex flex-wrap items-center gap-2 font-mono text-caption text-neutral-500 uppercase tracking-widest">
             @foreach($items as $index => $item)
                 @if($index > 0)
                     <li aria-hidden="true" class="text-neutral-700">/</li>

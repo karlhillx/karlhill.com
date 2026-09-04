@@ -36,7 +36,7 @@
                 <span class="hero-mask"><span class="hero-shine">{{ $hero['headline'] }}</span></span>
             </h1>
             @if(! empty($hero['subtitle']))
-                <p class="hero-subtitle font-mono text-[11px] sm:text-xs text-neutral-400 uppercase tracking-[0.18em] hero-enter" style="animation-delay:280ms">
+                <p class="hero-subtitle font-mono text-caption sm:text-xs text-neutral-400 uppercase tracking-[0.18em] hero-enter" style="animation-delay:280ms">
                     {{ $hero['subtitle'] }}
                 </p>
             @endif
@@ -45,8 +45,8 @@
                     {{ $hero['positioning'] }}
                 </p>
             @endif
-            {{-- Hire hierarchy: Book → Work → Resume → Contact --}}
-            <div class="hero-cta flex flex-wrap items-center hero-enter" style="animation-delay:420ms">
+            {{-- Hire hierarchy: Book → Work --}}
+            <div class="hero-cta flex flex-wrap items-center gap-x-4 gap-y-3 hero-enter" style="animation-delay:420ms">
                 @if(filled($bookingUrl))
                     <a href="/now#book"
                        data-idle-cta
@@ -64,24 +64,27 @@
                    class="hero-cta-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200 btn-sweep border border-neutral-700 text-neutral-300">
                     Work
                 </a>
-                @if(filled($resumePdf))
-                    <a href="{{ $resumePdf }}"
-                       download="Karl-Hill-Resume.pdf"
-                       class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors px-1">
-                        Resume PDF
+                <div class="inline-flex items-center gap-3 font-mono text-xs text-neutral-400 pl-1">
+                    @if(filled($resumePdf))
+                        <a href="{{ $resumePdf }}"
+                           download="Karl-Hill-Resume.pdf"
+                           class="inline-flex items-center min-h-11 hover:text-accent uppercase tracking-widest transition-colors">
+                            Resume PDF
+                        </a>
+                    @endif
+                    <span class="text-neutral-600" aria-hidden="true">·</span>
+                    <a href="/#contact"
+                       class="inline-flex items-center min-h-11 hover:text-accent uppercase tracking-widest transition-colors">
+                        Contact
                     </a>
-                @endif
-                <a href="/#contact"
-                   class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors px-1">
-                    Contact
-                </a>
+                </div>
             </div>
             <a href="{{ filled($bookingUrl) ? '/now#book' : '/now' }}"
-               class="hero-availability group flex items-start w-fit max-w-full hero-enter" style="animation-delay:520ms">
+               class="hero-availability group hero-enter" style="animation-delay:520ms">
                 <span class="hero-availability-dot rounded-full bg-green-500 availability-pulse shrink-0" aria-hidden="true"></span>
-                <span class="availability-label font-mono text-neutral-400 group-hover:text-accent transition-colors">
-                    {{ $person['availability'] }}
-                    <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
+                <span class="availability-label font-mono text-caption text-neutral-300 group-hover:text-accent transition-colors">
+                    <span class="font-semibold text-neutral-100">Open to two paths:</span> Engineering Manager or Staff/Principal in mission software
+                    <span class="arrow-nudge inline-block text-accent font-sans" aria-hidden="true">→</span>
                 </span>
             </a>
         </div>

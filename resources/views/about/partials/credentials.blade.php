@@ -21,7 +21,7 @@
         @endphp
         <div class="flex items-baseline justify-between gap-4 mt-20 mb-6" data-reveal>
             <h3 class="font-display text-lg text-neutral-500 tracking-widest">Certifications</h3>
-            <p class="font-mono text-[10px] text-neutral-600 uppercase tracking-widest">
+            <p class="font-mono text-caption text-neutral-600 uppercase tracking-widest">
                 {{ $verifiedCount }} verified{{ $inProgressCount ? " · {$inProgressCount} in progress" : '' }}
             </p>
         </div>
@@ -33,7 +33,7 @@
                     <p class="font-display text-5xl leading-none text-accent mb-4 transition-transform duration-300 group-hover:scale-[1.04] origin-bottom-left">{{ $cert['abbr'] }}</p>
                     <p class="text-sm text-neutral-300 font-medium leading-snug">{{ $cert['name'] }}</p>
                     <p class="font-mono text-xs text-neutral-600 mt-2">{{ $cert['issuer'] }}</p>
-                    <p class="mt-auto pt-6 font-mono text-[10px] uppercase tracking-widest text-neutral-600 group-hover:text-accent transition-colors">
+                    <p class="mt-auto pt-6 font-mono text-caption uppercase tracking-widest text-neutral-600 group-hover:text-accent transition-colors">
                         @if($cert['status'] ?? null)
                             <span class="inline-block w-1.5 h-1.5 rounded-full bg-amber-400 availability-pulse align-middle mr-1" aria-hidden="true"></span>{{ $cert['status'] }}
                         @else
@@ -51,7 +51,7 @@
             @foreach(config('site.education') as $school)
                 <div class="surface-card-static group relative p-7"
                      data-reveal>
-                    <p class="font-mono text-[10px] text-accent/70 tracking-widest mb-4" aria-hidden="true">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</p>
+                    <p class="font-mono text-caption text-accent/70 tracking-widest mb-4" aria-hidden="true">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</p>
                     <p class="text-sm text-neutral-200 font-medium leading-snug">{{ $school['degree'] }}</p>
                     <p class="font-mono text-xs text-neutral-500 mt-2">{{ $school['school'] }}</p>
                 </div>

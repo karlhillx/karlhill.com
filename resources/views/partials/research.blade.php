@@ -3,7 +3,7 @@
 <x-site.section id="research" :number="$sectionNumber ?? '02'" label="Research">
         <article class="overflow-hidden border border-neutral-800 bg-neutral-900/30" data-reveal>
             @if(! empty($research['image']))
-                <figure class="border-b border-neutral-800 bg-white">
+                <figure class="border-b border-neutral-800 bg-[#fff]">
                     <x-site.responsive-image
                         :src="$research['image']"
                         :alt="$research['image_alt'] ?? $research['title']"
@@ -24,7 +24,7 @@
                 </div>
 
                 <div>
-                    <h3 class="font-display text-3xl sm:text-4xl tracking-wide text-white leading-tight mb-5">
+                    <h3 class="font-sans font-semibold text-xl sm:text-2xl md:text-[1.75rem] tracking-tight text-neutral-100 leading-snug mb-5 text-balance">
                         {{ $research['title'] }}
                     </h3>
                     <p class="text-neutral-400 text-sm leading-relaxed max-w-3xl mb-6">

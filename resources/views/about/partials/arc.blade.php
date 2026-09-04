@@ -14,14 +14,14 @@
 
         <div class="space-y-10 max-w-3xl">
             <div data-reveal>
-                <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-2">{{ $current['period'] }}</p>
-                <h3 class="font-display text-2xl tracking-wide text-white leading-tight">{{ $current['title'] }}</h3>
+                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $current['period'] }}</p>
+                <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 leading-snug">{{ $current['title'] }}</h3>
                 <p class="text-neutral-400 text-sm mt-1.5">{{ $current['company'] }} · {{ $current['location'] }}</p>
                 <p class="text-neutral-300 text-base leading-relaxed mt-4">{{ $current['summary'] }}</p>
             </div>
             <div data-reveal>
-                <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-2">{{ $nasa['period'] }}</p>
-                <h3 class="font-display text-2xl tracking-wide text-white leading-tight">{{ $nasa['title'] }}</h3>
+                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $nasa['period'] }}</p>
+                <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 leading-snug">{{ $nasa['title'] }}</h3>
                 <p class="text-neutral-400 text-sm mt-1.5">{{ $nasa['company'] }} · {{ $nasa['location'] }}</p>
                 <p class="text-neutral-300 text-base leading-relaxed mt-4">{{ $nasa['summary'] }}</p>
             </div>

@@ -15,7 +15,7 @@
                             {{ $item['quote'] }}
                         </p>
                         @if(! empty($item['attribution']))
-                            <p class="mt-3 font-mono text-[10px] text-neutral-400 uppercase tracking-widest">
+                            <p class="mt-3 font-mono text-caption text-neutral-400 uppercase tracking-widest">
                                 {{ $item['attribution'] }}
                             </p>
                         @endif

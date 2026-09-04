@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'eyebrow' => 'Recruiter kit',
+    'eyebrow' => 'For recruiters & hiring managers',
     'lede' => 'A leave-behind: PDF, short bio, and canonical links. Status lives on Now. Evidence lives on the resume.',
     'highlights' => [],
     /*

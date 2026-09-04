@@ -111,9 +111,44 @@ final class ProjectCatalog
         return Str::slug($tag);
     }
 
+    /**
+     * Resolve a URL slug back to a filter label. Sectors and stack tags share
+     * the `/work/tag/{slug}` route, so both facets are searched.
+     */
     public static function tagFromSlug(string $slug): ?string
     {
-        return self::allTags()->first(fn (string $tag) => self::tagSlug($tag) === $slug);
+        return self::sectors()
+            ->concat(self::allTags())
+            ->first(fn (string $label) => self::tagSlug($label) === $slug);
+    }
+
+    /**
+     * Domain facet — what recruiters and hiring managers filter by first
+     * (NASA Earth science vs. defense vs. healthcare), as opposed to the
+     * engineer-centric stack tags.
+     *
+     * @return Collection<string, int>
+     */
+    public static function sectorCounts(): Collection
+    {
+        return self::all()
+            ->pluck('sector')
+            ->filter(fn ($sector) => is_string($sector) && $sector !== '')
+            ->countBy()
+            ->sortByDesc(fn (int $count) => $count);
+    }
+
+    /**
+     * @return Collection<int, string>
+     */
+    public static function sectors(): Collection
+    {
+        return self::sectorCounts()->keys()->values();
+    }
+
+    public static function isSector(string $label): bool
+    {
+        return self::sectors()->contains($label);
     }
 
     /**
@@ -169,7 +204,10 @@ final class ProjectCatalog
         }
 
         return self::ordered(
-            $projects->filter(fn (array $project) => in_array($tag, $project['tags'] ?? [], true))
+            $projects->filter(
+                fn (array $project) => ($project['sector'] ?? null) === $tag
+                    || in_array($tag, $project['tags'] ?? [], true)
+            )
         );
     }
 

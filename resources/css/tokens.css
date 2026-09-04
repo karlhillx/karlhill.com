@@ -1,25 +1,35 @@
 /* Design tokens + Tailwind @theme font/color bridges */
 /* Pointer spotlight vars drive the page ambient wash + hero mesh (pointer.js). */
+/* Colour scheme: dark is the designed default, light is a first-class
+   counterpart. Every token is expressed with light-dark() so the whole surface
+   flips from a single `color-scheme` value — set by the OS preference, or
+   pinned by the theme toggle via `data-theme` on <html>. */
 :root {
     --spot-x: 50%;
     --spot-y: 35%;
-    --bg: #0a0a0a;
-    --panel: #141414;
-    --text: #f5f5f5;
-    --muted: #a3a3a3;
-    /* Raised for small mono chrome (filters, captions, form hints) on #0a0a0a —
-       sunlight / cheap screens still need ~3:1 on dark. */
-    --muted-2: #9a9a9a;
-    --border: #262626;
-    --border-strong: #2a2a2a;
-    --surface-hover: rgb(23 23 23 / 0.4);
-    /* Softer signal amber — less “glow kit”, still warm on dark. */
-    --accent: oklch(72% 0.14 55);
+    --bg: light-dark(#fafaf9, #0a0a0a);
+    --panel: light-dark(#ffffff, #141414);
+    --text: light-dark(#141414, #f5f5f5);
+    --muted: light-dark(#5b5b5b, #a3a3a3);
+    /* Raised for small mono chrome (filters, captions, form hints) —
+       sunlight / cheap screens still need ~3:1 on dark, 4.5:1 on light. */
+    --muted-2: light-dark(#616161, #9e9e9e);
+    --border: light-dark(#e3e1dd, #262626);
+    --border-strong: light-dark(#d4d2ce, #2a2a2a);
+    --surface-hover: light-dark(rgb(20 20 20 / 0.04), rgb(23 23 23 / 0.4));
+    /* Hairline used for card rings — replaces hard-coded white/black alphas. */
+    --hairline: light-dark(rgb(20 20 20 / 0.08), rgb(255 255 255 / 0.06));
+    --hairline-strong: light-dark(rgb(20 20 20 / 0.16), rgb(255 255 255 / 0.12));
+    /* Scrim for overlays / lightboxes. */
+    --scrim: light-dark(rgb(250 250 249 / 0.72), rgb(0 0 0 / 0.55));
+    /* Softer signal amber — less “glow kit”, still warm on dark; deepened on
+       light so amber text clears 4.5:1 on near-white. */
+    --accent: light-dark(oklch(50% 0.15 55), oklch(72% 0.14 55));
     /* sRGB solid for primary fill CTAs (axe-stable contrast on black text). */
-    --accent-solid: #d4923a;
+    --accent-solid: light-dark(#c9862c, #d4923a);
     --accent-ink: #0a0a0a;
-    --focus: oklch(78% 0.12 55);
-    --success: oklch(72% 0.16 150);
+    --focus: light-dark(oklch(58% 0.14 55), oklch(78% 0.12 55));
+    --success: light-dark(oklch(52% 0.15 150), oklch(72% 0.16 150));
     /* Spring easings via CSS linear() — physical settle instead of generic ease-out. */
     --ease-out-spring: linear(
         0,
@@ -54,35 +64,57 @@
     /* Vertical rhythm — roomy by default, fluid across breakpoints.
        Gutters stay modest so content can breathe; section blocks carry the air. */
     --space-gutter: clamp(1.25rem, 4vw, 2rem);
-    --space-section: clamp(6.5rem, 12vw, 9.5rem);
-    --space-section-soft: clamp(4.5rem, 8vw, 7rem);
-    --space-heading: clamp(2.5rem, 4vw, 3.5rem);
+    /* Section blocks carry the air, but capped against viewport height so a
+       1440×900 desktop doesn't open with 250px of dead space per section. */
+    --space-section: clamp(4.5rem, 10vh, 7rem);
+    --space-section-soft: clamp(3.25rem, 6.5vh, 5rem);
+    --space-heading: clamp(2rem, 3.5vw, 3rem);
     --space-stack: clamp(1.5rem, 2.5vw, 2rem);
     --space-card-gap: clamp(1rem, 2vw, 1.5rem);
-    --space-list-row: clamp(2.5rem, 4vw, 3.5rem);
+    --space-list-row: clamp(2.25rem, 3.5vw, 3rem);
     --space-prose: 48rem;
     --space-pillar: clamp(2rem, 3vw, 3.25rem);
-    /* The site is dark by design: tell the UA so form controls, scrollbars,
-       and the default canvas render dark instead of light-on-dark. */
-    color-scheme: dark;
+    /* Both schemes are supported. The UA picks from the OS preference; the
+       toggle pins one via [data-theme]. light-dark() tokens above follow it. */
+    color-scheme: light dark;
     interpolate-size: allow-keywords;
+}
+
+:root[data-theme='light'] {
+    color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+    color-scheme: dark;
 }
 
 /* Wide-gamut escalation on Display-P3 hardware. Falls back silently on sRGB. */
 @supports (color: color(display-p3 1 0 0)) {
     :root {
-        --accent: oklch(74% 0.16 55);
-        --focus: oklch(80% 0.14 55);
+        --accent: light-dark(oklch(50% 0.17 55), oklch(74% 0.16 55));
+        --focus: light-dark(oklch(58% 0.15 55), oklch(80% 0.14 55));
     }
 }
 
 /* Relative color surfaces — panels/borders inherit hue from --accent. */
 @supports (color: oklch(from red l c h)) {
     :root {
-        --panel: oklch(from var(--accent) 14% 0.014 h);
-        --border: oklch(from var(--accent) 22% 0.016 h);
-        --border-strong: oklch(from var(--accent) 26% 0.02 h);
-        --surface-hover: oklch(from var(--accent) 18% 0.028 h / 0.45);
+        --panel: light-dark(
+            oklch(from var(--accent) 99.4% 0.003 h),
+            oklch(from var(--accent) 14% 0.014 h)
+        );
+        --border: light-dark(
+            oklch(from var(--accent) 90% 0.008 h),
+            oklch(from var(--accent) 22% 0.016 h)
+        );
+        --border-strong: light-dark(
+            oklch(from var(--accent) 85% 0.012 h),
+            oklch(from var(--accent) 26% 0.02 h)
+        );
+        --surface-hover: light-dark(
+            oklch(from var(--accent) 96% 0.012 h / 0.7),
+            oklch(from var(--accent) 18% 0.028 h / 0.45)
+        );
     }
 }
 
@@ -96,6 +128,28 @@
     --color-focus: var(--focus);
     --color-muted: var(--muted);
     --color-ink: var(--text);
-    /* Lift mid neutrals used by small mono labels (nav, filters, captions). */
-    --color-neutral-500: #949494;
+    /* Type floor: nothing on screen below 12px. `text-caption` is the one
+       approved small size for mono eyebrows, captions and chips. */
+    --text-caption: 0.75rem;
+    --text-caption--line-height: 1.5;
+    /* Scheme-aware neutrals. The site was designed dark-first, so the
+       templates read `text-neutral-100` as “primary text” and `bg-neutral-900`
+       as “raised surface”. In light mode the scale is mirrored so those same
+       utilities keep their *role* rather than their literal luminance. */
+    --color-white: light-dark(#0a0a0a, #ffffff);
+    --color-neutral-50: light-dark(#0a0a0a, #fafafa);
+    --color-neutral-100: light-dark(#171717, #f5f5f5);
+    --color-neutral-200: light-dark(#262626, #e5e5e5);
+    --color-neutral-300: light-dark(#404040, #d4d4d4);
+    --color-neutral-400: light-dark(#525252, #a3a3a3);
+    /* Lifted mid neutral for small mono labels (nav, filters, captions) —
+       ≥ 4.5:1 against both canvases. */
+    --color-neutral-500: light-dark(#666666, #a1a1a1);
+    /* 600 is still used as *text* in a few places (repo meta, citations) —
+       keep it ≥ 4.5:1 on the light canvas too. */
+    --color-neutral-600: light-dark(#707070, #525252);
+    --color-neutral-700: light-dark(#cfcfcf, #404040);
+    --color-neutral-800: light-dark(#e4e4e4, #262626);
+    --color-neutral-900: light-dark(#f1f1f0, #171717);
+    --color-neutral-950: light-dark(#f7f7f6, #0a0a0a);
 }

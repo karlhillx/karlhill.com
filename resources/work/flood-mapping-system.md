@@ -19,9 +19,9 @@ outcome:
   - 'Fewer manual handoffs under urgency — consistency came from the pipeline, not who was awake.'
   - 'Supported peer-reviewed research on global water and flood mapping (GeoHorizons).'
 metrics:
-  - value: Hours
-    label: 'Not overnight latency'
-  - value: E2E
+  - value: 'Hours, not overnight'
+    label: 'Product latency'
+  - value: 'End-to-end, sensor ingest to dissemination'
     label: 'Automated pipeline'
 ---
 

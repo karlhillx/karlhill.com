@@ -43,8 +43,8 @@
     <article class="relative site-article" data-article>
         <div class="article-sticky-title" data-article-sticky-title hidden>
             <div class="site-shell site-gutter flex items-center gap-3 min-h-10">
-                <p class="font-mono text-[10px] text-accent uppercase tracking-widest shrink-0">Work</p>
-                <p class="font-display text-sm sm:text-base tracking-wide text-neutral-200 truncate">{{ $project['title'] }}</p>
+                <p class="font-mono text-caption text-accent uppercase tracking-widest shrink-0">Work</p>
+                <p class="font-sans font-semibold text-sm sm:text-base tracking-tight text-neutral-200 truncate">{{ $project['title'] }}</p>
             </div>
         </div>
 
@@ -56,7 +56,7 @@
             ]" />
 
             <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">{{ $project['meta'] }}</p>
-            <h1 class="font-display text-[clamp(2rem,5vw,3.5rem)] leading-[1.05] tracking-wide text-white mb-5"
+            <h1 class="font-sans font-semibold text-[clamp(1.85rem,4.5vw,3rem)] leading-[1.15] tracking-tight text-neutral-100 text-balance mb-5"
                 data-article-title
                 style="view-transition-name: work-title-{{ $project['slug'] }}">
                 {{ $project['title'] }}
@@ -72,7 +72,7 @@
                         <li class="article-toc-item">
                             <a href="#{{ $item['id'] }}"
                                data-toc-link
-                               class="article-toc-link font-mono text-[11px] text-neutral-500 hover:text-accent transition-colors">
+                               class="article-toc-link font-mono text-caption text-neutral-500 hover:text-accent transition-colors">
                                 {{ $item['text'] }}
                             </a>
                         </li>
@@ -98,7 +98,7 @@
                                 @foreach($project['tags'] as $tag)
                                     <li>
                                         <a href="{{ route('work.tag', \App\Support\ProjectCatalog::tagSlug($tag)) }}"
-                                           class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
+                                           class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
                                             {{ $tag }}
                                         </a>
                                     </li>
@@ -115,76 +115,154 @@
 
                     <section id="snapshot" class="scroll-mt-28 mb-12" aria-label="Project snapshot">
                         <figure class="case-study-media" data-reveal>
-                            <button type="button"
-                                    class="case-study-media__trigger group"
-                                    data-lightbox-open
-                                    data-lightbox-src="{{ $project['image'] }}"
-                                    data-lightbox-alt="{{ $imageAlt }}">
-                                <x-site.responsive-image
-                                    :src="$project['image']"
-                                    :alt="$imageAlt"
-                                    sizes="(min-width: 832px) 48rem, 100vw"
-                                    loading="eager"
-                                    fetchpriority="high"
-                                    :img-style="'view-transition-name: work-img-'.$project['slug'].'; view-transition-class: card-media'"
-                                    img-class="case-study-media__img w-full aspect-[16/9] object-cover {{ $project['imagePosition'] ?? 'object-center' }} sm:rounded-sm border-y sm:border border-neutral-800/70 transition-[opacity,filter] duration-300 group-hover:opacity-90"
-                                />
-                                @if(! empty($project['logo']['path']))
-                                    <img src="{{ $project['logo']['path'] }}" alt="" aria-hidden="true"
-                                         loading="lazy" decoding="async"
-                                         @if(! empty($project['logo']['filter'])) style="filter: {{ $project['logo']['filter'] }};" @endif
-                                         class="{{ $project['logo']['class'] ?? 'h-8' }} pointer-events-none absolute top-4 right-4 z-[1] w-auto object-contain opacity-80">
-                                @endif
-                                <span class="case-study-media__zoom font-mono text-[10px] uppercase tracking-widest">
-                                    Expand <span aria-hidden="true">↗</span>
-                                </span>
-                            </button>
-                            <figcaption class="case-study-media__caption site-gutter sm:!px-0">
-                                <span class="case-study-media__label">Case study</span>
-                                <span class="case-study-media__detail">
-                                    {{ $project['title'] }}
-                                    @if(! empty($project['meta']))
-                                        <span class="text-neutral-600" aria-hidden="true">·</span>
-                                        {{ $project['meta'] }}
+                            @if(($project['slug'] ?? '') === 'jacobs-mission-software')
+                                <div class="case-study-confidential border border-neutral-800 bg-neutral-900/60 rounded-xl p-6 sm:p-8 backdrop-blur-sm">
+                                    <div class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-neutral-800/80">
+                                        <div class="flex items-center gap-2.5">
+                                            <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                                            <span class="font-mono text-caption text-neutral-200 uppercase tracking-widest font-semibold">Unclassified // Delivery Architecture</span>
+                                        </div>
+                                        <span class="font-mono text-caption text-neutral-400 uppercase tracking-widest">Jacobs National Security</span>
+                                    </div>
+
+                                    <div class="grid sm:grid-cols-3 gap-4 my-6">
+                                        <div class="surface-card p-4 sm:p-5 flex flex-col justify-between">
+                                            <div>
+                                                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-1.5">01 · Ingest</p>
+                                                <p class="font-sans font-semibold text-sm sm:text-base text-neutral-100 mb-2">Simulation &amp; Telemetry</p>
+                                                <p class="text-neutral-400 text-xs leading-relaxed">Cloud-native streaming pipelines ingesting synthetic flight data and operational sensor feeds.</p>
+                                            </div>
+                                            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-neutral-800/60 font-mono text-caption text-neutral-400">
+                                                <span>Python</span> &middot; <span>AWS</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="surface-card p-4 sm:p-5 flex flex-col justify-between">
+                                            <div>
+                                                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-1.5">02 · Pipeline</p>
+                                                <p class="font-sans font-semibold text-sm sm:text-base text-neutral-100 mb-2">DevSecOps &amp; Gates</p>
+                                                <p class="text-neutral-400 text-xs leading-relaxed">Deterministic CI/CD, PR coaching, multi-repo governance, and immutable artifact verification.</p>
+                                            </div>
+                                            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-neutral-800/60 font-mono text-caption text-neutral-400">
+                                                <span>Kubernetes</span> &middot; <span>CI/CD</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="surface-card p-4 sm:p-5 flex flex-col justify-between">
+                                            <div>
+                                                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-1.5">03 · Release</p>
+                                                <p class="font-sans font-semibold text-sm sm:text-base text-neutral-100 mb-2">Multi-Environment Ship</p>
+                                                <p class="text-neutral-400 text-xs leading-relaxed">Continuous readiness across isolated and connected baselines without late-stage heroics.</p>
+                                            </div>
+                                            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-neutral-800/60 font-mono text-caption text-neutral-400">
+                                                <span>High-Assurance</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p class="font-mono text-caption text-neutral-400 text-center border-t border-neutral-800/80 pt-4">
+                                        Operating model schematic &middot; Program names, customers, and mission data are unpublished.
+                                    </p>
+                                </div>
+                                <figcaption class="case-study-media__caption site-gutter sm:!px-0 mt-3">
+                                    <span class="case-study-media__label">Case study</span>
+                                    <span class="case-study-media__detail">
+                                        {{ $project['title'] }}
+                                        @if(! empty($project['meta']))
+                                            <span class="text-neutral-600" aria-hidden="true">·</span>
+                                            {{ $project['meta'] }}
+                                        @endif
+                                    </span>
+                                </figcaption>
+                            @else
+                                <button type="button"
+                                        class="case-study-media__trigger group"
+                                        data-lightbox-open
+                                        data-lightbox-src="{{ $project['image'] }}"
+                                        data-lightbox-alt="{{ $imageAlt }}">
+                                    <x-site.responsive-image
+                                        :src="$project['image']"
+                                        :alt="$imageAlt"
+                                        sizes="(min-width: 832px) 48rem, 100vw"
+                                        loading="eager"
+                                        fetchpriority="high"
+                                        :img-style="'view-transition-name: work-img-'.$project['slug'].'; view-transition-class: card-media'"
+                                        img-class="case-study-media__img w-full aspect-[16/9] object-cover {{ $project['imagePosition'] ?? 'object-center' }} sm:rounded-sm border-y sm:border border-neutral-800/70 transition-[opacity,filter] duration-300 group-hover:opacity-90"
+                                    />
+                                    @if(! empty($project['logo']['path']))
+                                        <img src="{{ $project['logo']['path'] }}" alt="" aria-hidden="true"
+                                             loading="lazy" decoding="async"
+                                             @if(! empty($project['logo']['filter'])) style="filter: {{ $project['logo']['filter'] }};" @endif
+                                             class="{{ $project['logo']['class'] ?? 'h-8' }} pointer-events-none absolute top-4 right-4 z-[1] w-auto object-contain opacity-80">
                                     @endif
-                                </span>
-                            </figcaption>
+                                    <span class="case-study-media__zoom font-mono text-caption uppercase tracking-widest">
+                                        Expand <span aria-hidden="true">↗</span>
+                                    </span>
+                                </button>
+                                <figcaption class="case-study-media__caption site-gutter sm:!px-0">
+                                    <span class="case-study-media__label">Case study</span>
+                                    <span class="case-study-media__detail">
+                                        {{ $project['title'] }}
+                                        @if(! empty($project['meta']))
+                                            <span class="text-neutral-600" aria-hidden="true">·</span>
+                                            {{ $project['meta'] }}
+                                        @endif
+                                    </span>
+                                </figcaption>
+                            @endif
                         </figure>
 
                         @if(! empty($study['metrics']))
                             @php
-                                $metricCount = count($study['metrics']);
+                                // Big-number treatment only earns its weight when the value *is* a
+                                // number ("1.5M+", "$105M", "24/7"). Qualitative facts ("Self-serve",
+                                // "Unpublished") read as a compact key/value strip instead.
+                                [$stats, $facts] = collect($study['metrics'])
+                                    ->partition(fn (array $m) => preg_match('/\d/', (string) ($m['value'] ?? '')) === 1);
+                                $statCount = $stats->count();
                                 $metricCols = match (true) {
-                                    $metricCount <= 1 => 'grid-cols-1',
-                                    $metricCount === 2 => 'grid-cols-2',
+                                    $statCount <= 1 => 'grid-cols-1',
+                                    $statCount === 2 => 'grid-cols-2',
                                     default => 'grid-cols-2 sm:grid-cols-3',
                                 };
                             @endphp
-                            <div class="grid {{ $metricCols }} gap-px bg-neutral-800 mt-8" data-reveal>
-                                @foreach($study['metrics'] as $metric)
-                                    <x-site.stat
-                                        padding="p-6"
-                                        :value="$metric['value']"
-                                        :label="$metric['label']"
-                                        value-class="text-3xl sm:text-4xl mb-1"
-                                        label-class="text-neutral-400"
-                                    />
-                                @endforeach
-                            </div>
+                            @if($statCount > 0)
+                                <div class="grid {{ $metricCols }} gap-px bg-neutral-800 mt-8" data-reveal>
+                                    @foreach($stats as $metric)
+                                        <x-site.stat
+                                            padding="p-6"
+                                            :value="$metric['value']"
+                                            :label="$metric['label']"
+                                            value-class="text-3xl sm:text-4xl mb-1"
+                                            label-class="text-neutral-400"
+                                        />
+                                    @endforeach
+                                </div>
+                            @endif
+                            @if($facts->isNotEmpty())
+                                <dl class="case-study-facts mt-8" data-reveal aria-label="Key facts">
+                                    @foreach($facts as $metric)
+                                        <div class="case-study-facts__row">
+                                            <dt class="case-study-facts__label">{{ $metric['label'] }}</dt>
+                                            <dd class="case-study-facts__value">{{ $metric['value'] }}</dd>
+                                        </div>
+                                    @endforeach
+                                </dl>
+                            @endif
                         @endif
 
                         @if(($project['slug'] ?? '') === 'flood-mapping-system')
-                            <div class="webgpu-flood mt-8" data-reveal>
+                            {{-- Ships hidden; webgpu-flood.js reveals it only after a GPU device
+                                 is acquired, so unsupported browsers and reduced-motion users never
+                                 see an empty frame. The photograph above stays canonical. --}}
+                            <figure class="webgpu-flood mt-8" data-webgpu-flood-root hidden>
                                 <canvas data-webgpu-flood
-                                        class="webgpu-flood__canvas w-full aspect-[16/9] sm:rounded-sm border-y sm:border border-neutral-800/70 bg-neutral-950"
-                                        aria-label="Animated flood-extent field"></canvas>
-                                <p data-webgpu-fallback hidden class="font-mono text-[11px] text-neutral-500 uppercase tracking-widest mt-3">
-                                    Interactive field requires WebGPU. The still above is the canonical visual.
-                                </p>
-                                <p class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest mt-3">
-                                    WebGPU flood field — reduced-motion and unsupported browsers keep the photograph.
-                                </p>
-                            </div>
+                                        class="webgpu-flood__canvas w-full aspect-[16/9] sm:rounded-sm border-y sm:border border-neutral-800/70"
+                                        aria-label="Generative flood-extent field, animated"></canvas>
+                                <figcaption class="font-mono text-caption text-neutral-500 uppercase tracking-widest mt-3">
+                                    Live WebGPU flood field — generative illustration, not mission data.
+                                </figcaption>
+                            </figure>
                         @endif
                     </section>
 
@@ -218,7 +296,7 @@
                                     ] as $key => $label)
                                         @if(! empty($study['leadership'][$key]))
                                             <div @class(['sm:col-span-2' => in_array($key, ['unblocked', 'decision'], true)])>
-                                                <dt class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">{{ $label }}</dt>
+                                                <dt class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-2">{{ $label }}</dt>
                                                 <dd class="text-neutral-300 text-sm leading-relaxed">{{ $study['leadership'][$key] }}</dd>
                                             </div>
                                         @endif
@@ -265,7 +343,7 @@
 
     <dialog id="media-lightbox" class="media-lightbox" data-media-lightbox aria-label="Expanded project screenshot">
         <form method="dialog" class="media-lightbox__chrome">
-            <button type="submit" class="media-lightbox__close font-mono text-[10px] uppercase tracking-widest" aria-label="Close">
+            <button type="submit" class="media-lightbox__close font-mono text-caption uppercase tracking-widest" aria-label="Close">
                 Close <span aria-hidden="true">✕</span>
             </button>
         </form>

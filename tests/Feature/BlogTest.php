@@ -109,8 +109,9 @@ it('blog index shows tag counts', function () {
         ->filter(fn ($post) => in_array('engineering', $post->tags, true))
         ->count();
 
+    // Counts are tucked into the chip and hidden below `sm` to keep phone toolbars compact.
     $response->assertSee(
-        'engineering&nbsp;<span class="tabular-nums opacity-60">('.$engineeringCount.')</span>',
+        'engineering<span class="tabular-nums text-neutral-500 hidden sm:inline">&nbsp;('.$engineeringCount.')</span>',
         false,
     );
 });

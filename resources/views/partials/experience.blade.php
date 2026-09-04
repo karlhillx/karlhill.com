@@ -15,7 +15,7 @@
             <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 sm:gap-4 mb-8 sm:mb-10">
                 <div class="min-w-0">
                     <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">{{ $current['label'] }}</p>
-                    <h3 class="font-display text-3xl sm:text-4xl tracking-wide leading-tight">{{ $current['title'] }}</h3>
+                    <h3 class="font-sans font-semibold text-2xl sm:text-3xl tracking-tight text-neutral-100 leading-snug">{{ $current['title'] }}</h3>
                     <p class="text-accent/80 font-medium mt-1.5 text-sm sm:text-base">{{ $current['company'] }} &nbsp;·&nbsp; {{ $current['location'] }}</p>
                 </div>
                 <span class="font-mono text-xs text-neutral-600 uppercase tracking-widest md:whitespace-nowrap mt-1 shrink-0">{{ $current['period'] }}</span>
@@ -27,7 +27,7 @@
             @foreach($experience['roles'] as $role)
                 <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 site-list-row" data-reveal>
                     <div>
-                        <h3 class="font-display text-xl sm:text-2xl tracking-wide leading-tight">{{ $role['title'] }}</h3>
+                        <h3 class="font-sans font-semibold text-lg sm:text-xl tracking-tight text-neutral-100 leading-snug">{{ $role['title'] }}</h3>
                         <p class="text-accent text-sm font-medium mt-2">{{ $role['company'] }}</p>
                         <p class="text-neutral-600 text-sm">{{ $role['location'] }}</p>
                         <span class="font-mono text-xs text-neutral-600 mt-3 block">{{ $role['period'] }}</span>
@@ -39,7 +39,7 @@
             @php($earlier = $experience['earlier'])
             <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 site-list-row" data-reveal>
                 <div>
-                    <h3 class="font-display text-2xl tracking-wide leading-tight">{{ $earlier['title'] }}</h3>
+                    <h3 class="font-sans font-semibold text-xl tracking-tight text-neutral-100 leading-snug">{{ $earlier['title'] }}</h3>
                     <span class="font-mono text-xs text-neutral-600 mt-3 block">{{ $earlier['period'] }}</span>
                 </div>
                 <details class="group/earlier">

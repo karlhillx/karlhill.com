@@ -96,7 +96,7 @@ main > section:nth-of-type(n + 3):not([id]) {
 
     .site-page-hero {
         /* Clears fixed nav + optional section rail without desktop-scale air. */
-        padding-block: 8.25rem var(--space-section-soft);
+        padding-block: 8.25rem 2.5rem;
     }
 
     .site-article {
@@ -168,7 +168,7 @@ main > section:nth-of-type(n + 3):not([id]) {
     }
 
     #mobile-menu {
-        inset: 3.75rem 0 auto 0;
+        inset: 3.75rem 0 0 0;
     }
 
     .section-rail {
@@ -215,6 +215,23 @@ main > section:nth-of-type(n + 3):not([id]) {
     -webkit-overflow-scrolling: touch;
     /* Soft edge fade hints that the rail scrolls. */
     mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 1.75rem), transparent 100%);
+    transition:
+        transform 0.22s var(--ease-out-soft),
+        opacity 0.22s ease;
+}
+
+/* Tucked away while the reader scrolls down (navigation.js); comes back on
+   the first upward scroll so it never has to be hunted for. */
+.section-rail.is-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .section-rail {
+        transition: none;
+    }
 }
 
 .section-rail::-webkit-scrollbar {
@@ -232,7 +249,7 @@ main > section:nth-of-type(n + 3):not([id]) {
 .section-rail a {
     flex-shrink: 0;
     font-family: var(--font-mono);
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.11em;
     color: var(--muted-2);

@@ -249,7 +249,7 @@ function applyFieldErrors(form, errors) {
             const p = document.createElement('p');
             p.id = 'contact-turnstile-error';
             p.dataset.contactError = '';
-            p.className = 'mt-2 font-mono text-[11px] text-red-400';
+            p.className = 'mt-2 font-mono text-caption text-red-400';
             p.setAttribute('role', 'alert');
             p.textContent = msg;
             host.replaceChildren(p);
@@ -269,7 +269,7 @@ function applyFieldErrors(form, errors) {
         const p = document.createElement('p');
         p.id = id;
         p.dataset.contactError = '';
-        p.className = 'mt-1 font-mono text-[11px] text-red-400';
+        p.className = 'mt-1 font-mono text-caption text-red-400';
         p.textContent = msg;
         input.insertAdjacentElement('afterend', p);
     });

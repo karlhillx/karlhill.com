@@ -55,7 +55,7 @@
             JSON Feed
         </a>
         <x-site.push-subscribe />
-        <span class="font-mono text-[11px] text-neutral-500 uppercase tracking-widest">No newsletter, no spam — just the feed.</span>
+        <span class="font-mono text-caption text-neutral-500 uppercase tracking-widest">No newsletter, no spam — just the feed.</span>
     </div>
 </x-site.page-hero>
 
@@ -67,7 +67,7 @@
                     <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 mb-8">
                         <div>
                             <p class="font-mono text-accent text-xs tracking-widest uppercase mb-3">Series</p>
-                            <h2 class="font-display text-2xl tracking-wide text-white leading-tight">{{ $series['title'] }}</h2>
+                            <h2 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 leading-snug">{{ $series['title'] }}</h2>
                         </div>
                         <p class="text-neutral-400 text-base leading-relaxed max-w-2xl md:pt-8">{{ $series['description'] }}</p>
                     </div>
@@ -109,12 +109,13 @@
                                       class="font-mono text-xs text-neutral-400 uppercase tracking-widest">
                                     {{ $post->publishedAt->format('M j, Y') }}
                                 </time>
-                                <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">
+                                <span class="font-mono text-caption text-neutral-400 uppercase tracking-widest">
                                     {{ $post->readMinutes }} min read
                                 </span>
                             </div>
                             <div class="relative z-10 min-w-0">
-                                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl tracking-wide text-neutral-100 group-hover:text-accent transition-colors mb-4 leading-tight text-balance"
+                                {{-- Essay titles are full sentences: sentence-case sans scans faster in a list than all-caps display type. --}}
+                                <h2 class="post-list-title font-sans font-semibold tracking-tight text-xl sm:text-2xl md:text-[1.75rem] text-neutral-100 group-hover:text-accent transition-colors mb-3 leading-snug text-balance"
                                     style="view-transition-name: post-{{ $post->slug }}; view-transition-class: post-title">
                                     <a href="{{ $post->url() }}"
                                        interestfor="post-preview-{{ $post->slug }}"
@@ -128,7 +129,7 @@
                                 <div class="relative z-20 flex flex-wrap items-center gap-4">
                                     @foreach($post->tags as $tag)
                                         <a href="{{ route('blog.tag', $tag) }}"
-                                           class="surface-chip font-mono text-[10px] text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
+                                           class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
                                             {{ $tag }}
                                         </a>
                                     @endforeach
@@ -139,8 +140,8 @@
                             </div>
                         </div>
                         <div id="post-preview-{{ $post->slug }}" popover="hint" class="interest-preview">
-                            <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">{{ $post->publishedAt->format('M j, Y') }} · {{ $post->readMinutes }} min</p>
-                            <p class="font-display text-base tracking-wide text-white leading-tight mb-2">{{ $post->title }}</p>
+                            <p class="font-mono text-caption text-accent uppercase tracking-widest mb-1">{{ $post->publishedAt->format('M j, Y') }} · {{ $post->readMinutes }} min</p>
+                            <p class="font-sans font-semibold text-sm text-white leading-snug mb-2">{{ $post->title }}</p>
                             <p class="text-neutral-400 text-xs leading-relaxed">{{ $post->excerpt }}</p>
                         </div>
                     </li>

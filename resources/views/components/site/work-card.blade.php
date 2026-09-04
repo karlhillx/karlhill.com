@@ -63,17 +63,17 @@
 
     <div class="absolute top-4 left-4 flex flex-wrap gap-1.5" aria-hidden="true">
         @foreach($tags as $tag)
-            <span class="surface-chip-overlay font-mono text-[10px] px-2 py-0.5 text-neutral-400">{{ $tag }}</span>
+            <span class="surface-chip-overlay font-mono text-caption px-2 py-0.5 text-neutral-400">{{ $tag }}</span>
         @endforeach
     </div>
 
-    <div class="absolute inset-x-0 bottom-0 bg-bg/90 backdrop-blur-md border-t border-white/[0.06] px-5 pt-5 pb-6 rounded-b-2xl">
-        <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
-        <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-display text-lg tracking-wide text-white leading-tight">{{ $title }}</h3>
+    <div class="absolute inset-x-0 bottom-0 bg-bg/90 backdrop-blur-md border-t border-hairline px-5 pt-5 pb-6 rounded-b-2xl">
+        <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
+        <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-lg tracking-tight text-neutral-100 group-hover:text-accent transition-colors leading-snug">{{ $title }}</h3>
         <div class="work-card-details overflow-hidden">
-            <p class="text-neutral-400 text-xs leading-relaxed mt-3 line-clamp-2 pointer-fine:group-hover:line-clamp-4 pointer-fine:group-focus-within:line-clamp-4">{{ $description }}</p>
+            <p class="text-neutral-400 text-xs leading-relaxed mt-2.5 line-clamp-2 pointer-fine:group-hover:line-clamp-4 pointer-fine:group-focus-within:line-clamp-4">{{ $description }}</p>
             @if($href)
-                <p class="font-mono text-[10px] text-accent uppercase tracking-widest mt-4" aria-hidden="true">
+                <p class="font-mono text-caption text-accent uppercase tracking-widest mt-4" aria-hidden="true">
                     {{ $cta }}
                     <span class="arrow-nudge inline-block">→</span>
                 </p>
@@ -83,8 +83,8 @@
 </article>
 @if($slug && $href && ! $external)
     <div id="work-preview-{{ $slug }}" popover="hint" class="interest-preview">
-        <p class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">{{ $meta }}</p>
-        <p class="font-display text-base tracking-wide text-white leading-tight mb-2">{{ $title }}</p>
+        <p class="font-mono text-caption text-accent uppercase tracking-widest mb-1">{{ $meta }}</p>
+        <p class="font-sans font-semibold text-base tracking-tight text-neutral-100 leading-snug mb-2">{{ $title }}</p>
         <p class="text-neutral-400 text-xs leading-relaxed">{{ $description }}</p>
     </div>
 @endif
