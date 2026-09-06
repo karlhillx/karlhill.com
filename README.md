@@ -7,7 +7,7 @@ Personal site for Karl Hill — Staff Software Engineer. A Laravel 13 + Tailwind
 - **Backend:** Laravel 13 (PHP 8.5)
 - **Frontend:** Tailwind CSS v4, vanilla JS (no SPA framework), CSS scroll/view timelines + gated idle motion
 - **Build:** Vite 8 with `laravel-vite-plugin`
-- **Fonts:** IBM Plex Sans, Bebas Neue, JetBrains Mono (self-hosted via `@fontsource`)
+- **Fonts:** Barlow Semi Condensed (UI/body), Bebas Neue (display), JetBrains Mono (self-hosted via `@fontsource`)
 - **Testing:** Pest 4, Laravel Pint
 
 ## Getting Started

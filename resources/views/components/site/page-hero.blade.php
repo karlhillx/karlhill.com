@@ -14,9 +14,9 @@
             <x-site.breadcrumbs :items="$breadcrumbs" class="mb-6 hero-enter" style="animation-delay:80ms" />
         @endif
         @if($eyebrow)
-            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-5 hero-enter" style="animation-delay:160ms">{{ $eyebrow }}</p>
+            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4 hero-enter" style="animation-delay:160ms">{{ $eyebrow }}</p>
         @endif
-        <h1 class="font-display text-[clamp(3rem,9vw,6rem)] leading-none tracking-wide text-white mb-5 hero-enter" style="animation-delay:240ms">
+        <h1 class="font-display text-[clamp(2.75rem,8.5vw,5.5rem)] leading-none tracking-wide text-white mb-4 hero-enter" style="animation-delay:240ms">
             {{ $title }}
         </h1>
         <div class="hero-enter" style="animation-delay:320ms">

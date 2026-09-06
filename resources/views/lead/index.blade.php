@@ -94,7 +94,7 @@
         @foreach($lead['sections'] as $section)
             <section id="{{ $section['id'] }}" class="site-section border-t border-neutral-800/50 scroll-mt-24" aria-labelledby="lead-{{ $section['id'] }}-heading">
                 <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-                    <h2 id="lead-{{ $section['id'] }}-heading" class="font-sans font-semibold text-lg sm:text-xl tracking-tight leading-snug text-neutral-100">
+                    <h2 id="lead-{{ $section['id'] }}-heading" class="font-sans font-semibold text-xl sm:text-2xl tracking-tight leading-snug text-neutral-100">
                         {{ $section['title'] }}
                     </h2>
                     <div class="max-w-2xl">

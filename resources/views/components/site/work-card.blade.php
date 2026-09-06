@@ -70,9 +70,9 @@
 
     <div class="absolute inset-x-0 bottom-0 bg-bg/90 backdrop-blur-md border-t border-hairline px-5 pt-5 pb-6 rounded-b-2xl">
         <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
-        <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-lg tracking-tight text-neutral-100 group-hover:text-accent transition-colors leading-snug">{{ $title }}</h3>
+        <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-xl tracking-tight text-neutral-100 group-hover:text-accent transition-colors leading-snug">{{ $title }}</h3>
         <div class="work-card-details overflow-hidden">
-            <p class="text-neutral-400 text-xs leading-relaxed mt-2.5 line-clamp-2 pointer-fine:group-hover:line-clamp-4 pointer-fine:group-focus-within:line-clamp-4">{{ $description }}</p>
+            <p class="text-neutral-400 text-sm leading-relaxed mt-2.5 line-clamp-2 pointer-fine:group-hover:line-clamp-4 pointer-fine:group-focus-within:line-clamp-4">{{ $description }}</p>
             @if($href)
                 <p class="font-mono text-caption text-accent uppercase tracking-widest mt-4" aria-hidden="true">
                     {{ $cta }}

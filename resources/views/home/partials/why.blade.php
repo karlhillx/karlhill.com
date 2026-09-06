@@ -3,7 +3,7 @@
             @foreach(config('site.pillars') as $pillar)
                 <div data-reveal>
                     <h3 class="font-display text-5xl text-accent mb-6">{{ $pillar['title'] }}</h3>
-                    <p class="opsz-scroll text-neutral-400 leading-relaxed text-sm">{{ $pillar['body'] }}</p>
+                    <p class="opsz-scroll text-neutral-400 leading-relaxed text-base">{{ $pillar['body'] }}</p>
                 </div>
             @endforeach
         </div>

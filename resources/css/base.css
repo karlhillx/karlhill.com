@@ -9,16 +9,29 @@ html {
     scrollbar-gutter: stable;
     /* Clip rather than scroll when decorative bleed/orbs paint past the edge. */
     overflow-x: clip;
+    /* Slightly larger root so Barlow Semi Condensed matches Plex’s perceived size. */
+    font-size: 106.25%;
 }
 
 body {
     background: var(--bg);
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-    font-optical-sizing: auto;
+    font-size: 1rem;
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
+    font-kerning: normal;
+    font-feature-settings:
+        'kern' 1,
+        'liga' 1;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: clip;
+}
+
+/* Condensed UI titles already save width. Tailwind tracking-tight
+   (−0.025em) makes them collide; keep a hair of open tracking instead. */
+.font-sans.tracking-tight {
+    letter-spacing: 0.006em;
 }
 
 /* Shared layout rhythm — sections, heroes, and list rows pull from tokens
@@ -151,8 +164,14 @@ body {
 /* Inner-page hero: clear the fixed nav, then hand off quickly. The old 9rem
    top + section-soft bottom pushed first content below the fold at 1440×900. */
 .site-page-hero {
-    padding-block: clamp(6.75rem, 14vh, 8rem) clamp(2.75rem, 5vh, 4rem);
+    padding-block: clamp(6.25rem, 12vh, 7.25rem) clamp(2.15rem, 4.25vh, 3.35rem);
     padding-inline: var(--space-gutter);
+}
+
+.site-page-hero > .site-shell > p,
+.site-page-hero .hero-enter > p:first-of-type {
+    max-width: 36rem;
+    line-height: 1.65;
 }
 
 /* The block directly after a page hero is its continuation, not a new

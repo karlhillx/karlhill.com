@@ -13,7 +13,7 @@
      data-summary-context="{{ $context }}"
      data-summary-type="{{ $type }}"
      data-summary-length="{{ $length }}">
-    <div class="flex items-center gap-3">
+    <div class="on-device-summary__bar">
         <button type="button"
                 class="on-device-summary__btn font-mono text-caption uppercase tracking-widest"
                 data-summary-run
@@ -22,13 +22,13 @@
             {{ $label }}
         </button>
         <button type="button"
-                class="on-device-summary__cancel font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors py-2 px-1"
+                class="on-device-summary__cancel font-mono text-caption uppercase tracking-widest"
                 data-summary-cancel
                 hidden>
             Cancel
         </button>
     </div>
-    <p class="on-device-summary__hint font-mono text-caption text-neutral-500 uppercase tracking-widest"
+    <p class="on-device-summary__hint font-mono text-caption uppercase tracking-widest"
        data-summary-status>
         Chrome on-device · nothing leaves this device
     </p>

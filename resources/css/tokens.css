@@ -59,21 +59,21 @@
         1.016 63%,
         1
     );
-    --nav-py: 1.35rem;
+    --nav-py: 1.25rem;
     --nav-brand-size: 1.5rem;
-    /* Vertical rhythm — roomy by default, fluid across breakpoints.
-       Gutters stay modest so content can breathe; section blocks carry the air. */
-    --space-gutter: clamp(1.25rem, 4vw, 2rem);
-    /* Section blocks carry the air, but capped against viewport height so a
-       1440×900 desktop doesn't open with 250px of dead space per section. */
-    --space-section: clamp(4.5rem, 10vh, 7rem);
-    --space-section-soft: clamp(3.25rem, 6.5vh, 5rem);
-    --space-heading: clamp(2rem, 3.5vw, 3rem);
-    --space-stack: clamp(1.5rem, 2.5vw, 2rem);
-    --space-card-gap: clamp(1rem, 2vw, 1.5rem);
-    --space-list-row: clamp(2.25rem, 3.5vw, 3rem);
-    --space-prose: 48rem;
-    --space-pillar: clamp(2rem, 3vw, 3.25rem);
+    /* Rhythm for a condensed secondary face: a little more inline air,
+       a little less leftover vertical gap around shorter lines. */
+    --space-gutter: clamp(1.25rem, 4.2vw, 2.25rem);
+    --space-section: clamp(3.75rem, 8vh, 6rem);
+    --space-section-soft: clamp(2.5rem, 5.25vh, 4.25rem);
+    --space-heading: clamp(1.5rem, 2.75vw, 2.5rem);
+    --space-stack: clamp(1.25rem, 2.25vw, 1.75rem);
+    --space-card-gap: clamp(0.875rem, 1.75vw, 1.35rem);
+    --space-list-row: clamp(1.75rem, 3vw, 2.5rem);
+    --space-prose: 42rem;
+    --space-pillar: clamp(1.65rem, 2.6vw, 2.65rem);
+    --leading-body: 1.65;
+    --tracking-sans: 0.012em;
     /* Both schemes are supported. The UA picks from the OS preference; the
        toggle pins one via [data-theme]. light-dark() tokens above follow it. */
     color-scheme: light dark;
@@ -119,7 +119,7 @@
 }
 
 @theme {
-    --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Barlow Semi Condensed', ui-sans-serif, system-ui, sans-serif;
     --font-display: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
     --color-bg: var(--bg);

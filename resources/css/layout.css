@@ -81,11 +81,11 @@ main > section:nth-of-type(n + 3):not([id]) {
 
     :root {
         --space-gutter: clamp(1rem, 4.5vw, 1.5rem);
-        --space-section: clamp(4.5rem, 14vw, 6.5rem);
-        --space-section-soft: clamp(3.25rem, 10vw, 4.75rem);
-        --space-heading: clamp(1.75rem, 5vw, 2.5rem);
-        --space-list-row: clamp(1.75rem, 5vw, 2.5rem);
-        --nav-py: 0.85rem;
+        --space-section: clamp(3.5rem, 12vw, 5.5rem);
+        --space-section-soft: clamp(2.5rem, 8vw, 4rem);
+        --space-heading: clamp(1.35rem, 4.5vw, 2.15rem);
+        --space-list-row: clamp(1.5rem, 4.5vw, 2.15rem);
+        --nav-py: 0.8rem;
         --nav-brand-size: 1.25rem;
     }
 
@@ -151,9 +151,10 @@ main > section:nth-of-type(n + 3):not([id]) {
         margin-bottom: 1rem;
     }
     #hero .hero-lede {
-        margin-bottom: 1.5rem;
-        font-size: 1rem;
-        line-height: 1.55;
+        margin-bottom: 1.35rem;
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        max-width: min(34rem, 100%);
     }
     #hero .hero-cta-btn {
         flex: 1 1 auto;

@@ -112,7 +112,7 @@
                     ]" />
 
                     <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2.5">{{ $project['meta'] }}</p>
-                    <h1 class="font-sans font-semibold text-[clamp(1.6rem,3.4vw,2.35rem)] leading-[1.12] tracking-tight text-neutral-100 text-balance mb-3.5"
+                    <h1 class="font-sans font-semibold text-[clamp(1.75rem,3.8vw,2.55rem)] leading-[1.15] tracking-tight text-neutral-100 text-balance mb-3.5"
                         data-article-title
                         style="view-transition-name: work-title-{{ $project['slug'] }}">
                         {{ $project['title'] }}

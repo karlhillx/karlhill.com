@@ -229,8 +229,8 @@
     gap: 0.4rem 0.65rem;
     margin: 0 0 clamp(1rem, 2.5vw, 1.75rem);
     max-width: min(42rem, 100%);
-    font-size: clamp(0.95rem, 2.1vw, 1.125rem);
-    line-height: 1.45;
+    font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+    line-height: 1.5;
     color: var(--text);
 }
 
@@ -256,7 +256,7 @@
 
 #hero .hero-arc__label {
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.02em;
 }
 
 #hero .hero-arc__meta {
@@ -273,10 +273,10 @@
 }
 
 #hero .hero-lede {
-    font-size: clamp(1rem, 2.4vw, 1.25rem);
+    font-size: clamp(1.0625rem, 2.3vw, 1.2rem);
     width: 100%;
-    max-width: min(40rem, 100%);
-    margin: 0 0 clamp(1.75rem, 4vw, 3.5rem);
+    max-width: min(34rem, 100%);
+    margin: 0 0 clamp(1.5rem, 3.5vw, 2.75rem);
     min-width: 0;
     text-wrap: pretty;
 }

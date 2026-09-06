@@ -33,7 +33,7 @@
         <div class="site-shell space-y-12">
             @foreach($now['focus'] as $item)
                 <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-                    <h2 class="font-sans font-semibold text-lg sm:text-xl tracking-tight leading-snug text-neutral-100">{{ $item['title'] }}</h2>
+                    <h2 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight leading-snug text-neutral-100">{{ $item['title'] }}</h2>
                     <div class="max-w-2xl">
                         <p class="text-neutral-400 text-base leading-relaxed">{{ $item['body'] }}</p>
                         @if(! empty($item['link']))
