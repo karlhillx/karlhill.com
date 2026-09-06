@@ -208,6 +208,7 @@
     }
 
     .resume-doc .resume-header {
+        display: block !important;
         margin: 0 0 0.4rem !important;
         padding: 0 !important;
         border: 0 !important;

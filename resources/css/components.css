@@ -1037,68 +1037,6 @@ a.series-chapters__card:hover .series-chapters__title,
     background: color-mix(in oklab, var(--accent) 10%, transparent);
 }
 
-/* Work index: the stack facet is a single scrollable row at every width so
-   18 tech chips never wrap into a wall. Native ::scroll-button() arrows are
-   attached in public/css/progressive.css; they are laid out as siblings of
-   the scroller, so the wrapper below keeps them inline rather than stacked. */
-.tag-filter-scroller {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    min-width: 0;
-}
-
-.tag-filter-scroller__label {
-    flex-shrink: 0;
-    padding-right: 0.25rem;
-}
-
-.tag-filter--scroll {
-    flex: 1 1 auto;
-    min-width: 0;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scrollbar-width: none;
-    padding-bottom: 0.15rem;
-    scroll-behavior: smooth;
-    mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 1.5rem), transparent);
-}
-
-.tag-filter--scroll::-webkit-scrollbar {
-    display: none;
-}
-
-.tag-filter--scroll .tag-filter__chip {
-    min-height: 2.25rem;
-    padding-block: 0.4rem;
-}
-
-/* Domain facet: wraps on desktop (it's only a handful of chips) but becomes
-   the same one-line scroller on phones so the sticky toolbar stays compact. */
-@media (max-width: 767px) {
-    .tag-filter--scroll-mobile {
-        flex: 1 1 auto;
-        min-width: 0;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overscroll-behavior-x: contain;
-        scrollbar-width: none;
-        padding-bottom: 0.15rem;
-        scroll-behavior: smooth;
-        mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 1.5rem), transparent);
-    }
-
-    .tag-filter--scroll-mobile::-webkit-scrollbar {
-        display: none;
-    }
-
-    .tag-filter--scroll-mobile .tag-filter__chip {
-        min-height: 2.25rem;
-        padding-block: 0.4rem;
-    }
-}
-
 .case-study-lede {
     text-wrap: pretty;
     font-size: 1.05rem;
@@ -1838,13 +1776,22 @@ a.series-chapters__card:hover .series-chapters__title,
 }
 
 /* Resume document — screen layout mirrors the classic two-column CV. */
-.resume-doc .resume-shell {
-    max-width: 86rem;
-}
-
+/* Same 72rem .site-shell as every other page — the old 86rem override made
+   the resume body start ~70px left of the gutter the hero above it uses. */
 .resume-shell {
     display: grid;
     gap: clamp(1.75rem, 3.5vw, 3rem);
+}
+
+/* Aside is first in DOM for print (float:right beside page 1) but reads
+   second on every screen: a recruiter should meet the summary before
+   "Phone on the PDF". */
+.resume-aside {
+    order: 2;
+}
+
+.resume-main {
+    order: 1;
 }
 
 @media (min-width: 900px) {
@@ -1854,13 +1801,8 @@ a.series-chapters__card:hover .series-chapters__title,
     }
 
     .resume-aside {
-        order: 2;
         position: sticky;
         top: 6.5rem;
-    }
-
-    .resume-main {
-        order: 1;
     }
 }
 
@@ -1941,7 +1883,9 @@ a.series-chapters__card:hover .series-chapters__title,
     font-weight: 600;
 }
 
+/* Screen: the page hero is the heading; the masthead only exists for print. */
 .resume-header {
+    display: none;
     margin-bottom: 2.75rem;
 }
 

@@ -28,10 +28,8 @@
         </div>
 
         @if(! empty($arc['cta_href']))
-            <a href="{{ $arc['cta_href'] }}"
-               class="btn-sweep inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs text-accent border border-accent/40 px-5 py-3 uppercase tracking-widest transition-colors mt-10"
-               data-reveal>
+            <x-site.button variant="secondary" :href="$arc['cta_href']" class="mt-10" data-reveal>
                 {{ $arc['cta_label'] ?? 'Full resume' }} →
-            </a>
+            </x-site.button>
         @endif
 </x-site.section>

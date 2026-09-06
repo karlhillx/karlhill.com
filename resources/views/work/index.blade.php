@@ -18,18 +18,24 @@
         }
     @endphp
 
-    <x-site.page-hero eyebrow="Portfolio" :breadcrumbs="$breadcrumbs">
+    <x-site.page-hero :breadcrumbs="$breadcrumbs">
         <x-slot:title>Selected Work</x-slot:title>
 
+        {{-- Two sentences: the hero is a doorway, the cards carry the detail. --}}
         <p class="text-neutral-400 text-base leading-relaxed max-w-2xl">
-            One pattern: take operational work that depends on heroes and turn it into a platform. Jacobs is the current chapter. NASA is the public proof — flood products under disaster timelines, LAADS Find Data for the MODIS/VIIRS archive, and the Goddard chapters below the grid. Finium is where it started: a multi-tenant security platform that scaled 10× and enabled a $105M acquisition.
+            One pattern: take operational work that depends on heroes and turn it into a platform. Jacobs is the current chapter, NASA is the public proof, and Finium is where it started.
         </p>
     </x-site.page-hero>
 
-    @if($allTags->isNotEmpty() || $sectors->isNotEmpty())
+    {{-- One facet, the one a hiring manager filters by: domain. Four flagship
+         cards don't need a second stack facet (that row clipped mid-word on
+         phones behind two arrow buttons); each card already lists its stack,
+         and /work/tag/{stack} stays routable for deep links. Not sticky: a
+         four-card grid never scrolls far enough to lose the filter. --}}
+    @if($sectors->isNotEmpty())
         @php($urlFor = fn ($tag) => route('work.tag', \App\Support\ProjectCatalog::tagSlug($tag)))
-        <section class="site-toolbar site-toolbar--sticky border-t border-neutral-800/80" aria-label="Filter projects">
-            <div class="site-shell flex flex-col gap-4">
+        <section class="site-toolbar border-t border-neutral-800/80" aria-label="Filter projects">
+            <div class="site-shell flex flex-col gap-3">
                 <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
                     <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest" aria-live="polite">
                         <span class="text-neutral-300 tabular-nums">{{ $projectCount }}</span>
@@ -47,39 +53,14 @@
                     @endif
                 </div>
 
-                {{-- Primary facet: the domain a hiring manager cares about. One line on
-                     desktop; a single scrollable row on phones so the sticky toolbar stays short. --}}
-                @if($sectors->isNotEmpty())
-                    <div class="tag-filter-scroller">
-                        <span class="tag-filter-scroller__label font-mono text-caption text-neutral-500 uppercase tracking-widest">Domain</span>
-                        <x-site.tag-filter
-                            class="tag-filter--scroll-mobile"
-                            :all-url="route('work')"
-                            :tags="$sectors"
-                            :counts="$sectorCounts"
-                            :active-tag="$activeTag"
-                            :url-for="$urlFor"
-                            aria-label="Filter by domain"
-                        />
-                    </div>
-                @endif
-
-                {{-- Secondary facet: stack, kept to one scrollable row so it never dominates the toolbar. --}}
-                @if($allTags->isNotEmpty())
-                    <div class="tag-filter-scroller">
-                        <span class="tag-filter-scroller__label font-mono text-caption text-neutral-500 uppercase tracking-widest">Stack</span>
-                        <x-site.tag-filter
-                            class="tag-filter--scroll"
-                            :all-url="route('work')"
-                            :tags="$allTags"
-                            :counts="$tagCounts"
-                            :active-tag="$activeTag"
-                            :url-for="$urlFor"
-                            :show-all="false"
-                            aria-label="Filter by stack"
-                        />
-                    </div>
-                @endif
+                <x-site.tag-filter
+                    :all-url="route('work')"
+                    :tags="$sectors"
+                    :counts="$sectorCounts"
+                    :active-tag="$activeTag"
+                    :url-for="$urlFor"
+                    aria-label="Filter by domain"
+                />
             </div>
         </section>
     @endif

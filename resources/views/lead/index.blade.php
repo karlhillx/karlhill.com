@@ -45,29 +45,20 @@
                 {{ $lead['lede'] }}
             </p>
 
-            <div class="lead-screen-actions flex flex-wrap items-center gap-x-4 gap-y-3 mt-8 sm:mt-10">
+            <div class="lead-screen-actions flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
                 @if(filled($bookingUrl))
-                    <a href="{{ url('/now#book') }}"
-                       data-analytics-event="booking_cta_clicked"
-                       data-analytics-location="lead-hero"
-                       class="btn-accent-fill magnetic-btn inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs uppercase tracking-widest px-5 py-3">
+                    <x-site.button variant="primary" :href="url('/now#book')"
+                        data-analytics-event="booking_cta_clicked"
+                        data-analytics-location="lead-hero">
                         {{ $bookingLabel }}
-                    </a>
+                    </x-site.button>
                 @endif
-                <a href="/kit"
-                   class="btn-sweep inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs text-accent border border-accent/40 px-5 py-3 uppercase tracking-widest transition-colors">
-                    Recruiter kit
-                </a>
-                <button type="button"
-                        data-print
-                        title="Print or save as PDF"
-                        class="cursor-pointer inline-flex items-center justify-center min-h-11 font-mono text-xs text-neutral-300 border border-neutral-700 hover:border-accent hover:text-accent px-4 uppercase tracking-widest transition-colors">
-                    Print packet
-                </button>
+                <x-site.button variant="secondary" href="/kit">Recruiter kit</x-site.button>
+                <x-site.button variant="link" data-print title="Print or save as PDF">Print packet</x-site.button>
             </div>
 
             @if(! empty($lead['updated']))
-                <p class="mt-6 font-mono text-caption text-neutral-400 uppercase tracking-widest">
+                <p class="mt-5 font-mono text-caption text-neutral-400 uppercase tracking-widest">
                     Updated {{ $lead['updated'] }}
                 </p>
             @endif

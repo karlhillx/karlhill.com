@@ -97,10 +97,10 @@
             </div>
         @endif
 
-        <button type="submit" id="{{ $submitId }}" data-contact-submit
-                class="btn-sweep inline-flex items-center gap-2 border border-accent/50 text-accent font-mono text-xs uppercase tracking-widest px-6 py-3">
+        {{-- The form's own submit is the primary in this region; booking sits beside it as secondary. --}}
+        <x-site.button variant="primary" type="submit" id="{{ $submitId }}" data-contact-submit>
             Send message <span aria-hidden="true">→</span>
-        </button>
+        </x-site.button>
     </div>
 
     <div data-contact-status

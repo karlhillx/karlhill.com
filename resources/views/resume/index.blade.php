@@ -5,7 +5,12 @@
 @endpush
 
 @section('content')
-    <x-site.page-hero eyebrow="Curriculum vitae" :breadcrumbs="[
+    @php
+        $bookingUrl = config('site.booking.url');
+        $bookingLabel = config('site.booking.label');
+    @endphp
+
+    <x-site.page-hero :breadcrumbs="[
         ['label' => 'Home', 'url' => '/'],
         ['label' => 'Resume'],
     ]">
@@ -17,19 +22,27 @@
             Download the generated <strong class="text-neutral-200 font-semibold">2-page PDF</strong> for applications.
         </p>
 
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-8 sm:mt-10">
+        {{-- The PDF is this page's purpose, so it takes the fill; booking is the secondary. --}}
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
             @if(! empty($pdf))
-                <a href="{{ $pdf }}"
-                   download="Karl-Hill-Resume.pdf"
-                   class="btn-sweep inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs text-accent border border-accent/40 px-5 py-3 uppercase tracking-widest transition-colors">
+                <x-site.button variant="primary" :href="$pdf"
+                    download="Karl-Hill-Resume.pdf"
+                    data-analytics-event="resume_downloaded"
+                    data-analytics-location="resume-hero">
                     Download PDF
-                </a>
+                </x-site.button>
+            @endif
+            @if(filled($bookingUrl))
+                <x-site.button variant="secondary" href="/now#book"
+                    data-analytics-event="booking_cta_clicked"
+                    data-analytics-location="resume-hero">
+                    {{ $bookingLabel }}
+                </x-site.button>
             @endif
             @if(! empty($linkedin))
-                <a href="{{ $linkedin['url'] }}" target="_blank" rel="me noopener noreferrer"
-                   class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors">
+                <x-site.button variant="link" :href="$linkedin['url']" target="_blank" rel="me noopener noreferrer">
                     LinkedIn
-                </a>
+                </x-site.button>
             @endif
         </div>
     </x-site.page-hero>
@@ -104,13 +117,16 @@
             </aside>
 
             <div class="resume-main">
-                <header class="resume-header" data-reveal>
-                    <h1 class="resume-name font-display text-4xl sm:text-5xl tracking-wide text-white">{{ $person['name'] }}</h1>
+                {{-- Print-only masthead. On screen the page hero above is the one
+                     heading (a second display-size name directly under "Resume" read
+                     as two stacked heroes, and gave the page two h1s); print hides
+                     the hero and shows this instead. Contact details live once, in
+                     the Details/Links sidebar, which print floats beside this. --}}
+                <header class="resume-header" aria-hidden="true">
+                    <p class="resume-name font-display text-4xl sm:text-5xl tracking-wide text-white">{{ $person['name'] }}</p>
                     <p class="resume-tagline mt-3 font-mono text-sm sm:text-base text-accent uppercase tracking-widest">
                         {{ $resume['tagline'] }}
                     </p>
-                    {{-- Contact details live once, in the Details/Links sidebar (also the
-                         print sidebar) — no duplicate strip under the name. --}}
                 </header>
 
                 <section class="resume-section" aria-labelledby="resume-summary" data-reveal>

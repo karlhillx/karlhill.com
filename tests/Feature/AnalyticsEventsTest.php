@@ -20,7 +20,7 @@ it('tags booking and email CTAs in the footer with their placement', function ()
     expect($home)->toContain('data-analytics-location="footer-home"')
         ->and($home)->toContain('data-analytics-location="hero"')
         ->and($home)->toContain('data-analytics-location="hero-availability"')
-        ->and($home)->toContain('data-analytics-location="nav-mobile"');
+        ->and($home)->toContain('data-analytics-location="nav"');
 });
 
 it('tags case study cards with the project slug', function () {

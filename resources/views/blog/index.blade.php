@@ -38,13 +38,13 @@
     }
 @endphp
 
-<x-site.page-hero eyebrow="Writing" :breadcrumbs="$breadcrumbs">
+<x-site.page-hero :breadcrumbs="$breadcrumbs">
     <x-slot:title>Notes from<br>the field</x-slot:title>
 
     <p class="text-neutral-300 text-base leading-relaxed max-w-2xl">
         Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on.
     </p>
-    <div class="flex flex-wrap items-center gap-4 mt-10">
+    <div class="flex flex-wrap items-center gap-4 mt-6 sm:mt-8">
         <a href="{{ route('feed') }}"
            class="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
             @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])
@@ -153,11 +153,10 @@
                     <p class="font-display text-2xl text-neutral-100 tracking-wide mb-2">Follow along</p>
                     <p class="text-neutral-400 text-sm max-w-md leading-relaxed">New essays land here first. Subscribe with your reader of choice — the feed is open and always will be.</p>
                 </div>
-                <a href="{{ route('feed') }}"
-                   class="inline-flex items-center gap-2 shrink-0 font-mono text-xs text-accent border border-accent/40 hover:bg-accent/10 px-5 py-3 uppercase tracking-widest transition-colors">
+                <x-site.button variant="secondary" :href="route('feed')" class="shrink-0">
                     @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])
                     Subscribe via Atom feed
-                </a>
+                </x-site.button>
             </div>
         @endif
     </div>

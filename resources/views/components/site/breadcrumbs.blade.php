@@ -19,7 +19,9 @@
             'itemListElement' => $listItems,
         ], JSON_UNESCAPED_SLASHES) !!}
     </script>
-    <nav aria-label="Breadcrumb" {{ $attributes->merge(['class' => 'mb-8']) }}>
+    {{-- Default bottom margin only when the caller hasn't set one, so the two
+         utilities never both land on the element and fight in cascade order. --}}
+    <nav aria-label="Breadcrumb" {{ $attributes->class(['mb-8' => ! str_contains($attributes->get('class', ''), 'mb-')]) }}>
         <ol class="flex flex-wrap items-center gap-2 font-mono text-caption text-neutral-500 uppercase tracking-widest">
             @foreach($items as $index => $item)
                 @if($index > 0)

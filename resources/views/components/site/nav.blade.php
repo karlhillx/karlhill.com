@@ -53,20 +53,24 @@
                 <x-site.icons.moon class="theme-toggle__icon theme-toggle__icon--moon w-4 h-4" />
             </button>
 
-            <a href="/#contact"
-               data-nav-section="contact"
-               class="btn-sweep hidden md:inline-flex items-center min-h-11 text-xs font-semibold text-neutral-300 border border-neutral-700 px-5 py-2.5 uppercase tracking-widest">
-                Contact
-            </a>
-
-            {{-- Mobile: the primary hire CTA stays one tap away instead of buried in the menu. --}}
+            {{-- The nav carries the same hire CTA at every breakpoint: filled "Book"
+                 (short label on phones, full label from md up). Contact lives in
+                 the footer of every page and in the mobile menu. Falls back to a
+                 Contact button when booking is not configured. --}}
             @if(filled($bookingUrl))
                 <a href="/now#book"
                    data-analytics-event="booking_cta_clicked"
-                   data-analytics-location="nav-mobile"
-                   class="btn-accent-fill md:hidden inline-flex items-center min-h-11 font-mono text-caption px-3.5 uppercase tracking-widest shrink-0"
+                   data-analytics-location="nav"
+                   class="btn-accent-fill inline-flex items-center min-h-11 font-mono text-caption md:text-xs px-3.5 md:px-5 uppercase tracking-widest shrink-0"
                    aria-label="{{ $bookingLabel }}">
-                    Book
+                    <span class="md:hidden">Book</span>
+                    <span class="hidden md:inline">{{ $bookingLabel }}</span>
+                </a>
+            @else
+                <a href="/#contact"
+                   data-nav-section="contact"
+                   class="btn-sweep inline-flex items-center min-h-11 font-mono text-caption md:text-xs text-neutral-300 border border-neutral-700 px-3.5 md:px-5 uppercase tracking-widest shrink-0">
+                    Contact
                 </a>
             @endif
 

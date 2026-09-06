@@ -161,10 +161,11 @@ body {
     padding-block: clamp(3.25rem, 7vw, 4.5rem);
 }
 
-/* Inner-page hero: clear the fixed nav, then hand off quickly. The old 9rem
-   top + section-soft bottom pushed first content below the fold at 1440×900. */
+/* Inner-page hero: clear the fixed nav (4.75rem), then hand off quickly.
+   Measured before this pass, the first body block sat 460–550px down a
+   900px viewport; the hero is chrome, not content, so it stays short. */
 .site-page-hero {
-    padding-block: clamp(6.25rem, 12vh, 7.25rem) clamp(2.15rem, 4.25vh, 3.35rem);
+    padding-block: clamp(5.75rem, 10vh, 6.5rem) clamp(1.75rem, 3.5vh, 2.5rem);
     padding-inline: var(--space-gutter);
 }
 

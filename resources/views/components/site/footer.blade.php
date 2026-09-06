@@ -61,13 +61,12 @@
                             </button>
                         </div>
                         @if(filled($bookingUrl))
-                            <a href="{{ $bookingHref }}"
-                               data-analytics-event="booking_cta_clicked"
-                               data-analytics-location="footer-home"
-                               class="btn-accent-fill inline-flex items-center gap-3 font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">
+                            <x-site.button variant="secondary" :href="$bookingHref" class="w-fit"
+                                data-analytics-event="booking_cta_clicked"
+                                data-analytics-location="footer-home">
                                 {{ $bookingLabel }}
                                 <span aria-hidden="true">→</span>
-                            </a>
+                            </x-site.button>
                         @endif
 
                         <x-site.social-links />
@@ -101,12 +100,11 @@
                     </p>
                     <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-12">
                         @if(filled($bookingUrl))
-                            <a href="{{ $bookingHref }}"
-                               data-analytics-event="booking_cta_clicked"
-                               data-analytics-location="footer"
-                               class="btn-accent-fill inline-flex items-center justify-center min-h-11 gap-2 font-semibold px-5 py-3 text-xs uppercase tracking-widest">
+                            <x-site.button variant="primary" :href="$bookingHref"
+                                data-analytics-event="booking_cta_clicked"
+                                data-analytics-location="footer">
                                 {{ $bookingLabel }}
-                            </a>
+                            </x-site.button>
                         @endif
                         <div class="flex items-center gap-2">
                             <a href="mailto:{{ $person['email'] }}"

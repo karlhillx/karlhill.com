@@ -38,34 +38,26 @@
             {{ $kit['lede'] }}
         </p>
 
-        <div class="kit-screen-actions flex flex-wrap items-center gap-x-4 gap-y-3 mt-8 sm:mt-10">
-            @if($pdfHref)
-                <a href="{{ $pdfHref }}"
-                   download="Karl-Hill-Resume.pdf"
-                   data-analytics-event="resume_downloaded"
-                   data-analytics-location="kit-actions"
-                   class="btn-sweep inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs text-accent border border-accent/40 px-5 py-3 uppercase tracking-widest transition-colors">
-                    Download resume PDF
-                </a>
-            @endif
+        <div class="kit-screen-actions flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
             @if(filled($bookingUrl))
-                <a href="{{ url('/now#book') }}"
-                   data-analytics-event="booking_cta_clicked"
-                   data-analytics-location="kit-actions"
-                   class="btn-accent-fill magnetic-btn inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs uppercase tracking-widest px-5 py-3">
+                <x-site.button variant="primary" :href="url('/now#book')"
+                    data-analytics-event="booking_cta_clicked"
+                    data-analytics-location="kit-actions">
                     {{ $bookingLabel }}
-                </a>
+                </x-site.button>
             @endif
-            <button type="button"
-                    data-print
-                    title="Print or save as PDF"
-                    class="kit-print-btn cursor-pointer inline-flex items-center justify-center min-h-11 font-mono text-xs text-neutral-300 border border-neutral-700 hover:border-accent hover:text-accent px-4 uppercase tracking-widest transition-colors">
+            @if($pdfHref)
+                <x-site.button variant="secondary" :href="$pdfHref"
+                    download="Karl-Hill-Resume.pdf"
+                    data-analytics-event="resume_downloaded"
+                    data-analytics-location="kit-actions">
+                    Download resume PDF
+                </x-site.button>
+            @endif
+            <x-site.button variant="link" class="kit-print-btn" data-print title="Print or save as PDF">
                 Print kit
-            </button>
-            <a href="#contact"
-               class="cursor-pointer inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                Contact
-            </a>
+            </x-site.button>
+            <x-site.button variant="link" href="#contact">Contact</x-site.button>
         </div>
     </x-site.page-hero>
 

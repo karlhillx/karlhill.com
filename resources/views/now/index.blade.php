@@ -12,7 +12,7 @@
         $recruiters = $now['recruiters'] ?? null;
     @endphp
 
-    <x-site.page-hero eyebrow="Current focus" :breadcrumbs="[
+    <x-site.page-hero :breadcrumbs="[
         ['label' => 'Home', 'url' => '/'],
         ['label' => 'Now'],
     ]">
@@ -23,7 +23,7 @@
         </p>
 
         @if(! empty($now['updated']))
-            <p class="mt-6 font-mono text-caption text-neutral-400 uppercase tracking-widest">
+            <p class="mt-5 font-mono text-caption text-neutral-400 uppercase tracking-widest">
                 Updated {{ $now['updated'] }}
             </p>
         @endif
@@ -63,30 +63,17 @@
                     @endif
                     <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-8">
                         @if(filled($bookingUrl))
-                            <a href="#book"
-                               data-idle-cta
-                               data-analytics-event="booking_cta_clicked"
-                               data-analytics-location="now-intro"
-                               class="btn-accent-fill inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs px-5 py-3 uppercase tracking-widest">
+                            <x-site.button variant="primary" href="#book"
+                                data-idle-cta
+                                data-analytics-event="booking_cta_clicked"
+                                data-analytics-location="now-intro">
                                 {{ $bookingLabel }}
-                            </a>
+                            </x-site.button>
                         @endif
-                        <a href="#contact"
-                           class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                            Contact
-                        </a>
-                        <a href="/resume"
-                           class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                            Resume
-                        </a>
-                        <a href="/lead"
-                           class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                            How I run delivery
-                        </a>
-                        <a href="/kit"
-                           class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                            Recruiter kit
-                        </a>
+                        <x-site.button variant="secondary" href="/resume">Resume</x-site.button>
+                        <x-site.button variant="link" href="#contact">Contact</x-site.button>
+                        <x-site.button variant="link" href="/lead">How I run delivery</x-site.button>
+                        <x-site.button variant="link" href="/kit">Recruiter kit</x-site.button>
                     </div>
                 </div>
             </div>

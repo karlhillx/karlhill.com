@@ -5,7 +5,12 @@
 @endpush
 
 @section('content')
-    <x-site.page-hero eyebrow="Background" :breadcrumbs="[
+    @php
+        $bookingUrl = config('site.booking.url');
+        $bookingLabel = config('site.booking.label');
+    @endphp
+
+    <x-site.page-hero :breadcrumbs="[
         ['label' => 'Home', 'url' => '/'],
         ['label' => 'About'],
     ]">
@@ -15,19 +20,17 @@
             {{ config('site.about.lede') }}
         </p>
 
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-8 sm:mt-10">
-            <a href="/resume"
-               class="btn-sweep inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs text-accent border border-accent/40 px-5 py-3 uppercase tracking-widest transition-colors">
-                View resume →
-            </a>
-            <a href="#contact"
-               class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                Contact
-            </a>
-            <a href="/now"
-               class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors">
-                Now
-            </a>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
+            @if(filled($bookingUrl))
+                <x-site.button variant="primary" href="/now#book"
+                    data-analytics-event="booking_cta_clicked"
+                    data-analytics-location="about-hero">
+                    {{ $bookingLabel }}
+                </x-site.button>
+            @endif
+            <x-site.button variant="secondary" href="/resume">View resume</x-site.button>
+            <x-site.button variant="link" href="#contact">Contact</x-site.button>
+            <x-site.button variant="link" href="/now">Now</x-site.button>
         </div>
     </x-site.page-hero>
 

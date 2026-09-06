@@ -85,13 +85,16 @@ it('work cards link to case studies and live projects', function () {
     $response->assertSee('Read case study', escape: false);
 });
 
-it('work index shows sticky filter chrome and project count', function () {
+it('work index shows a single domain facet and project count', function () {
     $count = ProjectCatalog::listed()->count();
 
     $this->get('/work')
         ->assertOk()
-        ->assertSee('site-toolbar--sticky', escape: false)
-        ->assertSee('tag-filter--scroll', escape: false)
+        ->assertSee('aria-label="Filter by domain"', escape: false)
+        // Four flagship cards don't get a second, scrolling stack facet or a sticky bar.
+        ->assertDontSee('aria-label="Filter by stack"', escape: false)
+        ->assertDontSee('tag-filter--scroll', escape: false)
+        ->assertDontSee('site-toolbar--sticky', escape: false)
         ->assertSee((string) $count, escape: false)
         ->assertDontSee('Clear filter', escape: false);
 
@@ -389,16 +392,19 @@ it('homepage hero links to em funnel', function () {
     $response->assertSee('href="/work/jacobs-mission-software"', escape: false);
 });
 
-it('desktop nav includes resume and a single contact CTA', function () {
+it('nav includes resume and one filled booking CTA at every breakpoint', function () {
     $html = $this->get('/')->assertOk()->getContent();
 
     expect($html)
         ->toContain('href="/resume"')
-        ->toContain('>Contact</a>')
+        ->toContain('>Contact</a>') // mobile menu + footer keep the contact route
         ->not->toContain('Get in Touch')
         ->not->toContain('href="mailto:'.config('site.person.email').'" class="btn-sweep hidden md:inline-flex');
 
-    expect(substr_count($html, 'data-nav-section="contact"'))->toBe(1);
+    // One nav CTA, filled, not split into a desktop "Contact" and a mobile "Book".
+    expect(substr_count($html, 'data-analytics-location="nav"'))->toBe(1);
+    expect($html)->not->toContain('data-analytics-location="nav-mobile"');
+    expect($html)->toMatch('/data-analytics-location="nav"\s+class="btn-accent-fill/');
 });
 
 it('now page embeds the booking scheduler', function () {

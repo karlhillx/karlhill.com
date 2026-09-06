@@ -354,10 +354,9 @@
                             ← All work
                         </a>
                         @if($liveUrl)
-                            <a href="{{ $liveUrl }}" target="_blank" rel="noopener noreferrer"
-                               class="inline-flex items-center gap-2 font-mono text-xs text-accent border border-accent/40 hover:bg-accent/10 px-5 py-3 uppercase tracking-widest transition-colors">
+                            <x-site.button variant="secondary" :href="$liveUrl" target="_blank" rel="noopener noreferrer" data-no-ext>
                                 Visit live project <span aria-hidden="true">↗</span>
-                            </a>
+                            </x-site.button>
                         @endif
                     </div>
                 </div>

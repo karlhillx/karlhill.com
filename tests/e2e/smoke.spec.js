@@ -47,8 +47,9 @@ test.describe('smoke + a11y', () => {
 
     test('work filters and lightbox chrome', async ({ page }) => {
         await page.goto('/work');
-        await expect(page.locator('.site-toolbar--sticky')).toBeVisible();
-        await expect(page.locator('.tag-filter--scroll')).toBeVisible();
+        await expect(page.locator('.site-toolbar')).toBeVisible();
+        await expect(page.getByRole('navigation', { name: 'Filter by domain' })).toBeVisible();
+        await expect(page.getByRole('navigation', { name: 'Filter by stack' })).toHaveCount(0);
         await expect(page.locator('#chapters')).toBeVisible();
         await expect(page.getByRole('link', { name: /earth observatory/i })).toBeVisible();
 
