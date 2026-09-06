@@ -1165,46 +1165,45 @@ a.series-chapters__card:hover .series-chapters__title,
     margin-block: 1.25em;
 }
 
-/* Metrics live in the screenshot footer — compact cells, not a second table. */
+/* Metrics live in the screenshot footer — a compact strip, not a stretched grid. */
 .case-study-facts {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem 1.15rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem 1.75rem;
     margin: 0;
-}
-
-@media (min-width: 380px) {
-    .case-study-facts {
-        grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
-    }
 }
 
 .case-study-facts__row {
     display: grid;
-    gap: 0.2rem;
-    min-width: 0;
+    gap: 0.28rem;
+    min-width: min(100%, 8.5rem);
+    max-width: 20rem;
 }
 
 .case-study-facts__label {
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.12em;
+    font-size: var(--text-caption);
+    letter-spacing: 0.08em;
+    line-height: 1.35;
     text-transform: uppercase;
     color: var(--muted-2);
 }
 
 .case-study-facts__value {
     margin: 0;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 600;
-    line-height: 1.35;
+    line-height: 1.3;
+    letter-spacing: 0.005em;
     color: var(--text);
     text-wrap: pretty;
 }
 
 .case-study-facts__value--stat {
-    font-size: 0.9375rem;
+    font-size: 1.05rem;
     letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
 }
 
 /* Case study — Outcome / Stack / Role skim panel */
@@ -1511,9 +1510,9 @@ a.series-chapters__card:hover .series-chapters__title,
 
 .case-study-media__footer {
     display: grid;
-    gap: 0.7rem;
-    padding: 0.7rem 0.85rem 0.85rem;
-    background: color-mix(in oklab, var(--bg) 88%, var(--panel));
+    gap: 0.75rem;
+    padding: 1rem 1.2rem;
+    background: color-mix(in oklab, var(--bg) 72%, var(--panel));
     border-top: 1px solid var(--border);
 }
 
@@ -1521,23 +1520,53 @@ a.series-chapters__card:hover .series-chapters__title,
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.3rem 0.65rem;
+    gap: 0.35rem 0.55rem;
+}
+
+.case-study-media__footer:has(.case-study-facts) {
+    gap: 0;
+}
+
+.case-study-media__footer:has(.case-study-facts) .case-study-media__caption {
+    padding-bottom: 0.7rem;
+    margin-bottom: 0.7rem;
+    border-bottom: 1px solid var(--border);
 }
 
 .case-study-media__label {
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.16em;
+    font-size: var(--text-caption);
+    letter-spacing: 0.12em;
+    line-height: 1.35;
     text-transform: uppercase;
     color: var(--accent);
+    font-weight: 500;
+}
+
+.case-study-media__sep {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: color-mix(in oklab, var(--muted-2) 70%, var(--accent));
+    letter-spacing: 0;
+    user-select: none;
 }
 
 .case-study-media__detail {
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
+    font-size: var(--text-caption);
+    letter-spacing: 0.06em;
+    line-height: 1.45;
     text-transform: uppercase;
     color: var(--muted-2);
+}
+
+.case-study-media__footer > p.case-study-media__detail {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: var(--muted);
 }
 
 .case-study-confidential {

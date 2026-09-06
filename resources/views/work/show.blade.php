@@ -202,6 +202,7 @@
                                 <div class="case-study-media__caption">
                                     <span class="case-study-media__label">Case study</span>
                                     @if(! empty($project['meta']))
+                                        <span class="case-study-media__sep" aria-hidden="true">·</span>
                                         <span class="case-study-media__detail">{{ $project['meta'] }}</span>
                                     @endif
                                 </div>
