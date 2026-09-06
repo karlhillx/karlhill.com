@@ -50,8 +50,8 @@ return [
             'meta' => 'Current',
         ],
         [
-            'label' => 'Case study — NASA Earth Observatory',
-            'path' => '/work/nasa-earth-observatory',
+            'label' => 'Case study — LAADS DAAC',
+            'path' => '/work/laads-daac',
             'meta' => 'Flagship',
         ],
         [

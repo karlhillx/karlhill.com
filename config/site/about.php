@@ -40,7 +40,7 @@ return [
         'eyebrow' => 'Worked with',
         'items' => [
             [
-                'quote' => 'NASA Earth science editorial and ops partners — Earth Observatory publishing at 1.5M+ monthly visitors, plus flood mapping under disaster urgency.',
+                'quote' => 'NASA Earth science ops partners — lead engineer on LAADS archive search and order, plus flood mapping under disaster urgency.',
                 'attribution' => 'SSAI / NASA Goddard',
             ],
             [

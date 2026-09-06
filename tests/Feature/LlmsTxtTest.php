@@ -28,6 +28,7 @@ it('llms txt returns a v2 file-list map', function () {
     $this->assertStringContainsString('## Series', $body);
     $this->assertStringContainsString('Engineering Manager craft', $body);
     $this->assertStringContainsString('/work/nasa-earth-observatory', $body);
+    $this->assertStringContainsString('/work/laads-daac', $body);
     $this->assertStringContainsString('/kit', $body);
     $this->assertStringContainsString('/blog/release-governance', $body);
     $this->assertStringContainsString('What 20 Years Taught Me About Release Governance', $body);

@@ -33,7 +33,26 @@ final class ProjectCatalog
      */
     public static function featured(int $limit = 3): Collection
     {
-        return self::all()->where('featured', true)->take($limit)->values();
+        return self::listed()->where('featured', true)->take($limit)->values();
+    }
+
+    /**
+     * Portfolio grid: the chapters that tell the trajectory. Unlisted studies
+     * stay routable (resume / sitemap) without crowding /work.
+     *
+     * @param  array<string, mixed>  $project
+     */
+    public static function isListed(array $project): bool
+    {
+        return ($project['listed'] ?? true) !== false;
+    }
+
+    /**
+     * @return Collection<int, array<string, mixed>>
+     */
+    public static function listed(): Collection
+    {
+        return self::all()->filter(fn (array $project) => self::isListed($project))->values();
     }
 
     /**
@@ -131,7 +150,7 @@ final class ProjectCatalog
      */
     public static function sectorCounts(): Collection
     {
-        return self::all()
+        return self::listed()
             ->pluck('sector')
             ->filter(fn ($sector) => is_string($sector) && $sector !== '')
             ->countBy()
@@ -157,7 +176,7 @@ final class ProjectCatalog
     public static function filteredByTagSlug(?string $slug): Collection
     {
         if (! is_string($slug) || $slug === '') {
-            return self::all();
+            return self::listed();
         }
 
         $tag = self::tagFromSlug($slug);
@@ -174,11 +193,19 @@ final class ProjectCatalog
     }
 
     /**
+     * @return Collection<int, array<string, mixed>>
+     */
+    public static function listedWithCaseStudies(): Collection
+    {
+        return self::listed()->filter(fn (array $project) => self::hasCaseStudy($project))->values();
+    }
+
+    /**
      * @return Collection<string, int>
      */
     public static function tagCounts(): Collection
     {
-        return self::all()
+        return self::listed()
             ->flatMap(fn (array $project) => $project['tags'] ?? [])
             ->countBy()
             ->sortKeys();
@@ -197,7 +224,7 @@ final class ProjectCatalog
      */
     public static function filteredByTag(?string $tag): Collection
     {
-        $projects = self::all();
+        $projects = self::listed();
 
         if (! is_string($tag) || $tag === '') {
             return $projects;
@@ -216,7 +243,7 @@ final class ProjectCatalog
      */
     public static function adjacent(string $slug): array
     {
-        $projects = self::withCaseStudies();
+        $projects = self::listedWithCaseStudies();
         $index = $projects->search(fn (array $project) => $project['slug'] === $slug);
 
         if ($index === false) {
@@ -236,7 +263,7 @@ final class ProjectCatalog
     {
         $tags = $project['tags'] ?? [];
 
-        return self::withCaseStudies()
+        return self::listedWithCaseStudies()
             ->reject(fn (array $candidate) => $candidate['slug'] === $project['slug'])
             ->sortByDesc(fn (array $candidate) => count(array_intersect($tags, $candidate['tags'] ?? [])))
             ->filter(fn (array $candidate) => count(array_intersect($tags, $candidate['tags'] ?? [])) > 0)
@@ -266,10 +293,12 @@ final class ProjectCatalog
         $image = $project['image'];
 
         if (str_starts_with($image, '/img/webp/')) {
-            $png = str_replace('/img/webp/', '/img/', $image);
-            $png = preg_replace('/\.webp$/i', '.png', $png);
-            if (is_file(public_path(ltrim($png, '/')))) {
-                return ltrim($png, '/');
+            $stem = preg_replace('/\.webp$/i', '', str_replace('/img/webp/', '/img/', $image)) ?? $image;
+            foreach (['.png', '.jpg', '.jpeg'] as $ext) {
+                $candidate = $stem.$ext;
+                if (is_file(public_path(ltrim($candidate, '/')))) {
+                    return ltrim($candidate, '/');
+                }
             }
         }
 

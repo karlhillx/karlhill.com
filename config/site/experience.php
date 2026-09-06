@@ -34,12 +34,12 @@ return [
             'company' => 'SSAI / NASA Goddard Space Flight Center',
             'location' => 'Greenbelt, MD',
             'period' => 'Dec 2017 — Sept 2025',
-            'summary' => 'Earth science platforms at operational scale — flood mapping, Earth Observatory, and scientific data systems.',
+            'summary' => 'Earth science platforms at operational scale — LAADS DAAC, flood mapping, and scientific data systems.',
             'highlights' => [
                 'Architected NASA\'s cloud-based Flood Mapping System on AWS, delivering near real-time, satellite-derived flood products to support disaster response. <a href="/work/flood-mapping-system" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
+                'Modernized NASA LAADS DAAC as Lead Software Engineer — Find Data search and order, the archive portal, and LANCE near-real-time access — and moved delivery onto GitLab CI/CD and Kubernetes. <a href="/work/laads-daac" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
                 'Rebuilt NASA Earth Observatory\'s high-traffic web platform, supporting ~1.5M monthly visitors while improving performance, UX, and SEO. <a href="/work/nasa-earth-observatory" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
                 'Delivered an automated content registry workflow, boosting data collection efficiency by ~60% and accelerating researcher access to new datasets. <a href="/work/esscor" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
-                'Implemented Kubernetes delivery with GitLab CI/CD, Docker, and Helm — automated deployments, repeatable releases, and a consistent path through stakeholder approvals.',
                 'Built a high-performance file and metadata platform on Ceph, improving virtual directory mapping and accelerating discovery for large scientific datasets. <a href="/work/direct-readout-laboratory" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Case study</a>',
             ],
             'skills' => [

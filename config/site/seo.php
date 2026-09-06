@@ -13,8 +13,8 @@ return [
     ],
     'work' => [
         'title' => 'Work — Karl Hill · Jacobs National Security & NASA',
-        'description' => 'Current: government aerospace and defense mission software at Jacobs. Public case studies: NASA Earth science, flood mapping, clinical genomics, and enterprise security.',
-        'og_description' => 'Jacobs National Security mission software, NASA Earth science platforms, and earlier work in healthcare and enterprise security.',
+        'description' => 'Selected work: aerospace mission software at Jacobs, NASA flood mapping, LAADS DAAC, and Finium — the multi-tenant platform that scaled 10×.',
+        'og_description' => 'Jacobs mission software, NASA flood mapping and LAADS, and the Finium platform that enabled a $105M acquisition.',
     ],
     'about' => [
         'title' => 'About — Karl Hill · Aerospace & mission software leadership',

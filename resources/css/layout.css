@@ -100,7 +100,11 @@ main > section:nth-of-type(n + 3):not([id]) {
     }
 
     .site-article {
-        padding-block: 7rem var(--space-section-soft);
+        padding-block: 6.25rem var(--space-section-soft);
+    }
+
+    .case-study-page {
+        padding-block: 5.75rem var(--space-section-soft);
     }
 
     .site-page-hero h1 {

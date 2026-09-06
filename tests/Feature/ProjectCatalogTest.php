@@ -8,6 +8,37 @@ it('jacobs mission software is always first', function () {
     $this->assertSame('jacobs-mission-software', ProjectCatalog::filteredByTag('AWS')->first()['slug']);
     $this->assertSame('flood-mapping-system', ProjectCatalog::all()[1]['slug']);
     $this->assertSame('flood-mapping-system', ProjectCatalog::featured()[1]['slug']);
+    $this->assertSame('laads-daac', ProjectCatalog::featured()[2]['slug']);
+});
+
+it('portfolio lists trajectory chapters and keeps supporting studies routable', function () {
+    $listed = ProjectCatalog::listed()->pluck('slug')->all();
+
+    expect($listed)->toBe([
+        'jacobs-mission-software',
+        'flood-mapping-system',
+        'laads-daac',
+        'finium',
+    ]);
+
+    $this->get('/work')
+        ->assertOk()
+        ->assertSee('jacobs-mission-software', escape: false)
+        ->assertSee('flood-mapping-system', escape: false)
+        ->assertSee('laads-daac', escape: false)
+        ->assertSee('finium', escape: false)
+        ->assertSee('$105M', escape: false)
+        ->assertDontSee('esscor', escape: false)
+        ->assertDontSee('direct-readout-laboratory', escape: false)
+        ->assertDontSee('informeddna-platform', escape: false)
+        ->assertDontSee('nasa-earth-observatory', escape: false);
+
+    $this->get('/work/esscor')->assertOk();
+    $this->get('/work/direct-readout-laboratory')->assertOk();
+    $this->get('/work/informeddna-platform')->assertOk();
+    $this->get('/work/nasa-earth-observatory')->assertOk();
+    $this->get('/work/tag/healthcare')->assertNotFound();
+    $this->get('/work/tag/laravel')->assertNotFound();
 });
 
 it('featured projects have case studies', function () {
@@ -38,7 +69,7 @@ it('adjacent case studies', function () {
 });
 
 it('related projects share tags', function () {
-    $project = ProjectCatalog::find('nasa-earth-observatory');
+    $project = ProjectCatalog::find('flood-mapping-system');
     $related = ProjectCatalog::related($project);
 
     $this->assertGreaterThan(0, $related->count());
@@ -49,9 +80,9 @@ it('related projects share tags', function () {
 });
 
 it('tag slug round trip', function () {
-    $slug = ProjectCatalog::tagSlug('RESTful APIs');
-    $this->assertSame('restful-apis', $slug);
-    $this->assertSame('RESTful APIs', ProjectCatalog::tagFromSlug($slug));
+    $slug = ProjectCatalog::tagSlug('NASA Earth Science');
+    $this->assertSame('nasa-earth-science', $slug);
+    $this->assertSame('NASA Earth Science', ProjectCatalog::tagFromSlug($slug));
 });
 
 it('tag counts match project membership', function () {

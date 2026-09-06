@@ -49,7 +49,7 @@ test.describe('smoke + a11y', () => {
         await expect(page.locator('.site-toolbar--sticky')).toBeVisible();
         await expect(page.locator('.tag-filter--scroll')).toBeVisible();
 
-        await page.goto('/work/nasa-earth-observatory');
+        await page.goto('/work/laads-daac');
         await expect(page.locator('[data-lightbox-open]').first()).toBeVisible();
         await page.locator('[data-lightbox-open]').first().click();
         await expect(page.locator('[data-media-lightbox]')).toBeVisible();

@@ -45,7 +45,7 @@ class SpeculationRules
      */
     public static function forWorkIndex(): array
     {
-        $caseStudies = ProjectCatalog::withCaseStudies()
+        $caseStudies = ProjectCatalog::listedWithCaseStudies()
             ->take(3)
             ->map(fn (array $project) => '/work/'.$project['slug']);
 

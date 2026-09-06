@@ -22,7 +22,7 @@ class WorkController extends Controller
 
         return $this->renderIndex(
             meta: PageMeta::work(),
-            projects: ProjectCatalog::all(),
+            projects: ProjectCatalog::listed(),
             activeTag: null,
         );
     }

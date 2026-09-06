@@ -46,17 +46,41 @@ return [
         ],
     ],
     [
+        'slug' => 'laads-daac',
+        'title' => 'LAADS DAAC',
+        'meta' => 'NASA · 2017–2025',
+        'sector' => 'NASA Earth Science',
+        'description' => 'NASA’s Level-1 and Atmosphere archive: modernized Find Data search and order, the public LAADS portal, and LANCE near-real-time access for MODIS and VIIRS holdings. GitLab CI/CD, Kubernetes, and Perl services that had to keep distributing while the web systems changed.',
+        'image' => '/img/webp/ss-ladsweb.webp',
+        'image_alt' => 'NASA LAADS Find Data — product, time, location, files, and review-and-order wizard for MODIS and VIIRS granules.',
+        'imagePosition' => 'object-left-top',
+        'url' => 'https://ladsweb.modaps.eosdis.nasa.gov/search/',
+        'featured' => true,
+        'tags' => [
+            'Perl',
+            'Kubernetes',
+            'GitLab CI',
+        ],
+        'logo' => [
+            'path' => '/img/logo-nasa.svg',
+            'filter' => null,
+            'class' => 'h-8',
+        ],
+    ],
+    [
         'slug' => 'nasa-earth-observatory',
         'title' => 'NASA Earth Observatory',
         'meta' => 'NASA · 2017–2025',
         'sector' => 'NASA Earth Science',
         'description' => 'Flagship science-communication platform serving 1.5M+ monthly visitors with satellite imagery and Earth science data. Led the architectural overhaul of the publishing pipeline — re-platforming editorial workflows for distributed content teams and hardening the delivery layer for accessibility, performance, and search at scale. Set the technical direction that turned ad-hoc story production into a repeatable, self-service system built to evolve for the next decade.',
         'image' => '/img/webp/ss-earth-observatory.webp',
-        'url' => 'https://earthobservatory.nasa.gov',
-        'featured' => true,
+        'url' => '/work/nasa-earth-observatory',
+        'featured' => false,
+        // Editorial publishing chapter — public site is retired; keep the page for resume links.
+        'listed' => false,
         'tags' => [
             'Laravel',
-            'AWS',
+            'MySQL',
         ],
         'logo' => [
             'path' => '/img/logo-nasa.svg',
@@ -73,6 +97,8 @@ return [
         'image' => '/img/webp/ss-direct-readout2.webp',
         'url' => 'https://directreadout.sci.gsfc.nasa.gov',
         'featured' => false,
+        // Supporting NASA infrastructure — same ingest/ops story as Flood Mapping.
+        'listed' => false,
         'tags' => [
             'PHP',
             'Linux',
@@ -92,6 +118,8 @@ return [
         'description' => 'Earth science data-discovery platform unifying archival and near-real-time remote-sensing holdings into a single searchable, standards-compliant catalog. Designed granule-level access controls and a governed metadata model that streamlined discovery, ordering, and delivery for researchers across federal agencies and partner institutions.',
         'image' => '/img/webp/ss-esccor.webp',
         'url' => '/work/esscor',
+        // Supporting NASA catalog work — keep the page for resume links.
+        'listed' => false,
         'tags' => [
             'PHP',
             'MySQL',
@@ -111,6 +139,8 @@ return [
         'description' => 'Clinical-genomics workflow platform orchestrating case management, genetic-counseling routing, and billing reconciliation across distributed care teams. Consolidated fragmented, manual operations into a single governed system — role-based access, end-to-end audit trails, and automated documentation pipelines — cutting per-case operational overhead by $30K annually.',
         'image' => '/img/webp/ss-informeddna.webp',
         'url' => 'https://idnaportal.com/',
+        // One-year healthcare chapter — real work, off the aerospace trajectory.
+        'listed' => false,
         'tags' => [
             'Laravel',
             'MySQL',

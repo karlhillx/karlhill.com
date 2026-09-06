@@ -22,7 +22,7 @@
         <x-slot:title>Selected Work</x-slot:title>
 
         <p class="text-neutral-400 text-base leading-relaxed max-w-2xl">
-            Current work is aerospace mission software at Jacobs. Public case studies cover NASA Earth science, disaster response, and earlier healthcare and enterprise security.
+            One pattern: take operational work that depends on heroes and turn it into a platform. Jacobs is the current chapter. NASA is the public proof — flood products under disaster timelines, and LAADS Find Data for the MODIS/VIIRS archive. Finium is where it started: a multi-tenant security platform that scaled 10× and enabled a $105M acquisition.
         </p>
     </x-site.page-hero>
 

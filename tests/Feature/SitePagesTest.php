@@ -12,7 +12,7 @@ it('work page renders projects and open source', function () {
 
     $response->assertStatus(200);
     $response->assertSee('Selected Work', escape: false);
-    $response->assertSee('NASA Earth Observatory', escape: false);
+    $response->assertSee('LAADS DAAC', escape: false);
     $response->assertSee('jacobs-mission-software', escape: false);
     $response->assertSee('id="open-source"', escape: false);
     $response->assertSee('scroll-progress', escape: false);
@@ -77,12 +77,12 @@ it('homepage is a focused landing page', function () {
 it('work cards link to case studies and live projects', function () {
     $response = $this->get('/work');
 
-    $response->assertSee('nasa-earth-observatory', escape: false);
+    $response->assertSee('laads-daac', escape: false);
     $response->assertSee('Read case study', escape: false);
 });
 
 it('work index shows sticky filter chrome and project count', function () {
-    $count = ProjectCatalog::all()->count();
+    $count = ProjectCatalog::listed()->count();
 
     $this->get('/work')
         ->assertOk()
@@ -91,17 +91,17 @@ it('work index shows sticky filter chrome and project count', function () {
         ->assertSee((string) $count, escape: false)
         ->assertDontSee('Clear filter', escape: false);
 
-    $this->get('/work/tag/laravel')
+    $this->get('/work/tag/kubernetes')
         ->assertOk()
         ->assertSee('Clear filter', escape: false)
-        ->assertSee('Laravel', escape: false);
+        ->assertSee('Kubernetes', escape: false);
 });
 
 it('case study pages expose skim path, toc, and lightbox', function () {
-    $caseStudy = $this->get('/work/nasa-earth-observatory');
+    $caseStudy = $this->get('/work/laads-daac');
     $caseStudy->assertStatus(200);
     $caseStudy->assertSee('Visit live project', escape: false);
-    $caseStudy->assertSee('https://earthobservatory.nasa.gov', escape: false);
+    $caseStudy->assertSee('https://ladsweb.modaps.eosdis.nasa.gov/search/', escape: false);
     $caseStudy->assertSee('case-study-media', escape: false);
     $caseStudy->assertSee('Case study', escape: false);
     $caseStudy->assertSee('case-study-glance', escape: false);
@@ -115,8 +115,16 @@ it('case study pages expose skim path, toc, and lightbox', function () {
     $caseStudy->assertSee('>Role</h2>', escape: false);
     $caseStudy->assertSee('id="decisions"', escape: false);
     $caseStudy->assertSee('>Decisions</h2>', escape: false);
-    $caseStudy->assertSee('1.5M+', escape: false);
-    $caseStudy->assertSee('Self-serve', escape: false);
+    $caseStudy->assertSee('Find Data', escape: false);
+    $caseStudy->assertSee('Lead Software Engineer', escape: false);
+});
+
+it('unlisted earth observatory study stays routable without a live site', function () {
+    $this->get('/work/nasa-earth-observatory')
+        ->assertOk()
+        ->assertSee('1.5M+', escape: false)
+        ->assertSee('Self-serve', escape: false)
+        ->assertDontSee('Visit live project', escape: false);
 });
 
 it('flagship flood mapping case study centers decisions and latency', function () {
@@ -128,11 +136,22 @@ it('flagship flood mapping case study centers decisions and latency', function (
         ->assertSee('remove humans from the latency path', escape: false);
 });
 
+it('laads daac case study centers find data and delivery', function () {
+    $this->get('/work/laads-daac')
+        ->assertOk()
+        ->assertSee('Find Data', escape: false)
+        ->assertSee('https://ladsweb.modaps.eosdis.nasa.gov/search/', escape: false)
+        ->assertSee('https://nrt3.modaps.eosdis.nasa.gov/', escape: false)
+        ->assertSee('Kubernetes', escape: false)
+        ->assertSee('GitLab', escape: false);
+});
+
 it('case study pages are in sitemap', function () {
     $response = $this->get('/sitemap.xml');
 
     $response->assertSee('/work/nasa-earth-observatory', escape: false);
     $response->assertSee('/work/flood-mapping-system', escape: false);
+    $response->assertSee('/work/laads-daac', escape: false);
 });
 
 it('sitemap includes work and about pages', function () {
@@ -153,33 +172,34 @@ it('nav links to primary pages', function () {
 });
 
 it('work tag route filters projects', function () {
-    $response = $this->get('/work/tag/laravel');
+    $response = $this->get('/work/tag/kubernetes');
 
     $response->assertStatus(200);
-    $response->assertSee('NASA Earth Observatory', escape: false);
-    $response->assertSee('/work/tag/laravel', escape: false);
+    $response->assertSee('LAADS DAAC', escape: false);
+    $response->assertSee('/work/tag/kubernetes', escape: false);
 });
 
 it('single-metric case studies do not leave an empty grid cell', function () {
-    // InformedDNA has exactly one numeric metric ($30K) — it must render as a
-    // single stat cell, never a two-column grid with an empty half.
+    // InformedDNA has exactly one metric ($30K) — the framed footer must not
+    // invent a second facts cell to fill a grid.
     $html = $this->get('/work/informeddna-platform')->assertOk()->getContent();
 
     expect($html)
-        ->toContain('grid-cols-1')
-        ->not->toContain('grid grid-cols-2');
+        ->toContain('data-final="$30K"')
+        ->and(substr_count($html, 'case-study-facts__row'))->toBe(1);
 });
 
 it('qualitative metrics render as a facts strip instead of fake big-number stats', function () {
     // Jacobs publishes only qualitative evidence — no digits anywhere, so the
-    // values belong in the key/value strip and no stat grid should be emitted.
+    // values belong in the image footer and no counter animation should fire.
     $jacobs = $this->get('/work/jacobs-mission-software')->assertOk()->getContent();
 
     expect($jacobs)
         ->toContain('case-study-facts')
+        ->toContain('case-study-media__footer')
         ->not->toContain('data-counter');
 
-    // Mixed case studies split: numeric values stay stats, prose values move to facts.
+    // Mixed case studies: numeric values keep a counter, prose values sit beside them in the footer.
     $eo = $this->get('/work/nasa-earth-observatory')->assertOk()->getContent();
 
     expect($eo)
@@ -222,7 +242,7 @@ it('now page renders focus and em intent', function () {
     $response->assertStatus(200);
     $response->assertSee('Engineering Manager', escape: false);
     $response->assertSee('Jacobs National Security', escape: false);
-    $response->assertSee('August 29, 2026', escape: false);
+    $response->assertSee('September 6, 2026', escape: false);
     $response->assertSee('href="/about#how-i-lead"', escape: false);
     $response->assertSee('Hiring', escape: false);
     $response->assertSee('The kit is the packet', escape: false);
@@ -416,7 +436,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('download="Karl-Hill-Resume.pdf"', escape: false);
     $response->assertSee('/now#book', escape: false);
     $response->assertSee('/work/jacobs-mission-software', escape: false);
-    $response->assertSee('/work/nasa-earth-observatory', escape: false);
+    $response->assertSee('/work/laads-daac', escape: false);
     $response->assertSee('/work/flood-mapping-system', escape: false);
     $response->assertSee(config('site.person.email'), escape: false);
     $response->assertSee('kit-doc', escape: false);
@@ -430,7 +450,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
 it('now page shows a fresh updated date and kit link', function () {
     $this->get('/now')
         ->assertOk()
-        ->assertSee('Updated August 29, 2026', escape: false)
+        ->assertSee('Updated September 6, 2026', escape: false)
         ->assertSee('href="/kit"', escape: false)
         ->assertSee('Recruiter kit', escape: false);
 });

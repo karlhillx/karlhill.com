@@ -27,7 +27,7 @@ it('tags case study cards with the project slug', function () {
     $work = $this->get('/work')->assertOk()->getContent();
 
     expect($work)->toContain('data-analytics-event="case_study_opened"')
-        ->and($work)->toContain('data-analytics-project="nasa-earth-observatory"');
+        ->and($work)->toContain('data-analytics-project="laads-daac"');
 });
 
 it('tags recruiter kit links with placement and target', function () {
