@@ -68,7 +68,7 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('page-spotlight', escape: false);
     $response->assertSee('magnetic-btn', escape: false);
     $response->assertSee('data-idle-cta', escape: false);
-    $response->assertSee('data-features="contact pointer', escape: false);
+    $response->assertSee('data-features="pointer contact', escape: false);
     $response->assertSee('id="contact-form"', escape: false);
     $response->assertDontSee('id="experience"', escape: false);
     $response->assertDontSee('id="open-source"', escape: false);
@@ -171,13 +171,12 @@ it('single-metric case studies do not leave an empty grid cell', function () {
 });
 
 it('qualitative metrics render as a facts strip instead of fake big-number stats', function () {
-    // ESSCOR's only "metric" is the word "Granule" — no digits, so it belongs
-    // in the key/value strip, and no stat grid should be emitted at all.
-    $html = $this->get('/work/esscor')->assertOk()->getContent();
+    // Jacobs publishes only qualitative evidence — no digits anywhere, so the
+    // values belong in the key/value strip and no stat grid should be emitted.
+    $jacobs = $this->get('/work/jacobs-mission-software')->assertOk()->getContent();
 
-    expect($html)
+    expect($jacobs)
         ->toContain('case-study-facts')
-        ->toContain('Granule')
         ->not->toContain('data-counter');
 
     // Mixed case studies split: numeric values stay stats, prose values move to facts.
@@ -186,6 +185,13 @@ it('qualitative metrics render as a facts strip instead of fake big-number stats
     expect($eo)
         ->toContain('data-final="1.5M+"')
         ->toContain('case-study-facts__value">Self-serve');
+
+    // ESSCOR: "~60%" is a stat, the word "Granule" is a fact.
+    $esscor = $this->get('/work/esscor')->assertOk()->getContent();
+
+    expect($esscor)
+        ->toContain('data-final="~60%"')
+        ->toContain('case-study-facts__value">Granule');
 });
 
 it('case study includes navigation and structured data', function () {
@@ -313,12 +319,15 @@ it('service worker and offline page are available', function () {
     $this->assertFileExists(public_path('sw.js'));
     $this->assertFileExists(public_path('offline.html'));
     $this->assertStringContainsString("You're offline", (string) file_get_contents(public_path('offline.html')));
-    $this->assertStringContainsString('karlhill-offline-v8', (string) file_get_contents(public_path('sw.js')));
-    $this->assertStringContainsString("'/now'", (string) file_get_contents(public_path('sw.js')));
-    $this->assertStringContainsString("'/about'", (string) file_get_contents(public_path('sw.js')));
-    $this->assertStringContainsString("'/work'", (string) file_get_contents(public_path('sw.js')));
-    $this->assertStringContainsString("'/resume'", (string) file_get_contents(public_path('sw.js')));
-    $this->assertStringContainsString("'/kit'", (string) file_get_contents(public_path('sw.js')));
+    $sw = (string) file_get_contents(public_path('sw.js'));
+    $this->assertStringContainsString('karlhill-offline-v9', $sw);
+    // Readable pages are cached on visit, not precached on install.
+    $this->assertStringContainsString("const PRECACHE = ['/offline.html', '/site.webmanifest'];", $sw);
+    $this->assertStringContainsString("'/now'", $sw);
+    $this->assertStringContainsString("'/about'", $sw);
+    $this->assertStringContainsString("'/work'", $sw);
+    $this->assertStringContainsString("'/resume'", $sw);
+    $this->assertStringContainsString("'/kit'", $sw);
 });
 
 it('footer includes site explore links', function () {
@@ -438,8 +447,26 @@ it('footer hides resume and kit self-links', function () {
 });
 
 it('loads pointer effects on hire and interior pages', function () {
-    $this->get('/')->assertSee('data-features="contact pointer', escape: false);
-    $this->get('/now')->assertSee('data-features="contact pointer', escape: false);
-    $this->get('/work')->assertSee('data-features="contact pointer', escape: false);
-    $this->get('/about')->assertSee('data-features="contact pointer', escape: false);
+    $this->get('/')->assertSee('data-features="pointer contact', escape: false);
+    $this->get('/now')->assertSee('data-features="pointer', escape: false);
+    $this->get('/work')->assertSee('data-features="pointer', escape: false);
+    $this->get('/about')->assertSee('data-features="pointer', escape: false);
+});
+
+it('only flags the contact chunk where the form renders', function () {
+    $this->get('/')->assertSee('data-contact-form', escape: false);
+
+    foreach (['/now', '/work', '/about', '/resume', '/kit', '/blog'] as $path) {
+        $html = $this->get($path)->assertOk()->getContent();
+        expect($html)->not->toContain('data-contact-form')
+            ->and($html)->not->toMatch('/data-features="[^"]*\bcontact\b/');
+    }
+});
+
+it('only flags the push chunk when a vapid key is configured', function () {
+    config(['site.push.public_key' => null]);
+    expect($this->get('/blog')->getContent())->not->toMatch('/data-features="[^"]*\bpush\b/');
+
+    config(['site.push.public_key' => 'BExampleKey']);
+    expect($this->get('/blog')->getContent())->toMatch('/data-features="[^"]*\bpush\b/');
 });

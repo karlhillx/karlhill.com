@@ -62,6 +62,8 @@
             {{-- Mobile: the primary hire CTA stays one tap away instead of buried in the menu. --}}
             @if(filled($bookingUrl))
                 <a href="/now#book"
+                   data-analytics-event="booking_cta_clicked"
+                   data-analytics-location="nav-mobile"
                    class="btn-accent-fill md:hidden inline-flex items-center min-h-11 font-mono text-caption px-3.5 uppercase tracking-widest shrink-0"
                    aria-label="{{ $bookingLabel }}">
                     Book

@@ -8,10 +8,10 @@ let turnstileLoader = null;
 /**
  * Progressive enhancement: fetch submit keeps the visitor on-page with
  * inline success / field errors. Non-JS still posts and redirects.
+ * Copy-to-clipboard buttons live in copy-text.js (core) since the footer
+ * email button is on every page while the form is not.
  */
 export function initContactForms() {
-    initCopyText();
-
     document.querySelectorAll('[data-contact-form], .js-contact-form').forEach((contactForm) => {
         if (!(contactForm instanceof HTMLFormElement)) return;
 
@@ -50,6 +50,9 @@ export function initContactForms() {
         };
 
         if (contactForm.hasAttribute('data-contact-complete')) {
+            // Non-JS submit: the server redirected back with a one-shot flash,
+            // so this render is the only chance to record the conversion.
+            trackEvent('contact_form_submitted', { method: 'redirect' });
             return;
         }
 
@@ -115,7 +118,7 @@ export function initContactForms() {
                     if (fieldsEl) fieldsEl.hidden = true;
                     renderSuccess(statusEl, msg, data);
                     showToast(msg, 'success');
-                    trackEvent('contact_form_submitted');
+                    trackEvent('contact_form_submitted', { method: 'fetch' });
                     statusEl.focus?.();
                 })
                 .catch(() => {
@@ -274,29 +277,5 @@ function applyFieldErrors(form, errors) {
         p.className = 'mt-1 font-mono text-caption text-red-400';
         p.textContent = msg;
         input.insertAdjacentElement('afterend', p);
-    });
-}
-
-function initCopyText() {
-    document.querySelectorAll('[data-copy-text]').forEach((btn) => {
-        btn.addEventListener('click', async (e) => {
-            e.preventDefault();
-            const text = btn.getAttribute('data-copy-text');
-            if (!text) return;
-            const feedback =
-                btn.parentElement?.querySelector('[data-copy-feedback]') ??
-                document.querySelector('[data-copy-feedback]');
-            try {
-                await navigator.clipboard.writeText(text);
-                if (!feedback) return;
-                feedback.style.opacity = '1';
-                clearTimeout(feedback._t);
-                feedback._t = setTimeout(() => {
-                    feedback.style.opacity = '0';
-                }, 1800);
-            } catch {
-                window.prompt('Copy', text);
-            }
-        });
     });
 }

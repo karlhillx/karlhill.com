@@ -201,7 +201,7 @@ export function initCommandPalette() {
             action: () => gotoSection('contact'),
         }),
         withGroup({
-            label: 'RSS Feed',
+            label: 'Atom Feed',
             keywords: 'rss atom feed subscribe',
             action: () => window.open('/feed.xml', '_blank', 'noopener,noreferrer'),
         }),
@@ -254,11 +254,17 @@ export function initCommandPalette() {
         ];
     };
 
-    const hydrateIndex = loadCommandIndex().then(applyIndex);
+    // Fetch /api/commands.json lazily: on first open, or once the page is
+    // idle — never on the critical path of every page load.
+    let hydrateIndex = null;
+    const ensureIndex = () => {
+        hydrateIndex ??= loadCommandIndex().then(applyIndex);
+        return hydrateIndex;
+    };
     if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-            hydrateIndex.catch(() => {});
-        });
+        requestIdleCallback(() => ensureIndex(), { timeout: 8000 });
+    } else {
+        setTimeout(ensureIndex, 4000);
     }
 
     let activeCommandIndex = 0;
@@ -325,7 +331,7 @@ export function initCommandPalette() {
             document.body.style.overflow = 'hidden';
             commandInput.value = '';
             activeCommandIndex = 0;
-            hydrateIndex.then(() => renderCommands(''));
+            ensureIndex().then(() => renderCommands(''));
             renderCommands('');
             setTimeout(() => commandInput.focus(), 0);
         } else {

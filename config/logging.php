@@ -55,7 +55,9 @@ return [
         'stack' => [
             'driver' => 'stack',
             'channels' => explode(',', (string) env('LOG_STACK', 'single')),
-            'ignore_exceptions' => false,
+            // A dead webhook (slack/discord) must never turn a logged error
+            // into a failed request.
+            'ignore_exceptions' => true,
         ],
 
         'single' => [
@@ -73,12 +75,16 @@ return [
             'replace_placeholders' => true,
         ],
 
+        // Error sink: add "slack" to LOG_STACK in production and set the webhook.
+        // Discord works too — append "/slack" to a Discord webhook URL.
+        // Uses its own level so LOG_LEVEL=debug on the file log does not
+        // flood the channel.
         'slack' => [
             'driver' => 'slack',
             'url' => env('LOG_SLACK_WEBHOOK_URL'),
             'username' => env('LOG_SLACK_USERNAME', env('APP_NAME', 'Laravel')),
             'emoji' => env('LOG_SLACK_EMOJI', ':boom:'),
-            'level' => env('LOG_LEVEL', 'critical'),
+            'level' => env('LOG_SLACK_LEVEL', 'error'),
             'replace_placeholders' => true,
         ],
 

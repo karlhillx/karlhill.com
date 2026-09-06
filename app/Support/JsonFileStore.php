@@ -26,6 +26,32 @@ final class JsonFileStore
     }
 
     /**
+     * Read-modify-write under an exclusive lock so two concurrent requests
+     * (e.g. a burst of CSP reports) cannot drop each other's entries.
+     *
+     * @param  callable(array<string, mixed>): array<string, mixed>  $mutate
+     */
+    public static function update(string $path, callable $mutate): void
+    {
+        File::ensureDirectoryExists(dirname($path));
+
+        $lock = fopen($path.'.lock', 'c');
+        if ($lock === false) {
+            self::write($path, $mutate(self::read($path)));
+
+            return;
+        }
+
+        try {
+            flock($lock, LOCK_EX);
+            self::write($path, $mutate(self::read($path)));
+        } finally {
+            flock($lock, LOCK_UN);
+            fclose($lock);
+        }
+    }
+
+    /**
      * @param  array<string, mixed>  $data
      */
     public static function write(string $path, array $data): void

@@ -37,7 +37,10 @@ test.describe('smoke + a11y', () => {
     test('now booking embed anchors and iframe', async ({ page }) => {
         await page.goto('/now#book');
         await expect(page.locator('#book')).toBeVisible();
-        await expect(page.locator('.booking-embed__frame')).toHaveAttribute('src', /calendly|cal\.com/);
+        await expect(page.locator('.booking-embed__frame')).toHaveAttribute(
+            'src',
+            /calendly|cal\.com/
+        );
         await assertA11y(page, { exclude: ['.booking-embed'] });
     });
 
@@ -60,6 +63,41 @@ test.describe('smoke + a11y', () => {
         await expect(page.locator('[aria-invalid="true"]').first()).toBeVisible();
         await expect(page.locator('#a11y-name-error')).toBeVisible();
         await assertA11y(page);
+    });
+
+    test('conversion events reach the analytics provider with placement props', async ({
+        page,
+    }) => {
+        // Keep the real provider script out so our stub is what receives events.
+        await page.route(/plausible\.io|googletagmanager\.com/, (route) => route.abort());
+        await page.addInitScript(() => {
+            window.__events = [];
+            window.plausible = (name, options) => window.__events.push({ name, options });
+        });
+        await page.goto('/about');
+
+        // Stop the CTA from navigating so we can inspect the event it fired.
+        await page.evaluate(() => {
+            document.addEventListener('click', (e) => e.preventDefault(), { capture: true });
+        });
+        await page.locator('footer [data-analytics-event="booking_cta_clicked"]').first().click();
+
+        const events = await page.evaluate(() => window.__events);
+        expect(events).toContainEqual({
+            name: 'booking_cta_clicked',
+            options: { props: { page: '/about', location: 'footer' } },
+        });
+
+        await page.goto('/now');
+        const scheduled = await page.evaluate(() => {
+            window.__events = [];
+            window.postMessage({ event: 'calendly.event_scheduled' }, window.location.origin);
+            return new Promise((resolve) =>
+                setTimeout(() => resolve(window.__events.map((e) => e.name)), 50)
+            );
+        });
+        // Same-origin messages must NOT count as a booking — only Calendly's origin does.
+        expect(scheduled).not.toContain('booking_completed');
     });
 
     test('recruiter kit one-pager', async ({ page }) => {

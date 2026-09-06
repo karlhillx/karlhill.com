@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'updated' => 'August 29, 2026',
+    'updated' => 'September 6, 2026',
     // /now owns current focus. Recruiter path is a short strip — the ask lives in person.availability.
     'lede' => 'Leading aerospace mission software delivery at Jacobs National Security while practicing the engineering leadership craft. Technical leadership across two paths: Engineering Manager or Staff/Principal roles centered on platform delivery, engineering standards, and high-assurance execution.',
     'recruiters' => [

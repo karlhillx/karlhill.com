@@ -1,7 +1,9 @@
 <?php
 
 use App\Support\CompressionDictionary;
+use App\Support\ReportingStore;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 
 it('sends reporting integrity and nel headers', function () {
     $response = $this->get('/');
@@ -25,6 +27,61 @@ it('accepts reporting api posts', function () {
     ])->assertNoContent();
 
     expect(is_file($path))->toBeTrue();
+});
+
+it('forwards browser reports to the log so they reach the alert sink', function () {
+    Log::spy();
+
+    $this->postJson('/report', [
+        ['type' => 'csp-violation', 'url' => 'https://karlhill.com/'],
+        ['type' => 'network-error', 'body' => ['phase' => 'dns']],
+    ])->assertNoContent();
+
+    Log::shouldHaveReceived('log')
+        ->once()
+        ->withArgs(function (string $level, string $message, array $context): bool {
+            return $level === 'warning'
+                && str_contains($message, 'csp-violation')
+                && str_contains($message, 'network-error')
+                && ($context['count'] ?? null) === 2;
+        });
+});
+
+it('does not log browser reports when the reporting log level is none', function () {
+    config(['site.reporting_log_level' => 'none']);
+    Log::spy();
+
+    $this->postJson('/report', [['type' => 'csp-violation']])->assertNoContent();
+
+    Log::shouldNotHaveReceived('log');
+});
+
+it('drops browser reports when the reporting surface is off', function () {
+    config(['site.features.reporting' => false]);
+    $path = storage_path('app/reports/latest.json');
+    if (is_file($path)) {
+        unlink($path);
+    }
+
+    $this->postJson('/report', [['type' => 'csp-violation']])->assertNoContent();
+
+    expect(is_file($path))->toBeFalse();
+});
+
+it('keeps only the latest fifty browser reports', function () {
+    $path = storage_path('app/reports/latest.json');
+    if (is_file($path)) {
+        unlink($path);
+    }
+
+    for ($i = 1; $i <= 55; $i++) {
+        ReportingStore::record(['type' => 'csp-violation', 'n' => $i]);
+    }
+
+    $stored = json_decode((string) file_get_contents($path), true);
+    expect($stored['reports'])->toHaveCount(50)
+        ->and($stored['reports'][0]['report']['n'])->toBe(6)
+        ->and($stored['reports'][49]['report']['n'])->toBe(55);
 });
 
 it('serves a compression dictionary with use-as-dictionary', function () {

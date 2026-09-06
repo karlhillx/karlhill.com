@@ -1,6 +1,8 @@
 /* Offline reading for karlhill.com — network-first HTML, cache-first static. */
-const CACHE = 'karlhill-offline-v8';
-const PRECACHE = ['/', '/blog', '/now', '/about', '/work', '/resume', '/kit', '/offline.html', '/site.webmanifest'];
+const CACHE = 'karlhill-offline-v9';
+// Only the offline shell is precached; readable pages (see isReadablePage)
+// are cached as they are visited, so a one-page visit costs one page.
+const PRECACHE = ['/offline.html', '/site.webmanifest'];
 
 self.addEventListener('install', (event) => {
     event.waitUntil(

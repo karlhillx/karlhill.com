@@ -23,7 +23,7 @@
         <ol class="flex flex-wrap items-center gap-2 font-mono text-caption text-neutral-500 uppercase tracking-widest">
             @foreach($items as $index => $item)
                 @if($index > 0)
-                    <li aria-hidden="true" class="text-neutral-700">/</li>
+                    <li aria-hidden="true" class="text-neutral-500">/</li>
                 @endif
                 <li @if($loop->last) aria-current="page" @endif>
                     @if(! $loop->last && ($item['url'] ?? null))

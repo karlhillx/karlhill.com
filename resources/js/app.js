@@ -7,6 +7,7 @@ import { initToast } from './modules/toast.js';
 import { initServiceWorker } from './modules/service-worker.js';
 import { initThemeToggle } from './modules/theme.js';
 import { initAnalytics } from './modules/analytics.js';
+import { initCopyText } from './modules/copy-text.js';
 
 initViewTransitions();
 initNavigation();
@@ -15,6 +16,7 @@ initCommandPalette();
 initToast();
 initServiceWorker();
 initAnalytics();
+initCopyText();
 
 const features = new Set(
     (document.documentElement.dataset.features || '').split(/\s+/).filter(Boolean)
@@ -35,7 +37,12 @@ function loadWhen(enabled, loader, initName) {
 
 loadWhen(features.has('pointer'), () => import('./modules/pointer.js'), 'initPointerEffects');
 loadWhen(features.has('reveal'), () => import('./modules/reveal.js'), 'initRevealAndCounters');
-loadWhen(features.has('contact'), () => import('./modules/contact.js'), 'initContactForms');
+// Contact: route flag OR a form in the DOM — most footers only have Book + email.
+loadWhen(
+    features.has('contact') || Boolean(document.querySelector('[data-contact-form]')),
+    () => import('./modules/contact.js'),
+    'initContactForms'
+);
 // Media: route flag OR markup present (LQIP / lightbox) so images never stay opacity:0.
 loadWhen(
     features.has('media') ||

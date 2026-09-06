@@ -93,7 +93,7 @@ def generate_home() -> Path:
     y += 110
     draw.text((x, y), "Staff Software Engineer", fill=GRAY, font=f_sub)
     y += 52
-    draw.text((x, y), "25+ years  ·  NASA  ·  Aerospace  ·  Mission Software", fill=DARK_GRAY, font=f_meta)
+    draw.text((x, y), "20+ years  ·  NASA  ·  Aerospace  ·  Mission Software", fill=DARK_GRAY, font=f_meta)
     y += 70
     draw.rectangle((x, y, x + 80, y + 4), fill=ORANGE)
     y += 50

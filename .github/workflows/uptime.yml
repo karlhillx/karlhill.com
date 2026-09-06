@@ -1,0 +1,110 @@
+name: Uptime
+
+# Polls production every 30 minutes. A failed run notifies the workflow owner
+# through GitHub's normal failure email, and the job also opens (or closes) a
+# tracking issue labelled `uptime` so incidents and recoveries are visible in
+# one place without any third-party monitor.
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: uptime
+  cancel-in-progress: false
+
+env:
+  SITE_URL: ${{ vars.SITE_URL || 'https://karlhill.com' }}
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Probe production
+        id: probe
+        shell: bash
+        run: |
+          set -uo pipefail
+          failures=()
+
+          check() {
+            local path="$1" expect="$2"
+            local url="${SITE_URL}${path}"
+            local body status ttfb
+            body=$(mktemp)
+            # Two attempts guard against a single transient blip on the runner side.
+            status=$(curl -sS -o "$body" -w '%{http_code}' --max-time 20 --retry 1 --retry-delay 5 \
+              -H 'User-Agent: karlhill-uptime/1.0 (+https://github.com/${{ github.repository }})' \
+              "$url" || echo "000")
+            ttfb=$(curl -sS -o /dev/null -w '%{time_starttransfer}' --max-time 20 "$url" || echo "n/a")
+
+            if [ "$status" != "200" ]; then
+              failures+=("${path} → HTTP ${status}")
+              echo "::error::${path} returned HTTP ${status}"
+            elif [ -n "$expect" ] && ! grep -q -- "$expect" "$body"; then
+              failures+=("${path} → 200 but missing \"${expect}\"")
+              echo "::error::${path} returned 200 but body did not contain \"${expect}\""
+            else
+              echo "ok  ${path}  (HTTP ${status}, TTFB ${ttfb}s)"
+            fi
+            rm -f "$body"
+          }
+
+          check /up ''
+          check / '<h1'
+          check /work 'Read case study'
+          check /feed.xml '<feed'
+          check /sitemap.xml '<urlset'
+          check /api/site.json '"name"'
+
+          if [ "${#failures[@]}" -gt 0 ]; then
+            {
+              echo "failed=true"
+              echo "summary<<EOF"
+              printf -- '- %s\n' "${failures[@]}"
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          echo "failed=false" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update incident issue
+        if: failure() && steps.probe.outputs.failed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SUMMARY: ${{ steps.probe.outputs.summary }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh label create uptime --color B60205 --description 'Production uptime incidents' --force >/dev/null 2>&1 || true
+          existing=$(gh issue list --label uptime --state open --json number --jq '.[0].number // empty')
+          body=$(printf 'Uptime probe against %s failed at %s.\n\n%s\n\nRun: %s' \
+            "$SITE_URL" "$(date -u +'%Y-%m-%dT%H:%M:%SZ')" "$SUMMARY" "$RUN_URL")
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --label uptime --title "Uptime: production probe failing" --body "$body"
+          fi
+
+      - name: Close incident issue on recovery
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          existing=$(gh issue list --label uptime --state open --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" --comment "Recovered: all probes passing at $(date -u +'%Y-%m-%dT%H:%M:%SZ'). Run: ${RUN_URL}"
+          fi

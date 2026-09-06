@@ -39,6 +39,8 @@
                     <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest">Prefer to reach me directly?</p>
                     <div class="flex items-center gap-3">
                         <a href="mailto:{{ $person['email'] }}"
+                           data-analytics-event="email_clicked"
+                           data-analytics-location="footer-home"
                            class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-accent transition-colors group">
                             <span class="text-accent text-base arrow-nudge" aria-hidden="true">→</span>
                             {{ $person['email'] }}
@@ -59,6 +61,8 @@
                     </div>
                     @if(filled($bookingUrl))
                         <a href="{{ $bookingHref }}"
+                           data-analytics-event="booking_cta_clicked"
+                           data-analytics-location="footer-home"
                            class="btn-accent-fill inline-flex items-center gap-3 font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">
                             {{ $bookingLabel }}
                             <span aria-hidden="true">→</span>
@@ -93,12 +97,16 @@
                     <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6">
                         @if(filled($bookingUrl))
                             <a href="{{ $bookingHref }}"
+                               data-analytics-event="booking_cta_clicked"
+                               data-analytics-location="footer"
                                class="btn-accent-fill inline-flex items-center justify-center min-h-11 gap-2 font-semibold px-5 py-3 text-xs uppercase tracking-widest">
                                 {{ $bookingLabel }}
                             </a>
                         @endif
                         <div class="flex items-center gap-2">
                             <a href="mailto:{{ $person['email'] }}"
+                               data-analytics-event="email_clicked"
+                               data-analytics-location="footer"
                                class="inline-flex items-center min-h-11 font-mono text-sm text-neutral-400 hover:text-accent transition-colors">
                                 {{ $person['email'] }}
                             </a>

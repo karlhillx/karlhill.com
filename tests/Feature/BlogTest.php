@@ -79,6 +79,41 @@ it('atom feed is valid xml', function () {
     $this->assertStringContainsString('<category term="governance"/>', $body);
 });
 
+it('atom feed reports the real modification date for updated posts', function () {
+    $xml = simplexml_load_string((string) $this->get('/feed.xml')->getContent());
+    $this->assertNotFalse($xml);
+
+    $entry = collect(iterator_to_array($xml->entry, false))
+        ->first(fn ($e) => str_ends_with((string) $e->id, '/blog/release-governance'));
+    $this->assertNotNull($entry, 'release-governance entry should be present');
+
+    // Front matter: date 2026-05-15, updated 2026-06-01.
+    $this->assertStringStartsWith('2026-05-15', (string) $entry->published);
+    $this->assertStringStartsWith('2026-06-01', (string) $entry->updated);
+
+    // Feed-level <updated> is the newest modification, not merely the newest publish.
+    $newest = collect(iterator_to_array($xml->entry, false))->map(fn ($e) => (string) $e->updated)->max();
+    $this->assertSame($newest, (string) $xml->updated);
+});
+
+it('sitemap lastmod reflects editorial dates rather than today', function () {
+    $this->travelTo('2030-01-01');
+
+    $xml = simplexml_load_string((string) $this->get('/sitemap.xml')->getContent());
+    $this->assertNotFalse($xml);
+
+    $lastmod = collect(iterator_to_array($xml->url, false))
+        ->mapWithKeys(fn ($u) => [(string) $u->loc => (string) $u->lastmod]);
+    $base = rtrim(config('app.url'), '/');
+
+    $this->assertSame('2026-06-01', $lastmod[$base.'/blog/release-governance']);
+    $this->assertSame('2026-08-29', $lastmod[$base.'/now']);
+    $this->assertSame('2026-09-06', $lastmod[$base.'/work/finium']);
+    $this->assertNotContains('2030-01-01', $lastmod->all(), 'No URL should claim it changed today');
+
+    $this->travelBack();
+});
+
 it('dynamic sitemap includes blog posts', function () {
     $response = $this->get('/sitemap.xml');
 

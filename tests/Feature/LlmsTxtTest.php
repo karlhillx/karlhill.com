@@ -19,7 +19,7 @@ it('llms txt returns a v2 file-list map', function () {
     $this->assertStringContainsString('> '.config('site.seo.home.og_description'), $body);
     $this->assertStringContainsString('open to two paths: Engineering Manager or Staff/Principal roles', $body);
     $this->assertStringContainsString('Last updated', $body);
-    $this->assertStringContainsString('August 29, 2026', $body);
+    $this->assertStringContainsString('September 6, 2026', $body);
     $this->assertStringContainsString('## Pages', $body);
     $this->assertStringContainsString('## Writing', $body);
     $this->assertStringContainsString('## Profiles', $body);
@@ -92,7 +92,7 @@ it('llms txt builder lists professional profiles and resume once', function () {
     $this->assertSame(1, substr_count($body, '/kit'));
     $this->assertSame(1, substr_count($body, '/now'));
     $this->assertStringContainsString('GeoHorizons', $body);
-    $this->assertStringContainsString('August 29, 2026', $body);
+    $this->assertStringContainsString('September 6, 2026', $body);
 });
 
 it('llms txt is served without a session', function () {

@@ -1,4 +1,5 @@
 ---
+updated: '2026-09-06'
 lede: 'Near real-time flood inundation mapping from satellite data — built so disaster responders get trustworthy products in hours, without overnight engineering heroics.'
 role: 'Architect & lead developer — designed and automated the end-to-end geospatial pipeline on AWS.'
 leadership:

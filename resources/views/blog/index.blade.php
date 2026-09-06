@@ -48,7 +48,7 @@
         <a href="{{ route('feed') }}"
            class="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
             @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])
-            Subscribe via RSS
+            Subscribe via Atom feed
         </a>
         <a href="{{ route('feed.json') }}"
            class="inline-flex items-center gap-2 font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors">
@@ -156,7 +156,7 @@
                 <a href="{{ route('feed') }}"
                    class="inline-flex items-center gap-2 shrink-0 font-mono text-xs text-accent border border-accent/40 hover:bg-accent/10 px-5 py-3 uppercase tracking-widest transition-colors">
                     @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])
-                    Subscribe via RSS
+                    Subscribe via Atom feed
                 </a>
             </div>
         @endif

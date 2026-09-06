@@ -18,12 +18,14 @@ final class PageFeatures
         $request ??= request();
         $name = $request->route()?->getName() ?? '';
 
-        // Footer contact form is on nearly every page. Pointer loads site-wide
-        // so the page spotlight can wander on idle; magnetic/tilt no-op when
-        // those nodes are absent.
-        $features = ['contact', 'pointer'];
+        // Pointer loads site-wide so the page spotlight can wander on idle;
+        // magnetic/tilt no-op when those nodes are absent. The contact chunk is
+        // only flagged where the form renders (home footer); app.js also loads
+        // it whenever [data-contact-form] is present in the markup.
+        $features = ['pointer'];
 
         if ($name === 'home') {
+            $features[] = 'contact';
             $features[] = 'reveal';
             $features[] = 'cmdk-tip';
             // Portrait + work cards use LQIP / media enhancements.
@@ -38,7 +40,9 @@ final class PageFeatures
             $features[] = 'highlight';
 
             if ($name === 'blog.show') {
-                $features[] = 'push';
+                if (self::pushEnabled()) {
+                    $features[] = 'push';
+                }
                 $features[] = 'share';
                 $features[] = 'summarizer';
             }
@@ -63,7 +67,7 @@ final class PageFeatures
             $features[] = 'soft-nav';
         }
 
-        if (str_starts_with((string) $name, 'blog')) {
+        if (str_starts_with((string) $name, 'blog') && self::pushEnabled()) {
             $features[] = 'push';
         }
 
@@ -72,5 +76,11 @@ final class PageFeatures
         }
 
         return array_values(array_unique($features));
+    }
+
+    /** The subscribe button only renders with a VAPID public key; skip the chunk otherwise. */
+    private static function pushEnabled(): bool
+    {
+        return filled(config('site.push.public_key'));
     }
 }

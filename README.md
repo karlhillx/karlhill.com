@@ -305,6 +305,12 @@ Or use the GitHub Actions **Deploy** workflow. Add these **environment secrets**
 
 Deploy streams code into the Docker app container at `/var/www/html` (not the host path).
 
+### Monitoring
+
+- **Uptime** — `.github/workflows/uptime.yml` probes `/up`, `/`, `/work`, `/feed.xml`, `/sitemap.xml`, and `/api/site.json` every 30 minutes (override the target with a `SITE_URL` repository variable). A failing run emails the workflow owner and opens an issue labelled `uptime`; the next green run closes it.
+- **Errors** — set `LOG_STACK=daily,slack` and `LOG_SLACK_WEBHOOK_URL` in production. The `slack` channel has its own `LOG_SLACK_LEVEL` (default `error`) so the file log can stay verbose. A Discord webhook works when suffixed with `/slack`.
+- **Browser reports** — with `REPORTING_ENABLED=true`, CSP/NEL/integrity reports posted to `/report` are retained in `storage/app/reports/latest.json` and mirrored to the log at `REPORTING_LOG_LEVEL` (default `warning`; `none` to silence), so they flow to the same sink as exceptions.
+
 SSH shortcut:
 
 ```bash

@@ -1,4 +1,5 @@
 ---
+updated: '2026-09-06'
 lede: 'Mission-focused software delivery — published as the shape of the work, not the programs themselves.'
 role: 'Staff Aerospace Software Engineer — delivery leadership and engineering standards in constrained environments.'
 leadership:

@@ -51,6 +51,7 @@
                     <a href="/now#book"
                        data-idle-cta
                        data-analytics-event="booking_cta_clicked"
+                       data-analytics-location="hero"
                        class="hero-cta-btn btn-accent-fill magnetic-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200">
                         {{ $bookingLabel }}
                     </a>
@@ -58,6 +59,7 @@
                     <a href="/now"
                        data-idle-cta
                        data-analytics-event="booking_cta_clicked"
+                       data-analytics-location="hero"
                        class="hero-cta-btn btn-accent-fill magnetic-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200">
                         Now
                     </a>
@@ -71,6 +73,7 @@
                         <a href="{{ $resumePdf }}"
                            download="Karl-Hill-Resume.pdf"
                            data-analytics-event="resume_downloaded"
+                           data-analytics-location="hero"
                            class="inline-flex items-center min-h-11 hover:text-accent uppercase tracking-widest transition-colors">
                             Resume PDF
                         </a>
@@ -83,6 +86,8 @@
                 </div>
             </div>
             <a href="{{ filled($bookingUrl) ? '/now#book' : '/now' }}"
+               data-analytics-event="booking_cta_clicked"
+               data-analytics-location="hero-availability"
                class="hero-availability group hero-enter" style="animation-delay:520ms">
                 <span class="hero-availability-dot rounded-full bg-green-500 availability-pulse shrink-0" aria-hidden="true"></span>
                 <span class="availability-label font-mono text-caption text-neutral-300 group-hover:text-accent transition-colors">

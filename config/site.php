@@ -101,6 +101,10 @@ return [
 
     'early_hints' => filter_var(env('EARLY_HINTS', false), FILTER_VALIDATE_BOOLEAN),
 
+    // Browser reports (/report) are also written to the log at this level so
+    // they reach whatever sink LOG_STACK points at. Set to "none" to disable.
+    'reporting_log_level' => env('REPORTING_LOG_LEVEL', 'warning'),
+
     'features' => [
         'webmention' => filter_var(env('WEBMENTION_ENABLED', false), FILTER_VALIDATE_BOOLEAN),
         'reporting' => filter_var(env('REPORTING_ENABLED', false), FILTER_VALIDATE_BOOLEAN),

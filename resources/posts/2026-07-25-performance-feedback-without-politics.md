@@ -1,7 +1,7 @@
 ---
 title: 'Performance Feedback Without Politics'
 slug: performance-feedback-without-politics
-date: 1784937600
+date: 2026-07-25
 excerpt: 'Useful feedback is specific, timely, and about observed work — not personality theater. The goal is growth and clarity, not a paper trail built in panic.'
 tags:
   - leadership

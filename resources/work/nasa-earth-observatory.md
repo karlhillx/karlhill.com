@@ -1,4 +1,5 @@
 ---
+updated: '2026-09-06'
 lede: 'A flagship NASA science communication platform serving 1.5M+ monthly visitors — rebuilt so editors ship without waiting on engineering, and the stack stays maintainable for the next decade.'
 role: 'Lead engineer — owned the platform re-architecture and publishing pipeline, and set the frontend performance and accessibility standards.'
 leadership:
@@ -41,7 +42,7 @@ Editorial velocity had turned into an engineering queue. My goal as lead enginee
 We restructured the platform into a decoupled publishing system with an automated asset transformation engine:
 
 1. **Self-Service Editorial Templates:** Instead of bespoke layouts per article, we developed a modular, component-driven story publishing model. Editorial staff could compose rich narrative layouts, image comparisons (before-and-after flood or wildfire overlays), and data callouts without writing a line of code or filing an engineering ticket.
-2. **Automated Imagery Pipeline:** Satellite images uploaded by science writers are automatically ingested into an asynchronous image processing pipeline. The pipeline generates responsive responsive AVIF and WebP image pyramids, extracts spatial metadata, and pre-generates lightweight low-quality image placeholders (LQIP) to ensure zero layout shift (CLS).
+2. **Automated Imagery Pipeline:** Satellite images uploaded by science writers are automatically ingested into an asynchronous image processing pipeline. The pipeline generates responsive AVIF and WebP image pyramids, extracts spatial metadata, and pre-generates lightweight low-quality image placeholders (LQIP) to ensure zero layout shift (CLS).
 3. **Edge Caching & Resilience:** Serving 1.5M+ monthly visitors across global networks required aggressive edge caching with deterministic cache tags. When breaking disaster imagery or viral astronomical events drove sudden 10x traffic spikes, origin server load remained virtually flat while edge nodes served cached, pre-compressed assets.
 
 ## Accessibility & Performance

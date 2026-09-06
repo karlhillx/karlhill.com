@@ -16,11 +16,13 @@ class FeedController extends Controller
     {
         $posts = $this->posts->all();
         $base = PageMeta::siteUrl();
-        $updated = $posts->isNotEmpty() ? $posts->first()->isoDate() : now()->toIso8601String();
+        $updated = $posts->map(fn ($post) => $post->modifiedAt())->max()?->toIso8601String()
+            ?? now()->toIso8601String();
 
         $feedId = $base.'/feed.xml';
 
         $entries = $posts->map(function ($post) use ($base) {
+            $modified = $post->modifiedAt()->toIso8601String();
             $body = htmlspecialchars($post->bodyHtml, ENT_QUOTES | ENT_XML1, 'UTF-8');
             $title = htmlspecialchars($post->title, ENT_QUOTES | ENT_XML1, 'UTF-8');
             $summary = htmlspecialchars($post->excerpt, ENT_QUOTES | ENT_XML1, 'UTF-8');
@@ -38,7 +40,7 @@ class FeedController extends Controller
     <id>{$url}</id>
     <title>{$title}</title>
     <link rel="alternate" type="text/html" href="{$url}"/>
-    <updated>{$post->isoDate()}</updated>
+    <updated>{$modified}</updated>
     <published>{$post->isoDate()}</published>
     <author><name>Karl Hill</name><uri>{$base}</uri></author>{$categoryBlock}
     <summary>{$summary}</summary>

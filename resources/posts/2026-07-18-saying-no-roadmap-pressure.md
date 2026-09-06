@@ -1,7 +1,7 @@
 ---
 title: 'Saying No to Roadmap Pressure Without Losing Trust'
 slug: saying-no-roadmap-pressure
-date: 1784332800
+date: 2026-07-18
 excerpt: 'Stakeholders do not need unlimited yes. They need engineering partners who make tradeoffs visible early — and keep their word when priorities collide.'
 tags:
   - leadership

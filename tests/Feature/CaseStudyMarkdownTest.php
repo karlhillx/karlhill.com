@@ -35,6 +35,20 @@ it('case study markdown files exist for every catalog study', function () {
     }
 });
 
+it('every case study has a real narrative body and an updated date', function () {
+    /** @var CaseStudyRepository $repo */
+    $repo = app(CaseStudyRepository::class);
+
+    foreach (ProjectCatalog::withCaseStudies() as $project) {
+        $study = $repo->find($project['slug']);
+
+        expect($study)->toBeArray()
+            ->and($study['body_html'] ?? null)->toBeString("{$project['slug']} still has the scaffold body")
+            ->and(str_word_count(strip_tags((string) $study['body_html'])))->toBeGreaterThan(250, "{$project['slug']} narrative is too thin")
+            ->and($study['updated'] ?? null)->toMatch('/^\d{4}-\d{2}-\d{2}$/');
+    }
+});
+
 it('parses substantive markdown body and generates html and toc', function () {
     /** @var CaseStudyRepository $repo */
     $repo = app(CaseStudyRepository::class);

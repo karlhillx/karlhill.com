@@ -66,6 +66,7 @@
                             <a href="#book"
                                data-idle-cta
                                data-analytics-event="booking_cta_clicked"
+                               data-analytics-location="now-intro"
                                class="btn-accent-fill inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs px-5 py-3 uppercase tracking-widest">
                                 {{ $bookingLabel }}
                             </a>
@@ -115,7 +116,7 @@
                 @if(filled($bookingUrl))
                     <p class="mt-4 font-mono text-caption text-neutral-500 uppercase tracking-widest">
                         Embed not loading?
-                        <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer" data-no-ext data-analytics-event="scheduler_opened" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">
+                        <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer" data-no-ext data-analytics-event="scheduler_opened" data-analytics-location="now-embed-fallback" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">
                             Open scheduler ↗
                         </a>
                     </p>

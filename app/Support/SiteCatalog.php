@@ -207,10 +207,40 @@ final class SiteCatalog
                     'description' => $project['description'] ?? null,
                     'lede' => $study['lede'] ?? null,
                     'tags' => $project['tags'] ?? [],
+                    'updated' => $this->caseStudyUpdated($study)?->toDateString(),
                 ];
             })
             ->values()
             ->all();
+    }
+
+    /**
+     * Editorial `updated:` from the case-study front matter, else the source
+     * file's mtime. Never "today" — a sitemap that claims every page changed
+     * every day teaches crawlers to ignore lastmod entirely.
+     *
+     * @param  array<string, mixed>  $study
+     */
+    protected function caseStudyUpdated(array $study): ?CarbonImmutable
+    {
+        $raw = $study['updated'] ?? null;
+        if (is_string($raw) && $raw !== '') {
+            try {
+                return CarbonImmutable::parse($raw);
+            } catch (\Throwable) {
+                // Fall through to the file mtime.
+            }
+        }
+
+        $path = $study['source_path'] ?? null;
+        if (is_string($path) && is_file($path)) {
+            $mtime = filemtime($path);
+            if ($mtime !== false) {
+                return CarbonImmutable::createFromTimestamp($mtime);
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -311,23 +341,27 @@ final class SiteCatalog
     public function sitemapUrls(): array
     {
         $base = $this->baseUrl();
-        $today = now()->toDateString();
-        $latestPost = $this->posts()->first()?->publishedAt->toDateString() ?? $today;
+        $siteUpdated = $this->lastUpdated()->toDateString();
+        $latestPost = $this->latestPostModified()?->toDateString() ?? $siteUpdated;
+        $latestWork = $this->latestCaseStudyUpdated()?->toDateString() ?? $siteUpdated;
+        $nowUpdated = $this->nowUpdated()?->toDateString() ?? $siteUpdated;
 
+        // Evergreen pages have no editorial date of their own; the most recent
+        // change anywhere on the site is the honest upper bound.
         $urls = [
-            ['loc' => $base.'/', 'lastmod' => $today, 'changefreq' => 'monthly', 'priority' => '1.0'],
-            ['loc' => $base.'/work', 'lastmod' => $today, 'changefreq' => 'monthly', 'priority' => '0.9'],
-            ['loc' => $base.'/about', 'lastmod' => $today, 'changefreq' => 'monthly', 'priority' => '0.9'],
-            ['loc' => $base.'/now', 'lastmod' => $today, 'changefreq' => 'weekly', 'priority' => '0.9'],
-            ['loc' => $base.'/resume', 'lastmod' => $today, 'changefreq' => 'monthly', 'priority' => '0.85'],
-            ['loc' => $base.'/kit', 'lastmod' => $today, 'changefreq' => 'monthly', 'priority' => '0.85'],
+            ['loc' => $base.'/', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '1.0'],
+            ['loc' => $base.'/work', 'lastmod' => $latestWork, 'changefreq' => 'monthly', 'priority' => '0.9'],
+            ['loc' => $base.'/about', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.9'],
+            ['loc' => $base.'/now', 'lastmod' => $nowUpdated, 'changefreq' => 'weekly', 'priority' => '0.9'],
+            ['loc' => $base.'/resume', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.85'],
+            ['loc' => $base.'/kit', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.85'],
             ['loc' => $base.'/blog', 'lastmod' => $latestPost, 'changefreq' => 'weekly', 'priority' => '0.8'],
         ];
 
         foreach ($this->posts() as $post) {
             $urls[] = [
                 'loc' => $post->canonicalUrl(),
-                'lastmod' => $post->publishedAt->toDateString(),
+                'lastmod' => $post->modifiedAt()->toDateString(),
                 'changefreq' => 'yearly',
                 'priority' => '0.7',
             ];
@@ -336,7 +370,7 @@ final class SiteCatalog
         foreach ($this->caseStudies() as $study) {
             $urls[] = [
                 'loc' => $study['url'],
-                'lastmod' => $today,
+                'lastmod' => $study['updated'] ?? $latestWork,
                 'changefreq' => 'yearly',
                 'priority' => '0.75',
             ];
@@ -345,24 +379,47 @@ final class SiteCatalog
         return $urls;
     }
 
+    /** Most recent editorial change anywhere: posts, case studies, or /now. */
     public function lastUpdated(): CarbonImmutable
     {
-        $dates = $this->posts()
-            ->map(fn (BlogPost $post) => $post->modifiedAt())
-            ->all();
-
-        $nowUpdated = config('site.now.updated');
-        if (is_string($nowUpdated) && $nowUpdated !== '') {
-            try {
-                $dates[] = CarbonImmutable::parse($nowUpdated);
-            } catch (\Throwable) {
-                // Ignore unparseable editorial dates.
-            }
-        }
-
-        $latest = collect($dates)->filter()->max();
+        $latest = collect([
+            $this->latestPostModified(),
+            $this->latestCaseStudyUpdated(),
+            $this->nowUpdated(),
+        ])->filter()->max();
 
         return $latest ?? CarbonImmutable::now();
+    }
+
+    public function latestPostModified(): ?CarbonImmutable
+    {
+        return $this->posts()
+            ->map(fn (BlogPost $post) => $post->modifiedAt())
+            ->max();
+    }
+
+    public function latestCaseStudyUpdated(): ?CarbonImmutable
+    {
+        return collect($this->caseStudies())
+            ->map(fn (array $study) => is_string($study['updated'] ?? null)
+                ? CarbonImmutable::parse($study['updated'])
+                : null)
+            ->filter()
+            ->max();
+    }
+
+    public function nowUpdated(): ?CarbonImmutable
+    {
+        $raw = config('site.now.updated');
+        if (! is_string($raw) || $raw === '') {
+            return null;
+        }
+
+        try {
+            return CarbonImmutable::parse($raw);
+        } catch (\Throwable) {
+            return null; // Ignore unparseable editorial dates.
+        }
     }
 
     /**
