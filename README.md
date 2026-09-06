@@ -4,7 +4,7 @@ Personal site for Karl Hill — Staff Software Engineer. A Laravel 13 + Tailwind
 
 ## Stack
 
-- **Backend:** Laravel 13 (PHP 8.4+)
+- **Backend:** Laravel 13 (PHP 8.5+)
 - **Frontend:** Tailwind CSS v4, vanilla JS (no SPA framework), CSS scroll/view timelines + gated idle motion
 - **Build:** Vite 8 with `laravel-vite-plugin`
 - **Fonts:** IBM Plex Sans, Bebas Neue, JetBrains Mono (self-hosted via `@fontsource`)
@@ -12,7 +12,7 @@ Personal site for Karl Hill — Staff Software Engineer. A Laravel 13 + Tailwind
 
 ## Getting Started
 
-Requires PHP 8.4+, Composer, Node 22+, and Python 3 with Pillow for OG/WebP generation.
+Requires PHP 8.5+, Composer, Node 22+, and Python 3 with Pillow for OG/WebP generation.
 
 ```bash
 composer setup

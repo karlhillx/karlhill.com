@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 php:8.4-fpm
+FROM --platform=linux/arm64 php:8.5-fpm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -39,7 +39,7 @@ RUN composer install --no-scripts --no-autoloader
 COPY package*.json ./
 RUN npm ci --include=dev
 
-COPY .. .
+COPY . .
 
 RUN composer dump-autoload --optimize
 RUN npm run build

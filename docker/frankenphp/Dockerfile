@@ -7,7 +7,7 @@
 #
 # Set EARLY_HINTS=true in .env when running this stack.
 
-FROM dunglas/frankenphp:1-php8.4
+FROM dunglas/frankenphp:1-php8.5
 
 RUN install-php-extensions \
     pcntl \
