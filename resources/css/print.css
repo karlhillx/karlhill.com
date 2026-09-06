@@ -555,8 +555,3 @@
         color: #111 !important;
     }
 }
-
-/* Screen: print masthead stays out of the interactive page. */
-.kit-print-masthead {
-    display: none;
-}

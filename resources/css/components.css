@@ -1746,3 +1746,8 @@ a.series-chapters__card:hover .series-chapters__title,
     background: var(--panel);
     border: 1px solid var(--border);
 }
+
+/* Screen: print-only masthead stays hidden in interactive mode */
+.kit-print-masthead {
+    display: none;
+}

@@ -4,11 +4,13 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-CSS_MAX=185000   # bytes (print/kit + motion gates + case study deep dives)
+CSS_MAX=175000   # bytes (screen critical CSS: motion gates + case study deep dives; print decoupled)
+PRINT_CSS_MAX=15000 # bytes (decoupled print stylesheet)
 JS_MAX=18000     # bytes — core app.js after route-level splitting
 JS_TOTAL_MAX=52000  # core + lazy chunks (including on-device summarizer)
 
 css="$(find "$ROOT/public/build/assets" -maxdepth 1 -name 'app-*.css' -print -quit)"
+print_css="$(find "$ROOT/public/build/assets" -maxdepth 1 -name 'print-*.css' -print -quit)"
 js="$(find "$ROOT/public/build/assets" -maxdepth 1 -name 'app-*.js' -print -quit)"
 
 if [[ -z "${css}" || -z "${js}" ]]; then
@@ -30,6 +32,14 @@ fail=0
 if (( css_size > CSS_MAX )); then
     echo "error: CSS bundle ${css_size}B exceeds budget ${CSS_MAX}B" >&2
     fail=1
+fi
+if [[ -n "${print_css}" ]]; then
+    print_css_size="$(wc -c < "$print_css" | tr -d ' ')"
+    echo "              Print CSS ${print_css_size}B ($(basename "$print_css")) [budget ≤ ${PRINT_CSS_MAX}B]"
+    if (( print_css_size > PRINT_CSS_MAX )); then
+        echo "error: Print CSS bundle ${print_css_size}B exceeds budget ${PRINT_CSS_MAX}B" >&2
+        fail=1
+    fi
 fi
 if (( js_size > JS_MAX )); then
     echo "error: JS core ${js_size}B exceeds budget ${JS_MAX}B" >&2

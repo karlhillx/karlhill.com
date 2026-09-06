@@ -7,6 +7,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/print.css',
                 'resources/js/app.js',
                 'resources/fonts/bebas-neue-latin-400-normal.woff2',
             ],

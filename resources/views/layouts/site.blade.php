@@ -95,6 +95,7 @@
     <link rel="alternate" type="application/json" title="Karl Hill — Agent card" href="/.well-known/agent-card.json">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/print.css') }}" media="print">
     <link rel="stylesheet" href="{{ asset('css/progressive.css') }}?v={{ filemtime(public_path('css/progressive.css')) }}">
     <x-site.analytics />
     @stack('head')
