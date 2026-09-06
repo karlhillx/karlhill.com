@@ -14,7 +14,7 @@
     <nav id="article-toc" {{ $attributes->merge(['class' => 'article-toc']) }} aria-label="On this page">
         <div class="article-toc__header pb-1.5 mb-2.5 border-b border-neutral-800/80 flex items-center justify-between">
             <p class="font-mono text-caption text-accent uppercase tracking-widest font-semibold">On this page</p>
-            <span class="font-mono text-[10px] text-neutral-500 uppercase tracking-wider" aria-hidden="true">Index</span>
+            <span class="font-mono text-caption text-neutral-500 uppercase tracking-wider" aria-hidden="true">Index</span>
         </div>
 
         @if($hasGroups)
@@ -23,7 +23,7 @@
                     @if(! empty($group['items']))
                         <div class="article-toc__group">
                             @if(! empty($group['label']))
-                                <p class="font-mono text-[10px] uppercase tracking-widest text-neutral-500 font-semibold mb-1.5">
+                                <p class="font-mono text-caption uppercase tracking-widest text-neutral-500 font-semibold mb-1.5">
                                     {{ $group['label'] }}
                                 </p>
                             @endif

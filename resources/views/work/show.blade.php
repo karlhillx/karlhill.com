@@ -127,7 +127,7 @@
                             <div class="article-toc__groups mt-3 space-y-4">
                                 @foreach($tocGroups as $group)
                                     <div>
-                                        <p class="font-mono text-[10px] uppercase tracking-widest text-neutral-500 font-semibold mb-1.5">{{ $group['label'] }}</p>
+                                        <p class="font-mono text-caption uppercase tracking-widest text-neutral-500 font-semibold mb-1.5">{{ $group['label'] }}</p>
                                         <ol class="article-toc-list">
                                             @foreach($group['items'] as $item)
                                                 <li class="article-toc-item">

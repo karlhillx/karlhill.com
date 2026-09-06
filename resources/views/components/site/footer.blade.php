@@ -131,7 +131,7 @@
                         </div>
                     </div>
                 </div>
-                <nav class="shrink-0" aria-label="Site">
+                <nav class="min-w-0" aria-label="Site">
                     <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-3">Explore</h2>
                     <ul class="flex flex-wrap gap-x-5 gap-y-1 font-mono text-sm">
                         <li><a href="/work" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Work</a></li>
