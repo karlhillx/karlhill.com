@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
-# Production deploy for karlhill.com. Run on the server from the app root.
+# EMERGENCY FALLBACK ONLY. The GitHub Actions "Deploy" workflow is the
+# supported path — it tars the repo over SSH straight into the app
+# container and never touches host git state. This script instead runs
+# `git pull` on the HOST, which requires the host user to own every
+# tracked file; the app container writes some paths as its own runtime
+# user, so this can start failing with "Permission denied" on unlink/
+# create with no easy recovery if you don't have root on the box. Only
+# reach for this if the Actions workflow is itself unavailable, and fix
+# ownership from inside the container first (`docker exec -u root ...
+# chown`) rather than `sudo chown`-ing the host tree.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

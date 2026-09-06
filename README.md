@@ -289,13 +289,7 @@ When you change the HTML shell, offline fallback, or the precache list in
 `public/sw.js`, bump the `CACHE` version string (e.g. `karlhill-offline-v4` →
 `v5`) so clients drop stale caches on activate.
 
-On the server:
-
-```bash
-bash scripts/deploy.sh
-```
-
-Or use the GitHub Actions **Deploy** workflow. Add these **environment secrets** under Settings → Environments → production:
+**Use the GitHub Actions Deploy workflow.** It streams a tarball of the repo over SSH straight into the Docker app container (`docker exec ... tar xzf - -C /var/www/html`) — it never touches the host's git checkout, so it can't be blocked by host-vs-container file ownership. Add these **environment secrets** under Settings → Environments → production:
 
 | Secret | Value |
 |--------|-------|
@@ -304,11 +298,13 @@ Or use the GitHub Actions **Deploy** workflow. Add these **environment secrets**
 | `DEPLOY_SSH_KEY` | private SSH key with access to the server |
 | `DEPLOY_CONTAINER` | `karl-karlhill-1` (optional) |
 
-Deploy streams code into the Docker app container at `/var/www/html` (not the host path).
+With those set, every green CI run on `main` deploys automatically; you can also trigger it manually from the Actions tab (`workflow_dispatch`).
+
+> **Don't use `scripts/deploy.sh` unless the Actions workflow itself is down.** It runs `git pull` on the *host*, which requires the host user to own every tracked file. The app container writes some paths as its own runtime user, so a host-side `git pull` can start failing with `Permission denied` on unlink/create — and recovering requires root on the box, which you may not have. This has already caused a real production incident (a stale deploy left `/lead` 404ing) that had to be fixed by reaching into the container as root. If the Actions workflow is genuinely unavailable, fix ownership from *inside* the container (`docker exec -u root ... chown`) before falling back to this script — don't `sudo chown` the host tree.
 
 ### Monitoring
 
-- **Uptime** — `.github/workflows/uptime.yml` probes `/up`, `/`, `/work`, `/feed.xml`, `/sitemap.xml`, and `/api/site.json` every 30 minutes (override the target with a `SITE_URL` repository variable). A failing run emails the workflow owner and opens an issue labelled `uptime`; the next green run closes it.
+- **Uptime** — `.github/workflows/uptime.yml` probes `/up`, `/`, `/work`, a sample case study, `/about`, `/blog`, `/now`, `/kit`, `/resume`, `/lead`, `/feed.xml`, `/sitemap.xml`, and `/api/site.json` every 30 minutes (override the target with a `SITE_URL` repository variable). A failing run emails the workflow owner and opens an issue labelled `uptime`; the next green run closes it.
 - **Errors** — set `LOG_STACK=daily,slack` and `LOG_SLACK_WEBHOOK_URL` in production. The `slack` channel has its own `LOG_SLACK_LEVEL` (default `error`) so the file log can stay verbose. A Discord webhook works when suffixed with `/slack`.
 - **Browser reports** — with `REPORTING_ENABLED=true`, CSP/NEL/integrity reports posted to `/report` are retained in `storage/app/reports/latest.json` and mirrored to the log at `REPORTING_LOG_LEVEL` (default `warning`; `none` to silence), so they flow to the same sink as exceptions.
 
