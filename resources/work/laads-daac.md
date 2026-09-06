@@ -24,6 +24,25 @@ metrics:
     label: 'Search & order'
   - value: 'MODIS & VIIRS'
     label: 'Instrument record'
+platform:
+  caption: 'GitLab CI → Helm → Kubernetes'
+  stages:
+    - step: '01 · Source'
+      title: 'Find Data & NRT'
+      body: 'Portal, search-and-order, and near-real-time changes land in one delivery path — Perl archive contracts stay put.'
+      stack: 'GitLab'
+    - step: '02 · CI'
+      title: 'Tests & artifacts'
+      body: 'A change gets tests, an artifact, and an approval path instead of a copy to a host.'
+      stack: 'GitLab CI'
+    - step: '03 · Package'
+      title: 'Docker & Helm'
+      body: 'Web and NRT tiers are the same in integration as in production.'
+      stack: 'Docker · Helm'
+    - step: '04 · Deploy'
+      title: 'Kubernetes rollout'
+      body: 'A release is a rollout, not a snowflake workstation ritual.'
+      stack: 'Kubernetes'
 ---
 
 ## What LAADS Has to Do

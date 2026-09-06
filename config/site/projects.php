@@ -76,8 +76,9 @@ return [
         'image' => '/img/webp/ss-earth-observatory.webp',
         'url' => '/work/nasa-earth-observatory',
         'featured' => false,
-        // Editorial publishing chapter — public site is retired; keep the page for resume links.
+        // Editorial publishing chapter — keep off the main grid; surface as a Goddard supporting chapter.
         'listed' => false,
+        'supporting' => true,
         'tags' => [
             'Laravel',
             'MySQL',
@@ -97,8 +98,9 @@ return [
         'image' => '/img/webp/ss-direct-readout2.webp',
         'url' => 'https://directreadout.sci.gsfc.nasa.gov',
         'featured' => false,
-        // Supporting NASA infrastructure — same ingest/ops story as Flood Mapping.
+        // Supporting NASA ingest/ops chapter — not a third flagship card.
         'listed' => false,
+        'supporting' => true,
         'tags' => [
             'PHP',
             'Linux',
@@ -118,8 +120,9 @@ return [
         'description' => 'Earth science data-discovery platform unifying archival and near-real-time remote-sensing holdings into a single searchable, standards-compliant catalog. Designed granule-level access controls and a governed metadata model that streamlined discovery, ordering, and delivery for researchers across federal agencies and partner institutions.',
         'image' => '/img/webp/ss-esccor.webp',
         'url' => '/work/esscor',
-        // Supporting NASA catalog work — keep the page for resume links.
+        // Supporting NASA catalog chapter — keep off the main grid.
         'listed' => false,
+        'supporting' => true,
         'tags' => [
             'PHP',
             'MySQL',

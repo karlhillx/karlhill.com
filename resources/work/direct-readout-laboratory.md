@@ -24,6 +24,21 @@ metrics:
     label: 'Product tiers'
   - value: 24/7
     label: 'Operational ingest'
+platform:
+  caption: 'Pass burst → L0–L2 → partner stations'
+  stages:
+    - step: '01 · Ingest'
+      title: 'Polar-orbit bursts'
+      body: 'Downlinks arrive in pass-aligned bursts; ingest absorbs them without dropping a file or stalling the chain.'
+      stack: 'Linux'
+    - step: '02 · Process'
+      title: 'L0 through L2'
+      body: 'Standardized product tiers with versioned dependencies — a new instrument is configuration, not a rewrite.'
+      stack: 'Pipelines'
+    - step: '03 · Distribute'
+      title: 'Ground stations'
+      body: 'Near real-time products go to registered direct-broadcast partners on a clock they can trust.'
+      stack: 'NGINX'
 ---
 
 ## What Direct Readout Means

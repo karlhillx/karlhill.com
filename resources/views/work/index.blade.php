@@ -22,7 +22,7 @@
         <x-slot:title>Selected Work</x-slot:title>
 
         <p class="text-neutral-400 text-base leading-relaxed max-w-2xl">
-            One pattern: take operational work that depends on heroes and turn it into a platform. Jacobs is the current chapter. NASA is the public proof — flood products under disaster timelines, and LAADS Find Data for the MODIS/VIIRS archive. Finium is where it started: a multi-tenant security platform that scaled 10× and enabled a $105M acquisition.
+            One pattern: take operational work that depends on heroes and turn it into a platform. Jacobs is the current chapter. NASA is the public proof — flood products under disaster timelines, LAADS Find Data for the MODIS/VIIRS archive, and the Goddard chapters below the grid. Finium is where it started: a multi-tenant security platform that scaled 10× and enabled a $105M acquisition.
         </p>
     </x-site.page-hero>
 
@@ -90,7 +90,23 @@
         'heading' => $activeTag ? "Projects · {$activeTag}" : 'Projects',
     ])
 
-    @include('partials.open-source', ['sectionNumber' => '02'])
+    @if(($supporting ?? collect())->isNotEmpty())
+        <x-site.section id="chapters" class="scroll-mt-32" section-label="NASA Goddard" number="02" label="Also shipped at NASA Goddard">
+            <p class="text-neutral-400 text-sm leading-relaxed max-w-2xl mb-8" data-reveal>
+                Flagship cards stay on the trajectory. These Goddard chapters are still the public record — resume links, not a second grid of screenshots.
+            </p>
+            <x-site.related-list
+                :label="null"
+                :items="$supporting->map(fn ($project) => [
+                    'url' => '/work/'.$project['slug'],
+                    'title' => $project['title'],
+                    'excerpt' => $project['case_study']['lede'] ?? $project['description'],
+                ])->all()"
+            />
+        </x-site.section>
+    @endif
+
+    @include('partials.open-source', ['sectionNumber' => ($supporting ?? collect())->isNotEmpty() ? '03' : '02'])
 @endsection
 
 @section('page_footer')

@@ -21,6 +21,25 @@ metrics:
     label: 'Client engagement growth'
   - value: $105M
     label: 'Acquisition value'
+platform:
+  caption: 'Provision → monitor → respond → scale'
+  stages:
+    - step: '01 · Provision'
+      title: 'Tenant onboarding'
+      body: 'Devices, policy, and escalation contacts become a defined workflow instead of a checklist on the incident desk.'
+      stack: 'Java'
+    - step: '02 · Monitor'
+      title: 'Normalized alerts'
+      body: 'Client signals land in one layer, correlated against tenant policy, then become incidents with a lifecycle.'
+      stack: 'SQL Server'
+    - step: '03 · Respond'
+      title: 'Incident orchestration'
+      body: 'Playbooks fire in order with notifications; the record of what happened is a byproduct of doing it.'
+      stack: 'SOC'
+    - step: '04 · Scale'
+      title: 'Multi-tenant isolation'
+      body: 'Tenancy in the data model from day one — one platform later carried 10× the engagements.'
+      stack: 'Carrier network'
 ---
 
 ## Context

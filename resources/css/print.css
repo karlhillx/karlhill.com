@@ -382,6 +382,21 @@
         display: none !important;
     }
 
+    /* Delivery packet — readable print of DoD / rubric / risk / coaching. */
+    body:has(.lead-doc) .site-footer,
+    body:has(.lead-doc) #contact,
+    body:has(.lead-doc) .page-spotlight,
+    body:has(.lead-doc) .hero-dot-grid,
+    body:has(.lead-doc) .breadcrumbs,
+    body:has(.lead-doc) [data-print],
+    body:has(.lead-doc) .lead-screen-actions {
+        display: none !important;
+    }
+
+    body:has(.lead-doc) .site-page-hero {
+        padding-block: 0 1.25rem !important;
+    }
+
     /* Recruiter kit — one-page leave-behind: identity, bio, absolute links. */
     body:has(.kit-doc) .site-footer,
     body:has(.kit-doc) #contact,
@@ -412,14 +427,16 @@
         max-width: none !important;
     }
 
-    body:has(.kit-doc) .kit-print-masthead {
+    body:has(.kit-doc) .kit-print-masthead,
+    body:has(.lead-doc) .kit-print-masthead {
         display: block !important;
         margin: 0 0 0.22in;
         padding: 0 0 0.16in;
         border-bottom: 1.5pt solid #0b1f3a;
     }
 
-    body:has(.kit-doc) .kit-print-masthead__name {
+    body:has(.kit-doc) .kit-print-masthead__name,
+    body:has(.lead-doc) .kit-print-masthead__name {
         margin: 0 !important;
         font-size: 18pt !important;
         font-weight: 700 !important;
@@ -427,32 +444,37 @@
         color: #0b1f3a !important;
     }
 
-    body:has(.kit-doc) .kit-print-masthead__role {
+    body:has(.kit-doc) .kit-print-masthead__role,
+    body:has(.lead-doc) .kit-print-masthead__role {
         margin: 0.06in 0 0 !important;
         font-size: 10pt !important;
         color: #333 !important;
     }
 
-    body:has(.kit-doc) .kit-print-masthead__open {
+    body:has(.kit-doc) .kit-print-masthead__open,
+    body:has(.lead-doc) .kit-print-masthead__open {
         margin: 0.04in 0 0 !important;
         font-size: 9pt !important;
         color: #0b1f3a !important;
         font-weight: 600 !important;
     }
 
-    body:has(.kit-doc) .kit-print-masthead__contact {
+    body:has(.kit-doc) .kit-print-masthead__contact,
+    body:has(.lead-doc) .kit-print-masthead__contact {
         margin: 0.08in 0 0 !important;
         font-size: 9pt !important;
         color: #222 !important;
     }
 
-    body:has(.kit-doc) .kit-print-masthead a {
+    body:has(.kit-doc) .kit-print-masthead a,
+    body:has(.lead-doc) .kit-print-masthead a {
         color: #0b1f3a !important;
         text-decoration: underline !important;
         text-underline-offset: 0.12em;
     }
 
-    body:has(.kit-doc) .kit-print-masthead a::after {
+    body:has(.kit-doc) .kit-print-masthead a::after,
+    body:has(.lead-doc) .kit-print-masthead a::after {
         content: none !important;
     }
 

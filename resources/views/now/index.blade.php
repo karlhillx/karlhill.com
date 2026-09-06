@@ -79,6 +79,10 @@
                            class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
                             Resume
                         </a>
+                        <a href="/lead"
+                           class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
+                            How I run delivery
+                        </a>
                         <a href="/kit"
                            class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
                             Recruiter kit

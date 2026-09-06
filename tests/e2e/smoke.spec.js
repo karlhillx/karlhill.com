@@ -30,6 +30,7 @@ test.describe('smoke + a11y', () => {
         await page.goto('/');
         await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
         await expect(page.locator('.hero-cta a[href="/now#book"]')).toBeVisible();
+        await expect(page.locator('.hero-arc a[href="/work#chapters"]')).toBeVisible();
         await expect(page.locator('#contact-form, [data-contact-form]').first()).toBeVisible();
         await assertA11y(page);
     });
@@ -48,6 +49,8 @@ test.describe('smoke + a11y', () => {
         await page.goto('/work');
         await expect(page.locator('.site-toolbar--sticky')).toBeVisible();
         await expect(page.locator('.tag-filter--scroll')).toBeVisible();
+        await expect(page.locator('#chapters')).toBeVisible();
+        await expect(page.getByRole('link', { name: /earth observatory/i })).toBeVisible();
 
         await page.goto('/work/laads-daac');
         await expect(page.locator('[data-lightbox-open]').first()).toBeVisible();
@@ -105,6 +108,15 @@ test.describe('smoke + a11y', () => {
         await expect(page.getByRole('heading', { name: /recruiter kit/i })).toBeVisible();
         await expect(page.getByRole('link', { name: /download resume pdf/i })).toBeVisible();
         await expect(page.locator('.kit-doc')).toBeVisible();
+        await assertA11y(page);
+    });
+
+    test('delivery packet is forwardable', async ({ page }) => {
+        await page.goto('/lead');
+        await expect(page.getByRole('heading', { name: /how i run delivery/i })).toBeVisible();
+        await expect(page.locator('.lead-doc')).toBeVisible();
+        await expect(page.getByRole('heading', { name: /definition of done/i })).toBeVisible();
+        await expect(page.getByRole('link', { name: /recruiter kit/i }).first()).toBeVisible();
         await assertA11y(page);
     });
 });

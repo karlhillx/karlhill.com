@@ -19,6 +19,25 @@ outcome:
 metrics:
   - value: $30K
     label: 'Annual savings per case type'
+platform:
+  caption: 'Intake → route → document → audit'
+  stages:
+    - step: '01 · Intake'
+      title: 'Case state machine'
+      body: 'A case is a first-class entity with a narrow set of transitions — ambiguity was the old reconciliation tax.'
+      stack: 'Laravel'
+    - step: '02 · Route'
+      title: 'Counselor assignment'
+      body: 'Licensure, specialty, and caseload become a system function with a recorded override path.'
+      stack: 'Rules'
+    - step: '03 · Document'
+      title: 'Generated packets'
+      body: 'Required case documents come from structured data, not a hand-assembled packet.'
+      stack: 'Pipelines'
+    - step: '04 · Audit'
+      title: 'RBAC & trails'
+      body: 'Every material change carries actor, timestamp, and before/after state.'
+      stack: 'MySQL'
 ---
 
 ## The Operational Problem

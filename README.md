@@ -12,14 +12,15 @@ Personal site for Karl Hill — Staff Software Engineer. A Laravel 13 + Tailwind
 
 ## Getting Started
 
-Requires PHP 8.4+, Composer, Node 22+, and Python 3 with Pillow for OG/WebP generation.
+Requires PHP 8.5+, Composer, and Node 22+.
 
 ```bash
 composer setup
-pip install -r scripts/requirements.txt   # optional locally; required on deploy
-php artisan og:generate
-php artisan assets:webp   # WebP + AVIF variants
+php artisan og:generate     # needs Python 3 + Pillow
+php artisan assets:webp     # WebP + AVIF variants; same
 ```
+
+Pillow is optional for local `composer dev`. Deploy and `og:generate` / `assets:webp` need it (`pip install -r scripts/requirements.txt`, or `python3-pil` in Docker).
 
 This installs PHP and JS deps, copies `.env.example` to `.env`, generates an app key, and builds frontend assets. No database is required — the site uses file cache and flat-file blog posts.
 

@@ -40,6 +40,21 @@
                     {{ $hero['subtitle'] }}
                 </p>
             @endif
+            @if(! empty($hero['arc']))
+                <nav class="hero-arc hero-enter" aria-label="Career arc" style="animation-delay:300ms">
+                    @foreach($hero['arc'] as $i => $stop)
+                        @if($i > 0)
+                            <span class="hero-arc__sep" aria-hidden="true">→</span>
+                        @endif
+                        <a href="{{ $stop['href'] }}" class="hero-arc__stop">
+                            <span class="hero-arc__label">{{ $stop['label'] }}</span>
+                            @if(! empty($stop['meta']))
+                                <span class="hero-arc__meta">{{ $stop['meta'] }}</span>
+                            @endif
+                        </a>
+                    @endforeach
+                </nav>
+            @endif
             @if(! empty($hero['positioning']))
                 <p class="hero-lede opsz-scroll text-neutral-200 leading-relaxed hero-enter" style="animation-delay:320ms">
                     {{ $hero['positioning'] }}

@@ -167,6 +167,18 @@ final class AgentPacket
                     'outputModes' => ['text/html', 'application/pdf'],
                 ],
                 [
+                    'id' => 'delivery-packet',
+                    'name' => 'How I run delivery',
+                    'description' => 'Definition of Done, PR rubric, integration risk, and coaching. Public substitute for unpublished program architecture.',
+                    'tags' => ['delivery', 'leadership', 'engineering-manager'],
+                    'examples' => [
+                        'GET '.$kit['delivery'],
+                        'What is Karl Hill’s Definition of Done?',
+                    ],
+                    'inputModes' => ['text/plain'],
+                    'outputModes' => ['text/html'],
+                ],
+                [
                     'id' => 'site-map',
                     'name' => 'Site map for agents',
                     'description' => 'Curated markdown map of pages, writing, and case studies (llms.txt).',

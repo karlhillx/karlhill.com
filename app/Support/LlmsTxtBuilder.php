@@ -46,6 +46,7 @@ class LlmsTxtBuilder
             $this->fileItem('Now', $base.'/now', 'Current focus and booking'),
             $this->fileItem('Resume', $base.'/resume', 'Canonical HTML curriculum vitae'),
             $this->fileItem('Recruiter kit', $base.'/kit', 'Leave-behind with bio, resume PDF, and links'),
+            $this->fileItem('How I run delivery', $base.'/lead', 'Definition of Done, PR rubric, integration risk, coaching'),
             $this->fileItem('Writing', $base.'/blog', 'Essays on leadership, delivery, and mission software'),
         ];
 
@@ -88,6 +89,7 @@ class LlmsTxtBuilder
             $this->fileItem('LLM full text', $feeds['llms_full'], 'Full essay corpus'),
             $this->fileItem('Hire packet JSON', $base.'/api/site.json', 'Person, experience, skills, writing, case studies'),
             $this->fileItem('MCP discovery', $feeds['mcp'], 'Agent resource map, including the A2A agent card'),
+            $this->fileItem('bb-run', 'https://github.com/karlhillx/bb-run', 'Python — run Bitbucket Pipelines locally'),
         ]);
 
         $research = config('site.research');

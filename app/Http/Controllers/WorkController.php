@@ -6,6 +6,7 @@ use App\Support\GitHubRepository;
 use App\Support\PageMeta;
 use App\Support\ProjectCatalog;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 class WorkController extends Controller
@@ -24,6 +25,7 @@ class WorkController extends Controller
             meta: PageMeta::work(),
             projects: ProjectCatalog::listed(),
             activeTag: null,
+            supporting: ProjectCatalog::supporting(),
         );
     }
 
@@ -39,6 +41,7 @@ class WorkController extends Controller
             meta: PageMeta::workTag($label),
             projects: $projects,
             activeTag: $label,
+            supporting: collect(),
         );
     }
 
@@ -57,21 +60,27 @@ class WorkController extends Controller
         ]);
     }
 
-    protected function renderIndex(PageMeta $meta, $projects, ?string $activeTag): View
+    protected function renderIndex(PageMeta $meta, Collection $projects, ?string $activeTag, Collection $supporting): View
     {
+        $rail = [
+            ['id' => 'work', 'label' => 'Projects', 'href' => '#work'],
+        ];
+        if ($supporting->isNotEmpty()) {
+            $rail[] = ['id' => 'chapters', 'label' => 'NASA Goddard', 'href' => '#chapters'];
+        }
+        $rail[] = ['id' => 'open-source', 'label' => 'Open Source', 'href' => '#open-source'];
+
         return view('work.index', [
             'meta' => $meta,
             'projects' => $projects,
+            'supporting' => $supporting,
             'activeTag' => $activeTag,
             'allTags' => ProjectCatalog::allTags(),
             'tagCounts' => ProjectCatalog::tagCounts(),
             'sectors' => ProjectCatalog::sectors(),
             'sectorCounts' => ProjectCatalog::sectorCounts(),
             'githubRepos' => $this->github->topRepos(),
-            'sectionRail' => [
-                ['id' => 'work', 'label' => 'Projects', 'href' => '#work'],
-                ['id' => 'open-source', 'label' => 'Open Source', 'href' => '#open-source'],
-            ],
+            'sectionRail' => $rail,
         ]);
     }
 }

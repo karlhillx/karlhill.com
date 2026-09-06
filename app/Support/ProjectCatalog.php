@@ -38,7 +38,8 @@ final class ProjectCatalog
 
     /**
      * Portfolio grid: the chapters that tell the trajectory. Unlisted studies
-     * stay routable (resume / sitemap) without crowding /work.
+     * stay routable (resume / sitemap) without crowding /work. Supporting
+     * chapters (NASA Goddard) appear as a compact row under the grid.
      *
      * @param  array<string, mixed>  $project
      */
@@ -48,11 +49,31 @@ final class ProjectCatalog
     }
 
     /**
+     * @param  array<string, mixed>  $project
+     */
+    public static function isSupporting(array $project): bool
+    {
+        return ($project['supporting'] ?? false) === true;
+    }
+
+    /**
      * @return Collection<int, array<string, mixed>>
      */
     public static function listed(): Collection
     {
         return self::all()->filter(fn (array $project) => self::isListed($project))->values();
+    }
+
+    /**
+     * Unlisted NASA chapters shown on /work as “also shipped,” not as flagship cards.
+     *
+     * @return Collection<int, array<string, mixed>>
+     */
+    public static function supporting(): Collection
+    {
+        return self::all()
+            ->filter(fn (array $project) => self::isSupporting($project) && ! self::isListed($project))
+            ->values();
     }
 
     /**

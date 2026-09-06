@@ -6,7 +6,8 @@ return [
     'highlights' => [],
     /*
      | Canonical outbound links for the kit (and its print leave-behind).
-     | `path` is site-relative; `social` resolves from config('site.social');
+     | `path` is site-relative; `url` is an absolute outbound href;
+     | `social` resolves from config('site.social');
      | `type` => pdf uses the footer resume path.
      */
     'links' => [
@@ -27,6 +28,11 @@ return [
             'meta' => '/now',
         ],
         [
+            'label' => 'How I run delivery',
+            'path' => '/lead',
+            'meta' => 'Packet',
+        ],
+        [
             'label' => null, // filled from booking.label at render time
             'type' => 'booking',
             'path' => '/now#book',
@@ -42,6 +48,12 @@ return [
             'label' => 'GitHub',
             'social' => 'github',
             'meta' => 'Code',
+            'external' => true,
+        ],
+        [
+            'label' => 'bb-run',
+            'url' => 'https://github.com/karlhillx/bb-run',
+            'meta' => 'Python',
             'external' => true,
         ],
         [

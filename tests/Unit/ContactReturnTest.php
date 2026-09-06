@@ -10,6 +10,7 @@ it('allows public pages including article and case-study paths', function (strin
     ['/about', '/about'],
     ['/resume', '/resume'],
     ['/kit', '/kit'],
+    ['/lead', '/lead'],
     ['/work', '/work'],
     ['/work/', '/work'],
     ['/work/tag/laravel', '/work/tag/laravel'],

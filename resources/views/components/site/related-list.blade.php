@@ -7,7 +7,9 @@
 
 @if(count($items) > 0)
     <div {{ $attributes }} data-reveal>
-        <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">{{ $label }}</p>
+        @if(filled($label))
+            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">{{ $label }}</p>
+        @endif
         <ul class="space-y-4">
             @foreach($items as $item)
                 <li>

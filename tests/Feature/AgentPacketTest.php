@@ -29,7 +29,8 @@ it('hire packet json includes person experience writing and case studies', funct
         ->and(collect($json['case_studies'])->pluck('slug'))->toContain('flood-mapping-system')
         ->and(collect($json['writing'])->pluck('slug'))->toContain('release-governance')
         ->and($json['feeds']['llms'])->toEndWith('/llms.txt')
-        ->and($json['kit']['resume_pdf'])->toContain('/files/Karl-Hill-Resume.pdf');
+        ->and($json['kit']['resume_pdf'])->toContain('/files/Karl-Hill-Resume.pdf')
+        ->and($json['kit']['delivery'])->toEndWith('/lead');
 });
 
 it('mcp well-known document points at the hire packet', function () {
@@ -53,7 +54,7 @@ it('a2a agent card is a read-only http discovery document', function () {
         ->assertJsonPath('skills.0.id', 'hire-packet');
 
     $json = $response->json();
-    expect(collect($json['skills'])->pluck('id'))->toContain('hire-packet', 'recruiter-kit', 'site-map')
+    expect(collect($json['skills'])->pluck('id'))->toContain('hire-packet', 'recruiter-kit', 'delivery-packet', 'site-map')
         ->and($json['description'])->toContain('JSON-RPC');
 
     $this->get('/.well-known/agent.json')

@@ -8,6 +8,10 @@
                 <p class="opsz-scroll text-neutral-400 text-base leading-relaxed">
                     {{ $how['intro'] }}
                 </p>
+                <a href="/lead"
+                   class="inline-flex items-center min-h-11 mt-4 font-mono text-xs text-accent uppercase tracking-widest hover:underline underline-offset-4">
+                    How I run delivery →
+                </a>
             @endif
         </div>
 

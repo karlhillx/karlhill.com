@@ -24,6 +24,25 @@ metrics:
     label: 'Product latency'
   - value: 'End-to-end, sensor ingest to dissemination'
     label: 'Automated pipeline'
+platform:
+  caption: 'Commit → gates → same pipeline in every environment'
+  stages:
+    - step: '01 · Source'
+      title: 'Containerized stages'
+      body: 'Each imagery transformation is a containerized task runner, not a snowflake workstation.'
+      stack: 'Git · Docker'
+    - step: '02 · Verify'
+      title: 'Flood regression gates'
+      body: 'Pipeline changes must pass automated tests against known flood extents before they ship.'
+      stack: 'CI'
+    - step: '03 · Deploy'
+      title: 'Same pipeline, every env'
+      body: 'The processing chain is deployable and recoverable across environments, not a local hero path.'
+      stack: 'AWS · Containers'
+    - step: '04 · Operate'
+      title: 'Ingest to dissemination'
+      body: 'Sensor packets become OGC products for responders without overnight engineering heroics.'
+      stack: 'Event-driven'
 ---
 
 ## Operational Context

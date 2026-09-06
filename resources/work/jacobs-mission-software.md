@@ -24,6 +24,21 @@ metrics:
     label: 'Aerospace mission software'
   - value: Unpublished
     label: 'Program details'
+platform:
+  caption: 'Schematic · Program names, customers, and mission data are unpublished.'
+  stages:
+    - step: '01 · Ingest'
+      title: 'Simulation & Telemetry'
+      body: 'Cloud-native streaming pipelines ingesting synthetic flight data and operational sensor feeds.'
+      stack: 'Python · AWS'
+    - step: '02 · Pipeline'
+      title: 'DevSecOps & Gates'
+      body: 'Deterministic CI/CD, PR coaching, multi-repo governance, and immutable artifact verification.'
+      stack: 'Kubernetes · CI/CD'
+    - step: '03 · Release'
+      title: 'Multi-Environment Ship'
+      body: 'Continuous readiness across isolated and connected baselines without late-stage heroics.'
+      stack: 'High-Assurance'
 ---
 
 At Jacobs, I help teams deliver mission-focused software in constrained environments. My work spans platform delivery, engineering standards, and release readiness.
@@ -46,29 +61,6 @@ My approach treats delivery as a first-class product problem: quality, traceabil
 ## How I Work
 
 I focus on practices that make teams more reliable without concentrating critical knowledge in one person:
-
-<figure class="my-8 overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900/70 p-4 sm:p-6 backdrop-blur-sm">
-  <div class="overflow-x-auto">
-    <svg viewBox="0 0 780 170" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full min-w-[640px] h-auto" role="img" aria-label="Representative delivery lifecycle: build, verify, and release">
-      <rect x="20" y="35" width="210" height="100" rx="8" fill="#1f1f1f" stroke="#404040" stroke-width="1.5" />
-      <text x="125" y="78" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="600" text-anchor="middle">Build</text>
-      <text x="125" y="105" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">Make work repeatable</text>
-      <path d="M230 85 H278" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" />
-      <polygon points="278,80 290,85 278,90" fill="#38bdf8" />
-      <rect x="290" y="35" width="210" height="100" rx="8" fill="#1f1f1f" stroke="#404040" stroke-width="1.5" />
-      <text x="395" y="78" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="600" text-anchor="middle">Verify</text>
-      <text x="395" y="105" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">Make readiness visible</text>
-      <path d="M500 85 H548" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" />
-      <polygon points="548,80 560,85 548,90" fill="#38bdf8" />
-      <rect x="560" y="35" width="200" height="100" rx="8" fill="#1f1f1f" stroke="#404040" stroke-width="1.5" />
-      <text x="660" y="78" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="600" text-anchor="middle">Release</text>
-      <text x="660" y="105" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">Learn and improve</text>
-    </svg>
-  </div>
-  <figcaption class="mt-3 text-center font-mono text-caption text-neutral-400 uppercase tracking-widest">
-    Representative delivery lifecycle — not a Jacobs system architecture
-  </figcaption>
-</figure>
 
 1. **Make readiness observable:** Define and automate the evidence that establishes whether a change is ready to move forward.
 2. **Design for repeatability:** Reduce manual handoffs and undocumented assumptions so teams can make progress predictably.

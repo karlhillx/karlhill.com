@@ -57,16 +57,19 @@ it('parses substantive markdown body and generates html and toc', function () {
     expect($jacobs)->toBeArray()
         ->and($jacobs['body_html'] ?? null)->toBeString()
         ->and($jacobs['body_html'])->toContain('This page intentionally stays at the level of engineering practice.')
-        ->and($jacobs['body_html'])->toContain('Representative delivery lifecycle')
+        ->and($jacobs['body_html'])->not->toContain('Representative delivery lifecycle')
         ->and($jacobs['body_html'])->not->toContain('Kubernetes Mission Mesh')
         ->and($jacobs['body_html'])->not->toContain('<pre><code>');
 
     $jacobsResponse = $this->get('/work/jacobs-mission-software');
     $jacobsResponse->assertOk()
         ->assertSee('How I Work', escape: false)
-        ->assertSee('Representative delivery lifecycle — not a Jacobs system architecture', escape: false)
+        ->assertSee('id="platform"', escape: false)
+        ->assertSee('Simulation &amp; Telemetry', escape: false)
+        ->assertSee('Schematic', escape: false)
         ->assertSee('does not publish program names', escape: false)
-        ->assertDontSee('Kubernetes Mission Mesh', escape: false);
+        ->assertDontSee('Kubernetes Mission Mesh', escape: false)
+        ->assertDontSee('Representative delivery lifecycle', escape: false);
 
     $flood = $this->get('/work/flood-mapping-system');
     $flood->assertOk()
@@ -74,4 +77,35 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertSee('Figure 1: Automated Satellite Ingestion to Multi-Agency Dissemination Architecture', escape: false)
         ->assertSee('href="#system-architecture"', escape: false)
         ->assertDontSee('&lt;!-- Arrow 1 to 2 --&gt;', escape: false);
+});
+
+it('every case study publishes a platform map with three to five stages', function () {
+    /** @var CaseStudyRepository $repo */
+    $repo = app(CaseStudyRepository::class);
+
+    foreach (ProjectCatalog::withCaseStudies() as $project) {
+        $slug = $project['slug'];
+        $study = $repo->find($slug);
+        $stages = $study['platform']['stages'] ?? null;
+
+        expect($stages)->toBeArray("{$slug} is missing platform.stages")
+            ->and(count($stages))->toBeGreaterThanOrEqual(3, "{$slug} needs at least 3 platform stages")
+            ->and(count($stages))->toBeLessThanOrEqual(5, "{$slug} has more than 5 platform stages");
+
+        foreach ($stages as $index => $stage) {
+            expect($stage['step'] ?? null)->toBeString("{$slug} stage {$index} is missing step")
+                ->and($stage['title'] ?? null)->toBeString("{$slug} stage {$index} is missing title")
+                ->and($stage['body'] ?? null)->toBeString("{$slug} stage {$index} is missing body")
+                ->and(trim((string) $stage['step']))->not->toBe('')
+                ->and(trim((string) $stage['title']))->not->toBe('')
+                ->and(trim((string) $stage['body']))->not->toBe('');
+        }
+
+        $firstTitle = $stages[0]['title'];
+        $this->get('/work/'.$slug)
+            ->assertOk()
+            ->assertSee('id="platform"', escape: false)
+            ->assertSee($firstTitle)
+            ->assertSee('href="#platform"', escape: false);
+    }
 });

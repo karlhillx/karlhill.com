@@ -64,6 +64,11 @@ final class PageMeta
         return self::fromSeo('kit', '/kit', null);
     }
 
+    public static function lead(): self
+    {
+        return self::fromSeo('lead', '/lead', null);
+    }
+
     public static function a11yContactErrors(): self
     {
         return new self(

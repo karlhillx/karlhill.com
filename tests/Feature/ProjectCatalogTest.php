@@ -21,6 +21,12 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         'finium',
     ]);
 
+    expect(ProjectCatalog::supporting()->pluck('slug')->all())->toBe([
+        'nasa-earth-observatory',
+        'direct-readout-laboratory',
+        'esscor',
+    ]);
+
     $this->get('/work')
         ->assertOk()
         ->assertSee('jacobs-mission-software', escape: false)
@@ -28,10 +34,12 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         ->assertSee('laads-daac', escape: false)
         ->assertSee('finium', escape: false)
         ->assertSee('$105M', escape: false)
-        ->assertDontSee('esscor', escape: false)
-        ->assertDontSee('direct-readout-laboratory', escape: false)
-        ->assertDontSee('informeddna-platform', escape: false)
-        ->assertDontSee('nasa-earth-observatory', escape: false);
+        ->assertSee('id="chapters"', escape: false)
+        ->assertSee('Also shipped at NASA Goddard', escape: false)
+        ->assertSee('/work/esscor', escape: false)
+        ->assertSee('/work/direct-readout-laboratory', escape: false)
+        ->assertSee('/work/nasa-earth-observatory', escape: false)
+        ->assertDontSee('informeddna-platform', escape: false);
 
     $this->get('/work/esscor')->assertOk();
     $this->get('/work/direct-readout-laboratory')->assertOk();

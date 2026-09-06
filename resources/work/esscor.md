@@ -22,6 +22,25 @@ metrics:
     label: 'Data collection efficiency gain'
   - value: Granule
     label: 'Level access control'
+platform:
+  caption: 'Schema → index → access → registry'
+  stages:
+    - step: '01 · Model'
+      title: 'Governed metadata'
+      body: 'Collections map onto one standards-aligned schema before they are searchable — MySQL stays the system of record.'
+      stack: 'MySQL'
+    - step: '02 · Index'
+      title: 'Faceted discovery'
+      body: 'ElasticSearch serves instrument, time, region, and processing-level queries across archive and NRT.'
+      stack: 'ElasticSearch'
+    - step: '03 · Access'
+      title: 'Granule ACL & order'
+      body: 'Search results are actionable: granule-level rules and a governed path from find to delivery.'
+      stack: 'Catalog'
+    - step: '04 · Registry'
+      title: 'Automated ingest'
+      body: 'New datasets reach researchers through the content workflow instead of a manual curation queue.'
+      stack: 'Ingest'
 ---
 
 ## The Discovery Problem

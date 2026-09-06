@@ -24,6 +24,25 @@ metrics:
     label: 'Monthly visitors'
   - value: Self-serve
     label: 'Editorial publishing'
+platform:
+  caption: 'Author → imagery pipeline → CI gates → edge'
+  stages:
+    - step: '01 · Author'
+      title: 'Self-serve templates'
+      body: 'Editors compose stories from shared components instead of waiting on a custom engineering build.'
+      stack: 'Laravel'
+    - step: '02 · Pipeline'
+      title: 'Imagery pyramids'
+      body: 'Uploads become AVIF/WebP, spatial metadata, and LQIP automatically — not a desktop export ritual.'
+      stack: 'Async jobs'
+    - step: '03 · Gate'
+      title: '508 / WCAG / perf'
+      body: 'Accessibility and frontend budgets are CI quality gates, not a post-launch audit.'
+      stack: 'CI/CD'
+    - step: '04 · Deliver'
+      title: 'Edge cache'
+      body: 'Tagged, pre-compressed assets absorb traffic spikes so origin load stays flat.'
+      stack: 'CDN'
 ---
 
 ## Editorial Velocity & Scale

@@ -12,6 +12,7 @@ use App\Support\Booking;
  * - /        positioning + proof hooks (availability ping only)
  * - /now     living status + booking
  * - /kit     leave-behind: PDF + bio + links
+ * - /lead    forwardable delivery packet (DoD, PR rubric, risk, coaching)
  * - /about   how I lead + arc teaser + research
  * - /resume  evidence (canonical HTML CV)
  * - /work    current Jacobs chapter + public NASA/older proof
@@ -90,6 +91,7 @@ return [
     'about' => require __DIR__.'/site/about.php',
     'now' => require __DIR__.'/site/now.php',
     'kit' => require __DIR__.'/site/kit.php',
+    'lead' => require __DIR__.'/site/lead.php',
     'github' => require __DIR__.'/site/github.php',
     'resume' => require __DIR__.'/site/resume.php',
 

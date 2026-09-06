@@ -57,7 +57,7 @@ final class PageFeatures
         if (
             str_starts_with((string) $name, 'work')
             || str_starts_with((string) $name, 'blog')
-            || in_array($name, ['about', 'now', 'kit'], true)
+            || in_array($name, ['about', 'now', 'kit', 'lead'], true)
         ) {
             $features[] = 'reveal';
         }
@@ -71,7 +71,7 @@ final class PageFeatures
             $features[] = 'push';
         }
 
-        if ($name === 'kit') {
+        if ($name === 'kit' || $name === 'lead') {
             $features[] = 'summarizer';
         }
 

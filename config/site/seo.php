@@ -36,4 +36,9 @@ return [
         'description' => 'Recruiter kit for Karl Hill — resume PDF, bio, and links for Engineering Manager and Staff / Principal searches in aerospace, defense, and federal mission software.',
         'og_description' => 'Recruiter one-pager: resume PDF, bio, LinkedIn/GitHub, booking, and flagship NASA plus current Jacobs work.',
     ],
+    'lead' => [
+        'title' => 'How I run delivery — Karl Hill',
+        'description' => 'Definition of Done, PR rubric, integration risk, and coaching — Karl Hill’s portable delivery operating system for constrained mission software. Forward this page with the kit.',
+        'og_description' => 'How I run delivery: Definition of Done, PR rubric, visible integration risk, and coaching. The substitute for unpublished architecture.',
+    ],
 ];

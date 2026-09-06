@@ -100,6 +100,10 @@ class KitController extends Controller
                 $href = $match['url'];
                 $label ??= ucfirst($icon);
                 $external = true;
+            } elseif (isset($def['url'])) {
+                $href = (string) $def['url'];
+                $label ??= $href;
+                $external = true;
             } elseif (isset($def['path'])) {
                 $href = url((string) $def['path']);
                 $label ??= (string) $def['path'];

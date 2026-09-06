@@ -136,6 +136,11 @@ export function initCommandPalette() {
             action: () => window.location.assign('/about'),
         }),
         withGroup({
+            label: 'How I run delivery',
+            keywords: 'lead delivery definition of done pr rubric coaching integration risk packet',
+            action: () => window.location.assign('/lead'),
+        }),
+        withGroup({
             label: 'How I Lead',
             keywords: 'how i lead leadership coaching 1:1 feedback em manager',
             action: () => window.location.assign('/about#how-i-lead'),

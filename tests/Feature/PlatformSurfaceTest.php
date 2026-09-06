@@ -175,6 +175,12 @@ it('essays and kit ship a hidden on-device summarizer hook', function () {
         ->assertSee('data-on-device-summary', escape: false)
         ->assertSee('data-summary-source', escape: false)
         ->assertSee('data-summary-type="key-points"', escape: false);
+
+    $this->get('/lead')
+        ->assertOk()
+        ->assertSee('data-on-device-summary', escape: false)
+        ->assertSee('data-summary-source', escape: false)
+        ->assertSee('Summarize this packet', escape: false);
 });
 
 it('omits reporting and dictionary headers when those features are off', function () {

@@ -22,22 +22,22 @@
 <form id="{{ $formId }}"
       method="POST"
       action="{{ route('contact.store') }}"
-      class="js-contact-form mt-10 space-y-5 max-w-md"
+      class="js-contact-form mt-10 w-full"
       aria-label="Contact form"
       data-contact-form
       @if($sent) data-contact-complete @endif>
     @csrf
     <input type="hidden" name="return_to" value="{{ $returnPath }}">
 
-    <div data-contact-fields @if($sent) hidden @endif>
+    <div data-contact-fields class="flex flex-col gap-6" @if($sent) hidden @endif>
         {{-- Honeypot: hidden from people, irresistible to bots. --}}
         <div class="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
             <label>Company <input type="text" name="company" tabindex="-1" autocomplete="off" inputmode="none"></label>
         </div>
 
-        <div class="grid sm:grid-cols-2 gap-4">
+        <div class="grid gap-5 md:grid-cols-2">
             <div>
-                <label for="{{ $nameId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1.5">Your name</label>
+                <label for="{{ $nameId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-2">Your name</label>
                 <input id="{{ $nameId }}" name="name" type="text" required maxlength="120"
                        value="{{ old('name') }}" placeholder="Your name" autocomplete="name"
                        @if($errorBag->has('name')) aria-invalid="true" aria-describedby="{{ $nameId }}-error" @endif
@@ -51,7 +51,7 @@
                 @endif
             </div>
             <div>
-                <label for="{{ $emailId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1.5">Your email</label>
+                <label for="{{ $emailId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-2">Your email</label>
                 <input id="{{ $emailId }}" name="email" type="email" required maxlength="190"
                        value="{{ old('email') }}" placeholder="you@company.com" autocomplete="email"
                        @if($errorBag->has('email')) aria-invalid="true" aria-describedby="{{ $emailId }}-error" @endif
@@ -66,8 +66,8 @@
             </div>
         </div>
         <div>
-            <label for="{{ $messageId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1.5">Message</label>
-            <textarea id="{{ $messageId }}" name="message" required minlength="10" maxlength="4000" rows="4"
+            <label for="{{ $messageId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-2">Message</label>
+            <textarea id="{{ $messageId }}" name="message" required minlength="10" maxlength="4000" rows="5"
                       placeholder="{{ config('site.footer.contact_placeholder', 'What are you building, and how can I help?') }}"
                       @if($errorBag->has('message')) aria-invalid="true" aria-describedby="{{ $messageId }}-error" @endif
                       @class([

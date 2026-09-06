@@ -30,6 +30,7 @@ it('llms txt returns a v2 file-list map', function () {
     $this->assertStringContainsString('/work/nasa-earth-observatory', $body);
     $this->assertStringContainsString('/work/laads-daac', $body);
     $this->assertStringContainsString('/kit', $body);
+    $this->assertStringContainsString('/lead', $body);
     $this->assertStringContainsString('/blog/release-governance', $body);
     $this->assertStringContainsString('What 20 Years Taught Me About Release Governance', $body);
     $this->assertStringContainsString('Preferred name Karl Hill', $body);
@@ -74,7 +75,7 @@ it('every h2 section is a markdown file list with unique urls', function () {
     expect($urls)->not->toBeEmpty()
         ->and($urls)->toHaveCount(count($unique))
         ->and(count($unique))->toBeGreaterThanOrEqual(25)
-        ->and(count($unique))->toBeLessThanOrEqual(32);
+        ->and(count($unique))->toBeLessThanOrEqual(34);
 
     $withoutUrls = preg_replace('~https?://\S+~', '', $body) ?? $body;
     $words = str_word_count($withoutUrls);
@@ -89,9 +90,11 @@ it('llms txt builder lists professional profiles and resume once', function () {
 
     $this->assertStringContainsString('[LinkedIn](https://www.linkedin.com/in/khill/)', $body);
     $this->assertStringContainsString('[GitHub](https://github.com/karlhillx)', $body);
+    $this->assertStringContainsString('[bb-run](https://github.com/karlhillx/bb-run)', $body);
     $this->assertSame(1, substr_count($body, '/resume'));
     $this->assertSame(1, substr_count($body, '/kit'));
     $this->assertSame(1, substr_count($body, '/now'));
+    $this->assertSame(1, substr_count($body, '](https://karlhill.com/lead)'));
     $this->assertStringContainsString('GeoHorizons', $body);
     $this->assertStringContainsString('September 6, 2026', $body);
 });

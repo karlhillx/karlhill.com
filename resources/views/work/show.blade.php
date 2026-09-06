@@ -7,6 +7,7 @@
     $decisions = $study['decisions'] ?? $study['approach'] ?? [];
     $imageAlt = $project['image_alt'] ?? ('Screenshot of '.$project['title']);
 
+    $hasPlatform = count($study['platform']['stages'] ?? []) >= 3;
     $hasBody = ! empty($study['body_html']);
     $bodyH2s = array_values(array_filter($study['body_toc'] ?? [], fn ($item) => ($item['level'] ?? 2) === 2));
     $isJacobs = ($project['slug'] ?? '') === 'jacobs-mission-software';
@@ -20,6 +21,7 @@
                 'label' => 'Executive Summary',
                 'items' => array_values(array_filter([
                     ['id' => 'snapshot', 'text' => 'Snapshot'],
+                    $hasPlatform ? ['id' => 'platform', 'text' => 'Platform'] : null,
                     ['id' => 'overview', 'text' => 'Overview & Stack'],
                     ! empty($study['problem']) ? ['id' => 'problem', 'text' => 'Problem & Context'] : null,
                     ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions & Approach'] : null,
@@ -45,6 +47,7 @@
                 'label' => 'Executive Summary',
                 'items' => array_values(array_filter([
                     ['id' => 'snapshot', 'text' => 'Snapshot'],
+                    $hasPlatform ? ['id' => 'platform', 'text' => 'Platform'] : null,
                     ['id' => 'overview', 'text' => 'Overview & Stack'],
                     ['id' => 'problem', 'text' => 'Problem'],
                     ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions'] : null,
@@ -167,44 +170,12 @@
                                         <span class="font-mono text-caption text-neutral-400 uppercase tracking-widest">Jacobs National Security</span>
                                     </div>
 
-                                    <div class="grid sm:grid-cols-3 gap-3 my-4">
-                                        <div class="surface-card p-3.5 flex flex-col gap-3">
-                                            <div>
-                                                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-1">01 · Ingest</p>
-                                                <p class="font-sans font-semibold text-sm text-neutral-100 mb-1.5">Simulation &amp; Telemetry</p>
-                                                <p class="text-neutral-400 text-xs leading-snug">Cloud-native streaming pipelines ingesting synthetic flight data and operational sensor feeds.</p>
-                                            </div>
-                                            <div class="flex flex-wrap gap-1.5 mt-auto pt-2.5 border-t border-neutral-800/60 font-mono text-caption text-neutral-400">
-                                                <span>Python</span> &middot; <span>AWS</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="surface-card p-3.5 flex flex-col gap-3">
-                                            <div>
-                                                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-1">02 · Pipeline</p>
-                                                <p class="font-sans font-semibold text-sm text-neutral-100 mb-1.5">DevSecOps &amp; Gates</p>
-                                                <p class="text-neutral-400 text-xs leading-snug">Deterministic CI/CD, PR coaching, multi-repo governance, and immutable artifact verification.</p>
-                                            </div>
-                                            <div class="flex flex-wrap gap-1.5 mt-auto pt-2.5 border-t border-neutral-800/60 font-mono text-caption text-neutral-400">
-                                                <span>Kubernetes</span> &middot; <span>CI/CD</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="surface-card p-3.5 flex flex-col gap-3">
-                                            <div>
-                                                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-1">03 · Release</p>
-                                                <p class="font-sans font-semibold text-sm text-neutral-100 mb-1.5">Multi-Environment Ship</p>
-                                                <p class="text-neutral-400 text-xs leading-snug">Continuous readiness across isolated and connected baselines without late-stage heroics.</p>
-                                            </div>
-                                            <div class="flex flex-wrap gap-1.5 mt-auto pt-2.5 border-t border-neutral-800/60 font-mono text-caption text-neutral-400">
-                                                <span>High-Assurance</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <p class="font-mono text-caption text-neutral-400 text-center border-t border-neutral-800/80 pt-3">
-                                        Schematic &middot; Program names, customers, and mission data are unpublished.
-                                    </p>
+                                    <x-site.platform-map
+                                        class="mt-4"
+                                        :eyebrow="false"
+                                        :stages="$study['platform']['stages'] ?? []"
+                                        :caption="$study['platform']['caption'] ?? null"
+                                    />
                                 </div>
                             @else
                                 <button type="button"
@@ -270,6 +241,14 @@
                                     <p class="case-study-media__detail">Generative illustration, not mission data.</p>
                                 </figcaption>
                             </figure>
+                        @endif
+
+                        @if($hasPlatform && ! $isJacobs)
+                            <x-site.platform-map
+                                class="mt-6"
+                                :stages="$study['platform']['stages'] ?? []"
+                                :caption="$study['platform']['caption'] ?? null"
+                            />
                         @endif
                     </section>
 
