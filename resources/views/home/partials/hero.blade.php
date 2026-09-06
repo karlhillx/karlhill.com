@@ -50,12 +50,14 @@
                 @if(filled($bookingUrl))
                     <a href="/now#book"
                        data-idle-cta
+                       data-analytics-event="booking_cta_clicked"
                        class="hero-cta-btn btn-accent-fill magnetic-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200">
                         {{ $bookingLabel }}
                     </a>
                 @else
                     <a href="/now"
                        data-idle-cta
+                       data-analytics-event="booking_cta_clicked"
                        class="hero-cta-btn btn-accent-fill magnetic-btn inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200">
                         Now
                     </a>
@@ -68,6 +70,7 @@
                     @if(filled($resumePdf))
                         <a href="{{ $resumePdf }}"
                            download="Karl-Hill-Resume.pdf"
+                           data-analytics-event="resume_downloaded"
                            class="inline-flex items-center min-h-11 hover:text-accent uppercase tracking-widest transition-colors">
                             Resume PDF
                         </a>

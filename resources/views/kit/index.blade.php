@@ -42,12 +42,14 @@
             @if($pdfHref)
                 <a href="{{ $pdfHref }}"
                    download="Karl-Hill-Resume.pdf"
+                   data-analytics-event="resume_downloaded"
                    class="btn-sweep inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs text-accent border border-accent/40 px-5 py-3 uppercase tracking-widest transition-colors">
                     Download resume PDF
                 </a>
             @endif
             @if(filled($bookingUrl))
                 <a href="{{ url('/now#book') }}"
+                   data-analytics-event="booking_cta_clicked"
                    class="btn-accent-fill magnetic-btn inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs uppercase tracking-widest px-5 py-3">
                     {{ $bookingLabel }}
                 </a>
@@ -117,6 +119,7 @@
                         <a href="{{ $link['href'] }}"
                            @if($link['external']) target="_blank" rel="me noopener noreferrer" @endif
                            @if($link['download']) download @endif
+                           data-analytics-event="{{ $link['external'] ? 'recruiter_link_opened' : ($link['download'] ? 'resume_downloaded' : 'recruiter_link_opened') }}"
                            class="group flex flex-wrap items-center justify-between gap-2 min-h-11 py-3">
                             <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">
                                 {{ $link['label'] }}

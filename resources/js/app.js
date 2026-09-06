@@ -6,6 +6,7 @@ import { initCommandPalette } from './modules/command-palette.js';
 import { initToast } from './modules/toast.js';
 import { initServiceWorker } from './modules/service-worker.js';
 import { initThemeToggle } from './modules/theme.js';
+import { initAnalytics } from './modules/analytics.js';
 
 initViewTransitions();
 initNavigation();
@@ -13,6 +14,7 @@ initThemeToggle();
 initCommandPalette();
 initToast();
 initServiceWorker();
+initAnalytics();
 
 const features = new Set(
     (document.documentElement.dataset.features || '').split(/\s+/).filter(Boolean)

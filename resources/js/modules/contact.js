@@ -1,4 +1,5 @@
 import { showToast } from './toast.js';
+import { trackEvent } from './analytics.js';
 
 const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
 
@@ -114,6 +115,7 @@ export function initContactForms() {
                     if (fieldsEl) fieldsEl.hidden = true;
                     renderSuccess(statusEl, msg, data);
                     showToast(msg, 'success');
+                    trackEvent('contact_form_submitted');
                     statusEl.focus?.();
                 })
                 .catch(() => {

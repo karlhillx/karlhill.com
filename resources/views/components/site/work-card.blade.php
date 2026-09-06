@@ -29,6 +29,7 @@
     @if($href)
         <a href="{{ $href }}"
            @if($external) target="_blank" rel="noopener noreferrer" @endif
+           @if(! $external && is_string($href) && str_contains($href, '/work/')) data-analytics-event="case_study_opened" @endif
            @if($slug) interestfor="work-preview-{{ $slug }}" @endif
            class="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-none"
            @if($titleId) aria-labelledby="{{ $titleId }}" @else aria-label="{{ $title }}" @endif>
