@@ -102,7 +102,7 @@
 </head>
 <body class="bg-bg text-neutral-100 antialiased has-page-spotlight">
 
-    <div class="page-spotlight" aria-hidden="true"></div>
+    <div class="page-spotlight" aria-hidden="true"><span class="page-spotlight__orb"></span></div>
     <div class="scroll-progress" aria-hidden="true"></div>
 
     <a href="#main-content"

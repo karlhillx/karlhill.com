@@ -18,8 +18,8 @@ final class PageFeatures
         $request ??= request();
         $name = $request->route()?->getName() ?? '';
 
-        // Pointer loads site-wide so the page spotlight can wander on idle;
-        // magnetic/tilt no-op when those nodes are absent. The contact chunk is
+        // Pointer is site-wide for the spotlight orb + magnetic buttons;
+        // tilt no-ops when those nodes are absent. The contact chunk is
         // only flagged where the form renders (home footer); app.js also loads
         // it whenever [data-contact-form] is present in the markup.
         $features = ['pointer'];

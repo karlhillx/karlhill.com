@@ -109,7 +109,7 @@ Ambient motion is progressive. `resources/js/lib/prefs.js` sets `allowAmbientMot
 
 When that gate is on:
 
-- After **6s** idle, the page spotlight wanders (`--spot-x` / `--spot-y` in `pointer.js`). The next pointer move, scroll, or key cancels it.
+- The page spotlight is a translated orb that follows the pointer (`pointer.js`). It does not run an idle animation frame loop.
 - After **8s** idle, the Book CTA on home and `/now` settles once (`data-idle-cta`).
 - Homepage infinite loops (mesh, dot grid, shine, portrait, availability ping) **pause** when `#hero` is off-screen or the tab is hidden (`html.hero-ambient-paused`).
 

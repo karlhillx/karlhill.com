@@ -1,12 +1,6 @@
 import { allowAmbientMotion, prefersFinePointer, prefersReducedMotion } from '../lib/prefs.js';
 
-const SPOT_REST_X = 50;
-const SPOT_REST_Y = 35;
-const WANDER_DELAY_MS = 6000;
 const CTA_DELAY_MS = 8000;
-const WANDER_PERIOD_MS = 22000;
-const WANDER_AMP_X = 8;
-const WANDER_AMP_Y = 5;
 
 export function initPointerEffects() {
     if (prefersReducedMotion || !prefersFinePointer) return;
@@ -15,7 +9,7 @@ export function initPointerEffects() {
     initMagneticButtons();
 
     if (allowAmbientMotion) {
-        initSpotlightAndIdle();
+        initSpotlight();
         initPointerLitCards();
     }
 }
@@ -44,113 +38,38 @@ function pauseHeroAmbientWhenUnseen() {
     sync();
 }
 
-function initSpotlightAndIdle() {
-    const root = document.documentElement;
+/** Follow the pointer with a translated orb — no :root CSS vars, no idle rAF. */
+function initSpotlight() {
+    const orb = document.querySelector('.page-spotlight__orb');
+    if (!orb) return;
+
     let spotRaf = null;
-    let wanderRaf = null;
-    let wanderTimer = 0;
-    let ctaTimer = 0;
-    let wandering = false;
-    let wanderOriginX = SPOT_REST_X;
-    let wanderOriginY = SPOT_REST_Y;
-    let wanderStartedAt = 0;
-    let lx = 0;
-    let ly = 0;
-    let lastSpotX = SPOT_REST_X;
-    let lastSpotY = SPOT_REST_Y;
-    let ctaSettled = false;
+    let lx = window.innerWidth * 0.5;
+    let ly = window.innerHeight * 0.35;
 
     const idleCtas = document.querySelectorAll('[data-idle-cta]');
-
-    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
-
-    const applySpot = (x, y) => {
-        lastSpotX = x;
-        lastSpotY = y;
-        root.style.setProperty('--spot-x', `${x}%`);
-        root.style.setProperty('--spot-y', `${y}%`);
-    };
-
-    const stopWander = () => {
-        wandering = false;
-        if (wanderRaf !== null) {
-            cancelAnimationFrame(wanderRaf);
-            wanderRaf = null;
-        }
-    };
-
-    const tickWander = (now) => {
-        if (!wandering) return;
-        const t = ((now - wanderStartedAt) / WANDER_PERIOD_MS) * Math.PI * 2;
-        applySpot(
-            clamp(wanderOriginX + Math.sin(t) * WANDER_AMP_X, 8, 92),
-            clamp(wanderOriginY + Math.cos(t * 0.7) * WANDER_AMP_Y, 12, 88)
-        );
-        wanderRaf = requestAnimationFrame(tickWander);
-    };
-
-    const startWander = () => {
-        if (document.hidden) return;
-        stopWander();
-        wandering = true;
-        wanderOriginX = lastSpotX;
-        wanderOriginY = lastSpotY;
-        wanderStartedAt = performance.now();
-        wanderRaf = requestAnimationFrame(tickWander);
-    };
-
-    const settleCta = () => {
-        if (ctaSettled || document.hidden) return;
-        ctaSettled = true;
-        idleCtas.forEach((el) => el.classList.add('is-idle-settle'));
-    };
-
-    const armIdle = () => {
-        window.clearTimeout(wanderTimer);
-        window.clearTimeout(ctaTimer);
-        wanderTimer = window.setTimeout(startWander, WANDER_DELAY_MS);
-        if (!ctaSettled && idleCtas.length > 0) {
-            ctaTimer = window.setTimeout(settleCta, CTA_DELAY_MS);
-        }
-    };
-
-    const onActivity = () => {
-        stopWander();
-        armIdle();
-    };
+    if (idleCtas.length > 0) {
+        window.setTimeout(() => {
+            if (!document.hidden) {
+                idleCtas.forEach((el) => el.classList.add('is-idle-settle'));
+            }
+        }, CTA_DELAY_MS);
+    }
 
     document.addEventListener(
         'mousemove',
         (event) => {
+            if (document.hidden) return;
             lx = event.clientX;
             ly = event.clientY;
-            onActivity();
             if (spotRaf !== null) return;
             spotRaf = requestAnimationFrame(() => {
                 spotRaf = null;
-                const w = window.innerWidth || 1;
-                const h = window.innerHeight || 1;
-                applySpot((lx / w) * 100, (ly / h) * 100);
+                orb.style.transform = `translate3d(${lx}px, ${ly}px, 0)`;
             });
         },
         { passive: true }
     );
-
-    window.addEventListener('scroll', onActivity, { passive: true });
-    window.addEventListener('wheel', onActivity, { passive: true });
-    document.addEventListener('keydown', onActivity, { passive: true });
-
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            stopWander();
-            window.clearTimeout(wanderTimer);
-            window.clearTimeout(ctaTimer);
-            return;
-        }
-        armIdle();
-    });
-
-    armIdle();
 }
 
 function initMagneticButtons() {

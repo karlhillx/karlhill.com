@@ -111,17 +111,8 @@
     }
 }
 
-/* Hero portrait — a slow accent halo breathes in and out. Uses drop-shadow
-   (not box-shadow) so it layers over the existing Tailwind ring cleanly. */
-@keyframes portraitBreathe {
-    0%,
-    100% {
-        filter: drop-shadow(0 0 2px color-mix(in oklab, var(--accent) 18%, transparent));
-    }
-    50% {
-        filter: drop-shadow(0 0 11px color-mix(in oklab, var(--accent) 38%, transparent));
-    }
-}
+/* Portrait halo used to animate filter: drop-shadow — that forces a paint
+   every frame. The static ring on the image is enough. */
 
 /* Work-card imagery drifts vertically as the card travels through the viewport,
    giving the otherwise-static grid a subtle sense of depth. Scroll-driven, so
@@ -534,15 +525,10 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     );
     background-size: 48px 48px;
     animation: dotScroll 8s linear infinite;
-    will-change: transform, opacity;
 }
 
-/* Hero portrait — slow accent halo (keyframes above). */
-#hero .hero-portrait {
-    animation: portraitBreathe 5.5s ease-in-out infinite;
-}
-
-/* Hero mesh — soft accent blobs that drift and track the pointer spotlight. */
+/* Hero mesh — soft accent blobs. Positions are fixed so the pointer
+   spotlight can move without invalidating a 64px blur layer every frame. */
 .hero-mesh {
     z-index: 0;
     overflow: hidden;
@@ -553,7 +539,6 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     border-radius: 9999px;
     filter: blur(64px);
     opacity: light-dark(0.12, 0.55);
-    will-change: transform;
     background: radial-gradient(
         circle at 40% 40%,
         color-mix(in oklab, var(--accent) light-dark(22%, 42%), transparent),
@@ -565,7 +550,7 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     width: min(42vw, 28rem);
     height: min(42vw, 28rem);
     top: 8%;
-    left: calc(var(--spot-x) - 22%);
+    left: 10%;
     animation: glowDrift1 14s ease-in-out infinite alternate;
 }
 
@@ -573,7 +558,7 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     width: min(48vw, 34rem);
     height: min(48vw, 34rem);
     bottom: 4%;
-    right: calc(100% - var(--spot-x) - 18%);
+    right: 5%;
     opacity: light-dark(0.08, 0.4);
     background: radial-gradient(
         circle at 60% 50%,
@@ -684,8 +669,8 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     }
 }
 
-/* Full-page spotlight that follows the pointer (Gauntlet-style ambient lift).
-   Sits behind main content; fine-pointer only so touch devices stay calm. */
+/* Full-page spotlight that follows the pointer. A translated orb — not a
+   full-viewport gradient whose stop position is rewritten every frame. */
 .page-spotlight {
     display: none;
 }
@@ -697,13 +682,25 @@ nav[aria-label='Primary'].is-compact .nav-bar {
         inset: 0;
         z-index: 0;
         pointer-events: none;
+        overflow: hidden;
+    }
+
+    .page-spotlight__orb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 520px;
+        height: 520px;
+        margin: -260px 0 0 -260px;
+        border-radius: 50%;
+        pointer-events: none;
         background: radial-gradient(
-            520px circle at var(--spot-x) var(--spot-y),
+            circle at 50% 50%,
             color-mix(in oklab, var(--accent) 9%, transparent),
             transparent 62%
         );
         opacity: 0.9;
-        transition: opacity 0.4s var(--ease-out-soft);
+        transform: translate3d(50vw, 35vh, 0);
     }
 }
 
@@ -1050,7 +1047,6 @@ html.save-data .surface-card-media {
     transition:
         transform 160ms var(--ease-out-spring),
         box-shadow 200ms var(--ease-out-soft);
-    will-change: transform;
 }
 
 .magnetic-btn:hover {
