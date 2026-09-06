@@ -13,7 +13,11 @@
             @php($bookingLabel = config('site.booking.label'))
             @php($resumePdf = config('site.footer.resume'))
             <div class="hero-eyebrow hero-enter" style="animation-delay:100ms">
+                {{-- The <picture> is the flex item, so it carries the fixed size and
+                     shrink-0; otherwise it collapses when the label wraps and
+                     preflight's img { max-width: 100% } squeezes the portrait thin. --}}
                 <x-site.responsive-image
+                    class="hero-portrait-frame shrink-0"
                     src="/img/webp/profile.webp"
                     :alt="$person['name']"
                     width="48"
@@ -22,7 +26,7 @@
                     fetchpriority="high"
                     :lqip="false"
                     img-style="view-transition-name: portrait"
-                    img-class="hero-portrait rounded-full object-cover ring-2 ring-accent/30 shrink-0"
+                    img-class="hero-portrait rounded-full object-cover ring-2 ring-accent/30"
                 />
                 <p class="hero-eyebrow-label font-mono text-accent uppercase">
                     <span>{{ $person['job_title'] }}</span>
