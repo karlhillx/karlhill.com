@@ -6,15 +6,57 @@
     $headlineOutcome = $study['outcome'][0] ?? null;
     $decisions = $study['decisions'] ?? $study['approach'] ?? [];
     $imageAlt = $project['image_alt'] ?? ('Screenshot of '.$project['title']);
-    $toc = array_values(array_filter([
-        ['id' => 'overview', 'text' => 'Overview', 'level' => 2],
-        ['id' => 'snapshot', 'text' => 'Snapshot', 'level' => 2],
-        ['id' => 'problem', 'text' => 'Problem', 'level' => 2],
-        ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions', 'level' => 2] : null,
-        ['id' => 'outcome', 'text' => 'Outcome', 'level' => 2],
-        ! empty($study['leadership']) ? ['id' => 'leadership', 'text' => 'Leadership', 'level' => 2] : null,
-        $relatedProjects->isNotEmpty() ? ['id' => 'related', 'text' => 'Related', 'level' => 2] : null,
-    ]));
+
+    $hasBody = ! empty($study['body_html']);
+    $bodyH2s = array_values(array_filter($study['body_toc'] ?? [], fn ($item) => ($item['level'] ?? 2) === 2));
+
+    if ($hasBody) {
+        $tocGroups = array_values(array_filter([
+            [
+                'label' => 'Executive Summary',
+                'items' => array_values(array_filter([
+                    ['id' => 'overview', 'text' => 'Overview & Stack'],
+                    ! empty($study['problem']) ? ['id' => 'problem', 'text' => 'Problem & Context'] : null,
+                    ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions & Approach'] : null,
+                    ! empty($study['leadership']) ? ['id' => 'leadership', 'text' => 'Team & Leadership'] : null,
+                ])),
+            ],
+            ! empty($bodyH2s) ? [
+                'label' => 'Technical Deep Dive',
+                'items' => $bodyH2s,
+            ] : null,
+            $relatedProjects->isNotEmpty() ? [
+                'label' => 'Explore',
+                'items' => [
+                    ['id' => 'related', 'text' => 'Related Projects'],
+                ],
+            ] : null,
+        ]));
+
+        $toc = collect($tocGroups)->pluck('items')->flatten(1)->all();
+    } else {
+        $tocGroups = array_values(array_filter([
+            [
+                'label' => 'Executive Summary',
+                'items' => array_values(array_filter([
+                    ['id' => 'overview', 'text' => 'Overview & Stack'],
+                    ['id' => 'snapshot', 'text' => 'Snapshot'],
+                    ['id' => 'problem', 'text' => 'Problem'],
+                    ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions'] : null,
+                    ['id' => 'outcome', 'text' => 'Outcome'],
+                    ! empty($study['leadership']) ? ['id' => 'leadership', 'text' => 'Team & Leadership'] : null,
+                ])),
+            ],
+            $relatedProjects->isNotEmpty() ? [
+                'label' => 'Explore',
+                'items' => [
+                    ['id' => 'related', 'text' => 'Related Projects'],
+                ],
+            ] : null,
+        ]));
+
+        $toc = collect($tocGroups)->pluck('items')->flatten(1)->all();
+    }
 @endphp
 
 @extends('layouts.site', ['meta' => $meta])
@@ -48,42 +90,55 @@
             </div>
         </div>
 
-        <div class="relative z-10 site-prose">
-            <x-site.breadcrumbs :items="[
-                ['label' => 'Home', 'url' => '/'],
-                ['label' => 'Work', 'url' => '/work'],
-                ['label' => $project['title']],
-            ]" />
+        <div class="relative z-10 max-w-6xl mx-auto">
+            <div class="max-w-3xl">
+                <x-site.breadcrumbs :items="[
+                    ['label' => 'Home', 'url' => '/'],
+                    ['label' => 'Work', 'url' => '/work'],
+                    ['label' => $project['title']],
+                ]" />
 
-            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">{{ $project['meta'] }}</p>
-            <h1 class="font-sans font-semibold text-[clamp(1.85rem,4.5vw,3rem)] leading-[1.15] tracking-tight text-neutral-100 text-balance mb-5"
-                data-article-title
-                style="view-transition-name: work-title-{{ $project['slug'] }}">
-                {{ $project['title'] }}
-            </h1>
-            <p class="case-study-lede text-neutral-400 text-base leading-relaxed mb-10 max-w-2xl">{{ $study['lede'] }}</p>
+                <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">{{ $project['meta'] }}</p>
+                <h1 class="font-sans font-semibold text-[clamp(1.85rem,4.5vw,3rem)] leading-[1.15] tracking-tight text-neutral-100 text-balance mb-5"
+                    data-article-title
+                    style="view-transition-name: work-title-{{ $project['slug'] }}">
+                    {{ $project['title'] }}
+                </h1>
+                <p class="case-study-lede text-neutral-400 text-base leading-relaxed mb-10 max-w-2xl">{{ $study['lede'] }}</p>
+            </div>
 
-            <details class="article-toc-mobile lg:hidden mb-6 surface-card-static p-4">
-                <summary class="font-mono text-xs text-accent uppercase tracking-widest cursor-pointer select-none">
-                    On this page
-                </summary>
-                <ol class="article-toc-list mt-3">
-                    @foreach($toc as $item)
-                        <li class="article-toc-item">
-                            <a href="#{{ $item['id'] }}"
-                               data-toc-link
-                               class="article-toc-link font-mono text-caption text-neutral-500 hover:text-accent transition-colors">
-                                {{ $item['text'] }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ol>
-            </details>
+            @if(count($toc) >= 2)
+                <details class="article-toc-mobile lg:hidden mb-8 surface-card-static p-4 max-w-3xl">
+                    <summary class="font-mono text-xs text-accent uppercase tracking-widest cursor-pointer select-none">
+                        On this page
+                    </summary>
+                    <div class="article-toc__groups mt-3 space-y-4">
+                        @foreach($tocGroups as $group)
+                            <div>
+                                <p class="font-mono text-[10px] uppercase tracking-widest text-neutral-500 font-semibold mb-1.5">{{ $group['label'] }}</p>
+                                <ol class="article-toc-list">
+                                    @foreach($group['items'] as $item)
+                                        <li class="article-toc-item">
+                                            <a href="#{{ $item['id'] }}"
+                                               data-toc-link
+                                               class="article-toc-link font-mono text-caption text-neutral-400 hover:text-accent transition-colors">
+                                                {{ $item['text'] }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ol>
+                            </div>
+                        @endforeach
+                    </div>
+                </details>
+            @endif
 
-            <div class="lg:grid lg:grid-cols-[9.5rem_minmax(0,1fr)] lg:gap-x-12 lg:items-start">
-                <x-site.article-toc :items="$toc" class="hidden lg:block sticky top-28" />
+            <div class="lg:grid lg:grid-cols-[13rem_minmax(0,1fr)] xl:grid-cols-[15rem_minmax(0,1fr)] lg:gap-x-12 xl:gap-x-16 lg:items-start">
+                <aside class="hidden lg:block sticky top-28">
+                    <x-site.article-toc :items="$toc" :groups="$tocGroups" />
+                </aside>
 
-                <div class="min-w-0">
+                <div class="min-w-0 max-w-3xl">
                     {{-- Outcome → Stack → Role: the hiring skim path --}}
                     <section id="overview" class="case-study-glance scroll-mt-28 mb-12" data-reveal aria-label="Case study overview">
                         <div class="case-study-glance__cell">
@@ -303,6 +358,14 @@
                                     @endforeach
                                 </dl>
                             </section>
+                        @endif
+
+                        @if(! empty($study['body_html']))
+                            <div class="case-study-narrative pt-10 border-t border-neutral-800" data-reveal>
+                                <div class="prose-karl min-w-0">
+                                    {!! $study['body_html'] !!}
+                                </div>
+                            </div>
                         @endif
                     </div>
 

@@ -4,9 +4,9 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-CSS_MAX=160000   # bytes (print/kit + motion gates)
+CSS_MAX=185000   # bytes (print/kit + motion gates + case study deep dives)
 JS_MAX=18000     # bytes — core app.js after route-level splitting
-JS_TOTAL_MAX=45000  # core + lazy chunks
+JS_TOTAL_MAX=52000  # core + lazy chunks (including on-device summarizer)
 
 css="$(find "$ROOT/public/build/assets" -maxdepth 1 -name 'app-*.css' -print -quit)"
 js="$(find "$ROOT/public/build/assets" -maxdepth 1 -name 'app-*.js' -print -quit)"

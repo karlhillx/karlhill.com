@@ -25,6 +25,29 @@ metrics:
     label: 'Editorial publishing'
 ---
 
-# NASA Earth Observatory
+## Editorial Velocity & Scale
 
-Case study narrative for [NASA Earth Observatory](/work/nasa-earth-observatory). Structured fields live in the YAML front matter; edit those to update the page.
+NASA's Earth Observatory is one of the agency's highest-traffic public education platforms, delivering satellite imagery, climate data, and explanatory science journalism to over 1.5 million visitors every month.
+
+Over years of organic growth, however, the publishing workflow had become a critical engineering bottleneck:
+- Every new editorial format, custom interactive visualization, or major data story required ad-hoc software engineering support.
+- Ultra-high-resolution satellite images (often 100MB+ TIFF files from MODIS, Landsat, and VIIRS) were manually cropped and exported, leading to inconsistent compression, bloated page weights, and degraded mobile performance.
+- Search discoverability and accessibility compliance (Section 508 / WCAG) were managed reactively rather than enforced systematically at publication time.
+
+Editorial velocity had turned into an engineering queue. My goal as lead engineer was to decouple content production from developer intervention by building a self-service publishing architecture engineered for long-term maintainability.
+
+## Publishing Architecture
+
+We restructured the platform into a decoupled publishing system with an automated asset transformation engine:
+
+1. **Self-Service Editorial Templates:** Instead of bespoke layouts per article, we developed a modular, component-driven story publishing model. Editorial staff could compose rich narrative layouts, image comparisons (before-and-after flood or wildfire overlays), and data callouts without writing a line of code or filing an engineering ticket.
+2. **Automated Imagery Pipeline:** Satellite images uploaded by science writers are automatically ingested into an asynchronous image processing pipeline. The pipeline generates responsive responsive AVIF and WebP image pyramids, extracts spatial metadata, and pre-generates lightweight low-quality image placeholders (LQIP) to ensure zero layout shift (CLS).
+3. **Edge Caching & Resilience:** Serving 1.5M+ monthly visitors across global networks required aggressive edge caching with deterministic cache tags. When breaking disaster imagery or viral astronomical events drove sudden 10x traffic spikes, origin server load remained virtually flat while edge nodes served cached, pre-compressed assets.
+
+## Accessibility & Performance
+
+Public science platforms have a civic obligation to be accessible to everyone, across low-bandwidth connections, mobile devices, and assistive technologies:
+
+- **Strict Accessibility Compliance:** Accessibility was integrated into CI/CD quality gates. Semantic HTML, keyboard navigability, high-contrast typography, and automated alternate-text requirements ensured compliance with federal Section 508 and WCAG standards.
+- **Frontend Budget Discipline:** By eliminating third-party script bloat, optimizing font delivery, and relying on lean, modern web standards, First Contentful Paint (FCP) and Largest Contentful Paint (LCP) dropped dramatically across mobile devices.
+- **Durable Architecture:** By resisting the temptation to rewrite the frontend in a fast-moving, short-lived SPA framework, we delivered a platform that remained stable, fast, and easy for new developers to maintain years into the future.

@@ -255,7 +255,9 @@
     width: fit-content;
     max-width: 100%;
     min-width: 0;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
 }
 
 #hero .hero-availability:hover {
