@@ -130,6 +130,17 @@ WEBGPU_FLOOD=false
 EARLY_HINTS=false          # FrankenPHP 103 only; Link preloads already emit
 ```
 
+### Edge nginx (production)
+
+The production host runs a single shared nginx container (`karl-nginx-1`) in
+front of several sites; its config lives at `/home/karl/data/nginx/default.conf`
+on the host, **not** in this repo. `docker/nginx/default.conf` mirrors the
+karlhill.com server block (HTTP/2, gzip, immutable `/build/`, 30-day `/img/`)
+so local dev behaves the same — when you change one, change the other. Apply on
+the host with `docker exec karl-nginx-1 nginx -t && docker exec karl-nginx-1
+nginx -s reload`; back up the file first, the directory is root-owned so you
+can only overwrite in place.
+
 ### CDN (recommended)
 
 Point DNS through **Cloudflare** (or similar) in front of the Docker host.
