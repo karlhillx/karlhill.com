@@ -95,7 +95,6 @@
                     </dl>
                 </div>
                 <x-site.on-device-summary
-                    class="mt-8"
                     type="key-points"
                     length="short"
                     label="Summarize this kit"

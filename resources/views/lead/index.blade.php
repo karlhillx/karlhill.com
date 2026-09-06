@@ -80,7 +80,6 @@
                     <div class="max-w-2xl" data-summary-source>
                         <p class="text-neutral-300 text-base leading-relaxed">{{ $lead['why'] }}</p>
                         <x-site.on-device-summary
-                            class="mt-6"
                             type="key-points"
                             length="short"
                             label="Summarize this packet"
