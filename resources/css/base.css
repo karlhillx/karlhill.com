@@ -161,11 +161,12 @@ body {
     padding-block: clamp(3.25rem, 7vw, 4.5rem);
 }
 
-/* Inner-page hero: clear the fixed nav (4.75rem), then hand off quickly.
-   Measured before this pass, the first body block sat 460–550px down a
-   900px viewport; the hero is chrome, not content, so it stays short. */
+/* Inner-page hero: clear the fixed nav (~5.3rem tall at desktop root size)
+   with ~2rem of air above the breadcrumb, then hand off quickly. Measured
+   before this pass, the first body block sat 460–550px down a 900px
+   viewport; the hero is chrome, not content, so the bottom stays short. */
 .site-page-hero {
-    padding-block: clamp(5.75rem, 10vh, 6.5rem) clamp(1.75rem, 3.5vh, 2.5rem);
+    padding-block: clamp(7.25rem, 13vh, 7.75rem) clamp(1.75rem, 3.5vh, 2.5rem);
     padding-inline: var(--space-gutter);
 }
 
