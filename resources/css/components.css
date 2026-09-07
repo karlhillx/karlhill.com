@@ -1225,16 +1225,50 @@ a.series-chapters__card:hover .series-chapters__title,
 
 .case-study-leadership {
     display: grid;
-    gap: 0.85rem 1.25rem;
+    gap: 0;
+    max-width: 62ch;
+    margin: 0;
+}
+
+.case-study-leadership__cell {
+    display: grid;
+    gap: 0.35rem;
+    padding-block: 0.85rem;
+    border-bottom: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+}
+
+.case-study-leadership__cell:first-child {
+    padding-top: 0.15rem;
+}
+
+.case-study-leadership__cell:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.case-study-leadership__label {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    line-height: 1.4;
+    letter-spacing: var(--tracking-wide, 0.025em);
+    text-transform: uppercase;
+    color: color-mix(in oklab, var(--muted) 88%, var(--text));
+}
+
+.case-study-leadership__body {
+    margin: 0;
+    color: color-mix(in oklab, var(--text) 72%, var(--muted));
+    font-size: 0.875rem;
+    line-height: 1.55;
+    max-width: 54ch;
 }
 
 @media (min-width: 640px) {
-    .case-study-leadership {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .case-study-leadership__cell--wide {
-        grid-column: 1 / -1;
+    .case-study-leadership__cell {
+        grid-template-columns: 11.5rem minmax(0, 1fr);
+        gap: 0.35rem 1.25rem;
+        align-items: baseline;
     }
 }
 
@@ -1975,6 +2009,70 @@ a.series-chapters__card:hover .series-chapters__title,
     interpolate-size: allow-keywords;
 }
 
+/* Work card media — rest is slightly muted so type stays readable; hover
+   clears the frost with opacity + scale + saturate (parallax still applies). */
+.work-card-media {
+    opacity: 0.72;
+    filter: saturate(0.88) brightness(0.94);
+    transform: scale(1);
+    transition:
+        opacity 0.65s var(--ease-out-soft),
+        filter 0.65s var(--ease-out-soft),
+        transform 0.75s var(--ease-out-spring);
+}
+
+.group:hover .work-card-media,
+.group:focus-within .work-card-media {
+    opacity: 1;
+    filter: saturate(1.06) brightness(1);
+    transform: scale(1.045);
+}
+
+.work-card-media-scrim {
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--bg) 55%, transparent),
+        transparent 70%
+    );
+    opacity: 0.85;
+    transition: opacity 0.55s var(--ease-out-soft);
+}
+
+.group:hover .work-card-media-scrim,
+.group:focus-within .work-card-media-scrim {
+    opacity: 0.35;
+}
+
+.work-card-panel {
+    z-index: 2;
+    background-color: color-mix(in oklab, var(--bg) 92%, transparent);
+    backdrop-filter: blur(10px) saturate(1.1);
+    transition:
+        background-color 0.55s var(--ease-out-soft),
+        backdrop-filter 0.55s var(--ease-out-soft);
+}
+
+.group:hover .work-card-panel,
+.group:focus-within .work-card-panel {
+    background-color: color-mix(in oklab, var(--bg) 86%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .work-card-media {
+        transition:
+            opacity 0.2s ease,
+            filter 0.2s ease;
+        transform: none !important;
+    }
+
+    .group:hover .work-card-media,
+    .group:focus-within .work-card-media {
+        transform: none !important;
+    }
+}
+
 /* Jacobs / unpublished work — text constraints instead of a logo panel. */
 .work-card--constraint {
     background: color-mix(in oklab, var(--panel) 88%, var(--bg));
@@ -1986,7 +2084,11 @@ a.series-chapters__card:hover .series-chapters__title,
     opacity: 0.45;
     background-image:
         linear-gradient(color-mix(in oklab, var(--border) 80%, transparent) 1px, transparent 1px),
-        linear-gradient(90deg, color-mix(in oklab, var(--border) 80%, transparent) 1px, transparent 1px);
+        linear-gradient(
+            90deg,
+            color-mix(in oklab, var(--border) 80%, transparent) 1px,
+            transparent 1px
+        );
     background-size: 1.5rem 1.5rem;
     mask-image: linear-gradient(to bottom, black 0%, transparent 72%);
 }

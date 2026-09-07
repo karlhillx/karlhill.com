@@ -1412,16 +1412,22 @@ html:active-view-transition-type(same)::view-transition-new(root) {
     color: var(--text);
     border: 1px solid var(--border);
     border-radius: 0.85rem;
+    /* Without position-area, hint popovers can land in a viewport corner. */
+    position: absolute;
+    position-anchor: auto;
+    position-area: block-end span-inline-end;
+    inset: auto;
 }
 
 .interest-preview:popover-open {
     display: block;
-    position: absolute;
-    inset: auto;
 }
 
 @supports (position-anchor: --a) {
-    .interest-preview:popover-open {
-        position-try-fallbacks: flip-block, flip-inline;
+    .interest-preview {
+        position-try-fallbacks:
+            flip-block,
+            flip-inline,
+            flip-block flip-inline;
     }
 }

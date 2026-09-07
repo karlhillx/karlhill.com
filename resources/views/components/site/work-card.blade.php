@@ -34,7 +34,6 @@
         <a href="{{ $href }}"
            @if($external) target="_blank" rel="noopener noreferrer" @endif
            @if(! $external && is_string($href) && str_contains($href, '/work/')) data-analytics-event="case_study_opened" @if($slug) data-analytics-project="{{ $slug }}" @endif @endif
-           @if($slug) interestfor="work-preview-{{ $slug }}" @endif
            class="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-none"
            @if($titleId) aria-labelledby="{{ $titleId }}" @else aria-label="{{ $title }}" @endif>
             <span class="sr-only">
@@ -67,27 +66,27 @@
             loading="lazy"
             :lqip="false"
             :img-style="$slug ? 'view-transition-name: work-img-'.$slug.'; view-transition-class: card-media' : null"
-            img-class="work-parallax absolute inset-0 w-full h-full object-cover {{ $imagePosition }} opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out"
+            img-class="work-parallax work-card-media absolute inset-0 w-full h-full object-cover {{ $imagePosition }}"
             class="contents"
         />
-        <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/60 to-transparent" aria-hidden="true"></div>
+        <div class="work-card-media-scrim absolute inset-x-0 top-0 h-24" aria-hidden="true"></div>
     @endif
 
     @if($logo)
-        <div class="absolute top-4 right-4">
+        <div class="absolute top-4 right-4 z-[2]">
             <img src="{{ $logo['path'] }}" alt="" loading="lazy" decoding="async" aria-hidden="true"
                  @if($logo['filter']) style="filter: {{ $logo['filter'] }};" @endif
                  class="{{ $logo['class'] }} w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
         </div>
     @endif
 
-    <div class="absolute top-4 left-4 flex flex-wrap gap-1.5" aria-hidden="true">
+    <div class="absolute top-4 left-4 z-[2] flex flex-wrap gap-1.5" aria-hidden="true">
         @foreach($tags as $tag)
             <span class="surface-chip-overlay font-mono text-caption px-2 py-0.5 text-neutral-400">{{ $tag }}</span>
         @endforeach
     </div>
 
-    <div class="absolute inset-x-0 bottom-0 bg-bg/90 backdrop-blur-md border-t border-hairline px-5 pt-5 pb-6 rounded-b-2xl">
+    <div class="work-card-panel absolute inset-x-0 bottom-0 border-t border-hairline px-5 pt-5 pb-6 rounded-b-2xl">
         <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
         <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-xl tracking-tight text-neutral-100 group-hover:text-accent transition-colors leading-snug">{{ $title }}</h3>
         <div class="work-card-details overflow-hidden">
@@ -101,10 +100,3 @@
         </div>
     </div>
 </article>
-@if($slug && $href && ! $external)
-    <div id="work-preview-{{ $slug }}" popover="hint" class="interest-preview">
-        <p class="font-mono text-caption text-accent uppercase tracking-widest mb-1">{{ $meta }}</p>
-        <p class="font-sans font-semibold text-base tracking-tight text-neutral-100 leading-snug mb-2">{{ $title }}</p>
-        <p class="text-neutral-400 text-xs leading-relaxed">{{ $description }}</p>
-    </div>
-@endif

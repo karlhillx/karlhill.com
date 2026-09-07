@@ -116,7 +116,7 @@ it('generates content credential sidecars', function () {
     }
 });
 
-it('nav uses invoker commands and work cards use interest invokers', function () {
+it('nav uses invoker commands and blog cards use interest invokers', function () {
     $this->get('/')
         ->assertOk()
         ->assertSee('command="toggle-popover"', escape: false)
@@ -124,10 +124,14 @@ it('nav uses invoker commands and work cards use interest invokers', function ()
 
     $this->get('/work')
         ->assertOk()
-        ->assertSee('interestfor="work-preview-', escape: false)
-        ->assertSee('popover="hint"', escape: false)
+        ->assertDontSee('interestfor="work-preview-', escape: false)
         ->assertDontSee('data-soft-nav', escape: false)
         ->assertDontSee('data-soft-nav-target', escape: false);
+
+    $this->get('/blog')
+        ->assertOk()
+        ->assertSee('interestfor="post-preview-', escape: false)
+        ->assertSee('popover="hint"', escape: false);
 });
 
 it('flood case study keeps an optional webgpu canvas hook', function () {

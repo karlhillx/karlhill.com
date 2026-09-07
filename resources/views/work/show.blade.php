@@ -311,9 +311,9 @@
                                         'decision' => 'Hard decision',
                                     ] as $key => $label)
                                         @if(! empty($study['leadership'][$key]))
-                                            <div @class(['case-study-leadership__cell', 'case-study-leadership__cell--wide' => in_array($key, ['unblocked', 'decision'], true)])>
-                                                <dt class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1">{{ $label }}</dt>
-                                                <dd class="text-neutral-300 text-sm leading-snug">{{ $study['leadership'][$key] }}</dd>
+                                            <div class="case-study-leadership__cell">
+                                                <dt class="case-study-leadership__label">{{ $label }}</dt>
+                                                <dd class="case-study-leadership__body">{{ $study['leadership'][$key] }}</dd>
                                             </div>
                                         @endif
                                     @endforeach
