@@ -121,6 +121,13 @@ class GenerateOgImages extends Command
      */
     protected function runProcess(array $command): void
     {
+        if (($command[0] ?? null) === 'python3') {
+            $venvPython = base_path('.venv/bin/python3');
+            if (is_file($venvPython)) {
+                $command[0] = $venvPython;
+            }
+        }
+
         $process = new Process($command, base_path());
         $process->setTimeout(120);
         $process->run(function (string $type, string $buffer): void {

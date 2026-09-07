@@ -57,52 +57,81 @@ def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
     )
 
 
+def cover_crop(src: Image.Image, tw: int, th: int) -> Image.Image:
+    """Scale+crop to exactly tw×th (object-fit: cover), bias slightly toward the face."""
+    w, h = src.size
+    scale = max(tw / w, th / h)
+    nw, nh = int(w * scale + 0.5), int(h * scale + 0.5)
+    resized = src.resize((nw, nh), Image.LANCZOS)
+    left = max(0, (nw - tw) // 2)
+    # Bias up so eyes stay in frame when the source is a tight headshot.
+    top = max(0, (nh - th) // 2 - th // 20)
+    top = min(top, nh - th)
+    return resized.crop((left, top, left + tw, top + th))
+
+
 def generate_home() -> Path:
-    profile_path = PUBLIC / "webp" / "profile.webp"
+    """Homepage OG card optimized for Google’s square SERP thumbnail.
+
+    Layout: full-bleed portrait on the left 630×630 (what Google crops),
+    hire copy on the right. The old design put a small circle on the right
+    of a black field — center/right crops showed a letter fragment and a
+    tiny face.
+    """
+    jpg = PUBLIC / "profile.jpg"
+    webp = PUBLIC / "webp" / "profile.webp"
+    profile_path = jpg if jpg.exists() else webp
     out_path = PUBLIC / "og-home.jpg"
 
+    face_w = H  # 630 — square SERP thumb is the left panel
+    text_x = face_w + 48
+
     img = Image.new("RGB", (W, H), BG)
+    face = cover_crop(Image.open(profile_path).convert("RGB"), face_w, H)
+    img.paste(face, (0, 0))
+
+    # Soft seam: photo → dark panel so LinkedIn/Twitter still read as one card.
+    seam = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sdraw = ImageDraw.Draw(seam)
+    blend = 160
+    for i in range(blend):
+        alpha = int(255 * (i / blend) ** 1.35)
+        x = face_w - blend + i
+        sdraw.line([(x, 0), (x, H)], fill=(*BG, alpha))
+    sdraw.rectangle((face_w, 0, W, H), fill=(*BG, 255))
+    img = Image.alpha_composite(img.convert("RGBA"), seam).convert("RGB")
     draw = ImageDraw.Draw(img)
 
+    # Quiet brand glow behind the copy (not over the face).
     glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     gdraw = ImageDraw.Draw(glow)
-    gdraw.ellipse((700, -120, 1300, 480), fill=(*ORANGE, 35))
-    glow = glow.filter(ImageFilter.GaussianBlur(80))
-    img.paste(glow, (0, 0), glow)
+    gdraw.ellipse((820, -80, 1380, 420), fill=(*ORANGE, 28))
+    glow = glow.filter(ImageFilter.GaussianBlur(90))
+    img = Image.alpha_composite(img.convert("RGBA"), glow).convert("RGB")
+    draw = ImageDraw.Draw(img)
 
-    f_title = font(96, bold=True)
-    f_sub = font(34)
-    f_meta = font(24)
-    f_cta = font(28, bold=True)
-    f_site = font(20)
+    f_name = font(72, bold=True)
+    f_role = font(28)
+    f_meta = font(22)
+    f_ask = font(24, bold=True)
+    f_cta = font(26, bold=True)
 
-    size = 340
-    profile = Image.open(profile_path).convert("RGBA").resize((size, size), Image.LANCZOS)
-    mask = Image.new("L", (size, size), 0)
-    ImageDraw.Draw(mask).ellipse((0, 0, size, size), fill=255)
-    profile.putalpha(mask)
-
-    ring = Image.new("RGBA", (size + 12, size + 12), (0, 0, 0, 0))
-    rd = ImageDraw.Draw(ring)
-    rd.ellipse((0, 0, size + 11, size + 11), outline=ORANGE + (255,), width=4)
-    ring.paste(profile, (6, 6), profile)
-    img.paste(ring, (W - size - 90, (H - size - 12) // 2), ring)
-
-    x, y = 80, 130
-    draw.text((x, y), "KARL HILL", fill=WHITE, font=f_title)
-    y += 110
-    draw.text((x, y), "Staff Software Engineer", fill=GRAY, font=f_sub)
-    y += 52
-    draw.text((x, y), "20+ years  ·  NASA  ·  Aerospace  ·  Mission Software", fill=DARK_GRAY, font=f_meta)
-    y += 70
-    draw.rectangle((x, y, x + 80, y + 4), fill=ORANGE)
-    y += 50
+    x, y = text_x, 118
+    draw.text((x, y), "KARL HILL", fill=WHITE, font=f_name)
+    y += 86
+    draw.text((x, y), "Staff Aerospace Software Engineer", fill=GRAY, font=f_role)
+    y += 44
+    draw.text((x, y), "Jacobs National Security  ·  NASA Goddard", fill=DARK_GRAY, font=f_meta)
+    y += 56
+    draw.rectangle((x, y, x + 72, y + 4), fill=ORANGE)
+    y += 36
+    draw.text((x, y), "Seeking Engineering Manager", fill=WHITE, font=f_ask)
+    y += 48
     draw.text((x, y), "karlhill.com", fill=ORANGE, font=f_cta)
     tw = draw.textlength("karlhill.com", font=f_cta)
-    draw.text((x + tw + 12, y + 2), "->", fill=ORANGE, font=f_cta)
-    draw.text((x, H - 60), "KARL HILL", fill=DARK_GRAY, font=f_site)
+    draw.text((x + tw + 10, y + 1), "→", fill=ORANGE, font=f_cta)
 
-    img.save(out_path, "JPEG", quality=88, optimize=True)
+    img.save(out_path, "JPEG", quality=90, optimize=True)
     return out_path
 
 

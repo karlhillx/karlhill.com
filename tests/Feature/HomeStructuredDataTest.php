@@ -42,8 +42,8 @@ it('homepage html includes preferred-name title and json-ld', function () {
     $response = $this->get('/');
 
     $response->assertOk();
-    $response->assertSee('<title>Karl Hill — Staff Aerospace Software Engineer · NASA · Jacobs</title>', escape: false);
-    $response->assertSee('Karl M. Hill — Staff Aerospace Software Engineer at Jacobs', escape: false);
+    $response->assertSee('<title>Karl Hill — Staff Aerospace Software Engineer · Jacobs</title>', escape: false);
+    $response->assertSee('Staff Aerospace Software Engineer at Jacobs National Security', escape: false);
     $response->assertSee('"@type": "WebSite"', escape: false);
     $response->assertSee('"@type": "Person"', escape: false);
     $response->assertSee('"@type": "ProfilePage"', escape: false);

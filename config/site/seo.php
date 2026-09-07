@@ -2,9 +2,10 @@
 
 return [
     'home' => [
-        'title' => 'Karl Hill — Staff Aerospace Software Engineer · NASA · Jacobs',
-        'description' => 'Karl M. Hill — Staff Aerospace Software Engineer at Jacobs National Security in Washington, DC; formerly NASA Goddard. Seeking an Engineering Manager role building on team execution, engineer development, and cross-team delivery. Not the novelist or musician of the same name.',
-        'og_description' => 'Staff Aerospace Software Engineer @ Jacobs National Security · ex-NASA Goddard · Washington, DC. Seeking Engineering Manager — formal people management as the next expansion of scope.',
+        // Keep under ~55–60 chars so Jacobs survives Google’s title truncation.
+        'title' => 'Karl Hill — Staff Aerospace Software Engineer · Jacobs',
+        'description' => 'Staff Aerospace Software Engineer at Jacobs National Security in Washington, DC · formerly NASA Goddard. Seeking an Engineering Manager role building on team execution and engineer development.',
+        'og_description' => 'Staff Aerospace Software Engineer @ Jacobs National Security · ex-NASA Goddard · Washington, DC. Seeking Engineering Manager.',
     ],
     'blog_index' => [
         'title' => 'Writing — Karl Hill',
