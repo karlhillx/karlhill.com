@@ -3,8 +3,8 @@
 return [
     'eyebrow' => 'For recruiters & hiring managers',
     'lede' => 'A leave-behind: PDF, short bio, and the links a hiring manager needs. Evidence is on Work and the resume; booking is one click away.',
+    // Ask lives in person.availability (Open to). Do not restate EM vs IC here.
     'highlights' => [
-        'Primary ask: Engineering Manager in mission software (Staff/Principal IC when the mandate is platforms and standards).',
         'Proof: Jacobs National Security (current) + public NASA Goddard platforms.',
         'Packet: this page + resume PDF + /about#delivery for how I run delivery.',
     ],

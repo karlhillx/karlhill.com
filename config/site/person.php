@@ -11,9 +11,11 @@ return [
     'tagline' => 'Aerospace Mission Software | Platform Engineering | DevSecOps | Technical Leadership',
     // LinkedIn-ready headline (copy/paste); keep in sync with public positioning.
     'linkedin_headline' => 'Staff Aerospace Software Engineer @ Jacobs National Security | ex-NASA Goddard | Seeking Engineering Manager · Platform · DevSecOps',
-    // Canonical hire ask — hero ping, kit “Open to”, llms.txt, and JSON-LD.
-    // Primary for the next stretch: Engineering Manager. Staff/Principal stays open as a fit, not a co-equal pitch.
-    'availability' => 'Current Staff Aerospace Software Engineer at Jacobs National Security (Washington, DC), seeking Engineering Manager roles in mission software. Also open to Staff/Principal IC when the mandate is platform delivery and standards.',
+    // Canonical hire ask — one sentence for hero, kit “Open to”, agents, and JSON-LD.
+    // Do not restate this on About, kit highlights, or /now focus cards.
+    'availability' => 'Seeking Engineering Manager roles in mission software.',
+    // Secondary fit — kit Open to footnote only (not a co-equal pitch elsewhere).
+    'availability_note' => 'Staff/Principal IC when the mandate is platform delivery and standards.',
     'trajectory' => 'Staff→Engineering Manager: practicing the manager craft while shipping mission software at Jacobs National Security.',
     'employer' => 'Jacobs',
     'employer_display' => 'Jacobs National Security',

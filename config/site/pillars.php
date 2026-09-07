@@ -13,6 +13,6 @@ return [
     ],
     [
         'title' => 'Ready',
-        'body' => 'Seeking Engineering Manager roles while practicing the craft on live work — people outcomes on About, the written operating system on How I run delivery.',
+        'body' => 'Leave-behind on /kit, booking on /now#book. People craft on About; delivery OS on How I run delivery.',
     ],
 ];

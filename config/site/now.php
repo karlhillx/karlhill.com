@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'updated' => 'September 6, 2026',
+    'updated' => 'September 7, 2026',
     // /now owns current focus. Recruiter path is a short strip — the ask lives in person.availability.
     'lede' => 'Leading aerospace mission software delivery at Jacobs National Security while practicing the Engineering Manager craft — platform delivery, engineering standards, and high-assurance execution.',
     'recruiters' => [
@@ -11,9 +11,9 @@ return [
     'focus' => [
         [
             'title' => 'Engineering Manager trajectory',
-            'body' => 'Practicing the manager craft now — primary ask is Engineering Manager roles in mission software.',
-            'link' => '/about#how-i-lead',
-            'link_label' => 'How I lead',
+            'body' => 'Practicing the manager craft on live work. The hire ask is on /kit — book here if the timing is right.',
+            'link' => '/kit',
+            'link_label' => 'Recruiter kit',
         ],
         [
             'title' => 'Jacobs National Security',

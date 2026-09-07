@@ -219,7 +219,7 @@ class LlmsTxtBuilder
     protected function caseStudyNote(array $project): string
     {
         return match ($project['slug'] ?? '') {
-            'jacobs-mission-software' => 'Cloud-native mission simulation and telemetry — shape of the work, not the programs',
+            'jacobs-mission-software' => 'Delivery ownership for mission simulation and telemetry under constraint',
             'flood-mapping-system' => 'Near real-time flood products for disaster responders',
             'laads-daac' => 'LAADS Find Data, archive portal, and LANCE NRT for MODIS and VIIRS',
             'nasa-earth-observatory' => 'Flagship NASA science communication platform, 1.5M+ monthly visitors',

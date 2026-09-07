@@ -5,7 +5,7 @@ return [
     'lede' => 'NASA Earth science operations at scale, then government aerospace and defense mission software at Jacobs National Security — how I lead people, and how I run delivery under constraint.',
     'how_i_lead' => [
         'title' => 'How I lead',
-        'intro' => 'Staff influence becomes manager accountability when people outcomes are as explicit as system outcomes. This is how I work with engineers and stakeholders — the written delivery bar (Definition of Done, PR rubric, risk) follows below.',
+        'intro' => 'How I work with engineers and stakeholders — the written delivery bar (Definition of Done, PR rubric, risk) follows below. The hire ask lives on /kit.',
         'items' => [
             [
                 'title' => '1:1s that surface risk',

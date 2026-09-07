@@ -6,7 +6,7 @@ return [
         'title' => 'Aerospace mission software',
         'meta' => 'Jacobs · 2025–present',
         'sector' => 'Aerospace & Defense',
-        'description' => 'Cloud-native mission simulation and telemetry. What I can publish: the shape of the work, the constraints, and how I lead delivery — not program names, customers, or screenshots.',
+        'description' => 'Cloud-native mission simulation and telemetry. What I own: release readiness, engineering standards, and integration risk under constraint — not program names, customers, or screenshots.',
         'image' => '/img/webp/ss-jacobs-ns.webp',
         'image_alt' => 'Jacobs J logomark — brand panel for unpublished aerospace mission software.',
         'imagePosition' => 'object-center',

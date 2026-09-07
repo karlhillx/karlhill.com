@@ -108,7 +108,7 @@ it('sitemap lastmod reflects editorial dates rather than today', function () {
     $base = rtrim(config('app.url'), '/');
 
     $this->assertSame('2026-06-01', $lastmod[$base.'/blog/release-governance']);
-    $this->assertSame('2026-09-06', $lastmod[$base.'/now']);
+    $this->assertSame('2026-09-07', $lastmod[$base.'/now']);
     $this->assertSame('2026-09-06', $lastmod[$base.'/work/finium']);
     $this->assertNotContains('2030-01-01', $lastmod->all(), 'No URL should claim it changed today');
 
@@ -232,7 +232,7 @@ it('homepage hero is a tight first viewport', function () {
     $response->assertStatus(200);
     $response->assertSee(config('site.hero.headline'), escape: false);
     $response->assertDontSee(config('site.hero.subtitle'), escape: false);
-    $response->assertSee(config('site.hero.positioning'), escape: false);
+    $response->assertSee(config('site.person.availability'), escape: false);
     $response->assertDontSee(config('site.person.bio'), escape: false);
     $response->assertDontSee('Platforms · Delivery · Engineering Leadership', escape: false);
     $response->assertDontSee('hero-availability', escape: false);

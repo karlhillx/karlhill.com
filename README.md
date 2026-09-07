@@ -70,7 +70,7 @@ npm run test:e2e
 
 Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, kit, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
 
-Hire bio is canonical in `config/site/person.php` (`bio`). `/kit` uses that string; the homepage lede stays `config/site/hero.php` `positioning`. Primary hire ask is Engineering Manager (`availability` / hero ping); Staff/Principal stays a secondary fit.
+Hire bio is canonical in `config/site/person.php` (`bio`). The hire ask is a single sentence in `person.availability` — used by the homepage hero and kit “Open to”. Secondary IC fit is `availability_note` on `/kit` only. Do not restate the ask on About, kit highlights, or `/now` focus cards.
 
 ### Search Console and name disambiguation
 
@@ -341,11 +341,11 @@ When you change the HTML shell, offline fallback, or the precache list in
 
 With those set, every green CI run on `main` deploys automatically; you can also trigger it manually from the Actions tab (`workflow_dispatch`).
 
-> **Don't use `scripts/deploy.sh` unless the Actions workflow itself is down.** It runs `git pull` on the *host*, which requires the host user to own every tracked file. The app container writes some paths as its own runtime user, so a host-side `git pull` can start failing with `Permission denied` on unlink/create — and recovering requires root on the box, which you may not have. This has already caused a real production incident (a stale deploy left `/lead` 404ing) that had to be fixed by reaching into the container as root. If the Actions workflow is genuinely unavailable, fix ownership from *inside* the container (`docker exec -u root ... chown`) before falling back to this script — don't `sudo chown` the host tree.
+> **Don't use `scripts/deploy.sh` unless the Actions workflow itself is down.** It runs `git pull` on the *host*, which requires the host user to own every tracked file. The app container writes some paths as its own runtime user, so a host-side `git pull` can start failing with `Permission denied` on unlink/create — and recovering requires root on the box, which you may not have. This has already caused a real production incident (a stale deploy left `/lead` 404ing — that path now 301s to `/about#delivery`) that had to be fixed by reaching into the container as root. If the Actions workflow is genuinely unavailable, fix ownership from *inside* the container (`docker exec -u root ... chown`) before falling back to this script — don't `sudo chown` the host tree.
 
 ### Monitoring
 
-- **Uptime** — `.github/workflows/uptime.yml` probes `/up`, `/`, `/work`, a sample case study, `/about`, `/blog`, `/now`, `/kit`, `/resume`, `/lead`, `/feed.xml`, `/sitemap.xml`, and `/api/site.json` every 30 minutes (override the target with a `SITE_URL` repository variable). A failing run emails the workflow owner and opens an issue labelled `uptime`; the next green run closes it.
+- **Uptime** — `.github/workflows/uptime.yml` probes `/up`, `/`, `/work`, a sample case study, `/about`, `/blog`, `/now`, `/kit`, `/resume`, `/lead` (expects redirect to About delivery), `/feed.xml`, `/sitemap.xml`, and `/api/site.json` every 30 minutes (override the target with a `SITE_URL` repository variable). A failing run emails the workflow owner and opens an issue labelled `uptime`; the next green run closes it.
 - **Errors** — set `LOG_STACK=daily,slack` and `LOG_SLACK_WEBHOOK_URL` in production. The `slack` channel has its own `LOG_SLACK_LEVEL` (default `error`) so the file log can stay verbose. A Discord webhook works when suffixed with `/slack`.
 - **Browser reports** — with `REPORTING_ENABLED=true`, CSP/NEL/integrity reports posted to `/report` are retained in `storage/app/reports/latest.json` and mirrored to the log at `REPORTING_LOG_LEVEL` (default `warning`; `none` to silence), so they flow to the same sink as exceptions.
 

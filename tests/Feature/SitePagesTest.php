@@ -273,9 +273,9 @@ it('now page renders focus and em intent', function () {
     $response->assertStatus(200);
     $response->assertSee('Engineering Manager', escape: false);
     $response->assertSee('Jacobs National Security', escape: false);
-    $response->assertSee('September 6, 2026', escape: false);
-    $response->assertSee('href="/about#how-i-lead"', escape: false);
-    $response->assertSee('How I lead', escape: false);
+    $response->assertSee('September 7, 2026', escape: false);
+    $response->assertSee('href="/kit"', escape: false);
+    $response->assertSee('Recruiter kit', escape: false);
     $response->assertSee('Hiring', escape: false);
     $response->assertSee('The kit is the leave-behind', escape: false);
     $response->assertDontSee('id="contact-form"', escape: false);
@@ -404,7 +404,7 @@ it('homepage hero links to em funnel', function () {
     $response->assertDontSee('Resume PDF', escape: false);
     $response->assertSee('Jacobs', escape: false);
     $response->assertDontSee(config('site.hero.subtitle'), escape: false);
-    $response->assertSee(config('site.hero.positioning'), escape: false);
+    $response->assertSee(config('site.person.availability'), escape: false);
     $response->assertSee('Seeking Engineering Manager', escape: false);
     $response->assertDontSee('hero-availability', escape: false);
     $response->assertDontSee('hero-arc', escape: false);
@@ -495,6 +495,9 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('kit-links-more', escape: false);
     $response->assertSee('More links', escape: false);
     $response->assertSee('data-print', escape: false);
+    $response->assertSee(config('site.person.availability'), escape: false);
+    $response->assertSee(config('site.person.availability_note'), escape: false);
+    $response->assertDontSee('Primary ask:', escape: false);
 });
 
 it('homepage path strip points recruiters to kit work and book', function () {
@@ -536,7 +539,7 @@ it('legacy delivery url redirects into about', function () {
 it('now page shows a fresh updated date and kit link', function () {
     $this->get('/now')
         ->assertOk()
-        ->assertSee('Updated September 6, 2026', escape: false)
+        ->assertSee('Updated September 7, 2026', escape: false)
         ->assertSee('href="/kit"', escape: false)
         ->assertSee('Recruiter kit', escape: false);
 });

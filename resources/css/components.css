@@ -2223,6 +2223,14 @@ a.series-chapters__card:hover .series-chapters__title,
     max-width: 54ch;
 }
 
+.kit-facts__note {
+    margin: 0.45rem 0 0;
+    max-width: 54ch;
+    color: color-mix(in oklab, var(--muted) 92%, var(--text));
+    font-size: 0.8125rem;
+    line-height: 1.5;
+}
+
 .kit-highlights {
     list-style: none;
     margin: 0;

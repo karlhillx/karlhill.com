@@ -8,63 +8,25 @@
     $imageAlt = $project['image_alt'] ?? ('Screenshot of '.$project['title']);
 
     $hasPlatform = count($study['platform']['stages'] ?? []) >= 3;
-    $hasBody = ! empty($study['body_html']);
     $bodyH2s = array_values(array_filter($study['body_toc'] ?? [], fn ($item) => ($item['level'] ?? 2) === 2));
     $isJacobs = ($project['slug'] ?? '') === 'jacobs-mission-software';
     $frameTitle = $isJacobs
         ? 'Unclassified // Delivery Architecture'
         : (($liveUrl ? parse_url($liveUrl, PHP_URL_HOST) : null) ?: $project['title']);
 
-    if ($hasBody) {
-        $tocGroups = array_values(array_filter([
-            [
-                'label' => 'Executive Summary',
-                'items' => array_values(array_filter([
-                    ['id' => 'snapshot', 'text' => 'Snapshot'],
-                    $hasPlatform ? ['id' => 'platform', 'text' => 'Platform'] : null,
-                    ['id' => 'overview', 'text' => 'Overview & Stack'],
-                    ! empty($study['problem']) ? ['id' => 'problem', 'text' => 'Problem & Context'] : null,
-                    ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions & Approach'] : null,
-                    ! empty($study['leadership']) ? ['id' => 'leadership', 'text' => 'Team & Leadership'] : null,
-                ])),
-            ],
-            ! empty($bodyH2s) ? [
-                'label' => 'Technical Deep Dive',
-                'items' => $bodyH2s,
-            ] : null,
-            $relatedProjects->isNotEmpty() ? [
-                'label' => 'Explore',
-                'items' => [
-                    ['id' => 'related', 'text' => 'Related Projects'],
-                ],
-            ] : null,
-        ]));
-
-        $toc = collect($tocGroups)->pluck('items')->flatten(1)->all();
-    } else {
-        $tocGroups = array_values(array_filter([
-            [
-                'label' => 'Executive Summary',
-                'items' => array_values(array_filter([
-                    ['id' => 'snapshot', 'text' => 'Snapshot'],
-                    $hasPlatform ? ['id' => 'platform', 'text' => 'Platform'] : null,
-                    ['id' => 'overview', 'text' => 'Overview & Stack'],
-                    ['id' => 'problem', 'text' => 'Problem'],
-                    ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions'] : null,
-                    ['id' => 'outcome', 'text' => 'Outcome'],
-                    ! empty($study['leadership']) ? ['id' => 'leadership', 'text' => 'Team & Leadership'] : null,
-                ])),
-            ],
-            $relatedProjects->isNotEmpty() ? [
-                'label' => 'Explore',
-                'items' => [
-                    ['id' => 'related', 'text' => 'Related Projects'],
-                ],
-            ] : null,
-        ]));
-
-        $toc = collect($tocGroups)->pluck('items')->flatten(1)->all();
-    }
+    // Flat TOC — leave-behind skim, not academic grouping.
+    $toc = array_values(array_filter([
+        ['id' => 'snapshot', 'text' => 'Snapshot'],
+        $hasPlatform ? ['id' => 'platform', 'text' => 'Platform'] : null,
+        ['id' => 'overview', 'text' => 'Overview'],
+        ! empty($study['problem']) ? ['id' => 'problem', 'text' => 'Problem'] : null,
+        ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions'] : null,
+        ! empty($study['outcome']) ? ['id' => 'outcome', 'text' => 'Outcome'] : null,
+        ! empty($study['leadership']) ? ['id' => 'leadership', 'text' => 'Team & leadership'] : null,
+        ...$bodyH2s,
+        $relatedProjects->isNotEmpty() ? ['id' => 'related', 'text' => 'Related'] : null,
+    ]));
+    $tocGroups = null;
 @endphp
 
 @extends('layouts.site', ['meta' => $meta])
@@ -129,24 +91,20 @@
                             <summary class="font-mono text-xs text-accent uppercase tracking-widest cursor-pointer select-none">
                                 On this page
                             </summary>
-                            <div class="article-toc__groups mt-3 space-y-4">
-                                @foreach($tocGroups as $group)
-                                    <div>
-                                        <p class="font-mono text-caption uppercase tracking-widest text-neutral-500 font-semibold mb-1.5">{{ $group['label'] }}</p>
-                                        <ol class="article-toc-list">
-                                            @foreach($group['items'] as $item)
-                                                <li class="article-toc-item">
-                                                    <a href="#{{ $item['id'] }}"
-                                                       data-toc-link
-                                                       class="article-toc-link font-mono text-caption text-neutral-400 hover:text-accent transition-colors">
-                                                        {{ $item['text'] }}
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        </ol>
-                                    </div>
+                            <ol class="article-toc-list mt-3">
+                                @foreach($toc as $item)
+                                    <li @class([
+                                        'article-toc-item',
+                                        'article-toc-item--child' => ($item['level'] ?? 2) === 3,
+                                    ])>
+                                        <a href="#{{ $item['id'] }}"
+                                           data-toc-link
+                                           class="article-toc-link font-mono text-caption text-neutral-400 hover:text-accent transition-colors">
+                                            {{ $item['text'] }}
+                                        </a>
+                                    </li>
                                 @endforeach
-                            </div>
+                            </ol>
                         </details>
                     @endif
 

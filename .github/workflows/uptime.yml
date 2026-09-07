@@ -57,6 +57,29 @@ jobs:
             rm -f "$body"
           }
 
+          # Legacy /lead must keep redirecting into About delivery (not 200).
+          check_redirect() {
+            local path="$1" expect_location="$2"
+            local url="${SITE_URL}${path}"
+            local headers status location
+            headers=$(mktemp)
+            status=$(curl -sS -D "$headers" -o /dev/null -w '%{http_code}' --max-time 20 --retry 1 --retry-delay 5 \
+              -H 'User-Agent: karlhill-uptime/1.0 (+https://github.com/${{ github.repository }})' \
+              "$url" || echo "000")
+            location=$(awk 'BEGIN{IGNORECASE=1} /^location:/ {sub(/\r$/,""); print substr($0,10); exit}' "$headers" | sed 's/^[[:space:]]*//')
+
+            if [ "$status" != "301" ] && [ "$status" != "308" ]; then
+              failures+=("${path} → HTTP ${status} (expected 301/308)")
+              echo "::error::${path} returned HTTP ${status} (expected permanent redirect)"
+            elif [[ "$location" != *"${expect_location}"* ]]; then
+              failures+=("${path} → ${status} but Location \"${location}\" missing \"${expect_location}\"")
+              echo "::error::${path} redirected to \"${location}\" (expected \"${expect_location}\")"
+            else
+              echo "ok  ${path}  (HTTP ${status} → ${location})"
+            fi
+            rm -f "$headers"
+          }
+
           check /up ''
           check / '<h1'
           check /work 'Read case study'
@@ -66,7 +89,7 @@ jobs:
           check /now 'For recruiters and hiring managers'
           check /kit 'kit-glance-heading'
           check /resume 'resume-experience'
-          check /lead 'How I run delivery'
+          check_redirect /lead '/about#delivery'
           check /feed.xml '<feed'
           check /sitemap.xml '<urlset'
           check /api/site.json '"name"'

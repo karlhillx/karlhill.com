@@ -88,6 +88,9 @@
                     <div class="kit-facts__item kit-facts__item--wide">
                         <dt class="kit-facts__label">Open to</dt>
                         <dd class="kit-facts__value">{{ $person['availability'] }}</dd>
+                        @if(! empty($person['availability_note']))
+                            <p class="kit-facts__note">{{ $person['availability_note'] }}</p>
+                        @endif
                     </div>
                 </dl>
 
