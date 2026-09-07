@@ -16,6 +16,8 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($person['@id'])->toEndWith('/#person')
         ->and($person['description'])->toContain('Engineering Manager')
         ->and($person['sameAs'])->toContain('https://www.linkedin.com/in/khill')
+        ->and($person['sameAs'])->toContain('https://www.discogs.com/artist/1286669-Karl-Hill')
+        ->and($person['sameAs'])->toContain('https://en.wikipedia.org/wiki/Karl_Hill_(musician)')
         ->and($person['alumniOf'])->toBeArray()
         ->and($person['knowsAbout'])->toContain('DevSecOps')
         ->and($person['knowsAbout'])->toContain('Engineering Manager')
@@ -29,8 +31,6 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($article['datePublished'])->toMatch('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/')
         ->and(collect($article['author'])->pluck('url')->filter())->toHaveCount(4)
         ->and(collect($article['author'])->firstWhere('name', 'Karl M. Hill')['url'])->toContain('karlhill.com');
-
-    expect(collect($person['sameAs'])->implode(' '))->not->toContain('discogs.com');
 
     $website = collect($graph)->firstWhere('@type', 'WebSite');
     expect($website['alternateName'])->toBe('karlhill.com')

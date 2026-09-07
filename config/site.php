@@ -20,17 +20,19 @@ use App\Support\Booking;
  */
 $social = require __DIR__.'/site/social.php';
 
-// Structured-data sameAs: professional profiles only (skip schema:false entries).
+// Structured-data sameAs: public identities for this person. Skip schema:false
+// entries; prefer an explicit same_as URL when the href is a filtered view.
 $sameAs = array_values(array_unique(array_map(
-    static fn (string $url): string => rtrim($url, '/'),
-    array_column(
-        array_values(array_filter(
-            $social,
-            static fn (array $link): bool => ($link['schema'] ?? true) !== false
-        )),
-        'url'
-    )
+    static fn (array $link): string => rtrim((string) ($link['same_as'] ?? $link['url']), '/'),
+    array_values(array_filter(
+        $social,
+        static fn (array $link): bool => ($link['schema'] ?? true) !== false
+    ))
 )));
+
+// Wikipedia lists this Karl as the musician (dab → Karl Hill (musician) → GI).
+$sameAs[] = 'https://en.wikipedia.org/wiki/Karl_Hill_(musician)';
+$sameAs = array_values(array_unique($sameAs));
 
 // Analytics: Plausible is the default primary. GA4 only when explicitly enabled
 // and Plausible is off (avoids dual tracking).

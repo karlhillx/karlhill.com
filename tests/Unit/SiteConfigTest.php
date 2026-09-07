@@ -3,16 +3,12 @@
 use App\Support\Booking;
 
 it('same as is derived from schema-eligible social urls', function () {
-    $socialUrls = collect(config('site.social'))
-        ->filter(fn (array $link) => ($link['schema'] ?? true) !== false)
-        ->pluck('url')
-        ->map(fn (string $url) => rtrim($url, '/'))
-        ->unique()
-        ->values()
-        ->all();
+    $sameAs = collect(config('site.same_as'));
 
-    expect(config('site.same_as'))->toBe($socialUrls)
-        ->and(collect(config('site.same_as'))->implode(' '))->not->toContain('discogs.com')
+    expect($sameAs)->toContain('https://www.linkedin.com/in/khill')
+        ->and($sameAs)->toContain('https://www.discogs.com/artist/1286669-Karl-Hill')
+        ->and($sameAs)->toContain('https://en.wikipedia.org/wiki/Karl_Hill_(musician)')
+        ->and($sameAs->implode(' '))->not->toContain('superFilter=')
         ->and(collect(config('site.social'))->pluck('url')->implode(' '))->toContain('discogs.com');
 });
 
