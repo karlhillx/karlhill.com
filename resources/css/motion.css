@@ -45,33 +45,6 @@
     }
 }
 
-@keyframes glowDrift1 {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(40px, -30px);
-    }
-}
-
-@keyframes glowDrift2 {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(-40px, 30px);
-    }
-}
-
-@keyframes dotScroll {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 0 -48px;
-    }
-}
-
 @keyframes availabilityPulse {
     0%,
     100% {
