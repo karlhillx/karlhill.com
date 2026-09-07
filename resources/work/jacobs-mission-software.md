@@ -1,68 +1,70 @@
 ---
 updated: '2026-09-07'
-lede: 'I own delivery leadership for cloud-native mission simulation and telemetry — release readiness, engineering standards, and integration risk under constraint.'
-role: 'Staff Aerospace Software Engineer with delivery ownership across platform work, DevSecOps, and multi-environment ship.'
+lede: 'I lead day-to-day engineering execution for a team of roughly 10 engineers across ~20 repositories and multiple deployment environments — planning and sequencing work, coaching engineers, setting standards, and coordinating integration and release readiness.'
+role: 'Staff Aerospace Software Engineer — technical leadership, team execution, and engineer development at Jacobs National Security.'
 leadership:
-  mode: 'Staff IC with explicit delivery ownership — coaching plus release accountability'
-  team: 'Cross-functional engineering, integration, and mission partners'
-  unblocked: 'Made release readiness and integration risk visible early enough to act — not reconstructed at the gate.'
-  decision: 'Shared quality checks and traceability beat tribal knowledge when program detail cannot be public.'
+  mode: 'Staff IC with technical and delivery leadership — formal personnel decisions remain with management'
+  team: 'Roughly 10 engineers across ~20 repositories, plus program stakeholders and external partner teams'
+  unblocked: 'Onboarded and coached roughly six engineers; introduced clearer development plans for junior engineers'
+  decision: 'Translate program priorities into sequenced sprint work and surface tradeoffs when scope, dependencies, or readiness put delivery at risk'
 problem:
-  - 'Mission software crosses environments that disagree on what “ready” means — late integration drift is expensive.'
-  - 'Security, traceability, and release evidence cannot live in one person’s head.'
-  - 'Program specifics stay unpublished, so public proof has to describe the delivery operating system, not the mission.'
+  - 'Mission software work spans many repositories and deployment environments — execution has to stay sequenced when dependencies and readiness shift.'
+  - 'Engineers need shared standards and coaching so quality, testing, and release expectations are not tribal knowledge.'
+  - 'Program leadership sets priorities; engineering leadership has to turn those into deliverable work and flag risk early.'
 decisions:
-  - 'Make “ready” evidence-based: shared quality checks and governance, not a meeting.'
-  - 'Coach PR discipline and Definition of Done so standards outlast any one engineer.'
-  - 'Publish constraints and practices only — no program names, customers, system designs, tools, or screenshots.'
+  - 'Lead Scrum/Agile execution: shape sprint priorities, coordinate dependencies, remove blockers, and adjust when integration issues emerge.'
+  - 'Develop engineers through onboarding, code review, and ongoing feedback — with more deliberate plans for junior engineers.'
+  - 'Drive shared practices for review, testing, CI/CD, security checks, repository structure, and release readiness across the repos.'
 outcome:
-  - 'What I own: multi-environment release readiness and the engineering bar for the team.'
-  - 'What changed: integration risk and readiness show up during the work, not after a surprise at the gate.'
-  - 'What you can verify elsewhere: public NASA platforms on this site; this chapter is the constrained current work.'
+  - 'What I own: day-to-day technical delivery, engineer development, and cross-team coordination for integration and release readiness.'
+  - 'What changed: clearer coaching and development plans for engineers; execution that can absorb dependency and readiness pressure without losing the thread.'
+  - 'What stays out of scope here: formal people-management authority, and any program-specific detail.'
 metrics:
-  - value: Constrained
-    label: 'Aerospace mission software'
-  - value: Unpublished
-    label: 'Program details'
+  - value: '~10'
+    label: 'Engineers on the team'
+  - value: '~20'
+    label: 'Repositories in scope'
 platform:
   caption: 'Schematic · Program names, customers, and mission data are unpublished.'
   stages:
-    - step: '01 · Ingest'
-      title: 'Simulation & Telemetry'
-      body: 'Cloud-native streaming pipelines ingesting synthetic flight data and operational sensor feeds.'
-      stack: 'Python · AWS'
-    - step: '02 · Pipeline'
-      title: 'DevSecOps & Gates'
-      body: 'Deterministic CI/CD, PR coaching, multi-repo governance, and immutable artifact verification.'
-      stack: 'Kubernetes · CI/CD'
-    - step: '03 · Release'
-      title: 'Multi-Environment Ship'
-      body: 'Continuous readiness across isolated and connected baselines without late-stage heroics.'
-      stack: 'High-Assurance'
+    - step: '01 · Plan'
+      title: 'Sequence the work'
+      body: 'Turn program needs into sprint priorities, dependency order, and clear ownership across repositories.'
+      stack: 'Agile · Planning'
+    - step: '02 · Build'
+      title: 'Coach & standardize'
+      body: 'Code review, testing expectations, CI/CD, and security checks applied consistently across the team.'
+      stack: 'PR · CI/CD'
+    - step: '03 · Ship'
+      title: 'Integration & readiness'
+      body: 'Coordinate across teams and partner environments so releases move when evidence says they are ready.'
+      stack: 'Release'
 ---
 
-At Jacobs National Security I own delivery leadership for cloud-native mission simulation and telemetry: release readiness across environments, engineering standards, and early visibility into integration risk.
+I lead day-to-day engineering execution within a team of roughly 10 engineers working across approximately 20 repositories and multiple deployment environments. My responsibilities span planning and sequencing work, coaching engineers, establishing engineering standards, and coordinating integration and release readiness.
 
-This page stays at the level of practice. It does not publish program names, customers, system designs, environment topology, tools, screenshots, or operating procedures. The NASA case studies on this site are the public proof of how I build platforms. This chapter is current work under tighter constraints — same habits, less that can be shown.
+Alongside hands-on engineering, I help translate program needs into work the team can deliver — and help engineers develop the skills and ownership to carry that work forward.
 
-## What I own
+## Developing engineers
 
-Three mandates stay with me on the team:
+I have onboarded and coached roughly six engineers, helping them learn the codebase, development workflow, and expectations for testing, code quality, and release readiness. Through code review and ongoing feedback, I explain the reasoning behind engineering decisions and help engineers apply those practices in their own work.
 
-- **Release readiness:** Evidence that a change can move between environments — not a late meeting that invents the story.
-- **Engineering standards:** PR coaching, Definition of Done, and ownership so the bar is shared and durable.
-- **Integration risk:** Surface interface and promotion assumptions while the team can still act, instead of discovering them at a gate.
+For junior engineers, I have introduced more deliberate development plans to give their learning and progression clearer direction.
 
-Staff IC title, delivery ownership in practice: I am accountable for how work becomes shippable under constraint, not only for the code I write.
+## Leading team execution
 
-## What changed
+I lead Scrum/Agile execution and help turn mission and program needs into sequenced engineering work. This includes shaping sprint priorities, coordinating dependencies, removing blockers, and adjusting work when integration or operational issues emerge.
 
-**Before:** Readiness and ownership fragmented near a release boundary. Assumptions that looked fine in one environment failed in another. Integration became triage; “ready” was a conversation instead of evidence.
+Program and product leadership set overall priorities. I guide the engineering execution needed to deliver against them and surface tradeoffs when scope, dependencies, or readiness put delivery at risk.
 
-**After:** Shared quality checks, coaching, and an explicit Definition of Done make readiness visible during the work. Integration risk shows up early enough to schedule, not late enough to surprise. The team can move across constrained environments without relying on heroics or tribal knowledge.
+## Coordinating across teams
 
-That is the change recruiters should evaluate: not a public architecture diagram, but a delivery system that holds when detail cannot leave the room.
+I coordinate with engineering, program stakeholders, and external partners on integration, environment readiness, releases, and technical dependencies. I translate between program requirements and implementation needs, helping teams clarify what must be built or fixed and what is blocking progress.
 
-## What stays unpublished
+## Building shared engineering standards
 
-Program names, customers, system designs, tools, and screenshots. What remains public is the operating system of delivery — the same habits that show up in the NASA platforms you can open on this site. If you need the leave-behind and the hire ask, use `/kit`. If you need people craft and the written delivery bar, use About.
+Across approximately 20 repositories, I drive practices for code review, automated testing, CI/CD, security checks, repository structure, and release readiness. Coaching and documented expectations help engineers apply a consistent standard across the team.
+
+This is a Staff IC role with technical and delivery leadership responsibilities. Engineer development happens through coaching and ongoing feedback; formal personnel decisions remain with management.
+
+Program-specific details are omitted.

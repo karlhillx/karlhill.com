@@ -23,8 +23,8 @@ it('loads case studies from markdown front matter', function () {
 
     $jacobs = $this->get('/work/jacobs-mission-software');
     $jacobs->assertOk()
-        ->assertSee('Aerospace mission software', escape: false)
-        ->assertSee('program names', escape: false)
+        ->assertSee('Engineering leadership for aerospace mission software', escape: false)
+        ->assertSee('Program-specific details are omitted', escape: false)
         ->assertDontSee('Visit live project', escape: false);
 });
 
@@ -56,19 +56,19 @@ it('parses substantive markdown body and generates html and toc', function () {
     $jacobs = $repo->find('jacobs-mission-software');
     expect($jacobs)->toBeArray()
         ->and($jacobs['body_html'] ?? null)->toBeString()
-        ->and($jacobs['body_html'])->toContain('What I own')
-        ->and($jacobs['body_html'])->toContain('What changed')
+        ->and($jacobs['body_html'])->toContain('Developing engineers')
+        ->and($jacobs['body_html'])->toContain('Leading team execution')
         ->and($jacobs['body_html'])->not->toContain('Representative delivery lifecycle')
         ->and($jacobs['body_html'])->not->toContain('Kubernetes Mission Mesh')
         ->and($jacobs['body_html'])->not->toContain('<pre><code>');
 
     $jacobsResponse = $this->get('/work/jacobs-mission-software');
     $jacobsResponse->assertOk()
-        ->assertSee('What I own', escape: false)
+        ->assertSee('Developing engineers', escape: false)
         ->assertSee('id="platform"', escape: false)
-        ->assertSee('Simulation &amp; Telemetry', escape: false)
+        ->assertSee('Sequence the work', escape: false)
         ->assertSee('Schematic', escape: false)
-        ->assertSee('does not publish program names', escape: false)
+        ->assertSee('Program-specific details are omitted', escape: false)
         ->assertDontSee('Kubernetes Mission Mesh', escape: false)
         ->assertDontSee('Representative delivery lifecycle', escape: false)
         ->assertDontSee('Executive Summary', escape: false);

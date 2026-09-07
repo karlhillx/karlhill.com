@@ -3,10 +3,10 @@
 return [
     [
         'slug' => 'jacobs-mission-software',
-        'title' => 'Aerospace mission software',
+        'title' => 'Engineering leadership for aerospace mission software',
         'meta' => 'Jacobs · 2025–present',
         'sector' => 'Aerospace & Defense',
-        'description' => 'Cloud-native mission simulation and telemetry. What I own: release readiness, engineering standards, and integration risk under constraint — not program names, customers, or screenshots.',
+        'description' => 'Day-to-day technical leadership for ~10 engineers across ~20 repositories: team execution, engineer development, and cross-team delivery. Program specifics stay unpublished.',
         'image' => '/img/webp/ss-jacobs-ns.webp',
         'image_alt' => 'Jacobs J logomark — brand panel for unpublished aerospace mission software.',
         'imagePosition' => 'object-center',

@@ -7,5 +7,5 @@
     'sectionNumber' => '01',
     'heading' => 'Selected Work',
     'showViewAll' => true,
-    'proof' => 'NASA platforms you can open · Jacobs chapter under constraint',
+    'proof' => 'Jacobs leadership chapter · NASA platforms you can open',
 ])

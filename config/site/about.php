@@ -2,10 +2,10 @@
 
 return [
     // People craft + delivery OS + career arc. Hire leave-behind is /kit; booking is /now#book.
-    'lede' => 'NASA Earth science operations at scale, then government aerospace and defense mission software at Jacobs National Security — how I lead people, and how I run delivery under constraint.',
+    'lede' => 'NASA platforms at operational scale, then Staff leadership at Jacobs National Security — how I develop engineers, run team execution, and coordinate delivery across partners.',
     'how_i_lead' => [
         'title' => 'How I lead',
-        'intro' => 'How I work with engineers and stakeholders — the written delivery bar (Definition of Done, PR rubric, risk) follows below. The hire ask lives on /kit.',
+        'intro' => 'How I work with engineers and stakeholders today. The hire ask (Staff leadership → Engineering Manager) lives on /kit; the written delivery bar follows below.',
         'items' => [
             [
                 'title' => '1:1s that surface risk',
@@ -43,7 +43,7 @@ return [
                 'attribution' => 'SSAI / NASA Goddard',
             ],
             [
-                'quote' => 'National Security platform teams shipping mission simulation and telemetry for government aerospace and defense programs — planning, DevSecOps, and release governance in constrained environments.',
+                'quote' => 'National Security engineering teams — day-to-day technical leadership across ~10 engineers and ~20 repositories: sprint execution, coaching, standards, and cross-team release readiness.',
                 'attribution' => 'Jacobs',
             ],
             [

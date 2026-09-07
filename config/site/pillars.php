@@ -9,7 +9,7 @@ return [
     ],
     [
         'title' => 'Constraint',
-        'body' => 'Jacobs National Security mission software where program details stay unpublished. The public substitute is how delivery runs under that constraint.',
+        'body' => 'Jacobs National Security: Staff leadership across ~10 engineers and ~20 repositories — team execution, coaching, and cross-team delivery. Program details stay unpublished.',
     ],
     [
         'title' => 'Ready',

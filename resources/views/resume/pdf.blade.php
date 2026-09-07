@@ -26,7 +26,7 @@
     $taglineLead = trim($taglineParts[0] ?? '');
     $taglineRest = trim($taglineParts[1] ?? '');
 
-    $summaryLead = 'Staff Aerospace Software Engineer and technical lead with 20+ years building mission-critical software, cloud-native platforms, and high-assurance delivery systems across NASA, aerospace, and defense environments.';
+    $summaryLead = 'Staff Aerospace Software Engineer and technical delivery leader with experience building mission-critical software and the engineering systems that support its delivery across NASA and national security programs.';
     $summaryFull = (string) ($experience['intro'] ?? '');
     $summaryRest = str_starts_with($summaryFull, $summaryLead)
         ? substr($summaryFull, strlen($summaryLead))
@@ -454,15 +454,6 @@
                         {{ $summaryFull }}
                     @endif
                 </p>
-            </section>
-
-            <section class="section" aria-labelledby="impact-heading">
-                <h2 id="impact-heading" class="section-title">Selected Leadership Impact</h2>
-                <ul class="bullets">
-                    @foreach($resume['impact'] as $item)
-                        <li>{!! $nowrapHtml($item) !!}</li>
-                    @endforeach
-                </ul>
             </section>
 
             <section class="section" aria-labelledby="experience-heading">

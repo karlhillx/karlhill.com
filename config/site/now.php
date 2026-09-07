@@ -3,7 +3,7 @@
 return [
     'updated' => 'September 7, 2026',
     // /now owns current focus. Recruiter path is a short strip — the ask lives in person.availability.
-    'lede' => 'Leading aerospace mission software delivery at Jacobs National Security while practicing the Engineering Manager craft — platform delivery, engineering standards, and high-assurance execution.',
+    'lede' => 'Leading team execution, engineer development, and cross-team delivery for aerospace mission software at Jacobs National Security — practicing the Engineering Manager craft before the title.',
     'recruiters' => [
         'eyebrow' => 'Hiring',
         'body' => 'The kit is the leave-behind. The resume is the evidence. This page is what I am doing now — book if the timing is right.',
@@ -17,9 +17,9 @@ return [
         ],
         [
             'title' => 'Jacobs National Security',
-            'body' => 'Owning cloud-native mission simulation and telemetry — multi-environment release readiness, DevSecOps, and integration risk in constrained environments.',
+            'body' => 'Owning team execution, engineer development, and cross-team delivery for aerospace mission software — ~10 engineers, ~20 repositories, multiple deployment environments.',
             'link' => '/work/jacobs-mission-software',
-            'link_label' => 'What I can publish',
+            'link_label' => 'Engineering leadership',
         ],
         [
             'title' => 'Writing the leadership craft',

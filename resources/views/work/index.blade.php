@@ -23,7 +23,7 @@
 
         {{-- Two sentences: the hero is a doorway, the cards carry the detail. --}}
         <p class="text-neutral-400 text-base leading-relaxed max-w-2xl">
-            One pattern: take operational work that depends on heroes and turn it into a platform. Jacobs is the current chapter, NASA is the public proof, and Finium is where it started.
+            Jacobs is the leadership chapter — team execution and engineer development under constraint. NASA is the public platform proof. Finium is where the pattern started.
         </p>
     </x-site.page-hero>
 

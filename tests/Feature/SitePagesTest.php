@@ -221,14 +221,14 @@ it('single-metric case studies do not leave an empty grid cell', function () {
 });
 
 it('qualitative metrics render as a facts strip instead of fake big-number stats', function () {
-    // Jacobs publishes only qualitative evidence — no digits anywhere, so the
-    // values belong in the image footer and no counter animation should fire.
+    // Jacobs publishes scale facts (~10 engineers, ~20 repos) as counters in the footer.
     $jacobs = $this->get('/work/jacobs-mission-software')->assertOk()->getContent();
 
     expect($jacobs)
         ->toContain('case-study-facts')
         ->toContain('case-study-media__footer')
-        ->not->toContain('data-counter');
+        ->toContain('data-final="~10"')
+        ->toContain('data-final="~20"');
 
     // Mixed case studies: numeric values keep a counter, prose values sit beside them in the footer.
     $eo = $this->get('/work/nasa-earth-observatory')->assertOk()->getContent();
@@ -304,7 +304,7 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('class="resume-doc', escape: false);
     $resume->assertSee('Professional Scrum Master', escape: false);
     $resume->assertSee('Technical Expertise', escape: false);
-    $resume->assertSee('Selected Leadership Impact', escape: false);
+    $resume->assertDontSee('Selected Leadership Impact', escape: false);
     $resume->assertSee('Core Competencies', escape: false);
     // Phone is PDF-only unless site.resume.phone_on_web opts in.
     $resume->assertDontSee('(202) 599-1442', escape: false);
@@ -318,12 +318,14 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('Download PDF', escape: false);
     $resume->assertSee('/files/Karl-Hill-Resume.pdf', escape: false);
     $resume->assertSee('Technical Leadership', escape: false);
-    $resume->assertSee('Engineering Governance', escape: false);
-    $resume->assertSee('Cloud Platforms', escape: false);
+    $resume->assertSee('Software Engineering', escape: false);
+    $resume->assertSee('Team Execution', escape: false);
     $resume->assertSee('CI/CD', escape: false);
     $resume->assertSee('bb-run', escape: false);
     $resume->assertSee('pipeguard', escape: false);
-    $resume->assertSee('Kubernetes delivery', escape: false);
+    $resume->assertSee('Python-based mission software', escape: false);
+    $resume->assertSee('RabbitMQ/ActiveMQ', escape: false);
+    $resume->assertSee('Onboarded and coached approximately six engineers', escape: false);
     $resume->assertSee('Bachelor of Science in Computer Science coursework', escape: false);
     $resume->assertDontSee('Professional Scrum Developer', escape: false);
     $resume->assertDontSee('Download ATS PDF', escape: false);

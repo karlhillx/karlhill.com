@@ -9,21 +9,20 @@ return [
     // crawlable URL doesn't expose a direct line to scrapers and robocallers.
     'phone_on_web' => false,
     'postal' => '',
-    'tagline' => 'Aerospace Mission Software | Platform Engineering | DevSecOps | Technical Leadership',
-    'impact' => [
-        'Lead software delivery across mission systems, coordinating engineering execution, integration readiness, and releases across internal and external teams.',
-        'Standardize CI/CD, developer tooling, and release practices across mission software repositories — pipelines, quality gates, and a repeatable path from commit to a constrained environment.',
-        'Drive cloud-platform and Kubernetes delivery (containers, Helm/OCI packaging, multi-environment baselines) so teams ship the same way in isolated and integrated systems.',
-        'Translate mission and operational requirements into engineering roadmaps, sequenced delivery plans, and executable software work.',
-    ],
+    // Banner: engineer who leads — not a management rebrand.
+    // PDF splits on the first "|": lead line, then the rest.
+    'tagline' => 'Aerospace & Mission Software | Software Engineering | Technical Leadership | Team Execution',
+    // Intentionally empty: leadership evidence lives in Jacobs experience bullets
+    // so page 1 is Summary → Experience without duplicating the same four claims.
+    'impact' => [],
     'expertise' => [
+        'Software Engineering',
         'Technical Leadership',
-        'Platform Engineering & Developer Experience',
-        'Cloud Platforms & Kubernetes',
         'CI/CD & DevSecOps',
+        'Distributed Systems & Messaging',
+        'Engineer Development & Coaching',
+        'Team Execution & Agile Delivery',
         'Mission Software Delivery',
-        'Systems Integration',
-        'Engineering Governance',
     ],
     'tooling' => [
         [

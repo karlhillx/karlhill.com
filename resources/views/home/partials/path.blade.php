@@ -21,7 +21,7 @@
                 <h3 class="font-sans font-semibold text-xl text-neutral-100 mb-2">
                     <a href="/work" class="hover:text-accent transition-colors">Selected work</a>
                 </h3>
-                <p class="text-neutral-400 text-sm leading-relaxed">Jacobs chapter and public NASA proof — platforms, not keyword soup.</p>
+                <p class="text-neutral-400 text-sm leading-relaxed">Jacobs leadership chapter and public NASA proof — scope first, then platforms.</p>
             </li>
             <li class="home-path__item bg-bg p-6 sm:p-8">
                 <p class="font-mono text-caption text-accent uppercase tracking-widest mb-3">03</p>

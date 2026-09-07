@@ -43,6 +43,6 @@ it('experience fragment powers about and resume', function () {
         ->and(config_path('site/lead.php'))->toBeFile();
 
     expect(config('site.resume.phone'))->not->toBeEmpty()
-        ->and(config('site.resume.impact'))->not->toBeEmpty()
+        ->and(config('site.resume.impact'))->toBeEmpty()
         ->and(config('site.resume.expertise'))->not->toBeEmpty();
 });

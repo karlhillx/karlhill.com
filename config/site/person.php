@@ -8,17 +8,17 @@ return [
     'job_title' => 'Staff Aerospace Software Engineer',
     'email' => 'karlhillx@gmail.com',
     'location' => 'Washington, DC',
-    'tagline' => 'Aerospace Mission Software | Platform Engineering | DevSecOps | Technical Leadership',
+    'tagline' => 'Aerospace & Mission Software | Software Engineering | Technical Leadership | Team Execution',
     // LinkedIn-ready headline (copy/paste); keep in sync with public positioning.
-    'linkedin_headline' => 'Staff Aerospace Software Engineer @ Jacobs National Security | ex-NASA Goddard | Seeking Engineering Manager · Platform · DevSecOps',
+    'linkedin_headline' => 'Staff Aerospace Software Engineer @ Jacobs National Security | ex-NASA Goddard | Seeking Engineering Manager (team execution → people management)',
     // Canonical hire ask — one sentence for hero, kit “Open to”, agents, and JSON-LD.
     // Do not restate this on About, kit highlights, or /now focus cards.
-    'availability' => 'Seeking Engineering Manager roles in mission software.',
+    'availability' => 'Seeking an Engineering Manager role building on current responsibility for team execution, engineer development, and cross-team delivery, with formal people management as the next expansion of scope.',
     // Secondary fit — kit Open to footnote only (not a co-equal pitch elsewhere).
-    'availability_note' => 'Staff/Principal IC when the mandate is platform delivery and standards.',
-    'trajectory' => 'Staff→Engineering Manager: practicing the manager craft while shipping mission software at Jacobs National Security.',
+    'availability_note' => 'Also open to Staff/Principal IC when the mandate is platform delivery and standards.',
+    'trajectory' => 'Staff→Engineering Manager: leading team execution and engineer development now; seeking formal people-management scope next.',
     'employer' => 'Jacobs',
     'employer_display' => 'Jacobs National Security',
     'twitter_handle' => '@karl_hill',
-    'bio' => 'Twenty years in software, including eight at NASA Goddard shipping Earth science platforms under operational pressure. Now at Jacobs National Security — cloud-native mission simulation and telemetry for government aerospace and defense programs, in environments where program details stay unpublished.',
+    'bio' => 'Twenty years in software, including eight at NASA Goddard shipping Earth science platforms under operational pressure. Now at Jacobs National Security leading day-to-day engineering execution, engineer development, and cross-team delivery for aerospace mission software — program details stay unpublished.',
 ];

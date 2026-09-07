@@ -70,7 +70,7 @@ npm run test:e2e
 
 Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, kit, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
 
-Hire bio is canonical in `config/site/person.php` (`bio`). The hire ask is a single sentence in `person.availability` — used by the homepage hero and kit “Open to”. Secondary IC fit is `availability_note` on `/kit` only. Do not restate the ask on About, kit highlights, or `/now` focus cards.
+Hire bio is canonical in `config/site/person.php` (`bio`). The hire ask is `person.availability` — used by the homepage hero and kit “Open to” (EM transition from current Staff leadership scope). Secondary IC fit is `availability_note` on `/kit` only. Do not restate the ask on About, kit highlights, or `/now` focus cards.
 
 ### Search Console and name disambiguation
 
