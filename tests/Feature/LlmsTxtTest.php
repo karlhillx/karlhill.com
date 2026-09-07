@@ -1,6 +1,7 @@
 <?php
 
 use App\Support\LlmsTxtBuilder;
+use App\Support\SiteCatalog;
 use Illuminate\Support\Facades\Cache;
 
 beforeEach(function () {
@@ -19,7 +20,7 @@ it('llms txt returns a v2 file-list map', function () {
     $this->assertStringContainsString('> '.config('site.seo.home.og_description'), $body);
     $this->assertStringContainsString(config('site.person.availability'), $body);
     $this->assertStringContainsString('Last updated', $body);
-    $this->assertStringContainsString(app(\App\Support\SiteCatalog::class)->lastUpdated()->format('F j, Y'), $body);
+    $this->assertStringContainsString(app(SiteCatalog::class)->lastUpdated()->format('F j, Y'), $body);
     $this->assertStringContainsString('## Pages', $body);
     $this->assertStringContainsString('## Writing', $body);
     $this->assertStringContainsString('## Profiles', $body);
@@ -98,7 +99,7 @@ it('llms txt builder lists professional profiles and resume once', function () {
     $this->assertSame(1, substr_count($body, '](https://karlhill.com/about#delivery)'));
     $this->assertStringNotContainsString('](https://karlhill.com/lead)', $body);
     $this->assertStringContainsString('GeoHorizons', $body);
-    $this->assertStringContainsString(app(\App\Support\SiteCatalog::class)->lastUpdated()->format('F j, Y'), $body);
+    $this->assertStringContainsString(app(SiteCatalog::class)->lastUpdated()->format('F j, Y'), $body);
 });
 
 it('llms txt is served without a session', function () {
