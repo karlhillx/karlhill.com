@@ -48,7 +48,7 @@ class KitController extends Controller
      * @param  array{url?: string}|null  $linkedin
      * @param  array{url?: string}|null  $github
      * @param  array{email?: string}  $person
-     * @return list<array{label: string, href: string, meta: string, external: bool, download: bool, email: bool}>
+     * @return list<array{label: string, href: string, meta: string, external: bool, download: bool, email: bool, group: string}>
      */
     private function resolveLinks(
         array $defs,
@@ -122,6 +122,7 @@ class KitController extends Controller
                 'external' => $external,
                 'download' => $download,
                 'email' => $email,
+                'group' => ($def['group'] ?? 'primary') === 'more' ? 'more' : 'primary',
             ];
         }
 

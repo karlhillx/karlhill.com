@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 /**
  * Progressive JS features loaded per route (see resources/js/app.js).
- * Core modules (nav, ⌘K, toast, SW, view transitions) always boot.
+ * Core modules (nav, ⌘K, toast, SW, view transitions, theme) always boot.
+ * Ambient platform chrome (pointer spotlight, soft-nav, summarizer, WebGPU,
+ * ⌘K tip) stays off the default hire path.
  */
 final class PageFeatures
 {
@@ -18,17 +20,11 @@ final class PageFeatures
         $request ??= request();
         $name = $request->route()?->getName() ?? '';
 
-        // Pointer is site-wide for the spotlight orb + magnetic buttons;
-        // tilt no-ops when those nodes are absent. The contact chunk is
-        // only flagged where the form renders (home footer); app.js also loads
-        // it whenever [data-contact-form] is present in the markup.
-        $features = ['pointer'];
+        $features = [];
 
         if ($name === 'home') {
             $features[] = 'contact';
             $features[] = 'reveal';
-            $features[] = 'cmdk-tip';
-            // Portrait + work cards use LQIP / media enhancements.
             $features[] = 'media';
 
             return array_values(array_unique($features));
@@ -44,11 +40,6 @@ final class PageFeatures
                     $features[] = 'push';
                 }
                 $features[] = 'share';
-                $features[] = 'summarizer';
-            }
-
-            if ($name === 'work.show' && $request->route('slug') === 'flood-mapping-system' && SiteFeatures::webgpu()) {
-                $features[] = 'webgpu';
             }
 
             return array_values(array_unique($features));
@@ -57,22 +48,17 @@ final class PageFeatures
         if (
             str_starts_with((string) $name, 'work')
             || str_starts_with((string) $name, 'blog')
-            || in_array($name, ['about', 'now', 'kit', 'lead'], true)
+            || in_array($name, ['about', 'now', 'kit', 'resume'], true)
         ) {
             $features[] = 'reveal';
         }
 
         if (str_starts_with((string) $name, 'work') || str_starts_with((string) $name, 'blog')) {
             $features[] = 'media';
-            $features[] = 'soft-nav';
         }
 
         if (str_starts_with((string) $name, 'blog') && self::pushEnabled()) {
             $features[] = 'push';
-        }
-
-        if ($name === 'kit' || $name === 'lead') {
-            $features[] = 'summarizer';
         }
 
         return array_values(array_unique($features));

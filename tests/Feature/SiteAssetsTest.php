@@ -89,8 +89,8 @@ it('progressive css is linked for selectors lightningcss cannot parse', function
 });
 
 it('decoupled print stylesheet is linked with media print', function () {
-    $this->get('/')
-        ->assertOk()
-        ->assertSee('media="print"', escape: false)
-        ->assertSee('print-', escape: false);
+    $html = $this->get('/')->assertOk()->getContent();
+
+    expect($html)->toContain('media="print"')
+        ->and($html)->toMatch('/print(?:-[^"\']+)?\.css/');
 });

@@ -8,10 +8,9 @@
 @section('content')
     @include('home.partials.hero')
     @include('home.partials.featured-work')
-    @include('home.partials.why')
-    @include('home.partials.metrics')
+    @include('home.partials.path')
 @endsection
 
 @section('page_footer')
-    <x-site.footer variant="home" section="04" />
+    <x-site.footer variant="home" section="03" />
 @endsection

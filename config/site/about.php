@@ -1,12 +1,11 @@
 <?php
 
 return [
-    // Career arc + how I lead — not the availability pitch (that lives on /now).
-    'lede' => 'NASA Earth science operations at scale, then government aerospace and defense mission software at Jacobs National Security — and how I lead people through hard systems.',
+    // People craft + delivery OS + career arc. Hire leave-behind is /kit; booking is /now#book.
+    'lede' => 'NASA Earth science operations at scale, then government aerospace and defense mission software at Jacobs National Security — how I lead people, and how I run delivery under constraint.',
     'how_i_lead' => [
-        // People craft only. The written delivery bar (DoD, PR rubric, risk) lives on /lead.
         'title' => 'How I lead',
-        'intro' => 'Staff influence becomes manager accountability when people outcomes are as explicit as system outcomes. This is how I work with engineers and stakeholders — not the Definition of Done (that’s the delivery packet).',
+        'intro' => 'Staff influence becomes manager accountability when people outcomes are as explicit as system outcomes. This is how I work with engineers and stakeholders — the written delivery bar (Definition of Done, PR rubric, risk) follows below.',
         'items' => [
             [
                 'title' => '1:1s that surface risk',
@@ -18,7 +17,7 @@ return [
             ],
             [
                 'title' => 'Standards over heroics',
-                'body' => 'Raise the bar through coaching instead of becoming the bottleneck. Reviews teach; the written bar lives on How I run delivery.',
+                'body' => 'Raise the bar through coaching instead of becoming the bottleneck. Reviews teach; the written bar lives in How I run delivery.',
             ],
             [
                 'title' => 'Stakeholder trust in plain language',
@@ -36,7 +35,6 @@ return [
         'cta_href' => '/resume',
     ],
     'beyond' => 'Away from the terminal, I\'m based in Washington, DC, where I write and release music (you\'ll find a back catalog on Discogs). I\'m happiest with a hard problem, a whiteboard, and a team worth building with — and I care as much about mentoring the next engineer as I do about shipping the next release.',
-    // Hiring signal — concrete contexts, not invented named testimonials.
     'social_proof' => [
         'eyebrow' => 'Worked with',
         'items' => [

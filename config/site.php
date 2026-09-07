@@ -8,14 +8,15 @@ use App\Support\Booking;
  * Domain content lives in config/site/*.php. Environment-sensitive flags and
  * derived values (sameAs, analytics primary) stay here so fragments stay pure.
  *
- * Page roles (avoid repeating the same pitch everywhere):
- * - /        hire funnel: work proof → short Why Me → impact → contact
- * - /now     living status + booking
- * - /kit     leave-behind: PDF + bio + links
- * - /lead    forwardable delivery OS (DoD, PR rubric, risk, how the bar spreads)
- * - /about   people craft (how I lead) + experience + credentials + research
- * - /resume  evidence (canonical HTML CV)
- * - /work    current Jacobs chapter + public NASA/older proof
+ * Page roles (hire path first — avoid parallel pitch surfaces):
+ * - /        hire funnel: ask + visual → selected work → next steps → contact
+ * - /work    Jacobs chapter + public NASA/older proof
+ * - /kit     leave-behind: PDF + bio + links (primary recruiter packet)
+ * - /now     booking (+ living status); Book CTAs land on #book
+ * - /blog    writing
+ * - /about   people craft + delivery OS + experience + credentials (secondary)
+ * - /resume  HTML CV evidence (secondary; PDF from kit)
+ * - /lead    301 → /about#delivery (legacy)
  * - footer   home = contact form; other pages = Book + email
  */
 $social = require __DIR__.'/site/social.php';

@@ -30,7 +30,7 @@ it('hire packet json includes person experience writing and case studies', funct
         ->and(collect($json['writing'])->pluck('slug'))->toContain('release-governance')
         ->and($json['feeds']['llms'])->toEndWith('/llms.txt')
         ->and($json['kit']['resume_pdf'])->toContain('/files/Karl-Hill-Resume.pdf')
-        ->and($json['kit']['delivery'])->toEndWith('/lead');
+        ->and($json['kit']['delivery'])->toEndWith('/about#delivery');
 });
 
 it('mcp well-known document points at the hire packet', function () {

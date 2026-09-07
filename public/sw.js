@@ -1,5 +1,5 @@
 /* Offline reading for karlhill.com — network-first HTML, cache-first static. */
-const CACHE = 'karlhill-offline-v10';
+const CACHE = 'karlhill-offline-v11';
 // Only the offline shell is precached; readable pages (see isReadablePage)
 // are cached as they are visited, so a one-page visit costs one page.
 const PRECACHE = ['/offline.html', '/site.webmanifest'];
@@ -46,7 +46,6 @@ function isReadablePage(url) {
             url.pathname === '/about' ||
             url.pathname === '/resume' ||
             url.pathname === '/kit' ||
-            url.pathname === '/lead' ||
             url.pathname === '/work' ||
             url.pathname.startsWith('/work/'))
     );

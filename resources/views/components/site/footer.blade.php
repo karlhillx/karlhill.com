@@ -19,14 +19,15 @@
 ])>
     <div class="site-shell">
         @if($isHome)
-            <div class="flex flex-col xl:flex-row xl:items-start xl:justify-between gap-14 xl:gap-16">
-                <div class="w-full max-w-2xl xl:flex-1 xl:min-w-0" data-reveal>
+            {{-- Two columns: form is the job; aside is reachability + site map. --}}
+            <div class="site-footer-home grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(14rem,18rem)] lg:gap-16 xl:gap-20 lg:items-start">
+                <div class="min-w-0" data-reveal>
                     @if($section)
-                        <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-8">{{ $section }} — Contact</h2>
+                        <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-6 sm:mb-8">{{ $section }} — Contact</h2>
                     @else
                         <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-5">Contact</h2>
                     @endif
-                    <p class="font-display leading-none tracking-wide text-balance text-[clamp(3rem,8vw,6rem)] mb-6 sm:mb-7">
+                    <p class="font-display leading-none tracking-wide text-balance text-[clamp(2.75rem,7vw,5.5rem)] mb-5 sm:mb-6">
                         {!! nl2br(e($footer['headline'])) !!}
                     </p>
                     <p class="text-neutral-400 text-sm leading-relaxed max-w-xl">
@@ -35,58 +36,62 @@
 
                     <x-site.contact-form id-prefix="contact" :return-to="url()->current()" />
                 </div>
-                <div class="flex flex-col xl:pt-16 shrink-0" data-reveal>
-                    <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-12">Prefer to reach me directly?</p>
-                    <div class="flex flex-col gap-4">
-                        <div class="flex items-center gap-3">
-                            <a href="mailto:{{ $person['email'] }}"
-                               data-analytics-event="email_clicked"
-                               data-analytics-location="footer-home"
-                               class="flex items-center gap-4 font-mono text-sm text-neutral-400 hover:text-accent transition-colors group">
-                                <span class="text-accent text-base arrow-nudge" aria-hidden="true">→</span>
-                                {{ $person['email'] }}
-                            </a>
-                            <button type="button" data-copy-text="{{ $person['email'] }}" aria-label="Copy email address"
-                                    class="relative isolate inline-flex items-center justify-center min-h-11 min-w-11 text-neutral-500 hover:text-accent transition-colors">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5a2 2 0 012-2h9a2 2 0 012 2v9a2 2 0 01-2 2h-2M5 8h9a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a2 2 0 012-2z"/>
-                                </svg>
-                                <span data-copy-feedback role="status" aria-live="polite"
-                                      class="copy-feedback pointer-events-none absolute inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1 font-mono text-caption uppercase tracking-widest opacity-0 transition-opacity duration-200">
-                                    <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    Copied to clipboard
-                                </span>
-                            </button>
-                        </div>
-                        @if(filled($bookingUrl))
-                            <x-site.button variant="secondary" :href="$bookingHref" class="w-fit"
-                                data-analytics-event="booking_cta_clicked"
-                                data-analytics-location="footer-home">
-                                {{ $bookingLabel }}
-                                <span aria-hidden="true">→</span>
-                            </x-site.button>
-                        @endif
 
-                        <x-site.social-links />
+                <aside class="site-footer-aside flex flex-col gap-10 lg:gap-12 lg:pt-1" data-reveal aria-label="Direct contact and site links">
+                    <div>
+                        <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-5">Prefer to reach me directly?</p>
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center gap-2 min-w-0">
+                                <a href="mailto:{{ $person['email'] }}"
+                                   data-analytics-event="email_clicked"
+                                   data-analytics-location="footer-home"
+                                   class="inline-flex items-center gap-3 font-mono text-sm text-neutral-400 hover:text-accent transition-colors min-w-0">
+                                    <span class="text-accent text-base arrow-nudge shrink-0" aria-hidden="true">→</span>
+                                    <span class="truncate">{{ $person['email'] }}</span>
+                                </a>
+                                <button type="button" data-copy-text="{{ $person['email'] }}" aria-label="Copy email address"
+                                        class="relative isolate inline-flex items-center justify-center min-h-11 min-w-11 text-neutral-500 hover:text-accent transition-colors shrink-0">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5a2 2 0 012-2h9a2 2 0 012 2v9a2 2 0 01-2 2h-2M5 8h9a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a2 2 0 012-2z"/>
+                                    </svg>
+                                    <span data-copy-feedback role="status" aria-live="polite"
+                                          class="copy-feedback pointer-events-none absolute inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1 font-mono text-caption uppercase tracking-widest opacity-0 transition-opacity duration-200">
+                                        <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        Copied to clipboard
+                                    </span>
+                                </button>
+                            </div>
+                            @if(filled($bookingUrl))
+                                <x-site.button variant="secondary" :href="$bookingHref" class="w-fit"
+                                    data-analytics-event="booking_cta_clicked"
+                                    data-analytics-location="footer-home">
+                                    {{ $bookingLabel }}
+                                    <span aria-hidden="true">→</span>
+                                </x-site.button>
+                            @endif
+                            <x-site.social-links />
+                        </div>
                     </div>
-                </div>
-                <nav class="shrink-0" aria-label="Site">
-                    <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Explore</h2>
-                    <ul class="space-y-1 font-mono text-sm">
-                        <li><a href="/work" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Work</a></li>
-                        <li><a href="/about" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">About</a></li>
-                        <li><a href="/blog" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
-                        <li><a href="/now" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Now</a></li>
-                        @unless(request()->routeIs('resume'))
-                            <li><a href="/resume" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
-                        @endunless
-                        @unless(request()->routeIs('kit'))
-                            <li><a href="/kit" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
-                        @endunless
-                    </ul>
-                </nav>
+
+                    <nav aria-label="Site">
+                        <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-3">Explore</h2>
+                        <ul class="flex flex-col gap-0.5 font-mono text-sm">
+                            <li><a href="/work" class="inline-flex items-center min-h-10 text-neutral-400 hover:text-accent transition-colors">Work</a></li>
+                            @unless(request()->routeIs('kit'))
+                                <li><a href="/kit" class="inline-flex items-center min-h-10 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
+                            @endunless
+                            <li><a href="/blog" class="inline-flex items-center min-h-10 text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
+                            @unless(request()->routeIs('about'))
+                                <li><a href="/about" class="inline-flex items-center min-h-10 text-neutral-400 hover:text-accent transition-colors">About</a></li>
+                            @endunless
+                            @unless(request()->routeIs('resume'))
+                                <li><a href="/resume" class="inline-flex items-center min-h-10 text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
+                            @endunless
+                        </ul>
+                    </nav>
+                </aside>
             </div>
         @else
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10 lg:gap-16">
@@ -130,14 +135,15 @@
                     <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-3">Explore</h2>
                     <ul class="flex flex-wrap gap-x-5 gap-y-1 font-mono text-sm">
                         <li><a href="/work" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Work</a></li>
-                        <li><a href="/about" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">About</a></li>
-                        <li><a href="/blog" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
-                        <li><a href="/now" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Now</a></li>
-                        @unless(request()->routeIs('resume'))
-                            <li><a href="/resume" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
-                        @endunless
                         @unless(request()->routeIs('kit'))
                             <li><a href="/kit" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
+                        @endunless
+                        <li><a href="/blog" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
+                        @unless(request()->routeIs('about'))
+                            <li><a href="/about" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">About</a></li>
+                        @endunless
+                        @unless(request()->routeIs('resume'))
+                            <li><a href="/resume" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
                         @endunless
                     </ul>
                 </nav>
@@ -145,15 +151,17 @@
         @endif
         <div @class([
             'pt-10 border-t border-neutral-800/50 flex flex-col sm:flex-row sm:items-center justify-between gap-5',
-            'mt-24' => $isHome,
+            'mt-20' => $isHome,
             'mt-12' => ! $isHome,
         ])>
             <p class="font-display {{ $isHome ? 'text-3xl' : 'text-2xl' }} tracking-widest text-neutral-500">{{ $person['name'] }}</p>
             <p class="font-mono text-xs text-neutral-400">{{ $person['location'] }} &nbsp;·&nbsp; {{ $person['job_title'] }} &nbsp;·&nbsp; 20+ Years</p>
         </div>
         <div class="mt-8 flex sm:justify-end">
-            <p class="surface-chip inline-flex flex-wrap items-center gap-x-1.5 bg-neutral-900/40 px-2.5 py-1 font-mono text-caption uppercase tracking-widest text-neutral-500">
-                Built with Laravel {{ \App\Support\Stack::laravelVersion() }} &middot; Tailwind CSS {{ \App\Support\Stack::tailwindVersion() ?? '4' }}
+            <p class="site-build-credit surface-chip inline-flex max-w-full flex-wrap items-center gap-x-1 bg-neutral-900/40 px-2 py-0.5 font-mono uppercase text-neutral-500">
+                Built with Laravel {{ \App\Support\Stack::laravelVersion() }}
+                &middot;
+                Tailwind CSS {{ \App\Support\Stack::tailwindVersion() ?? '4' }}
                 &middot;
                 <a href="https://github.com/karlhillx/karlhill.com/blob/main/scripts/generate-og-images.py"
                    target="_blank"

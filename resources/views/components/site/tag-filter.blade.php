@@ -16,7 +16,7 @@
     $chipClass = 'tag-filter__chip font-mono text-caption uppercase tracking-widest px-3 py-2.5 min-h-11 inline-flex items-center surface-chip shrink-0';
 @endphp
 
-<nav {{ $attributes->merge(['class' => 'tag-filter flex flex-wrap gap-2', 'aria-label' => 'Filter by tag']) }} data-reveal data-soft-nav>
+<nav {{ $attributes->merge(['class' => 'tag-filter flex flex-wrap gap-2', 'aria-label' => 'Filter by tag']) }} data-reveal>
     @if($showAll)
         <a href="{{ $allUrl }}"
            @class([

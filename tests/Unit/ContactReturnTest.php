@@ -10,7 +10,6 @@ it('allows public pages including article and case-study paths', function (strin
     ['/about', '/about'],
     ['/resume', '/resume'],
     ['/kit', '/kit'],
-    ['/lead', '/lead'],
     ['/work', '/work'],
     ['/work/', '/work'],
     ['/work/tag/laravel', '/work/tag/laravel'],
@@ -24,6 +23,7 @@ it('allows public pages including article and case-study paths', function (strin
 it('rejects paths outside the public site', function (string $candidate) {
     expect(ContactReturn::path($candidate))->toBe('/');
 })->with([
+    '/lead',
     '/clients/keithhillmusic.com',
     '/csrf-token',
     '/__a11y/contact-errors',

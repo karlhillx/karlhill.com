@@ -9,7 +9,7 @@
                     {{ $how['intro'] }}
                 </p>
                 <div class="flex flex-wrap items-center gap-x-5 gap-y-1 mt-4">
-                    <a href="/lead"
+                    <a href="#delivery"
                        class="inline-flex items-center min-h-11 font-mono text-xs text-accent uppercase tracking-widest hover:underline underline-offset-4">
                         How I run delivery →
                     </a>

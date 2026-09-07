@@ -7,7 +7,12 @@
                 </a>
             </x-slot:actions>
         @endif
-        <div class="site-card-grid" data-soft-nav-target style="view-transition-name: work-grid">
+        @if(! empty($proof ?? null))
+            <p class="text-neutral-400 text-sm leading-relaxed max-w-2xl mb-8 -mt-2" data-reveal>
+                {{ $proof }}
+            </p>
+        @endif
+        <div class="site-card-grid" style="view-transition-name: work-grid">
             @foreach($projects as $project)
                 @php($cardUrl = \App\Support\ProjectCatalog::cardUrl($project))
                 <x-site.work-card
@@ -22,6 +27,8 @@
                     :href="$cardUrl"
                     :slug="$project['slug'] ?? null"
                     :external="\App\Support\ProjectCatalog::isExternalUrl($project)"
+                    :variant="$project['card_variant'] ?? 'media'"
+                    :constraints="$project['constraints'] ?? []"
                 />
             @endforeach
         </div>

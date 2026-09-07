@@ -161,6 +161,18 @@ body {
     padding-block: clamp(3.25rem, 7vw, 4.5rem);
 }
 
+/* Stack credit — smaller than caption, but still readable. */
+.site-build-credit {
+    font-size: 0.625rem;
+    line-height: 1.35;
+    letter-spacing: var(--tracking-wide, 0.025em);
+}
+
+.site-footer-aside {
+    /* Keeps the rail from drifting mid-column like the old xl:pt-16 hack. */
+    align-self: start;
+}
+
 /* Inner-page hero: clear the fixed nav (~5.3rem tall at desktop root size)
    with ~2rem of air above the breadcrumb, then hand off quickly. Measured
    before this pass, the first body block sat 460–550px down a 900px

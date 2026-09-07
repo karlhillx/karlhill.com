@@ -122,17 +122,32 @@ export function initCommandPalette() {
     const staticCommands = [
         withGroup({
             label: 'Home',
-            keywords: 'home landing portfolio',
+            keywords: 'home landing portfolio hire',
             action: () => window.location.assign('/'),
         }),
         withGroup({
             label: 'Work — Portfolio',
-            keywords: 'work portfolio projects nasa',
+            keywords: 'work portfolio projects nasa jacobs',
             action: () => window.location.assign('/work'),
         }),
         withGroup({
-            label: 'About — Experience',
-            keywords: 'about experience career background leadership how i lead',
+            label: 'Recruiter kit',
+            keywords: 'recruiter kit hire pdf bio resume one-pager packet',
+            action: () => window.location.assign('/kit'),
+        }),
+        withGroup({
+            label: 'Writing — Blog',
+            keywords: 'writing blog posts articles essays notes governance leadership',
+            action: () => window.location.assign('/blog'),
+        }),
+        withGroup({
+            label: 'Book a conversation',
+            keywords: 'book calendly cal.com schedule call conversation hiring recruiter #book',
+            action: () => window.location.assign('/now#book'),
+        }),
+        withGroup({
+            label: 'About — Leadership & delivery',
+            keywords: 'about experience career background leadership how i lead delivery',
             action: () => window.location.assign('/about'),
         }),
         withGroup({
@@ -141,9 +156,9 @@ export function initCommandPalette() {
             action: () => window.location.assign('/about#how-i-lead'),
         }),
         withGroup({
-            label: 'Now — Current focus',
-            keywords: 'now focus availability engineering manager em staff leadership recruiters',
-            action: () => window.location.assign('/now'),
+            label: 'How I run delivery',
+            keywords: 'delivery definition of done pr rubric risk coaching lead packet',
+            action: () => window.location.assign('/about#delivery'),
         }),
         withGroup({
             label: 'Resume',
@@ -151,19 +166,9 @@ export function initCommandPalette() {
             action: () => window.location.assign('/resume'),
         }),
         withGroup({
-            label: 'Book a conversation',
-            keywords: 'book calendly cal.com schedule call conversation hiring recruiter #book',
-            action: () => window.location.assign('/now#book'),
-        }),
-        withGroup({
-            label: 'Recruiter kit',
-            keywords: 'recruiter kit hire pdf bio resume one-pager delivery packet lead',
-            action: () => window.location.assign('/kit'),
-        }),
-        withGroup({
-            label: 'Writing — Blog',
-            keywords: 'writing blog posts articles essays notes governance leadership',
-            action: () => window.location.assign('/blog'),
+            label: 'Now — Current focus',
+            keywords: 'now focus availability engineering manager em staff leadership recruiters',
+            action: () => window.location.assign('/now'),
         }),
         withGroup({
             label: 'Experience',

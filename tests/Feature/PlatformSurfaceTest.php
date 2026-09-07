@@ -126,18 +126,16 @@ it('nav uses invoker commands and work cards use interest invokers', function ()
         ->assertOk()
         ->assertSee('interestfor="work-preview-', escape: false)
         ->assertSee('popover="hint"', escape: false)
-        ->assertSee('data-soft-nav', escape: false)
-        ->assertSee('data-soft-nav-target', escape: false);
+        ->assertDontSee('data-soft-nav', escape: false)
+        ->assertDontSee('data-soft-nav-target', escape: false);
 });
 
-it('flood case study includes the webgpu canvas hook', function () {
-    $this->get('/work/flood-mapping-system')
-        ->assertOk()
-        ->assertSee('data-webgpu-flood', escape: false)
-        ->assertSee('data-features="', escape: false);
+it('flood case study keeps an optional webgpu canvas hook', function () {
+    $html = $this->get('/work/flood-mapping-system')->assertOk()->getContent();
 
-    $html = $this->get('/work/flood-mapping-system')->getContent();
-    expect($html)->toContain('webgpu');
+    expect($html)
+        ->toContain('data-webgpu-flood')
+        ->and($html)->not->toMatch('/data-features="[^"]*\bwebgpu\b/');
 });
 
 it('blog index includes interest previews and highlight is on posts', function () {
@@ -160,27 +158,19 @@ it('contact error fixture is uncached and exposes invalid fields', function () {
     expect($cache)->toContain('no-store');
 });
 
-it('essays and kit ship a hidden on-device summarizer hook', function () {
-    $this->get('/blog/release-governance')
-        ->assertOk()
-        ->assertSee('data-on-device-summary', escape: false)
-        ->assertSee('data-summary-type="tldr"', escape: false)
-        ->assertSee('Summarize this essay', escape: false);
-
-    $html = $this->get('/blog/release-governance')->getContent();
-    expect($html)->toContain('summarizer');
-
+it('does not load summarizer chrome on the hire path', function () {
     $this->get('/kit')
         ->assertOk()
-        ->assertSee('data-on-device-summary', escape: false)
-        ->assertSee('data-summary-source', escape: false)
-        ->assertSee('data-summary-type="key-points"', escape: false);
+        ->assertDontSee('data-on-device-summary', escape: false);
 
-    $this->get('/lead')
+    $this->get('/about')
         ->assertOk()
-        ->assertSee('data-on-device-summary', escape: false)
-        ->assertSee('data-summary-source', escape: false)
-        ->assertSee('Summarize this packet', escape: false);
+        ->assertDontSee('data-on-device-summary', escape: false);
+
+    $html = $this->get('/blog/release-governance')->assertOk()->getContent();
+    expect($html)
+        ->not->toContain('data-on-device-summary')
+        ->and($html)->not->toMatch('/data-features="[^"]*\bsummarizer\b/');
 });
 
 it('omits reporting and dictionary headers when those features are off', function () {

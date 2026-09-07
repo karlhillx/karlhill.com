@@ -5,6 +5,11 @@
 @endpush
 
 @section('content')
+    @php
+        $primaryLinks = collect($links)->where('group', 'primary')->values();
+        $moreLinks = collect($links)->where('group', 'more')->values();
+    @endphp
+
     <div class="kit-doc">
     {{-- Print-only masthead: name + reachability first (screen uses the page hero). --}}
     <header class="kit-print-masthead" aria-hidden="true">
@@ -65,7 +70,7 @@
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
             <h2 id="kit-glance-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">At a glance</h2>
             <div class="max-w-2xl">
-                <div data-summary-source>
+                <div>
                     <p class="kit-bio text-neutral-200 text-lg leading-relaxed">{{ $person['bio'] }}</p>
                     <dl class="kit-facts mt-8 grid sm:grid-cols-2 gap-4 text-sm">
                         <div>
@@ -86,12 +91,6 @@
                         </div>
                     </dl>
                 </div>
-                <x-site.on-device-summary
-                    type="key-points"
-                    length="short"
-                    label="Summarize this kit"
-                    :context="'Recruiter kit for '.$person['name'].'. '.$person['availability']"
-                />
                 @if(! empty($kit['highlights']))
                     <ul class="kit-highlights mt-8 space-y-2 text-neutral-400 text-sm leading-relaxed list-disc pl-5">
                         @foreach($kit['highlights'] as $item)
@@ -106,40 +105,38 @@
     <section class="site-section border-t border-neutral-800/50" aria-labelledby="kit-links-heading">
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
             <h2 id="kit-links-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">Links</h2>
-            <ul class="kit-links max-w-2xl divide-y divide-neutral-800/80">
-                @foreach($links as $link)
-                    <li @class(['kit-link-email' => $link['email'], 'py-1'])>
-                        <a href="{{ $link['href'] }}"
-                           @if($link['external']) target="_blank" rel="me noopener noreferrer" @endif
-                           @if($link['download']) download @endif
-                           data-analytics-event="{{ $link['external'] ? 'recruiter_link_opened' : ($link['download'] ? 'resume_downloaded' : 'recruiter_link_opened') }}"
-                           data-analytics-location="kit-links"
-                           data-analytics-target="{{ \Illuminate\Support\Str::slug($link['label']) }}"
-                           class="group flex flex-wrap items-center justify-between gap-2 min-h-11 py-3">
-                            <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">
-                                {{ $link['label'] }}
-                                @if($link['external'])
-                                    <span class="sr-only"> (opens in a new tab)</span>
-                                @endif
-                            </span>
-                            @if($link['meta'] !== '')
-                                <span class="kit-link-meta font-mono text-caption text-neutral-500 uppercase tracking-widest">{{ $link['meta'] }}</span>
-                            @endif
-                        </a>
-                    </li>
-                @endforeach
-                @if(\App\Support\SiteFeatures::contentCredentials())
-                    <li class="py-1">
-                        <a href="{{ url('/api/credentials.json') }}"
-                           class="group flex flex-wrap items-center justify-between gap-2 min-h-11 py-3">
-                            <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">
-                                Content credentials
-                            </span>
-                            <span class="kit-link-meta font-mono text-caption text-neutral-500 uppercase tracking-widest">C2PA sidecar</span>
-                        </a>
-                    </li>
+            <div class="max-w-2xl">
+                <ul class="kit-links divide-y divide-neutral-800/80">
+                    @foreach($primaryLinks as $link)
+                        @include('kit.partials.link-row', ['link' => $link])
+                    @endforeach
+                    @if(\App\Support\SiteFeatures::contentCredentials())
+                        <li class="py-1">
+                            <a href="{{ url('/api/credentials.json') }}"
+                               class="group flex flex-wrap items-center justify-between gap-2 min-h-11 py-3">
+                                <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">
+                                    Content credentials
+                                </span>
+                                <span class="kit-link-meta font-mono text-caption text-neutral-500 uppercase tracking-widest">C2PA sidecar</span>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+
+                @if($moreLinks->isNotEmpty())
+                    <details class="kit-links-more mt-2">
+                        <summary class="kit-links-more__summary font-mono text-xs text-neutral-400 uppercase tracking-widest min-h-11 flex items-center cursor-pointer hover:text-accent transition-colors">
+                            More links
+                            <span class="text-neutral-500 normal-case tracking-normal ml-2">({{ $moreLinks->count() }})</span>
+                        </summary>
+                        <ul class="kit-links divide-y divide-neutral-800/80 mt-1">
+                            @foreach($moreLinks as $link)
+                                @include('kit.partials.link-row', ['link' => $link])
+                            @endforeach
+                        </ul>
+                    </details>
                 @endif
-            </ul>
+            </div>
         </div>
     </section>
     </div>

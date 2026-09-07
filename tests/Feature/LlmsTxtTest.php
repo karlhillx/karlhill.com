@@ -30,7 +30,8 @@ it('llms txt returns a v2 file-list map', function () {
     $this->assertStringContainsString('/work/nasa-earth-observatory', $body);
     $this->assertStringContainsString('/work/laads-daac', $body);
     $this->assertStringContainsString('/kit', $body);
-    $this->assertStringContainsString('/lead', $body);
+    $this->assertStringContainsString('/about#delivery', $body);
+    $this->assertStringNotContainsString('](https://karlhill.com/lead)', $body);
     $this->assertStringContainsString('/blog/release-governance', $body);
     $this->assertStringContainsString('What 20 Years Taught Me About Release Governance', $body);
     $this->assertStringContainsString('Preferred name Karl Hill', $body);
@@ -94,7 +95,8 @@ it('llms txt builder lists professional profiles and resume once', function () {
     $this->assertSame(1, substr_count($body, '/resume'));
     $this->assertSame(1, substr_count($body, '/kit'));
     $this->assertSame(1, substr_count($body, '/now'));
-    $this->assertSame(1, substr_count($body, '](https://karlhill.com/lead)'));
+    $this->assertSame(1, substr_count($body, '](https://karlhill.com/about#delivery)'));
+    $this->assertStringNotContainsString('](https://karlhill.com/lead)', $body);
     $this->assertStringContainsString('GeoHorizons', $body);
     $this->assertStringContainsString('September 6, 2026', $body);
 });

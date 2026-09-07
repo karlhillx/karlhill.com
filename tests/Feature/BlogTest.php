@@ -41,8 +41,8 @@ it('unknown web route renders custom 404', function () {
     $response->assertSee('name="robots" content="noindex"', escape: false);
     $response->assertSee('href="/kit"', escape: false);
     $response->assertDontSee('href="/lead"', escape: false);
-    $response->assertSee('href="/resume"', escape: false);
-    $response->assertSee('href="/now"', escape: false);
+    $response->assertSee('href="/work"', escape: false);
+    $response->assertSee('href="/now#book"', escape: false);
 });
 
 it('blog post repository parses frontmatter', function () {

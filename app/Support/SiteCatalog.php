@@ -328,7 +328,7 @@ final class SiteCatalog
 
         return [
             'url' => $base.'/kit',
-            'delivery' => $base.'/lead',
+            'delivery' => $base.'/about#delivery',
             'resume_html' => $base.'/resume',
             'resume_pdf' => $base.config('site.footer.resume'),
             'booking' => (string) config('site.booking.url'),
@@ -349,15 +349,15 @@ final class SiteCatalog
 
         // Evergreen pages have no editorial date of their own; the most recent
         // change anywhere on the site is the honest upper bound.
+        // Primary hire path: Home → Work → Kit → Book (/now). About/Resume are secondary.
         $urls = [
             ['loc' => $base.'/', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '1.0'],
             ['loc' => $base.'/work', 'lastmod' => $latestWork, 'changefreq' => 'monthly', 'priority' => '0.9'],
-            ['loc' => $base.'/about', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.9'],
-            ['loc' => $base.'/now', 'lastmod' => $nowUpdated, 'changefreq' => 'weekly', 'priority' => '0.9'],
-            ['loc' => $base.'/resume', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.85'],
-            ['loc' => $base.'/kit', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.85'],
-            ['loc' => $base.'/lead', 'lastmod' => $siteUpdated, 'changefreq' => 'yearly', 'priority' => '0.5'],
+            ['loc' => $base.'/kit', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.9'],
+            ['loc' => $base.'/now', 'lastmod' => $nowUpdated, 'changefreq' => 'weekly', 'priority' => '0.85'],
             ['loc' => $base.'/blog', 'lastmod' => $latestPost, 'changefreq' => 'weekly', 'priority' => '0.8'],
+            ['loc' => $base.'/about', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],
+            ['loc' => $base.'/resume', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],
         ];
 
         foreach ($this->posts() as $post) {

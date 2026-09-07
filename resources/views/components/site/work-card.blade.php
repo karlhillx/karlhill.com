@@ -10,11 +10,15 @@
     'slug' => null,
     'external' => false,
     'imageAlt' => null,
+    'variant' => 'media',
+    'constraints' => [],
 ])
 
 @php
     $titleId = $slug ? 'work-card-title-'.$slug : null;
-    $cardClass = 'surface-card surface-card-media pointer-lit bg-bg group relative h-[22rem] sm:h-80 lg:h-96 block';
+    $isConstraint = $variant === 'constraint';
+    $cardClass = 'surface-card surface-card-media pointer-lit bg-bg group relative h-[22rem] sm:h-80 lg:h-96 block'
+        .($isConstraint ? ' work-card--constraint' : '');
     $cta = $external
         ? 'Visit project'
         : (is_string($href) && str_contains($href, '/work/') ? 'Read case study' : 'View details');
@@ -39,20 +43,35 @@
         </a>
     @endif
 
-    <x-site.responsive-image
-        :src="$image"
-                    :alt="$imageAlt"
-        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-        width="960"
-        height="720"
-        loading="lazy"
-        :lqip="false"
-        :img-style="$slug ? 'view-transition-name: work-img-'.$slug.'; view-transition-class: card-media' : null"
-        img-class="work-parallax absolute inset-0 w-full h-full object-cover {{ $imagePosition }} opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out"
-        class="contents"
-    />
-
-    <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/60 to-transparent" aria-hidden="true"></div>
+    @if($isConstraint)
+        <div class="work-card-constraint absolute inset-0" aria-hidden="true">
+            <div class="work-card-constraint__grid"></div>
+            <div class="work-card-constraint__glow"></div>
+        </div>
+        @if(! empty($constraints))
+            <ul class="work-card-constraint__list absolute inset-x-4 top-14 sm:top-16 space-y-2 pointer-events-none">
+                @foreach($constraints as $item)
+                    <li class="font-mono text-caption sm:text-xs text-neutral-300/90 uppercase tracking-widest border-l border-accent/50 pl-3">
+                        {{ $item }}
+                    </li>
+                @endforeach
+            </ul>
+        @endif
+    @else
+        <x-site.responsive-image
+            :src="$image"
+            :alt="$imageAlt"
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            width="960"
+            height="720"
+            loading="lazy"
+            :lqip="false"
+            :img-style="$slug ? 'view-transition-name: work-img-'.$slug.'; view-transition-class: card-media' : null"
+            img-class="work-parallax absolute inset-0 w-full h-full object-cover {{ $imagePosition }} opacity-50 group-hover:opacity-70 group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ease-out"
+            class="contents"
+        />
+        <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/60 to-transparent" aria-hidden="true"></div>
+    @endif
 
     @if($logo)
         <div class="absolute top-4 right-4">

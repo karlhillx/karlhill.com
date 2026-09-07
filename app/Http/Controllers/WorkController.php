@@ -62,14 +62,6 @@ class WorkController extends Controller
 
     protected function renderIndex(PageMeta $meta, Collection $projects, ?string $activeTag, Collection $supporting): View
     {
-        $rail = [
-            ['id' => 'work', 'label' => 'Projects', 'href' => '#work'],
-        ];
-        if ($supporting->isNotEmpty()) {
-            $rail[] = ['id' => 'chapters', 'label' => 'NASA Goddard', 'href' => '#chapters'];
-        }
-        $rail[] = ['id' => 'open-source', 'label' => 'Open Source', 'href' => '#open-source'];
-
         return view('work.index', [
             'meta' => $meta,
             'projects' => $projects,
@@ -80,7 +72,6 @@ class WorkController extends Controller
             'sectors' => ProjectCatalog::sectors(),
             'sectorCounts' => ProjectCatalog::sectorCounts(),
             'githubRepos' => $this->github->topRepos(),
-            'sectionRail' => $rail,
         ]);
     }
 }

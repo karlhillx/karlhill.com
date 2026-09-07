@@ -1975,6 +1975,46 @@ a.series-chapters__card:hover .series-chapters__title,
     interpolate-size: allow-keywords;
 }
 
+/* Jacobs / unpublished work — text constraints instead of a logo panel. */
+.work-card--constraint {
+    background: color-mix(in oklab, var(--panel) 88%, var(--bg));
+}
+
+.work-card-constraint__grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.45;
+    background-image:
+        linear-gradient(color-mix(in oklab, var(--border) 80%, transparent) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in oklab, var(--border) 80%, transparent) 1px, transparent 1px);
+    background-size: 1.5rem 1.5rem;
+    mask-image: linear-gradient(to bottom, black 0%, transparent 72%);
+}
+
+.work-card-constraint__glow {
+    position: absolute;
+    inset: 15% 10% auto;
+    height: 40%;
+    background: radial-gradient(
+        ellipse at center,
+        color-mix(in oklab, var(--accent) 18%, transparent),
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.work-card-constraint__list {
+    z-index: 1;
+}
+
+.kit-links-more__summary {
+    list-style: none;
+}
+
+.kit-links-more__summary::-webkit-details-marker {
+    display: none;
+}
+
 /* Compact NASA “also shipped” row on /work — resume hops, not a second card grid. */
 .work-chapters__link:focus-visible {
     outline: 2px solid var(--focus);

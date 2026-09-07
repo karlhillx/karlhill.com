@@ -19,17 +19,14 @@
     <div class="nav-bar site-shell site-gutter flex items-center justify-between gap-4">
         <div class="flex items-center gap-6 lg:gap-10 min-w-0">
             <a href="/" class="font-display tracking-wider text-accent shrink-0" style="view-transition-name: brand" @if($isActive('home')) aria-current="page" @endif>KARL HILL</a>
+            {{-- Hire path only: Work → Kit → Writing. Book is the persistent CTA. --}}
             <div class="hidden md:flex items-center gap-5 lg:gap-7 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="/work" class="{{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
-                <a href="/about" class="{{ $navLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
                 <a href="/kit" class="{{ $navLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Kit</a>
-                <a href="/now" class="{{ $navLinkClass('now') }}" @if($isActive('now')) aria-current="page" @endif>Now</a>
-                <a href="/resume" class="{{ $navLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
+                <a href="/blog" class="{{ $navLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
             </div>
         </div>
         <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-            {{-- Search: the ⌘K palette is a keyboard power-feature; the visible label
-                 says what it does for everyone else. --}}
             <button type="button"
                     command="toggle-popover"
                     commandfor="command-palette"
@@ -53,10 +50,6 @@
                 <x-site.icons.moon class="theme-toggle__icon theme-toggle__icon--moon w-4 h-4" />
             </button>
 
-            {{-- The nav carries the same hire CTA at every breakpoint: filled "Book"
-                 (short label on phones, full label from md up). Contact lives in
-                 the footer of every page and in the mobile menu. Falls back to a
-                 Contact button when booking is not configured. --}}
             @if(filled($bookingUrl))
                 <a href="/now#book"
                    data-analytics-event="booking_cta_clicked"
@@ -102,12 +95,15 @@
 
             <div class="flex flex-col divide-y divide-neutral-800/80">
                 <a href="/work" class="{{ $mobileLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
-                <a href="/about" class="{{ $mobileLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
                 <a href="/kit" class="{{ $mobileLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Recruiter kit</a>
-                <a href="/now" class="{{ $mobileLinkClass('now') }}" @if($isActive('now')) aria-current="page" @endif>Now</a>
-                <a href="/resume" class="{{ $mobileLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
                 <a href="/blog" class="{{ $mobileLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/#contact" class="{{ $mobileLinkClass('contact') }}">Contact</a>
+            </div>
+
+            <p class="pt-4 mt-2 font-mono text-caption text-neutral-500 uppercase tracking-widest">More</p>
+            <div class="flex flex-col divide-y divide-neutral-800/80">
+                <a href="/about" class="{{ $mobileLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
+                <a href="/resume" class="{{ $mobileLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
             </div>
 
             <div class="pt-4 mt-2 border-t border-neutral-800/80 flex flex-wrap items-center gap-x-6 gap-y-2">

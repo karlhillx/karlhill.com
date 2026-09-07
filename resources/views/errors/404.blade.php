@@ -27,9 +27,9 @@
                 </a>
                 <div class="flex flex-wrap items-center justify-center gap-6 mt-8 font-mono text-xs uppercase tracking-widest">
                     <a href="/kit" class="text-neutral-400 hover:text-accent transition-colors">Recruiter kit →</a>
-                    <a href="/resume" class="text-neutral-400 hover:text-accent transition-colors">Resume →</a>
                     <a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Work →</a>
-                    <a href="/now" class="text-neutral-400 hover:text-accent transition-colors">Now →</a>
+                    <a href="/blog" class="text-neutral-400 hover:text-accent transition-colors">Writing →</a>
+                    <a href="/now#book" class="text-neutral-400 hover:text-accent transition-colors">Book →</a>
                 </div>
                 <p class="hidden sm:block font-mono text-caption text-neutral-500 uppercase tracking-widest mt-8">
                     Or press <kbd class="surface-chip px-1.5 py-0.5 text-caption text-neutral-400 normal-case tracking-normal">⌘K</kbd> to jump anywhere

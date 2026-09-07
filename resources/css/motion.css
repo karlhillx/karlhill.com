@@ -117,9 +117,9 @@
     animation: fadeUp 0.75s var(--ease-out-spring) both;
 }
 
-/* Homepage hero — one composition across phone → desktop. */
+/* Homepage hero — atmosphere + one hire composition (no screenshot). */
 #hero.hero {
-    /* Clears fixed nav (+ mobile section rail) without crowding the wordmark. */
+    /* Clears fixed nav without crowding the wordmark. */
     padding-top: calc(4.75rem + 2.75rem + 1.25rem);
     padding-bottom: clamp(3.5rem, 8vw, 6rem);
     overflow-x: clip;
@@ -131,52 +131,29 @@
     align-items: flex-start;
     width: 100%;
     min-width: 0;
-    max-width: 56rem;
+    max-width: 42rem;
     padding-top: clamp(0.5rem, 2vw, 2.5rem);
 }
 
-#hero .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: clamp(1.25rem, 3vw, 2.5rem);
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-}
-
-#hero .hero-portrait-frame {
-    flex: 0 0 auto;
-    display: block;
-    width: 2.75rem;
-    height: 2.75rem;
-}
-
-#hero .hero-portrait {
-    width: 100%;
-    height: 100%;
-}
-
-#hero .hero-eyebrow-label {
+#hero .hero-kicker {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     column-gap: 0.5rem;
     row-gap: 0.15rem;
+    margin: 0 0 clamp(1rem, 2.5vw, 1.75rem);
     font-size: 0.75rem;
     letter-spacing: 0.14em;
     line-height: 1.35;
-    min-width: 0;
+    max-width: 100%;
 }
 
-#hero .hero-eyebrow-sep {
+#hero .hero-kicker__sep {
     opacity: 0.7;
 }
 
-/* On phones the label always wraps, which strands a "·" at a line start or
-   end; the segments read as a stacked list without it. */
 @media (max-width: 639px) {
-    #hero .hero-eyebrow-sep {
+    #hero .hero-kicker__sep {
         display: none;
     }
 }
@@ -190,65 +167,9 @@
     margin: 0 0 clamp(0.55rem, 1.5vw, 1rem);
     max-width: 100%;
     width: 100%;
-    /* Keep glyph ink inside the layout box so the eyebrow never collides. */
     overflow-wrap: anywhere;
     padding-top: 0.06em;
     text-wrap: balance;
-}
-
-#hero .hero-subtitle {
-    margin: 0 0 clamp(0.65rem, 1.6vw, 1rem);
-    max-width: min(40rem, 100%);
-}
-
-#hero .hero-arc {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.4rem 0.65rem;
-    margin: 0 0 clamp(1rem, 2.5vw, 1.75rem);
-    max-width: min(42rem, 100%);
-    font-size: clamp(1.05rem, 2.2vw, 1.2rem);
-    line-height: 1.5;
-    color: var(--text);
-}
-
-#hero .hero-arc__stop {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.35rem 0.5rem;
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
-    padding-bottom: 0.05rem;
-    transition:
-        color 0.16s ease,
-        border-color 0.16s ease;
-}
-
-#hero .hero-arc__stop:hover,
-#hero .hero-arc__stop:focus-visible {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-}
-
-#hero .hero-arc__label {
-    font-weight: 600;
-    letter-spacing: 0.02em;
-}
-
-#hero .hero-arc__meta {
-    font-family: var(--font-mono);
-    font-size: var(--text-caption);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted-2);
-}
-
-#hero .hero-arc__sep {
-    color: var(--accent);
-    font-weight: 600;
 }
 
 #hero .hero-lede {
@@ -271,17 +192,37 @@
     font-size: 0.75rem;
 }
 
+@media (max-width: 639px) {
+    #hero.hero {
+        /* Prefer Book above the fold over a full-bleed square on small phones. */
+        min-height: auto;
+        padding-top: calc(4.25rem + 1rem);
+        padding-bottom: 2.25rem;
+    }
+
+    #hero .hero-kicker {
+        margin-bottom: 0.65rem;
+        font-size: 0.6875rem;
+    }
+
+    #hero .hero-title {
+        font-size: clamp(2.35rem, 13vw, 3.5rem);
+        margin-bottom: 0.45rem;
+    }
+
+    #hero .hero-lede {
+        font-size: 1rem;
+        margin-bottom: 1.15rem;
+    }
+
+    #hero .hero-copy {
+        padding-top: 0.25rem;
+        max-width: 100%;
+    }
+}
+
 @media (min-width: 640px) {
-    #hero .hero-portrait-frame {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    #hero .hero-eyebrow {
-        gap: 1rem;
-    }
-
-    #hero .hero-eyebrow-label {
+    #hero .hero-kicker {
         font-size: 0.75rem;
         letter-spacing: 0.16em;
     }
@@ -297,7 +238,6 @@
 
 @media (min-width: 768px) {
     #hero.hero {
-        /* Desktop: only the primary nav is fixed above the hero. */
         padding-top: 7rem;
         justify-content: flex-end;
     }

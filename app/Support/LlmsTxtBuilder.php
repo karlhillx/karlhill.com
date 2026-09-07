@@ -40,14 +40,14 @@ class LlmsTxtBuilder
             '',
             '## Pages',
             '',
-            $this->fileItem('Home', $base.'/', 'Portfolio landing and contact'),
+            $this->fileItem('Home', $base.'/', 'Hire landing: ask, selected work, next steps, contact'),
             $this->fileItem('Work', $base.'/work', 'Jacobs chapter and public case studies'),
-            $this->fileItem('About', $base.'/about', 'How I lead, career arc, and research'),
-            $this->fileItem('Now', $base.'/now', 'Current focus and booking'),
-            $this->fileItem('Resume', $base.'/resume', 'Canonical HTML curriculum vitae'),
             $this->fileItem('Recruiter kit', $base.'/kit', 'Leave-behind with bio, resume PDF, and links'),
-            $this->fileItem('How I run delivery', $base.'/lead', 'Definition of Done, PR rubric, integration risk, coaching'),
+            $this->fileItem('Now', $base.'/now', 'Current focus and booking'),
             $this->fileItem('Writing', $base.'/blog', 'Essays on leadership, delivery, and mission software'),
+            $this->fileItem('About', $base.'/about', 'How I lead, how I run delivery, career arc, research'),
+            $this->fileItem('How I run delivery', $base.'/about#delivery', 'Definition of Done, PR rubric, integration risk, coaching'),
+            $this->fileItem('Resume', $base.'/resume', 'Canonical HTML curriculum vitae'),
         ];
 
         $seriesLines = $this->seriesSection($base);

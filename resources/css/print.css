@@ -523,6 +523,14 @@
         color: #222 !important;
     }
 
+    body:has(.kit-doc) .kit-links-more {
+        display: block !important;
+    }
+
+    body:has(.kit-doc) .kit-links-more__summary {
+        display: none !important;
+    }
+
     body:has(.kit-doc) .kit-links {
         list-style: none !important;
         margin: 0 !important;

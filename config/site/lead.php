@@ -65,5 +65,5 @@ return [
             ],
         ],
     ],
-    'not' => 'This is not a Jacobs system architecture, a tool list, or an operations manual — and it is not the people-leadership essay (that is How I lead on About). The NASA studies on this site are the platforms I can show. Attach this page when the question is how I run delivery under constraint.',
+    'not' => 'This is not a Jacobs system architecture, a tool list, or an operations manual — and it is not the people-leadership essay (that is How I lead above). The NASA studies on this site are the platforms I can show. Attach this section when the question is how I run delivery under constraint.',
 ];

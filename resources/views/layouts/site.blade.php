@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth"
-      data-features="{{ implode(' ', $pageFeatures ?? ['contact', 'pointer']) }}"
+      data-features="{{ implode(' ', $pageFeatures ?? ['contact']) }}"
       @if(! app()->isProduction()) data-sw="off" @endif
       @if(filled(config('site.push.public_key')))
           data-vapid-public="{{ config('site.push.public_key') }}"
@@ -103,9 +103,8 @@
     <x-site.analytics />
     @stack('head')
 </head>
-<body class="bg-bg text-neutral-100 antialiased has-page-spotlight">
+<body class="bg-bg text-neutral-100 antialiased">
 
-    <div class="page-spotlight" aria-hidden="true"><span class="page-spotlight__orb"></span></div>
     <div class="scroll-progress" aria-hidden="true"></div>
 
     <a href="#main-content"
@@ -134,13 +133,6 @@
             aria-label="Back to top">
         ↑ Top
     </button>
-
-    <div id="cmdk-tip" class="cmdk-tip" hidden role="status">
-        <p class="font-mono text-caption uppercase tracking-widest text-neutral-300">
-            Press <kbd class="cmdk-tip__kbd">⌘</kbd><kbd class="cmdk-tip__kbd">K</kbd> to jump anywhere
-        </p>
-        <button type="button" class="cmdk-tip__dismiss" data-cmdk-tip-dismiss aria-label="Dismiss tip">×</button>
-    </div>
 
     @php($toastStatus = session('status'))
     @if(in_array($toastStatus, ['contact-sent', 'contact-failed'], true))
