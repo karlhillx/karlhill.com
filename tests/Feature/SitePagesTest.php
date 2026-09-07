@@ -254,10 +254,11 @@ it('now page renders focus and em intent', function () {
     $response->assertSee('Engineering Manager', escape: false);
     $response->assertSee('Jacobs National Security', escape: false);
     $response->assertSee('September 6, 2026', escape: false);
-    $response->assertSee('href="/lead"', escape: false);
-    $response->assertSee('How I run delivery', escape: false);
+    $response->assertSee('href="/about#how-i-lead"', escape: false);
+    $response->assertSee('How I lead', escape: false);
     $response->assertSee('Hiring', escape: false);
-    $response->assertSee('The kit is the packet', escape: false);
+    $response->assertSee('The kit is the leave-behind', escape: false);
+    $response->assertDontSee('How I run delivery', escape: false);
     $response->assertDontSee('id="contact-form"', escape: false);
     $response->assertSee('id="contact"', escape: false);
     $response->assertSee('id="focus"', escape: false);
@@ -369,6 +370,7 @@ it('footer includes site explore links', function () {
     $response->assertSee('aria-label="Site"', escape: false);
     $response->assertSee('Explore', escape: false);
     $response->assertSee('href="/now"', escape: false);
+    $response->assertDontSee('How I run delivery', escape: false);
 });
 
 it('homepage hero links to em funnel', function () {

@@ -356,7 +356,7 @@ final class SiteCatalog
             ['loc' => $base.'/now', 'lastmod' => $nowUpdated, 'changefreq' => 'weekly', 'priority' => '0.9'],
             ['loc' => $base.'/resume', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.85'],
             ['loc' => $base.'/kit', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.85'],
-            ['loc' => $base.'/lead', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.85'],
+            ['loc' => $base.'/lead', 'lastmod' => $siteUpdated, 'changefreq' => 'yearly', 'priority' => '0.5'],
             ['loc' => $base.'/blog', 'lastmod' => $latestPost, 'changefreq' => 'weekly', 'priority' => '0.8'],
         ];
 

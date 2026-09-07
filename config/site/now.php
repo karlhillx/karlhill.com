@@ -6,14 +6,14 @@ return [
     'lede' => 'Leading aerospace mission software delivery at Jacobs National Security while practicing the engineering leadership craft. Technical leadership across two paths: Engineering Manager or Staff/Principal roles centered on platform delivery, engineering standards, and high-assurance execution.',
     'recruiters' => [
         'eyebrow' => 'Hiring',
-        'body' => 'The kit is the packet. How I run delivery is the operating system. The resume is the evidence. This page is what I am doing now — book if the timing is right.',
+        'body' => 'The kit is the leave-behind. The resume is the evidence. This page is what I am doing now — book if the timing is right.',
     ],
     'focus' => [
         [
             'title' => 'Engineering leadership trajectory',
             'body' => 'Practicing the manager craft now — aimed at Engineering Manager roles in mission software.',
-            'link' => '/lead',
-            'link_label' => 'How I run delivery',
+            'link' => '/about#how-i-lead',
+            'link_label' => 'How I lead',
         ],
         [
             'title' => 'Jacobs National Security',

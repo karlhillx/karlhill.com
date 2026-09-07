@@ -27,7 +27,6 @@
                 </a>
                 <div class="flex flex-wrap items-center justify-center gap-6 mt-8 font-mono text-xs uppercase tracking-widest">
                     <a href="/kit" class="text-neutral-400 hover:text-accent transition-colors">Recruiter kit →</a>
-                    <a href="/lead" class="text-neutral-400 hover:text-accent transition-colors">How I run delivery →</a>
                     <a href="/resume" class="text-neutral-400 hover:text-accent transition-colors">Resume →</a>
                     <a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Work →</a>
                     <a href="/now" class="text-neutral-400 hover:text-accent transition-colors">Now →</a>

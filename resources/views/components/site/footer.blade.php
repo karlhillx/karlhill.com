@@ -85,9 +85,6 @@
                         @unless(request()->routeIs('kit'))
                             <li><a href="/kit" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
                         @endunless
-                        @unless(request()->routeIs('lead'))
-                            <li><a href="/lead" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">How I run delivery</a></li>
-                        @endunless
                     </ul>
                 </nav>
             </div>
@@ -141,9 +138,6 @@
                         @endunless
                         @unless(request()->routeIs('kit'))
                             <li><a href="/kit" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
-                        @endunless
-                        @unless(request()->routeIs('lead'))
-                            <li><a href="/lead" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">How I run delivery</a></li>
                         @endunless
                     </ul>
                 </nav>

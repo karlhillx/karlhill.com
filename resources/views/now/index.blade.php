@@ -72,7 +72,6 @@
                         @endif
                         <x-site.button variant="secondary" href="/resume">Resume</x-site.button>
                         <x-site.button variant="link" href="#contact">Contact</x-site.button>
-                        <x-site.button variant="link" href="/lead">How I run delivery</x-site.button>
                         <x-site.button variant="link" href="/kit">Recruiter kit</x-site.button>
                     </div>
                 </div>

@@ -16,7 +16,7 @@ class SpeculationRules
 
         return self::document(
             prerender: collect(['/work', '/now'])->merge($postUrls->take(2))->all(),
-            prefetch: collect(['/blog', '/work', '/about', '/now', '/lead'])->merge($postUrls)->all(),
+            prefetch: collect(['/blog', '/work', '/about', '/now'])->merge($postUrls)->all(),
             hrefMatches: '/blog*',
         );
     }

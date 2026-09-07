@@ -40,7 +40,7 @@ it('unknown web route renders custom 404', function () {
     $response->assertSee('Page not found', escape: false);
     $response->assertSee('name="robots" content="noindex"', escape: false);
     $response->assertSee('href="/kit"', escape: false);
-    $response->assertSee('href="/lead"', escape: false);
+    $response->assertDontSee('href="/lead"', escape: false);
     $response->assertSee('href="/resume"', escape: false);
     $response->assertSee('href="/now"', escape: false);
 });
