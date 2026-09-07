@@ -5,16 +5,24 @@
  * Usage:
  *   node scripts/generate-resume-pdf.mjs <input.html> <output.pdf>
  *
- * The navy sidebar is painted as a solid CSS panel in Chromium (no type).
- * Sidebar copy is drawn afterward with embedded Lato so it stays vector-sharp
- * and lands after the main column in the content stream (ATS-friendly order).
+ * The navy sidebar is a solid CSS panel in Chromium (no HTML type). Sidebar
+ * copy is drawn afterward as Lato glyph outlines so it stays vector-sharp,
+ * matches the main column face, and does not enter the PDF text stream —
+ * Chromium otherwise y/x-sorts sidebar + main text and interleaves them for ATS.
  */
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import path from 'node:path';
 import fs from 'node:fs';
 import { chromium } from 'playwright';
 import fontkit from '@pdf-lib/fontkit';
-import { PDFDocument, rgb } from 'pdf-lib';
+import {
+    PDFDocument,
+    popGraphicsState,
+    pushGraphicsState,
+    rgb,
+    scale as scaleOp,
+    translate,
+} from 'pdf-lib';
 import { decompress as decompressWoff2 } from 'wawoff2';
 
 const [, , inputArg, outputArg] = process.argv;
@@ -90,70 +98,36 @@ try {
 }
 
 const pdfDoc = await PDFDocument.load(pdfBytes);
-pdfDoc.registerFontkit(fontkit);
 
-const [latoRegularBytes, latoBoldBytes] = [
-    await loadLato(400),
-    await loadLato(700),
-];
-const lato = await pdfDoc.embedFont(latoRegularBytes, { subset: true });
-const latoBold = await pdfDoc.embedFont(latoBoldBytes, { subset: true });
+// Decompress sequentially — parallel wawoff2 calls can corrupt output.
+const latoRegularBytes = await loadLato(400);
+const latoBoldBytes = await loadLato(700);
+const latoFk = fontkit.create(latoRegularBytes);
+const latoBoldFk = fontkit.create(latoBoldBytes);
 
 const page1 = pdfDoc.getPage(0);
 const { width: pageW, height: pageH } = page1.getSize();
 
-// Match resources/views/resume/pdf.blade.php sidebar tokens (inches → pt).
 const sidebarW = 2.42 * 72;
 const padX = 0.3 * 72;
 const padTop = 0.45 * 72;
 const ink = rgb(1, 1, 1);
 const left = pageW - sidebarW + padX;
 const maxTextW = sidebarW - padX * 2;
-const ruleColor = rgb(1, 1, 1);
 
 let y = pageH - padTop;
 
-function drawTitle(text) {
-    const size = 8;
-    page1.drawText(text.toUpperCase(), {
-        x: left,
-        y: y - size,
-        size,
-        font: latoBold,
-        color: ink,
-        letterSpacing: 0.64, // ~0.08em at 8pt
-    });
-    y -= size + 4.3; // padding-bottom ~0.06in
-    page1.drawLine({
-        start: { x: left, y },
-        end: { x: left + maxTextW, y },
-        thickness: 0.7,
-        color: ruleColor,
-        opacity: 0.28,
-    });
-    y -= 0.11 * 72; // margin below rule
-}
-
-function drawLines(lines, { size = 8.25, bold = false, leading = 1.45, gap = 0.065 * 72 } = {}) {
-    const font = bold ? latoBold : lato;
-    for (const line of lines) {
-        const wrapped = wrapText(line, font, size, maxTextW);
-        for (const part of wrapped) {
-            page1.drawText(part, {
-                x: left,
-                y: y - size,
-                size,
-                font,
-                color: ink,
-                opacity: bold ? 1 : 0.92,
-            });
-            y -= size * leading;
-        }
-        y -= Math.max(0, gap - size * (leading - 1));
+function textWidth(text, fkFont, size, letterSpacing = 0) {
+    const s = size / fkFont.unitsPerEm;
+    const run = fkFont.layout(String(text));
+    if (run.glyphs.length === 0) {
+        return 0;
     }
+    const advances = run.glyphs.reduce((sum, glyph) => sum + glyph.advanceWidth * s, 0);
+    return advances + letterSpacing * Math.max(0, run.glyphs.length - 1);
 }
 
-function wrapText(text, font, size, maxWidth) {
+function wrapText(text, fkFont, size, maxWidth) {
     const words = String(text).split(/\s+/).filter(Boolean);
     if (words.length === 0) {
         return [''];
@@ -162,7 +136,7 @@ function wrapText(text, font, size, maxWidth) {
     let current = words[0];
     for (let i = 1; i < words.length; i++) {
         const next = `${current} ${words[i]}`;
-        if (font.widthOfTextAtSize(next, size) <= maxWidth) {
+        if (textWidth(next, fkFont, size) <= maxWidth) {
             current = next;
         } else {
             lines.push(current);
@@ -173,49 +147,78 @@ function wrapText(text, font, size, maxWidth) {
     return lines;
 }
 
-drawTitle('Details');
-drawLines(
-    [sidebar.location, sidebar.phone, sidebar.email].filter(Boolean),
-    { size: 8.25, leading: 1.45, gap: 0.065 * 72 },
-);
+/** Draw Lato as filled glyph outlines (vector, not extractable text). */
+function drawOutlinedText(text, x, baseline, size, fkFont, { letterSpacing = 0 } = {}) {
+    const s = size / fkFont.unitsPerEm;
+    let cx = x;
+    for (const glyph of fkFont.layout(String(text)).glyphs) {
+        const svg = glyph.path?.toSVG?.();
+        if (svg) {
+            // fontkit paths are y-up; pdf-lib SVG parsing is y-down — flip with scale.
+            page1.pushOperators(pushGraphicsState(), translate(cx, baseline), scaleOp(s, -s));
+            page1.drawSvgPath(svg, { x: 0, y: 0, borderWidth: 0, color: ink });
+            page1.pushOperators(popGraphicsState());
+        }
+        cx += glyph.advanceWidth * s + letterSpacing;
+    }
+    return cx - x;
+}
 
-y -= 0.3 * 72 - 0.065 * 72; // sidebar-block + sidebar-block spacing
+function drawTitle(text) {
+    const size = 8.5;
+    const label = String(text).toUpperCase();
+    drawOutlinedText(label, left, y - size, size, latoBoldFk, { letterSpacing: 0.7 });
+    y -= size + 5;
+    page1.drawLine({
+        start: { x: left, y },
+        end: { x: left + maxTextW, y },
+        thickness: 0.75,
+        color: ink,
+        opacity: 0.3,
+    });
+    y -= 10;
+}
+
+function drawLines(lines, { size = 8.75, bold = false, leading = 1.4, gapAfter = 6 } = {}) {
+    const fkFont = bold ? latoBoldFk : latoFk;
+    for (const line of lines) {
+        for (const part of wrapText(line, fkFont, size, maxTextW)) {
+            drawOutlinedText(part, left, y - size, size, fkFont);
+            y -= size * leading;
+        }
+        y -= gapAfter;
+    }
+}
+
+drawTitle('Details');
+drawLines([sidebar.location, sidebar.phone, sidebar.email].filter(Boolean), {
+    size: 8.75,
+    gapAfter: 5,
+});
+
+y -= 14;
 drawTitle('Links');
 for (const link of sidebar.links ?? []) {
-    drawLines([link.label], { size: 8.5, bold: true, leading: 1.2, gap: 0.02 * 72 });
-    y += 0.02 * 72; // tighten label→url
-    drawLines([link.url], { size: 7.5, leading: 1.35, gap: 0.065 * 72 });
+    drawLines([link.label], { size: 9, bold: true, leading: 1.25, gapAfter: 1 });
+    drawLines([link.url], { size: 8, leading: 1.35, gapAfter: 8 });
 }
 
-y -= 0.3 * 72 - 0.065 * 72;
+y -= 14;
 drawTitle('Core Competencies');
 for (const item of sidebar.expertise ?? []) {
-    const size = 8;
-    const bullet = '•';
-    const indent = 10;
-    const wrapped = wrapText(item, lato, size, maxTextW - indent);
+    const size = 8.5;
+    const indent = 11;
+    const wrapped = wrapText(item, latoFk, size, maxTextW - indent);
     wrapped.forEach((part, index) => {
         if (index === 0) {
-            page1.drawText(bullet, {
-                x: left,
-                y: y - size,
-                size: size * 0.85,
-                font: lato,
-                color: ink,
-            });
+            drawOutlinedText('•', left, y - size, size, latoBoldFk);
         }
-        page1.drawText(part, {
-            x: left + indent,
-            y: y - size,
-            size,
-            font: lato,
-            color: ink,
-        });
-        y -= size * 1.32 + (index === wrapped.length - 1 ? 0.05 * 72 : 0);
+        drawOutlinedText(part, left + indent, y - size, size, latoFk);
+        y -= size * 1.36;
     });
+    y -= 3.5;
 }
 
-// Masthead already carries clickable contact/links for the main column.
 pdfDoc.setTitle('Karl Hill — Resume');
 pdfDoc.setAuthor('Karl Hill');
 pdfDoc.setSubject(
