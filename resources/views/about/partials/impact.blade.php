@@ -15,7 +15,7 @@
 
     <p class="mt-10 text-neutral-400 text-sm leading-relaxed max-w-2xl" data-reveal>
         Certifications, education, and the full stack list live on the
-        <a href="/resume#credentials" class="text-accent hover:underline underline-offset-4">resume</a>
+        <a href="/resume#credentials" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">resume</a>
         — kept there so this page stays about how I lead and how I run delivery.
     </p>
 </x-site.section>
