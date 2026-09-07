@@ -7,10 +7,10 @@
     --bg: light-dark(#fafaf9, #0a0a0a);
     --panel: light-dark(#ffffff, #141414);
     --text: light-dark(#141414, #f5f5f5);
-    --muted: light-dark(#5b5b5b, #a3a3a3);
+    --muted: light-dark(#525252, #a3a3a3);
     /* Raised for small mono chrome (filters, captions, form hints) —
        sunlight / cheap screens still need ~3:1 on dark, 4.5:1 on light. */
-    --muted-2: light-dark(#616161, #9e9e9e);
+    --muted-2: light-dark(#5c5c5c, #9e9e9e);
     --border: light-dark(#e3e1dd, #262626);
     --border-strong: light-dark(#d4d2ce, #2a2a2a);
     --surface-hover: light-dark(rgb(20 20 20 / 0.04), rgb(23 23 23 / 0.4));
@@ -145,9 +145,9 @@
     /* Lifted mid neutral for small mono labels (nav, filters, captions) —
        ≥ 4.5:1 against both canvases. */
     --color-neutral-500: light-dark(#666666, #a1a1a1);
-    /* 600 is still used as *text* in a few places (repo meta, citations) —
-       keep it ≥ 4.5:1 on the light canvas too. */
-    --color-neutral-600: light-dark(#707070, #525252);
+    /* 600: secondary meta / placeholders. Both ends clear 4.5:1 on the
+       matching canvas (dark was stuck at ~2.5:1 with literal #525252). */
+    --color-neutral-600: light-dark(#707070, #8a8a8a);
     --color-neutral-700: light-dark(#cfcfcf, #404040);
     --color-neutral-800: light-dark(#e4e4e4, #262626);
     --color-neutral-900: light-dark(#f1f1f0, #171717);

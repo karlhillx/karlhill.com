@@ -41,7 +41,7 @@
                         <span class="text-neutral-300 tabular-nums">{{ $projectCount }}</span>
                         {{ \Illuminate\Support\Str::plural('project', $projectCount) }}
                         @if($activeTag)
-                            <span class="text-neutral-600" aria-hidden="true">·</span>
+                            <span class="text-neutral-500" aria-hidden="true">·</span>
                             <span class="text-accent">{{ $activeTag }}</span>
                         @endif
                     </p>
@@ -73,17 +73,30 @@
 
     @if(($supporting ?? collect())->isNotEmpty())
         <x-site.section id="chapters" class="scroll-mt-32" section-label="NASA Goddard" number="02" label="Also shipped at NASA Goddard">
-            <p class="text-neutral-400 text-sm leading-relaxed max-w-2xl mb-8" data-reveal>
-                Flagship cards stay on the trajectory. These Goddard chapters are still the public record — resume links, not a second grid of screenshots.
+            <p class="text-neutral-400 text-sm leading-relaxed max-w-2xl mb-6" data-reveal>
+                Flagship cards stay on the trajectory. These Goddard chapters are the public record — short hops for resume readers, not a second screenshot grid.
             </p>
-            <x-site.related-list
-                :label="null"
-                :items="$supporting->map(fn ($project) => [
-                    'url' => '/work/'.$project['slug'],
-                    'title' => $project['title'],
-                    'excerpt' => $project['case_study']['lede'] ?? $project['description'],
-                ])->all()"
-            />
+            <ul class="work-chapters border-y border-neutral-800 divide-y divide-neutral-800" data-reveal>
+                @foreach($supporting as $project)
+                    <li>
+                        <a href="/work/{{ $project['slug'] }}"
+                           class="work-chapters__link group flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-x-5 sm:gap-y-1">
+                            <span class="font-mono text-caption text-neutral-500 uppercase tracking-widest shrink-0 sm:w-40">
+                                {{ $project['meta'] }}
+                            </span>
+                            <span class="font-sans font-semibold text-neutral-100 tracking-tight group-hover:text-accent transition-colors">
+                                {{ $project['title'] }}
+                            </span>
+                            <span class="text-neutral-400 text-sm leading-snug line-clamp-1 sm:min-w-0 sm:flex-1">
+                                {{ $project['case_study']['lede'] ?? $project['description'] }}
+                            </span>
+                            <span class="font-mono text-caption text-accent uppercase tracking-widest sm:shrink-0" aria-hidden="true">
+                                View <span class="arrow-nudge inline-block">→</span>
+                            </span>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
         </x-site.section>
     @endif
 

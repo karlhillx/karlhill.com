@@ -42,7 +42,7 @@
                        value="{{ old('name') }}" placeholder="Your name" autocomplete="name"
                        @if($errorBag->has('name')) aria-invalid="true" aria-describedby="{{ $nameId }}-error" @endif
                        @class([
-                           'w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent',
+                           'w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-500 px-4 py-3 text-sm outline-none transition-colors focus:border-accent',
                            'border-red-500/60' => $errorBag->has('name'),
                            'border-neutral-800' => ! $errorBag->has('name'),
                        ])>
@@ -56,7 +56,7 @@
                        value="{{ old('email') }}" placeholder="you@company.com" autocomplete="email"
                        @if($errorBag->has('email')) aria-invalid="true" aria-describedby="{{ $emailId }}-error" @endif
                        @class([
-                           'w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent',
+                           'w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-500 px-4 py-3 text-sm outline-none transition-colors focus:border-accent',
                            'border-red-500/60' => $errorBag->has('email'),
                            'border-neutral-800' => ! $errorBag->has('email'),
                        ])>
@@ -71,7 +71,7 @@
                       placeholder="{{ config('site.footer.contact_placeholder', 'What are you building, and how can I help?') }}"
                       @if($errorBag->has('message')) aria-invalid="true" aria-describedby="{{ $messageId }}-error" @endif
                       @class([
-                          'contact-textarea w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-600 px-4 py-3 text-sm outline-none transition-colors focus:border-accent resize-y',
+                          'contact-textarea w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-500 px-4 py-3 text-sm outline-none transition-colors focus:border-accent resize-y',
                           'border-red-500/60' => $errorBag->has('message'),
                           'border-neutral-800' => ! $errorBag->has('message'),
                       ])>{{ old('message') }}</textarea>

@@ -18,7 +18,7 @@
                     <h3 class="font-sans font-semibold text-2xl sm:text-3xl tracking-tight text-neutral-100 leading-snug">{{ $current['title'] }}</h3>
                     <p class="text-accent/80 font-medium mt-1.5 text-sm sm:text-base">{{ $current['company'] }} &nbsp;·&nbsp; {{ $current['location'] }}</p>
                 </div>
-                <span class="font-mono text-xs text-neutral-600 uppercase tracking-widest md:whitespace-nowrap mt-1 shrink-0">{{ $current['period'] }}</span>
+                <span class="font-mono text-xs text-neutral-500 uppercase tracking-widest md:whitespace-nowrap mt-1 shrink-0">{{ $current['period'] }}</span>
             </div>
             <x-site.arrow-list :items="$current['highlights']" class="text-neutral-300" />
         </div>
@@ -29,8 +29,8 @@
                     <div>
                         <h3 class="font-sans font-semibold text-lg sm:text-xl tracking-tight text-neutral-100 leading-snug">{{ $role['title'] }}</h3>
                         <p class="text-accent text-sm font-medium mt-2">{{ $role['company'] }}</p>
-                        <p class="text-neutral-600 text-sm">{{ $role['location'] }}</p>
-                        <span class="font-mono text-xs text-neutral-600 mt-3 block">{{ $role['period'] }}</span>
+                        <p class="text-neutral-500 text-sm">{{ $role['location'] }}</p>
+                        <span class="font-mono text-xs text-neutral-500 mt-3 block">{{ $role['period'] }}</span>
                     </div>
                     <x-site.arrow-list :items="$role['highlights']" />
                 </div>
@@ -40,7 +40,7 @@
             <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 site-list-row" data-reveal>
                 <div>
                     <h3 class="font-sans font-semibold text-xl tracking-tight text-neutral-100 leading-snug">{{ $earlier['title'] }}</h3>
-                    <span class="font-mono text-xs text-neutral-600 mt-3 block">{{ $earlier['period'] }}</span>
+                    <span class="font-mono text-xs text-neutral-500 mt-3 block">{{ $earlier['period'] }}</span>
                 </div>
                 <details class="group/earlier">
                     <summary class="cursor-pointer list-none [&::-webkit-details-marker]:hidden font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors w-fit">
@@ -55,7 +55,7 @@
                                 </div>
                                 <div>
                                     <p class="font-semibold text-neutral-200 text-sm">{{ $entry['company'] }}</p>
-                                    <p class="font-mono text-xs text-neutral-600 mt-0.5">{{ $entry['meta'] }}</p>
+                                    <p class="font-mono text-xs text-neutral-500 mt-0.5">{{ $entry['meta'] }}</p>
                                     <p class="text-neutral-500 text-sm mt-2 leading-relaxed">{!! $entry['detail'] !!}</p>
                                 </div>
                             </div>

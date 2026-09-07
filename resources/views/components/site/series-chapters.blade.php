@@ -10,15 +10,15 @@
         @if($currentIndex !== null)
             <p class="series-chapters__progress font-mono text-caption uppercase tracking-widest text-neutral-500 mb-3 md:hidden">
                 Part <span class="text-accent tabular-nums">{{ $currentIndex + 1 }}</span>
-                <span class="text-neutral-600">/</span>
+                <span class="text-neutral-500">/</span>
                 <span class="tabular-nums">{{ $total }}</span>
-                <span class="text-neutral-600">·</span>
+                <span class="text-neutral-500">·</span>
                 {{ $series['title'] }}
             </p>
         @else
             <p class="series-chapters__progress font-mono text-caption uppercase tracking-widest text-neutral-500 mb-3 md:hidden">
                 {{ $total }} chapters
-                <span class="text-neutral-600">·</span>
+                <span class="text-neutral-500">·</span>
                 Swipe to browse
             </p>
         @endif

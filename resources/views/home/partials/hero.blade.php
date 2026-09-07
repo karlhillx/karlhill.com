@@ -97,7 +97,7 @@
                             Resume PDF
                         </a>
                     @endif
-                    <span class="text-neutral-600" aria-hidden="true">·</span>
+                    <span class="text-neutral-500" aria-hidden="true">·</span>
                     <a href="/#contact"
                        class="inline-flex items-center min-h-11 hover:text-accent uppercase tracking-widest transition-colors">
                         Contact
