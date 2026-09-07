@@ -29,15 +29,16 @@
                 </x-site.button>
             @endif
             <x-site.button variant="secondary" href="/resume">View resume</x-site.button>
+            <x-site.button variant="link" href="/kit">Recruiter kit</x-site.button>
             <x-site.button variant="link" href="#contact">Contact</x-site.button>
-            <x-site.button variant="link" href="/now">Now</x-site.button>
         </div>
     </x-site.page-hero>
 
     @include('about.partials.how-i-lead', ['sectionNumber' => '01'])
     @include('about.partials.social-proof', ['sectionNumber' => '02'])
     @include('about.partials.arc', ['sectionNumber' => '03'])
-    @include('partials.research', ['sectionNumber' => '04'])
+    @include('about.partials.credentials', ['sectionNumber' => '04', 'showStats' => false])
+    @include('partials.research', ['sectionNumber' => '05'])
 
     @if(config('site.about.beyond'))
         @php

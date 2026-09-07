@@ -298,45 +298,6 @@
     font-size: 0.75rem;
 }
 
-#hero .hero-availability {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-top: clamp(1.5rem, 3vw, 2.25rem);
-    padding: 0.55rem 1rem;
-    border-radius: 9999px;
-    border: 1px solid var(--hairline-strong);
-    background: color-mix(in oklab, var(--panel) 60%, transparent);
-    backdrop-filter: blur(8px);
-    width: fit-content;
-    max-width: 100%;
-    min-width: 0;
-    transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
-}
-
-#hero .hero-availability:hover {
-    border-color: color-mix(in oklab, var(--accent) 50%, var(--border));
-    background: color-mix(in oklab, var(--panel) 85%, transparent);
-}
-
-#hero .hero-availability-dot {
-    width: 0.55rem;
-    height: 0.55rem;
-    margin-top: 0;
-    flex-shrink: 0;
-}
-
-#hero .availability-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.03em;
-    line-height: 1.4;
-    max-width: min(38rem, 100%);
-    min-width: 0;
-    white-space: normal;
-}
-
 @media (min-width: 640px) {
     #hero .hero-portrait-frame {
         width: 3rem;
@@ -358,11 +319,6 @@
 
     #hero .hero-cta-btn {
         padding: 0.85rem 2rem;
-    }
-
-    #hero .availability-label {
-        font-size: 0.75rem;
-        max-width: 40rem;
     }
 }
 

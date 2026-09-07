@@ -61,7 +61,7 @@ final class PageMeta
 
     public static function kit(): self
     {
-        return self::fromSeo('kit', '/kit', null);
+        return self::fromSeo('kit', '/kit', 'kit');
     }
 
     public static function lead(): self

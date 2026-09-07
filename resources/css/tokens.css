@@ -144,7 +144,7 @@
     --color-neutral-400: light-dark(#525252, #a3a3a3);
     /* Lifted mid neutral for small mono labels (nav, filters, captions) —
        ≥ 4.5:1 against both canvases. */
-    --color-neutral-500: light-dark(#666666, #a1a1a1);
+    --color-neutral-500: light-dark(#5c5c5c, #a1a1a1);
     /* 600: secondary meta / placeholders. Both ends clear 4.5:1 on the
        matching canvas (dark was stuck at ~2.5:1 with literal #525252). */
     --color-neutral-600: light-dark(#707070, #8a8a8a);

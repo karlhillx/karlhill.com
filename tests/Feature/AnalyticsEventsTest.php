@@ -19,7 +19,6 @@ it('tags booking and email CTAs in the footer with their placement', function ()
 
     expect($home)->toContain('data-analytics-location="footer-home"')
         ->and($home)->toContain('data-analytics-location="hero"')
-        ->and($home)->toContain('data-analytics-location="hero-availability"')
         ->and($home)->toContain('data-analytics-location="nav"');
 });
 

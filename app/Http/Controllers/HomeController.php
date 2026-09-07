@@ -23,7 +23,6 @@ class HomeController extends Controller
             'structuredData' => HomeStructuredData::build($posts->take(12)),
             'sectionRail' => [
                 ['id' => 'work', 'label' => 'Work', 'href' => '#work'],
-                ['id' => 'writing', 'label' => 'Writing', 'href' => '#writing'],
                 ['id' => 'why', 'label' => 'Why Me', 'href' => '#why'],
                 ['id' => 'impact', 'label' => 'Impact', 'href' => '#impact'],
                 ['id' => 'contact', 'label' => 'Contact', 'href' => '#contact'],

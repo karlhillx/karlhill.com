@@ -39,13 +39,8 @@
             <h1 class="hero-title font-display tracking-wide text-white hero-enter" style="animation-delay:220ms">
                 <span class="hero-mask"><span class="hero-shine">{{ $hero['headline'] }}</span></span>
             </h1>
-            @if(! empty($hero['subtitle']))
-                <p class="hero-subtitle font-mono text-caption sm:text-xs text-neutral-400 uppercase tracking-[0.18em] hero-enter" style="animation-delay:280ms">
-                    {{ $hero['subtitle'] }}
-                </p>
-            @endif
             @if(! empty($hero['arc']))
-                <nav class="hero-arc hero-enter" aria-label="Career arc" style="animation-delay:300ms">
+                <nav class="hero-arc hero-enter" aria-label="Career arc" style="animation-delay:280ms">
                     @foreach($hero['arc'] as $i => $stop)
                         @if($i > 0)
                             <span class="hero-arc__sep" aria-hidden="true">→</span>
@@ -64,7 +59,7 @@
                     {{ $hero['positioning'] }}
                 </p>
             @endif
-            {{-- Hire hierarchy: Book → Work --}}
+            {{-- Hire hierarchy: Book → Work; resume / contact stay secondary. --}}
             <div class="hero-cta flex flex-wrap items-center gap-x-4 gap-y-3 hero-enter" style="animation-delay:420ms">
                 @if(filled($bookingUrl))
                     <a href="/now#book"
@@ -104,17 +99,6 @@
                     </a>
                 </div>
             </div>
-            <a href="{{ filled($bookingUrl) ? '/now#book' : '/now' }}"
-               data-analytics-event="booking_cta_clicked"
-               data-analytics-location="hero-availability"
-               class="hero-availability group hero-enter" style="animation-delay:520ms">
-                <span class="hero-availability-dot rounded-full bg-green-500 availability-pulse shrink-0" aria-hidden="true"></span>
-                <span class="availability-label font-mono text-caption text-neutral-300 group-hover:text-accent transition-colors">
-                    <span class="font-semibold text-neutral-100">Seeking Engineering Manager</span> roles in mission software
-                    <span class="text-neutral-500"> · also open to Staff/Principal IC</span>
-                    <span class="arrow-nudge inline-block text-accent font-sans" aria-hidden="true">→</span>
-                </span>
-            </a>
         </div>
     </div>
 </section>

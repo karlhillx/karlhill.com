@@ -18,11 +18,11 @@ function gotoSection(id) {
         'how-i-lead': '/about#how-i-lead',
         research: '/about#research',
         stack: '/resume#stack',
-        credentials: '/resume#credentials',
+        credentials: '/about#credentials',
         work: '/work#work',
         'open-source': '/work#open-source',
         contact: '/#contact',
-        writing: '/#writing',
+        writing: '/blog',
         why: '/#why',
     };
 

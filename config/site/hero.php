@@ -2,8 +2,10 @@
 
 return [
     'headline' => 'Karl Hill',
+    // Keywords stay in meta / JSON-LD — not a second headline on the first screen.
     'subtitle' => 'Aerospace Mission Software · Platform Engineering · DevSecOps · Technical Leadership',
-    'positioning' => 'I help aerospace and defense mission software teams ship reliably — through clear ownership, coaching, and operating standards that hold up when failure is expensive.',
+    // Primary first-screen sentence: the hire ask, not a philosophy line.
+    'positioning' => 'Seeking Engineering Manager roles in mission software — also open to Staff/Principal IC when the mandate is platform delivery and standards.',
     // First-screen proof: the NASA → Jacobs arc, not keyword soup.
     'arc' => [
         [

@@ -19,7 +19,7 @@ it('work page renders projects and open source', function () {
     $response->assertSee('section-rail', escape: false);
 });
 
-it('about page renders leadership, arc, and research — not a second CV', function () {
+it('about page renders leadership, experience, credentials, and research', function () {
     $response = $this->get('/about');
 
     $response->assertStatus(200);
@@ -37,6 +37,7 @@ it('about page renders leadership, arc, and research — not a second CV', funct
     $response->assertSee('Jacobs — National Security', escape: false);
     $response->assertSee('Program specifics stay unpublished', escape: false);
     $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
+    $response->assertSee('InformedDNA', escape: false);
     $response->assertSee('href="/resume"', escape: false);
     $response->assertSee('ss-geohorizons', escape: false);
     $response->assertSee('Karl M. Hill', escape: false);
@@ -46,14 +47,17 @@ it('about page renders leadership, arc, and research — not a second CV', funct
     $response->assertSee('id="beyond"', escape: false);
     $response->assertSee('href="#how-i-lead"', escape: false);
     $response->assertSee('href="#experience"', escape: false);
+    $response->assertSee('href="#credentials"', escape: false);
+    $response->assertSee('id="credentials"', escape: false);
+    $response->assertSee('Certifications', escape: false);
+    $response->assertSee('Education', escape: false);
     $response->assertSee('href="#research"', escape: false);
     $response->assertSee('href="/lead"', escape: false);
     $response->assertSee('How I run delivery', escape: false);
+    $response->assertSee('href="/kit"', escape: false);
+    $response->assertSee('Recruiter kit', escape: false);
     $response->assertDontSee('href="#stack"', escape: false);
-    $response->assertDontSee('href="#credentials"', escape: false);
-    $response->assertDontSee('id="credentials"', escape: false);
     $response->assertDontSee('id="stack"', escape: false);
-    $response->assertDontSee('Ticomix', escape: false);
     $response->assertDontSee('Certified ScrumMaster', escape: false);
     $response->assertDontSee('Open conversations', escape: false);
 });
@@ -62,7 +66,7 @@ it('homepage is a focused landing page', function () {
     $response = $this->get('/');
 
     $response->assertStatus(200);
-    $response->assertSee('id="writing"', escape: false);
+    $response->assertDontSee('id="writing"', escape: false);
     $response->assertSee('id="why"', escape: false);
     $response->assertSee('id="work"', escape: false);
     $response->assertSee('View all work', escape: false);
@@ -385,8 +389,10 @@ it('homepage hero links to em funnel', function () {
     $response->assertSee('Resume PDF', escape: false);
     $response->assertSee('download="Karl-Hill-Resume.pdf"', escape: false);
     $response->assertSee('Jacobs', escape: false);
-    $response->assertSee(config('site.hero.subtitle'), escape: false);
+    $response->assertDontSee(config('site.hero.subtitle'), escape: false);
+    $response->assertSee(config('site.hero.positioning'), escape: false);
     $response->assertSee('Seeking Engineering Manager', escape: false);
+    $response->assertDontSee('hero-availability', escape: false);
     $response->assertSee('hero-arc', escape: false);
     $response->assertSee('aria-label="Career arc"', escape: false);
     $response->assertSee('NASA Goddard', escape: false);
@@ -394,11 +400,13 @@ it('homepage hero links to em funnel', function () {
     $response->assertSee('href="/work/jacobs-mission-software"', escape: false);
 });
 
-it('nav includes resume and one filled booking CTA at every breakpoint', function () {
+it('nav includes resume, kit, and one filled booking CTA at every breakpoint', function () {
     $html = $this->get('/')->assertOk()->getContent();
 
     expect($html)
         ->toContain('href="/resume"')
+        ->toContain('href="/kit"')
+        ->toContain('>Kit</a>')
         ->toContain('>Contact</a>') // mobile menu + footer keep the contact route
         ->not->toContain('Get in Touch')
         ->not->toContain('href="mailto:'.config('site.person.email').'" class="btn-sweep hidden md:inline-flex');
@@ -422,19 +430,18 @@ it('homepage sections follow the hire-me funnel order', function () {
     $html = $this->get('/')->assertOk()->getContent();
 
     $work = strpos($html, 'id="work"');
-    $writing = strpos($html, 'id="writing"');
     $why = strpos($html, 'id="why"');
     $impact = strpos($html, 'id="impact"');
     $contact = strpos($html, 'id="contact"');
 
     expect($work)->toBeInt()
-        ->and($writing)->toBeInt()
         ->and($why)->toBeInt()
         ->and($impact)->toBeInt()
         ->and($contact)->toBeInt();
 
-    expect($work)->toBeLessThan($writing)
-        ->and($writing)->toBeLessThan($why)
+    expect($html)->not->toContain('id="writing"');
+
+    expect($work)->toBeLessThan($why)
         ->and($why)->toBeLessThan($impact)
         ->and($impact)->toBeLessThan($contact);
 });

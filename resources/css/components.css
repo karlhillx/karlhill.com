@@ -2148,9 +2148,11 @@ a.series-chapters__card:hover .series-chapters__title,
 }
 
 .summary-panel__meter {
-    height: 2px;
+    position: relative;
+    height: 0.35rem;
     overflow: hidden;
-    background: var(--border);
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--border-strong) 80%, var(--panel));
 }
 
 .summary-panel__meter[hidden] {
@@ -2161,8 +2163,44 @@ a.series-chapters__card:hover .series-chapters__title,
     display: block;
     height: 100%;
     width: 0;
-    background: var(--accent);
+    border-radius: inherit;
+    background: var(--accent-solid);
     transition: width 0.28s var(--ease-out-soft);
+}
+
+/* Chrome often reports 0% for a while — keep motion so the bar still reads as live. */
+.summary-panel__meter.is-indeterminate > span {
+    width: 36% !important;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--accent-solid) 40%,
+        var(--accent-solid) 60%,
+        transparent 100%
+    );
+    animation: summaryMeterSweep 1.35s var(--ease-out-soft) infinite;
+}
+
+.summary-panel__meter.is-complete > span {
+    width: 100% !important;
+    animation: none;
+}
+
+@keyframes summaryMeterSweep {
+    from {
+        translate: -120% 0;
+    }
+    to {
+        translate: 280% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .summary-panel__meter.is-indeterminate > span {
+        width: 28% !important;
+        animation: none;
+        opacity: 0.7;
+    }
 }
 
 .summary-panel__note {

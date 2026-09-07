@@ -63,7 +63,13 @@ function busyMarkup({ downloading }) {
             <p class="summary-panel__title" data-summary-title>${title}</p>
             <span class="summary-panel__elapsed" data-summary-elapsed>0s</span>
         </div>
-        <div class="summary-panel__meter" data-summary-progress ${downloading ? '' : 'hidden'}>
+        <div class="summary-panel__meter is-indeterminate"
+             data-summary-progress
+             role="progressbar"
+             aria-valuemin="0"
+             aria-valuemax="100"
+             aria-valuenow="${downloading ? '0' : ''}"
+             aria-label="${downloading ? 'Gemini Nano download progress' : 'On-device model startup'}">
             <span data-summary-progress-bar></span>
         </div>
         <p class="summary-panel__note" data-summary-note>${note}</p>
@@ -245,9 +251,12 @@ async function revealIfAvailable(root) {
                         const note = output.querySelector('[data-summary-note]');
                         if (meter) {
                             meter.hidden = false;
+                            meter.setAttribute('aria-valuenow', String(safePct));
+                            meter.classList.toggle('is-indeterminate', safePct <= 0);
+                            meter.classList.toggle('is-complete', safePct >= 100);
                         }
                         if (bar) {
-                            bar.style.width = `${safePct}%`;
+                            bar.style.width = safePct > 0 ? `${safePct}%` : '';
                         }
                         if (title) {
                             title.textContent =

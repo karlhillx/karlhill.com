@@ -12,6 +12,7 @@ class AboutController extends Controller
         $rail = [
             ['id' => 'how-i-lead', 'label' => 'How I lead', 'href' => '#how-i-lead'],
             ['id' => 'experience', 'label' => 'Career arc', 'href' => '#experience'],
+            ['id' => 'credentials', 'label' => 'Credentials', 'href' => '#credentials'],
             ['id' => 'research', 'label' => 'Research', 'href' => '#research'],
         ];
         if (filled(config('site.about.beyond'))) {

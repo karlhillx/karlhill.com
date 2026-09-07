@@ -22,7 +22,7 @@
             <div class="hidden md:flex items-center gap-5 lg:gap-7 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="/work" class="{{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
                 <a href="/about" class="{{ $navLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
-                <a href="/blog" class="{{ $navLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
+                <a href="/kit" class="{{ $navLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Kit</a>
                 <a href="/now" class="{{ $navLinkClass('now') }}" @if($isActive('now')) aria-current="page" @endif>Now</a>
                 <a href="/resume" class="{{ $navLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
             </div>
@@ -103,9 +103,10 @@
             <div class="flex flex-col divide-y divide-neutral-800/80">
                 <a href="/work" class="{{ $mobileLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
                 <a href="/about" class="{{ $mobileLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
-                <a href="/blog" class="{{ $mobileLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
+                <a href="/kit" class="{{ $mobileLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Recruiter kit</a>
                 <a href="/now" class="{{ $mobileLinkClass('now') }}" @if($isActive('now')) aria-current="page" @endif>Now</a>
                 <a href="/resume" class="{{ $mobileLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
+                <a href="/blog" class="{{ $mobileLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/#contact" class="{{ $mobileLinkClass('contact') }}">Contact</a>
             </div>
 
