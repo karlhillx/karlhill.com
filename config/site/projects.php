@@ -6,7 +6,7 @@ return [
         'title' => 'Engineering leadership for aerospace mission software',
         'meta' => 'Jacobs · 2025–present',
         'sector' => 'Aerospace & Defense',
-        'description' => 'Day-to-day technical leadership for ~10 engineers across ~20 repositories: team execution, engineer development, and cross-team delivery. Program specifics stay unpublished.',
+        'description' => 'Staff leadership for ~10 engineers across ~20 repositories: sequencing delivery under constraint, developing engineers, and holding the hard call when program urgency outruns readiness. Program specifics stay unpublished.',
         'image' => '/img/webp/ss-jacobs-ns.webp',
         'image_alt' => 'Jacobs J logomark — brand panel for unpublished aerospace mission software.',
         'imagePosition' => 'object-center',

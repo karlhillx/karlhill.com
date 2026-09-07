@@ -21,4 +21,6 @@ return [
     'employer_display' => 'Jacobs National Security',
     'twitter_handle' => '@karl_hill',
     'bio' => 'Twenty years in software, including eight at NASA Goddard shipping Earth science platforms under operational pressure. Now at Jacobs National Security leading day-to-day engineering execution, engineer development, and cross-team delivery for aerospace mission software — program details stay unpublished.',
+    // Schema.org Thing.disambiguatingDescription — short line so Google separates this Person from the novelist / musician.
+    'disambiguating_description' => 'Staff Aerospace Software Engineer in Washington, DC (Jacobs National Security; formerly NASA Goddard). Not the Scottish novelist or the musician of the same name.',
 ];

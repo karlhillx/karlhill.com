@@ -5,7 +5,7 @@ return [
     'lede' => 'A leave-behind for Engineering Manager searches: PDF, short bio, and the links that prove current Staff leadership scope. Evidence is on Work and the resume; booking is one click away.',
     // Ask lives in person.availability (Open to). Do not restate EM vs IC here.
     'highlights' => [
-        'Proof: Jacobs National Security — team execution, engineer development, and cross-team delivery at Staff scope (~10 engineers, ~20 repos).',
+        'Proof: Jacobs — held a sprint when partner readiness lagged; sequenced prep instead of rework (~10 engineers, ~20 repos).',
         'Packet: this page + resume PDF + /about#delivery for how I run delivery.',
     ],
     /*

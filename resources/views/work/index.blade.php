@@ -23,7 +23,7 @@
 
         {{-- Two sentences: the hero is a doorway, the cards carry the detail. --}}
         <p class="text-neutral-400 text-base leading-relaxed max-w-2xl">
-            Jacobs is the leadership chapter — team execution and engineer development under constraint. NASA is the public platform proof. Finium is where the pattern started.
+            Jacobs is the leadership chapter — hard calls under constraint, engineer development, team execution. NASA is the public platform proof. Finium is where the pattern started.
         </p>
     </x-site.page-hero>
 

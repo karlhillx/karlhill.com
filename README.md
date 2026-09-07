@@ -74,12 +74,14 @@ Hire bio is canonical in `config/site/person.php` (`bio`). The hire ask is `pers
 
 ### Search Console and name disambiguation
 
-Google already associates bare “Karl Hill” with a Scottish novelist. This site’s Person `sameAs` includes Discogs and Wikipedia’s musician redirect, plus LinkedIn/GitHub/ORCID/Scholar. To finish entity ownership:
+Google associates bare “Karl Hill” with a Scottish novelist (and Discogs/Wikipedia know a musician). This site’s Person JSON-LD already sets `sameAs` (LinkedIn, GitHub, ORCID, Scholar, Discogs, Wikipedia musician) plus `disambiguatingDescription`. Finish entity ownership outside the repo:
 
-1. [Search Console](https://search.google.com/search-console) → Domain property `karlhill.com` (DNS TXT) or URL-prefix + `GOOGLE_SITE_VERIFICATION` in `.env`.
-2. Inspect `https://karlhill.com/` → **Test live URL** → **Request indexing**.
-3. Set **Website** to `https://karlhill.com` on LinkedIn, GitHub, ORCID, and Google Scholar.
+1. [Search Console](https://search.google.com/search-console) → Domain property `karlhill.com` (DNS TXT) **or** URL-prefix + `GOOGLE_SITE_VERIFICATION` in `.env` (meta tag is already wired in `layouts/site.blade.php`).
+2. Inspect `https://karlhill.com/` → **Test live URL** → **Request indexing**. Also request `/work/jacobs-mission-software` and `/kit`.
+3. Set **Website** to `https://karlhill.com` on LinkedIn, GitHub, ORCID, and Google Scholar (same URL everywhere — that is what consolidates the Knowledge Panel).
 4. Optionally expand the [Wikipedia dab](https://en.wikipedia.org/wiki/Karl_Hill_(disambiguation)) line so it names aerospace/software (and links the site) if notability allows.
+
+Copy/paste check: LinkedIn headline lives in `config/site/person.php` (`linkedin_headline`).
 
 ### Shared catalog
 

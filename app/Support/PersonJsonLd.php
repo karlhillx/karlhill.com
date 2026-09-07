@@ -30,7 +30,11 @@ final class PersonJsonLd
             $trajectory,
         ])));
 
-        return [
+        $disambiguating = is_string($person['disambiguating_description'] ?? null)
+            ? $person['disambiguating_description']
+            : null;
+
+        $node = [
             '@type' => 'Person',
             '@id' => $personId,
             'name' => $person['name'],
@@ -77,6 +81,12 @@ final class PersonJsonLd
             ],
             'sameAs' => config('site.same_as'),
         ];
+
+        if ($disambiguating !== null && $disambiguating !== '') {
+            $node['disambiguatingDescription'] = $disambiguating;
+        }
+
+        return $node;
     }
 
     /**

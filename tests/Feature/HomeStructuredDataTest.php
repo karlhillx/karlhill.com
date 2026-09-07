@@ -15,6 +15,7 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($person['familyName'])->toBe('Hill')
         ->and($person['@id'])->toEndWith('/#person')
         ->and($person['description'])->toContain('Engineering Manager')
+        ->and($person['disambiguatingDescription'])->toContain('Not the Scottish novelist')
         ->and($person['sameAs'])->toContain('https://www.linkedin.com/in/khill')
         ->and($person['sameAs'])->toContain('https://www.discogs.com/artist/1286669-Karl-Hill')
         ->and($person['sameAs'])->toContain('https://en.wikipedia.org/wiki/Karl_Hill_(musician)')

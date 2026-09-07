@@ -10,7 +10,7 @@ return [
         'period' => 'Sept 2025 — Present',
         'summary' => 'Hands-on Staff engineer and technical delivery leader for aerospace mission software. Program specifics stay unpublished.',
         'highlights' => [
-            'Lead day-to-day technical delivery for a ~10-engineer team developing Python-based mission software across ~20 repositories and multiple deployment environments; sequence work, coordinate dependencies, and drive integration and release readiness.',
+            'Lead day-to-day technical delivery for a ~10-engineer team developing Python-based mission software across ~20 repositories and multiple deployment environments; sequence work, coordinate dependencies, and drive integration and release readiness — including holding sprint commitments when partner environments are not ready.',
             'Build and evolve shared engineering systems for CI/CD, automated testing, security gates, repository standards, dependency management, and release automation, improving consistency across independently developed services.',
             'Develop distributed application integration and messaging capabilities spanning RabbitMQ/ActiveMQ, shared interfaces, service orchestration, and multi-environment deployments.',
             'Onboarded and coached approximately six engineers through code review, technical feedback, development guidance, and structured growth plans for junior engineers.',

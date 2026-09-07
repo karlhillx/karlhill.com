@@ -56,6 +56,7 @@ it('parses substantive markdown body and generates html and toc', function () {
     $jacobs = $repo->find('jacobs-mission-software');
     expect($jacobs)->toBeArray()
         ->and($jacobs['body_html'] ?? null)->toBeString()
+        ->and($jacobs['body_html'])->toContain('A hard call')
         ->and($jacobs['body_html'])->toContain('Developing engineers')
         ->and($jacobs['body_html'])->toContain('Leading team execution')
         ->and($jacobs['body_html'])->not->toContain('Representative delivery lifecycle')
@@ -64,11 +65,13 @@ it('parses substantive markdown body and generates html and toc', function () {
 
     $jacobsResponse = $this->get('/work/jacobs-mission-software');
     $jacobsResponse->assertOk()
+        ->assertSee('A hard call', escape: false)
         ->assertSee('Developing engineers', escape: false)
         ->assertSee('id="platform"', escape: false)
         ->assertSee('Sequence the work', escape: false)
         ->assertSee('Schematic', escape: false)
         ->assertSee('Program-specific details are omitted', escape: false)
+        ->assertSee('Held a sprint commitment', escape: false)
         ->assertDontSee('Kubernetes Mission Mesh', escape: false)
         ->assertDontSee('Representative delivery lifecycle', escape: false)
         ->assertDontSee('Executive Summary', escape: false);
