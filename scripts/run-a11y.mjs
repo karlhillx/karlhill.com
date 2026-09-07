@@ -23,12 +23,14 @@ const browser = await chromium.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
 });
+// AxeBuilder requires a page from browser.newContext(), not browser.newPage().
+const context = await browser.newContext();
 
 const failures = [];
 
 try {
     for (const url of urls) {
-        const page = await browser.newPage();
+        const page = await context.newPage();
         const response = await page.goto(url, { waitUntil: 'networkidle', timeout: 30_000 });
         const status = response?.status() ?? 0;
 
@@ -65,6 +67,7 @@ try {
         await page.close();
     }
 } finally {
+    await context.close();
     await browser.close();
 }
 

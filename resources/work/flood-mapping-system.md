@@ -63,7 +63,7 @@ My mandate as architect and lead developer was clear: **eliminate human interven
 The platform was architected on AWS as an event-driven, decoupled processing pipeline. Rather than maintaining heavy, long-running monolithic servers, each stage of imagery transformation was isolated into containerized task runners managed by deterministic work queues.
 
 <figure class="my-8 overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900/70 p-4 sm:p-6 backdrop-blur-sm">
-  <div class="overflow-x-auto">
+  <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Flood processing pipeline diagram">
     <svg viewBox="0 0 820 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full min-w-[700px] h-auto" role="img" aria-label="End-to-end automated satellite flood processing pipeline">
       <!-- Ingestion Column -->
       <rect x="10" y="20" width="140" height="210" rx="8" fill="#141414" stroke="#2e2e2e" stroke-width="1.5" />
