@@ -17,7 +17,7 @@ it('llms txt returns a v2 file-list map', function () {
 
     $this->assertStringStartsWith('# Karl Hill', $body);
     $this->assertStringContainsString('> '.config('site.seo.home.og_description'), $body);
-    $this->assertStringContainsString('open to two paths: Engineering Manager or Staff/Principal roles', $body);
+    $this->assertStringContainsString('seeking Engineering Manager roles in mission software', $body);
     $this->assertStringContainsString('Last updated', $body);
     $this->assertStringContainsString('September 6, 2026', $body);
     $this->assertStringContainsString('## Pages', $body);

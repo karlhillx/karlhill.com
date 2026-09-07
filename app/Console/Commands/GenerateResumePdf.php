@@ -10,7 +10,7 @@ class GenerateResumePdf extends Command
 {
     protected $signature = 'resume:pdf';
 
-    protected $description = 'Generate public/files/Karl-Hill-Resume.pdf via Puppeteer (classic 2-page layout)';
+    protected $description = 'Generate public/files/Karl-Hill-Resume.pdf via Playwright (classic 2-page layout)';
 
     public function handle(): int
     {
@@ -45,10 +45,7 @@ class GenerateResumePdf extends Command
             File::delete($legacyPath);
         }
 
-        $env = array_merge($_ENV, $_SERVER, [
-            'PUPPETEER_CACHE_DIR' => getenv('PUPPETEER_CACHE_DIR')
-                ?: (rtrim((string) getenv('HOME'), '/').'/.cache/puppeteer'),
-        ]);
+        $env = array_merge($_ENV, $_SERVER);
 
         $process = new Process(['node', $script, $htmlPath, $pdfPath], base_path(), $env);
         $process->setTimeout(120);

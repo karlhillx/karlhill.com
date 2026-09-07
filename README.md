@@ -1,6 +1,6 @@
 # karlhill.com
 
-Personal site for Karl Hill — Staff Software Engineer. A Laravel 13 + Tailwind v4 portfolio and flat-file blog at [karlhill.com](https://karlhill.com).
+Personal site for Karl M. Hill — Staff Aerospace Software Engineer (Washington, DC; NASA · Jacobs). A Laravel 13 + Tailwind v4 portfolio and flat-file blog at [karlhill.com](https://karlhill.com).
 
 ## Stack
 
@@ -40,18 +40,29 @@ composer test
 ./vendor/bin/pint --test
 # with the app on :8000:
 # A11Y_FIXTURES=true php artisan serve --host=127.0.0.1 --port=8000
-npm run a11y            # uses system Chrome when available; else installs pa11y’s Chrome
-npm run a11y:browsers   # optional: pre-install bundled Chrome for CI/Linux
+npm run a11y            # axe WCAG2 A/AA over .pa11yci.json URLs (Playwright)
+npm run a11y:browsers   # optional: install Playwright Chromium for CI/Linux
 npm run test:e2e
 ```
 
-`npm run a11y` runs `scripts/run-pa11y.mjs`, which targets pa11y-ci’s nested Puppeteer (not the top-level package used for resume PDFs) and avoids broken sandbox browser caches.
+`npm run a11y` runs `scripts/run-a11y.mjs` (Playwright + axe). Resume PDFs use the same Playwright stack — Puppeteer/pa11y were removed to clear Dependabot’s unpatched `extract-zip` advisory.
 
 ## Configuration
 
 Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, kit, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
 
-Hire bio is canonical in `config/site/person.php` (`bio`). `/kit` uses that string; the homepage lede stays `config/site/hero.php` `positioning`.
+Hire bio is canonical in `config/site/person.php` (`bio`). `/kit` uses that string; the homepage lede stays `config/site/hero.php` `positioning`. Primary hire ask is Engineering Manager (`availability` / hero ping); Staff/Principal stays a secondary fit.
+
+### Search Console and name disambiguation
+
+Google already associates bare “Karl Hill” with a Scottish novelist. This site’s Person `sameAs` includes Discogs and Wikipedia’s musician redirect, plus LinkedIn/GitHub/ORCID/Scholar. To finish entity ownership:
+
+1. [Search Console](https://search.google.com/search-console) → Domain property `karlhill.com` (DNS TXT) or URL-prefix + `GOOGLE_SITE_VERIFICATION` in `.env`.
+2. Inspect `https://karlhill.com/` → **Test live URL** → **Request indexing**.
+3. Set **Website** to `https://karlhill.com` on LinkedIn, GitHub, ORCID, and Google Scholar.
+4. Optionally expand the [Wikipedia dab](https://en.wikipedia.org/wiki/Karl_Hill_(disambiguation)) line so it names aerospace/software (and links the site) if notability allows.
+
+### Shared catalog
 
 `app/Support/SiteCatalog.php` is the shared read model for posts, case studies, series, person, and sitemap/feed URLs. Machine surfaces (`/api/site.json`, `/llms.txt`, `/api/commands.json`, the sitemap) project from it — do not duplicate lists in those formatters.
 

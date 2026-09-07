@@ -18,6 +18,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? $defaultTitle }}</title>
     <meta name="description" content="{{ $description ?? config('site.seo.home.description') }}">
+    @if(filled(config('site.seo.google_site_verification')))
+        <meta name="google-site-verification" content="{{ config('site.seo.google_site_verification') }}">
+    @endif
     @if($noindex ?? false)
         <meta name="robots" content="noindex">
     @endif

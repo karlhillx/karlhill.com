@@ -1,5 +1,5 @@
 /**
- * Render a letter-size résumé HTML file to PDF via Puppeteer (Chrome),
+ * Render a letter-size résumé HTML file to PDF via Playwright (Chromium),
  * then attach intentional document metadata with pdf-lib.
  *
  * Usage:
@@ -8,8 +8,7 @@
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
 import fs from 'node:fs';
-import os from 'node:os';
-import puppeteer from 'puppeteer';
+import { chromium } from 'playwright';
 import { PDFDocument } from 'pdf-lib';
 
 const [, , inputArg, outputArg] = process.argv;
@@ -29,30 +28,22 @@ if (!fs.existsSync(inputPath)) {
 
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 
-// Prefer a stable cache (Cursor sandbox cache often breaks Chrome frameworks).
-if (!process.env.PUPPETEER_CACHE_DIR) {
-    process.env.PUPPETEER_CACHE_DIR = path.join(os.homedir(), '.cache', 'puppeteer');
-}
-
 const macChrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const launchOptions = {
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--font-render-hinting=none'],
 };
-
 if (fs.existsSync(macChrome)) {
     launchOptions.executablePath = macChrome;
-} else {
-    launchOptions.channel = 'chrome';
 }
 
-const browser = await puppeteer.launch(launchOptions);
+const browser = await chromium.launch(launchOptions);
 
 let pdfBytes;
 try {
     const page = await browser.newPage();
     await page.goto(pathToFileURL(inputPath).href, {
-        waitUntil: 'networkidle0',
+        waitUntil: 'networkidle',
     });
     await page.evaluate(async () => {
         if (document.fonts?.ready) {
@@ -64,8 +55,6 @@ try {
         format: 'Letter',
         printBackground: true,
         preferCSSPageSize: true,
-        // Embed HTML structure so ATS / accessibility tools follow DOM reading order
-        // instead of pure geometric (left-to-right) extraction across the sidebar.
         tagged: true,
         margin: { top: '0', right: '0', bottom: '0', left: '0' },
     });
@@ -77,9 +66,12 @@ const pdfDoc = await PDFDocument.load(pdfBytes);
 
 pdfDoc.setTitle('Karl Hill — Resume');
 pdfDoc.setAuthor('Karl Hill');
-pdfDoc.setSubject('Staff Aerospace Software Engineer — Engineering Manager trajectory · Jacobs · NASA Goddard');
+pdfDoc.setSubject(
+    'Staff Aerospace Software Engineer — Engineering Manager trajectory · Jacobs · NASA Goddard'
+);
 pdfDoc.setKeywords([
     'Karl Hill',
+    'Karl M. Hill',
     'Engineering Manager',
     'Staff Aerospace Software Engineer',
     'Platform Engineering',
@@ -90,6 +82,7 @@ pdfDoc.setKeywords([
     'Mission software',
     'NASA Goddard',
     'Jacobs National Security',
+    'Washington DC',
 ]);
 
 const withMeta = await pdfDoc.save({ useObjectStreams: false });

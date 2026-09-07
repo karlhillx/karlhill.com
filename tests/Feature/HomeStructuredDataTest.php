@@ -41,7 +41,7 @@ it('homepage html includes brand-disambiguating title and json-ld', function () 
     $response = $this->get('/');
 
     $response->assertOk();
-    $response->assertSee('<title>Karl Hill — Staff Aerospace Software Engineer · NASA · Jacobs</title>', escape: false);
+    $response->assertSee('<title>Karl M. Hill — Staff Aerospace Software Engineer · NASA · Jacobs</title>', escape: false);
     $response->assertSee('"@type": "WebSite"', escape: false);
     $response->assertSee('"@type": "Person"', escape: false);
     $response->assertSee('"@type": "ProfilePage"', escape: false);

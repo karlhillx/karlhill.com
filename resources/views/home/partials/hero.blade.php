@@ -110,7 +110,8 @@
                class="hero-availability group hero-enter" style="animation-delay:520ms">
                 <span class="hero-availability-dot rounded-full bg-green-500 availability-pulse shrink-0" aria-hidden="true"></span>
                 <span class="availability-label font-mono text-caption text-neutral-300 group-hover:text-accent transition-colors">
-                    <span class="font-semibold text-neutral-100">Open to two paths:</span> Engineering Manager or Staff/Principal in mission software
+                    <span class="font-semibold text-neutral-100">Seeking Engineering Manager</span> roles in mission software
+                    <span class="text-neutral-500"> · also open to Staff/Principal IC</span>
                     <span class="arrow-nudge inline-block text-accent font-sans" aria-hidden="true">→</span>
                 </span>
             </a>

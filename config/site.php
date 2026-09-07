@@ -76,7 +76,10 @@ return [
     // CI-only accessibility fixtures (never enable in production).
     'a11y_fixtures' => filter_var(env('A11Y_FIXTURES', false), FILTER_VALIDATE_BOOLEAN),
 
-    'seo' => require __DIR__.'/site/seo.php',
+    'seo' => array_merge(require __DIR__.'/site/seo.php', [
+        // HTML meta for Search Console URL-prefix verification (optional).
+        'google_site_verification' => env('GOOGLE_SITE_VERIFICATION'),
+    ]),
     'social' => $social,
     'same_as' => $sameAs,
     'hero' => require __DIR__.'/site/hero.php',

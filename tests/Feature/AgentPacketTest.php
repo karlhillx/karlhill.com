@@ -70,7 +70,7 @@ it('agent packet builder matches the public json', function () {
         ->and($site['seeking'])->toContain('Engineering Manager')
         ->and($site['trajectory'])->toContain('Engineering Manager')
         ->and($site['person']['trajectory'])->toContain('Engineering Manager')
-        ->and($site['headline'])->toContain('EM & Staff / Principal')
+        ->and($site['headline'])->toContain('Seeking Engineering Manager')
         ->and($site['person']['headline'])->toContain('Jacobs');
 });
 

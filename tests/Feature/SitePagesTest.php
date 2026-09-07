@@ -386,7 +386,7 @@ it('homepage hero links to em funnel', function () {
     $response->assertSee('download="Karl-Hill-Resume.pdf"', escape: false);
     $response->assertSee('Jacobs', escape: false);
     $response->assertSee(config('site.hero.subtitle'), escape: false);
-    $response->assertSee('open to two paths', escape: false);
+    $response->assertSee('Seeking Engineering Manager', escape: false);
     $response->assertSee('hero-arc', escape: false);
     $response->assertSee('aria-label="Career arc"', escape: false);
     $response->assertSee('NASA Goddard', escape: false);
