@@ -32,15 +32,45 @@
         ? substr($summaryFull, strlen($summaryLead))
         : '';
 
+    // Keep hyphenated compounds on one line so ATS extractors don't drop the
+    // hyphen when Chrome wraps at it (multi-environment → multienvironment).
     $nowrapHtml = static function (string $text): string {
         $escaped = e($text);
-
-        return str_replace(
+        $compounds = [
             'high-assurance',
-            '<span class="nowrap">high-assurance</span>',
-            $escaped,
-        );
+            'multi-environment',
+            'cross-team',
+            'cross-functional',
+            'multi-tenant',
+            'managed-security',
+            'near-real-time',
+            'cloud-based',
+            'high-traffic',
+            'high-performance',
+            'mission-critical',
+            'day-to-day',
+            'satellite-derived',
+            'Python-based',
+        ];
+
+        foreach ($compounds as $compound) {
+            $escaped = str_replace($compound, '<span class="nowrap">'.$compound.'</span>', $escaped);
+        }
+
+        return $escaped;
     };
+
+    $sidebarData = [
+        'location' => $locationLine !== '' ? $locationLine : (string) ($person['location'] ?? ''),
+        'phone' => (string) ($resume['phone'] ?? ''),
+        'email' => (string) ($person['email'] ?? ''),
+        'links' => [
+            ['label' => 'LinkedIn', 'url' => 'linkedin.com/in/khill', 'href' => $linkedinUrl],
+            ['label' => 'GitHub', 'url' => 'github.com/karlhillx', 'href' => $githubUrl],
+            ['label' => 'Website', 'url' => 'karlhill.com', 'href' => 'https://karlhill.com'],
+        ],
+        'expertise' => array_values($resume['expertise'] ?? []),
+    ];
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -65,8 +95,8 @@
         @font-face {
             font-family: "Oswald";
             font-style: normal;
-            font-weight: 500;
-            src: url("{{ $fontUrl($oswaldDir, 'oswald-latin-500-normal.woff2') }}") format("woff2");
+            font-weight: 600;
+            src: url("{{ $fontUrl($oswaldDir, 'oswald-latin-600-normal.woff2') }}") format("woff2");
         }
 
         @page {
@@ -102,6 +132,11 @@
             font-family: "Lato", Helvetica, Arial, sans-serif;
             font-weight: 400;
             font-size: 9.1pt;
+            /* Prevent Chrome from inserting soft hyphens that ATS parsers rejoin
+               (e.g. multi-environment → multienvironment). */
+            hyphens: none;
+            -webkit-hyphens: none;
+            overflow-wrap: break-word;
             -webkit-font-smoothing: antialiased;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
@@ -148,7 +183,7 @@
             width: var(--sidebar);
             background: var(--navy);
             color: var(--navy-ink);
-            padding: 0.45in 0.3in 0.38in;
+            padding: 0;
         }
 
         .masthead {
@@ -159,8 +194,8 @@
         .name {
             font-family: "Oswald", "Arial Narrow", sans-serif;
             font-size: 34pt;
-            font-weight: 500;
-            letter-spacing: 0.01em;
+            font-weight: 600;
+            letter-spacing: 0.035em;
             line-height: 0.95;
             text-transform: uppercase;
             color: var(--ink);
@@ -183,6 +218,28 @@
 
         .tagline-lead {
             color: var(--ink);
+        }
+
+        /*
+         * Contact lives in the main column so ATS/content-stream order stays
+         * Name → Contact → Summary → Experience. The navy sidebar keeps the
+         * same details visually (rasterized to an image at PDF generation so
+         * Chrome's y/x text sort does not interleave sidebar copy into roles).
+         */
+        .contact-line {
+            margin-top: 0.08in;
+            font-size: 7.75pt;
+            line-height: 1.4;
+            color: var(--ink-soft);
+        }
+
+        .contact-line a {
+            color: var(--ink-soft);
+        }
+
+        .contact-sep {
+            margin: 0 0.28em;
+            color: var(--muted);
         }
 
         .section {
@@ -357,6 +414,24 @@
             font-size: 0.8em;
         }
 
+        .competency-list {
+            list-style: none;
+            margin: 0.055in 0 0;
+            padding: 0;
+            font-size: 9.1pt;
+            line-height: 1.4;
+            color: var(--ink-soft);
+        }
+
+        .competency-list li {
+            display: inline;
+        }
+
+        .competency-list li:not(:last-child)::after {
+            content: " · ";
+            color: var(--muted);
+        }
+
         /* —— Page 2 —— */
         .page-2 .content {
             height: 100%;
@@ -376,11 +451,12 @@
             padding: 0;
         }
 
+        /* Page-2 name stays on Lato so Oswald is reserved for the masthead. */
         .page-2-kicker strong {
-            font-family: "Oswald", "Arial Narrow", sans-serif;
-            font-size: 15pt;
-            font-weight: 500;
-            letter-spacing: 0.02em;
+            font-family: "Lato", Helvetica, Arial, sans-serif;
+            font-size: 12.5pt;
+            font-weight: 700;
+            letter-spacing: 0.04em;
             text-transform: uppercase;
         }
 
@@ -443,15 +519,29 @@
                         <span class="tagline-line">{{ $taglineRest }}</span>
                     @endif
                 </p>
+                <p class="contact-line">
+                    <span>{{ $locationLine !== '' ? $locationLine : ($person['location'] ?? '') }}</span>
+                    <span class="contact-sep">·</span>
+                    <a href="tel:+1{{ preg_replace('/\D+/', '', $resume['phone']) }}">{{ $resume['phone'] }}</a>
+                    <span class="contact-sep">·</span>
+                    <a href="mailto:{{ $person['email'] }}">{{ $person['email'] }}</a>
+                </p>
+                <p class="contact-line">
+                    <a href="{{ $linkedinUrl }}">linkedin.com/in/khill</a>
+                    <span class="contact-sep">·</span>
+                    <a href="{{ $githubUrl }}">github.com/karlhillx</a>
+                    <span class="contact-sep">·</span>
+                    <a href="https://karlhill.com">karlhill.com</a>
+                </p>
             </header>
 
             <section class="section" aria-labelledby="summary-heading">
                 <h2 id="summary-heading" class="section-title">Summary</h2>
                 <p class="summary">
                     @if($summaryRest !== '')
-                        <strong>{{ $summaryLead }}</strong>{{ $summaryRest }}
+                        <strong>{!! $nowrapHtml($summaryLead) !!}</strong>{!! $nowrapHtml($summaryRest) !!}
                     @else
-                        {{ $summaryFull }}
+                        {!! $nowrapHtml($summaryFull) !!}
                     @endif
                 </p>
             </section>
@@ -469,7 +559,7 @@
                     <p class="role-meta">{{ $experience['current']['company'] }} · {{ $experience['current']['location'] }}</p>
                     <ul class="bullets">
                         @foreach($jacobs as $item)
-                            <li>{{ $item }}</li>
+                            <li>{!! $nowrapHtml($item) !!}</li>
                         @endforeach
                     </ul>
                 </article>
@@ -484,56 +574,18 @@
                     <p class="role-meta">{{ $experience['roles'][0]['company'] }} · {{ $experience['roles'][0]['location'] }}</p>
                     <ul class="bullets">
                         @foreach($nasa as $item)
-                            <li>{{ $item }}</li>
+                            <li>{!! $nowrapHtml($item) !!}</li>
                         @endforeach
                     </ul>
                 </article>
             </section>
         </main>
 
-        <aside aria-label="Contact and expertise">
-            <section class="sidebar-block" aria-labelledby="details-heading">
-                <h2 id="details-heading" class="sidebar-title">Details</h2>
-                <ul class="sidebar-list">
-                    <li>{{ $locationLine }}</li>
-                    <li><a href="tel:+1{{ preg_replace('/\D+/', '', $resume['phone']) }}">{{ $resume['phone'] }}</a></li>
-                    <li><a href="mailto:{{ $person['email'] }}">{{ $person['email'] }}</a></li>
-                </ul>
-            </section>
-
-            <section class="sidebar-block" aria-labelledby="links-heading">
-                <h2 id="links-heading" class="sidebar-title">Links</h2>
-                <ul class="sidebar-list">
-                    <li>
-                        <a href="{{ $linkedinUrl }}">
-                            <span class="sidebar-link-label">LinkedIn</span>
-                            <span class="sidebar-link-url">linkedin.com/in/khill</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ $githubUrl }}">
-                            <span class="sidebar-link-label">GitHub</span>
-                            <span class="sidebar-link-url">github.com/karlhillx</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://karlhill.com">
-                            <span class="sidebar-link-label">Website</span>
-                            <span class="sidebar-link-url">karlhill.com</span>
-                        </a>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="sidebar-block" aria-labelledby="expertise-heading">
-                <h2 id="expertise-heading" class="sidebar-title">Core Competencies</h2>
-                <ul class="expertise">
-                    @foreach($resume['expertise'] as $item)
-                        <li>{{ $item }}</li>
-                    @endforeach
-                </ul>
-            </section>
-        </aside>
+        {{-- data-ats-sidebar: navy panel only in the Chromium PDF; vector type is
+             drawn afterward by generate-resume-pdf.mjs so ATS keeps a single-column
+             text stream without a soft screenshot of the sidebar. --}}
+        <aside aria-label="Contact and expertise" data-ats-sidebar></aside>
+        <script type="application/json" id="resume-sidebar-data">{!! json_encode($sidebarData, JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP) !!}</script>
     </section>
 
     <section class="page page-2">
@@ -558,7 +610,7 @@
                     <p class="role-meta">{{ $experience['roles'][1]['company'] }} · {{ $experience['roles'][1]['location'] }}</p>
                     <ul class="bullets">
                         @foreach($informed as $item)
-                            <li>{{ $item }}</li>
+                            <li>{!! $nowrapHtml($item) !!}</li>
                         @endforeach
                     </ul>
                 </article>
@@ -573,7 +625,7 @@
                     <p class="role-meta">{{ $experience['roles'][2]['company'] }} · {{ $experience['roles'][2]['location'] }}</p>
                     <ul class="bullets">
                         @foreach($ticomix as $item)
-                            <li>{{ $item }}</li>
+                            <li>{!! $nowrapHtml($item) !!}</li>
                         @endforeach
                     </ul>
                 </article>
@@ -588,11 +640,22 @@
                     <p class="role-company">{{ $experience['earlier']['company'] }}</p>
                     <ul class="bullets">
                         @foreach($earlier as $item)
-                            <li>{{ $item }}</li>
+                            <li>{!! $nowrapHtml($item) !!}</li>
                         @endforeach
                     </ul>
                 </article>
             </section>
+
+            @if(! empty($resume['expertise']))
+                <section class="section" aria-labelledby="competencies-heading">
+                    <h2 id="competencies-heading" class="section-title">Core Competencies</h2>
+                    <ul class="competency-list">
+                        @foreach($resume['expertise'] as $item)
+                            <li>{{ $item }}</li>
+                        @endforeach
+                    </ul>
+                </section>
+            @endif
 
             <section class="section" aria-labelledby="education-heading">
                 <h2 id="education-heading" class="section-title">Education</h2>
@@ -607,7 +670,10 @@
                 <h2 id="certifications-heading" class="section-title">Certifications</h2>
                 <ul class="cert-list">
                     @foreach($certifications as $cert)
-                        <li><strong>{{ $cert['name'] }}</strong>@if(! empty($cert['issuer']))<span>, {{ $cert['issuer'] }}</span>@endif @if(! empty($cert['status']))<span> ({{ strtolower($cert['status']) }})</span>@endif</li>
+                        @php
+                            $certName = str_replace(['®', '™'], '', (string) $cert['name']);
+                        @endphp
+                        <li><strong>{{ $certName }}</strong>@if(! empty($cert['issuer']))<span>, {{ $cert['issuer'] }}</span>@endif @if(! empty($cert['status']))<span> ({{ strtolower($cert['status']) }})</span>@endif</li>
                     @endforeach
                 </ul>
             </section>
