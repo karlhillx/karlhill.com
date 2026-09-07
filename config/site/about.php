@@ -4,8 +4,9 @@ return [
     // Career arc + how I lead — not the availability pitch (that lives on /now).
     'lede' => 'NASA Earth science operations at scale, then government aerospace and defense mission software at Jacobs National Security — and how I lead people through hard systems.',
     'how_i_lead' => [
+        // People craft only. The written delivery bar (DoD, PR rubric, risk) lives on /lead.
         'title' => 'How I lead',
-        'intro' => 'Staff influence becomes manager accountability when people outcomes are as explicit as system outcomes. This is how I work with engineers and stakeholders today.',
+        'intro' => 'Staff influence becomes manager accountability when people outcomes are as explicit as system outcomes. This is how I work with engineers and stakeholders — not the Definition of Done (that’s the delivery packet).',
         'items' => [
             [
                 'title' => '1:1s that surface risk',
@@ -17,7 +18,7 @@ return [
             ],
             [
                 'title' => 'Standards over heroics',
-                'body' => 'Raise the bar through coaching instead of becoming the bottleneck — PR discipline, Definition of Done, and reviews that teach.',
+                'body' => 'Raise the bar through coaching instead of becoming the bottleneck. Reviews teach; the written bar lives on How I run delivery.',
             ],
             [
                 'title' => 'Stakeholder trust in plain language',

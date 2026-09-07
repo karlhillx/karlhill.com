@@ -37,11 +37,12 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($website['publisher']['@id'])->toBe($person['@id']);
 });
 
-it('homepage html includes brand-disambiguating title and json-ld', function () {
+it('homepage html includes preferred-name title and json-ld', function () {
     $response = $this->get('/');
 
     $response->assertOk();
-    $response->assertSee('<title>Karl M. Hill — Staff Aerospace Software Engineer · NASA · Jacobs</title>', escape: false);
+    $response->assertSee('<title>Karl Hill — Staff Aerospace Software Engineer · NASA · Jacobs</title>', escape: false);
+    $response->assertSee('Karl M. Hill — Staff Aerospace Software Engineer at Jacobs', escape: false);
     $response->assertSee('"@type": "WebSite"', escape: false);
     $response->assertSee('"@type": "Person"', escape: false);
     $response->assertSee('"@type": "ProfilePage"', escape: false);

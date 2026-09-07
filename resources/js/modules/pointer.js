@@ -1,6 +1,7 @@
 import { allowAmbientMotion, prefersFinePointer, prefersReducedMotion } from '../lib/prefs.js';
 
 const CTA_DELAY_MS = 8000;
+const SPOTLIGHT_IDLE_MS = 2800;
 
 export function initPointerEffects() {
     if (prefersReducedMotion || !prefersFinePointer) return;
@@ -14,7 +15,7 @@ export function initPointerEffects() {
     }
 }
 
-/** Pause infinite hero loops when #hero is off-screen or the tab is hidden. */
+/** Pause leftover hero loops when #hero is off-screen or the tab is hidden. */
 function pauseHeroAmbientWhenUnseen() {
     const hero = document.getElementById('hero');
     if (!hero) return;
@@ -38,14 +39,30 @@ function pauseHeroAmbientWhenUnseen() {
     sync();
 }
 
-/** Follow the pointer with a translated orb — no :root CSS vars, no idle rAF. */
+/**
+ * Follow the pointer with a translated orb — no :root CSS vars, no idle rAF.
+ * Sleeps (opacity 0, drop will-change) shortly after the pointer stops.
+ */
 function initSpotlight() {
     const orb = document.querySelector('.page-spotlight__orb');
     if (!orb) return;
 
     let spotRaf = null;
+    let idleTimer = null;
     let lx = window.innerWidth * 0.5;
     let ly = window.innerHeight * 0.35;
+
+    const sleep = () => {
+        orb.classList.remove('is-active');
+        orb.classList.add('is-sleeping');
+    };
+
+    const wake = () => {
+        orb.classList.add('is-active');
+        orb.classList.remove('is-sleeping');
+        window.clearTimeout(idleTimer);
+        idleTimer = window.setTimeout(sleep, SPOTLIGHT_IDLE_MS);
+    };
 
     const idleCtas = document.querySelectorAll('[data-idle-cta]');
     if (idleCtas.length > 0) {
@@ -62,6 +79,7 @@ function initSpotlight() {
             if (document.hidden) return;
             lx = event.clientX;
             ly = event.clientY;
+            wake();
             if (spotRaf !== null) return;
             spotRaf = requestAnimationFrame(() => {
                 spotRaf = null;
@@ -70,6 +88,13 @@ function initSpotlight() {
         },
         { passive: true }
     );
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            window.clearTimeout(idleTimer);
+            sleep();
+        }
+    });
 }
 
 function initMagneticButtons() {

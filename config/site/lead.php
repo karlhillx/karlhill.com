@@ -56,14 +56,14 @@ return [
         [
             'id' => 'coaching',
             'title' => 'How the bar spreads',
-            'intro' => 'Standards that live in one Staff engineer do not survive leave, load, or a new teammate. Coaching is how the operating system outlasts me.',
+            'intro' => 'Standards that live in one Staff engineer do not survive leave, load, or a new teammate. This section is how the delivery operating system outlasts me — people craft (1:1s, tradeoffs, trust) lives on About.',
             'items' => [
-                '1:1s hold career growth, feedback, and delivery risk in the same conversation — blockers show up early enough to act.',
                 'PRs are where the rubric is taught. I write the comment I wish I had received, then I expect the next PR to use it.',
-                'Tradeoffs are made visible: what we ship, what we defer, what we refuse — so the team can protect focus without politics.',
-                'Success is predictability and ownership across the team, not how much I personally touch.',
+                'The Definition of Done is a team artifact, not my private checklist — new engineers should be able to call “ready” from the same evidence.',
+                'Smaller promotions with evidence beat large moves that have to be unwound; coaching is how that preference becomes habit.',
+                'When I am the only person who can call “ready,” the system has failed. Reviews and notes are how that changes.',
             ],
         ],
     ],
-    'not' => 'This is not a Jacobs system architecture, a tool list, or an operations manual. The NASA studies on this site are the platforms I can show. Attach this page when the question is how I run delivery under constraint.',
+    'not' => 'This is not a Jacobs system architecture, a tool list, or an operations manual — and it is not the people-leadership essay (that is How I lead on About). The NASA studies on this site are the platforms I can show. Attach this page when the question is how I run delivery under constraint.',
 ];

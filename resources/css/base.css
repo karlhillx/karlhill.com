@@ -313,16 +313,21 @@ article.surface-card:focus-within {
     box-shadow: 0 0 0 1px var(--hairline-strong);
 }
 
-/* Pointer-lit work cards — local spotlight + soft perspective tilt. */
+/* Pointer-lit work cards — local spotlight + soft perspective tilt on hover only
+   (a resting 3D transform promotes every card to its own compositor layer). */
 .surface-card-media.pointer-lit {
     --card-x: 50%;
     --card-y: 40%;
     --tilt-x: 0deg;
     --tilt-y: 0deg;
     isolation: isolate;
+    transition: transform 0.35s var(--ease-out-spring);
+}
+
+.surface-card-media.pointer-lit:hover,
+.surface-card-media.pointer-lit:focus-within {
     transform: perspective(920px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
     transform-style: preserve-3d;
-    transition: transform 0.35s var(--ease-out-spring);
 }
 
 .surface-card-media.pointer-lit::after {
@@ -412,32 +417,15 @@ p {
     }
 }
 
-/* Optical-size axis driven by scroll entry — body text opens as it arrives. */
-@property --opsz {
-    syntax: '<number>';
-    inherits: false;
-    initial-value: 16;
-}
-
+/* Optical size — static axis value. Scroll-driven --opsz animation forced
+   continuous style recalc while text entered the viewport. */
 .opsz-scroll {
-    font-optical-sizing: none;
-    font-variation-settings: 'opsz' var(--opsz);
+    font-optical-sizing: auto;
 }
 
-@supports (animation-timeline: view()) {
+@supports (font-variation-settings: normal) {
     .opsz-scroll {
-        animation: opszOpen linear both;
-        animation-timeline: view();
-        animation-range: entry 0% cover 35%;
-    }
-
-    @keyframes opszOpen {
-        from {
-            --opsz: 14;
-        }
-        to {
-            --opsz: 22;
-        }
+        font-variation-settings: 'opsz' 18;
     }
 }
 

@@ -1,16 +1,18 @@
 <?php
 
 return [
-    0 => [
-        'title' => 'I Lead',
-        'body' => 'Coaching, standards, and 1:1s so the team ships without depending on one person — the manager craft practiced on live mission work.',
+    // Home hire proof only — not the people craft (/about#how-i-lead) or the
+    // forwardable delivery OS (/lead). Keep titles short for the display face.
+    [
+        'title' => 'Proof',
+        'body' => 'Eight years of NASA Earth science platforms you can open — flood mapping, LAADS, and the Goddard chapters under Also shipped.',
     ],
-    1 => [
-        'title' => 'I Set the Bar',
-        'body' => 'Definition of Done, PR rubric, and visible integration risk — a portable operating system for constrained aerospace and defense programs.',
+    [
+        'title' => 'Constraint',
+        'body' => 'Jacobs National Security mission software where program details stay unpublished. The public substitute is how delivery runs under that constraint.',
     ],
-    2 => [
-        'title' => 'I Deliver',
-        'body' => 'Sequenced plans, stakeholder trust, and multi-environment readiness when failure is expensive and the details stay unpublished.',
+    [
+        'title' => 'Ready',
+        'body' => 'Seeking Engineering Manager roles while practicing the craft on live work — people outcomes on About, the written operating system on How I run delivery.',
     ],
 ];

@@ -54,6 +54,7 @@
                     </x-site.button>
                 @endif
                 <x-site.button variant="secondary" href="/kit">Recruiter kit</x-site.button>
+                <x-site.button variant="link" href="/about#how-i-lead">How I lead</x-site.button>
                 <x-site.button variant="link" data-print title="Print or save as PDF">Print packet</x-site.button>
             </div>
 

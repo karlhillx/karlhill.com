@@ -481,6 +481,20 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('data-print', escape: false);
 });
 
+it('homepage why me is hire proof with leadership cross-links', function () {
+    $html = $this->get('/')->assertOk()->getContent();
+
+    expect($html)
+        ->toContain('id="why"')
+        ->toContain('>Proof</h3>')
+        ->toContain('>Constraint</h3>')
+        ->toContain('>Ready</h3>')
+        ->toContain('href="/about#how-i-lead"')
+        ->toContain('href="/lead"')
+        ->not->toContain('I Set the Bar')
+        ->not->toContain('Definition of Done');
+});
+
 it('delivery packet is a forwardable operating system', function () {
     $this->get('/lead')
         ->assertOk()
@@ -497,10 +511,12 @@ it('delivery packet is a forwardable operating system', function () {
         ->assertSee('id="coaching"', escape: false)
         ->assertSee('Print packet', escape: false)
         ->assertSee('href="/kit"', escape: false)
+        ->assertSee('href="/about#how-i-lead"', escape: false)
         ->assertSee('lead-doc', escape: false)
         ->assertSee('kit-print-masthead', escape: false)
         ->assertSee('data-on-device-summary', escape: false)
-        ->assertDontSee('Kubernetes Mission Mesh', escape: false);
+        ->assertDontSee('Kubernetes Mission Mesh', escape: false)
+        ->assertDontSee('1:1s hold career growth', escape: false);
 });
 
 it('now page shows a fresh updated date and kit link', function () {
