@@ -73,39 +73,38 @@ def cover_crop(src: Image.Image, tw: int, th: int) -> Image.Image:
 def generate_home() -> Path:
     """Homepage OG card optimized for Google’s square SERP thumbnail.
 
-    Layout: full-bleed portrait on the left 630×630 (what Google crops),
-    hire copy on the right. The old design put a small circle on the right
-    of a black field — center/right crops showed a letter fragment and a
-    tiny face.
+    Layout: hire copy on the left, full-bleed portrait on the right 630×630.
+    Google’s SERP crop follows the face; the previous tiny circle-on-black
+    design left a letter fragment and empty charcoal in that square.
     """
     jpg = PUBLIC / "profile.jpg"
     webp = PUBLIC / "webp" / "profile.webp"
     profile_path = jpg if jpg.exists() else webp
     out_path = PUBLIC / "og-home.jpg"
 
-    face_w = H  # 630 — square SERP thumb is the left panel
-    text_x = face_w + 48
+    face_w = H  # 630 — square SERP thumb is the right panel
+    face_x = W - face_w
 
     img = Image.new("RGB", (W, H), BG)
     face = cover_crop(Image.open(profile_path).convert("RGB"), face_w, H)
-    img.paste(face, (0, 0))
+    img.paste(face, (face_x, 0))
 
-    # Soft seam: photo → dark panel so LinkedIn/Twitter still read as one card.
+    # Soft seam: dark panel → photo so LinkedIn/Twitter still read as one card.
     seam = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     sdraw = ImageDraw.Draw(seam)
+    sdraw.rectangle((0, 0, face_x, H), fill=(*BG, 255))
     blend = 160
     for i in range(blend):
-        alpha = int(255 * (i / blend) ** 1.35)
-        x = face_w - blend + i
+        alpha = int(255 * (1 - i / blend) ** 1.35)
+        x = face_x + i
         sdraw.line([(x, 0), (x, H)], fill=(*BG, alpha))
-    sdraw.rectangle((face_w, 0, W, H), fill=(*BG, 255))
     img = Image.alpha_composite(img.convert("RGBA"), seam).convert("RGB")
     draw = ImageDraw.Draw(img)
 
     # Quiet brand glow behind the copy (not over the face).
     glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     gdraw = ImageDraw.Draw(glow)
-    gdraw.ellipse((820, -80, 1380, 420), fill=(*ORANGE, 28))
+    gdraw.ellipse((-80, -100, 520, 400), fill=(*ORANGE, 28))
     glow = glow.filter(ImageFilter.GaussianBlur(90))
     img = Image.alpha_composite(img.convert("RGBA"), glow).convert("RGB")
     draw = ImageDraw.Draw(img)
@@ -116,7 +115,7 @@ def generate_home() -> Path:
     f_ask = font(24, bold=True)
     f_cta = font(26, bold=True)
 
-    x, y = text_x, 118
+    x, y = 56, 118
     draw.text((x, y), "KARL HILL", fill=WHITE, font=f_name)
     y += 86
     draw.text((x, y), "Staff Aerospace Software Engineer", fill=GRAY, font=f_role)
