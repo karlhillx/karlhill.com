@@ -27,6 +27,8 @@
     --accent-ink: #0a0a0a;
     --focus: light-dark(oklch(58% 0.14 55), oklch(78% 0.12 55));
     --success: light-dark(oklch(52% 0.15 150), oklch(72% 0.16 150));
+    /* Form / validation errors — AA on both canvases at caption size. */
+    --danger: light-dark(#b91c1c, #fca5a5);
     /* Spring easings via CSS linear() — physical settle instead of generic ease-out. */
     --ease-out-spring: linear(
         0,
@@ -124,6 +126,7 @@
     --color-accent: var(--accent);
     --color-focus: var(--focus);
     --color-muted: var(--muted);
+    --color-danger: var(--danger);
     --color-ink: var(--text);
     /* Type floor: nothing on screen below 12px. `text-caption` is the one
        approved small size for mono eyebrows, captions and chips. */

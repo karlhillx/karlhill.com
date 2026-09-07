@@ -1,7 +1,7 @@
 <x-site.section id="open-source" section-label="Open Source" border="soft" :number="$sectionNumber ?? '02'" label="Open Source">
         <x-slot:actions>
             <a href="https://github.com/karlhillx" target="_blank" rel="noopener noreferrer"
-               class="font-mono text-xs text-neutral-600 hover:text-accent transition-colors">
+               class="font-mono text-xs text-neutral-500 hover:text-accent transition-colors">
                 github.com/karlhillx ↗
             </a>
         </x-slot:actions>

@@ -24,7 +24,8 @@ const browser = await chromium.launch({
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
 });
 // AxeBuilder requires a page from browser.newContext(), not browser.newPage().
-const context = await browser.newContext();
+// Match the site’s primary dark theme (tokens follow prefers-color-scheme).
+const context = await browser.newContext({ colorScheme: 'dark' });
 
 const failures = [];
 
@@ -59,6 +60,9 @@ try {
             console.error(`✗ ${url}`);
             for (const v of serious) {
                 console.error(`  [${v.impact}] ${v.id}: ${v.help}`);
+                for (const node of v.nodes.slice(0, 5)) {
+                    console.error(`    ${node.target.join(' ')}`);
+                }
             }
         } else {
             console.log(`✓ ${url}`);

@@ -47,7 +47,7 @@
                            'border-neutral-800' => ! $errorBag->has('name'),
                        ])>
                 @if($errorBag->has('name'))
-                    <p id="{{ $nameId }}-error" class="mt-1 font-mono text-caption text-red-400">{{ $errorBag->first('name') }}</p>
+                    <p id="{{ $nameId }}-error" class="mt-1 font-mono text-caption text-danger">{{ $errorBag->first('name') }}</p>
                 @endif
             </div>
             <div>
@@ -61,7 +61,7 @@
                            'border-neutral-800' => ! $errorBag->has('email'),
                        ])>
                 @if($errorBag->has('email'))
-                    <p id="{{ $emailId }}-error" class="mt-1 font-mono text-caption text-red-400">{{ $errorBag->first('email') }}</p>
+                    <p id="{{ $emailId }}-error" class="mt-1 font-mono text-caption text-danger">{{ $errorBag->first('email') }}</p>
                 @endif
             </div>
         </div>
@@ -76,7 +76,7 @@
                           'border-neutral-800' => ! $errorBag->has('message'),
                       ])>{{ old('message') }}</textarea>
             @if($errorBag->has('message'))
-                <p id="{{ $messageId }}-error" class="mt-1 font-mono text-caption text-red-400">{{ $errorBag->first('message') }}</p>
+                <p id="{{ $messageId }}-error" class="mt-1 font-mono text-caption text-danger">{{ $errorBag->first('message') }}</p>
             @endif
         </div>
 
@@ -89,7 +89,7 @@
                      data-size="flexible"></div>
                 <div data-turnstile-error>
                     @if($errorBag->has('turnstile'))
-                        <p id="{{ $idPrefix }}-turnstile-error" class="mt-2 font-mono text-caption text-red-400" role="alert">
+                        <p id="{{ $idPrefix }}-turnstile-error" class="mt-2 font-mono text-caption text-danger" role="alert">
                             {{ $errorBag->first('turnstile') }}
                         </p>
                     @endif

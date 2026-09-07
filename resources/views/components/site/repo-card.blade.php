@@ -6,7 +6,7 @@
     <div class="flex items-start justify-between gap-4 mb-3">
         <h3 class="font-mono text-sm font-normal text-neutral-200 group-hover:text-accent/80 transition-colors leading-snug break-all">{{ $repo->name }}</h3>
         @if($repo->stars > 0)
-            <span class="font-mono text-xs text-neutral-600 whitespace-nowrap shrink-0">★ {{ number_format($repo->stars) }}</span>
+            <span class="font-mono text-xs text-neutral-500 whitespace-nowrap shrink-0">★ {{ number_format($repo->stars) }}</span>
         @endif
     </div>
     @if($repo->description)
@@ -20,7 +20,7 @@
             </span>
         @endif
         @foreach(array_slice($repo->topics, 0, 2) as $topic)
-            <span class="surface-chip font-mono text-xs px-2 py-0.5 text-neutral-600">{{ $topic }}</span>
+            <span class="surface-chip font-mono text-xs px-2 py-0.5 text-neutral-500">{{ $topic }}</span>
         @endforeach
     </div>
 </a>
