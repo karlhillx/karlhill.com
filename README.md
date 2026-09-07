@@ -1,6 +1,25 @@
+```text
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║       ██╗  ██╗ █████╗ ██████╗ ██╗       ██╗  ██╗██╗██╗     ██╗            ║
+║       ██║ ██╔╝██╔══██╗██╔══██╗██║       ██║  ██║██║██║     ██║            ║
+║       █████╔╝ ███████║██████╔╝██║       ███████║██║██║     ██║            ║
+║       ██╔═██╗ ██╔══██║██╔══██╗██║       ██╔══██║██║██║     ██║            ║
+║       ██║  ██╗██║  ██║██║  ██║███████╗  ██║  ██║██║███████╗███████╗       ║
+║       ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝  ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝       ║
+║                                                                           ║
+║              Personal hire site · Aerospace mission software              ║
+║                          Laravel · karlhill.com                           ║
+║                                                                           ║
+║       Staff Aerospace Software Engineer · Jacobs National Security        ║
+║               ex-NASA Goddard · Seeking Engineering Manager               ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+```
+
 # karlhill.com
 
-Personal site for Karl M. Hill — Staff Aerospace Software Engineer (Washington, DC; NASA · Jacobs). A Laravel 13 + Tailwind v4 portfolio and flat-file blog at [karlhill.com](https://karlhill.com).
+Personal site for Karl Hill — Staff Aerospace Software Engineer (Washington, DC; NASA · Jacobs). A Laravel 13 + Tailwind v4 portfolio and flat-file blog at [karlhill.com](https://karlhill.com).
 
 ## Stack
 
