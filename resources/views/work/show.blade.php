@@ -99,25 +99,30 @@
         </div>
 
         <div class="relative z-10 max-w-6xl mx-auto">
+            <x-site.breadcrumbs
+                class="case-study-crumbs"
+                :items="[
+                    ['label' => 'Home', 'url' => '/'],
+                    ['label' => 'Work', 'url' => '/work'],
+                    ['label' => 'Case study', 'url' => '/work/'.$project['slug']],
+                ]"
+            />
+
             <div class="lg:grid lg:grid-cols-[11.5rem_minmax(0,1fr)] xl:grid-cols-[12.5rem_minmax(0,1fr)] lg:gap-x-8 xl:gap-x-10 lg:items-start">
                 <aside class="hidden lg:block sticky top-24">
                     <x-site.article-toc :items="$toc" :groups="$tocGroups" />
                 </aside>
 
                 <div class="min-w-0 max-w-3xl">
-                    <x-site.breadcrumbs :items="[
-                        ['label' => 'Home', 'url' => '/'],
-                        ['label' => 'Work', 'url' => '/work'],
-                        ['label' => $project['title']],
-                    ]" />
-
-                    <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2.5">{{ $project['meta'] }}</p>
-                    <h1 class="font-sans font-semibold text-[clamp(1.75rem,3.8vw,2.55rem)] leading-[1.15] tracking-tight text-neutral-100 text-balance mb-3.5"
-                        data-article-title
-                        style="view-transition-name: work-title-{{ $project['slug'] }}">
-                        {{ $project['title'] }}
-                    </h1>
-                    <p class="case-study-lede text-neutral-400 mb-6">{{ $study['lede'] }}</p>
+                    <header class="case-study-masthead">
+                        <p class="case-study-masthead__meta font-mono text-accent text-xs tracking-widest uppercase">{{ $project['meta'] }}</p>
+                        <h1 class="case-study-masthead__title font-sans font-semibold text-[clamp(1.75rem,3.8vw,2.55rem)] leading-[1.15] tracking-tight text-neutral-100 text-balance"
+                            data-article-title
+                            style="view-transition-name: work-title-{{ $project['slug'] }}">
+                            {{ $project['title'] }}
+                        </h1>
+                        <p class="case-study-lede text-neutral-400">{{ $study['lede'] }}</p>
+                    </header>
 
                     @if(count($toc) >= 2)
                         <details class="article-toc-mobile lg:hidden mb-6 surface-card-static p-4">
@@ -283,25 +288,36 @@
                     </section>
 
                     <div class="case-study-brief">
-                        <section id="problem" class="case-study-brief__block scroll-mt-24" data-reveal>
-                            <h2 class="case-study-brief__heading">Problem</h2>
-                            <x-site.arrow-list class="case-study-list" :items="$study['problem']" />
-                        </section>
-
-                        @if(! empty($decisions))
-                            <section id="decisions" class="case-study-brief__block scroll-mt-24" data-reveal>
-                                <h2 class="case-study-brief__heading">Decisions</h2>
-                                <x-site.arrow-list class="case-study-list" :items="$decisions" />
+                        <div class="case-study-brief__arc">
+                            <section id="problem" class="case-study-brief__block scroll-mt-24" data-reveal>
+                                <h2 class="case-study-brief__heading">
+                                    <span class="case-study-brief__step" aria-hidden="true">01</span>
+                                    Problem
+                                </h2>
+                                <x-site.arrow-list class="case-study-list" :items="$study['problem']" />
                             </section>
-                        @endif
 
-                        <section id="outcome" class="case-study-brief__block scroll-mt-24" data-reveal>
-                            <h2 class="case-study-brief__heading">Outcome</h2>
-                            <x-site.arrow-list class="case-study-list" :items="$study['outcome']" />
-                        </section>
+                            @if(! empty($decisions))
+                                <section id="decisions" class="case-study-brief__block scroll-mt-24" data-reveal>
+                                    <h2 class="case-study-brief__heading">
+                                        <span class="case-study-brief__step" aria-hidden="true">02</span>
+                                        Decisions
+                                    </h2>
+                                    <x-site.arrow-list class="case-study-list" :items="$decisions" />
+                                </section>
+                            @endif
+
+                            <section id="outcome" class="case-study-brief__block scroll-mt-24" data-reveal>
+                                <h2 class="case-study-brief__heading">
+                                    <span class="case-study-brief__step" aria-hidden="true">03</span>
+                                    Outcome
+                                </h2>
+                                <x-site.arrow-list class="case-study-list" :items="$study['outcome']" />
+                            </section>
+                        </div>
 
                         @if(! empty($study['leadership']))
-                            <section id="leadership" class="case-study-brief__block scroll-mt-24" data-reveal>
+                            <section id="leadership" class="case-study-brief__block case-study-brief__block--solo scroll-mt-24" data-reveal>
                                 <h2 class="case-study-brief__heading">Team &amp; leadership</h2>
                                 <dl class="case-study-leadership">
                                     @foreach([

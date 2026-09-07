@@ -68,33 +68,36 @@
 
     <section class="site-section site-section--soft border-t border-neutral-800/50" aria-labelledby="kit-glance-heading">
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-            <h2 id="kit-glance-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">At a glance</h2>
-            <div class="max-w-2xl">
-                <div>
-                    <p class="kit-bio text-neutral-200 text-lg leading-relaxed">{{ $person['bio'] }}</p>
-                    <dl class="kit-facts mt-8 grid sm:grid-cols-2 gap-4 text-sm">
-                        <div>
-                            <dt class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1">Name</dt>
-                            <dd class="text-neutral-300">{{ $person['name'] }}</dd>
-                        </div>
-                        <div>
-                            <dt class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1">Title</dt>
-                            <dd class="text-neutral-300">{{ $person['job_title'] }} · {{ $person['employer_display'] ?? $person['employer'] }}</dd>
-                        </div>
-                        <div>
-                            <dt class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1">Location</dt>
-                            <dd class="text-neutral-300">{{ $person['location'] }}</dd>
-                        </div>
-                        <div>
-                            <dt class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-1">Open to</dt>
-                            <dd class="text-neutral-300">{{ $person['availability'] }}</dd>
-                        </div>
-                    </dl>
-                </div>
+            <h2 id="kit-glance-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1 md:sticky md:top-24 md:self-start">At a glance</h2>
+            <div class="kit-glance max-w-3xl">
+                <p class="kit-bio text-neutral-200 text-lg leading-relaxed">{{ $person['bio'] }}</p>
+
+                <dl class="kit-facts">
+                    <div class="kit-facts__item">
+                        <dt class="kit-facts__label">Name</dt>
+                        <dd class="kit-facts__value">{{ $person['name'] }}</dd>
+                    </div>
+                    <div class="kit-facts__item">
+                        <dt class="kit-facts__label">Title</dt>
+                        <dd class="kit-facts__value">{{ $person['job_title'] }} · {{ $person['employer_display'] ?? $person['employer'] }}</dd>
+                    </div>
+                    <div class="kit-facts__item">
+                        <dt class="kit-facts__label">Location</dt>
+                        <dd class="kit-facts__value">{{ $person['location'] }}</dd>
+                    </div>
+                    <div class="kit-facts__item kit-facts__item--wide">
+                        <dt class="kit-facts__label">Open to</dt>
+                        <dd class="kit-facts__value">{{ $person['availability'] }}</dd>
+                    </div>
+                </dl>
+
                 @if(! empty($kit['highlights']))
-                    <ul class="kit-highlights mt-8 space-y-2 text-neutral-400 text-sm leading-relaxed list-disc pl-5">
+                    <ul class="kit-highlights" aria-label="Hiring packet">
                         @foreach($kit['highlights'] as $item)
-                            <li>{{ $item }}</li>
+                            <li class="kit-highlights__item">
+                                <span class="kit-highlights__mark text-accent" aria-hidden="true">→</span>
+                                <span class="kit-highlights__text">{{ $item }}</span>
+                            </li>
                         @endforeach
                     </ul>
                 @endif

@@ -514,13 +514,26 @@
 
     body:has(.kit-doc) .kit-highlights {
         margin: 0 !important;
-        padding-left: 0.18in !important;
+        padding: 0 !important;
+        border: 0 !important;
+        gap: 0.06in !important;
     }
 
-    body:has(.kit-doc) .kit-highlights li {
-        margin: 0 0 0.05in !important;
+    body:has(.kit-doc) .kit-highlights li,
+    body:has(.kit-doc) .kit-highlights__item {
+        margin: 0 !important;
         font-size: 9.5pt !important;
         color: #222 !important;
+    }
+
+    body:has(.kit-doc) .kit-highlights__mark {
+        color: #0b1f3a !important;
+    }
+
+    body:has(.kit-doc) .kit-highlights__text {
+        color: #222 !important;
+        max-width: none !important;
+        font-size: 9.5pt !important;
     }
 
     body:has(.kit-doc) .kit-links-more {

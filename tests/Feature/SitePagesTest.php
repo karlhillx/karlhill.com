@@ -139,7 +139,9 @@ it('case study pages expose skim path, toc, and lightbox', function () {
     $caseStudy->assertSee('>Stack</h2>', escape: false);
     $caseStudy->assertSee('>Role</h2>', escape: false);
     $caseStudy->assertSee('id="decisions"', escape: false);
-    $caseStudy->assertSee('>Decisions</h2>', escape: false);
+    $caseStudy->assertSee('case-study-brief__arc', escape: false);
+    $caseStudy->assertSee('case-study-brief__step', escape: false);
+    $caseStudy->assertSee('Decisions', escape: false);
     $caseStudy->assertSee('Find Data', escape: false);
     $caseStudy->assertSee('Lead Software Engineer', escape: false);
 });
