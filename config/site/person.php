@@ -11,10 +11,11 @@ return [
     'tagline' => 'Aerospace & Mission Software | Software Engineering | Technical Leadership | Team Execution',
     // LinkedIn-ready headline (copy/paste); keep in sync with public positioning.
     'linkedin_headline' => 'Staff Aerospace Software Engineer @ Jacobs National Security | ex-NASA Goddard | Seeking Engineering Manager (team execution → people management)',
-    // Canonical hire ask — kit “Open to”, agents, and JSON-LD. Homepage first
-    // screen uses hero.lede (spoken). Do not restate this on About, kit highlights,
-    // or /now focus cards. One job: Engineering Manager. No IC co-pitch.
-    'availability' => 'Seeking an Engineering Manager role building on current responsibility for team execution, engineer development, and cross-team delivery, with formal people management as the next expansion of scope.',
+    // Spoken hire ask — homepage hero and kit “Open to”. One job: Engineering Manager.
+    // Do not restate this on About, kit highlights, or /now focus cards.
+    'availability' => 'Engineering Manager candidate. Currently leading ~10 engineers on aerospace mission software at Jacobs (ex-NASA Goddard).',
+    // Longer ask for JSON-LD, llms.txt, and the hire packet — not the first-screen line.
+    'availability_long' => 'Seeking an Engineering Manager role building on current responsibility for team execution, engineer development, and cross-team delivery, with formal people management as the next expansion of scope.',
     'trajectory' => 'Staff→Engineering Manager: leading team execution and engineer development now; seeking formal people-management scope next.',
     'employer' => 'Jacobs',
     'employer_display' => 'Jacobs National Security',

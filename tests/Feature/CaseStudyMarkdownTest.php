@@ -72,6 +72,11 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertSee('Schematic', escape: false)
         ->assertSee('Program-specific details are omitted', escape: false)
         ->assertSee('Held a sprint commitment', escape: false)
+        ->assertSee('Day-to-day execution, engineer development', escape: false)
+        ->assertSee('case-study-leadership__note', escape: false)
+        ->assertSee('Staff IC title — formal personnel decisions remain with management.', escape: false)
+        ->assertDontSee('Staff IC with technical and delivery leadership', escape: false)
+        ->assertDontSee('What stays out of scope here: formal people-management authority', escape: false)
         ->assertDontSee('Kubernetes Mission Mesh', escape: false)
         ->assertDontSee('Representative delivery lifecycle', escape: false)
         ->assertDontSee('Executive Summary', escape: false);

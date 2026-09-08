@@ -406,7 +406,7 @@ it('homepage hero links to em funnel', function () {
     $response->assertDontSee('Resume PDF', escape: false);
     $response->assertSee('Jacobs', escape: false);
     $response->assertDontSee(config('site.hero.subtitle'), escape: false);
-    $response->assertSee(config('site.hero.lede'), escape: false);
+    $response->assertSee(config('site.person.availability'), escape: false);
     $response->assertSee('hero-portrait', escape: false);
     $response->assertSee('aria-label="At a glance"', escape: false);
     $response->assertSee('Seeking Engineering Manager', escape: false);

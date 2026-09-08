@@ -28,7 +28,12 @@ class LlmsTxtBuilder
             '',
             '> '.($seo['og_description'] ?? $seo['description']),
             '',
-            is_string($person['availability'] ?? null) ? $person['availability'] : '',
+            ...array_values(array_filter([
+                is_string($person['availability'] ?? null) ? $person['availability'] : null,
+                is_string($person['availability_long'] ?? null) && $person['availability_long'] !== ($person['availability'] ?? null)
+                    ? $person['availability_long']
+                    : null,
+            ])),
             '',
             $person['bio'] ?? '',
             '',

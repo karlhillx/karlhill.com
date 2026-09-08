@@ -1334,6 +1334,14 @@ a.series-chapters__card:hover .series-chapters__title,
     max-width: 54ch;
 }
 
+.case-study-leadership__note {
+    margin: 1rem 0 0;
+    max-width: 54ch;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: color-mix(in oklab, var(--muted) 88%, var(--text));
+}
+
 @media (min-width: 640px) {
     .case-study-leadership__cell {
         grid-template-columns: 11.5rem minmax(0, 1fr);

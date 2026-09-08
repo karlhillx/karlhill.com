@@ -292,6 +292,9 @@
                                         @endif
                                     @endforeach
                                 </dl>
+                                @if(! empty($study['leadership']['note']))
+                                    <p class="case-study-leadership__note">{{ $study['leadership']['note'] }}</p>
+                                @endif
                             </section>
                         @endif
 

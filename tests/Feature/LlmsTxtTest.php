@@ -19,6 +19,7 @@ it('llms txt returns a v2 file-list map', function () {
     $this->assertStringStartsWith('# Karl Hill', $body);
     $this->assertStringContainsString('> '.config('site.seo.home.og_description'), $body);
     $this->assertStringContainsString(config('site.person.availability'), $body);
+    $this->assertStringContainsString(config('site.person.availability_long'), $body);
     $this->assertStringContainsString('Last updated', $body);
     $this->assertStringContainsString(app(SiteCatalog::class)->lastUpdated()->format('F j, Y'), $body);
     $this->assertStringContainsString('## Pages', $body);

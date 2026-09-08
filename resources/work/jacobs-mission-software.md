@@ -1,12 +1,13 @@
 ---
-updated: '2026-09-07'
+updated: '2026-09-08'
 lede: 'Staff leadership for ~10 engineers across ~20 repositories — the work is sequencing delivery under constraint, developing engineers, and making the hard call when program urgency outruns readiness.'
 role: 'Staff Aerospace Software Engineer — technical leadership, team execution, and engineer development at Jacobs National Security.'
 leadership:
-  mode: 'Staff IC with technical and delivery leadership — formal personnel decisions remain with management'
+  mode: 'Day-to-day execution, engineer development, and the call when urgency outruns readiness'
   team: 'Roughly 10 engineers across ~20 repositories, plus program stakeholders and external partner teams'
   unblocked: 'Onboarded and coached roughly six engineers; introduced clearer development plans for junior engineers'
   decision: 'Held a sprint commitment when a partner environment was not ready — sequenced prep work instead of starting implementation that would only produce rework.'
+  note: 'Staff IC title — formal personnel decisions remain with management.'
 problem:
   - 'Mission software spans many repositories and deployment environments — execution has to stay sequenced when dependencies and readiness shift under program pressure.'
   - 'Engineers need shared standards and coaching so quality, testing, and release expectations are not tribal knowledge.'
@@ -18,7 +19,7 @@ decisions:
 outcome:
   - 'What I own: day-to-day technical delivery, engineer development, and cross-team coordination for integration and release readiness.'
   - 'What changed: clearer coaching and development plans; execution that can absorb dependency pressure without thrashing the team into rework.'
-  - 'What stays out of scope here: formal people-management authority, and any program-specific detail.'
+  - 'Program names, customers, and mission data stay unpublished.'
 metrics:
   - value: '~10'
     label: 'Engineers on the team'
@@ -72,7 +73,5 @@ I coordinate with engineering, program stakeholders, and external partners on in
 ## Building shared engineering standards
 
 Across approximately 20 repositories I drive practices for code review, automated testing, CI/CD, security checks, repository structure, and release readiness. Coaching and documented expectations help engineers apply a consistent standard so quality is not whoever happened to review the PR.
-
-This is a Staff IC role with technical and delivery leadership responsibilities. Engineer development happens through coaching and ongoing feedback; formal personnel decisions remain with management.
 
 Program-specific details are omitted.

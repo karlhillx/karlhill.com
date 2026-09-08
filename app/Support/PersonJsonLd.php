@@ -19,14 +19,15 @@ final class PersonJsonLd
         $personId = "{$url}/#person";
 
         $availability = is_string($person['availability'] ?? null) ? $person['availability'] : null;
+        $availabilityLong = is_string($person['availability_long'] ?? null) ? $person['availability_long'] : null;
         $trajectory = is_string($person['trajectory'] ?? null) ? $person['trajectory'] : null;
-        if ($trajectory !== null && $trajectory === $availability) {
+        if ($trajectory !== null && in_array($trajectory, array_filter([$availability, $availabilityLong]), true)) {
             $trajectory = null;
         }
 
         $description = trim(implode(' ', array_filter([
             is_string($person['bio'] ?? null) ? $person['bio'] : null,
-            $availability,
+            $availabilityLong ?? $availability,
             $trajectory,
         ])));
 

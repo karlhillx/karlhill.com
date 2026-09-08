@@ -50,6 +50,7 @@ final class SiteCatalog
             'linkedin_headline' => $person['linkedin_headline'] ?? null,
             'bio' => $person['bio'] ?? null,
             'availability' => $person['availability'] ?? null,
+            'availability_long' => $person['availability_long'] ?? null,
             'trajectory' => $person['trajectory'] ?? null,
             'url' => $base,
             'image' => $base.'/img/webp/profile.webp',
