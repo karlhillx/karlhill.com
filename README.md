@@ -70,7 +70,7 @@ npm run test:e2e
 
 Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, kit, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
 
-Hire bio is canonical in `config/site/person.php` (`bio`). The hire ask is `person.availability` — used by the homepage hero and kit “Open to” (EM transition from current Staff leadership scope). Secondary IC fit is `availability_note` on `/kit` only. Do not restate the ask on About, kit highlights, or `/now` focus cards.
+Hire bio is canonical in `config/site/person.php` (`bio`). The hire ask is `person.availability` — used by kit “Open to”, agents, and JSON-LD (EM transition from current Staff leadership scope). The homepage first screen uses `hero.lede` plus `hero.proof` chips. One job: Engineering Manager. Do not restate the ask on About, kit highlights, or `/now` focus cards.
 
 ### Name disambiguation
 
@@ -123,10 +123,10 @@ Production should always set:
 APP_URL=https://karlhill.com
 APP_DEBUG=false
 MAIL_MAILER=resend
-MAIL_FROM_ADDRESS="contact@karlhill.com"
+MAIL_FROM_ADDRESS="karlhillx@gmail.com"
 ```
 
-`MAIL_FROM_ADDRESS` must be on a domain verified in Resend. The onboarding sender only delivers to the Resend account inbox.
+`MAIL_FROM_ADDRESS` is the public address (`person.email`). The onboarding sender only delivers to the Resend account inbox.
 
 ### Motion and idle UI
 

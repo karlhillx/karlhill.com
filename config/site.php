@@ -9,7 +9,7 @@ use App\Support\Booking;
  * derived values (sameAs, analytics primary) stay here so fragments stay pure.
  *
  * Page roles (hire path first — avoid parallel pitch surfaces):
- * - /        hire funnel: ask + visual → selected work → next steps → contact
+ * - /        hire funnel: spoken ask + proof → selected work → next steps → contact
  * - /work    Jacobs chapter + public NASA/older proof
  * - /kit     leave-behind: PDF + bio + links (primary recruiter packet)
  * - /now     booking (+ living status); Book CTAs land on #book

@@ -164,14 +164,21 @@ main > section:nth-of-type(n + 3):not([id]) {
         margin-bottom: 1rem;
     }
     #hero .hero-lede {
-        margin-bottom: 1.35rem;
+        margin-bottom: 0.85rem;
         font-size: 1.0625rem;
         line-height: 1.6;
         max-width: min(34rem, 100%);
     }
+    #hero .hero-proof {
+        margin-bottom: 1.35rem;
+    }
+    #hero .hero-cta {
+        width: 100%;
+    }
     #hero .hero-cta-btn {
-        flex: 1 1 auto;
-        min-width: min(100%, 9.5rem);
+        flex: 1 1 100%;
+        width: 100%;
+        min-width: 0;
         justify-content: center;
     }
     #hero .availability-label {

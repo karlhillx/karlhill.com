@@ -30,7 +30,7 @@ test.describe('smoke + a11y', () => {
         await page.goto('/');
         await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
         await expect(page.locator('.hero-cta a[href="/now#book"]')).toBeVisible();
-        await expect(page.locator('.hero-cta a[href="/work"]')).toBeVisible();
+        await expect(page.locator('.hero-cta a[href="/kit"]')).toBeVisible();
         await expect(page.locator('#path')).toBeVisible();
         await expect(page.locator('#contact-form, [data-contact-form]').first()).toBeVisible();
         await assertA11y(page);

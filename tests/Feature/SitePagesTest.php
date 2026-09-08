@@ -397,21 +397,34 @@ it('footer includes site explore links', function () {
 
 it('homepage hero links to em funnel', function () {
     $response = $this->get('/');
+    $html = $response->assertOk()->getContent();
 
     $response->assertSee('Book a conversation', escape: false);
     $response->assertSee('href="/now#book"', escape: false);
-    $response->assertSee('Selected work', escape: false);
-    $response->assertSee('href="/work"', escape: false);
+    $response->assertSee('Recruiter kit', escape: false);
     $response->assertSee('id="contact-form"', escape: false);
     $response->assertDontSee('Resume PDF', escape: false);
     $response->assertSee('Jacobs', escape: false);
     $response->assertDontSee(config('site.hero.subtitle'), escape: false);
-    $response->assertSee(config('site.person.availability'), escape: false);
+    $response->assertSee(config('site.hero.lede'), escape: false);
+    $response->assertSee('hero-portrait', escape: false);
+    $response->assertSee('aria-label="At a glance"', escape: false);
     $response->assertSee('Seeking Engineering Manager', escape: false);
     $response->assertDontSee('hero-availability', escape: false);
     $response->assertDontSee('hero-arc', escape: false);
     $response->assertDontSee('aria-label="Career arc"', escape: false);
     $response->assertSee('hero-mesh', escape: false);
+
+    expect($html)->toMatch('/<div class="hero-cta flex[\s\S]*?href="\/kit"[\s\S]*?<\/div>/');
+
+    preg_match('/<div class="hero-cta flex.*?<\/div>/s', $html, $heroCta);
+    expect($heroCta[0] ?? '')->toContain('href="/kit"')
+        ->and($heroCta[0] ?? '')->not->toContain('href="/work"')
+        ->and($heroCta[0] ?? '')->toContain('Recruiter kit');
+
+    foreach (config('site.hero.proof') as $chip) {
+        $response->assertSee($chip, escape: false);
+    }
 });
 
 it('nav includes kit, writing, and one filled booking CTA at every breakpoint', function () {
@@ -498,7 +511,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('More links', escape: false);
     $response->assertSee('data-print', escape: false);
     $response->assertSee(config('site.person.availability'), escape: false);
-    $response->assertSee(config('site.person.availability_note'), escape: false);
+    $response->assertDontSee('Also open to Staff/Principal IC', escape: false);
     $response->assertDontSee('Primary ask:', escape: false);
 });
 
