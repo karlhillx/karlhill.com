@@ -107,7 +107,7 @@ it('sitemap lastmod reflects editorial dates rather than today', function () {
     $base = rtrim(config('app.url'), '/');
 
     $this->assertSame('2026-06-01', $lastmod[$base.'/blog/release-governance']);
-    $this->assertSame('2026-09-08', $lastmod[$base.'/now']);
+    $this->assertSame('2026-09-10', $lastmod[$base.'/now']);
     $this->assertSame('2026-09-06', $lastmod[$base.'/work/finium']);
     $this->assertNotContains('2030-01-01', $lastmod->all(), 'No URL should claim it changed today');
 
