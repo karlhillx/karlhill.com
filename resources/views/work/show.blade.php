@@ -1,6 +1,7 @@
 @php
     $study = $caseStudy;
-    $liveUrl = ($project['url'] ?? null) && str_starts_with($project['url'], 'http') ? $project['url'] : null;
+    $liveUrl = \App\Support\ProjectCatalog::liveUrl($project);
+    $liveLabel = \App\Support\ProjectCatalog::artifactLabel($project);
     $canonical = \App\Support\PageMeta::siteUrl().'/work/'.$project['slug'];
     $ogImage = $meta->ogImage;
     $headlineOutcome = $study['outcome'][0] ?? null;
@@ -10,19 +11,24 @@
     $hasPlatform = count($study['platform']['stages'] ?? []) >= 3;
     $bodyH2s = array_values(array_filter($study['body_toc'] ?? [], fn ($item) => ($item['level'] ?? 2) === 2));
     $isJacobs = ($project['slug'] ?? '') === 'jacobs-mission-software';
+    $jobScope = $isJacobs ? (config('site.experience.current.scope') ?? []) : [];
+    $hasScope = filled($jobScope['owned'] ?? null)
+        && filled($jobScope['influence'] ?? null)
+        && filled($jobScope['reserved'] ?? null);
     $frameTitle = $isJacobs
-        ? 'Unclassified // Delivery Architecture'
+        ? 'Technical delivery'
         : (($liveUrl ? parse_url($liveUrl, PHP_URL_HOST) : null) ?: $project['title']);
 
     // Flat TOC — leave-behind skim, not academic grouping.
     $toc = array_values(array_filter([
         ['id' => 'snapshot', 'text' => 'Snapshot'],
-        $hasPlatform ? ['id' => 'platform', 'text' => 'Platform'] : null,
         ['id' => 'overview', 'text' => 'Overview'],
+        $hasPlatform ? ['id' => 'platform', 'text' => 'Workflow'] : null,
         ! empty($study['problem']) ? ['id' => 'problem', 'text' => 'Problem'] : null,
         ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions'] : null,
         ! empty($study['outcome']) ? ['id' => 'outcome', 'text' => 'Outcome'] : null,
-        ! empty($study['leadership']) ? ['id' => 'leadership', 'text' => 'Team & leadership'] : null,
+        $hasScope ? ['id' => 'scope', 'text' => 'Scope'] : null,
+        ! empty($study['leadership']) ? ['id' => 'leadership', 'text' => 'Team & contribution'] : null,
         ...$bodyH2s,
         $relatedProjects->isNotEmpty() ? ['id' => 'related', 'text' => 'Related'] : null,
     ]));
@@ -84,6 +90,13 @@
                             {{ $project['title'] }}
                         </h1>
                         <p class="case-study-lede text-neutral-400">{{ $study['lede'] }}</p>
+                        @if($liveUrl)
+                            <div class="case-study-masthead__actions">
+                                <x-site.button variant="secondary" :href="$liveUrl" target="_blank" rel="noopener noreferrer" data-no-ext>
+                                    {{ $liveLabel }} <span aria-hidden="true">↗</span>
+                                </x-site.button>
+                            </div>
+                        @endif
                     </header>
 
                     @if(count($toc) >= 2)
@@ -124,21 +137,12 @@
                             </div>
 
                             @if($isJacobs)
-                                <div class="case-study-confidential p-4 sm:p-5">
-                                    <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-800/80">
-                                        <div class="flex items-center gap-2">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
-                                            <span class="font-mono text-caption text-neutral-200 uppercase tracking-widest font-semibold">Operating model</span>
-                                        </div>
-                                        <span class="font-mono text-caption text-neutral-400 uppercase tracking-widest">Jacobs National Security</span>
-                                    </div>
-
-                                    <x-site.platform-map
-                                        class="mt-4"
-                                        :eyebrow="false"
-                                        :stages="$study['platform']['stages'] ?? []"
-                                        :caption="$study['platform']['caption'] ?? null"
-                                    />
+                                <div class="case-study-logo-plate" aria-hidden="true">
+                                    <div class="case-study-logo-plate__grid"></div>
+                                    <div class="case-study-logo-plate__glow"></div>
+                                    <img src="{{ $project['card_image'] ?? $project['logo']['path'] }}"
+                                         alt=""
+                                         class="case-study-logo-plate__mark">
                                 </div>
                             @else
                                 <button type="button"
@@ -207,13 +211,6 @@
                             </figure>
                         @endif
 
-                        @if($hasPlatform && ! $isJacobs)
-                            <x-site.platform-map
-                                class="mt-6"
-                                :stages="$study['platform']['stages'] ?? []"
-                                :caption="$study['platform']['caption'] ?? null"
-                            />
-                        @endif
                     </section>
 
                     {{-- Outcome → Stack → Role: the hiring skim path --}}
@@ -245,6 +242,15 @@
                         @endif
                     </section>
 
+                    @if($hasPlatform)
+                        <x-site.platform-map
+                            class="mb-10"
+                            data-reveal
+                            :stages="$study['platform']['stages'] ?? []"
+                            :caption="$study['platform']['caption'] ?? null"
+                        />
+                    @endif
+
                     <div class="case-study-brief">
                         <div class="case-study-brief__arc">
                             <section id="problem" class="case-study-brief__block scroll-mt-24" data-reveal>
@@ -274,15 +280,22 @@
                             </section>
                         </div>
 
+                        @if($hasScope)
+                            <section id="scope" class="case-study-brief__block case-study-brief__block--solo scroll-mt-24" data-reveal>
+                                <h2 class="case-study-brief__heading">Scope</h2>
+                                <x-site.job-scope :heading="false" :scope="$jobScope" />
+                            </section>
+                        @endif
+
                         @if(! empty($study['leadership']))
                             <section id="leadership" class="case-study-brief__block case-study-brief__block--solo scroll-mt-24" data-reveal>
-                                <h2 class="case-study-brief__heading">Team &amp; leadership</h2>
+                                <h2 class="case-study-brief__heading">Team &amp; contribution</h2>
                                 <dl class="case-study-leadership">
                                     @foreach([
-                                        'mode' => 'Leadership mode',
+                                        'mode' => 'Contribution',
                                         'team' => 'Team & partners',
-                                        'unblocked' => 'What I unblocked',
-                                        'decision' => 'Hard decision',
+                                        'unblocked' => 'What I improved',
+                                        'decision' => 'Key decision',
                                     ] as $key => $label)
                                         @if(! empty($study['leadership'][$key]))
                                             <div class="case-study-leadership__cell">
@@ -332,7 +345,7 @@
                         </a>
                         @if($liveUrl)
                             <x-site.button variant="secondary" :href="$liveUrl" target="_blank" rel="noopener noreferrer" data-no-ext>
-                                Visit live project <span aria-hidden="true">↗</span>
+                                {{ $liveLabel }} <span aria-hidden="true">↗</span>
                             </x-site.button>
                         @endif
                     </div>

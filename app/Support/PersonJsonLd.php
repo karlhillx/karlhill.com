@@ -244,7 +244,7 @@ final class PersonJsonLd
     protected static function occupationSkills(): array
     {
         $person = config('site.person');
-        $tagline = $person['tagline'] ?? 'Platform engineering, DevSecOps, mission software';
+        $tagline = $person['tagline'] ?? 'Software engineering, technical leadership, and delivery';
         $fromTagline = collect(explode('|', (string) $tagline))
             ->map(fn (string $part): string => trim($part))
             ->filter();

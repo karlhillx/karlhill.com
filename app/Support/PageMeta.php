@@ -103,7 +103,7 @@ final class PageMeta
 
         return new self(
             title: "{$label} — Writing — Karl Hill",
-            description: "Essays tagged “{$label}” on engineering leadership, mission software, and delivery.",
+            description: "Essays tagged “{$label}” on software engineering, leadership, and delivery.",
             canonical: "{$url}/blog/tag/{$tag}",
             ogTitle: "{$label} — Karl Hill",
             ogDescription: "Writing tagged “{$label}”.",
@@ -121,10 +121,10 @@ final class PageMeta
 
         return new self(
             title: "{$tag} — Work — Karl Hill",
-            description: "Projects tagged with “{$tag}” — mission software, platforms, and engineering leadership.",
+            description: "Software projects tagged with “{$tag}” by Karl Hill.",
             canonical: "{$url}/work/tag/".ProjectCatalog::tagSlug($tag),
             ogTitle: "{$tag} — Karl Hill",
-            ogDescription: "Portfolio work tagged “{$tag}”.",
+            ogDescription: "Selected software work tagged with “{$tag}”.",
             ogImage: "{$url}/img/og-home.jpg",
             ogImageAlt: "Karl Hill — work tagged {$tag}",
             ogImageWidth: 1200,
@@ -144,12 +144,17 @@ final class PageMeta
 
         $ogCard = ProjectCatalog::ogImageUrl($slug);
 
+        $ogDescription = ProjectCatalog::artifactLine($project);
+        if ($ogDescription === '') {
+            $ogDescription = (string) ($study['lede'] ?? $project['description'] ?? '');
+        }
+
         return new self(
             title: "{$project['title']} — Karl Hill",
             description: Str::limit($study['lede'] ?? $project['description'], 155, '…'),
             canonical: "{$url}/work/{$slug}",
             ogTitle: $project['title'],
-            ogDescription: Str::limit($study['lede'] ?? $project['description'], 120, '…'),
+            ogDescription: Str::limit($ogDescription, 120, '…'),
             ogImage: $ogCard ?? "{$url}{$project['image']}",
             ogImageAlt: $project['title'],
             ogImageWidth: $ogCard ? 1200 : null,

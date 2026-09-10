@@ -18,7 +18,7 @@ return [
     'fallback_repos' => [
         [
             'name' => 'bb-run',
-            'description' => 'Run Bitbucket Pipelines locally — execute your bitbucket-pipelines.yml faithfully in Docker or on your host, with parallel steps, fail-fast, and artifacts.',
+            'description' => 'Run Bitbucket Pipelines locally from your existing pipeline file.',
             'url' => 'https://github.com/karlhillx/bb-run',
             'stars' => 1,
             'language' => 'Python',
@@ -29,7 +29,7 @@ return [
         ],
         [
             'name' => 'sim-rs',
-            'description' => 'High-performance satellite orbit and telemetry simulation engine. Built with Rust and Tokio for scale-testing mission control pipelines and high-throughput data sinks.',
+            'description' => 'Satellite orbit and telemetry simulation in Rust.',
             'url' => 'https://github.com/karlhillx/sim-rs',
             'stars' => 0,
             'language' => 'Rust',
@@ -41,7 +41,7 @@ return [
         ],
         [
             'name' => 'pipeguard',
-            'description' => 'Policy-as-code validator for Bitbucket Pipelines. Enforce CI/CD standards, deployment safety, and organizational consistency across repositories.',
+            'description' => 'Check Bitbucket Pipelines definitions against CI/CD and deployment policies.',
             'url' => 'https://github.com/karlhillx/pipeguard',
             'stars' => 0,
             'language' => 'Go',
@@ -52,7 +52,7 @@ return [
         ],
         [
             'name' => 'driftlens',
-            'description' => 'Observability for configuration drift. Detect, classify, and score risky environment differences across .env, YAML, and JSON with policy-as-code.',
+            'description' => 'Compare environment configuration files and flag differences.',
             'url' => 'https://github.com/karlhillx/driftlens',
             'stars' => 0,
             'language' => 'Python',
@@ -63,7 +63,7 @@ return [
         ],
         [
             'name' => 'drift-rs',
-            'description' => 'High-performance telemetry and simulation data sink for aerospace operations. Built in Rust for memory safety, ultra-low latency, and mission-critical reliability.',
+            'description' => 'A Rust data sink for telemetry and simulation workloads.',
             'url' => 'https://github.com/karlhillx/drift-rs',
             'stars' => 0,
             'language' => 'Rust',

@@ -43,26 +43,30 @@
             {{ $kit['lede'] }}
         </p>
 
-        <div class="kit-screen-actions flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
-            @if(filled($bookingUrl))
-                <x-site.button variant="primary" :href="url('/now#book')"
-                    data-analytics-event="booking_cta_clicked"
-                    data-analytics-location="kit-actions">
-                    {{ $bookingLabel }}
+        <div class="kit-screen-actions mt-6 sm:mt-8">
+            <div class="kit-screen-actions__buttons">
+                @if(filled($bookingUrl))
+                    <x-site.button variant="primary" :href="url('/now#book')"
+                        data-analytics-event="booking_cta_clicked"
+                        data-analytics-location="kit-actions">
+                        {{ $bookingLabel }}
+                    </x-site.button>
+                @endif
+                @if($pdfHref)
+                    <x-site.button variant="secondary" :href="$pdfHref"
+                        download="Karl-Hill-Resume.pdf"
+                        data-analytics-event="resume_downloaded"
+                        data-analytics-location="kit-actions">
+                        Download resume PDF
+                    </x-site.button>
+                @endif
+            </div>
+            <div class="kit-screen-actions__links">
+                <x-site.button variant="link" class="kit-print-btn" data-print title="Print or save as PDF">
+                    Print kit
                 </x-site.button>
-            @endif
-            @if($pdfHref)
-                <x-site.button variant="secondary" :href="$pdfHref"
-                    download="Karl-Hill-Resume.pdf"
-                    data-analytics-event="resume_downloaded"
-                    data-analytics-location="kit-actions">
-                    Download resume PDF
-                </x-site.button>
-            @endif
-            <x-site.button variant="link" class="kit-print-btn" data-print title="Print or save as PDF">
-                Print kit
-            </x-site.button>
-            <x-site.button variant="link" href="#contact">Contact</x-site.button>
+                <x-site.button variant="link" href="#contact">Contact</x-site.button>
+            </div>
         </div>
     </x-site.page-hero>
 
@@ -70,12 +74,12 @@
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
             <h2 id="kit-glance-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1 md:sticky md:top-24 md:self-start">At a glance</h2>
             <div class="kit-glance max-w-3xl">
-                <p class="kit-bio text-neutral-200 text-lg leading-relaxed">{{ $person['bio'] }}</p>
+                <p class="kit-bio">{{ $kit['bio'] ?? $person['bio'] }}</p>
 
                 <dl class="kit-facts">
                     <div class="kit-facts__item">
                         <dt class="kit-facts__label">Name</dt>
-                        <dd class="kit-facts__value">{{ $person['name'] }}</dd>
+                        <dd class="kit-facts__value kit-facts__value--name">{{ $person['name'] }}</dd>
                     </div>
                     <div class="kit-facts__item">
                         <dt class="kit-facts__label">Title</dt>
@@ -87,11 +91,19 @@
                     </div>
                     <div class="kit-facts__item kit-facts__item--wide">
                         <dt class="kit-facts__label">Open to</dt>
-                        <dd class="kit-facts__value">
+                        <dd class="kit-facts__value kit-facts__value--open">
                             {{ $person['availability'] }}
                         </dd>
                     </div>
                 </dl>
+
+                @php($jobScope = config('site.experience.current.scope') ?? [])
+                <x-site.job-scope
+                    class="mt-8"
+                    heading="Current scope"
+                    heading-id="kit-scope-heading"
+                    :scope="$jobScope"
+                />
 
                 @if(! empty($kit['highlights']))
                     <ul class="kit-highlights" aria-label="Hiring packet">

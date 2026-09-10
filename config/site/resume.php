@@ -9,31 +9,30 @@ return [
     // crawlable URL doesn't expose a direct line to scrapers and robocallers.
     'phone_on_web' => false,
     'postal' => '',
-    // Banner: engineer who leads — not a management rebrand.
     // PDF splits on the first "|": lead line, then the rest.
-    'tagline' => 'Aerospace & Mission Software | Software Engineering | Technical Leadership | Team Execution',
+    'tagline' => 'Software Engineering | Technical Leadership | Mission Software | Agile Delivery',
     // Intentionally empty: leadership evidence lives in Jacobs experience bullets
     // so page 1 is Summary → Experience without duplicating the same four claims.
     'impact' => [],
     'expertise' => [
         'Software Engineering',
-        'Technical Leadership',
-        'CI/CD & DevSecOps',
-        'Distributed Systems & Messaging',
+        'Technical Direction & Leadership',
+        'Distributed Systems & Integration',
+        'CI/CD & Developer Tooling',
         'Engineer Development & Coaching',
-        'Team Execution & Agile Delivery',
-        'Mission Software Delivery',
+        'Agile Delivery Leadership',
+        'Integration & Release Readiness',
     ],
     'tooling' => [
         [
             'name' => 'bb-run',
             'url' => 'https://github.com/karlhillx/bb-run',
-            'note' => 'Local Bitbucket Pipelines runner — CI you can execute on a laptop.',
+            'note' => 'Run Bitbucket Pipelines locally.',
         ],
         [
             'name' => 'pipeguard',
             'url' => 'https://github.com/karlhillx/pipeguard',
-            'note' => 'Policy-as-code checks for CI/CD standards and deployment safety.',
+            'note' => 'Policy checks for CI/CD standards and deployment safety.',
         ],
     ],
 ];

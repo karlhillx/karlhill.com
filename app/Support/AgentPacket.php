@@ -40,6 +40,7 @@ final class AgentPacket
             'writing' => $this->catalog->writing(),
             'series' => $this->catalog->series(),
             'kit' => $this->catalog->kit(),
+            'delivery_system' => $this->catalog->deliverySystem(),
             'feeds' => $this->catalog->feeds(),
             'profiles' => $this->catalog->profiles(),
         ];
@@ -157,7 +158,7 @@ final class AgentPacket
                 [
                     'id' => 'recruiter-kit',
                     'name' => 'Recruiter kit',
-                    'description' => 'Human leave-behind: bio, resume PDF, booking, and canonical links.',
+                    'description' => 'Recruiter overview: bio, resume PDF, booking, and selected work.',
                     'tags' => ['recruiting', 'kit', 'resume'],
                     'examples' => [
                         'GET '.$kit['url'],
@@ -168,7 +169,7 @@ final class AgentPacket
                 ],
                 [
                     'id' => 'delivery-packet',
-                    'name' => 'How I run delivery',
+                    'name' => 'Engineering delivery',
                     'description' => 'Definition of Done, PR rubric, integration risk, and coaching. Public substitute for unpublished program architecture.',
                     'tags' => ['delivery', 'leadership', 'engineering-manager'],
                     'examples' => [

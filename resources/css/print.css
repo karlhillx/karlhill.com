@@ -512,6 +512,37 @@
         max-width: none !important;
     }
 
+    body:has(.kit-doc) .job-scope {
+        margin: 0 0 0.14in !important;
+        padding: 0 !important;
+        border: 0 !important;
+    }
+
+    body:has(.kit-doc) .job-scope__heading {
+        margin: 0 0 0.08in !important;
+        font-size: 8pt !important;
+        color: #0b1f3a !important;
+    }
+
+    body:has(.kit-doc) .job-scope__list {
+        max-width: none !important;
+    }
+
+    body:has(.kit-doc) .job-scope__row {
+        padding: 0.04in 0 !important;
+        border-color: #ddd !important;
+    }
+
+    body:has(.kit-doc) .job-scope__label {
+        color: #0b1f3a !important;
+        font-size: 8pt !important;
+    }
+
+    body:has(.kit-doc) .job-scope__body {
+        font-size: 9.5pt !important;
+        color: #222 !important;
+    }
+
     body:has(.kit-doc) .kit-highlights {
         margin: 0 !important;
         padding: 0 !important;
@@ -597,5 +628,25 @@
     body:has(.kit-doc) .text-accent,
     body:has(.kit-doc) .text-white {
         color: #111 !important;
+    }
+}
+
+@media print {
+    .delivery-map__panel {
+        display: grid !important;
+        padding-block: 0.6rem;
+        border-top: 1px solid #ddd;
+        animation: none !important;
+    }
+
+    .delivery-map__detail {
+        min-height: 0;
+    }
+
+    .delivery-map__node,
+    .delivery-map__sat {
+        cursor: default;
+        box-shadow: none !important;
+        outline: none !important;
     }
 }

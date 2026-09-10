@@ -30,7 +30,12 @@ it('hire packet json includes person experience writing and case studies', funct
         ->and(collect($json['writing'])->pluck('slug'))->toContain('release-governance')
         ->and($json['feeds']['llms'])->toEndWith('/llms.txt')
         ->and($json['kit']['resume_pdf'])->toContain('/files/Karl-Hill-Resume.pdf')
-        ->and($json['kit']['delivery'])->toEndWith('/about#delivery');
+        ->and($json['kit']['delivery'])->toEndWith('/about#delivery')
+        ->and($json['kit']['system'])->toEndWith('/#system')
+        ->and($json['delivery_system']['heading'])->toBe('How software gets delivered')
+        ->and(collect($json['delivery_system']['stages'])->pluck('id'))->toContain('verify', 'integrate', 'release')
+        ->and($json['kit']['scope']['owned'])->toContain('Python services')
+        ->and($json['experience'][0]['scope']['reserved'])->toContain('personnel decisions');
 });
 
 it('mcp well-known document points at the hire packet', function () {
@@ -70,7 +75,7 @@ it('agent packet builder matches the public json', function () {
         ->and($site['seeking'])->toContain('Engineering Manager')
         ->and($site['trajectory'])->toContain('Engineering Manager')
         ->and($site['person']['trajectory'])->toContain('Engineering Manager')
-        ->and($site['headline'])->toContain('Seeking Engineering Manager')
+        ->and($site['headline'])->toContain('Staff Aerospace Software Engineer')
         ->and($site['person']['headline'])->toContain('Jacobs');
 });
 

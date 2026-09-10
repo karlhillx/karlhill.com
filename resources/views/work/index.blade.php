@@ -23,7 +23,7 @@
 
         {{-- Two sentences: the hero is a doorway, the cards carry the detail. --}}
         <p class="text-neutral-400 text-base leading-relaxed max-w-2xl">
-            Jacobs is the leadership chapter — hard calls under constraint, engineer development, team execution. NASA is the public platform proof. Finium is where the pattern started.
+            Software other people depend on, then the engineering system around it. Jacobs is current. NASA Earth science systems from 2017 to 2025 are still public.
         </p>
     </x-site.page-hero>
 
@@ -72,9 +72,9 @@
     ])
 
     @if(($supporting ?? collect())->isNotEmpty())
-        <x-site.section id="chapters" class="scroll-mt-32" section-label="NASA Goddard" number="02" label="Also shipped at NASA Goddard">
+        <x-site.section id="chapters" class="scroll-mt-32" section-label="Also at Goddard" number="02" label="Also at Goddard">
             <p class="text-neutral-400 text-sm leading-relaxed max-w-2xl mb-6" data-reveal>
-                Flagship cards stay on the trajectory. These Goddard chapters are the public record — short hops for resume readers, not a second screenshot grid.
+                Publishing, direct-readout products, and catalog access from the same years. Supporting chapters, not a second flagship set.
             </p>
             <ul class="work-chapters border-y border-neutral-800 divide-y divide-neutral-800" data-reveal>
                 @foreach($supporting as $project)
@@ -87,8 +87,8 @@
                             <span class="font-sans font-semibold text-neutral-100 tracking-tight group-hover:text-accent transition-colors">
                                 {{ $project['title'] }}
                             </span>
-                            <span class="text-neutral-400 text-sm leading-snug line-clamp-1 sm:min-w-0 sm:flex-1">
-                                {{ $project['case_study']['lede'] ?? $project['description'] }}
+                            <span class="text-neutral-400 text-sm leading-snug sm:min-w-0 sm:flex-1">
+                                {{ $project['description'] }}
                             </span>
                             <span class="font-mono text-caption text-accent uppercase tracking-widest sm:shrink-0" aria-hidden="true">
                                 View <span class="arrow-nudge inline-block">→</span>

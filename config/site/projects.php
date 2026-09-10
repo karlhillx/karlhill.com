@@ -3,13 +3,15 @@
 return [
     [
         'slug' => 'jacobs-mission-software',
-        'title' => 'Engineering leadership for aerospace mission software',
+        'title' => 'Aerospace mission software',
         'meta' => 'Jacobs · 2025–present',
         'sector' => 'Aerospace & Defense',
-        'description' => 'Staff leadership for ~10 engineers across ~20 repositories: sequencing delivery under constraint, developing engineers, and holding the hard call when program urgency outruns readiness. Program specifics stay unpublished.',
+        'description' => 'Python services, shared interfaces, messaging, and CI/CD across about 20 repositories. Technical delivery and coaching for a team of about 10.',
         'image' => '/img/webp/ss-jacobs-ns.webp',
-        'image_alt' => 'Jacobs J logomark — brand panel for unpublished aerospace mission software.',
+        'image_alt' => 'Jacobs logo',
         'imagePosition' => 'object-center',
+        'card_variant' => 'logo',
+        'card_image' => '/img/logo-jacobs-mark.png',
         'url' => '/work/jacobs-mission-software',
         'featured' => true,
         'tags' => [
@@ -29,10 +31,15 @@ return [
         'title' => 'Flood Mapping System',
         'meta' => 'NASA · 2017–2025',
         'sector' => 'NASA Earth Science',
-        'description' => 'Mission-critical geospatial platform generating near-real-time flood inundation maps during active global disaster events. Architected the fully automated pipeline — from raw satellite sensor ingestion through geospatial product generation, dissemination, and integration with international emergency-management networks — engineered for fault tolerance and reliability when latency is measured in hours, not sprints.',
+        'description' => 'Python and Docker software that processes and distributes satellite-derived flood maps on AWS. The live map is public.',
         'image' => '/img/webp/small-flood.webp',
         'imagePosition' => 'object-left-top',
         'url' => 'https://floodmapping.gsfc.nasa.gov/',
+        'artifact' => [
+            'label' => 'Open the live map',
+            'href' => 'https://floodmapping.gsfc.nasa.gov/',
+            'line' => 'Public satellite flood maps.',
+        ],
         'featured' => true,
         'tags' => [
             'Python',
@@ -50,11 +57,16 @@ return [
         'title' => 'LAADS DAAC',
         'meta' => 'NASA · 2017–2025',
         'sector' => 'NASA Earth Science',
-        'description' => 'NASA’s Level-1 and Atmosphere archive: modernized Find Data search and order, the public LAADS portal, and LANCE near-real-time access for MODIS and VIIRS holdings. GitLab CI/CD, Kubernetes, and Perl services that had to keep distributing while the web systems changed.',
+        'description' => 'Find Data search, ordering, and near-real-time access for NASA satellite granules. Perl services with Kubernetes delivery.',
         'image' => '/img/webp/ss-ladsweb.webp',
         'image_alt' => 'NASA LAADS Find Data — product, time, location, files, and review-and-order wizard for MODIS and VIIRS granules.',
         'imagePosition' => 'object-left-top',
         'url' => 'https://ladsweb.modaps.eosdis.nasa.gov/search/',
+        'artifact' => [
+            'label' => 'Open Find Data',
+            'href' => 'https://ladsweb.modaps.eosdis.nasa.gov/search/',
+            'line' => 'Live NASA satellite search — Find Data.',
+        ],
         'featured' => true,
         'tags' => [
             'Perl',
@@ -72,9 +84,14 @@ return [
         'title' => 'NASA Earth Observatory',
         'meta' => 'NASA · 2017–2025',
         'sector' => 'NASA Earth Science',
-        'description' => 'Flagship science-communication platform serving 1.5M+ monthly visitors with satellite imagery and Earth science data. Led the architectural overhaul of the publishing pipeline — re-platforming editorial workflows for distributed content teams and hardening the delivery layer for accessibility, performance, and search at scale. Set the technical direction that turned ad-hoc story production into a repeatable, self-service system built to evolve for the next decade.',
+        'description' => 'Public Earth science publishing. Editorial workflows, imagery, and a substantial audience.',
         'image' => '/img/webp/ss-earth-observatory.webp',
         'url' => '/work/nasa-earth-observatory',
+        'artifact' => [
+            'label' => 'Open Earth Observatory',
+            'href' => 'https://earthobservatory.nasa.gov/',
+            'line' => 'Live Earth Observatory. About 1.5 million monthly visitors during that work.',
+        ],
         'featured' => false,
         // Editorial publishing chapter — keep off the main grid; surface as a Goddard supporting chapter.
         'listed' => false,
@@ -94,9 +111,14 @@ return [
         'title' => 'Direct Readout Laboratory',
         'meta' => 'NASA · 2017–2025',
         'sector' => 'NASA Earth Science',
-        'description' => 'Real-time scientific data-processing hub ingesting multi-instrument sensor streams from polar-orbiting satellites. Designed the ingestion and reformatting architecture that transforms raw downlinks into Level-0 through Level-2 geophysical products, sustaining 24/7 distribution to operational centers and a global network of registered direct-broadcast ground stations.',
+        'description' => 'Satellite-data ingest, processing, and distribution for products other teams used.',
         'image' => '/img/webp/ss-direct-readout2.webp',
         'url' => 'https://directreadout.sci.gsfc.nasa.gov',
+        'artifact' => [
+            'label' => 'Open the portal',
+            'href' => 'https://directreadout.sci.gsfc.nasa.gov',
+            'line' => 'Live direct-readout portal for satellite data products.',
+        ],
         'featured' => false,
         // Supporting NASA ingest/ops chapter — not a third flagship card.
         'listed' => false,
@@ -117,7 +139,7 @@ return [
         'title' => 'ESSCOR',
         'meta' => 'NASA · 2017–2025',
         'sector' => 'NASA Earth Science',
-        'description' => 'Earth science data-discovery platform unifying archival and near-real-time remote-sensing holdings into a single searchable, standards-compliant catalog. Designed granule-level access controls and a governed metadata model that streamlined discovery, ordering, and delivery for researchers across federal agencies and partner institutions.',
+        'description' => 'Catalog, search, and access for Earth science holdings.',
         'image' => '/img/webp/ss-esccor.webp',
         'url' => '/work/esscor',
         // Supporting NASA catalog chapter — keep off the main grid.
@@ -139,7 +161,7 @@ return [
         'title' => 'InformedDNA Platform',
         'meta' => 'InformedDNA · 2016–2017',
         'sector' => 'Healthcare',
-        'description' => 'Clinical-genomics workflow platform orchestrating case management, genetic-counseling routing, and billing reconciliation across distributed care teams. Consolidated fragmented, manual operations into a single governed system — role-based access, end-to-end audit trails, and automated documentation pipelines — cutting per-case operational overhead by $30K annually.',
+        'description' => 'A Laravel-based case-management platform connecting counseling workflows, documentation, and billing.',
         'image' => '/img/webp/ss-informeddna.webp',
         'url' => 'https://idnaportal.com/',
         // One-year healthcare chapter — real work, off the aerospace trajectory.
@@ -158,9 +180,9 @@ return [
     [
         'slug' => 'finium',
         'title' => 'Finium',
-        'meta' => 'Verizon Business · 1999–2005',
+        'meta' => 'Managed security · 1999–2005',
         'sector' => 'Enterprise Security',
-        'description' => 'Enterprise managed-security platform running multi-tenant client operations across a national carrier network for a Fortune 500 provider. Owned the services that automated provisioning, monitoring, and incident-response orchestration — scaling operations 10× and directly enabling a $105M acquisition.',
+        'description' => 'Multi-tenant Java services for provisioning, monitoring, and incident workflows.',
         'image' => '/img/webp/ss-mci-verizon.webp',
         'url' => '/work/finium',
         'tags' => [

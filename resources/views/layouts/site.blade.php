@@ -84,11 +84,12 @@
     <link rel="preload" as="font" type="font/woff2" href="{{ Vite::asset('resources/fonts/bebas-neue-latin-400-normal.woff2') }}" crossorigin>
 
     {{-- Favicons --}}
-    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    @php($iconV = filemtime(public_path('img/favicon-96x96.png')))
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png?v={{ $iconV }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png?v={{ $iconV }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png?v={{ $iconV }}">
+    <link rel="shortcut icon" href="/favicon.ico?v={{ $iconV }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png?v={{ $iconV }}">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="alternate" type="application/atom+xml" title="Karl Hill — Writing" href="/feed.xml">
     <link rel="alternate" type="application/feed+json" title="Karl Hill — Writing (JSON Feed)" href="/feed.json">
@@ -160,7 +161,7 @@
     <div id="command-palette" popover="auto" class="command-palette" aria-label="Command palette">
         <input id="command-input" type="text"
                class="command-input font-mono"
-               placeholder="Jump to a section…"
+               placeholder="Search pages and sections…"
                aria-label="Search commands"
                role="combobox"
                aria-expanded="false"

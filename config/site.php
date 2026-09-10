@@ -9,7 +9,7 @@ use App\Support\Booking;
  * derived values (sameAs, analytics primary) stay here so fragments stay pure.
  *
  * Page roles (hire path first — avoid parallel pitch surfaces):
- * - /        hire funnel: spoken ask + proof → selected work → next steps → contact
+ * - /        hire funnel: spoken ask + proof → selected work → delivery diagram → next steps → contact
  * - /work    Jacobs chapter + public NASA/older proof
  * - /kit     leave-behind: PDF + bio + links (primary recruiter packet)
  * - /now     booking (+ living status); Book CTAs land on #book
@@ -98,6 +98,7 @@ return [
     'now' => require __DIR__.'/site/now.php',
     'kit' => require __DIR__.'/site/kit.php',
     'lead' => require __DIR__.'/site/lead.php',
+    'system' => require __DIR__.'/site/system.php',
     'github' => require __DIR__.'/site/github.php',
     'resume' => require __DIR__.'/site/resume.php',
 

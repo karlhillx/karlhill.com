@@ -1,7 +1,7 @@
 @php($how = config('site.about.how_i_lead'))
 
 @if(! empty($how['items']))
-    <x-site.section id="how-i-lead" section-label="How I lead">
+    <x-site.section id="how-i-lead" section-label="Technical leadership">
         <div class="site-heading-space max-w-3xl" data-reveal>
             <x-site.section-heading :number="$sectionNumber ?? '01'" :label="$how['title']" class="!mb-5" />
             @if(! empty($how['intro']))
@@ -11,7 +11,7 @@
                 <div class="flex flex-wrap items-center gap-x-5 gap-y-1 mt-4">
                     <a href="#delivery"
                        class="inline-flex items-center min-h-11 font-mono text-xs text-accent uppercase tracking-widest hover:underline underline-offset-4">
-                        How I run delivery →
+                        Engineering delivery →
                     </a>
                     <a href="/kit"
                        class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">

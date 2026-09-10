@@ -2,11 +2,12 @@
 
 return [
     'eyebrow' => 'For recruiters & hiring managers',
-    'lede' => 'A leave-behind for Engineering Manager searches: PDF, short bio, and the links that prove current Staff leadership scope. Evidence is on Work and the resume; booking is one click away.',
-    // Ask lives in person.availability (Open to). One job: Engineering Manager.
+    'lede' => 'Current engineering system, public NASA software, and resume.',
+    // Glance bio is person.bio: work-first, no LinkedIn opener.
     'highlights' => [
-        'Proof: Jacobs — held a sprint when partner readiness lagged; sequenced prep instead of rework (~10 engineers, ~20 repos).',
-        'Packet: this page + resume PDF + /about#delivery for how I run delivery.',
+        'Flood maps, LAADS Find Data, Earth Observatory, and the GeoHorizons paper are public.',
+        'At Jacobs the work spans about 20 repositories: interfaces, tests, CI, and release. About six engineers have been onboarded and coached.',
+        'Engineering Manager is the next container for this scope. Principal-level technical work remains a parallel path.',
     ],
     /*
      | Canonical outbound links for the kit (and its print leave-behind).
@@ -18,7 +19,7 @@ return [
             'label' => null,
             'type' => 'booking',
             'path' => '/now#book',
-            'meta' => '#book',
+            'meta' => 'Book',
             'group' => 'primary',
         ],
         [
@@ -35,15 +36,27 @@ return [
             'group' => 'primary',
         ],
         [
-            'label' => 'Current work — Aerospace mission software',
+            'label' => 'Aerospace mission software',
             'path' => '/work/jacobs-mission-software',
             'meta' => 'Current',
             'group' => 'primary',
         ],
         [
-            'label' => 'Case study — LAADS DAAC',
-            'path' => '/work/laads-daac',
-            'meta' => 'Flagship',
+            'label' => 'Flood maps',
+            'url' => 'https://floodmapping.gsfc.nasa.gov/',
+            'meta' => 'Live',
+            'group' => 'primary',
+        ],
+        [
+            'label' => 'LAADS Find Data',
+            'url' => 'https://ladsweb.modaps.eosdis.nasa.gov/search/',
+            'meta' => 'Live',
+            'group' => 'primary',
+        ],
+        [
+            'label' => 'GeoHorizons paper',
+            'url' => 'https://doi.org/10.1144/gh2025-7',
+            'meta' => 'DOI',
             'group' => 'primary',
         ],
         [
@@ -53,19 +66,25 @@ return [
             'group' => 'primary',
         ],
         [
-            'label' => 'Live resume (HTML)',
+            'label' => 'Resume online',
             'path' => '/resume',
             'meta' => '/resume',
             'group' => 'more',
         ],
         [
-            'label' => 'About — leadership & delivery',
+            'label' => 'About Karl',
             'path' => '/about',
             'meta' => '/about',
             'group' => 'more',
         ],
         [
-            'label' => 'How I run delivery',
+            'label' => 'How software gets delivered',
+            'path' => '/#system',
+            'meta' => 'Diagram',
+            'group' => 'more',
+        ],
+        [
+            'label' => 'Engineering delivery',
             'path' => '/about#delivery',
             'meta' => 'Packet',
             'group' => 'more',
@@ -77,9 +96,27 @@ return [
             'group' => 'more',
         ],
         [
-            'label' => 'Case study — Flood Mapping System',
+            'label' => 'Earth Observatory',
+            'url' => 'https://earthobservatory.nasa.gov/',
+            'meta' => 'Live',
+            'group' => 'more',
+        ],
+        [
+            'label' => 'Earth Observatory study',
+            'path' => '/work/nasa-earth-observatory',
+            'meta' => 'Case study',
+            'group' => 'more',
+        ],
+        [
+            'label' => 'Flood Mapping System',
             'path' => '/work/flood-mapping-system',
-            'meta' => 'Flagship',
+            'meta' => 'Case study',
+            'group' => 'more',
+        ],
+        [
+            'label' => 'LAADS DAAC',
+            'path' => '/work/laads-daac',
+            'meta' => 'Case study',
             'group' => 'more',
         ],
         [

@@ -28,11 +28,12 @@ it('llms txt returns a v2 file-list map', function () {
     $this->assertStringContainsString('## Optional', $body);
     $this->assertStringContainsString('## Case studies', $body);
     $this->assertStringContainsString('## Series', $body);
-    $this->assertStringContainsString('Engineering Manager craft', $body);
+    $this->assertStringContainsString('Engineering leadership in practice', $body);
     $this->assertStringContainsString('/work/nasa-earth-observatory', $body);
     $this->assertStringContainsString('/work/laads-daac', $body);
     $this->assertStringContainsString('/kit', $body);
     $this->assertStringContainsString('/about#delivery', $body);
+    $this->assertStringContainsString('/#system', $body);
     $this->assertStringNotContainsString('](https://karlhill.com/lead)', $body);
     $this->assertStringContainsString('/blog/release-governance', $body);
     $this->assertStringContainsString('What 20 Years Taught Me About Release Governance', $body);
@@ -78,7 +79,7 @@ it('every h2 section is a markdown file list with unique urls', function () {
     expect($urls)->not->toBeEmpty()
         ->and($urls)->toHaveCount(count($unique))
         ->and(count($unique))->toBeGreaterThanOrEqual(25)
-        ->and(count($unique))->toBeLessThanOrEqual(34);
+        ->and(count($unique))->toBeLessThanOrEqual(35);
 
     $withoutUrls = preg_replace('~https?://\S+~', '', $body) ?? $body;
     $words = str_word_count($withoutUrls);
@@ -129,7 +130,7 @@ it('llms full txt includes essay bodies', function () {
     $body = $response->getContent();
     $this->assertStringContainsString('## Full essays', $body);
     $this->assertStringContainsString('A release is a decision', $body);
-    $this->assertStringContainsString('unit of work', $body);
+    $this->assertStringContainsString('The artifact is the contract', $body);
 });
 
 it('homepage includes speculation rules for blog prefetch', function () {

@@ -1,7 +1,7 @@
 @php($lead = config('site.lead'))
 
 @if(! empty($lead['sections']))
-    <x-site.section id="delivery" section-label="How I run delivery" :number="$sectionNumber ?? '02'" label="How I run delivery" class="scroll-mt-28">
+    <x-site.section id="delivery" section-label="Engineering delivery" :number="$sectionNumber ?? '02'" label="Engineering delivery" class="scroll-mt-28">
         <div class="max-w-3xl" data-reveal>
             @if(! empty($lead['lede']))
                 <p class="opsz-scroll text-neutral-400 text-base leading-relaxed mb-4">
@@ -43,25 +43,22 @@
         </section>
     @endforeach
 
-    @if(! empty($lead['not']))
-        <section class="site-section border-t border-neutral-800/50" aria-label="What this section is not">
+    @if(! empty($lead['links']))
+        <section class="site-section border-t border-neutral-800/50" aria-label="Related pages">
             <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-                <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">What this is not</p>
+                <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">Continue</p>
                 <div class="max-w-2xl">
-                    <p class="text-neutral-400 text-base leading-relaxed">{{ $lead['not'] }}</p>
-                    <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-8">
-                        <a href="/work/jacobs-mission-software"
-                           class="inline-flex items-center min-h-11 font-mono text-xs text-accent uppercase tracking-widest hover:underline underline-offset-4">
-                            Current work →
-                        </a>
-                        <a href="/work#chapters"
-                           class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                            NASA proof
-                        </a>
-                        <a href="/kit"
-                           class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                            Recruiter kit
-                        </a>
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-3">
+                        @foreach($lead['links'] as $link)
+                            <a href="{{ $link['href'] }}"
+                               @class([
+                                   'inline-flex items-center min-h-11 font-mono text-xs uppercase tracking-widest',
+                                   'text-accent hover:underline underline-offset-4' => ! empty($link['emphasis']),
+                                   'text-neutral-400 hover:text-accent transition-colors' => empty($link['emphasis']),
+                               ])>
+                                {{ $link['label'] }}
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>

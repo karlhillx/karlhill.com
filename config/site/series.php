@@ -2,8 +2,8 @@
 
 return [
     'em-craft' => [
-        'title' => 'Engineering Manager craft',
-        'description' => 'The Staff→EM bridge: first 90 days, saying no under roadmap pressure, and feedback without politics.',
+        'title' => 'Engineering leadership in practice',
+        'description' => 'Notes on moving into management, handling competing priorities, and giving useful feedback.',
         'slugs' => [
             0 => 'staff-to-em-first-90-days',
             1 => 'saying-no-roadmap-pressure',

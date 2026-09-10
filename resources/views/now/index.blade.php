@@ -87,9 +87,8 @@
                     <div class="max-w-2xl">
                         <h2 class="font-sans font-semibold text-2xl sm:text-3xl tracking-tight text-neutral-100 mb-3">{{ $bookingLabel }}</h2>
                         <p class="text-neutral-400 text-sm leading-relaxed">
-                            Pick a slot below — or
-                            <a href="#contact" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">email me</a>
-                            if that works better.
+                            Choose a time below, or
+                            <a href="#contact" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">email me</a>.
                         </p>
                     </div>
                 </div>
@@ -105,7 +104,7 @@
                 </div>
                 @if(filled($bookingUrl))
                     <p class="mt-4 font-mono text-caption text-neutral-500 uppercase tracking-widest">
-                        Embed not loading?
+                        Scheduler not loading?
                         <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer" data-no-ext data-analytics-event="scheduler_opened" data-analytics-location="now-embed-fallback" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">
                             Open scheduler ↗
                         </a>

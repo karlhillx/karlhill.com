@@ -1,55 +1,39 @@
 <?php
 
 return [
-    // People craft + delivery OS + career arc. Hire leave-behind is /kit; booking is /now#book.
-    'lede' => 'NASA platforms at operational scale, then Staff leadership at Jacobs National Security — how I develop engineers, run team execution, and coordinate delivery across partners.',
+    'lede' => 'Aerospace mission software at Jacobs. Previously NASA Goddard Earth science platforms at SSAI, 2017–2025.',
     'how_i_lead' => [
-        'title' => 'How I lead',
-        'intro' => 'How I work with engineers and stakeholders today. The hire ask (Staff leadership → Engineering Manager) lives on /kit; the written delivery bar follows below.',
+        'title' => 'Technical leadership',
+        'intro' => 'Technical direction stays close to the code. Sequencing, reviews, checks, and coaching are how the work runs. Formal personnel decisions remain with management.',
         'items' => [
             [
-                'title' => '1:1s that surface risk',
-                'body' => 'Career growth, feedback, and delivery risk in the same conversation — not three separate rituals. Blockers show up early enough to act.',
+                'title' => 'Sequence the work',
+                'body' => 'Program priorities become scoped engineering work. Dependencies and integration risk are visible while the software is still being written.',
             ],
             [
-                'title' => 'Tradeoffs made visible',
-                'body' => 'What we ship, what we defer, and what we refuse — so the team can protect focus without politics.',
+                'title' => 'Review as teaching',
+                'body' => 'Code review is specific: correctness, tests, interfaces, and the effect on other repositories. Authors leave knowing why, not only what to change.',
             ],
             [
-                'title' => 'Standards over heroics',
-                'body' => 'Raise the bar through coaching instead of becoming the bottleneck. Reviews teach; the written bar lives in How I run delivery.',
+                'title' => 'Put the bar in the system',
+                'body' => 'Tests, CI checks, and written expectations carry the standard. The team should not need one person in the path to ship.',
             ],
             [
-                'title' => 'Stakeholder trust in plain language',
-                'body' => 'Partner with product and mission partners so trust survives roadmap pressure and surprise constraints.',
-            ],
-            [
-                'title' => 'Team outcomes over personal touch',
-                'body' => 'Measure success by predictability and ownership — not by how much I personally touch.',
+                'title' => 'Grow independent engineers',
+                'body' => 'Onboarding, reviews, and technical feedback are how engineers take on more of the work. About six have been coached that way on the current team.',
             ],
         ],
     ],
     'arc' => [
-        'intro' => 'Two public chapters. Full dates and bullets live on the resume.',
+        'title' => 'Career',
+        'intro' => 'The scope widened: software other people depend on, then the engineering system around it, then coaching so that system does not live in one person. NASA is the public proof. Jacobs is the current job.',
         'cta_label' => 'Full resume',
         'cta_href' => '/resume',
     ],
-    'beyond' => 'Away from the terminal, I\'m based in Washington, DC, where I write and release music (you\'ll find a back catalog on Discogs). I\'m happiest with a hard problem, a whiteboard, and a team worth building with — and I care as much about mentoring the next engineer as I do about shipping the next release.',
-    'social_proof' => [
-        'eyebrow' => 'Worked with',
-        'items' => [
-            [
-                'quote' => 'NASA Earth science ops partners — lead engineer on LAADS archive search and order, plus flood mapping under disaster urgency.',
-                'attribution' => 'SSAI / NASA Goddard',
-            ],
-            [
-                'quote' => 'National Security engineering teams — day-to-day technical leadership across ~10 engineers and ~20 repositories: sprint execution, coaching, standards, and cross-team release readiness.',
-                'attribution' => 'Jacobs',
-            ],
-            [
-                'quote' => 'Co-author on a Geological Society / AGU paper: a web-based high-resolution global water and flood mapping platform, published 5 May 2026.',
-                'attribution' => 'GeoHorizons · Policelli, Kettner, Hill, Maloney',
-            ],
-        ],
+    'impact' => [
+        'heading' => 'Experience in numbers',
+        'context' => 'The Earth Observatory audience figure reflects the platform during that work, not current traffic.',
+        'footer' => 'Education, certifications, and technical skills are on the resume.',
     ],
+    'beyond' => 'Drummer in Sorry About Your Daughter, a Washington, DC rock band that reunited in 2019. Atlantic to Adrenaline, 2026: first European tour in about 30 years, then a US show in Columbia, Maryland. Recording credits are on Discogs.',
 ];

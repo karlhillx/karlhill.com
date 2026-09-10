@@ -37,7 +37,7 @@
 
         <x-site.page-hero :eyebrow="$lead['eyebrow'] ?? 'Forward this page'" :breadcrumbs="[
             ['label' => 'Home', 'url' => '/'],
-            ['label' => 'How I run delivery'],
+            ['label' => 'Engineering delivery'],
         ]">
             <x-slot:title>{{ $lead['title'] }}</x-slot:title>
 
@@ -54,7 +54,7 @@
                     </x-site.button>
                 @endif
                 <x-site.button variant="secondary" href="/kit">Recruiter kit</x-site.button>
-                <x-site.button variant="link" href="/about#how-i-lead">How I lead</x-site.button>
+                <x-site.button variant="link" href="/about#how-i-lead">Technical leadership</x-site.button>
                 <x-site.button variant="link" data-print title="Print or save as PDF">Print packet</x-site.button>
             </div>
 
@@ -126,7 +126,7 @@
                             </a>
                             <a href="/about#how-i-lead"
                                class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                                How I lead
+                                Technical leadership
                             </a>
                         </div>
                     </div>

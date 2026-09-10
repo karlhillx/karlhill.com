@@ -24,6 +24,7 @@ function gotoSection(id) {
         contact: '/#contact',
         writing: '/blog',
         why: '/#why',
+        system: '/#system',
     };
 
     window.location.assign(pageMap[id] ?? `/#${id}`);
@@ -126,7 +127,7 @@ export function initCommandPalette() {
             action: () => window.location.assign('/'),
         }),
         withGroup({
-            label: 'Work — Portfolio',
+            label: 'Work',
             keywords: 'work portfolio projects nasa jacobs',
             action: () => window.location.assign('/work'),
         }),
@@ -136,7 +137,7 @@ export function initCommandPalette() {
             action: () => window.location.assign('/kit'),
         }),
         withGroup({
-            label: 'Writing — Blog',
+            label: 'Writing',
             keywords: 'writing blog posts articles essays notes governance leadership',
             action: () => window.location.assign('/blog'),
         }),
@@ -146,19 +147,24 @@ export function initCommandPalette() {
             action: () => window.location.assign('/now#book'),
         }),
         withGroup({
-            label: 'About — Leadership & delivery',
+            label: 'About',
             keywords: 'about experience career background leadership how i lead delivery',
             action: () => window.location.assign('/about'),
         }),
         withGroup({
-            label: 'How I Lead',
+            label: 'Technical leadership',
             keywords: 'how i lead leadership coaching 1:1 feedback em manager',
             action: () => window.location.assign('/about#how-i-lead'),
         }),
         withGroup({
-            label: 'How I run delivery',
+            label: 'Engineering delivery',
             keywords: 'delivery definition of done pr rubric risk coaching lead packet',
             action: () => window.location.assign('/about#delivery'),
+        }),
+        withGroup({
+            label: 'How software gets delivered',
+            keywords: 'delivery diagram verify integrate release ruff pytest cicd system engineering',
+            action: () => window.location.assign('/#system'),
         }),
         withGroup({
             label: 'Resume',
@@ -166,7 +172,7 @@ export function initCommandPalette() {
             action: () => window.location.assign('/resume'),
         }),
         withGroup({
-            label: 'Now — Current focus',
+            label: 'Now',
             keywords: 'now focus availability engineering manager em staff leadership recruiters',
             action: () => window.location.assign('/now'),
         }),
@@ -176,7 +182,7 @@ export function initCommandPalette() {
             action: () => gotoSection('experience'),
         }),
         withGroup({
-            label: 'Selected Work',
+            label: 'Selected work',
             keywords: 'work portfolio projects',
             action: () => gotoSection('work'),
         }),
@@ -186,7 +192,7 @@ export function initCommandPalette() {
             action: () => gotoSection('research'),
         }),
         withGroup({
-            label: 'Technical Expertise',
+            label: 'Technical expertise',
             keywords: 'stack tech tools languages expertise',
             action: () => gotoSection('stack'),
         }),
@@ -196,7 +202,7 @@ export function initCommandPalette() {
             action: () => gotoSection('credentials'),
         }),
         withGroup({
-            label: 'Open Source',
+            label: 'Open source',
             keywords: 'github repos open source',
             action: () => gotoSection('open-source'),
         }),
@@ -206,12 +212,12 @@ export function initCommandPalette() {
             action: () => gotoSection('contact'),
         }),
         withGroup({
-            label: 'Atom Feed',
+            label: 'Atom feed',
             keywords: 'rss atom feed subscribe',
             action: () => window.open('/feed.xml', '_blank', 'noopener,noreferrer'),
         }),
         withGroup({
-            label: 'JSON Feed',
+            label: 'JSON feed',
             keywords: 'json feed subscribe',
             action: () => window.open('/feed.json', '_blank', 'noopener,noreferrer'),
         }),

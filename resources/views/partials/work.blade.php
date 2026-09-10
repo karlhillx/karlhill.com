@@ -19,7 +19,7 @@
                     :title="$project['title']"
                     :meta="$project['meta']"
                     :description="$project['description']"
-                    :image="$project['image']"
+                    :image="$project['card_image'] ?? $project['image']"
                     :imagePosition="$project['imagePosition'] ?? 'object-top'"
                     :image-alt="$project['image_alt'] ?? null"
                     :tags="$project['tags']"

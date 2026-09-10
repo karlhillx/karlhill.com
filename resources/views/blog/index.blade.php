@@ -42,7 +42,7 @@
     <x-slot:title>Notes from<br>the field</x-slot:title>
 
     <p class="text-neutral-300 text-base leading-relaxed max-w-2xl">
-        Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on.
+        Practical notes on software engineering, technical leadership, and delivery.
     </p>
     <div class="flex flex-wrap items-center gap-4 mt-6 sm:mt-8">
         <a href="{{ route('feed') }}"
@@ -151,7 +151,7 @@
             <div class="mt-20 pt-12 border-t border-neutral-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8" data-reveal>
                 <div>
                     <p class="font-display text-2xl text-neutral-100 tracking-wide mb-2">Follow along</p>
-                    <p class="text-neutral-400 text-sm max-w-md leading-relaxed">New essays land here first. Subscribe with your reader of choice — the feed is open and always will be.</p>
+                    <p class="text-neutral-400 text-sm max-w-md leading-relaxed">New essays appear here. Subscribe through your feed reader.</p>
                 </div>
                 <x-site.button variant="secondary" :href="route('feed')" class="shrink-0">
                     @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])

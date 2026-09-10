@@ -7,5 +7,5 @@
     'sectionNumber' => '01',
     'heading' => 'Selected Work',
     'showViewAll' => true,
-    'proof' => 'Jacobs leadership chapter · NASA platforms you can open',
+    'proof' => 'Jacobs is current. NASA Earth science systems from Goddard are still public.',
 ])

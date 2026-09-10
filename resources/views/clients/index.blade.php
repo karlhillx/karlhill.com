@@ -8,7 +8,7 @@
         <x-slot:title>Client staging</x-slot:title>
 
         <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Preview area for client sites in progress. These URLs are noindex and not linked from the main nav.
+            Previews of client websites in progress.
         </p>
     </x-site.page-hero>
 
@@ -16,7 +16,7 @@
         <div class="site-shell max-w-3xl">
             @if($clients->isEmpty())
                 <p class="text-neutral-400 text-base leading-relaxed" data-reveal>
-                    No client sites yet. Add a folder under <code class="font-mono text-sm text-neutral-300">clients/{domain}/</code> with an <code class="font-mono text-sm text-neutral-300">index.html</code>.
+                    No previews are available.
                 </p>
             @else
                 <ul class="divide-y divide-neutral-800" data-reveal>

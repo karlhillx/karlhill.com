@@ -45,13 +45,14 @@ class LlmsTxtBuilder
             '',
             '## Pages',
             '',
-            $this->fileItem('Home', $base.'/', 'Hire landing: ask, selected work, next steps, contact'),
-            $this->fileItem('Work', $base.'/work', 'Jacobs chapter and public case studies'),
-            $this->fileItem('Recruiter kit', $base.'/kit', 'Leave-behind with bio, resume PDF, and links'),
+            $this->fileItem('Home', $base.'/', 'Work, selected projects, and contact'),
+            $this->fileItem('How software gets delivered', $base.'/#system', 'Code, verify, integrate, release'),
+            $this->fileItem('Work', $base.'/work', 'Aerospace mission software and public case studies'),
+            $this->fileItem('Recruiter kit', $base.'/kit', 'Bio, resume PDF, and selected work to share'),
             $this->fileItem('Now', $base.'/now', 'Current focus and booking'),
             $this->fileItem('Writing', $base.'/blog', 'Essays on leadership, delivery, and mission software'),
-            $this->fileItem('About', $base.'/about', 'How I lead, how I run delivery, career arc, research'),
-            $this->fileItem('How I run delivery', $base.'/about#delivery', 'Definition of Done, PR rubric, integration risk, coaching'),
+            $this->fileItem('About', $base.'/about', 'Technical leadership, engineering delivery, career, research'),
+            $this->fileItem('Engineering delivery', $base.'/about#delivery', 'Definition of Done, PR rubric, integration risk, coaching'),
             $this->fileItem('Resume', $base.'/resume', 'Canonical HTML curriculum vitae'),
         ];
 
@@ -224,14 +225,14 @@ class LlmsTxtBuilder
     protected function caseStudyNote(array $project): string
     {
         return match ($project['slug'] ?? '') {
-            'jacobs-mission-software' => 'Engineering leadership for mission software — hard call on readiness vs urgency, coaching, cross-team delivery',
-            'flood-mapping-system' => 'Near real-time flood products for disaster responders',
-            'laads-daac' => 'LAADS Find Data, archive portal, and LANCE NRT for MODIS and VIIRS',
-            'nasa-earth-observatory' => 'Flagship NASA science communication platform, 1.5M+ monthly visitors',
-            'direct-readout-laboratory' => 'Multi-instrument satellite ingest and product distribution',
-            'esscor' => 'Searchable catalog of archival and near real-time remote sensing',
-            'informeddna-platform' => 'Clinical genomics workflow across distributed care teams',
-            'finium' => 'Managed security services at national-carrier scale',
+            'jacobs-mission-software' => 'Current: Python services, interfaces, CI/CD, delivery. No public demo',
+            'flood-mapping-system' => 'Live map: satellite-derived flood products',
+            'laads-daac' => 'Live Find Data search for NASA satellite data',
+            'nasa-earth-observatory' => 'Live Earth Observatory. About 1.5 million monthly visitors during that work',
+            'direct-readout-laboratory' => 'Live direct-readout portal for satellite data products',
+            'esscor' => 'Search and metadata workflows for Earth science data',
+            'informeddna-platform' => 'Laravel case-management platform for counseling workflows',
+            'finium' => 'Java and SQL Server services for multi-tenant security operations',
             default => $this->clipNote((string) ($project['lede'] ?? $project['description'] ?? '')),
         };
     }

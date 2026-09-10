@@ -3,9 +3,9 @@
 @php($roles = config('site.experience.roles', []))
 
 {{-- Career arc: narrative chapters from experience — summaries, not a second resume. --}}
-<x-site.section id="experience" section-label="Career arc">
+<x-site.section id="experience" section-label="Career">
         <div class="site-heading-space max-w-3xl" data-reveal>
-            <x-site.section-heading :number="$sectionNumber ?? '03'" label="Career arc" class="!mb-5" />
+            <x-site.section-heading :number="$sectionNumber ?? '03'" :label="$arc['title'] ?? 'Career'" class="!mb-5" />
             @if(! empty($arc['intro']))
                 <p class="opsz-scroll text-neutral-400 text-base leading-relaxed">
                     {{ $arc['intro'] }}

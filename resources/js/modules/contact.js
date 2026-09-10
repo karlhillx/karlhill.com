@@ -213,10 +213,11 @@ function renderSuccess(statusEl, msg, data) {
     if (data.booking_url) {
         const next = document.createElement('p');
         next.className = 'contact-form-status__next';
+        next.append('You can also book a conversation. ');
         const a = document.createElement('a');
         a.href = data.booking_url;
         a.className = 'text-accent underline underline-offset-2 hover:decoration-accent';
-        a.textContent = `Or pick a time — ${data.booking_label || 'Book a conversation'}`;
+        a.textContent = data.booking_label || 'Book a conversation';
         next.append(a);
         statusEl.append(next);
     }

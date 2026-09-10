@@ -13,6 +13,6 @@ return [
     ],
     [
         'title' => 'Ready',
-        'body' => 'Leave-behind on /kit, booking on /now#book. People craft on About; delivery OS on How I run delivery.',
+        'body' => 'Leave-behind on /kit, booking on /now#book. Technical leadership on About; delivery on Engineering delivery.',
     ],
 ];

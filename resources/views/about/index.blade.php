@@ -35,10 +35,10 @@
 
         <nav class="about-jump mt-8 sm:mt-10" aria-label="On this page">
             <ul class="flex flex-wrap gap-x-5 gap-y-2 font-mono text-caption uppercase tracking-widest text-neutral-500">
-                <li><a href="#how-i-lead" class="hover:text-accent transition-colors">How I lead</a></li>
+                <li><a href="#how-i-lead" class="hover:text-accent transition-colors">Leadership</a></li>
                 <li><a href="#delivery" class="hover:text-accent transition-colors">Delivery</a></li>
-                <li><a href="#experience" class="hover:text-accent transition-colors">Career arc</a></li>
-                <li><a href="#impact" class="hover:text-accent transition-colors">Impact</a></li>
+                <li><a href="#experience" class="hover:text-accent transition-colors">Career</a></li>
+                <li><a href="#impact" class="hover:text-accent transition-colors">Experience in numbers</a></li>
                 <li><a href="#research" class="hover:text-accent transition-colors">Research</a></li>
             </ul>
         </nav>
@@ -46,10 +46,9 @@
 
     @include('about.partials.how-i-lead', ['sectionNumber' => '01'])
     @include('about.partials.delivery', ['sectionNumber' => '02'])
-    @include('about.partials.social-proof', ['sectionNumber' => '03'])
-    @include('about.partials.arc', ['sectionNumber' => '04'])
-    @include('about.partials.impact', ['sectionNumber' => '05'])
-    @include('partials.research', ['sectionNumber' => '06'])
+    @include('about.partials.arc', ['sectionNumber' => '03'])
+    @include('about.partials.impact', ['sectionNumber' => '04'])
+    @include('partials.research', ['sectionNumber' => '05'])
 
     @if(config('site.about.beyond'))
         @php

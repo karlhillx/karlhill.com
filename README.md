@@ -70,7 +70,7 @@ npm run test:e2e
 
 Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, kit, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
 
-Hire bio is canonical in `config/site/person.php` (`bio`). The spoken hire ask is `person.availability` — homepage hero and kit “Open to”. The longer ask is `person.availability_long` (JSON-LD, `llms.txt`, hire packet). One job: Engineering Manager. Do not restate the ask on About, kit highlights, or `/now` focus cards. Proof chips live in `hero.proof`.
+Hire bio is canonical in `config/site/person.php` (`bio`, third person). The recruiter kit glance uses that same bio. Homepage spoken line is `hero.lede`. Kit “Open to”, JSON-LD, and `llms.txt` use `person.availability` for the next-role goal (Engineering Manager) — not current identity. The longer ask is `person.availability_long`. Do not restate the ask on About, kit highlights, or `/now` focus cards. Proof chips live in `hero.proof`.
 
 ### Name disambiguation
 

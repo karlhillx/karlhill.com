@@ -9,7 +9,7 @@
         @if($githubRepos->isEmpty())
             <div class="surface-card-static bg-bg p-8" data-reveal>
                 <p class="font-mono text-xs text-neutral-500 uppercase tracking-widest mb-2">Open Source</p>
-                <p class="text-neutral-400 text-sm">No public repositories were returned right now. Please check back shortly.</p>
+                <p class="text-neutral-400 text-sm">Repositories are unavailable here right now. View the projects on GitHub.</p>
             </div>
         @else
             <div class="site-card-grid">

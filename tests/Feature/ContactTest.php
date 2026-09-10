@@ -35,7 +35,7 @@ it('valid submission sends mail and redirects', function () {
         ->assertSee('data-toast', false)
         ->assertSee('Thanks — message sent', false)
         ->assertSee('data-contact-complete', false)
-        ->assertSee('Or pick a time', false)
+        ->assertSee('You can also book a conversation', false)
         ->assertSee(url('/now').'#book', false);
 });
 

@@ -39,7 +39,7 @@
 
                 <aside class="site-footer-aside flex flex-col gap-10 lg:gap-12 lg:pt-1" data-reveal aria-label="Direct contact and site links">
                     <div>
-                        <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-5">Prefer to reach me directly?</p>
+                        <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-5">Email and booking</p>
                         <div class="flex flex-col gap-4">
                             <div class="flex items-center gap-2 min-w-0">
                                 <a href="mailto:{{ $person['email'] }}"
@@ -97,8 +97,8 @@
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10 lg:gap-16">
                 <div class="max-w-xl">
                     <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Contact</h2>
-                    <p class="text-neutral-300 text-base leading-relaxed max-w-md">
-                        Book a time, or email me — I reply personally.
+                    <p class="text-neutral-300 text-base leading-relaxed">
+                        {{ $footer['compact_body'] ?? 'Schedule a conversation or send email.' }}
                     </p>
                     <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-12">
                         @if(filled($bookingUrl))
@@ -155,7 +155,7 @@
             'mt-12' => ! $isHome,
         ])>
             <p class="font-display {{ $isHome ? 'text-3xl' : 'text-2xl' }} tracking-widest text-neutral-500">{{ $person['name'] }}</p>
-            <p class="font-mono text-xs text-neutral-400">{{ $person['location'] }} &nbsp;·&nbsp; {{ $person['job_title'] }} &nbsp;·&nbsp; 20+ Years</p>
+            <p class="font-mono text-xs text-neutral-400">{{ $footer['colophon'] ?? ($person['location'].' · '.$person['job_title'].' · 20+ Years') }}</p>
         </div>
         <div class="mt-8 flex sm:justify-end">
             <p class="site-build-credit surface-chip inline-flex max-w-full flex-wrap items-center gap-x-1 bg-neutral-900/40 px-2 py-0.5 font-mono uppercase text-neutral-500">

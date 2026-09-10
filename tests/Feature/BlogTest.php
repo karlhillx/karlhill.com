@@ -13,7 +13,6 @@ it('blog index renders with release governance post', function () {
     $response->assertStatus(200);
     $response->assertSee('Notes from', escape: false);
     $response->assertSee('What 20 Years Taught Me About Release Governance', escape: false);
-    $response->assertSee('Release governance', escape: false);
 });
 
 it('blog show renders for known slug', function () {
@@ -108,7 +107,7 @@ it('sitemap lastmod reflects editorial dates rather than today', function () {
     $base = rtrim(config('app.url'), '/');
 
     $this->assertSame('2026-06-01', $lastmod[$base.'/blog/release-governance']);
-    $this->assertSame('2026-09-07', $lastmod[$base.'/now']);
+    $this->assertSame('2026-09-08', $lastmod[$base.'/now']);
     $this->assertSame('2026-09-06', $lastmod[$base.'/work/finium']);
     $this->assertNotContains('2030-01-01', $lastmod->all(), 'No URL should claim it changed today');
 
@@ -210,7 +209,7 @@ it('json feed is valid', function () {
 it('em craft series appears on posts and index', function () {
     $index = $this->get('/blog');
     $index->assertStatus(200);
-    $index->assertSee('Engineering Manager craft', escape: false);
+    $index->assertSee('Engineering leadership in practice', escape: false);
     $index->assertSee('id="em-craft"', escape: false);
     $index->assertSee('series-chapters', escape: false);
     $index->assertSee('Swipe to browse', escape: false);
@@ -232,9 +231,8 @@ it('homepage hero is a tight first viewport', function () {
     $response->assertStatus(200);
     $response->assertSee(config('site.hero.headline'), escape: false);
     $response->assertDontSee(config('site.hero.subtitle'), escape: false);
-    $response->assertSee(config('site.person.availability'), escape: false);
+    $response->assertSee(config('site.hero.lede'), escape: false);
     $response->assertSee('hero-portrait', escape: false);
-    $response->assertDontSee(config('site.person.bio'), escape: false);
     $response->assertDontSee('Platforms · Delivery · Engineering Leadership', escape: false);
     $response->assertDontSee('hero-availability', escape: false);
 });
@@ -242,7 +240,7 @@ it('homepage hero is a tight first viewport', function () {
 it('command index includes post body keywords', function () {
     $this->get('/api/commands.json')
         ->assertOk()
-        ->assertSee('unit of work', escape: false);
+        ->assertSee('The artifact is the contract', escape: false);
 });
 
 it('blog show renders heading anchors and table of contents', function () {

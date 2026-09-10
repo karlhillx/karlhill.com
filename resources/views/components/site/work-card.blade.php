@@ -17,8 +17,11 @@
 @php
     $titleId = $slug ? 'work-card-title-'.$slug : null;
     $isConstraint = $variant === 'constraint';
+    $isLogo = $variant === 'logo';
+    $showCornerLogo = $logo && ! $isLogo;
     $cardClass = 'surface-card surface-card-media pointer-lit bg-bg group relative h-[22rem] sm:h-80 lg:h-96 block'
-        .($isConstraint ? ' work-card--constraint' : '');
+        .($isConstraint ? ' work-card--constraint' : '')
+        .($isLogo ? ' work-card--logo' : '');
     $cta = $external
         ? 'Visit project'
         : (is_string($href) && str_contains($href, '/work/') ? 'Read case study' : 'View details');
@@ -56,6 +59,16 @@
                 @endforeach
             </ul>
         @endif
+    @elseif($isLogo)
+        <div class="work-card-logo absolute inset-0" aria-hidden="true">
+            <div class="work-card-logo__grid"></div>
+            <div class="work-card-logo__glow"></div>
+            <div class="work-card-logo__mark">
+                <div class="work-card-logo__orb"></div>
+                <img src="{{ $image }}" alt="" loading="lazy" decoding="async"
+                     class="work-card-logo__img">
+            </div>
+        </div>
     @else
         <x-site.responsive-image
             :src="$image"
@@ -72,15 +85,18 @@
         <div class="work-card-media-scrim absolute inset-x-0 top-0 h-24" aria-hidden="true"></div>
     @endif
 
-    @if($logo)
-        <div class="absolute top-4 right-4 z-[2]">
+    @if($showCornerLogo)
+        <div class="work-card-brand absolute top-4 right-4 z-[2]">
             <img src="{{ $logo['path'] }}" alt="" loading="lazy" decoding="async" aria-hidden="true"
                  @if($logo['filter']) style="filter: {{ $logo['filter'] }};" @endif
                  class="{{ $logo['class'] }} w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
         </div>
     @endif
 
-    <div class="absolute top-4 left-4 z-[2] flex flex-wrap gap-1.5" aria-hidden="true">
+    <div @class([
+        'work-card-tags absolute top-4 left-4 z-[2] flex flex-wrap gap-1.5',
+        'work-card-tags--with-logo' => $showCornerLogo,
+    ]) aria-hidden="true">
         @foreach($tags as $tag)
             <span class="surface-chip-overlay font-mono text-caption px-2 py-0.5 text-neutral-400">{{ $tag }}</span>
         @endforeach
@@ -90,7 +106,7 @@
         <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
         <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-xl tracking-tight text-neutral-100 group-hover:text-accent transition-colors leading-snug">{{ $title }}</h3>
         <div class="work-card-details overflow-hidden">
-            <p class="text-neutral-400 text-sm leading-relaxed mt-2.5 line-clamp-2 pointer-fine:group-hover:line-clamp-4 pointer-fine:group-focus-within:line-clamp-4">{{ $description }}</p>
+            <p class="text-neutral-400 text-sm leading-relaxed mt-2.5 line-clamp-3 pointer-fine:group-hover:line-clamp-none pointer-fine:group-focus-within:line-clamp-none">{{ $description }}</p>
             @if($href)
                 <p class="font-mono text-caption text-accent uppercase tracking-widest mt-4" aria-hidden="true">
                     {{ $cta }}

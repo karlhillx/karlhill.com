@@ -40,9 +40,9 @@
             <h1 class="hero-title font-display tracking-wide text-white hero-enter" style="animation-delay:160ms">
                 <span class="hero-mask"><span class="hero-shine">{{ $hero['headline'] }}</span></span>
             </h1>
-            @if(! empty($person['availability']))
+            @if(! empty($hero['lede']))
                 <p class="hero-lede opsz-scroll text-neutral-200 leading-relaxed hero-enter" style="animation-delay:240ms">
-                    {{ $person['availability'] }}
+                    {{ $hero['lede'] }}
                 </p>
             @endif
             @if($proof !== [])

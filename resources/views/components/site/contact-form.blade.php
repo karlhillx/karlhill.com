@@ -68,7 +68,7 @@
         <div>
             <label for="{{ $messageId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-2">Message</label>
             <textarea id="{{ $messageId }}" name="message" required minlength="10" maxlength="4000" rows="5"
-                      placeholder="{{ config('site.footer.contact_placeholder', 'What are you building, and how can I help?') }}"
+                      placeholder="{{ config('site.footer.contact_placeholder', 'Role, timeline, and the question.') }}"
                       @if($errorBag->has('message')) aria-invalid="true" aria-describedby="{{ $messageId }}-error" @endif
                       @class([
                           'contact-textarea w-full bg-neutral-900/50 border text-neutral-200 placeholder-neutral-500 px-4 py-3 text-sm outline-none transition-colors focus:border-accent resize-y',
@@ -113,8 +113,9 @@
             <p>Thanks — message sent. I'll reply from {{ config('site.person.email') }}.</p>
             @if($bookingUrl)
                 <p class="contact-form-status__next">
+                    You can also book a conversation.
                     <a href="{{ $bookingUrl }}" class="text-accent underline underline-offset-2 hover:decoration-accent">
-                        Or pick a time — {{ $bookingLabel }}
+                        {{ $bookingLabel }}
                     </a>
                 </p>
             @endif

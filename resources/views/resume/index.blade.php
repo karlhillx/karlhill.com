@@ -17,9 +17,7 @@
         <x-slot:title>Resume</x-slot:title>
 
         <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-            The evidence — roles, impact, and stack. Same source as
-            <a href="/about" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">About</a>.
-            Download the generated <strong class="text-neutral-200 font-semibold">2-page PDF</strong> for applications.
+            Experience, technical skills, education, and credentials. Download the PDF for applications.
         </p>
 
         {{-- The PDF is this page's purpose, so it takes the fill; booking is the secondary. --}}
@@ -215,7 +213,7 @@
                         <ul class="resume-education">
                             @foreach($education as $item)
                                 <li class="text-neutral-300">
-                                    <strong class="text-neutral-200 font-medium">{{ $item['degree'] }}</strong>, {{ $item['school'] }}
+                                    <strong class="text-neutral-200 font-medium">{{ $item['degree'] }}</strong> — {{ $item['school'] }}
                                 </li>
                             @endforeach
                         </ul>

@@ -119,6 +119,51 @@ final class ProjectCatalog
     }
 
     /**
+     * Public artifact a hiring manager can open. Internal case-study paths
+     * are not live URLs.
+     *
+     * @param  array<string, mixed>  $project
+     */
+    public static function liveUrl(array $project): ?string
+    {
+        foreach ([
+            $project['artifact']['href'] ?? null,
+            $project['url'] ?? null,
+        ] as $href) {
+            if (is_string($href) && str_starts_with($href, 'http')) {
+                return $href;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @param  array<string, mixed>  $project
+     */
+    public static function artifactLabel(array $project): string
+    {
+        $label = $project['artifact']['label'] ?? null;
+
+        return is_string($label) && $label !== '' ? $label : 'Visit live project';
+    }
+
+    /**
+     * Recruiter-facing proof line: the artifact sentence on cards and shares.
+     *
+     * @param  array<string, mixed>  $project
+     */
+    public static function artifactLine(array $project): string
+    {
+        $line = $project['artifact']['line'] ?? null;
+        if (is_string($line) && $line !== '') {
+            return $line;
+        }
+
+        return (string) ($project['description'] ?? '');
+    }
+
+    /**
      * @param  array<string, mixed>  $project
      */
     public static function cardUrl(array $project): ?string

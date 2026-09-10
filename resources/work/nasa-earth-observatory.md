@@ -1,73 +1,52 @@
 ---
-updated: '2026-09-06'
-lede: 'A flagship NASA science communication platform serving 1.5M+ monthly visitors — rebuilt so editors ship without waiting on engineering, and the stack stays maintainable for the next decade.'
-role: 'Lead engineer — owned the platform re-architecture and publishing pipeline, and set the frontend performance and accessibility standards.'
+updated: '2026-09-10'
+lede: Web platform work for NASA Earth science publishing. About 1.5 million monthly visitors during that work. The site is public.
+role: Lead software engineer — web-platform development and modernization.
 leadership:
-  mode: 'Tech lead / sticky IC across platform engineering and editorial partners'
-  team: '~4 engineers and content partners on a flagship site serving 1.5M+ monthly visitors'
-  unblocked: 'Moved story production off one-off engineering work so editors could ship without waiting on custom builds.'
-  decision: 'Traded short-term feature velocity for a shared publishing model — fewer heroics per story, higher long-term throughput.'
+  mode: Technical leadership and web development
+  team: Engineering and editorial partners at NASA Goddard
+  unblocked: Publishing workflows and recurring web-platform maintenance
+  decision: Improve reusable publishing capabilities alongside performance and usability.
 problem:
-  - 'Routine stories still needed custom engineering — brittle, one-off publishing patterns made editorial velocity a queue, not a system.'
-  - 'Traffic and imagery volume exposed performance, accessibility, and SEO debt that could not be patched story-by-story.'
-  - 'Distributed content teams lacked a shared workflow — engineering had become the bottleneck for science communication at scale.'
+- Science publishing requires maintainable workflows for content and large imagery.
+- A substantial public audience makes performance, usability, and discoverability important.
 decisions:
-  - 'Standardize on repeatable story templates and a shared publishing model instead of per-story builds — accept slower net-new features to unlock editorial self-service.'
-  - 'Treat large imagery, metadata consistency, and non-engineer workflows as first-class pipeline concerns, not afterthoughts bolted onto the CMS.'
-  - 'Gate releases on frontend performance, accessibility, and search discoverability so public science traffic and WCAG expectations stay non-negotiable.'
+- Modernize the web platform and reusable publishing components.
+- Improve the handling and presentation of editorial content and imagery.
+- Address performance, user experience, and search discoverability as part of the development work.
 outcome:
-  - 'Editors ship routine stories without waiting on custom engineering — throughput became a product of the system, not heroics.'
-  - 'High-traffic public science audience got a stronger performance and accessibility baseline.'
-  - 'Left a maintainable foundation for ongoing Earth science communication instead of another round of one-off platform debt.'
+- A modernized web platform supporting NASA Earth science communication.
+- Work on a platform serving approximately 1.5 million monthly visitors during that period.
 metrics:
-  - value: 1.5M+
-    label: 'Monthly visitors'
-  - value: Self-serve
-    label: 'Editorial publishing'
+- value: ~1.5M
+  label: Monthly visitors during that work
 platform:
-  caption: 'Author → imagery pipeline → CI gates → edge'
+  caption: Publishing work on a public site. Open Earth Observatory.
   stages:
-    - step: '01 · Author'
-      title: 'Self-serve templates'
-      body: 'Editors compose stories from shared components instead of waiting on a custom engineering build.'
-      stack: 'Laravel'
-    - step: '02 · Pipeline'
-      title: 'Imagery pyramids'
-      body: 'Uploads become AVIF/WebP, spatial metadata, and LQIP automatically — not a desktop export ritual.'
-      stack: 'Async jobs'
-    - step: '03 · Gate'
-      title: '508 / WCAG / perf'
-      body: 'Accessibility and frontend budgets are CI quality gates, not a post-launch audit.'
-      stack: 'CI/CD'
-    - step: '04 · Deliver'
-      title: 'Edge cache'
-      body: 'Tagged, pre-compressed assets absorb traffic spikes so origin load stays flat.'
-      stack: 'CDN'
+  - step: 01 · Publish
+    title: Editorial workflow
+    body: Reusable publishing capabilities support how articles are created.
+    stack: Web application
+  - step: 02 · Present
+    title: Articles and imagery
+    body: Editorial content and large imagery have to present cleanly to readers.
+    stack: Frontend
+  - step: 03 · Operate
+    title: Performance and upkeep
+    body: Performance, usability, and search discoverability are part of the engineering work.
+    stack: Web engineering
 ---
 
-## Editorial Velocity & Scale
+NASA Earth Observatory's web platform served approximately 1.5 million monthly visitors during that work. The audience figure is the scale of the platform in that period, not a current traffic claim. The site is public.
 
-NASA's Earth Observatory is one of the agency's highest-traffic public education platforms, delivering satellite imagery, climate data, and explanatory science journalism to over 1.5 million visitors every month.
+## Publishing and the public website
 
-Over years of organic growth, however, the publishing workflow had become a critical engineering bottleneck:
-- Every new editorial format, custom interactive visualization, or major data story required ad-hoc software engineering support.
-- Ultra-high-resolution satellite images (often 100MB+ TIFF files from MODIS, Landsat, and VIIRS) were manually cropped and exported, leading to inconsistent compression, bloated page weights, and degraded mobile performance.
-- Search discoverability and accessibility compliance (Section 508 / WCAG) were managed reactively rather than enforced systematically at publication time.
+The work brought together editorial needs and web engineering: reusable publishing capabilities, content and imagery presentation, and a platform that could be maintained as those needs changed.
 
-Editorial velocity had turned into an engineering queue. My goal as lead engineer was to decouple content production from developer intervention by building a self-service publishing architecture engineered for long-term maintainability.
+Application work covered performance, user experience, and search discoverability as well. That meant considering the people publishing the material and the people reading it, rather than treating the public pages as the whole system.
 
-## Publishing Architecture
+Large imagery and long-running publishing workflows were part of the same job as the public pages. A change that helped an editor still had to hold up for a substantial audience.
 
-We restructured the platform into a decoupled publishing system with an automated asset transformation engine:
+## Engineering scope
 
-1. **Self-Service Editorial Templates:** Instead of bespoke layouts per article, we developed a modular, component-driven story publishing model. Editorial staff could compose rich narrative layouts, image comparisons (before-and-after flood or wildfire overlays), and data callouts without writing a line of code or filing an engineering ticket.
-2. **Automated Imagery Pipeline:** Satellite images uploaded by science writers are automatically ingested into an asynchronous image processing pipeline. The pipeline generates responsive AVIF and WebP image pyramids, extracts spatial metadata, and pre-generates lightweight low-quality image placeholders (LQIP) to ensure zero layout shift (CLS).
-3. **Edge Caching & Resilience:** Serving 1.5M+ monthly visitors across global networks required aggressive edge caching with deterministic cache tags. When breaking disaster imagery or viral astronomical events drove sudden 10x traffic spikes, origin server load remained virtually flat while edge nodes served cached, pre-compressed assets.
-
-## Accessibility & Performance
-
-Public science platforms have a civic obligation to be accessible to everyone, across low-bandwidth connections, mobile devices, and assistive technologies:
-
-- **Strict Accessibility Compliance:** Accessibility was integrated into CI/CD quality gates. Semantic HTML, keyboard navigability, high-contrast typography, and automated alternate-text requirements ensured compliance with federal Section 508 and WCAG standards.
-- **Frontend Budget Discipline:** By eliminating third-party script bloat, optimizing font delivery, and relying on lean, modern web standards, First Contentful Paint (FCP) and Largest Contentful Paint (LCP) dropped dramatically across mobile devices.
-- **Durable Architecture:** By resisting the temptation to rewrite the frontend in a fast-moving, short-lived SPA framework, we delivered a platform that remained stable, fast, and easy for new developers to maintain years into the future.
+Application development, publishing workflows, and improvements to the public website. It is one example of broader software engineering work supporting NASA Earth science.

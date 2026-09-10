@@ -1,31 +1,30 @@
 <?php
 
 return [
-    'updated' => 'September 7, 2026',
-    // /now owns current focus. Recruiter path is a short strip — the ask lives in person.availability.
-    'lede' => 'Leading team execution, engineer development, and cross-team delivery for aerospace mission software at Jacobs National Security — practicing the Engineering Manager craft before the title.',
+    'updated' => 'September 10, 2026',
+    'lede' => 'Python services, interfaces, and CI/CD at Jacobs. Technical coaching on the team. Drummer in Sorry About Your Daughter.',
     'recruiters' => [
         'eyebrow' => 'Hiring',
-        'body' => 'The kit is the leave-behind. The resume is the evidence. This page is what I am doing now — book if the timing is right.',
+        'body' => 'Current engineering system, public NASA software, and resume: flood maps, LAADS Find Data, Earth Observatory.',
     ],
     'focus' => [
         [
-            'title' => 'Engineering Manager trajectory',
-            'body' => 'Practicing the manager craft on live work. The hire ask is on /kit — book here if the timing is right.',
+            'title' => 'Mission software',
+            'body' => 'Python services at Jacobs, plus interfaces, messaging, tests, CI, and release.',
+            'link' => '/work/jacobs-mission-software',
+            'link_label' => 'Current work',
+        ],
+        [
+            'title' => 'Engineering leadership',
+            'body' => 'Reviews, delivery sequencing, and coaching. SAFe Agilist is in progress.',
             'link' => '/kit',
             'link_label' => 'Recruiter kit',
         ],
         [
-            'title' => 'Jacobs National Security',
-            'body' => 'Owning team execution, engineer development, and cross-team delivery for aerospace mission software — ~10 engineers, ~20 repositories, multiple deployment environments.',
-            'link' => '/work/jacobs-mission-software',
-            'link_label' => 'Engineering leadership',
-        ],
-        [
-            'title' => 'Writing the leadership craft',
-            'body' => 'The Engineering Manager craft series — Staff→EM first 90 days, saying no under roadmap pressure, and performance feedback without politics.',
-            'link' => '/blog/staff-to-em-first-90-days',
-            'link_label' => 'Staff→EM, first 90 days',
+            'title' => 'Music',
+            'body' => 'Sorry About Your Daughter finished Atlantic to Adrenaline in 2026. Dates in Germany, then a US show in Columbia, Maryland.',
+            'link' => '/about',
+            'link_label' => 'Beyond the work',
         ],
     ],
 ];

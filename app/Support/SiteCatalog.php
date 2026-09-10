@@ -204,8 +204,8 @@ final class SiteCatalog
                     'slug' => $project['slug'],
                     'title' => $project['title'],
                     'url' => $base.'/work/'.$project['slug'],
-                    'live_url' => $project['url'] ?? null,
-                    'description' => $project['description'] ?? null,
+                    'live_url' => ProjectCatalog::liveUrl($project),
+                    'description' => ProjectCatalog::artifactLine($project) ?: ($project['description'] ?? null),
                     'lede' => $study['lede'] ?? null,
                     'tags' => $project['tags'] ?? [],
                     'updated' => $this->caseStudyUpdated($study)?->toDateString(),
@@ -330,10 +330,53 @@ final class SiteCatalog
         return [
             'url' => $base.'/kit',
             'delivery' => $base.'/about#delivery',
+            'system' => $base.'/#system',
             'resume_html' => $base.'/resume',
             'resume_pdf' => $base.config('site.footer.resume'),
             'booking' => (string) config('site.booking.url'),
             'content_credentials' => $base.'/api/credentials.json',
+            'scope' => config('site.experience.current.scope'),
+        ];
+    }
+
+    /**
+     * Homepage delivery diagram for hire-packet consumers.
+     *
+     * @return array<string, mixed>
+     */
+    public function deliverySystem(): array
+    {
+        $system = config('site.system', []);
+
+        $stages = collect($system['stages'] ?? [])
+            ->filter(fn ($stage): bool => is_array($stage) && filled($stage['id'] ?? null))
+            ->map(function (array $stage): array {
+                $satellites = collect($stage['satellites'] ?? [])
+                    ->filter(fn ($item): bool => is_array($item) && filled($item['label'] ?? null))
+                    ->map(fn (array $item): string => (string) $item['label'])
+                    ->values()
+                    ->all();
+
+                return [
+                    'id' => (string) $stage['id'],
+                    'label' => (string) ($stage['label'] ?? ''),
+                    'summary' => (string) ($stage['summary'] ?? ''),
+                    'tools' => collect($stage['tools'] ?? [])
+                        ->filter(fn ($tool): bool => is_string($tool) && $tool !== '')
+                        ->values()
+                        ->all(),
+                    'satellites' => $satellites,
+                ];
+            })
+            ->values()
+            ->all();
+
+        return [
+            'heading' => $system['heading'] ?? null,
+            'lede' => $system['lede'] ?? null,
+            'caption' => $system['caption'] ?? null,
+            'url' => $this->baseUrl().'/#system',
+            'stages' => $stages,
         ];
     }
 
@@ -451,6 +494,7 @@ final class SiteCatalog
             'summary' => $role['summary'] ?? null,
             'highlights' => $highlights,
             'skills' => $skills,
+            'scope' => is_array($role['scope'] ?? null) ? $role['scope'] : null,
         ];
     }
 }

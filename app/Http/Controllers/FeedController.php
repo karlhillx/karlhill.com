@@ -53,7 +53,7 @@ XML;
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Karl Hill — Writing</title>
-  <subtitle>Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on.</subtitle>
+  <subtitle>Essays on software engineering, technical leadership, and delivery.</subtitle>
   <link rel="alternate" type="text/html" href="{$base}/blog"/>
   <link rel="self" type="application/atom+xml" href="{$feedId}"/>
   <link rel="alternate" type="application/feed+json" href="{$base}/feed.json"/>
@@ -96,7 +96,7 @@ XML;
             'title' => 'Karl Hill — Writing',
             'home_page_url' => $base.'/blog',
             'feed_url' => $base.'/feed.json',
-            'description' => 'Reflections on engineering leadership, mission software, and the overlooked work that turns code into something people can depend on.',
+            'description' => 'Essays on software engineering, technical leadership, and delivery.',
             'language' => 'en-US',
             'authors' => [
                 [

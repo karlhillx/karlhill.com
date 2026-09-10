@@ -18,7 +18,7 @@
                 Page not found
             </p>
             <p class="text-neutral-400 text-base leading-relaxed max-w-md mx-auto mb-10 hero-enter" style="animation-delay:380ms">
-                The URL may be mistyped, or this page may have moved. Here's the way back.
+                The address may be incorrect, or the page may have moved.
             </p>
             <div class="hero-enter" style="animation-delay:480ms">
                 <a href="/"
@@ -32,7 +32,7 @@
                     <a href="/now#book" class="text-neutral-400 hover:text-accent transition-colors">Book →</a>
                 </div>
                 <p class="hidden sm:block font-mono text-caption text-neutral-500 uppercase tracking-widest mt-8">
-                    Or press <kbd class="surface-chip px-1.5 py-0.5 text-caption text-neutral-400 normal-case tracking-normal">⌘K</kbd> to jump anywhere
+                    Or press <kbd class="surface-chip px-1.5 py-0.5 text-caption text-neutral-400 normal-case tracking-normal">⌘K</kbd> to search the site
                 </p>
             </div>
         </div>

@@ -26,7 +26,7 @@
     $taglineLead = trim($taglineParts[0] ?? '');
     $taglineRest = trim($taglineParts[1] ?? '');
 
-    $summaryLead = 'Staff Aerospace Software Engineer and technical delivery leader with experience building mission-critical software and the engineering systems that support its delivery across NASA and national security programs.';
+    $summaryLead = 'Staff Aerospace Software Engineer at Jacobs.';
     $summaryFull = (string) ($experience['intro'] ?? '');
     $summaryRest = str_starts_with($summaryFull, $summaryLead)
         ? substr($summaryFull, strlen($summaryLead))
