@@ -163,7 +163,8 @@ export function initCommandPalette() {
         }),
         withGroup({
             label: 'How software gets delivered',
-            keywords: 'delivery diagram verify integrate release ruff pytest cicd system engineering',
+            keywords:
+                'delivery diagram verify integrate release ruff pytest cicd system engineering',
             action: () => window.location.assign('/#system'),
         }),
         withGroup({
