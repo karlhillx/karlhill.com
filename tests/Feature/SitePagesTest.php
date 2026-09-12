@@ -50,6 +50,9 @@ it('about page renders leadership, delivery, experience, impact, and research', 
     $response->assertSee('Published online 5 May 2026', escape: false);
     $response->assertSee('Global Water and Flood Mapping System', escape: false);
     $response->assertSee('Beyond the work', escape: false);
+    $response->assertSee('When I’m not leading or coding, I make music', escape: false);
+    $response->assertSee('Credits are on', escape: false);
+    $response->assertSee('discogs.com', escape: false);
     $response->assertSee('id="beyond"', escape: false);
     $response->assertSee('href="#delivery"', escape: false);
     $response->assertSee('id="how-i-lead"', escape: false);

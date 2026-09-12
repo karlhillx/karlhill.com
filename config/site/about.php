@@ -35,5 +35,5 @@ return [
         'context' => 'The Earth Observatory audience figure reflects the platform during that work, not current traffic.',
         'footer' => 'Education, certifications, and technical skills are on the resume.',
     ],
-    'beyond' => 'Drummer in Sorry About Your Daughter, a Washington, DC rock band that reunited in 2019. Atlantic to Adrenaline, 2026: first European tour in about 30 years, then a US show in Columbia, Maryland. Recording credits are on Discogs.',
+    'beyond' => 'When I’m not leading or coding, I make music—drums, guitar, songwriting, recording, touring, and independent releases across post-punk, indie rock, hardcore, and alternative music. Credits are on Discogs.',
 ];
