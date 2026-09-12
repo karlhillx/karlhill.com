@@ -13,7 +13,7 @@
 
     $linkedinUrl = $linkedin['url'] ?? 'https://www.linkedin.com/in/khill/';
     $githubUrl = $github['url'] ?? 'https://github.com/karlhillx';
-    $jacobs = $bullets($experience['current']['highlights'], 5);
+    $jacobs = $bullets($experience['current']['highlights'], 6);
     $nasa = $bullets($experience['roles'][0]['highlights'], 5);
     $informed = $bullets($experience['roles'][1]['highlights'], 3);
     $ticomix = $bullets($experience['roles'][2]['highlights'], 3);
@@ -51,6 +51,9 @@
             'day-to-day',
             'satellite-derived',
             'Python-based',
+            'broker-independent',
+            'post-processing',
+            'dataset-registration',
         ];
 
         foreach ($compounds as $compound) {
@@ -648,7 +651,7 @@
 
             @if(! empty($resume['expertise']))
                 <section class="section" aria-labelledby="competencies-heading">
-                    <h2 id="competencies-heading" class="section-title">Core Competencies</h2>
+                    <h2 id="competencies-heading" class="section-title">Areas of Expertise</h2>
                     <ul class="competency-list">
                         @foreach($resume['expertise'] as $item)
                             <li>{{ $item }}</li>

@@ -17,7 +17,7 @@
         <x-slot:title>Resume</x-slot:title>
 
         <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Experience, technical skills, education, and credentials. Download the PDF for applications.
+            Aerospace &amp; national security software. Engineering systems. Technical leadership.
         </p>
 
         {{-- The PDF is this page's purpose, so it takes the fill; booking is the secondary. --}}
@@ -92,7 +92,7 @@
 
                 @if(! empty($resume['expertise']))
                     <section class="resume-aside-block">
-                        <h2 class="resume-aside-title">Core Competencies</h2>
+                        <h2 class="resume-aside-title">Areas of Expertise</h2>
                         <ul class="resume-expertise">
                             @foreach($resume['expertise'] as $item)
                                 <li>{{ $item }}</li>

@@ -23,7 +23,7 @@ it('hire packet json includes person experience writing and case studies', funct
         ->and($json['education'])->not->toBeEmpty()
         ->and($json['certifications'])->not->toBeEmpty()
         ->and($json['publication']['doi'])->toContain('gh2025-7')
-        ->and($json['experience'][0]['skills'])->toContain('DevSecOps')
+        ->and($json['experience'][0]['skills'])->toContain('Technical leadership')
         ->and($json['case_studies'])->toBeArray()->not->toBeEmpty()
         ->and($json['writing'])->toBeArray()->not->toBeEmpty()
         ->and(collect($json['case_studies'])->pluck('slug'))->toContain('flood-mapping-system')
@@ -34,7 +34,7 @@ it('hire packet json includes person experience writing and case studies', funct
         ->and($json['kit']['system'])->toEndWith('/#system')
         ->and($json['delivery_system']['heading'])->toBe('How software gets delivered')
         ->and(collect($json['delivery_system']['stages'])->pluck('id'))->toContain('verify', 'integrate', 'release')
-        ->and($json['kit']['scope']['owned'])->toContain('Python services')
+        ->and($json['kit']['scope']['owned'])->toContain('software delivery')
         ->and($json['experience'][0]['scope']['reserved'])->toContain('personnel decisions');
 });
 

@@ -24,10 +24,12 @@ return [
     [
         'category' => 'CI/CD & Developer Tooling',
         'skills' => [
+            'Git',
             'Bitbucket Pipelines',
             'GitLab CI',
             'GitHub Actions',
             'release automation',
+            'security scanning',
         ],
     ],
     [
@@ -36,7 +38,7 @@ return [
             'uv',
             'Ruff',
             'pytest',
-            'mypy',
+            'ty',
             'pre-commit',
         ],
     ],

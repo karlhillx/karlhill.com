@@ -40,7 +40,7 @@ it('about page renders leadership, delivery, experience, impact, and research', 
     $response->assertSee('id="experience"', escape: false);
     $response->assertSee('Career', escape: false);
     $response->assertSee('Jacobs — National Security', escape: false);
-    $response->assertSee('Python services, shared interfaces, CI/CD, and coaching across about 20 repositories.', escape: false);
+    $response->assertSee('Hands-on mission software and technical leadership for a ~10-engineer team across ~20 repositories', escape: false);
     $response->assertSee('NASA is the public proof', escape: false);
     $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
     $response->assertSee('InformedDNA', escape: false);
@@ -307,7 +307,7 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('Professional Scrum Master', escape: false);
     $resume->assertSee('Technical Expertise', escape: false);
     $resume->assertDontSee('Selected Leadership Impact', escape: false);
-    $resume->assertSee('Core Competencies', escape: false);
+    $resume->assertSee('Areas of Expertise', escape: false);
     // Phone is PDF-only unless site.resume.phone_on_web opts in.
     $resume->assertDontSee('(202) 599-1442', escape: false);
     $resume->assertSee('Phone on the PDF', escape: false);
@@ -319,16 +319,18 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertDontSee('id="contact-form"', escape: false);
     $resume->assertSee('Download PDF', escape: false);
     $resume->assertSee('/files/Karl-Hill-Resume.pdf', escape: false);
-    $resume->assertSee('Technical Direction', escape: false);
     $resume->assertSee('Software Engineering', escape: false);
+    $resume->assertSee('Technical Leadership', escape: false);
     $resume->assertSee('Agile Delivery', escape: false);
     $resume->assertSee('CI/CD', escape: false);
     $resume->assertSee('bb-run', escape: false);
     $resume->assertSee('testrisk', escape: false);
     $resume->assertDontSee('pipeguard', escape: false);
-    $resume->assertSee('Python-based mission software', escape: false);
-    $resume->assertSee('messaging integrations', escape: false);
-    $resume->assertSee('Onboarded and coached approximately six engineers', escape: false);
+    $resume->assertSee('team and vendors', escape: false);
+    $resume->assertSee('broker-independent messaging', escape: false);
+    $resume->assertSee('Onboarded and coached six engineers', escape: false);
+    $resume->assertSee('1.5 million monthly visitors', escape: false);
+    $resume->assertSee('roughly 60%', escape: false);
     $resume->assertSee('Computer Science coursework', escape: false);
     $resume->assertSee('University of Maryland, Baltimore County', escape: false);
     $resume->assertDontSee('Professional Scrum Developer', escape: false);

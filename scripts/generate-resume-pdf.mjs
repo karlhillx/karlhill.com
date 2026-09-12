@@ -204,7 +204,7 @@ for (const link of sidebar.links ?? []) {
 }
 
 y -= 14;
-drawTitle('Core Competencies');
+drawTitle('Areas of Expertise');
 for (const item of sidebar.expertise ?? []) {
     const size = 8.5;
     const indent = 11;
@@ -227,14 +227,12 @@ pdfDoc.setSubject(
 pdfDoc.setKeywords([
     'Karl Hill',
     'Karl M. Hill',
-    'Engineering Manager',
     'Staff Aerospace Software Engineer',
-    'Platform Engineering',
-    'DevSecOps',
-    'Cloud-Native',
-    'Aerospace',
-    'Defense',
+    'Technical leadership',
+    'Engineering systems',
     'Mission software',
+    'Aerospace',
+    'National security',
     'NASA Goddard',
     'Jacobs National Security',
     'Washington DC',
