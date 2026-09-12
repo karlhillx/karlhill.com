@@ -7,8 +7,6 @@ return [
             'Python',
             'TypeScript',
             'Java',
-            'PHP',
-            'Perl',
             'Bash',
         ],
     ],
