@@ -305,6 +305,8 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('Jacobs', escape: false);
     $resume->assertSee('class="resume-doc', escape: false);
     $resume->assertSee('Professional Scrum Master', escape: false);
+    $resume->assertSee('https://www.credly.com/badges/1874ba29-99d7-4dae-8335-1a915795d956', escape: false);
+    $resume->assertSee('https://www.credly.com/badges/da27e50e-ef55-41f0-bc14-ca26d9e3e0ff', escape: false);
     $resume->assertSee('Technical Expertise', escape: false);
     $resume->assertDontSee('Selected Leadership Impact', escape: false);
     $resume->assertSee('Areas of Expertise', escape: false);

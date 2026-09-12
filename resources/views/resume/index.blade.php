@@ -226,7 +226,12 @@
                         <ul class="resume-certs list-disc pl-5">
                             @foreach($certifications as $cert)
                                 <li class="text-neutral-300">
-                                    {{ $cert['name'] }}{{ ! empty($cert['issuer']) ? ', '.$cert['issuer'] : '' }}{{ ! empty($cert['status']) ? ' ('.strtolower($cert['status']).')' : '' }}
+                                    @if(! empty($cert['url']))
+                                        <a href="{{ $cert['url'] }}" target="_blank" rel="noopener noreferrer" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">{{ $cert['name'] }}</a>
+                                    @else
+                                        {{ $cert['name'] }}
+                                    @endif
+                                    {{ ! empty($cert['issuer']) ? ', '.$cert['issuer'] : '' }}{{ ! empty($cert['status']) ? ' ('.strtolower($cert['status']).')' : '' }}
                                 </li>
                             @endforeach
                         </ul>

@@ -677,7 +677,7 @@
                         @php
                             $certName = str_replace(['®', '™'], '', (string) $cert['name']);
                         @endphp
-                        <li><strong>{{ $certName }}</strong>@if(! empty($cert['issuer']))<span>, {{ $cert['issuer'] }}</span>@endif @if(! empty($cert['status']))<span> ({{ strtolower($cert['status']) }})</span>@endif</li>
+                        <li>@if(! empty($cert['url']))<a href="{{ $cert['url'] }}"><strong>{{ $certName }}</strong></a>@else<strong>{{ $certName }}</strong>@endif @if(! empty($cert['issuer']))<span>, {{ $cert['issuer'] }}</span>@endif @if(! empty($cert['status']))<span> ({{ strtolower($cert['status']) }})</span>@endif</li>
                     @endforeach
                 </ul>
             </section>
