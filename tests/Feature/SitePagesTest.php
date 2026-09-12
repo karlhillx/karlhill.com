@@ -324,7 +324,8 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('Agile Delivery', escape: false);
     $resume->assertSee('CI/CD', escape: false);
     $resume->assertSee('bb-run', escape: false);
-    $resume->assertSee('pipeguard', escape: false);
+    $resume->assertSee('testrisk', escape: false);
+    $resume->assertDontSee('pipeguard', escape: false);
     $resume->assertSee('Python-based mission software', escape: false);
     $resume->assertSee('messaging integrations', escape: false);
     $resume->assertSee('Onboarded and coached approximately six engineers', escape: false);

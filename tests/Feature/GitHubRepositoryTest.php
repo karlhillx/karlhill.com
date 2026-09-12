@@ -8,7 +8,7 @@ beforeEach(function () {
     Cache::flush();
 });
 
-it('ranks featured fallback order so bb-run leads live results', function () {
+it('ranks featured fallback order so bb-run and testrisk lead live results', function () {
     Http::preventStrayRequests();
 
     Http::fake([
@@ -23,6 +23,17 @@ it('ranks featured fallback order so bb-run leads live results', function () {
                 'fork' => false,
                 'archived' => false,
                 'updated_at' => '2026-06-02T00:00:00Z',
+            ],
+            [
+                'name' => 'testrisk',
+                'description' => 'Rank the highest-value Python test gaps',
+                'html_url' => 'https://github.com/karlhillx/testrisk',
+                'stargazers_count' => 1,
+                'language' => 'Python',
+                'topics' => ['testing'],
+                'fork' => false,
+                'archived' => false,
+                'updated_at' => '2026-06-03T00:00:00Z',
             ],
             [
                 'name' => 'bb-run',
@@ -40,7 +51,7 @@ it('ranks featured fallback order so bb-run leads live results', function () {
 
     $repos = app(GitHubRepository::class)->topRepos();
 
-    expect($repos->first()->name)->toBe('bb-run');
+    expect($repos->pluck('name')->take(2)->all())->toBe(['bb-run', 'testrisk']);
 });
 
 it('top repos returns featured public repositories', function () {
@@ -87,8 +98,8 @@ it('falls back to curated repos when api fails', function () {
 
     $repos = app(GitHubRepository::class)->topRepos();
 
-    $this->assertGreaterThanOrEqual(1, $repos->count());
-    $this->assertSame('bb-run', $repos->first()->name);
+    $this->assertGreaterThanOrEqual(2, $repos->count());
+    $this->assertSame(['bb-run', 'testrisk'], $repos->pluck('name')->take(2)->all());
     $this->assertTrue($repos->contains(fn ($repo) => $repo->name === 'sim-rs'));
 });
 

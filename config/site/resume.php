@@ -30,9 +30,9 @@ return [
             'note' => 'Run Bitbucket Pipelines locally.',
         ],
         [
-            'name' => 'pipeguard',
-            'url' => 'https://github.com/karlhillx/pipeguard',
-            'note' => 'Policy checks for CI/CD standards and deployment safety.',
+            'name' => 'testrisk',
+            'url' => 'https://github.com/karlhillx/testrisk',
+            'note' => 'Rank the highest-value Python test gaps from coverage, AST, and git.',
         ],
     ],
 ];

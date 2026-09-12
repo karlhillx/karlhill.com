@@ -19,7 +19,7 @@ class GitHubRepository
             $username = 'karlhillx';
         }
 
-        $cacheKey = "github.repos.{$username}.{$limit}";
+        $cacheKey = $this->cacheKey($username, $limit);
         $rows = Cache::get($cacheKey);
 
         if (! is_array($rows)) {
@@ -40,6 +40,13 @@ class GitHubRepository
         }
 
         return collect($rows)->map(fn (array $row) => GitHubRepo::fromArray($row));
+    }
+
+    protected function cacheKey(string $username, int $limit): string
+    {
+        $featured = implode(',', $this->featuredSlugs());
+
+        return 'github.repos.'.$username.'.'.$limit.'.'.md5($featured);
     }
 
     /**

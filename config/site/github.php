@@ -28,6 +28,18 @@ return [
             ],
         ],
         [
+            'name' => 'testrisk',
+            'description' => 'Rank the highest-value Python test gaps from coverage, AST, and git.',
+            'url' => 'https://github.com/karlhillx/testrisk',
+            'stars' => 1,
+            'language' => 'Python',
+            'topics' => [
+                'cli',
+                'coverage',
+                'testing',
+            ],
+        ],
+        [
             'name' => 'sim-rs',
             'description' => 'Satellite orbit and telemetry simulation in Rust.',
             'url' => 'https://github.com/karlhillx/sim-rs',
