@@ -163,11 +163,16 @@ main > section:nth-of-type(n + 3):not([id]) {
     #hero .hero-eyebrow {
         margin-bottom: 1rem;
     }
+    #hero .hero-statement {
+        font-size: 1.125rem;
+        margin-bottom: 0.3rem;
+        max-width: min(36rem, 100%);
+    }
     #hero .hero-lede {
         margin-bottom: 0.85rem;
         font-size: 1.0625rem;
         line-height: 1.6;
-        max-width: min(34rem, 100%);
+        max-width: min(36rem, 100%);
     }
     #hero .hero-proof {
         margin-bottom: 1.35rem;
