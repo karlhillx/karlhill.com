@@ -331,6 +331,7 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('Onboarded and coached six engineers', escape: false);
     $resume->assertSee('1.5 million monthly visitors', escape: false);
     $resume->assertSee('roughly 60%', escape: false);
+    $resume->assertSee('Led Agile software delivery across NASA teams', escape: false);
     $resume->assertSee('Computer Science coursework', escape: false);
     $resume->assertSee('University of Maryland, Baltimore County', escape: false);
     $resume->assertDontSee('Professional Scrum Developer', escape: false);

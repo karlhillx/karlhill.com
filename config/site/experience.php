@@ -48,6 +48,7 @@ return [
                 'Modernized NASA Earth Observatory\'s web platform, improving performance, user experience, and search discoverability for an audience of approximately 1.5 million monthly visitors during that work.',
                 'Automated a content-registry workflow, reducing manual dataset-registration work by roughly 60% and improving researcher access.',
                 'Built a Ceph-based file and metadata platform for virtual directory mapping and discovery of large scientific datasets.',
+                'Led Agile software delivery across NASA teams, coordinating priorities, sprint execution, stakeholder needs, and continuous improvement.',
             ],
             'skills' => [
                 'AWS',

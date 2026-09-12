@@ -79,9 +79,11 @@
         <link rel="canonical" href="{{ $canonical }}">
     @endif
 
-    {{-- Preload the hero/display font (Bebas Neue) — it renders the LCP element,
-         so fetching it before the CSS parses shaves first-paint latency. --}}
-    <link rel="preload" as="font" type="font/woff2" href="{{ Vite::asset('resources/fonts/bebas-neue-latin-400-normal.woff2') }}" crossorigin>
+    {{-- Preload site fonts before CSS parses so display, body, and mono
+         faces are ready on first paint. Paths live in PreloadLinks. --}}
+    @foreach(\App\Support\PreloadLinks::fontUrls() as $fontUrl)
+        <link rel="preload" as="font" type="font/woff2" href="{{ $fontUrl }}" crossorigin>
+    @endforeach
 
     {{-- Favicons --}}
     @php($iconV = filemtime(public_path('img/favicon-96x96.png')))

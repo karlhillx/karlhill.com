@@ -57,6 +57,27 @@ it('machine readable json omits session cookies', function () {
         ->and($response->headers->get('X-Powered-By'))->toBeNull();
 });
 
+it('html preloads bebas barlow and jetbrains fonts', function () {
+    $response = $this->get('/');
+    $html = $response->assertOk()->getContent();
+
+    expect($html)
+        ->toContain('rel="preload" as="font" type="font/woff2"')
+        ->toContain('bebas-neue-latin-400-normal')
+        ->toContain('barlow-semi-condensed-latin-400-normal')
+        ->toContain('barlow-semi-condensed-latin-700-normal')
+        ->toContain('jetbrains-mono-latin-400-normal')
+        ->toContain('jetbrains-mono-latin-500-normal');
+
+    $link = $response->headers->get('Link');
+    if ($link !== null) {
+        expect($link)
+            ->toContain('as=font')
+            ->toContain('barlow-semi-condensed')
+            ->toContain('jetbrains-mono');
+    }
+});
+
 it('html responses include link preload headers when built', function () {
     $response = $this->get('/');
 

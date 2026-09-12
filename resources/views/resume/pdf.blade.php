@@ -14,7 +14,7 @@
     $linkedinUrl = $linkedin['url'] ?? 'https://www.linkedin.com/in/khill/';
     $githubUrl = $github['url'] ?? 'https://github.com/karlhillx';
     $jacobs = $bullets($experience['current']['highlights'], 6);
-    $nasa = $bullets($experience['roles'][0]['highlights'], 5);
+    $nasa = $bullets($experience['roles'][0]['highlights'], 6);
     $informed = $bullets($experience['roles'][1]['highlights'], 3);
     $ticomix = $bullets($experience['roles'][2]['highlights'], 3);
     $earlier = $bullets($experience['earlier']['highlights'], 2);
@@ -682,8 +682,8 @@
             </section>
 
             @if(! empty($resume['tooling']))
-                <section class="section" aria-labelledby="tooling-heading">
-                    <h2 id="tooling-heading" class="section-title">Developer Tooling</h2>
+                <section class="section" aria-labelledby="open-source-heading">
+                    <h2 id="open-source-heading" class="section-title">Open Source</h2>
                     <ul class="edu-list">
                         @foreach($resume['tooling'] as $item)
                             <li><strong>{{ $item['name'] }}</strong> — {{ $item['note'] }}</li>

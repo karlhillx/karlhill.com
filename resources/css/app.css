@@ -58,8 +58,8 @@
 @import 'tailwindcss';
 
 /* Bebas Neue (hero/display font, and the site's LCP element) is bundled via
-   Vite from resources/fonts so build-time resolution is clean; the document
-   head preloads the same file through Vite::asset() — see layouts/site.blade.php. */
+   Vite from resources/fonts so build-time resolution is clean. Bebas, Barlow,
+   and JetBrains are preloaded in the document head — see PreloadLinks. */
 @font-face {
     font-family: 'Bebas Neue';
     font-style: normal;

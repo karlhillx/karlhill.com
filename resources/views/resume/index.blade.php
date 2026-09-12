@@ -190,8 +190,8 @@
                 </section>
 
                 @if(! empty($resume['tooling']))
-                    <section class="resume-section" aria-labelledby="resume-tooling" data-reveal>
-                        <h2 id="resume-tooling" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Developer Tooling</h2>
+                    <section class="resume-section" aria-labelledby="resume-open-source" data-reveal>
+                        <h2 id="resume-open-source" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Open Source</h2>
                         <ul class="resume-bullets list-disc pl-5 text-neutral-300">
                             @foreach($resume['tooling'] as $item)
                                 <li>

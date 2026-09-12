@@ -38,7 +38,7 @@ return [
             'uv',
             'Ruff',
             'pytest',
-            'ty',
+            'mypy',
             'pre-commit',
         ],
     ],
