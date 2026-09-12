@@ -8,7 +8,7 @@ return [
         'company' => 'Jacobs — National Security',
         'location' => 'Chantilly, VA',
         'period' => 'Sept 2025 — Present',
-        'summary' => 'Hands-on mission software and technical leadership for a ~10-engineer team across ~20 repositories and multiple environments.',
+        'summary' => 'Hands-on software development, technical guidance, delivery leadership, mentoring, and engineering guardrails for a ~10-engineer team across ~20 repositories.',
         'scope' => [
             'owned' => 'Day-to-day software delivery, engineering standards, mentoring, and hands-on implementation across about 20 repositories.',
             'influence' => 'Program priorities, vendor and partner-team dependencies, and integration across repositories.',

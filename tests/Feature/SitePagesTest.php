@@ -24,10 +24,10 @@ it('about page renders leadership, career, selected impact, and research', funct
 
     $response->assertStatus(200);
     $response->assertSee('About Karl', escape: false);
-    $response->assertSee('From NASA platforms at operational scale to Staff-level leadership', escape: false);
+    $response->assertSee('From NASA systems at operational scale to Staff-level leadership', escape: false);
     $response->assertSee('id="how-i-lead"', escape: false);
     $response->assertSee('How I lead', escape: false);
-    $response->assertSee('How I work with engineers, teams, and stakeholders today.', escape: false);
+    $response->assertSee('How I lead engineering work, develop engineers, and keep delivery moving across teams.', escape: false);
     $response->assertSee('lead-principles', escape: false);
     $response->assertSee('1:1s that surface risk', escape: false);
     $response->assertSee('Tradeoffs made visible', escape: false);
@@ -42,7 +42,7 @@ it('about page renders leadership, career, selected impact, and research', funct
     $response->assertSee('id="experience"', escape: false);
     $response->assertSee('Career', escape: false);
     $response->assertSee('Jacobs — National Security', escape: false);
-    $response->assertSee('Hands-on mission software and technical leadership for a ~10-engineer team across ~20 repositories', escape: false);
+    $response->assertSee('Hands-on software development, technical guidance, delivery leadership, mentoring, and engineering guardrails', escape: false);
     $response->assertSee('NASA is the public proof', escape: false);
     $response->assertSee('Led Agile software delivery across NASA teams', escape: false);
     $response->assertSee('InformedDNA', escape: false);
@@ -62,9 +62,9 @@ it('about page renders leadership, career, selected impact, and research', funct
     $response->assertSee('href="#how-i-lead"', escape: false);
     $response->assertSee('id="impact"', escape: false);
     $response->assertSee('Selected impact', escape: false);
-    $response->assertSee('NASA Earth science platforms supporting disaster response', escape: false);
-    $response->assertSee('Day-to-day technical and delivery leadership across ~10 engineers', escape: false);
-    $response->assertSee('Co-author of peer-reviewed research on high-resolution global flood mapping', escape: false);
+    $response->assertSee('NASA Earth science software supporting disaster response', escape: false);
+    $response->assertSee('Technical and delivery leadership across ~10 engineers, ~20 repositories', escape: false);
+    $response->assertSee('Published research in high-resolution global flood mapping through GeoHorizons', escape: false);
     $response->assertSee('href="/resume#credentials"', escape: false);
     $response->assertSee('Education, certifications, and technical skills are on the', escape: false);
     $response->assertDontSee('Verify credential', escape: false);

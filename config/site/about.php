@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'lede' => 'From NASA platforms at operational scale to Staff-level leadership in national security software—building systems, developing engineers, and leading delivery across teams.',
+    'lede' => 'From NASA systems at operational scale to Staff-level leadership in national security software—building software, developing engineers, and leading delivery across teams.',
     'how_i_lead' => [
         'title' => 'How I lead',
-        'intro' => 'How I work with engineers, teams, and stakeholders today.',
+        'intro' => 'How I lead engineering work, develop engineers, and keep delivery moving across teams.',
         'items' => [
             [
                 'title' => '1:1s that surface risk',
@@ -37,9 +37,9 @@ return [
     'impact' => [
         'heading' => 'Selected impact',
         'items' => [
-            'NASA Earth science platforms supporting disaster response and large-scale data access.',
-            'Day-to-day technical and delivery leadership across ~10 engineers and ~20 repositories.',
-            'Co-author of peer-reviewed research on high-resolution global flood mapping.',
+            'NASA Earth science software supporting disaster response, scientific data access, and public-facing platforms at operational scale.',
+            'Technical and delivery leadership across ~10 engineers, ~20 repositories, multiple environments, and partner teams.',
+            'Published research in high-resolution global flood mapping through GeoHorizons / AGU.',
         ],
         'footer' => 'Education, certifications, and technical skills are on the resume.',
     ],
