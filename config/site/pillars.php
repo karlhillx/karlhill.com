@@ -2,7 +2,7 @@
 
 return [
     // Home hire proof only — not the people craft (/about#how-i-lead) or the
-    // forwardable delivery OS (/lead). Keep titles short for the display face.
+    // forwardable delivery OS (/delivery). Keep titles short for the display face.
     [
         'title' => 'Proof',
         'body' => 'Eight years of NASA Earth science platforms you can open — flood mapping, LAADS, and the Goddard chapters under Also shipped.',

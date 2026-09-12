@@ -329,7 +329,7 @@ final class SiteCatalog
 
         return [
             'url' => $base.'/kit',
-            'delivery' => $base.'/about#delivery',
+            'delivery' => $base.'/delivery',
             'system' => $base.'/#system',
             'resume_html' => $base.'/resume',
             'resume_pdf' => $base.config('site.footer.resume'),
@@ -401,6 +401,7 @@ final class SiteCatalog
             ['loc' => $base.'/now', 'lastmod' => $nowUpdated, 'changefreq' => 'weekly', 'priority' => '0.85'],
             ['loc' => $base.'/blog', 'lastmod' => $latestPost, 'changefreq' => 'weekly', 'priority' => '0.8'],
             ['loc' => $base.'/about', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],
+            ['loc' => $base.'/delivery', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.6'],
             ['loc' => $base.'/resume', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],
         ];
 

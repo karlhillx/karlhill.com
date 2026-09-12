@@ -14,9 +14,10 @@ use App\Support\Booking;
  * - /kit     leave-behind: PDF + bio + links (primary recruiter packet)
  * - /now     booking (+ living status); Book CTAs land on #book
  * - /blog    writing
- * - /about   people craft + delivery OS + experience + credentials (secondary)
+ * - /about   who I am: leadership, career, impact, research (secondary)
+ * - /delivery written bar for reviews, integration, and release
  * - /resume  HTML CV evidence (secondary; PDF from kit)
- * - /lead    301 → /about#delivery (legacy)
+ * - /lead    301 → /delivery (legacy)
  * - footer   home = contact form; other pages = Book + email
  */
 $social = require __DIR__.'/site/social.php';

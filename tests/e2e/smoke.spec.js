@@ -120,8 +120,8 @@ test.describe('smoke + a11y', () => {
         await assertA11y(page);
     });
 
-    test('delivery packet lives on about', async ({ page }) => {
-        await page.goto('/about#delivery');
+    test('delivery packet lives on /delivery', async ({ page }) => {
+        await page.goto('/delivery');
         await expect(page.getByRole('heading', { name: /engineering delivery/i })).toBeVisible();
         await expect(page.getByRole('heading', { name: /definition of done/i })).toBeVisible();
         await expect(page.getByRole('link', { name: /recruiter kit/i }).first()).toBeVisible();

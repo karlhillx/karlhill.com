@@ -11,7 +11,7 @@ return [
     'default' => 'verify',
     'continue' => [
         'label' => 'Written bar for reviews →',
-        'href' => '/about#delivery',
+        'href' => '/delivery',
     ],
     'stages' => [
         [

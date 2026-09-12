@@ -1,26 +1,30 @@
 <?php
 
 return [
-    'lede' => 'Aerospace mission software at Jacobs. Previously NASA Goddard Earth science platforms at SSAI, 2017–2025.',
+    'lede' => 'From NASA platforms at operational scale to Staff-level leadership in national security software—building systems, developing engineers, and leading delivery across teams.',
     'how_i_lead' => [
-        'title' => 'Technical leadership',
-        'intro' => 'Technical direction stays close to the code. Sequencing, reviews, checks, and coaching are how the work runs. Formal personnel decisions remain with management.',
+        'title' => 'How I lead',
+        'intro' => 'How I work with engineers, teams, and stakeholders today.',
         'items' => [
             [
-                'title' => 'Sequence the work',
-                'body' => 'Program priorities become scoped engineering work. Dependencies and integration risk are visible while the software is still being written.',
+                'title' => '1:1s that surface risk',
+                'body' => 'Regular conversations are for blockers and judgment, not status theater. Risk should show up while there is still time to change the plan.',
             ],
             [
-                'title' => 'Review as teaching',
-                'body' => 'Code review is specific: correctness, tests, interfaces, and the effect on other repositories. Authors leave knowing why, not only what to change.',
+                'title' => 'Tradeoffs made visible',
+                'body' => 'Priorities collide. The job is to name the cost of each option early, so the decision is shared instead of hidden in the work.',
             ],
             [
-                'title' => 'Put the bar in the system',
-                'body' => 'Tests, CI checks, and written expectations carry the standard. The team should not need one person in the path to ship.',
+                'title' => 'Standards over heroics',
+                'body' => 'Tests, reviews, and written expectations carry the bar. A team that depends on one person staying late is already fragile.',
             ],
             [
-                'title' => 'Grow independent engineers',
-                'body' => 'Onboarding, reviews, and technical feedback are how engineers take on more of the work. About six have been coached that way on the current team.',
+                'title' => 'Stakeholder trust',
+                'body' => 'Partners do not need the stack. They need sequencing they can count on, and an honest answer when the scope will not fit.',
+            ],
+            [
+                'title' => 'Team outcomes over personal touch',
+                'body' => 'Success is engineers who can ship without me in the path. Coaching and shared practice matter more than being the person who finishes the work.',
             ],
         ],
     ],
@@ -31,9 +35,13 @@ return [
         'cta_href' => '/resume',
     ],
     'impact' => [
-        'heading' => 'Experience in numbers',
-        'context' => 'The Earth Observatory audience figure reflects the platform during that work, not current traffic.',
+        'heading' => 'Selected impact',
+        'items' => [
+            'NASA Earth science platforms supporting disaster response and large-scale data access.',
+            'Day-to-day technical and delivery leadership across ~10 engineers and ~20 repositories.',
+            'Co-author of peer-reviewed research on high-resolution global flood mapping.',
+        ],
         'footer' => 'Education, certifications, and technical skills are on the resume.',
     ],
-    'beyond' => 'When I’m not leading or coding, I make music—drums, guitar, songwriting, recording, touring, and independent releases across post-punk, indie rock, hardcore, and alternative music. Credits are on Discogs.',
+    'beyond' => 'When I’m not leading or coding, I make music—drums, guitar, songwriting, recording, touring, and independent releases rooted in post-punk, indie rock, hardcore, and alternative music. Recording credits span more than three decades and are on Discogs.',
 ];

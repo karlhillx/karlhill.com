@@ -57,7 +57,7 @@ jobs:
             rm -f "$body"
           }
 
-          # Legacy /lead must keep redirecting into About delivery (not 200).
+          # Legacy /lead must keep redirecting to /delivery (not 200).
           check_redirect() {
             local path="$1" expect_location="$2"
             local url="${SITE_URL}${path}"
@@ -85,11 +85,12 @@ jobs:
           check /work 'Read case study'
           check /work/laads-daac 'case-study-media__label'
           check /about 'Beyond the work'
+          check /delivery 'Definition of Done'
           check /blog 'post-list-title'
           check /now 'For recruiters and hiring managers'
           check /kit 'kit-glance-heading'
           check /resume 'resume-experience'
-          check_redirect /lead '/about#delivery'
+          check_redirect /lead '/delivery'
           check /feed.xml '<feed'
           check /sitemap.xml '<urlset'
           check /api/site.json '"name"'

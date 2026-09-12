@@ -66,7 +66,7 @@ final class PageMeta
 
     public static function lead(): self
     {
-        return self::fromSeo('lead', '/lead', null);
+        return self::fromSeo('lead', '/delivery', null);
     }
 
     public static function a11yContactErrors(): self

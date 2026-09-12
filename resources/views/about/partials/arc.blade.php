@@ -1,6 +1,18 @@
-@php($arc = config('site.about.arc'))
-@php($current = config('site.experience.current'))
-@php($roles = config('site.experience.roles', []))
+@php
+    $arc = config('site.about.arc');
+    $current = config('site.experience.current');
+    $roles = config('site.experience.roles', []);
+    $roleHighlights = static function (array $role): array {
+        $highlights = $role['highlights'] ?? [];
+        $indexes = $role['about_highlights'] ?? range(0, 2);
+
+        return collect($indexes)
+            ->map(fn ($index) => $highlights[$index] ?? null)
+            ->filter(fn ($item) => filled($item))
+            ->values()
+            ->all();
+    };
+@endphp
 
 {{-- Career arc: narrative chapters from experience — summaries, not a second resume. --}}
 <x-site.section id="experience" section-label="Career">
@@ -23,7 +35,7 @@
                 @endif
                 @if(! empty($current['highlights']))
                     <ul class="mt-5 space-y-2.5 text-neutral-400 text-sm leading-relaxed">
-                        @foreach(array_slice($current['highlights'], 0, 3) as $item)
+                        @foreach($roleHighlights($current) as $item)
                             <li class="flex gap-3">
                                 <span class="text-accent shrink-0" aria-hidden="true">→</span>
                                 <span>{!! $item !!}</span>
@@ -43,7 +55,7 @@
                     @endif
                     @if(! empty($role['highlights']))
                         <ul class="mt-5 space-y-2.5 text-neutral-400 text-sm leading-relaxed">
-                            @foreach(array_slice($role['highlights'], 0, 3) as $item)
+                            @foreach($roleHighlights($role) as $item)
                                 <li class="flex gap-3">
                                     <span class="text-accent shrink-0" aria-hidden="true">→</span>
                                     <span>{!! $item !!}</span>

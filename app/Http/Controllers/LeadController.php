@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 
 /**
- * Legacy URL — delivery OS now lives on About (#delivery).
+ * Legacy URL — delivery packet now lives at /delivery.
  */
 class LeadController extends Controller
 {
     public function __invoke(): RedirectResponse
     {
-        return redirect()->to('/about#delivery', 301);
+        return redirect()->to('/delivery', 301);
     }
 }

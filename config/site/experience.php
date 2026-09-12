@@ -41,6 +41,7 @@ return [
             'location' => 'Greenbelt, MD',
             'period' => 'Dec 2017 — Sept 2025',
             'summary' => 'Earth science software other people used: flood maps, satellite-data access, and science publishing.',
+            'about_highlights' => [0, 1, 2, 5],
             'highlights' => [
                 'Led design and development of an AWS-based flood-mapping system, automating processing and distribution of satellite-derived flood products.',
                 'Modernized LAADS DAAC web systems, including Find Data search and ordering and near-real-time access, with GitLab CI/CD and Kubernetes delivery.',

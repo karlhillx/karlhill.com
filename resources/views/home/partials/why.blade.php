@@ -12,7 +12,7 @@
                class="inline-flex items-center min-h-11 font-mono text-xs text-accent uppercase tracking-widest hover:underline underline-offset-4">
                 Technical leadership →
             </a>
-            <a href="/lead"
+            <a href="/delivery"
                class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
                 Engineering delivery
             </a>

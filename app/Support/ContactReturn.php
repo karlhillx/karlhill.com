@@ -33,7 +33,7 @@ final class ContactReturn
     private static function isAllowed(string $path): bool
     {
         return (bool) preg_match(
-            '#^/(?:(?:now|about|resume|kit)|work(?:/tag/[a-z0-9-]+)?|work/[a-z0-9-]+|blog(?:/tag/[a-z0-9-]+)?|blog/[a-z0-9-]+)?$#',
+            '#^/(?:(?:now|about|resume|kit|delivery)|work(?:/tag/[a-z0-9-]+)?|work/[a-z0-9-]+|blog(?:/tag/[a-z0-9-]+)?|blog/[a-z0-9-]+)?$#',
             $path,
         );
     }

@@ -30,7 +30,7 @@ it('hire packet json includes person experience writing and case studies', funct
         ->and(collect($json['writing'])->pluck('slug'))->toContain('release-governance')
         ->and($json['feeds']['llms'])->toEndWith('/llms.txt')
         ->and($json['kit']['resume_pdf'])->toContain('/files/Karl-Hill-Resume.pdf')
-        ->and($json['kit']['delivery'])->toEndWith('/about#delivery')
+        ->and($json['kit']['delivery'])->toEndWith('/delivery')
         ->and($json['kit']['system'])->toEndWith('/#system')
         ->and($json['delivery_system']['heading'])->toBe('How software gets delivered')
         ->and(collect($json['delivery_system']['stages'])->pluck('id'))->toContain('verify', 'integrate', 'release')

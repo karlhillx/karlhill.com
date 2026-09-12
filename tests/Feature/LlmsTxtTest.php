@@ -32,7 +32,7 @@ it('llms txt returns a v2 file-list map', function () {
     $this->assertStringContainsString('/work/nasa-earth-observatory', $body);
     $this->assertStringContainsString('/work/laads-daac', $body);
     $this->assertStringContainsString('/kit', $body);
-    $this->assertStringContainsString('/about#delivery', $body);
+    $this->assertStringContainsString('/delivery', $body);
     $this->assertStringContainsString('/#system', $body);
     $this->assertStringNotContainsString('](https://karlhill.com/lead)', $body);
     $this->assertStringContainsString('/blog/release-governance', $body);
@@ -98,7 +98,7 @@ it('llms txt builder lists professional profiles and resume once', function () {
     $this->assertSame(1, substr_count($body, '/resume'));
     $this->assertSame(1, substr_count($body, '/kit'));
     $this->assertSame(1, substr_count($body, '/now'));
-    $this->assertSame(1, substr_count($body, '](https://karlhill.com/about#delivery)'));
+    $this->assertSame(1, substr_count($body, '](https://karlhill.com/delivery)'));
     $this->assertStringNotContainsString('](https://karlhill.com/lead)', $body);
     $this->assertStringContainsString('GeoHorizons', $body);
     $this->assertStringContainsString(app(SiteCatalog::class)->lastUpdated()->format('F j, Y'), $body);

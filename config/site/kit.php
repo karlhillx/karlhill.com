@@ -85,7 +85,7 @@ return [
         ],
         [
             'label' => 'Engineering delivery',
-            'path' => '/about#delivery',
+            'path' => '/delivery',
             'meta' => 'Packet',
             'group' => 'more',
         ],

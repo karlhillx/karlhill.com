@@ -19,21 +19,23 @@ it('work page renders projects and open source', function () {
     $response->assertDontSee('section-rail', escape: false);
 });
 
-it('about page renders leadership, delivery, experience, impact, and research', function () {
+it('about page renders leadership, career, selected impact, and research', function () {
     $response = $this->get('/about');
 
     $response->assertStatus(200);
     $response->assertSee('About Karl', escape: false);
+    $response->assertSee('From NASA platforms at operational scale to Staff-level leadership', escape: false);
     $response->assertSee('id="how-i-lead"', escape: false);
-    $response->assertSee('Technical leadership', escape: false);
+    $response->assertSee('How I lead', escape: false);
+    $response->assertSee('How I work with engineers, teams, and stakeholders today.', escape: false);
     $response->assertSee('lead-principles', escape: false);
-    $response->assertSee('Sequence the work', escape: false);
-    $response->assertSee('Put the bar in the system', escape: false);
-    $response->assertSee('Review as teaching', escape: false);
-    $response->assertSee('id="delivery"', escape: false);
-    $response->assertSee('Engineering delivery', escape: false);
-    $response->assertSee('Definition of Done', escape: false);
-    $response->assertSee('Pull request rubric', escape: false);
+    $response->assertSee('1:1s that surface risk', escape: false);
+    $response->assertSee('Tradeoffs made visible', escape: false);
+    $response->assertSee('Standards over heroics', escape: false);
+    $response->assertSee('Stakeholder trust', escape: false);
+    $response->assertSee('Team outcomes over personal touch', escape: false);
+    $response->assertSee('How I run delivery', escape: false);
+    $response->assertSee('href="/delivery"', escape: false);
     $response->assertSee('Sorry About Your Daughter', escape: false);
     $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
     $response->assertSee('GeoHorizons', escape: false);
@@ -42,7 +44,7 @@ it('about page renders leadership, delivery, experience, impact, and research', 
     $response->assertSee('Jacobs — National Security', escape: false);
     $response->assertSee('Hands-on mission software and technical leadership for a ~10-engineer team across ~20 repositories', escape: false);
     $response->assertSee('NASA is the public proof', escape: false);
-    $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
+    $response->assertSee('Led Agile software delivery across NASA teams', escape: false);
     $response->assertSee('InformedDNA', escape: false);
     $response->assertSee('href="/resume"', escape: false);
     $response->assertSee('ss-geohorizons', escape: false);
@@ -51,24 +53,34 @@ it('about page renders leadership, delivery, experience, impact, and research', 
     $response->assertSee('Global Water and Flood Mapping System', escape: false);
     $response->assertSee('Beyond the work', escape: false);
     $response->assertSee('When I’m not leading or coding, I make music', escape: false);
-    $response->assertSee('Credits are on', escape: false);
+    $response->assertSee('Recording credits span more than three decades and are on', escape: false);
     $response->assertSee('discogs.com', escape: false);
+    $response->assertSee('>Discogs</a>', escape: false);
     $response->assertSee('id="beyond"', escape: false);
-    $response->assertSee('href="#delivery"', escape: false);
     $response->assertSee('id="how-i-lead"', escape: false);
     $response->assertSee('aria-label="On this page"', escape: false);
     $response->assertSee('href="#how-i-lead"', escape: false);
     $response->assertSee('id="impact"', escape: false);
+    $response->assertSee('Selected impact', escape: false);
+    $response->assertSee('NASA Earth science platforms supporting disaster response', escape: false);
+    $response->assertSee('Day-to-day technical and delivery leadership across ~10 engineers', escape: false);
+    $response->assertSee('Co-author of peer-reviewed research on high-resolution global flood mapping', escape: false);
     $response->assertSee('href="/resume#credentials"', escape: false);
     $response->assertSee('Education, certifications, and technical skills are on the', escape: false);
     $response->assertDontSee('Verify credential', escape: false);
     $response->assertSee('href="/kit"', escape: false);
     $response->assertSee('Recruiter kit', escape: false);
+    $response->assertDontSee('id="delivery"', escape: false);
+    $response->assertDontSee('Definition of Done', escape: false);
+    $response->assertDontSee('Pull request rubric', escape: false);
+    $response->assertDontSee('href="#delivery"', escape: false);
     $response->assertDontSee('href="/lead"', escape: false);
     $response->assertDontSee('href="#stack"', escape: false);
     $response->assertDontSee('id="stack"', escape: false);
     $response->assertDontSee('Certified ScrumMaster', escape: false);
     $response->assertDontSee('Open conversations', escape: false);
+    $response->assertDontSee('$105M', escape: false);
+    $response->assertDontSee('The hire ask', escape: false);
 });
 
 it('homepage is a focused landing page', function () {
@@ -87,7 +99,7 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('mutation testing', escape: false);
     $response->assertSee('distributed services', escape: false);
     $response->assertSee('environment promotion', escape: false);
-    $response->assertSee('href="/about#delivery"', escape: false);
+    $response->assertSee('href="/delivery"', escape: false);
     $response->assertDontSee('Cloud &amp; Containers', escape: false);
     $response->assertSee('View all work', escape: false);
     $response->assertSee('Jacobs is current. NASA Earth science systems from Goddard are still public.', escape: false);
@@ -394,6 +406,7 @@ it('service worker and offline page are available', function () {
     $this->assertStringContainsString("const PRECACHE = ['/offline.html', '/site.webmanifest'];", $sw);
     $this->assertStringContainsString("'/now'", $sw);
     $this->assertStringContainsString("'/about'", $sw);
+    $this->assertStringContainsString("'/delivery'", $sw);
     $this->assertStringContainsString("'/work'", $sw);
     $this->assertStringContainsString("'/resume'", $sw);
     $this->assertStringContainsString("'/kit'", $sw);
@@ -501,6 +514,7 @@ it('sitemap includes now and resume pages', function () {
     $response->assertSee('/now', escape: false);
     $response->assertSee('/resume', escape: false);
     $response->assertSee('/kit', escape: false);
+    $response->assertSee('/delivery', escape: false);
     $response->assertDontSee('/lead</loc>', escape: false);
     $response->assertSee('<priority>0.9</priority>', escape: false);
 });
@@ -521,7 +535,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('https://ladsweb.modaps.eosdis.nasa.gov/search/', escape: false);
     $response->assertSee('https://earthobservatory.nasa.gov/', escape: false);
     $response->assertSee('https://doi.org/10.1144/gh2025-7', escape: false);
-    $response->assertSee('/about#delivery', escape: false);
+    $response->assertSee('/delivery', escape: false);
     $response->assertSee('Engineering delivery', escape: false);
     $response->assertSee('/#system', escape: false);
     $response->assertSee('How software gets delivered', escape: false);
@@ -566,11 +580,11 @@ it('homepage path strip points recruiters to kit work and book', function () {
         ->not->toContain('I Set the Bar');
 });
 
-it('legacy delivery url redirects into about', function () {
+it('legacy delivery url redirects to the delivery page', function () {
     $this->get('/lead')
-        ->assertRedirect('/about#delivery');
+        ->assertRedirect('/delivery');
 
-    $this->get('/about')
+    $this->get('/delivery')
         ->assertOk()
         ->assertSee('Engineering delivery', escape: false)
         ->assertSee('Definition of Done', escape: false)
@@ -584,6 +598,7 @@ it('legacy delivery url redirects into about', function () {
         ->assertSee('id="risk"', escape: false)
         ->assertSee('id="coaching"', escape: false)
         ->assertSee('href="/kit"', escape: false)
+        ->assertSee('karlhill.com/delivery', escape: false)
         ->assertDontSee('Kubernetes Mission Mesh', escape: false);
 });
 

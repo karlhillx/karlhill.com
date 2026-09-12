@@ -44,6 +44,7 @@ function isReadablePage(url) {
             url.pathname.startsWith('/blog/') ||
             url.pathname === '/now' ||
             url.pathname === '/about' ||
+            url.pathname === '/delivery' ||
             url.pathname === '/resume' ||
             url.pathname === '/kit' ||
             url.pathname === '/work' ||

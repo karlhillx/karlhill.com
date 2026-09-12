@@ -1,7 +1,7 @@
 @extends('layouts.site', ['meta' => $meta])
 
 @push('head')
-    <x-site.json-ld :data="\App\Support\PersonJsonLd::forNamedPage('lead', '/lead')" />
+    <x-site.json-ld :data="\App\Support\PersonJsonLd::forNamedPage('lead', '/delivery')" />
 @endpush
 
 @section('content')
@@ -31,7 +31,7 @@
                     <a href="{{ $pdfHref }}">Resume PDF</a>
                 @endif
                 <span aria-hidden="true"> · </span>
-                <a href="{{ url('/lead') }}">karlhill.com/lead</a>
+                <a href="{{ url('/delivery') }}">karlhill.com/delivery</a>
             </p>
         </header>
 
@@ -54,7 +54,7 @@
                     </x-site.button>
                 @endif
                 <x-site.button variant="secondary" href="/kit">Recruiter kit</x-site.button>
-                <x-site.button variant="link" href="/about#how-i-lead">Technical leadership</x-site.button>
+                <x-site.button variant="link" href="/about#how-i-lead">How I lead</x-site.button>
                 <x-site.button variant="link" data-print title="Print or save as PDF">Print packet</x-site.button>
             </div>
 

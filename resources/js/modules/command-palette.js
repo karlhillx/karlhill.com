@@ -152,14 +152,14 @@ export function initCommandPalette() {
             action: () => window.location.assign('/about'),
         }),
         withGroup({
-            label: 'Technical leadership',
+            label: 'How I lead',
             keywords: 'how i lead leadership coaching 1:1 feedback em manager',
             action: () => window.location.assign('/about#how-i-lead'),
         }),
         withGroup({
             label: 'Engineering delivery',
             keywords: 'delivery definition of done pr rubric risk coaching lead packet',
-            action: () => window.location.assign('/about#delivery'),
+            action: () => window.location.assign('/delivery'),
         }),
         withGroup({
             label: 'How software gets delivered',

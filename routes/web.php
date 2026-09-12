@@ -6,6 +6,7 @@ use App\Http\Controllers\ClientSiteController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
+use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\NowController;
 use App\Http\Controllers\PushController;
@@ -56,6 +57,7 @@ Route::middleware('cache.headers:public;max_age=300;etag')->group(function (): v
         ->where('slug', '[a-z0-9-]+')
         ->name('work.show');
     Route::get('/about', AboutController::class)->name('about');
+    Route::get('/delivery', DeliveryController::class)->name('delivery');
     Route::get('/lead', LeadController::class)->name('lead');
     Route::get('/now', NowController::class)->name('now');
     Route::get('/resume', ResumeController::class)->name('resume');
