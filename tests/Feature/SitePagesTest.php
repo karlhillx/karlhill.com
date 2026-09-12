@@ -333,6 +333,9 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('Led Agile software delivery across NASA teams', escape: false);
     $resume->assertSee('Computer Science coursework', escape: false);
     $resume->assertSee('University of Maryland, Baltimore County', escape: false);
+    $resume->assertSee('Project Management Certificate', escape: false);
+    $resume->assertSee('Rutgers University', escape: false);
+    $resume->assertDontSee('Project Management studies', escape: false);
     $resume->assertDontSee('Professional Scrum Developer', escape: false);
     $resume->assertDontSee('Download ATS PDF', escape: false);
     $resume->assertDontSee('Print / Save PDF', escape: false);

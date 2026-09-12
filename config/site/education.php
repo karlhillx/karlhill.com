@@ -10,7 +10,7 @@ return [
         'school' => 'Howard Community College',
     ],
     [
-        'degree' => 'Project Management studies',
+        'degree' => 'Project Management Certificate',
         'school' => 'Rutgers University',
     ],
 ];
