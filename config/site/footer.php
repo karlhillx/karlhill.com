@@ -6,5 +6,4 @@ return [
     'resume' => '/files/Karl-Hill-Resume.pdf',
     'contact_placeholder' => 'Role, timeline, and the question.',
     'compact_body' => 'Schedule a conversation or send email.',
-    'colophon' => 'Washington, DC · Software engineer and drummer',
 ];
