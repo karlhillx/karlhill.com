@@ -54,6 +54,7 @@
             'broker-independent',
             'post-processing',
             'dataset-registration',
+            'mission-critical',
         ];
 
         foreach ($compounds as $compound) {
@@ -697,7 +698,7 @@
                 @foreach($stack as $group)
                     <p class="stack-line">
                         <span class="stack-label">{{ $group['category'] }}:</span>
-                        {{ implode(', ', $group['skills']) }}
+                        {{ implode(', ', $group['skills']) }}@if(! empty($group['note'])) — {{ $group['note'] }}@endif
                     </p>
                 @endforeach
             </section>

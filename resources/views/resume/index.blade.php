@@ -17,7 +17,7 @@
         <x-slot:title>Resume</x-slot:title>
 
         <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Aerospace &amp; national security software. Engineering systems. Technical leadership.
+            Mission software. Engineering systems. Technical leadership. Delivery.
         </p>
 
         {{-- The PDF is this page's purpose, so it takes the fill; booking is the secondary. --}}
@@ -107,7 +107,7 @@
                         @foreach($stack as $group)
                             <p class="resume-stack-line">
                                 <span class="resume-stack-label">{{ $group['category'] }}:</span>
-                                {{ implode(', ', $group['skills']) }}
+                                {{ implode(', ', $group['skills']) }}@if(! empty($group['note'])) — {{ $group['note'] }}@endif
                             </p>
                         @endforeach
                     </section>

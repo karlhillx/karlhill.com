@@ -320,15 +320,14 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('Download PDF', escape: false);
     $resume->assertSee('/files/Karl-Hill-Resume.pdf', escape: false);
     $resume->assertSee('Software Engineering', escape: false);
-    $resume->assertSee('Technical Leadership', escape: false);
-    $resume->assertSee('Agile Delivery', escape: false);
+    $resume->assertSee('Technical Leadership &amp; Direction', escape: false);
+    $resume->assertSee('Agile &amp; Cross-Team Delivery', escape: false);
     $resume->assertSee('CI/CD', escape: false);
     $resume->assertSee('bb-run', escape: false);
     $resume->assertSee('testrisk', escape: false);
     $resume->assertDontSee('pipeguard', escape: false);
-    $resume->assertSee('team and vendors', escape: false);
-    $resume->assertSee('broker-independent messaging', escape: false);
-    $resume->assertSee('Onboarded and coached six engineers', escape: false);
+    $resume->assertSee('Lead engineering delivery', escape: false);
+    $resume->assertSee('Onboarded and coached approximately six engineers', escape: false);
     $resume->assertSee('1.5 million monthly visitors', escape: false);
     $resume->assertSee('roughly 60%', escape: false);
     $resume->assertSee('Led Agile software delivery across NASA teams', escape: false);
@@ -340,7 +339,7 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertDontSee('<a href="/work/flood-mapping-system"', escape: false);
 });
 
-it('resume pdf template lists mypy not ty', function () {
+it('resume pdf template lists ty not mypy', function () {
     $html = view('resume.pdf', [
         'person' => config('site.person'),
         'resume' => config('site.resume'),
@@ -353,8 +352,9 @@ it('resume pdf template lists mypy not ty', function () {
     ])->render();
 
     expect($html)
-        ->toContain('pytest, mypy, pre-commit')
-        ->and($html)->not->toContain('pytest, ty, pre-commit');
+        ->toContain('uv, Ruff, ty, pytest, pre-commit')
+        ->toContain('dependency management, linting, type checking, testing, and automated quality gates')
+        ->and($html)->not->toContain('mypy');
 });
 
 it('booking cta appears when configured', function () {

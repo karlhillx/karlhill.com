@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'intro' => 'Staff aerospace software engineer with 20+ years building and delivering production software across national security, aerospace, NASA, and enterprise environments. Hands-on in the code and responsible for the engineering system around it—leading software delivery, raising engineering standards, mentoring engineers, resolving cross-team technical problems, and turning mission needs into reliable software.',
+    'intro' => 'Staff Aerospace Software Engineer with 20+ years of experience building and delivering production software across national security, aerospace, NASA, and enterprise environments. Combines hands-on engineering with technical leadership, leading software delivery, engineering practices, mentoring, and cross-team execution for mission-critical systems.',
     'current' => [
         'label' => 'Current Role',
         'title' => 'Staff Aerospace Software Engineer',
@@ -15,12 +15,11 @@ return [
             'reserved' => 'Staff individual-contributor role; formal personnel decisions remain with management.',
         ],
         'highlights' => [
-            'Lead day-to-day engineering and software delivery for a ~10-engineer team across ~20 repositories and multiple environments: priorities, sprint execution, dependencies, and release readiness.',
-            'Coordinate engineering work across the team and vendors—working their sprint cadences, creating and assigning tickets, implementing and delegating work, and clearing dependencies.',
-            'Establish engineering guardrails in CI/CD, automated testing, code quality, security scanning, repository standards, pull requests, and release controls.',
-            'Anticipate technical, integration, and delivery risks; convene the right engineers and stakeholders and drive issues to resolution before they become blockers.',
-            'Design, implement, and review mission software and shared systems—including broker-independent messaging adapters and post-processing pipeline work—while guiding technical approach across services.',
-            'Onboarded and coached six engineers, reinforcing technical expectations, ownership, and consistent engineering practice.',
+            'Lead engineering delivery for a ~10-engineer team across ~20 repositories and multiple deployment environments, sequencing work, coordinating dependencies, and driving integration and release readiness.',
+            'Develop mission software, shared interfaces, messaging integrations, and service orchestration while providing technical guidance and reviewing implementation across the team.',
+            'Establish engineering guardrails through CI/CD, automated testing, security checks, repository standards, dependency management, and release automation.',
+            'Lead Agile planning and execution across internal and partner teams, translating mission priorities into sequenced engineering work and resolving cross-team dependencies and blockers.',
+            'Onboarded and coached approximately six engineers through code review, technical feedback, development guidance, and reinforcement of engineering standards.',
         ],
         'skills' => [
             'Python',
@@ -48,7 +47,7 @@ return [
                 'Modernized NASA Earth Observatory\'s web platform, improving performance, user experience, and search discoverability for an audience of approximately 1.5 million monthly visitors during that work.',
                 'Automated a content-registry workflow, reducing manual dataset-registration work by roughly 60% and improving researcher access.',
                 'Built a Ceph-based file and metadata platform for virtual directory mapping and discovery of large scientific datasets.',
-                'Led Agile software delivery across NASA teams, coordinating priorities, sprint execution, stakeholder needs, and continuous improvement.',
+                'Led Agile software delivery across NASA teams, coordinating priorities, sprint execution, stakeholder needs, and continuous improvement across Earth science projects.',
             ],
             'skills' => [
                 'AWS',

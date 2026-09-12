@@ -10,16 +10,16 @@ return [
     'phone_on_web' => false,
     'postal' => '',
     // PDF splits on the first "|": lead line, then the rest.
-    'tagline' => 'Aerospace & National Security Software | Engineering Systems · Technical Leadership',
+    'tagline' => 'Mission Software | Engineering Systems | Technical Leadership | Delivery',
     // Intentionally empty: leadership evidence lives in Jacobs experience bullets.
     'impact' => [],
     'expertise' => [
-        'Software Engineering & Technical Leadership',
-        'Mission Software & Distributed Systems',
-        'Engineering Systems & Developer Experience',
-        'CI/CD, Testing & Release Engineering',
-        'Systems Integration & Cross-Team Delivery',
-        'Mentoring, Agile Delivery & Engineering Standards',
+        'Software Engineering',
+        'Technical Leadership & Direction',
+        'Distributed Systems & Integration',
+        'Engineering Systems & Developer Tooling',
+        'Engineer Development & Coaching',
+        'Agile & Cross-Team Delivery',
     ],
     'tooling' => [
         [

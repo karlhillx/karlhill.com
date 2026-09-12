@@ -35,10 +35,11 @@ return [
         'skills' => [
             'uv',
             'Ruff',
+            'ty',
             'pytest',
-            'mypy',
             'pre-commit',
         ],
+        'note' => 'dependency management, linting, type checking, testing, and automated quality gates',
     ],
     [
         'category' => 'Integration',
