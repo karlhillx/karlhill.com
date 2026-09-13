@@ -152,8 +152,8 @@ export function initCommandPalette() {
             action: () => window.location.assign('/about'),
         }),
         withGroup({
-            label: 'How I lead',
-            keywords: 'how i lead leadership coaching 1:1 feedback em manager',
+            label: 'Technical leadership',
+            keywords: 'how i lead technical leadership coaching mentoring review standards em manager',
             action: () => window.location.assign('/about#how-i-lead'),
         }),
         withGroup({

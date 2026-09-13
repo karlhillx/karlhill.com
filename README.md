@@ -76,7 +76,7 @@ Hire bio is canonical in `config/site/person.php` (`bio`, third person). The rec
 
 Google associates bare “Karl Hill” with a Scottish novelist (pen name of a lawyer in Eaglesham). The primary English Wikipedia article is a 19th-century German baritone. This site is a third person: Washington, DC software engineer, NASA Goddard 2017–2025, Jacobs, published as Karl M. Hill.
 
-On-site: Person JSON-LD (`sameAs` from `config/site/social.php` plus Wikidata `Q139902938`, ORCID `identifier`, `memberOf` the band, `disambiguatingDescription`). About `/about#identity` is the crawlable “this Karl Hill” copy. Do **not** `sameAs` `Karl Hill (musician)` — that title redirects to Government Issue. LinkedIn headline copy lives in `config/site/person.php` (`linkedin_headline`). Search Console URL-prefix verification: `GOOGLE_SITE_VERIFICATION` in `.env`.
+On-site: Person JSON-LD (`sameAs` from `config/site/social.php` plus Wikidata `Q139902938`, ORCID `identifier`, `memberOf` the band, `disambiguatingDescription`). `llms.txt` also states this is not the Scottish novelist. Do **not** `sameAs` `Karl Hill (musician)` — that title redirects to Government Issue. LinkedIn headline copy lives in `config/site/person.php` (`linkedin_headline`). Search Console URL-prefix verification: `GOOGLE_SITE_VERIFICATION` in `.env`.
 
 Off-site: Wikidata item exists (`Q139902938`). Next: mark it **different from** the baritone (`Q112904`); set the website field on ORCID, Google Scholar, ResearchGate, GitHub, and LinkedIn; get the GeoHorizons author line to link here; request indexing of `/` and `/about` after deploy. A standalone Wikipedia biography is optional and must meet notability with independent sources.
 
@@ -191,7 +191,7 @@ Web Push subscribe UI appears only when both VAPID keys are set (`php artisan pu
 ### Resume source of truth
 
 - **Canonical HTML:** `/resume` (from `config/site/experience.php` + related
-  fragments — same experience data as `/about`).
+  fragments). `/about` has its own shorter career narrative.
 - **Downloadable PDF:** `public/files/Karl-Hill-Resume.pdf` — classic 2-page
   navy-sidebar layout, generated with Puppeteer (not browser Print).
 

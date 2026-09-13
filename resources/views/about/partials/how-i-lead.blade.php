@@ -1,23 +1,16 @@
-@php($how = config('site.about.how_i_lead'))
+@php($how = config('site.about.leadership'))
 
 @if(! empty($how['items']))
-    <x-site.section id="how-i-lead" section-label="How I lead">
-        <div class="site-heading-space max-w-3xl" data-reveal>
-            <x-site.section-heading :number="$sectionNumber ?? '01'" :label="$how['title']" class="!mb-5" />
-            @if(! empty($how['intro']))
+    <x-site.section id="how-i-lead" section-label="Technical leadership" :number="$sectionNumber ?? '01'" :label="$how['title'] ?? 'Technical leadership'">
+        <div class="about-lede max-w-3xl mb-8 sm:mb-10" data-reveal>
+            @foreach($how['intro'] ?? [] as $paragraph)
                 <p class="opsz-scroll text-neutral-400 text-base leading-relaxed">
-                    {{ $how['intro'] }}
+                    {{ $paragraph }}
                 </p>
-                <div class="flex flex-wrap items-center gap-x-5 gap-y-1 mt-4">
-                    <a href="/delivery"
-                       class="inline-flex items-center min-h-11 font-mono text-xs text-accent uppercase tracking-widest hover:underline underline-offset-4">
-                        How I run delivery →
-                    </a>
-                </div>
-            @endif
+            @endforeach
         </div>
 
-        <ol class="lead-principles" data-reveal aria-label="Leadership principles">
+        <ol class="lead-principles" data-reveal aria-label="Technical leadership">
             @foreach($how['items'] as $index => $item)
                 <li class="lead-principles__item">
                     <span class="lead-principles__num" aria-hidden="true">{{ str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}</span>
@@ -32,5 +25,11 @@
                 </li>
             @endforeach
         </ol>
+
+        @if(! empty($how['note']))
+            <p class="mt-8 sm:mt-10 text-neutral-400 text-base leading-relaxed max-w-3xl" data-reveal>
+                {{ $how['note'] }}
+            </p>
+        @endif
     </x-site.section>
 @endif

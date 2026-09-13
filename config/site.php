@@ -14,7 +14,7 @@ use App\Support\Booking;
  * - /kit     leave-behind: PDF + bio + links (primary recruiter packet)
  * - /now     booking; living status stays in the hero. Book CTAs land on #book
  * - /blog    writing
- * - /about   who I am: leadership, career, impact, research (secondary)
+ * - /about   who I am: leadership, delivery, career, numbers, research (secondary)
  * - /delivery written bar for reviews, integration, and release
  * - /resume  HTML CV evidence (secondary; PDF from kit)
  * - /lead    301 → /delivery (legacy)

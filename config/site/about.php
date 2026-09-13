@@ -1,52 +1,131 @@
 <?php
 
 return [
-    'lede' => 'From NASA systems at operational scale to Staff-level leadership in national security software—building software, developing engineers, and leading delivery across teams.',
-    // Crawlable identity for the name collision with the Scottish novelist.
-    'identity' => [
-        'lede' => 'Karl Hill (Karl M. Hill) is a software engineer in Washington, DC — Staff Aerospace Software Engineer at Jacobs, previously Lead Software Engineer supporting NASA Goddard Earth science (2017–2025). Research co-author on global flood mapping. Drummer in Sorry About Your Daughter.',
-        'not' => 'A different person from the Scottish novelist who writes thrillers under the same name.',
+    'lede' => [
+        'Software engineer and technical leader working on aerospace mission software at Jacobs. Previously spent eight years building and modernizing NASA Goddard Earth science systems.',
+        'The work has grown from building software other people depend on to shaping the engineering systems, technical direction, and team practices that make reliable delivery possible.',
     ],
-    'how_i_lead' => [
-        'title' => 'How I lead',
-        'intro' => 'How I lead engineering work, develop engineers, and keep delivery moving across teams.',
+    'leadership' => [
+        'title' => 'Technical leadership',
+        'intro' => [
+            'Technical leadership stays close to the code.',
+            'Current responsibilities span hands-on development, technical direction, delivery coordination, integration across teams, engineering standards, and mentoring for a team of about 10 engineers.',
+        ],
         'items' => [
             [
-                'title' => '1:1s that surface risk',
-                'body' => 'Regular conversations are for blockers and judgment, not status theater. Risk should show up while there is still time to change the plan.',
+                'title' => 'Turn priorities into engineering work',
+                'body' => 'Translate program needs into scoped, sequenced work with clear dependencies, ownership, and integration paths.',
             ],
             [
-                'title' => 'Tradeoffs made visible',
-                'body' => 'Priorities collide. The job is to name the cost of each option early, so the decision is shared instead of hidden in the work.',
+                'title' => 'Review for correctness and growth',
+                'body' => 'Code review covers implementation, tests, interfaces, failure modes, and maintainability — while helping engineers understand the reasoning behind the feedback.',
             ],
             [
-                'title' => 'Standards over heroics',
-                'body' => 'Tests, reviews, and written expectations carry the bar. A team that depends on one person staying late is already fragile.',
+                'title' => 'Build standards into the system',
+                'body' => 'Use CI/CD, automated testing, security checks, repository standards, and release practices to make quality repeatable rather than dependent on individual memory.',
             ],
             [
-                'title' => 'Stakeholder trust',
-                'body' => 'Partners do not need the stack. They need sequencing they can count on, and an honest answer when the scope will not fit.',
-            ],
-            [
-                'title' => 'Team outcomes over personal touch',
-                'body' => 'Success is engineers who can ship without me in the path. Coaching and shared practice matter more than being the person who finishes the work.',
+                'title' => 'Develop independent engineers',
+                'body' => 'Onboarding, mentoring, technical feedback, and delegation are used to expand ownership across the team rather than concentrating it in one person.',
             ],
         ],
+        'note' => 'Formal personnel management remains with management; current leadership is technical, delivery-focused, and cross-team.',
     ],
-    'arc' => [
+    'delivery' => [
+        'title' => 'Engineering delivery',
+        'intro' => [
+            'Reliable delivery is an engineering problem.',
+            'A change is ready when another engineer can understand it, review it, rebuild it, test it, and see the evidence that supports releasing it.',
+        ],
+        'principles_lede' => 'The operating principles are straightforward:',
+        'principles' => [
+            'Define scope, ownership, dependencies, and interface assumptions early.',
+            'Test meaningful behavior, including important failure cases.',
+            'Automate quality, packaging, dependency, and security checks wherever practical.',
+            'Exercise integration paths throughout development rather than waiting for the end.',
+            'Keep releases small enough to understand, validate, and recover.',
+            'Capture enough context that the next engineer does not have to reconstruct the decision.',
+        ],
+        'close' => 'The goal is not process for its own sake. It is predictable software delivery without creating a human bottleneck.',
+        'cta_label' => 'How I run delivery',
+        'cta_href' => '/delivery',
+    ],
+    'career' => [
         'title' => 'Career',
-        'intro' => 'The scope widened: software other people depend on, then the engineering system around it, then coaching so that system does not live in one person. NASA is the public proof. Jacobs is the current job.',
+        'intro' => 'The common thread has been software that matters operationally — first enterprise systems, then NASA science platforms, and now aerospace mission software.',
+        'roles' => [
+            [
+                'title' => 'Staff Aerospace Software Engineer',
+                'org' => 'Jacobs · National Security · 2025–present',
+                'summary' => 'Hands-on engineer and technical delivery leader working across roughly 20 repositories and multiple deployment environments.',
+                'highlights' => [
+                    'Lead day-to-day engineering delivery for a team of about 10, coordinating dependencies, integration work, and release readiness.',
+                    'Develop Python mission software, shared interfaces, distributed messaging, and service orchestration.',
+                    'Establish engineering guardrails through CI/CD, automated testing, security checks, repository standards, dependency management, and release automation.',
+                    'Work across organizational boundaries to surface technical risk early and drive issues through resolution.',
+                ],
+            ],
+            [
+                'title' => 'Lead Software Engineer',
+                'org' => 'SSAI / NASA Goddard Space Flight Center · 2017–2025',
+                'summary' => 'Built and modernized Earth science systems used for satellite-data access, flood mapping, and public science communication.',
+                'highlights' => [
+                    'Led development of an AWS-based flood-mapping system for automated processing and distribution of satellite-derived flood products.',
+                    'Modernized LAADS DAAC search, ordering, archive, and near-real-time data access systems using GitLab CI/CD and Kubernetes.',
+                    'Modernized NASA Earth Observatory\'s web platform, supporting an audience of approximately 1.5 million monthly visitors during that work.',
+                ],
+            ],
+        ],
+        'earlier' => [
+            'title' => 'Earlier engineering work',
+            'body' => 'Before NASA, built case-management, CRM, travel, and enterprise software across healthcare, consulting, and commercial environments.',
+        ],
+        'cta_note' => 'The full history, technologies, education, and certifications are available on the resume.',
         'cta_label' => 'Full resume',
         'cta_href' => '/resume',
     ],
-    'impact' => [
-        'heading' => 'Selected impact',
+    'numbers' => [
+        'heading' => 'Experience in numbers',
         'items' => [
-            'NASA Earth science software supporting disaster response, scientific data access, and public-facing platforms at operational scale.',
-            'Technical and delivery leadership across ~10 engineers, ~20 repositories, multiple environments, and partner teams.',
-            'Published research in high-resolution global flood mapping through GeoHorizons / AGU.',
+            [
+                'display' => '20+',
+                'label' => 'Years building software',
+                'to' => 20,
+                'prefix' => '',
+                'suffix' => '+',
+            ],
+            [
+                'display' => '~10',
+                'label' => 'Engineers on the current team',
+                'to' => 10,
+                'prefix' => '~',
+                'suffix' => '',
+            ],
+            [
+                'display' => '~6',
+                'label' => 'Engineers onboarded and coached',
+                'to' => 6,
+                'prefix' => '~',
+                'suffix' => '',
+            ],
+            [
+                'display' => '~20',
+                'label' => 'Repositories across the current environment',
+                'to' => 20,
+                'prefix' => '~',
+                'suffix' => '',
+            ],
+            [
+                'display' => '1.5M',
+                'label' => 'Monthly visitors · Earth Observatory',
+                'to' => 1.5,
+                'prefix' => '',
+                'suffix' => 'M',
+            ],
         ],
-        'footer' => 'Education, certifications, and technical skills are on the resume.',
     ],
-    'beyond' => 'When I’m not leading or coding, I make music—drums, guitar, songwriting, recording, touring, and independent releases rooted in post-punk, indie rock, hardcore, and alternative music. Recording credits span more than three decades and are on Discogs.',
+    'beyond' => [
+        'When not writing software, solving engineering problems, or working with a team, I’m a musician and songwriter with work spanning post-punk, indie rock, hardcore, and alternative music. I’ve also been involved in independent label work supporting underground and alternative artists in Washington, DC and beyond.',
+        'Recording and performance credits are available on Discogs.',
+    ],
 ];

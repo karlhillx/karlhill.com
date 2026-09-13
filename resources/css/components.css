@@ -2208,7 +2208,7 @@ a.series-chapters__card:hover .series-chapters__title,
     }
 }
 
-/* How I lead — numbered principles */
+/* Technical leadership — numbered responsibilities */
 .lead-principles {
     list-style: none;
     margin: 0;
@@ -2828,6 +2828,15 @@ a.series-chapters__card:hover .series-chapters__title,
 .kit-glance {
     display: grid;
     gap: 2rem;
+}
+
+.about-lede {
+    display: grid;
+    gap: 1.15em;
+}
+
+.about-lede p {
+    margin: 0;
 }
 
 .kit-bio {

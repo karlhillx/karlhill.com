@@ -5,7 +5,7 @@ return [
     'publication' => 'GeoHorizons',
     'published' => 'Published online 5 May 2026',
     'title' => 'A web-based high-resolution global water and flood mapping platform',
-    'summary' => 'Co-author of research on the Global Water and Flood Mapping System, a NASA-supported experimental portal for high-resolution surface water and flood products derived from commercial satellite imagery.',
+    'summary' => 'Co-author of research on the Global Water and Flood Mapping System, a NASA-supported experimental platform for high-resolution surface-water and flood products derived from commercial satellite imagery.',
     'date_published' => '2026-05-05',
     'citation' => 'Frederick S. Policelli, Albert J. Kettner, Karl M. Hill, and Devon V. Maloney.',
     'authors' => [

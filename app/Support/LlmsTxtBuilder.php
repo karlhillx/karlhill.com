@@ -52,7 +52,7 @@ class LlmsTxtBuilder
             $this->fileItem('Recruiter kit', $base.'/kit', 'Bio, resume PDF, and selected work to share'),
             $this->fileItem('Now', $base.'/now', 'Current status and booking'),
             $this->fileItem('Writing', $base.'/blog', 'Essays on leadership, delivery, and mission software'),
-            $this->fileItem('About', $base.'/about', 'Leadership, career, selected impact, research'),
+            $this->fileItem('About', $base.'/about', 'Technical leadership, delivery, career, research'),
             $this->fileItem('Engineering delivery', $base.'/delivery', 'Definition of Done, PR rubric, integration risk, coaching'),
             $this->fileItem('Resume', $base.'/resume', 'Canonical HTML curriculum vitae'),
         ];

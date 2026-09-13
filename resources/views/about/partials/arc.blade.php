@@ -1,75 +1,54 @@
-@php
-    $arc = config('site.about.arc');
-    $current = config('site.experience.current');
-    $roles = config('site.experience.roles', []);
-    $roleHighlights = static function (array $role): array {
-        $highlights = $role['highlights'] ?? [];
-        $indexes = $role['about_highlights'] ?? range(0, 2);
+@php($career = config('site.about.career', []))
 
-        return collect($indexes)
-            ->map(fn ($index) => $highlights[$index] ?? null)
-            ->filter(fn ($item) => filled($item))
-            ->values()
-            ->all();
-    };
-@endphp
-
-{{-- Career arc: narrative chapters from experience — summaries, not a second resume. --}}
-<x-site.section id="experience" section-label="Career">
-        <div class="site-heading-space max-w-3xl" data-reveal>
-            <x-site.section-heading :number="$sectionNumber ?? '03'" :label="$arc['title'] ?? 'Career'" class="!mb-5" />
-            @if(! empty($arc['intro']))
+<x-site.section id="experience" section-label="Career" :number="$sectionNumber ?? '03'" :label="$career['title'] ?? 'Career'">
+        @if(! empty($career['intro']))
+            <div class="site-heading-space max-w-3xl" data-reveal>
                 <p class="opsz-scroll text-neutral-400 text-base leading-relaxed">
-                    {{ $arc['intro'] }}
+                    {{ $career['intro'] }}
                 </p>
-            @endif
-        </div>
+            </div>
+        @endif
 
         <div class="space-y-10 max-w-3xl">
-            <div data-reveal>
-                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $current['period'] }}</p>
-                <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 leading-snug">{{ $current['title'] }}</h3>
-                <p class="text-neutral-400 text-sm mt-1.5">{{ $current['company'] }} · {{ $current['location'] }}</p>
-                @if(! empty($current['summary']))
-                    <p class="text-neutral-300 text-base leading-relaxed mt-4">{{ $current['summary'] }}</p>
-                @endif
-                @if(! empty($current['highlights']))
-                    <ul class="mt-5 space-y-2.5 text-neutral-400 text-sm leading-relaxed">
-                        @foreach($roleHighlights($current) as $item)
-                            <li class="flex gap-3">
-                                <span class="text-accent shrink-0" aria-hidden="true">→</span>
-                                <span>{!! $item !!}</span>
-                            </li>
-                        @endforeach
-                    </ul>
-                @endif
-            </div>
-
-            @foreach($roles as $role)
+            @foreach($career['roles'] ?? [] as $role)
                 <div data-reveal>
-                    <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $role['period'] }}</p>
                     <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 leading-snug">{{ $role['title'] }}</h3>
-                    <p class="text-neutral-400 text-sm mt-1.5">{{ $role['company'] }} · {{ $role['location'] }}</p>
+                    @if(! empty($role['org']))
+                        <p class="text-neutral-400 text-sm mt-1.5">{{ $role['org'] }}</p>
+                    @endif
                     @if(! empty($role['summary']))
                         <p class="text-neutral-300 text-base leading-relaxed mt-4">{{ $role['summary'] }}</p>
                     @endif
                     @if(! empty($role['highlights']))
                         <ul class="mt-5 space-y-2.5 text-neutral-400 text-sm leading-relaxed">
-                            @foreach($roleHighlights($role) as $item)
+                            @foreach($role['highlights'] as $item)
                                 <li class="flex gap-3">
                                     <span class="text-accent shrink-0" aria-hidden="true">→</span>
-                                    <span>{!! $item !!}</span>
+                                    <span>{{ $item }}</span>
                                 </li>
                             @endforeach
                         </ul>
                     @endif
                 </div>
             @endforeach
+
+            @if(! empty($career['earlier']))
+                <div data-reveal>
+                    <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 leading-snug">{{ $career['earlier']['title'] }}</h3>
+                    <p class="text-neutral-300 text-base leading-relaxed mt-4">{{ $career['earlier']['body'] }}</p>
+                </div>
+            @endif
         </div>
 
-        @if(! empty($arc['cta_href']))
-            <x-site.button variant="secondary" :href="$arc['cta_href']" class="mt-10" data-reveal>
-                {{ $arc['cta_label'] ?? 'Full resume' }} →
+        @if(! empty($career['cta_note']))
+            <p class="mt-8 text-neutral-400 text-sm leading-relaxed max-w-2xl" data-reveal>
+                {{ $career['cta_note'] }}
+            </p>
+        @endif
+
+        @if(! empty($career['cta_href']))
+            <x-site.button variant="secondary" :href="$career['cta_href']" class="mt-6" data-reveal>
+                {{ $career['cta_label'] ?? 'Full resume' }} →
             </x-site.button>
         @endif
 </x-site.section>
