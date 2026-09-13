@@ -11,6 +11,14 @@ it('homepage structured data describes the person website and blog graph', funct
 
     $person = collect($graph)->firstWhere('@type', 'Person');
     expect($person['name'])->toBe('Karl Hill')
+        ->and($person['alternateName'])->toContain('Karl M. Hill')
+        ->and($person['jobTitle'])->toBe('Staff Aerospace Software Engineer')
+        ->and($person['worksFor']['name'])->toBe('Jacobs')
+        ->and($person['url'])->toBe('https://karlhill.com')
+        ->and($person['mainEntityOfPage']['@id'])->toBe('https://karlhill.com/#profile')
+        ->and($person['address']['addressLocality'])->toBe('Washington')
+        ->and($person['address']['addressRegion'])->toBe('DC')
+        ->and(collect($person['alumniOf'])->pluck('name'))->toContain('NASA Goddard Space Flight Center')
         ->and($person['givenName'])->toBe('Karl')
         ->and($person['familyName'])->toBe('Hill')
         ->and($person['@id'])->toEndWith('/#person')
@@ -21,6 +29,7 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($person['disambiguatingDescription'])->toContain('Government Issue')
         ->and($person['disambiguatingDescription'])->toContain('not the Scottish novelist')
         ->and($person['sameAs'])->toContain('https://www.linkedin.com/in/khill')
+        ->and($person['sameAs'])->toContain('https://github.com/karlhillx')
         ->and($person['sameAs'])->toContain('https://www.discogs.com/artist/1286669-Karl-Hill')
         ->and($person['sameAs'])->toContain('https://orcid.org/0009-0002-6847-3368')
         ->and($person['sameAs'])->toContain('https://www.wikidata.org/wiki/Q139902938')

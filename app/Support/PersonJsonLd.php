@@ -37,6 +37,9 @@ final class PersonJsonLd
             'description' => $description,
             'jobTitle' => $person['job_title'],
             'url' => $url,
+            'mainEntityOfPage' => [
+                '@id' => $url.'/#profile',
+            ],
             'image' => [
                 '@type' => 'ImageObject',
                 // JPEG portrait for Googlebot-Image. The hero uses WebP; Search
