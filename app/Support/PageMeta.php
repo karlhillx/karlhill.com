@@ -149,16 +149,19 @@ final class PageMeta
 
         $ogCard = ProjectCatalog::ogImageUrl($slug);
 
+        $title = self::projectTitle($project);
+        $description = self::projectDescription($project);
+
         $ogDescription = ProjectCatalog::artifactLine($project);
         if ($ogDescription === '') {
             $ogDescription = (string) ($study['lede'] ?? $project['description'] ?? '');
         }
 
         return new self(
-            title: "{$project['title']} — Karl Hill",
-            description: Str::limit($study['lede'] ?? $project['description'], 155, '…'),
+            title: $title,
+            description: $description,
             canonical: "{$url}/work/{$slug}",
-            ogTitle: $project['title'],
+            ogTitle: $title,
             ogDescription: Str::limit($ogDescription, 120, '…'),
             ogImage: $ogCard ?? "{$url}{$project['image']}",
             ogImageAlt: $project['title'],
@@ -225,6 +228,40 @@ final class PageMeta
             'articleModifiedTime' => $this->articleModifiedTime,
             'articleAuthor' => $this->articleAuthor,
         ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $project
+     */
+    private static function projectTitle(array $project): string
+    {
+        $name = (string) $project['title'];
+
+        if (($project['sector'] ?? '') === 'NASA Earth Science') {
+            return "{$name} — Karl Hill, NASA Goddard Earth Observation Software";
+        }
+
+        if (($project['slug'] ?? '') === 'jacobs-mission-software') {
+            return "{$name} — Karl Hill at Jacobs";
+        }
+
+        return "{$name} — Karl Hill";
+    }
+
+    /**
+     * @param  array<string, mixed>  $project
+     */
+    private static function projectDescription(array $project): string
+    {
+        $lede = trim((string) ($project['case_study']['lede'] ?? $project['description'] ?? ''));
+
+        $prefix = match (true) {
+            ($project['sector'] ?? '') === 'NASA Earth Science' => 'Karl Hill, NASA Goddard Earth observation software. ',
+            ($project['slug'] ?? '') === 'jacobs-mission-software' => 'Karl Hill, Staff Aerospace Software Engineer at Jacobs. ',
+            default => 'Karl Hill. ',
+        };
+
+        return Str::limit($prefix.$lede, 155, '…');
     }
 
     private static function fromSeo(string $key, string $path, ?string $activeNav): self
