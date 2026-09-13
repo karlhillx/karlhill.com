@@ -103,8 +103,8 @@ return [
         'company' => 'Sabre Corporation · Dante Inc. · Visitar Inc. · Verizon Business',
         'highlights' => [
             'Held software engineering and principal-level roles across travel, enterprise CRM, telecommunications, and managed security.',
-                'At Sabre, built new PHP applications and added features to existing ones for large-scale travel systems.',
-                'Built Java and SQL Server services for Finium, a multi-tenant managed-security platform, and contributed to shared testing and code-quality practices.',
+            'At Sabre, built new PHP applications and added features to existing ones for large-scale travel systems.',
+            'Built Java and SQL Server services for Finium, a multi-tenant managed-security platform, and contributed to shared testing and code-quality practices.',
         ],
         'skills' => [
             'Managed security',
