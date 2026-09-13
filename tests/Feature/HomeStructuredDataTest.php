@@ -14,7 +14,9 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($person['givenName'])->toBe('Karl')
         ->and($person['familyName'])->toBe('Hill')
         ->and($person['@id'])->toEndWith('/#person')
-        ->and($person['description'])->toContain('Engineering Manager')
+        ->and($person['description'])->toBe(config('site.person.bio'))
+        ->and($person['description'])->toContain('Staff Aerospace Software Engineer')
+        ->and($person['description'])->not->toContain('Engineering Manager')
         ->and($person['disambiguatingDescription'])->toContain('Sorry About Your Daughter')
         ->and($person['disambiguatingDescription'])->toContain('not the Scottish novelist')
         ->and($person['sameAs'])->toContain('https://www.linkedin.com/in/khill')
@@ -36,8 +38,10 @@ it('homepage structured data describes the person website and blog graph', funct
         ])
         ->and($person['alumniOf'])->toBeArray()
         ->and($person['knowsAbout'])->toContain('DevSecOps')
-        ->and($person['knowsAbout'])->toContain('Engineering Manager')
+        ->and($person['knowsAbout'])->toContain('Engineering leadership')
+        ->and($person['knowsAbout'])->not->toContain('Engineering Manager')
         ->and($person['knowsAbout'])->toContain('Python')
+        ->and(collect($person['identifier'])->pluck('propertyID')->all())->toContain('ORCID', 'Wikidata', 'Google Scholar')
         ->and($person['hasOccupation'][0]['@type'])->toBe('Occupation')
         ->and($person['hasCredential'])->toBeArray()->not->toBeEmpty();
 

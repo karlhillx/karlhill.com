@@ -39,6 +39,8 @@ it('llms txt returns a v2 file-list map', function () {
     $this->assertStringContainsString('What 20 Years Taught Me About Release Governance', $body);
     $this->assertStringContainsString('Preferred name Karl Hill', $body);
     $this->assertStringContainsString('Not the Scottish novelist', $body);
+    expect(strpos($body, (string) config('site.person.bio')))
+        ->toBeLessThan(strpos($body, (string) config('site.person.availability')));
     $this->assertStringContainsString('https://karlhill.com/llms-full.txt', $body);
     $this->assertStringContainsString('https://karlhill.com/api/site.json', $body);
     $this->assertStringContainsString('https://karlhill.com/.well-known/mcp.json', $body);

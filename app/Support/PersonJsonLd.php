@@ -18,18 +18,9 @@ final class PersonJsonLd
         $person = config('site.person');
         $personId = "{$url}/#person";
 
-        $availability = is_string($person['availability'] ?? null) ? $person['availability'] : null;
-        $availabilityLong = is_string($person['availability_long'] ?? null) ? $person['availability_long'] : null;
-        $trajectory = is_string($person['trajectory'] ?? null) ? $person['trajectory'] : null;
-        if ($trajectory !== null && in_array($trajectory, array_filter([$availability, $availabilityLong]), true)) {
-            $trajectory = null;
-        }
-
-        $description = trim(implode(' ', array_filter([
-            is_string($person['bio'] ?? null) ? $person['bio'] : null,
-            $availabilityLong ?? $availability,
-            $trajectory,
-        ])));
+        // Identity only. Next-role copy stays on kit, /now, llms.txt, and the
+        // hire packet — not on the Person node Google uses for the entity.
+        $description = is_string($person['bio'] ?? null) ? $person['bio'] : '';
 
         $disambiguating = is_string($person['disambiguating_description'] ?? null)
             ? $person['disambiguating_description']
@@ -194,27 +185,63 @@ final class PersonJsonLd
      */
     protected static function identifiers(): array
     {
+        $identifiers = [];
+
         $orcid = collect(config('site.social', []))
             ->first(fn ($link): bool => is_array($link) && ($link['icon'] ?? '') === 'orcid');
 
-        if (! is_array($orcid) || empty($orcid['url'])) {
-            return [];
+        if (is_array($orcid) && ! empty($orcid['url'])) {
+            $url = rtrim((string) $orcid['url'], '/');
+            preg_match('/\d{4}-\d{4}-\d{4}-\d{3}[\dX]/', $url, $matches);
+
+            $identifier = [
+                '@type' => 'PropertyValue',
+                'propertyID' => 'ORCID',
+                'url' => $url,
+            ];
+
+            if (! empty($matches[0])) {
+                $identifier['value'] = $matches[0];
+            }
+
+            $identifiers[] = $identifier;
         }
 
-        $url = rtrim((string) $orcid['url'], '/');
-        preg_match('/\d{4}-\d{4}-\d{4}-\d{3}[\dX]/', $url, $matches);
+        foreach (config('site.same_as', []) as $url) {
+            if (! is_string($url) || ! preg_match('#wikidata\.org/wiki/(Q\d+)#', $url, $matches)) {
+                continue;
+            }
 
-        $identifier = [
-            '@type' => 'PropertyValue',
-            'propertyID' => 'ORCID',
-            'url' => $url,
-        ];
-
-        if (! empty($matches[0])) {
-            $identifier['value'] = $matches[0];
+            $identifiers[] = [
+                '@type' => 'PropertyValue',
+                'propertyID' => 'Wikidata',
+                'value' => $matches[1],
+                'url' => $url,
+            ];
+            break;
         }
 
-        return [$identifier];
+        $scholar = collect(config('site.social', []))
+            ->first(fn ($link): bool => is_array($link) && ($link['icon'] ?? '') === 'scholar');
+
+        if (is_array($scholar) && ! empty($scholar['url'])) {
+            $url = (string) $scholar['url'];
+            preg_match('/[?&]user=([^&]+)/', $url, $matches);
+
+            $identifier = [
+                '@type' => 'PropertyValue',
+                'propertyID' => 'Google Scholar',
+                'url' => $url,
+            ];
+
+            if (! empty($matches[1])) {
+                $identifier['value'] = $matches[1];
+            }
+
+            $identifiers[] = $identifier;
+        }
+
+        return $identifiers;
     }
 
     /**
@@ -280,8 +307,6 @@ final class PersonJsonLd
             'Cloud-native platforms',
             'DevSecOps',
             'Engineering leadership',
-            'Engineering Manager',
-            'Staff to Engineering Manager',
             'Platform engineering',
             'Kubernetes',
             'CI/CD',

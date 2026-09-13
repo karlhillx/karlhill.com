@@ -70,13 +70,13 @@ npm run test:e2e
 
 Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, kit, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
 
-Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared scale and affiliation facts live in `config/site/facts.php`. The recruiter kit glance is `config/site/kit.php` (`glance`). Homepage spoken line is `hero.lede`. Kit “Open to”, JSON-LD, and `llms.txt` use `person.availability` for next-role direction (Principal-level technical leadership first, then Engineering Manager) — not current identity. The longer ask is `person.availability_long`. Do not restate the ask on About or `/now`. Proof chips live in `hero.proof`.
+Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared scale and affiliation facts live in `config/site/facts.php`. The recruiter kit glance is `config/site/kit.php` (`glance`). Homepage spoken line is `hero.lede`. Person JSON-LD `description` is the bio only so Google’s entity is who Karl Hill is, not the next role. Kit “Open to”, `/now`, `llms.txt` (after the identity block), and the hire packet use `person.availability` for next-role direction (Principal-level technical leadership first, then Engineering Manager). The longer ask is `person.availability_long`. Do not restate the ask on About or `/now`. Proof chips live in `hero.proof`.
 
 ### Name disambiguation
 
 Google associates bare “Karl Hill” with a Scottish novelist (pen name of a lawyer in Eaglesham). The primary English Wikipedia article is a 19th-century German baritone. This site is a third person: Washington, DC software engineer, NASA Goddard 2017–2025, Jacobs, published as Karl M. Hill.
 
-On-site: Person JSON-LD (`sameAs` from `config/site/social.php` plus Wikidata `Q139902938`, ORCID `identifier`, `memberOf` the band, `disambiguatingDescription`). `llms.txt` also states this is not the Scottish novelist. Do **not** `sameAs` `Karl Hill (musician)` — that title redirects to Government Issue. LinkedIn headline copy lives in `config/site/person.php` (`linkedin_headline`). Search Console URL-prefix verification: `GOOGLE_SITE_VERIFICATION` in `.env`.
+On-site: Person JSON-LD (`sameAs` from `config/site/social.php` plus Wikidata `Q139902938`, ORCID / Wikidata / Google Scholar `identifier`, `memberOf` the band, `disambiguatingDescription`). `llms.txt` also states this is not the Scottish novelist. Do **not** `sameAs` `Karl Hill (musician)` — that title redirects to Government Issue. LinkedIn headline copy lives in `config/site/person.php` (`linkedin_headline`). Search Console URL-prefix verification: `GOOGLE_SITE_VERIFICATION` in `.env`.
 
 Off-site: Wikidata item exists (`Q139902938`). Next: mark it **different from** the baritone (`Q112904`); set the website field on ORCID, Google Scholar, ResearchGate, GitHub, and LinkedIn; get the GeoHorizons author line to link here; request indexing of `/` and `/about` after deploy. A standalone Wikipedia biography is optional and must meet notability with independent sources.
 

@@ -323,7 +323,7 @@ it('now page is hero plus scheduler', function () {
     $response = $this->get('/now');
 
     $response->assertStatus(200);
-    $response->assertSee('Engineering Manager', escape: false);
+    $response->assertDontSee('Engineering Manager', escape: false);
     $response->assertSee('Jacobs', escape: false);
     $response->assertSee('September 13, 2026', escape: false);
     $response->assertSee('Building mission software and the engineering systems around it at Jacobs.', escape: false);
