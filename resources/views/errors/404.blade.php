@@ -5,12 +5,13 @@
         <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
 
         <div class="relative z-10 site-prose text-center">
-            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-6 hero-enter" style="animation-delay:100ms">
+            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-6 hero-enter" style="animation-delay:80ms">
                 Error &nbsp;·&nbsp; 404
             </p>
+            <x-site.mark :size="72" class="site-mark--page mb-6 hero-enter" style="animation-delay:120ms" />
             <h1 id="page-not-found-heading"
                 class="font-display text-[clamp(6rem,22vw,15rem)] leading-none tracking-wide text-white mb-6 hero-enter"
-                style="animation-delay:200ms">
+                style="animation-delay:160ms">
                 <span class="hero-shine">404</span>
             </h1>
             <p class="font-display text-[clamp(1.4rem,3.5vw,2.25rem)] text-neutral-300 tracking-widest uppercase mb-5 hero-enter"

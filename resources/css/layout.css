@@ -171,7 +171,7 @@ main > section:nth-of-type(n + 3):not([id]) {
         gap: 0.4rem;
     }
 
-    nav[aria-label='Primary'] .nav-bar > a.font-display {
+    nav[aria-label='Primary'] .brand-lockup {
         font-size: 1.2rem;
         letter-spacing: 0.04em;
     }

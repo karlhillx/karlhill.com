@@ -76,6 +76,9 @@ it('homepage html includes preferred-name title and json-ld', function () {
     $response->assertSee('property="og:image:type" content="image/jpeg"', escape: false);
     $response->assertSee('rel="icon" href="/favicon.ico" sizes="48x48"', escape: false);
     $response->assertSee('sizes="48x48" href="/img/favicon-48x48.png"', escape: false);
+    $response->assertSee('class="brand-lockup', escape: false);
+    $response->assertSee('brand-lockup__mark', escape: false);
+    $response->assertSee('>KARL HILL</span>', escape: false);
     $response->assertSee('NASA Goddard Space Flight Center', escape: false);
     $response->assertSee('Washington, DC', escape: false);
     $response->assertSee('"propertyID": "ORCID"', escape: false);

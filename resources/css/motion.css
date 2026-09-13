@@ -362,11 +362,29 @@ nav[aria-label='Primary'] .nav-bar {
         min-height 0.28s var(--ease-out-soft);
 }
 
-nav[aria-label='Primary'] .nav-bar > a.font-display {
+nav[aria-label='Primary'] .brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
     font-size: var(--nav-brand-size);
     line-height: 1;
     letter-spacing: 0.05em;
     transition: font-size 0.28s var(--ease-out-soft);
+}
+
+.brand-lockup__mark,
+.site-mark {
+    display: block;
+    flex-shrink: 0;
+    width: 1.15em;
+    height: 1.15em;
+    max-width: none;
+}
+
+.site-mark.site-mark--page {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-inline: auto;
 }
 
 @supports (animation-timeline: scroll()) {

@@ -37,6 +37,7 @@ it('unknown web route renders custom 404', function () {
     $response = $this->get('/this-path-does-not-exist');
     $response->assertStatus(404);
     $response->assertSee('Page not found', escape: false);
+    $response->assertSee('site-mark--page', escape: false);
     $response->assertSee('name="robots" content="noindex"', escape: false);
     $response->assertSee('href="/kit"', escape: false);
     $response->assertDontSee('href="/lead"', escape: false);

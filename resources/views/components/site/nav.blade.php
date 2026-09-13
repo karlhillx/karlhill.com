@@ -18,7 +18,10 @@
 <nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-bg/90 backdrop-blur-sm nav-enter">
     <div class="nav-bar site-shell site-gutter flex items-center justify-between gap-4">
         <div class="flex items-center gap-6 lg:gap-10 min-w-0">
-            <a href="/" class="font-display tracking-wider text-accent shrink-0" style="view-transition-name: brand" @if($isActive('home')) aria-current="page" @endif>KARL HILL</a>
+            <a href="/" class="brand-lockup font-display tracking-wider text-accent shrink-0" style="view-transition-name: brand" @if($isActive('home')) aria-current="page" @endif>
+                <x-site.mark :size="28" class="brand-lockup__mark" />
+                <span>KARL HILL</span>
+            </a>
             {{-- Hire path only: Work → Kit → Writing. Book is the persistent CTA. --}}
             <div class="hidden md:flex items-center gap-5 lg:gap-7 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="/work" class="{{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
