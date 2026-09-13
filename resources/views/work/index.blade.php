@@ -92,7 +92,7 @@
                             <span class="text-neutral-400 text-sm leading-snug sm:min-w-0 sm:flex-1">
                                 {{ $project['description'] }}
                             </span>
-                            <span class="font-mono text-caption text-accent uppercase tracking-widest sm:shrink-0" aria-hidden="true">
+                            <span class="work-chapters__cta font-mono text-caption text-accent uppercase tracking-widest sm:shrink-0" aria-hidden="true">
                                 View <span class="arrow-nudge inline-block">→</span>
                             </span>
                         </a>

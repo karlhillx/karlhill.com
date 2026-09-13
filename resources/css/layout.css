@@ -62,13 +62,15 @@ main > section:nth-of-type(n + 3):not([id]) {
     contain-intrinsic-size: auto 1000px;
 }
 
-/* Tone down continuously animating backgrounds on smaller devices */
-@media (max-width: 768px) {
+/* ---------------------------------------------------------------------------
+   Phone + small-tablet shell (< md / 768). Aligned with Tailwind `md:` so
+   desktop nav / hidden section-rail never fight mobile chrome math.
+--------------------------------------------------------------------------- */
+@media (max-width: 767px) {
     .hero-mesh__blob {
         opacity: 0.35;
         filter: blur(48px);
         animation: none;
-        /* Park blobs in fixed spots when pointer tracking is off. */
         left: 8%;
         right: auto;
     }
@@ -84,46 +86,60 @@ main > section:nth-of-type(n + 3):not([id]) {
         --space-section: clamp(3.25rem, 11vw, 5rem);
         --space-section-soft: clamp(2.25rem, 7.5vw, 3.75rem);
         --space-heading: clamp(1.25rem, 4vw, 2rem);
-        --space-list-row: clamp(1.4rem, 4vw, 2rem);
+        --space-list-row: clamp(1.35rem, 4vw, 1.9rem);
+        --space-card-gap: 0.875rem;
         --nav-py: 0.8rem;
         --nav-brand-size: 1.25rem;
     }
 
     html {
-        /* Stable gutter can steal horizontal space on narrow viewports. */
         scrollbar-gutter: auto;
+        scroll-padding-top: 7.25rem;
     }
 
     .site-page-hero {
-        /* Nav (~5.3rem incl. --nav-py) + section rail (~3.2rem) + ~1.25rem of
-           air — the h1 lands here directly now that the breadcrumb is hidden. */
-        padding-block: 9.5rem 1.75rem;
+        /* Nav (~3.75rem) + section rail (~2.85rem) + air above the h1. */
+        padding-block: calc(3.75rem + 2.85rem + 1.1rem) 1.5rem;
     }
 
-    /* Rail + nav + h1 is enough wayfinding on one phone screen; the
-       breadcrumb is the layer that goes. Its BreadcrumbList JSON-LD is a
-       sibling <script>, so SEO is unaffected. */
+    /* Rail + nav + h1 is enough wayfinding; breadcrumb JSON-LD remains. */
     body:has(.section-rail) .site-page-hero__crumbs {
         display: none;
     }
 
-    /* No rail (e.g. /blog): only the nav to clear, so don't leave a void. */
+    /* No rail (e.g. /blog, /kit): only the nav to clear. */
     body:not(:has(.section-rail)) .site-page-hero {
-        padding-block-start: 6.25rem;
+        padding-block-start: calc(3.75rem + 1.35rem);
     }
 
     .site-article {
-        padding-block: 6rem var(--space-section-soft);
+        padding-block: calc(3.75rem + 1.5rem) var(--space-section-soft);
     }
 
     .case-study-page {
-        padding-block: 6.5rem var(--space-section-soft);
+        padding-block: calc(3.75rem + 1.75rem) var(--space-section-soft);
     }
 
     .site-page-hero__title,
     .site-page-hero h1 {
-        font-size: clamp(2.5rem, 13vw, 3.35rem);
-        margin-bottom: 1rem;
+        font-size: clamp(2.35rem, 12vw, 3.25rem);
+        margin-bottom: 0.9rem;
+        line-height: 0.94;
+    }
+
+    .site-page-hero__lede {
+        font-size: 1.05rem;
+    }
+
+    .site-page-hero__body {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .site-page-hero__body .kit-screen-actions,
+    .site-page-hero__body > .flex {
+        margin-top: 1.35rem;
     }
 
     .hero-dot-grid,
@@ -134,76 +150,40 @@ main > section:nth-of-type(n + 3):not([id]) {
     #hero .hero-mesh {
         animation: none;
     }
+
     .hero-mask {
         clip-path: none;
     }
+
     .hero-enter,
     .nav-enter {
         animation: none;
     }
+
     .arrow-nudge,
     .availability-pulse,
     .availability-pulse::after {
         display: none;
     }
-    #hero.hero {
-        /* svh/dvh account for mobile browser chrome better than classic vh. */
-        min-height: 100svh;
-        min-height: 100dvh;
-        /* Center the composition so the rail doesn't leave a dead band above. */
-        justify-content: center;
-        padding-top: calc(3.75rem + 2.65rem + 0.75rem);
-        padding-bottom: 2.75rem;
-    }
-    #hero .hero-title {
-        letter-spacing: var(--tracking-display);
-        font-size: clamp(2.65rem, 14vw, 3.75rem);
-        line-height: 0.92;
-        margin-bottom: 1rem;
-    }
-    #hero .hero-eyebrow {
-        margin-bottom: 0.9rem;
-    }
-    #hero .hero-statement {
-        font-size: 1.125rem;
-        margin-bottom: 0.4rem;
-        max-width: min(36rem, 100%);
-    }
-    #hero .hero-lede {
-        margin-bottom: 0.9rem;
-        font-size: 1.05rem;
-        line-height: var(--leading-body);
-        max-width: min(36rem, 100%);
-    }
-    #hero .hero-proof {
-        margin-bottom: 1.25rem;
-    }
-    #hero .hero-cta {
-        width: 100%;
-    }
-    #hero .hero-cta-btn {
-        flex: 1 1 100%;
-        width: 100%;
-        min-width: 0;
-        justify-content: center;
-    }
-    #hero .availability-label {
-        letter-spacing: 0.04em;
-        line-height: 1.45;
-        max-width: 100%;
-    }
 
     nav[aria-label='Primary'] .nav-bar {
         min-height: 3.75rem;
-        gap: 0.5rem;
+        gap: 0.4rem;
+    }
+
+    nav[aria-label='Primary'] .nav-bar > a.font-display {
+        font-size: 1.2rem;
+        letter-spacing: 0.04em;
     }
 
     #mobile-menu {
         inset: 3.75rem 0 0 0;
+        padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
     }
 
     .section-rail {
         top: 3.75rem;
+        display: block;
     }
 
     /* Prevent iOS focus-zoom on form fields (<16px). */
@@ -227,6 +207,155 @@ main > section:nth-of-type(n + 3):not([id]) {
         opacity: 0.45;
         vertical-align: 0.05em;
     }
+
+    /* Blog index: meta + body stack tighter than the desktop two-col gap. */
+    .site-list-row {
+        gap: 0.65rem;
+    }
+
+    .site-list-row .blog-read-cta {
+        margin-left: 0;
+    }
+
+    /* Work chapters: whole row is the hit target — drop the trailing CTA. */
+    .work-chapters__cta {
+        display: none;
+    }
+
+    .work-chapters__link {
+        gap: 0.35rem;
+        padding-block: 1rem;
+    }
+
+    /* Case study actions fill the column on phones. */
+    .case-study-masthead__actions .btn-accent-fill,
+    .case-study-masthead__actions a,
+    .case-study-masthead__actions button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .case-study-masthead__title {
+        font-size: clamp(1.65rem, 7.5vw, 2.15rem);
+    }
+
+    .article-sticky-title {
+        padding-top: 3.75rem;
+    }
+
+    .tag-filter {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        margin-inline: calc(var(--space-gutter) * -1);
+        padding-inline: var(--space-gutter);
+        mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 1.5rem), transparent 100%);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tag-filter::-webkit-scrollbar {
+        display: none;
+    }
+
+    .kit-screen-actions__links {
+        flex-wrap: wrap;
+        row-gap: 0.75rem;
+    }
+
+    .resume-aside {
+        padding: 1.15rem 1.05rem;
+    }
+}
+
+/* Phones only — prefer a compact hire composition over a tall empty hero. */
+@media (max-width: 639px) {
+    #hero.hero {
+        min-height: auto;
+        justify-content: flex-end;
+        padding-top: calc(3.75rem + 1rem);
+        padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px));
+    }
+
+    #hero .hero-title {
+        letter-spacing: var(--tracking-display);
+        font-size: clamp(2.45rem, 13.5vw, 3.5rem);
+        line-height: 0.92;
+        margin-bottom: 0.85rem;
+    }
+
+    #hero .hero-eyebrow {
+        margin-bottom: 0.85rem;
+    }
+
+    #hero .hero-statement {
+        font-size: 1.1rem;
+        margin-bottom: 0.35rem;
+        max-width: min(36rem, 100%);
+    }
+
+    #hero .hero-lede {
+        margin-bottom: 0.85rem;
+        font-size: 1.025rem;
+        line-height: var(--leading-body);
+        max-width: min(36rem, 100%);
+    }
+
+    #hero .hero-proof {
+        margin-bottom: 1.2rem;
+    }
+
+    #hero .hero-cta {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #hero .hero-cta-btn {
+        flex: 1 1 auto;
+        width: 100%;
+        min-width: 0;
+        justify-content: center;
+    }
+
+    #hero .availability-label {
+        letter-spacing: var(--tracking-mono);
+        line-height: 1.45;
+        max-width: 100%;
+    }
+
+    .site-card-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-path__item {
+        padding: 1.25rem 1.15rem;
+    }
+}
+
+/* Small tablets in the md gap — keep a short hero without phone stacking. */
+@media (min-width: 640px) and (max-width: 767px) {
+    #hero.hero {
+        min-height: min(100svh, 52rem);
+        min-height: min(100dvh, 52rem);
+        justify-content: center;
+        padding-top: calc(3.75rem + 1.5rem);
+        padding-bottom: 2.5rem;
+    }
+
+    #hero .hero-title {
+        font-size: clamp(3.25rem, 9vw, 5.5rem);
+    }
+
+    #hero .hero-cta {
+        width: auto;
+        flex-direction: row;
+    }
+
+    #hero .hero-cta-btn {
+        width: auto;
+        flex: 0 0 auto;
+    }
 }
 
 /* Mobile section jump rail — horizontal scroll below the nav */
@@ -244,15 +373,12 @@ main > section:nth-of-type(n + 3):not([id]) {
     background: color-mix(in oklab, var(--bg) 94%, transparent);
     backdrop-filter: blur(6px);
     -webkit-overflow-scrolling: touch;
-    /* Soft edge fade hints that the rail scrolls. */
     mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 1.75rem), transparent 100%);
     transition:
         transform 0.22s var(--ease-out-soft),
         opacity 0.22s ease;
 }
 
-/* Tucked away while the reader scrolls down (navigation.js); comes back on
-   the first upward scroll so it never has to be hunted for. */
 .section-rail.is-hidden {
     transform: translateY(-100%);
     opacity: 0;
@@ -307,16 +433,6 @@ main > section:nth-of-type(n + 3):not([id]) {
     background: color-mix(in oklab, var(--accent) 8%, transparent);
 }
 
-@media (max-width: 767px) {
-    .section-rail {
-        display: block;
-    }
-    /* Taller offset so jumps clear both the nav and the section rail. */
-    html {
-        scroll-padding-top: 7.25rem;
-    }
-}
-
 @media (prefers-reduced-transparency: reduce) {
     .section-rail {
         backdrop-filter: none;
@@ -339,7 +455,6 @@ main > section:nth-of-type(n + 3):not([id]) {
         max-height: min(52dvh, 22rem);
     }
 
-    /* Keyboard chord hints are noise on touch devices. */
     .command-hint {
         display: none;
     }
@@ -353,6 +468,26 @@ main > section:nth-of-type(n + 3):not([id]) {
 
 @media (max-width: 480px) {
     .site-pillars > * {
-        padding-block: 2.25rem;
+        padding-block: 2rem;
+    }
+
+    .site-page-hero__title,
+    .site-page-hero h1 {
+        font-size: clamp(2.15rem, 11.5vw, 2.85rem);
+    }
+
+    .post-list-title {
+        font-size: clamp(1.15rem, 5.5vw, 1.4rem);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .site-page-hero__title,
+    .site-page-hero h1 {
+        font-size: clamp(3rem, 7vw, 4.25rem);
+    }
+
+    .case-study-page {
+        padding-block: clamp(6.5rem, 10vh, 7.25rem) var(--space-section-soft);
     }
 }
