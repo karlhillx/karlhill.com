@@ -13,5 +13,5 @@
 @endsection
 
 @section('page_footer')
-    <x-site.footer variant="home" section="04" />
+    <x-site.footer variant="home" section="03" />
 @endsection

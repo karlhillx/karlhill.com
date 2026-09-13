@@ -1,35 +1,12 @@
-{{-- Recruiter next-step strip: one job, three doors, no secondary pitch. --}}
-<section id="path" data-section-label="Next" aria-labelledby="path-heading" class="site-section site-section--soft border-t border-neutral-800/50">
-    <div class="site-shell">
-        <h2 id="path-heading" class="inline-flex items-center gap-3 font-mono text-accent text-xs tracking-widest uppercase site-heading-space" data-reveal>
-            <span aria-hidden="true" class="section-accent-line h-px w-8 bg-accent/60 shrink-0"></span>
-            <span>03 — Next step</span>
-        </h2>
-        <p class="text-neutral-300 text-lg leading-relaxed max-w-2xl mb-10 sm:mb-12" data-reveal>
-            The kit, the work, or a conversation.
+{{-- One line, not a second pitch. Hero and nav already name these doors. --}}
+<section id="path" data-section-label="Next" aria-label="Next step" class="border-t border-neutral-800/50">
+    <div class="site-shell site-gutter py-8 sm:py-10">
+        <p class="font-mono text-xs sm:text-sm text-neutral-400 uppercase tracking-widest" data-reveal>
+            <a href="/kit" class="text-neutral-200 hover:text-accent transition-colors">Recruiter kit</a>
+            <span class="text-neutral-700 mx-2.5" aria-hidden="true">·</span>
+            <a href="/work" class="text-neutral-200 hover:text-accent transition-colors">Selected work</a>
+            <span class="text-neutral-700 mx-2.5" aria-hidden="true">·</span>
+            <a href="/now#book" class="text-neutral-200 hover:text-accent transition-colors">Book a conversation</a>
         </p>
-        <ol class="home-path grid gap-px bg-neutral-800/50 sm:grid-cols-3" data-reveal>
-            <li class="home-path__item bg-bg p-6 sm:p-8">
-                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-3">01</p>
-                <h3 class="font-sans font-semibold text-xl text-neutral-100 mb-2">
-                    <a href="/kit" class="hover:text-accent transition-colors">Recruiter kit</a>
-                </h3>
-                <p class="text-neutral-400 text-sm leading-relaxed">A concise view of current scope, selected work, and career direction.</p>
-            </li>
-            <li class="home-path__item bg-bg p-6 sm:p-8">
-                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-3">02</p>
-                <h3 class="font-sans font-semibold text-xl text-neutral-100 mb-2">
-                    <a href="/work" class="hover:text-accent transition-colors">Selected work</a>
-                </h3>
-                <p class="text-neutral-400 text-sm leading-relaxed">Mission software, Earth science systems, and engineering infrastructure.</p>
-            </li>
-            <li class="home-path__item bg-bg p-6 sm:p-8">
-                <p class="font-mono text-caption text-accent uppercase tracking-widest mb-3">03</p>
-                <h3 class="font-sans font-semibold text-xl text-neutral-100 mb-2">
-                    <a href="/now#book" class="hover:text-accent transition-colors">Book a conversation</a>
-                </h3>
-                <p class="text-neutral-400 text-sm leading-relaxed">Schedule a conversation or send email.</p>
-            </li>
-        </ol>
     </div>
 </section>

@@ -26,11 +26,11 @@
         </p>
     </x-site.page-hero>
 
-    {{-- One facet, the one a hiring manager filters by: domain. Four flagship
+    {{-- One facet, the one a hiring manager filters by: domain. Three flagship
          cards don't need a second stack facet (that row clipped mid-word on
          phones behind two arrow buttons); each card already lists its stack,
          and /work/tag/{stack} stays routable for deep links. Not sticky: a
-         four-card grid never scrolls far enough to lose the filter. --}}
+         three-card grid never scrolls far enough to lose the filter. --}}
     @if($sectors->isNotEmpty())
         @php($urlFor = fn ($tag) => route('work.tag', \App\Support\ProjectCatalog::tagSlug($tag)))
         <section class="site-toolbar border-t border-neutral-800/80" aria-label="Filter projects">

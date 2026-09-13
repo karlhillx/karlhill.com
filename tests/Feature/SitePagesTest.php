@@ -46,8 +46,9 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertDontSee('Put the bar in the system', escape: false);
     $response->assertSee('id="delivery"', escape: false);
     $response->assertSee('Reliable delivery is an engineering problem', escape: false);
-    $response->assertSee('Define scope, ownership, dependencies, and interface assumptions early', escape: false);
     $response->assertSee('How I run delivery', escape: false);
+    $response->assertDontSee('The operating principles are straightforward', escape: false);
+    $response->assertDontSee('Define scope, ownership, dependencies, and interface assumptions early', escape: false);
     $response->assertSee('href="/delivery"', escape: false);
     $response->assertSee('Sorry About Your Daughter', escape: false);
     $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
@@ -168,7 +169,7 @@ it('work index shows a single domain facet and project count', function () {
     $this->get('/work')
         ->assertOk()
         ->assertSee('aria-label="Filter by domain"', escape: false)
-        // Four flagship cards don't get a second, scrolling stack facet or a sticky bar.
+        // Three flagship cards don't get a second, scrolling stack facet or a sticky bar.
         ->assertDontSee('aria-label="Filter by stack"', escape: false)
         ->assertDontSee('tag-filter--scroll', escape: false)
         ->assertDontSee('site-toolbar--sticky', escape: false)

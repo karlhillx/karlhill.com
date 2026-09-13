@@ -185,6 +185,8 @@ return [
         'description' => 'Multi-tenant Java software for provisioning, monitoring, incident management, and security operations. Built for enterprise managed-security environments where reliability and operational visibility were critical.',
         'image' => '/img/webp/ss-mci-verizon.webp',
         'url' => '/work/finium',
+        // Earlier managed-security chapter — keep routable, off the flagship grid.
+        'listed' => false,
         'tags' => [
             'Java',
             'SQL Server',

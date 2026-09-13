@@ -18,7 +18,6 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         'jacobs-mission-software',
         'flood-mapping-system',
         'laads-daac',
-        'finium',
     ]);
 
     expect(ProjectCatalog::supporting()->pluck('slug')->all())->toBe([
@@ -32,7 +31,7 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         ->assertSee('jacobs-mission-software', escape: false)
         ->assertSee('flood-mapping-system', escape: false)
         ->assertSee('laads-daac', escape: false)
-        ->assertSee('finium', escape: false)
+        ->assertDontSee('finium', escape: false)
         ->assertDontSee('$105M', escape: false)
         ->assertSee('near-real-time Earth observation products', escape: false)
         ->assertSee('NASA MODIS and VIIRS satellite data', escape: false)
@@ -53,6 +52,7 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
     $this->get('/work/direct-readout-laboratory')->assertOk();
     $this->get('/work/informeddna-platform')->assertOk();
     $this->get('/work/nasa-earth-observatory')->assertOk();
+    $this->get('/work/finium')->assertOk();
     $this->get('/work/tag/healthcare')->assertNotFound();
     $this->get('/work/tag/laravel')->assertNotFound();
 });
