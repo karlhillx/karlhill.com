@@ -429,6 +429,23 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     min-height: 4rem;
 }
 
+.nav-shortcut {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.2rem;
+    padding: 0 0.32rem;
+    border: 1px solid color-mix(in oklab, currentColor 45%, transparent);
+    border-radius: 0.25rem;
+    background: color-mix(in oklab, var(--bg) 55%, transparent);
+    color: inherit;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1;
+}
+
 .border-reveal {
     animation: borderReveal 0.8s ease-out both;
 }
@@ -1185,10 +1202,10 @@ body:has(#mobile-menu:popover-open) {
     }
 }
 
-/* The fixed primary nav anchors the mobile menu and section rail: where CSS
-   anchor positioning is supported they hang off the nav's real bottom edge,
-   so a nav height change can't strand them (the hardcoded offsets above
-   remain as the fallback). */
+/* The fixed primary nav anchors the mobile menu: where CSS anchor
+   positioning is supported it hangs off the nav's real bottom edge,
+   so a nav height change can't strand it (the hardcoded offset above
+   remains as the fallback). */
 nav[aria-label='Primary'] {
     anchor-name: --site-nav;
 }
@@ -1197,11 +1214,6 @@ nav[aria-label='Primary'] {
     #mobile-menu {
         position-anchor: --site-nav;
         inset: auto 0 0 0;
-        top: anchor(bottom);
-    }
-
-    .section-rail {
-        position-anchor: --site-nav;
         top: anchor(bottom);
     }
 }

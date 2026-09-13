@@ -27,11 +27,11 @@
          @if($id && $minimapLabel) data-section-label="{{ $minimapLabel }}" @endif
          {{ $attributes->merge(['class' => "site-section {$borderClass}"]) }}>
     <div class="site-shell">
-        @if($number !== null && $label !== null)
+        @if($label !== null)
             <div @class([
                 'flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 site-heading-space' => $hasActions,
             ]) @if($hasActions) data-reveal @endif>
-                <x-site.section-heading :number="$number" :label="$label" :class="$headingClass" />
+                <x-site.section-heading :label="$label" :class="$headingClass" />
                 @if($hasActions)
                     {{ $actions }}
                 @endif

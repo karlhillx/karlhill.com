@@ -1,6 +1,5 @@
 @props([
     'variant' => 'compact',
-    'section' => null,
 ])
 
 @php
@@ -22,11 +21,7 @@
             {{-- Two columns: form is the job; aside is reachability + site map. --}}
             <div class="site-footer-home grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(14rem,18rem)] lg:gap-16 xl:gap-20 lg:items-start">
                 <div class="min-w-0" data-reveal>
-                    @if($section)
-                        <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-6 sm:mb-8">{{ $section }} — Contact</h2>
-                    @else
-                        <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-5">Contact</h2>
-                    @endif
+                    <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-5 sm:mb-6">Contact</h2>
                     <p class="font-display leading-none tracking-wide text-balance text-[clamp(2.75rem,7vw,5.5rem)] mb-5 sm:mb-6">
                         {!! nl2br(e($footer['headline'])) !!}
                     </p>
@@ -75,22 +70,7 @@
                         </div>
                     </div>
 
-                    <nav aria-label="Site">
-                        <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-3">Explore</h2>
-                        <ul class="flex flex-col gap-0.5 font-mono text-sm">
-                            <li><a href="/work" class="inline-flex items-center min-h-10 text-neutral-400 hover:text-accent transition-colors">Work</a></li>
-                            @unless(request()->routeIs('kit'))
-                                <li><a href="/kit" class="inline-flex items-center min-h-10 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
-                            @endunless
-                            <li><a href="/blog" class="inline-flex items-center min-h-10 text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
-                            @unless(request()->routeIs('about'))
-                                <li><a href="/about" class="inline-flex items-center min-h-10 text-neutral-400 hover:text-accent transition-colors">About</a></li>
-                            @endunless
-                            @unless(request()->routeIs('resume'))
-                                <li><a href="/resume" class="inline-flex items-center min-h-10 text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
-                            @endunless
-                        </ul>
-                    </nav>
+                    <x-site.footer-explore />
                 </aside>
             </div>
         @else
@@ -131,22 +111,11 @@
                         </div>
                     </div>
                 </div>
-                <nav class="min-w-0" aria-label="Site">
-                    <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-3">Explore</h2>
-                    <ul class="flex flex-wrap gap-x-5 gap-y-1 font-mono text-sm">
-                        <li><a href="/work" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Work</a></li>
-                        @unless(request()->routeIs('kit'))
-                            <li><a href="/kit" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Recruiter kit</a></li>
-                        @endunless
-                        <li><a href="/blog" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Writing</a></li>
-                        @unless(request()->routeIs('about'))
-                            <li><a href="/about" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">About</a></li>
-                        @endunless
-                        @unless(request()->routeIs('resume'))
-                            <li><a href="/resume" class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors">Resume</a></li>
-                        @endunless
-                    </ul>
-                </nav>
+                <x-site.footer-explore
+                    class="min-w-0"
+                    list-class="flex flex-wrap gap-x-5 gap-y-1 font-mono text-sm"
+                    item-class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors"
+                />
             </div>
         @endif
         <div @class([

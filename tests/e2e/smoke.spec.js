@@ -31,7 +31,6 @@ test.describe('smoke + a11y', () => {
         await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
         await expect(page.locator('.hero-cta a[href="/now#book"]')).toBeVisible();
         await expect(page.locator('.hero-cta a[href="/kit"]')).toBeVisible();
-        await expect(page.locator('#path')).toBeVisible();
         await expect(page.locator('#system')).toBeVisible();
         await expect(page.locator('#ds-verify')).toBeChecked();
         await expect(page.locator('[data-panel="verify"]')).toBeVisible();
@@ -53,13 +52,15 @@ test.describe('smoke + a11y', () => {
         await assertA11y(page, { exclude: ['.booking-embed'] });
     });
 
-    test('work filters and lightbox chrome', async ({ page }) => {
+    test('work supporting chapters and lightbox chrome', async ({ page }) => {
         await page.goto('/work');
-        await expect(page.locator('.site-toolbar')).toBeVisible();
-        await expect(page.getByRole('navigation', { name: 'Filter by domain' })).toBeVisible();
-        await expect(page.getByRole('navigation', { name: 'Filter by stack' })).toHaveCount(0);
+        await expect(page.locator('.site-toolbar')).toHaveCount(0);
         await expect(page.locator('#chapters')).toBeVisible();
         await expect(page.getByRole('link', { name: /earth observatory/i })).toBeVisible();
+
+        await page.goto('/work/tag/kubernetes');
+        await expect(page.getByRole('navigation', { name: 'Filter by domain' })).toBeVisible();
+        await expect(page.getByRole('navigation', { name: 'Filter by stack' })).toHaveCount(0);
 
         await page.goto('/work/laads-daac');
         await expect(page.locator('[data-lightbox-open]').first()).toBeVisible();

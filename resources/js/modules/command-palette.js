@@ -1,4 +1,5 @@
-import { prefersReducedMotion } from '../lib/prefs.js';
+import { prefersReducedMotion, usesAppleModifier } from '../lib/prefs.js';
+import { toggleTheme } from './theme.js';
 
 const GROUP_LABELS = {
     page: 'Page',
@@ -113,11 +114,24 @@ function withGroup(cmd, group = 'page') {
     return { group, ...cmd };
 }
 
+const SHORTCUT_LABEL = usesAppleModifier ? '⌘K' : 'Ctrl+K';
+
+function labelModShortcuts() {
+    document.querySelectorAll('[data-mod-shortcut]').forEach((el) => {
+        el.textContent = SHORTCUT_LABEL;
+    });
+    document.querySelectorAll('[data-mod-shortcut-host]').forEach((el) => {
+        el.setAttribute('title', `Search pages and sections (${SHORTCUT_LABEL})`);
+    });
+}
+
 export function initCommandPalette() {
     const palette = document.getElementById('command-palette');
     const commandInput = document.getElementById('command-input');
     const commandResults = document.getElementById('command-results');
     if (!palette || !commandInput || !commandResults) return;
+
+    labelModShortcuts();
 
     const staticCommands = [
         withGroup({
@@ -210,6 +224,11 @@ export function initCommandPalette() {
             label: 'Contact',
             keywords: 'contact email hire',
             action: () => gotoSection('contact'),
+        }),
+        withGroup({
+            label: 'Switch theme',
+            keywords: 'theme dark light appearance night mode color scheme',
+            action: () => toggleTheme(),
         }),
         withGroup({
             label: 'Atom feed',

@@ -5,7 +5,7 @@
         <div class="grid grid-cols-2 md:grid-cols-3 gap-px bg-neutral-800/50" data-reveal>
             @foreach($numbers['items'] as $stat)
                 <x-site.stat
-                    padding="px-5 py-10 sm:py-12"
+                    padding="px-5 py-6 sm:py-8"
                     :value="$stat['display']"
                     :label="$stat['label']"
                     :to="$stat['to'] ?? null"

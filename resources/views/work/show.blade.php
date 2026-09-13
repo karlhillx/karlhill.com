@@ -4,11 +4,9 @@
     $liveLabel = \App\Support\ProjectCatalog::artifactLabel($project);
     $canonical = \App\Support\PageMeta::siteUrl().'/work/'.$project['slug'];
     $ogImage = $meta->ogImage;
-    $headlineOutcome = $study['outcome'][0] ?? null;
     $decisions = $study['decisions'] ?? $study['approach'] ?? [];
     $imageAlt = $project['image_alt'] ?? ('Screenshot of '.$project['title']);
 
-    $hasPlatform = count($study['platform']['stages'] ?? []) >= 3;
     $bodyH2s = array_values(array_filter($study['body_toc'] ?? [], fn ($item) => ($item['level'] ?? 2) === 2));
     $isJacobs = ($project['slug'] ?? '') === 'jacobs-mission-software';
     $jobScope = $isJacobs ? (config('site.experience.current.scope') ?? []) : [];
@@ -22,8 +20,6 @@
     // Flat TOC — leave-behind skim, not academic grouping.
     $toc = array_values(array_filter([
         ['id' => 'snapshot', 'text' => 'Snapshot'],
-        ['id' => 'overview', 'text' => 'Overview'],
-        $hasPlatform ? ['id' => 'platform', 'text' => 'Workflow'] : null,
         ! empty($study['problem']) ? ['id' => 'problem', 'text' => 'Problem'] : null,
         ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions'] : null,
         ! empty($study['outcome']) ? ['id' => 'outcome', 'text' => 'Outcome'] : null,
@@ -67,15 +63,6 @@
         </div>
 
         <div class="relative z-10 max-w-6xl mx-auto">
-            <x-site.breadcrumbs
-                class="case-study-crumbs"
-                :items="[
-                    ['label' => 'Home', 'url' => '/'],
-                    ['label' => 'Work', 'url' => '/work'],
-                    ['label' => 'Case study', 'url' => '/work/'.$project['slug']],
-                ]"
-            />
-
             <div class="lg:grid lg:grid-cols-[11.5rem_minmax(0,1fr)] xl:grid-cols-[12.5rem_minmax(0,1fr)] lg:gap-x-8 xl:gap-x-10 lg:items-start">
                 <aside class="hidden lg:block sticky top-24">
                     <x-site.article-toc :items="$toc" :groups="$tocGroups" />
@@ -90,6 +77,25 @@
                             {{ $project['title'] }}
                         </h1>
                         <p class="case-study-lede text-neutral-400">{{ $study['lede'] }}</p>
+                        @if(! empty($study['role']) || ! empty($project['tags']))
+                            <div class="case-study-masthead__meta-row">
+                                @if(! empty($study['role']))
+                                    <p class="case-study-masthead__role">{{ $study['role'] }}</p>
+                                @endif
+                                @if(! empty($project['tags']))
+                                    <ul class="case-study-masthead__stack">
+                                        @foreach($project['tags'] as $tag)
+                                            <li>
+                                                <a href="{{ route('work.tag', \App\Support\ProjectCatalog::tagSlug($tag)) }}"
+                                                   class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
+                                                    {{ $tag }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
+                        @endif
                         @if($liveUrl)
                             <div class="case-study-masthead__actions">
                                 <x-site.button variant="secondary" :href="$liveUrl" target="_blank" rel="noopener noreferrer" data-no-ext>
@@ -212,44 +218,6 @@
                         @endif
 
                     </section>
-
-                    {{-- Outcome → Stack → Role: the hiring skim path --}}
-                    <section id="overview" class="case-study-glance scroll-mt-24 mb-8" data-reveal aria-label="Case study overview">
-                        <div class="case-study-glance__cell">
-                            <h2 class="case-study-glance__label">Outcome</h2>
-                            <p class="case-study-glance__body">
-                                {{ $headlineOutcome ? strip_tags($headlineOutcome) : $study['lede'] }}
-                            </p>
-                        </div>
-                        <div class="case-study-glance__cell">
-                            <h2 class="case-study-glance__label">Stack</h2>
-                            <ul class="case-study-glance__stack">
-                                @foreach($project['tags'] as $tag)
-                                    <li>
-                                        <a href="{{ route('work.tag', \App\Support\ProjectCatalog::tagSlug($tag)) }}"
-                                           class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
-                                            {{ $tag }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @if(! empty($study['role']))
-                            <div class="case-study-glance__cell case-study-glance__cell--role">
-                                <h2 class="case-study-glance__label">Role</h2>
-                                <p class="case-study-glance__body">{{ $study['role'] }}</p>
-                            </div>
-                        @endif
-                    </section>
-
-                    @if($hasPlatform)
-                        <x-site.platform-map
-                            class="mb-10"
-                            data-reveal
-                            :stages="$study['platform']['stages'] ?? []"
-                            :caption="$study['platform']['caption'] ?? null"
-                        />
-                    @endif
 
                     <div class="case-study-brief">
                         <div class="case-study-brief__arc">

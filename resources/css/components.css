@@ -652,7 +652,7 @@ a:where([href^='http://'], [href^='https://']):not(
 .social-links a::after,
 .surface-chip::after,
 .surface-chip-overlay::after,
-.case-study-glance__stack a::after {
+.case-study-masthead__stack a::after {
     content: none !important;
 }
 
@@ -1139,6 +1139,29 @@ a.series-chapters__card:hover .series-chapters__title,
     margin: 0;
 }
 
+.case-study-masthead__meta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-top: 1rem;
+}
+
+.case-study-masthead__role {
+    margin: 0;
+    color: color-mix(in oklab, var(--text) 82%, var(--muted));
+    font-size: 0.875rem;
+    line-height: 1.45;
+}
+
+.case-study-masthead__stack {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
 .case-study-masthead__actions {
     margin: 1.15rem 0 0;
 }
@@ -1240,62 +1263,6 @@ a.series-chapters__card:hover .series-chapters__title,
     font-size: 1.05rem;
     letter-spacing: -0.02em;
     font-variant-numeric: tabular-nums;
-}
-
-/* Case study — Outcome / Stack / Role skim panel */
-.case-study-glance {
-    display: grid;
-    gap: 1rem 1.25rem;
-    padding: 0;
-    border: 0;
-}
-
-@media (min-width: 640px) {
-    .case-study-glance {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem 1.5rem;
-    }
-
-    .case-study-glance__cell--role {
-        grid-column: 1 / -1;
-    }
-}
-
-@media (min-width: 1024px) {
-    .case-study-glance {
-        grid-template-columns: 1.15fr 0.85fr 1.15fr;
-        gap: 1.15rem;
-    }
-
-    .case-study-glance__cell--role {
-        grid-column: auto;
-    }
-}
-
-.case-study-glance__label {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 0.35rem;
-}
-
-.case-study-glance__body {
-    margin: 0;
-    color: color-mix(in oklab, var(--text) 88%, var(--muted));
-    font-size: 0.875rem;
-    line-height: 1.45;
-    max-width: 36rem;
-}
-
-.case-study-glance__stack {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
 }
 
 .case-study-brief {
@@ -2750,9 +2717,10 @@ a.series-chapters__card:hover .series-chapters__title,
     max-width: calc(100% - 5.75rem);
 }
 
-/* Logo-only work cards (Jacobs): composed mark on a dark field, not a cropped screenshot. */
+/* Logo-only work cards (Jacobs): quiet mark on the same card field as
+   the photo cards — no screenshot, no hero orb. */
 .work-card--logo {
-    background: #09090b;
+    background: color-mix(in oklab, var(--panel) 70%, var(--bg));
 }
 
 .work-card-logo {
@@ -2763,22 +2731,22 @@ a.series-chapters__card:hover .series-chapters__title,
 .work-card-logo__grid {
     position: absolute;
     inset: 0;
-    opacity: 0.4;
+    opacity: 0.35;
     background-image:
-        linear-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+        linear-gradient(var(--hairline) 1px, transparent 1px),
+        linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
     background-size: 1.5rem 1.5rem;
-    mask-image: linear-gradient(to bottom, black 0%, transparent 70%);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 68%);
 }
 
 .work-card-logo__glow {
     position: absolute;
-    inset: 8% 12% auto;
-    height: 52%;
-    opacity: 0.85;
+    inset: 14% 18% auto;
+    height: 36%;
+    opacity: 0.4;
     background: radial-gradient(
         ellipse at center,
-        color-mix(in oklab, var(--accent) 22%, transparent),
+        color-mix(in oklab, var(--accent) 14%, transparent),
         transparent 72%
     );
     pointer-events: none;
@@ -2787,19 +2755,18 @@ a.series-chapters__card:hover .series-chapters__title,
 
 .work-card-logo__mark {
     position: absolute;
-    inset: 3.5rem 1.25rem 56%;
+    inset: 3.75rem 1.25rem 58%;
     display: grid;
     place-items: center;
 }
 
 .work-card-logo__orb {
     position: absolute;
-    width: min(12.5rem, 70%);
+    width: min(8.5rem, 48%);
     aspect-ratio: 1;
     border-radius: 50%;
-    background: radial-gradient(circle, rgb(255 255 255 / 0.07) 0%, transparent 68%);
-    border: 1px solid rgb(255 255 255 / 0.08);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06);
+    background: radial-gradient(circle, color-mix(in oklab, var(--text) 6%, transparent) 0%, transparent 68%);
+    border: 1px solid var(--hairline);
     transition:
         border-color 0.55s var(--ease-out-soft),
         background 0.55s var(--ease-out-soft);
@@ -2808,12 +2775,11 @@ a.series-chapters__card:hover .series-chapters__title,
 .work-card-logo__img {
     position: relative;
     z-index: 1;
-    width: min(6.15rem, 40%);
+    width: min(4.5rem, 30%);
     height: auto;
     aspect-ratio: 1;
     object-fit: contain;
-    opacity: 0.96;
-    filter: drop-shadow(0 10px 28px rgb(0 0 0 / 0.4));
+    opacity: 0.88;
     transition:
         transform 0.75s var(--ease-out-spring),
         opacity 0.55s var(--ease-out-soft);
@@ -2821,11 +2787,11 @@ a.series-chapters__card:hover .series-chapters__title,
 
 @media (min-width: 640px) {
     .work-card-logo__mark {
-        inset: 3.25rem 1.25rem 46%;
+        inset: 3.5rem 1.25rem 48%;
     }
 
     .work-card-logo__img {
-        width: min(7.5rem, 46%);
+        width: min(5.25rem, 34%);
     }
 }
 
@@ -2842,8 +2808,8 @@ a.series-chapters__card:hover .series-chapters__title,
 
 .group:hover .work-card-logo__orb,
 .group:focus-within .work-card-logo__orb {
-    border-color: rgb(255 255 255 / 0.16);
-    background: radial-gradient(circle, rgb(255 255 255 / 0.11) 0%, transparent 68%);
+    border-color: var(--hairline-strong);
+    background: radial-gradient(circle, color-mix(in oklab, var(--text) 9%, transparent) 0%, transparent 68%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2895,6 +2861,13 @@ a.series-chapters__card:hover .series-chapters__title,
     .kit-screen-actions__links {
         justify-content: flex-start;
         gap: 1.5rem;
+    }
+}
+
+/* Scope and career direction stay in the print leave-behind. */
+@media screen {
+    .kit-print-only {
+        display: none !important;
     }
 }
 

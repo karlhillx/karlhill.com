@@ -3,21 +3,12 @@ import { prefersReducedMotion, supportsScrollTimeline } from '../lib/prefs.js';
 export function initNavigation() {
     const sections = Array.from(document.querySelectorAll('main section[id], footer[id]'));
     const navSpyLinks = document.querySelectorAll('nav[aria-label="Primary"] a[data-nav-section]');
-    const railLinks = document.querySelectorAll('#section-rail a[data-rail-section]');
 
     const setActiveSection = (sectionId) => {
         navSpyLinks.forEach((link) => {
             const active = link.dataset.navSection === sectionId;
             link.classList.toggle('text-accent', active);
             link.classList.toggle('text-neutral-500', !active);
-        });
-
-        railLinks.forEach((link) => {
-            if (link.dataset.railSection === sectionId) {
-                link.setAttribute('aria-current', 'location');
-            } else {
-                link.removeAttribute('aria-current');
-            }
         });
     };
 
@@ -102,7 +93,6 @@ export function initNavigation() {
     const backTopBtn = document.getElementById('quick-back-top');
     const root = document.documentElement;
     const primaryNav = document.querySelector('nav[aria-label="Primary"]');
-    const sectionRail = document.getElementById('section-rail');
 
     // Scroll-driven CSS handles the progress bar + back-to-top reveal where
     // supported. Under reduced motion those animations are switched off, so
@@ -110,47 +100,20 @@ export function initNavigation() {
     // top of an unscrolled page.
     const needsScrollFallback = !supportsScrollTimeline || prefersReducedMotion;
 
-    // Mobile section rail: tuck it away on downward scroll, restore on the
-    // first upward nudge. Frees ~60px of a small viewport while reading.
-    let lastY = window.scrollY;
-    let railTicking = false;
-    const updateRail = () => {
-        railTicking = false;
-        if (!sectionRail) return;
-        const y = window.scrollY;
-        const delta = y - lastY;
-        lastY = y;
-        if (Math.abs(delta) < 6) return;
-        const hide = delta > 0 && y > 140;
-        sectionRail.classList.toggle('is-hidden', hide);
-    };
-
     const updateScrollUI = () => {
-        if (needsScrollFallback) {
-            const max = root.scrollHeight - window.innerHeight;
-            const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
-            root.style.setProperty('--scroll-progress', `${Math.min(progress, 100)}%`);
-            backTopBtn?.classList.toggle('is-visible', window.scrollY > 560);
-            primaryNav?.classList.toggle('is-compact', window.scrollY > 160);
-        }
-        if (sectionRail && !railTicking) {
-            railTicking = true;
-            requestAnimationFrame(updateRail);
-        }
+        if (!needsScrollFallback) return;
+        const max = root.scrollHeight - window.innerHeight;
+        const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
+        root.style.setProperty('--scroll-progress', `${Math.min(progress, 100)}%`);
+        backTopBtn?.classList.toggle('is-visible', window.scrollY > 560);
+        primaryNav?.classList.toggle('is-compact', window.scrollY > 160);
     };
 
-    if (needsScrollFallback || sectionRail) {
+    if (needsScrollFallback) {
         window.addEventListener('scroll', updateScrollUI, { passive: true });
         window.addEventListener('resize', updateScrollUI);
         updateScrollUI();
     }
-
-    // Rail links jump within the page — make sure the rail is visible again
-    // once the target section lands so the reader can keep navigating.
-    sectionRail?.addEventListener('click', () => {
-        sectionRail.classList.remove('is-hidden');
-        lastY = window.scrollY;
-    });
 
     backTopBtn?.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });

@@ -119,11 +119,13 @@ it('tag counts match project membership', function () {
     );
 });
 
-it('work index shows tag counts', function () {
-    $count = ProjectCatalog::tagCounts()->get('AWS');
-
+it('work cards still expose stack tags and tagged urls', function () {
     $this->get('/work')
         ->assertOk()
-        ->assertSee('AWS', false)
-        ->assertSee('('.$count.')', false);
+        ->assertSee('AWS', false);
+
+    $this->get('/work/tag/aws')
+        ->assertOk()
+        ->assertSee('Clear filter', false)
+        ->assertSee('AWS', false);
 });

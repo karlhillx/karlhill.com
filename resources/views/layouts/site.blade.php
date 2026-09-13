@@ -125,10 +125,6 @@
 
     <x-site.nav :active-nav="$activeNav ?? null" />
 
-    @isset($sectionRail)
-        <x-site.section-rail :sections="$sectionRail" />
-    @endisset
-
     <main id="main-content" class="relative z-10">
         @yield('content')
     </main>
@@ -181,6 +177,7 @@
                spellcheck="false">
         <div id="command-results" class="command-results mt-3" role="listbox" aria-label="Commands"></div>
         <div class="command-hint" aria-hidden="true">
+            <span><kbd data-mod-shortcut>⌘K</kbd> open</span>
             <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
             <span><kbd>↵</kbd> select</span>
             <span><kbd>esc</kbd> close</span>

@@ -28,6 +28,14 @@ export const supportsViewTimeline =
 export const supportsScrollTimeline =
     typeof CSS !== 'undefined' && CSS.supports('animation-timeline', 'scroll()');
 
+/** Apple keyboards use ⌘ as the command-palette modifier; others use Ctrl. */
+/** @type {boolean} */
+export const usesAppleModifier =
+    typeof navigator !== 'undefined' &&
+    /Mac|iPhone|iPad|iPod/i.test(
+        navigator.userAgentData?.platform || navigator.platform || navigator.userAgent
+    );
+
 if (prefersSaveData) {
     document.documentElement.classList.add('save-data');
 }

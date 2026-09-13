@@ -71,9 +71,8 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertDontSee('Architected a shared', escape: false)
         ->assertDontSee('BlackLynx', escape: false)
         ->assertDontSee('RTX', escape: false)
-        ->assertSee('id="platform"', escape: false)
+        ->assertDontSee('id="platform"', escape: false)
         ->assertSee('Delivery gates', escape: false)
-        ->assertSee('not a program architecture', escape: false)
         ->assertSee('Program-specific architecture and operational details are not included here', escape: false)
         ->assertSee('Hands-on technical leadership', escape: false)
         ->assertSee('id="scope"', escape: false)
@@ -145,12 +144,10 @@ it('every case study publishes a platform map with three to five stages', functi
                 ->and(trim((string) $stage['body']))->not->toBe('');
         }
 
-        $firstTitle = $stages[0]['title'];
         $this->get('/work/'.$slug)
             ->assertOk()
-            ->assertSee('id="platform"', escape: false)
-            ->assertSee('work-diagram', escape: false)
-            ->assertSee($firstTitle)
-            ->assertSee('href="#platform"', escape: false);
+            ->assertDontSee('id="platform"', escape: false)
+            ->assertDontSee('work-diagram', escape: false)
+            ->assertDontSee('href="#platform"', escape: false);
     }
 });

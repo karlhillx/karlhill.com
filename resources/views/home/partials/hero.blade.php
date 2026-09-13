@@ -4,7 +4,7 @@
 @php($bookingLabel = config('site.booking.label'))
 @php($proof = $hero['proof'] ?? [])
 
-<section id="hero" data-section-label="Top" class="hero relative min-h-[100svh] flex flex-col justify-end overflow-hidden site-gutter">
+<section id="hero" data-section-label="Top" class="hero relative min-h-0 lg:min-h-[72svh] flex flex-col justify-end overflow-hidden site-gutter">
     {{-- Atmosphere + portrait. No product/screenshot photography in the hero. --}}
     <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
     <div class="hero-mesh pointer-events-none absolute inset-0" aria-hidden="true">

@@ -1,6 +1,5 @@
 <?php
 
-use App\Support\ProjectCatalog;
 use Illuminate\Support\Facades\Cache;
 
 beforeEach(function () {
@@ -88,9 +87,9 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertDontSee('When I’m not leading or coding, I make music', escape: false);
     $response->assertDontSee('hard problem, whiteboard', escape: false);
     $response->assertSee('id="beyond"', escape: false);
-    $response->assertSee('aria-label="On this page"', escape: false);
-    $response->assertSee('href="#how-i-lead"', escape: false);
-    $response->assertSee('href="#delivery"', escape: false);
+    $response->assertDontSee('aria-label="On this page"', escape: false);
+    $response->assertSee('id="how-i-lead"', escape: false);
+    $response->assertSee('id="delivery"', escape: false);
     $response->assertSee('id="impact"', escape: false);
     $response->assertSee('Experience in numbers', escape: false);
     $response->assertSee('Years building software', escape: false);
@@ -100,7 +99,7 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertSee('The full history, technologies, education, and certifications are available on the resume', escape: false);
     $response->assertDontSee('Verify credential', escape: false);
     $response->assertSee('href="/kit"', escape: false);
-    $response->assertSee('Recruiter kit', escape: false);
+    $response->assertSee('>Kit</a>', escape: false);
     $response->assertDontSee('Definition of Done', escape: false);
     $response->assertDontSee('Pull request rubric', escape: false);
     $response->assertDontSee('href="/lead"', escape: false);
@@ -121,7 +120,7 @@ it('homepage is a focused landing page', function () {
     $response->assertDontSee('id="impact"', escape: false);
     $response->assertSee('id="work"', escape: false);
     $response->assertSee('id="system"', escape: false);
-    $response->assertSee('id="path"', escape: false);
+    $response->assertDontSee('id="path"', escape: false);
     $response->assertSee('How software gets delivered', escape: false);
     $response->assertSee('role="radiogroup"', escape: false);
     $response->assertSee('Ruff', escape: false);
@@ -131,7 +130,8 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('environment promotion', escape: false);
     $response->assertSee('href="/delivery"', escape: false);
     $response->assertDontSee('Cloud &amp; Containers', escape: false);
-    $response->assertSee('View all work', escape: false);
+    $response->assertSee('Also at Goddard', escape: false);
+    $response->assertDontSee('View all work', escape: false);
     $response->assertSee('Jacobs is current. Public NASA systems:', escape: false);
     $response->assertSee('https://floodmapping.gsfc.nasa.gov/', escape: false);
     $response->assertSee('https://ladsweb.modaps.eosdis.nasa.gov/search/', escape: false);
@@ -163,21 +163,19 @@ it('work cards link to case studies and live projects', function () {
     $response->assertSee('Read case study', escape: false);
 });
 
-it('work index shows a single domain facet and project count', function () {
-    $count = ProjectCatalog::listed()->count();
-
+it('work index hides the domain filter until a tag is active', function () {
     $this->get('/work')
         ->assertOk()
-        ->assertSee('aria-label="Filter by domain"', escape: false)
-        // Three flagship cards don't get a second, scrolling stack facet or a sticky bar.
+        ->assertDontSee('aria-label="Filter by domain"', escape: false)
         ->assertDontSee('aria-label="Filter by stack"', escape: false)
         ->assertDontSee('tag-filter--scroll', escape: false)
         ->assertDontSee('site-toolbar--sticky', escape: false)
-        ->assertSee((string) $count, escape: false)
-        ->assertDontSee('Clear filter', escape: false);
+        ->assertDontSee('Clear filter', escape: false)
+        ->assertDontSee('>Projects</', escape: false);
 
     $this->get('/work/tag/kubernetes')
         ->assertOk()
+        ->assertSee('aria-label="Filter by domain"', escape: false)
         ->assertSee('Clear filter', escape: false)
         ->assertSee('Kubernetes', escape: false);
 });
@@ -189,17 +187,19 @@ it('case study pages expose skim path, toc, and lightbox', function () {
     $caseStudy->assertSee('https://ladsweb.modaps.eosdis.nasa.gov/search/', escape: false);
     $caseStudy->assertSee('case-study-media', escape: false);
     $caseStudy->assertSee('Case study', escape: false);
-    $caseStudy->assertSee('case-study-glance', escape: false);
-    $caseStudy->assertSee('id="overview"', escape: false);
+    $caseStudy->assertDontSee('case-study-glance', escape: false);
+    $caseStudy->assertDontSee('id="overview"', escape: false);
     $caseStudy->assertSee('id="snapshot"', escape: false);
-    $caseStudy->assertSee('id="platform"', escape: false);
-    $caseStudy->assertSee('Choose collections', escape: false);
+    $caseStudy->assertDontSee('id="platform"', escape: false);
+    $caseStudy->assertDontSee('work-diagram', escape: false);
     $caseStudy->assertSee('id="article-toc"', escape: false);
     $caseStudy->assertSee('data-lightbox-open', escape: false);
     $caseStudy->assertSee('data-media-lightbox', escape: false);
-    $caseStudy->assertSee('>Outcome</h2>', escape: false);
-    $caseStudy->assertSee('>Stack</h2>', escape: false);
-    $caseStudy->assertSee('>Role</h2>', escape: false);
+    $caseStudy->assertSee('case-study-masthead__stack', escape: false);
+    $caseStudy->assertSee('id="outcome"', escape: false);
+    $caseStudy->assertSee('case-study-brief__heading', escape: false);
+    $caseStudy->assertDontSee('>Stack</h2>', escape: false);
+    $caseStudy->assertDontSee('>Role</h2>', escape: false);
     $caseStudy->assertSee('id="decisions"', escape: false);
     $caseStudy->assertSee('case-study-brief__arc', escape: false);
     $caseStudy->assertSee('case-study-brief__step', escape: false);
@@ -504,7 +504,7 @@ it('homepage hero links to em funnel', function () {
     }
 });
 
-it('nav includes kit, writing, and one filled booking CTA at every breakpoint', function () {
+it('nav includes kit, writing, about, and one filled booking CTA', function () {
     $html = $this->get('/')->assertOk()->getContent();
 
     expect($html)
@@ -512,11 +512,15 @@ it('nav includes kit, writing, and one filled booking CTA at every breakpoint', 
         ->toContain('>Kit</a>')
         ->toContain('href="/blog"')
         ->toContain('>Writing</a>')
-        ->toContain('>Contact</a>') // mobile menu + footer keep the contact route
-        ->toContain('href="/about"') // mobile More + footer
-        ->toContain('href="/resume"') // mobile More + footer
+        ->toContain('href="/about"')
+        ->toContain('>About</a>')
+        ->toContain('href="/resume"')
+        ->toContain('max-lg:hidden')
+        ->toContain('data-mod-shortcut')
+        ->toContain('⌘K')
         ->not->toContain('Get in Touch')
-        ->not->toContain('href="mailto:'.config('site.person.email').'" class="btn-sweep hidden md:inline-flex');
+        ->not->toContain('href="mailto:'.config('site.person.email').'" class="btn-sweep hidden md:inline-flex')
+        ->not->toContain('href="/#contact" class="min-h-11 flex items-center');
 
     // One nav CTA, filled, not split into a desktop "Contact" and a mobile "Book".
     expect(substr_count($html, 'data-analytics-location="nav"'))->toBe(1);
@@ -538,21 +542,19 @@ it('homepage sections follow the hire-me funnel order', function () {
 
     $work = strpos($html, 'id="work"');
     $system = strpos($html, 'id="system"');
-    $path = strpos($html, 'id="path"');
     $contact = strpos($html, 'id="contact"');
 
     expect($work)->toBeInt()
         ->and($system)->toBeInt()
-        ->and($path)->toBeInt()
         ->and($contact)->toBeInt();
 
     expect($html)->not->toContain('id="writing"')
         ->and($html)->not->toContain('id="why"')
-        ->and($html)->not->toContain('id="impact"');
+        ->and($html)->not->toContain('id="impact"')
+        ->and($html)->not->toContain('id="path"');
 
     expect($work)->toBeLessThan($system)
-        ->and($system)->toBeLessThan($path)
-        ->and($path)->toBeLessThan($contact);
+        ->and($system)->toBeLessThan($contact);
 });
 
 it('sitemap includes now and resume pages', function () {
@@ -606,7 +608,6 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee(config('site.person.email'), escape: false);
     $response->assertSee('kit-doc', escape: false);
     $response->assertSee('Print kit', escape: false);
-    $response->assertSee('href="#contact"', escape: false);
     $response->assertSee('id="kit-glance-heading"', escape: false);
     $response->assertSee('id="kit-links-heading"', escape: false);
     $response->assertSee('kit-links-more', escape: false);
@@ -636,18 +637,17 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertDontSee('Primary ask:', escape: false);
 });
 
-it('homepage path strip points recruiters to kit work and book', function () {
+it('homepage hire exits live in the hero and nav, not a path strip', function () {
     $html = $this->get('/')->assertOk()->getContent();
 
     expect($html)
-        ->toContain('id="path"')
         ->toContain('id="system"')
         ->toContain('href="/kit"')
         ->toContain('href="/work"')
         ->toContain('href="/now#book"')
         ->toContain('Recruiter kit')
-        ->toContain('Selected work')
         ->toContain('Book a conversation')
+        ->not->toContain('id="path"')
         ->not->toContain('id="why"')
         ->not->toContain('I Set the Bar');
 });
@@ -682,11 +682,18 @@ it('now page shows a fresh updated date and kit link', function () {
         ->assertSee('Recruiter kit', escape: false);
 });
 
-it('footer hides resume and kit self-links', function () {
+it('footer explore is work writing about and now', function () {
+    $home = $this->get('/')->assertOk()->getContent();
+    expect($home)
+        ->toContain('href="/now"')
+        ->toContain('>Now</a>')
+        ->toContain('>Writing</a>')
+        ->not->toContain('>Delivery</a>');
+
     $this->get('/resume')
         ->assertOk()
         ->assertSee('href="/kit"', escape: false)
-        ->assertSee('Recruiter kit', escape: false);
+        ->assertSee('>Kit</a>', escape: false);
 
     $kit = $this->get('/kit')->assertOk()->getContent();
     expect($kit)->toContain('href="/resume"')

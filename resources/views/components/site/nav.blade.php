@@ -12,7 +12,6 @@
     $bookingUrl = config('site.booking.url');
     $bookingLabel = config('site.booking.label');
     $linkedin = collect(config('site.social'))->first(fn ($link) => ($link['icon'] ?? '') === 'linkedin');
-    $iconButtonClass = 'inline-flex items-center justify-center min-h-11 min-w-11 border border-neutral-700 hover:border-accent text-neutral-400 hover:text-accent transition-colors shrink-0';
 @endphp
 
 <nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-bg/90 backdrop-blur-sm nav-enter">
@@ -22,11 +21,12 @@
                 <x-site.mark :size="28" class="brand-lockup__mark" />
                 <span>KARL HILL</span>
             </a>
-            {{-- Hire path only: Work → Kit → Writing. Book is the persistent CTA. --}}
+            {{-- Hire path: Work → Kit → Writing. About from lg. Book is the CTA. --}}
             <div class="hidden md:flex items-center gap-5 lg:gap-7 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 <a href="/work" class="{{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
                 <a href="/kit" class="{{ $navLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Kit</a>
                 <a href="/blog" class="{{ $navLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
+                <a href="/about" class="max-lg:hidden {{ $navLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
             </div>
         </div>
         <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
@@ -35,32 +35,22 @@
                     commandfor="command-palette"
                     popovertarget="command-palette"
                     aria-label="Search pages and sections"
-                    aria-keyshortcuts="Meta+K"
+                    aria-keyshortcuts="Meta+K Control+K"
                     title="Search pages and sections (⌘K)"
-                    class="hidden md:inline-flex items-center gap-2 font-mono text-caption text-neutral-400 border border-neutral-800 pl-3 pr-2 py-2 uppercase tracking-widest hover:border-accent hover:text-accent transition-colors duration-200">
-                <x-site.icons.search class="w-3.5 h-3.5 shrink-0" />
-                <span>Search</span>
-                <kbd aria-hidden="true"
-                     class="surface-chip ml-1 px-1.5 py-0.5 text-caption leading-none font-mono text-neutral-500 normal-case tracking-normal">⌘K</kbd>
-            </button>
-
-            <button type="button"
-                    data-theme-toggle
-                    aria-label="Switch theme"
-                    title="Switch theme"
-                    class="theme-toggle {{ $iconButtonClass }}">
-                <x-site.icons.sun class="theme-toggle__icon theme-toggle__icon--sun w-4 h-4" />
-                <x-site.icons.moon class="theme-toggle__icon theme-toggle__icon--moon w-4 h-4" />
+                    data-mod-shortcut-host
+                    class="hidden lg:inline-flex items-center justify-center gap-1.5 min-h-11 px-2.5 border border-[color:var(--border-strong)] hover:border-accent text-neutral-400 hover:text-accent transition-colors shrink-0">
+                <x-site.icons.search class="w-4 h-4 shrink-0" />
+                <kbd class="nav-shortcut" data-mod-shortcut aria-hidden="true">⌘K</kbd>
             </button>
 
             @if(filled($bookingUrl))
                 <a href="/now#book"
                    data-analytics-event="booking_cta_clicked"
                    data-analytics-location="nav"
-                   class="btn-accent-fill inline-flex items-center min-h-11 font-mono text-caption md:text-xs px-3.5 md:px-5 uppercase tracking-widest shrink-0"
+                   class="btn-accent-fill inline-flex items-center min-h-11 font-mono text-caption lg:text-xs px-3.5 lg:px-5 uppercase tracking-widest shrink-0"
                    aria-label="{{ $bookingLabel }}">
-                    <span class="md:hidden">Book</span>
-                    <span class="hidden md:inline">{{ $bookingLabel }}</span>
+                    <span class="lg:hidden">Book</span>
+                    <span class="hidden lg:inline">{{ $bookingLabel }}</span>
                 </a>
             @else
                 <a href="/#contact"
@@ -75,7 +65,7 @@
                     commandfor="mobile-menu"
                     popovertarget="mobile-menu"
                     aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu"
-                    class="md:hidden flex flex-col justify-center items-center min-h-11 min-w-11 gap-1.5 border border-neutral-700 hover:border-accent transition-colors shrink-0">
+                    class="md:hidden flex flex-col justify-center items-center min-h-11 min-w-11 gap-1.5 border border-[color:var(--border-strong)] hover:border-accent transition-colors shrink-0">
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
@@ -88,23 +78,17 @@
                     command="show-popover"
                     commandfor="command-palette"
                     popovertarget="command-palette"
-                    class="mb-3 min-h-11 w-full inline-flex items-center justify-between px-3.5 py-2.5 surface-chip border-neutral-700/80 text-neutral-300 hover:text-accent hover:border-accent transition-colors text-left normal-case">
+                    class="mb-3 min-h-11 w-full inline-flex items-center px-3.5 py-2.5 surface-chip border-neutral-700/80 text-neutral-300 hover:text-accent hover:border-accent transition-colors text-left normal-case">
                 <span class="inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider">
                     <x-site.icons.search class="w-4 h-4 shrink-0 text-accent" />
                     <span>Search pages &amp; sections</span>
                 </span>
-                <kbd class="surface-chip px-1.5 py-0.5 text-caption font-mono text-neutral-500">⌘K</kbd>
             </button>
 
             <div class="flex flex-col divide-y divide-neutral-800/80">
                 <a href="/work" class="{{ $mobileLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
-                <a href="/kit" class="{{ $mobileLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Recruiter kit</a>
+                <a href="/kit" class="{{ $mobileLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Kit</a>
                 <a href="/blog" class="{{ $mobileLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
-                <a href="/#contact" class="{{ $mobileLinkClass('contact') }}">Contact</a>
-            </div>
-
-            <p class="pt-4 mt-2 font-mono text-caption text-neutral-500 uppercase tracking-widest">More</p>
-            <div class="flex flex-col divide-y divide-neutral-800/80">
                 <a href="/about" class="{{ $mobileLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
                 <a href="/resume" class="{{ $mobileLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
             </div>

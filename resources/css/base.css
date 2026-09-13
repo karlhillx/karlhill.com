@@ -425,7 +425,8 @@ article.surface-card:focus-within {
 
 .surface-chip {
     border-radius: 0.125rem;
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-strong);
+    background-color: color-mix(in oklab, var(--panel) 72%, transparent);
 }
 
 /* Chips that sit on top of photography — always dark glass regardless of
@@ -449,6 +450,7 @@ article.surface-card:focus-within {
     background-color: var(--accent-solid);
     color: var(--accent-ink);
     font-weight: 700;
+    box-shadow: inset 0 0 0 1px light-dark(rgb(10 10 10 / 0.14), rgb(255 255 255 / 0.08));
 }
 
 .btn-accent-fill:hover,

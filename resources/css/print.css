@@ -13,7 +13,6 @@
     .scroll-progress,
     .quick-back-top,
     nav[aria-label='Primary'],
-    .section-rail,
     .section-minimap,
     #command-palette,
     .hero-dot-grid,
@@ -571,6 +570,10 @@
         color: #222 !important;
         max-width: none !important;
         font-size: 9.5pt !important;
+    }
+
+    body:has(.kit-doc) .kit-print-only {
+        display: block !important;
     }
 
     body:has(.kit-doc) .kit-links-more {

@@ -26,12 +26,10 @@
         </p>
     </x-site.page-hero>
 
-    {{-- One facet, the one a hiring manager filters by: domain. Three flagship
-         cards don't need a second stack facet (that row clipped mid-word on
-         phones behind two arrow buttons); each card already lists its stack,
-         and /work/tag/{stack} stays routable for deep links. Not sticky: a
-         three-card grid never scrolls far enough to lose the filter. --}}
-    @if($sectors->isNotEmpty())
+    {{-- Domain filter only earns its chrome when a hiring manager can
+         actually split the grid. Two sectors over three cards is a toggle,
+         not a filter. Tagged URLs still show the bar so Clear filter works. --}}
+    @if($activeTag || $sectors->count() > 2)
         @php($urlFor = fn ($tag) => route('work.tag', \App\Support\ProjectCatalog::tagSlug($tag)))
         <section class="site-toolbar border-t border-neutral-800/80" aria-label="Filter projects">
             <div class="site-shell flex flex-col gap-3">
@@ -68,13 +66,14 @@
     <div data-soft-nav-target>
         @include('partials.work', [
             'projects' => $projects,
+            'hideHeading' => ! $activeTag,
             'sectionNumber' => '01',
-            'heading' => $activeTag ? "Projects · {$activeTag}" : 'Projects',
+            'heading' => $activeTag,
         ])
     </div>
 
     @if(($supporting ?? collect())->isNotEmpty())
-        <x-site.section id="chapters" class="scroll-mt-32" section-label="Also at Goddard" number="02" label="Also at Goddard">
+        <x-site.section id="chapters" class="scroll-mt-32" section-label="Also at Goddard" number="01" label="Also at Goddard">
             <p class="text-neutral-400 text-sm leading-relaxed max-w-2xl mb-6" data-reveal>
                 {{ config('site.work.chapters_intro') }}
             </p>
@@ -103,7 +102,7 @@
     @endif
 
     @include('partials.open-source', [
-        'sectionNumber' => ($supporting ?? collect())->isNotEmpty() ? '03' : '02',
+        'sectionNumber' => ($supporting ?? collect())->isNotEmpty() ? '02' : '01',
         'intro' => config('site.work.open_source_intro'),
     ])
 @endsection

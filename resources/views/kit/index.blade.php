@@ -65,7 +65,6 @@
                 <x-site.button variant="link" class="kit-print-btn" data-print title="Print or save as PDF">
                     Print kit
                 </x-site.button>
-                <x-site.button variant="link" href="#contact">Contact</x-site.button>
             </div>
         </div>
     </x-site.page-hero>
@@ -98,7 +97,7 @@
                 </dl>
 
                 <x-site.job-scope
-                    class="mt-8"
+                    class="kit-print-only mt-8"
                     heading="Current scope"
                     heading-id="kit-scope-heading"
                     :rows="$kit['scope'] ?? []"
@@ -138,7 +137,7 @@
     @endif
 
     @if(! empty($kit['direction']))
-        <section class="site-section site-section--soft border-t border-neutral-800/50" aria-labelledby="kit-direction-heading">
+        <section class="kit-print-only site-section site-section--soft border-t border-neutral-800/50" aria-labelledby="kit-direction-heading">
             <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
                 <h2 id="kit-direction-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1 md:sticky md:top-24 md:self-start">Career direction</h2>
                 <div class="kit-bio max-w-3xl">
@@ -149,30 +148,6 @@
             </div>
         </section>
     @endif
-
-    <section class="site-section border-t border-neutral-800/50" aria-labelledby="kit-contact-heading">
-        <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-            <h2 id="kit-contact-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">Contact</h2>
-            <div class="max-w-3xl">
-                <p class="text-neutral-300 text-base sm:text-lg leading-relaxed">
-                    {{ $kit['contact_lede'] }}
-                </p>
-                <div class="kit-screen-actions mt-6">
-                    <div class="kit-screen-actions__buttons">
-                        @if(filled($bookingUrl))
-                            <x-site.button variant="primary" :href="url('/now#book')"
-                                data-analytics-event="booking_cta_clicked"
-                                data-analytics-location="kit-contact">
-                                {{ $bookingLabel }}
-                            </x-site.button>
-                        @endif
-                        <x-site.button variant="secondary" href="/resume">Resume</x-site.button>
-                        <x-site.button variant="link" href="/work">Selected work</x-site.button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="site-section border-t border-neutral-800/50" aria-labelledby="kit-links-heading">
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>

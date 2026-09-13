@@ -33,7 +33,7 @@
                     <a href="/now#book" class="text-neutral-400 hover:text-accent transition-colors">Book →</a>
                 </div>
                 <p class="hidden sm:block font-mono text-caption text-neutral-500 uppercase tracking-widest mt-8">
-                    Or press <kbd class="surface-chip px-1.5 py-0.5 text-caption text-neutral-400 normal-case tracking-normal">⌘K</kbd> to search the site
+                    Or press <kbd class="surface-chip px-1.5 py-0.5 text-caption text-neutral-400 normal-case tracking-normal" data-mod-shortcut>⌘K</kbd> to search the site
                 </p>
             </div>
         </div>

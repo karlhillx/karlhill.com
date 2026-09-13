@@ -1,9 +1,14 @@
-<x-site.section id="work" section-label="Selected Work" :number="$sectionNumber ?? '03'" :label="$heading ?? 'Selected Work'">
+<x-site.section
+    id="work"
+    section-label="Selected Work"
+    :number="($hideHeading ?? false) ? null : ($sectionNumber ?? '03')"
+    :label="($hideHeading ?? false) ? null : ($heading ?? 'Selected Work')"
+>
         @if($showViewAll ?? false)
             <x-slot:actions>
                 <a href="/work"
                    class="font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors shrink-0">
-                    View all work <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
+                    Also at Goddard <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
                 </a>
             </x-slot:actions>
         @endif
