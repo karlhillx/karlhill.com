@@ -19,8 +19,8 @@ return [
     ],
     'about' => [
         'title' => 'Karl Hill — Software Engineer in Washington, DC',
-        'description' => 'Karl Hill (Karl M. Hill) is a software engineer at Jacobs in Washington, DC. NASA Goddard Earth science, 2017–2025, and drummer in Sorry About Your Daughter.',
-        'og_description' => 'Karl Hill: software engineer at Jacobs, NASA Earth science at Goddard, and drummer in Sorry About Your Daughter. Washington, DC.',
+        'description' => 'Karl Hill (Karl M. Hill) is a software engineer at Jacobs in Washington, DC. NASA Goddard Earth science, 2017–2025. Musician, songwriter, and independent label work.',
+        'og_description' => 'Karl Hill: software engineer at Jacobs, NASA Earth science at Goddard, and musician and songwriter. Washington, DC.',
     ],
     'now' => [
         'title' => 'Now — Karl Hill',

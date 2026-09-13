@@ -8,7 +8,7 @@ return [
     'job_title' => 'Staff Aerospace Software Engineer',
     'email' => 'karlhillx@gmail.com',
     'location' => 'Washington, DC',
-    'tagline' => 'Software engineer, technical leadership, and delivery',
+    'tagline' => 'Software engineering, technical leadership, and delivery',
     // LinkedIn-ready headline (copy/paste); keep in sync with public positioning.
     'linkedin_headline' => 'Staff Aerospace Software Engineer at Jacobs | Mission software, technical delivery | NASA Goddard 2017–2025',
     // Desired next role — kit “Open to”, JSON-LD, llms.txt. Homepage hero uses hero.lede.
@@ -18,7 +18,7 @@ return [
     'employer' => 'Jacobs',
     'employer_display' => 'Jacobs National Security',
     'twitter_handle' => '@karl_hill',
-    'bio' => 'Staff Aerospace Software Engineer at Jacobs. Python mission software, shared interfaces, messaging, and CI/CD across about 20 repositories. Technical delivery and mentoring for a team of about 10. Lead Software Engineer at SSAI supporting NASA Goddard Earth science platforms, 2017–2025, including flood mapping, LAADS DAAC, and Earth Observatory.',
+    'bio' => 'Staff Aerospace Software Engineer at Jacobs. Python mission software, shared interfaces, messaging, and CI/CD across roughly 20 repositories. Technical delivery and mentoring for a team of about 10. Lead Software Engineer at SSAI supporting NASA Goddard Earth science platforms, 2017–2025, including flood mapping, LAADS DAAC, and Earth Observatory.',
     // Schema.org Thing.disambiguatingDescription — unique facts so Google
     // separates this Person from the Scottish novelist (pen name) and the
     // 19th-century German baritone who owns the primary Wikipedia article.

@@ -5,17 +5,17 @@ return [
     'current' => [
         'label' => 'Current Role',
         'title' => 'Staff Aerospace Software Engineer',
-        'company' => 'Jacobs — National Security',
+        'company' => 'Jacobs National Security',
         'location' => 'Chantilly, VA',
         'period' => 'Sept 2025 — Present',
-        'summary' => 'Hands-on software development, technical guidance, delivery leadership, mentoring, and engineering guardrails for a ~10-engineer team across ~20 repositories.',
+        'summary' => 'Hands-on software development, technical guidance, delivery leadership, mentoring, and engineering guardrails for a team of about 10 across roughly 20 repositories.',
         'scope' => [
-            'owned' => 'Day-to-day software delivery, engineering standards, mentoring, and hands-on implementation across about 20 repositories.',
+            'owned' => 'Day-to-day software delivery, engineering standards, mentoring, and hands-on implementation across roughly 20 repositories.',
             'influence' => 'Program priorities, vendor and partner-team dependencies, and integration across repositories.',
             'reserved' => 'Staff individual-contributor role; formal personnel decisions remain with management.',
         ],
         'highlights' => [
-            'Lead engineering delivery for a ~10-engineer team across ~20 repositories and multiple deployment environments, sequencing work, coordinating dependencies, and driving integration and release readiness.',
+            'Lead engineering delivery for a team of about 10 across roughly 20 repositories and multiple deployment environments, sequencing work, coordinating dependencies, and driving integration and release readiness.',
             'Develop mission software, shared interfaces, messaging integrations, and service orchestration while providing technical guidance and reviewing implementation across the team.',
             'Establish engineering guardrails through CI/CD, automated testing, security checks, repository standards, dependency management, and release automation.',
             'Lead Agile planning and execution across internal and partner teams, translating mission priorities into sequenced engineering work and resolving cross-team dependencies and blockers.',
@@ -41,7 +41,6 @@ return [
             'location' => 'Greenbelt, MD',
             'period' => 'Dec 2017 — Sept 2025',
             'summary' => 'Earth science software other people used: flood maps, satellite-data access, and science publishing.',
-            'about_highlights' => [0, 1, 2, 5],
             'highlights' => [
                 'Led design and development of an AWS-based flood-mapping system, automating processing and distribution of satellite-derived flood products.',
                 'Modernized LAADS DAAC web systems, including Find Data search and ordering and near-real-time access, with GitLab CI/CD and Kubernetes delivery.',

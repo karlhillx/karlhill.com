@@ -35,11 +35,18 @@ it('booking embed src normalizes calendly and cal urls', function () {
     expect(Booking::embedSrc('not-a-url'))->toBeNull();
 });
 
-it('experience fragment powers about and resume', function () {
+it('experience fragment powers resume and facts stay consistent', function () {
     expect(config('site.experience.current.title'))->not->toBeEmpty()
-        ->and(config('site.experience.roles'))->not->toBeEmpty();
+        ->and(config('site.experience.roles'))->not->toBeEmpty()
+        ->and(config('site.experience.current.company'))->toBe(config('site.facts.employer'))
+        ->and(config('site.facts.repos'))->toBe('roughly 20')
+        ->and(config('site.facts.team'))->toBe('about 10')
+        ->and(config('site.hero.proof'))->toContain(config('site.facts.repos_chip'))
+        ->and(config('site.kit.glance.0'))->toContain(config('site.facts.repos'))
+        ->and(config('site.now.body'))->toContain(config('site.facts.repos'));
 
     expect(config_path('site/experience.php'))->toBeFile()
+        ->and(config_path('site/facts.php'))->toBeFile()
         ->and(config_path('site/now.php'))->toBeFile()
         ->and(config_path('site/work.php'))->toBeFile()
         ->and(config_path('site/projects.php'))->toBeFile()

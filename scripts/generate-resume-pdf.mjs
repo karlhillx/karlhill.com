@@ -222,7 +222,7 @@ for (const item of sidebar.expertise ?? []) {
 pdfDoc.setTitle('Karl Hill — Resume');
 pdfDoc.setAuthor('Karl Hill');
 pdfDoc.setSubject(
-    'Staff Aerospace Software Engineer — Engineering Manager trajectory · Jacobs · NASA Goddard'
+    'Staff Aerospace Software Engineer — technical leadership · Jacobs · NASA Goddard'
 );
 pdfDoc.setKeywords([
     'Karl Hill',

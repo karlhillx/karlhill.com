@@ -53,7 +53,7 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertSee('GeoHorizons', escape: false);
     $response->assertSee('id="experience"', escape: false);
     $response->assertSee('Career', escape: false);
-    $response->assertSee('Jacobs · National Security · 2025–present', escape: false);
+    $response->assertSee('Jacobs National Security · 2025–present', escape: false);
     $response->assertSee('The common thread has been software that matters operationally', escape: false);
     $response->assertSee('Earlier engineering work', escape: false);
     $response->assertSee('Before NASA, built case-management, CRM, travel, and enterprise software', escape: false);
@@ -68,10 +68,13 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertSee('Global Water and Flood Mapping System', escape: false);
     $response->assertSee('Beyond the work', escape: false);
     $response->assertSee('When not writing software, solving engineering problems, or working with a team', escape: false);
-    $response->assertSee('independent label work', escape: false);
+    $response->assertSee('songwriter and musician', escape: false);
+    $response->assertSee('Independent label work has also supported', escape: false);
     $response->assertSee('Recording and performance credits are available on', escape: false);
     $response->assertSee('discogs.com', escape: false);
     $response->assertSee('>Discogs</a>', escape: false);
+    $response->assertDontSee('I’m a musician', escape: false);
+    $response->assertDontSee('I’ve also been involved', escape: false);
     $response->assertDontSee('Drummer in Sorry About Your Daughter, a Washington, DC rock band', escape: false);
     $response->assertDontSee('Atlantic to Adrenaline', escape: false);
     $response->assertDontSee('When I’m not leading or coding, I make music', escape: false);
@@ -459,7 +462,7 @@ it('homepage hero links to em funnel', function () {
     $response->assertSee('id="contact-form"', escape: false);
     $response->assertDontSee('Resume PDF', escape: false);
     $response->assertSee('Jacobs', escape: false);
-    $response->assertDontSee(config('site.hero.subtitle'), escape: false);
+    $response->assertDontSee('hero-subtitle', escape: false);
     $response->assertSee(config('site.hero.statement'), escape: false);
     $response->assertSee(config('site.hero.lede'), escape: false);
     $response->assertSee('hero-portrait', escape: false);
@@ -590,7 +593,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertDontSee('Reserved', escape: false);
     $response->assertDontSee('Engineering Manager is the next container for this scope', escape: false);
     $response->assertSee('kit-bio', escape: false);
-    $response->assertSee('Staff Aerospace Software Engineer at Jacobs working across Python mission software', escape: false);
+    $response->assertSee('Staff Aerospace Software Engineer at Jacobs. Python mission software', escape: false);
     $response->assertSee('Previously Lead Software Engineer supporting NASA Goddard', escape: false);
     $response->assertDontSee('Day to day that means', escape: false);
     $response->assertDontSee('I\'m a Staff Aerospace Software Engineer', escape: false);

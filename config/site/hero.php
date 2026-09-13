@@ -1,5 +1,7 @@
 <?php
 
+$facts = require __DIR__.'/facts.php';
+
 return [
     'headline' => 'Karl Hill',
     // Keywords stay in meta / JSON-LD — not a second headline on the first screen.
@@ -8,8 +10,8 @@ return [
     'statement' => 'Mission software. Engineering systems. Technical leadership.',
     'lede' => 'Engineering and delivering aerospace and national security software while raising technical standards and driving execution across teams.',
     'proof' => [
-        '~20 repositories',
-        '~10-engineer team',
+        $facts['repos_chip'],
+        $facts['team_chip'],
         'NASA Goddard 2017–2025',
     ],
 ];

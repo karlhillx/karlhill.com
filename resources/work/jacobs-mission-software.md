@@ -1,6 +1,6 @@
 ---
 updated: '2026-09-10'
-lede: Python services, shared interfaces, messaging, and CI/CD across about 20 repositories. Technical delivery and mentoring on a team of about 10.
+lede: Python services, shared interfaces, messaging, and CI/CD across roughly 20 repositories. Technical delivery and mentoring on a team of about 10.
 role: Staff Aerospace Software Engineer — software development, technical delivery, and coaching.
 leadership:
   mode: Hands-on technical leadership
@@ -9,7 +9,7 @@ leadership:
   decision: Make integration dependencies and readiness visible when planning the work.
 problem:
 - Independently developed services need compatible interfaces and repeatable integration.
-- Work spans approximately 20 repositories and multiple deployment environments.
+- Work spans roughly 20 repositories and multiple deployment environments.
 - Engineers need clear priorities, development practices, and support as their responsibilities grow.
 decisions:
 - Build Python application and integration code alongside shared developer tooling.
@@ -45,7 +45,7 @@ platform:
     stack: CI/CD · Release
 ---
 
-Aerospace mission software at Jacobs, across about 20 repositories and multiple environments. The work is application code and the engineering system around it: shared interfaces, tests, CI, packaging, and release readiness.
+Aerospace mission software at Jacobs, across roughly 20 repositories and multiple environments. The work is application code and the engineering system around it: shared interfaces, tests, CI, packaging, and release readiness.
 
 ## Hands-on engineering
 

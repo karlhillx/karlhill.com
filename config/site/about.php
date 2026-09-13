@@ -1,5 +1,7 @@
 <?php
 
+$facts = require __DIR__.'/facts.php';
+
 return [
     'lede' => [
         'Software engineer and technical leader working on aerospace mission software at Jacobs. Previously spent eight years building and modernizing NASA Goddard Earth science systems.',
@@ -9,12 +11,12 @@ return [
         'title' => 'Technical leadership',
         'intro' => [
             'Technical leadership stays close to the code.',
-            'Current responsibilities span hands-on development, technical direction, delivery coordination, integration across teams, engineering standards, and mentoring for a team of about 10 engineers.',
+            'Current responsibilities span hands-on development, technical direction, delivery coordination, integration across teams, engineering standards, and mentoring for '.$facts['team_engineers'].'.',
         ],
         'items' => [
             [
                 'title' => 'Turn priorities into engineering work',
-                'body' => 'Translate program needs into scoped, sequenced work with clear dependencies, ownership, and integration paths.',
+                'body' => 'Translates program needs into scoped, sequenced work with clear dependencies, ownership, and integration paths.',
             ],
             [
                 'title' => 'Review for correctness and growth',
@@ -22,7 +24,7 @@ return [
             ],
             [
                 'title' => 'Build standards into the system',
-                'body' => 'Use CI/CD, automated testing, security checks, repository standards, and release practices to make quality repeatable rather than dependent on individual memory.',
+                'body' => 'Uses CI/CD, automated testing, security checks, repository standards, and release practices to make quality repeatable rather than dependent on individual memory.',
             ],
             [
                 'title' => 'Develop independent engineers',
@@ -56,18 +58,18 @@ return [
         'roles' => [
             [
                 'title' => 'Staff Aerospace Software Engineer',
-                'org' => 'Jacobs · National Security · 2025–present',
-                'summary' => 'Hands-on engineer and technical delivery leader working across roughly 20 repositories and multiple deployment environments.',
+                'org' => $facts['employer'].' · '.$facts['period'],
+                'summary' => 'Hands-on engineer and technical delivery leader working across '.$facts['repos'].' repositories and multiple deployment environments.',
                 'highlights' => [
-                    'Lead day-to-day engineering delivery for a team of about 10, coordinating dependencies, integration work, and release readiness.',
-                    'Develop Python mission software, shared interfaces, distributed messaging, and service orchestration.',
-                    'Establish engineering guardrails through CI/CD, automated testing, security checks, repository standards, dependency management, and release automation.',
-                    'Work across organizational boundaries to surface technical risk early and drive issues through resolution.',
+                    'Leads day-to-day engineering delivery for a team of '.$facts['team'].', coordinating dependencies, integration work, and release readiness.',
+                    'Develops Python mission software, shared interfaces, distributed messaging, and service orchestration.',
+                    'Establishes engineering guardrails through CI/CD, automated testing, security checks, repository standards, dependency management, and release automation.',
+                    'Works across organizational boundaries to surface technical risk early and drive issues through resolution.',
                 ],
             ],
             [
                 'title' => 'Lead Software Engineer',
-                'org' => 'SSAI / NASA Goddard Space Flight Center · 2017–2025',
+                'org' => 'SSAI / NASA Goddard Space Flight Center · '.$facts['nasa_period'],
                 'summary' => 'Built and modernized Earth science systems used for satellite-data access, flood mapping, and public science communication.',
                 'highlights' => [
                     'Led development of an AWS-based flood-mapping system for automated processing and distribution of satellite-derived flood products.',
@@ -95,37 +97,37 @@ return [
                 'suffix' => '+',
             ],
             [
-                'display' => '~10',
+                'display' => $facts['team_display'],
                 'label' => 'Engineers on the current team',
-                'to' => 10,
+                'to' => $facts['team_to'],
                 'prefix' => '~',
                 'suffix' => '',
             ],
             [
-                'display' => '~6',
+                'display' => $facts['onboarded_display'],
                 'label' => 'Engineers onboarded and coached',
-                'to' => 6,
+                'to' => $facts['onboarded_to'],
                 'prefix' => '~',
                 'suffix' => '',
             ],
             [
-                'display' => '~20',
+                'display' => $facts['repos_display'],
                 'label' => 'Repositories across the current environment',
-                'to' => 20,
+                'to' => $facts['repos_to'],
                 'prefix' => '~',
                 'suffix' => '',
             ],
             [
-                'display' => '1.5M',
+                'display' => $facts['visitors_display'],
                 'label' => 'Monthly visitors · Earth Observatory',
-                'to' => 1.5,
+                'to' => $facts['visitors_to'],
                 'prefix' => '',
                 'suffix' => 'M',
             ],
         ],
     ],
     'beyond' => [
-        'When not writing software, solving engineering problems, or working with a team, I’m a musician and songwriter with work spanning post-punk, indie rock, hardcore, and alternative music. I’ve also been involved in independent label work supporting underground and alternative artists in Washington, DC and beyond.',
+        'When not writing software, solving engineering problems, or working with a team, the other work is music: songwriter and musician across post-punk, indie rock, hardcore, and alternative. Independent label work has also supported underground and alternative artists in Washington, DC and beyond.',
         'Recording and performance credits are available on Discogs.',
     ],
 ];
