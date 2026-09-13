@@ -38,4 +38,18 @@ return [
         // Canonical artist page for JSON-LD; the href above keeps the credits view.
         'same_as' => 'https://www.discogs.com/artist/1286669-Karl-Hill',
     ],
+    // Entity sameAs only — not footer icons. Confirmed: this Gravatar is Karl Hill
+    // (Jacobs, NASA Goddard, karlhill.com, karlhillx). Crunchbase slug supplied.
+    7 => [
+        'label' => 'Gravatar',
+        'url' => 'https://gravatar.com/karlhillx',
+        'icon' => 'gravatar',
+        'footer' => false,
+    ],
+    8 => [
+        'label' => 'Crunchbase',
+        'url' => 'https://www.crunchbase.com/person/karl-hill-09bb',
+        'icon' => 'crunchbase',
+        'footer' => false,
+    ],
 ];

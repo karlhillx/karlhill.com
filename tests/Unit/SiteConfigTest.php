@@ -10,6 +10,8 @@ it('same as is derived from schema-eligible social urls', function () {
         ->and($sameAs)->toContain('https://orcid.org/0009-0002-6847-3368')
         ->and($sameAs)->toContain('https://scholar.google.com/citations?user=ykw3hstDPLcC')
         ->and($sameAs)->toContain('https://www.wikidata.org/wiki/Q139902938')
+        ->and($sameAs)->toContain('https://gravatar.com/karlhillx')
+        ->and($sameAs)->toContain('https://www.crunchbase.com/person/karl-hill-09bb')
         ->and($sameAs)->not->toContain('https://en.wikipedia.org/wiki/Karl_Hill_(musician)')
         ->and($sameAs->implode(' '))->not->toContain('superFilter=')
         ->and(collect(config('site.social'))->pluck('url')->implode(' '))->toContain('discogs.com');

@@ -24,6 +24,8 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($person['sameAs'])->toContain('https://www.discogs.com/artist/1286669-Karl-Hill')
         ->and($person['sameAs'])->toContain('https://orcid.org/0009-0002-6847-3368')
         ->and($person['sameAs'])->toContain('https://www.wikidata.org/wiki/Q139902938')
+        ->and($person['sameAs'])->toContain('https://gravatar.com/karlhillx')
+        ->and($person['sameAs'])->toContain('https://www.crunchbase.com/person/karl-hill-09bb')
         ->and($person['sameAs'])->not->toContain('https://en.wikipedia.org/wiki/Karl_Hill_(musician)')
         ->and($person['identifier'][0]['propertyID'])->toBe('ORCID')
         ->and($person['identifier'][0]['value'])->toBe('0009-0002-6847-3368')
