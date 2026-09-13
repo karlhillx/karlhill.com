@@ -48,9 +48,17 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and(collect($article['author'])->pluck('url')->filter())->toHaveCount(4)
         ->and(collect($article['author'])->firstWhere('name', 'Karl M. Hill')['url'])->toContain('karlhill.com');
 
+    expect($person['image']['url'])->toEndWith('/img/profile.jpg')
+        ->and($person['image']['width'])->toBe(800);
+
     $website = collect($graph)->firstWhere('@type', 'WebSite');
     expect($website['alternateName'])->toBe('karlhill.com')
-        ->and($website['publisher']['@id'])->toBe($person['@id']);
+        ->and($website['publisher']['@id'])->toBe($person['@id'])
+        ->and($website['image']['url'])->toEndWith('/img/og-home.jpg');
+
+    $profile = collect($graph)->firstWhere('@type', 'ProfilePage');
+    expect($profile['primaryImageOfPage']['url'])->toEndWith('/img/og-home.jpg')
+        ->and($profile['thumbnailUrl'])->toEndWith('/img/og-home.jpg');
 });
 
 it('homepage html includes preferred-name title and json-ld', function () {
@@ -63,6 +71,11 @@ it('homepage html includes preferred-name title and json-ld', function () {
     $response->assertSee('"@type": "WebSite"', escape: false);
     $response->assertSee('"@type": "Person"', escape: false);
     $response->assertSee('"@type": "ProfilePage"', escape: false);
+    $response->assertSee('/img/og-home.jpg', escape: false);
+    $response->assertSee('/img/profile.jpg', escape: false);
+    $response->assertSee('property="og:image:type" content="image/jpeg"', escape: false);
+    $response->assertSee('rel="icon" href="/favicon.ico" sizes="48x48"', escape: false);
+    $response->assertSee('sizes="48x48" href="/img/favicon-48x48.png"', escape: false);
     $response->assertSee('NASA Goddard Space Flight Center', escape: false);
     $response->assertSee('Washington, DC', escape: false);
     $response->assertSee('"propertyID": "ORCID"', escape: false);

@@ -55,7 +55,7 @@ final class SiteCatalog
             'availability_long' => $person['availability_long'] ?? null,
             'trajectory' => $person['trajectory'] ?? null,
             'url' => $base,
-            'image' => $base.'/img/webp/profile.webp',
+            'image' => $base.'/img/profile.jpg',
         ];
     }
 

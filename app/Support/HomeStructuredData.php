@@ -19,6 +19,17 @@ final class HomeStructuredData
         $personId = $personLd['@id'];
         $websiteId = "{$url}/#website";
 
+        // Match og:image so Google Search does not pick a NASA work screenshot
+        // as the result thumbnail. Face sits in the right 630×630 of this card.
+        $shareImage = [
+            '@type' => 'ImageObject',
+            'url' => "{$url}/img/og-home.jpg",
+            'contentUrl' => "{$url}/img/og-home.jpg",
+            'width' => 1200,
+            'height' => 630,
+            'caption' => $seo['title'],
+        ];
+
         $websiteLd = [
             '@type' => 'WebSite',
             '@id' => $websiteId,
@@ -27,6 +38,7 @@ final class HomeStructuredData
             'alternateName' => 'karlhill.com',
             'description' => $seo['description'],
             'inLanguage' => 'en-US',
+            'image' => $shareImage,
             'publisher' => ['@id' => $personId],
             'about' => ['@id' => $personId],
         ];
@@ -38,6 +50,9 @@ final class HomeStructuredData
             'name' => $person['name'].' — Professional profile',
             'description' => $seo['description'],
             'inLanguage' => 'en-US',
+            'image' => $shareImage,
+            'primaryImageOfPage' => $shareImage,
+            'thumbnailUrl' => "{$url}/img/og-home.jpg",
             'mainEntity' => ['@id' => $personId],
             'isPartOf' => ['@id' => $websiteId],
         ];

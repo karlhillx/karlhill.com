@@ -26,13 +26,16 @@
     @endif
 
     {{-- Open Graph --}}
+    @php($ogImageUrl = $ogImage ?? $siteUrl.'/img/og-home.jpg')
+    @php($ogPath = strtolower((string) parse_url($ogImageUrl, PHP_URL_PATH)))
     <meta property="og:type" content="{{ $ogType ?? 'website' }}">
     <meta property="og:url" content="{{ $canonical ?? $siteUrl }}">
     <meta property="og:site_name" content="Karl Hill">
     <meta property="og:locale" content="en_US">
     <meta property="og:title" content="{{ $ogTitle ?? ($title ?? $defaultTitle) }}">
     <meta property="og:description" content="{{ $ogDescription ?? ($description ?? '') }}">
-    <meta property="og:image" content="{{ $ogImage ?? $siteUrl.'/img/og-home.jpg' }}">
+    <meta property="og:image" content="{{ $ogImageUrl }}">
+    <meta property="og:image:type" content="{{ str_ends_with($ogPath, '.png') ? 'image/png' : (str_ends_with($ogPath, '.webp') ? 'image/webp' : 'image/jpeg') }}">
     @if($ogImageAlt ?? null)
         <meta property="og:image:alt" content="{{ $ogImageAlt }}">
     @endif
@@ -40,6 +43,7 @@
         <meta property="og:image:width" content="{{ $ogImageWidth }}">
         <meta property="og:image:height" content="{{ $ogImageHeight }}">
     @endif
+    <link rel="image_src" href="{{ $ogImageUrl }}">
     @if(($ogType ?? 'website') === 'article')
         @if($articlePublishedTime ?? null)
             <meta property="article:published_time" content="{{ $articlePublishedTime }}">
@@ -58,7 +62,7 @@
     <meta name="twitter:creator" content="{{ $twitterHandle }}">
     <meta name="twitter:title" content="{{ $ogTitle ?? ($title ?? $defaultTitle) }}">
     <meta name="twitter:description" content="{{ $ogDescription ?? ($description ?? '') }}">
-    <meta name="twitter:image" content="{{ $ogImage ?? $siteUrl.'/img/og-home.jpg' }}">
+    <meta name="twitter:image" content="{{ $ogImageUrl }}">
 
     <meta name="theme-color" content="#080808">
     <meta name="color-scheme" content="light dark">
@@ -85,12 +89,16 @@
         <link rel="preload" as="font" type="font/woff2" href="{{ $fontUrl }}" crossorigin>
     @endforeach
 
-    {{-- Favicons --}}
+    {{-- Favicons. Google Search wants a square ≥48px at a stable URL
+         (`/favicon.ico` and the 48/192 PNGs stay unversioned). Smaller PNGs
+         keep a filemtime query so browsers pick up art changes. --}}
     @php($iconV = filemtime(public_path('img/favicon-96x96.png')))
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png?v={{ $iconV }}">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png?v={{ $iconV }}">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png?v={{ $iconV }}">
-    <link rel="shortcut icon" href="/favicon.ico?v={{ $iconV }}">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png?v={{ $iconV }}">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="alternate" type="application/atom+xml" title="Karl Hill — Writing" href="/feed.xml">

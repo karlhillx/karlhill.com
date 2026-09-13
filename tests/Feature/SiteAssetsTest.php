@@ -6,8 +6,11 @@ use App\Support\Images;
 it('configured site image paths exist', function () {
     $paths = [];
 
+    $paths[] = '/img/profile.jpg';
     $paths[] = '/img/webp/profile.webp';
     $paths[] = '/img/og-home.jpg';
+    $paths[] = '/img/favicon-48x48.png';
+    $paths[] = '/favicon.ico';
     $paths[] = config('site.research.image');
 
     foreach (config('site.projects', []) as $project) {

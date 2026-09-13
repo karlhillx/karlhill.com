@@ -48,8 +48,13 @@ final class PersonJsonLd
             'url' => $url,
             'image' => [
                 '@type' => 'ImageObject',
-                'url' => "{$url}/img/webp/profile.webp",
-                'contentUrl' => "{$url}/img/webp/profile.webp",
+                // JPEG portrait for Googlebot-Image. The hero uses WebP; Search
+                // thumbnails and Person rich results prefer a crawlable raster.
+                'url' => "{$url}/img/profile.jpg",
+                'contentUrl' => "{$url}/img/profile.jpg",
+                'width' => 800,
+                'height' => 800,
+                'caption' => $person['name'],
             ],
             'email' => 'mailto:'.$person['email'],
             'address' => [
@@ -102,6 +107,14 @@ final class PersonJsonLd
         $url = PageMeta::siteUrl();
         $seo = config('site.seo.'.$seoKey, []);
         $person = self::node();
+        $shareImage = [
+            '@type' => 'ImageObject',
+            'url' => "{$url}/img/og-home.jpg",
+            'contentUrl' => "{$url}/img/og-home.jpg",
+            'width' => 1200,
+            'height' => 630,
+            'caption' => $seo['title'] ?? $person['name'],
+        ];
 
         return [
             '@context' => 'https://schema.org',
@@ -114,6 +127,9 @@ final class PersonJsonLd
                     'name' => $seo['title'] ?? $person['name'],
                     'description' => $seo['description'] ?? $person['description'],
                     'inLanguage' => 'en-US',
+                    'image' => $shareImage,
+                    'primaryImageOfPage' => $shareImage,
+                    'thumbnailUrl' => "{$url}/img/og-home.jpg",
                     'isPartOf' => ['@id' => $url.'/#website'],
                     'about' => ['@id' => $person['@id']],
                     'mainEntity' => ['@id' => $person['@id']],
