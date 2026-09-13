@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-06'
+updated: '2026-09-13'
 lede: A Laravel-based platform connecting case management, counseling workflows, documentation, and billing.
 role: Software engineer — case-management platform design and development.
 leadership:

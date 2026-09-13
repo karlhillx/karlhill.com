@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-10'
+updated: '2026-09-13'
 lede: Web platform work for NASA Earth science publishing. About 1.5 million monthly visitors during that work. The site is public.
 role: Lead software engineer — web-platform development and modernization.
 leadership:

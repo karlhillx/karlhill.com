@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-10'
+updated: '2026-09-13'
 lede: Find Data search, ordering, and near-real-time access for NASA LAADS DAAC. Delivery runs through GitLab CI/CD and Kubernetes.
 role: Lead Software Engineer — web applications and delivery workflows.
 leadership:

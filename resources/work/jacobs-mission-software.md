@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-12'
+updated: '2026-09-13'
 lede: Technical delivery and hands-on software engineering across a simulation program spanning roughly 20 repositories, three operating environments, and multiple teams across Jacobs and vendors.
 role: Staff Aerospace Software Engineer — software development, technical delivery, and coaching.
 leadership:

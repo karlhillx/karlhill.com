@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-06'
+updated: '2026-09-13'
 lede: Software for processing and distributing satellite data products.
 role: Lead developer — satellite-data processing and distribution software.
 leadership:

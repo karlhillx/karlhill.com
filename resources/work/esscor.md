@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-06'
+updated: '2026-09-13'
 lede: Search, metadata, and access workflows for Earth science data.
 role: Lead developer — catalog, search, and data-access software.
 leadership:

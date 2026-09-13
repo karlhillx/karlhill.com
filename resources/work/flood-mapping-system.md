@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-10'
+updated: '2026-09-13'
 lede: Python and Docker software that processes and distributes satellite-derived flood maps on AWS. The live map is public.
 role: Lead software developer — design, processing, and delivery on AWS.
 leadership:
