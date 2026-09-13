@@ -191,7 +191,7 @@
                             </figcaption>
                         </figure>
 
-                        @if(($project['slug'] ?? '') === 'flood-mapping-system')
+                        @if(($project['slug'] ?? '') === 'flood-mapping-system' && \App\Support\SiteFeatures::webgpu())
                             {{-- Ships hidden; webgpu-flood.js reveals it only after a GPU device
                                  is acquired, so unsupported browsers and reduced-motion users never
                                  see an empty frame. The photograph above stays canonical. --}}

@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 /**
  * Progressive JS features loaded per route (see resources/js/app.js).
  * Core modules (nav, ⌘K, toast, SW, view transitions, theme) always boot.
- * Ambient platform chrome (pointer spotlight, soft-nav, summarizer, WebGPU,
- * ⌘K tip) stays off the default hire path.
+ * Ambient platform chrome (soft-nav, summarizer, WebGPU) is gated per page.
  */
 final class PageFeatures
 {
@@ -30,6 +29,18 @@ final class PageFeatures
             return array_values(array_unique($features));
         }
 
+        if (in_array($name, ['work', 'work.tag', 'blog.index', 'blog.tag'], true)) {
+            $features[] = 'reveal';
+            $features[] = 'media';
+            $features[] = 'soft-nav';
+
+            if (str_starts_with((string) $name, 'blog') && self::pushEnabled()) {
+                $features[] = 'push';
+            }
+
+            return array_values(array_unique($features));
+        }
+
         if (in_array($name, ['work.show', 'blog.show'], true)) {
             $features[] = 'media';
             $features[] = 'reveal';
@@ -40,25 +51,25 @@ final class PageFeatures
                     $features[] = 'push';
                 }
                 $features[] = 'share';
+                $features[] = 'summarizer';
+            }
+
+            if (
+                $name === 'work.show'
+                && SiteFeatures::webgpu()
+                && $request->route('slug') === 'flood-mapping-system'
+            ) {
+                $features[] = 'webgpu';
             }
 
             return array_values(array_unique($features));
         }
 
-        if (
-            str_starts_with((string) $name, 'work')
-            || str_starts_with((string) $name, 'blog')
-            || in_array($name, ['about', 'now', 'kit', 'resume'], true)
-        ) {
+        if (in_array($name, ['about', 'now', 'kit', 'resume', 'lead'], true)) {
             $features[] = 'reveal';
-        }
-
-        if (str_starts_with((string) $name, 'work') || str_starts_with((string) $name, 'blog')) {
-            $features[] = 'media';
-        }
-
-        if (str_starts_with((string) $name, 'blog') && self::pushEnabled()) {
-            $features[] = 'push';
+            if ($name === 'lead') {
+                $features[] = 'summarizer';
+            }
         }
 
         return array_values(array_unique($features));

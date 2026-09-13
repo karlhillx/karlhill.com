@@ -21,11 +21,23 @@ final class AgentPacket
         $base = $this->catalog->baseUrl();
         $person = $this->catalog->person();
 
+        $generatedAt = CarbonImmutable::now()->toIso8601String();
+        $schema = $base.'/schemas/site.schema.json';
+        $credentials = $base.'/api/credentials.json';
+
         return [
+            '$schema' => $schema,
             'version' => 1,
             'id' => $base.'/api/site.json',
-            'generated_at' => CarbonImmutable::now()->toIso8601String(),
+            'generated_at' => $generatedAt,
             'canonical' => $base,
+            'provenance' => [
+                'generated_at' => $generatedAt,
+                'schema' => $schema,
+                'content_credentials' => $credentials,
+                'publisher' => $person['name'] ?? 'Karl Hill',
+                'publisher_url' => $base,
+            ],
             'person' => $person,
             'seeking' => $person['availability'] ?? null,
             'trajectory' => $person['trajectory'] ?? null,

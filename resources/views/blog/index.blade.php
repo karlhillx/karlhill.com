@@ -83,6 +83,7 @@
         @if($allTags->isNotEmpty())
             <x-site.tag-filter
                 class="mb-14"
+                data-soft-nav
                 :all-url="route('blog.index')"
                 :tags="$allTags"
                 :counts="$tagCounts"
@@ -92,7 +93,7 @@
         @endif
 
         @if($posts->isEmpty())
-            <p class="font-mono text-sm text-neutral-400">
+            <p class="font-mono text-sm text-neutral-400" data-soft-nav-target>
                 @if($activeTag)
                     No posts tagged “{{ $activeTag }}” yet.
                 @else
@@ -100,7 +101,7 @@
                 @endif
             </p>
         @else
-            <ul class="divide-y divide-neutral-800/70 site-bleed" style="view-transition-name: writing-list">
+            <ul class="divide-y divide-neutral-800/70 site-bleed" data-soft-nav-target style="view-transition-name: writing-list">
                 @foreach($posts as $post)
                     <li class="group" data-reveal>
                         <div class="site-list-row grid md:grid-cols-[200px_1fr] gap-6 md:gap-12 hover:bg-neutral-900/30 transition-colors relative">

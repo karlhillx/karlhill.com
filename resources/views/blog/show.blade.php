@@ -131,7 +131,14 @@
                 <x-site.article-toc :items="$post->tableOfContents" class="hidden lg:block sticky top-28" />
             @endif
 
-            <div class="prose-karl min-w-0">
+            <div class="prose-karl min-w-0" data-summary-source>
+                <x-site.on-device-summary
+                    class="mb-8"
+                    type="key-points"
+                    length="short"
+                    label="Summarize this essay"
+                    :context="$post->title.'. '.$post->excerpt"
+                />
                 {!! $post->bodyHtml !!}
             </div>
         </div>

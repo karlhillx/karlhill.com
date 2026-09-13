@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Support\CompressionDictionary;
+use App\Support\IntegrityPolicy;
 use App\Support\PrerenderHeaders;
 use App\Support\SiteFeatures;
 use App\Support\Turnstile;
@@ -57,10 +58,9 @@ class SecurityHeaders
                 'NEL',
                 '{"report_to":"default","max_age":86400,"include_subdomains":true,"success_fraction":0.0,"failure_fraction":1.0}',
             );
-            // Report-Only so missing SRI on Vite tags cannot break the site.
             $response->headers->set(
-                'Integrity-Policy-Report-Only',
-                'blocked-destinations=(script), endpoints=(default)',
+                IntegrityPolicy::headerName(),
+                IntegrityPolicy::headerValue(),
             );
         }
 

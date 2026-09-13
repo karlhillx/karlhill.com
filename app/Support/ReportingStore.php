@@ -13,6 +13,34 @@ final class ReportingStore
     ];
 
     /**
+     * True when any retained report is an integrity-policy / integrity-violation signal.
+     */
+    public static function hasIntegrityViolations(): bool
+    {
+        $path = storage_path('app/reports/latest.json');
+        if (! is_file($path)) {
+            return false;
+        }
+
+        $stored = json_decode((string) file_get_contents($path), true);
+        $items = is_array($stored['reports'] ?? null) ? $stored['reports'] : [];
+
+        foreach ($items as $item) {
+            $report = is_array($item['report'] ?? null) ? $item['report'] : null;
+            if ($report === null) {
+                continue;
+            }
+            foreach (self::reportTypes($report) as $type) {
+                if (str_contains(strtolower($type), 'integrity')) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * @param  array<int|string, mixed>  $report
      */
     public static function record(array $report): void

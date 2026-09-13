@@ -146,19 +146,21 @@ Interior pages stay scroll-driven (`view()` timelines). Touch, reduced-motion, a
 
 ### Optional platform surfaces
 
-Kill switches default **off**. Pest enables them via `phpunit.xml` so the
-code paths stay covered. In production, set `true` only for clusters you
-operate. Turnstile stays off until both keys are set (see above).
+Most kill switches default **off** so a fresh deploy stays conservative.
+Early Hints, content credentials, and the flood WebGPU field default **on**
+(with progressive fallbacks). Pest enables the rest via `phpunit.xml`.
+In production, set `REPORTING_ENABLED=true` before relying on Integrity-Policy
+`auto` promote-to-enforce. Turnstile stays off until both keys are set.
 
 ```env
 WEBMENTION_ENABLED=false
 REPORTING_ENABLED=false
+INTEGRITY_POLICY=auto      # report-only | enforce | auto
 COMPRESSION_DICTIONARY=false
-CONTENT_CREDENTIALS=false
-WEBGPU_FLOOD=false
-EARLY_HINTS=false          # FrankenPHP 103 only; Link preloads already emit
+CONTENT_CREDENTIALS=true
+WEBGPU_FLOOD=true
+EARLY_HINTS=true           # 103 only on FrankenPHP / EARLY_HINTS_FORCE
 ```
-
 ### Edge nginx (production)
 
 The production host runs a single shared nginx container (`karl-nginx-1`) in
@@ -347,7 +349,7 @@ With those set, every green CI run on `main` deploys automatically; you can also
 
 - **Uptime** — `.github/workflows/uptime.yml` probes `/up`, `/`, `/work`, a sample case study, `/about`, `/delivery`, `/blog`, `/now`, `/kit`, `/resume`, `/lead` (expects redirect to `/delivery`), `/feed.xml`, `/sitemap.xml`, and `/api/site.json` every 30 minutes (override the target with a `SITE_URL` repository variable). A failing run emails the workflow owner and opens an issue labelled `uptime`; the next green run closes it.
 - **Errors** — set `LOG_STACK=daily,slack` and `LOG_SLACK_WEBHOOK_URL` in production. The `slack` channel has its own `LOG_SLACK_LEVEL` (default `error`) so the file log can stay verbose. A Discord webhook works when suffixed with `/slack`.
-- **Browser reports** — with `REPORTING_ENABLED=true`, CSP/NEL/integrity reports posted to `/report` are retained in `storage/app/reports/latest.json` and mirrored to the log at `REPORTING_LOG_LEVEL` (default `warning`; `none` to silence), so they flow to the same sink as exceptions.
+- **Browser reports** — with `REPORTING_ENABLED=true`, CSP/NEL/integrity reports posted to `/report` are retained in `storage/app/reports/latest.json` and mirrored to the log at `REPORTING_LOG_LEVEL` (default `warning`; `none` to silence), so they flow to the same sink as exceptions. `INTEGRITY_POLICY=auto` promotes to an enforcing `Integrity-Policy` header once Vite SRI hashes exist and no integrity violations remain in that window.
 
 SSH shortcut:
 

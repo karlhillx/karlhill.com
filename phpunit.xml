@@ -40,5 +40,7 @@
         <env name="COMPRESSION_DICTIONARY" value="true"/>
         <env name="CONTENT_CREDENTIALS" value="true"/>
         <env name="WEBGPU_FLOOD" value="true"/>
+        <env name="EARLY_HINTS" value="true"/>
+        <env name="INTEGRITY_POLICY" value="report-only"/>
     </php>
 </phpunit>

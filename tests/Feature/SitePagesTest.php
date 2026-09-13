@@ -661,7 +661,7 @@ it('footer hides resume and kit self-links', function () {
 it('keeps the hire path free of ambient pointer chrome', function () {
     $this->get('/')->assertSee('data-features="contact reveal media"', escape: false);
     $this->get('/now')->assertSee('data-features="reveal"', escape: false);
-    $this->get('/work')->assertSee('data-features="reveal media"', escape: false);
+    $this->get('/work')->assertSee('data-features="reveal media soft-nav"', escape: false);
     $this->get('/about')->assertSee('data-features="reveal"', escape: false);
     $this->get('/')->assertDontSee('page-spotlight', escape: false);
 });

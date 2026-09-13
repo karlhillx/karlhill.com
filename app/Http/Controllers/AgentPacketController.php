@@ -15,7 +15,15 @@ class AgentPacketController extends Controller
 
     public function site(): JsonResponse
     {
-        return $this->json($this->packet->site());
+        $payload = $this->packet->site();
+        $schema = is_string($payload['$schema'] ?? null) ? $payload['$schema'] : null;
+
+        $response = $this->json($payload);
+        if ($schema !== null) {
+            $response->headers->set('Link', '<'.$schema.'>; rel="describedby"', false);
+        }
+
+        return $response;
     }
 
     public function mcp(): JsonResponse

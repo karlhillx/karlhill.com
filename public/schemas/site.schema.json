@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://karlhill.com/schemas/site.schema.json",
+  "title": "karlhill.com hire packet",
+  "description": "Canonical machine-readable profile for agents, recruiter tools, and MCP.",
+  "type": "object",
+  "required": [
+    "version",
+    "id",
+    "generated_at",
+    "canonical",
+    "person",
+    "experience",
+    "case_studies",
+    "writing",
+    "kit",
+    "feeds"
+  ],
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "version": { "type": "integer", "const": 1 },
+    "id": { "type": "string", "format": "uri" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "canonical": { "type": "string", "format": "uri" },
+    "provenance": {
+      "type": "object",
+      "required": ["generated_at", "schema", "publisher"],
+      "properties": {
+        "generated_at": { "type": "string", "format": "date-time" },
+        "schema": { "type": "string", "format": "uri" },
+        "content_credentials": { "type": "string", "format": "uri" },
+        "publisher": { "type": "string", "minLength": 1 },
+        "publisher_url": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": false
+    },
+    "person": { "type": "object" },
+    "seeking": { "type": ["string", "null"] },
+    "trajectory": { "type": ["string", "null"] },
+    "headline": { "type": ["string", "null"] },
+    "now": { "type": "object" },
+    "experience": { "type": "array" },
+    "skills": { "type": "object" },
+    "education": { "type": "array" },
+    "certifications": { "type": "array" },
+    "publication": { "type": "object" },
+    "case_studies": { "type": "array" },
+    "writing": { "type": "array" },
+    "series": { "type": "array" },
+    "kit": { "type": "object" },
+    "delivery_system": { "type": "object" },
+    "feeds": { "type": "object" },
+    "profiles": { "type": "object" }
+  },
+  "additionalProperties": true
+}

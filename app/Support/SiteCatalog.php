@@ -313,6 +313,8 @@ final class SiteCatalog
             'agent_card' => $base.'/.well-known/agent-card.json',
             'webmention' => $base.'/webmention',
             'commands' => $base.'/api/commands.json',
+            'schema' => $base.'/schemas/site.schema.json',
+            'content_credentials' => $base.'/api/credentials.json',
         ];
     }
 

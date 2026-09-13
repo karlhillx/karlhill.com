@@ -53,6 +53,7 @@
                 </div>
 
                 <x-site.tag-filter
+                    data-soft-nav
                     :all-url="route('work')"
                     :tags="$sectors"
                     :counts="$sectorCounts"
@@ -64,11 +65,13 @@
         </section>
     @endif
 
-    @include('partials.work', [
-        'projects' => $projects,
-        'sectionNumber' => '01',
-        'heading' => $activeTag ? "Projects · {$activeTag}" : 'Projects',
-    ])
+    <div data-soft-nav-target>
+        @include('partials.work', [
+            'projects' => $projects,
+            'sectionNumber' => '01',
+            'heading' => $activeTag ? "Projects · {$activeTag}" : 'Projects',
+        ])
+    </div>
 
     @if(($supporting ?? collect())->isNotEmpty())
         <x-site.section id="chapters" class="scroll-mt-32" section-label="Also at Goddard" number="02" label="Also at Goddard">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Support\CompressionDictionary;
+use App\Support\IntegrityPolicy;
 use App\Support\ReportingStore;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
@@ -10,7 +11,7 @@ it('sends reporting integrity and nel headers', function () {
 
     $response->assertOk();
     expect($response->headers->get('Reporting-Endpoints'))->toContain('/report')
-        ->and($response->headers->get('Integrity-Policy-Report-Only'))->toContain('blocked-destinations=(script)')
+        ->and($response->headers->get(IntegrityPolicy::headerName()))->toContain('blocked-destinations=(script)')
         ->and($response->headers->get('NEL'))->toContain('report_to')
         ->and($response->headers->get('Permissions-Policy'))->toContain('web-share=(self)')
         ->and($response->headers->get('Available-Dictionary'))->toStartWith(':');
@@ -84,6 +85,30 @@ it('keeps only the latest fifty browser reports', function () {
         ->and($stored['reports'][49]['report']['n'])->toBe(55);
 });
 
+it('detects integrity violations in retained reports', function () {
+    $path = storage_path('app/reports/latest.json');
+    if (is_file($path)) {
+        unlink($path);
+    }
+
+    expect(ReportingStore::hasIntegrityViolations())->toBeFalse();
+
+    ReportingStore::record(['type' => 'integrity-violation', 'url' => 'https://karlhill.com/build/app.js']);
+
+    expect(ReportingStore::hasIntegrityViolations())->toBeTrue();
+});
+
+it('keeps integrity policy report-only until sri and clean reports allow enforce', function () {
+    config(['site.integrity_policy' => 'report-only']);
+    expect(IntegrityPolicy::shouldEnforce())->toBeFalse()
+        ->and(IntegrityPolicy::headerName())->toBe('Integrity-Policy-Report-Only');
+
+    config(['site.integrity_policy' => 'auto']);
+    // Pest pins INTEGRITY_POLICY=report-only via phpunit.xml; flipping config
+    // still needs Vite SRI in the manifest before auto can enforce.
+    expect(IntegrityPolicy::manifestHasIntegrity())->toBeTrue();
+});
+
 it('serves a compression dictionary with use-as-dictionary', function () {
     $this->get('/dict/html-shell.dat')
         ->assertOk()
@@ -125,21 +150,29 @@ it('nav uses invoker commands and blog cards use interest invokers', function ()
     $this->get('/work')
         ->assertOk()
         ->assertDontSee('interestfor="work-preview-', escape: false)
-        ->assertDontSee('data-soft-nav', escape: false)
-        ->assertDontSee('data-soft-nav-target', escape: false);
+        ->assertSee('data-soft-nav', escape: false)
+        ->assertSee('data-soft-nav-target', escape: false);
 
     $this->get('/blog')
         ->assertOk()
         ->assertSee('interestfor="post-preview-', escape: false)
-        ->assertSee('popover="hint"', escape: false);
+        ->assertSee('popover="hint"', escape: false)
+        ->assertSee('data-soft-nav', escape: false)
+        ->assertSee('data-soft-nav-target', escape: false);
 });
 
-it('flood case study keeps an optional webgpu canvas hook', function () {
+it('flood case study gates webgpu when the feature is on', function () {
     $html = $this->get('/work/flood-mapping-system')->assertOk()->getContent();
 
     expect($html)
         ->toContain('data-webgpu-flood')
-        ->and($html)->not->toMatch('/data-features="[^"]*\bwebgpu\b/');
+        ->and($html)->toMatch('/data-features="[^"]*\bwebgpu\b/');
+
+    config(['site.features.webgpu' => false]);
+    $off = $this->get('/work/flood-mapping-system')->assertOk()->getContent();
+    expect($off)
+        ->not->toContain('data-webgpu-flood')
+        ->and($off)->not->toMatch('/data-features="[^"]*\bwebgpu\b/');
 });
 
 it('blog index includes interest previews and highlight is on posts', function () {
@@ -162,7 +195,7 @@ it('contact error fixture is uncached and exposes invalid fields', function () {
     expect($cache)->toContain('no-store');
 });
 
-it('does not load summarizer chrome on the hire path', function () {
+it('keeps summarizer off the hire path and on essays', function () {
     $this->get('/kit')
         ->assertOk()
         ->assertDontSee('data-on-device-summary', escape: false);
@@ -173,8 +206,8 @@ it('does not load summarizer chrome on the hire path', function () {
 
     $html = $this->get('/blog/release-governance')->assertOk()->getContent();
     expect($html)
-        ->not->toContain('data-on-device-summary')
-        ->and($html)->not->toMatch('/data-features="[^"]*\bsummarizer\b/');
+        ->toContain('data-on-device-summary')
+        ->and($html)->toMatch('/data-features="[^"]*\bsummarizer\b/');
 });
 
 it('omits reporting and dictionary headers when those features are off', function () {

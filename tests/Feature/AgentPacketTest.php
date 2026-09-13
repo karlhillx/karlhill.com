@@ -18,6 +18,10 @@ it('hire packet json includes person experience writing and case studies', funct
 
     $json = $response->json();
     expect($json['experience'])->toBeArray()->not->toBeEmpty()
+        ->and($json['$schema'])->toEndWith('/schemas/site.schema.json')
+        ->and($json['provenance']['schema'])->toEndWith('/schemas/site.schema.json')
+        ->and($json['provenance']['content_credentials'])->toEndWith('/api/credentials.json')
+        ->and($json['provenance']['publisher'])->toBe('Karl Hill')
         ->and($json['skills']['flat'])->toContain('Python')
         ->and($json['skills']['flat'])->toContain('Engineering leadership')
         ->and($json['education'])->not->toBeEmpty()
@@ -29,6 +33,7 @@ it('hire packet json includes person experience writing and case studies', funct
         ->and(collect($json['case_studies'])->pluck('slug'))->toContain('flood-mapping-system')
         ->and(collect($json['writing'])->pluck('slug'))->toContain('release-governance')
         ->and($json['feeds']['llms'])->toEndWith('/llms.txt')
+        ->and($json['feeds']['schema'])->toEndWith('/schemas/site.schema.json')
         ->and($json['kit']['resume_pdf'])->toContain('/files/Karl-Hill-Resume.pdf')
         ->and($json['kit']['delivery'])->toEndWith('/delivery')
         ->and($json['kit']['system'])->toEndWith('/#system')
@@ -36,6 +41,15 @@ it('hire packet json includes person experience writing and case studies', funct
         ->and(collect($json['delivery_system']['stages'])->pluck('id'))->toContain('verify', 'integrate', 'release')
         ->and($json['kit']['scope']['owned'])->toContain('software delivery')
         ->and($json['experience'][0]['scope']['reserved'])->toContain('personnel decisions');
+
+    expect($response->headers->get('Link'))->toContain('/schemas/site.schema.json')
+        ->and($response->headers->get('Link'))->toContain('rel="describedby"');
+
+    $schemaPath = public_path('schemas/site.schema.json');
+    expect($schemaPath)->toBeFile();
+    $schema = json_decode((string) file_get_contents($schemaPath), true);
+    expect($schema['title'])->toBe('karlhill.com hire packet')
+        ->and($schema['required'])->toContain('person', 'case_studies', 'kit');
 });
 
 it('mcp well-known document points at the hire packet', function () {

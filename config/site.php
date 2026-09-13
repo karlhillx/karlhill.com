@@ -110,18 +110,24 @@ return [
         'subject' => env('VAPID_SUBJECT', 'mailto:karlhillx@gmail.com'),
     ],
 
-    'early_hints' => filter_var(env('EARLY_HINTS', false), FILTER_VALIDATE_BOOLEAN),
+    // FrankenPHP-safe: middleware only flushes 103 when the SAPI supports it
+    // (or EARLY_HINTS_FORCE=true). Link preload headers still emit either way.
+    'early_hints' => filter_var(env('EARLY_HINTS', true), FILTER_VALIDATE_BOOLEAN),
 
     // Browser reports (/report) are also written to the log at this level so
     // they reach whatever sink LOG_STACK points at. Set to "none" to disable.
     'reporting_log_level' => env('REPORTING_LOG_LEVEL', 'warning'),
 
+    // Integrity-Policy: report-only | enforce | auto (enforce when Vite SRI
+    // hashes exist and retained integrity reports are clean).
+    'integrity_policy' => env('INTEGRITY_POLICY', 'auto'),
+
     'features' => [
         'webmention' => filter_var(env('WEBMENTION_ENABLED', false), FILTER_VALIDATE_BOOLEAN),
         'reporting' => filter_var(env('REPORTING_ENABLED', false), FILTER_VALIDATE_BOOLEAN),
         'compression_dictionary' => filter_var(env('COMPRESSION_DICTIONARY', false), FILTER_VALIDATE_BOOLEAN),
-        'content_credentials' => filter_var(env('CONTENT_CREDENTIALS', false), FILTER_VALIDATE_BOOLEAN),
-        'webgpu' => filter_var(env('WEBGPU_FLOOD', false), FILTER_VALIDATE_BOOLEAN),
+        'content_credentials' => filter_var(env('CONTENT_CREDENTIALS', true), FILTER_VALIDATE_BOOLEAN),
+        'webgpu' => filter_var(env('WEBGPU_FLOOD', true), FILTER_VALIDATE_BOOLEAN),
     ],
 
 ];

@@ -9,7 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Flush HTTP 103 Early Hints from the existing Link preload set.
- * Enabled when EARLY_HINTS=true (FrankenPHP / HTTP/2+ proxies).
+ * Enabled when EARLY_HINTS=true and the runtime can emit interim responses
+ * (FrankenPHP), or when EARLY_HINTS_FORCE=true behind a 103-capable proxy.
  */
 class EarlyHints
 {
@@ -31,6 +32,10 @@ class EarlyHints
             return false;
         }
 
+        if (! $this->runtimeSupportsInterimResponses()) {
+            return false;
+        }
+
         if (app()->runningUnitTests()) {
             return false;
         }
@@ -44,6 +49,18 @@ class EarlyHints
         }
 
         return ! headers_sent();
+    }
+
+    /**
+     * php artisan serve / php-fpm cannot flush a real 103; FrankenPHP can.
+     */
+    protected function runtimeSupportsInterimResponses(): bool
+    {
+        if (isset($_SERVER['FRANKENPHP_VERSION']) || isset($_SERVER['frankenphp_version'])) {
+            return true;
+        }
+
+        return filter_var(env('EARLY_HINTS_FORCE', false), FILTER_VALIDATE_BOOLEAN);
     }
 
     protected function flush(): void
