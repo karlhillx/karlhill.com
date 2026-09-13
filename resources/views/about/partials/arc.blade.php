@@ -22,9 +22,29 @@
                     @if(! empty($role['highlights']))
                         <ul class="mt-5 space-y-2.5 text-neutral-400 text-sm leading-relaxed">
                             @foreach($role['highlights'] as $item)
+                                @php($text = is_array($item) ? (string) ($item['text'] ?? '') : (string) $item)
+                                @php($href = is_array($item) ? ($item['href'] ?? null) : null)
+                                @php($link = is_array($item) ? ($item['link'] ?? 'Open') : null)
+                                @php($external = is_string($href) && str_starts_with($href, 'http'))
                                 <li class="flex gap-3">
                                     <span class="text-accent shrink-0" aria-hidden="true">→</span>
-                                    <span>{{ $item }}</span>
+                                    <span>
+                                        {{ $text }}
+                                        @if(is_string($href) && $href !== '' && $external)
+                                            <a href="{{ $href }}"
+                                               target="_blank"
+                                               rel="noopener noreferrer"
+                                               data-no-ext
+                                               class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">
+                                                {{ $link }} <span aria-hidden="true">↗</span>
+                                            </a>
+                                        @elseif(is_string($href) && $href !== '')
+                                            <a href="{{ $href }}"
+                                               class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">
+                                                {{ $link }}
+                                            </a>
+                                        @endif
+                                    </span>
                                 </li>
                             @endforeach
                         </ul>

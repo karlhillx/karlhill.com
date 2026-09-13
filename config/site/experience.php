@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'intro' => 'Staff Aerospace Software Engineer with 20+ years of experience building and delivering production software across national security, aerospace, NASA, and enterprise environments. Combines hands-on engineering with technical leadership, leading software delivery, engineering practices, mentoring, and cross-team execution for mission-critical systems.',
+    'intro' => 'Staff Aerospace Software Engineer with 20+ years of experience building and delivering production software across national security, aerospace, NASA, and enterprise environments. Combines hands-on engineering with technical leadership across software delivery, engineering practices, mentoring, and cross-team work.',
     'current' => [
         'label' => 'Current Role',
         'title' => 'Staff Aerospace Software Engineer',
@@ -17,7 +17,7 @@ return [
         'highlights' => [
             'Lead engineering delivery for a team of about 10 across roughly 20 repositories and multiple deployment environments, sequencing work, coordinating dependencies, and driving integration and release readiness.',
             'Develop mission software, shared interfaces, messaging integrations, and service orchestration while providing technical guidance and reviewing implementation across the team.',
-            'Establish engineering guardrails through CI/CD, automated testing, security checks, repository standards, dependency management, and release automation.',
+            'Put engineering guardrails in place through CI/CD, automated testing, security checks, repository standards, dependency management, and release automation.',
             'Lead Agile planning and execution across internal and partner teams, translating mission priorities into sequenced engineering work and resolving cross-team dependencies and blockers.',
             'Onboarded and coached approximately six engineers through code review, technical feedback, development guidance, and reinforcement of engineering standards.',
         ],
@@ -103,7 +103,8 @@ return [
         'company' => 'Sabre Corporation · Dante Inc. · Visitar Inc. · Verizon Business',
         'highlights' => [
             'Held software engineering and principal-level roles across travel, enterprise CRM, telecommunications, and managed security.',
-            'Built Java and SQL Server services for Finium, a multi-tenant managed-security platform, and contributed to shared testing and code-quality practices.',
+                'At Sabre, built new PHP applications and added features to existing ones for large-scale travel systems.',
+                'Built Java and SQL Server services for Finium, a multi-tenant managed-security platform, and contributed to shared testing and code-quality practices.',
         ],
         'skills' => [
             'Managed security',
@@ -116,7 +117,7 @@ return [
             [
                 'company' => 'Sabre Corporation · Dante Inc. · Visitar Inc. · Verizon Business',
                 'meta' => 'Software engineering & principal roles · 1997–2012',
-                'detail' => 'Held software engineering and principal-level roles across travel, enterprise CRM, telecommunications, and managed security — including Finium, a multi-tenant managed-security platform.',
+                'detail' => 'Held software engineering and principal-level roles across travel, enterprise CRM, telecommunications, and managed security — including new and existing PHP applications at Sabre, and Finium, a multi-tenant managed-security platform.',
             ],
         ],
     ],

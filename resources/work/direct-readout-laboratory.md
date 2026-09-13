@@ -1,26 +1,26 @@
 ---
 updated: '2026-09-13'
-lede: Software for processing and distributing satellite data products.
-role: Lead developer — satellite-data processing and distribution software.
+lede: Software for ingesting, processing, and distributing NASA direct-readout satellite products. The portal is public.
+role: Lead Software Engineer — satellite-data processing and distribution software.
 leadership:
   mode: Software development for scientific data workflows
   team: Engineering and science-operations partners
-  unblocked: Inconsistent processing and distribution workflows
-  decision: Use clearer product boundaries and distribution conventions to make the software easier to
-    maintain.
+  unblocked: One-off processing paths that were hard to keep consistent as products changed.
+  decision: Organize the work around defined inputs, outputs, and product tiers instead of a separate path per product.
 problem:
-- Data from multiple instruments needs consistent processing and distribution workflows.
-- Changing products and dependencies make one-off processing paths difficult to maintain.
-approach:
-- Develop software for data ingestion, reformatting, and distribution.
+- Data from multiple instruments needs consistent ingest, processing, and distribution.
+- Changing products and dependencies make one-off processing paths hard to maintain.
+decisions:
+- Write software for ingestion, reformatting, and distribution as one workflow.
 - Organize processing around defined inputs, outputs, and product tiers.
-- Support the applications on Linux and NGINX infrastructure.
+- Run the applications on Linux and NGINX.
 outcome:
-- Software supporting NASA direct-readout data processing and distribution.
-- More consistent handoffs between processing stages and downstream users.
+- The public portal is the artifact — direct-readout products and downstream access. This page does not publish throughput or adoption metrics.
+- Processing is organized around product boundaries so a new product is not a new one-off path.
+- Distribution software on Linux and NGINX supports access to those products. Existing science-operations interfaces stayed in place.
 metrics: []
 platform:
-  caption: High-level data workflow.
+  caption: Public portal. High-level data workflow, not a system architecture.
   stages:
   - step: 01 · Input
     title: Receive data
@@ -36,14 +36,18 @@ platform:
     stack: NGINX
 ---
 
-Software for NASA's Direct Readout Laboratory focused on satellite-data ingestion, processing, and distribution.
+Software for NASA's Direct Readout Laboratory. The work covered ingest, reformatting, and distribution so satellite products could move through one maintained path instead of a separate process for each product.
 
-## Making the workflow maintainable
+The portal is public. Open it. This page does not describe unpublished processing internals.
 
-The software had to accommodate different data products and processing dependencies. Ingestion and reformatting workflows needed clearer boundaries between the input data, processing steps, and products made available to downstream users.
+## Product boundaries
 
-Standardizing those paths made the software easier to reason about and maintain as the data and processing requirements changed.
+Incoming data, processing steps, and the products handed to downstream users needed clearer boundaries. The software had to accommodate different instruments and changing dependencies without turning each product into its own pipeline.
 
-## Supporting distribution
+Organizing those paths around defined inputs, outputs, and product tiers made the system easier to reason about as requirements changed. That is how the work was structured. It is not a measured before/after claim.
 
-The work also included distribution software on Linux and NGINX infrastructure. The focus was consistent access to products and cleaner handoffs between the software processing the data and the systems consuming it.
+## Distribution
+
+Distribution software ran on Linux and NGINX. The job was consistent access to products and a cleaner handoff between the software that processed the data and the systems that consumed it.
+
+PHP was part of the application stack. Science-operations interfaces around the portal stayed in place.

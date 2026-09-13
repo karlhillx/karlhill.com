@@ -1,25 +1,24 @@
 ---
 updated: '2026-09-13'
-lede: Web platform work for NASA Earth science publishing. About 1.5 million monthly visitors during that work. The site is public.
-role: Lead software engineer — web-platform development and modernization.
+lede: Web platform work for NASA Earth science publishing — editorial workflows, imagery, and the public site. The site is live. Audience scale during that period is noted below; it is not a traffic result claimed for this work.
+role: Lead Software Engineer — web-platform development and modernization.
 leadership:
   mode: Technical leadership and web development
   team: Engineering and editorial partners at NASA Goddard
-  unblocked: Publishing workflows and recurring web-platform maintenance
+  unblocked: Publishing workflows and recurring web-platform maintenance.
   decision: Improve reusable publishing capabilities alongside performance and usability.
 problem:
-- Science publishing requires maintainable workflows for content and large imagery.
-- A substantial public audience makes performance, usability, and discoverability important.
+- Science publishing needs maintainable workflows for editorial content and large imagery.
+- A large public audience makes performance, usability, and search discoverability part of the same job as the CMS.
 decisions:
-- Modernize the web platform and reusable publishing components.
-- Improve the handling and presentation of editorial content and imagery.
-- Address performance, user experience, and search discoverability as part of the development work.
+- Modernize the web platform and reusable publishing components on Laravel and MySQL.
+- Treat content presentation and large imagery as engineering work, not only editorial production.
+- Address performance, user experience, and search discoverability in the same development path.
 outcome:
-- A modernized web platform supporting NASA Earth science communication.
-- Work on a platform serving approximately 1.5 million monthly visitors during that period.
-metrics:
-- value: ~1.5M
-  label: Monthly visitors during that work
+- A public Earth science publishing platform. The live site is the artifact.
+- Work covered editorial workflows, imagery, and the public pages. This page does not publish performance or traffic-change metrics.
+- About 1.5 million monthly visitors during that work describes the scale of the platform in that period, not a current figure and not a result attributed to this project.
+metrics: []
 platform:
   caption: Publishing work on a public site. Open Earth Observatory.
   stages:
@@ -37,16 +36,18 @@ platform:
     stack: Web engineering
 ---
 
-NASA Earth Observatory's web platform served approximately 1.5 million monthly visitors during that work. The audience figure is the scale of the platform in that period, not a current traffic claim. The site is public.
+NASA Earth Observatory is a public Earth science publishing site. The work sat between editorial needs and web engineering: reusable publishing capabilities, content and imagery presentation, and a platform that could be maintained as those needs changed.
+
+The site is public. Open it.
 
 ## Publishing and the public website
 
-The work brought together editorial needs and web engineering: reusable publishing capabilities, content and imagery presentation, and a platform that could be maintained as those needs changed.
+Application work covered the people publishing the material and the people reading it. Large imagery and long-running publishing workflows were part of the same job as the public pages. A change that helped an editor still had to hold up for a substantial audience.
 
-Application work covered performance, user experience, and search discoverability as well. That meant considering the people publishing the material and the people reading it, rather than treating the public pages as the whole system.
+Performance, user experience, and search discoverability were in that path. They are listed as scope of the work, not as measured before/after results.
 
-Large imagery and long-running publishing workflows were part of the same job as the public pages. A change that helped an editor still had to hold up for a substantial audience.
+## Scale of the platform
 
-## Engineering scope
+The platform served approximately 1.5 million monthly visitors during that work. That figure is the scale of the site in that period, not a current traffic claim and not a growth metric for this project.
 
-Application development, publishing workflows, and improvements to the public website. It is one example of broader software engineering work supporting NASA Earth science.
+Laravel and MySQL were the application stack. This page does not describe unpublished internals of the publishing pipeline.

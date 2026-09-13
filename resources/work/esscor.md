@@ -1,25 +1,26 @@
 ---
 updated: '2026-09-13'
-lede: Search, metadata, and access workflows for Earth science data.
-role: Lead developer — catalog, search, and data-access software.
+lede: Catalog, search, and access software for Earth science holdings — metadata, discovery, and ordering in one workflow. There is no public demo.
+role: Lead Software Engineer — catalog, search, and data-access software.
 leadership:
   mode: Technical development of a shared data catalog
   team: Engineering, data-management, and research partners
-  unblocked: Manual registration and disconnected discovery and access workflows
-  decision: Establish consistent metadata before building search and access behavior around it.
+  unblocked: Manual dataset registration and disconnected discovery and access paths.
+  decision: Establish a shared metadata model before building search and access on top of it.
 problem:
-- Researchers need to discover data across different holdings and metadata conventions.
-- Discovery, access rules, and ordering need to work together.
-approach:
-- Develop a shared metadata model and catalog workflows.
-- Use MySQL and Elasticsearch to support storage and discovery.
-- Implement granule-level access controls and automate content registration.
+- Researchers need to discover data across holdings that did not share one metadata convention.
+- Discovery, access rules, and ordering have to work together, not as separate tools.
+decisions:
+- Build a shared metadata model and catalog workflows.
+- Use MySQL for metadata storage and Elasticsearch for discovery.
+- Connect search results to granule-level access rules and automate dataset registration.
 outcome:
-- A shared catalog connecting search, access, and ordering workflows.
-- An automated registry process that reduced recurring manual registration work.
+- A catalog that connects search, access, and ordering around one metadata model. There is no public demo.
+- An automated registration workflow so new holdings do not depend on a fully manual path into the catalog.
+- This page does not publish how much registration time changed. A percentage is not claimed here.
 metrics: []
 platform:
-  caption: High-level catalog workflow.
+  caption: High-level catalog workflow. Not a public service to open.
   stages:
   - step: 01 · Register
     title: Dataset metadata
@@ -35,16 +36,18 @@ platform:
     stack: Catalog workflows
 ---
 
-Catalog and search software for ESSCOR brought together Earth science metadata, discovery, access rules, and ordering workflows.
+Catalog and search software for ESSCOR. The work brought Earth science metadata, discovery, access rules, and ordering into one catalog so a holding was not a separate search problem.
 
-## Search built on consistent metadata
+There is no public demo. What can be said is the system and the decisions, not a live artifact and not a time-saved figure.
 
-The platform combined MySQL metadata storage with Elasticsearch search. A shared model made the holdings easier to describe and query, rather than making each collection a separate search problem.
+## Search on a shared model
 
-Granule-level access controls connected discovery to the appropriate data-access workflow.
+MySQL stored the metadata. Elasticsearch provided discovery. A shared model made holdings easier to describe and query instead of giving each collection its own search path.
 
-## Automating registration
+Granule-level access rules connected a search result to the access and ordering workflow that applied. Discovery without those rules would have stopped at a list.
 
-The content-registry workflow automated recurring steps involved in registering datasets and making them discoverable. The practical improvement was less manual coordination between new data arriving and researchers being able to find it.
+## Registration
 
-The work combined data modeling, application development, search integration, and workflow automation.
+A content-registry workflow automated the recurring steps that take a dataset from arrival to something the catalog can describe. The aim was less manual coordination between new data and a researcher being able to find it.
+
+How much that reduced registration work is not published here.

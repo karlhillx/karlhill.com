@@ -38,7 +38,6 @@ return [
                 'mypy',
                 'pytest',
                 'coverage',
-                'mutation testing',
                 'security scanning',
             ],
             'satellites' => [

@@ -7,5 +7,15 @@
     'sectionNumber' => '01',
     'heading' => 'Selected Work',
     'showViewAll' => true,
-    'proof' => 'Jacobs is current. NASA Earth science systems from Goddard are still public.',
+    'proof' => 'Jacobs is current. Public NASA systems:',
+    'proofLinks' => [
+        [
+            'label' => 'Flood map',
+            'href' => 'https://floodmapping.gsfc.nasa.gov/',
+        ],
+        [
+            'label' => 'Find Data',
+            'href' => 'https://ladsweb.modaps.eosdis.nasa.gov/search/',
+        ],
+    ],
 ])

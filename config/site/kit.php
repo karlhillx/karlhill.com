@@ -58,7 +58,7 @@ return [
     ],
     'direction' => [
         'Growing toward broader ownership of architecture, engineering strategy, delivery, and team development.',
-        'Engineering management is a natural next step where the role remains technically credible and close to software delivery. Principal-level technical leadership remains an equally strong path.',
+        'Principal-level technical leadership is the primary path. Engineering management is a strong next step where the role stays technically credible and close to software delivery.',
     ],
     'contact_lede' => 'Schedule a conversation, view the resume, or explore selected work.',
     /*

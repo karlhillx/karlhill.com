@@ -61,3 +61,12 @@ Thumbs.db
 /storage/app/dict
 /public/files/content-credentials.json
 /public/files/*.c2pa.json
+README-INSTALL.md
+docs/context-private/career-history.md
+docs/context-private/corrections.md
+docs/context-private/current-goals.md
+docs/context-private/engineering-work.md
+docs/context-private/music-history.md
+docs/context-private/profile.md
+docs/context-private/source-of-truth.md
+docs/context-private/website-content-strategy.md

@@ -228,12 +228,12 @@ class LlmsTxtBuilder
     protected function caseStudyNote(array $project): string
     {
         return match ($project['slug'] ?? '') {
-            'jacobs-mission-software' => 'Current: delivery standards, portable messaging, stronger tests, coaching. No public demo',
+            'jacobs-mission-software' => 'Current: implementation and delivery on a simulation program. Practices in use — gates, portable messaging, tests, coaching. No public demo',
             'flood-mapping-system' => 'Live map: satellite-derived flood products',
             'laads-daac' => 'Live Find Data search for NASA satellite data',
-            'nasa-earth-observatory' => 'Live Earth Observatory. About 1.5 million monthly visitors during that work',
+            'nasa-earth-observatory' => 'Live Earth Observatory. About 1.5 million monthly visitors during that work — platform scale, not a traffic result',
             'direct-readout-laboratory' => 'Live direct-readout portal for satellite data products',
-            'esscor' => 'Search and metadata workflows for Earth science data',
+            'esscor' => 'Catalog, search, and access workflows. No public demo. No time-saved figure',
             'informeddna-platform' => 'Laravel case-management platform for counseling workflows',
             'finium' => 'Java and SQL Server services for multi-tenant security operations',
             default => $this->clipNote((string) ($project['lede'] ?? $project['description'] ?? '')),

@@ -12,9 +12,9 @@ return [
     // LinkedIn-ready headline (copy/paste); keep in sync with public positioning.
     'linkedin_headline' => 'Staff Aerospace Software Engineer at Jacobs | Mission software, technical delivery | NASA Goddard 2017–2025',
     // Desired next role — kit “Open to”, JSON-LD, llms.txt. Homepage hero uses hero.lede.
-    'availability' => 'Engineering Manager, Principal Software Engineer, and technical leadership roles that combine strong software engineering with delivery, architecture, and developing engineers.',
-    'availability_long' => 'Growing toward broader ownership of architecture, engineering strategy, delivery, and team development. Engineering management is a natural next step where the role remains technically credible and close to software delivery. Principal-level technical leadership remains an equally strong path.',
-    'trajectory' => 'Broader engineering leadership, including Engineering Manager and Principal-level technical roles.',
+    'availability' => 'Principal Software Engineer, Engineering Manager, and technical leadership roles that combine strong software engineering with delivery, architecture, and developing engineers.',
+    'availability_long' => 'Growing toward broader ownership of architecture, engineering strategy, delivery, and team development. Principal-level technical leadership is the primary path. Engineering management is a strong next step where the role stays technically credible and close to software delivery.',
+    'trajectory' => 'Broader engineering leadership, including Principal-level technical roles and Engineering Manager.',
     'employer' => 'Jacobs',
     'employer_display' => 'Jacobs National Security',
     'twitter_handle' => '@karl_hill',

@@ -124,7 +124,7 @@ def generate_home() -> Path:
     y += 56
     draw.rectangle((x, y, x + 72, y + 4), fill=ORANGE)
     y += 36
-    draw.text((x, y), "Seeking Engineering Manager", fill=WHITE, font=f_ask)
+    draw.text((x, y), "Principal or Engineering Manager", fill=WHITE, font=f_ask)
     y += 48
     draw.text((x, y), "karlhill.com", fill=ORANGE, font=f_cta)
     tw = draw.textlength("karlhill.com", font=f_cta)

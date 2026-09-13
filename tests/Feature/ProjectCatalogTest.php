@@ -41,7 +41,7 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         ->assertSee('Also at Goddard', escape: false)
         ->assertSee('Additional Earth science systems developed and supported during eight years at NASA Goddard', escape: false)
         ->assertSee('Independent tools focused on software delivery', escape: false)
-        ->assertSee('delivery standards, portable messaging, stronger tests', escape: false)
+        ->assertSee('Delivery gates, portable messaging, and stronger tests are in use', escape: false)
         ->assertDontSee('Supporting chapters, not a second flagship set', escape: false)
         ->assertDontSee('Software other people depend on, then the engineering system around it', escape: false)
         ->assertSee('/work/esscor', escape: false)

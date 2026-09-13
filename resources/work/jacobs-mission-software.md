@@ -1,25 +1,27 @@
 ---
 updated: '2026-09-13'
-lede: Technical delivery and hands-on software engineering across a simulation program spanning roughly 20 repositories, three operating environments, and multiple teams across Jacobs and vendors.
-role: Staff Aerospace Software Engineer — software development, technical delivery, and coaching.
+lede: Hands-on engineering and technical delivery on a simulation program — roughly 20 repositories, three environments, a team of about 10, and partner and vendor teams. Public proof is scope and practice, not program metrics.
+role: Staff Aerospace Software Engineer — implementation, technical delivery, and coaching.
 leadership:
   mode: Hands-on technical leadership
-  team: About 10 engineers, working with program stakeholders, partner teams, and vendors
-  unblocked: Onboarding, technical feedback, and shared delivery practices
-  decision: Surface integration dependencies and readiness while the work is still being planned.
+  team: About 10 engineers, plus program stakeholders, partner teams, and vendors
+  unblocked: Onboarding, technical feedback, and the shared delivery practices now used in review.
+  decision: Treat weak tests and integration risk as engineering work, not process leftovers.
+  note: Formal personnel management remains with management.
 problem:
 - Independently developed services need compatible interfaces and repeatable integration.
 - Delivery conventions varied by repository, which made reviews, testing, and releases harder to trust.
-- Work spans roughly 20 repositories, three operating environments, and multiple Jacobs and vendor teams.
+- Work spans roughly 20 repositories, three environments, and multiple Jacobs, partner, and vendor teams.
 decisions:
-- Standardize CI/CD, review, testing, type-checking, security, and release practices across the program.
-- Separate application messaging from the broker behind a shared adapter layer.
-- Treat weak tests and cross-team integration risk as engineering problems, not process afterthoughts.
+- Put CI/CD, review, testing, type-checking, security, and release practices on a shared baseline.
+- Separate application messaging from the broker behind a common interface and adapters.
+- Treat tests that do not exercise behavior, and late integration, as defects in the engineering system.
 outcome:
-- Common engineering gates replaced inconsistent project-level conventions across the program’s repositories.
-- Shared asynchronous messaging lets broker choice stay in configuration instead of application rewrites.
-- Stronger automated-test standards and earlier cross-team coordination when delivery is at risk.
-- Six engineers onboarded and coached while reinforcing shared development practices.
+- Delivery gates, portable messaging, and stronger tests are in use. Coverage across repositories is still uneven; program-level metrics are not published here.
+- Shared delivery gates are the adopted baseline, not a claim that every repository already meets them.
+- A portable messaging layer is in use so broker choice can stay in configuration. Ownership is shared.
+- Stronger unit-test expectations are defined and applied in review. They are not a finished program-wide rewrite.
+- Six engineers onboarded and coached while the same practices were reinforced in review.
 metrics:
 - value: ~10
   label: Engineers on the team
@@ -30,42 +32,42 @@ platform:
   stages:
   - step: 01 · Standards
     title: Delivery gates
-    body: Common CI/CD, review, testing, type-checking, security, and release practices across repositories.
+    body: Shared CI/CD, review, testing, type-checking, security, and release practices. The baseline is adopted; coverage across repositories is still catching up.
     stack: CI/CD · Review
   - step: 02 · Messaging
     title: Portable adapters
-    body: Shared async messaging separates application code from the underlying broker.
+    body: A common messaging interface and broker adapters so applications are not rewritten when the queue changes.
     stack: Messaging · Config
   - step: 03 · Tests
-    title: Meaningful coverage
-    body: Isolation, failure conditions, and changed-code standards raise confidence in automated tests.
-    stack: pytest · CI
+    title: Meaningful tests
+    body: Isolation, failure cases, and changed-code coverage. The standard is written; applying it is ongoing.
+    stack: Tests · CI
   - step: 04 · Integrate
     title: Cross-team delivery
-    body: Integration problems become actionable work across team and vendor boundaries.
+    body: Integration problems become tickets, sequenced work, and conversations while the change is still cheap to fix.
     stack: Tickets · Dependencies
 ---
 
-Technical delivery and hands-on software engineering across a simulation program spanning roughly 20 repositories, three operating environments, and multiple teams across Jacobs and vendors.
-
-## Standardized the software delivery system
-
-Established common CI/CD, review, testing, type-checking, security, and release practices across the program’s repositories, replacing inconsistent project-level conventions with repeatable engineering gates.
-
-## Made messaging infrastructure portable
-
-Architected a shared asynchronous messaging layer used by multiple services. Its adapter model separates application code from the underlying broker, allowing message queue deployments to be selected through configuration rather than application rewrites.
-
-## Raised confidence in automated testing
-
-Identified tests that reported coverage without meaningfully exercising behavior and drove stronger standards around isolation, failure conditions, coverage of changed code, and test organization.
-
-## Reduced cross-team delivery friction
-
-Work spans both team and vendor delivery processes: translating integration problems into actionable work, creating and implementing tickets across team boundaries, coordinating dependencies, and bringing engineers together early when technical issues threaten delivery.
-
-## Built team capability alongside the software
-
-Onboarded and coached six engineers while reinforcing shared development, review, testing, and delivery practices across the program.
+Hands-on software engineering and technical delivery on a simulation program. The work covers implementation, standards, messaging, tests, and coordination across roughly 20 repositories, three operating environments, and a team of about 10, with partner and vendor teams in the same delivery path.
 
 Program-specific architecture and operational details are not included here.
+
+## Delivery gates
+
+Repositories were not starting from the same review, test, or release conventions. The shared baseline is now CI/CD, review, type-checking, security checks, and release practice. That baseline is adopted. How completely each repository meets it is still uneven, and this page does not treat the program as finished.
+
+## Portable messaging
+
+Services need to exchange messages without baking a single broker into application code. The work advances a common interface and adapter layer so the queue can be selected in configuration. It is in use. It is not a sole-author product, and production coverage across every consumer is not claimed here.
+
+## Tests that exercise behavior
+
+Some tests reported coverage without failing when the behavior was wrong — including filters whose no-op path never triggered a failure. The response was a tighter unit-test standard: isolation, representative data, meaningful failure cases, and coverage of changed code. Those expectations are written and used in review. They are not a completed, repository-wide rewrite.
+
+## Cross-team delivery
+
+Delivery is not limited to one team's board. The work includes turning integration problems into tickets, implementing and delegating them, sequencing dependencies, and bringing the right engineers together while the change is still cheap. That is ongoing responsibility, not a closed initiative.
+
+## Coaching while shipping
+
+Six engineers were onboarded and coached through review, technical feedback, and the same delivery practices. Formal personnel decisions remain with management.

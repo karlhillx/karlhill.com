@@ -17,7 +17,7 @@
         <x-slot:title>Resume</x-slot:title>
 
         <p class="site-page-hero__lede text-neutral-300">
-            Mission software. Engineering systems. Technical leadership. Delivery.
+            Mission software, engineering systems, and technical delivery.
         </p>
 
         {{-- The PDF is this page's purpose, so it takes the fill; booking is the secondary. --}}

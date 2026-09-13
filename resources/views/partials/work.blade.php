@@ -7,9 +7,25 @@
                 </a>
             </x-slot:actions>
         @endif
-        @if(! empty($proof ?? null))
+        @if(! empty($proof ?? null) || ! empty($proofLinks ?? []))
             <p class="text-neutral-400 text-sm leading-relaxed max-w-2xl mb-8 -mt-2" data-reveal>
-                {{ $proof }}
+                @if(! empty($proof ?? null))
+                    {{ $proof }}
+                @endif
+                @foreach($proofLinks ?? [] as $index => $link)
+                    @if($index > 0)
+                        <span aria-hidden="true"> · </span>
+                    @elseif(! empty($proof ?? null))
+                        {{ ' ' }}
+                    @endif
+                    <a href="{{ $link['href'] }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       data-no-ext
+                       class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">
+                        {{ $link['label'] }} <span aria-hidden="true">↗</span>
+                    </a>
+                @endforeach
             </p>
         @endif
         <div class="site-card-grid" style="view-transition-name: work-grid">

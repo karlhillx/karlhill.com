@@ -7,8 +7,8 @@ return [
     // Keywords stay in meta / JSON-LD — not a second headline on the first screen.
     'subtitle' => 'Software engineering, technical leadership, and delivery',
     // Positioning line under the name. Kit “Open to” uses person.availability.
-    'statement' => 'Mission software. Engineering systems. Technical leadership.',
-    'lede' => 'Engineering and delivering aerospace and national security software while raising technical standards and driving execution across teams.',
+    'statement' => 'Mission software, engineering systems, and technical delivery.',
+    'lede' => 'Hands-on engineering and technical delivery on aerospace and national security software — implementation, standards, and coordination across teams.',
     'proof' => [
         $facts['repos_chip'],
         $facts['team_chip'],

@@ -1,22 +1,23 @@
 ---
 updated: '2026-09-13'
-lede: Python and Docker software that processes and distributes satellite-derived flood maps on AWS. The live map is public.
-role: Lead software developer — design, processing, and delivery on AWS.
+lede: Python and Docker software that processes and distributes satellite-derived flood maps on AWS. The live map is the shipped artifact. A GeoHorizons paper describes the system and its scientific evaluation.
+role: Lead Software Engineer — design, processing, and delivery on AWS.
 leadership:
   mode: Software development and technical leadership
   team: Engineering and Earth science partners at NASA Goddard
-  unblocked: Manual steps between processing imagery and making products available
+  unblocked: Manual steps between processing imagery and making products available.
   decision: Build repeatable processing and delivery workflows rather than rely on separate manual runs.
 problem:
-- Flood-mapping workflows need to connect satellite imagery, processing, and product access.
-- Manual handoffs make that path harder to repeat and maintain.
+- Flood products have to connect satellite imagery, processing, and a place users can get the result.
+- Separate manual handoffs made that path harder to repeat and maintain.
 decisions:
-- Develop processing and delivery software in Python.
-- Use Docker and AWS to support repeatable deployment and execution.
-- Automate the path between processing inputs and distributing flood products.
+- Write the processing and delivery software in Python.
+- Package and run it with Docker on AWS so the same path can be rebuilt and executed elsewhere.
+- Automate the connections between inputs, processing, and product access.
 outcome:
-- An AWS-based workflow for processing and distributing satellite-derived flood maps.
-- Software supporting Earth science research and flood-response use cases.
+- The public map is the shipped system — satellite-derived flood products through a repeatable AWS workflow. Program-level before/after metrics are not published here.
+- Python, Docker, and AWS carry processing and delivery so the team is not depending on a one-off script.
+- Co-author of the GeoHorizons paper that describes the Global Water and Flood Mapping System and evaluates it scientifically.
 metrics: []
 platform:
   caption: Public processing and delivery path. Open the live map.
@@ -35,18 +36,20 @@ platform:
     stack: AWS
 ---
 
-Software for an AWS-based flood-mapping system at NASA Goddard, supporting Earth science partners. The work connected satellite imagery, processing, and distribution so users could obtain satellite-derived flood products through an automated service.
-
-## Processing and delivery
-
-Python, Docker, and AWS were the tools around that workflow. Processing automation, packaging, deployment, and product access had to fit together so the team could repeat the path.
-
-The practical problem was larger than running a processing script successfully. Inputs, dependencies, and outputs had to stay in one maintained workflow. Automating those connections reduced reliance on separate manual steps between imagery and a usable product.
+Lead software engineering on an AWS-based flood-mapping system at NASA Goddard. The work connected satellite imagery, processing, and distribution so Earth science partners could obtain satellite-derived flood products through one maintained service instead of a chain of manual runs.
 
 The live map is public. It is the artifact for this work: repeatable processing and delivery, not a private pipeline description.
 
+## Processing and delivery
+
+Python, Docker, and AWS were the tools around that workflow. Packaging, deployment, processing automation, and product access had to stay in one path so the same change could be rebuilt and run again.
+
+The practical problem was larger than getting a script to finish. Inputs, dependencies, and outputs had to remain together. Automating those connections reduced reliance on separate manual steps between imagery and a usable product.
+
+This page does not publish latency, coverage, or agency-adoption figures. The public map and the paper are the evidence.
+
 ## Related research
 
-Co-author of *A web-based high-resolution global water and flood mapping platform*. The paper describes the Global Water and Flood Mapping System, a NASA-supported experimental portal, and its scientific evaluation.
+Co-author of *A web-based high-resolution global water and flood mapping platform*, published in GeoHorizons (online 5 May 2026). The paper describes the Global Water and Flood Mapping System, a NASA-supported experimental portal, and its scientific evaluation. It is not a claim of sole authorship.
 
 [Read the paper](https://doi.org/10.1144/gh2025-7).

@@ -56,17 +56,21 @@ it('parses substantive markdown body and generates html and toc', function () {
     $jacobs = $repo->find('jacobs-mission-software');
     expect($jacobs)->toBeArray()
         ->and($jacobs['body_html'] ?? null)->toBeString()
-        ->and($jacobs['body_html'])->toContain('Standardized the software delivery system')
-        ->and($jacobs['body_html'])->toContain('Made messaging infrastructure portable')
-        ->and($jacobs['body_html'])->toContain('Built team capability alongside the software')
+        ->and($jacobs['body_html'])->toContain('Delivery gates')
+        ->and($jacobs['body_html'])->toContain('Portable messaging')
+        ->and($jacobs['body_html'])->toContain('Coaching while shipping')
         ->and($jacobs['body_html'])->not->toContain('Representative delivery lifecycle')
         ->and($jacobs['body_html'])->not->toContain('Kubernetes Mission Mesh')
         ->and($jacobs['body_html'])->not->toContain('<pre><code>');
 
     $jacobsResponse = $this->get('/work/jacobs-mission-software');
     $jacobsResponse->assertOk()
-        ->assertSee('Standardized the software delivery system', escape: false)
-        ->assertSee('Made messaging infrastructure portable', escape: false)
+        ->assertSee('Delivery gates', escape: false)
+        ->assertSee('Portable messaging', escape: false)
+        ->assertSee('Delivery gates, portable messaging, and stronger tests are in use', escape: false)
+        ->assertDontSee('Architected a shared', escape: false)
+        ->assertDontSee('BlackLynx', escape: false)
+        ->assertDontSee('RTX', escape: false)
         ->assertSee('id="platform"', escape: false)
         ->assertSee('Delivery gates', escape: false)
         ->assertSee('not a program architecture', escape: false)
@@ -89,7 +93,34 @@ it('parses substantive markdown body and generates html and toc', function () {
     $flood->assertOk()
         ->assertSee('Processing and delivery', escape: false)
         ->assertSee('Read the paper', escape: false)
-        ->assertDontSee('Figure 1: Automated Satellite Ingestion to Multi-Agency Dissemination Architecture', escape: false);
+        ->assertSee('The public map is the shipped system', escape: false)
+        ->assertDontSee('Figure 1: Automated Satellite Ingestion to Multi-Agency Dissemination Architecture', escape: false)
+        ->assertDontSee('operational flood data', escape: false);
+
+    $this->get('/work/laads-daac')
+        ->assertOk()
+        ->assertSee('Find Data is live', escape: false)
+        ->assertSee('Delivery around existing services', escape: false)
+        ->assertDontSee('replaced the archive', escape: false);
+
+    $this->get('/work/nasa-earth-observatory')
+        ->assertOk()
+        ->assertSee('1.5 million monthly visitors', escape: false)
+        ->assertSee('not a traffic result', escape: false)
+        ->assertSee('The live site is the artifact', escape: false);
+
+    $this->get('/work/direct-readout-laboratory')
+        ->assertOk()
+        ->assertSee('The public portal is the artifact', escape: false)
+        ->assertSee('https://directreadout.sci.gsfc.nasa.gov', escape: false)
+        ->assertDontSee('Visit live project', escape: false);
+
+    $this->get('/work/esscor')
+        ->assertOk()
+        ->assertSee('There is no public demo', escape: false)
+        ->assertSee('A percentage is not claimed here', escape: false)
+        ->assertDontSee('reduced recurring manual registration', escape: false)
+        ->assertDontSee('~60%', escape: false);
 });
 
 it('every case study publishes a platform map with three to five stages', function () {

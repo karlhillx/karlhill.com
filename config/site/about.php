@@ -4,8 +4,8 @@ $facts = require __DIR__.'/facts.php';
 
 return [
     'lede' => [
-        'Software engineer and technical leader working on aerospace mission software at Jacobs. Previously spent eight years building and modernizing NASA Goddard Earth science systems.',
-        'The work has grown from building software other people depend on to shaping the engineering systems, technical direction, and team practices that make reliable delivery possible.',
+        'Software engineer and technical leader working on aerospace mission software at Jacobs. Previously eight years on NASA Goddard Earth science systems — flood maps, satellite-data access, and public science publishing.',
+        'The work connects software other people depend on with the delivery practices, standards, and coaching around it.',
     ],
     'leadership' => [
         'title' => 'Technical leadership',
@@ -63,24 +63,36 @@ return [
                 'highlights' => [
                     'Leads day-to-day engineering delivery for a team of '.$facts['team'].', coordinating dependencies, integration work, and release readiness.',
                     'Develops Python mission software, shared interfaces, distributed messaging, and service orchestration.',
-                    'Establishes engineering guardrails through CI/CD, automated testing, security checks, repository standards, dependency management, and release automation.',
-                    'Works across organizational boundaries to surface technical risk early and drive issues through resolution.',
+                    'Puts CI/CD, automated testing, security checks, repository standards, and release automation into the delivery path.',
+                    'Works across organizational boundaries to surface technical risk early and follow issues through to a decision.',
                 ],
             ],
             [
                 'title' => 'Lead Software Engineer',
                 'org' => 'SSAI / NASA Goddard Space Flight Center · '.$facts['nasa_period'],
-                'summary' => 'Built and modernized Earth science systems used for satellite-data access, flood mapping, and public science communication.',
+                'summary' => 'Earth science systems for flood mapping, satellite-data access, and public science publishing. The map, Find Data, and Earth Observatory are public.',
                 'highlights' => [
-                    'Led development of an AWS-based flood-mapping system for automated processing and distribution of satellite-derived flood products.',
-                    'Modernized LAADS DAAC search, ordering, archive, and near-real-time data access systems using GitLab CI/CD and Kubernetes.',
-                    'Modernized NASA Earth Observatory\'s web platform, supporting an audience of approximately 1.5 million monthly visitors during that work.',
+                    [
+                        'text' => 'Flood-mapping system on AWS for satellite-derived products. The live map is public.',
+                        'href' => 'https://floodmapping.gsfc.nasa.gov/',
+                        'link' => 'Open the map',
+                    ],
+                    [
+                        'text' => 'Find Data search, ordering, and near-real-time access. Web delivery through GitLab CI/CD and Kubernetes alongside existing archive services.',
+                        'href' => 'https://ladsweb.modaps.eosdis.nasa.gov/search/',
+                        'link' => 'Open Find Data',
+                    ],
+                    [
+                        'text' => 'Earth Observatory publishing platform — editorial workflows, imagery, and the public site.',
+                        'href' => 'https://earthobservatory.nasa.gov/',
+                        'link' => 'Open Earth Observatory',
+                    ],
                 ],
             ],
         ],
         'earlier' => [
             'title' => 'Earlier engineering work',
-            'body' => 'Before NASA, built case-management, CRM, travel, and enterprise software across healthcare, consulting, and commercial environments.',
+            'body' => 'Before NASA, built case-management, CRM, travel, and enterprise software across healthcare, consulting, and commercial environments. At Sabre that included new PHP applications and features on existing ones.',
         ],
         'cta_note' => 'The full history, technologies, education, and certifications are available on the resume.',
         'cta_label' => 'Full resume',

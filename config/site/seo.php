@@ -26,7 +26,7 @@ return [
     'now' => [
         'title' => 'Now — Karl Hill',
         'description' => 'Building mission software and the engineering systems around it at Jacobs. Python services, messaging, CI/CD, and technical delivery across teams.',
-        'og_description' => 'Current work at Jacobs: mission software, architecture ownership, and more reliable delivery. Updated September 13, 2026.',
+        'og_description' => 'Current work at Jacobs: mission software, delivery practices, and problems that cross teams. Updated September 13, 2026.',
     ],
     'privacy' => [
         'title' => 'Privacy — Karl Hill',
@@ -41,7 +41,7 @@ return [
     'kit' => [
         'title' => 'Recruiter kit — Karl Hill · Engineering Leadership',
         'description' => 'A concise view of current scope, selected work, and career direction for Karl Hill, Staff Aerospace Software Engineer at Jacobs.',
-        'og_description' => 'Current Jacobs scope, NASA Earth science evidence, and open paths to Engineering Manager or Principal-level technical leadership.',
+        'og_description' => 'Current Jacobs scope, NASA Earth science evidence, and open paths to Principal-level technical leadership or Engineering Manager.',
     ],
     'lead' => [
         'title' => 'Engineering delivery — Karl Hill',
