@@ -14,7 +14,7 @@
                 <h3 class="font-sans font-semibold text-xl text-neutral-100 mb-2">
                     <a href="/kit" class="hover:text-accent transition-colors">Recruiter kit</a>
                 </h3>
-                <p class="text-neutral-400 text-sm leading-relaxed">Current engineering system, public NASA software, and resume.</p>
+                <p class="text-neutral-400 text-sm leading-relaxed">A concise view of current scope, selected work, and career direction.</p>
             </li>
             <li class="home-path__item bg-bg p-6 sm:p-8">
                 <p class="font-mono text-caption text-accent uppercase tracking-widest mb-3">02</p>

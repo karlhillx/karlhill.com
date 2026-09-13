@@ -90,6 +90,7 @@ return [
     'stats' => require __DIR__.'/site/stats.php',
     'experience' => require __DIR__.'/site/experience.php',
     'projects' => require __DIR__.'/site/projects.php',
+    'work' => require __DIR__.'/site/work.php',
     'research' => require __DIR__.'/site/research.php',
     'stack' => require __DIR__.'/site/stack.php',
     'skills' => require __DIR__.'/site/skills.php',

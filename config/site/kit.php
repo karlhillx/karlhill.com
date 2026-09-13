@@ -2,13 +2,65 @@
 
 return [
     'eyebrow' => 'For recruiters & hiring managers',
-    'lede' => 'Current engineering system, public NASA software, and resume.',
-    // Glance bio is person.bio: work-first, no LinkedIn opener.
-    'highlights' => [
-        'Flood maps, LAADS Find Data, Earth Observatory, and the GeoHorizons paper are public.',
-        'At Jacobs the work spans about 20 repositories: interfaces, tests, CI, and release. About six engineers have been onboarded and coached.',
-        'Engineering Manager is the next container for this scope. Principal-level technical work remains a parallel path.',
+    'lede' => 'A concise view of current scope, selected work, and career direction.',
+    'glance' => [
+        'Staff Aerospace Software Engineer at Jacobs working across Python mission software, distributed messaging, shared interfaces, CI/CD, and release engineering across roughly 20 repositories and multiple environments.',
+        'Technical scope includes hands-on implementation, engineering standards, cross-team integration, delivery coordination, and mentoring for a team of about 10 engineers.',
+        'Previously Lead Software Engineer supporting NASA Goddard Earth science systems, including flood mapping, LAADS DAAC, and Earth Observatory.',
     ],
+    'scope' => [
+        [
+            'label' => 'Engineering',
+            'body' => 'Python services, distributed messaging, shared interfaces, testing, CI/CD, release engineering, and developer workflows across roughly 20 repositories.',
+        ],
+        [
+            'label' => 'Technical leadership',
+            'body' => 'Coordinates integration and delivery across teams, helps set engineering standards and technical direction, anticipates cross-team issues, and drives problems through resolution.',
+        ],
+        [
+            'label' => 'Team development',
+            'body' => 'Mentors and coaches engineers, supports onboarding, delegates technical work, and helps translate program priorities into executable software.',
+        ],
+        [
+            'label' => 'Operating model',
+            'body' => 'Staff individual contributor with broad technical and delivery influence. Formal people-management responsibility remains with management.',
+        ],
+    ],
+    'evidence' => [
+        [
+            'label' => 'Current aerospace mission software and engineering systems',
+            'path' => '/work/jacobs-mission-software',
+        ],
+        [
+            'label' => 'NASA Flood Mapping System',
+            'path' => '/work/flood-mapping-system',
+        ],
+        [
+            'label' => 'LAADS DAAC',
+            'path' => '/work/laads-daac',
+        ],
+        [
+            'label' => 'NASA Earth Observatory',
+            'path' => '/work/nasa-earth-observatory',
+        ],
+        [
+            'label' => 'GeoHorizons research publication',
+            'url' => 'https://doi.org/10.1144/gh2025-7',
+        ],
+        [
+            'label' => 'Engineering delivery and software process work',
+            'path' => '/delivery',
+        ],
+        [
+            'label' => 'Open-source developer tooling',
+            'path' => '/work#open-source',
+        ],
+    ],
+    'direction' => [
+        'Growing toward broader ownership of architecture, engineering strategy, delivery, and team development.',
+        'Engineering management is a natural next step where the role remains technically credible and close to software delivery. Principal-level technical leadership remains an equally strong path.',
+    ],
+    'contact_lede' => 'Schedule a conversation, view the resume, or explore selected work.',
     /*
      | Canonical outbound links for the kit (and its print leave-behind).
      | group => primary: first-pass skim. group => more: collapsed on screen,

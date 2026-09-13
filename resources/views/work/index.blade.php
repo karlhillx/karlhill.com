@@ -21,9 +21,8 @@
     <x-site.page-hero :breadcrumbs="$breadcrumbs">
         <x-slot:title>Selected Work</x-slot:title>
 
-        {{-- Two sentences: the hero is a doorway, the cards carry the detail. --}}
-        <p class="text-neutral-400 text-base leading-relaxed max-w-2xl">
-            Software other people depend on, then the engineering system around it. Jacobs is current. NASA Earth science systems from 2017 to 2025 are still public.
+        <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            {{ config('site.work.lede') }}
         </p>
     </x-site.page-hero>
 
@@ -74,7 +73,7 @@
     @if(($supporting ?? collect())->isNotEmpty())
         <x-site.section id="chapters" class="scroll-mt-32" section-label="Also at Goddard" number="02" label="Also at Goddard">
             <p class="text-neutral-400 text-sm leading-relaxed max-w-2xl mb-6" data-reveal>
-                Publishing, direct-readout products, and catalog access from the same years. Supporting chapters, not a second flagship set.
+                {{ config('site.work.chapters_intro') }}
             </p>
             <ul class="work-chapters border-y border-neutral-800 divide-y divide-neutral-800" data-reveal>
                 @foreach($supporting as $project)
@@ -100,7 +99,10 @@
         </x-site.section>
     @endif
 
-    @include('partials.open-source', ['sectionNumber' => ($supporting ?? collect())->isNotEmpty() ? '03' : '02'])
+    @include('partials.open-source', [
+        'sectionNumber' => ($supporting ?? collect())->isNotEmpty() ? '03' : '02',
+        'intro' => config('site.work.open_source_intro'),
+    ])
 @endsection
 
 @section('page_footer')

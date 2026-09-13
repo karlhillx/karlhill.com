@@ -14,8 +14,8 @@ return [
     ],
     'work' => [
         'title' => 'Work — Karl Hill · Software Engineering',
-        'description' => 'Selected software work by Karl Hill: aerospace mission software, NASA Earth science platforms, developer tooling, and enterprise systems.',
-        'og_description' => 'Public NASA systems, flood maps, LAADS Find Data, Earth Observatory, and current aerospace work at Jacobs.',
+        'description' => 'Mission software, Earth science systems, and engineering infrastructure by Karl Hill — Jacobs, NASA Goddard, and independent tooling.',
+        'og_description' => 'Aerospace mission software, operational NASA Earth science systems, and developer tooling built for real use.',
     ],
     'about' => [
         'title' => 'Karl Hill — Software Engineer in Washington, DC',
@@ -34,8 +34,8 @@ return [
     ],
     'kit' => [
         'title' => 'Recruiter kit — Karl Hill · Engineering Leadership',
-        'description' => 'Current engineering system, public NASA software, and resume for Karl Hill, Staff Aerospace Software Engineer at Jacobs.',
-        'og_description' => 'Resume, current Jacobs role, NASA Earth science work, and the GeoHorizons paper.',
+        'description' => 'A concise view of current scope, selected work, and career direction for Karl Hill, Staff Aerospace Software Engineer at Jacobs.',
+        'og_description' => 'Current Jacobs scope, NASA Earth science evidence, and open paths to Engineering Manager or Principal-level technical leadership.',
     ],
     'lead' => [
         'title' => 'Engineering delivery — Karl Hill',

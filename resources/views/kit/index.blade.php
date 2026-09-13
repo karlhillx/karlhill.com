@@ -74,15 +74,15 @@
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
             <h2 id="kit-glance-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1 md:sticky md:top-24 md:self-start">At a glance</h2>
             <div class="kit-glance max-w-3xl">
-                <p class="kit-bio">{{ $kit['bio'] ?? $person['bio'] }}</p>
+                <div class="kit-bio">
+                    @foreach($kit['glance'] ?? [] as $paragraph)
+                        <p>{{ $paragraph }}</p>
+                    @endforeach
+                </div>
 
                 <dl class="kit-facts">
                     <div class="kit-facts__item">
-                        <dt class="kit-facts__label">Name</dt>
-                        <dd class="kit-facts__value kit-facts__value--name">{{ $person['name'] }}</dd>
-                    </div>
-                    <div class="kit-facts__item">
-                        <dt class="kit-facts__label">Title</dt>
+                        <dt class="kit-facts__label">Current role</dt>
                         <dd class="kit-facts__value">{{ $person['job_title'] }} · {{ $person['employer_display'] ?? $person['employer'] }}</dd>
                     </div>
                     <div class="kit-facts__item">
@@ -97,24 +97,79 @@
                     </div>
                 </dl>
 
-                @php($jobScope = config('site.experience.current.scope') ?? [])
                 <x-site.job-scope
                     class="mt-8"
                     heading="Current scope"
                     heading-id="kit-scope-heading"
-                    :scope="$jobScope"
+                    :rows="$kit['scope'] ?? []"
                 />
+            </div>
+        </div>
+    </section>
 
-                @if(! empty($kit['highlights']))
-                    <ul class="kit-highlights" aria-label="Hiring packet">
-                        @foreach($kit['highlights'] as $item)
-                            <li class="kit-highlights__item">
-                                <span class="kit-highlights__mark text-accent" aria-hidden="true">→</span>
-                                <span class="kit-highlights__text">{{ $item }}</span>
-                            </li>
-                        @endforeach
-                    </ul>
-                @endif
+    @if(! empty($kit['evidence']))
+        <section class="site-section border-t border-neutral-800/50" aria-labelledby="kit-evidence-heading">
+            <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
+                <h2 id="kit-evidence-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1 md:sticky md:top-24 md:self-start">Selected evidence</h2>
+                <ul class="kit-highlights kit-highlights--flush max-w-3xl" aria-label="Selected evidence">
+                    @foreach($kit['evidence'] as $item)
+                        @php
+                            $href = $item['url'] ?? (isset($item['path']) ? url($item['path']) : null);
+                            $external = isset($item['url']);
+                        @endphp
+                        <li class="kit-highlights__item">
+                            <span class="kit-highlights__mark text-accent" aria-hidden="true">→</span>
+                            <span class="kit-highlights__text">
+                                @if($href)
+                                    <a href="{{ $href }}"
+                                       @if($external) target="_blank" rel="noopener noreferrer" @endif
+                                       class="text-neutral-200 hover:text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">
+                                        {{ $item['label'] }}
+                                    </a>
+                                @else
+                                    {{ $item['label'] }}
+                                @endif
+                            </span>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </section>
+    @endif
+
+    @if(! empty($kit['direction']))
+        <section class="site-section site-section--soft border-t border-neutral-800/50" aria-labelledby="kit-direction-heading">
+            <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
+                <h2 id="kit-direction-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1 md:sticky md:top-24 md:self-start">Career direction</h2>
+                <div class="kit-bio max-w-3xl">
+                    @foreach($kit['direction'] as $paragraph)
+                        <p>{{ $paragraph }}</p>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+    <section class="site-section border-t border-neutral-800/50" aria-labelledby="kit-contact-heading">
+        <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
+            <h2 id="kit-contact-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">Contact</h2>
+            <div class="max-w-3xl">
+                <p class="text-neutral-300 text-base sm:text-lg leading-relaxed">
+                    {{ $kit['contact_lede'] }}
+                </p>
+                <div class="kit-screen-actions mt-6">
+                    <div class="kit-screen-actions__buttons">
+                        @if(filled($bookingUrl))
+                            <x-site.button variant="primary" :href="url('/now#book')"
+                                data-analytics-event="booking_cta_clicked"
+                                data-analytics-location="kit-contact">
+                                {{ $bookingLabel }}
+                            </x-site.button>
+                        @endif
+                        <x-site.button variant="secondary" href="/resume">Resume</x-site.button>
+                        <x-site.button variant="link" href="/work">Selected work</x-site.button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

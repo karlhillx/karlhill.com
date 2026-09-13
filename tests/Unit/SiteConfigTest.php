@@ -41,6 +41,7 @@ it('experience fragment powers about and resume', function () {
 
     expect(config_path('site/experience.php'))->toBeFile()
         ->and(config_path('site/now.php'))->toBeFile()
+        ->and(config_path('site/work.php'))->toBeFile()
         ->and(config_path('site/projects.php'))->toBeFile()
         ->and(config_path('site/resume.php'))->toBeFile()
         ->and(config_path('site/lead.php'))->toBeFile();

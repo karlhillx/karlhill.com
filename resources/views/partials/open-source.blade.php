@@ -6,6 +6,12 @@
             </a>
         </x-slot:actions>
 
+        @if(! empty($intro ?? null))
+            <p class="text-neutral-400 text-sm leading-relaxed max-w-2xl mb-8 -mt-2" data-reveal>
+                {{ $intro }}
+            </p>
+        @endif
+
         @if($githubRepos->isEmpty())
             <div class="surface-card-static bg-bg p-8" data-reveal>
                 <p class="font-mono text-xs text-neutral-500 uppercase tracking-widest mb-2">Open Source</p>

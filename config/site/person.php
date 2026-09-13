@@ -12,8 +12,8 @@ return [
     // LinkedIn-ready headline (copy/paste); keep in sync with public positioning.
     'linkedin_headline' => 'Staff Aerospace Software Engineer at Jacobs | Mission software, technical delivery | NASA Goddard 2017–2025',
     // Desired next role — kit “Open to”, JSON-LD, llms.txt. Homepage hero uses hero.lede.
-    'availability' => 'Engineering Manager roles that keep software engineering, delivery, and coaching in the same job.',
-    'availability_long' => 'Engineering Manager roles built on software engineering, technical delivery, and coaching. Principal-level technical work that stays close to the code.',
+    'availability' => 'Engineering Manager, Principal Software Engineer, and technical leadership roles that combine strong software engineering with delivery, architecture, and developing engineers.',
+    'availability_long' => 'Growing toward broader ownership of architecture, engineering strategy, delivery, and team development. Engineering management is a natural next step where the role remains technically credible and close to software delivery. Principal-level technical leadership remains an equally strong path.',
     'trajectory' => 'Broader engineering leadership, including Engineering Manager and Principal-level technical roles.',
     'employer' => 'Jacobs',
     'employer_display' => 'Jacobs National Security',

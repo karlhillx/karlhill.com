@@ -2831,6 +2831,8 @@ a.series-chapters__card:hover .series-chapters__title,
 }
 
 .kit-bio {
+    display: grid;
+    gap: 1.15em;
     margin: 0;
     max-width: 58ch;
     font-size: 1.1875rem;
@@ -2838,6 +2840,10 @@ a.series-chapters__card:hover .series-chapters__title,
     line-height: 1.65;
     color: var(--text);
     text-wrap: pretty;
+}
+
+.kit-bio p {
+    margin: 0;
 }
 
 .job-scope__heading {
@@ -2966,6 +2972,11 @@ a.series-chapters__card:hover .series-chapters__title,
     border-top: 1px solid var(--border);
     display: grid;
     gap: 0.55rem;
+}
+
+.kit-highlights--flush {
+    padding-top: 0;
+    border-top: 0;
 }
 
 .kit-highlights__item {

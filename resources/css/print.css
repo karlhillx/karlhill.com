@@ -505,11 +505,17 @@
     }
 
     body:has(.kit-doc) .kit-bio {
+        display: grid !important;
+        gap: 0.1in !important;
         margin: 0 0 0.14in !important;
         font-size: 10pt !important;
         line-height: 1.4 !important;
         color: #111 !important;
         max-width: none !important;
+    }
+
+    body:has(.kit-doc) .kit-bio p {
+        margin: 0 !important;
     }
 
     body:has(.kit-doc) .job-scope {
