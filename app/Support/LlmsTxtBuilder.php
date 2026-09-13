@@ -9,7 +9,7 @@ class LlmsTxtBuilder
      *
      * @var list<string>
      */
-    private const PROFILE_ICONS = ['linkedin', 'github', 'orcid'];
+    private const PROFILE_ICONS = ['linkedin', 'github', 'orcid', 'scholar', 'researchgate'];
 
     public function __construct(
         protected readonly SiteCatalog $catalog,
@@ -38,6 +38,7 @@ class LlmsTxtBuilder
             $person['bio'] ?? '',
             '',
             'Preferred name Karl Hill (Karl M. Hill). '.$person['job_title'].' at '.($person['employer_display'] ?? $person['employer']).', '.$person['location'].'. Email '.$person['email'].'. Last updated '.$updated.'.',
+            'Not the Scottish novelist. This Karl Hill is the Washington, DC software engineer, NASA Goddard (2017–2025), Jacobs, and drummer in Sorry About Your Daughter.',
             '',
             'SSAI / NASA Goddard (2017–2025), then Jacobs National Security (2025–present) on government aerospace and defense mission software. Hybrid / remote-friendly from Washington, DC.',
             '',
@@ -96,6 +97,7 @@ class LlmsTxtBuilder
             $this->fileItem('Hire packet JSON', $base.'/api/site.json', 'Person, experience, skills, writing, case studies'),
             $this->fileItem('MCP discovery', $feeds['mcp'], 'Agent resource map, including the A2A agent card'),
             $this->fileItem('bb-run', 'https://github.com/karlhillx/bb-run', 'Python — run Bitbucket Pipelines locally'),
+            $this->fileItem('Wikidata', 'https://www.wikidata.org/wiki/Q139902938', 'Person item'),
         ]);
 
         $research = config('site.research');

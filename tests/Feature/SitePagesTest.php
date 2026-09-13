@@ -23,7 +23,10 @@ it('about page renders leadership, career, selected impact, and research', funct
     $response = $this->get('/about');
 
     $response->assertStatus(200);
-    $response->assertSee('About Karl', escape: false);
+    $response->assertSee('About Karl Hill', escape: false);
+    $response->assertSee('id="identity"', escape: false);
+    $response->assertSee('Karl Hill (Karl M. Hill) is a software engineer in Washington, DC', escape: false);
+    $response->assertSee('A different person from the Scottish novelist', escape: false);
     $response->assertSee('From NASA systems at operational scale to Staff-level leadership', escape: false);
     $response->assertSee('id="how-i-lead"', escape: false);
     $response->assertSee('How I lead', escape: false);
@@ -305,6 +308,7 @@ it('now page renders focus and em intent', function () {
 it('about and resume pages include contact and live cv', function () {
     $about = $this->get('/about');
     $about->assertStatus(200);
+    $about->assertSee('<title>Karl Hill — Software Engineer in Washington, DC</title>', escape: false);
     $about->assertSee('"@type": "Person"', escape: false);
     $about->assertSee('"@type": "ProfilePage"', escape: false);
     $about->assertSee('"headline":', escape: false);

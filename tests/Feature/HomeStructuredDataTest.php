@@ -16,9 +16,15 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($person['@id'])->toEndWith('/#person')
         ->and($person['description'])->toContain('Engineering Manager')
         ->and($person['disambiguatingDescription'])->toContain('Sorry About Your Daughter')
+        ->and($person['disambiguatingDescription'])->toContain('not the Scottish novelist')
         ->and($person['sameAs'])->toContain('https://www.linkedin.com/in/khill')
         ->and($person['sameAs'])->toContain('https://www.discogs.com/artist/1286669-Karl-Hill')
-        ->and($person['sameAs'])->toContain('https://en.wikipedia.org/wiki/Karl_Hill_(musician)')
+        ->and($person['sameAs'])->toContain('https://orcid.org/0009-0002-6847-3368')
+        ->and($person['sameAs'])->toContain('https://www.wikidata.org/wiki/Q139902938')
+        ->and($person['sameAs'])->not->toContain('https://en.wikipedia.org/wiki/Karl_Hill_(musician)')
+        ->and($person['identifier'][0]['propertyID'])->toBe('ORCID')
+        ->and($person['identifier'][0]['value'])->toBe('0009-0002-6847-3368')
+        ->and($person['memberOf'][0]['name'])->toBe('Sorry About Your Daughter')
         ->and($person['alumniOf'])->toBeArray()
         ->and($person['knowsAbout'])->toContain('DevSecOps')
         ->and($person['knowsAbout'])->toContain('Engineering Manager')
@@ -43,9 +49,11 @@ it('homepage html includes preferred-name title and json-ld', function () {
 
     $response->assertOk();
     $response->assertSee('<title>Karl Hill — Staff Aerospace Software Engineer · Jacobs</title>', escape: false);
-    $response->assertSee('Python mission software at Jacobs. Technical delivery', escape: false);
+    $response->assertSee('Karl Hill is a Staff Aerospace Software Engineer at Jacobs', escape: false);
     $response->assertSee('"@type": "WebSite"', escape: false);
     $response->assertSee('"@type": "Person"', escape: false);
     $response->assertSee('"@type": "ProfilePage"', escape: false);
     $response->assertSee('NASA Goddard Space Flight Center', escape: false);
+    $response->assertSee('Washington, DC', escape: false);
+    $response->assertSee('"propertyID": "ORCID"', escape: false);
 });

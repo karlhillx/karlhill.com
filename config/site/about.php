@@ -2,6 +2,11 @@
 
 return [
     'lede' => 'From NASA systems at operational scale to Staff-level leadership in national security software—building software, developing engineers, and leading delivery across teams.',
+    // Crawlable identity for the name collision with the Scottish novelist.
+    'identity' => [
+        'lede' => 'Karl Hill (Karl M. Hill) is a software engineer in Washington, DC — Staff Aerospace Software Engineer at Jacobs, previously Lead Software Engineer supporting NASA Goddard Earth science (2017–2025). Research co-author on global flood mapping. Drummer in Sorry About Your Daughter.',
+        'not' => 'A different person from the Scottish novelist who writes thrillers under the same name.',
+    ],
     'how_i_lead' => [
         'title' => 'How I lead',
         'intro' => 'How I lead engineering work, develop engineers, and keep delivery moving across teams.',

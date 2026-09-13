@@ -19,6 +19,8 @@ return [
     'employer_display' => 'Jacobs National Security',
     'twitter_handle' => '@karl_hill',
     'bio' => 'Staff Aerospace Software Engineer at Jacobs. Python mission software, shared interfaces, messaging, and CI/CD across about 20 repositories. Technical delivery and mentoring for a team of about 10. Lead Software Engineer at SSAI supporting NASA Goddard Earth science platforms, 2017–2025, including flood mapping, LAADS DAAC, and Earth Observatory.',
-    // Schema.org Thing.disambiguatingDescription — short line so Google separates this Person from the novelist / musician.
-    'disambiguating_description' => 'Washington, DC software engineer, research co-author, and drummer in Sorry About Your Daughter.',
+    // Schema.org Thing.disambiguatingDescription — unique facts so Google
+    // separates this Person from the Scottish novelist (pen name) and the
+    // 19th-century German baritone who owns the primary Wikipedia article.
+    'disambiguating_description' => 'Washington, DC software engineer at Jacobs, NASA Goddard Earth science 2017–2025, research co-author, and drummer in Sorry About Your Daughter — not the Scottish novelist.',
 ];

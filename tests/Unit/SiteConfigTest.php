@@ -7,7 +7,10 @@ it('same as is derived from schema-eligible social urls', function () {
 
     expect($sameAs)->toContain('https://www.linkedin.com/in/khill')
         ->and($sameAs)->toContain('https://www.discogs.com/artist/1286669-Karl-Hill')
-        ->and($sameAs)->toContain('https://en.wikipedia.org/wiki/Karl_Hill_(musician)')
+        ->and($sameAs)->toContain('https://orcid.org/0009-0002-6847-3368')
+        ->and($sameAs)->toContain('https://scholar.google.com/citations?user=ykw3hstDPLcC')
+        ->and($sameAs)->toContain('https://www.wikidata.org/wiki/Q139902938')
+        ->and($sameAs)->not->toContain('https://en.wikipedia.org/wiki/Karl_Hill_(musician)')
         ->and($sameAs->implode(' '))->not->toContain('superFilter=')
         ->and(collect(config('site.social'))->pluck('url')->implode(' '))->toContain('discogs.com');
 });

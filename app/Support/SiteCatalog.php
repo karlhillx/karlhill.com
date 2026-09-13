@@ -39,6 +39,7 @@ final class SiteCatalog
         return [
             'name' => $person['name'],
             'given_name' => $person['given_name'] ?? null,
+            'additional_name' => $person['additional_name'] ?? null,
             'family_name' => $person['family_name'] ?? null,
             'job_title' => $person['job_title'],
             'employer' => $person['employer'],
@@ -49,6 +50,7 @@ final class SiteCatalog
             'headline' => $person['linkedin_headline'] ?? $person['tagline'] ?? null,
             'linkedin_headline' => $person['linkedin_headline'] ?? null,
             'bio' => $person['bio'] ?? null,
+            'disambiguating_description' => $person['disambiguating_description'] ?? null,
             'availability' => $person['availability'] ?? null,
             'availability_long' => $person['availability_long'] ?? null,
             'trajectory' => $person['trajectory'] ?? null,

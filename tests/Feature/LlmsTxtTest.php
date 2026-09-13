@@ -38,9 +38,11 @@ it('llms txt returns a v2 file-list map', function () {
     $this->assertStringContainsString('/blog/release-governance', $body);
     $this->assertStringContainsString('What 20 Years Taught Me About Release Governance', $body);
     $this->assertStringContainsString('Preferred name Karl Hill', $body);
+    $this->assertStringContainsString('Not the Scottish novelist', $body);
     $this->assertStringContainsString('https://karlhill.com/llms-full.txt', $body);
     $this->assertStringContainsString('https://karlhill.com/api/site.json', $body);
     $this->assertStringContainsString('https://karlhill.com/.well-known/mcp.json', $body);
+    $this->assertStringContainsString('https://www.wikidata.org/wiki/Q139902938', $body);
 
     $this->assertStringNotContainsString('## Citation', $body);
     $this->assertStringNotContainsString('## For recruiters', $body);
@@ -79,7 +81,7 @@ it('every h2 section is a markdown file list with unique urls', function () {
     expect($urls)->not->toBeEmpty()
         ->and($urls)->toHaveCount(count($unique))
         ->and(count($unique))->toBeGreaterThanOrEqual(25)
-        ->and(count($unique))->toBeLessThanOrEqual(35);
+        ->and(count($unique))->toBeLessThanOrEqual(38);
 
     $withoutUrls = preg_replace('~https?://\S+~', '', $body) ?? $body;
     $words = str_word_count($withoutUrls);
@@ -94,6 +96,8 @@ it('llms txt builder lists professional profiles and resume once', function () {
 
     $this->assertStringContainsString('[LinkedIn](https://www.linkedin.com/in/khill/)', $body);
     $this->assertStringContainsString('[GitHub](https://github.com/karlhillx)', $body);
+    $this->assertStringContainsString('[Google Scholar](https://scholar.google.com/citations?user=ykw3hstDPLcC)', $body);
+    $this->assertStringContainsString('[ResearchGate](https://www.researchgate.net/profile/Karl-Hill-2)', $body);
     $this->assertStringContainsString('[bb-run](https://github.com/karlhillx/bb-run)', $body);
     $this->assertSame(1, substr_count($body, '/resume'));
     $this->assertSame(1, substr_count($body, '/kit'));

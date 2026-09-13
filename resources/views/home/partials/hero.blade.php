@@ -35,6 +35,8 @@
                     <span>{{ $person['job_title'] }}</span>
                     <span class="hero-kicker__sep" aria-hidden="true">·</span>
                     <span>{{ $person['employer_display'] ?? $person['employer'] }}</span>
+                    <span class="hero-kicker__sep" aria-hidden="true">·</span>
+                    <span>{{ $person['location'] }}</span>
                 </p>
             </div>
             <h1 class="hero-title font-display tracking-wide text-white hero-enter" style="animation-delay:160ms">

@@ -32,8 +32,9 @@ $sameAs = array_values(array_unique(array_map(
     ))
 )));
 
-// Wikipedia lists this Karl as the musician (dab → Karl Hill (musician) → GI).
-$sameAs[] = 'https://en.wikipedia.org/wiki/Karl_Hill_(musician)';
+// Person item for this Karl Hill. Do not sameAs enwiki "Karl Hill (musician)":
+// that title redirects to Government Issue, a different entity.
+$sameAs[] = 'https://www.wikidata.org/wiki/Q139902938';
 $sameAs = array_values(array_unique($sameAs));
 
 // Analytics: Plausible is the default primary. GA4 only when explicitly enabled

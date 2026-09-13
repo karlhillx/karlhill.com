@@ -4,8 +4,8 @@ return [
     'home' => [
         // Keep under ~55–60 chars so Jacobs survives Google’s title truncation.
         'title' => 'Karl Hill — Staff Aerospace Software Engineer · Jacobs',
-        'description' => 'Python mission software at Jacobs. Technical delivery for a team of about 10. NASA Goddard Earth science, 2017–2025.',
-        'og_description' => 'Jacobs mission software and public NASA Earth science systems: flood maps, LAADS Find Data, and Earth Observatory.',
+        'description' => 'Karl Hill is a Staff Aerospace Software Engineer at Jacobs in Washington, DC. Python mission software. NASA Goddard Earth science, 2017–2025.',
+        'og_description' => 'Karl Hill: Jacobs mission software and public NASA Earth science systems — flood maps, LAADS Find Data, and Earth Observatory.',
     ],
     'blog_index' => [
         'title' => 'Writing — Karl Hill',
@@ -18,9 +18,9 @@ return [
         'og_description' => 'Public NASA systems, flood maps, LAADS Find Data, Earth Observatory, and current aerospace work at Jacobs.',
     ],
     'about' => [
-        'title' => 'About — Karl Hill · Engineer & Drummer',
-        'description' => 'Software engineer and drummer in Washington, DC. Mission software at Jacobs, NASA Earth science, and Sorry About Your Daughter.',
-        'og_description' => 'Software engineering, technical leadership, NASA Earth science, and life as a drummer in Sorry About Your Daughter.',
+        'title' => 'Karl Hill — Software Engineer in Washington, DC',
+        'description' => 'Karl Hill (Karl M. Hill) is a software engineer at Jacobs in Washington, DC. NASA Goddard Earth science, 2017–2025, and drummer in Sorry About Your Daughter.',
+        'og_description' => 'Karl Hill: software engineer at Jacobs, NASA Earth science at Goddard, and drummer in Sorry About Your Daughter. Washington, DC.',
     ],
     'now' => [
         'title' => 'Now — Karl Hill',

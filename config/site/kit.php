@@ -72,7 +72,7 @@ return [
             'group' => 'more',
         ],
         [
-            'label' => 'About Karl',
+            'label' => 'About Karl Hill',
             'path' => '/about',
             'meta' => '/about',
             'group' => 'more',

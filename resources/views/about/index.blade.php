@@ -8,15 +8,25 @@
     @php
         $bookingUrl = config('site.booking.url');
         $bookingLabel = config('site.booking.label');
+        $identity = config('site.about.identity', []);
     @endphp
 
     <x-site.page-hero :breadcrumbs="[
         ['label' => 'Home', 'url' => '/'],
         ['label' => 'About'],
     ]">
-        <x-slot:title>About Karl</x-slot:title>
+        <x-slot:title>About Karl Hill</x-slot:title>
 
-        <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+        @if(! empty($identity['lede']))
+            <p id="identity" class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+                {{ $identity['lede'] }}
+                @if(! empty($identity['not']))
+                    {{ $identity['not'] }}
+                @endif
+            </p>
+        @endif
+
+        <p class="text-neutral-400 text-base sm:text-lg leading-relaxed max-w-2xl {{ ! empty($identity['lede']) ? 'mt-4' : '' }}">
             {{ config('site.about.lede') }}
         </p>
 
@@ -35,6 +45,7 @@
 
         <nav class="about-jump mt-8 sm:mt-10" aria-label="On this page">
             <ul class="flex flex-wrap gap-x-5 gap-y-2 font-mono text-caption uppercase tracking-widest text-neutral-500">
+                <li><a href="#identity" class="hover:text-accent transition-colors">This Karl Hill</a></li>
                 <li><a href="#how-i-lead" class="hover:text-accent transition-colors">Leadership</a></li>
                 <li><a href="#experience" class="hover:text-accent transition-colors">Career</a></li>
                 <li><a href="#impact" class="hover:text-accent transition-colors">Selected impact</a></li>

@@ -77,11 +77,15 @@ final class PersonJsonLd
             'alumniOf' => self::alumniOf(),
             'hasCredential' => self::credentials(),
             'knowsAbout' => self::knowsAbout(),
+            'identifier' => self::identifiers(),
+            'memberOf' => self::memberOf(),
             'subjectOf' => [
                 self::scholarlyArticle($url, $personId),
             ],
             'sameAs' => config('site.same_as'),
         ];
+
+        $node = array_filter($node, fn ($value): bool => $value !== [] && $value !== null);
 
         if ($disambiguating !== null && $disambiguating !== '') {
             $node['disambiguatingDescription'] = $disambiguating;
@@ -165,6 +169,48 @@ final class PersonJsonLd
             'isPartOf' => [
                 '@type' => 'Periodical',
                 'name' => $research['publication'],
+            ],
+        ];
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    protected static function identifiers(): array
+    {
+        $orcid = collect(config('site.social', []))
+            ->first(fn ($link): bool => is_array($link) && ($link['icon'] ?? '') === 'orcid');
+
+        if (! is_array($orcid) || empty($orcid['url'])) {
+            return [];
+        }
+
+        $url = rtrim((string) $orcid['url'], '/');
+        preg_match('/\d{4}-\d{4}-\d{4}-\d{3}[\dX]/', $url, $matches);
+
+        $identifier = [
+            '@type' => 'PropertyValue',
+            'propertyID' => 'ORCID',
+            'url' => $url,
+        ];
+
+        if (! empty($matches[0])) {
+            $identifier['value'] = $matches[0];
+        }
+
+        return [$identifier];
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    protected static function memberOf(): array
+    {
+        return [
+            [
+                '@type' => 'MusicGroup',
+                'name' => 'Sorry About Your Daughter',
+                'sameAs' => 'https://www.wikidata.org/wiki/Q30674084',
             ],
         ];
     }
