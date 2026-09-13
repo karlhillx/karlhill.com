@@ -69,15 +69,9 @@ final class SiteCatalog
         return [
             'url' => $this->baseUrl().'/now',
             'updated' => $now['updated'] ?? null,
-            'focus' => collect($now['focus'] ?? [])
-                ->filter(fn ($item): bool => is_array($item))
-                ->map(fn (array $item): array => [
-                    'title' => $item['title'] ?? '',
-                    'body' => $item['body'] ?? '',
-                    'link' => $item['link'] ?? null,
-                ])
-                ->values()
-                ->all(),
+            'lede' => is_string($now['lede'] ?? null) ? $now['lede'] : null,
+            'body' => is_string($now['body'] ?? null) ? $now['body'] : null,
+            'focus' => is_string($now['focus'] ?? null) ? $now['focus'] : null,
         ];
     }
 
