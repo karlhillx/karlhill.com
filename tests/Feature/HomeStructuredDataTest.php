@@ -18,6 +18,7 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($person['description'])->toContain('Staff Aerospace Software Engineer')
         ->and($person['description'])->not->toContain('Engineering Manager')
         ->and($person['disambiguatingDescription'])->toContain('Sorry About Your Daughter')
+        ->and($person['disambiguatingDescription'])->toContain('Government Issue')
         ->and($person['disambiguatingDescription'])->toContain('not the Scottish novelist')
         ->and($person['sameAs'])->toContain('https://www.linkedin.com/in/khill')
         ->and($person['sameAs'])->toContain('https://www.discogs.com/artist/1286669-Karl-Hill')
@@ -33,8 +34,14 @@ it('homepage structured data describes the person website and blog graph', funct
         ])
         ->and(collect($person['memberOf'])->pluck('sameAs')->all())->toBe([
             'https://www.wikidata.org/wiki/Q30674084',
-            'https://www.wikidata.org/wiki/Q1476234',
-            'https://www.wikidata.org/wiki/Q23138529',
+            [
+                'https://www.wikidata.org/wiki/Q1476234',
+                'https://en.wikipedia.org/wiki/Government_Issue',
+            ],
+            [
+                'https://www.wikidata.org/wiki/Q23138529',
+                'https://en.wikipedia.org/wiki/The_Factory_Incident',
+            ],
         ])
         ->and($person['alumniOf'])->toBeArray()
         ->and($person['knowsAbout'])->toContain('DevSecOps')

@@ -22,8 +22,9 @@ return [
     // Schema.org Thing.disambiguatingDescription — unique facts so Google
     // separates this Person from the Scottish novelist (pen name) and the
     // 19th-century German baritone who owns the primary Wikipedia article.
-    'disambiguating_description' => 'Washington, DC software engineer at Jacobs, NASA Goddard Earth science 2017–2025, research co-author, and drummer in Sorry About Your Daughter — not the Scottish novelist.',
-    // MusicGroup memberOf — band entities only. Do not sameAs the Person to a band page.
+    'disambiguating_description' => 'Washington, DC software engineer at Jacobs, NASA Goddard Earth science 2017–2025, research co-author, drummer in Sorry About Your Daughter and Government Issue — not the Scottish novelist.',
+    // MusicGroup memberOf. Band Wikipedia/Wikidata belongs on the group, not Person.sameAs.
+    // enwiki "Karl Hill (musician)" redirects to Government Issue — that URL is the band.
     'bands' => [
         [
             'name' => 'Sorry About Your Daughter',
@@ -31,11 +32,17 @@ return [
         ],
         [
             'name' => 'Government Issue',
-            'same_as' => 'https://www.wikidata.org/wiki/Q1476234',
+            'same_as' => [
+                'https://www.wikidata.org/wiki/Q1476234',
+                'https://en.wikipedia.org/wiki/Government_Issue',
+            ],
         ],
         [
             'name' => 'The Factory Incident',
-            'same_as' => 'https://www.wikidata.org/wiki/Q23138529',
+            'same_as' => [
+                'https://www.wikidata.org/wiki/Q23138529',
+                'https://en.wikipedia.org/wiki/The_Factory_Incident',
+            ],
         ],
     ],
 ];

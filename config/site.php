@@ -34,7 +34,8 @@ $sameAs = array_values(array_unique(array_map(
 )));
 
 // Person item for this Karl Hill. Do not sameAs enwiki "Karl Hill (musician)":
-// that title redirects to Government Issue, a different entity.
+// that title redirects to the Government Issue article (the band). Membership
+// is Person.memberOf → that MusicGroup, which sameAs the band's own page.
 $sameAs[] = 'https://www.wikidata.org/wiki/Q139902938';
 $sameAs = array_values(array_unique($sameAs));
 

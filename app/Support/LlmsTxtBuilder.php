@@ -29,7 +29,7 @@ class LlmsTxtBuilder
             '> '.($seo['og_description'] ?? $seo['description']),
             '',
             'Preferred name Karl Hill (Karl M. Hill). '.$person['job_title'].' at '.($person['employer_display'] ?? $person['employer']).', '.$person['location'].'. Email '.$person['email'].'. Last updated '.$updated.'.',
-            'Not the Scottish novelist. This Karl Hill is the Washington, DC software engineer, NASA Goddard (2017–2025), Jacobs, and drummer in Sorry About Your Daughter.',
+            'Not the Scottish novelist. This Karl Hill is the Washington, DC software engineer, NASA Goddard (2017–2025), Jacobs, and drummer in Sorry About Your Daughter and Government Issue.',
             '',
             $person['bio'] ?? '',
             '',
