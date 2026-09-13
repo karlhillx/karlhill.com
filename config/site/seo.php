@@ -2,10 +2,11 @@
 
 return [
     'home' => [
-        // Keep under ~55–60 chars so Jacobs survives Google’s title truncation.
-        'title' => 'Karl Hill — Staff Aerospace Software Engineer · Jacobs',
-        'description' => 'Karl Hill is a Staff Aerospace Software Engineer at Jacobs in Washington, DC. Python mission software. NASA Goddard Earth science, 2017–2025.',
-        'og_description' => 'Karl Hill: Jacobs mission software and public NASA Earth science systems — flood maps, LAADS Find Data, and Earth Observatory.',
+        // ~55 chars: name + role + both employers Google associates with this entity.
+        'title' => 'Karl Hill — Staff Aerospace Software · Jacobs · NASA',
+        // ~155 chars: full name first, current role, then Goddard tenure for disambiguation.
+        'description' => 'Karl Hill is a Staff Aerospace Software Engineer at Jacobs in Washington, DC. Previously Lead Software Engineer, NASA Goddard Earth science (2017–2025).',
+        'og_description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs. Mission software and public NASA Earth science systems — flood maps, LAADS, Earth Observatory.',
     ],
     'blog_index' => [
         'title' => 'Writing — Karl Hill',
