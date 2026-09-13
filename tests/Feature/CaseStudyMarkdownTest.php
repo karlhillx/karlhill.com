@@ -23,7 +23,7 @@ it('loads case studies from markdown front matter', function () {
 
     $jacobs = $this->get('/work/jacobs-mission-software');
     $jacobs->assertOk()
-        ->assertSee('Aerospace mission software', escape: false)
+        ->assertSee('Engineering mission software at scale', escape: false)
         ->assertSee('Program-specific architecture and operational details are not included here', escape: false)
         ->assertDontSee('Visit live project', escape: false);
 });
@@ -56,19 +56,19 @@ it('parses substantive markdown body and generates html and toc', function () {
     $jacobs = $repo->find('jacobs-mission-software');
     expect($jacobs)->toBeArray()
         ->and($jacobs['body_html'] ?? null)->toBeString()
-        ->and($jacobs['body_html'])->toContain('Hands-on engineering')
-        ->and($jacobs['body_html'])->toContain('Developing engineers')
-        ->and($jacobs['body_html'])->toContain('Technical delivery')
+        ->and($jacobs['body_html'])->toContain('Standardized the software delivery system')
+        ->and($jacobs['body_html'])->toContain('Made messaging infrastructure portable')
+        ->and($jacobs['body_html'])->toContain('Built team capability alongside the software')
         ->and($jacobs['body_html'])->not->toContain('Representative delivery lifecycle')
         ->and($jacobs['body_html'])->not->toContain('Kubernetes Mission Mesh')
         ->and($jacobs['body_html'])->not->toContain('<pre><code>');
 
     $jacobsResponse = $this->get('/work/jacobs-mission-software');
     $jacobsResponse->assertOk()
-        ->assertSee('Hands-on engineering', escape: false)
-        ->assertSee('Developing engineers', escape: false)
+        ->assertSee('Standardized the software delivery system', escape: false)
+        ->assertSee('Made messaging infrastructure portable', escape: false)
         ->assertSee('id="platform"', escape: false)
-        ->assertSee('Shared contracts', escape: false)
+        ->assertSee('Delivery gates', escape: false)
         ->assertSee('not a program architecture', escape: false)
         ->assertSee('Program-specific architecture and operational details are not included here', escape: false)
         ->assertSee('Hands-on technical leadership', escape: false)

@@ -28,7 +28,7 @@ return [
     ],
     'evidence' => [
         [
-            'label' => 'Current aerospace mission software and engineering systems',
+            'label' => 'Engineering mission software at scale',
             'path' => '/work/jacobs-mission-software',
         ],
         [
@@ -88,7 +88,7 @@ return [
             'group' => 'primary',
         ],
         [
-            'label' => 'Aerospace mission software',
+            'label' => 'Engineering mission software at scale',
             'path' => '/work/jacobs-mission-software',
             'meta' => 'Current',
             'group' => 'primary',

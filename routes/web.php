@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\NowController;
+use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\PushController;
 use App\Http\Controllers\ReportingController;
 use App\Http\Controllers\ResumeController;
@@ -60,6 +61,7 @@ Route::middleware('cache.headers:public;max_age=300;etag')->group(function (): v
     Route::get('/delivery', DeliveryController::class)->name('delivery');
     Route::get('/lead', LeadController::class)->name('lead');
     Route::get('/now', NowController::class)->name('now');
+    Route::get('/privacy', PrivacyController::class)->name('privacy');
     Route::get('/resume', ResumeController::class)->name('resume');
     Route::get('/kit', KitController::class)->name('kit');
 

@@ -17,6 +17,7 @@ use App\Support\Booking;
  * - /about   who I am: leadership, delivery, career, numbers, research (secondary)
  * - /delivery written bar for reviews, integration, and release
  * - /resume  HTML CV evidence (secondary; PDF from kit)
+ * - /privacy contact, booking, analytics (footer credit strip)
  * - /lead    301 → /delivery (legacy)
  * - footer   home = contact form; other pages = Book + email
  */
@@ -98,6 +99,7 @@ return [
     'footer' => require __DIR__.'/site/footer.php',
     'about' => require __DIR__.'/site/about.php',
     'now' => require __DIR__.'/site/now.php',
+    'privacy' => require __DIR__.'/site/privacy.php',
     'kit' => require __DIR__.'/site/kit.php',
     'lead' => require __DIR__.'/site/lead.php',
     'system' => require __DIR__.'/site/system.php',

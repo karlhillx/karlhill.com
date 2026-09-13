@@ -54,6 +54,11 @@ final class PageMeta
         return self::fromSeo('now', '/now', 'now');
     }
 
+    public static function privacy(): self
+    {
+        return self::fromSeo('privacy', '/privacy', null);
+    }
+
     public static function resume(): self
     {
         return self::fromSeo('resume', '/resume', 'resume');

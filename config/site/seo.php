@@ -28,6 +28,11 @@ return [
         'description' => 'Building mission software and the engineering systems around it at Jacobs. Python services, messaging, CI/CD, and technical delivery across teams.',
         'og_description' => 'Current work at Jacobs: mission software, architecture ownership, and more reliable delivery. Updated September 2026.',
     ],
+    'privacy' => [
+        'title' => 'Privacy — Karl Hill',
+        'description' => 'How karlhill.com handles contact messages, booking, and analytics. No ads, no account system, no selling of visitor data.',
+        'og_description' => 'Contact, booking, and analytics on karlhill.com — concise and specific.',
+    ],
     'resume' => [
         'title' => 'Resume — Karl Hill · Software Engineering & Leadership',
         'description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs, with experience in NASA Earth science, Python, technical leadership, and software delivery.',

@@ -55,6 +55,7 @@ class LlmsTxtBuilder
             $this->fileItem('About', $base.'/about', 'Technical leadership, delivery, career, research'),
             $this->fileItem('Engineering delivery', $base.'/delivery', 'Definition of Done, PR rubric, integration risk, coaching'),
             $this->fileItem('Resume', $base.'/resume', 'Canonical HTML curriculum vitae'),
+            $this->fileItem('Privacy', $base.'/privacy', 'Contact, booking, and analytics'),
         ];
 
         $seriesLines = $this->seriesSection($base);
@@ -227,7 +228,7 @@ class LlmsTxtBuilder
     protected function caseStudyNote(array $project): string
     {
         return match ($project['slug'] ?? '') {
-            'jacobs-mission-software' => 'Current: Python services, interfaces, CI/CD, delivery. No public demo',
+            'jacobs-mission-software' => 'Current: delivery standards, portable messaging, stronger tests, coaching. No public demo',
             'flood-mapping-system' => 'Live map: satellite-derived flood products',
             'laads-daac' => 'Live Find Data search for NASA satellite data',
             'nasa-earth-observatory' => 'Live Earth Observatory. About 1.5 million monthly visitors during that work',

@@ -401,6 +401,7 @@ final class SiteCatalog
             ['loc' => $base.'/about', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],
             ['loc' => $base.'/delivery', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.6'],
             ['loc' => $base.'/resume', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],
+            ['loc' => $base.'/privacy', 'lastmod' => $siteUpdated, 'changefreq' => 'yearly', 'priority' => '0.3'],
         ];
 
         foreach ($this->posts() as $post) {

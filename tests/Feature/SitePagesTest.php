@@ -430,12 +430,13 @@ it('service worker and offline page are available', function () {
     $this->assertFileExists(public_path('offline.html'));
     $this->assertStringContainsString("You're offline", (string) file_get_contents(public_path('offline.html')));
     $sw = (string) file_get_contents(public_path('sw.js'));
-    $this->assertStringContainsString('karlhill-offline-v11', $sw);
+    $this->assertStringContainsString('karlhill-offline-v12', $sw);
     // Readable pages are cached on visit, not precached on install.
     $this->assertStringContainsString("const PRECACHE = ['/offline.html', '/site.webmanifest'];", $sw);
     $this->assertStringContainsString("'/now'", $sw);
     $this->assertStringContainsString("'/about'", $sw);
     $this->assertStringContainsString("'/delivery'", $sw);
+    $this->assertStringContainsString("'/privacy'", $sw);
     $this->assertStringContainsString("'/work'", $sw);
     $this->assertStringContainsString("'/resume'", $sw);
     $this->assertStringContainsString("'/kit'", $sw);
@@ -449,6 +450,7 @@ it('footer includes site explore links', function () {
     $response->assertSee('Explore', escape: false);
     $response->assertSee('href="/kit"', escape: false);
     $response->assertSee('href="/blog"', escape: false);
+    $response->assertSee('href="/privacy"', escape: false);
     $response->assertDontSee('How I run delivery', escape: false);
 });
 
@@ -544,8 +546,23 @@ it('sitemap includes now and resume pages', function () {
     $response->assertSee('/resume', escape: false);
     $response->assertSee('/kit', escape: false);
     $response->assertSee('/delivery', escape: false);
+    $response->assertSee('/privacy', escape: false);
     $response->assertDontSee('/lead</loc>', escape: false);
     $response->assertSee('<priority>0.9</priority>', escape: false);
+});
+
+it('privacy page covers contact booking and analytics', function () {
+    $response = $this->get('/privacy');
+
+    $response->assertOk()
+        ->assertSee('Privacy', escape: false)
+        ->assertSee('Messages you send', escape: false)
+        ->assertSee('Scheduling a conversation', escape: false)
+        ->assertSee('How visits are measured', escape: false)
+        ->assertSee(config('site.person.email'), escape: false)
+        ->assertSee('does not sell data, run ads, or keep visitor accounts', escape: false);
+
+    $this->get('/')->assertSee('href="/privacy"', escape: false);
 });
 
 it('recruiter kit one-pager links resume pdf bio and booking', function () {
@@ -669,7 +686,7 @@ it('keeps the hire path free of ambient pointer chrome', function () {
 it('only flags the contact chunk where the form renders', function () {
     $this->get('/')->assertSee('data-contact-form', escape: false);
 
-    foreach (['/now', '/work', '/about', '/resume', '/kit', '/blog'] as $path) {
+    foreach (['/now', '/work', '/about', '/resume', '/kit', '/blog', '/privacy'] as $path) {
         $html = $this->get($path)->assertOk()->getContent();
         expect($html)->not->toContain('data-contact-form')
             ->and($html)->not->toMatch('/data-features="[^"]*\bcontact\b/');

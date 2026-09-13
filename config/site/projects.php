@@ -3,10 +3,10 @@
 return [
     [
         'slug' => 'jacobs-mission-software',
-        'title' => 'Aerospace mission software',
+        'title' => 'Engineering mission software at scale',
         'meta' => 'Jacobs · 2025–present',
         'sector' => 'Aerospace & Defense',
-        'description' => 'Python mission software spanning shared interfaces, distributed messaging, simulation workflows, and CI/CD across roughly 20 repositories. Technical delivery includes integration across teams and environments, engineering standards, release practices, and coaching for a team of about 10.',
+        'description' => 'Technical delivery and hands-on engineering across a simulation program spanning roughly 20 repositories, three environments, and multiple Jacobs and vendor teams — delivery standards, portable messaging, stronger tests, and coaching.',
         'image' => '/img/webp/ss-jacobs-ns.webp',
         'image_alt' => 'Jacobs logo',
         'imagePosition' => 'object-center',

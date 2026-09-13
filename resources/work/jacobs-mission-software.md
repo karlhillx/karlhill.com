@@ -1,24 +1,25 @@
 ---
-updated: '2026-09-10'
-lede: Python services, shared interfaces, messaging, and CI/CD across roughly 20 repositories. Technical delivery and mentoring on a team of about 10.
+updated: '2026-09-12'
+lede: Technical delivery and hands-on software engineering across a simulation program spanning roughly 20 repositories, three operating environments, and multiple teams across Jacobs and vendors.
 role: Staff Aerospace Software Engineer — software development, technical delivery, and coaching.
 leadership:
   mode: Hands-on technical leadership
-  team: About 10 engineers, working with program stakeholders and partner teams
-  unblocked: Onboarding, technical feedback, and clearer development practices
-  decision: Make integration dependencies and readiness visible when planning the work.
+  team: About 10 engineers, working with program stakeholders, partner teams, and vendors
+  unblocked: Onboarding, technical feedback, and shared delivery practices
+  decision: Surface integration dependencies and readiness while the work is still being planned.
 problem:
 - Independently developed services need compatible interfaces and repeatable integration.
-- Work spans roughly 20 repositories and multiple deployment environments.
-- Engineers need clear priorities, development practices, and support as their responsibilities grow.
+- Delivery conventions varied by repository, which made reviews, testing, and releases harder to trust.
+- Work spans roughly 20 repositories, three operating environments, and multiple Jacobs and vendor teams.
 decisions:
-- Build Python application and integration code alongside shared developer tooling.
-- Put tests, review, and quality checks on the change instead of treating them as a late-stage ritual.
-- Coordinate engineering work with program priorities and cross-team dependencies.
+- Standardize CI/CD, review, testing, type-checking, security, and release practices across the program.
+- Separate application messaging from the broker behind a shared adapter layer.
+- Treat weak tests and cross-team integration risk as engineering problems, not process afterthoughts.
 outcome:
-- Shared interfaces, tooling, and development practices for a multi-repository software effort.
-- Approximately six engineers onboarded and coached through reviews and technical feedback.
-- Ongoing technical coordination for integration and release readiness.
+- Common engineering gates replaced inconsistent project-level conventions across the program’s repositories.
+- Shared asynchronous messaging lets broker choice stay in configuration instead of application rewrites.
+- Stronger automated-test standards and earlier cross-team coordination when delivery is at risk.
+- Six engineers onboarded and coached while reinforcing shared development practices.
 metrics:
 - value: ~10
   label: Engineers on the team
@@ -27,46 +28,44 @@ metrics:
 platform:
   caption: A high-level view of the engineering system, not a program architecture.
   stages:
-  - step: 01 · Interfaces
-    title: Shared contracts
-    body: Independently developed services need compatible interfaces so the work can integrate.
-    stack: Python · APIs
-  - step: 02 · Checks
-    title: Tests and review
-    body: Automated tests, review, and quality checks run with the change.
+  - step: 01 · Standards
+    title: Delivery gates
+    body: Common CI/CD, review, testing, type-checking, security, and release practices across repositories.
+    stack: CI/CD · Review
+  - step: 02 · Messaging
+    title: Portable adapters
+    body: Shared async messaging separates application code from the underlying broker.
+    stack: Messaging · Config
+  - step: 03 · Tests
+    title: Meaningful coverage
+    body: Isolation, failure conditions, and changed-code standards raise confidence in automated tests.
     stack: pytest · CI
-  - step: 03 · Integrate
-    title: Messaging and packaging
-    body: Interface, messaging, and dependency changes are treated as integration work.
-    stack: Messaging · Packaging
-  - step: 04 · Release
-    title: Release readiness
-    body: A version moves forward when tests, reviews, and documented assumptions are in place.
-    stack: CI/CD · Release
+  - step: 04 · Integrate
+    title: Cross-team delivery
+    body: Integration problems become actionable work across team and vendor boundaries.
+    stack: Tickets · Dependencies
 ---
 
-Aerospace mission software at Jacobs, across roughly 20 repositories and multiple environments. The work is application code and the engineering system around it: shared interfaces, tests, CI, packaging, and release readiness.
+Technical delivery and hands-on software engineering across a simulation program spanning roughly 20 repositories, three operating environments, and multiple teams across Jacobs and vendors.
 
-## Hands-on engineering
+## Standardized the software delivery system
 
-Python services, shared interfaces, messaging integration, and service orchestration sit alongside CI/CD, automated tests, security checks, repository standards, dependency management, and release automation.
+Established common CI/CD, review, testing, type-checking, security, and release practices across the program’s repositories, replacing inconsistent project-level conventions with repeatable engineering gates.
 
-An interface change can affect several services. A dependency or packaging change can affect how another team builds and runs the software. Those effects are part of the implementation, not a later surprise.
+## Made messaging infrastructure portable
 
-Messaging work includes common client interfaces and adapters so services are not tightly coupled to a single broker. RabbitMQ and ActiveMQ are both in scope for that abstraction.
+Architected a shared asynchronous messaging layer used by multiple services. Its adapter model separates application code from the underlying broker, allowing message queue deployments to be selected through configuration rather than application rewrites.
 
-Quality work lives next to the code: pytest for behavior, formatting and linting, type checking, and security and dependency checks in CI. The aim is evidence on the change.
+## Raised confidence in automated testing
 
-## Technical delivery
+Identified tests that reported coverage without meaningfully exercising behavior and drove stronger standards around isolation, failure conditions, coverage of changed code, and test organization.
 
-Agile planning and execution, sequencing, and dependency coordination with program stakeholders and partner teams. Program leadership sets the broader priorities. The job is to turn them into scoped work and make technical risks visible while the software is still being written.
+## Reduced cross-team delivery friction
 
-Integration and release readiness are part of that work. A version moves forward when tests, reviews, and documented assumptions are in place.
+Work spans both team and vendor delivery processes: translating integration problems into actionable work, creating and implementing tickets across team boundaries, coordinating dependencies, and bringing engineers together early when technical issues threaten delivery.
 
-## Developing engineers
+## Built team capability alongside the software
 
-About six engineers onboarded and coached through code reviews, technical feedback, and development guidance. For junior engineers, that includes more structured growth plans and the reasoning behind the practices.
-
-The goal is independent work and sound decisions, not a checklist.
+Onboarded and coached six engineers while reinforcing shared development, review, testing, and delivery practices across the program.
 
 Program-specific architecture and operational details are not included here.

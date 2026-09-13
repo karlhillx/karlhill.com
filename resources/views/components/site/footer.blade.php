@@ -155,7 +155,15 @@
             'mt-12' => ! $isHome,
         ])>
             <p class="font-display {{ $isHome ? 'text-3xl' : 'text-2xl' }} tracking-widest text-neutral-500">{{ $person['name'] }}</p>
-            <p class="font-mono text-xs text-neutral-400">{{ $person['location'] }} · {{ $person['job_title'] }}</p>
+            <p class="font-mono text-xs text-neutral-400">
+                {{ $person['location'] }} · {{ $person['job_title'] }}
+                <span aria-hidden="true"> · </span>
+                @unless(request()->routeIs('privacy'))
+                    <a href="/privacy" class="text-neutral-400 hover:text-accent transition-colors">Privacy</a>
+                @else
+                    <span>Privacy</span>
+                @endunless
+            </p>
         </div>
         <div class="mt-8 flex sm:justify-end">
             <p class="site-build-credit surface-chip inline-flex max-w-full flex-wrap items-center gap-x-1 bg-neutral-900/40 px-2 py-0.5 font-mono uppercase text-neutral-500">
