@@ -393,9 +393,9 @@ final class SiteCatalog
         // change anywhere on the site is the honest upper bound.
         // Primary hire path: Home → Work → Kit → Book (/now). About/Resume are secondary.
         $urls = [
-            ['loc' => $base.'/', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '1.0'],
-            ['loc' => $base.'/work', 'lastmod' => $latestWork, 'changefreq' => 'monthly', 'priority' => '0.9'],
-            ['loc' => $base.'/kit', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.9'],
+            ['loc' => $base.'/', 'lastmod' => $siteUpdated, 'changefreq' => 'weekly', 'priority' => '1.0'],
+            ['loc' => $base.'/work', 'lastmod' => $latestWork, 'changefreq' => 'weekly', 'priority' => '0.9'],
+            ['loc' => $base.'/kit', 'lastmod' => $siteUpdated, 'changefreq' => 'weekly', 'priority' => '0.9'],
             ['loc' => $base.'/now', 'lastmod' => $nowUpdated, 'changefreq' => 'weekly', 'priority' => '0.85'],
             ['loc' => $base.'/blog', 'lastmod' => $latestPost, 'changefreq' => 'weekly', 'priority' => '0.8'],
             ['loc' => $base.'/about', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],

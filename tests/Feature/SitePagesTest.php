@@ -568,6 +568,15 @@ it('sitemap includes now and resume pages', function () {
     $response->assertSee('/privacy', escape: false);
     $response->assertDontSee('/lead</loc>', escape: false);
     $response->assertSee('<priority>0.9</priority>', escape: false);
+
+    $freq = collect(iterator_to_array(simplexml_load_string($response->getContent())->url, false))
+        ->mapWithKeys(fn ($url) => [(string) $url->loc => (string) $url->changefreq]);
+
+    expect($freq[config('app.url').'/'])->toBe('weekly')
+        ->and($freq[config('app.url').'/work'])->toBe('weekly')
+        ->and($freq[config('app.url').'/kit'])->toBe('weekly')
+        ->and($freq[config('app.url').'/now'])->toBe('weekly')
+        ->and($freq[config('app.url').'/about'])->toBe('monthly');
 });
 
 it('privacy page covers contact booking and analytics', function () {
