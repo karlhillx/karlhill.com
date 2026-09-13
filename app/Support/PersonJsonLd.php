@@ -206,13 +206,22 @@ final class PersonJsonLd
      */
     protected static function memberOf(): array
     {
-        return [
-            [
-                '@type' => 'MusicGroup',
-                'name' => 'Sorry About Your Daughter',
-                'sameAs' => 'https://www.wikidata.org/wiki/Q30674084',
-            ],
-        ];
+        return collect(config('site.person.bands', []))
+            ->filter(fn ($band): bool => is_array($band) && ! empty($band['name']))
+            ->map(function (array $band): array {
+                $node = [
+                    '@type' => 'MusicGroup',
+                    'name' => $band['name'],
+                ];
+
+                if (! empty($band['same_as'])) {
+                    $node['sameAs'] = $band['same_as'];
+                }
+
+                return $node;
+            })
+            ->values()
+            ->all();
     }
 
     /**

@@ -23,4 +23,19 @@ return [
     // separates this Person from the Scottish novelist (pen name) and the
     // 19th-century German baritone who owns the primary Wikipedia article.
     'disambiguating_description' => 'Washington, DC software engineer at Jacobs, NASA Goddard Earth science 2017–2025, research co-author, and drummer in Sorry About Your Daughter — not the Scottish novelist.',
+    // MusicGroup memberOf — band entities only. Do not sameAs the Person to a band page.
+    'bands' => [
+        [
+            'name' => 'Sorry About Your Daughter',
+            'same_as' => 'https://www.wikidata.org/wiki/Q30674084',
+        ],
+        [
+            'name' => 'Government Issue',
+            'same_as' => 'https://www.wikidata.org/wiki/Q1476234',
+        ],
+        [
+            'name' => 'The Factory Incident',
+            'same_as' => 'https://www.wikidata.org/wiki/Q23138529',
+        ],
+    ],
 ];

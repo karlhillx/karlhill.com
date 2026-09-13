@@ -24,7 +24,16 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($person['sameAs'])->not->toContain('https://en.wikipedia.org/wiki/Karl_Hill_(musician)')
         ->and($person['identifier'][0]['propertyID'])->toBe('ORCID')
         ->and($person['identifier'][0]['value'])->toBe('0009-0002-6847-3368')
-        ->and($person['memberOf'][0]['name'])->toBe('Sorry About Your Daughter')
+        ->and(collect($person['memberOf'])->pluck('name')->all())->toBe([
+            'Sorry About Your Daughter',
+            'Government Issue',
+            'The Factory Incident',
+        ])
+        ->and(collect($person['memberOf'])->pluck('sameAs')->all())->toBe([
+            'https://www.wikidata.org/wiki/Q30674084',
+            'https://www.wikidata.org/wiki/Q1476234',
+            'https://www.wikidata.org/wiki/Q23138529',
+        ])
         ->and($person['alumniOf'])->toBeArray()
         ->and($person['knowsAbout'])->toContain('DevSecOps')
         ->and($person['knowsAbout'])->toContain('Engineering Manager')
