@@ -9,7 +9,6 @@
         $bookingUrl = config('site.booking.url');
         $bookingEmbed = config('site.booking.embed_src');
         $bookingLabel = config('site.booking.label');
-        $recruiters = $now['recruiters'] ?? null;
     @endphp
 
     <x-site.page-hero :breadcrumbs="[
@@ -18,66 +17,37 @@
     ]">
         <x-slot:title>Now</x-slot:title>
 
-        <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+        <p class="text-neutral-100 text-lg sm:text-xl leading-relaxed max-w-2xl">
             {{ $now['lede'] }}
         </p>
+
+        @if(! empty($now['body']))
+            <p class="mt-5 text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+                {{ $now['body'] }}
+            </p>
+        @endif
+
+        @if(! empty($now['focus']) && is_string($now['focus']))
+            <p class="mt-5 text-neutral-400 text-base leading-relaxed max-w-2xl">
+                {{ $now['focus'] }}
+            </p>
+        @endif
 
         @if(! empty($now['updated']))
             <p class="mt-5 font-mono text-caption text-neutral-400 uppercase tracking-widest">
                 Updated {{ $now['updated'] }}
             </p>
         @endif
-    </x-site.page-hero>
 
-    <section id="focus" class="site-section site-section--soft border-t border-neutral-800/50" aria-label="Focus areas">
-        <div class="site-shell space-y-12">
-            @foreach($now['focus'] as $item)
-                <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-                    <h2 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight leading-snug text-neutral-100">{{ $item['title'] }}</h2>
-                    <div class="max-w-2xl">
-                        <p class="text-neutral-400 text-base leading-relaxed">{{ $item['body'] }}</p>
-                        @if(! empty($item['link']))
-                            <a href="{{ $item['link'] }}"
-                               class="inline-flex items-center min-h-11 mt-4 font-mono text-xs text-accent uppercase tracking-widest hover:underline underline-offset-4">
-                                {{ $item['link_label'] ?? 'Read more' }} →
-                            </a>
-                        @endif
-                    </div>
-                </div>
-            @endforeach
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
+            <x-site.button variant="link" href="/kit"
+                data-analytics-event="recruiter_link_opened"
+                data-analytics-location="now-hero"
+                data-analytics-target="kit">
+                Recruiter kit
+            </x-site.button>
         </div>
-    </section>
-
-    @if($recruiters)
-        <section id="recruiters" class="site-section border-t border-neutral-800/50" aria-label="For recruiters and hiring managers">
-            <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-                <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">{{ $recruiters['eyebrow'] ?? 'For recruiters' }}</p>
-                <div class="max-w-2xl">
-                    <p class="text-neutral-200 text-lg leading-relaxed">{{ $recruiters['body'] }}</p>
-                    @if(! empty($recruiters['bullets']))
-                        <ul class="mt-6 space-y-2 text-neutral-400 text-sm leading-relaxed list-disc pl-5">
-                            @foreach($recruiters['bullets'] as $bullet)
-                                <li>{{ $bullet }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-                    <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-8">
-                        @if(filled($bookingUrl))
-                            <x-site.button variant="primary" href="#book"
-                                data-idle-cta
-                                data-analytics-event="booking_cta_clicked"
-                                data-analytics-location="now-intro">
-                                {{ $bookingLabel }}
-                            </x-site.button>
-                        @endif
-                        <x-site.button variant="secondary" href="/resume">Resume</x-site.button>
-                        <x-site.button variant="link" href="#contact">Contact</x-site.button>
-                        <x-site.button variant="link" href="/kit">Recruiter kit</x-site.button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
+    </x-site.page-hero>
 
     @if(filled($bookingEmbed))
         <section id="book" class="site-section border-t border-neutral-800/50 scroll-mt-28" aria-label="{{ $bookingLabel }}">

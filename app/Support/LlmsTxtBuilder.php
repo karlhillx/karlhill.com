@@ -50,7 +50,7 @@ class LlmsTxtBuilder
             $this->fileItem('How software gets delivered', $base.'/#system', 'Code, verify, integrate, release'),
             $this->fileItem('Work', $base.'/work', 'Aerospace mission software and public case studies'),
             $this->fileItem('Recruiter kit', $base.'/kit', 'Bio, resume PDF, and selected work to share'),
-            $this->fileItem('Now', $base.'/now', 'Current focus and booking'),
+            $this->fileItem('Now', $base.'/now', 'Current status and booking'),
             $this->fileItem('Writing', $base.'/blog', 'Essays on leadership, delivery, and mission software'),
             $this->fileItem('About', $base.'/about', 'Leadership, career, selected impact, research'),
             $this->fileItem('Engineering delivery', $base.'/delivery', 'Definition of Done, PR rubric, integration risk, coaching'),

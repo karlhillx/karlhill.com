@@ -43,6 +43,6 @@ it('renders the booking embed the completion listener hooks into', function () {
     $now = $this->get('/now')->assertOk()->getContent();
 
     expect($now)->toContain('class="booking-embed__frame"')
-        ->and($now)->toContain('data-analytics-location="now-intro"')
+        ->and($now)->toContain('data-analytics-location="now-hero"')
         ->and($now)->toContain('data-analytics-location="now-embed-fallback"');
 });

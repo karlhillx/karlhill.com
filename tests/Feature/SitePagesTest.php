@@ -287,20 +287,26 @@ it('resume page shows the phone number when opted in', function () {
         ->assertSee('href="tel:+12025991442"', escape: false);
 });
 
-it('now page renders focus and em intent', function () {
+it('now page is hero plus scheduler', function () {
     $response = $this->get('/now');
 
     $response->assertStatus(200);
     $response->assertSee('Engineering Manager', escape: false);
     $response->assertSee('Jacobs', escape: false);
-    $response->assertSee('September 10, 2026', escape: false);
+    $response->assertSee('September 12, 2026', escape: false);
+    $response->assertSee('Building mission software and the engineering systems around it at Jacobs.', escape: false);
+    $response->assertSee('roughly 20 repositories', escape: false);
+    $response->assertSee('stronger architecture ownership', escape: false);
     $response->assertSee('href="/kit"', escape: false);
     $response->assertSee('Recruiter kit', escape: false);
-    $response->assertSee('Hiring', escape: false);
-    $response->assertSee('Current engineering system, public NASA software', escape: false);
+    $response->assertSee('id="book"', escape: false);
+    $response->assertSee('booking-embed', escape: false);
+    $response->assertDontSee('id="focus"', escape: false);
+    $response->assertDontSee('id="recruiters"', escape: false);
+    $response->assertDontSee('Current engineering system, public NASA software', escape: false);
+    $response->assertDontSee('SAFe Agilist', escape: false);
     $response->assertDontSee('id="contact-form"', escape: false);
     $response->assertSee('id="contact"', escape: false);
-    $response->assertSee('id="focus"', escape: false);
     $response->assertDontSee('section-rail', escape: false);
     $response->assertSee('Schedule a conversation or send email', escape: false);
 });
@@ -394,10 +400,11 @@ it('booking cta appears when configured', function () {
     $now->assertSee('Book a conversation', escape: false);
     $now->assertSee('id="book"', escape: false);
     $now->assertSee('booking-embed__frame', escape: false);
-    $now->assertSee('data-idle-cta', escape: false);
+    $now->assertDontSee('data-idle-cta', escape: false);
 
     $home = $this->get('/');
     $home->assertSee('data-booking-url="https://cal.com/example"', escape: false);
+    $home->assertSee('data-idle-cta', escape: false);
 });
 
 it('service worker and offline page are available', function () {
@@ -609,7 +616,7 @@ it('legacy delivery url redirects to the delivery page', function () {
 it('now page shows a fresh updated date and kit link', function () {
     $this->get('/now')
         ->assertOk()
-        ->assertSee('Updated September 10, 2026', escape: false)
+        ->assertSee('Updated September 12, 2026', escape: false)
         ->assertSee('href="/kit"', escape: false)
         ->assertSee('Recruiter kit', escape: false);
 });

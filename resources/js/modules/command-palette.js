@@ -173,7 +173,7 @@ export function initCommandPalette() {
         }),
         withGroup({
             label: 'Now',
-            keywords: 'now focus availability engineering manager em staff leadership recruiters',
+            keywords: 'now booking calendly schedule current status',
             action: () => window.location.assign('/now'),
         }),
         withGroup({

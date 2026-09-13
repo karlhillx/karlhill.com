@@ -87,7 +87,7 @@ jobs:
           check /about 'Beyond the work'
           check /delivery 'Definition of Done'
           check /blog 'post-list-title'
-          check /now 'For recruiters and hiring managers'
+          check /now 'booking-embed'
           check /kit 'kit-glance-heading'
           check /resume 'resume-experience'
           check_redirect /lead '/delivery'

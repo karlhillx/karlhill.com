@@ -1,30 +1,8 @@
 <?php
 
 return [
-    'updated' => 'September 10, 2026',
-    'lede' => 'Python services, interfaces, and CI/CD at Jacobs. Technical coaching on the team. Drummer in Sorry About Your Daughter.',
-    'recruiters' => [
-        'eyebrow' => 'Hiring',
-        'body' => 'Current engineering system, public NASA software, and resume: flood maps, LAADS Find Data, Earth Observatory.',
-    ],
-    'focus' => [
-        [
-            'title' => 'Mission software',
-            'body' => 'Python services at Jacobs, plus interfaces, messaging, tests, CI, and release.',
-            'link' => '/work/jacobs-mission-software',
-            'link_label' => 'Current work',
-        ],
-        [
-            'title' => 'Engineering leadership',
-            'body' => 'Reviews, delivery sequencing, and coaching. SAFe Agilist is in progress.',
-            'link' => '/kit',
-            'link_label' => 'Recruiter kit',
-        ],
-        [
-            'title' => 'Music',
-            'body' => 'Sorry About Your Daughter finished Atlantic to Adrenaline in 2026. Dates in Germany, then a US show in Columbia, Maryland.',
-            'link' => '/about',
-            'link_label' => 'Beyond the work',
-        ],
-    ],
+    'updated' => 'September 12, 2026',
+    'lede' => 'Building mission software and the engineering systems around it at Jacobs.',
+    'body' => 'Current work spans Python services, distributed messaging, shared interfaces, CI/CD, release engineering, and software standards across roughly 20 repositories and multiple deployment environments. Also leading technical delivery across teams, coordinating integration work, mentoring engineers, and helping turn program priorities into executable software.',
+    'focus' => 'Current focus: stronger architecture ownership, simpler developer workflows, more reliable delivery, and technical problems that cross repository and team boundaries.',
 ];

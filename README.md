@@ -70,7 +70,7 @@ npm run test:e2e
 
 Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, kit, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
 
-Hire bio is canonical in `config/site/person.php` (`bio`, third person). The recruiter kit glance uses that same bio. Homepage spoken line is `hero.lede`. Kit “Open to”, JSON-LD, and `llms.txt` use `person.availability` for the next-role goal (Engineering Manager) — not current identity. The longer ask is `person.availability_long`. Do not restate the ask on About, kit highlights, or `/now` focus cards. Proof chips live in `hero.proof`.
+Hire bio is canonical in `config/site/person.php` (`bio`, third person). The recruiter kit glance uses that same bio. Homepage spoken line is `hero.lede`. Kit “Open to”, JSON-LD, and `llms.txt` use `person.availability` for the next-role goal (Engineering Manager) — not current identity. The longer ask is `person.availability_long`. Do not restate the ask on About, kit highlights, or `/now`. Proof chips live in `hero.proof`.
 
 ### Name disambiguation
 
@@ -139,7 +139,7 @@ Ambient motion is progressive. `resources/js/lib/prefs.js` sets `allowAmbientMot
 When that gate is on:
 
 - The page spotlight is a translated orb that follows the pointer (`pointer.js`). It does not run an idle animation frame loop.
-- After **8s** idle, the Book CTA on home and `/now` settles once (`data-idle-cta`).
+- After **8s** idle, the Book CTA on home settles once (`data-idle-cta`).
 - Homepage infinite loops (mesh, dot grid, shine, portrait, availability ping) **pause** when `#hero` is off-screen or the tab is hidden (`html.hero-ambient-paused`).
 
 Interior pages stay scroll-driven (`view()` timelines). Touch, reduced-motion, and Save-Data drop the ambient layers in CSS. Styles live in `resources/css/motion.css`.

@@ -24,8 +24,8 @@ return [
     ],
     'now' => [
         'title' => 'Now — Karl Hill',
-        'description' => 'Python mission software at Jacobs, technical coaching, and music with Sorry About Your Daughter.',
-        'og_description' => 'Current work, professional development, and music. Updated September 2026.',
+        'description' => 'Building mission software and the engineering systems around it at Jacobs. Python services, messaging, CI/CD, and technical delivery across teams.',
+        'og_description' => 'Current work at Jacobs: mission software, architecture ownership, and more reliable delivery. Updated September 2026.',
     ],
     'resume' => [
         'title' => 'Resume — Karl Hill · Software Engineering & Leadership',
