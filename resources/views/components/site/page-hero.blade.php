@@ -17,15 +17,15 @@
 
     <div class="relative z-10 site-shell">
         @if(count($breadcrumbs) > 0)
-            <x-site.breadcrumbs :items="$breadcrumbs" class="site-page-hero__crumbs mb-5 hero-enter" style="animation-delay:80ms" />
+            <x-site.breadcrumbs :items="$breadcrumbs" class="site-page-hero__crumbs hero-enter" style="animation-delay:80ms" />
         @endif
         @if($eyebrow)
             <p class="font-mono text-accent text-xs tracking-widest uppercase mb-3 hero-enter" style="animation-delay:160ms">{{ $eyebrow }}</p>
         @endif
-        <h1 class="font-display text-[clamp(2.75rem,8.5vw,5.5rem)] leading-none tracking-wide text-white mb-4 hero-enter" style="animation-delay:240ms">
+        <h1 class="site-page-hero__title font-display text-white hero-enter" style="animation-delay:240ms">
             {{ $title }}
         </h1>
-        <div class="hero-enter" style="animation-delay:320ms">
+        <div class="hero-enter site-page-hero__body" style="animation-delay:320ms">
             {{ $slot }}
         </div>
     </div>

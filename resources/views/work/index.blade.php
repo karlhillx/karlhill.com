@@ -21,7 +21,7 @@
     <x-site.page-hero :breadcrumbs="$breadcrumbs">
         <x-slot:title>Selected Work</x-slot:title>
 
-        <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+        <p class="site-page-hero__lede text-neutral-300">
             {{ config('site.work.lede') }}
         </p>
     </x-site.page-hero>

@@ -162,11 +162,11 @@
     flex-wrap: wrap;
     align-items: baseline;
     column-gap: 0.5rem;
-    row-gap: 0.15rem;
+    row-gap: 0.2rem;
     margin: 0;
     font-size: 0.75rem;
-    letter-spacing: 0.14em;
-    line-height: 1.35;
+    letter-spacing: var(--tracking-mono);
+    line-height: var(--leading-ui);
     flex: 1 1 0;
     min-width: 0;
 }
@@ -188,34 +188,36 @@
 /* Hero wordmark size lives in CSS (not a Tailwind arbitrary class) so Vite
    content-scan cache misses can't collapse the brand to 16px. */
 #hero .hero-title {
-    font-size: clamp(3rem, 11.5vw, 11rem);
-    line-height: 0.92;
-    letter-spacing: 0.02em;
-    margin: 0 0 clamp(0.55rem, 1.5vw, 1rem);
+    font-size: clamp(3rem, 11.5vw, 10.5rem);
+    line-height: 0.9;
+    letter-spacing: var(--tracking-display);
+    margin: 0 0 clamp(0.65rem, 1.6vw, 1.05rem);
     max-width: 100%;
     width: 100%;
     overflow-wrap: anywhere;
-    padding-top: 0.06em;
+    padding-top: 0.04em;
     text-wrap: balance;
 }
 
 #hero .hero-statement {
-    font-weight: 700;
-    font-size: clamp(1.15rem, 2.5vw, 1.45rem);
-    line-height: 1.3;
-    letter-spacing: -0.01em;
+    font-weight: 600;
+    font-size: clamp(1.125rem, 2.4vw, 1.4rem);
+    line-height: 1.32;
+    letter-spacing: var(--tracking-sans-tight);
     width: 100%;
     max-width: min(36rem, 100%);
-    margin: 0 0 0.4rem;
+    margin: 0 0 0.5rem;
     min-width: 0;
     text-wrap: balance;
 }
 
 #hero .hero-lede {
-    font-size: clamp(1.0625rem, 2.3vw, 1.2rem);
+    font-size: clamp(1.05rem, 2.2vw, 1.175rem);
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
     width: 100%;
     max-width: min(36rem, 100%);
-    margin: 0 0 clamp(0.85rem, 2vw, 1.25rem);
+    margin: 0 0 clamp(1rem, 2.25vw, 1.35rem);
     min-width: 0;
     text-wrap: pretty;
 }
@@ -223,9 +225,9 @@
 #hero .hero-proof {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
+    gap: 0.4rem;
     list-style: none;
-    margin: 0 0 clamp(1.5rem, 3.5vw, 2.75rem);
+    margin: 0 0 clamp(1.35rem, 3vw, 2.35rem);
     padding: 0;
     max-width: min(42rem, 100%);
 }
@@ -233,8 +235,8 @@
 #hero .hero-proof li {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    letter-spacing: 0.12em;
-    line-height: 1.35;
+    letter-spacing: var(--tracking-mono);
+    line-height: var(--leading-ui);
     text-transform: uppercase;
     color: color-mix(in oklab, var(--muted) 70%, var(--text));
     border: 1px solid color-mix(in oklab, var(--accent) 28%, var(--border));
@@ -314,7 +316,7 @@
 
     #hero .hero-kicker {
         font-size: 0.75rem;
-        letter-spacing: 0.16em;
+        letter-spacing: var(--tracking-mono);
     }
 
     #hero .hero-cta {
@@ -349,6 +351,7 @@ nav[aria-label='Primary'] .nav-bar {
 nav[aria-label='Primary'] .nav-bar > a.font-display {
     font-size: var(--nav-brand-size);
     line-height: 1;
+    letter-spacing: 0.05em;
     transition: font-size 0.28s var(--ease-out-soft);
 }
 
@@ -979,7 +982,7 @@ html.save-data .surface-card-media {
     color: var(--muted);
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     opacity: 0;
     transform: translateX(4px);
@@ -1211,7 +1214,7 @@ nav[aria-label='Primary'] {
     flex-shrink: 0;
     width: 4.5rem;
     font-size: 0.75rem;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted-2);
 }
@@ -1244,7 +1247,7 @@ nav[aria-label='Primary'] {
     border-top: 1px solid var(--border);
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted-2);
 }

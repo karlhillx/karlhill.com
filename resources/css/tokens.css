@@ -62,17 +62,26 @@
     --nav-brand-size: 1.5rem;
     /* Rhythm for a condensed secondary face: a little more inline air,
        a little less leftover vertical gap around shorter lines. */
-    --space-gutter: clamp(1.25rem, 4.2vw, 2.25rem);
-    --space-section: clamp(3.75rem, 8vh, 6rem);
-    --space-section-soft: clamp(2.5rem, 5.25vh, 4.25rem);
-    --space-heading: clamp(1.5rem, 2.75vw, 2.5rem);
-    --space-stack: clamp(1.25rem, 2.25vw, 1.75rem);
-    --space-card-gap: clamp(0.875rem, 1.75vw, 1.35rem);
-    --space-list-row: clamp(1.75rem, 3vw, 2.5rem);
-    --space-prose: 42rem;
-    --space-pillar: clamp(1.65rem, 2.6vw, 2.65rem);
-    --leading-body: 1.65;
-    --tracking-sans: 0.012em;
+    --space-gutter: clamp(1.25rem, 4vw, 2.125rem);
+    --space-section: clamp(3.5rem, 7.5vh, 5.75rem);
+    --space-section-soft: clamp(2.25rem, 5vh, 4rem);
+    --space-heading: clamp(1.35rem, 2.5vw, 2.25rem);
+    --space-stack: clamp(1.125rem, 2vw, 1.625rem);
+    --space-card-gap: clamp(0.875rem, 1.6vw, 1.25rem);
+    --space-list-row: clamp(1.625rem, 2.75vw, 2.25rem);
+    --space-prose: 40rem;
+    --space-pillar: clamp(1.5rem, 2.4vw, 2.5rem);
+    --leading-body: 1.62;
+    --leading-prose: 1.7;
+    --leading-ui: 1.45;
+    /* Type tracking — condensed UI needs open air; Bebas needs restraint. */
+    --tracking-sans: 0.01em;
+    --tracking-sans-tight: 0.004em;
+    --tracking-display: 0.02em;
+    --tracking-display-wide: 0.04em;
+    --tracking-mono: 0.1em;
+    --tracking-mono-loose: 0.12em;
+    --tracking-wide: 0.025em;
     /* Both schemes are supported. The UA picks from the OS preference; the
        toggle pins one via [data-theme]. light-dark() tokens above follow it. */
     color-scheme: light dark;

@@ -41,10 +41,10 @@
 <x-site.page-hero :breadcrumbs="$breadcrumbs">
     <x-slot:title>Notes from<br>the field</x-slot:title>
 
-    <p class="text-neutral-300 text-base leading-relaxed max-w-2xl">
+    <p class="site-page-hero__lede text-neutral-300">
         Practical notes on software engineering, technical leadership, and delivery.
     </p>
-    <div class="flex flex-wrap items-center gap-4 mt-6 sm:mt-8">
+    <div class="flex flex-wrap items-center gap-4 mt-6 sm:mt-7">
         <a href="{{ route('feed') }}"
            class="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
             @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])
@@ -116,7 +116,7 @@
                             </div>
                             <div class="relative z-10 min-w-0">
                                 {{-- Essay titles are full sentences: sentence-case sans scans faster in a list than all-caps display type. --}}
-                                <h2 class="post-list-title font-sans font-semibold tracking-tight text-xl sm:text-2xl md:text-[1.75rem] text-neutral-100 group-hover:text-accent transition-colors mb-3 leading-snug text-balance"
+                                <h2 class="post-list-title font-sans font-semibold tracking-tight text-neutral-100 group-hover:text-accent transition-colors mb-3 text-balance"
                                     style="view-transition-name: post-{{ $post->slug }}; view-transition-class: post-title">
                                     <a href="{{ $post->url() }}"
                                        interestfor="post-preview-{{ $post->slug }}"

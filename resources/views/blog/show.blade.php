@@ -65,17 +65,17 @@
             &nbsp;·&nbsp; {{ $post->readMinutes }} min read
         </p>
 
-        <h1 class="font-sans font-semibold text-[clamp(2rem,4.2vw,2.9rem)] leading-[1.18] tracking-tight text-neutral-100 text-balance mb-5"
+        <h1 class="article-title font-sans font-semibold tracking-tight text-neutral-100 text-balance"
             data-article-title
             style="view-transition-name: post-{{ $post->slug }}; view-transition-class: post-title">
             {{ $post->title }}
         </h1>
 
-        <p class="text-neutral-400 text-[0.95rem] leading-relaxed mb-7 max-w-2xl">
+        <p class="article-excerpt text-neutral-400">
             {{ $post->excerpt }}
         </p>
 
-        <div class="flex flex-wrap items-center gap-2 mb-10">
+        <div class="flex flex-wrap items-center gap-2 mb-9">
             @foreach($post->tags as $tag)
                 <a href="{{ route('blog.tag', $tag) }}"
                    class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">

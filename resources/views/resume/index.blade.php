@@ -16,12 +16,12 @@
     ]">
         <x-slot:title>Resume</x-slot:title>
 
-        <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+        <p class="site-page-hero__lede text-neutral-300">
             Mission software. Engineering systems. Technical leadership. Delivery.
         </p>
 
         {{-- The PDF is this page's purpose, so it takes the fill; booking is the secondary. --}}
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-7">
             @if(! empty($pdf))
                 <x-site.button variant="primary" :href="$pdf"
                     download="Karl-Hill-Resume.pdf"

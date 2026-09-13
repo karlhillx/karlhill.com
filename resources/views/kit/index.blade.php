@@ -39,11 +39,11 @@
     ]">
         <x-slot:title>Recruiter kit</x-slot:title>
 
-        <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+        <p class="site-page-hero__lede text-neutral-300">
             {{ $kit['lede'] }}
         </p>
 
-        <div class="kit-screen-actions mt-6 sm:mt-8">
+        <div class="kit-screen-actions mt-6 sm:mt-7">
             <div class="kit-screen-actions__buttons">
                 @if(filled($bookingUrl))
                     <x-site.button variant="primary" :href="url('/now#book')"

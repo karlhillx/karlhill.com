@@ -7,9 +7,9 @@
 .prose-karl {
     /* Cool-tinted body grey on dark; warm near-black on light. */
     color: light-dark(oklch(30% 0.01 250), oklch(84% 0.012 250));
-    font-size: 1rem;
-    line-height: 1.7;
-    letter-spacing: 0.014em;
+    font-size: 1.0625rem;
+    line-height: var(--leading-prose);
+    letter-spacing: var(--tracking-sans);
     max-width: 62ch;
 }
 
@@ -28,11 +28,11 @@
 }
 
 .prose-karl > * + * {
-    margin-top: 0.85em;
+    margin-top: 0.9em;
 }
 
 .prose-karl > p + p {
-    margin-top: 0.95em;
+    margin-top: 1em;
 }
 
 /* Extra breathing room around lists and blockquotes — they should feel like distinct blocks */
@@ -42,7 +42,7 @@
 .prose-karl > ul + *,
 .prose-karl > ol + *,
 .prose-karl > blockquote + * {
-    margin-top: 1.5em;
+    margin-top: 1.4em;
 }
 
 .prose-karl h2,
@@ -50,15 +50,15 @@
 .prose-karl h4 {
     font-family: var(--font-display);
     color: var(--text);
-    letter-spacing: 0.02em;
-    line-height: 1.05;
+    letter-spacing: var(--tracking-display);
+    line-height: 1.08;
 }
 
 .prose-karl h2 {
-    font-size: clamp(1.4rem, 2.4vw, 1.75rem);
-    margin-top: 1.9em;
-    margin-bottom: 0.5em;
-    padding-top: 0.85em;
+    font-size: clamp(1.35rem, 2.3vw, 1.7rem);
+    margin-top: 1.75em;
+    margin-bottom: 0.45em;
+    padding-top: 0.75em;
     border-top: 1px solid var(--border);
     scroll-margin-top: 6.5rem;
 }
@@ -83,7 +83,7 @@
     color: var(--text);
     margin-top: 1.4em;
     margin-bottom: 0.15em;
-    letter-spacing: 0.01em;
+    letter-spacing: var(--tracking-sans);
     scroll-margin-top: 6.5rem;
 }
 
@@ -146,10 +146,11 @@
     display: block;
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    line-height: 1.45;
+    line-height: var(--leading-ui);
+    letter-spacing: 0.02em;
     text-decoration: none;
     padding-left: 0.85rem;
-    padding-block: 0.25rem;
+    padding-block: 0.3rem;
     border-left: 2px solid transparent;
     margin-left: -1px;
     color: var(--muted);
@@ -545,7 +546,7 @@
     text-align: center;
     margin-top: 0.7em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono);
 }
 
 .prose-karl table {
@@ -565,7 +566,7 @@
     font-family: var(--font-mono);
     font-size: 0.78em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono);
     color: var(--accent);
     font-weight: 500;
 }
@@ -731,16 +732,16 @@ a.series-chapters__card:hover {
 
 .series-chapters__num {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted-2);
 }
 
 .series-chapters__meta {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: color-mix(in oklab, var(--accent) 75%, var(--muted-2));
 }
@@ -756,8 +757,8 @@ a.series-chapters__card:hover {
     font-family: var(--font-sans);
     font-size: 1.05rem;
     font-weight: 600;
-    line-height: 1.4;
-    letter-spacing: 0.01em;
+    line-height: 1.35;
+    letter-spacing: var(--tracking-sans);
     color: var(--color-neutral-200);
     text-wrap: balance;
 }
@@ -912,7 +913,7 @@ a.series-chapters__card:hover .series-chapters__title,
     padding: 0.85rem 1rem;
     font-family: var(--font-mono);
     font-size: 0.7rem;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     line-height: 1.45;
     border: 1px solid var(--border);
@@ -1039,19 +1040,42 @@ a.series-chapters__card:hover .series-chapters__title,
 
 .case-study-lede {
     text-wrap: pretty;
-    font-size: 1.05rem;
-    line-height: 1.65;
-    letter-spacing: 0.012em;
+    font-size: 1.0625rem;
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
     max-width: 38rem;
+}
+
+.site-article .article-title {
+    margin: 0 0 1.15rem;
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    line-height: 1.2;
+    letter-spacing: var(--tracking-sans-tight);
+    max-width: 28ch;
+}
+
+.site-article .article-excerpt {
+    margin: 0 0 1.5rem;
+    max-width: 36rem;
+    font-size: 1.05rem;
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
+    text-wrap: pretty;
+}
+
+.post-list-title {
+    font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+    line-height: 1.28;
+    letter-spacing: var(--tracking-sans-tight);
 }
 
 /* Case studies — clear the fixed nav, then let crumbs / masthead / TOC breathe. */
 .case-study-page {
-    padding-block: clamp(7.25rem, 12vh, 8.25rem) var(--space-section-soft);
+    padding-block: clamp(6.75rem, 11vh, 7.75rem) var(--space-section-soft);
 }
 
 .case-study-crumbs {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
 }
 
 @media (min-width: 1024px) {
@@ -1069,7 +1093,9 @@ a.series-chapters__card:hover .series-chapters__title,
 }
 
 .case-study-masthead__title {
-    margin: 0 0 1rem;
+    margin: 0 0 0.9rem;
+    letter-spacing: var(--tracking-display-wide);
+    line-height: 0.95;
 }
 
 .case-study-masthead .case-study-lede {
@@ -1157,7 +1183,7 @@ a.series-chapters__card:hover .series-chapters__title,
 .case-study-facts__label {
     font-family: var(--font-mono);
     font-size: var(--text-caption);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono);
     line-height: 1.35;
     text-transform: uppercase;
     color: var(--muted-2);
@@ -1212,7 +1238,7 @@ a.series-chapters__card:hover .series-chapters__title,
 .case-study-glance__label {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
     margin: 0 0 0.35rem;
@@ -1275,7 +1301,7 @@ a.series-chapters__card:hover .series-chapters__title,
     gap: 0.65rem;
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
     margin: 0 0 0.85rem;
@@ -1285,7 +1311,7 @@ a.series-chapters__card:hover .series-chapters__title,
     flex: none;
     min-width: 1.5rem;
     color: color-mix(in oklab, var(--accent) 70%, var(--muted));
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono);
     font-variant-numeric: tabular-nums;
 }
 
@@ -1325,7 +1351,7 @@ a.series-chapters__card:hover .series-chapters__title,
     font-family: var(--font-mono);
     font-size: var(--text-caption);
     line-height: 1.4;
-    letter-spacing: var(--tracking-wide, 0.025em);
+    letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
     color: color-mix(in oklab, var(--muted) 88%, var(--text));
 }
@@ -1590,7 +1616,7 @@ a.series-chapters__card:hover .series-chapters__title,
 .case-study-media__label {
     font-family: var(--font-mono);
     font-size: var(--text-caption);
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     line-height: 1.35;
     text-transform: uppercase;
     color: var(--accent);
@@ -1677,7 +1703,7 @@ a.series-chapters__card:hover .series-chapters__title,
 .work-diagram__label {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
     margin: 0 0 0.7rem;
@@ -1752,7 +1778,7 @@ a.series-chapters__card:hover .series-chapters__title,
 .work-diagram__phase {
     font-family: var(--font-mono);
     font-size: var(--text-caption);
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--board-marker);
 }
@@ -1785,7 +1811,7 @@ a.series-chapters__card:hover .series-chapters__title,
     border-top: 1px dashed color-mix(in oklab, var(--board-ink) 22%, transparent);
     font-family: var(--font-mono);
     font-size: var(--text-caption);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--board-muted);
 }
@@ -1922,7 +1948,7 @@ a.series-chapters__card:hover .series-chapters__title,
 .delivery-map__name {
     font-family: var(--font-mono);
     font-size: var(--text-caption);
-    letter-spacing: 0.14em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: inherit;
     pointer-events: none;
@@ -1980,7 +2006,7 @@ a.series-chapters__card:hover .series-chapters__title,
     margin: 0;
     font-family: var(--font-mono);
     font-size: var(--text-caption);
-    letter-spacing: 0.14em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
 }
@@ -2023,7 +2049,7 @@ a.series-chapters__card:hover .series-chapters__title,
 .delivery-map__continue {
     font-family: var(--font-mono);
     font-size: var(--text-caption);
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
     text-decoration: none;
@@ -2063,7 +2089,7 @@ a.series-chapters__card:hover .series-chapters__title,
         background: transparent;
         font-family: var(--font-mono);
         font-size: 0.625rem;
-        letter-spacing: 0.12em;
+        letter-spacing: var(--tracking-mono);
         text-transform: uppercase;
         color: var(--muted-2);
         cursor: pointer;
@@ -2424,7 +2450,7 @@ a.series-chapters__card:hover .series-chapters__title,
     margin: 0 0 0.65rem;
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
 }
@@ -2501,7 +2527,7 @@ a.series-chapters__card:hover .series-chapters__title,
     margin: 0 0 0.4rem;
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
 }
@@ -2616,6 +2642,16 @@ a.series-chapters__card:hover .series-chapters__title,
     transition:
         background-color 0.55s var(--ease-out-soft),
         backdrop-filter 0.55s var(--ease-out-soft);
+}
+
+.work-card-panel h3 {
+    line-height: 1.28;
+    letter-spacing: var(--tracking-sans-tight);
+}
+
+.work-card-panel .work-card-details > p {
+    letter-spacing: var(--tracking-sans);
+    line-height: 1.5;
 }
 
 .group:hover .work-card-panel,
@@ -2832,7 +2868,11 @@ a.series-chapters__card:hover .series-chapters__title,
 
 .about-lede {
     display: grid;
-    gap: 1.15em;
+    gap: 1em;
+    max-width: 58ch;
+    font-size: 1.0625rem;
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
 }
 
 .about-lede p {
@@ -2841,12 +2881,13 @@ a.series-chapters__card:hover .series-chapters__title,
 
 .kit-bio {
     display: grid;
-    gap: 1.15em;
+    gap: 1em;
     margin: 0;
     max-width: 58ch;
-    font-size: 1.1875rem;
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 1.65;
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
     color: var(--text);
     text-wrap: pretty;
 }
@@ -2858,7 +2899,7 @@ a.series-chapters__card:hover .series-chapters__title,
 .job-scope__heading {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
     margin: 0 0 0.85rem;
@@ -2891,7 +2932,7 @@ a.series-chapters__card:hover .series-chapters__title,
     margin: 0;
     font-family: var(--font-mono);
     font-size: var(--text-caption);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted-2);
 }
@@ -2936,7 +2977,7 @@ a.series-chapters__card:hover .series-chapters__title,
     font-size: var(--text-caption);
     font-weight: 500;
     line-height: 1.35;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted-2);
 }
