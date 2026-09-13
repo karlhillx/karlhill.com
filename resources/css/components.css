@@ -2765,7 +2765,11 @@ a.series-chapters__card:hover .series-chapters__title,
     width: min(8.5rem, 48%);
     aspect-ratio: 1;
     border-radius: 50%;
-    background: radial-gradient(circle, color-mix(in oklab, var(--text) 6%, transparent) 0%, transparent 68%);
+    background: radial-gradient(
+        circle,
+        color-mix(in oklab, var(--text) 6%, transparent) 0%,
+        transparent 68%
+    );
     border: 1px solid var(--hairline);
     transition:
         border-color 0.55s var(--ease-out-soft),
@@ -2809,7 +2813,11 @@ a.series-chapters__card:hover .series-chapters__title,
 .group:hover .work-card-logo__orb,
 .group:focus-within .work-card-logo__orb {
     border-color: var(--hairline-strong);
-    background: radial-gradient(circle, color-mix(in oklab, var(--text) 9%, transparent) 0%, transparent 68%);
+    background: radial-gradient(
+        circle,
+        color-mix(in oklab, var(--text) 9%, transparent) 0%,
+        transparent 68%
+    );
 }
 
 @media (prefers-reduced-motion: reduce) {

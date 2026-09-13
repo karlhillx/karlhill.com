@@ -16,7 +16,9 @@ function syncThemeChrome() {
         button.setAttribute('aria-label', `Switch to ${next} theme`);
         button.setAttribute('title', `Switch to ${next} theme`);
     });
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', THEME_COLOR[current]);
+    document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute('content', THEME_COLOR[current]);
 }
 
 export function toggleTheme() {
