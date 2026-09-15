@@ -648,6 +648,21 @@ a:where([href^='http://'], [href^='https://']):not(
     speak: never;
 }
 
+.command-result--external .command-result__ext {
+    flex-shrink: 0;
+    display: inline-grid;
+    place-items: center;
+    width: 0.95rem;
+    height: 0.95rem;
+    margin-inline-start: 0.15rem;
+    font-size: 0.55rem;
+    line-height: 1;
+    color: var(--accent);
+    background: light-dark(#f6f1ea, #241c14);
+    border: 1px solid light-dark(#dfc9a8, #6b542e);
+    border-radius: 0.18rem;
+}
+
 /* Footer profiles: eight icons, two rows of four. Column count lives here so
    Vite rebuilds it with CSS (Blade-only Tailwind utilities can miss HMR). */
 .social-links {

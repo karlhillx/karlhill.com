@@ -243,12 +243,14 @@ export function initCommandPalette() {
         withGroup({
             label: 'LinkedIn',
             keywords: 'linkedin social',
+            external: true,
             action: () =>
                 window.open('https://www.linkedin.com/in/khill/', '_blank', 'noopener,noreferrer'),
         }),
         withGroup({
             label: 'GitHub',
             keywords: 'github code',
+            external: true,
             action: () =>
                 window.open('https://github.com/karlhillx', '_blank', 'noopener,noreferrer'),
         }),
@@ -321,15 +323,18 @@ export function initCommandPalette() {
             ? filtered
                   .map((cmd, i) => {
                       const group = GROUP_LABELS[cmd.group] ?? GROUP_LABELS.page;
+                      const ext = cmd.external
+                          ? '<span class="command-result__ext" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>'
+                          : '';
                       return `
                 <button type="button"
                         id="command-result-${i}"
                         role="option"
                         aria-selected="${i === activeCommandIndex ? 'true' : 'false'}"
-                        class="command-result ${i === activeCommandIndex ? 'is-active' : ''}"
+                        class="command-result ${i === activeCommandIndex ? 'is-active' : ''}${cmd.external ? ' command-result--external' : ''}"
                         data-command-index="${i}">
                     <span class="command-result__group font-mono text-caption text-neutral-400">${group}</span>
-                    <span class="font-sans font-medium text-xs sm:text-sm text-neutral-200 truncate">${cmd.label}</span>
+                    <span class="command-result__label font-sans font-medium text-xs sm:text-sm text-neutral-200"><span class="truncate">${cmd.label}</span>${ext}</span>
                 </button>`;
                   })
                   .join('')

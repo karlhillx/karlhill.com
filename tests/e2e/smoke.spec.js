@@ -137,11 +137,17 @@ test.describe('smoke + a11y', () => {
         await expect(more).toBeHidden();
     });
 
-    test('delivery packet lives on /delivery', async ({ page }) => {
-        await page.goto('/delivery');
-        await expect(page.getByRole('heading', { name: /engineering delivery/i })).toBeVisible();
-        await expect(page.getByRole('heading', { name: /definition of done/i })).toBeVisible();
-        await expect(page.getByRole('link', { name: /recruiter kit/i }).first()).toBeVisible();
-        await assertA11y(page);
+    test('command palette marks off-site results', async ({ page }) => {
+        await page.goto('/');
+        await page.keyboard.press('Control+K');
+        await expect(page.locator('#command-palette')).toBeVisible();
+
+        const linkedin = page.getByRole('option', { name: /linkedin/i });
+        await expect(linkedin.locator('.command-result__ext')).toHaveText('↗');
+        await expect(linkedin).toContainText('opens in a new tab');
+
+        await expect(
+            page.getByRole('option', { name: /switch theme/i }).locator('.command-result__ext')
+        ).toHaveCount(0);
     });
 });

@@ -1268,6 +1268,14 @@ nav[aria-label='Primary'] {
     color: var(--muted-2);
 }
 
+.command-result__label {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 @supports (animation-delay: calc(sibling-index() * 1ms)) {
     .command-result {
         animation-delay: calc(sibling-index() * 28ms);
