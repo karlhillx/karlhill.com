@@ -162,17 +162,19 @@
     @endif
 
     <div id="command-palette" popover="auto" class="command-palette" aria-label="Command palette">
-        <input id="command-input" type="text"
-               class="command-input font-mono"
-               placeholder="Search pages and sections…"
-               aria-label="Search commands"
-               role="combobox"
-               aria-expanded="false"
-               aria-controls="command-results"
-               aria-autocomplete="list"
-               autocomplete="off"
-               spellcheck="false">
-        <div id="command-results" class="command-results mt-3" role="listbox" aria-label="Commands"></div>
+        <search class="command-palette__search">
+            <input id="command-input" type="search"
+                   class="command-input font-mono"
+                   placeholder="Search pages and sections…"
+                   aria-label="Search commands"
+                   role="combobox"
+                   aria-expanded="false"
+                   aria-controls="command-results"
+                   aria-autocomplete="list"
+                   autocomplete="off"
+                   spellcheck="false">
+            <div id="command-results" class="command-results mt-3" role="listbox" aria-label="Commands"></div>
+        </search>
         <div class="command-hint" aria-hidden="true">
             <span><kbd data-mod-shortcut>⌘K</kbd> open</span>
             <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>

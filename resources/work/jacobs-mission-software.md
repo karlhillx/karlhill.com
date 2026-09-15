@@ -27,6 +27,22 @@ metrics:
   label: Engineers on the team
 - value: ~20
   label: Repositories in scope
+status:
+- label: Delivery gates
+  state: Adopted
+  detail: Shared CI/CD, review, testing, type-checking, security, and release baseline. Coverage across repositories is still uneven.
+- label: Portable messaging
+  state: In use
+  detail: Common interface and broker adapters. Ownership is shared; every consumer is not claimed.
+- label: Unit-test standard
+  state: In progress
+  detail: Written and used in review. Not a repository-wide rewrite.
+- label: Cross-team delivery
+  state: Ongoing
+  detail: Tickets, sequencing, and coordination. Not a closed initiative.
+- label: Coaching
+  state: Shipped
+  detail: Six engineers onboarded. Personnel decisions remain with management.
 platform:
   caption: A high-level view of the engineering system, not a program architecture.
   stages:

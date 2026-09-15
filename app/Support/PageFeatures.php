@@ -67,7 +67,7 @@ final class PageFeatures
 
         if (in_array($name, ['about', 'now', 'kit', 'resume', 'lead'], true)) {
             $features[] = 'reveal';
-            if ($name === 'lead') {
+            if (in_array($name, ['kit', 'resume', 'lead'], true)) {
                 $features[] = 'summarizer';
             }
         }

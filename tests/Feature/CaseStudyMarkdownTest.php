@@ -76,6 +76,9 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertSee('Program-specific architecture and operational details are not included here', escape: false)
         ->assertSee('Hands-on technical leadership', escape: false)
         ->assertSee('id="scope"', escape: false)
+        ->assertSee('Adopted', escape: false)
+        ->assertSee('In progress', escape: false)
+        ->assertSee('Delivery status', escape: false)
         ->assertSee('Owns', escape: false)
         ->assertSee('Influences', escape: false)
         ->assertSee('Reserved', escape: false)
@@ -93,6 +96,8 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertSee('Processing and delivery', escape: false)
         ->assertSee('Read the paper', escape: false)
         ->assertSee('The public map is the shipped system', escape: false)
+        ->assertSee('shot-carousel--multi', escape: false)
+        ->assertSee('GeoHorizons paper', escape: false)
         ->assertDontSee('Figure 1: Automated Satellite Ingestion to Multi-Agency Dissemination Architecture', escape: false)
         ->assertDontSee('operational flood data', escape: false);
 

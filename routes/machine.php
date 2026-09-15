@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | middleware group so they do not start a session or set CSRF cookies.
 */
 
-Route::middleware('cache.headers:public;max_age=3600;etag')->group(function (): void {
+Route::middleware('cache.headers:public;max_age=3600;s_maxage=86400;stale_while_revalidate=3600;stale_if_error=86400;etag')->group(function (): void {
     Route::get('/feed.xml', [FeedController::class, 'atom'])->name('feed');
     Route::get('/feed.json', [FeedController::class, 'json'])->name('feed.json');
     Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');

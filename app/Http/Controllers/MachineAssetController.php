@@ -18,8 +18,8 @@ class MachineAssetController extends Controller
 
         return response($bytes, 200, [
             'Content-Type' => 'application/octet-stream',
-            'Cache-Control' => 'public, max-age=86400',
-            'Use-As-Dictionary' => 'match="/*", match-dest=("document"), id="html-shell"',
+            'Cache-Control' => 'public, max-age=2592000, stale-while-revalidate=86400',
+            'Use-As-Dictionary' => 'match="/", match-dest=("document"), type="raw", id="html-shell"',
         ]);
     }
 

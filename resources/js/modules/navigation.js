@@ -77,6 +77,32 @@ export function initNavigation() {
         });
     }
 
+    document.querySelectorAll('details').forEach((details) => {
+        const untilFound = [...details.querySelectorAll('[hidden="until-found"]')];
+        if (untilFound.length === 0) {
+            return;
+        }
+
+        const reveal = () => {
+            details.open = true;
+            untilFound.forEach((node) => node.removeAttribute('hidden'));
+        };
+
+        untilFound.forEach((node) => {
+            node.addEventListener('beforematch', reveal);
+        });
+
+        details.addEventListener('toggle', () => {
+            untilFound.forEach((node) => {
+                if (details.open) {
+                    node.removeAttribute('hidden');
+                } else {
+                    node.setAttribute('hidden', 'until-found');
+                }
+            });
+        });
+    });
+
     const navToggle = document.getElementById('nav-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
 

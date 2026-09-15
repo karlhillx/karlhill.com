@@ -147,16 +147,17 @@ Interior pages stay scroll-driven (`view()` timelines). Touch, reduced-motion, a
 ### Optional platform surfaces
 
 Most kill switches default **off** so a fresh deploy stays conservative.
-Early Hints, content credentials, and the flood WebGPU field default **on**
-(with progressive fallbacks). Pest enables the rest via `phpunit.xml`.
-In production, set `REPORTING_ENABLED=true` before relying on Integrity-Policy
-`auto` promote-to-enforce. Turnstile stays off until both keys are set.
+Early Hints, content credentials, compression dictionaries, reporting, and
+the flood WebGPU field default **on** (with progressive fallbacks). Pest
+enables the rest via `phpunit.xml`. `INTEGRITY_POLICY=auto` promotes to an
+enforcing Integrity-Policy header once Vite SRI hashes exist and retained
+integrity reports are clean. Turnstile stays off until both keys are set.
 
 ```env
 WEBMENTION_ENABLED=false
-REPORTING_ENABLED=false
+REPORTING_ENABLED=true
 INTEGRITY_POLICY=auto      # report-only | enforce | auto
-COMPRESSION_DICTIONARY=false
+COMPRESSION_DICTIONARY=true
 CONTENT_CREDENTIALS=true
 WEBGPU_FLOOD=true
 EARLY_HINTS=true           # 103 only on FrankenPHP / EARLY_HINTS_FORCE
@@ -182,9 +183,11 @@ Suggested Cloudflare settings:
 
 1. Proxy the apex (`karlhill.com`) orange-cloud.
 2. SSL/TLS: Full (strict) with a valid origin cert.
-3. Caching: respect origin `Cache-Control` (do not override HTML to “cache everything”).
+3. Caching: respect origin `Cache-Control` and `CDN-Cache-Control` (do not override HTML to “cache everything”).
 4. Optional Cache Rule: cache `/build/*`, `/img/*`, `/fonts/*` as static.
 5. Bypass cache for `POST /contact` and `/csrf-token` (already `no-store`).
+
+HTML documents send `public, max-age=300` to the browser and `s-maxage=600` plus `stale-while-revalidate` so a CDN can serve a fresh-enough copy while the origin revalidates on ETag. `CDN-Cache-Control` (RFC 9213) repeats the shared-cache policy for Cloudflare.
 
 No app code changes are required for a basic CDN pass-through.
 

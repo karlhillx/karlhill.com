@@ -106,7 +106,7 @@
                 <summary class="font-mono text-xs text-accent uppercase tracking-widest cursor-pointer select-none">
                     On this page
                 </summary>
-                <ol class="article-toc-list mt-3">
+                <ol class="article-toc-list mt-3" hidden="until-found">
                     @foreach($post->tableOfContents as $item)
                         <li @class([
                             'article-toc-item',

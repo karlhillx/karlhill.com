@@ -43,9 +43,17 @@
                 </x-site.button>
             @endif
         </div>
+        <x-site.on-device-ask
+            class="mt-8"
+            id="resume-ask"
+            source="[data-ask-source]"
+            context="Karl Hill resume. Mission software, engineering systems, and technical delivery."
+            label="Ask this resume"
+            placeholder="Role, stack, dates…"
+        />
     </x-site.page-hero>
 
-    <article class="resume-doc site-section site-section--soft border-t border-neutral-800/50" aria-label="Resume">
+    <article class="resume-doc site-section site-section--soft border-t border-neutral-800/50" aria-label="Resume" data-ask-source>
         <div class="site-shell resume-shell">
             {{-- Sidebar first in DOM so print float:right sits beside the main column like the classic PDF. --}}
             <aside class="resume-aside" aria-label="Contact and expertise">

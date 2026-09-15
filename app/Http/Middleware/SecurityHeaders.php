@@ -69,6 +69,7 @@ class SecurityHeaders
         }
 
         $this->annotateDocumentDictionary($request, $response);
+        $this->annotateCdnCache($request, $response);
         $this->annotatePrerender($request, $response);
         $this->suppressVersionHeaders($response);
 
@@ -98,6 +99,35 @@ class SecurityHeaders
         $response->headers->set(
             'Available-Dictionary',
             ':'.CompressionDictionary::hash().':',
+        );
+    }
+
+    /**
+     * RFC 9213 shared-cache override so Cloudflare (or any CDN) can hold HTML
+     * longer than the browser while still revalidating on ETag.
+     */
+    protected function annotateCdnCache(Request $request, Response $response): void
+    {
+        if ($response->headers->has('CDN-Cache-Control')) {
+            return;
+        }
+
+        $cacheControl = (string) $response->headers->get('Cache-Control', '');
+        if ($cacheControl === '' || str_contains($cacheControl, 'no-store') || str_contains($cacheControl, 'private')) {
+            return;
+        }
+
+        if (! preg_match('/(?:^|[,\s])max-age=(\d+)/', $cacheControl, $matches)) {
+            return;
+        }
+
+        $maxAge = (int) $matches[1];
+        $stale = max(60, intdiv($maxAge, 5));
+        $error = max(3600, $maxAge * 24);
+
+        $response->headers->set(
+            'CDN-Cache-Control',
+            "public, max-age={$maxAge}, stale-while-revalidate={$stale}, stale-if-error={$error}",
         );
     }
 

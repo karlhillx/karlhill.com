@@ -48,7 +48,7 @@ if (config('site.a11y_fixtures')) {
 // HTML pages: the site is effectively static (flat-file blog, cached GitHub
 // data) so a short public TTL plus an ETag lets browsers and any future CDN
 // revalidate cheaply (304s) without serving stale content.
-Route::middleware('cache.headers:public;max_age=300;etag')->group(function (): void {
+Route::middleware('cache.headers:public;max_age=300;s_maxage=600;stale_while_revalidate=120;stale_if_error=86400;etag')->group(function (): void {
     Route::get('/', HomeController::class)->name('home');
     Route::get('/work/tag/{tag}', [WorkController::class, 'tag'])
         ->where('tag', '[a-z0-9-]+')

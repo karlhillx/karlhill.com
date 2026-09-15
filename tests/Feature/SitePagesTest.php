@@ -447,7 +447,7 @@ it('service worker and offline page are available', function () {
     $this->assertFileExists(public_path('offline.html'));
     $this->assertStringContainsString("You're offline", (string) file_get_contents(public_path('offline.html')));
     $sw = (string) file_get_contents(public_path('sw.js'));
-    $this->assertStringContainsString('karlhill-offline-v12', $sw);
+    $this->assertStringContainsString('karlhill-offline-v13', $sw);
     // Readable pages are cached on visit, not precached on install.
     $this->assertStringContainsString("const PRECACHE = ['/offline.html', '/site.webmanifest'];", $sw);
     $this->assertStringContainsString("'/now'", $sw);

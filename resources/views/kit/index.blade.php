@@ -10,7 +10,7 @@
         $moreLinks = collect($links)->where('group', 'more')->values();
     @endphp
 
-    <div class="kit-doc">
+    <div class="kit-doc" data-ask-source>
     {{-- Print-only masthead: name + reachability first (screen uses the page hero). --}}
     <header class="kit-print-masthead" aria-hidden="true">
         <p class="kit-print-masthead__name">{{ $person['name'] }}</p>
@@ -96,6 +96,15 @@
                     </div>
                 </dl>
 
+                <x-site.on-device-ask
+                    class="mt-8"
+                    id="kit-ask"
+                    source="[data-ask-source]"
+                    :context="$person['name'].'. '.$person['job_title'].'. '.$kit['lede']"
+                    label="Ask this kit"
+                    placeholder="Open to, evidence, current role…"
+                />
+
                 <x-site.job-scope
                     class="kit-print-only mt-8"
                     heading="Current scope"
@@ -176,7 +185,7 @@
                             More links
                             <span class="text-neutral-500 normal-case tracking-normal ml-2">({{ $moreLinks->count() }})</span>
                         </summary>
-                        <ul class="kit-links divide-y divide-neutral-800/80 mt-1">
+                        <ul class="kit-links divide-y divide-neutral-800/80 mt-1" hidden="until-found">
                             @foreach($moreLinks as $link)
                                 @include('kit.partials.link-row', ['link' => $link])
                             @endforeach

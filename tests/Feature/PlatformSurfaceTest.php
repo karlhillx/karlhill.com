@@ -146,7 +146,8 @@ it('nav uses invoker commands and blog cards use interest invokers', function ()
         ->assertOk()
         ->assertSee('command="toggle-popover"', escape: false)
         ->assertSee('commandfor="command-palette"', escape: false)
-        ->assertSee('data-theme-toggle', escape: false);
+        ->assertSee('data-theme-toggle', escape: false)
+        ->assertSee('<search', escape: false);
 
     $this->get('/work')
         ->assertOk()
@@ -196,14 +197,20 @@ it('contact error fixture is uncached and exposes invalid fields', function () {
     expect($cache)->toContain('no-store');
 });
 
-it('keeps summarizer off the hire path and on essays', function () {
-    $this->get('/kit')
-        ->assertOk()
-        ->assertDontSee('data-on-device-summary', escape: false);
-
+it('keeps summarizer on essays and on-device ask on kit and resume', function () {
     $this->get('/about')
         ->assertOk()
-        ->assertDontSee('data-on-device-summary', escape: false);
+        ->assertDontSee('data-on-device-summary', escape: false)
+        ->assertDontSee('data-on-device-ask', escape: false);
+
+    $this->get('/kit')
+        ->assertOk()
+        ->assertSee('data-on-device-ask', escape: false)
+        ->assertSee('hidden="until-found"', escape: false);
+
+    $this->get('/resume')
+        ->assertOk()
+        ->assertSee('data-on-device-ask', escape: false);
 
     $html = $this->get('/blog/release-governance')->assertOk()->getContent();
     expect($html)
@@ -221,5 +228,6 @@ it('omits reporting and dictionary headers when those features are off', functio
     $response->assertOk();
     expect($response->headers->get('Reporting-Endpoints'))->toBeNull()
         ->and($response->headers->get('NEL'))->toBeNull()
-        ->and($response->headers->get('Available-Dictionary'))->toBeNull();
+        ->and($response->headers->get('Available-Dictionary'))->toBeNull()
+        ->and((string) $response->headers->get('Link'))->not->toContain('compression-dictionary');
 });

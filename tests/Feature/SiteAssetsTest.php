@@ -45,8 +45,16 @@ it('web manifest includes required pwa fields', function () {
     );
 
     $this->assertSame('/', $manifest['start_url']);
+    $this->assertSame('https://karlhill.com/', $manifest['id']);
     $this->assertNotEmpty($manifest['description']);
     $this->assertContains('portfolio', $manifest['categories']);
+    $this->assertContains('standalone', $manifest['display_override']);
+    $this->assertSame(['/kit', '/now', '/work'], array_column($manifest['shortcuts'], 'url'));
+    $this->assertFileExists(public_path('img/maskable-192x192.png'));
+    $this->assertFileExists(public_path('img/maskable-512x512.png'));
+    $this->assertTrue(
+        collect($manifest['icons'])->contains(fn ($icon) => ($icon['purpose'] ?? '') === 'maskable'),
+    );
 });
 
 it('image helpers map avif and srcset widths', function () {

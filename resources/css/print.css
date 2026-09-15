@@ -26,8 +26,17 @@
     .media-lightbox,
     .case-study-media__zoom,
     .site-toolbar--sticky,
-    .on-device-summary {
+    .on-device-summary,
+    .on-device-ask {
         display: none !important;
+    }
+
+    .shot-carousel--multi .shot-carousel__scroller {
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        scroll-snap-type: none;
     }
 
     *,

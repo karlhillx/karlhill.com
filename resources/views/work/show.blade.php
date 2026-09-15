@@ -29,6 +29,34 @@
         $relatedProjects->isNotEmpty() ? ['id' => 'related', 'text' => 'Related'] : null,
     ]));
     $tocGroups = null;
+
+    $gallery = collect($project['gallery'] ?? [])
+        ->map(function ($shot) use ($imageAlt, $project) {
+            if (is_string($shot)) {
+                return [
+                    'src' => $shot,
+                    'alt' => $imageAlt,
+                    'label' => $project['title'],
+                    'position' => $project['imagePosition'] ?? 'object-center',
+                ];
+            }
+
+            return array_merge([
+                'alt' => $imageAlt,
+                'position' => $project['imagePosition'] ?? 'object-center',
+            ], $shot);
+        })
+        ->filter(fn ($shot) => filled($shot['src'] ?? null))
+        ->values();
+
+    if ($gallery->isEmpty() && ! $isJacobs && filled($project['image'] ?? null)) {
+        $gallery = collect([[
+            'src' => $project['image'],
+            'alt' => $imageAlt,
+            'label' => $project['title'],
+            'position' => $project['imagePosition'] ?? 'object-center',
+        ]]);
+    }
 @endphp
 
 @extends('layouts.site', ['meta' => $meta])
@@ -110,7 +138,7 @@
                             <summary class="font-mono text-xs text-accent uppercase tracking-widest cursor-pointer select-none">
                                 On this page
                             </summary>
-                            <ol class="article-toc-list mt-3">
+                            <ol class="article-toc-list mt-3" hidden="until-found">
                                 @foreach($toc as $item)
                                     <li @class([
                                         'article-toc-item',
@@ -151,24 +179,10 @@
                                          class="case-study-logo-plate__mark">
                                 </div>
                             @else
-                                <button type="button"
-                                        class="case-study-media__trigger group"
-                                        data-lightbox-open
-                                        data-lightbox-src="{{ $project['image'] }}"
-                                        data-lightbox-alt="{{ $imageAlt }}">
-                                    <x-site.responsive-image
-                                        :src="$project['image']"
-                                        :alt="$imageAlt"
-                                        sizes="(min-width: 832px) 48rem, 100vw"
-                                        loading="eager"
-                                        fetchpriority="high"
-                                        :img-style="'view-transition-name: work-img-'.$project['slug'].'; view-transition-class: card-media'"
-                                        img-class="case-study-media__img w-full aspect-[16/9] object-cover {{ $project['imagePosition'] ?? 'object-center' }} transition-[opacity,filter] duration-300 group-hover:opacity-90"
-                                    />
-                                    <span class="case-study-media__zoom font-mono text-caption uppercase tracking-widest">
-                                        Expand <span aria-hidden="true">↗</span>
-                                    </span>
-                                </button>
+                                <x-site.shot-carousel
+                                    :slides="$gallery"
+                                    :transition-name="'view-transition-name: work-img-'.$project['slug'].'; view-transition-class: card-media'"
+                                />
                             @endif
 
                             <figcaption class="case-study-media__footer">
@@ -190,6 +204,20 @@
                                             <div class="case-study-facts__row">
                                                 <dt class="case-study-facts__label">{{ $metric['label'] }}</dt>
                                                 <dd @class(['case-study-facts__value', 'case-study-facts__value--stat' => $isNumericMetric])@if($isNumericMetric) data-counter data-final="{{ $metricValue }}"@endif>{{ $metricValue }}</dd>
+                                            </div>
+                                        @endforeach
+                                    </dl>
+                                @endif
+
+                                @if(! empty($study['status']))
+                                    <dl class="case-study-status" aria-label="Delivery status">
+                                        @foreach($study['status'] as $row)
+                                            <div class="case-study-status__row">
+                                                <dt>
+                                                    <span class="case-study-status__state">{{ $row['state'] }}</span>
+                                                    {{ $row['label'] }}
+                                                </dt>
+                                                <dd>{{ $row['detail'] }}</dd>
                                             </div>
                                         @endforeach
                                     </dl>

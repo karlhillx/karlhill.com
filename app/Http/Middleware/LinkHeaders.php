@@ -32,6 +32,10 @@ class LinkHeaders
             $links[] = '</webmention>; rel="webmention"';
         }
 
+        if (SiteFeatures::compressionDictionary()) {
+            $links[] = '</dict/html-shell.dat>; rel="compression-dictionary"';
+        }
+
         $links[] = '</llms.txt>; rel="describedby"; type="text/plain"';
 
         if ($links === []) {

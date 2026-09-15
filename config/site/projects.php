@@ -34,6 +34,18 @@ return [
         'description' => 'Python and Docker software for processing and distributing satellite-derived flood maps on AWS. Built to support near-real-time Earth observation products. The live map is public; a GeoHorizons paper describes the system.',
         'image' => '/img/webp/small-flood.webp',
         'imagePosition' => 'object-left-top',
+        'gallery' => [
+            [
+                'src' => '/img/webp/small-flood.webp',
+                'alt' => 'Public Global Water and Flood Mapping System map',
+                'label' => 'Live map',
+            ],
+            [
+                'src' => '/img/webp/ss-geohorizons.webp',
+                'alt' => 'GeoHorizons paper describing the flood mapping system',
+                'label' => 'GeoHorizons paper',
+            ],
+        ],
         'url' => 'https://floodmapping.gsfc.nasa.gov/',
         'artifact' => [
             'label' => 'Open the live map',

@@ -42,5 +42,7 @@
         <env name="WEBGPU_FLOOD" value="true"/>
         <env name="EARLY_HINTS" value="true"/>
         <env name="INTEGRITY_POLICY" value="report-only"/>
+        <env name="TURNSTILE_SITE_KEY" value="" force="true"/>
+        <env name="TURNSTILE_SECRET_KEY" value="" force="true"/>
     </php>
 </phpunit>

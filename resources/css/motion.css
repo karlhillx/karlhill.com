@@ -1103,6 +1103,7 @@ html.hero-ambient-paused .page-spotlight__orb {
 /* Command palette — liquid glass surface with staggered result entrance. */
 .command-palette {
     inset: 12vh 0 auto 0;
+    inset: 12vh 0 auto 0;
     margin-inline: auto;
     width: min(42rem, calc(100vw - 2rem));
     height: max-content;
@@ -1128,6 +1129,10 @@ html.hero-ambient-paused .page-spotlight__orb {
         transform 0.28s var(--ease-out-spring),
         overlay 0.24s allow-discrete,
         display 0.24s allow-discrete;
+}
+
+.command-palette__search {
+    display: block;
 }
 
 .command-palette:popover-open {

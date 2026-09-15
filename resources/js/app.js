@@ -62,4 +62,5 @@ loadWhen(
     () => import('./modules/summarizer.js'),
     'initOnDeviceSummary'
 );
+loadWhen(features.has('summarizer'), () => import('./modules/ask-page.js'), 'initOnDeviceAsk');
 loadWhen(features.has('webgpu'), () => import('./modules/webgpu-flood.js'), 'initWebGpuFlood');

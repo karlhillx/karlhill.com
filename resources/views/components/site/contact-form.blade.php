@@ -85,7 +85,7 @@
                 {{-- Widget script is lazy-loaded on focus / near-viewport (contact.js). --}}
                 <div class="cf-turnstile"
                      data-sitekey="{{ config('site.turnstile.site_key') }}"
-                     data-theme="dark"
+                     data-theme="auto"
                      data-size="flexible"></div>
                 <div data-turnstile-error>
                     @if($errorBag->has('turnstile'))

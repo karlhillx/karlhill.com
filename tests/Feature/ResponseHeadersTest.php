@@ -38,7 +38,10 @@ it('pages send cache control and etag', function () {
     $cacheControl = $response->headers->get('Cache-Control');
     $this->assertStringContainsString('public', $cacheControl);
     $this->assertStringContainsString('max-age=300', $cacheControl);
+    $this->assertStringContainsString('s-maxage=600', $cacheControl);
+    $this->assertStringContainsString('stale-while-revalidate=120', $cacheControl);
     $this->assertNotNull($response->headers->get('ETag'));
+    $this->assertStringContainsString('stale-while-revalidate', (string) $response->headers->get('CDN-Cache-Control'));
 });
 
 it('feed is cached for longer', function () {
@@ -100,7 +103,8 @@ it('html documents opt into credentialed prerender and ignore tracking params', 
     $home->assertOk();
     expect($home->headers->get('Supports-Loading-Mode'))->toBe('credentialed-prerender')
         ->and($home->headers->get('No-Vary-Search'))->toContain('utm_source')
-        ->and($home->headers->get('Permissions-Policy'))->toContain('summarizer=(self)');
+        ->and($home->headers->get('Permissions-Policy'))->toContain('summarizer=(self)')
+        ->and((string) $home->headers->get('Link'))->toContain('rel="compression-dictionary"');
 
     $json = $this->get('/api/site.json');
     $json->assertOk();
