@@ -8,6 +8,8 @@
     @php
         $primaryLinks = collect($links)->where('group', 'primary')->values();
         $moreLinks = collect($links)->where('group', 'more')->values();
+        $credentials = \App\Support\SiteFeatures::contentCredentials();
+        $moreCount = $moreLinks->count() + ($credentials ? 1 : 0);
     @endphp
 
     <div class="kit-doc" data-ask-source>
@@ -100,9 +102,11 @@
                     class="mt-8"
                     id="kit-ask"
                     source="[data-ask-source]"
-                    :context="$person['name'].'. '.$person['job_title'].'. '.$kit['lede']"
-                    label="Ask this kit"
-                    placeholder="Open to, evidence, current role…"
+                    :context="$askBrief"
+                    :prompts="$askPrompts"
+                    heading="Ask this kit"
+                    label="Ask"
+                    placeholder="What is Karl open to?"
                 />
 
                 <x-site.job-scope
@@ -166,29 +170,29 @@
                     @foreach($primaryLinks as $link)
                         @include('kit.partials.link-row', ['link' => $link])
                     @endforeach
-                    @if(\App\Support\SiteFeatures::contentCredentials())
-                        <li class="py-1">
-                            <a href="{{ url('/api/credentials.json') }}"
-                               class="group flex flex-wrap items-center justify-between gap-2 min-h-11 py-3">
-                                <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">
-                                    Content credentials
-                                </span>
-                                <span class="kit-link-meta font-mono text-caption text-neutral-500 uppercase tracking-widest">C2PA sidecar</span>
-                            </a>
-                        </li>
-                    @endif
                 </ul>
 
-                @if($moreLinks->isNotEmpty())
+                @if($moreCount > 0)
                     <details class="kit-links-more mt-2">
                         <summary class="kit-links-more__summary font-mono text-xs text-neutral-400 uppercase tracking-widest min-h-11 flex items-center cursor-pointer hover:text-accent transition-colors">
                             More links
-                            <span class="text-neutral-500 normal-case tracking-normal ml-2">({{ $moreLinks->count() }})</span>
+                            <span class="text-neutral-500 normal-case tracking-normal ml-2">({{ $moreCount }})</span>
                         </summary>
                         <ul class="kit-links divide-y divide-neutral-800/80 mt-1" hidden="until-found">
                             @foreach($moreLinks as $link)
                                 @include('kit.partials.link-row', ['link' => $link])
                             @endforeach
+                            @if($credentials)
+                                <li class="py-1">
+                                    <a href="{{ url('/api/credentials.json') }}"
+                                       class="group flex flex-wrap items-center justify-between gap-2 min-h-11 py-3">
+                                        <span class="kit-link-label text-neutral-200 group-hover:text-accent transition-colors">
+                                            Content credentials
+                                        </span>
+                                        <span class="kit-link-meta font-mono text-caption text-neutral-500 uppercase tracking-widest">C2PA sidecar</span>
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </details>
                 @endif

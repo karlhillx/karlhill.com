@@ -207,11 +207,18 @@ it('keeps summarizer on essays and on-device ask on kit and resume', function ()
     $this->get('/kit')
         ->assertOk()
         ->assertSee('data-on-device-ask', escape: false)
+        ->assertSee('data-ask-from="[data-ask-source]"', escape: false)
+        ->assertSee('data-ask-brief', escape: false)
+        ->assertSee('What is Karl open to?', escape: false)
+        ->assertSee('What is the current work?', escape: false)
+        ->assertSee('What public evidence is there?', escape: false)
+        ->assertSee('Ask a hiring question', escape: false)
         ->assertSee('hidden="until-found"', escape: false);
 
     $this->get('/resume')
         ->assertOk()
-        ->assertSee('data-on-device-ask', escape: false);
+        ->assertSee('data-on-device-ask', escape: false)
+        ->assertSee('What is the current role?', escape: false);
 
     $html = $this->get('/blog/release-governance')->assertOk()->getContent();
     expect($html)

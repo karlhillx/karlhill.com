@@ -47,33 +47,24 @@ return [
             'label' => 'GeoHorizons research publication',
             'url' => 'https://doi.org/10.1144/gh2025-7',
         ],
-        [
-            'label' => 'Engineering delivery and software process work',
-            'path' => '/delivery',
-        ],
-        [
-            'label' => 'Open-source developer tooling',
-            'path' => '/work#open-source',
-        ],
     ],
     'direction' => [
         'Growing toward broader ownership of architecture, engineering strategy, delivery, and team development.',
         'Principal-level technical leadership is the primary path. Engineering management is a strong next step where the role stays technically credible and close to software delivery.',
     ],
     'contact_lede' => 'Schedule a conversation, view the resume, or explore selected work.',
+    'ask_prompts' => [
+        'What is Karl open to?',
+        'What is the current work?',
+        'What public evidence is there?',
+    ],
     /*
      | Canonical outbound links for the kit (and its print leave-behind).
-     | group => primary: first-pass skim. group => more: collapsed on screen,
-     | always expanded in print.
+     | group => primary: first-pass skim and print. group => more: collapsed
+     | on screen, omitted in print. Case studies and the DOI live under
+     | evidence — do not repeat them here.
      */
     'links' => [
-        [
-            'label' => null,
-            'type' => 'booking',
-            'path' => '/now#book',
-            'meta' => 'Book',
-            'group' => 'more',
-        ],
         [
             'label' => 'Resume PDF',
             'type' => 'pdf',
@@ -82,39 +73,29 @@ return [
             'group' => 'primary',
         ],
         [
-            'label' => 'Selected work',
-            'path' => '/work',
-            'meta' => '/work',
-            'group' => 'more',
+            'label' => 'LinkedIn',
+            'social' => 'linkedin',
+            'meta' => 'Profile',
+            'external' => true,
+            'group' => 'primary',
+        ],
+        [
+            'label' => null,
+            'type' => 'booking',
+            'path' => '/now#book',
+            'meta' => 'Book',
+            'group' => 'primary',
         ],
         [
             'label' => 'Engineering mission software at scale',
             'path' => '/work/jacobs-mission-software',
             'meta' => 'Current',
-            'group' => 'more',
+            'group' => 'primary',
         ],
         [
-            'label' => 'Flood maps',
-            'url' => 'https://floodmapping.gsfc.nasa.gov/',
-            'meta' => 'Live',
-            'group' => 'more',
-        ],
-        [
-            'label' => 'LAADS Find Data',
-            'url' => 'https://ladsweb.modaps.eosdis.nasa.gov/search/',
-            'meta' => 'Live',
-            'group' => 'more',
-        ],
-        [
-            'label' => 'GeoHorizons paper',
-            'url' => 'https://doi.org/10.1144/gh2025-7',
-            'meta' => 'DOI',
-            'group' => 'more',
-        ],
-        [
-            'label' => null,
-            'type' => 'email',
-            'meta' => 'Email',
+            'label' => 'Selected work',
+            'path' => '/work',
+            'meta' => '/work',
             'group' => 'more',
         ],
         [
@@ -130,15 +111,16 @@ return [
             'group' => 'more',
         ],
         [
-            'label' => 'How software gets delivered',
-            'path' => '/#system',
-            'meta' => 'Diagram',
+            'label' => 'GitHub',
+            'social' => 'github',
+            'meta' => 'Code',
+            'external' => true,
             'group' => 'more',
         ],
         [
-            'label' => 'Engineering delivery',
-            'path' => '/delivery',
-            'meta' => 'Packet',
+            'label' => null,
+            'type' => 'email',
+            'meta' => 'Email',
             'group' => 'more',
         ],
         [
@@ -148,48 +130,9 @@ return [
             'group' => 'more',
         ],
         [
-            'label' => 'Earth Observatory',
-            'url' => 'https://earthobservatory.nasa.gov/',
-            'meta' => 'Live',
-            'group' => 'more',
-        ],
-        [
-            'label' => 'Earth Observatory study',
-            'path' => '/work/nasa-earth-observatory',
-            'meta' => 'Case study',
-            'group' => 'more',
-        ],
-        [
-            'label' => 'Flood Mapping System',
-            'path' => '/work/flood-mapping-system',
-            'meta' => 'Case study',
-            'group' => 'more',
-        ],
-        [
-            'label' => 'LAADS DAAC',
-            'path' => '/work/laads-daac',
-            'meta' => 'Case study',
-            'group' => 'more',
-        ],
-        [
-            'label' => 'LinkedIn',
-            'social' => 'linkedin',
-            'meta' => 'Profile',
-            'external' => true,
-            'group' => 'primary',
-        ],
-        [
-            'label' => 'GitHub',
-            'social' => 'github',
-            'meta' => 'Code',
-            'external' => true,
-            'group' => 'more',
-        ],
-        [
-            'label' => 'bb-run',
-            'url' => 'https://github.com/karlhillx/bb-run',
-            'meta' => 'Python',
-            'external' => true,
+            'label' => 'Engineering delivery',
+            'path' => '/delivery',
+            'meta' => 'Packet',
             'group' => 'more',
         ],
     ],

@@ -118,7 +118,23 @@ test.describe('smoke + a11y', () => {
         await expect(page.getByRole('heading', { name: /recruiter kit/i })).toBeVisible();
         await expect(page.getByRole('link', { name: /download resume pdf/i })).toBeVisible();
         await expect(page.locator('.kit-doc')).toBeVisible();
+
+        await expect(page.locator('.kit-highlights--flush > .kit-highlights__item')).toHaveCount(5);
+        await expect(page.locator('.max-w-2xl > ul.kit-links > li')).toHaveCount(4);
+        await expect(page.locator('[data-ask-prompt]')).toHaveCount(3);
+
+        const more = page.locator('.kit-links-more');
+        await expect(more).toBeVisible();
+        await expect(more).not.toHaveAttribute('open');
+
+        await more.locator('summary').click();
+        await expect(more).toHaveAttribute('open');
+        await expect(more.getByRole('link', { name: /github/i })).toBeVisible();
+
         await assertA11y(page);
+
+        await page.emulateMedia({ media: 'print' });
+        await expect(more).toBeHidden();
     });
 
     test('delivery packet lives on /delivery', async ({ page }) => {

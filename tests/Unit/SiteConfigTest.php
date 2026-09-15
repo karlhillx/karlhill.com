@@ -60,3 +60,23 @@ it('experience fragment powers resume and facts stay consistent', function () {
         ->and(config('site.resume.impact'))->toBeEmpty()
         ->and(config('site.resume.expertise'))->not->toBeEmpty();
 });
+
+it('keeps the recruiter kit skim to a short primary row and evidence list', function () {
+    $links = collect(config('site.kit.links'));
+    $primary = $links->where('group', 'primary')->values();
+    $more = $links->where('group', 'more')->values();
+    $evidence = collect(config('site.kit.evidence'));
+
+    expect($primary)->toHaveCount(4)
+        ->and($primary->pluck('meta')->all())->toBe(['Download', 'Profile', 'Book', 'Current'])
+        ->and($more->count())->toBe(7)
+        ->and($evidence)->toHaveCount(5)
+        ->and($evidence->pluck('path')->filter()->values()->all())->toBe([
+            '/work/jacobs-mission-software',
+            '/work/flood-mapping-system',
+            '/work/laads-daac',
+            '/work/nasa-earth-observatory',
+        ])
+        ->and($links->pluck('url')->filter())->toBeEmpty()
+        ->and($links->pluck('path')->filter()->values()->all())->not->toContain('/#system');
+});

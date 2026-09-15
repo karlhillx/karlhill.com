@@ -5,6 +5,12 @@
 
 const SOURCE_CHAR_LIMIT = 12000;
 
+const SYSTEM_PROMPT =
+    'You answer hiring questions about Karl Hill using only the provided brief and page text. ' +
+    'Questions about what he wants, is open to, looking for, or the next role refer to Open to and Direction. ' +
+    'Be specific and concise. Do not invent employers, titles, metrics, or dates. ' +
+    'If the brief or page covers it, answer. If it does not, say you do not know.';
+
 function whenActivated() {
     if (!document.prerendering) {
         return Promise.resolve();
@@ -23,18 +29,43 @@ function languageModel() {
     return self.ai?.languageModel ?? null;
 }
 
+function briefText(root) {
+    const node = root.querySelector('[data-ask-brief]');
+
+    return (node?.textContent || '').replace(/\s+\n/g, '\n').trim();
+}
+
 function sourceText(root) {
-    const selector = root.dataset.askSource || '[data-ask-source]';
-    const node =
-        root.closest('[data-ask-source]') ||
-        document.querySelector(selector) ||
-        document.querySelector('[data-ask-source]');
-    const text = (node?.innerText || '').replace(/\s+\n/g, '\n').trim();
+    const selector = root.dataset.askFrom || '[data-ask-source]';
+    const nodes = [...document.querySelectorAll(selector)].filter(
+        (node) => node !== root && !root.contains(node) && !node.closest('[data-on-device-ask]')
+    );
+
+    const parts = nodes.map((node) => {
+        const clone = node.cloneNode(true);
+        clone.querySelectorAll('[data-on-device-ask]').forEach((el) => el.remove());
+
+        return (clone.innerText || '').replace(/\s+\n/g, '\n').trim();
+    });
+
+    const text = parts.filter(Boolean).join('\n\n').trim();
     if (text.length <= SOURCE_CHAR_LIMIT) {
         return text;
     }
 
     return text.slice(0, SOURCE_CHAR_LIMIT);
+}
+
+function userPrompt(brief, page, question) {
+    const sections = [];
+    if (brief) {
+        sections.push(`Brief:\n${brief}`);
+    }
+    if (page) {
+        sections.push(`Page:\n${page}`);
+    }
+
+    return `${sections.join('\n\n')}\n\nQuestion: ${question}`;
 }
 
 function escapeHtml(value) {
@@ -100,7 +131,21 @@ async function revealIfAvailable(root, Model) {
         abort = null;
     };
 
+    const runQuestion = (question) => {
+        input.value = question;
+        form.requestSubmit();
+    };
+
     cancelButton?.addEventListener('click', () => abort?.abort());
+
+    root.querySelectorAll('[data-ask-prompt]').forEach((chip) => {
+        chip.addEventListener('click', () => {
+            const question = (chip.dataset.askPrompt || chip.textContent || '').trim();
+            if (question !== '') {
+                runQuestion(question);
+            }
+        });
+    });
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -114,8 +159,9 @@ async function revealIfAvailable(root, Model) {
             abort.abort();
         }
 
+        const brief = briefText(root);
         const page = sourceText(root);
-        if (page === '') {
+        if (brief === '' && page === '') {
             status.textContent = 'Nothing on this page to answer from.';
             return;
         }
@@ -137,17 +183,10 @@ async function revealIfAvailable(root, Model) {
         output.textContent = 'Reading this page…';
         status.textContent = 'On-device · Gemini Nano';
 
-        const context = root.dataset.askContext ? `${root.dataset.askContext}\n\n` : '';
-        const prompt =
-            `${context}Answer only from the page below. If the page does not say, say you do not know.\n\n` +
-            `Page:\n${page}\n\nQuestion: ${question}`;
+        const prompt = `${SYSTEM_PROMPT}\n\n${userPrompt(brief, page, question)}`;
 
         try {
-            const session = await Model.create({
-                expectedInputs: [{ type: 'text', languages: ['en'] }],
-                expectedOutputs: [{ type: 'text', languages: ['en'] }],
-                signal,
-            });
+            const session = await createSession(Model, signal);
 
             if (signal.aborted) {
                 session.destroy?.();
@@ -202,4 +241,21 @@ async function revealIfAvailable(root, Model) {
             resetChrome();
         }
     });
+}
+
+async function createSession(Model, signal) {
+    const base = {
+        expectedInputs: [{ type: 'text', languages: ['en'] }],
+        expectedOutputs: [{ type: 'text', languages: ['en'] }],
+        signal,
+    };
+
+    try {
+        return await Model.create({
+            ...base,
+            initialPrompts: [{ role: 'system', content: SYSTEM_PROMPT }],
+        });
+    } catch {
+        return Model.create(base);
+    }
 }

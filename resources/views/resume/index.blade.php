@@ -47,9 +47,11 @@
             class="mt-8"
             id="resume-ask"
             source="[data-ask-source]"
-            context="Karl Hill resume. Mission software, engineering systems, and technical delivery."
-            label="Ask this resume"
-            placeholder="Role, stack, dates…"
+            :context="$askBrief"
+            :prompts="$askPrompts"
+            heading="Ask this resume"
+            label="Ask"
+            placeholder="What is the current role?"
         />
     </x-site.page-hero>
 

@@ -11,6 +11,11 @@ return [
     'postal' => '',
     // PDF splits on the first "|": lead line, then the rest.
     'tagline' => 'Mission Software | Engineering Systems | Technical Leadership | Delivery',
+    'ask_prompts' => [
+        'What is the current role?',
+        'What did he do at NASA?',
+        'What is he open to?',
+    ],
     // Intentionally empty: leadership evidence lives in Jacobs experience bullets.
     'impact' => [],
     'expertise' => [
@@ -20,6 +25,11 @@ return [
         'Engineering Systems & Developer Tooling',
         'Engineer Development & Coaching',
         'Agile & Cross-Team Delivery',
+    ],
+    'ask_prompts' => [
+        'What is the current role?',
+        'What did he do at NASA?',
+        'What is he open to?',
     ],
     'tooling' => [
         [

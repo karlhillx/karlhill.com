@@ -585,11 +585,8 @@
         display: block !important;
     }
 
+    /* Screen-only overflow. Print is glance, evidence, and the primary row. */
     body:has(.kit-doc) .kit-links-more {
-        display: block !important;
-    }
-
-    body:has(.kit-doc) .kit-links-more__summary {
         display: none !important;
     }
 

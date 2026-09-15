@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\OnDeviceAsk;
 use App\Support\PageMeta;
 use Illuminate\View\View;
 
@@ -40,6 +41,8 @@ class KitController extends Controller
                 $bookingUrl,
                 $bookingLabel,
             ),
+            'askBrief' => OnDeviceAsk::kitBrief($person, config('site.kit')),
+            'askPrompts' => config('site.kit.ask_prompts', []),
         ]);
     }
 

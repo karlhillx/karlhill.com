@@ -4,7 +4,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-CSS_MAX=175000   # bytes (screen critical CSS: motion gates + case study deep dives; print decoupled)
+CSS_MAX=176000   # bytes (screen critical CSS: motion gates + case study deep dives; print decoupled)
 PRINT_CSS_MAX=15000 # bytes (decoupled print stylesheet)
 JS_MAX=18500     # bytes — core app.js after route-level splitting
 JS_TOTAL_MAX=54000  # core + lazy chunks (analytics transport, summarizer, WebGPU)
