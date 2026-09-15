@@ -6,7 +6,6 @@ import { initCommandPalette } from './modules/command-palette.js';
 import { initToast } from './modules/toast.js';
 import { initServiceWorker } from './modules/service-worker.js';
 import { initThemeToggle } from './modules/theme.js';
-import { initAnalytics } from './modules/analytics.js';
 import { initCopyText } from './modules/copy-text.js';
 
 initViewTransitions();
@@ -15,7 +14,6 @@ initThemeToggle();
 initCommandPalette();
 initToast();
 initServiceWorker();
-initAnalytics();
 initCopyText();
 
 const features = new Set(
@@ -64,3 +62,5 @@ loadWhen(
 );
 loadWhen(features.has('summarizer'), () => import('./modules/ask-page.js'), 'initOnDeviceAsk');
 loadWhen(features.has('webgpu'), () => import('./modules/webgpu-flood.js'), 'initWebGpuFlood');
+// Analytics is every page, but not hire-path critical — keep it off the core budget.
+loadWhen(true, () => import('./modules/analytics.js'), 'initAnalytics');

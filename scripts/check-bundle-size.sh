@@ -7,7 +7,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 CSS_MAX=175000   # bytes (screen critical CSS: motion gates + case study deep dives; print decoupled)
 PRINT_CSS_MAX=15000 # bytes (decoupled print stylesheet)
 JS_MAX=18500     # bytes — core app.js after route-level splitting
-JS_TOTAL_MAX=52000  # core + lazy chunks (including on-device summarizer)
+JS_TOTAL_MAX=54000  # core + lazy chunks (analytics transport, summarizer, WebGPU)
 
 css="$(find "$ROOT/public/build/assets" -maxdepth 1 -name 'app-*.css' -print -quit)"
 print_css="$(find "$ROOT/public/build/assets" -maxdepth 1 -name 'print-*.css' -print -quit)"
