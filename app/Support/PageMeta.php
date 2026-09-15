@@ -24,6 +24,32 @@ final class PageMeta
         public readonly ?string $articleAuthor = null,
     ) {}
 
+    public static function brand(): string
+    {
+        return (string) config('site.person.name', 'Karl Hill');
+    }
+
+    /**
+     * Document title convention: the homepage is the name; every other page is
+     * "{Page} — Karl Hill". Do not append employer or program keywords here.
+     */
+    public static function titled(string $page): string
+    {
+        $brand = self::brand();
+        $page = trim($page);
+        $suffix = ' — '.$brand;
+
+        if ($page === '' || strcasecmp($page, $brand) === 0) {
+            return $brand;
+        }
+
+        if (str_ends_with($page, $suffix)) {
+            return $page;
+        }
+
+        return $page.$suffix;
+    }
+
     public static function siteUrl(): string
     {
         return rtrim((string) config('app.url', 'https://karlhill.com'), '/');
@@ -77,7 +103,7 @@ final class PageMeta
     public static function a11yContactErrors(): self
     {
         return new self(
-            title: 'Contact validation fixture — Karl Hill',
+            title: self::titled('Contact validation fixture'),
             description: 'CI-only contact form error state for accessibility audits.',
             noindex: true,
         );
@@ -88,13 +114,13 @@ final class PageMeta
         $url = self::siteUrl();
 
         return new self(
-            title: 'Client staging — Karl Hill',
+            title: self::titled('Client staging'),
             description: 'Staging previews for client websites in progress.',
             canonical: $url.'/clients',
-            ogTitle: 'Client staging — Karl Hill',
+            ogTitle: self::titled('Client staging'),
             ogDescription: 'Staging previews for client websites in progress.',
             ogImage: $url.'/img/og-home.jpg',
-            ogImageAlt: 'Client staging — Karl Hill',
+            ogImageAlt: self::titled('Client staging'),
             ogImageWidth: 1200,
             ogImageHeight: 630,
             noindex: true,
@@ -107,7 +133,7 @@ final class PageMeta
         $url = self::siteUrl();
 
         return new self(
-            title: "{$label} — Writing — Karl Hill",
+            title: self::titled("{$label} — Writing"),
             description: "Essays tagged “{$label}” on software engineering, leadership, and delivery.",
             canonical: "{$url}/blog/tag/{$tag}",
             ogTitle: "{$label} — Karl Hill",
@@ -125,7 +151,7 @@ final class PageMeta
         $url = self::siteUrl();
 
         return new self(
-            title: "{$tag} — Work — Karl Hill",
+            title: self::titled("{$tag} — Work"),
             description: "Software projects tagged with “{$tag}” by Karl Hill.",
             canonical: "{$url}/work/tag/".ProjectCatalog::tagSlug($tag),
             ogTitle: "{$tag} — Karl Hill",
@@ -176,7 +202,7 @@ final class PageMeta
         $author = config('site.person.name');
 
         return new self(
-            title: "{$post->title} — Karl Hill",
+            title: self::titled($post->title),
             description: Str::limit($post->excerpt, 155, '…'),
             canonical: $post->canonicalUrl(),
             ogTitle: $post->title,
@@ -196,9 +222,9 @@ final class PageMeta
     public static function notFound(): self
     {
         return new self(
-            title: 'Page not found — Karl Hill',
+            title: self::titled('Page not found'),
             description: 'This page does not exist or has moved.',
-            ogTitle: 'Page not found — Karl Hill',
+            ogTitle: self::titled('Page not found'),
             ogDescription: 'This page does not exist or has moved.',
             noindex: true,
         );
@@ -235,17 +261,7 @@ final class PageMeta
      */
     private static function projectTitle(array $project): string
     {
-        $name = (string) $project['title'];
-
-        if (($project['sector'] ?? '') === 'NASA Earth Science') {
-            return "{$name} — Karl Hill, NASA Goddard Earth Observation Software";
-        }
-
-        if (($project['slug'] ?? '') === 'jacobs-mission-software') {
-            return "{$name} — Karl Hill at Jacobs";
-        }
-
-        return "{$name} — Karl Hill";
+        return self::titled((string) $project['title']);
     }
 
     /**
@@ -271,13 +287,13 @@ final class PageMeta
         $canonical = $path === '/' ? $url : $url.$path;
 
         return new self(
-            title: $seo['title'],
+            title: self::titled($seo['title']),
             description: $seo['description'],
             canonical: $canonical,
-            ogTitle: $seo['title'],
+            ogTitle: self::titled($seo['title']),
             ogDescription: $seo['og_description'],
             ogImage: $url.'/img/og-home.jpg',
-            ogImageAlt: $seo['title'],
+            ogImageAlt: self::titled($seo['title']),
             ogImageWidth: 1200,
             ogImageHeight: 630,
             activeNav: $activeNav,

@@ -19,7 +19,7 @@
     @endphp
 
     <x-site.page-hero :breadcrumbs="$breadcrumbs">
-        <x-slot:title>Selected Work</x-slot:title>
+        <x-slot:title>Work</x-slot:title>
 
         <p class="site-page-hero__lede text-neutral-300">
             {{ config('site.work.lede') }}

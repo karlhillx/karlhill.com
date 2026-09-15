@@ -80,7 +80,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{ $person['name'] }} — Resume</title>
+    <title>Resume — {{ $person['name'] }}</title>
     <style>
         @font-face {
             font-family: "Lato";

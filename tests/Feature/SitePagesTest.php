@@ -347,7 +347,7 @@ it('now page is hero plus scheduler', function () {
 it('about and resume pages include contact and live cv', function () {
     $about = $this->get('/about');
     $about->assertStatus(200);
-    $about->assertSee('<title>Karl Hill — Staff Aerospace Software Engineer at Jacobs</title>', escape: false);
+    $about->assertSee('<title>About — Karl Hill</title>', escape: false);
     $about->assertSee('"@type": "Person"', escape: false);
     $about->assertSee('"@type": "ProfilePage"', escape: false);
     $about->assertSee('"headline":', escape: false);

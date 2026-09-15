@@ -35,7 +35,7 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         ->assertDontSee('$105M', escape: false)
         ->assertSee('near-real-time Earth observation products', escape: false)
         ->assertSee('NASA MODIS and VIIRS satellite data', escape: false)
-        ->assertSee('<title>Work — Karl Hill, Jacobs and NASA Goddard</title>', escape: false)
+        ->assertSee('<title>Work — Karl Hill</title>', escape: false)
         ->assertSee('Karl Hill — mission software, Earth science systems, and engineering infrastructure', escape: false)
         ->assertSee('id="chapters"', escape: false)
         ->assertSee('Also at Goddard', escape: false)
@@ -123,16 +123,16 @@ it('tag counts match project membership', function () {
 it('case study snippets name Karl Hill and the NASA or Jacobs affiliation', function () {
     $this->get('/work/flood-mapping-system')
         ->assertOk()
-        ->assertSee('<title>Flood Mapping System — Karl Hill, NASA Goddard Earth Observation Software</title>', escape: false)
+        ->assertSee('<title>Flood Mapping System — Karl Hill</title>', escape: false)
         ->assertSee('name="description" content="Karl Hill, NASA Goddard Earth observation software.', escape: false);
 
     $this->get('/work/laads-daac')
         ->assertOk()
-        ->assertSee('<title>LAADS DAAC — Karl Hill, NASA Goddard Earth Observation Software</title>', escape: false);
+        ->assertSee('<title>LAADS DAAC — Karl Hill</title>', escape: false);
 
     $this->get('/work/jacobs-mission-software')
         ->assertOk()
-        ->assertSee('<title>Engineering mission software at scale — Karl Hill at Jacobs</title>', escape: false);
+        ->assertSee('<title>Engineering mission software at scale — Karl Hill</title>', escape: false);
 });
 
 it('work cards still expose stack tags and tagged urls', function () {

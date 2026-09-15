@@ -47,7 +47,7 @@ final class HomeStructuredData
             '@type' => 'ProfilePage',
             '@id' => $url.'/#profile',
             'url' => $url.'/',
-            'name' => $person['name'].' — Professional profile',
+            'name' => $person['name'],
             'description' => $seo['description'],
             'inLanguage' => 'en-US',
             'image' => $shareImage,
