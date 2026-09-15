@@ -45,7 +45,7 @@ export function toggleTheme() {
  * `color-scheme` via [data-theme] on <html>, persist the choice, and keep the
  * theme-color meta honest. With no stored choice the OS wins (the pre-paint
  * script in the layout mirrors this logic to avoid a flash). Theme switching
- * lives in ⌘K; leftover [data-theme-toggle] buttons still work if present.
+ * lives on [data-theme-toggle] in the header; ⌘K also exposes Switch theme.
  */
 export function initThemeToggle() {
     document.querySelectorAll('[data-theme-toggle]').forEach((button) => {

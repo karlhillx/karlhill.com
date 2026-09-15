@@ -89,16 +89,13 @@
         <link rel="preload" as="font" type="font/woff2" href="{{ $fontUrl }}" crossorigin>
     @endforeach
 
-    {{-- Favicons. Google Search wants a square ≥48px at a stable URL
-         (`/favicon.ico` and the 48/192 PNGs stay unversioned). Smaller PNGs
-         keep a filemtime query so browsers pick up art changes. --}}
-    @php($iconV = filemtime(public_path('img/favicon-96x96.png')))
+    {{-- SVG is the sharp tab icon. Google Search still wants a square ≥48px
+         PNG at a stable URL (`/favicon.ico` and the 48/192 PNGs). --}}
+    @php($iconV = filemtime(public_path('img/favicon.svg')))
+    <link rel="icon" href="/img/favicon.svg?v={{ $iconV }}" type="image/svg+xml">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48x48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/img/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png?v={{ $iconV }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png?v={{ $iconV }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png?v={{ $iconV }}">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png?v={{ $iconV }}">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="alternate" type="application/atom+xml" title="Karl Hill — Writing" href="/feed.xml">

@@ -648,6 +648,16 @@ a:where([href^='http://'], [href^='https://']):not(
     speak: never;
 }
 
+/* Footer profiles: eight icons, two rows of four. Column count lives here so
+   Vite rebuilds it with CSS (Blade-only Tailwind utilities can miss HMR). */
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(4, 2.75rem);
+    width: max-content;
+    gap: 0.25rem;
+    padding-top: 0.5rem;
+}
+
 /* Internal taxonomy, surface chips, and icon-only links: suppress outbound arrow. */
 .social-links a::after,
 .surface-chip::after,

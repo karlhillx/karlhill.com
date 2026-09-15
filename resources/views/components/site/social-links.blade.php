@@ -1,4 +1,4 @@
-<div {{ $attributes->merge(['class' => 'social-links flex flex-wrap items-center gap-2 pt-2']) }}>
+<div {{ $attributes->merge(['class' => 'social-links']) }}>
     @foreach(config('site.social') as $link)
         @continue(($link['footer'] ?? true) === false)
         <a href="{{ $link['url'] }}" target="_blank" rel="me noopener noreferrer" data-no-ext

@@ -43,6 +43,8 @@
                 <kbd class="nav-shortcut" data-mod-shortcut aria-hidden="true">⌘K</kbd>
             </button>
 
+            <x-site.theme-toggle />
+
             @if(filled($bookingUrl))
                 <a href="/now#book"
                    data-analytics-event="booking_cta_clicked"

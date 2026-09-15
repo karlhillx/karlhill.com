@@ -135,14 +135,15 @@
             </p>
         </div>
         <div class="mt-8 flex sm:justify-end">
-            <p class="site-build-credit surface-chip inline-flex max-w-full flex-wrap items-center gap-x-1 bg-neutral-900/40 px-2 py-0.5 font-mono uppercase text-neutral-500">
-                Built with Laravel {{ \App\Support\Stack::laravelVersion() }}
-                &middot;
-                Tailwind CSS {{ \App\Support\Stack::tailwindVersion() ?? '4' }}
-                &middot;
+            <p class="site-build-credit font-mono uppercase text-neutral-500">
+                <span>Built with Laravel {{ \App\Support\Stack::laravelVersion() }}</span>
+                <span class="site-build-credit__sep" aria-hidden="true">&middot;</span>
+                <span>Tailwind CSS {{ \App\Support\Stack::tailwindVersion() ?? '4' }}</span>
+                <span class="site-build-credit__sep" aria-hidden="true">&middot;</span>
                 <a href="https://github.com/karlhillx/karlhill.com/blob/main/scripts/generate-og-images.py"
                    target="_blank"
                    rel="noopener noreferrer"
+                   data-no-ext
                    class="text-neutral-500 hover:text-neutral-300 transition-colors">
                     OG cards in Python
                     <span class="sr-only"> (opens in a new tab)</span>

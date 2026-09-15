@@ -97,6 +97,8 @@ it('homepage html includes preferred-name title and json-ld', function () {
     $response->assertSee('/img/og-home.jpg', escape: false);
     $response->assertSee('/img/profile.jpg', escape: false);
     $response->assertSee('property="og:image:type" content="image/jpeg"', escape: false);
+    $response->assertSee('href="/img/favicon.svg', escape: false);
+    $response->assertSee('type="image/svg+xml"', escape: false);
     $response->assertSee('rel="icon" href="/favicon.ico" sizes="48x48"', escape: false);
     $response->assertSee('sizes="48x48" href="/img/favicon-48x48.png"', escape: false);
     $response->assertSee('class="brand-lockup', escape: false);
