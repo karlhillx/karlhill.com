@@ -121,3 +121,13 @@ it('csp allows booking embeds and same origin service workers', function () {
     $this->assertStringContainsString('frame-src', (string) $csp);
     $this->assertStringContainsString('calendly.com', (string) $csp);
 });
+
+it('edge nginx buffers large laravel headers and advertises cdn cache control', function () {
+    $conf = file_get_contents(base_path('docker/nginx/default.conf'));
+
+    expect($conf)
+        ->toContain('fastcgi_buffer_size 64k')
+        ->and($conf)->toContain('fastcgi_buffers 8 64k')
+        ->and($conf)->toContain('CDN-Cache-Control "public, max-age=31536000, immutable"')
+        ->and($conf)->toContain('stale-while-revalidate=86400');
+});
