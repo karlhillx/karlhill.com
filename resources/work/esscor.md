@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-13'
+updated: '2026-09-15'
 lede: Catalog, search, and access software for Earth science holdings — metadata, discovery, and ordering in one workflow. There is no public demo.
 role: Lead Software Engineer — catalog, search, and data-access software.
 leadership:

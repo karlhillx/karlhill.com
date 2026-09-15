@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-13'
+updated: '2026-09-15'
 lede: Find Data search, ordering, and near-real-time access for NASA LAADS DAAC. The wizard is public. Web-system delivery runs through GitLab CI/CD and Kubernetes alongside existing Perl services.
 role: Lead Software Engineer — web applications and delivery workflows.
 leadership:

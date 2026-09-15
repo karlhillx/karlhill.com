@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-13'
+updated: '2026-09-15'
 lede: Software for ingesting, processing, and distributing NASA direct-readout satellite products. The portal is public.
 role: Lead Software Engineer — satellite-data processing and distribution software.
 leadership:

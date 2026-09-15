@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-13'
+updated: '2026-09-15'
 lede: Java and SQL Server services for multi-tenant managed-security operations.
 role: Core developer — provisioning, monitoring, and incident-workflow services.
 leadership:

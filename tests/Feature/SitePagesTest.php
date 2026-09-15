@@ -325,7 +325,7 @@ it('now page is hero plus scheduler', function () {
     $response->assertStatus(200);
     $response->assertDontSee('Engineering Manager', escape: false);
     $response->assertSee('Jacobs', escape: false);
-    $response->assertSee('September 13, 2026', escape: false);
+    $response->assertSee('September 15, 2026', escape: false);
     $response->assertSee('Building mission software and the engineering systems around it at Jacobs.', escape: false);
     $response->assertSee('roughly 20 repositories', escape: false);
     $response->assertSee('simpler developer workflows', escape: false);
@@ -686,7 +686,7 @@ it('legacy delivery url redirects to the delivery page', function () {
 it('now page shows a fresh updated date and kit link', function () {
     $this->get('/now')
         ->assertOk()
-        ->assertSee('Updated September 13, 2026', escape: false)
+        ->assertSee('Updated September 15, 2026', escape: false)
         ->assertSee('href="/kit"', escape: false)
         ->assertSee('Recruiter kit', escape: false);
 });

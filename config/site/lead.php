@@ -4,7 +4,7 @@ return [
     'eyebrow' => 'Forward this page',
     'title' => 'Engineering delivery',
     'lede' => 'A change is ready when another engineer can review it, rebuild it, and see the evidence. Those expectations live in tests, CI, review, and coaching.',
-    'updated' => 'September 13, 2026',
+    'updated' => 'September 15, 2026',
     'why' => 'The written bar is below. It has to survive beyond one person.',
     'sections' => [
         [

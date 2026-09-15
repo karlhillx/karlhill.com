@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-13'
+updated: '2026-09-15'
 lede: Hands-on engineering and technical delivery on a simulation program — roughly 20 repositories, three environments, a team of about 10, and partner and vendor teams. Public proof is scope and practice, not program metrics.
 role: Staff Aerospace Software Engineer — implementation, technical delivery, and coaching.
 leadership:
