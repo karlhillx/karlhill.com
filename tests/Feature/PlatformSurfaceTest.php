@@ -14,6 +14,7 @@ it('sends reporting integrity and nel headers', function () {
         ->and($response->headers->get(IntegrityPolicy::headerName()))->toContain('blocked-destinations=(script)')
         ->and($response->headers->get('NEL'))->toContain('report_to')
         ->and($response->headers->get('Permissions-Policy'))->toContain('web-share=(self)')
+        ->and($response->headers->get('Permissions-Policy'))->toContain('compute-pressure=(self)')
         ->and($response->headers->get('Available-Dictionary'))->toStartWith(':');
 });
 
@@ -216,6 +217,24 @@ it('keeps summarizer on essays and on-device ask on kit and resume', function ()
     expect($html)
         ->toContain('data-on-device-summary')
         ->and($html)->toMatch('/data-features="[^"]*\bsummarizer\b/');
+});
+
+it('plausible ships a first-party fetch later transport instead of their script', function () {
+    $response = $this->get('/');
+    $html = $response->assertOk()->getContent();
+    $csp = (string) $response->headers->get('Content-Security-Policy');
+
+    expect($html)
+        ->toContain('window.__siteAnalytics')
+        ->and($html)->toContain("'plausible'")
+        ->and($html)->not->toContain('plausible.io/js/script.js')
+        ->and($html)->not->toContain('src="https://plausible.io');
+
+    preg_match('/script-src ([^;]+)/', $csp, $scriptSrc);
+    preg_match('/connect-src ([^;]+)/', $csp, $connectSrc);
+
+    expect($scriptSrc[1] ?? '')->not->toContain('plausible.io')
+        ->and($connectSrc[1] ?? '')->toContain('https://plausible.io');
 });
 
 it('omits reporting and dictionary headers when those features are off', function () {

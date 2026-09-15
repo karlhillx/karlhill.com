@@ -66,6 +66,24 @@ fn fs(@builtin(position) frag: vec4f) -> @location(0) vec4f {
 }
 `;
 
+function watchComputePressure(onChange) {
+    const Observer = globalThis.PressureObserver;
+    if (typeof Observer !== 'function') return;
+
+    try {
+        const observer = new Observer((records) => {
+            const state = records.at(-1)?.state;
+            onChange(state === 'serious' || state === 'critical');
+        });
+        const watched = observer.observe('cpu', { sampleInterval: 1000 });
+        if (watched && typeof watched.catch === 'function') {
+            watched.catch(() => {});
+        }
+    } catch {
+        // Unsupported source or denied permission — keep rendering.
+    }
+}
+
 function gpuUsage() {
     const buffer = globalThis.GPUBufferUsage;
     const texture = globalThis.GPUTextureUsage;
@@ -79,7 +97,8 @@ function gpuUsage() {
  * Case-study WebGPU field for flood mapping. The photograph remains the LCP
  * and the canonical visual; this block ships `hidden` and is only revealed
  * once an adapter *and* device are acquired, so no visitor ever sees an
- * empty canvas box. Rendering pauses while off-screen or the tab is hidden.
+ * empty canvas box. Rendering pauses while off-screen, the tab is hidden,
+ * or Compute Pressure reports a serious/critical CPU state.
  */
 export async function initWebGpuFlood() {
     const canvas = document.querySelector('[data-webgpu-flood]');
@@ -150,10 +169,20 @@ export async function initWebGpuFlood() {
         const start = performance.now();
         let raf = 0;
         let inView = true;
+        let thermallyConstrained = false;
+
+        const canRun = () => inView && !document.hidden && !thermallyConstrained;
+
+        const stop = () => {
+            if (raf) {
+                cancelAnimationFrame(raf);
+                raf = 0;
+            }
+        };
 
         const frame = (now) => {
             raf = 0;
-            if (!inView || document.hidden) return;
+            if (!canRun()) return;
             const { width, height } = sizeCanvas();
             const time = (now - start) / 1000;
             device.queue.writeBuffer(uniformBuffer, 0, new Float32Array([time, 0, width, height]));
@@ -177,19 +206,28 @@ export async function initWebGpuFlood() {
         };
 
         const resume = () => {
-            if (!raf && inView && !document.hidden) raf = requestAnimationFrame(frame);
+            if (!raf && canRun()) raf = requestAnimationFrame(frame);
         };
 
         new IntersectionObserver(
             ([entry]) => {
                 inView = entry.isIntersecting;
-                resume();
+                if (inView) resume();
+                else stop();
             },
             { rootMargin: '120px' }
         ).observe(canvas);
 
         new ResizeObserver(resume).observe(canvas);
-        document.addEventListener('visibilitychange', resume);
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) stop();
+            else resume();
+        });
+        watchComputePressure((busy) => {
+            thermallyConstrained = busy;
+            if (busy) stop();
+            else resume();
+        });
         resume();
     } catch {
         root.hidden = true;

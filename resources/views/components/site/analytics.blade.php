@@ -16,11 +16,10 @@
 @endif
 
 @if(($plausible['enabled'] ?? false) && filled($plausible['domain'] ?? null))
-    <link rel="preconnect" href="https://plausible.io">
     <script nonce="{{ Vite::cspNonce() }}">
+        window.__siteAnalytics = { provider: 'plausible', domain: @json($plausible['domain']) };
         window.plausible = window.plausible || function() {
             (window.plausible.q = window.plausible.q || []).push(arguments);
         };
     </script>
-    <script defer nonce="{{ Vite::cspNonce() }}" data-domain="{{ $plausible['domain'] }}" src="https://plausible.io/js/script.js"></script>
 @endif

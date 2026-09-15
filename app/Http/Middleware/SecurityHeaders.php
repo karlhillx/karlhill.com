@@ -44,6 +44,7 @@ class SecurityHeaders
             'usb=()',
             'web-share=(self)',
             'summarizer=(self)',
+            'compute-pressure=(self)',
             'xr-spatial-tracking=()',
         ]));
 
@@ -196,7 +197,6 @@ class SecurityHeaders
         }
 
         if (config('site.analytics.plausible.enabled') && filled(config('site.analytics.plausible.domain'))) {
-            $scriptSrc[] = 'https://plausible.io';
             $connectSrc[] = 'https://plausible.io';
         }
 

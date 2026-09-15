@@ -104,6 +104,7 @@ it('html documents opt into credentialed prerender and ignore tracking params', 
     expect($home->headers->get('Supports-Loading-Mode'))->toBe('credentialed-prerender')
         ->and($home->headers->get('No-Vary-Search'))->toContain('utm_source')
         ->and($home->headers->get('Permissions-Policy'))->toContain('summarizer=(self)')
+        ->and($home->headers->get('Permissions-Policy'))->toContain('compute-pressure=(self)')
         ->and((string) $home->headers->get('Link'))->toContain('rel="compression-dictionary"');
 
     $json = $this->get('/api/site.json');
