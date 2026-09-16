@@ -45,6 +45,40 @@ status:
 - label: Coaching
   state: Shipped
   detail: Six engineers onboarded. Personnel decisions remain with management.
+diagram:
+  title: Engineering delivery system
+  source: Requirements
+  stages:
+    - label: Development
+      lines:
+        - Python / APIs
+        - Shared packages
+    - label: Quality gates
+      lines:
+        - lint · format
+        - types · tests · coverage
+    - label: Security gates
+      lines:
+        - SAST · secrets
+        - dependencies · containers
+    - label: CI / CD
+      lines:
+        - build · verify
+        - package · tag
+    - label: Delivery path
+      wide: true
+      steps:
+        - Development
+        - Integration
+        - Release
+  loop: Feedback
+  practices:
+    - Standards
+    - Reviews
+    - Documentation
+    - Agile Delivery
+    - Coaching
+    - Governance
 platform:
   caption: A high-level view of the engineering system, not a program architecture.
   stages:

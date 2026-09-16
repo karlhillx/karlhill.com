@@ -82,6 +82,15 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertSee('Program-specific architecture and operational details are not included here', escape: false)
         ->assertSee('Hands-on technical leadership', escape: false)
         ->assertSee('id="scope"', escape: false)
+        ->assertSee('case-study-flow', escape: false)
+        ->assertSee('Engineering delivery system', escape: false)
+        ->assertSee('Quality gates', escape: false)
+        ->assertSee('Security gates', escape: false)
+        ->assertSee('Delivery path', escape: false)
+        ->assertSee('Feedback', escape: false)
+        ->assertSee('Shared packages', escape: false)
+        ->assertSee('case-study-logo-plate', escape: false)
+        ->assertSee('A high-level view of the engineering system, not a program architecture.', escape: false)
         ->assertSee('Adopted', escape: false)
         ->assertSee('In progress', escape: false)
         ->assertSee('Delivery status', escape: false)
@@ -96,6 +105,18 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertDontSee('Kubernetes Mission Mesh', escape: false)
         ->assertDontSee('Representative delivery lifecycle', escape: false)
         ->assertDontSee('Executive Summary', escape: false);
+
+    $jacobsHtml = $jacobsResponse->getContent();
+    expect(preg_match('/<figure class="case-study-media".*?<\/figure>/s', $jacobsHtml, $mediaFigure))->toBe(1)
+        ->and($mediaFigure[0])->toContain('case-study-logo-plate')
+        ->and($mediaFigure[0])->not->toContain('case-study-flow');
+
+    $disclaimerAt = strpos($jacobsHtml, 'Program-specific architecture and operational details are not included here');
+    $flowAt = strpos($jacobsHtml, 'case-study-flow-figure');
+    $deliveryHeadingAt = strpos($jacobsHtml, 'id="delivery-gates"');
+    expect($disclaimerAt)->toBeInt()->toBeGreaterThan(0)
+        ->and($flowAt)->toBeInt()->toBeGreaterThan($disclaimerAt)
+        ->and($deliveryHeadingAt)->toBeInt()->toBeGreaterThan($flowAt);
 
     $flood = $this->get('/work/flood-mapping-system');
     $flood->assertOk()

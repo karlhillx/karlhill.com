@@ -308,10 +308,37 @@
                         @endif
 
                         @if(! empty($study['body_html']))
+                            @php
+                                $narrativeHtml = (string) $study['body_html'];
+                                $narrativeDiagram = ($isJacobs && ! empty($study['diagram']['stages']))
+                                    ? $study['diagram']
+                                    : [];
+                                $narrativeCaption = $study['platform']['caption'] ?? null;
+                                $narrativeLead = $narrativeHtml;
+                                $narrativeRest = '';
+                                if ($narrativeDiagram !== []) {
+                                    $parts = preg_split('/(?=<h2\b)/i', $narrativeHtml, 2);
+                                    $narrativeLead = $parts[0] ?? $narrativeHtml;
+                                    $narrativeRest = $parts[1] ?? '';
+                                }
+                            @endphp
                             <div class="case-study-narrative" data-reveal>
                                 <div class="prose-karl min-w-0">
-                                    {!! $study['body_html'] !!}
+                                    {!! $narrativeLead !!}
                                 </div>
+                                @if($narrativeDiagram !== [])
+                                    <figure class="case-study-flow-figure">
+                                        <x-site.case-study-flow :diagram="$narrativeDiagram" />
+                                        @if(filled($narrativeCaption))
+                                            <figcaption class="case-study-flow-figure__caption">{{ $narrativeCaption }}</figcaption>
+                                        @endif
+                                    </figure>
+                                @endif
+                                @if($narrativeRest !== '')
+                                    <div class="prose-karl min-w-0">
+                                        {!! $narrativeRest !!}
+                                    </div>
+                                @endif
                             </div>
                         @endif
                     </div>
