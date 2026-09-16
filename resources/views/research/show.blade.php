@@ -91,7 +91,7 @@
             <p class="mt-4 font-mono text-xs text-neutral-500 uppercase tracking-widest">
                 {{ $research['license_name'] }}
                 ·
-                <a href="{{ $research['license'] }}" target="_blank" rel="noopener noreferrer" data-no-ext class="text-accent hover:underline">License</a>
+                <a href="{{ $research['license'] }}" target="_blank" rel="noopener noreferrer" data-no-ext class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">License</a>
             </p>
         </blockquote>
     </x-site.section>
@@ -122,7 +122,7 @@
             @if(! empty($research['zenodo']))
                 <p class="mt-6 text-neutral-500 text-sm leading-relaxed max-w-3xl">
                     Paper figure datasets:
-                    <a href="{{ $research['zenodo'] }}" target="_blank" rel="noopener noreferrer" data-no-ext class="text-accent hover:underline">{{ $research['zenodo_doi'] }}</a>.
+                    <a href="{{ $research['zenodo'] }}" target="_blank" rel="noopener noreferrer" data-no-ext class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">{{ $research['zenodo_doi'] }}</a>.
                     The publisher already links this supplementary material from the article.
                 </p>
             @endif

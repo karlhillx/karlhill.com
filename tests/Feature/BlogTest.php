@@ -44,6 +44,7 @@ it('blog show returns 404 for unknown slug', function () {
 it('unknown web route renders custom 404', function () {
     $response = $this->get('/this-path-does-not-exist');
     $response->assertStatus(404);
+    $response->assertSee('Error · 404', escape: false);
     $response->assertSee('Page not found', escape: false);
     $response->assertSee('site-mark--page', escape: false);
     $response->assertSee('name="robots" content="noindex"', escape: false);
