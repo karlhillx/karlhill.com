@@ -35,7 +35,7 @@ return [
             'summary' => 'Quality, tests, and security checks on the change.',
             'tools' => [
                 'Ruff',
-                'mypy',
+                'ty',
                 'pytest',
                 'coverage',
                 'security scanning',

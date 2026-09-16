@@ -199,7 +199,7 @@ Web Push subscribe UI appears only when both VAPID keys are set (`php artisan pu
   fragments). `/about` has its own shorter career narrative in
   `config/site/about.php`.
 - **Downloadable PDF:** `public/files/Karl-Hill-Resume.pdf` — classic 2-page
-  navy-sidebar layout, generated with Puppeteer (not browser Print).
+  navy-sidebar layout, generated with Playwright (not browser Print).
 
 Regenerate after content changes:
 
@@ -214,8 +214,9 @@ spot-check `/resume` + `/about`):
 1. `config/site/experience.php` — roles, dates, bullets
 2. `config/site/education.php` / `certifications.php` / `stack.php`
 3. `config/site/resume.php` — phone, ZIP, tagline, impact, expertise
-4. `config/site/person.php` — title, location, availability (availability is
-   shown on home + `/now`, not repeated on the CV body)
+4. `config/site/person.php` — title, location, availability (short form is
+   `hero.ask` on the homepage; the longer ask is kit, `llms.txt`, and the
+   hire packet — not About, `/now`, or the CV body)
 
 ### Client staging
 

@@ -126,7 +126,9 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('How software gets delivered', escape: false);
     $response->assertSee('role="radiogroup"', escape: false);
     $response->assertSee('Ruff', escape: false);
+    $response->assertSee('<span>ty</span>', escape: false);
     $response->assertSee('pytest', escape: false);
+    $response->assertDontSee('mypy', escape: false);
     $response->assertDontSee('mutation testing', escape: false);
     $response->assertSee('distributed services', escape: false);
     $response->assertSee('environment promotion', escape: false);
@@ -290,7 +292,8 @@ it('jacobs scale facts remain in the snapshot footer', function () {
         ->toContain('case-study-facts')
         ->toContain('case-study-media__footer')
         ->toContain('data-final="~10"')
-        ->toContain('data-final="~20"');
+        ->toContain('data-final="~20"')
+        ->toContain('data-final="≥80%"');
 
     $eo = $this->get('/work/nasa-earth-observatory')->assertOk()->getContent();
     expect($eo)->not->toContain('data-final="1.5M+"');
@@ -389,6 +392,8 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('testrisk', escape: false);
     $resume->assertDontSee('pipeguard', escape: false);
     $resume->assertSee('Lead engineering delivery', escape: false);
+    $resume->assertSee('≥80% repository test coverage', escape: false);
+    $resume->assertSee('two-approval PR governance', escape: false);
     $resume->assertSee('new PHP applications', escape: false);
     $resume->assertSee('Sabre', escape: false);
     $resume->assertSee('Onboarded and coached approximately six engineers', escape: false);
@@ -659,6 +664,9 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertDontSee('Engineering Manager is the next container for this scope', escape: false);
     $response->assertSee('kit-bio', escape: false);
     $response->assertSee('Staff Aerospace Software Engineer at Jacobs. Python mission software', escape: false);
+    $response->assertSee('at least 80% repository test coverage', escape: false);
+    $response->assertSee('two-approval pull-request governance', escape: false);
+    $response->assertSee('releases are safer and more predictable', escape: false);
     $response->assertSee('Previously Lead Software Engineer supporting NASA Goddard', escape: false);
     $response->assertDontSee('Day to day that means', escape: false);
     $response->assertDontSee('I\'m a Staff Aerospace Software Engineer', escape: false);

@@ -26,11 +26,6 @@ return [
         'Engineer Development & Coaching',
         'Agile & Cross-Team Delivery',
     ],
-    'ask_prompts' => [
-        'What is the current role?',
-        'What did he do at NASA?',
-        'What is he open to?',
-    ],
     'tooling' => [
         [
             'name' => 'bb-run',

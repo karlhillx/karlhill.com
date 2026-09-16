@@ -1,6 +1,6 @@
 ---
 updated: '2026-09-15'
-lede: Hands-on engineering and technical delivery on a simulation program — roughly 20 repositories, three environments, a team of about 10, and partner and vendor teams. Public proof is scope and practice, not program metrics.
+lede: Hands-on engineering and technical delivery on a simulation program — roughly 20 repositories, three environments, a team of about 10, and partner and vendor teams. Automated quality gates, two-approval pull-request governance, and at least 80% repository test coverage are in place; releases are safer and more predictable.
 role: Staff Aerospace Software Engineer — implementation, technical delivery, and coaching.
 leadership:
   mode: Hands-on technical leadership
@@ -13,12 +13,12 @@ problem:
 - Delivery conventions varied by repository, which made reviews, testing, and releases harder to trust.
 - Work spans roughly 20 repositories, three environments, and multiple Jacobs, partner, and vendor teams.
 decisions:
-- Put CI/CD, review, testing, type-checking, security, and release practices on a shared baseline.
+- Put CI/CD, two-approval review, testing, type-checking, security, coverage, and release practices on a shared baseline.
 - Separate application messaging from the broker behind a common interface and adapters.
 - Treat tests that do not exercise behavior, and late integration, as defects in the engineering system.
 outcome:
-- Delivery gates, portable messaging, and stronger tests are in use. Coverage across repositories is still uneven; program-level metrics are not published here.
-- Shared delivery gates are the adopted baseline, not a claim that every repository already meets them.
+- Established at least 80% repository test coverage, two-approval pull-request governance, and automated quality gates across the repositories in scope. Releases are safer and more predictable.
+- Shared delivery gates are the adopted baseline across those repositories.
 - A portable messaging layer is in use so broker choice can stay in configuration. Ownership is shared.
 - Stronger unit-test expectations are defined and applied in review. They are not a finished program-wide rewrite.
 - Six engineers onboarded and coached while the same practices were reinforced in review.
@@ -27,10 +27,12 @@ metrics:
   label: Engineers on the team
 - value: ~20
   label: Repositories in scope
+- value: ≥80%
+  label: Repository test coverage
 status:
 - label: Delivery gates
   state: Adopted
-  detail: Shared CI/CD, review, testing, type-checking, security, and release baseline. Coverage across repositories is still uneven.
+  detail: Shared CI/CD, two-approval review, testing, type-checking, security, coverage (≥80% per repository), and release baseline in use across the repositories in scope. Releases are safer and more predictable.
 - label: Portable messaging
   state: In use
   detail: Common interface and broker adapters. Ownership is shared; every consumer is not claimed.
@@ -48,7 +50,7 @@ platform:
   stages:
   - step: 01 · Standards
     title: Delivery gates
-    body: Shared CI/CD, review, testing, type-checking, security, and release practices. The baseline is adopted; coverage across repositories is still catching up.
+    body: Shared CI/CD, two-approval review, testing, type-checking, security, coverage, and release practices. At least 80% repository test coverage is in the gate. Releases are safer and more predictable.
     stack: CI/CD · Review
   - step: 02 · Messaging
     title: Portable adapters
@@ -56,7 +58,7 @@ platform:
     stack: Messaging · Config
   - step: 03 · Tests
     title: Meaningful tests
-    body: Isolation, failure cases, and changed-code coverage. The standard is written; applying it is ongoing.
+    body: A repository coverage gate of at least 80% is in CI. Isolation and failure-case expectations are written; applying them is ongoing.
     stack: Tests · CI
   - step: 04 · Integrate
     title: Cross-team delivery
@@ -70,7 +72,7 @@ Program-specific architecture and operational details are not included here.
 
 ## Delivery gates
 
-Repositories were not starting from the same review, test, or release conventions. The shared baseline is now CI/CD, review, type-checking, security checks, and release practice. That baseline is adopted. How completely each repository meets it is still uneven, and this page does not treat the program as finished.
+Repositories were not starting from the same review, test, or release conventions. The shared baseline is now CI/CD, two-approval pull-request review, type-checking, security checks, coverage, and release practice. Automated quality gates and a repository test-coverage bar of at least 80% are in use across the repositories in scope. Releases are safer and more predictable because the same checks run before a change is promoted.
 
 ## Portable messaging
 
@@ -78,7 +80,7 @@ Services need to exchange messages without baking a single broker into applicati
 
 ## Tests that exercise behavior
 
-Some tests reported coverage without failing when the behavior was wrong — including filters whose no-op path never triggered a failure. The response was a tighter unit-test standard: isolation, representative data, meaningful failure cases, and coverage of changed code. Those expectations are written and used in review. They are not a completed, repository-wide rewrite.
+Some tests reported coverage without failing when the behavior was wrong — including filters whose no-op path never triggered a failure. A coverage gate of at least 80% per repository is in the delivery path. The remaining work is test quality: isolation, representative data, meaningful failure cases, and coverage of changed code. Those expectations are written and used in review. They are not a completed, repository-wide rewrite.
 
 ## Cross-team delivery
 

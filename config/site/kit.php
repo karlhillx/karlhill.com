@@ -4,7 +4,7 @@ return [
     'eyebrow' => 'For recruiters & hiring managers',
     'lede' => 'A concise view of current scope, selected work, and career direction.',
     'glance' => [
-        'Staff Aerospace Software Engineer at Jacobs. Python mission software, distributed messaging, shared interfaces, CI/CD, and release engineering across roughly 20 repositories and multiple environments.',
+        'Staff Aerospace Software Engineer at Jacobs. Python mission software, distributed messaging, shared interfaces, CI/CD, and release engineering across roughly 20 repositories and multiple environments. Established at least 80% repository test coverage, two-approval pull-request governance, and automated quality gates; releases are safer and more predictable.',
         'Technical scope includes hands-on implementation, engineering standards, cross-team integration, delivery coordination, and mentoring for a team of about 10 engineers.',
         'Previously Lead Software Engineer supporting NASA Goddard Earth science systems, including flood mapping, LAADS DAAC, and Earth Observatory.',
     ],

@@ -228,7 +228,7 @@ class LlmsTxtBuilder
     protected function caseStudyNote(array $project): string
     {
         return match ($project['slug'] ?? '') {
-            'jacobs-mission-software' => 'Current: implementation and delivery on a simulation program. Practices in use — gates, portable messaging, tests, coaching. No public demo',
+            'jacobs-mission-software' => 'Current: implementation and delivery on a simulation program. Quality gates, two-approval PRs, and ≥80% repo coverage in place; releases more predictable. No public demo',
             'flood-mapping-system' => 'Live map: satellite-derived flood products',
             'laads-daac' => 'Live Find Data search for NASA satellite data',
             'nasa-earth-observatory' => 'Live Earth Observatory. About 1.5 million monthly visitors during that work — platform scale, not a traffic result',

@@ -53,7 +53,7 @@ return [
                 'highlights' => [
                     'Leads day-to-day engineering delivery for a team of '.$facts['team'].', coordinating dependencies, integration work, and release readiness.',
                     'Develops Python mission software, shared interfaces, distributed messaging, and service orchestration.',
-                    'Puts CI/CD, automated testing, security checks, repository standards, and release automation into the delivery path.',
+                    'Established at least 80% repository test coverage, two-approval pull-request governance, and automated quality gates across the repositories in scope. Releases are safer and more predictable.',
                     'Works across organizational boundaries to surface technical risk early and follow issues through to a decision.',
                 ],
             ],
