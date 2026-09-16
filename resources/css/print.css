@@ -542,6 +542,8 @@
     }
 
     body:has(.kit-doc) .kit-section-label {
+        position: static !important;
+        top: auto !important;
         margin: 0 0 0.1in !important;
         padding: 0 0 0.05in !important;
         font-size: 8pt !important;
