@@ -3510,6 +3510,26 @@ a.series-chapters__card:hover .series-chapters__title,
     color: var(--text);
 }
 
+.summary-ellipsis {
+    display: inline-block;
+    overflow: hidden;
+    width: 0;
+    margin-inline-start: 0.06em;
+    vertical-align: baseline;
+    white-space: nowrap;
+    animation: summaryEllipsis 1.25s steps(4, end) infinite;
+}
+
+.summary-ellipsis::after {
+    content: '...';
+}
+
+@keyframes summaryEllipsis {
+    to {
+        width: 1.15em;
+    }
+}
+
 .summary-panel__elapsed {
     font-family: var(--font-mono);
     font-size: var(--text-caption);
@@ -3627,6 +3647,11 @@ a.series-chapters__card:hover .series-chapters__title,
 @media (prefers-reduced-motion: reduce) {
     .summary-panel__live {
         animation: none;
+    }
+
+    .summary-ellipsis {
+        animation: none;
+        width: 1.15em;
     }
 }
 

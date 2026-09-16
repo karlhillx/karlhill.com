@@ -60,7 +60,7 @@ function busyMarkup({ downloading }) {
     return `<div class="summary-panel">
         <div class="summary-panel__status">
             <span class="summary-panel__live" aria-hidden="true"></span>
-            <p class="summary-panel__title" data-summary-title>${title}</p>
+            <p class="summary-panel__title"><span data-summary-title>${title}</span><span class="summary-ellipsis" aria-hidden="true"></span></p>
             <span class="summary-panel__elapsed" data-summary-elapsed>0s</span>
         </div>
         <div class="summary-panel__meter is-indeterminate"
