@@ -189,6 +189,8 @@ it('case study pages expose skim path, toc, and lightbox', function () {
     $caseStudy->assertStatus(200);
     $caseStudy->assertSee('Open Find Data', escape: false);
     $caseStudy->assertSee('https://ladsweb.modaps.eosdis.nasa.gov/search/', escape: false);
+    $caseStudy->assertSee('Broader LAADS site', escape: false);
+    $caseStudy->assertSee('href="https://ladsweb.modaps.eosdis.nasa.gov/"', escape: false);
     $caseStudy->assertSee('case-study-media', escape: false);
     $caseStudy->assertSee('Case study', escape: false);
     $caseStudy->assertDontSee('case-study-glance', escape: false);

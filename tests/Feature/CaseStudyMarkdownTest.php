@@ -155,6 +155,9 @@ it('parses substantive markdown body and generates html and toc', function () {
     $this->get('/work/laads-daac')
         ->assertOk()
         ->assertSee('Find Data is live', escape: false)
+        ->assertSee('is the broader public portal', escape: false)
+        ->assertSee('Find Data remains the walkable artifact', escape: false)
+        ->assertSee('href="https://ladsweb.modaps.eosdis.nasa.gov/"', escape: false)
         ->assertSee('Delivery around existing services', escape: false)
         ->assertDontSee('replaced the archive', escape: false);
 

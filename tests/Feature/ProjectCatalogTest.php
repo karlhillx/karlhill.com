@@ -64,6 +64,14 @@ it('public projects expose a live artifact url', function () {
     expect(ProjectCatalog::liveUrl(ProjectCatalog::find('jacobs-mission-software')))->toBeNull()
         ->and(ProjectCatalog::liveUrl(ProjectCatalog::find('flood-mapping-system')))->toBe('https://floodmapping.gsfc.nasa.gov/')
         ->and(ProjectCatalog::artifactLabel(ProjectCatalog::find('laads-daac')))->toBe('Open Find Data')
+        ->and(ProjectCatalog::liveUrl(ProjectCatalog::find('laads-daac')))->toBe('https://ladsweb.modaps.eosdis.nasa.gov/search/')
+        ->and(ProjectCatalog::alsoLinks(ProjectCatalog::find('laads-daac')))->toBe([
+            [
+                'label' => 'Broader LAADS site',
+                'href' => 'https://ladsweb.modaps.eosdis.nasa.gov/',
+            ],
+        ])
+        ->and(ProjectCatalog::alsoLinks(ProjectCatalog::find('flood-mapping-system')))->toBe([])
         ->and(ProjectCatalog::liveUrl(ProjectCatalog::find('nasa-earth-observatory')))->toBe('https://earthobservatory.nasa.gov/')
         ->and(ProjectCatalog::artifactLine(ProjectCatalog::find('flood-mapping-system')))->toContain('Public satellite flood maps');
 });

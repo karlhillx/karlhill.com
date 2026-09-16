@@ -79,6 +79,12 @@ return [
             'href' => 'https://ladsweb.modaps.eosdis.nasa.gov/search/',
             'line' => 'Live NASA satellite search — Find Data.',
         ],
+        'also' => [
+            [
+                'label' => 'Broader LAADS site',
+                'href' => 'https://ladsweb.modaps.eosdis.nasa.gov/',
+            ],
+        ],
         'featured' => true,
         'tags' => [
             'Perl',

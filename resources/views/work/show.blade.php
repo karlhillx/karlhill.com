@@ -2,6 +2,7 @@
     $study = $caseStudy;
     $liveUrl = \App\Support\ProjectCatalog::liveUrl($project);
     $liveLabel = \App\Support\ProjectCatalog::artifactLabel($project);
+    $alsoLinks = \App\Support\ProjectCatalog::alsoLinks($project);
     $canonical = \App\Support\PageMeta::siteUrl().'/work/'.$project['slug'];
     $ogImage = $meta->ogImage;
     $decisions = $study['decisions'] ?? $study['approach'] ?? [];
@@ -124,11 +125,20 @@
                                 @endif
                             </div>
                         @endif
-                        @if($liveUrl)
-                            <div class="case-study-masthead__actions">
-                                <x-site.button variant="secondary" :href="$liveUrl" target="_blank" rel="noopener noreferrer" data-no-ext>
-                                    {{ $liveLabel }} <span aria-hidden="true">↗</span>
-                                </x-site.button>
+                        @if($liveUrl || $alsoLinks !== [])
+                            <div class="case-study-masthead__actions flex flex-wrap items-center gap-3">
+                                @if($liveUrl)
+                                    <x-site.button variant="secondary" :href="$liveUrl" target="_blank" rel="noopener noreferrer" data-no-ext>
+                                        {{ $liveLabel }} <span aria-hidden="true">↗</span>
+                                    </x-site.button>
+                                @endif
+                                @foreach($alsoLinks as $link)
+                                    <a href="{{ $link['href'] }}"
+                                       class="font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors"
+                                       target="_blank" rel="noopener noreferrer" data-no-ext>
+                                        {{ $link['label'] }} <span aria-hidden="true">↗</span>
+                                    </a>
+                                @endforeach
                             </div>
                         @endif
                     </header>
@@ -366,10 +376,21 @@
                         <a href="/work" class="font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
                             ← All work
                         </a>
-                        @if($liveUrl)
-                            <x-site.button variant="secondary" :href="$liveUrl" target="_blank" rel="noopener noreferrer" data-no-ext>
-                                {{ $liveLabel }} <span aria-hidden="true">↗</span>
-                            </x-site.button>
+                        @if($liveUrl || $alsoLinks !== [])
+                            <div class="flex flex-wrap items-center gap-3">
+                                @if($liveUrl)
+                                    <x-site.button variant="secondary" :href="$liveUrl" target="_blank" rel="noopener noreferrer" data-no-ext>
+                                        {{ $liveLabel }} <span aria-hidden="true">↗</span>
+                                    </x-site.button>
+                                @endif
+                                @foreach($alsoLinks as $link)
+                                    <a href="{{ $link['href'] }}"
+                                       class="font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors"
+                                       target="_blank" rel="noopener noreferrer" data-no-ext>
+                                        {{ $link['label'] }} <span aria-hidden="true">↗</span>
+                                    </a>
+                                @endforeach
+                            </div>
                         @endif
                     </div>
                 </div>

@@ -21,7 +21,7 @@ outcome:
 metrics: []
 ---
 
-LAADS DAAC work covered the public portal, Find Data search and ordering, near-real-time access, and the delivery process around those web systems. Find Data is public: open it and walk the same path.
+LAADS DAAC work covered the public portal, Find Data search and ordering, near-real-time access, and the delivery process around those web systems. The [LAADS site](https://ladsweb.modaps.eosdis.nasa.gov/) is the broader public portal. Find Data remains the walkable artifact.
 
 The underlying archive interfaces stayed in place. Modernization was the applications and how they shipped, not a rewrite of the archive.
 

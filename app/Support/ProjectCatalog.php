@@ -149,6 +149,27 @@ final class ProjectCatalog
     }
 
     /**
+     * Extra public URLs that show context without replacing the primary artifact.
+     *
+     * @param  array<string, mixed>  $project
+     * @return list<array{label: string, href: string}>
+     */
+    public static function alsoLinks(array $project): array
+    {
+        return collect($project['also'] ?? [])
+            ->filter(fn ($link) => is_array($link)
+                && is_string($link['href'] ?? null)
+                && str_starts_with($link['href'], 'http')
+                && filled($link['label'] ?? null))
+            ->map(fn (array $link) => [
+                'label' => trim((string) $link['label']),
+                'href' => $link['href'],
+            ])
+            ->values()
+            ->all();
+    }
+
+    /**
      * Recruiter-facing proof line: the artifact sentence on cards and shares.
      *
      * @param  array<string, mixed>  $project
