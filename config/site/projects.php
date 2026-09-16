@@ -6,7 +6,7 @@ return [
         'title' => 'Engineering mission software at scale',
         'meta' => 'Jacobs · 2025–present',
         'sector' => 'Aerospace & Defense',
-        'description' => 'Hands-on engineering and technical delivery on a simulation program: roughly 20 repositories, three environments, and partner teams. Automated quality gates, two-approval pull-request governance, and at least 80% repository test coverage are in place; releases are safer and more predictable.',
+        'description' => 'Hands-on engineering and technical delivery on a simulation program: roughly 20 repositories, three environments, and partner teams. Six engineers onboarded and coached. A portable messaging layer is in use; ownership is shared.',
         'image' => '/img/webp/ss-jacobs-ns.webp',
         'image_alt' => 'Jacobs logo',
         'imagePosition' => 'object-center',

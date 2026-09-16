@@ -21,6 +21,8 @@ return [
     'employer' => 'Jacobs National Security',
     'period' => '2025–present',
     'nasa_period' => '2017–2025',
+    'nasa_years_display' => '8',
+    'nasa_years_to' => 8,
     'location' => 'Washington, DC',
     'visitors_display' => '1.5M',
     'visitors_to' => 1.5,

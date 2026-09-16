@@ -1,6 +1,6 @@
 ---
 updated: '2026-09-15'
-lede: Hands-on engineering and technical delivery on a simulation program — roughly 20 repositories, three environments, a team of about 10, and partner and vendor teams. Automated quality gates, two-approval pull-request governance, and at least 80% repository test coverage are in place; releases are safer and more predictable.
+lede: Hands-on engineering and technical delivery on a simulation program — roughly 20 repositories, three environments, a team of about 10, and partner and vendor teams. Six engineers onboarded and coached. A portable messaging layer is in use; ownership is shared.
 role: Staff Aerospace Software Engineer — implementation, technical delivery, and coaching.
 leadership:
   mode: Hands-on technical leadership
@@ -32,7 +32,7 @@ metrics:
 status:
 - label: Delivery gates
   state: Adopted
-  detail: Shared CI/CD, two-approval review, testing, type-checking, security, coverage (≥80% per repository), and release baseline in use across the repositories in scope. Releases are safer and more predictable.
+  detail: Shared CI/CD, two-approval review, testing, type-checking, security, coverage, and release baseline in use across the repositories in scope.
 - label: Portable messaging
   state: In use
   detail: Common interface and broker adapters. Ownership is shared; every consumer is not claimed.
@@ -73,7 +73,7 @@ diagram:
         join:
           label: Merge gate
           lines:
-            - review + CI pass · squash merge
+            - review + CI pass
     - label: Change intelligence
       boxed: true
       steps:
@@ -95,7 +95,7 @@ Program-specific architecture and operational details are not included here.
 
 ## Delivery gates
 
-Repositories were not starting from the same review, test, or release conventions. The shared baseline is now CI/CD, two-approval pull-request review, type-checking, security checks, coverage, and release practice. Automated quality gates and a repository test-coverage bar of at least 80% are in use across the repositories in scope. Releases are safer and more predictable because the same checks run before a change is promoted.
+Repositories were not starting from the same review, test, or release conventions. The shared baseline is now CI/CD, two-approval pull-request review, type-checking, security checks, coverage, and release practice. The same checks run before a change is promoted.
 
 ## Portable messaging
 

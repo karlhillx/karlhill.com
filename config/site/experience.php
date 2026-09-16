@@ -17,7 +17,7 @@ return [
         'highlights' => [
             'Lead engineering delivery for a team of about 10 across roughly 20 repositories and multiple deployment environments, sequencing work, coordinating dependencies, and driving integration and release readiness.',
             'Develop mission software, shared interfaces, messaging integrations, and service orchestration while providing technical guidance and reviewing implementation across the team.',
-            'Established ≥80% repository test coverage, two-approval PR governance, and automated quality gates across the repositories in scope. Releases are safer and more predictable.',
+            'Advanced a portable messaging layer with a common interface and broker adapters so broker choice can stay in configuration. Ownership is shared.',
             'Lead Agile planning and execution across internal and partner teams, translating mission priorities into sequenced engineering work and resolving cross-team dependencies and blockers.',
             'Onboarded and coached approximately six engineers through code review, technical feedback, development guidance, and reinforcement of engineering standards.',
         ],

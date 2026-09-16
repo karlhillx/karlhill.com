@@ -287,10 +287,6 @@ main > section:nth-of-type(n + 3):not([id]) {
         margin-bottom: 0.7rem;
     }
 
-    #hero .hero-open {
-        margin-bottom: 1.2rem;
-    }
-
     #hero .hero-cta {
         width: 100%;
         flex-direction: column;

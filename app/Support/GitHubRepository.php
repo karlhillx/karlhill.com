@@ -12,7 +12,7 @@ class GitHubRepository
     /**
      * @return Collection<int, GitHubRepo>
      */
-    public function topRepos(int $limit = 6): Collection
+    public function topRepos(int $limit = 3): Collection
     {
         $username = trim((string) config('services.github.username', 'karlhillx'));
         if ($username === '') {
@@ -122,11 +122,17 @@ class GitHubRepository
                 : array_values(array_filter($allRepos, fn ($repo) => ! ($repo['archived'] ?? false)
                     && ! in_array(strtolower((string) ($repo['name'] ?? '')), $exclude, true)));
 
-            $repos = $this->sortFeaturedRepos($repos);
+            $repos = $this->onlyFeatured($this->sortFeaturedRepos($repos));
+
+            if ($repos === []) {
+                return $this->fallbackRows($limit);
+            }
+
+            $overrides = $this->descriptionOverrides();
 
             return array_map(fn ($repo) => [
                 'name' => $repo['name'],
-                'description' => $repo['description'],
+                'description' => $overrides[strtolower((string) ($repo['name'] ?? ''))] ?? $repo['description'],
                 'url' => $repo['html_url'],
                 'stars' => $repo['stargazers_count'],
                 'language' => $repo['language'],
@@ -158,6 +164,49 @@ class GitHubRepository
         });
 
         return $repos;
+    }
+
+    /**
+     * @param  array<int, array<string, mixed>>  $repos
+     * @return array<int, array<string, mixed>>
+     */
+    protected function onlyFeatured(array $repos): array
+    {
+        $found = [];
+
+        foreach ($repos as $repo) {
+            $name = strtolower((string) ($repo['name'] ?? ''));
+            if ($name !== '') {
+                $found[$name] = $repo;
+            }
+        }
+
+        $ordered = [];
+        foreach ($this->featuredSlugs() as $slug) {
+            if (isset($found[$slug])) {
+                $ordered[] = $found[$slug];
+            }
+        }
+
+        return $ordered;
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function descriptionOverrides(): array
+    {
+        $overrides = [];
+
+        foreach ($this->fallbackRows(PHP_INT_MAX) as $row) {
+            $name = strtolower((string) ($row['name'] ?? ''));
+            $description = $row['description'] ?? null;
+            if ($name !== '' && is_string($description) && $description !== '') {
+                $overrides[$name] = $description;
+            }
+        }
+
+        return $overrides;
     }
 
     /**

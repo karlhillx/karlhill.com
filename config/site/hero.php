@@ -9,10 +9,7 @@ return [
     // Positioning line under the name. Kit “Open to” uses person.availability.
     'statement' => 'Mission software, engineering systems, and technical delivery.',
     'lede' => 'Hands-on engineering and technical delivery on aerospace and national security software — implementation, standards, and coordination across teams.',
-    // First-screen target. Short named roles only — not the long kit sentence,
-    // and not a “seeking” banner. About and /now stay identity-only.
-    'ask_label' => 'Open to',
-    'ask' => 'Principal Software Engineer or Engineering Manager.',
+    // No first-screen ask. Next-role copy lives on Kit.
     'proof' => [
         $facts['repos_chip'],
         $facts['team_chip'],

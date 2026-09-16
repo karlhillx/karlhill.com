@@ -94,6 +94,7 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertSee('Experience in numbers', escape: false);
     $response->assertSee('Monthly visitors during that work · Earth Observatory', escape: false);
     $response->assertSee('Years building software', escape: false);
+    $response->assertSee('Years on NASA Goddard Earth science systems', escape: false);
     $response->assertSee('Repositories across the current environment', escape: false);
     $response->assertDontSee('Selected impact', escape: false);
     $response->assertDontSee('NASA Earth science software supporting disaster response', escape: false);
@@ -110,7 +111,9 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertDontSee('Open conversations', escape: false);
     $response->assertDontSee('$105M', escape: false);
     $response->assertDontSee('The hire ask', escape: false);
-    $response->assertDontSee(config('site.hero.ask'), escape: false);
+    $response->assertDontSee('hero-open', escape: false);
+    $response->assertDontSee('at least 80% repository test coverage', escape: false);
+    $response->assertDontSee('releases are safer and more predictable', escape: false);
 });
 
 it('homepage is a focused landing page', function () {
@@ -401,8 +404,9 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('testrisk', escape: false);
     $resume->assertDontSee('pipeguard', escape: false);
     $resume->assertSee('Lead engineering delivery', escape: false);
-    $resume->assertSee('≥80% repository test coverage', escape: false);
-    $resume->assertSee('two-approval PR governance', escape: false);
+    $resume->assertSee('portable messaging layer', escape: false);
+    $resume->assertDontSee('≥80% repository test coverage', escape: false);
+    $resume->assertDontSee('two-approval PR governance', escape: false);
     $resume->assertSee('new PHP applications', escape: false);
     $resume->assertSee('Sabre', escape: false);
     $resume->assertSee('Onboarded and coached approximately six engineers', escape: false);
@@ -507,9 +511,11 @@ it('homepage hero links to em funnel', function () {
     $response->assertDontSee('hero-subtitle', escape: false);
     $response->assertSee(config('site.hero.statement'), escape: false);
     $response->assertSee(config('site.hero.lede'), escape: false);
-    $response->assertSee(config('site.hero.ask'), escape: false);
-    $response->assertSee(config('site.hero.ask_label'), escape: false);
-    $response->assertSee('hero-open', escape: false);
+    $response->assertDontSee('hero-open', escape: false);
+    $response->assertDontSee('This month', escape: false);
+    $response->assertDontSee('Local checks that match CI', escape: false);
+    $response->assertDontSee('Principal Software Engineer or Engineering Manager', escape: false);
+    $response->assertDontSee('>Open to</', escape: false);
     $response->assertSee('hero-portrait', escape: false);
     $response->assertSee('aria-label="At a glance"', escape: false);
     $response->assertDontSee('Seeking Engineering Manager', escape: false);
@@ -633,9 +639,9 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('/work/flood-mapping-system', escape: false);
     $response->assertSee('/work/nasa-earth-observatory', escape: false);
     $response->assertSee('https://doi.org/10.1144/gh2025-7', escape: false);
-    $response->assertSee('/blog/staff-to-em-first-90-days', escape: false);
+    $response->assertDontSee('/blog/staff-to-em-first-90-days', escape: false);
     $response->assertSee('/blog/release-governance', escape: false);
-    $response->assertSee('Staff IC to Engineering Manager: first 90 days', escape: false);
+    $response->assertDontSee('Staff IC to Engineering Manager: first 90 days', escape: false);
     $response->assertSee('Release governance', escape: false);
     $response->assertSee('kit-highlights__meta', escape: false);
     $response->assertSee('/delivery', escape: false);

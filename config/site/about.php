@@ -53,7 +53,7 @@ return [
                 'highlights' => [
                     'Leads day-to-day engineering delivery for a team of '.$facts['team'].', coordinating dependencies, integration work, and release readiness.',
                     'Develops Python mission software, shared interfaces, distributed messaging, and service orchestration.',
-                    'Established at least 80% repository test coverage, two-approval pull-request governance, and automated quality gates across the repositories in scope. Releases are safer and more predictable.',
+                    'Onboarded and coached six engineers through review, technical feedback, and the shared delivery practices used in review.',
                     'Works across organizational boundaries to surface technical risk early and follow issues through to a decision.',
                 ],
             ],
@@ -125,6 +125,13 @@ return [
                 'to' => $facts['visitors_to'],
                 'prefix' => '',
                 'suffix' => 'M',
+            ],
+            [
+                'display' => $facts['nasa_years_display'],
+                'label' => 'Years on NASA Goddard Earth science systems',
+                'to' => $facts['nasa_years_to'],
+                'prefix' => '',
+                'suffix' => '',
             ],
         ],
     ],

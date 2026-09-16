@@ -70,17 +70,15 @@ it('keeps the recruiter kit skim to a short primary row and evidence list', func
     expect($primary)->toHaveCount(4)
         ->and($primary->pluck('meta')->all())->toBe(['Download', 'Profile', 'Book', 'Current'])
         ->and($more->count())->toBe(7)
-        ->and($evidence)->toHaveCount(7)
+        ->and($evidence)->toHaveCount(6)
         ->and($evidence->pluck('path')->filter()->values()->all())->toBe([
             '/work/jacobs-mission-software',
             '/work/flood-mapping-system',
             '/work/laads-daac',
             '/work/nasa-earth-observatory',
-            '/blog/staff-to-em-first-90-days',
             '/blog/release-governance',
         ])
         ->and($evidence->where('meta', 'Writing')->pluck('path')->values()->all())->toBe([
-            '/blog/staff-to-em-first-90-days',
             '/blog/release-governance',
         ])
         ->and($links->pluck('url')->filter())->toBeEmpty()

@@ -59,13 +59,7 @@
                     @endforeach
                 </ul>
             @endif
-            @if(! empty($hero['ask']))
-                <p class="hero-open hero-enter" style="animation-delay:300ms">
-                    <span class="hero-open__label">{{ $hero['ask_label'] ?? 'Open to' }}</span>
-                    <span class="hero-open__value">{{ $hero['ask'] }}</span>
-                </p>
-            @endif
-            <div class="hero-cta flex flex-wrap items-center gap-x-5 gap-y-3 hero-enter" style="animation-delay:320ms">
+            <div class="hero-cta flex flex-wrap items-center gap-x-5 gap-y-3 hero-enter" style="animation-delay:300ms">
                 @if(filled($bookingUrl))
                     <a href="/now#book"
                        data-idle-cta

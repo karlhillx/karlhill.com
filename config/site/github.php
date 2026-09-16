@@ -40,18 +40,6 @@ return [
             ],
         ],
         [
-            'name' => 'sim-rs',
-            'description' => 'Satellite orbit and telemetry simulation in Rust.',
-            'url' => 'https://github.com/karlhillx/sim-rs',
-            'stars' => 0,
-            'language' => 'Rust',
-            'topics' => [
-                'rust',
-                'simulation',
-                'aerospace',
-            ],
-        ],
-        [
             'name' => 'pipeguard',
             'description' => 'Check Bitbucket Pipelines definitions against CI/CD and deployment policies.',
             'url' => 'https://github.com/karlhillx/pipeguard',
@@ -60,29 +48,6 @@ return [
             'topics' => [
                 'ci-cd',
                 'policy-as-code',
-            ],
-        ],
-        [
-            'name' => 'driftlens',
-            'description' => 'Compare environment configuration files and flag differences.',
-            'url' => 'https://github.com/karlhillx/driftlens',
-            'stars' => 0,
-            'language' => 'Python',
-            'topics' => [
-                'observability',
-                'configuration',
-            ],
-        ],
-        [
-            'name' => 'drift-rs',
-            'description' => 'A Rust data sink for telemetry and simulation workloads.',
-            'url' => 'https://github.com/karlhillx/drift-rs',
-            'stars' => 0,
-            'language' => 'Rust',
-            'topics' => [
-                'rust',
-                'telemetry',
-                'aerospace',
             ],
         ],
     ],
