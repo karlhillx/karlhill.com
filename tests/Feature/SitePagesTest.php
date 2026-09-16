@@ -92,6 +92,7 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertSee('id="delivery"', escape: false);
     $response->assertSee('id="impact"', escape: false);
     $response->assertSee('Experience in numbers', escape: false);
+    $response->assertSee('Monthly visitors during that work · Earth Observatory', escape: false);
     $response->assertSee('Years building software', escape: false);
     $response->assertSee('Repositories across the current environment', escape: false);
     $response->assertDontSee('Selected impact', escape: false);
@@ -391,9 +392,16 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('new PHP applications', escape: false);
     $resume->assertSee('Sabre', escape: false);
     $resume->assertSee('Onboarded and coached approximately six engineers', escape: false);
-    $resume->assertSee('1.5 million monthly visitors', escape: false);
-    $resume->assertSee('roughly 60%', escape: false);
-    $resume->assertSee('Led Agile software delivery across NASA teams', escape: false);
+    $resume->assertSee('Led software engineering on an AWS flood-mapping system', escape: false);
+    $resume->assertSee('The public map is the shipped artifact', escape: false);
+    $resume->assertSee('Delivered Find Data search, ordering, and near-real-time access', escape: false);
+    $resume->assertSee('Led web engineering on NASA Earth Observatory', escape: false);
+    $resume->assertSee('1.5 million monthly visitors during that work', escape: false);
+    $resume->assertSee('Led Agile software delivery across NASA Earth science teams', escape: false);
+    $resume->assertDontSee('Led design and development of an AWS-based flood-mapping system', escape: false);
+    $resume->assertDontSee('Modernized LAADS DAAC', escape: false);
+    $resume->assertDontSee('Modernized NASA Earth Observatory', escape: false);
+    $resume->assertDontSee('roughly 60%', escape: false);
     $resume->assertSee('Computer Science coursework', escape: false);
     $resume->assertSee('University of Maryland, Baltimore County', escape: false);
     $resume->assertSee('Project Management Certificate', escape: false);

@@ -42,12 +42,12 @@ return [
             'period' => 'Dec 2017 — Sept 2025',
             'summary' => 'Earth science software other people used: flood maps, satellite-data access, and science publishing.',
             'highlights' => [
-                'Led design and development of an AWS-based flood-mapping system, automating processing and distribution of satellite-derived flood products.',
-                'Modernized LAADS DAAC web systems, including Find Data search and ordering and near-real-time access, with GitLab CI/CD and Kubernetes delivery.',
-                'Modernized NASA Earth Observatory\'s web platform, improving performance, user experience, and search discoverability for an audience of approximately 1.5 million monthly visitors during that work.',
-                'Automated a content-registry workflow, reducing manual dataset-registration work by roughly 60% and improving researcher access.',
+                'Led software engineering on an AWS flood-mapping system for satellite-derived products. The public map is the shipped artifact.',
+                'Delivered Find Data search, ordering, and near-real-time access for LAADS DAAC, with GitLab CI/CD and Kubernetes web delivery alongside existing archive services.',
+                'Led web engineering on NASA Earth Observatory — editorial workflows, imagery, and the public site. About 1.5 million monthly visitors during that work.',
+                'Automated a content-registry workflow so dataset registration did not depend on a fully manual path.',
                 'Built a Ceph-based file and metadata platform for virtual directory mapping and discovery of large scientific datasets.',
-                'Led Agile software delivery across NASA teams, coordinating priorities, sprint execution, stakeholder needs, and continuous improvement across Earth science projects.',
+                'Led Agile software delivery across NASA Earth science teams, coordinating priorities, sprint execution, stakeholder needs, and continuous improvement.',
             ],
             'skills' => [
                 'AWS',

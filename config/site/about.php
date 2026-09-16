@@ -121,7 +121,7 @@ return [
             ],
             [
                 'display' => $facts['visitors_display'],
-                'label' => 'Monthly visitors · Earth Observatory',
+                'label' => 'Monthly visitors during that work · Earth Observatory',
                 'to' => $facts['visitors_to'],
                 'prefix' => '',
                 'suffix' => 'M',

@@ -27,6 +27,14 @@ it('blog show renders for known slug', function () {
     $response->assertSee('/blog/tag/engineering', escape: false);
 });
 
+it('automation post does not invent a registry efficiency metric', function () {
+    $this->get('/blog/science-data-automation')
+        ->assertOk()
+        ->assertSee('content registry workflow', escape: false)
+        ->assertDontSee('60%', escape: false)
+        ->assertDontSee('roughly 60', escape: false);
+});
+
 it('blog show returns 404 for unknown slug', function () {
     $response = $this->get('/blog/no-such-post');
     $response->assertStatus(404);

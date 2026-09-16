@@ -44,7 +44,7 @@ In practice, that means instrumentation, logging, and clear ownership boundaries
 
 One of the most valuable automation projects I worked on was not flashy.
 
-It was a content registry workflow that reduced manual collection steps and improved researcher access to large datasets. The headline metric — roughly 60% efficiency gained — mattered, but the deeper win was cognitive.
+It was a content registry workflow that took dataset registration off a fully manual path. The win was cognitive as much as operational.
 
 People stopped re-deciding the same operational steps every week.
 
