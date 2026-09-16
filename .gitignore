@@ -28,6 +28,10 @@
 /.nova
 /.vscode
 /.zed
+/.cursor
+/AGENTS.md
+/CLAUDE.md
+/GEMINI.md
 
 # Homestead
 Homestead.json
