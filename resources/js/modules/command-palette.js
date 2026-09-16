@@ -195,7 +195,8 @@ export function initCommandPalette() {
         }),
         withGroup({
             label: 'Research',
-            keywords: 'research publication paper doi geohorizons flood mapping gwfms zenodo orcid ads',
+            keywords:
+                'research publication paper doi geohorizons flood mapping gwfms zenodo orcid ads',
             action: () => window.location.assign('/research/global-flood-mapping'),
         }),
         withGroup({
