@@ -56,17 +56,18 @@ it('parses substantive markdown body and generates html and toc', function () {
     $jacobs = $repo->find('jacobs-mission-software');
     expect($jacobs)->toBeArray()
         ->and($jacobs['body_html'] ?? null)->toBeString()
-        ->and($jacobs['body_html'])->toContain('Delivery gates')
-        ->and($jacobs['body_html'])->toContain('Portable messaging')
-        ->and($jacobs['body_html'])->toContain('Coaching while shipping')
+        ->and($jacobs['body_html'])->toContain('Program-specific architecture')
+        ->and($jacobs['body_html'])->toContain('no-op path')
+        ->and($jacobs['body_html'])->not->toContain('Delivery gates')
+        ->and($jacobs['body_html'])->not->toContain('Portable messaging')
+        ->and($jacobs['body_html'])->not->toContain('Coaching while shipping')
         ->and($jacobs['body_html'])->not->toContain('Representative delivery lifecycle')
         ->and($jacobs['body_html'])->not->toContain('Kubernetes Mission Mesh')
         ->and($jacobs['body_html'])->not->toContain('<pre><code>');
 
     $jacobsResponse = $this->get('/work/jacobs-mission-software');
     $jacobsResponse->assertOk()
-        ->assertSee('Delivery gates', escape: false)
-        ->assertSee('Portable messaging', escape: false)
+        ->assertSee('no-op path', escape: false)
         ->assertSee('at least 80% repository test coverage', escape: false)
         ->assertSee('two-approval pull-request governance', escape: false)
         ->assertSee('automated quality gates', escape: false)
@@ -76,10 +77,11 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertDontSee('Architected a shared', escape: false)
         ->assertDontSee('BlackLynx', escape: false)
         ->assertDontSee('id="platform"', escape: false)
-        ->assertSee('Delivery gates', escape: false)
+        ->assertDontSee('id="delivery-gates"', escape: false)
         ->assertSee('Program-specific architecture and operational details are not included here', escape: false)
         ->assertSee('Hands-on technical leadership', escape: false)
         ->assertSee('id="scope"', escape: false)
+        ->assertSee('id="delivery-system"', escape: false)
         ->assertSee('case-study-flow', escape: false)
         ->assertSee('Engineering delivery system', escape: false)
         ->assertSee('Local development', escape: false)
@@ -135,12 +137,14 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->and($mediaFigure[0])->toContain('case-study-logo-plate')
         ->and($mediaFigure[0])->not->toContain('case-study-flow');
 
+    $outcomeAt = strpos($jacobsHtml, 'id="outcome"');
+    $flowAt = strpos($jacobsHtml, 'id="delivery-system"');
+    $scopeAt = strpos($jacobsHtml, 'id="scope"');
     $disclaimerAt = strpos($jacobsHtml, 'Program-specific architecture and operational details are not included here');
-    $flowAt = strpos($jacobsHtml, 'case-study-flow-figure');
-    $deliveryHeadingAt = strpos($jacobsHtml, 'id="delivery-gates"');
-    expect($disclaimerAt)->toBeInt()->toBeGreaterThan(0)
-        ->and($flowAt)->toBeInt()->toBeGreaterThan($disclaimerAt)
-        ->and($deliveryHeadingAt)->toBeInt()->toBeGreaterThan($flowAt);
+    expect($outcomeAt)->toBeInt()->toBeGreaterThan(0)
+        ->and($flowAt)->toBeInt()->toBeGreaterThan($outcomeAt)
+        ->and($scopeAt)->toBeInt()->toBeGreaterThan($flowAt)
+        ->and($disclaimerAt)->toBeInt()->toBeGreaterThan($scopeAt);
 
     $flood = $this->get('/work/flood-mapping-system');
     $flood->assertOk()

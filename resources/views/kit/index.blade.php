@@ -152,19 +152,6 @@
         </section>
     @endif
 
-    @if(! empty($kit['direction']))
-        <section class="kit-print-only site-section site-section--soft border-t border-neutral-800/50" aria-labelledby="kit-direction-heading">
-            <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-                <h2 id="kit-direction-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1 md:sticky md:top-24 md:self-start">Career direction</h2>
-                <div class="kit-bio max-w-3xl">
-                    @foreach($kit['direction'] as $paragraph)
-                        <p>{{ $paragraph }}</p>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    @endif
-
     <section class="site-section border-t border-neutral-800/50" aria-labelledby="kit-links-heading">
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
             <h2 id="kit-links-heading" class="kit-section-label font-mono text-accent text-xs tracking-widest uppercase pt-1">Links</h2>

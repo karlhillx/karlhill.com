@@ -5,7 +5,7 @@ role: Staff Aerospace Software Engineer — implementation, technical delivery, 
 leadership:
   mode: Hands-on technical leadership
   team: About 10 engineers, plus program stakeholders, partner teams, and vendors
-  unblocked: Onboarding, technical feedback, and the shared delivery practices now used in review.
+  unblocked: Onboarding, technical feedback, and turning integration problems into tickets while the change is still cheap.
   decision: Treat weak tests and integration risk as engineering work, not process leftovers.
   note: Formal personnel management remains with management.
 problem:
@@ -89,26 +89,8 @@ diagram:
   loop: Validation feedback
 ---
 
-Hands-on software engineering and technical delivery on a simulation program. The work covers implementation, standards, messaging, tests, and coordination across roughly 20 repositories, three operating environments, and a team of about 10, with partner and vendor teams in the same delivery path.
-
 Program-specific architecture and operational details are not included here.
 
-## Delivery gates
+Read the status labels as the adoption record: delivery gates are the baseline, messaging is in use with shared ownership, the unit-test standard is in review, and cross-team delivery is ongoing work.
 
-Repositories were not starting from the same review, test, or release conventions. The shared baseline is now CI/CD, two-approval pull-request review, type-checking, security checks, coverage, and release practice. The same checks run before a change is promoted.
-
-## Portable messaging
-
-Services need to exchange messages without baking a single broker into application code. The work advances a common interface and adapter layer so the queue can be selected in configuration. It is in use. It is not a sole-author product, and production coverage across every consumer is not claimed here.
-
-## Tests that exercise behavior
-
-Some tests reported coverage without failing when the behavior was wrong — including filters whose no-op path never triggered a failure. A coverage gate of at least 80% per repository is in the delivery path. The remaining work is test quality: isolation, representative data, meaningful failure cases, and coverage of changed code. Those expectations are written and used in review. They are not a completed, repository-wide rewrite.
-
-## Cross-team delivery
-
-Delivery is not limited to one team's board. The work includes turning integration problems into tickets, implementing and delegating them, sequencing dependencies, and bringing the right engineers together while the change is still cheap. That is ongoing responsibility, not a closed initiative.
-
-## Coaching while shipping
-
-Six engineers were onboarded and coached through review, technical feedback, and the same delivery practices. Formal personnel decisions remain with management.
+A concrete defect: some tests reported coverage without failing when the behavior was wrong, including filters whose no-op path never triggered a failure. Remaining test work is quality — isolation, representative data, and failure cases on changed code — not another coverage number.

@@ -4,7 +4,7 @@ $person = require __DIR__.'/person.php';
 
 return [
     'eyebrow' => 'For recruiters & hiring managers',
-    'lede' => 'A concise view of current scope, selected work, and career direction.',
+    'lede' => 'What Karl is open to, selected evidence, and a resume to forward.',
     // Identity only. Current-role outcomes live in the Jacobs case study.
     'glance' => [
         $person['bio'],
@@ -12,7 +12,7 @@ return [
     'scope' => [
         [
             'label' => 'Engineering',
-            'body' => 'Python services, distributed messaging, shared interfaces, testing, CI/CD, release engineering, and developer workflows across roughly 20 repositories.',
+            'body' => 'Python services, shared interfaces, messaging, tests, CI/CD, and release engineering.',
         ],
         [
             'label' => 'Technical leadership',
@@ -53,10 +53,6 @@ return [
             'path' => '/blog/release-governance',
             'meta' => 'Writing',
         ],
-    ],
-    'direction' => [
-        'Growing toward broader ownership of architecture, engineering strategy, delivery, and team development.',
-        'Principal-level technical leadership is the primary path. Engineering management is a strong next step where the role stays technically credible and close to software delivery.',
     ],
     'contact_lede' => 'Schedule a conversation, view the resume, or explore selected work.',
     'ask_prompts' => [

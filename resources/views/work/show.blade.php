@@ -14,6 +14,7 @@
     $hasScope = filled($jobScope['owned'] ?? null)
         && filled($jobScope['influence'] ?? null)
         && filled($jobScope['reserved'] ?? null);
+    $hasDiagram = ! empty($study['diagram']['zones']) || ! empty($study['diagram']['stages']);
     $frameTitle = $isJacobs
         ? 'Technical delivery'
         : (($liveUrl ? parse_url($liveUrl, PHP_URL_HOST) : null) ?: $project['title']);
@@ -24,6 +25,7 @@
         ! empty($study['problem']) ? ['id' => 'problem', 'text' => 'Problem'] : null,
         ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions'] : null,
         ! empty($study['outcome']) ? ['id' => 'outcome', 'text' => 'Outcome'] : null,
+        $hasDiagram ? ['id' => 'delivery-system', 'text' => 'Delivery system'] : null,
         $hasScope ? ['id' => 'scope', 'text' => 'Scope'] : null,
         ! empty($study['leadership']) ? ['id' => 'leadership', 'text' => 'Team & contribution'] : null,
         ...$bodyH2s,
@@ -293,6 +295,15 @@
                             </section>
                         </div>
 
+                        @if($hasDiagram)
+                            <figure id="delivery-system" class="case-study-flow-figure scroll-mt-24" data-reveal>
+                                <x-site.case-study-flow :diagram="$study['diagram']" />
+                                @if(filled($study['diagram']['caption'] ?? null))
+                                    <figcaption class="case-study-flow-figure__caption">{{ $study['diagram']['caption'] }}</figcaption>
+                                @endif
+                            </figure>
+                        @endif
+
                         @if($hasScope)
                             <section id="scope" class="case-study-brief__block case-study-brief__block--solo scroll-mt-24" data-reveal>
                                 <h2 class="case-study-brief__heading">Scope</h2>
@@ -325,37 +336,10 @@
                         @endif
 
                         @if(! empty($study['body_html']))
-                            @php
-                                $narrativeHtml = (string) $study['body_html'];
-                                $narrativeDiagram = (! empty($study['diagram']['zones']) || ! empty($study['diagram']['stages']))
-                                    ? $study['diagram']
-                                    : [];
-                                $narrativeCaption = $study['diagram']['caption'] ?? null;
-                                $narrativeLead = $narrativeHtml;
-                                $narrativeRest = '';
-                                if ($narrativeDiagram !== []) {
-                                    $parts = preg_split('/(?=<h2\b)/i', $narrativeHtml, 2);
-                                    $narrativeLead = $parts[0] ?? $narrativeHtml;
-                                    $narrativeRest = $parts[1] ?? '';
-                                }
-                            @endphp
                             <div class="case-study-narrative" data-reveal>
                                 <div class="prose-karl min-w-0">
-                                    {!! $narrativeLead !!}
+                                    {!! $study['body_html'] !!}
                                 </div>
-                                @if($narrativeDiagram !== [])
-                                    <figure class="case-study-flow-figure">
-                                        <x-site.case-study-flow :diagram="$narrativeDiagram" />
-                                        @if(filled($narrativeCaption))
-                                            <figcaption class="case-study-flow-figure__caption">{{ $narrativeCaption }}</figcaption>
-                                        @endif
-                                    </figure>
-                                @endif
-                                @if($narrativeRest !== '')
-                                    <div class="prose-karl min-w-0">
-                                        {!! $narrativeRest !!}
-                                    </div>
-                                @endif
                             </div>
                         @endif
                     </div>

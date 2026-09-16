@@ -41,7 +41,7 @@ return [
     ],
     'kit' => [
         'title' => 'Recruiter kit — Karl Hill',
-        'description' => 'Karl Hill, Staff Aerospace Software Engineer at Jacobs: current scope, selected NASA Goddard work, and career direction.',
+        'description' => 'Karl Hill, Staff Aerospace Software Engineer at Jacobs: open to, selected evidence, and a resume to forward.',
         'og_description' => 'Karl Hill recruiter kit: Jacobs scope, NASA Earth science evidence, and paths to Principal-level technical leadership or Engineering Manager.',
     ],
     'delivery' => [

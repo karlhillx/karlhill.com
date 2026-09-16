@@ -137,8 +137,9 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('environment promotion', escape: false);
     $response->assertSee('href="/delivery"', escape: false);
     $response->assertDontSee('Cloud &amp; Containers', escape: false);
-    $response->assertSee('Also at Goddard', escape: false);
+    $response->assertSee('All work', escape: false);
     $response->assertDontSee('View all work', escape: false);
+    $response->assertDontSee('Also at Goddard', escape: false);
     $response->assertSee('Jacobs is current. Public NASA systems:', escape: false);
     $response->assertSee('https://floodmapping.gsfc.nasa.gov/', escape: false);
     $response->assertSee('https://ladsweb.modaps.eosdis.nasa.gov/search/', escape: false);
@@ -669,9 +670,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('Selected evidence', escape: false);
     $response->assertDontSee('Open-source developer tooling', escape: false);
     $response->assertDontSee('Engineering delivery and software process work', escape: false);
-    $response->assertSee('Career direction', escape: false);
-    $response->assertSee('Principal-level technical leadership is the primary path', escape: false);
-    $response->assertSee('Engineering management is a strong next step', escape: false);
+    $response->assertDontSee('Career direction', escape: false);
     $response->assertDontSee('Engineering management is a natural next step', escape: false);
     $response->assertDontSee('Owns', escape: false);
     $response->assertDontSee('Influences', escape: false);
