@@ -1629,6 +1629,10 @@ a.series-chapters__card:hover .series-chapters__title,
     flex-shrink: 0;
 }
 
+.case-study-frame__logo.logo-ink {
+    width: 1.15rem;
+}
+
 .case-study-media__img {
     display: block;
     width: 100%;
@@ -2875,18 +2879,24 @@ a.series-chapters__card:hover .series-chapters__title,
     margin: 0.55rem 0 0;
 }
 
-/* Light artwork (Jacobs wordmark) — black on light, white on dark.
+/* Light artwork (Jacobs glyphs) — black on light, white on dark.
    light-dark() is a color function; it cannot wrap filter values. */
-.work-card-brand__ink {
+.logo-ink,
+.work-card-brand__ink,
+.work-card-logo__img {
     filter: brightness(0);
 }
 
-:root[data-theme='dark'] .work-card-brand__ink {
+:root[data-theme='dark'] .logo-ink,
+:root[data-theme='dark'] .work-card-brand__ink,
+:root[data-theme='dark'] .work-card-logo__img {
     filter: none;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) .work-card-brand__ink {
+    :root:not([data-theme]) .logo-ink,
+    :root:not([data-theme]) .work-card-brand__ink,
+    :root:not([data-theme]) .work-card-logo__img {
         filter: none;
     }
 }
@@ -2958,20 +2968,9 @@ a.series-chapters__card:hover .series-chapters__title,
     aspect-ratio: 1;
     object-fit: contain;
     opacity: 0.88;
-    filter: brightness(0);
     transition:
         transform 0.75s var(--ease-out-spring),
         opacity 0.55s var(--ease-out-soft);
-}
-
-:root[data-theme='dark'] .work-card-logo__img {
-    filter: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) .work-card-logo__img {
-        filter: none;
-    }
 }
 
 @media (min-width: 640px) {

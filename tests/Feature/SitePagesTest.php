@@ -300,7 +300,8 @@ it('jacobs scale facts remain in the snapshot footer', function () {
         ->toContain('case-study-media__footer')
         ->toContain('data-final="~10"')
         ->toContain('data-final="~20"')
-        ->toContain('data-final="≥80%"');
+        ->toContain('data-final="≥80%"')
+        ->toContain('logo-ink');
 
     $eo = $this->get('/work/nasa-earth-observatory')->assertOk()->getContent();
     expect($eo)->not->toContain('data-final="1.5M+"');

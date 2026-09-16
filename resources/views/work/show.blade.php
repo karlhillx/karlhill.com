@@ -173,10 +173,18 @@
                                 </span>
                                 <span class="case-study-frame__title">{{ $frameTitle }}</span>
                                 @if(! empty($project['logo']['path']))
-                                    <img src="{{ $project['logo']['path'] }}" alt=""
+                                    @php
+                                        $frameLogoSrc = ! empty($project['logo']['ink'])
+                                            ? ($project['card_image'] ?? $project['logo']['path'])
+                                            : $project['logo']['path'];
+                                    @endphp
+                                    <img src="{{ $frameLogoSrc }}" alt=""
                                          loading="lazy" decoding="async"
                                          @if(! empty($project['logo']['filter'])) style="filter: {{ $project['logo']['filter'] }};" @endif
-                                         class="case-study-frame__logo">
+                                         @class([
+                                             'case-study-frame__logo',
+                                             'logo-ink' => ! empty($project['logo']['ink']),
+                                         ])>
                                 @endif
                             </div>
 
