@@ -119,7 +119,7 @@ test.describe('smoke + a11y', () => {
         await expect(page.getByRole('link', { name: /download resume pdf/i })).toBeVisible();
         await expect(page.locator('.kit-doc')).toBeVisible();
 
-        await expect(page.locator('.kit-highlights--flush > .kit-highlights__item')).toHaveCount(5);
+        await expect(page.locator('.kit-highlights--flush > .kit-highlights__item')).toHaveCount(7);
         await expect(page.locator('.max-w-2xl > ul.kit-links > li')).toHaveCount(4);
         await expect(page.locator('[data-ask-prompt]')).toHaveCount(3);
 
