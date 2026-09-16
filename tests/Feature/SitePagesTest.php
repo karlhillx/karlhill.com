@@ -143,8 +143,13 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('Find Data', escape: false);
     $response->assertDontSee('NASA Earth science systems from Goddard are still public.', escape: false);
     $response->assertSee('logo-jacobs-mark', escape: false);
+    $response->assertSee('logo-jacobs.webp', escape: false);
+    $response->assertSee('work-card-brand__ink', escape: false);
+    $response->assertSee('work-card-brand', escape: false);
     $response->assertSee('work-card--logo', escape: false);
     $response->assertDontSee('work-card--constraint', escape: false);
+    $response->assertDontSee('surface-chip-overlay', escape: false);
+    $response->assertSee('work-card-tags', escape: false);
     $response->assertSee('hero-mesh', escape: false);
     $response->assertSee('hero-dot-grid', escape: false);
     $response->assertDontSee('hero-visual__scrim', escape: false);
@@ -332,9 +337,10 @@ it('now page is hero plus scheduler', function () {
     $response->assertStatus(200);
     $response->assertDontSee('Engineering Manager', escape: false);
     $response->assertSee('Jacobs', escape: false);
-    $response->assertSee('September 15, 2026', escape: false);
+    $response->assertSee('September 16, 2026', escape: false);
     $response->assertSee('Building mission software and the engineering systems around it at Jacobs.', escape: false);
     $response->assertSee('roughly 20 repositories', escape: false);
+    $response->assertSee('This month:', escape: false);
     $response->assertSee('simpler developer workflows', escape: false);
     $response->assertDontSee('architecture ownership', escape: false);
     $response->assertSee('href="/kit"', escape: false);
@@ -716,7 +722,7 @@ it('legacy delivery url redirects to the delivery page', function () {
 it('now page shows a fresh updated date and kit link', function () {
     $this->get('/now')
         ->assertOk()
-        ->assertSee('Updated September 15, 2026', escape: false)
+        ->assertSee('Updated September 16, 2026', escape: false)
         ->assertSee('href="/kit"', escape: false)
         ->assertSee('Recruiter kit', escape: false);
 });

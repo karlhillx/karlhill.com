@@ -24,6 +24,8 @@ return [
             'path' => '/img/webp/logo-jacobs.webp',
             'filter' => null,
             'class' => 'h-8',
+            // Wordmark is light artwork — paint it with the canvas ink.
+            'ink' => true,
         ],
     ],
     [

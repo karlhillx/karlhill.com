@@ -27,7 +27,7 @@ return [
     'now' => [
         'title' => 'Now — Karl Hill',
         'description' => 'Karl Hill is building mission software and the engineering systems around it at Jacobs. Python services, messaging, CI/CD, and technical delivery.',
-        'og_description' => 'Karl Hill at Jacobs: mission software, delivery practices, and problems that cross teams. Updated September 15, 2026.',
+        'og_description' => 'Karl Hill at Jacobs: mission software, delivery practices, and problems that cross teams. Updated September 16, 2026.',
     ],
     'privacy' => [
         'title' => 'Privacy — Karl Hill',

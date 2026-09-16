@@ -18,7 +18,7 @@
     $titleId = $slug ? 'work-card-title-'.$slug : null;
     $isConstraint = $variant === 'constraint';
     $isLogo = $variant === 'logo';
-    $showCornerLogo = $logo && ! $isLogo;
+    $showCornerLogo = filled($logo['path'] ?? null);
     $cardClass = 'surface-card surface-card-media pointer-lit bg-bg group relative h-[22rem] sm:h-80 lg:h-96 block'
         .($isConstraint ? ' work-card--constraint' : '')
         .($isLogo ? ' work-card--logo' : '');
@@ -82,29 +82,30 @@
             img-class="work-parallax work-card-media absolute inset-0 w-full h-full object-cover {{ $imagePosition }}"
             class="contents"
         />
-        <div class="work-card-media-scrim absolute inset-x-0 top-0 h-24" aria-hidden="true"></div>
     @endif
 
     @if($showCornerLogo)
         <div class="work-card-brand absolute top-4 right-4 z-[2]">
             <img src="{{ $logo['path'] }}" alt="" loading="lazy" decoding="async" aria-hidden="true"
                  @if($logo['filter']) style="filter: {{ $logo['filter'] }};" @endif
-                 class="{{ $logo['class'] }} w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                 @class([
+                     $logo['class'] ?? 'h-8',
+                     'w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300',
+                     'work-card-brand__ink' => ! empty($logo['ink']),
+                 ])>
         </div>
     @endif
-
-    <div @class([
-        'work-card-tags absolute top-4 left-4 z-[2] flex flex-wrap gap-1.5',
-        'work-card-tags--with-logo' => $showCornerLogo,
-    ]) aria-hidden="true">
-        @foreach($tags as $tag)
-            <span class="surface-chip-overlay font-mono text-caption px-2 py-0.5 text-neutral-400">{{ $tag }}</span>
-        @endforeach
-    </div>
 
     <div class="work-card-panel absolute inset-x-0 bottom-0 border-t border-hairline px-5 pt-5 pb-6 rounded-b-2xl">
         <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
         <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-xl tracking-tight text-neutral-100 group-hover:text-accent transition-colors leading-snug">{{ $title }}</h3>
+        @if($tags !== [])
+            <div class="work-card-tags" aria-hidden="true">
+                @foreach($tags as $tag)
+                    <span class="surface-chip font-mono text-caption px-2 py-0.5 text-neutral-400">{{ $tag }}</span>
+                @endforeach
+            </div>
+        @endif
         <div class="work-card-details overflow-hidden">
             <p class="text-neutral-400 text-sm leading-relaxed mt-2.5 line-clamp-3 pointer-fine:group-hover:line-clamp-none pointer-fine:group-focus-within:line-clamp-none">{{ $description }}</p>
             @if($href)

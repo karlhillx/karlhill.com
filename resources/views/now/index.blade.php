@@ -17,7 +17,13 @@
     ]">
         <x-slot:title>Now</x-slot:title>
 
-        <p class="text-neutral-100 text-lg sm:text-xl leading-relaxed max-w-2xl">
+        @if(! empty($now['updated']))
+            <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest">
+                Updated {{ $now['updated'] }}
+            </p>
+        @endif
+
+        <p class="mt-5 text-neutral-100 text-lg sm:text-xl leading-relaxed max-w-2xl">
             {{ $now['lede'] }}
         </p>
 
@@ -30,12 +36,6 @@
         @if(! empty($now['focus']) && is_string($now['focus']))
             <p class="mt-5 text-neutral-400 text-base leading-relaxed max-w-2xl">
                 {{ $now['focus'] }}
-            </p>
-        @endif
-
-        @if(! empty($now['updated']))
-            <p class="mt-5 font-mono text-caption text-neutral-400 uppercase tracking-widest">
-                Updated {{ $now['updated'] }}
             </p>
         @endif
 

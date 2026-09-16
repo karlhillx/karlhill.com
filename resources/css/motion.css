@@ -113,8 +113,19 @@
 /* ---------------------------------------------------------------------------
    Hero entrance animations — one-shot on page load
 --------------------------------------------------------------------------- */
+/* Opacity stays 1 so delayed heroes are readable on first paint; motion
+   is a slight rise, not a fade-from-blank. */
+@keyframes heroEnter {
+    from {
+        transform: translateY(0.75rem);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
 .hero-enter {
-    animation: fadeUp 0.75s var(--ease-out-spring) both;
+    animation: heroEnter 0.75s var(--ease-out-spring) both;
 }
 
 /* Homepage hero — atmosphere + one hire composition (no screenshot). */
@@ -652,24 +663,11 @@ button:focus-visible > .arrow-nudge,
     }
 }
 
-/* Hero wordmark — mask wipe on first paint, then a slow warm shine drifts
-   across the name. Visible by default; motion is progressive enhancement so a
-   skipped/interrupted animation can never leave the brand clipped away. */
+/* Hero wordmark — visible by default. A one-shot shine is progressive
+   enhancement; it must return to solid text so a skipped animation can
+   never leave a warm tint parked on the name. */
 .hero-mask {
     display: inline-block;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .hero-mask {
-        clip-path: inset(0 105% 0 0);
-        animation: heroWordmask 0.9s var(--ease-out-spring) 0.14s forwards;
-    }
-}
-
-@keyframes heroWordmask {
-    to {
-        clip-path: inset(0 -1ch 0 0);
-    }
 }
 
 .hero-shine {
@@ -692,8 +690,8 @@ button:focus-visible > .arrow-nudge,
         background-clip: text;
         color: transparent;
         -webkit-text-fill-color: transparent;
-        /* One shine pass on enter — not an infinite background-position loop. */
-        animation: heroShine 2.4s ease-in-out 1.1s 1 both;
+        /* Fill-mode none: after the pass, rest at background-position 0%. */
+        animation: heroShine 2.4s ease-in-out 1.1s 1;
     }
 }
 

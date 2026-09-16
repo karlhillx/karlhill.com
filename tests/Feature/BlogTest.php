@@ -116,7 +116,7 @@ it('sitemap lastmod reflects editorial dates rather than today', function () {
     $base = rtrim(config('app.url'), '/');
 
     $this->assertSame('2026-06-01', $lastmod[$base.'/blog/release-governance']);
-    $this->assertSame('2026-09-15', $lastmod[$base.'/now']);
+    $this->assertSame('2026-09-16', $lastmod[$base.'/now']);
     $this->assertSame('2026-09-15', $lastmod[$base.'/work/finium']);
     $this->assertNotContains('2030-01-01', $lastmod->all(), 'No URL should claim it changed today');
 
@@ -143,21 +143,22 @@ it('blog tag route filters posts', function () {
     $response->assertSee('/blog/tag/automation', escape: false);
 });
 
-it('blog index shows tag counts', function () {
-    $response = $this->get('/blog');
+it('blog index hides the tag filter until a tag is active', function () {
+    $this->get('/blog')
+        ->assertOk()
+        ->assertDontSee('aria-label="Filter by tag"', escape: false);
 
-    $response->assertOk();
-    $response->assertSee('engineering', false);
-    // Every published post currently carries the engineering tag.
     $engineeringCount = app(BlogPostRepository::class)->all()
         ->filter(fn ($post) => in_array('engineering', $post->tags, true))
         ->count();
 
-    // Counts are tucked into the chip and hidden below `sm` to keep phone toolbars compact.
-    $response->assertSee(
-        'engineering<span class="tabular-nums text-neutral-500 hidden sm:inline">&nbsp;('.$engineeringCount.')</span>',
-        false,
-    );
+    $this->get('/blog/tag/engineering')
+        ->assertOk()
+        ->assertSee('aria-label="Filter by tag"', escape: false)
+        ->assertSee(
+            'engineering<span class="tabular-nums text-neutral-500 hidden sm:inline">&nbsp;('.$engineeringCount.')</span>',
+            false,
+        );
 });
 
 it('legacy blog tag query redirects to tag route', function () {

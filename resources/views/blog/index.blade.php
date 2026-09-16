@@ -80,7 +80,9 @@
 
 <section class="site-section border-t border-neutral-800" style="padding-block: var(--space-section-soft) var(--space-section)">
     <div class="site-shell">
-        @if($allTags->isNotEmpty())
+        {{-- Twelve singleton tags over six posts is a chip cloud, not a
+             filter. Tagged URLs still show the bar so Clear / All works. --}}
+        @if($activeTag && $allTags->isNotEmpty())
             <x-site.tag-filter
                 class="mb-14"
                 data-soft-nav

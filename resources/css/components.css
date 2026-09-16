@@ -676,7 +676,6 @@ a:where([href^='http://'], [href^='https://']):not(
 /* Internal taxonomy, surface chips, and icon-only links: suppress outbound arrow. */
 .social-links a::after,
 .surface-chip::after,
-.surface-chip-overlay::after,
 .case-study-masthead__stack a::after {
     content: none !important;
 }
@@ -2795,23 +2794,6 @@ a.series-chapters__card:hover .series-chapters__title,
     transform: scale(1.045);
 }
 
-.work-card-media-scrim {
-    z-index: 1;
-    pointer-events: none;
-    background: linear-gradient(
-        to bottom,
-        color-mix(in oklab, var(--bg) 55%, transparent),
-        transparent 70%
-    );
-    opacity: 0.85;
-    transition: opacity 0.55s var(--ease-out-soft);
-}
-
-.group:hover .work-card-media-scrim,
-.group:focus-within .work-card-media-scrim {
-    opacity: 0.35;
-}
-
 .work-card-panel {
     z-index: 2;
     background-color: color-mix(in oklab, var(--bg) 92%, transparent);
@@ -2886,8 +2868,27 @@ a.series-chapters__card:hover .series-chapters__title,
     z-index: 1;
 }
 
-.work-card-tags--with-logo {
-    max-width: calc(100% - 5.75rem);
+.work-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0.55rem 0 0;
+}
+
+/* Light artwork (Jacobs wordmark) — black on light, white on dark.
+   light-dark() is a color function; it cannot wrap filter values. */
+.work-card-brand__ink {
+    filter: brightness(0);
+}
+
+:root[data-theme='dark'] .work-card-brand__ink {
+    filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .work-card-brand__ink {
+        filter: none;
+    }
 }
 
 /* Logo-only work cards (Jacobs): quiet mark on the same card field as
@@ -2957,9 +2958,20 @@ a.series-chapters__card:hover .series-chapters__title,
     aspect-ratio: 1;
     object-fit: contain;
     opacity: 0.88;
+    filter: brightness(0);
     transition:
         transform 0.75s var(--ease-out-spring),
         opacity 0.55s var(--ease-out-soft);
+}
+
+:root[data-theme='dark'] .work-card-logo__img {
+    filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .work-card-logo__img {
+        filter: none;
+    }
 }
 
 @media (min-width: 640px) {
