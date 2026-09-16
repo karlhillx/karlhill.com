@@ -19,25 +19,6 @@ outcome:
 - Web-system delivery is more repeatable through GitLab CI/CD, Docker, Helm, and Kubernetes. Existing Perl services remained in place.
 - Portal and near-real-time access work sat in the same delivery path as Find Data. This page does not publish query-time or user-count metrics.
 metrics: []
-platform:
-  caption: Public Find Data path. Archive services stay in place underneath.
-  stages:
-  - step: 01 · Product
-    title: Choose collections
-    body: Search starts with the satellite products and standard collections.
-    stack: Find Data
-  - step: 02 · Filter
-    title: Time and location
-    body: Temporal and spatial filters narrow the matching granules.
-    stack: Catalog
-  - step: 03 · Files
-    title: Select granules
-    body: Matching files are listed for review before an order is placed.
-    stack: Archive
-  - step: 04 · Order
-    title: Review and order
-    body: The request is checked and submitted against existing access workflows.
-    stack: Ordering
 ---
 
 LAADS DAAC work covered the public portal, Find Data search and ordering, near-real-time access, and the delivery process around those web systems. Find Data is public: open it and walk the same path.

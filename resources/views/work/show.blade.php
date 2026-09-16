@@ -310,10 +310,10 @@
                         @if(! empty($study['body_html']))
                             @php
                                 $narrativeHtml = (string) $study['body_html'];
-                                $narrativeDiagram = ($isJacobs && ! empty($study['diagram']['stages']))
+                                $narrativeDiagram = (! empty($study['diagram']['zones']) || ! empty($study['diagram']['stages']))
                                     ? $study['diagram']
                                     : [];
-                                $narrativeCaption = $study['platform']['caption'] ?? null;
+                                $narrativeCaption = $study['diagram']['caption'] ?? null;
                                 $narrativeLead = $narrativeHtml;
                                 $narrativeRest = '';
                                 if ($narrativeDiagram !== []) {

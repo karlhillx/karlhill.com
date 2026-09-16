@@ -19,21 +19,6 @@ outcome:
 - Processing is organized around product boundaries so a new product is not a new one-off path.
 - Distribution software on Linux and NGINX supports access to those products. Existing science-operations interfaces stayed in place.
 metrics: []
-platform:
-  caption: Public portal. High-level data workflow, not a system architecture.
-  stages:
-  - step: 01 · Input
-    title: Receive data
-    body: Bring incoming data into the processing workflow.
-    stack: Linux
-  - step: 02 · Process
-    title: Prepare products
-    body: Reformat and organize the data for downstream use.
-    stack: Data processing
-  - step: 03 · Distribute
-    title: Provide access
-    body: Support consistent product access and distribution.
-    stack: NGINX
 ---
 
 Software for NASA's Direct Readout Laboratory. The work covered ingest, reformatting, and distribution so satellite products could move through one maintained path instead of a separate process for each product.

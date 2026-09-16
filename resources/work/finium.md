@@ -20,21 +20,6 @@ outcome:
 - Software connecting recurring managed-security operations in a multi-tenant platform.
 - Automated services for work previously dependent on manual coordination.
 metrics: []
-platform:
-  caption: High-level managed-security workflow.
-  stages:
-  - step: 01 · Provision
-    title: Client setup
-    body: Support repeatable provisioning workflows.
-    stack: Java
-  - step: 02 · Monitor
-    title: Operational data
-    body: Bring monitoring information into the platform.
-    stack: SQL Server
-  - step: 03 · Respond
-    title: Incident workflows
-    body: Coordinate incident-related steps through shared services.
-    stack: Workflow automation
 ---
 
 Core developer on Finium, a managed-security platform built with Java and SQL Server. The work included services for provisioning, monitoring, and incident workflows.

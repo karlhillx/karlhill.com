@@ -25,8 +25,8 @@
     .article-toc-mobile,
     .media-lightbox,
     .case-study-media__zoom,
-    .case-study-flow__grid,
-    .case-study-flow__glow,
+    .case-study-flow .case-study-logo-plate__grid,
+    .case-study-flow .case-study-logo-plate__glow,
     .site-toolbar--sticky,
     .on-device-summary,
     .on-device-ask {
@@ -97,20 +97,26 @@
     .case-study-flow__kicker,
     .case-study-flow__label,
     .case-study-flow__chevron,
-    .case-study-flow__loop {
+    .case-study-flow__return {
         color: #0b1f3a !important;
     }
 
-    .case-study-flow__source,
+    .case-study-flow__zone-label,
     .case-study-flow__detail,
-    .case-study-flow__practices,
     .case-study-flow__path {
         color: #333 !important;
     }
 
-    .case-study-flow__join,
-    .case-study-flow__loop-rule {
+    .case-study-flow__join {
         background: #888 !important;
+        opacity: 1;
+    }
+
+    .case-study-flow__fork-arms:before,
+    .case-study-flow__fork-arms:after,
+    .case-study-flow__return {
+        border-color: #888 !important;
+        opacity: 1;
     }
 
     /* Classic karlhill-resume.pdf layout: navy sidebar + main column, densified to 2 pages. */

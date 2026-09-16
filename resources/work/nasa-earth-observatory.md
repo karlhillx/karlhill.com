@@ -19,21 +19,6 @@ outcome:
 - Work covered editorial workflows, imagery, and the public pages. This page does not publish performance or traffic-change metrics.
 - About 1.5 million monthly visitors during that work describes the scale of the platform in that period, not a current figure and not a result attributed to this project.
 metrics: []
-platform:
-  caption: Publishing work on a public site. Open Earth Observatory.
-  stages:
-  - step: 01 · Publish
-    title: Editorial workflow
-    body: Reusable publishing capabilities support how articles are created.
-    stack: Web application
-  - step: 02 · Present
-    title: Articles and imagery
-    body: Editorial content and large imagery have to present cleanly to readers.
-    stack: Frontend
-  - step: 03 · Operate
-    title: Performance and upkeep
-    body: Performance, usability, and search discoverability are part of the engineering work.
-    stack: Web engineering
 ---
 
 NASA Earth Observatory is a public Earth science publishing site. The work sat between editorial needs and web engineering: reusable publishing capabilities, content and imagery presentation, and a platform that could be maintained as those needs changed.

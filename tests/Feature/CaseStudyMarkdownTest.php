@@ -73,7 +73,6 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertSee('safer and more predictable', escape: false)
         ->assertDontSee('still uneven', escape: false)
         ->assertDontSee('90%', escape: false)
-        ->assertDontSee('squash', escape: false)
         ->assertDontSee('Architected a shared', escape: false)
         ->assertDontSee('BlackLynx', escape: false)
         ->assertDontSee('RTX', escape: false)
@@ -84,13 +83,38 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertSee('id="scope"', escape: false)
         ->assertSee('case-study-flow', escape: false)
         ->assertSee('Engineering delivery system', escape: false)
-        ->assertSee('Quality gates', escape: false)
-        ->assertSee('Security gates', escape: false)
-        ->assertSee('Delivery path', escape: false)
-        ->assertSee('Feedback', escape: false)
-        ->assertSee('Shared packages', escape: false)
+        ->assertSee('Local development', escape: false)
+        ->assertDontSee('Developer feedback', escape: false)
+        ->assertSee('Pre-commit', escape: false)
+        ->assertSee('format · lint · imports · types · secrets', escape: false)
+        ->assertSee('Commit / push', escape: false)
+        ->assertSee('case-study-flow__fork-arms', escape: false)
+        ->assertSee('Pull request', escape: false)
+        ->assertSee('Review', escape: false)
+        ->assertSee('2+ approvals', escape: false)
+        ->assertSee('CI pipeline', escape: false)
+        ->assertSee('unit tests · coverage · SAST', escape: false)
+        ->assertSee('Merge gate', escape: false)
+        ->assertSee('review + CI pass · squash merge', escape: false)
+        ->assertDontSee('Pull request / merge gate', escape: false)
+        ->assertDontSee('passing CI', escape: false)
+        ->assertSee('Change intelligence', escape: false)
+        ->assertSee('case-study-flow__chain', escape: false)
+        ->assertSee('Change detection', escape: false)
+        ->assertSee('Delta tagging', escape: false)
+        ->assertSee('Cross-repo impact', escape: false)
+        ->assertSee('System validation', escape: false)
+        ->assertSee('Integration tests', escape: false)
+        ->assertSee('E2E tests', escape: false)
+        ->assertSee('Environment validation', escape: false)
+        ->assertSee('case-study-flow__return', escape: false)
+        ->assertSee('Validation feedback', escape: false)
+        ->assertDontSee('Affected repos', escape: false)
+        ->assertDontSee('Shared packages', escape: false)
+        ->assertDontSee('Standards · Reviews · Documentation', escape: false)
+        ->assertDontSee('Agile Delivery · Coaching · Governance', escape: false)
         ->assertSee('case-study-logo-plate', escape: false)
-        ->assertSee('A high-level view of the engineering system, not a program architecture.', escape: false)
+        ->assertSee('Local checks run on the workstation; CI provides the authoritative repository gate. Downstream validation covers cross-repository and environment-level behavior. Simplified, unclassified delivery view—not a program architecture.', escape: false)
         ->assertSee('Adopted', escape: false)
         ->assertSee('In progress', escape: false)
         ->assertSee('Delivery status', escape: false)
@@ -154,32 +178,42 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertDontSee('~60%', escape: false);
 });
 
-it('every case study publishes a platform map with three to five stages', function () {
+it('case studies do not render the retired platform map', function () {
     /** @var CaseStudyRepository $repo */
     $repo = app(CaseStudyRepository::class);
 
     foreach (ProjectCatalog::withCaseStudies() as $project) {
         $slug = $project['slug'];
         $study = $repo->find($slug);
-        $stages = $study['platform']['stages'] ?? null;
 
-        expect($stages)->toBeArray("{$slug} is missing platform.stages")
-            ->and(count($stages))->toBeGreaterThanOrEqual(3, "{$slug} needs at least 3 platform stages")
-            ->and(count($stages))->toBeLessThanOrEqual(5, "{$slug} has more than 5 platform stages");
-
-        foreach ($stages as $index => $stage) {
-            expect($stage['step'] ?? null)->toBeString("{$slug} stage {$index} is missing step")
-                ->and($stage['title'] ?? null)->toBeString("{$slug} stage {$index} is missing title")
-                ->and($stage['body'] ?? null)->toBeString("{$slug} stage {$index} is missing body")
-                ->and(trim((string) $stage['step']))->not->toBe('')
-                ->and(trim((string) $stage['title']))->not->toBe('')
-                ->and(trim((string) $stage['body']))->not->toBe('');
-        }
+        expect($study['platform'] ?? null)->toBeNull("{$slug} still has unused platform front matter");
 
         $this->get('/work/'.$slug)
             ->assertOk()
             ->assertDontSee('id="platform"', escape: false)
             ->assertDontSee('work-diagram', escape: false)
+            ->assertDontSee('platform-map', escape: false)
             ->assertDontSee('href="#platform"', escape: false);
+    }
+});
+
+it('only studies with diagram data render a delivery figure', function () {
+    /** @var CaseStudyRepository $repo */
+    $repo = app(CaseStudyRepository::class);
+
+    foreach (ProjectCatalog::withCaseStudies() as $project) {
+        $slug = $project['slug'];
+        $study = $repo->find($slug);
+        $hasDiagram = ! empty($study['diagram']['zones']) || ! empty($study['diagram']['stages']);
+        $response = $this->get('/work/'.$slug)->assertOk();
+
+        if ($hasDiagram) {
+            $response->assertSee('case-study-flow-figure', escape: false)
+                ->assertSee((string) ($study['diagram']['title'] ?? ''), escape: false);
+
+            continue;
+        }
+
+        $response->assertDontSee('case-study-flow', escape: false);
     }
 });

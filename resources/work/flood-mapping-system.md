@@ -19,21 +19,6 @@ outcome:
 - Python, Docker, and AWS carry processing and delivery so the team is not depending on a one-off script.
 - Co-author of the GeoHorizons paper that describes the Global Water and Flood Mapping System and evaluates it scientifically.
 metrics: []
-platform:
-  caption: Public processing and delivery path. Open the live map.
-  stages:
-  - step: 01 · Input
-    title: Satellite imagery
-    body: Imagery is the input for water and flood products.
-    stack: Satellite data
-  - step: 02 · Process
-    title: Python workflows
-    body: Processing runs as packaged Python workflows, not a one-off script.
-    stack: Python · Docker
-  - step: 03 · Deliver
-    title: Product access
-    body: AWS-based services make the derived maps available.
-    stack: AWS
 ---
 
 Lead software engineering on an AWS-based flood-mapping system at NASA Goddard. The work connected satellite imagery, processing, and distribution so Earth science partners could obtain satellite-derived flood products through one maintained service instead of a chain of manual runs.

@@ -47,57 +47,46 @@ status:
   detail: Six engineers onboarded. Personnel decisions remain with management.
 diagram:
   title: Engineering delivery system
-  source: Requirements
-  stages:
-    - label: Development
-      lines:
-        - Python / APIs
-        - Shared packages
-    - label: Quality gates
-      lines:
-        - lint · format
-        - types · tests · coverage
-    - label: Security gates
-      lines:
-        - SAST · secrets
-        - dependencies · containers
-    - label: CI / CD
-      lines:
-        - build · verify
-        - package · tag
-    - label: Delivery path
-      wide: true
+  caption: Local checks run on the workstation; CI provides the authoritative repository gate. Downstream validation covers cross-repository and environment-level behavior. Simplified, unclassified delivery view—not a program architecture.
+  zones:
+    - label: Local development
+      stages:
+        - label: Code
+        - label: Pre-commit
+          guard: true
+          lines:
+            - format · lint · imports · types · secrets
+        - label: Commit / push
+          compact: true
+    - label: Repository validation
+      fork:
+        stem:
+          label: Pull request
+        branches:
+          - label: Review
+            lines:
+              - 2+ approvals
+          - label: CI pipeline
+            lines:
+              - unit tests · coverage · SAST
+              - dependency audit · build
+        join:
+          label: Merge gate
+          lines:
+            - review + CI pass · squash merge
+    - label: Change intelligence
+      boxed: true
       steps:
-        - Development
-        - Integration
+        - Change detection
+        - Delta tagging
+        - Cross-repo impact
+    - label: System validation
+      steps:
+        - Integration tests
+        - E2E tests
+        - Environment validation
         - Release
-  loop: Feedback
-  practices:
-    - Standards
-    - Reviews
-    - Documentation
-    - Agile Delivery
-    - Coaching
-    - Governance
-platform:
-  caption: A high-level view of the engineering system, not a program architecture.
-  stages:
-  - step: 01 · Standards
-    title: Delivery gates
-    body: Shared CI/CD, two-approval review, testing, type-checking, security, coverage, and release practices. At least 80% repository test coverage is in the gate. Releases are safer and more predictable.
-    stack: CI/CD · Review
-  - step: 02 · Messaging
-    title: Portable adapters
-    body: A common messaging interface and broker adapters so applications are not rewritten when the queue changes.
-    stack: Messaging · Config
-  - step: 03 · Tests
-    title: Meaningful tests
-    body: A repository coverage gate of at least 80% is in CI. Isolation and failure-case expectations are written; applying them is ongoing.
-    stack: Tests · CI
-  - step: 04 · Integrate
-    title: Cross-team delivery
-    body: Integration problems become tickets, sequenced work, and conversations while the change is still cheap to fix.
-    stack: Tickets · Dependencies
+  loop: Validation feedback
 ---
 
 Hands-on software engineering and technical delivery on a simulation program. The work covers implementation, standards, messaging, tests, and coordination across roughly 20 repositories, three operating environments, and a team of about 10, with partner and vendor teams in the same delivery path.

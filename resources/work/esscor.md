@@ -19,21 +19,6 @@ outcome:
 - An automated registration workflow so new holdings do not depend on a fully manual path into the catalog.
 - This page does not publish how much registration time changed. A percentage is not claimed here.
 metrics: []
-platform:
-  caption: High-level catalog workflow. Not a public service to open.
-  stages:
-  - step: 01 · Register
-    title: Dataset metadata
-    body: Bring dataset information into a consistent model.
-    stack: MySQL
-  - step: 02 · Discover
-    title: Search the catalog
-    body: Make holdings searchable through the discovery layer.
-    stack: Elasticsearch
-  - step: 03 · Access
-    title: Apply access rules
-    body: Connect search results to eligible access and ordering.
-    stack: Catalog workflows
 ---
 
 Catalog and search software for ESSCOR. The work brought Earth science metadata, discovery, access rules, and ordering into one catalog so a holding was not a separate search problem.

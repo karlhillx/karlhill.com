@@ -18,21 +18,6 @@ outcome:
 - A shared application for case-management and related operational work.
 - Reduced routine manual coordination between administrative workflows.
 metrics: []
-platform:
-  caption: High-level case-management workflow.
-  stages:
-  - step: 01 · Manage
-    title: Case information
-    body: Maintain case data and its operational status.
-    stack: Laravel · MySQL
-  - step: 02 · Coordinate
-    title: Related work
-    body: Connect counseling, documentation, and billing workflows.
-    stack: Application workflows
-  - step: 03 · Control
-    title: Access and changes
-    body: Apply role-based access and record changes.
-    stack: Application controls
 ---
 
 At InformedDNA the work was a Laravel-based case-management platform connecting counseling workflows, documentation, and billing.
