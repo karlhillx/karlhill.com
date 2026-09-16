@@ -83,6 +83,10 @@ it('keeps the recruiter kit skim to a short primary row and evidence list', func
         ->and($evidence->where('meta', 'Writing')->pluck('path')->values()->all())->toBe([
             '/blog/release-governance',
         ])
+        ->and($evidence->firstWhere('path', '/research/global-flood-mapping'))->toMatchArray([
+            'label' => 'Peer-reviewed NASA flood mapping',
+            'meta' => 'GeoHorizons, 2026',
+        ])
         ->and($links->pluck('url')->filter())->toBeEmpty()
         ->and($links->pluck('path')->filter()->values()->all())->not->toContain('/#system');
 });

@@ -23,7 +23,7 @@
     @endphp
 
     <x-site.page-hero
-        :eyebrow="$research['label']"
+        :eyebrow="$research['identity_label'] ?? $research['label']"
         title-class="site-page-hero__title site-page-hero__title--article font-sans font-semibold text-white tracking-tight"
         :breadcrumbs="[
             ['label' => 'Home', 'url' => '/'],
@@ -31,7 +31,20 @@
         ]">
         <x-slot:title>{{ $research['title'] }}</x-slot:title>
 
-        <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-3xl">
+        @if(! empty($research['identity']))
+            <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-3xl">
+                {{ $research['identity'] }}
+            </p>
+        @endif
+
+        @if(! empty($research['credit']))
+            <p class="mt-4 font-mono text-xs text-neutral-500 uppercase tracking-widest max-w-3xl">
+                {{ $research['credit_label'] ?? 'CRediT' }}:
+                <span class="text-neutral-300 normal-case tracking-normal">{{ $research['credit'] }}</span>
+            </p>
+        @endif
+
+        <p class="mt-4 text-neutral-500 text-sm leading-relaxed max-w-3xl">
             {{ $authorLine }}.
             {{ $research['journal'] }}
             {{ $research['published'] }}.
@@ -52,7 +65,27 @@
         </div>
     </x-site.page-hero>
 
-    <x-site.section id="citation" border="soft" label="Citation">
+    <x-site.section id="contribution" border="soft" label="Software">
+        <p class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
+            {{ $research['contribution'] }}
+        </p>
+    </x-site.section>
+
+    @if(! empty($research['writing']))
+        <x-site.section id="writing" label="Writing">
+            <p class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
+                {{ $research['writing'] }}
+            </p>
+        </x-site.section>
+    @endif
+
+    <x-site.section id="summary" border="soft" label="What the paper reports">
+        <p class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
+            {{ $research['plain_english'] }}
+        </p>
+    </x-site.section>
+
+    <x-site.section id="citation" label="Citation">
         <blockquote class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
             <p>{{ $research['citation_full'] }}</p>
             <p class="mt-4 font-mono text-xs text-neutral-500 uppercase tracking-widest">
@@ -61,31 +94,6 @@
                 <a href="{{ $research['license'] }}" target="_blank" rel="noopener noreferrer" data-no-ext class="text-accent hover:underline">License</a>
             </p>
         </blockquote>
-    </x-site.section>
-
-    <x-site.section id="abstract" label="Abstract">
-        <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12" data-reveal>
-            <p class="font-mono text-xs text-neutral-500 leading-relaxed">
-                Publisher abstract. Reproduced under {{ $research['license_name'] }}.
-            </p>
-            <div class="max-w-3xl space-y-5 text-neutral-300 text-sm sm:text-base leading-relaxed">
-                @foreach($research['abstract'] ?? [] as $paragraph)
-                    <p>{{ $paragraph }}</p>
-                @endforeach
-            </div>
-        </div>
-    </x-site.section>
-
-    <x-site.section id="summary" border="soft" label="In plain English">
-        <p class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
-            {{ $research['plain_english'] }}
-        </p>
-    </x-site.section>
-
-    <x-site.section id="contribution" label="Contribution">
-        <p class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
-            {{ $research['contribution'] }}
-        </p>
     </x-site.section>
 
     @if($figures->isNotEmpty())
@@ -137,6 +145,21 @@
             @endforeach
         </ul>
     </x-site.section>
+
+    @if(! empty($research['abstract']))
+        <x-site.section id="abstract" border="soft" label="Publisher abstract">
+            <details class="max-w-3xl border border-neutral-800 bg-neutral-900/30 p-5 sm:p-6" data-reveal>
+                <summary class="font-mono text-xs text-accent uppercase tracking-widest cursor-pointer">
+                    Reproduced under {{ $research['license_name'] }}
+                </summary>
+                <div class="mt-5 space-y-5 text-neutral-400 text-sm leading-relaxed">
+                    @foreach($research['abstract'] as $paragraph)
+                        <p>{{ $paragraph }}</p>
+                    @endforeach
+                </div>
+            </details>
+        </x-site.section>
+    @endif
 @endsection
 
 @section('page_footer')

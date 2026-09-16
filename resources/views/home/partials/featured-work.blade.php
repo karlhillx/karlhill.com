@@ -17,5 +17,10 @@
             'label' => 'Find Data',
             'href' => 'https://ladsweb.modaps.eosdis.nasa.gov/search/',
         ],
+        [
+            'label' => 'Paper',
+            'href' => '/research/global-flood-mapping',
+            'external' => false,
+        ],
     ],
 ])

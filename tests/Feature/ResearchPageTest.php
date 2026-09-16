@@ -6,15 +6,19 @@ it('serves a canonical publication page with scholarly metadata', function () {
     $response = $this->get('/research/global-flood-mapping');
 
     $response->assertOk()
-        ->assertSee('<title>A web-based high-resolution global water and flood mapping platform — Karl Hill</title>', escape: false)
-        ->assertSee('name="citation_title"', escape: false)
+        ->assertSee('<title>NASA flood mapping — Karl Hill</title>', escape: false)
+        ->assertSee('name="citation_title" content="A web-based high-resolution global water and flood mapping platform"', escape: false)
         ->assertSee('name="citation_doi" content="10.1144/gh2025-7"', escape: false)
         ->assertSee('name="citation_author" content="Hill, Karl M."', escape: false)
         ->assertSee('name="citation_publication_date" content="2026/07/07"', escape: false)
         ->assertSee('name="citation_author_orcid" content="https://orcid.org/0009-0002-6847-3368"', escape: false)
+        ->assertSee('name="citation_keywords"', escape: false)
+        ->assertSee('NASA flood mapping', escape: false)
         ->assertSee('"@type": "ScholarlyArticle"', escape: false)
         ->assertSee('"doi": "10.1144/gh2025-7"', escape: false)
         ->assertSee('"license": "https://creativecommons.org/licenses/by/4.0/"', escape: false)
+        ->assertSee('Software (Equal)', escape: false)
+        ->assertSee('Writing – review &amp; editing (Equal)', escape: false)
         ->assertSee('https://floodmapping.gsfc.nasa.gov/', escape: false)
         ->assertSee('https://ui.adsabs.harvard.edu/abs/10.1144/gh2025-7', escape: false)
         ->assertSee('https://doi.org/10.5281/zenodo.15881676', escape: false)
@@ -25,7 +29,8 @@ it('serves a canonical publication page with scholarly metadata', function () {
         ->assertSee('/work/flood-mapping-system', escape: false)
         ->assertSee('ss-geohorizons', escape: false)
         ->assertSee('small-flood', escape: false)
-        ->assertSee('data-features="reveal"', escape: false);
+        ->assertSee('data-features="reveal"', escape: false)
+        ->assertSee('Publisher abstract', escape: false);
 });
 
 it('redirects /research to the publication page', function () {
@@ -43,7 +48,9 @@ it('builds complete scholarly article json-ld', function () {
         ->and($node['publisher']['name'])->toBe('Geological Society of London')
         ->and($node['isPartOf']['@type'])->toBe('PublicationIssue')
         ->and($node['citation'])->toContain('10.1144/gh2025-7')
-        ->and(collect($node['author'])->firstWhere('name', 'Karl M. Hill')['identifier']['value'])->toBe('0009-0002-6847-3368');
+        ->and(collect($node['author'])->firstWhere('name', 'Karl M. Hill')['identifier']['value'])->toBe('0009-0002-6847-3368')
+        ->and(collect($node['author'])->firstWhere('name', 'Karl M. Hill')['description'])->toBe('Software (Equal); Writing – review & editing (Equal)')
+        ->and($node['keywords'])->toContain('NASA flood mapping');
 
     $graph = ScholarlyArticleJsonLd::pageGraph()['@graph'];
     expect(collect($graph)->pluck('@type')->all())->toContain('Person', 'ScholarlyArticle', 'WebPage', 'Dataset');

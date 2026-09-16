@@ -35,6 +35,6 @@ This page does not publish latency, coverage, or agency-adoption figures. The pu
 
 ## Related research
 
-Co-author of *A web-based high-resolution global water and flood mapping platform*, published in GeoHorizons (7 July 2026). The paper describes the Global Water and Flood Mapping System, a NASA-supported experimental portal, and its scientific evaluation. It is not a claim of sole authorship.
+Co-author of *A web-based high-resolution global water and flood mapping platform*, published in GeoHorizons (7 July 2026). CRediT: Software (Equal); Writing – review & editing (Equal). The paper describes the Global Water and Flood Mapping System, a NASA-supported experimental portal, and its scientific evaluation. It is not a claim of sole authorship.
 
 [Publication page](/research/global-flood-mapping). [Read the paper](https://doi.org/10.1144/gh2025-7).

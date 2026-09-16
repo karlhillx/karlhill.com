@@ -18,17 +18,19 @@
                     {{ $proof }}
                 @endif
                 @foreach($proofLinks ?? [] as $index => $link)
+                    @php
+                        $href = (string) ($link['href'] ?? '');
+                        $external = (bool) ($link['external'] ?? str_starts_with($href, 'http'));
+                    @endphp
                     @if($index > 0)
                         <span aria-hidden="true"> · </span>
                     @elseif(! empty($proof ?? null))
                         {{ ' ' }}
                     @endif
-                    <a href="{{ $link['href'] }}"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       data-no-ext
+                    <a href="{{ $href }}"
+                       @if($external) target="_blank" rel="noopener noreferrer" data-no-ext @endif
                        class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">
-                        {{ $link['label'] }} <span aria-hidden="true">↗</span>
+                        {{ $link['label'] }}@if($external) <span aria-hidden="true">↗</span>@endif
                     </a>
                 @endforeach
             </p>

@@ -155,6 +155,7 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertSee('The public map is the shipped system', escape: false)
         ->assertSee('shot-carousel--multi', escape: false)
         ->assertSee('GeoHorizons paper', escape: false)
+        ->assertSee('Software (Equal)', escape: false)
         ->assertDontSee('Figure 1: Automated Satellite Ingestion to Multi-Agency Dissemination Architecture', escape: false)
         ->assertDontSee('operational flood data', escape: false);
 

@@ -29,6 +29,7 @@ class GenerateResumePdf extends Command
             'education' => config('site.education', []),
             'certifications' => config('site.certifications', []),
             'stack' => config('site.stack', []),
+            'research' => config('site.research', []),
             'linkedin' => $social->first(fn (array $link) => ($link['icon'] ?? '') === 'linkedin'),
             'github' => $social->first(fn (array $link) => ($link['icon'] ?? '') === 'github'),
         ])->render();

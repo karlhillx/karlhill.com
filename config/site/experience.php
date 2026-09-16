@@ -42,7 +42,7 @@ return [
             'period' => 'Dec 2017 — Sept 2025',
             'summary' => 'Earth science software other people used: flood maps, satellite-data access, and science publishing.',
             'highlights' => [
-                'Led software engineering on an AWS flood-mapping system for satellite-derived products. The public map is the shipped artifact.',
+                'Led software engineering on an AWS flood-mapping system for satellite-derived products. GeoHorizons co-author (2026): Software (Equal); Writing – review & editing (Equal). The public map is the shipped artifact.',
                 'Delivered Find Data search, ordering, and near-real-time access for LAADS DAAC, with GitLab CI/CD and Kubernetes web delivery alongside existing archive services.',
                 'Led web engineering on NASA Earth Observatory — editorial workflows, imagery, and the public site. About 1.5 million monthly visitors during that work.',
                 'Automated a content-registry workflow so dataset registration did not depend on a fully manual path.',

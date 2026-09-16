@@ -59,6 +59,7 @@ final class OnDeviceAsk
             self::prefixed('Tagline', $resume['tagline'] ?? $person['tagline'] ?? null),
             $currentLine !== '' ? 'Current role: '.$currentLine : null,
             self::prefixed('Current work', $current['summary'] ?? null),
+            self::prefixed('Research', config('site.research.identity')),
         ]);
     }
 

@@ -15,7 +15,7 @@ use App\Support\Booking;
  * - /now      this-month status + booking (#book). Not a bio. Not the ask.
  * - /blog     writing
  * - /about    person: career, research, short music coda. Not a leadership manifesto.
- * - /research/global-flood-mapping  GeoHorizons GWFMS paper (canonical publication page)
+ * - /research/global-flood-mapping  Karl Hill companion to the GeoHorizons GWFMS paper
  * - /delivery written bar for reviews, integration, and release (not advertised from About)
  * - /resume   HTML CV evidence (secondary; PDF from kit)
  * - /privacy  contact, booking, analytics (footer credit strip)

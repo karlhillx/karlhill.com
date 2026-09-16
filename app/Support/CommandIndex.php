@@ -51,12 +51,15 @@ class CommandIndex
                         return $projects->push([
                             'label' => (string) $research['title'],
                             'url' => (string) ($research['path'] ?? '/research/global-flood-mapping'),
-                            'keywords' => 'research publication geohorizons gwfms flood mapping doi zenodo orcid ads nasa',
+                            'keywords' => 'research publication geohorizons gwfms flood mapping nasa karl hill doi zenodo orcid ads software equal credit',
                             'group' => 'page',
                             'terms' => SemanticIndex::vector(implode(' ', [
                                 $research['title'] ?? '',
+                                $research['identity'] ?? '',
                                 $research['summary'] ?? '',
+                                $research['contribution'] ?? '',
                                 $research['plain_english'] ?? '',
+                                'NASA flood mapping Karl Hill',
                             ])),
                         ]);
                     }

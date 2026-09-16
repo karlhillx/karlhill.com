@@ -52,9 +52,11 @@ final class ScholarlyArticleJsonLd
         $doiId = (string) ($research['doi_id'] ?? '10.1144/gh2025-7');
         $doiUrl = (string) ($research['doi'] ?? 'https://doi.org/'.$doiId);
 
+        $credit = is_string($research['credit'] ?? null) ? $research['credit'] : '';
+
         $authors = collect($research['authors'] ?? [])
             ->filter(fn ($author): bool => is_array($author) && ! empty($author['name']))
-            ->map(function (array $author) use ($siteUrl, $personId): array {
+            ->map(function (array $author) use ($siteUrl, $personId, $credit): array {
                 $self = ($author['self'] ?? false) === true;
                 $orcidUrl = self::orcidUrl($author);
                 $orcidId = self::orcidId($author);
@@ -80,6 +82,10 @@ final class ScholarlyArticleJsonLd
                         'value' => $orcidId,
                         'url' => $orcidUrl ?? 'https://orcid.org/'.$orcidId,
                     ];
+                }
+
+                if ($self && $credit !== '') {
+                    $node['description'] = $credit;
                 }
 
                 if (! empty($author['affiliation'])) {
@@ -166,6 +172,20 @@ final class ScholarlyArticleJsonLd
 
         if ($abstract !== '') {
             $node['abstract'] = $abstract;
+        }
+
+        $keywords = collect($research['keywords'] ?? [])
+            ->filter(fn ($term): bool => is_string($term) && $term !== '')
+            ->values();
+
+        if ($keywords->isNotEmpty()) {
+            $node['keywords'] = $keywords->implode(', ');
+            $node['about'] = $keywords
+                ->map(fn (string $term): array => [
+                    '@type' => 'Thing',
+                    'name' => $term,
+                ])
+                ->all();
         }
 
         if (! empty($research['publisher_pdf'])) {
@@ -275,6 +295,13 @@ final class ScholarlyArticleJsonLd
         }
         if ($abstract !== '') {
             $tags[] = ['name' => 'citation_abstract', 'content' => $abstract];
+        }
+
+        $keywords = collect($research['keywords'] ?? [])
+            ->filter(fn ($term): bool => is_string($term) && $term !== '')
+            ->implode('; ');
+        if ($keywords !== '') {
+            $tags[] = ['name' => 'citation_keywords', 'content' => $keywords];
         }
 
         foreach ($research['authors'] ?? [] as $author) {

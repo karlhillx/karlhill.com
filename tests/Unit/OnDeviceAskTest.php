@@ -16,7 +16,8 @@ it('builds a kit brief that includes what Karl is open to', function () {
         ->toContain('Selected evidence:')
         ->toContain('Engineering mission software at scale')
         ->not->toContain('Staff IC to Engineering Manager: first 90 days')
-        ->toContain('Release governance');
+        ->toContain('Release governance')
+        ->toContain('Peer-reviewed NASA flood mapping');
 });
 
 it('builds a resume brief with the current role and next-step copy', function () {
@@ -29,5 +30,7 @@ it('builds a resume brief with the current role and next-step copy', function ()
     expect($brief)
         ->toContain('Open to:')
         ->toContain('Current role:')
-        ->toContain('Sept 2025');
+        ->toContain('Sept 2025')
+        ->toContain('Research:')
+        ->toContain('GeoHorizons');
 });

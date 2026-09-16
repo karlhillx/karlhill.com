@@ -661,6 +661,25 @@
                 </section>
             @endif
 
+            @php
+                $research = $research ?? config('site.research', []);
+            @endphp
+            @if(! empty($research['identity']))
+                <section class="section" aria-labelledby="publications-heading">
+                    <h2 id="publications-heading" class="section-title">Publications</h2>
+                    <p class="stack-line">
+                        <span class="stack-label">{{ $research['identity_label'] ?? 'Peer-reviewed research' }}:</span>
+                        {!! $nowrapHtml($research['identity']) !!}
+                        @if(! empty($research['credit']))
+                            {{ $research['credit_label'] ?? 'CRediT' }}: {{ $research['credit'] }}.
+                        @endif
+                        @if(! empty($research['doi_id']))
+                            doi:{{ $research['doi_id'] }}
+                        @endif
+                    </p>
+                </section>
+            @endif
+
             <section class="section" aria-labelledby="education-heading">
                 <h2 id="education-heading" class="section-title">Education</h2>
                 <ul class="edu-list">

@@ -6,8 +6,8 @@ return [
     // descriptions and JSON-LD, not in every title.
     'home' => [
         'title' => 'Karl Hill',
-        'description' => 'Karl Hill is a Staff Aerospace Software Engineer at Jacobs in Washington, DC. Previously Lead Software Engineer, NASA Goddard Earth science (2017–2025).',
-        'og_description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs. Mission software and public NASA Earth science systems — flood maps, LAADS, Earth Observatory.',
+        'description' => 'Karl Hill is a Staff Aerospace Software Engineer at Jacobs. NASA Goddard Earth science (2017–2025) and GeoHorizons flood-mapping co-author.',
+        'og_description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs. NASA flood mapping (GeoHorizons 2026), LAADS, and Earth Observatory.',
     ],
     'blog_index' => [
         'title' => 'Writing — Karl Hill',
@@ -21,8 +21,8 @@ return [
     ],
     'about' => [
         'title' => 'About — Karl Hill',
-        'description' => 'Karl Hill (Karl M. Hill) is a Staff Aerospace Software Engineer at Jacobs in Washington, DC. NASA Goddard Earth science, 2017–2025. Musician and songwriter.',
-        'og_description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs, NASA Earth science at Goddard, and musician and songwriter. Washington, DC.',
+        'description' => 'Karl Hill (Karl M. Hill), Staff Aerospace Software Engineer at Jacobs. NASA Goddard Earth science 2017–2025; GeoHorizons co-author on NASA flood mapping.',
+        'og_description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs, NASA flood-mapping co-author, and musician and songwriter. Washington, DC.',
     ],
     'now' => [
         'title' => 'Now — Karl Hill',
@@ -36,13 +36,13 @@ return [
     ],
     'resume' => [
         'title' => 'Resume — Karl Hill',
-        'description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs. NASA Earth science, Python, technical leadership, and software delivery. Download the PDF.',
-        'og_description' => 'Karl Hill resume: software engineering experience, technical skills, education, and credentials.',
+        'description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs. NASA Earth science, GeoHorizons flood mapping, Python, technical leadership, and software delivery.',
+        'og_description' => 'Karl Hill resume: software engineering, NASA flood mapping, technical skills, education, and credentials.',
     ],
     'kit' => [
         'title' => 'Recruiter kit — Karl Hill',
-        'description' => 'Karl Hill, Staff Aerospace Software Engineer at Jacobs: open to, selected evidence, and a resume to forward.',
-        'og_description' => 'Karl Hill recruiter kit: Jacobs scope, NASA Earth science evidence, and paths to Principal-level technical leadership or Engineering Manager.',
+        'description' => 'Karl Hill, Staff Aerospace Software Engineer at Jacobs: open to, NASA flood-mapping paper, selected evidence, and a resume to forward.',
+        'og_description' => 'Karl Hill recruiter kit: Jacobs scope, GeoHorizons NASA flood mapping, and paths to Principal-level technical leadership or Engineering Manager.',
     ],
     'delivery' => [
         'title' => 'Engineering delivery — Karl Hill',
@@ -50,8 +50,8 @@ return [
         'og_description' => 'Karl Hill: reviews, shared standards, integration risk, and software delivery.',
     ],
     'research' => [
-        'title' => 'A web-based high-resolution global water and flood mapping platform — Karl Hill',
-        'description' => 'Karl M. Hill, co-author. GeoHorizons paper on the NASA-supported Global Water and Flood Mapping System. Citation, abstract, DOI, ADS, ORCID, and Zenodo.',
-        'og_description' => 'GeoHorizons paper on GWFMS, a NASA-supported experimental platform for high-resolution surface-water and flood products.',
+        'title' => 'NASA flood mapping — Karl Hill',
+        'description' => 'Karl Hill: NASA flood mapping. GeoHorizons co-author (2026), Software (Equal) on GWFMS — near-real-time satellite-derived water and flood products.',
+        'og_description' => 'Karl Hill: NASA global flood mapping. GeoHorizons co-author, Software (Equal). Live GWFMS map and the engineering behind it.',
     ],
 ];

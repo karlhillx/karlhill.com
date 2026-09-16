@@ -106,7 +106,7 @@ final class PageMeta
         $research = config('site.research', []);
         $url = self::siteUrl();
         $path = (string) ($research['path'] ?? '/research/global-flood-mapping');
-        $title = (string) ($research['title'] ?? 'Research');
+        $paperTitle = (string) ($research['title'] ?? 'Research');
         $description = (string) ($research['summary'] ?? '');
         $image = (string) ($research['image'] ?? '/img/ss-geohorizons.png');
         $published = is_string($research['date_published'] ?? null)
@@ -114,6 +114,9 @@ final class PageMeta
             : null;
 
         $seo = config('site.seo.research', []);
+        $title = is_string($seo['title'] ?? null) && $seo['title'] !== ''
+            ? $seo['title']
+            : $paperTitle;
         if (is_string($seo['description'] ?? null) && $seo['description'] !== '') {
             $description = $seo['description'];
         }
@@ -129,7 +132,7 @@ final class PageMeta
             ogTitle: self::titled($title),
             ogDescription: $ogDescription,
             ogImage: $url.$image,
-            ogImageAlt: (string) ($research['image_alt'] ?? $title),
+            ogImageAlt: (string) ($research['image_alt'] ?? $paperTitle),
             ogType: 'article',
             articlePublishedTime: $published !== null
                 ? CarbonImmutable::parse($published, 'UTC')->toIso8601String()

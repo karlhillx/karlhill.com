@@ -51,6 +51,8 @@ it('about page renders career, research, and music', function () {
     $response->assertSee('Sorry About Your Daughter', escape: false);
     $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
     $response->assertSee('GeoHorizons', escape: false);
+    $response->assertSee('Peer-reviewed research', escape: false);
+    $response->assertSee('Software engineering for a NASA-supported system', escape: false);
     $response->assertSee('id="experience"', escape: false);
     $response->assertSee('Career', escape: false);
     $response->assertSee('Jacobs National Security · 2025–present', escape: false);
@@ -145,6 +147,8 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('https://ladsweb.modaps.eosdis.nasa.gov/search/', escape: false);
     $response->assertSee('Flood map', escape: false);
     $response->assertSee('Find Data', escape: false);
+    $response->assertSee('Paper', escape: false);
+    $response->assertSee('href="/research/global-flood-mapping"', escape: false);
     $response->assertDontSee('NASA Earth science systems from Goddard are still public.', escape: false);
     $response->assertSee('logo-jacobs-mark', escape: false);
     $response->assertSee('logo-jacobs.webp', escape: false);
@@ -414,6 +418,9 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('Onboarded and coached approximately six engineers', escape: false);
     $resume->assertSee('Led software engineering on an AWS flood-mapping system', escape: false);
     $resume->assertSee('The public map is the shipped artifact', escape: false);
+    $resume->assertSee('id="resume-publications"', escape: false);
+    $resume->assertSee('Peer-reviewed research', escape: false);
+    $resume->assertSee('Software (Equal)', escape: false);
     $resume->assertSee('Delivered Find Data search, ordering, and near-real-time access', escape: false);
     $resume->assertSee('Led web engineering on NASA Earth Observatory', escape: false);
     $resume->assertSee('1.5 million monthly visitors during that work', escape: false);
@@ -641,6 +648,8 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('/work/flood-mapping-system', escape: false);
     $response->assertSee('/work/nasa-earth-observatory', escape: false);
     $response->assertSee('/research/global-flood-mapping', escape: false);
+    $response->assertSee('Peer-reviewed NASA flood mapping', escape: false);
+    $response->assertSee('GeoHorizons, 2026', escape: false);
     $response->assertSee('https://doi.org/10.1144/gh2025-7', escape: false);
     $response->assertDontSee('/blog/staff-to-em-first-90-days', escape: false);
     $response->assertSee('/blog/release-governance', escape: false);

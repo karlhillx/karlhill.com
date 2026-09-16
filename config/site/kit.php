@@ -1,6 +1,7 @@
 <?php
 
 $person = require __DIR__.'/person.php';
+$research = require __DIR__.'/research.php';
 
 return [
     'eyebrow' => 'For recruiters & hiring managers',
@@ -8,6 +9,7 @@ return [
     // Identity only. Current-role outcomes live in the Jacobs case study.
     'glance' => [
         $person['bio'],
+        $research['identity'],
     ],
     'scope' => [
         [
@@ -45,8 +47,9 @@ return [
             'path' => '/work/nasa-earth-observatory',
         ],
         [
-            'label' => 'GeoHorizons research publication',
+            'label' => 'Peer-reviewed NASA flood mapping',
             'path' => '/research/global-flood-mapping',
+            'meta' => 'GeoHorizons, 2026',
         ],
         [
             'label' => 'Release governance',

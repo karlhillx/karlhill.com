@@ -266,7 +266,9 @@ final class PersonJsonLd
             'High-assurance software',
             'Mission simulation',
             'NASA Earth science software',
+            'NASA flood mapping',
             'Flood mapping systems',
+            'Global Water and Flood Mapping System',
             'Release governance',
             'Technical leadership',
         ];

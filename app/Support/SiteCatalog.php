@@ -180,6 +180,8 @@ final class SiteCatalog
             'title' => $research['title'],
             'publication' => $research['publication'] ?? null,
             'citation' => $research['citation_full'] ?? $research['citation'] ?? null,
+            'identity' => $research['identity'] ?? null,
+            'credit' => $research['credit'] ?? null,
             'doi' => $research['doi'] ?? null,
             'published' => $research['published'] ?? null,
             'url' => $this->baseUrl().($research['path'] ?? '/research/global-flood-mapping'),
