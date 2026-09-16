@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-15'
+updated: '2026-09-16'
 lede: Web platform work for NASA Earth science publishing — editorial workflows, imagery, and the public site. The site is live. Audience scale during that period is noted below; it is not a traffic result claimed for this work.
 role: Lead Software Engineer — web-platform development and modernization.
 leadership:

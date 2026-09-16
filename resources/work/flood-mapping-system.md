@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-15'
+updated: '2026-09-16'
 lede: Python and Docker software that processes and distributes satellite-derived flood maps on AWS. The live map is the shipped artifact. A GeoHorizons paper describes the system and its scientific evaluation.
 role: Lead Software Engineer — design, processing, and delivery on AWS.
 leadership:

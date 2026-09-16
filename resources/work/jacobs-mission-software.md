@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-15'
+updated: '2026-09-16'
 lede: Hands-on engineering and technical delivery on a simulation program — roughly 20 repositories, three environments, a team of about 10, and partner and vendor teams. Six engineers onboarded and coached. A portable messaging layer is in use; ownership is shared.
 role: Staff Aerospace Software Engineer — implementation, technical delivery, and coaching.
 leadership:
