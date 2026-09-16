@@ -43,6 +43,24 @@ class CommandIndex
                         implode(' ', $project['tags'] ?? []),
                     ])),
                 ])
+                ->when(
+                    filled(config('site.research.title')),
+                    function ($projects) {
+                        $research = config('site.research');
+
+                        return $projects->push([
+                            'label' => (string) $research['title'],
+                            'url' => (string) ($research['path'] ?? '/research/global-flood-mapping'),
+                            'keywords' => 'research publication geohorizons gwfms flood mapping doi zenodo orcid ads nasa',
+                            'group' => 'page',
+                            'terms' => SemanticIndex::vector(implode(' ', [
+                                $research['title'] ?? '',
+                                $research['summary'] ?? '',
+                                $research['plain_english'] ?? '',
+                            ])),
+                        ]);
+                    }
+                )
                 ->values()
                 ->all(),
         ];

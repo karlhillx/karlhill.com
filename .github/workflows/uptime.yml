@@ -85,6 +85,7 @@ jobs:
           check /work 'Read case study'
           check /work/laads-daac 'case-study-media__label'
           check /about 'Beyond the work'
+          check /research/global-flood-mapping 'citation_doi'
           check /delivery 'Definition of Done'
           check /blog 'post-list-title'
           check /now 'booking-embed'

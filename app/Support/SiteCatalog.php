@@ -179,9 +179,12 @@ final class SiteCatalog
         return [
             'title' => $research['title'],
             'publication' => $research['publication'] ?? null,
-            'citation' => $research['citation'] ?? null,
+            'citation' => $research['citation_full'] ?? $research['citation'] ?? null,
             'doi' => $research['doi'] ?? null,
             'published' => $research['published'] ?? null,
+            'url' => $this->baseUrl().($research['path'] ?? '/research/global-flood-mapping'),
+            'ads' => $research['ads'] ?? null,
+            'zenodo' => $research['zenodo'] ?? null,
         ];
     }
 
@@ -399,6 +402,7 @@ final class SiteCatalog
             ['loc' => $base.'/now', 'lastmod' => $nowUpdated, 'changefreq' => 'weekly', 'priority' => '0.85'],
             ['loc' => $base.'/blog', 'lastmod' => $latestPost, 'changefreq' => 'weekly', 'priority' => '0.8'],
             ['loc' => $base.'/about', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],
+            ['loc' => $base.'/research/global-flood-mapping', 'lastmod' => $siteUpdated, 'changefreq' => 'yearly', 'priority' => '0.7'],
             ['loc' => $base.'/delivery', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.6'],
             ['loc' => $base.'/resume', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],
             ['loc' => $base.'/privacy', 'lastmod' => $siteUpdated, 'changefreq' => 'yearly', 'priority' => '0.3'],

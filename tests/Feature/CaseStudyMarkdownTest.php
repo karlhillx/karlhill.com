@@ -150,6 +150,8 @@ it('parses substantive markdown body and generates html and toc', function () {
     $flood->assertOk()
         ->assertSee('Processing and delivery', escape: false)
         ->assertSee('Read the paper', escape: false)
+        ->assertSee('Publication page', escape: false)
+        ->assertSee('/research/global-flood-mapping', escape: false)
         ->assertSee('The public map is the shipped system', escape: false)
         ->assertSee('shot-carousel--multi', escape: false)
         ->assertSee('GeoHorizons paper', escape: false)

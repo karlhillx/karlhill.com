@@ -16,7 +16,7 @@ function gotoSection(id) {
 
     const pageMap = {
         experience: '/about#experience',
-        research: '/about#research',
+        research: '/research/global-flood-mapping',
         stack: '/resume#stack',
         credentials: '/resume#credentials',
         work: '/work#work',
@@ -195,8 +195,8 @@ export function initCommandPalette() {
         }),
         withGroup({
             label: 'Research',
-            keywords: 'research publication paper doi geohorizons flood mapping',
-            action: () => gotoSection('research'),
+            keywords: 'research publication paper doi geohorizons flood mapping gwfms zenodo orcid ads',
+            action: () => window.location.assign('/research/global-flood-mapping'),
         }),
         withGroup({
             label: 'Technical expertise',

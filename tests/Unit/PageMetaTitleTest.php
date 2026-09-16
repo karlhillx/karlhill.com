@@ -15,7 +15,8 @@ it('homepage title is the name and interior titles use a single brand suffix', f
         ->and(PageMeta::kit()->title)->toBe('Recruiter kit — Karl Hill')
         ->and(PageMeta::resume()->title)->toBe('Resume — Karl Hill')
         ->and(PageMeta::delivery()->title)->toBe('Engineering delivery — Karl Hill')
-        ->and(PageMeta::privacy()->title)->toBe('Privacy — Karl Hill');
+        ->and(PageMeta::privacy()->title)->toBe('Privacy — Karl Hill')
+        ->and(PageMeta::research()->title)->toBe('A web-based high-resolution global water and flood mapping platform — Karl Hill');
 
     $flood = ProjectCatalog::findOrFail('flood-mapping-system');
     $jacobs = ProjectCatalog::findOrFail('jacobs-mission-software');

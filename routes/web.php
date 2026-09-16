@@ -12,6 +12,7 @@ use App\Http\Controllers\NowController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\PushController;
 use App\Http\Controllers\ReportingController;
+use App\Http\Controllers\ResearchController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\WebmentionController;
 use App\Http\Controllers\WorkController;
@@ -58,6 +59,8 @@ Route::middleware('cache.headers:public;max_age=300;s_maxage=600;stale_while_rev
         ->where('slug', '[a-z0-9-]+')
         ->name('work.show');
     Route::get('/about', AboutController::class)->name('about');
+    Route::redirect('/research', '/research/global-flood-mapping', 301)->name('research.index');
+    Route::get('/research/global-flood-mapping', ResearchController::class)->name('research.show');
     Route::get('/delivery', DeliveryController::class)->name('delivery');
     Route::get('/lead', LeadController::class)->name('lead');
     Route::get('/now', NowController::class)->name('now');

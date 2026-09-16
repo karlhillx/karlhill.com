@@ -34,10 +34,15 @@
                         {{ $research['citation'] }}
                         <span class="text-neutral-500">{{ $research['journal'] }}</span>
                     </p>
-                    <x-site.button variant="secondary" :href="$research['doi']" target="_blank" rel="noopener noreferrer" data-no-ext>
-                        {{ $research['doi_label'] }}
-                        <span aria-hidden="true">↗</span>
-                    </x-site.button>
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-3">
+                        <x-site.button variant="secondary" :href="$research['path'] ?? '/research/global-flood-mapping'">
+                            Publication page
+                        </x-site.button>
+                        <x-site.button variant="link" :href="$research['doi']" target="_blank" rel="noopener noreferrer" data-no-ext>
+                            {{ $research['doi_label'] }}
+                            <span aria-hidden="true">↗</span>
+                        </x-site.button>
+                    </div>
                 </div>
             </div>
         </article>

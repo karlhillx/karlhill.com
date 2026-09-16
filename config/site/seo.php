@@ -49,4 +49,9 @@ return [
         'description' => 'Karl Hill on code review, testing, integration, and release readiness.',
         'og_description' => 'Karl Hill: reviews, shared standards, integration risk, and software delivery.',
     ],
+    'research' => [
+        'title' => 'A web-based high-resolution global water and flood mapping platform — Karl Hill',
+        'description' => 'Karl M. Hill, co-author. GeoHorizons paper on the NASA-supported Global Water and Flood Mapping System. Citation, abstract, DOI, ADS, ORCID, and Zenodo.',
+        'og_description' => 'GeoHorizons paper on GWFMS, a NASA-supported experimental platform for high-resolution surface-water and flood products.',
+    ],
 ];

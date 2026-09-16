@@ -66,6 +66,10 @@ class SpeculationRules
     {
         $urls = collect(['/work', '/about']);
 
+        if (($project['slug'] ?? '') === 'flood-mapping-system') {
+            $urls->push('/research/global-flood-mapping');
+        }
+
         if ($previous !== null) {
             $urls->push('/work/'.$previous['slug']);
         }

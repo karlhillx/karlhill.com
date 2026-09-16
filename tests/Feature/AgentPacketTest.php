@@ -27,6 +27,7 @@ it('hire packet json includes person experience writing and case studies', funct
         ->and($json['education'])->not->toBeEmpty()
         ->and($json['certifications'])->not->toBeEmpty()
         ->and($json['publication']['doi'])->toContain('gh2025-7')
+        ->and($json['publication']['url'])->toContain('/research/global-flood-mapping')
         ->and($json['experience'][0]['skills'])->toContain('Technical leadership')
         ->and($json['case_studies'])->toBeArray()->not->toBeEmpty()
         ->and($json['writing'])->toBeArray()->not->toBeEmpty()

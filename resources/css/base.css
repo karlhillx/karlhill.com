@@ -246,6 +246,13 @@ body {
     text-wrap: balance;
 }
 
+.site-page-hero h1.site-page-hero__title--article {
+    font-size: clamp(1.65rem, 3.6vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 40rem;
+}
+
 .site-page-hero__lede {
     max-width: 36rem;
     margin: 0;

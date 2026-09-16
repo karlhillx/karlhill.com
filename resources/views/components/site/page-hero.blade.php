@@ -10,6 +10,7 @@
 @props([
     'eyebrow' => null,
     'breadcrumbs' => [],
+    'titleClass' => 'site-page-hero__title font-display text-white',
 ])
 
 <section {{ $attributes->merge(['class' => 'relative site-page-hero overflow-hidden']) }}>
@@ -22,7 +23,7 @@
         @if($eyebrow)
             <p class="font-mono text-accent text-xs tracking-widest uppercase mb-3 hero-enter" style="animation-delay:160ms">{{ $eyebrow }}</p>
         @endif
-        <h1 class="site-page-hero__title font-display text-white hero-enter" style="animation-delay:240ms">
+        <h1 class="{{ $titleClass }} hero-enter" style="animation-delay:240ms">
             {{ $title }}
         </h1>
         <div class="hero-enter site-page-hero__body" style="animation-delay:320ms">

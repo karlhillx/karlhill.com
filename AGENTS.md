@@ -62,6 +62,7 @@ This is a career/job site. Do not add parallel pitch surfaces or restate the sam
 - `/kit` — recruiter leave-behind (open-to, evidence links, PDF)
 - `/work` — evidence; current-role outcomes live only in the Jacobs case study
 - `/about` — person: career, research, and a short music coda
+- `/research/global-flood-mapping` — canonical GeoHorizons publication page
 - `/delivery` — forwardable written bar (do not advertise it from About)
 - `/now` — this-month status and booking, not a bio
 - `/resume` — complete record

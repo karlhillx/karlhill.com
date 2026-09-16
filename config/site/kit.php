@@ -46,7 +46,7 @@ return [
         ],
         [
             'label' => 'GeoHorizons research publication',
-            'url' => 'https://doi.org/10.1144/gh2025-7',
+            'path' => '/research/global-flood-mapping',
         ],
         [
             'label' => 'Release governance',

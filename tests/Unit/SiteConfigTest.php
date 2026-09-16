@@ -77,6 +77,7 @@ it('keeps the recruiter kit skim to a short primary row and evidence list', func
             '/work/flood-mapping-system',
             '/work/laads-daac',
             '/work/nasa-earth-observatory',
+            '/research/global-flood-mapping',
             '/blog/release-governance',
         ])
         ->and($evidence->where('meta', 'Writing')->pluck('path')->values()->all())->toBe([

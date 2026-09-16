@@ -2,8 +2,6 @@
 
 namespace App\Support;
 
-use Carbon\CarbonImmutable;
-
 /**
  * Canonical Person node + hire-page graphs for Google and AI crawlers.
  */
@@ -79,7 +77,7 @@ final class PersonJsonLd
             'identifier' => self::identifiers(),
             'memberOf' => self::memberOf(),
             'subjectOf' => [
-                self::scholarlyArticle($url, $personId),
+                ScholarlyArticleJsonLd::node($personId),
             ],
             'sameAs' => config('site.same_as'),
         ];
@@ -128,57 +126,6 @@ final class PersonJsonLd
                     'about' => ['@id' => $person['@id']],
                     'mainEntity' => ['@id' => $person['@id']],
                 ],
-            ],
-        ];
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    protected static function scholarlyArticle(string $siteUrl, string $personId): array
-    {
-        $research = config('site.research');
-        $published = is_string($research['date_published'] ?? null)
-            ? $research['date_published']
-            : '2026-05-05';
-        $datePublished = CarbonImmutable::parse($published, 'UTC')->toIso8601String();
-        $title = $research['title'];
-
-        $authors = collect($research['authors'] ?? [])
-            ->filter(fn ($author): bool => is_array($author) && ! empty($author['name']))
-            ->map(function (array $author) use ($siteUrl, $personId): array {
-                $node = [
-                    '@type' => 'Person',
-                    'name' => $author['name'],
-                    'url' => ($author['self'] ?? false) === true
-                        ? $siteUrl
-                        : ($author['url'] ?? $siteUrl),
-                ];
-
-                if (($author['self'] ?? false) === true) {
-                    $node['@id'] = $personId;
-                }
-
-                return $node;
-            })
-            ->values()
-            ->all();
-
-        return [
-            '@type' => 'ScholarlyArticle',
-            'headline' => $title,
-            'name' => $title,
-            'url' => $research['doi'],
-            'identifier' => $research['doi'],
-            'datePublished' => $datePublished,
-            'image' => [
-                '@type' => 'ImageObject',
-                'url' => $siteUrl.($research['image'] ?? '/img/ss-geohorizons.png'),
-            ],
-            'author' => $authors,
-            'isPartOf' => [
-                '@type' => 'Periodical',
-                'name' => $research['publication'],
             ],
         ];
     }

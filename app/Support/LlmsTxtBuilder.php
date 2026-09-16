@@ -53,6 +53,7 @@ class LlmsTxtBuilder
             $this->fileItem('Now', $base.'/now', 'Current status and booking'),
             $this->fileItem('Writing', $base.'/blog', 'Essays on leadership, delivery, and mission software'),
             $this->fileItem('About', $base.'/about', 'Career, research, and music'),
+            $this->fileItem('Research', $base.'/research/global-flood-mapping', 'GeoHorizons paper on global water and flood mapping'),
             $this->fileItem('Engineering delivery', $base.'/delivery', 'Definition of Done, PR rubric, integration risk, coaching'),
             $this->fileItem('Resume', $base.'/resume', 'Canonical HTML curriculum vitae'),
             $this->fileItem('Privacy', $base.'/privacy', 'Contact, booking, and analytics'),

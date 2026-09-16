@@ -2,6 +2,7 @@
 
 namespace App\Support;
 
+use Carbon\CarbonImmutable;
 use Illuminate\Support\Str;
 
 final class PageMeta
@@ -98,6 +99,43 @@ final class PageMeta
     public static function delivery(): self
     {
         return self::fromSeo('delivery', '/delivery', null);
+    }
+
+    public static function research(): self
+    {
+        $research = config('site.research', []);
+        $url = self::siteUrl();
+        $path = (string) ($research['path'] ?? '/research/global-flood-mapping');
+        $title = (string) ($research['title'] ?? 'Research');
+        $description = (string) ($research['summary'] ?? '');
+        $image = (string) ($research['image'] ?? '/img/ss-geohorizons.png');
+        $published = is_string($research['date_published'] ?? null)
+            ? $research['date_published']
+            : null;
+
+        $seo = config('site.seo.research', []);
+        if (is_string($seo['description'] ?? null) && $seo['description'] !== '') {
+            $description = $seo['description'];
+        }
+
+        $ogDescription = is_string($seo['og_description'] ?? null) && $seo['og_description'] !== ''
+            ? $seo['og_description']
+            : Str::limit($description, 120, '…');
+
+        return new self(
+            title: self::titled($title),
+            description: Str::limit($description, 155, '…'),
+            canonical: $url.$path,
+            ogTitle: self::titled($title),
+            ogDescription: $ogDescription,
+            ogImage: $url.$image,
+            ogImageAlt: (string) ($research['image_alt'] ?? $title),
+            ogType: 'article',
+            articlePublishedTime: $published !== null
+                ? CarbonImmutable::parse($published, 'UTC')->toIso8601String()
+                : null,
+            articleAuthor: (string) config('site.person.name'),
+        );
     }
 
     public static function a11yContactErrors(): self

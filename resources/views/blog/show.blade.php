@@ -178,7 +178,7 @@
             <div class="flex flex-wrap gap-4 font-mono text-caption uppercase tracking-widest">
                 <a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Selected work →</a>
                 <a href="/about#experience" class="text-neutral-400 hover:text-accent transition-colors">Experience →</a>
-                <a href="/about#research" class="text-neutral-400 hover:text-accent transition-colors">Research →</a>
+                <a href="/research/global-flood-mapping" class="text-neutral-400 hover:text-accent transition-colors">Research →</a>
             </div>
         </div>
 

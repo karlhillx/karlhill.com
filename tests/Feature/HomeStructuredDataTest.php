@@ -67,9 +67,15 @@ it('homepage structured data describes the person website and blog graph', funct
     $article = $person['subjectOf'][0];
     expect($article['@type'])->toBe('ScholarlyArticle')
         ->and($article['headline'])->toBe($article['name'])
-        ->and($article['datePublished'])->toMatch('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/')
+        ->and($article['datePublished'])->toBe('2026-07-07')
+        ->and($article['doi'])->toBe('10.1144/gh2025-7')
+        ->and($article['url'])->toEndWith('/research/global-flood-mapping')
+        ->and($article['license'])->toContain('creativecommons.org/licenses/by/4.0')
+        ->and($article['sameAs'])->toContain('https://doi.org/10.1144/gh2025-7')
+        ->and($article['citation'])->toContain('Policelli')
         ->and(collect($article['author'])->pluck('url')->filter())->toHaveCount(4)
-        ->and(collect($article['author'])->firstWhere('name', 'Karl M. Hill')['url'])->toContain('karlhill.com');
+        ->and(collect($article['author'])->firstWhere('name', 'Karl M. Hill')['url'])->toContain('karlhill.com')
+        ->and(collect($article['author'])->firstWhere('name', 'Karl M. Hill')['identifier']['value'])->toBe('0009-0002-6847-3368');
 
     expect($person['image']['url'])->toEndWith('/img/profile.jpg')
         ->and($person['image']['width'])->toBe(800);

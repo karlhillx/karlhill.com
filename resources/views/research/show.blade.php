@@ -1,0 +1,144 @@
+@extends('layouts.site', ['meta' => $meta])
+
+@push('head')
+    <x-site.json-ld :data="\App\Support\ScholarlyArticleJsonLd::pageGraph()" />
+    @foreach(\App\Support\ScholarlyArticleJsonLd::citationMetas() as $tag)
+        <meta name="{{ $tag['name'] }}" content="{{ $tag['content'] }}">
+    @endforeach
+@endpush
+
+@section('content')
+    @php
+        $authors = collect($research['authors'] ?? []);
+        $authorLine = $authors->pluck('name')->filter()->join(', ', ', and ');
+        $figures = collect($research['figures'] ?? [])->filter(fn ($figure) => filled($figure['src'] ?? null))->values();
+        $karlOrcid = data_get($authors->firstWhere('self', true), 'url', 'https://orcid.org/0009-0002-6847-3368');
+        $links = array_values(array_filter([
+            ['label' => 'Paper', 'href' => $research['doi'] ?? null, 'detail' => $research['doi_id'] ?? null],
+            ['label' => 'GWFMS', 'href' => $research['gwfms'] ?? null, 'detail' => 'Live map'],
+            ['label' => 'ADS', 'href' => $research['ads'] ?? null, 'detail' => 'NASA ADS'],
+            ['label' => 'ORCID', 'href' => $karlOrcid, 'detail' => 'Karl M. Hill'],
+            ['label' => 'Zenodo', 'href' => $research['zenodo'] ?? null, 'detail' => 'Figure datasets'],
+        ], fn ($link) => filled($link['href'])));
+    @endphp
+
+    <x-site.page-hero
+        :eyebrow="$research['label']"
+        title-class="site-page-hero__title site-page-hero__title--article font-sans font-semibold text-white tracking-tight"
+        :breadcrumbs="[
+            ['label' => 'Home', 'url' => '/'],
+            ['label' => 'Research'],
+        ]">
+        <x-slot:title>{{ $research['title'] }}</x-slot:title>
+
+        <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-3xl">
+            {{ $authorLine }}.
+            {{ $research['journal'] }}
+            {{ $research['published'] }}.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
+            <x-site.button variant="primary" :href="$research['doi']" target="_blank" rel="noopener noreferrer" data-no-ext>
+                {{ $research['doi_label'] }}
+                <span aria-hidden="true">↗</span>
+            </x-site.button>
+            <x-site.button variant="secondary" :href="$research['gwfms']" target="_blank" rel="noopener noreferrer" data-no-ext>
+                Open GWFMS
+                <span aria-hidden="true">↗</span>
+            </x-site.button>
+            <x-site.button variant="link" :href="$research['work_path']">
+                Flood mapping case study
+            </x-site.button>
+        </div>
+    </x-site.page-hero>
+
+    <x-site.section id="citation" border="soft" label="Citation">
+        <blockquote class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
+            <p>{{ $research['citation_full'] }}</p>
+            <p class="mt-4 font-mono text-xs text-neutral-500 uppercase tracking-widest">
+                {{ $research['license_name'] }}
+                ·
+                <a href="{{ $research['license'] }}" target="_blank" rel="noopener noreferrer" data-no-ext class="text-accent hover:underline">License</a>
+            </p>
+        </blockquote>
+    </x-site.section>
+
+    <x-site.section id="abstract" label="Abstract">
+        <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12" data-reveal>
+            <p class="font-mono text-xs text-neutral-500 leading-relaxed">
+                Publisher abstract. Reproduced under {{ $research['license_name'] }}.
+            </p>
+            <div class="max-w-3xl space-y-5 text-neutral-300 text-sm sm:text-base leading-relaxed">
+                @foreach($research['abstract'] ?? [] as $paragraph)
+                    <p>{{ $paragraph }}</p>
+                @endforeach
+            </div>
+        </div>
+    </x-site.section>
+
+    <x-site.section id="summary" border="soft" label="In plain English">
+        <p class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
+            {{ $research['plain_english'] }}
+        </p>
+    </x-site.section>
+
+    <x-site.section id="contribution" label="Contribution">
+        <p class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
+            {{ $research['contribution'] }}
+        </p>
+    </x-site.section>
+
+    @if($figures->isNotEmpty())
+        <x-site.section id="figures" border="soft" label="Figures">
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8" data-reveal>
+                @foreach($figures as $figure)
+                    <figure class="overflow-hidden border border-neutral-800 bg-neutral-900/30">
+                        <div @class(['bg-[#fff]' => str_contains((string) $figure['src'], 'geohorizons')])>
+                            <x-site.responsive-image
+                                :src="$figure['src']"
+                                :alt="$figure['alt'] ?? $research['title']"
+                                sizes="(min-width: 768px) 50vw, 100vw"
+                                loading="lazy"
+                                img-class="w-full h-auto"
+                            />
+                        </div>
+                        <figcaption class="p-4 sm:p-5">
+                            @if(! empty($figure['label']))
+                                <p class="font-mono text-xs text-accent uppercase tracking-widest mb-2">{{ $figure['label'] }}</p>
+                            @endif
+                            <p class="text-neutral-400 text-sm leading-relaxed">{{ $figure['caption'] ?? '' }}</p>
+                        </figcaption>
+                    </figure>
+                @endforeach
+            </div>
+            @if(! empty($research['zenodo']))
+                <p class="mt-6 text-neutral-500 text-sm leading-relaxed max-w-3xl">
+                    Paper figure datasets:
+                    <a href="{{ $research['zenodo'] }}" target="_blank" rel="noopener noreferrer" data-no-ext class="text-accent hover:underline">{{ $research['zenodo_doi'] }}</a>.
+                    The publisher already links this supplementary material from the article.
+                </p>
+            @endif
+        </x-site.section>
+    @endif
+
+    <x-site.section id="links" label="Links">
+        <ul class="grid sm:grid-cols-2 gap-px bg-neutral-800 border border-neutral-800" data-reveal>
+            @foreach($links as $link)
+                <li class="bg-bg">
+                    <a href="{{ $link['href'] }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       data-no-ext
+                       class="flex items-baseline justify-between gap-4 p-5 min-h-11 hover:bg-neutral-900/40 transition-colors">
+                        <span class="font-mono text-xs uppercase tracking-widest text-accent">{{ $link['label'] }}</span>
+                        <span class="text-neutral-400 text-sm text-right">{{ $link['detail'] }} <span aria-hidden="true">↗</span></span>
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    </x-site.section>
+@endsection
+
+@section('page_footer')
+    <x-site.footer />
+@endsection

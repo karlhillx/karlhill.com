@@ -72,7 +72,7 @@ it('about page renders career, research, and music', function () {
     $response->assertSee('href="/resume"', escape: false);
     $response->assertSee('ss-geohorizons', escape: false);
     $response->assertSee('Karl M. Hill', escape: false);
-    $response->assertSee('Published online 5 May 2026', escape: false);
+    $response->assertSee('Published 7 July 2026', escape: false);
     $response->assertSee('Global Water and Flood Mapping System', escape: false);
     $response->assertSee('Beyond the work', escape: false);
     $response->assertSee('When not writing software, solving engineering problems, or working with a team', escape: false);
@@ -263,6 +263,7 @@ it('sitemap includes work and about pages', function () {
     $response->assertStatus(200);
     $response->assertSee('/work', escape: false);
     $response->assertSee('/about', escape: false);
+    $response->assertSee('/research/global-flood-mapping', escape: false);
     $response->assertSee('/kit', escape: false);
     $response->assertDontSee('>https://karlhill.com/lead</loc>', escape: false);
     $response->assertDontSee('/lead</loc>', escape: false);
@@ -369,7 +370,7 @@ it('about and resume pages include contact and live cv', function () {
     $about->assertSee('"@type": "Person"', escape: false);
     $about->assertSee('"@type": "ProfilePage"', escape: false);
     $about->assertSee('"headline":', escape: false);
-    $about->assertSee('T00:00:00', escape: false);
+    $about->assertSee('2026-07-07', escape: false);
     $about->assertDontSee('id="contact-form"', escape: false);
     $about->assertSee('href="/resume"', escape: false);
     $about->assertSee('id="contact"', escape: false);
@@ -639,6 +640,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('/work/laads-daac', escape: false);
     $response->assertSee('/work/flood-mapping-system', escape: false);
     $response->assertSee('/work/nasa-earth-observatory', escape: false);
+    $response->assertSee('/research/global-flood-mapping', escape: false);
     $response->assertSee('https://doi.org/10.1144/gh2025-7', escape: false);
     $response->assertDontSee('/blog/staff-to-em-first-90-days', escape: false);
     $response->assertSee('/blog/release-governance', escape: false);
