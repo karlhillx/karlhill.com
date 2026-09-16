@@ -227,9 +227,35 @@
     flex-wrap: wrap;
     gap: 0.4rem;
     list-style: none;
-    margin: 0 0 clamp(1.35rem, 3vw, 2.35rem);
+    margin: 0 0 0.85rem;
     padding: 0;
     max-width: min(42rem, 100%);
+}
+
+#hero .hero-open {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.45rem 0.75rem;
+    margin: 0 0 clamp(1.35rem, 3vw, 2.35rem);
+    max-width: min(36rem, 100%);
+}
+
+#hero .hero-open__label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-mono);
+    line-height: var(--leading-ui);
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+#hero .hero-open__value {
+    font-size: 0.975rem;
+    line-height: 1.4;
+    letter-spacing: var(--tracking-sans);
+    color: color-mix(in oklab, var(--text) 82%, transparent);
+    text-wrap: pretty;
 }
 
 #hero .hero-proof li {
@@ -275,8 +301,12 @@
     }
 
     #hero .hero-proof {
-        margin-bottom: 1.15rem;
+        margin-bottom: 0.7rem;
         gap: 0.35rem;
+    }
+
+    #hero .hero-open {
+        margin-bottom: 1.15rem;
     }
 
     #hero .hero-proof li {

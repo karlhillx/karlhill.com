@@ -109,6 +109,7 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertDontSee('Open conversations', escape: false);
     $response->assertDontSee('$105M', escape: false);
     $response->assertDontSee('The hire ask', escape: false);
+    $response->assertDontSee(config('site.hero.ask'), escape: false);
 });
 
 it('homepage is a focused landing page', function () {
@@ -484,6 +485,9 @@ it('homepage hero links to em funnel', function () {
     $response->assertDontSee('hero-subtitle', escape: false);
     $response->assertSee(config('site.hero.statement'), escape: false);
     $response->assertSee(config('site.hero.lede'), escape: false);
+    $response->assertSee(config('site.hero.ask'), escape: false);
+    $response->assertSee(config('site.hero.ask_label'), escape: false);
+    $response->assertSee('hero-open', escape: false);
     $response->assertSee('hero-portrait', escape: false);
     $response->assertSee('aria-label="At a glance"', escape: false);
     $response->assertDontSee('Seeking Engineering Manager', escape: false);
@@ -607,6 +611,11 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('/work/flood-mapping-system', escape: false);
     $response->assertSee('/work/nasa-earth-observatory', escape: false);
     $response->assertSee('https://doi.org/10.1144/gh2025-7', escape: false);
+    $response->assertSee('/blog/staff-to-em-first-90-days', escape: false);
+    $response->assertSee('/blog/release-governance', escape: false);
+    $response->assertSee('Staff IC to Engineering Manager: first 90 days', escape: false);
+    $response->assertSee('Release governance', escape: false);
+    $response->assertSee('kit-highlights__meta', escape: false);
     $response->assertSee('/delivery', escape: false);
     $response->assertSee('Engineering delivery', escape: false);
     $response->assertDontSee('/#system', escape: false);

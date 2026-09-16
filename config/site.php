@@ -9,7 +9,7 @@ use App\Support\Booking;
  * derived values (sameAs, analytics primary) stay here so fragments stay pure.
  *
  * Page roles (hire path first — avoid parallel pitch surfaces):
- * - /        identity + proof → selected work → delivery diagram → contact
+ * - /        identity + proof + next-role line → selected work → delivery diagram → contact
  * - /work    Jacobs chapter + public NASA/older proof
  * - /kit     leave-behind: PDF + bio + links (primary recruiter packet)
  * - /now     booking; living status stays in the hero. Book CTAs land on #book

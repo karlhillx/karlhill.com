@@ -47,6 +47,16 @@ return [
             'label' => 'GeoHorizons research publication',
             'url' => 'https://doi.org/10.1144/gh2025-7',
         ],
+        [
+            'label' => 'Staff IC to Engineering Manager: first 90 days',
+            'path' => '/blog/staff-to-em-first-90-days',
+            'meta' => 'Writing',
+        ],
+        [
+            'label' => 'Release governance',
+            'path' => '/blog/release-governance',
+            'meta' => 'Writing',
+        ],
     ],
     'direction' => [
         'Growing toward broader ownership of architecture, engineering strategy, delivery, and team development.',
@@ -61,8 +71,9 @@ return [
     /*
      | Canonical outbound links for the kit (and its print leave-behind).
      | group => primary: first-pass skim and print. group => more: collapsed
-     | on screen, omitted in print. Case studies and the DOI live under
-     | evidence — do not repeat them here.
+     | on screen, omitted in print. Case studies, the DOI, and the two
+     | leadership essays live under evidence — do not repeat them here.
+     | The writing index stays in more.
      */
     'links' => [
         [

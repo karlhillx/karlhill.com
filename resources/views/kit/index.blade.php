@@ -141,6 +141,9 @@
                                 @else
                                     {{ $item['label'] }}
                                 @endif
+                                @if(! empty($item['meta']))
+                                    <span class="kit-highlights__meta">{{ $item['meta'] }}</span>
+                                @endif
                             </span>
                         </li>
                     @endforeach

@@ -14,7 +14,9 @@ it('builds a kit brief that includes what Karl is open to', function () {
         ->toContain('At a glance:')
         ->toContain('Current scope:')
         ->toContain('Selected evidence:')
-        ->toContain('Engineering mission software at scale');
+        ->toContain('Engineering mission software at scale')
+        ->toContain('Staff IC to Engineering Manager: first 90 days')
+        ->toContain('Release governance');
 });
 
 it('builds a resume brief with the current role and next-step copy', function () {

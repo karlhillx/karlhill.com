@@ -581,6 +581,11 @@
         font-size: 9.5pt !important;
     }
 
+    body:has(.kit-doc) .kit-highlights__meta {
+        color: #555 !important;
+        font-size: 8pt !important;
+    }
+
     body:has(.kit-doc) .kit-print-only {
         display: block !important;
     }
