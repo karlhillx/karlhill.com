@@ -95,9 +95,9 @@ final class PageMeta
         return self::fromSeo('kit', '/kit', 'kit');
     }
 
-    public static function lead(): self
+    public static function delivery(): self
     {
-        return self::fromSeo('lead', '/delivery', null);
+        return self::fromSeo('delivery', '/delivery', null);
     }
 
     public static function a11yContactErrors(): self
@@ -146,27 +146,6 @@ final class PageMeta
         );
     }
 
-    public static function workTag(string $tag): self
-    {
-        $url = self::siteUrl();
-
-        return new self(
-            title: self::titled("{$tag} — Work"),
-            description: "Software projects tagged with “{$tag}” by Karl Hill.",
-            canonical: "{$url}/work/tag/".ProjectCatalog::tagSlug($tag),
-            ogTitle: "{$tag} — Karl Hill",
-            ogDescription: "Selected software work tagged with “{$tag}”.",
-            ogImage: "{$url}/img/og-home.jpg",
-            ogImageAlt: "Karl Hill — work tagged {$tag}",
-            ogImageWidth: 1200,
-            ogImageHeight: 630,
-            activeNav: 'work',
-        );
-    }
-
-    /**
-     * @param  array<string, mixed>  $project
-     */
     public static function forProject(array $project): self
     {
         $url = self::siteUrl();

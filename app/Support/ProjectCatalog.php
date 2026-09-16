@@ -218,8 +218,7 @@ final class ProjectCatalog
     }
 
     /**
-     * Resolve a URL slug back to a filter label. Sectors and stack tags share
-     * the `/work/tag/{slug}` route, so both facets are searched.
+     * Resolve a slug back to a sector or stack label (related-work matching).
      */
     public static function tagFromSlug(string $slug): ?string
     {

@@ -8,18 +8,19 @@ use App\Support\Booking;
  * Domain content lives in config/site/*.php. Environment-sensitive flags and
  * derived values (sameAs, analytics primary) stay here so fragments stay pure.
  *
- * Page roles (hire path first — avoid parallel pitch surfaces):
- * - /        identity + proof + next-role line → selected work → delivery diagram → contact
- * - /work    Jacobs chapter + public NASA/older proof
- * - /kit     leave-behind: PDF + bio + links (primary recruiter packet)
- * - /now     booking; living status stays in the hero. Book CTAs land on #book
- * - /blog    writing
- * - /about   who I am: leadership, delivery, career, numbers, research (secondary)
- * - /delivery written bar for reviews, integration, and release
- * - /resume  HTML CV evidence (secondary; PDF from kit)
- * - /privacy contact, booking, analytics (footer credit strip)
- * - /lead    301 → /delivery (legacy)
- * - footer   home = contact form; other pages = Book + email
+ * Page roles (hire path first — one job per URL, no parallel pitches):
+ * - /         identity, proof chips, selected work, delivery snapshot, contact
+ * - /work     evidence (Jacobs chapter + public NASA/older proof)
+ * - /kit      recruiter leave-behind: bio, open-to, evidence links, PDF
+ * - /now      this-month status + booking (#book). Not a bio. Not the ask.
+ * - /blog     writing
+ * - /about    person: career, research, short music coda. Not a leadership manifesto.
+ * - /delivery written bar for reviews, integration, and release (not advertised from About)
+ * - /resume   HTML CV evidence (secondary; PDF from kit)
+ * - /privacy  contact, booking, analytics (footer credit strip)
+ * - /lead     301 → /delivery (legacy)
+ * - /music    do not add — music stays on /about. This is a career site.
+ * - footer    home = contact form; other pages = Book + email; Explore includes Kit
  */
 $social = require __DIR__.'/site/social.php';
 
@@ -102,7 +103,7 @@ return [
     'now' => require __DIR__.'/site/now.php',
     'privacy' => require __DIR__.'/site/privacy.php',
     'kit' => require __DIR__.'/site/kit.php',
-    'lead' => require __DIR__.'/site/lead.php',
+    'delivery' => require __DIR__.'/site/delivery.php',
     'system' => require __DIR__.'/site/system.php',
     'github' => require __DIR__.'/site/github.php',
     'resume' => require __DIR__.'/site/resume.php',

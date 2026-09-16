@@ -115,10 +115,9 @@
                                     <ul class="case-study-masthead__stack">
                                         @foreach($project['tags'] as $tag)
                                             <li>
-                                                <a href="{{ route('work.tag', \App\Support\ProjectCatalog::tagSlug($tag)) }}"
-                                                   class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
+                                                <span class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1">
                                                     {{ $tag }}
-                                                </a>
+                                                </span>
                                             </li>
                                         @endforeach
                                     </ul>

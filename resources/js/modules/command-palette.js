@@ -16,7 +16,6 @@ function gotoSection(id) {
 
     const pageMap = {
         experience: '/about#experience',
-        'how-i-lead': '/about#how-i-lead',
         research: '/about#research',
         stack: '/resume#stack',
         credentials: '/resume#credentials',
@@ -161,14 +160,8 @@ export function initCommandPalette() {
         }),
         withGroup({
             label: 'About',
-            keywords: 'about experience career background leadership how i lead delivery',
+            keywords: 'about experience career background research music',
             action: () => window.location.assign('/about'),
-        }),
-        withGroup({
-            label: 'Technical leadership',
-            keywords:
-                'how i lead technical leadership coaching mentoring review standards em manager',
-            action: () => window.location.assign('/about#how-i-lead'),
         }),
         withGroup({
             label: 'Engineering delivery',

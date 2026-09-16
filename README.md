@@ -70,7 +70,7 @@ npm run test:e2e
 
 Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, kit, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
 
-Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared scale and affiliation facts live in `config/site/facts.php`. The recruiter kit glance is `config/site/kit.php` (`glance`). Homepage spoken line is `hero.lede`. The first-screen target is `hero.ask` (short named roles, labeled “Open to”). Person JSON-LD `description` is the bio only so Google’s entity is who Karl Hill is, not the next role. Kit “Open to”, `llms.txt` (after the identity block), and the hire packet use `person.availability` for next-role direction (Principal-level technical leadership first, then Engineering Manager). The longer ask is `person.availability_long`. Do not restate the ask on About or `/now`. Proof chips live in `hero.proof`.
+Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared scale and affiliation facts live in `config/site/facts.php`. The recruiter kit glance is that bio (`config/site/kit.php`). Homepage spoken line is `hero.lede`. Next-role copy is **not** on the homepage — Kit “Open to”, `llms.txt` (after the identity block), and the hire packet use `person.availability` (Principal-level technical leadership first, then Engineering Manager). The longer ask is `person.availability_long`. Do not restate the ask on About or `/now`. Proof chips live in `hero.proof`. Music stays a short coda on `/about`; do not add `/music`.
 
 ### Name disambiguation
 
@@ -215,8 +215,8 @@ spot-check `/resume` + `/about`):
 2. `config/site/education.php` / `certifications.php` / `stack.php`
 3. `config/site/resume.php` — phone, ZIP, tagline, impact, expertise
 4. `config/site/person.php` — title, location, availability (short form is
-   `hero.ask` on the homepage; the longer ask is kit, `llms.txt`, and the
-   hire packet — not About, `/now`, or the CV body)
+   kit “Open to”, `llms.txt`, and the hire packet — not the homepage, About,
+   `/now`, or the CV body). Music stays on `/about`; do not add `/music`.
 
 ### Client staging
 

@@ -1,0 +1,24 @@
+---
+description: Page jobs and music placement for this career site
+alwaysApply: true
+---
+
+# Site information architecture
+
+This is a career/job site. Each URL has one job. Do not restate current-role evidence across pages.
+
+| URL | Job |
+|---|---|
+| `/` | Identity, proof chips, selected work, one delivery snapshot, contact |
+| `/kit` | Recruiter leave-behind (open-to, evidence links, PDF) |
+| `/work` | Evidence. Current-role outcomes live only in the Jacobs case study |
+| `/about` | Person: career, research, a short music coda |
+| `/delivery` | Forwardable written bar. Do not CTA it from About |
+| `/now` | This-month status and booking — not a bio |
+| `/resume` | Complete record |
+
+Canonical copy: `person.bio` (identity), `facts.php` (scale chips), Jacobs case study (current evidence).
+
+## Music
+
+Keep music tight on `/about` (“Beyond the work”). Do not add `/music` or put music in the primary nav. No engineering/music metaphors.

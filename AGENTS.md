@@ -39,7 +39,7 @@ Show current scope accurately:
 - software engineering remains central
 - technical leadership is exercised through execution, standards, coordination, mentoring, and influence
 - Agile delivery leadership spans internal and partner teams — describe the work, never name those organizations
-- do not mention BlackLynx or RTX anywhere public (pages, metadata, JSON-LD, kit, resume, OG, llms, APIs)
+- do not mention BlackLynx anywhere public (pages, metadata, JSON-LD, kit, resume, OG, llms, APIs)
 - architecture is part of the role, but not the entire identity
 - platform and DevSecOps work are meaningful strengths, but not the site's sole positioning
 - Principal Engineer and Engineering Manager are future directions, not current titles
@@ -53,6 +53,24 @@ Show current scope accurately:
 5. Flag conflicts or uncertainty instead of silently choosing the more impressive version.
 6. Do not invent metrics, dates, scope, technologies, awards, ownership, or business results.
 7. Keep music credible and self-contained.
+
+## Page jobs
+
+This is a career/job site. Do not add parallel pitch surfaces or restate the same current-role evidence on every page.
+
+- `/` — identity, proof chips, selected work, one delivery snapshot, contact
+- `/kit` — recruiter leave-behind (open-to, evidence links, PDF)
+- `/work` — evidence; current-role outcomes live only in the Jacobs case study
+- `/about` — person: career, research, and a short music coda
+- `/delivery` — forwardable written bar (do not advertise it from About)
+- `/now` — this-month status and booking, not a bio
+- `/resume` — complete record
+
+Canonical strings: `person.bio` (identity), `config/site/facts.php` (scale), Jacobs case study (current evidence). Kit points at that evidence; it does not retell it.
+
+## Music
+
+Music stays a short coda on `/about` (“Beyond the work”). Do not add a `/music` page, or a music nav item. This is a hire site.
 
 ## Privacy
 

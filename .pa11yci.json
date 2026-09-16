@@ -14,7 +14,6 @@
   "urls": [
     "http://127.0.0.1:8000/",
     "http://127.0.0.1:8000/work",
-    "http://127.0.0.1:8000/work/tag/aws",
     "http://127.0.0.1:8000/work/flood-mapping-system",
     "http://127.0.0.1:8000/work/jacobs-mission-software",
     "http://127.0.0.1:8000/work/nasa-earth-observatory",
@@ -22,7 +21,7 @@
     "http://127.0.0.1:8000/now",
     "http://127.0.0.1:8000/privacy",
     "http://127.0.0.1:8000/kit",
-    "http://127.0.0.1:8000/lead",
+    "http://127.0.0.1:8000/delivery",
     "http://127.0.0.1:8000/blog",
     "http://127.0.0.1:8000/blog/tag/engineering",
     "http://127.0.0.1:8000/blog/release-governance",

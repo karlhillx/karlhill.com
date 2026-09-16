@@ -41,11 +41,8 @@
         </div>
     </x-site.page-hero>
 
-    @include('about.partials.how-i-lead', ['sectionNumber' => '01'])
-    @include('about.partials.delivery', ['sectionNumber' => '02'])
-    @include('about.partials.arc', ['sectionNumber' => '03'])
-    @include('about.partials.impact', ['sectionNumber' => '04'])
-    @include('partials.research', ['sectionNumber' => '05'])
+    @include('about.partials.arc', ['sectionNumber' => '01'])
+    @include('partials.research', ['sectionNumber' => '02'])
 
     @if($beyondParagraphs !== [])
         <section id="beyond" aria-label="Beyond the work" class="site-section site-section--soft border-t border-neutral-800/50">

@@ -57,8 +57,8 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
     $this->get('/work/informeddna-platform')->assertOk();
     $this->get('/work/nasa-earth-observatory')->assertOk();
     $this->get('/work/finium')->assertOk();
-    $this->get('/work/tag/healthcare')->assertNotFound();
-    $this->get('/work/tag/laravel')->assertNotFound();
+    $this->get('/work/tag/healthcare')->assertRedirect('/work')->assertStatus(301);
+    $this->get('/work/tag/laravel')->assertRedirect('/work')->assertStatus(301);
 });
 
 it('public projects expose a live artifact url', function () {
@@ -146,13 +146,13 @@ it('case study snippets name Karl Hill and the NASA or Jacobs affiliation', func
         ->assertSee('<title>Engineering mission software at scale — Karl Hill</title>', escape: false);
 });
 
-it('work cards still expose stack tags and tagged urls', function () {
+it('work cards expose stack tags as labels, not filter urls', function () {
     $this->get('/work')
         ->assertOk()
-        ->assertSee('AWS', false);
+        ->assertSee('AWS', false)
+        ->assertDontSee('/work/tag/', false);
 
     $this->get('/work/tag/aws')
-        ->assertOk()
-        ->assertSee('Clear filter', false)
-        ->assertSee('AWS', false);
+        ->assertRedirect('/work')
+        ->assertStatus(301);
 });

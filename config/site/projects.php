@@ -48,7 +48,7 @@ return [
                 'label' => 'GeoHorizons paper',
             ],
         ],
-        'url' => 'https://floodmapping.gsfc.nasa.gov/',
+        'url' => '/work/flood-mapping-system',
         'artifact' => [
             'label' => 'Open the live map',
             'href' => 'https://floodmapping.gsfc.nasa.gov/',
@@ -75,7 +75,7 @@ return [
         'image' => '/img/webp/ss-ladsweb.webp',
         'image_alt' => 'NASA LAADS Find Data — product, time, location, files, and review-and-order wizard for MODIS and VIIRS granules.',
         'imagePosition' => 'object-left-top',
-        'url' => 'https://ladsweb.modaps.eosdis.nasa.gov/search/',
+        'url' => '/work/laads-daac',
         'artifact' => [
             'label' => 'Open Find Data',
             'href' => 'https://ladsweb.modaps.eosdis.nasa.gov/search/',
@@ -133,7 +133,7 @@ return [
         'sector' => 'NASA Earth Science',
         'description' => 'Ingest, processing, and distribution software for NASA direct-readout products. The portal is public.',
         'image' => '/img/webp/ss-direct-readout2.webp',
-        'url' => 'https://directreadout.sci.gsfc.nasa.gov',
+        'url' => '/work/direct-readout-laboratory',
         'artifact' => [
             'label' => 'Open the portal',
             'href' => 'https://directreadout.sci.gsfc.nasa.gov',
@@ -183,7 +183,11 @@ return [
         'sector' => 'Healthcare',
         'description' => 'A Laravel-based case-management platform connecting counseling workflows, documentation, and billing.',
         'image' => '/img/webp/ss-informeddna.webp',
-        'url' => 'https://idnaportal.com/',
+        'url' => '/work/informeddna-platform',
+        'artifact' => [
+            'label' => 'Open the portal',
+            'href' => 'https://idnaportal.com/',
+        ],
         // One-year healthcare chapter — real work, off the aerospace trajectory.
         'listed' => false,
         'tags' => [

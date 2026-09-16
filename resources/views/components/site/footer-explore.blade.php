@@ -6,6 +6,7 @@
 @php
     $items = array_values(array_filter([
         ['href' => '/work', 'label' => 'Work'],
+        request()->routeIs('kit') ? null : ['href' => '/kit', 'label' => 'Kit'],
         ['href' => '/blog', 'label' => 'Writing'],
         request()->routeIs('about') ? null : ['href' => '/about', 'label' => 'About'],
         request()->routeIs('now') ? null : ['href' => '/now', 'label' => 'Now'],

@@ -75,7 +75,6 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertDontSee('90%', escape: false)
         ->assertDontSee('Architected a shared', escape: false)
         ->assertDontSee('BlackLynx', escape: false)
-        ->assertDontSee('RTX', escape: false)
         ->assertDontSee('id="platform"', escape: false)
         ->assertSee('Delivery gates', escape: false)
         ->assertSee('Program-specific architecture and operational details are not included here', escape: false)

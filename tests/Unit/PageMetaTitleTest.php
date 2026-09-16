@@ -14,7 +14,7 @@ it('homepage title is the name and interior titles use a single brand suffix', f
         ->and(PageMeta::now()->title)->toBe('Now — Karl Hill')
         ->and(PageMeta::kit()->title)->toBe('Recruiter kit — Karl Hill')
         ->and(PageMeta::resume()->title)->toBe('Resume — Karl Hill')
-        ->and(PageMeta::lead()->title)->toBe('Engineering delivery — Karl Hill')
+        ->and(PageMeta::delivery()->title)->toBe('Engineering delivery — Karl Hill')
         ->and(PageMeta::privacy()->title)->toBe('Privacy — Karl Hill');
 
     $flood = ProjectCatalog::findOrFail('flood-mapping-system');

@@ -17,9 +17,9 @@ class DeliveryController extends Controller
             ? (str_starts_with((string) $pdf, 'http') ? $pdf : $origin.$pdf)
             : null;
 
-        return view('lead.index', [
-            'meta' => PageMeta::lead(),
-            'lead' => config('site.lead'),
+        return view('delivery.index', [
+            'meta' => PageMeta::delivery(),
+            'delivery' => config('site.delivery'),
             'person' => $person,
             'pdfHref' => $pdfHref,
             'linkedin' => $social->first(fn (array $link) => ($link['icon'] ?? '') === 'linkedin'),

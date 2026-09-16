@@ -58,10 +58,6 @@ test.describe('smoke + a11y', () => {
         await expect(page.locator('#chapters')).toBeVisible();
         await expect(page.getByRole('link', { name: /earth observatory/i })).toBeVisible();
 
-        await page.goto('/work/tag/kubernetes');
-        await expect(page.getByRole('navigation', { name: 'Filter by domain' })).toBeVisible();
-        await expect(page.getByRole('navigation', { name: 'Filter by stack' })).toHaveCount(0);
-
         await page.goto('/work/laads-daac');
         await expect(page.locator('[data-lightbox-open]').first()).toBeVisible();
         await page.locator('[data-lightbox-open]').first().click();

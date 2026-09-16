@@ -45,8 +45,9 @@ it('experience fragment powers resume and facts stay consistent', function () {
         ->and(config('site.facts.repos'))->toBe('roughly 20')
         ->and(config('site.facts.team'))->toBe('about 10')
         ->and(config('site.hero.proof'))->toContain(config('site.facts.repos_chip'))
-        ->and(config('site.kit.glance.0'))->toContain(config('site.facts.repos'))
-        ->and(config('site.now.body'))->toContain(config('site.facts.repos'));
+        ->and(config('site.kit.glance.0'))->toBe(config('site.person.bio'))
+        ->and(config('site.now.body'))->not->toContain(config('site.facts.repos'))
+        ->and(config('site.now.focus'))->toStartWith('This month:');
 
     expect(config_path('site/experience.php'))->toBeFile()
         ->and(config_path('site/facts.php'))->toBeFile()
@@ -54,7 +55,7 @@ it('experience fragment powers resume and facts stay consistent', function () {
         ->and(config_path('site/work.php'))->toBeFile()
         ->and(config_path('site/projects.php'))->toBeFile()
         ->and(config_path('site/resume.php'))->toBeFile()
-        ->and(config_path('site/lead.php'))->toBeFile();
+        ->and(config_path('site/delivery.php'))->toBeFile();
 
     expect(config('site.resume.phone'))->not->toBeEmpty()
         ->and(config('site.resume.impact'))->toBeEmpty()

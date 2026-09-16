@@ -2414,63 +2414,7 @@ a.series-chapters__card:hover .series-chapters__title,
     }
 }
 
-/* Technical leadership — numbered responsibilities */
-.lead-principles {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0;
-    max-width: 48rem;
-    border-top: 1px solid var(--border);
-}
-
-.lead-principles__item {
-    display: grid;
-    grid-template-columns: 3.25rem minmax(0, 1fr);
-    gap: 1rem 1.25rem;
-    padding-block: 1.5rem;
-    border-bottom: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-}
-
-@media (min-width: 640px) {
-    .lead-principles__item {
-        grid-template-columns: 4rem minmax(0, 1fr);
-        gap: 1.25rem 1.75rem;
-        padding-block: 1.75rem;
-    }
-}
-
-.lead-principles__num {
-    font-family: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
-    font-size: 1.75rem;
-    line-height: 1;
-    letter-spacing: 0.06em;
-    color: color-mix(in oklab, var(--accent) 85%, var(--text));
-    padding-top: 0.15rem;
-}
-
-.lead-principles__title {
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: clamp(1.2rem, 2.1vw, 1.45rem);
-    line-height: 1.3;
-    letter-spacing: 0.01em;
-    color: var(--text);
-    margin: 0 0 0.55rem;
-    text-wrap: balance;
-}
-
-.lead-principles__text {
-    margin: 0;
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.7;
-    max-width: 38rem;
-    text-wrap: pretty;
-}
-
-.lead-packet-list {
+.delivery-packet-list {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -2480,12 +2424,12 @@ a.series-chapters__card:hover .series-chapters__title,
     border-top: 1px solid var(--border);
 }
 
-.lead-packet-list__item {
+.delivery-packet-list__item {
     padding-block: 1rem;
     border-bottom: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
 }
 
-.lead-packet-list__title {
+.delivery-packet-list__title {
     font-family: var(--font-sans);
     font-weight: 600;
     font-size: 1.05rem;
@@ -2494,7 +2438,7 @@ a.series-chapters__card:hover .series-chapters__title,
     margin: 0 0 0.35rem;
 }
 
-.lead-packet-list__body {
+.delivery-packet-list__body {
     margin: 0;
     color: var(--muted);
     font-size: 1rem;
@@ -2502,7 +2446,7 @@ a.series-chapters__card:hover .series-chapters__title,
     text-wrap: pretty;
 }
 
-.lead-packet-list__item:has(.lead-packet-list__title) .lead-packet-list__body {
+.delivery-packet-list__item:has(.delivery-packet-list__title) .delivery-packet-list__body {
     padding-left: 0;
 }
 

@@ -5,20 +5,10 @@
 @endpush
 
 @section('content')
-    @php
-        $projectCount = $projects->count();
-        $breadcrumbs = [
-            ['label' => 'Home', 'url' => '/'],
-        ];
-        if ($activeTag) {
-            $breadcrumbs[] = ['label' => 'Work', 'url' => '/work'];
-            $breadcrumbs[] = ['label' => $activeTag];
-        } else {
-            $breadcrumbs[] = ['label' => 'Work'];
-        }
-    @endphp
-
-    <x-site.page-hero :breadcrumbs="$breadcrumbs">
+    <x-site.page-hero :breadcrumbs="[
+        ['label' => 'Home', 'url' => '/'],
+        ['label' => 'Work'],
+    ]">
         <x-slot:title>Work</x-slot:title>
 
         <p class="site-page-hero__lede text-neutral-300">
@@ -26,49 +16,12 @@
         </p>
     </x-site.page-hero>
 
-    {{-- Domain filter only earns its chrome when a hiring manager can
-         actually split the grid. Two sectors over three cards is a toggle,
-         not a filter. Tagged URLs still show the bar so Clear filter works. --}}
-    @if($activeTag || $sectors->count() > 2)
-        @php($urlFor = fn ($tag) => route('work.tag', \App\Support\ProjectCatalog::tagSlug($tag)))
-        <section class="site-toolbar border-t border-neutral-800/80" aria-label="Filter projects">
-            <div class="site-shell flex flex-col gap-3">
-                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
-                    <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest" aria-live="polite">
-                        <span class="text-neutral-300 tabular-nums">{{ $projectCount }}</span>
-                        {{ \Illuminate\Support\Str::plural('project', $projectCount) }}
-                        @if($activeTag)
-                            <span class="text-neutral-500" aria-hidden="true">·</span>
-                            <span class="text-accent">{{ $activeTag }}</span>
-                        @endif
-                    </p>
-                    @if($activeTag)
-                        <a href="{{ route('work') }}"
-                           class="font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                            Clear filter
-                        </a>
-                    @endif
-                </div>
-
-                <x-site.tag-filter
-                    data-soft-nav
-                    :all-url="route('work')"
-                    :tags="$sectors"
-                    :counts="$sectorCounts"
-                    :active-tag="$activeTag"
-                    :url-for="$urlFor"
-                    aria-label="Filter by domain"
-                />
-            </div>
-        </section>
-    @endif
-
+    {{-- Three listed chapters: a domain filter would be a two-way toggle. --}}
     <div data-soft-nav-target>
         @include('partials.work', [
             'projects' => $projects,
-            'hideHeading' => ! $activeTag,
+            'hideHeading' => true,
             'sectionNumber' => '01',
-            'heading' => $activeTag,
         ])
     </div>
 

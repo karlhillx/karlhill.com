@@ -44,7 +44,7 @@ return [
         'description' => 'Karl Hill, Staff Aerospace Software Engineer at Jacobs: current scope, selected NASA Goddard work, and career direction.',
         'og_description' => 'Karl Hill recruiter kit: Jacobs scope, NASA Earth science evidence, and paths to Principal-level technical leadership or Engineering Manager.',
     ],
-    'lead' => [
+    'delivery' => [
         'title' => 'Engineering delivery — Karl Hill',
         'description' => 'Karl Hill on code review, testing, integration, and release readiness.',
         'og_description' => 'Karl Hill: reviews, shared standards, integration risk, and software delivery.',

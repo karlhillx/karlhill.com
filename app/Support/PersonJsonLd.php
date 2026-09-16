@@ -18,8 +18,8 @@ final class PersonJsonLd
         $person = config('site.person');
         $personId = "{$url}/#person";
 
-        // Identity only. Next-role copy stays on kit, /now, llms.txt, and the
-        // hire packet — not on the Person node Google uses for the entity.
+        // Identity only. Next-role copy stays on kit, llms.txt, and the
+        // hire packet — not on the Person node, About, or /now.
         $description = is_string($person['bio'] ?? null) ? $person['bio'] : '';
 
         $disambiguating = is_string($person['disambiguating_description'] ?? null)

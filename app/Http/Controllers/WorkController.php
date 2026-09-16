@@ -17,32 +17,23 @@ class WorkController extends Controller
 
     public function index(): View|RedirectResponse
     {
-        if ($tag = request()->query('tag')) {
-            return redirect()->route('work.tag', ['tag' => ProjectCatalog::tagSlug($tag)], 301);
+        if (request()->query('tag')) {
+            return redirect()->route('work', status: 301);
         }
 
         return $this->renderIndex(
             meta: PageMeta::work(),
             projects: ProjectCatalog::listed(),
-            activeTag: null,
             supporting: ProjectCatalog::supporting(),
         );
     }
 
-    public function tag(string $tag): View
+    /**
+     * Legacy stack/sector filter URLs. Chips are labels now; send bookmarks to /work.
+     */
+    public function tag(string $tag): RedirectResponse
     {
-        $label = ProjectCatalog::tagFromSlug($tag);
-        abort_if($label === null, 404);
-
-        $projects = ProjectCatalog::filteredByTag($label);
-        abort_if($projects->isEmpty(), 404);
-
-        return $this->renderIndex(
-            meta: PageMeta::workTag($label),
-            projects: $projects,
-            activeTag: $label,
-            supporting: collect(),
-        );
+        return redirect()->route('work', status: 301);
     }
 
     public function show(string $slug): View
@@ -60,17 +51,12 @@ class WorkController extends Controller
         ]);
     }
 
-    protected function renderIndex(PageMeta $meta, Collection $projects, ?string $activeTag, Collection $supporting): View
+    protected function renderIndex(PageMeta $meta, Collection $projects, Collection $supporting): View
     {
         return view('work.index', [
             'meta' => $meta,
             'projects' => $projects,
             'supporting' => $supporting,
-            'activeTag' => $activeTag,
-            'allTags' => ProjectCatalog::allTags(),
-            'tagCounts' => ProjectCatalog::tagCounts(),
-            'sectors' => ProjectCatalog::sectors(),
-            'sectorCounts' => ProjectCatalog::sectorCounts(),
             'githubRepos' => $this->github->topRepos(),
         ]);
     }

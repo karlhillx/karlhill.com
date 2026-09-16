@@ -136,13 +136,9 @@ The older I get in this field, the more respect I have for boring systems.
 
 None of this sounds glamorous. But it is what lets teams move faster with less drama.
 
-In music, the drummer’s job is not to make every bar interesting. The job is to hold the thing together so everyone else can move with confidence.
-
-Good release governance is like that.
-
 <div class="cadence">
 
-It creates tempo.
+It creates a predictable pace.
 
 It creates structure.
 

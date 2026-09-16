@@ -65,9 +65,9 @@ final class PageFeatures
             return array_values(array_unique($features));
         }
 
-        if (in_array($name, ['about', 'now', 'kit', 'resume', 'lead'], true)) {
+        if (in_array($name, ['about', 'now', 'kit', 'resume', 'delivery'], true)) {
             $features[] = 'reveal';
-            if (in_array($name, ['kit', 'resume', 'lead'], true)) {
+            if (in_array($name, ['kit', 'resume', 'delivery'], true)) {
                 $features[] = 'summarizer';
             }
         }

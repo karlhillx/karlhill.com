@@ -18,7 +18,7 @@ it('work page renders projects and open source', function () {
     $response->assertDontSee('section-rail', escape: false);
 });
 
-it('about page renders leadership, delivery, career, numbers, and research', function () {
+it('about page renders career, research, and music', function () {
     $response = $this->get('/about');
 
     $response->assertStatus(200);
@@ -31,24 +31,23 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertSee('The work connects software other people depend on', escape: false);
     $response->assertDontSee('The work has grown from building software other people depend on', escape: false);
     $response->assertDontSee('From NASA systems at operational scale to Staff-level leadership', escape: false);
-    $response->assertSee('id="how-i-lead"', escape: false);
-    $response->assertSee('Technical leadership', escape: false);
-    $response->assertSee('Technical leadership stays close to the code', escape: false);
-    $response->assertSee('lead-principles', escape: false);
-    $response->assertSee('Turn priorities into engineering work', escape: false);
-    $response->assertSee('Review for correctness and growth', escape: false);
-    $response->assertSee('Build standards into the system', escape: false);
-    $response->assertSee('Develop independent engineers', escape: false);
-    $response->assertSee('Formal personnel management remains with management', escape: false);
+    $response->assertDontSee('id="how-i-lead"', escape: false);
+    $response->assertDontSee('Technical leadership stays close to the code', escape: false);
+    $response->assertDontSee('lead-principles', escape: false);
+    $response->assertDontSee('Turn priorities into engineering work', escape: false);
+    $response->assertDontSee('Review for correctness and growth', escape: false);
+    $response->assertDontSee('Build standards into the system', escape: false);
+    $response->assertDontSee('Develop independent engineers', escape: false);
+    $response->assertDontSee('Formal personnel management remains with management', escape: false);
     $response->assertDontSee('1:1s that surface risk', escape: false);
     $response->assertDontSee('Sequence the work', escape: false);
     $response->assertDontSee('Put the bar in the system', escape: false);
-    $response->assertSee('id="delivery"', escape: false);
-    $response->assertSee('Reliable delivery is an engineering problem', escape: false);
-    $response->assertSee('How I run delivery', escape: false);
+    $response->assertDontSee('id="delivery"', escape: false);
+    $response->assertDontSee('Reliable delivery is an engineering problem', escape: false);
+    $response->assertDontSee('How I run delivery', escape: false);
     $response->assertDontSee('The operating principles are straightforward', escape: false);
     $response->assertDontSee('Define scope, ownership, dependencies, and interface assumptions early', escape: false);
-    $response->assertSee('href="/delivery"', escape: false);
+    $response->assertDontSee('href="/delivery"', escape: false);
     $response->assertSee('Sorry About Your Daughter', escape: false);
     $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
     $response->assertSee('GeoHorizons', escape: false);
@@ -59,6 +58,8 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertSee('The map, Find Data, and Earth Observatory are public', escape: false);
     $response->assertSee('https://floodmapping.gsfc.nasa.gov/', escape: false);
     $response->assertSee('Open Find Data', escape: false);
+    $response->assertSee('/work/jacobs-mission-software', escape: false);
+    $response->assertSee('Read the case study', escape: false);
     $response->assertDontSee('Led development of an AWS-based flood-mapping system', escape: false);
     $response->assertDontSee('Modernized LAADS DAAC', escape: false);
     $response->assertDontSee('Modernized NASA Earth Observatory', escape: false);
@@ -88,14 +89,12 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertDontSee('hard problem, whiteboard', escape: false);
     $response->assertSee('id="beyond"', escape: false);
     $response->assertDontSee('aria-label="On this page"', escape: false);
-    $response->assertSee('id="how-i-lead"', escape: false);
-    $response->assertSee('id="delivery"', escape: false);
-    $response->assertSee('id="impact"', escape: false);
-    $response->assertSee('Experience in numbers', escape: false);
-    $response->assertSee('Monthly visitors during that work · Earth Observatory', escape: false);
-    $response->assertSee('Years building software', escape: false);
-    $response->assertSee('Years on NASA Goddard Earth science systems', escape: false);
-    $response->assertSee('Repositories across the current environment', escape: false);
+    $response->assertDontSee('id="impact"', escape: false);
+    $response->assertDontSee('Experience in numbers', escape: false);
+    $response->assertDontSee('Monthly visitors during that work · Earth Observatory', escape: false);
+    $response->assertDontSee('Years building software', escape: false);
+    $response->assertDontSee('Years on NASA Goddard Earth science systems', escape: false);
+    $response->assertDontSee('Repositories across the current environment', escape: false);
     $response->assertDontSee('Selected impact', escape: false);
     $response->assertDontSee('NASA Earth science software supporting disaster response', escape: false);
     $response->assertSee('The full history, technologies, education, and certifications are available on the resume', escape: false);
@@ -114,6 +113,7 @@ it('about page renders leadership, delivery, career, numbers, and research', fun
     $response->assertDontSee('hero-open', escape: false);
     $response->assertDontSee('at least 80% repository test coverage', escape: false);
     $response->assertDontSee('releases are safer and more predictable', escape: false);
+    $response->assertDontSee('href="/music"', escape: false);
 });
 
 it('homepage is a focused landing page', function () {
@@ -175,7 +175,7 @@ it('work cards link to case studies and live projects', function () {
     $response->assertSee('Read case study', escape: false);
 });
 
-it('work index hides the domain filter until a tag is active', function () {
+it('work index has no tag filter and legacy tag urls redirect', function () {
     $this->get('/work')
         ->assertOk()
         ->assertDontSee('aria-label="Filter by domain"', escape: false)
@@ -186,10 +186,8 @@ it('work index hides the domain filter until a tag is active', function () {
         ->assertDontSee('>Projects</', escape: false);
 
     $this->get('/work/tag/kubernetes')
-        ->assertOk()
-        ->assertSee('aria-label="Filter by domain"', escape: false)
-        ->assertSee('Clear filter', escape: false)
-        ->assertSee('Kubernetes', escape: false);
+        ->assertRedirect('/work')
+        ->assertStatus(301);
 });
 
 it('case study pages expose skim path, toc, and lightbox', function () {
@@ -278,13 +276,14 @@ it('nav links to primary hire path', function () {
     $response->assertSee('href="/now#book"', escape: false);
 });
 
-it('work tag route filters projects', function () {
-    $response = $this->get('/work/tag/kubernetes');
+it('legacy work tag routes redirect to the work index', function () {
+    $this->get('/work/tag/kubernetes')
+        ->assertRedirect('/work')
+        ->assertStatus(301);
 
-    $response->assertStatus(200);
-    $response->assertSee('LAADS DAAC', escape: false);
-    $response->assertSee('/work/tag/kubernetes', escape: false);
-    $response->assertDontSee('Also shipped at NASA Goddard', escape: false);
+    $this->get('/work?tag=kubernetes')
+        ->assertRedirect('/work')
+        ->assertStatus(301);
 });
 
 it('case studies with empty metrics hide the facts strip', function () {
@@ -343,7 +342,8 @@ it('now page is hero plus scheduler', function () {
     $response->assertSee('Jacobs', escape: false);
     $response->assertSee('September 16, 2026', escape: false);
     $response->assertSee('Building mission software and the engineering systems around it at Jacobs.', escape: false);
-    $response->assertSee('roughly 20 repositories', escape: false);
+    $response->assertSee('Review and coaching sit in the same week as implementation.', escape: false);
+    $response->assertDontSee('Hands-on Python work, shared delivery gates, and integration across', escape: false);
     $response->assertSee('This month:', escape: false);
     $response->assertSee('simpler developer workflows', escape: false);
     $response->assertDontSee('architecture ownership', escape: false);
@@ -679,10 +679,10 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertDontSee('Engineering Manager is the next container for this scope', escape: false);
     $response->assertSee('kit-bio', escape: false);
     $response->assertSee('Staff Aerospace Software Engineer at Jacobs. Python mission software', escape: false);
-    $response->assertSee('at least 80% repository test coverage', escape: false);
-    $response->assertSee('two-approval pull-request governance', escape: false);
-    $response->assertSee('releases are safer and more predictable', escape: false);
-    $response->assertSee('Previously Lead Software Engineer supporting NASA Goddard', escape: false);
+    $response->assertDontSee('at least 80% repository test coverage', escape: false);
+    $response->assertDontSee('two-approval pull-request governance', escape: false);
+    $response->assertDontSee('releases are safer and more predictable', escape: false);
+    $response->assertSee('Lead Software Engineer at SSAI supporting NASA Goddard', escape: false);
     $response->assertDontSee('Day to day that means', escape: false);
     $response->assertDontSee('I\'m a Staff Aerospace Software Engineer', escape: false);
     $response->assertDontSee('Also open to Staff/Principal IC', escape: false);
@@ -734,12 +734,13 @@ it('now page shows a fresh updated date and kit link', function () {
         ->assertSee('Recruiter kit', escape: false);
 });
 
-it('footer explore is work writing about and now', function () {
+it('footer explore includes kit on the hire path', function () {
     $home = $this->get('/')->assertOk()->getContent();
     expect($home)
         ->toContain('href="/now"')
         ->toContain('>Now</a>')
         ->toContain('>Writing</a>')
+        ->toContain('>Kit</a>')
         ->not->toContain('>Delivery</a>');
 
     $this->get('/resume')

@@ -807,27 +807,6 @@ html.save-data .surface-card-media {
     }
 }
 
-/* Lead-principle numbers: a quiet scale-in as each row enters view. */
-@supports (animation-timeline: view()) {
-    .lead-principles__num {
-        animation: principleNumIn linear both;
-        animation-timeline: view();
-        animation-range: entry 0% cover 28%;
-        transform-origin: left center;
-    }
-}
-
-@keyframes principleNumIn {
-    from {
-        opacity: 0.25;
-        transform: translateY(0.35em) scale(0.92);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
 /* ---------------------------------------------------------------------------
    Scroll-reveal — JS IntersectionObserver fallback for browsers without
    scroll-driven animation support (Safari today, behind a flag).
@@ -1363,8 +1342,7 @@ nav[aria-label='Primary'] {
         filter: blur(48px);
     }
     .availability-pulse,
-    .work-parallax,
-    .lead-principles__num {
+    .work-parallax {
         animation: none;
     }
     .availability-pulse::after {
