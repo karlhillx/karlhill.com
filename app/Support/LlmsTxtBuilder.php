@@ -53,7 +53,7 @@ class LlmsTxtBuilder
             $this->fileItem('Now', $base.'/now', 'Current status and booking'),
             $this->fileItem('Writing', $base.'/blog', 'Essays on leadership, delivery, and mission software'),
             $this->fileItem('About', $base.'/about', 'Career, research, and music'),
-            $this->fileItem('Research', $base.'/research/global-flood-mapping', 'Karl Hill on NASA flood mapping — GeoHorizons, GWFMS, Software (Equal)'),
+            $this->fileItem('Research', $base.'/research/global-flood-mapping', 'Karl Hill on NASA Global Water and Flood Mapping — GeoHorizons, GWFMS, Software (Equal)'),
             $this->fileItem('Engineering delivery', $base.'/delivery', 'Definition of Done, PR rubric, integration risk, coaching'),
             $this->fileItem('Resume', $base.'/resume', 'Canonical HTML curriculum vitae'),
             $this->fileItem('Privacy', $base.'/privacy', 'Contact, booking, and analytics'),

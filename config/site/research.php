@@ -59,12 +59,25 @@ return [
     'published' => 'Published 7 July 2026',
     'title' => $title,
     'summary' => 'Software (Equal) and Writing – review & editing (Equal) on the Global Water and Flood Mapping System, a NASA-supported platform for near-real-time, high-resolution satellite-derived water and flood products.',
-    'plain_english' => 'GWFMS is a NASA-supported experimental website that maps surface water and floods from high-resolution commercial satellite imagery. It currently uses near-daily PlanetScope data, detects water with NDWI and a multi-Otsu threshold, and can serve products on demand during flood events. In the paper’s evaluation, detection accuracy exceeded 90% against the Global Surface Water dataset, with about 3.5% false positives. The method is more conservative in complex terrain, cloud shadows, and turbid water.',
-    'contribution' => 'Lead software engineering on the AWS processing and delivery path behind GWFMS. Python and Docker on AWS so Earth science partners could obtain satellite-derived flood products through one maintained service instead of a chain of manual runs. The public map is the shipped artifact.',
-    'writing' => 'Equal contribution on writing – review & editing of the published article. Co-author, not first author, and not sole owner of the scientific evaluation.',
+    'intro' => 'The Global Water and Flood Mapping System (GWFMS) is a NASA-supported experimental website that maps surface water and floods from high-resolution commercial satellite imagery. It currently uses near-daily PlanetScope data and can serve products on demand during flood events. The public map is the shipped artifact; this page is the engineering companion to the 2026 GeoHorizons paper.',
+    'plain_english' => 'The current configuration uses PlanetScope Ortho Analytic 4B Surface Reflectance. Surface water is detected with the normalized difference water index and a multi-Otsu threshold. The method is more conservative in complex terrain, cloud shadows, and turbid water.',
+    'contribution' => 'Led software engineering for the AWS-based processing and delivery platform behind GWFMS, using Python and Docker to generate and deliver satellite-derived flood products. The system replaced a chain of manual runs with a maintained service that could produce high-resolution flood products on demand. The public map is the shipped artifact.',
+    'writing' => 'Equal contribution to writing, review, and editing of the published article. Scientific methodology and evaluation were collaborative contributions across the research team.',
+    'results' => [
+        [
+            'value' => '>90%',
+            'label' => 'Detection accuracy',
+        ],
+        [
+            'value' => '~3.5%',
+            'label' => 'False-positive rate',
+        ],
+    ],
+    'results_note' => 'From the paper’s evaluation against the Global Surface Water dataset.',
     'keywords' => [
         'Karl Hill',
         'NASA flood mapping',
+        'NASA Global Water and Flood Mapping',
         'GWFMS',
         'Global Water and Flood Mapping System',
         'GeoHorizons',

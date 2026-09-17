@@ -71,6 +71,7 @@ it('about page renders career, research, and music', function () {
     $response->assertDontSee('The scope widened', escape: false);
     $response->assertDontSee('InformedDNA', escape: false);
     $response->assertDontSee('Ticomix', escape: false);
+    $response->assertSee('href="/research/global-flood-mapping"', escape: false);
     $response->assertSee('href="/resume"', escape: false);
     $response->assertSee('ss-geohorizons', escape: false);
     $response->assertSee('Karl M. Hill', escape: false);
@@ -420,6 +421,7 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('The public map is the shipped artifact', escape: false);
     $resume->assertSee('id="resume-publications"', escape: false);
     $resume->assertSee('Peer-reviewed research', escape: false);
+    $resume->assertSee('href="/research/global-flood-mapping"', escape: false);
     $resume->assertSee('Software (Equal)', escape: false);
     $resume->assertSee('Delivered Find Data search, ordering, and near-real-time access', escape: false);
     $resume->assertSee('Led web engineering on NASA Earth Observatory', escape: false);

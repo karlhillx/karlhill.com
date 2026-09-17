@@ -56,6 +56,7 @@ class CommandIndex
                             'terms' => SemanticIndex::vector(implode(' ', [
                                 $research['title'] ?? '',
                                 $research['identity'] ?? '',
+                                $research['intro'] ?? '',
                                 $research['summary'] ?? '',
                                 $research['contribution'] ?? '',
                                 $research['plain_english'] ?? '',

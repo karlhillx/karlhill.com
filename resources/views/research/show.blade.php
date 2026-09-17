@@ -19,6 +19,7 @@
             ['label' => 'ADS', 'href' => $research['ads'] ?? null, 'detail' => 'NASA ADS'],
             ['label' => 'ORCID', 'href' => $karlOrcid, 'detail' => 'Karl M. Hill'],
             ['label' => 'Zenodo', 'href' => $research['zenodo'] ?? null, 'detail' => 'Figure datasets'],
+            ['label' => 'Work', 'href' => $research['work_path'] ?? '/work/flood-mapping-system', 'detail' => 'Case study', 'external' => false],
         ], fn ($link) => filled($link['href'])));
     @endphp
 
@@ -31,9 +32,9 @@
         ]">
         <x-slot:title>{{ $research['title'] }}</x-slot:title>
 
-        @if(! empty($research['identity']))
+        @if(! empty($research['intro']))
             <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-3xl">
-                {{ $research['identity'] }}
+                {{ $research['intro'] }}
             </p>
         @endif
 
@@ -65,21 +66,37 @@
         </div>
     </x-site.page-hero>
 
-    <x-site.section id="contribution" border="soft" label="Software">
+    @if(! empty($research['results']))
+        <x-site.section id="results" border="soft" label="Paper results">
+            <dl class="grid sm:grid-cols-2 gap-8 max-w-3xl" data-reveal>
+                @foreach($research['results'] as $result)
+                    <div>
+                        <dt class="font-mono text-xs text-neutral-500 uppercase tracking-widest">{{ $result['label'] }}</dt>
+                        <dd class="mt-2 font-sans font-semibold text-[clamp(2rem,5vw,2.75rem)] leading-none tracking-tight text-neutral-100">{{ $result['value'] }}</dd>
+                    </div>
+                @endforeach
+            </dl>
+            @if(! empty($research['results_note']))
+                <p class="mt-6 max-w-3xl text-neutral-500 text-sm leading-relaxed">{{ $research['results_note'] }}</p>
+            @endif
+        </x-site.section>
+    @endif
+
+    <x-site.section id="contribution" label="Software">
         <p class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
             {{ $research['contribution'] }}
         </p>
     </x-site.section>
 
     @if(! empty($research['writing']))
-        <x-site.section id="writing" label="Writing">
+        <x-site.section id="writing" border="soft" label="Writing">
             <p class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
                 {{ $research['writing'] }}
             </p>
         </x-site.section>
     @endif
 
-    <x-site.section id="summary" border="soft" label="What the paper reports">
+    <x-site.section id="summary" label="What the paper reports">
         <p class="max-w-3xl text-neutral-300 text-base leading-relaxed" data-reveal>
             {{ $research['plain_english'] }}
         </p>
@@ -132,14 +149,15 @@
     <x-site.section id="links" label="Links">
         <ul class="grid sm:grid-cols-2 gap-px bg-neutral-800 border border-neutral-800" data-reveal>
             @foreach($links as $link)
+                @php
+                    $external = (bool) ($link['external'] ?? str_starts_with((string) $link['href'], 'http'));
+                @endphp
                 <li class="bg-bg">
                     <a href="{{ $link['href'] }}"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       data-no-ext
+                       @if($external) target="_blank" rel="noopener noreferrer" data-no-ext @endif
                        class="flex items-baseline justify-between gap-4 p-5 min-h-11 hover:bg-neutral-900/40 transition-colors">
                         <span class="font-mono text-xs uppercase tracking-widest text-accent">{{ $link['label'] }}</span>
-                        <span class="text-neutral-400 text-sm text-right">{{ $link['detail'] }} <span aria-hidden="true">↗</span></span>
+                        <span class="text-neutral-400 text-sm text-right">{{ $link['detail'] }}@if($external) <span aria-hidden="true">↗</span>@endif</span>
                     </a>
                 </li>
             @endforeach

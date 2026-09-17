@@ -224,6 +224,9 @@
                     <section class="resume-section" aria-labelledby="resume-publications" data-reveal>
                         <h2 id="resume-publications" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Publications</h2>
                         <p class="font-mono text-xs text-accent uppercase tracking-widest mb-3">{{ $research['identity_label'] ?? 'Peer-reviewed research' }}</p>
+                        <p class="text-neutral-200 font-medium leading-snug max-w-3xl mb-3">
+                            <a href="{{ $research['path'] ?? '/research/global-flood-mapping' }}" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">{{ $research['title'] }}</a>
+                        </p>
                         <p class="text-neutral-300 leading-relaxed max-w-3xl">{{ $research['identity'] }}</p>
                         @if(! empty($research['credit']))
                             <p class="mt-3 text-neutral-500 text-sm leading-relaxed">
@@ -232,8 +235,6 @@
                         @endif
                         @if(! empty($research['doi']))
                             <p class="mt-3">
-                                <a href="{{ $research['path'] ?? '/research/global-flood-mapping' }}" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Publication page</a>
-                                <span class="text-neutral-600" aria-hidden="true"> · </span>
                                 <a href="{{ $research['doi'] }}" target="_blank" rel="noopener noreferrer" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">{{ $research['doi_id'] ?? $research['doi'] }}</a>
                             </p>
                         @endif

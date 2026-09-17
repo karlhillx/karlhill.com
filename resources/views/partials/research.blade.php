@@ -25,7 +25,9 @@
 
                 <div>
                     <h3 class="font-sans font-semibold text-xl sm:text-2xl md:text-[1.75rem] tracking-tight text-neutral-100 leading-snug mb-5 text-balance">
-                        {{ $research['title'] }}
+                        <a href="{{ $research['path'] ?? '/research/global-flood-mapping' }}" class="text-neutral-100 underline underline-offset-[3px] decoration-neutral-600 hover:decoration-accent transition-colors">
+                            {{ $research['title'] }}
+                        </a>
                     </h3>
                     <p class="text-neutral-400 text-sm leading-relaxed max-w-3xl mb-6">
                         {{ $research['summary'] }}

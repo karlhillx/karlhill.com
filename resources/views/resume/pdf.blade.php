@@ -669,6 +669,9 @@
                     <h2 id="publications-heading" class="section-title">Publications</h2>
                     <p class="stack-line">
                         <span class="stack-label">{{ $research['identity_label'] ?? 'Peer-reviewed research' }}:</span>
+                        @if(! empty($research['title']))
+                            <a href="{{ rtrim(config('app.url'), '/').($research['path'] ?? '/research/global-flood-mapping') }}">{{ $research['title'] }}</a>.
+                        @endif
                         {!! $nowrapHtml($research['identity']) !!}
                         @if(! empty($research['credit']))
                             {{ $research['credit_label'] ?? 'CRediT' }}: {{ $research['credit'] }}.

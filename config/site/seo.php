@@ -50,8 +50,8 @@ return [
         'og_description' => 'Karl Hill: reviews, shared standards, integration risk, and software delivery.',
     ],
     'research' => [
-        'title' => 'NASA flood mapping — Karl Hill',
-        'description' => 'Karl Hill: NASA flood mapping. GeoHorizons co-author (2026), Software (Equal) on GWFMS — near-real-time satellite-derived water and flood products.',
-        'og_description' => 'Karl Hill: NASA global flood mapping. GeoHorizons co-author, Software (Equal). Live GWFMS map and the engineering behind it.',
+        'title' => 'NASA Global Water and Flood Mapping Research',
+        'description' => 'Karl Hill: NASA Global Water and Flood Mapping research. GeoHorizons 2026 co-author. Paper evaluation: >90% accuracy, ~3.5% false positives.',
+        'og_description' => 'Karl Hill: NASA Global Water and Flood Mapping System. GeoHorizons co-author, Software (Equal). Live GWFMS map and the engineering behind it.',
     ],
 ];
