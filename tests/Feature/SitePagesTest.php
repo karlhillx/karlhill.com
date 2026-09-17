@@ -163,6 +163,7 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('work-card--shot', escape: false);
     $response->assertSee('work-card--compact', escape: false);
     $response->assertSee('Mission software at scale', escape: false);
+    $response->assertDontSee('>DevSecOps</span>', escape: false);
     $response->assertDontSee('>Repositories</dt>', escape: false);
     $response->assertDontSee('surface-chip-overlay', escape: false);
     $response->assertSee('work-card-tags', escape: false);

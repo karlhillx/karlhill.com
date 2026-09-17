@@ -1,18 +1,23 @@
 import { prefersReducedMotion } from '../lib/prefs.js';
 
-function isFilterUrl(url) {
+function filterFamily(url) {
     try {
         const parsed = new URL(url, window.location.origin);
-        if (parsed.origin !== window.location.origin) return false;
-        return (
-            parsed.pathname === '/work' ||
-            parsed.pathname.startsWith('/work/tag/') ||
-            parsed.pathname === '/blog' ||
-            parsed.pathname.startsWith('/blog/tag/')
-        );
+        if (parsed.origin !== window.location.origin) return null;
+        const path = parsed.pathname;
+        if (path === '/work' || path.startsWith('/work/tag/')) return 'work';
+        if (path === '/blog' || path.startsWith('/blog/tag/')) return 'blog';
+        return null;
     } catch {
-        return false;
+        return null;
     }
+}
+
+/** Tag chips only — not primary nav between Work and Writing. */
+function isSameFamilyFilter(fromUrl, toUrl) {
+    const from = filterFamily(fromUrl);
+    const to = filterFamily(toUrl);
+    return from !== null && from === to;
 }
 
 async function swapTarget(url) {
@@ -61,7 +66,7 @@ function runSwap(url) {
  */
 export function initSoftNav() {
     const intercept = (url) => {
-        if (!isFilterUrl(url)) return false;
+        if (!isSameFamilyFilter(window.location.href, url)) return false;
         runSwap(url);
         return true;
     };
@@ -71,7 +76,7 @@ export function initSoftNav() {
             if (!event.canIntercept || event.hashChange || event.downloadRequest) return;
             if (event.navigationType === 'reload') return;
             const url = event.destination?.url;
-            if (!url || !isFilterUrl(url)) return;
+            if (!url || !isSameFamilyFilter(window.location.href, url)) return;
             event.intercept({
                 handler: () => swapTarget(url),
             });
@@ -84,9 +89,8 @@ export function initSoftNav() {
         if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         if (link.target === '_blank') return;
         const url = link.href;
-        if (!isFilterUrl(url)) return;
+        if (!intercept(url)) return;
         event.preventDefault();
-        intercept(url);
         history.pushState({}, '', url);
     });
 }

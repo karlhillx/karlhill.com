@@ -63,6 +63,12 @@
         animation: none !important;
     }
 
+    .research-results[data-reveal] > * {
+        opacity: 1 !important;
+        translate: 0 !important;
+        transition: none !important;
+    }
+
     body {
         background: #fff !important;
         color: #111 !important;

@@ -21,6 +21,11 @@ return [
             'Kubernetes',
             'DevSecOps',
         ],
+        'card_tags' => [
+            'Python',
+            'AWS',
+            'Kubernetes',
+        ],
         'logo' => [
             'path' => '/img/webp/logo-jacobs.webp',
             'filter' => null,
@@ -76,6 +81,7 @@ return [
         'image' => '/img/webp/ss-ladsweb.webp',
         'image_alt' => 'NASA LAADS Find Data — product, time, location, files, and review-and-order wizard for MODIS and VIIRS granules.',
         'imagePosition' => 'object-left-top',
+        'card_parallax' => false,
         'url' => '/work/laads-daac',
         'artifact' => [
             'label' => 'Open Find Data',

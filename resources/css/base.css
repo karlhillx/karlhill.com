@@ -394,6 +394,9 @@ article.surface-card:focus-within {
 .surface-card-media {
     background-color: var(--bg);
     overflow: hidden;
+    /* Transformed screenshots (hover scale, parallax) otherwise paint past
+       border-radius and show up as a light crescent on the corners. */
+    isolation: isolate;
 }
 
 .surface-card-static {

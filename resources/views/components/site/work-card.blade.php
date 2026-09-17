@@ -11,6 +11,7 @@
     'external' => false,
     'imageAlt' => null,
     'variant' => 'media',
+    'parallax' => true,
 ])
 
 @php
@@ -78,7 +79,7 @@
             loading="lazy"
             :lqip="false"
             :img-style="$slug ? 'view-transition-name: work-img-'.$slug.'; view-transition-class: card-media' : null"
-            img-class="work-parallax work-card-media absolute inset-0 w-full h-full object-cover {{ $imagePosition }}"
+            img-class="work-card-media absolute inset-0 w-full h-full object-cover {{ $imagePosition }}{{ $parallax ? ' work-parallax' : '' }}"
             class="contents"
         />
     @endif
@@ -95,7 +96,7 @@
         </div>
     @endif
 
-    <div class="work-card-panel absolute inset-x-0 bottom-0 border-t border-hairline px-5 pt-5 pb-6 rounded-b-2xl">
+    <div class="work-card-panel absolute inset-x-0 bottom-0 border-t border-hairline px-5 pt-5 pb-6">
         <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
         <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-xl tracking-tight text-neutral-100 group-hover:text-accent transition-colors leading-snug">{{ $title }}</h3>
         @if($tags !== [])
@@ -107,7 +108,9 @@
         @endif
         <div class="work-card-details overflow-hidden">
             <div class="work-card-details__copy">
-                <p class="text-neutral-400 text-sm leading-relaxed mt-2.5 line-clamp-3">{{ $description }}</p>
+                <div>
+                    <p class="text-neutral-400 text-sm leading-relaxed mt-2.5 line-clamp-3">{{ $description }}</p>
+                </div>
             </div>
             @if($href)
                 <p class="font-mono text-caption text-accent uppercase tracking-widest mt-4" aria-hidden="true">

@@ -2773,13 +2773,22 @@ a.series-chapters__card:hover .series-chapters__title,
     transform: scale(1.045);
 }
 
+/* Square overlay, clipped by the card radius. Rounding the panel itself
+   cuts a pie-slice that lets light NASA screenshots show through. */
+.work-card--compact::before {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 1.25rem;
+    background: var(--bg);
+    z-index: 1;
+    pointer-events: none;
+}
+
 .work-card-panel {
     z-index: 2;
-    background-color: color-mix(in oklab, var(--bg) 92%, transparent);
-    backdrop-filter: blur(10px) saturate(1.1);
-    transition:
-        background-color 0.55s var(--ease-out-soft),
-        backdrop-filter 0.55s var(--ease-out-soft);
+    border-radius: 0;
+    background-color: var(--bg);
 }
 
 .work-card-panel h3 {
@@ -2790,11 +2799,6 @@ a.series-chapters__card:hover .series-chapters__title,
 .work-card-panel .work-card-details > p {
     letter-spacing: var(--tracking-sans);
     line-height: 1.5;
-}
-
-.group:hover .work-card-panel,
-.group:focus-within .work-card-panel {
-    background-color: color-mix(in oklab, var(--bg) 86%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2863,7 +2867,7 @@ a.series-chapters__card:hover .series-chapters__title,
     align-items: center;
     gap: 0.6rem;
     min-height: 2rem;
-    padding: 0 0.75rem;
+    padding: 0 3.25rem 0 0.75rem;
     background: #1c1f27;
     border-bottom: 1px solid #2a2e38;
 }
@@ -2891,7 +2895,7 @@ a.series-chapters__card:hover .series-chapters__title,
 
 .work-card-shot__code {
     margin: 0;
-    padding: 0.7rem 0.85rem 0.4rem;
+    padding: 0.7rem 3.25rem 0.4rem 0.85rem;
     font-family: var(--font-mono, ui-monospace, monospace);
     font-size: 0.68rem;
     line-height: 1.62;
@@ -2980,6 +2984,11 @@ a.series-chapters__card:hover .series-chapters__title,
     :root:not([data-theme]) .work-card-brand__ink {
         filter: none;
     }
+}
+
+/* Editor shot is always a dark IDE — keep the light glyph even in light theme. */
+.work-card--shot .work-card-brand__ink {
+    filter: none;
 }
 
 .kit-screen-actions {

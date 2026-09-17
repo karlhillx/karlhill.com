@@ -45,12 +45,13 @@
                     :image="$project['image']"
                     :imagePosition="$project['imagePosition'] ?? 'object-top'"
                     :image-alt="$project['image_alt'] ?? null"
-                    :tags="$project['tags']"
+                    :tags="$project['card_tags'] ?? $project['tags']"
                     :logo="$project['logo']"
                     :href="$cardUrl"
                     :slug="$project['slug'] ?? null"
                     :external="\App\Support\ProjectCatalog::isExternalUrl($project)"
                     :variant="$project['card_variant'] ?? 'media'"
+                    :parallax="$project['card_parallax'] ?? true"
                 />
             @endforeach
         </div>
