@@ -112,7 +112,6 @@ def generate_home() -> Path:
     f_name = font(72, bold=True)
     f_role = font(28)
     f_meta = font(22)
-    f_ask = font(24, bold=True)
     f_cta = font(26, bold=True)
 
     x, y = 56, 118
@@ -123,9 +122,7 @@ def generate_home() -> Path:
     draw.text((x, y), "Jacobs National Security  ·  NASA Goddard", fill=DARK_GRAY, font=f_meta)
     y += 56
     draw.rectangle((x, y, x + 72, y + 4), fill=ORANGE)
-    y += 36
-    draw.text((x, y), "Principal or Engineering Manager", fill=WHITE, font=f_ask)
-    y += 48
+    y += 40
     draw.text((x, y), "karlhill.com", fill=ORANGE, font=f_cta)
     tw = draw.textlength("karlhill.com", font=f_cta)
     draw.text((x + tw + 10, y + 1), "→", fill=ORANGE, font=f_cta)

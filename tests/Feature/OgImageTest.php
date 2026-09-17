@@ -40,3 +40,10 @@ it('post without a static card falls back to the homepage og image', function ()
 it('runtime og png route is retired', function () {
     $this->get('/og/blog/release-governance.png')->assertNotFound();
 });
+
+it('homepage og generator does not print next-role copy', function () {
+    $script = file_get_contents(base_path('scripts/generate-og-images.py'));
+
+    expect($script)->toContain('Staff Aerospace Software Engineer')
+        ->and($script)->not->toContain('Principal or Engineering Manager');
+});

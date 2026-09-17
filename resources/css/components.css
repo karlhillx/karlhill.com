@@ -2781,12 +2781,23 @@ a.series-chapters__card:hover .series-chapters__title,
     }
 }
 
-/* Jacobs / unpublished work — text constraints instead of a logo panel. */
-.work-card--constraint {
+/* Current-role scope field — scale facts in their own band, not under the panel. */
+.work-card--scope {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     background: color-mix(in oklab, var(--panel) 88%, var(--bg));
 }
 
-.work-card-constraint__grid {
+.work-card-scope {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.work-card-scope__grid {
     position: absolute;
     inset: 0;
     opacity: 0.45;
@@ -2798,23 +2809,89 @@ a.series-chapters__card:hover .series-chapters__title,
             transparent 1px
         );
     background-size: 1.5rem 1.5rem;
-    mask-image: linear-gradient(to bottom, black 0%, transparent 72%);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 88%);
 }
 
-.work-card-constraint__glow {
+.work-card-scope__glow {
     position: absolute;
-    inset: 15% 10% auto;
-    height: 40%;
+    inset: 8% 6% auto;
+    height: 70%;
+    opacity: 0.75;
     background: radial-gradient(
         ellipse at center,
         color-mix(in oklab, var(--accent) 18%, transparent),
         transparent 70%
     );
     pointer-events: none;
+    transition: opacity 0.55s var(--ease-out-soft);
 }
 
-.work-card-constraint__list {
+.work-card-scope__stats {
+    position: absolute;
+    inset: 2.85rem 0.75rem 0.85rem;
     z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    align-content: center;
+}
+
+.work-card-scope__stat {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    min-width: 0;
+}
+
+.work-card-scope__value {
+    margin: 0;
+    font-family: var(--font-display, inherit);
+    font-size: clamp(1.85rem, 3.6vw, 2.65rem);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--text);
+}
+
+.work-card-scope__label {
+    margin: 0.4rem 0 0;
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: var(--text-caption, 0.65rem);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.work-card--scope .work-card-panel {
+    position: relative;
+    inset: auto;
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+/* Keep the field tall: description is hover-only on fine pointers. */
+.work-card--scope .work-card-details > p:first-of-type {
+    display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .work-card--scope.group:hover .work-card-details > p:first-of-type,
+    .work-card--scope.group:focus-within .work-card-details > p:first-of-type {
+        display: block;
+    }
+}
+
+.group:hover .work-card-scope__glow,
+.group:focus-within .work-card-scope__glow {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .work-card-scope__glow {
+        transition: opacity 0.2s ease;
+    }
 }
 
 .work-card-tags {
@@ -2827,134 +2904,19 @@ a.series-chapters__card:hover .series-chapters__title,
 /* Light artwork (Jacobs glyphs) — black on light, white on dark.
    light-dark() is a color function; it cannot wrap filter values. */
 .logo-ink,
-.work-card-brand__ink,
-.work-card-logo__img {
+.work-card-brand__ink {
     filter: brightness(0);
 }
 
 :root[data-theme='dark'] .logo-ink,
-:root[data-theme='dark'] .work-card-brand__ink,
-:root[data-theme='dark'] .work-card-logo__img {
+:root[data-theme='dark'] .work-card-brand__ink {
     filter: none;
 }
 
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme]) .logo-ink,
-    :root:not([data-theme]) .work-card-brand__ink,
-    :root:not([data-theme]) .work-card-logo__img {
+    :root:not([data-theme]) .work-card-brand__ink {
         filter: none;
-    }
-}
-
-/* Logo-only work cards (Jacobs): quiet mark on the same card field as
-   the photo cards — no screenshot, no hero orb. */
-.work-card--logo {
-    background: color-mix(in oklab, var(--panel) 70%, var(--bg));
-}
-
-.work-card-logo {
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.work-card-logo__grid {
-    position: absolute;
-    inset: 0;
-    opacity: 0.35;
-    background-image:
-        linear-gradient(var(--hairline) 1px, transparent 1px),
-        linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
-    background-size: 1.5rem 1.5rem;
-    mask-image: linear-gradient(to bottom, black 0%, transparent 68%);
-}
-
-.work-card-logo__glow {
-    position: absolute;
-    inset: 14% 18% auto;
-    height: 36%;
-    opacity: 0.4;
-    background: radial-gradient(
-        ellipse at center,
-        color-mix(in oklab, var(--accent) 14%, transparent),
-        transparent 72%
-    );
-    pointer-events: none;
-    transition: opacity 0.55s var(--ease-out-soft);
-}
-
-.work-card-logo__mark {
-    position: absolute;
-    inset: 3.75rem 1.25rem 58%;
-    display: grid;
-    place-items: center;
-}
-
-.work-card-logo__orb {
-    position: absolute;
-    width: min(8.5rem, 48%);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        color-mix(in oklab, var(--text) 6%, transparent) 0%,
-        transparent 68%
-    );
-    border: 1px solid var(--hairline);
-    transition:
-        border-color 0.55s var(--ease-out-soft),
-        background 0.55s var(--ease-out-soft);
-}
-
-.work-card-logo__img {
-    position: relative;
-    z-index: 1;
-    width: min(4.5rem, 30%);
-    height: auto;
-    aspect-ratio: 1;
-    object-fit: contain;
-    opacity: 0.88;
-    transition:
-        transform 0.75s var(--ease-out-spring),
-        opacity 0.55s var(--ease-out-soft);
-}
-
-@media (min-width: 640px) {
-    .work-card-logo__mark {
-        inset: 3.5rem 1.25rem 48%;
-    }
-
-    .work-card-logo__img {
-        width: min(5.25rem, 34%);
-    }
-}
-
-.group:hover .work-card-logo__img,
-.group:focus-within .work-card-logo__img {
-    opacity: 1;
-    transform: scale(1.04);
-}
-
-.group:hover .work-card-logo__glow,
-.group:focus-within .work-card-logo__glow {
-    opacity: 1;
-}
-
-.group:hover .work-card-logo__orb,
-.group:focus-within .work-card-logo__orb {
-    border-color: var(--hairline-strong);
-    background: radial-gradient(
-        circle,
-        color-mix(in oklab, var(--text) 9%, transparent) 0%,
-        transparent 68%
-    );
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .work-card-logo__img,
-    .work-card-logo__orb,
-    .work-card-logo__glow {
-        transition: opacity 0.2s ease;
-        transform: none !important;
     }
 }
 

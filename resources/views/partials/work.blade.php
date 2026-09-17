@@ -42,7 +42,7 @@
                     :title="$project['title']"
                     :meta="$project['meta']"
                     :description="$project['description']"
-                    :image="$project['card_image'] ?? $project['image']"
+                    :image="$project['image']"
                     :imagePosition="$project['imagePosition'] ?? 'object-top'"
                     :image-alt="$project['image_alt'] ?? null"
                     :tags="$project['tags']"
@@ -51,7 +51,7 @@
                     :slug="$project['slug'] ?? null"
                     :external="\App\Support\ProjectCatalog::isExternalUrl($project)"
                     :variant="$project['card_variant'] ?? 'media'"
-                    :constraints="$project['constraints'] ?? []"
+                    :scope="$project['scope'] ?? []"
                 />
             @endforeach
         </div>

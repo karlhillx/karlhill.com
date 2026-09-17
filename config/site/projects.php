@@ -1,5 +1,7 @@
 <?php
 
+$facts = require __DIR__.'/facts.php';
+
 return [
     [
         'slug' => 'jacobs-mission-software',
@@ -10,12 +12,12 @@ return [
         'image' => '/img/webp/ss-jacobs-ns.webp',
         'image_alt' => 'Jacobs mark',
         'imagePosition' => 'object-center',
-        'card_variant' => 'constraint',
+        'card_variant' => 'scope',
         'card_image' => '/img/logo-jacobs-mark.png',
-        'constraints' => [
-            '~20 repositories',
-            'Three environments',
-            'Partner teams',
+        'scope' => [
+            ['value' => $facts['repos_display'], 'label' => 'Repositories'],
+            ['value' => '3', 'label' => 'Environments'],
+            ['value' => $facts['team_display'], 'label' => 'Engineers'],
         ],
         'url' => '/work/jacobs-mission-software',
         'featured' => true,

@@ -11,17 +11,15 @@
     'external' => false,
     'imageAlt' => null,
     'variant' => 'media',
-    'constraints' => [],
+    'scope' => [],
 ])
 
 @php
     $titleId = $slug ? 'work-card-title-'.$slug : null;
-    $isConstraint = $variant === 'constraint';
-    $isLogo = $variant === 'logo';
+    $isScope = $variant === 'scope';
     $showCornerLogo = filled($logo['path'] ?? null);
     $cardClass = 'surface-card surface-card-media pointer-lit bg-bg group relative h-[22rem] sm:h-80 lg:h-96 block'
-        .($isConstraint ? ' work-card--constraint' : '')
-        .($isLogo ? ' work-card--logo' : '');
+        .($isScope ? ' work-card--scope' : '');
     $cta = $external
         ? 'Visit project'
         : (is_string($href) && str_contains($href, '/work/') ? 'Read case study' : 'View details');
@@ -45,29 +43,20 @@
         </a>
     @endif
 
-    @if($isConstraint)
-        <div class="work-card-constraint absolute inset-0" aria-hidden="true">
-            <div class="work-card-constraint__grid"></div>
-            <div class="work-card-constraint__glow"></div>
-        </div>
-        @if(! empty($constraints))
-            <ul class="work-card-constraint__list absolute inset-x-4 top-14 sm:top-16 space-y-2 pointer-events-none">
-                @foreach($constraints as $item)
-                    <li class="font-mono text-caption sm:text-xs text-neutral-300/90 uppercase tracking-widest border-l border-accent/50 pl-3">
-                        {{ $item }}
-                    </li>
-                @endforeach
-            </ul>
-        @endif
-    @elseif($isLogo)
-        <div class="work-card-logo absolute inset-0" aria-hidden="true">
-            <div class="work-card-logo__grid"></div>
-            <div class="work-card-logo__glow"></div>
-            <div class="work-card-logo__mark">
-                <div class="work-card-logo__orb"></div>
-                <img src="{{ $image }}" alt="" loading="lazy" decoding="async"
-                     class="work-card-logo__img">
-            </div>
+    @if($isScope)
+        <div class="work-card-scope">
+            <div class="work-card-scope__grid" aria-hidden="true"></div>
+            <div class="work-card-scope__glow" aria-hidden="true"></div>
+            @if($scope !== [])
+                <dl class="work-card-scope__stats">
+                    @foreach($scope as $stat)
+                        <div class="work-card-scope__stat">
+                            <dt class="work-card-scope__label">{{ $stat['label'] }}</dt>
+                            <dd class="work-card-scope__value">{{ $stat['value'] }}</dd>
+                        </div>
+                    @endforeach
+                </dl>
+            @endif
         </div>
     @else
         <x-site.responsive-image
@@ -96,7 +85,10 @@
         </div>
     @endif
 
-    <div class="work-card-panel absolute inset-x-0 bottom-0 border-t border-hairline px-5 pt-5 pb-6 rounded-b-2xl">
+    <div @class([
+        'work-card-panel border-t border-hairline px-5 pt-5 pb-6 rounded-b-2xl',
+        'absolute inset-x-0 bottom-0' => ! $isScope,
+    ])>
         <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
         <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-xl tracking-tight text-neutral-100 group-hover:text-accent transition-colors leading-snug">{{ $title }}</h3>
         @if($tags !== [])

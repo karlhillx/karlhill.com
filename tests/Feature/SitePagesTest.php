@@ -158,7 +158,11 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('work-card-brand__ink', escape: false);
     $response->assertSee('work-card-brand', escape: false);
     $response->assertDontSee('work-card--logo', escape: false);
-    $response->assertSee('work-card--constraint', escape: false);
+    $response->assertDontSee('work-card--constraint', escape: false);
+    $response->assertSee('work-card--scope', escape: false);
+    $response->assertSee('>Repositories</dt>', escape: false);
+    $response->assertSee('>Environments</dt>', escape: false);
+    $response->assertSee('>Engineers</dt>', escape: false);
     $response->assertDontSee('surface-chip-overlay', escape: false);
     $response->assertSee('work-card-tags', escape: false);
     $response->assertSee('hero-mesh', escape: false);
