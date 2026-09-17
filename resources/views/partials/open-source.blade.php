@@ -2,7 +2,7 @@
         <x-slot:actions>
             <a href="https://github.com/karlhillx" target="_blank" rel="noopener noreferrer"
                class="font-mono text-xs text-neutral-500 hover:text-accent transition-colors">
-                github.com/karlhillx ↗
+                github.com/karlhillx
             </a>
         </x-slot:actions>
 

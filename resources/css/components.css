@@ -676,7 +676,8 @@ a:where([href^='http://'], [href^='https://']):not(
 /* Internal taxonomy, surface chips, and icon-only links: suppress outbound arrow. */
 .social-links a::after,
 .surface-chip::after,
-.case-study-masthead__stack a::after {
+.case-study-masthead__stack a::after,
+a.surface-card::after {
     content: none !important;
 }
 

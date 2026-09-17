@@ -187,7 +187,7 @@
                 <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">Share</p>
                 <div class="flex items-center gap-4">
                     <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($shareUrl) }}"
-                       target="_blank" rel="noopener noreferrer"
+                       target="_blank" rel="noopener noreferrer" data-no-ext
                        aria-label="Share on LinkedIn"
                        class="text-neutral-400 hover:text-accent transition-colors">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -195,7 +195,7 @@
                         </svg>
                     </a>
                     <a href="https://twitter.com/intent/tweet?text={{ urlencode($shareText) }}&url={{ urlencode($shareUrl) }}"
-                       target="_blank" rel="noopener noreferrer"
+                       target="_blank" rel="noopener noreferrer" data-no-ext
                        aria-label="Share on X / Twitter"
                        class="text-neutral-400 hover:text-accent transition-colors">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -203,7 +203,7 @@
                         </svg>
                     </a>
                     <a href="https://bsky.app/intent/compose?text={{ urlencode($shareText . ' ' . $shareUrl) }}"
-                       target="_blank" rel="noopener noreferrer"
+                       target="_blank" rel="noopener noreferrer" data-no-ext
                        aria-label="Share on Bluesky"
                        class="text-neutral-400 hover:text-accent transition-colors">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 64 57" aria-hidden="true">

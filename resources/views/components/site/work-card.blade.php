@@ -37,7 +37,7 @@
         <a href="{{ $href }}"
            @if($external) target="_blank" rel="noopener noreferrer" @endif
            @if(! $external && is_string($href) && str_contains($href, '/work/')) data-analytics-event="case_study_opened" @if($slug) data-analytics-project="{{ $slug }}" @endif @endif
-           class="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-none"
+           class="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-none after:content-['']"
            @if($titleId) aria-labelledby="{{ $titleId }}" @else aria-label="{{ $title }}" @endif>
             <span class="sr-only">
                 {{ $cta }}: {{ $title }}@if($external) (opens in a new tab)@endif

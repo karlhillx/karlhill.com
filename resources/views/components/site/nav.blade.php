@@ -97,7 +97,7 @@
 
             <div class="pt-4 mt-2 border-t border-neutral-800/80 flex flex-wrap items-center gap-x-6 gap-y-2">
                 @if($linkedin)
-                    <a href="{{ $linkedin['url'] }}" target="_blank" rel="me noopener noreferrer"
+                    <a href="{{ $linkedin['url'] }}" target="_blank" rel="me noopener noreferrer" data-no-ext
                        class="min-h-11 inline-flex items-center text-neutral-400 hover:text-accent transition-colors">
                         LinkedIn ↗
                     </a>

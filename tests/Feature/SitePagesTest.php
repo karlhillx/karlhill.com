@@ -14,6 +14,8 @@ it('work page renders projects and open source', function () {
     $response->assertSee('LAADS DAAC', escape: false);
     $response->assertSee('jacobs-mission-software', escape: false);
     $response->assertSee('id="open-source"', escape: false);
+    $response->assertSee('github.com/karlhillx', escape: false);
+    $response->assertDontSee('github.com/karlhillx ↗', escape: false);
     $response->assertSee('scroll-progress', escape: false);
     $response->assertDontSee('section-rail', escape: false);
 });
