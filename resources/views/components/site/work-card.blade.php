@@ -106,7 +106,9 @@
             </div>
         @endif
         <div class="work-card-details overflow-hidden">
-            <p class="text-neutral-400 text-sm leading-relaxed mt-2.5 line-clamp-3 pointer-fine:group-hover:line-clamp-none pointer-fine:group-focus-within:line-clamp-none">{{ $description }}</p>
+            <div class="work-card-details__copy">
+                <p class="text-neutral-400 text-sm leading-relaxed mt-2.5 line-clamp-3">{{ $description }}</p>
+            </div>
             @if($href)
                 <p class="font-mono text-caption text-accent uppercase tracking-widest mt-4" aria-hidden="true">
                     {{ $cta }}

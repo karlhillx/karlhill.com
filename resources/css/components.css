@@ -2724,6 +2724,41 @@ a.series-chapters__card:hover .series-chapters__title,
     interpolate-size: allow-keywords;
 }
 
+.work-card-details__copy {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+        grid-template-rows 0.55s var(--ease-out-soft),
+        opacity 0.45s var(--ease-out-soft) 0.08s;
+}
+
+.work-card-details__copy > * {
+    min-height: 0;
+    overflow: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .group:hover .work-card-details__copy,
+    .group:focus-within .work-card-details__copy {
+        grid-template-rows: 1fr;
+        opacity: 1;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .work-card-details__copy {
+        grid-template-rows: 1fr;
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .work-card-details__copy {
+        transition: none;
+    }
+}
+
 /* Work card media — full color at rest so screenshot cards match the
    editor shot. Hover is the same scale lift on both. Type sits on the
    frosted panel, not on a muted image. */
@@ -2908,17 +2943,6 @@ a.series-chapters__card:hover .series-chapters__title,
 .work-card--shot .work-card-panel h3 {
     overflow: hidden;
     white-space: nowrap;
-}
-
-.work-card-details > p:first-of-type {
-    display: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-    .group:hover .work-card-details > p:first-of-type,
-    .group:focus-within .work-card-details > p:first-of-type {
-        display: block;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
