@@ -271,7 +271,7 @@
     #hero.hero {
         /* Prefer Book above the fold over a full-bleed square on small phones. */
         min-height: auto;
-        padding-top: calc(3.75rem + 1rem);
+        padding-top: calc(var(--nav-offset) + 1.75rem);
         padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px));
         justify-content: flex-end;
     }
@@ -312,7 +312,7 @@
     }
 
     #hero .hero-copy {
-        padding-top: 0.25rem;
+        padding-top: 0;
         max-width: 100%;
     }
 

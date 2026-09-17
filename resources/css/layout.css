@@ -90,23 +90,25 @@ main > section:nth-of-type(n + 3):not([id]) {
         --space-card-gap: 0.875rem;
         --nav-py: 0.8rem;
         --nav-brand-size: 1.25rem;
+        /* Real bar height: min-h-11 Book/menu plus padding, not the 3.75rem min-height. */
+        --nav-offset: 5.125rem;
     }
 
     html {
         scrollbar-gutter: auto;
-        scroll-padding-top: 4.75rem;
+        scroll-padding-top: calc(var(--nav-offset) + 0.75rem);
     }
 
     .site-page-hero {
-        padding-block: calc(3.75rem + 1.35rem) 1.5rem;
+        padding-block: calc(var(--nav-offset) + 1.35rem) 1.5rem;
     }
 
     .site-article {
-        padding-block: calc(3.75rem + 1.5rem) var(--space-section-soft);
+        padding-block: calc(var(--nav-offset) + 1.5rem) var(--space-section-soft);
     }
 
     .case-study-page {
-        padding-block: calc(3.75rem + 1.75rem) var(--space-section-soft);
+        padding-block: calc(var(--nav-offset) + 1.75rem) var(--space-section-soft);
     }
 
     .site-page-hero__title,
@@ -154,7 +156,7 @@ main > section:nth-of-type(n + 3):not([id]) {
     }
 
     nav[aria-label='Primary'] .nav-bar {
-        min-height: 3.75rem;
+        min-height: var(--nav-offset);
         gap: 0.4rem;
     }
 
@@ -164,7 +166,7 @@ main > section:nth-of-type(n + 3):not([id]) {
     }
 
     #mobile-menu {
-        inset: 3.75rem 0 0 0;
+        inset: var(--nav-offset) 0 0 0;
         padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
     }
 
@@ -222,7 +224,7 @@ main > section:nth-of-type(n + 3):not([id]) {
     }
 
     .article-sticky-title {
-        padding-top: 3.75rem;
+        padding-top: var(--nav-offset);
     }
 
     .tag-filter {
@@ -255,7 +257,7 @@ main > section:nth-of-type(n + 3):not([id]) {
     #hero.hero {
         min-height: auto;
         justify-content: flex-end;
-        padding-top: calc(3.75rem + 1rem);
+        padding-top: calc(var(--nav-offset) + 1.75rem);
         padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px));
     }
 
@@ -311,7 +313,7 @@ main > section:nth-of-type(n + 3):not([id]) {
         min-height: min(72svh, 40rem);
         min-height: min(72dvh, 40rem);
         justify-content: center;
-        padding-top: calc(3.75rem + 1.5rem);
+        padding-top: calc(var(--nav-offset) + 1.5rem);
         padding-bottom: 2.5rem;
     }
 
