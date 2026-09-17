@@ -40,6 +40,13 @@
         @endif
 
         <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
+            @if(filled($bookingUrl) || filled($bookingEmbed))
+                <x-site.button variant="primary" href="#book"
+                    data-analytics-event="booking_cta_clicked"
+                    data-analytics-location="now-hero">
+                    {{ $bookingLabel }}
+                </x-site.button>
+            @endif
             <x-site.button variant="link" href="/kit"
                 data-analytics-event="recruiter_link_opened"
                 data-analytics-location="now-hero"

@@ -364,6 +364,7 @@ it('now page is hero plus scheduler', function () {
     $response->assertDontSee('architecture ownership', escape: false);
     $response->assertSee('href="/kit"', escape: false);
     $response->assertSee('Recruiter kit', escape: false);
+    $response->assertSee('href="#book"', escape: false);
     $response->assertSee('id="book"', escape: false);
     $response->assertSee('booking-embed', escape: false);
     $response->assertDontSee('id="focus"', escape: false);
@@ -692,6 +693,7 @@ it('recruiter kit one-pager links resume pdf bio and booking', function () {
     $response->assertSee('More links', escape: false);
     $response->assertSee('data-print', escape: false);
     $response->assertSee(config('site.person.availability'), escape: false);
+    $response->assertSee('id="kit-scope-heading"', escape: false);
     $response->assertSee('Current scope', escape: false);
     $response->assertSee('Engineering', escape: false);
     $response->assertSee('Technical leadership', escape: false);

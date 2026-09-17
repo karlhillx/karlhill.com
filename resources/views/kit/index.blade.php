@@ -98,6 +98,13 @@
                     </div>
                 </dl>
 
+                <x-site.job-scope
+                    class="mt-8"
+                    heading="Current scope"
+                    heading-id="kit-scope-heading"
+                    :rows="$kit['scope'] ?? []"
+                />
+
                 <x-site.on-device-ask
                     class="mt-8"
                     id="kit-ask"
@@ -107,13 +114,6 @@
                     heading="Ask this kit"
                     label="Ask"
                     placeholder="What is Karl open to?"
-                />
-
-                <x-site.job-scope
-                    class="kit-print-only mt-8"
-                    heading="Current scope"
-                    heading-id="kit-scope-heading"
-                    :rows="$kit['scope'] ?? []"
                 />
             </div>
         </div>

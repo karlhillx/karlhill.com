@@ -3034,7 +3034,7 @@ a.series-chapters__card:hover .series-chapters__title,
     }
 }
 
-/* Scope and career direction stay in the print leave-behind. */
+/* Print-only blocks for the recruiter leave-behind. */
 @media screen {
     .kit-print-only {
         display: none !important;
