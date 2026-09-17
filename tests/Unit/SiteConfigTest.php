@@ -9,13 +9,17 @@ it('same as is derived from schema-eligible social urls', function () {
         ->and($sameAs)->toContain('https://www.discogs.com/artist/1286669-Karl-Hill')
         ->and($sameAs)->toContain('https://orcid.org/0009-0002-6847-3368')
         ->and($sameAs)->toContain('https://scholar.google.com/citations?user=ykw3hstDPLcC')
+        ->and($sameAs)->toContain('https://www.scilit.com/scholars/019f42b58ad870d181875c7fd187375e')
+        ->and($sameAs)->toContain('https://sciprofiles.com/profile/author/MlNoK0RnM3hZUE9BRXNSUnhhclJJZz09')
         ->and($sameAs)->toContain('https://www.wikidata.org/wiki/Q139902938')
         ->and($sameAs)->toContain('https://gravatar.com/karlhillx')
         ->and($sameAs)->toContain('https://www.crunchbase.com/person/karl-hill-09bb')
         ->and($sameAs)->toContain('https://about.me/karlhill')
         ->and($sameAs)->not->toContain('https://en.wikipedia.org/wiki/Karl_Hill_(musician)')
         ->and($sameAs->implode(' '))->not->toContain('superFilter=')
-        ->and(collect(config('site.social'))->pluck('url')->implode(' '))->toContain('discogs.com');
+        ->and(collect(config('site.social'))->pluck('url')->implode(' '))->toContain('discogs.com')
+        ->and(collect(config('site.social'))->firstWhere('label', 'Scilit')['footer'] ?? true)->toBeFalse()
+        ->and(collect(config('site.social'))->firstWhere('label', 'SciProfiles')['footer'] ?? true)->toBeFalse();
 });
 
 it('analytics providers are mutually exclusive', function () {

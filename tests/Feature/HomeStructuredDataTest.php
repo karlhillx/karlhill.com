@@ -32,6 +32,8 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($person['sameAs'])->toContain('https://github.com/karlhillx')
         ->and($person['sameAs'])->toContain('https://www.discogs.com/artist/1286669-Karl-Hill')
         ->and($person['sameAs'])->toContain('https://orcid.org/0009-0002-6847-3368')
+        ->and($person['sameAs'])->toContain('https://www.scilit.com/scholars/019f42b58ad870d181875c7fd187375e')
+        ->and($person['sameAs'])->toContain('https://sciprofiles.com/profile/author/MlNoK0RnM3hZUE9BRXNSUnhhclJJZz09')
         ->and($person['sameAs'])->toContain('https://www.wikidata.org/wiki/Q139902938')
         ->and($person['sameAs'])->toContain('https://gravatar.com/karlhillx')
         ->and($person['sameAs'])->toContain('https://www.crunchbase.com/person/karl-hill-09bb')
@@ -60,7 +62,9 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($person['knowsAbout'])->toContain('Engineering leadership')
         ->and($person['knowsAbout'])->not->toContain('Engineering Manager')
         ->and($person['knowsAbout'])->toContain('Python')
-        ->and(collect($person['identifier'])->pluck('propertyID')->all())->toContain('ORCID', 'Wikidata', 'Google Scholar')
+        ->and(collect($person['identifier'])->pluck('propertyID')->all())->toContain('ORCID', 'Wikidata', 'Google Scholar', 'Scilit', 'SciProfiles')
+        ->and(collect($person['identifier'])->firstWhere('propertyID', 'Scilit')['value'])->toBe('019f42b58ad870d181875c7fd187375e')
+        ->and(collect($person['identifier'])->firstWhere('propertyID', 'SciProfiles')['value'])->toBe('MlNoK0RnM3hZUE9BRXNSUnhhclJJZz09')
         ->and($person['hasOccupation'][0]['@type'])->toBe('Occupation')
         ->and($person['hasCredential'])->toBeArray()->not->toBeEmpty();
 

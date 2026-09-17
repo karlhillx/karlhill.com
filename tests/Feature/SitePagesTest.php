@@ -509,6 +509,15 @@ it('footer includes site explore links', function () {
     $response->assertDontSee('How I run delivery', escape: false);
 });
 
+it('keeps scholarly indexes on sameAs and off the footer', function () {
+    $html = $this->get('/')->assertOk()->getContent();
+
+    expect($html)->toContain('https://www.scilit.com/scholars/019f42b58ad870d181875c7fd187375e')
+        ->and($html)->toContain('https://sciprofiles.com/profile/author/MlNoK0RnM3hZUE9BRXNSUnhhclJJZz09')
+        ->and($html)->not->toContain('aria-label="Scilit')
+        ->and($html)->not->toContain('aria-label="SciProfiles');
+});
+
 it('homepage hero links to em funnel', function () {
     $response = $this->get('/');
     $html = $response->assertOk()->getContent();

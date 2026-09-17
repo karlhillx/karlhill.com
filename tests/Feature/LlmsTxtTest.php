@@ -84,7 +84,7 @@ it('every h2 section is a markdown file list with unique urls', function () {
     expect($urls)->not->toBeEmpty()
         ->and($urls)->toHaveCount(count($unique))
         ->and(count($unique))->toBeGreaterThanOrEqual(25)
-        ->and(count($unique))->toBeLessThanOrEqual(38);
+        ->and(count($unique))->toBeLessThanOrEqual(41);
 
     $withoutUrls = preg_replace('~https?://\S+~', '', $body) ?? $body;
     $words = str_word_count($withoutUrls);
@@ -101,6 +101,8 @@ it('llms txt builder lists professional profiles and resume once', function () {
     $this->assertStringContainsString('[GitHub](https://github.com/karlhillx)', $body);
     $this->assertStringContainsString('[Google Scholar](https://scholar.google.com/citations?user=ykw3hstDPLcC)', $body);
     $this->assertStringContainsString('[ResearchGate](https://www.researchgate.net/profile/Karl-Hill-2)', $body);
+    $this->assertStringContainsString('[Scilit](https://www.scilit.com/scholars/019f42b58ad870d181875c7fd187375e)', $body);
+    $this->assertStringContainsString('[SciProfiles](https://sciprofiles.com/profile/author/MlNoK0RnM3hZUE9BRXNSUnhhclJJZz09)', $body);
     $this->assertStringContainsString('[bb-run](https://github.com/karlhillx/bb-run)', $body);
     $this->assertSame(1, substr_count($body, '/resume'));
     $this->assertSame(1, substr_count($body, '/kit'));

@@ -9,7 +9,7 @@ class LlmsTxtBuilder
      *
      * @var list<string>
      */
-    private const PROFILE_ICONS = ['linkedin', 'github', 'orcid', 'scholar', 'researchgate'];
+    private const PROFILE_ICONS = ['linkedin', 'github', 'orcid', 'scholar', 'researchgate', 'scilit', 'sciprofiles'];
 
     public function __construct(
         protected readonly SiteCatalog $catalog,

@@ -191,6 +191,46 @@ final class PersonJsonLd
             $identifiers[] = $identifier;
         }
 
+        $scilit = collect(config('site.social', []))
+            ->first(fn ($link): bool => is_array($link) && ($link['icon'] ?? '') === 'scilit');
+
+        if (is_array($scilit) && ! empty($scilit['url'])) {
+            $url = rtrim((string) $scilit['url'], '/');
+            preg_match('#scilit\.com/scholars/([a-f0-9]+)#i', $url, $matches);
+
+            $identifier = [
+                '@type' => 'PropertyValue',
+                'propertyID' => 'Scilit',
+                'url' => $url,
+            ];
+
+            if (! empty($matches[1])) {
+                $identifier['value'] = $matches[1];
+            }
+
+            $identifiers[] = $identifier;
+        }
+
+        $sciProfiles = collect(config('site.social', []))
+            ->first(fn ($link): bool => is_array($link) && ($link['icon'] ?? '') === 'sciprofiles');
+
+        if (is_array($sciProfiles) && ! empty($sciProfiles['url'])) {
+            $url = rtrim((string) $sciProfiles['url'], '/');
+            preg_match('~sciprofiles\.com/profile/author/([A-Za-z0-9+/=]+)~i', $url, $matches);
+
+            $identifier = [
+                '@type' => 'PropertyValue',
+                'propertyID' => 'SciProfiles',
+                'url' => $url,
+            ];
+
+            if (! empty($matches[1])) {
+                $identifier['value'] = $matches[1];
+            }
+
+            $identifiers[] = $identifier;
+        }
+
         return $identifiers;
     }
 
