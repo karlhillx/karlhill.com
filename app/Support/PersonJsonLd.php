@@ -38,16 +38,7 @@ final class PersonJsonLd
             'mainEntityOfPage' => [
                 '@id' => $url.'/#profile',
             ],
-            'image' => [
-                '@type' => 'ImageObject',
-                // JPEG portrait for Googlebot-Image. The hero uses WebP; Search
-                // thumbnails and Person rich results prefer a crawlable raster.
-                'url' => "{$url}/img/profile.jpg",
-                'contentUrl' => "{$url}/img/profile.jpg",
-                'width' => 800,
-                'height' => 800,
-                'caption' => $person['name'],
-            ],
+            'image' => self::portraitImage(),
             'email' => 'mailto:'.$person['email'],
             'address' => [
                 '@type' => 'PostalAddress',
@@ -99,14 +90,7 @@ final class PersonJsonLd
         $url = PageMeta::siteUrl();
         $seo = config('site.seo.'.$seoKey, []);
         $person = self::node();
-        $shareImage = [
-            '@type' => 'ImageObject',
-            'url' => "{$url}/img/og-home.jpg",
-            'contentUrl' => "{$url}/img/og-home.jpg",
-            'width' => 1200,
-            'height' => 630,
-            'caption' => $seo['title'] ?? $person['name'],
-        ];
+        $portrait = self::portraitImage();
 
         return [
             '@context' => 'https://schema.org',
@@ -119,14 +103,37 @@ final class PersonJsonLd
                     'name' => $seo['title'] ?? $person['name'],
                     'description' => $seo['description'] ?? $person['description'],
                     'inLanguage' => 'en-US',
-                    'image' => $shareImage,
-                    'primaryImageOfPage' => $shareImage,
-                    'thumbnailUrl' => "{$url}/img/og-home.jpg",
+                    'image' => $portrait,
+                    'primaryImageOfPage' => $portrait,
+                    'thumbnailUrl' => $portrait['url'],
                     'isPartOf' => ['@id' => $url.'/#website'],
                     'about' => ['@id' => $person['@id']],
                     'mainEntity' => ['@id' => $person['@id']],
                 ],
             ],
+        ];
+    }
+
+    /**
+     * Square JPEG portrait for Search thumbnails. og-home.jpg stays the
+     * social card (1200×630); Google's result thumbnail is square and was
+     * picking the Jacobs mark off the homepage instead.
+     *
+     * @return array<string, mixed>
+     */
+    public static function portraitImage(): array
+    {
+        $url = PageMeta::siteUrl();
+        $person = config('site.person');
+
+        return [
+            '@type' => 'ImageObject',
+            'url' => "{$url}/img/profile.jpg",
+            'contentUrl' => "{$url}/img/profile.jpg",
+            'width' => 800,
+            'height' => 800,
+            'caption' => is_string($person['name'] ?? null) ? $person['name'] : 'Karl Hill',
+            'representativeOfPage' => true,
         ];
     }
 

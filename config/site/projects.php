@@ -8,10 +8,15 @@ return [
         'sector' => 'Aerospace & Defense',
         'description' => 'Hands-on engineering and technical delivery on a simulation program: roughly 20 repositories, three environments, and partner teams. Six engineers onboarded and coached. A portable messaging layer is in use; ownership is shared.',
         'image' => '/img/webp/ss-jacobs-ns.webp',
-        'image_alt' => 'Jacobs logo',
+        'image_alt' => 'Jacobs mark',
         'imagePosition' => 'object-center',
-        'card_variant' => 'logo',
+        'card_variant' => 'constraint',
         'card_image' => '/img/logo-jacobs-mark.png',
+        'constraints' => [
+            '~20 repositories',
+            'Three environments',
+            'Partner teams',
+        ],
         'url' => '/work/jacobs-mission-software',
         'featured' => true,
         'tags' => [

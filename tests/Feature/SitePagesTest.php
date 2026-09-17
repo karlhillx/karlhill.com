@@ -153,12 +153,12 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('Paper', escape: false);
     $response->assertSee('href="/research/global-flood-mapping"', escape: false);
     $response->assertDontSee('NASA Earth science systems from Goddard are still public.', escape: false);
-    $response->assertSee('logo-jacobs-mark', escape: false);
+    $response->assertDontSee('logo-jacobs-mark', escape: false);
     $response->assertSee('logo-jacobs.webp', escape: false);
     $response->assertSee('work-card-brand__ink', escape: false);
     $response->assertSee('work-card-brand', escape: false);
-    $response->assertSee('work-card--logo', escape: false);
-    $response->assertDontSee('work-card--constraint', escape: false);
+    $response->assertDontSee('work-card--logo', escape: false);
+    $response->assertSee('work-card--constraint', escape: false);
     $response->assertDontSee('surface-chip-overlay', escape: false);
     $response->assertSee('work-card-tags', escape: false);
     $response->assertSee('hero-mesh', escape: false);

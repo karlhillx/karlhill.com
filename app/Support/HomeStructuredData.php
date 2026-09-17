@@ -18,9 +18,10 @@ final class HomeStructuredData
         $personLd = PersonJsonLd::node();
         $personId = $personLd['@id'];
         $websiteId = "{$url}/#website";
+        $portrait = PersonJsonLd::portraitImage();
 
-        // Match og:image so Google Search does not pick a NASA work screenshot
-        // as the result thumbnail. Face sits in the right 630×630 of this card.
+        // og-home.jpg is the social card. Search result thumbnails are square —
+        // point those at the portrait so Google does not pick a work-card logo.
         $shareImage = [
             '@type' => 'ImageObject',
             'url' => "{$url}/img/og-home.jpg",
@@ -39,6 +40,7 @@ final class HomeStructuredData
             'description' => $seo['description'],
             'inLanguage' => 'en-US',
             'image' => $shareImage,
+            'logo' => $portrait,
             'publisher' => ['@id' => $personId],
             'about' => ['@id' => $personId],
         ];
@@ -50,9 +52,9 @@ final class HomeStructuredData
             'name' => $person['name'],
             'description' => $seo['description'],
             'inLanguage' => 'en-US',
-            'image' => $shareImage,
-            'primaryImageOfPage' => $shareImage,
-            'thumbnailUrl' => "{$url}/img/og-home.jpg",
+            'image' => $portrait,
+            'primaryImageOfPage' => $portrait,
+            'thumbnailUrl' => $portrait['url'],
             'mainEntity' => ['@id' => $personId],
             'isPartOf' => ['@id' => $websiteId],
         ];

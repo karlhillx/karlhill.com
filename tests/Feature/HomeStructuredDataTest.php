@@ -87,11 +87,13 @@ it('homepage structured data describes the person website and blog graph', funct
     $website = collect($graph)->firstWhere('@type', 'WebSite');
     expect($website['alternateName'])->toBe('karlhill.com')
         ->and($website['publisher']['@id'])->toBe($person['@id'])
-        ->and($website['image']['url'])->toEndWith('/img/og-home.jpg');
+        ->and($website['image']['url'])->toEndWith('/img/og-home.jpg')
+        ->and($website['logo']['url'])->toEndWith('/img/profile.jpg');
 
     $profile = collect($graph)->firstWhere('@type', 'ProfilePage');
-    expect($profile['primaryImageOfPage']['url'])->toEndWith('/img/og-home.jpg')
-        ->and($profile['thumbnailUrl'])->toEndWith('/img/og-home.jpg');
+    expect($profile['primaryImageOfPage']['url'])->toEndWith('/img/profile.jpg')
+        ->and($profile['thumbnailUrl'])->toEndWith('/img/profile.jpg')
+        ->and($profile['image']['url'])->toEndWith('/img/profile.jpg');
 });
 
 it('homepage html includes preferred-name title and json-ld', function () {
