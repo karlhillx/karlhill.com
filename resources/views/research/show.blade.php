@@ -68,7 +68,7 @@
 
     @if(! empty($research['results']))
         <x-site.section id="results" border="soft" label="Paper results">
-            <dl class="grid sm:grid-cols-2 gap-8 max-w-3xl" data-reveal>
+            <dl class="grid grid-cols-2 sm:grid-cols-3 gap-8 max-w-3xl" data-reveal>
                 @foreach($research['results'] as $result)
                     <div>
                         <dt class="font-mono text-xs text-neutral-500 uppercase tracking-widest">{{ $result['label'] }}</dt>

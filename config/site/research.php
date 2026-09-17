@@ -65,15 +65,31 @@ return [
     'writing' => 'Equal contribution to writing, review, and editing of the published article. Scientific methodology and evaluation were collaborative contributions across the research team.',
     'results' => [
         [
-            'value' => '>90%',
-            'label' => 'Detection accuracy',
+            'value' => '90.9%',
+            'label' => 'Overall accuracy',
         ],
         [
-            'value' => '~3.5%',
+            'value' => '87.5%',
+            'label' => 'Precision',
+        ],
+        [
+            'value' => '74.1%',
+            'label' => 'Recall',
+        ],
+        [
+            'value' => '0.80',
+            'label' => 'F1 score',
+        ],
+        [
+            'value' => '0.67',
+            'label' => 'Intersection over union',
+        ],
+        [
+            'value' => '3.5%',
             'label' => 'False-positive rate',
         ],
     ],
-    'results_note' => 'From the paper’s evaluation against the Global Surface Water dataset.',
+    'results_note' => 'Aggregated water-map evaluation against the Global Surface Water dataset. False-negative rate is 25.9% — the paper describes a conservative mapping strategy that keeps false alarms low.',
     'keywords' => [
         'Karl Hill',
         'NASA flood mapping',
