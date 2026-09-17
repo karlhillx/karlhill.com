@@ -351,6 +351,7 @@ final class ScholarlyArticleJsonLd
             '@type' => 'Dataset',
             '@id' => self::datasetId(),
             'name' => 'Data used in publication of “'.($research['title'] ?? 'the paper').'”',
+            'description' => (string) ($research['zenodo_description'] ?? ''),
             'url' => $research['zenodo'],
             'identifier' => $research['zenodo'],
             'license' => $research['license'] ?? 'https://creativecommons.org/licenses/by/4.0/',

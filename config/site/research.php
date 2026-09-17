@@ -126,6 +126,7 @@ return [
     'zenodo' => 'https://doi.org/'.$zenodoConcept,
     'zenodo_doi' => $zenodoConcept,
     'zenodo_label' => 'Figure datasets on Zenodo',
+    'zenodo_description' => 'Datasets used in the figures of “'.$title.'” (GeoHorizons, 2026), deposited on Zenodo.',
     'work_path' => '/work/flood-mapping-system',
     'image' => '/img/ss-geohorizons.png',
     'image_alt' => 'GeoHorizons publication graphic for the global water and flood mapping paper.',

@@ -69,6 +69,10 @@ it('builds complete scholarly article json-ld', function () {
         ->and($node['keywords'])->toContain('NASA flood mapping');
 
     $graph = ScholarlyArticleJsonLd::pageGraph()['@graph'];
+    $dataset = collect($graph)->firstWhere('@type', 'Dataset');
+
     expect(collect($graph)->pluck('@type')->all())->toContain('Person', 'ScholarlyArticle', 'WebPage', 'Dataset')
-        ->and(collect($graph)->firstWhere('@type', 'WebPage')['name'])->toBe(PageMeta::research()->title);
+        ->and(collect($graph)->firstWhere('@type', 'WebPage')['name'])->toBe(PageMeta::research()->title)
+        ->and($dataset['description'])->toBe(config('site.research.zenodo_description'))
+        ->and(mb_strlen($dataset['description']))->toBeGreaterThanOrEqual(50);
 });
