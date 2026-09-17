@@ -365,7 +365,9 @@ final class ScholarlyArticleJsonLd
                     'url' => 'https://orcid.org/0000-0002-7446-7338',
                 ],
             ],
-            'isPartOf' => ['@id' => self::articleId()],
+            // Google Dataset: isPartOf must be a Dataset or URL, not a
+            // ScholarlyArticle stub. citation is the related paper.
+            'citation' => (string) ($research['doi'] ?? 'https://doi.org/10.1144/gh2025-7'),
         ];
     }
 

@@ -74,5 +74,7 @@ it('builds complete scholarly article json-ld', function () {
     expect(collect($graph)->pluck('@type')->all())->toContain('Person', 'ScholarlyArticle', 'WebPage', 'Dataset')
         ->and(collect($graph)->firstWhere('@type', 'WebPage')['name'])->toBe(PageMeta::research()->title)
         ->and($dataset['description'])->toBe(config('site.research.zenodo_description'))
-        ->and(mb_strlen($dataset['description']))->toBeGreaterThanOrEqual(50);
+        ->and(mb_strlen($dataset['description']))->toBeGreaterThanOrEqual(50)
+        ->and($dataset)->not->toHaveKey('isPartOf')
+        ->and($dataset['citation'])->toBe(config('site.research.doi'));
 });
