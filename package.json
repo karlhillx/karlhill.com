@@ -31,10 +31,13 @@
         "laravel-vite-plugin": "^3.2.0",
         "pdf-lib": "^1.17.1",
         "playwright": "^1.63.0",
-        "prettier": "^3.9.6",
+        "prettier": "^3.9.7",
         "tailwindcss": "^4.3.3",
         "vite": "^8.3.0",
         "vite-plugin-manifest-sri": "^0.2.0",
         "wawoff2": "^2.0.1"
+    },
+    "optionalDependencies": {
+        "@laravel/multiplex": "^0.4.3"
     }
 }

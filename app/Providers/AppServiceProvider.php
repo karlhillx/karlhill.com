@@ -8,6 +8,7 @@ use App\Support\GitHubRepository;
 use App\Support\PageFeatures;
 use App\Support\PageMeta;
 use App\Support\SiteCatalog;
+use Illuminate\Foundation\DevCommands;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
@@ -34,6 +35,9 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        // This site has no queued jobs. Keep artisan dev to server, logs, Vite.
+        DevCommands::except('queue');
+
         // Generate a per-request CSP nonce and let Vite stamp it onto the
         // <script>/<style> tags it injects. The SecurityHeaders middleware
         // reads the same nonce back via Vite::cspNonce() to build the header.

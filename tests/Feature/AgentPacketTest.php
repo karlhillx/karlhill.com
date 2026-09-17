@@ -105,3 +105,10 @@ it('pages advertise the hire packet alternate', function () {
         ->assertSee('rel="describedby"', escape: false)
         ->assertSee('href="/llms.txt"', escape: false);
 });
+
+it('unknown api route returns json 404', function () {
+    $this->get('/api/does-not-exist')
+        ->assertNotFound()
+        ->assertHeader('Content-Type', 'application/json')
+        ->assertJson(['message' => 'Not found.']);
+});
