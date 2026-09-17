@@ -1,24 +1,18 @@
 <?php
 
-$facts = require __DIR__.'/facts.php';
-
 return [
     [
         'slug' => 'jacobs-mission-software',
         'title' => 'Engineering mission software at scale',
+        'card_title' => 'Mission software at scale',
         'meta' => 'Jacobs · 2025–present',
         'sector' => 'Aerospace & Defense',
         'description' => 'Hands-on engineering and technical delivery on a simulation program: roughly 20 repositories, three environments, and partner teams. Six engineers onboarded and coached. A portable messaging layer is in use; ownership is shared.',
         'image' => '/img/webp/ss-jacobs-ns.webp',
         'image_alt' => 'Jacobs mark',
         'imagePosition' => 'object-center',
-        'card_variant' => 'scope',
+        'card_variant' => 'shot',
         'card_image' => '/img/logo-jacobs-mark.png',
-        'scope' => [
-            ['value' => $facts['repos_display'], 'label' => 'Repositories'],
-            ['value' => '3', 'label' => 'Environments'],
-            ['value' => $facts['team_display'], 'label' => 'Engineers'],
-        ],
         'url' => '/work/jacobs-mission-software',
         'featured' => true,
         'tags' => [

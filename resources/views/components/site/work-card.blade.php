@@ -11,15 +11,14 @@
     'external' => false,
     'imageAlt' => null,
     'variant' => 'media',
-    'scope' => [],
 ])
 
 @php
     $titleId = $slug ? 'work-card-title-'.$slug : null;
-    $isScope = $variant === 'scope';
+    $isShot = $variant === 'shot';
     $showCornerLogo = filled($logo['path'] ?? null);
-    $cardClass = 'surface-card surface-card-media pointer-lit bg-bg group relative h-[22rem] sm:h-80 lg:h-96 block'
-        .($isScope ? ' work-card--scope' : '');
+    $cardClass = 'surface-card surface-card-media pointer-lit bg-bg group relative h-[22rem] sm:h-80 lg:h-96 block work-card--compact'
+        .($isShot ? ' work-card--shot' : '');
     $cta = $external
         ? 'Visit project'
         : (is_string($href) && str_contains($href, '/work/') ? 'Read case study' : 'View details');
@@ -43,20 +42,31 @@
         </a>
     @endif
 
-    @if($isScope)
-        <div class="work-card-scope">
-            <div class="work-card-scope__grid" aria-hidden="true"></div>
-            <div class="work-card-scope__glow" aria-hidden="true"></div>
-            @if($scope !== [])
-                <dl class="work-card-scope__stats">
-                    @foreach($scope as $stat)
-                        <div class="work-card-scope__stat">
-                            <dt class="work-card-scope__label">{{ $stat['label'] }}</dt>
-                            <dd class="work-card-scope__value">{{ $stat['value'] }}</dd>
-                        </div>
-                    @endforeach
-                </dl>
-            @endif
+    @if($isShot)
+        <div class="work-card-shot" aria-hidden="true">
+            <div class="work-card-shot__rail">
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="work-card-shot__stage">
+                <div class="work-card-shot__chrome">
+                    <span class="work-card-shot__dots"><i></i><i></i><i></i></span>
+                    <span class="work-card-shot__file">gates.py</span>
+                </div>
+                <pre class="work-card-shot__code"><span><b>1</b><em>"""Shared quality gates."""</em></span>
+<span><b>2</b></span>
+<span><b>3</b>COVERAGE_FLOOR = <i>0.80</i></span>
+<span><b>4</b>APPROVALS = <i>2</i></span>
+<span><b>5</b></span>
+<span><b>6</b><em>def</em> verify(change):</span>
+<span><b>7</b>    lint(change)</span>
+<span><b>8</b>    test(change, cover=COVERAGE_FLOOR)</span>
+<span><b>9</b>    sast(change)</span></pre>
+                <div class="work-card-shot__status">
+                    <span class="work-card-shot__pass">passing</span>
+                    <span>coverage ≥ 80%</span>
+                    <span>2 approvals</span>
+                </div>
+            </div>
         </div>
     @else
         <x-site.responsive-image
@@ -85,10 +95,7 @@
         </div>
     @endif
 
-    <div @class([
-        'work-card-panel border-t border-hairline px-5 pt-5 pb-6 rounded-b-2xl',
-        'absolute inset-x-0 bottom-0' => ! $isScope,
-    ])>
+    <div class="work-card-panel absolute inset-x-0 bottom-0 border-t border-hairline px-5 pt-5 pb-6 rounded-b-2xl">
         <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
         <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-xl tracking-tight text-neutral-100 group-hover:text-accent transition-colors leading-snug">{{ $title }}</h3>
         @if($tags !== [])

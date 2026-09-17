@@ -2724,22 +2724,17 @@ a.series-chapters__card:hover .series-chapters__title,
     interpolate-size: allow-keywords;
 }
 
-/* Work card media — rest is slightly muted so type stays readable; hover
-   clears the frost with opacity + scale + saturate (parallax still applies). */
+/* Work card media — full color at rest so screenshot cards match the
+   editor shot. Hover is the same scale lift on both. Type sits on the
+   frosted panel, not on a muted image. */
 .work-card-media {
-    opacity: 0.72;
-    filter: saturate(0.88) brightness(0.94);
     transform: scale(1);
-    transition:
-        opacity 0.65s var(--ease-out-soft),
-        filter 0.65s var(--ease-out-soft),
-        transform 0.75s var(--ease-out-spring);
+    transform-origin: top center;
+    transition: transform 0.75s var(--ease-out-spring);
 }
 
 .group:hover .work-card-media,
 .group:focus-within .work-card-media {
-    opacity: 1;
-    filter: saturate(1.06) brightness(1);
     transform: scale(1.045);
 }
 
@@ -2769,9 +2764,7 @@ a.series-chapters__card:hover .series-chapters__title,
 
 @media (prefers-reduced-motion: reduce) {
     .work-card-media {
-        transition:
-            opacity 0.2s ease,
-            filter 0.2s ease;
+        transition: none;
         transform: none !important;
     }
 
@@ -2781,116 +2774,161 @@ a.series-chapters__card:hover .series-chapters__title,
     }
 }
 
-/* Current-role scope field — scale facts in their own band, not under the panel. */
-.work-card--scope {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background: color-mix(in oklab, var(--panel) 88%, var(--bg));
-}
-
-.work-card-scope {
-    position: relative;
-    flex: 1 1 auto;
-    min-height: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.work-card-scope__grid {
+/* Current-role card — dark editor shot, not a third-party logo or giant stats. */
+.work-card-shot {
     position: absolute;
     inset: 0;
-    opacity: 0.45;
-    background-image:
-        linear-gradient(color-mix(in oklab, var(--border) 80%, transparent) 1px, transparent 1px),
-        linear-gradient(
-            90deg,
-            color-mix(in oklab, var(--border) 80%, transparent) 1px,
-            transparent 1px
-        );
-    background-size: 1.5rem 1.5rem;
-    mask-image: linear-gradient(to bottom, black 0%, transparent 88%);
-}
-
-.work-card-scope__glow {
-    position: absolute;
-    inset: 8% 6% auto;
-    height: 70%;
-    opacity: 0.75;
-    background: radial-gradient(
-        ellipse at center,
-        color-mix(in oklab, var(--accent) 18%, transparent),
-        transparent 70%
-    );
-    pointer-events: none;
-    transition: opacity 0.55s var(--ease-out-soft);
-}
-
-.work-card-scope__stats {
-    position: absolute;
-    inset: 2.85rem 0.75rem 0.85rem;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.5rem;
-    align-content: center;
-}
-
-.work-card-scope__stat {
     display: flex;
-    flex-direction: column-reverse;
+    overflow: hidden;
+    pointer-events: none;
+    background: #12141a;
+    color: #d4d4d8;
+    transform: scale(1);
+    transform-origin: top center;
+    transition: transform 0.75s var(--ease-out-spring);
+}
+
+.group:hover .work-card-shot,
+.group:focus-within .work-card-shot {
+    transform: scale(1.045);
+}
+
+.work-card-shot__rail {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
+    gap: 1.05rem;
+    width: 2.65rem;
+    padding: 0.85rem 0 0;
+    background: #0b0d12;
+    border-right: 1px solid #23262e;
+}
+
+.work-card-shot__rail span {
+    width: 0.72rem;
+    height: 0.72rem;
+    border-radius: 0.2rem;
+    background: #3f4450;
+}
+
+.work-card-shot__rail span:first-child {
+    background: #f97316;
+}
+
+.work-card-shot__stage {
+    flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background: #16181e;
 }
 
-.work-card-scope__value {
-    margin: 0;
-    font-family: var(--font-display, inherit);
-    font-size: clamp(1.85rem, 3.6vw, 2.65rem);
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    line-height: 1;
-    color: var(--text);
+.work-card-shot__chrome {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 2rem;
+    padding: 0 0.75rem;
+    background: #1c1f27;
+    border-bottom: 1px solid #2a2e38;
 }
 
-.work-card-scope__label {
-    margin: 0.4rem 0 0;
+.work-card-shot__dots {
+    display: flex;
+    gap: 0.28rem;
+}
+
+.work-card-shot__dots i {
+    display: block;
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 50%;
+    background: #4b5160;
+}
+
+.work-card-shot__file {
     font-family: var(--font-mono, ui-monospace, monospace);
-    font-size: var(--text-caption, 0.65rem);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    color: #9ca3af;
+}
+
+.work-card-shot__code {
+    margin: 0;
+    padding: 0.7rem 0.85rem 0.4rem;
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 0.68rem;
+    line-height: 1.62;
+    color: #e4e4e7;
+}
+
+.work-card-shot__code span {
+    display: block;
+    white-space: pre;
+}
+
+.work-card-shot__code b {
+    display: inline-block;
+    width: 1.5rem;
+    margin-right: 0.7rem;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    color: #52525b;
+}
+
+.work-card-shot__code em {
+    font-style: normal;
+    color: #fb923c;
+}
+
+.work-card-shot__code i {
+    font-style: normal;
+    color: #7dd3fc;
+}
+
+.work-card-shot__status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: auto;
+    padding: 0.45rem 0.85rem 5.5rem;
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: #a1a1aa;
+    border-top: 1px solid #2a2e38;
+    background: #14161c;
 }
 
-.work-card--scope .work-card-panel {
-    position: relative;
-    inset: auto;
-    flex: 0 0 auto;
-    width: 100%;
+.work-card-shot__pass {
+    color: #4ade80;
 }
 
-/* Keep the field tall: description is hover-only on fine pointers. */
-.work-card--scope .work-card-details > p:first-of-type {
+.work-card--shot .work-card-panel h3 {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.work-card-details > p:first-of-type {
     display: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .work-card--scope.group:hover .work-card-details > p:first-of-type,
-    .work-card--scope.group:focus-within .work-card-details > p:first-of-type {
+    .group:hover .work-card-details > p:first-of-type,
+    .group:focus-within .work-card-details > p:first-of-type {
         display: block;
     }
 }
 
-.group:hover .work-card-scope__glow,
-.group:focus-within .work-card-scope__glow {
-    opacity: 1;
-}
-
 @media (prefers-reduced-motion: reduce) {
-    .work-card-scope__glow {
-        transition: opacity 0.2s ease;
+    .work-card-shot {
+        transition: none;
+    }
+
+    .group:hover .work-card-shot,
+    .group:focus-within .work-card-shot {
+        transform: none;
     }
 }
 

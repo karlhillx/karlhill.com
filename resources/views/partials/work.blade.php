@@ -39,7 +39,7 @@
             @foreach($projects as $project)
                 @php($cardUrl = \App\Support\ProjectCatalog::cardUrl($project))
                 <x-site.work-card
-                    :title="$project['title']"
+                    :title="$project['card_title'] ?? $project['title']"
                     :meta="$project['meta']"
                     :description="$project['description']"
                     :image="$project['image']"
@@ -51,7 +51,6 @@
                     :slug="$project['slug'] ?? null"
                     :external="\App\Support\ProjectCatalog::isExternalUrl($project)"
                     :variant="$project['card_variant'] ?? 'media'"
-                    :scope="$project['scope'] ?? []"
                 />
             @endforeach
         </div>
