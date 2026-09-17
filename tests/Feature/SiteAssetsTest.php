@@ -81,15 +81,16 @@ it('security txt is present with required fields', function () {
     $this->assertStringContainsString('Expires:', $body);
 });
 
-it('robots txt allows search and live ai answers but not training', function () {
+it('robots txt is google-valid and documents ai preferences as comments', function () {
     $path = public_path('robots.txt');
     $this->assertFileExists($path);
 
     $body = file_get_contents($path);
-    $this->assertStringContainsString('Content-Signal: search=yes, ai-input=yes, ai-train=no', $body);
-    $this->assertStringContainsString('Sitemap: https://karlhill.com/sitemap.xml', $body);
-    $this->assertStringContainsString('/.well-known/agent-card.json', $body);
-    $this->assertStringContainsString('User-agent: *', $body);
+    expect($body)->not->toMatch('/^Content-Signal:/m')
+        ->and($body)->toContain('# Content-Signal (contentsignals.org)')
+        ->and($body)->toContain('Sitemap: https://karlhill.com/sitemap.xml')
+        ->and($body)->toContain('/.well-known/agent-card.json')
+        ->and($body)->toContain('User-agent: *');
 });
 
 it('progressive css is linked for selectors lightningcss cannot parse', function () {
