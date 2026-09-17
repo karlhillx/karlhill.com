@@ -2,7 +2,8 @@
 title: "The Unglamorous Work of Leading Engineering Teams"
 slug: leading-teams
 date: 2026-03-10
-excerpt: "High-performing teams are rarely the result of a single brilliant hire. They are the product of consistent standards, honest feedback, and the quiet operational work that makes delivery predictable."
+updated: 2026-09-17
+excerpt: "Architecture diagrams and clever technical wins get the attention. Teams succeed or fail in a quieter layer: clear expectations, coaching, and the work that happens in the seams."
 tags:
   - leadership
   - engineering
@@ -12,14 +13,11 @@ hero_image: img/blog/leading-teams.jpg
 
 Engineering leadership has a visibility problem.
 
-The parts that get celebrated — architecture diagrams, major launches, clever technical wins — are real. But they are not the main reason teams succeed or fail.
+The parts that get celebrated — architecture diagrams, major launches, clever technical wins — are real. They are rarely the main reason a team succeeds or fails.
 
-In my experience across NASA programs, aerospace work, and product engineering, the difference usually shows up in the unglamorous layer:
+I see that now in aerospace software as clearly as I did on NASA systems. Most of the work is keeping roughly twenty repositories, multiple environments, partner teams, and a group of engineers moving under the same expectations.
 
-- Are expectations clear?
-- Can people get unblocked?
-- Does the team know what “done” means?
-- Is quality enforced before integration pain arrives?
+That work is less visible. It is also where leadership matters.
 
 ## Standards are a form of kindness
 
@@ -27,13 +25,19 @@ Teams without shared standards do not feel freer. They feel chaotic.
 
 Pull request expectations, branch governance, definition of done, release notes, documentation habits — these sound bureaucratic until you watch a group burn a sprint reconciling preventable ambiguity.
 
+If each repository develops its own definition of “ready,” the cost shows up during integration. Consistent testing, review expectations, dependency handling, and CI behavior matter more than they look.
+
 Good standards reduce cognitive load. They make it easier for people to contribute confidently, especially newer engineers and partner teams who cannot rely on hallway context.
 
 ## Coaching beats heroics
 
-Every team has moments that reward individual urgency. A production issue. A deadline pressure. A stakeholder escalation.
+Every team has moments that reward individual urgency. A production issue. Deadline pressure. A stakeholder escalation.
 
-But organizations that depend on heroics are already fragile.
+Organizations that depend on those moments are already fragile.
+
+Over the past year I have helped onboard and coach several engineers into a fairly complex mission-software environment. The goal was never to make myself the person they had to ask every time something went wrong. The goal was the opposite.
+
+Reviews should teach. Documentation should remove repeated questions. Standards should let someone make the next decision without needing the person who wrote them.
 
 The more durable model is coaching:
 
@@ -67,7 +71,7 @@ The best engineering leads spend real time in the seams:
 - release readiness
 - handoffs to operations or downstream consumers
 
-That work is rarely tweetable. It is also where senior leadership earns its keep.
+That work is rarely exciting enough for the architecture slide. It is where a technically good system becomes something another team can actually use.
 
 <div class="signoff">
 

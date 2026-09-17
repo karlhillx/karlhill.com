@@ -30,7 +30,7 @@ it('blog show renders for known slug', function () {
 it('automation post does not invent a registry efficiency metric', function () {
     $this->get('/blog/science-data-automation')
         ->assertOk()
-        ->assertSee('content registry workflow', escape: false)
+        ->assertSee('content-registry workflow', escape: false)
         ->assertDontSee('60%', escape: false)
         ->assertDontSee('roughly 60', escape: false);
 });
@@ -97,9 +97,9 @@ it('atom feed reports the real modification date for updated posts', function ()
         ->first(fn ($e) => str_ends_with((string) $e->id, '/blog/release-governance'));
     $this->assertNotNull($entry, 'release-governance entry should be present');
 
-    // Front matter: date 2026-05-15, updated 2026-06-01.
+    // Front matter: date 2026-05-15, updated 2026-09-17.
     $this->assertStringStartsWith('2026-05-15', (string) $entry->published);
-    $this->assertStringStartsWith('2026-06-01', (string) $entry->updated);
+    $this->assertStringStartsWith('2026-09-17', (string) $entry->updated);
 
     // Feed-level <updated> is the newest modification, not merely the newest publish.
     $newest = collect(iterator_to_array($xml->entry, false))->map(fn ($e) => (string) $e->updated)->max();
@@ -116,7 +116,7 @@ it('sitemap lastmod reflects editorial dates rather than today', function () {
         ->mapWithKeys(fn ($u) => [(string) $u->loc => (string) $u->lastmod]);
     $base = rtrim(config('app.url'), '/');
 
-    $this->assertSame('2026-06-01', $lastmod[$base.'/blog/release-governance']);
+    $this->assertSame('2026-09-17', $lastmod[$base.'/blog/release-governance']);
     $this->assertSame('2026-09-16', $lastmod[$base.'/now']);
     $this->assertSame('2026-09-16', $lastmod[$base.'/work/finium']);
     $this->assertNotContains('2030-01-01', $lastmod->all(), 'No URL should claim it changed today');
@@ -274,7 +274,7 @@ it('blog show displays updated date when present', function () {
 
     $response->assertStatus(200);
     $response->assertSee('Updated', escape: false);
-    $response->assertSee('Jun 1, 2026', escape: false);
+    $response->assertSee('Sep 17, 2026', escape: false);
 });
 
 it('blog show includes speculation rules for adjacent posts', function () {
