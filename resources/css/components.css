@@ -722,6 +722,208 @@ a.surface-card::after {
    Print — strip chrome, keep the writing readable
 --------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------
+   Writing index — feed cluster + featured series
+--------------------------------------------------------------------------- */
+.writing-feeds {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+}
+
+.writing-feeds__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.writing-feeds__link,
+.writing-feeds [data-push-subscribe] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.25rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--border-strong);
+    background: color-mix(in oklab, var(--panel) 72%, transparent);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.writing-feeds__link:hover,
+.writing-feeds [data-push-subscribe]:hover {
+    border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+    background: color-mix(in oklab, var(--accent) 6%, var(--panel));
+    color: var(--accent);
+}
+
+.writing-feeds__note {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--muted-2);
+}
+
+.writing-series__mast {
+    margin-bottom: 1.75rem;
+    max-width: 42rem;
+}
+
+.writing-series__kicker {
+    margin: 0 0 0.65rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.writing-series__title {
+    margin: 0 0 0.7rem;
+    font-family: var(--font-sans);
+    font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-sans-tight);
+    color: var(--text);
+    text-wrap: balance;
+}
+
+.writing-series__lede {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
+    color: var(--muted);
+    text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+    .writing-series__mast {
+        margin-bottom: 2rem;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Now — status brief + booking stage
+--------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+    .now-hero .site-shell {
+        display: grid;
+        grid-template-columns: minmax(10rem, auto) minmax(0, 1fr);
+        column-gap: clamp(2.5rem, 6vw, 5rem);
+        align-items: start;
+    }
+
+    .now-hero .site-page-hero__crumbs {
+        grid-column: 1 / -1;
+    }
+
+    .now-hero .site-page-hero__title {
+        margin-bottom: 0;
+        padding-top: 0.1rem;
+    }
+
+    .now-hero .now-status {
+        max-width: 38rem;
+        padding-top: 0.35rem;
+    }
+}
+
+.now-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 40rem;
+}
+
+.now-status__updated {
+    margin: 0 0 1.15rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted-2);
+}
+
+.now-status__lede {
+    margin: 0;
+    font-size: clamp(1.2rem, 2.1vw, 1.45rem);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: var(--tracking-sans-tight);
+    color: var(--text);
+    text-wrap: pretty;
+}
+
+.now-status__body {
+    margin: 0.8rem 0 0;
+    font-size: 1.05rem;
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
+    color: var(--muted);
+    text-wrap: pretty;
+}
+
+.now-status__focus {
+    margin: 1.2rem 0 0;
+    padding: 0.9rem 1.15rem;
+    border-left: 2px solid var(--accent);
+    background: color-mix(in oklab, var(--accent) 6%, var(--panel));
+    font-size: 1.05rem;
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
+    color: var(--text);
+    text-wrap: pretty;
+}
+
+.now-status__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    margin-top: 1.65rem;
+}
+
+.now-book__mast {
+    margin-bottom: 1.5rem;
+    max-width: 40rem;
+}
+
+.now-book__title {
+    margin: 0 0 0.55rem;
+    font-family: var(--font-sans);
+    font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-sans-tight);
+    color: var(--text);
+}
+
+.now-book__lede {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
+    color: var(--muted);
+    text-wrap: pretty;
+}
+
+.now-book .booking-embed {
+    margin-top: 0;
+}
+
+/* ---------------------------------------------------------------------------
    Series chapter strip
 --------------------------------------------------------------------------- */
 .series-chapters {
@@ -868,6 +1070,57 @@ a.series-chapters__card:hover .series-chapters__title,
 
     .series-chapters__card {
         min-height: 8.25rem;
+    }
+}
+
+/* Index board: three equal columns, full titles, no timeline ticks. */
+@media (min-width: 768px) {
+    .series-chapters--board {
+        margin-inline: 0;
+        padding-inline: 0;
+        overflow: visible;
+    }
+
+    .series-chapters--board .series-chapters__track {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        padding: 0;
+        min-width: 0;
+    }
+
+    .series-chapters--board .series-chapters__item {
+        width: auto;
+        padding-right: 0;
+    }
+
+    .series-chapters--board .series-chapters__item:not(:last-child)::after {
+        display: none;
+    }
+
+    .series-chapters--board .series-chapters__card {
+        min-height: 10.5rem;
+        padding: 1.25rem 1.35rem 1.15rem;
+        gap: 0.7rem;
+    }
+
+    .series-chapters--board .series-chapters__title {
+        font-size: 1.125rem;
+        line-height: 1.35;
+    }
+
+    .series-chapters--board a.series-chapters__card::after {
+        content: '→';
+        margin-top: auto;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: var(--tracking-mono);
+        color: var(--muted-2);
+        transition: color 0.2s ease;
+    }
+
+    .series-chapters--board a.series-chapters__card:hover::after {
+        color: var(--accent);
     }
 }
 

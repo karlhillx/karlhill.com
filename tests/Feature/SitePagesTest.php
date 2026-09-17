@@ -366,6 +366,10 @@ it('now page is hero plus scheduler', function () {
     $response->assertSee('Recruiter kit', escape: false);
     $response->assertSee('href="#book"', escape: false);
     $response->assertSee('id="book"', escape: false);
+    $response->assertSee('now-hero', escape: false);
+    $response->assertSee('now-status', escape: false);
+    $response->assertSee('now-book', escape: false);
+    $response->assertSee('id="now-book-heading"', escape: false);
     $response->assertSee('booking-embed', escape: false);
     $response->assertDontSee('id="focus"', escape: false);
     $response->assertDontSee('id="recruiters"', escape: false);

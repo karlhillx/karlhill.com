@@ -222,6 +222,8 @@ it('em craft series appears on posts and index', function () {
     $index->assertStatus(200);
     $index->assertSee('Engineering leadership in practice', escape: false);
     $index->assertSee('id="em-craft"', escape: false);
+    $index->assertSee('writing-series', escape: false);
+    $index->assertSee('series-chapters--board', escape: false);
     $index->assertSee('series-chapters', escape: false);
     $index->assertSee('Swipe to browse', escape: false);
 

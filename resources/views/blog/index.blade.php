@@ -44,34 +44,36 @@
     <p class="site-page-hero__lede text-neutral-300">
         Practical notes on software engineering, technical leadership, and delivery.
     </p>
-    <div class="flex flex-wrap items-center gap-4 mt-6 sm:mt-7">
-        <a href="{{ route('feed') }}"
-           class="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-            @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])
-            Subscribe via Atom feed
-        </a>
-        <a href="{{ route('feed.json') }}"
-           class="inline-flex items-center gap-2 font-mono text-xs text-neutral-500 hover:text-accent uppercase tracking-widest transition-colors">
-            JSON Feed
-        </a>
-        <x-site.push-subscribe />
-        <span class="font-mono text-caption text-neutral-500 uppercase tracking-widest">No newsletter, no spam — just the feed.</span>
+    <div class="writing-feeds mt-6 sm:mt-7">
+        <div class="writing-feeds__actions">
+            <a href="{{ route('feed') }}" class="writing-feeds__link">
+                @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])
+                Subscribe via Atom feed
+            </a>
+            <a href="{{ route('feed.json') }}" class="writing-feeds__link">
+                JSON Feed
+            </a>
+            <x-site.push-subscribe />
+        </div>
+        <p class="writing-feeds__note">No newsletter, no spam — just the feed.</p>
     </div>
 </x-site.page-hero>
 
 @if(isset($seriesList) && $seriesList->isNotEmpty())
     <section class="site-section site-section--soft border-t border-neutral-800/50" aria-label="Series">
-        <div class="site-shell space-y-12">
+        <div class="site-shell space-y-16">
             @foreach($seriesList as $series)
-                <div id="{{ $series['id'] }}" class="scroll-mt-28" data-reveal>
-                    <div class="grid md:grid-cols-[220px_1fr] gap-6 md:gap-12 mb-8">
-                        <div>
-                            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-3">Series</p>
-                            <h2 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 leading-snug">{{ $series['title'] }}</h2>
-                        </div>
-                        <p class="text-neutral-400 text-base leading-relaxed max-w-2xl md:pt-8">{{ $series['description'] }}</p>
-                    </div>
-                    <x-site.series-chapters :series="$series" />
+                <div id="{{ $series['id'] }}" class="writing-series scroll-mt-28" data-reveal>
+                    <header class="writing-series__mast">
+                        <p class="writing-series__kicker">
+                            Series
+                            <span aria-hidden="true">·</span>
+                            {{ $series['posts']->count() }} chapters
+                        </p>
+                        <h2 class="writing-series__title">{{ $series['title'] }}</h2>
+                        <p class="writing-series__lede">{{ $series['description'] }}</p>
+                    </header>
+                    <x-site.series-chapters :series="$series" class="series-chapters--board" />
                 </div>
             @endforeach
         </div>

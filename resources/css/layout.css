@@ -129,7 +129,16 @@ main > section:nth-of-type(n + 3):not([id]) {
     }
 
     .site-page-hero__body .kit-screen-actions,
-    .site-page-hero__body > .flex {
+    .site-page-hero__body > .flex,
+    .site-page-hero__body .writing-feeds {
+        margin-top: 1.35rem;
+    }
+
+    .site-page-hero__body .now-status {
+        max-width: none;
+    }
+
+    .now-status__actions {
         margin-top: 1.35rem;
     }
 
