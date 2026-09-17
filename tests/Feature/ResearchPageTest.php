@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\PageMeta;
 use App\Support\ScholarlyArticleJsonLd;
 
 it('serves a canonical publication page with scholarly metadata', function () {
@@ -7,6 +8,8 @@ it('serves a canonical publication page with scholarly metadata', function () {
 
     $response->assertOk()
         ->assertSee('<title>NASA Global Water and Flood Mapping Research — Karl Hill</title>', escape: false)
+        ->assertSee('property="og:title" content="NASA Global Water and Flood Mapping Research — Karl Hill"', escape: false)
+        ->assertSee('name="twitter:title" content="NASA Global Water and Flood Mapping Research — Karl Hill"', escape: false)
         ->assertSee('name="citation_title" content="A web-based high-resolution global water and flood mapping platform"', escape: false)
         ->assertSee('name="citation_doi" content="10.1144/gh2025-7"', escape: false)
         ->assertSee('name="citation_author" content="Hill, Karl M."', escape: false)
@@ -58,5 +61,6 @@ it('builds complete scholarly article json-ld', function () {
         ->and($node['keywords'])->toContain('NASA flood mapping');
 
     $graph = ScholarlyArticleJsonLd::pageGraph()['@graph'];
-    expect(collect($graph)->pluck('@type')->all())->toContain('Person', 'ScholarlyArticle', 'WebPage', 'Dataset');
+    expect(collect($graph)->pluck('@type')->all())->toContain('Person', 'ScholarlyArticle', 'WebPage', 'Dataset')
+        ->and(collect($graph)->firstWhere('@type', 'WebPage')['name'])->toBe(PageMeta::research()->title);
 });

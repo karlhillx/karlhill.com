@@ -216,6 +216,7 @@ final class ScholarlyArticleJsonLd
         $article = self::node($person['@id']);
         $seo = config('site.seo.research', []);
         $research = self::config();
+        $pageMeta = PageMeta::research();
         $shareImage = [
             '@type' => 'ImageObject',
             'url' => $siteUrl.($research['image'] ?? '/img/ss-geohorizons.png'),
@@ -230,8 +231,8 @@ final class ScholarlyArticleJsonLd
                 '@type' => 'WebPage',
                 '@id' => $url.'#webpage',
                 'url' => $url,
-                'name' => $seo['title'] ?? ($research['title'] ?? 'Research'),
-                'description' => $seo['description'] ?? ($research['summary'] ?? null),
+                'name' => $pageMeta->title,
+                'description' => $pageMeta->ogDescription ?? $pageMeta->description,
                 'inLanguage' => 'en-US',
                 'image' => $shareImage,
                 'primaryImageOfPage' => $shareImage,
