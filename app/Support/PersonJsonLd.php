@@ -115,9 +115,8 @@ final class PersonJsonLd
     }
 
     /**
-     * Square JPEG portrait for Search thumbnails. og-home.jpg stays the
-     * social card (1200×630); Google's result thumbnail is square and was
-     * picking the Jacobs mark off the homepage instead.
+     * Person / ProfilePage photo. Google listing favicons are the rocket
+     * mark; this image is the knowledge-panel / profile photo.
      *
      * @return array<string, mixed>
      */
@@ -134,6 +133,26 @@ final class PersonJsonLd
             'height' => 800,
             'caption' => is_string($person['name'] ?? null) ? $person['name'] : 'Karl Hill',
             'representativeOfPage' => true,
+        ];
+    }
+
+    /**
+     * Square rocket mark for WebSite.logo (≥112px). Distinct from the
+     * Person portrait and from the 1200×630 social card.
+     *
+     * @return array<string, mixed>
+     */
+    public static function siteMarkImage(): array
+    {
+        $url = PageMeta::siteUrl();
+
+        return [
+            '@type' => 'ImageObject',
+            'url' => "{$url}/img/android-chrome-512x512.png",
+            'contentUrl' => "{$url}/img/android-chrome-512x512.png",
+            'width' => 512,
+            'height' => 512,
+            'caption' => 'Karl Hill',
         ];
     }
 

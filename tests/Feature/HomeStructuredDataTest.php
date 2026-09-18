@@ -88,7 +88,7 @@ it('homepage structured data describes the person website and blog graph', funct
     expect($website['alternateName'])->toBe('karlhill.com')
         ->and($website['publisher']['@id'])->toBe($person['@id'])
         ->and($website['image']['url'])->toEndWith('/img/og-home.jpg')
-        ->and($website['logo']['url'])->toEndWith('/img/profile.jpg');
+        ->and($website['logo']['url'])->toEndWith('/img/android-chrome-512x512.png');
 
     $profile = collect($graph)->firstWhere('@type', 'ProfilePage');
     expect($profile['primaryImageOfPage']['url'])->toEndWith('/img/profile.jpg')
@@ -116,6 +116,8 @@ it('homepage html includes a disambiguating title and json-ld', function () {
     $response->assertSee('type="image/svg+xml"', escape: false);
     $response->assertSee('rel="icon" href="/favicon.ico" sizes="48x48"', escape: false);
     $response->assertSee('sizes="48x48" href="/img/favicon-48x48.png"', escape: false);
+    $response->assertSee('sizes="96x96" href="/img/favicon-96x96.png"', escape: false);
+    $response->assertSee('sizes="192x192" href="/img/android-chrome-192x192.png"', escape: false);
     $response->assertSee('class="brand-lockup', escape: false);
     $response->assertSee('brand-lockup__mark', escape: false);
     $response->assertSee('>KARL HILL</span>', escape: false);

@@ -1,5 +1,5 @@
-{{-- Site mark — same rocket-and-box SVG as the favicon. Decorative next to
-     the wordmark; pass alt when it is the only identity on the page. --}}
+{{-- Site mark — same rocket SVG as the search favicon. Pass alt when it
+     is the only identity on the page. --}}
 @props([
     'size' => 28,
     'alt' => '',

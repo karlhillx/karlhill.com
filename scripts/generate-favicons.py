@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
-"""Build PNG/ICO/maskable icons from the rasterized favicon master PNG."""
+"""Build PNG/ICO/maskable icons from favicon.svg (the rocket site mark).
+
+Google Search listing icons come from <link rel="icon">. Person JSON-LD
+image is the portrait and must not be used as the favicon.
+"""
 
 from __future__ import annotations
 
+import struct
 import subprocess
 import sys
 from pathlib import Path
 
-from PIL import Image
-
 ROOT = Path(__file__).resolve().parents[1]
 IMG = ROOT / "public" / "img"
 MASTER = IMG / ".favicon-master.png"
-NAVY = (2, 34, 75, 255)  # #02224b — darkest fill in favicon.svg
 RASTERIZE = ROOT / "scripts" / "rasterize-favicon.mjs"
+NAVY = "0x02224b"
 
 SIZES = {
     "favicon-16x16.png": 16,
@@ -25,68 +28,115 @@ SIZES = {
 }
 
 
-def python_ok() -> None:
-    if not hasattr(Image, "Resampling"):
-        raise SystemExit("Pillow 10+ is required")
-
-
-def rasterize() -> None:
-    cmd = ["node", str(RASTERIZE), str(MASTER)]
+def run(cmd: list[str]) -> None:
     result = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
     if result.returncode != 0:
         sys.stderr.write(result.stdout)
         sys.stderr.write(result.stderr)
-        raise SystemExit("favicon rasterize failed (Playwright Chromium required)")
-    if result.stdout:
+        raise SystemExit(f"command failed: {' '.join(cmd[:3])}")
+    if result.stdout.strip():
         print(result.stdout.strip())
 
 
-def fit(source: Image.Image, size: int) -> Image.Image:
-    return source.resize((size, size), Image.Resampling.LANCZOS)
+def ffmpeg(*args: str) -> None:
+    run(["ffmpeg", "-hide_banner", "-loglevel", "error", *args])
 
 
-def opaque(source: Image.Image, size: int, fill: tuple[int, int, int, int] = NAVY) -> Image.Image:
-    canvas = Image.new("RGBA", (size, size), fill)
-    icon = fit(source, size)
-    canvas.alpha_composite(icon)
-    return canvas
+def rasterize() -> None:
+    run(["node", str(RASTERIZE), str(MASTER)])
 
 
-def maskable(source: Image.Image, size: int) -> Image.Image:
-    canvas = Image.new("RGBA", (size, size), NAVY)
-    inner = int(round(size * 0.8))
-    icon = fit(source, inner)
-    offset = (size - inner) // 2
-    canvas.alpha_composite(icon, (offset, offset))
-    return canvas
+def scale_png(size: int, dest: Path) -> None:
+    ffmpeg(
+        "-y",
+        "-i",
+        str(MASTER),
+        "-vf",
+        f"scale={size}:{size}:flags=lanczos+accurate_rnd,format=rgba",
+        "-update",
+        "1",
+        "-frames:v",
+        "1",
+        str(dest),
+    )
 
 
-def save_png(image: Image.Image, dest: Path) -> None:
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    image.save(dest, "PNG", optimize=True)
+def composite_on_navy(size: int, dest: Path, inner: int | None = None) -> None:
+    icon_size = inner if inner is not None else size
+    offset = (size - icon_size) // 2
+    ffmpeg(
+        "-y",
+        "-f",
+        "lavfi",
+        "-i",
+        f"color=c={NAVY}:s={size}x{size}:d=1,format=rgba",
+        "-i",
+        str(MASTER),
+        "-filter_complex",
+        f"[1:v]scale={icon_size}:{icon_size}:flags=lanczos+accurate_rnd,format=rgba[icon];"
+        f"[0:v][icon]overlay={offset}:{offset}:format=auto",
+        "-update",
+        "1",
+        "-frames:v",
+        "1",
+        str(dest),
+    )
+
+
+def png_size(blob: bytes) -> tuple[int, int]:
+    if blob[:8] != b"\x89PNG\r\n\x1a\n":
+        raise SystemExit(f"not a PNG ({len(blob)} bytes)")
+    width, height = struct.unpack(">II", blob[16:24])
+    return width, height
+
+
+def write_ico(png_paths: list[Path], dest: Path) -> None:
+    blobs = [path.read_bytes() for path in png_paths]
+    count = len(blobs)
+    offset = 6 + 16 * count
+    header = struct.pack("<HHH", 0, 1, count)
+    entries = bytearray()
+    payload = bytearray()
+
+    for blob in blobs:
+        width, height = png_size(blob)
+        entries += struct.pack(
+            "<BBBBHHII",
+            0 if width >= 256 else width,
+            0 if height >= 256 else height,
+            0,
+            0,
+            1,
+            32,
+            len(blob),
+            offset,
+        )
+        payload += blob
+        offset += len(blob)
+
+    dest.write_bytes(header + bytes(entries) + bytes(payload))
 
 
 def main() -> int:
-    python_ok()
     rasterize()
     try:
-        source = Image.open(MASTER).convert("RGBA")
-
         for name, size in SIZES.items():
-            save_png(fit(source, size), IMG / name)
+            scale_png(size, IMG / name)
 
-        save_png(opaque(source, 180), IMG / "apple-touch-icon.png")
-        save_png(maskable(source, 192), IMG / "maskable-192x192.png")
-        save_png(maskable(source, 512), IMG / "maskable-512x512.png")
+        composite_on_navy(180, IMG / "apple-touch-icon.png")
+        composite_on_navy(192, IMG / "maskable-192x192.png", inner=round(192 * 0.8))
+        composite_on_navy(512, IMG / "maskable-512x512.png", inner=round(512 * 0.8))
 
-        ico_source = fit(source, 256)
-        ico_source.save(
-            IMG / "favicon.ico",
-            format="ICO",
-            sizes=[(16, 16), (32, 32), (48, 48)],
+        ico = IMG / "favicon.ico"
+        write_ico(
+            [
+                IMG / "favicon-16x16.png",
+                IMG / "favicon-32x32.png",
+                IMG / "favicon-48x48.png",
+            ],
+            ico,
         )
-        public_ico = ROOT / "public" / "favicon.ico"
-        public_ico.write_bytes((IMG / "favicon.ico").read_bytes())
+        (ROOT / "public" / "favicon.ico").write_bytes(ico.read_bytes())
     finally:
         MASTER.unlink(missing_ok=True)
 

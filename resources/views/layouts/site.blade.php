@@ -89,12 +89,13 @@
         <link rel="preload" as="font" type="font/woff2" href="{{ $fontUrl }}" crossorigin>
     @endforeach
 
-    {{-- SVG is the sharp tab icon. Google Search still wants a square ≥48px
-         PNG at a stable URL (`/favicon.ico` and the 48/192 PNGs). --}}
+    {{-- Listing favicon = rocket. Google Search uses these square ≥48px
+         files (one per hostname). The portrait lives on Person JSON-LD. --}}
     @php($iconV = filemtime(public_path('img/favicon.svg')))
     <link rel="icon" href="/img/favicon.svg?v={{ $iconV }}" type="image/svg+xml">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/img/android-chrome-192x192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png?v={{ $iconV }}">
     <link rel="manifest" href="/site.webmanifest">

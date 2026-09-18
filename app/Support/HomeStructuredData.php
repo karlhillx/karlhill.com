@@ -19,9 +19,11 @@ final class HomeStructuredData
         $personId = $personLd['@id'];
         $websiteId = "{$url}/#website";
         $portrait = PersonJsonLd::portraitImage();
+        $siteMark = PersonJsonLd::siteMarkImage();
 
-        // og-home.jpg is the social card. Search result thumbnails are square —
-        // point those at the portrait so Google does not pick a work-card logo.
+        // Three distinct Google surfaces: rocket favicon + WebSite.logo for
+        // the listing/brand mark, Person/ProfilePage image for the face,
+        // og-home.jpg for the social card. Do not point logo at a work card.
         $shareImage = [
             '@type' => 'ImageObject',
             'url' => "{$url}/img/og-home.jpg",
@@ -40,7 +42,7 @@ final class HomeStructuredData
             'description' => $seo['description'],
             'inLanguage' => 'en-US',
             'image' => $shareImage,
-            'logo' => $portrait,
+            'logo' => $siteMark,
             'publisher' => ['@id' => $personId],
             'about' => ['@id' => $personId],
         ];

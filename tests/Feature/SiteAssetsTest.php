@@ -55,6 +55,10 @@ it('web manifest includes required pwa fields', function () {
     $this->assertTrue(
         collect($manifest['icons'])->contains(fn ($icon) => ($icon['purpose'] ?? '') === 'maskable'),
     );
+    $this->assertTrue(
+        collect($manifest['icons'])->contains(fn ($icon) => ($icon['src'] ?? '') === '/img/favicon.svg'),
+        'PWA icons should include the rocket SVG site mark.',
+    );
 });
 
 it('image helpers map avif and srcset widths', function () {
