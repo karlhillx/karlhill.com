@@ -8,6 +8,26 @@
   <updated>2026-09-18T00:00:00+00:00</updated>
   <author><name>The Dry Standard</name></author>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/freixenet-0-0/</id>
+    <title>Freixenet 0,0 Sparkling White</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/freixenet-0-0/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Freixenet&apos;s alcohol-removed sparkling white, made from Airén grapes in Penedès, the same DO as the brand&apos;s Cava. Sub-0.05% ABV, sold nationwide at a Cava-adjacent price point. Removal method unpublished.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/giesen-0-sauvignon-blanc/</id>
+    <title>Giesen 0% Sauvignon Blanc</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/giesen-0-sauvignon-blanc/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>New Zealand&apos;s best-selling alcohol-removed white, built the honest way: full-strength Sauvignon Blanc first, alcohol stripped after via spinning cone.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/guinness-0-0/</id>
     <title>Guinness 0.0</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/beer/guinness-0-0/"/>
@@ -48,6 +68,16 @@
     <summary>Organic La Mancha Chardonnay, dealcoholized, then lightly carbonated. Pale, crisp, and modestly sweet — with a documented alcohol-removal step.</summary>
   </entry>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/oddbird-blanc-de-blancs/</id>
+    <title>Oddbird Blanc de Blancs</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/oddbird-blanc-de-blancs/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>A Swedish brand&apos;s French-made sparkling Blanc de Blancs, aged 12 months in oak before the alcohol is vacuum-distilled out. Reads closer to Champagne-style than most dealcoholized proseccos.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/spirits/spiritless-kentucky-74/</id>
     <title>Spiritless Kentucky 74</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/spirits/spiritless-kentucky-74/"/>
@@ -56,5 +86,15 @@
     <author><name>The Dry Standard</name></author>
     <category term="spirits"/>
     <summary>Louisville&apos;s reverse-distilled whiskey alternative. Alcohol is removed from an oak-charged high-proof spirit. It is not dealcoholized Maker&apos;s Mark.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/st-regis-non-alcoholic-rose/</id>
+    <title>St. Regis Non-Alcoholic Rosé</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/st-regis-non-alcoholic-rose/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>A German-made Syrah/Shiraz rosé, vacuum-distilled to remove alcohol, sold nationally at Total Wine for under $13. Producer-confirmed method; taste reception is mixed.</summary>
   </entry>
 </feed>

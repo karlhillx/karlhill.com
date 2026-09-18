@@ -1,1 +1,24 @@
-[]
+-
+  slug: giesen-0-sauvignon-blanc
+  product: '0% Sauvignon Blanc'
+  brand: Giesen
+  published_at: '2026-09-18T22:58:54+00:00'
+  path: reviews/wine/giesen-0-sauvignon-blanc/
+-
+  slug: oddbird-blanc-de-blancs
+  product: 'Blanc de Blancs'
+  brand: Oddbird
+  published_at: '2026-09-18T22:58:54+00:00'
+  path: reviews/wine/oddbird-blanc-de-blancs/
+-
+  slug: freixenet-0-0
+  product: '0,0 Sparkling White'
+  brand: Freixenet
+  published_at: '2026-09-18T22:58:54+00:00'
+  path: reviews/wine/freixenet-0-0/
+-
+  slug: st-regis-non-alcoholic-rose
+  product: 'Non-Alcoholic Rosé'
+  brand: 'St. Regis'
+  published_at: '2026-09-18T23:02:54+00:00'
+  path: reviews/wine/st-regis-non-alcoholic-rose/
