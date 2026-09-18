@@ -1,0 +1,48 @@
+- product: Athletic Brewing Run Wild IPA
+  brand: Athletic Brewing
+  category: beer
+  priority: high
+  status: queued
+  notes: Proprietary low-ABV brewing. Confirm whether alcohol is removed from finished beer or limited during fermentation before drafting.
+
+- product: Sober Spirits Whisky
+  brand: Sober Spirits
+  category: spirits
+  priority: high
+  status: queued
+  notes: Confirm the product exists, the exact SKU, ABV, and whether it is dealcoholized or formulated.
+
+- product: Giesen 0% Sauvignon Blanc
+  brand: Giesen
+  category: wine
+  priority: normal
+  status: queued
+  notes: New Zealand dealcoholized Sauvignon Blanc. Verify method and residual sugar from producer technical notes.
+
+- product: Oddbird Blanc de Blancs
+  brand: Oddbird
+  category: wine
+  priority: normal
+  status: queued
+  notes: Swedish brand, dealcoholized sparkling. Confirm method (often described as vacuum) from primary sources.
+
+- product: Heineken 0.0
+  brand: Heineken
+  category: beer
+  priority: normal
+  status: queued
+  notes: Widely available. Confirm dealcoholization method from Heineken technical communications.
+
+- product: Best Day Kolsch
+  brand: Best Day Brewing
+  category: beer
+  priority: low
+  status: queued
+  notes: US NA brewery. Do not assume dealcoholization.
+
+- product: Freixenet 0.0
+  brand: Freixenet
+  category: wine
+  priority: normal
+  status: queued
+  notes: Sparkling. Verify production method before using the word dealcoholized.

@@ -1,0 +1,35 @@
+site:
+  name: The Dry Standard
+  tagline: Independent reviews of dealcoholized beer, wine, spirits, and cocktails.
+  description: Editorial reviews of dealcoholized and non-alcoholic drinks at 0.5% ABV or less, with a hard line between alcohol-removed products and zero-proof formulations.
+  mission: The Dry Standard concentrates on beverages at 0.5% ABV or less. We give particular weight to drinks made by removing alcohol from a finished beer, wine, or spirit — and we say so when a product was simply formulated to taste like one.
+  base_path: /clients/the-dry-standard
+  canonical_host: https://karlhill.com
+
+publishing:
+  enabled: true
+  reviews_per_week: 3
+  days:
+    - monday
+    - wednesday
+    - friday
+  git_commit: false
+  require_validation: true
+
+models:
+  research: local
+  drafting: local
+  editing: local
+  validation: local
+  fallback: disabled
+
+categories:
+  wine: Wine
+  beer: Beer
+  spirits: Spirits
+  cocktails: Cocktails
+  cider: Cider
+
+rating:
+  scale: 100
+  description: Scores judge beverage quality, not how closely a drink impersonates ethanol.

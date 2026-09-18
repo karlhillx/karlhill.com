@@ -1,0 +1,44 @@
+title: string
+slug: kebab-case, no dates
+brand: string
+product: string
+category: wine | beer | spirits | cocktails | cider
+subcategory: string, optional
+country: string, sourced
+region: string, sourced
+style: string, editorial
+abv: string, sourced
+abv_numeric: number <= 0.5, optional
+dealcoholized: yes | no | not-verified
+dealcoholized_note: optional display override
+dealcoholization_method: string, sourced when dealcoholized=yes
+base_beverage: string, sourced
+producer: string, sourced
+price: approximate retail, sourced
+volume: string, sourced
+ingredients: string, sourced
+calories: string, sourced
+sugar: string, sourced
+availability: string, sourced
+purchase_links:
+  - label: string
+    url: url
+    region: US
+review_date: YYYY-MM-DD
+updated_date: YYYY-MM-DD
+rating: 0-100
+verdict: editorial
+summary: editorial
+nose: editorial
+palate: editorial
+finish: editorial
+best_for: editorial
+serve: editorial
+sources:
+  - title: string
+    url: url
+    claims: [abv, method, origin, producer, ingredients, calories, sugar, price, availability, volume, dealcoholized, base_beverage, country, region]
+discrepancies:
+  - field: string
+    note: string
+status: queued | researching | draft | validated | scheduled | published | needs-review

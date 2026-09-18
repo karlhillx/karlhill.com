@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="The Dry Standard">
+  <rect width="64" height="64" fill="#12100e"/>
+  <circle cx="32" cy="32" r="20" fill="none" stroke="#f3eee4" stroke-width="1.5"/>
+  <path d="M24 40 V24 h9.5 c5 0 8 2.6 8 7.2 0 4.7-3.1 7.3-8.2 7.3H24z" fill="none" stroke="#d7b56a" stroke-width="2"/>
+  <text x="32" y="54" text-anchor="middle" fill="#f3eee4" font-size="6" font-family="Georgia, serif">0.5</text>
+</svg>

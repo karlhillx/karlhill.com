@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karlhill.com/clients/the-dry-standard/sitemap.xml

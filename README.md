@@ -229,6 +229,10 @@ and are served at:
 Not linked from the main nav or sitemap. Add a new folder under `clients/` to
 stage the next preview.
 
+The Dry Standard (`/clients/the-dry-standard/`) is an editorial review site
+with markdown reviews and `php artisan dry-standard:*` to validate, build, and
+publish. See `clients/the-dry-standard/README.md`.
+
 ## Project Layout
 
 ```
