@@ -16,14 +16,14 @@
   brand: Giesen
   category: wine
   priority: normal
-  status: queued
+  status: published
   notes: New Zealand dealcoholized Sauvignon Blanc. Verify method and residual sugar from producer technical notes.
 
 - product: Oddbird Blanc de Blancs
   brand: Oddbird
   category: wine
   priority: normal
-  status: queued
+  status: published
   notes: Swedish brand, dealcoholized sparkling. Confirm method (often described as vacuum) from primary sources.
 
 - product: Heineken 0.0
@@ -44,7 +44,7 @@
   brand: Freixenet
   category: wine
   priority: normal
-  status: queued
+  status: published
   notes: Sparkling. Verify production method before using the word dealcoholized.
 
 - product: Greenbar UNRum + Cola
@@ -135,7 +135,7 @@
   brand: St. Regis
   category: wine
   priority: high
-  status: queued
+  status: published
   dealcoholized: not-verified
   method: not-verified
   abv: not-verified
