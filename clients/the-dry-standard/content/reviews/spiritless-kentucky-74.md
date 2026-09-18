@@ -1,6 +1,8 @@
 ---
 title: "Spiritless Kentucky 74"
 slug: spiritless-kentucky-74
+id: TDS-0092
+sku: TDS-0092
 brand: Spiritless
 product: Kentucky 74
 category: spirits

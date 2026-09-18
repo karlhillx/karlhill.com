@@ -1,6 +1,8 @@
 ---
 title: "Guinness 0.0"
 slug: guinness-0-0
+id: TDS-0097
+sku: TDS-0097
 brand: Guinness
 product: Guinness 0.0
 category: beer

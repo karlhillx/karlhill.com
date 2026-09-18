@@ -52,7 +52,7 @@ final class ReviewQueue
         }
 
         $items = $this->all();
-        $items[] = [
+        $row = [
             'product' => $product,
             'brand' => $brand,
             'category' => (string) ($item['category'] ?? ''),
@@ -60,6 +60,13 @@ final class ReviewQueue
             'status' => (string) ($item['status'] ?? 'queued'),
             'notes' => (string) ($item['notes'] ?? ''),
         ];
+        $code = trim((string) ($item['id'] ?? $item['sku'] ?? ''));
+
+        if ($code !== '') {
+            $row = ['product' => $product, 'id' => $code, 'sku' => $code, ...array_slice($row, 1)];
+        }
+
+        $items[] = $row;
 
         $this->write($items);
     }

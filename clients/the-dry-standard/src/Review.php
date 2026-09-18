@@ -69,6 +69,8 @@ final class Review
         public readonly ?string $image = null,
         public readonly ?string $imageAlt = null,
         public readonly ?string $imageCredit = null,
+        public readonly ?string $id = null,
+        public readonly ?string $sku = null,
     ) {}
 
     /**
@@ -127,6 +129,8 @@ final class Review
             image: self::nullableString($matter['image'] ?? null),
             imageAlt: self::nullableString($matter['image_alt'] ?? null),
             imageCredit: self::nullableString($matter['image_credit'] ?? null),
+            id: self::nullableString($matter['id'] ?? $matter['sku'] ?? null),
+            sku: self::nullableString($matter['sku'] ?? $matter['id'] ?? null),
         );
     }
 

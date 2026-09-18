@@ -1,5 +1,7 @@
 title: string
 slug: kebab-case, no dates
+id: TDS-#### internal identifier, optional; do not render
+sku: currently duplicates id, optional; do not render
 brand: string
 product: string
 category: wine | beer | spirits | cocktails | cider

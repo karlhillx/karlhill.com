@@ -38,7 +38,7 @@ content/guides/*.md
 content/methods/*.md
 content/pages/about.md
 data/config.yaml         # cadence, models, categories, URLs
-data/master-products.csv # one row per unique product, sorted by times purchased
+data/master-products.csv # one row per unique product, internal ID + SKU, sorted by times purchased
 data/review-queue.yaml
 data/publish-log.yaml
 src/                     # PHP builder (DryStandard\)

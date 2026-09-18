@@ -1,4 +1,6 @@
 - product: Athletic Brewing Run Wild IPA
+  id: TDS-0101
+  sku: TDS-0101
   brand: Athletic Brewing
   category: beer
   priority: high
@@ -6,6 +8,8 @@
   notes: Proprietary low-ABV brewing. Confirm whether alcohol is removed from finished beer or limited during fermentation before drafting.
 
 - product: Sober Spirits Whisky
+  id: TDS-0102
+  sku: TDS-0102
   brand: Sober Spirits
   category: spirits
   priority: high
@@ -13,6 +17,8 @@
   notes: "Confirm the product exists, the exact SKU, ABV, and whether it is dealcoholized or formulated."
 
 - product: Heineken 0.0
+  id: TDS-0103
+  sku: TDS-0103
   brand: Heineken
   category: beer
   priority: normal
@@ -20,6 +26,8 @@
   notes: Widely available. Confirm dealcoholization method from Heineken technical communications.
 
 - product: Be Free Rose Non-Alcoholic Wine
+  id: TDS-0001
+  sku: TDS-0001
   brand: Be Free
   category: wine
   priority: high
@@ -34,6 +42,8 @@
   notes: From the master product table. Purchased 31 time(s) between 2026-01-11 and 2026-09-02. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Magic Box Vanish Non-Alcoholic Riesling
+  id: TDS-0002
+  sku: TDS-0002
   brand: Magic Box
   category: wine
   priority: high
@@ -48,6 +58,8 @@
   notes: From the master product table. Purchased 23 time(s) between 2026-01-11 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Appalina Alcohol Free Chardonnay
+  id: TDS-0003
+  sku: TDS-0003
   brand: Appalina
   category: wine
   priority: high
@@ -62,6 +74,8 @@
   notes: From the master product table. Purchased 23 time(s) between 2026-03-28 and 2026-08-14. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Be Free White Sparkling Non-Alcoholic Wine
+  id: TDS-0004
+  sku: TDS-0004
   brand: Be Free
   category: wine
   priority: high
@@ -76,6 +90,8 @@
   notes: From the master product table. Purchased 13 time(s) between 2026-04-03 and 2026-07-29. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Halfway Crooks Non-Alcoholic IPA \"Brevet\""
+  id: TDS-0005
+  sku: TDS-0005
   brand: Halfway Crooks Beer
   category: beer
   priority: high
@@ -90,6 +106,8 @@
   notes: From the master product table. Purchased 9 time(s) between 2026-03-21 and 2026-08-22. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Be Free Chardonnay Non-Alcoholic Wine
+  id: TDS-0006
+  sku: TDS-0006
   brand: Be Free
   category: wine
   priority: high
@@ -104,6 +122,8 @@
   notes: From the master product table. Purchased 9 time(s) between 2026-03-28 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Giesen 0% Non-Alcoholic Riesling"
+  id: TDS-0007
+  sku: TDS-0007
   brand: Giesen
   category: wine
   priority: high
@@ -118,6 +138,8 @@
   notes: From the master product table. Purchased 8 time(s) between 2026-01-31 and 2026-04-03. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Halfway Crooks Non-Alcoholic Pilsner \"Brevet\""
+  id: TDS-0008
+  sku: TDS-0008
   brand: Halfway Crooks Beer
   category: beer
   priority: high
@@ -132,6 +154,8 @@
   notes: From the master product table. Purchased 8 time(s) between 2026-02-22 and 2026-08-22. Do not publish until ABV and dealcoholization are sourced.
 
 - product: DC Brau Non-Alcoholic Pale Ale
+  id: TDS-0009
+  sku: TDS-0009
   brand: DC Brau Brewing Co.
   category: beer
   priority: normal
@@ -146,6 +170,8 @@
   notes: From the master product table. Purchased 6 time(s) between 2026-01-11 and 2026-08-28. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Clearscape Non-Alcoholic Rose
+  id: TDS-0010
+  sku: TDS-0010
   brand: Clearscape
   category: wine
   priority: normal
@@ -160,6 +186,8 @@
   notes: From the master product table. Purchased 6 time(s) between 2026-01-21 and 2026-09-06. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Freixenet Non-Alcoholic Sparkling Rose
+  id: TDS-0011
+  sku: TDS-0011
   brand: Freixenet
   category: wine
   priority: normal
@@ -174,6 +202,8 @@
   notes: From the master product table. Purchased 6 time(s) between 2026-01-23 and 2026-05-10. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Almost Zero Ravishing Rose Non-Alcoholic Wine
+  id: TDS-0012
+  sku: TDS-0012
   brand: Almost Zero
   category: wine
   priority: normal
@@ -188,6 +218,8 @@
   notes: From the master product table. Purchased 5 time(s) between 2026-01-21 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Savyll Non-Alcoholic Moscow Mule
+  id: TDS-0013
+  sku: TDS-0013
   brand: Savyll
   category: cocktails
   priority: normal
@@ -202,6 +234,8 @@
   notes: From the master product table. Purchased 5 time(s) between 2026-04-03 and 2026-07-02. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "90+ Cellars Alcohol-Removed Sparkling Rosé \"Lot 229\""
+  id: TDS-0014
+  sku: TDS-0014
   brand: 90+ Cellars
   category: wine
   priority: normal
@@ -216,6 +250,8 @@
   notes: From the master product table. Purchased 4 time(s) between 2026-01-23 and 2026-08-08. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Lagunitas Non-Alcoholic Hazy IPNA
+  id: TDS-0015
+  sku: TDS-0015
   brand: Lagunitas
   category: beer
   priority: normal
@@ -230,6 +266,8 @@
   notes: From the master product table. Purchased 4 time(s) between 2026-06-05 and 2026-08-11. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Josef Leitz Non-Alcoholic Sparkling Riesling \"Eins Zwei Zero\""
+  id: TDS-0016
+  sku: TDS-0016
   brand: Weingut Leitz
   category: wine
   priority: normal
@@ -244,6 +282,8 @@
   notes: From the master product table. Purchased 3 time(s) between 2025-10-21 and 2026-03-04. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Dr. Heidemanns Bergweiler Non-Alcoholic Riesling
+  id: TDS-0017
+  sku: TDS-0017
   brand: Dr. Heidemanns Bergweiler
   category: wine
   priority: normal
@@ -258,6 +298,8 @@
   notes: From the master product table. Purchased 3 time(s) between 2026-01-21 and 2026-02-14. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Giesen 0% Non-Alcoholic Rose"
+  id: TDS-0018
+  sku: TDS-0018
   brand: Giesen
   category: wine
   priority: normal
@@ -272,6 +314,8 @@
   notes: From the master product table. Purchased 3 time(s) between 2026-01-31 and 2026-03-24. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Band of Vintners Freestyle Non-Alcoholic Skin-Contact Wine
+  id: TDS-0019
+  sku: TDS-0019
   brand: Band of Vintners
   category: wine
   priority: normal
@@ -286,6 +330,8 @@
   notes: From the master product table. Purchased 3 time(s) between 2026-03-06 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Kolonne Null Non-Alcoholic Riesling
+  id: TDS-0020
+  sku: TDS-0020
   brand: Kolonne Null
   category: wine
   priority: normal
@@ -300,6 +346,8 @@
   notes: From the master product table. Purchased 3 time(s) between 2026-03-06 and 2026-08-12. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Clearscape Non-Alcoholic Chardonnay
+  id: TDS-0021
+  sku: TDS-0021
   brand: Clearscape
   category: wine
   priority: normal
@@ -314,6 +362,8 @@
   notes: From the master product table. Purchased 3 time(s) between 2026-03-28 and 2026-08-11. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Be Free Sauvignon Blanc Non-Alcoholic Wine
+  id: TDS-0022
+  sku: TDS-0022
   brand: Be Free
   category: wine
   priority: normal
@@ -328,6 +378,8 @@
   notes: From the master product table. Purchased 3 time(s) between 2026-03-28 and 2026-08-02. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Miguel Torres Non-Alcoholic Sauvignon Blanc \"Serena\""
+  id: TDS-0023
+  sku: TDS-0023
   brand: Familia Torres (Natureo line)
   category: wine
   priority: normal
@@ -342,6 +394,8 @@
   notes: From the master product table. Purchased 3 time(s) between 2026-04-19 and 2026-05-29. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Rondel Zero Cava Rose Non-Alcoholic Wine
+  id: TDS-0024
+  sku: TDS-0024
   brand: Rondel
   category: wine
   priority: normal
@@ -356,6 +410,8 @@
   notes: From the master product table. Purchased 3 time(s) between 2026-04-29 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Wolffer Spring in a Bottle Alcohol Removed Rose Sparkling
+  id: TDS-0025
+  sku: TDS-0025
   brand: Wolffer Estate
   category: wine
   priority: low
@@ -370,6 +426,8 @@
   notes: From the master product table. Purchased 2 time(s) between 2026-01-11 and 2026-02-28. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Biagio Cru Non-Alcoholic Rose All Day
+  id: TDS-0026
+  sku: TDS-0026
   brand: Biagio Cru
   category: wine
   priority: low
@@ -384,6 +442,8 @@
   notes: From the master product table. Purchased 2 time(s) between 2026-03-06 and 2026-06-21. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Noughty Dealcoholized Rosé
+  id: TDS-0027
+  sku: TDS-0027
   brand: "Noughty (Thomson & Scott)"
   category: wine
   priority: low
@@ -398,6 +458,8 @@
   notes: From the master product table. Purchased 2 time(s) between 2026-03-06 and 2026-03-22. Do not publish until ABV and dealcoholization are sourced.
 
 - product: WiesenObst Cider Rosé Non-Alcoholic Cider
+  id: TDS-0028
+  sku: TDS-0028
   brand: Jörg Geiger
   category: cider
   priority: low
@@ -412,6 +474,8 @@
   notes: From the master product table. Purchased 2 time(s) between 2026-04-25 and 2026-06-23. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Grad 36° Non-Alcoholic Wine
+  id: TDS-0029
+  sku: TDS-0029
   brand: Jörg Geiger
   category: wine
   priority: low
@@ -426,6 +490,8 @@
   notes: From the master product table. Purchased 2 time(s) between 2026-04-25 and 2026-06-23. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Lautus Non-Alcoholic Wine Bundle
+  id: TDS-0030
+  sku: TDS-0030
   brand: Lautus
   category: wine
   priority: low
@@ -440,6 +506,8 @@
   notes: From the master product table. Purchased 2 time(s) between 2026-06-14 and 2026-08-12. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Mionetto Non Alcoholic Italy White Wine
+  id: TDS-0031
+  sku: TDS-0031
   brand: Mionetto
   category: wine
   priority: low
@@ -454,6 +522,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-09-22 and 2025-09-22. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Crodino Non-Alcoholic Spritz
+  id: TDS-0032
+  sku: TDS-0032
   brand: Crodino (Campari Group)
   category: cocktails
   priority: low
@@ -468,6 +538,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-10-03 and 2025-10-03. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "90+ Cellars Alcohol-Removed Sparkling Brut \"Lot 230\""
+  id: TDS-0033
+  sku: TDS-0033
   brand: 90+ Cellars
   category: wine
   priority: low
@@ -482,6 +554,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-10-03 and 2025-10-03. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Lyre's \"Amalfi Spritz\" Non-Alcoholic Canned Cocktail"
+  id: TDS-0034
+  sku: TDS-0034
   brand: "Lyre's"
   category: cocktails
   priority: low
@@ -496,6 +570,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-10-03 and 2025-10-03. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Best Day Brewing Kölsch Non-Alcoholic Beer
+  id: TDS-0035
+  sku: TDS-0035
   brand: Best Day Brewing
   category: beer
   priority: low
@@ -510,6 +586,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-10-10 and 2025-10-10. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "HOP WTR Sparkling Hop Water, Blood Orange, Non-Alcoholic"
+  id: TDS-0036
+  sku: TDS-0036
   brand: HOP WTR
   category: beer
   priority: low
@@ -524,6 +602,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-10-15 and 2025-10-15. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Original Sin Non-Alcoholic Cider Mix Pack (Golden/White/Dragon Widow)
+  id: TDS-0037
+  sku: TDS-0037
   brand: Original Sin Cider
   category: cider
   priority: low
@@ -538,6 +618,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-10-21 and 2025-10-21. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "St. Agrestis \"Phony Negroni\" Non-Alcoholic Negroni Cocktail"
+  id: TDS-0038
+  sku: TDS-0038
   brand: St. Agrestis
   category: cocktails
   priority: low
@@ -552,6 +634,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-10-21 and 2025-10-21. Do not publish until ABV and dealcoholization are sourced.
 
 - product: French Bloom Le Blanc Non-Alcoholic Sparkling Wine
+  id: TDS-0039
+  sku: TDS-0039
   brand: French Bloom
   category: wine
   priority: low
@@ -566,6 +650,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-11-18 and 2025-11-18. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Lapo's Non-Alcoholic Negroni"
+  id: TDS-0040
+  sku: TDS-0040
   brand: "Lapo's"
   category: cocktails
   priority: low
@@ -580,6 +666,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-11-20 and 2025-11-20. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Kolonne Null Non-Alcoholic Rosé
+  id: TDS-0041
+  sku: TDS-0041
   brand: Kolonne Null
   category: wine
   priority: low
@@ -594,6 +682,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-11-20 and 2025-11-20. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Go Brewing Sunbeam Pils Non-Alcoholic (Brew Non-Alcoholic Sunbeam Pils with German Malt & Hops)"
+  id: TDS-0042
+  sku: TDS-0042
   brand: Go Brewing
   category: beer
   priority: low
@@ -608,6 +698,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2025-12-04 and 2025-12-04. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Mingle Non-Alcoholic Sparkling Raspberry Rose
+  id: TDS-0043
+  sku: TDS-0043
   brand: Mingle
   category: cocktails
   priority: low
@@ -622,6 +714,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-01-11 and 2026-01-11. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Untitled Art \"FLVR!\" Non-Alcoholic Sour Ale w/ Mango & Dragonfruit"
+  id: TDS-0044
+  sku: TDS-0044
   brand: Untitled Art Brewing
   category: beer
   priority: low
@@ -636,6 +730,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-01-23 and 2026-01-23. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Asahi \"Dry\" Non-Alcoholic"
+  id: TDS-0045
+  sku: TDS-0045
   brand: Asahi Breweries
   category: beer
   priority: low
@@ -650,6 +746,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-01-28 and 2026-01-28. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Alcohol-Free Sparkling Rose (Single/750ml Bottle)
+  id: TDS-0046
+  sku: TDS-0046
   brand: Unknown/unverified
   category: wine
   priority: low
@@ -664,6 +762,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-01-31 and 2026-01-31. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Nonny Czech Pilsner Non-Alcoholic Beer
+  id: TDS-0047
+  sku: TDS-0047
   brand: Nonny Beer
   category: beer
   priority: low
@@ -678,6 +778,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Grolsch 0.0% Non-Alcoholic Pilsner"
+  id: TDS-0048
+  sku: TDS-0048
   brand: Grolsch
   category: beer
   priority: low
@@ -692,6 +794,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Pierre Zero Non-Alcoholic Rosé (Bag-in-Box)
+  id: TDS-0049
+  sku: TDS-0049
   brand: Pierre Zero
   category: wine
   priority: low
@@ -706,6 +810,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.
 
 - product: JP. Chenet Non-Alcoholic Sparkling Rosé
+  id: TDS-0050
+  sku: TDS-0050
   brand: JP. Chenet
   category: wine
   priority: low
@@ -720,6 +826,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Christian Drouin \"Jus de Poire Petillant\" Non-Alcoholic Pear Cider"
+  id: TDS-0051
+  sku: TDS-0051
   brand: Christian Drouin
   category: cider
   priority: low
@@ -734,6 +842,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-02-22 and 2026-02-22. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Untitled Art N/A FLVR! Italian-Style Pils"
+  id: TDS-0052
+  sku: TDS-0052
   brand: Untitled Art Brewing
   category: beer
   priority: low
@@ -748,6 +858,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-03-04 and 2026-03-04. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Gruvi Non-Alcoholic Sangria
+  id: TDS-0053
+  sku: TDS-0053
   brand: Grüvi
   category: cocktails
   priority: low
@@ -762,6 +874,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-03-24 and 2026-03-24. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Eric Bordelet \"Jus de Pommes A Sydre Perlant\" Non-Alcoholic French Cider"
+  id: TDS-0055
+  sku: TDS-0055
   brand: Eric Bordelet
   category: cider
   priority: low
@@ -776,6 +890,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-04-19 and 2026-04-19. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "King Maui 0% Non-Alcoholic Marlborough Sauvignon Blanc"
+  id: TDS-0056
+  sku: TDS-0056
   brand: King Maui
   category: wine
   priority: low
@@ -790,6 +906,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-04-22 and 2026-04-22. Do not publish until ABV and dealcoholization are sourced.
 
 - product: ViSecco Pinot Meunier Non-Alcoholic Sparkling Red
+  id: TDS-0057
+  sku: TDS-0057
   brand: Jörg Geiger
   category: wine
   priority: low
@@ -804,6 +922,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-04-25 and 2026-04-25. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Blanc de Blanc Non-Alcoholic Sparkling Wine (Delmosa)
+  id: TDS-0058
+  sku: TDS-0058
   brand: Jörg Geiger
   category: wine
   priority: low
@@ -818,6 +938,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-04-25 and 2026-04-25. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Nozeco Alcohol Free Brut Rose
+  id: TDS-0059
+  sku: TDS-0059
   brand: Nozeco
   category: wine
   priority: low
@@ -832,6 +954,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-04-29 and 2026-04-29. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Ollivier Cottenceau Phénomène Non-Alcoholic \"Muscadet\""
+  id: TDS-0060
+  sku: TDS-0060
   brand: Ollivier Cottenceau (Domaine de la Grenaudière)
   category: wine
   priority: low
@@ -846,6 +970,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-05-02 and 2026-05-02. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Domaine de Montrose Non-Alcoholic Rosé
+  id: TDS-0061
+  sku: TDS-0061
   brand: Domaine de Montrose
   category: wine
   priority: low
@@ -860,6 +986,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-05-02 and 2026-05-02. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Oddbird Non-Alcoholic Wine Bundle
+  id: TDS-0062
+  sku: TDS-0062
   brand: Oddbird
   category: wine
   priority: low
@@ -874,6 +1002,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-05-11 and 2026-05-11. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Tired Hands Non-Alcoholic N/Alien Church
+  id: TDS-0063
+  sku: TDS-0063
   brand: Tired Hands
   category: beer
   priority: low
@@ -888,6 +1018,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-05-22 and 2026-05-22. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Valckenberg \"Zero\" Non-Alcoholic Riesling"
+  id: TDS-0064
+  sku: TDS-0064
   brand: P.J. Valckenberg
   category: wine
   priority: low
@@ -902,6 +1034,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-05-24 and 2026-05-24. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Valckenberg \"Zero\" Non-Alcoholic Sparkling"
+  id: TDS-0065
+  sku: TDS-0065
   brand: P.J. Valckenberg
   category: wine
   priority: low
@@ -916,6 +1050,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-05-24 and 2026-05-24. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Erdinger Weissbrau N/A Lager \"Alkoholfrei\""
+  id: TDS-0066
+  sku: TDS-0066
   brand: Erdinger Weißbräu
   category: beer
   priority: low
@@ -930,6 +1066,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-05-29 and 2026-05-29. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Missing Thorn Non-Alcoholic Still White
+  id: TDS-0067
+  sku: TDS-0067
   brand: Missing Thorn
   category: wine
   priority: low
@@ -944,6 +1082,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Josef Leitz Non-Alcoholic Sparkling Rosé \"Eins Zwei Zero\""
+  id: TDS-0068
+  sku: TDS-0068
   brand: Weingut Leitz
   category: wine
   priority: low
@@ -958,6 +1098,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Athletic Brewing Co. Athletic ESB Non-Alcoholic Beer (Limited Edition)
+  id: TDS-0069
+  sku: TDS-0069
   brand: Athletic Brewing Company
   category: beer
   priority: low
@@ -972,6 +1114,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.
 
 - product: De Nada Non-Alcoholic Rosé
+  id: TDS-0070
+  sku: TDS-0070
   brand: De Nada (Paumanok Vineyards)
   category: wine
   priority: low
@@ -986,6 +1130,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Josef Leitz Non-Alcoholic Sparkling Blanc de Blancs \"Eins Zwei Zero\""
+  id: TDS-0071
+  sku: TDS-0071
   brand: Weingut Leitz
   category: wine
   priority: low
@@ -1000,6 +1146,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-06-24 and 2026-06-24. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Fio Non-Alcoholic Riesling \"Fabelhaft\""
+  id: TDS-0073
+  sku: TDS-0073
   brand: Fio
   category: wine
   priority: low
@@ -1014,6 +1162,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-07-04 and 2026-07-04. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Ritual Zero Proof Tequila Alternative
+  id: TDS-0074
+  sku: TDS-0074
   brand: Ritual Zero Proof
   category: spirits
   priority: low
@@ -1028,6 +1178,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-07-04 and 2026-07-04. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "P.J. Valckenberg \"It's Not a Sin\" NA Ginger/Bitter Orange Peel Wine"
+  id: TDS-0075
+  sku: TDS-0075
   brand: P.J. Valckenberg
   category: cocktails
   priority: low
@@ -1042,6 +1194,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Sea Monster Tidal Wave White Alcohol Removed Wine
+  id: TDS-0076
+  sku: TDS-0076
   brand: Sea Monster
   category: wine
   priority: low
@@ -1056,6 +1210,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Butter Zero Sparkling Rosé Non-Alcoholic
+  id: TDS-0077
+  sku: TDS-0077
   brand: Butter Zero
   category: wine
   priority: low
@@ -1070,6 +1226,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Mount Fishtail Zero Sauvignon Blanc
+  id: TDS-0078
+  sku: TDS-0078
   brand: Mount Fishtail
   category: wine
   priority: low
@@ -1084,6 +1242,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Butter Zero Pinot Noir Non-Alcoholic
+  id: TDS-0079
+  sku: TDS-0079
   brand: Butter Zero
   category: wine
   priority: low
@@ -1098,6 +1258,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Zolo Zero Malbec Rosé Non-Alcoholic Wine
+  id: TDS-0080
+  sku: TDS-0080
   brand: Zolo
   category: wine
   priority: low
@@ -1112,6 +1274,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Butter Zero Chardonnay Non-Alcoholic
+  id: TDS-0081
+  sku: TDS-0081
   brand: Butter Zero
   category: wine
   priority: low
@@ -1126,6 +1290,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Chloe Alcohol-Removed Pinot Grigio
+  id: TDS-0082
+  sku: TDS-0082
   brand: Chloe Wine Collection
   category: wine
   priority: low
@@ -1140,6 +1306,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-07-27 and 2026-07-27. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Chateau Diana Zero Non-Alcoholic California White Wine Blend
+  id: TDS-0083
+  sku: TDS-0083
   brand: Chateau Diana
   category: wine
   priority: low
@@ -1154,6 +1322,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-08-08 and 2026-08-08. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Chateau Diana Zero Non-Alcoholic California Rosé
+  id: TDS-0084
+  sku: TDS-0084
   brand: Chateau Diana
   category: wine
   priority: low
@@ -1168,6 +1338,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-08-08 and 2026-08-08. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Penn's Best Non-Alcoholic Lager"
+  id: TDS-0085
+  sku: TDS-0085
   brand: "Penn's Best"
   category: beer
   priority: low
@@ -1182,6 +1354,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-08-11 and 2026-08-11. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Ariel Non-Alcoholic Chardonnay
+  id: TDS-0086
+  sku: TDS-0086
   brand: Ariel (Ariel Vineyards / J. Lohr)
   category: wine
   priority: low
@@ -1196,6 +1370,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-08-22 and 2026-08-22. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Greenbar \"UNRum + Cola\" Non-Alcoholic Canned Cocktail"
+  id: TDS-0087
+  sku: TDS-0087
   brand: Greenbar
   category: cocktails
   priority: low
@@ -1210,6 +1386,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-08-28 and 2026-08-28. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Flying Dog \"Deep Fake\" Non-Alcoholic IPA"
+  id: TDS-0088
+  sku: TDS-0088
   brand: Flying Dog Brewery
   category: beer
   priority: low
@@ -1224,6 +1402,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-08-28 and 2026-08-28. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Untitled Art \"FLVR!\" Non-Alcoholic Juicy IPA"
+  id: TDS-0089
+  sku: TDS-0089
   brand: Untitled Art Brewing
   category: beer
   priority: low
@@ -1238,6 +1418,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-09-05 and 2026-09-05. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Pure Project \"Grounded\" Non-Alcoholic IPA"
+  id: TDS-0090
+  sku: TDS-0090
   brand: Pure Project
   category: beer
   priority: low
@@ -1252,6 +1434,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-09-05 and 2026-09-05. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Birrificio Baladin \"Passione In Rosso\" Non-Alcoholic Italian Aperitivo"
+  id: TDS-0091
+  sku: TDS-0091
   brand: Birrificio Baladin
   category: cocktails
   priority: low
@@ -1266,6 +1450,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-09-05 and 2026-09-05. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Deschutes Non-Alcoholic Fresh Squeezed IPA
+  id: TDS-0093
+  sku: TDS-0093
   brand: Deschutes Brewery
   category: beer
   priority: low
@@ -1280,6 +1466,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-09-06 and 2026-09-06. Do not publish until ABV and dealcoholization are sourced.
 
 - product: Spiritless Jalisco 55 Non-Alcoholic Reposado Tequila
+  id: TDS-0094
+  sku: TDS-0094
   brand: Spiritless
   category: spirits
   priority: low
@@ -1294,6 +1482,8 @@
   notes: From the master product table. Purchased 1 time(s) between 2026-09-14 and 2026-09-14. Do not publish until ABV and dealcoholization are sourced.
 
 - product: "Giesen 0% Sauvignon Blanc"
+  id: TDS-0054
+  sku: TDS-0054
   brand: Giesen
   category: wine
   priority: normal
@@ -1301,6 +1491,8 @@
   notes: Already published at reviews/wine/giesen-0-sauvignon-blanc/. Same SKU as Giesen Non-Alcoholic Sauvignon Blanc in the master table.
 
 - product: Oddbird Blanc de Blancs
+  id: TDS-0100
+  sku: TDS-0100
   brand: Oddbird
   category: wine
   priority: normal
@@ -1308,6 +1500,8 @@
   notes: Already published at reviews/wine/oddbird-blanc-de-blancs/. The Oddbird bundle in the master table is a different SKU.
 
 - product: Freixenet 0.0
+  id: TDS-0072
+  sku: TDS-0072
   brand: Freixenet
   category: wine
   priority: normal
@@ -1315,6 +1509,8 @@
   notes: "Already published at reviews/wine/freixenet-0-0/ as Freixenet 0,0 Sparkling White. Sparkling Rosé is a separate queue item."
 
 - product: Spiritless Kentucky 74
+  id: TDS-0092
+  sku: TDS-0092
   brand: Spiritless
   category: spirits
   priority: normal
@@ -1328,6 +1524,8 @@
   notes: Already published at reviews/spirits/spiritless-kentucky-74/. Do not write a second review.
 
 - product: St. Regis Non-Alcoholic Rosé
+  id: TDS-0095
+  sku: TDS-0095
   brand: St. Regis
   category: wine
   priority: high

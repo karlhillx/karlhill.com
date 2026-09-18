@@ -1,6 +1,8 @@
 ---
 title: "St. Regis Non-Alcoholic Rosé"
 slug: st-regis-non-alcoholic-rose
+id: TDS-0095
+sku: TDS-0095
 brand: St. Regis
 product: Non-Alcoholic Rosé
 category: wine

@@ -1,6 +1,8 @@
 ---
 title: "Oddbird Blanc de Blancs"
 slug: oddbird-blanc-de-blancs
+id: TDS-0100
+sku: TDS-0100
 brand: Oddbird
 product: Blanc de Blancs
 category: wine

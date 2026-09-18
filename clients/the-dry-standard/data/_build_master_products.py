@@ -9,6 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 
 HEADERS = [
+    "ID",
+    "SKU",
     "Product",
     "Brand",
     "Category",
@@ -20,6 +22,21 @@ HEADERS = [
     "First Purchase",
     "Most Recent Purchase",
 ]
+
+# Queue-only products that are not yet in the master table.
+EXTRA_SKUS = {
+    "Athletic Brewing Run Wild IPA": "TDS-0101",
+    "Sober Spirits Whisky": "TDS-0102",
+    "Heineken 0.0": "TDS-0103",
+}
+
+# Published queue labels that map to an existing master-table product.
+SKU_ALIASES = {
+    "Giesen 0% Sauvignon Blanc": "Giesen Non-Alcoholic Sauvignon Blanc",
+    "Freixenet 0.0": "Freixenet Non-Alcoholic Sparkling",
+    "Spiritless Kentucky 74": 'Spiritless "Kentucky 74" Non-Alcoholic Whiskey Spirit',
+    "St. Regis Non-Alcoholic Rosé": "St. Regis Non-Alcoholic Rose",
+}
 
 # One row per unique purchased product, already sorted by times purchased desc.
 PURCHASED: list[dict[str, str]] = [
@@ -211,6 +228,56 @@ def dealcoholized_token(value: str) -> str:
     return "not-verified"
 
 
+def load_existing_skus() -> dict[str, str]:
+    path = ROOT / "master-products.csv"
+    if not path.is_file():
+        return {}
+
+    with path.open(newline="", encoding="utf-8") as handle:
+        reader = csv.DictReader(handle)
+        if not reader.fieldnames or "Product" not in reader.fieldnames:
+            return {}
+        return {
+            row["Product"]: (row.get("ID") or row.get("SKU") or "")
+            for row in reader
+            if row.get("Product") and (row.get("ID") or row.get("SKU"))
+        }
+
+
+def next_sku_number(existing: dict[str, str]) -> int:
+    numbers = []
+    for sku in existing.values():
+        if sku.startswith("TDS-") and sku[4:].isdigit():
+            numbers.append(int(sku[4:]))
+    return max(numbers, default=0) + 1
+
+
+def assign_skus(rows: list[dict[str, str]]) -> dict[str, str]:
+    existing = load_existing_skus()
+    next_number = next_sku_number(existing)
+    by_product: dict[str, str] = {}
+
+    for row in rows:
+        sku = existing.get(row["product"])
+        if not sku:
+            sku = f"TDS-{next_number:04d}"
+            next_number += 1
+        row["id"] = sku
+        row["sku"] = sku
+        by_product[row["product"]] = sku
+
+    return by_product
+
+
+def sku_for(product: str, by_product: dict[str, str]) -> str:
+    if product in by_product:
+        return by_product[product]
+    alias = SKU_ALIASES.get(product)
+    if alias and alias in by_product:
+        return by_product[alias]
+    return EXTRA_SKUS[product]
+
+
 def priority_for(times: int) -> str:
     if times >= 8:
         return "high"
@@ -230,6 +297,8 @@ def yaml_scalar(value: str) -> str:
 def dump_item(item: dict[str, object]) -> str:
     lines = ["- product: " + yaml_scalar(str(item["product"]))]
     order = [
+        "id",
+        "sku",
         "brand",
         "category",
         "priority",
@@ -261,6 +330,8 @@ def write_csv(rows: list[dict[str, str]]) -> None:
         writer.writerow(HEADERS)
         for row in rows:
             writer.writerow([
+                row["id"],
+                row["sku"],
                 row["product"],
                 row["brand"],
                 row["category"],
@@ -274,10 +345,17 @@ def write_csv(rows: list[dict[str, str]]) -> None:
             ])
 
 
-def write_queue(purchased: list[dict[str, str]]) -> tuple[int, int]:
-    items: list[dict[str, object]] = list(EXISTING_QUEUE)
+def write_queue(purchased: list[dict[str, str]], by_product: dict[str, str]) -> tuple[int, int]:
+    items: list[dict[str, object]] = []
     added = 0
     skipped = 0
+
+    for item in EXISTING_QUEUE:
+        queued = dict(item)
+        code = sku_for(str(item["product"]), by_product)
+        queued["id"] = code
+        queued["sku"] = code
+        items.append(queued)
 
     for row in purchased:
         if already_reviewed(row):
@@ -287,6 +365,8 @@ def write_queue(purchased: list[dict[str, str]]) -> tuple[int, int]:
         times = int(row["times"])
         item = {
             "product": row["product"],
+            "id": row["id"],
+            "sku": row["sku"],
             "brand": row["brand"],
             "category": SITE_CATEGORY[row["category"]],
             "priority": priority_for(times),
@@ -311,6 +391,8 @@ def write_queue(purchased: list[dict[str, str]]) -> tuple[int, int]:
     items.extend([
         {
             "product": "Giesen 0% Sauvignon Blanc",
+            "id": sku_for("Giesen 0% Sauvignon Blanc", by_product),
+            "sku": sku_for("Giesen 0% Sauvignon Blanc", by_product),
             "brand": "Giesen",
             "category": "wine",
             "priority": "normal",
@@ -319,6 +401,8 @@ def write_queue(purchased: list[dict[str, str]]) -> tuple[int, int]:
         },
         {
             "product": "Oddbird Blanc de Blancs",
+            "id": sku_for("Oddbird Blanc de Blancs", by_product),
+            "sku": sku_for("Oddbird Blanc de Blancs", by_product),
             "brand": "Oddbird",
             "category": "wine",
             "priority": "normal",
@@ -327,6 +411,8 @@ def write_queue(purchased: list[dict[str, str]]) -> tuple[int, int]:
         },
         {
             "product": "Freixenet 0.0",
+            "id": sku_for("Freixenet 0.0", by_product),
+            "sku": sku_for("Freixenet 0.0", by_product),
             "brand": "Freixenet",
             "category": "wine",
             "priority": "normal",
@@ -335,6 +421,8 @@ def write_queue(purchased: list[dict[str, str]]) -> tuple[int, int]:
         },
         {
             "product": "Spiritless Kentucky 74",
+            "id": sku_for("Spiritless Kentucky 74", by_product),
+            "sku": sku_for("Spiritless Kentucky 74", by_product),
             "brand": "Spiritless",
             "category": "spirits",
             "priority": "normal",
@@ -349,6 +437,8 @@ def write_queue(purchased: list[dict[str, str]]) -> tuple[int, int]:
         },
         {
             "product": "St. Regis Non-Alcoholic Rosé",
+            "id": sku_for("St. Regis Non-Alcoholic Rosé", by_product),
+            "sku": sku_for("St. Regis Non-Alcoholic Rosé", by_product),
             "brand": "St. Regis",
             "category": "wine",
             "priority": "high",
@@ -375,8 +465,9 @@ def main() -> None:
         raise SystemExit("Duplicate product names in the purchase table.")
 
     rows = PURCHASED + PUBLISHED_ONLY
+    by_product = assign_skus(rows)
     write_csv(rows)
-    added, skipped = write_queue(PURCHASED)
+    added, skipped = write_queue(PURCHASED, by_product)
     print(f"Wrote {len(rows)} master rows; queued {added} new reviews; skipped {skipped} already reviewed.")
 
 
