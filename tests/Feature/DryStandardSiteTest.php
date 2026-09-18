@@ -77,6 +77,35 @@ it('serves product stills on reviews and the archive', function () {
         ->assertSee('media/reviews/lyres-italian-orange.jpg', escape: false);
 });
 
+it('keeps a master product table without duplicating published reviews', function () {
+    $path = base_path('clients/the-dry-standard/data/master-products.csv');
+    expect(is_file($path))->toBeTrue();
+
+    $rows = array_map(fn (string $line): array => str_getcsv($line), file($path, FILE_IGNORE_NEW_LINES) ?: []);
+    expect($rows[0])->toBe([
+        'Product',
+        'Brand',
+        'Category',
+        'ABV',
+        'Dealcoholized?',
+        'Method',
+        'Retailer(s)',
+        'Times Purchased',
+        'First Purchase',
+        'Most Recent Purchase',
+    ]);
+    expect(count($rows))->toBeGreaterThan(90);
+
+    $products = array_column(array_slice($rows, 1), 0);
+    expect($products)->toContain('Be Free Rose Non-Alcoholic Wine');
+    expect(count($products))->toBe(count(array_unique($products)));
+
+    $queue = file_get_contents(base_path('clients/the-dry-standard/data/review-queue.yaml')) ?: '';
+    expect($queue)->toContain("status: published\n")
+        ->and($queue)->toContain('Giesen 0% Sauvignon Blanc')
+        ->and(substr_count($queue, "status: queued\n"))->toBeGreaterThan(80);
+});
+
 it('builds a searchable review archive', function () {
     $this->get('/clients/the-dry-standard/')
         ->assertOk()

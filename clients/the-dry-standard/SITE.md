@@ -20,6 +20,13 @@ Public base: `/clients/the-dry-standard/`
 | `/sitemap.xml` | URL list for this client site |
 | `/catalog.json` | Structured review index plus facets |
 
+Internal data (not a public page):
+
+| Path | Purpose |
+| --- | --- |
+| `data/master-products.csv` | Master product table: one row per unique SKU, sorted by times purchased |
+| `data/review-queue.yaml` | Review pipeline. Published SKUs stay marked published so they are not drafted twice |
+
 ## Sample reviews
 
 - `/reviews/wine/leitz-eins-zwei-zero-riesling/`

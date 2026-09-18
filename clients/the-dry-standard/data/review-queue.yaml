@@ -10,21 +10,7 @@
   category: spirits
   priority: high
   status: queued
-  notes: Confirm the product exists, the exact SKU, ABV, and whether it is dealcoholized or formulated.
-
-- product: Giesen 0% Sauvignon Blanc
-  brand: Giesen
-  category: wine
-  priority: normal
-  status: published
-  notes: New Zealand dealcoholized Sauvignon Blanc. Verify method and residual sugar from producer technical notes.
-
-- product: Oddbird Blanc de Blancs
-  brand: Oddbird
-  category: wine
-  priority: normal
-  status: published
-  notes: Swedish brand, dealcoholized sparkling. Confirm method (often described as vacuum) from primary sources.
+  notes: "Confirm the product exists, the exact SKU, ABV, and whether it is dealcoholized or formulated."
 
 - product: Heineken 0.0
   brand: Heineken
@@ -33,89 +19,1300 @@
   status: queued
   notes: Widely available. Confirm dealcoholization method from Heineken technical communications.
 
-- product: Best Day Kolsch
+- product: Be Free Rose Non-Alcoholic Wine
+  brand: Be Free
+  category: wine
+  priority: high
+  status: queued
+  dealcoholized: yes
+  method: "Dealcoholized (\"special method\", not detailed)"
+  abv: Not verified
+  seen_at: "Total Wine, Total Wine (Instacart)"
+  times_purchased: 31
+  first_seen: 2026-01-11
+  last_seen: 2026-09-02
+  notes: From the master product table. Purchased 31 time(s) between 2026-01-11 and 2026-09-02. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Magic Box Vanish Non-Alcoholic Riesling
+  brand: Magic Box
+  category: wine
+  priority: high
+  status: queued
+  dealcoholized: yes
+  method: Dealcoholized (method not publicly detailed)
+  abv: "Not verified (industry-typical ≤0.5%)"
+  seen_at: "Total Wine, Total Wine (Instacart)"
+  times_purchased: 23
+  first_seen: 2026-01-11
+  last_seen: 2026-09-17
+  notes: From the master product table. Purchased 23 time(s) between 2026-01-11 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Appalina Alcohol Free Chardonnay
+  brand: Appalina
+  category: wine
+  priority: high
+  status: queued
+  dealcoholized: yes
+  method: Not verified
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 23
+  first_seen: 2026-03-28
+  last_seen: 2026-08-14
+  notes: From the master product table. Purchased 23 time(s) between 2026-03-28 and 2026-08-14. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Be Free White Sparkling Non-Alcoholic Wine
+  brand: Be Free
+  category: wine
+  priority: high
+  status: queued
+  dealcoholized: yes
+  method: "Dealcoholized (\"special method\", not detailed)"
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 13
+  first_seen: 2026-04-03
+  last_seen: 2026-07-29
+  notes: From the master product table. Purchased 13 time(s) between 2026-04-03 and 2026-07-29. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Halfway Crooks Non-Alcoholic IPA \"Brevet\""
+  brand: Halfway Crooks Beer
+  category: beer
+  priority: high
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 9
+  first_seen: 2026-03-21
+  last_seen: 2026-08-22
+  notes: From the master product table. Purchased 9 time(s) between 2026-03-21 and 2026-08-22. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Be Free Chardonnay Non-Alcoholic Wine
+  brand: Be Free
+  category: wine
+  priority: high
+  status: queued
+  dealcoholized: yes
+  method: "Dealcoholized (\"special method\", not detailed)"
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 9
+  first_seen: 2026-03-28
+  last_seen: 2026-09-17
+  notes: From the master product table. Purchased 9 time(s) between 2026-03-28 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Giesen 0% Non-Alcoholic Riesling"
+  brand: Giesen
+  category: wine
+  priority: high
+  status: queued
+  dealcoholized: yes
+  method: Spinning cone technology (gentle distillation); full-strength wine made then dealcoholized
+  abv: "≤0.5%"
+  seen_at: "Wegmans (Instacart), Total Wine"
+  times_purchased: 8
+  first_seen: 2026-01-31
+  last_seen: 2026-04-03
+  notes: From the master product table. Purchased 8 time(s) between 2026-01-31 and 2026-04-03. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Halfway Crooks Non-Alcoholic Pilsner \"Brevet\""
+  brand: Halfway Crooks Beer
+  category: beer
+  priority: high
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 8
+  first_seen: 2026-02-22
+  last_seen: 2026-08-22
+  notes: From the master product table. Purchased 8 time(s) between 2026-02-22 and 2026-08-22. Do not publish until ABV and dealcoholization are sourced.
+
+- product: DC Brau Non-Alcoholic Pale Ale
+  brand: DC Brau Brewing Co.
+  category: beer
+  priority: normal
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Total Wine, Total Wine (Instacart), Metro Wine & Spirits"
+  times_purchased: 6
+  first_seen: 2026-01-11
+  last_seen: 2026-08-28
+  notes: From the master product table. Purchased 6 time(s) between 2026-01-11 and 2026-08-28. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Clearscape Non-Alcoholic Rose
+  brand: Clearscape
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: yes
+  method: Not verified in detail
+  abv: Not verified
+  seen_at: "Total Wine (Instacart), Total Wine"
+  times_purchased: 6
+  first_seen: 2026-01-21
+  last_seen: 2026-09-06
+  notes: From the master product table. Purchased 6 time(s) between 2026-01-21 and 2026-09-06. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Freixenet Non-Alcoholic Sparkling Rose
+  brand: Freixenet
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: yes
+  method: "Branded \"Alcohol Removed\"; specific method not detailed"
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 6
+  first_seen: 2026-01-23
+  last_seen: 2026-05-10
+  notes: From the master product table. Purchased 6 time(s) between 2026-01-23 and 2026-05-10. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Almost Zero Ravishing Rose Non-Alcoholic Wine
+  brand: Almost Zero
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Total Wine (Instacart), Total Wine"
+  times_purchased: 5
+  first_seen: 2026-01-21
+  last_seen: 2026-09-17
+  notes: From the master product table. Purchased 5 time(s) between 2026-01-21 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Savyll Non-Alcoholic Moscow Mule
+  brand: Savyll
+  category: cocktails
+  priority: normal
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 5
+  first_seen: 2026-04-03
+  last_seen: 2026-07-02
+  notes: From the master product table. Purchased 5 time(s) between 2026-04-03 and 2026-07-02. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "90+ Cellars Alcohol-Removed Sparkling Rosé \"Lot 229\""
+  brand: 90+ Cellars
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: yes
+  method: "Traditionally made, then alcohol removed via reverse osmosis"
+  abv: "<0.5%"
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 4
+  first_seen: 2026-01-23
+  last_seen: 2026-08-08
+  notes: From the master product table. Purchased 4 time(s) between 2026-01-23 and 2026-08-08. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Lagunitas Non-Alcoholic Hazy IPNA
+  brand: Lagunitas
+  category: beer
+  priority: normal
+  status: queued
+  dealcoholized: no
+  method: "Brewed with same ingredients as regular Hazy IPA, fermentation halted early — not dealcoholized"
+  abv: "0.5%"
+  seen_at: Total Wine
+  times_purchased: 4
+  first_seen: 2026-06-05
+  last_seen: 2026-08-11
+  notes: From the master product table. Purchased 4 time(s) between 2026-06-05 and 2026-08-11. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Josef Leitz Non-Alcoholic Sparkling Riesling \"Eins Zwei Zero\""
+  brand: Weingut Leitz
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: yes
+  method: Vacuum distillation at low temperature
+  abv: "0%"
+  seen_at: "Metro Wine & Spirits, Upside Drinks"
+  times_purchased: 3
+  first_seen: 2025-10-21
+  last_seen: 2026-03-04
+  notes: From the master product table. Purchased 3 time(s) between 2025-10-21 and 2026-03-04. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Dr. Heidemanns Bergweiler Non-Alcoholic Riesling
+  brand: Dr. Heidemanns Bergweiler
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: Total Wine (Instacart)
+  times_purchased: 3
+  first_seen: 2026-01-21
+  last_seen: 2026-02-14
+  notes: From the master product table. Purchased 3 time(s) between 2026-01-21 and 2026-02-14. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Giesen 0% Non-Alcoholic Rose"
+  brand: Giesen
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: yes
+  method: Spinning cone technology
+  abv: "≤0.5%"
+  seen_at: "Wegmans (Instacart), Total Wine"
+  times_purchased: 3
+  first_seen: 2026-01-31
+  last_seen: 2026-03-24
+  notes: From the master product table. Purchased 3 time(s) between 2026-01-31 and 2026-03-24. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Band of Vintners Freestyle Non-Alcoholic Skin-Contact Wine
+  brand: Band of Vintners
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: yes
+  method: "Brand states wine is \"skin fermented with native yeasts\" and balanced \"once the alcohol is removed\"; specific removal technique not disclosed"
+  abv: Not verified
+  seen_at: The Zero Proof
+  times_purchased: 3
+  first_seen: 2026-03-06
+  last_seen: 2026-06-02
+  notes: From the master product table. Purchased 3 time(s) between 2026-03-06 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Kolonne Null Non-Alcoholic Riesling
+  brand: Kolonne Null
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: yes
+  method: Vacuum distillation at ~30°C to remove alcohol from base wine
+  abv: "0.0%"
+  seen_at: The Zero Proof
+  times_purchased: 3
+  first_seen: 2026-03-06
+  last_seen: 2026-08-12
+  notes: From the master product table. Purchased 3 time(s) between 2026-03-06 and 2026-08-12. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Clearscape Non-Alcoholic Chardonnay
+  brand: Clearscape
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: yes
+  method: Not verified in detail
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 3
+  first_seen: 2026-03-28
+  last_seen: 2026-08-11
+  notes: From the master product table. Purchased 3 time(s) between 2026-03-28 and 2026-08-11. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Be Free Sauvignon Blanc Non-Alcoholic Wine
+  brand: Be Free
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: yes
+  method: "Dealcoholized (\"special method\", not detailed)"
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 3
+  first_seen: 2026-03-28
+  last_seen: 2026-08-02
+  notes: From the master product table. Purchased 3 time(s) between 2026-03-28 and 2026-08-02. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Miguel Torres Non-Alcoholic Sauvignon Blanc \"Serena\""
+  brand: Familia Torres (Natureo line)
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: yes
+  method: "Torres describes an \"improved dealcoholizing technique\"; exact process not detailed"
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 3
+  first_seen: 2026-04-19
+  last_seen: 2026-05-29
+  notes: From the master product table. Purchased 3 time(s) between 2026-04-19 and 2026-05-29. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Rondel Zero Cava Rose Non-Alcoholic Wine
+  brand: Rondel
+  category: wine
+  priority: normal
+  status: queued
+  dealcoholized: yes
+  method: Not verified
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 3
+  first_seen: 2026-04-29
+  last_seen: 2026-09-17
+  notes: From the master product table. Purchased 3 time(s) between 2026-04-29 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Wolffer Spring in a Bottle Alcohol Removed Rose Sparkling
+  brand: Wolffer Estate
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Alcohol-removed (branded); method not detailed
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 2
+  first_seen: 2026-01-11
+  last_seen: 2026-02-28
+  notes: From the master product table. Purchased 2 time(s) between 2026-01-11 and 2026-02-28. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Biagio Cru Non-Alcoholic Rose All Day
+  brand: Biagio Cru
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 2
+  first_seen: 2026-03-06
+  last_seen: 2026-06-21
+  notes: From the master product table. Purchased 2 time(s) between 2026-03-06 and 2026-06-21. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Noughty Dealcoholized Rosé
+  brand: "Noughty (Thomson & Scott)"
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Gently spun cone technology under vacuum at low temperature
+  abv: "<0.5%"
+  seen_at: The Zero Proof
+  times_purchased: 2
+  first_seen: 2026-03-06
+  last_seen: 2026-03-22
+  notes: From the master product table. Purchased 2 time(s) between 2026-03-06 and 2026-03-22. Do not publish until ABV and dealcoholization are sourced.
+
+- product: WiesenObst Cider Rosé Non-Alcoholic Cider
+  brand: Jörg Geiger
+  category: cider
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "Dealcoholized cider made from cider apples, perry pears and dealcoholized red wine, hops, herbs and flowers"
+  abv: "<0.5%"
+  seen_at: Delmosa
+  times_purchased: 2
+  first_seen: 2026-04-25
+  last_seen: 2026-06-23
+  notes: From the master product table. Purchased 2 time(s) between 2026-04-25 and 2026-06-23. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Grad 36° Non-Alcoholic Wine
+  brand: Jörg Geiger
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "Blend of dealcoholized red (Grenache) wine (75%) with damson plum, currant and blackberry juice plus herb/wildflower extracts"
+  abv: "<0.5%"
+  seen_at: Delmosa
+  times_purchased: 2
+  first_seen: 2026-04-25
+  last_seen: 2026-06-23
+  notes: From the master product table. Purchased 2 time(s) between 2026-04-25 and 2026-06-23. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Lautus Non-Alcoholic Wine Bundle
+  brand: Lautus
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Bundle SKU; The Zero Proof order email does not itemize which individual Lautus wines were included
+  abv: Not verified
+  seen_at: The Zero Proof
+  times_purchased: 2
+  first_seen: 2026-06-14
+  last_seen: 2026-08-12
+  notes: From the master product table. Purchased 2 time(s) between 2026-06-14 and 2026-08-12. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Mionetto Non Alcoholic Italy White Wine
+  brand: Mionetto
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Alcohol-removed Prosecco (branded); method not detailed
+  abv: Not verified
+  seen_at: Harris Teeter (Instacart)
+  times_purchased: 1
+  first_seen: 2025-09-22
+  last_seen: 2025-09-22
+  notes: From the master product table. Purchased 1 time(s) between 2025-09-22 and 2025-09-22. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Crodino Non-Alcoholic Spritz
+  brand: Crodino (Campari Group)
+  category: cocktails
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Produced as a non-alcoholic bitter aperitif since 1964; never an alcoholic product that was dealcoholized
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2025-10-03
+  last_seen: 2025-10-03
+  notes: From the master product table. Purchased 1 time(s) between 2025-10-03 and 2025-10-03. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "90+ Cellars Alcohol-Removed Sparkling Brut \"Lot 230\""
+  brand: 90+ Cellars
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "Traditionally made, then alcohol removed via reverse osmosis"
+  abv: "<0.5%"
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2025-10-03
+  last_seen: 2025-10-03
+  notes: From the master product table. Purchased 1 time(s) between 2025-10-03 and 2025-10-03. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Lyre's \"Amalfi Spritz\" Non-Alcoholic Canned Cocktail"
+  brand: "Lyre's"
+  category: cocktails
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: "Crafted from natural essences/extracts, not dealcoholized"
+  abv: "<0.3%"
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2025-10-03
+  last_seen: 2025-10-03
+  notes: From the master product table. Purchased 1 time(s) between 2025-10-03 and 2025-10-03. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Best Day Brewing Kölsch Non-Alcoholic Beer
   brand: Best Day Brewing
   category: beer
   priority: low
   status: queued
-  notes: US NA brewery. Do not assume dealcoholization.
+  dealcoholized: no
+  method: Brewed then alcohol removed per brand marketing; specific process not independently confirmed
+  abv: Not verified
+  seen_at: Best Day Brewing
+  times_purchased: 1
+  first_seen: 2025-10-10
+  last_seen: 2025-10-10
+  notes: From the master product table. Purchased 1 time(s) between 2025-10-10 and 2025-10-10. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "HOP WTR Sparkling Hop Water, Blood Orange, Non-Alcoholic"
+  brand: HOP WTR
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Hop-flavored sparkling water; not a brewed/fermented beer
+  abv: "0%"
+  seen_at: Giant Food (Instacart)
+  times_purchased: 1
+  first_seen: 2025-10-15
+  last_seen: 2025-10-15
+  notes: From the master product table. Purchased 1 time(s) between 2025-10-15 and 2025-10-15. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Original Sin Non-Alcoholic Cider Mix Pack (Golden/White/Dragon Widow)
+  brand: Original Sin Cider
+  category: cider
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2025-10-21
+  last_seen: 2025-10-21
+  notes: From the master product table. Purchased 1 time(s) between 2025-10-21 and 2025-10-21. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "St. Agrestis \"Phony Negroni\" Non-Alcoholic Negroni Cocktail"
+  brand: St. Agrestis
+  category: cocktails
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: "Company states explicitly: process maintains flavor \"and not with dealcoholizing\""
+  abv: "0%"
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2025-10-21
+  last_seen: 2025-10-21
+  notes: From the master product table. Purchased 1 time(s) between 2025-10-21 and 2025-10-21. Do not publish until ABV and dealcoholization are sourced.
+
+- product: French Bloom Le Blanc Non-Alcoholic Sparkling Wine
+  brand: French Bloom
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "Organic French Chardonnay wine that is dealcoholized, then blended with spring water, grape juice and organic lemon juice"
+  abv: "0%"
+  seen_at: The Zero Proof
+  times_purchased: 1
+  first_seen: 2025-11-18
+  last_seen: 2025-11-18
+  notes: From the master product table. Purchased 1 time(s) between 2025-11-18 and 2025-11-18. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Lapo's Non-Alcoholic Negroni"
+  brand: "Lapo's"
+  category: cocktails
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: "Canned Italian-style negroni alternative; marketed as 0.0% ABV zero-proof cocktail (not dealcoholized)"
+  abv: "0.0%"
+  seen_at: The Zero Proof
+  times_purchased: 1
+  first_seen: 2025-11-20
+  last_seen: 2025-11-20
+  notes: From the master product table. Purchased 1 time(s) between 2025-11-20 and 2025-11-20. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Kolonne Null Non-Alcoholic Rosé
+  brand: Kolonne Null
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Vacuum distillation at ~30°C to remove alcohol from base wine
+  abv: "0.0%"
+  seen_at: The Zero Proof
+  times_purchased: 1
+  first_seen: 2025-11-20
+  last_seen: 2025-11-20
+  notes: From the master product table. Purchased 1 time(s) between 2025-11-20 and 2025-11-20. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Go Brewing Sunbeam Pils Non-Alcoholic (Brew Non-Alcoholic Sunbeam Pils with German Malt & Hops)"
+  brand: Go Brewing
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: Giant Food (Instacart)
+  times_purchased: 1
+  first_seen: 2025-12-04
+  last_seen: 2025-12-04
+  notes: From the master product table. Purchased 1 time(s) between 2025-12-04 and 2025-12-04. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Mingle Non-Alcoholic Sparkling Raspberry Rose
+  brand: Mingle
+  category: cocktails
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 1
+  first_seen: 2026-01-11
+  last_seen: 2026-01-11
+  notes: From the master product table. Purchased 1 time(s) between 2026-01-11 and 2026-01-11. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Untitled Art \"FLVR!\" Non-Alcoholic Sour Ale w/ Mango & Dragonfruit"
+  brand: Untitled Art Brewing
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-01-23
+  last_seen: 2026-01-23
+  notes: From the master product table. Purchased 1 time(s) between 2026-01-23 and 2026-01-23. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Asahi \"Dry\" Non-Alcoholic"
+  brand: Asahi Breweries
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Wort-free complete formulation method — unfermented wort blended with flavor compounds (incl. MBT); not dealcoholized
+  abv: "0.00%"
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-01-28
+  last_seen: 2026-01-28
+  notes: From the master product table. Purchased 1 time(s) between 2026-01-28 and 2026-01-28. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Alcohol-Free Sparkling Rose (Single/750ml Bottle)
+  brand: Unknown/unverified
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: Wegmans (Instacart)
+  times_purchased: 1
+  first_seen: 2026-01-31
+  last_seen: 2026-01-31
+  notes: From the master product table. Purchased 1 time(s) between 2026-01-31 and 2026-01-31. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Nonny Czech Pilsner Non-Alcoholic Beer
+  brand: Nonny Beer
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: Upside Drinks
+  times_purchased: 1
+  first_seen: 2026-02-18
+  last_seen: 2026-02-18
+  notes: From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Grolsch 0.0% Non-Alcoholic Pilsner"
+  brand: Grolsch
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: "Major-brewery 0.0% pilsner; production method (limited fermentation vs. dealcoholization) not independently confirmed"
+  abv: "0.0%"
+  seen_at: Upside Drinks
+  times_purchased: 1
+  first_seen: 2026-02-18
+  last_seen: 2026-02-18
+  notes: From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Pierre Zero Non-Alcoholic Rosé (Bag-in-Box)
+  brand: Pierre Zero
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "French brand marketed as \"Zero\" alcohol-removed wine; specific technique not independently verified"
+  abv: "<0.5%"
+  seen_at: Upside Drinks
+  times_purchased: 1
+  first_seen: 2026-02-18
+  last_seen: 2026-02-18
+  notes: From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.
+
+- product: JP. Chenet Non-Alcoholic Sparkling Rosé
+  brand: JP. Chenet
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "Made from dealcoholized rosé wine plus rectified grape must concentrate, per ingredient list"
+  abv: "<0.5%"
+  seen_at: Upside Drinks
+  times_purchased: 1
+  first_seen: 2026-02-18
+  last_seen: 2026-02-18
+  notes: From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Christian Drouin \"Jus de Poire Petillant\" Non-Alcoholic Pear Cider"
+  brand: Christian Drouin
+  category: cider
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: "Product name translates to \"sparkling pear juice\" — likely never fermented"
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-02-22
+  last_seen: 2026-02-22
+  notes: From the master product table. Purchased 1 time(s) between 2026-02-22 and 2026-02-22. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Untitled Art N/A FLVR! Italian-Style Pils"
+  brand: Untitled Art Brewing
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-03-04
+  last_seen: 2026-03-04
+  notes: From the master product table. Purchased 1 time(s) between 2026-03-04 and 2026-03-04. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Gruvi Non-Alcoholic Sangria
+  brand: Grüvi
+  category: cocktails
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 1
+  first_seen: 2026-03-24
+  last_seen: 2026-03-24
+  notes: From the master product table. Purchased 1 time(s) between 2026-03-24 and 2026-03-24. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Eric Bordelet \"Jus de Pommes A Sydre Perlant\" Non-Alcoholic French Cider"
+  brand: Eric Bordelet
+  category: cider
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: "Product name translates to \"sparkling apple juice\" — likely never fermented"
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-04-19
+  last_seen: 2026-04-19
+  notes: From the master product table. Purchased 1 time(s) between 2026-04-19 and 2026-04-19. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "King Maui 0% Non-Alcoholic Marlborough Sauvignon Blanc"
+  brand: King Maui
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Not verified
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 1
+  first_seen: 2026-04-22
+  last_seen: 2026-04-22
+  notes: From the master product table. Purchased 1 time(s) between 2026-04-22 and 2026-04-22. Do not publish until ABV and dealcoholization are sourced.
+
+- product: ViSecco Pinot Meunier Non-Alcoholic Sparkling Red
+  brand: Jörg Geiger
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Not independently verified for this specific SKU
+  abv: "Not verified (brand line typically <0.5%)"
+  seen_at: Delmosa
+  times_purchased: 1
+  first_seen: 2026-04-25
+  last_seen: 2026-04-25
+  notes: From the master product table. Purchased 1 time(s) between 2026-04-25 and 2026-04-25. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Blanc de Blanc Non-Alcoholic Sparkling Wine (Delmosa)
+  brand: Jörg Geiger
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "Organic Chardonnay/Colombard wine fermented and aged on lees for two years, then \"gently dealcoholized\" (specific technique not detailed)"
+  abv: "<0.5%"
+  seen_at: Delmosa
+  times_purchased: 1
+  first_seen: 2026-04-25
+  last_seen: 2026-04-25
+  notes: From the master product table. Purchased 1 time(s) between 2026-04-25 and 2026-04-25. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Nozeco Alcohol Free Brut Rose
+  brand: Nozeco
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Not verified
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 1
+  first_seen: 2026-04-29
+  last_seen: 2026-04-29
+  notes: From the master product table. Purchased 1 time(s) between 2026-04-29 and 2026-04-29. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Ollivier Cottenceau Phénomène Non-Alcoholic \"Muscadet\""
+  brand: Ollivier Cottenceau (Domaine de la Grenaudière)
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not independently verified; sold as non-alcoholic Melon de Bourgogne (Muscadet-style) via Schatzi Wines/Boisson
+  abv: Not verified
+  seen_at: Boisson
+  times_purchased: 1
+  first_seen: 2026-05-02
+  last_seen: 2026-05-02
+  notes: From the master product table. Purchased 1 time(s) between 2026-05-02 and 2026-05-02. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Domaine de Montrose Non-Alcoholic Rosé
+  brand: Domaine de Montrose
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: "Not independently verified; sold as \"Rosé Zero\" via Schatzi Wines/Boisson"
+  abv: Not verified
+  seen_at: Boisson
+  times_purchased: 1
+  first_seen: 2026-05-02
+  last_seen: 2026-05-02
+  notes: From the master product table. Purchased 1 time(s) between 2026-05-02 and 2026-05-02. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Oddbird Non-Alcoholic Wine Bundle
+  brand: Oddbird
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Bundle SKU; The Zero Proof order email does not itemize which individual Oddbird wines were included
+  abv: Not verified
+  seen_at: The Zero Proof
+  times_purchased: 1
+  first_seen: 2026-05-11
+  last_seen: 2026-05-11
+  notes: From the master product table. Purchased 1 time(s) between 2026-05-11 and 2026-05-11. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Tired Hands Non-Alcoholic N/Alien Church
+  brand: Tired Hands
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 1
+  first_seen: 2026-05-22
+  last_seen: 2026-05-22
+  notes: From the master product table. Purchased 1 time(s) between 2026-05-22 and 2026-05-22. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Valckenberg \"Zero\" Non-Alcoholic Riesling"
+  brand: P.J. Valckenberg
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-05-24
+  last_seen: 2026-05-24
+  notes: From the master product table. Purchased 1 time(s) between 2026-05-24 and 2026-05-24. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Valckenberg \"Zero\" Non-Alcoholic Sparkling"
+  brand: P.J. Valckenberg
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-05-24
+  last_seen: 2026-05-24
+  notes: From the master product table. Purchased 1 time(s) between 2026-05-24 and 2026-05-24. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Erdinger Weissbrau N/A Lager \"Alkoholfrei\""
+  brand: Erdinger Weißbräu
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Brewed under Bavarian Purity Law; specific alcohol-removal method not disclosed
+  abv: "<0.5%"
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-05-29
+  last_seen: 2026-05-29
+  notes: From the master product table. Purchased 1 time(s) between 2026-05-29 and 2026-05-29. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Missing Thorn Non-Alcoholic Still White
+  brand: Missing Thorn
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Not independently verified; brand markets wines as alcohol-removed by winemaker Aaron Pott
+  abv: Not verified
+  seen_at: The Zero Proof
+  times_purchased: 1
+  first_seen: 2026-06-02
+  last_seen: 2026-06-02
+  notes: From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Josef Leitz Non-Alcoholic Sparkling Rosé \"Eins Zwei Zero\""
+  brand: Weingut Leitz
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Vacuum distillation at low temperature
+  abv: "0%"
+  seen_at: The Zero Proof
+  times_purchased: 1
+  first_seen: 2026-06-02
+  last_seen: 2026-06-02
+  notes: From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Athletic Brewing Co. Athletic ESB Non-Alcoholic Beer (Limited Edition)
+  brand: Athletic Brewing Company
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: "Athletic Brewing markets its beers generally as \"Near Beer <0.5% alc/vol\"; this SKU's specific brewing/alcohol-removal process not independently confirmed"
+  abv: Not verified
+  seen_at: Minus Moonshine
+  times_purchased: 1
+  first_seen: 2026-06-02
+  last_seen: 2026-06-02
+  notes: From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.
+
+- product: De Nada Non-Alcoholic Rosé
+  brand: De Nada (Paumanok Vineyards)
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not independently verified
+  abv: Not verified
+  seen_at: Minus Moonshine
+  times_purchased: 1
+  first_seen: 2026-06-02
+  last_seen: 2026-06-02
+  notes: From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Josef Leitz Non-Alcoholic Sparkling Blanc de Blancs \"Eins Zwei Zero\""
+  brand: Weingut Leitz
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Vacuum distillation at low temperature
+  abv: "0%"
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-06-24
+  last_seen: 2026-06-24
+  notes: From the master product table. Purchased 1 time(s) between 2026-06-24 and 2026-06-24. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Fio Non-Alcoholic Riesling \"Fabelhaft\""
+  brand: Fio
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-07-04
+  last_seen: 2026-07-04
+  notes: From the master product table. Purchased 1 time(s) between 2026-07-04 and 2026-07-04. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Ritual Zero Proof Tequila Alternative
+  brand: Ritual Zero Proof
+  category: spirits
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: "Formulated agave spirit alternative, never distilled from alcohol"
+  abv: "0%"
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-07-04
+  last_seen: 2026-07-04
+  notes: From the master product table. Purchased 1 time(s) between 2026-07-04 and 2026-07-04. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "P.J. Valckenberg \"It's Not a Sin\" NA Ginger/Bitter Orange Peel Wine"
+  brand: P.J. Valckenberg
+  category: cocktails
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: "Same producer as Valckenberg's verified \"Zero\" dealcoholized wine line, but this specific botanical-infused SKU's own production method not independently verified"
+  abv: Not verified
+  seen_at: InternetWines.com
+  times_purchased: 1
+  first_seen: 2026-07-26
+  last_seen: 2026-07-26
+  notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Sea Monster Tidal Wave White Alcohol Removed Wine
+  brand: Sea Monster
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "Branded \"Alcohol Removed\"; specific method not detailed"
+  abv: Not verified
+  seen_at: InternetWines.com
+  times_purchased: 1
+  first_seen: 2026-07-26
+  last_seen: 2026-07-26
+  notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Butter Zero Sparkling Rosé Non-Alcoholic
+  brand: Butter Zero
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not independently verified beyond retailer listing
+  abv: Not verified
+  seen_at: InternetWines.com
+  times_purchased: 1
+  first_seen: 2026-07-26
+  last_seen: 2026-07-26
+  notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Mount Fishtail Zero Sauvignon Blanc
+  brand: Mount Fishtail
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "Branded \"Alcohol Removed\"; specific method not detailed"
+  abv: Not verified
+  seen_at: InternetWines.com
+  times_purchased: 1
+  first_seen: 2026-07-26
+  last_seen: 2026-07-26
+  notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Butter Zero Pinot Noir Non-Alcoholic
+  brand: Butter Zero
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not independently verified beyond retailer listing
+  abv: Not verified
+  seen_at: InternetWines.com
+  times_purchased: 1
+  first_seen: 2026-07-26
+  last_seen: 2026-07-26
+  notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Zolo Zero Malbec Rosé Non-Alcoholic Wine
+  brand: Zolo
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not independently verified beyond retailer listing
+  abv: Not verified
+  seen_at: InternetWines.com
+  times_purchased: 1
+  first_seen: 2026-07-26
+  last_seen: 2026-07-26
+  notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Butter Zero Chardonnay Non-Alcoholic
+  brand: Butter Zero
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not independently verified beyond retailer listing
+  abv: Not verified
+  seen_at: InternetWines.com
+  times_purchased: 1
+  first_seen: 2026-07-26
+  last_seen: 2026-07-26
+  notes: From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Chloe Alcohol-Removed Pinot Grigio
+  brand: Chloe Wine Collection
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Alcohol-removed (branded); method not detailed
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 1
+  first_seen: 2026-07-27
+  last_seen: 2026-07-27
+  notes: From the master product table. Purchased 1 time(s) between 2026-07-27 and 2026-07-27. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Chateau Diana Zero Non-Alcoholic California White Wine Blend
+  brand: Chateau Diana
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "Branded \"Alcohol Removed\"; specific method not detailed"
+  abv: Not verified
+  seen_at: Walmart
+  times_purchased: 1
+  first_seen: 2026-08-08
+  last_seen: 2026-08-08
+  notes: From the master product table. Purchased 1 time(s) between 2026-08-08 and 2026-08-08. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Chateau Diana Zero Non-Alcoholic California Rosé
+  brand: Chateau Diana
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "Branded \"Alcohol Removed\"; specific method not detailed"
+  abv: Not verified
+  seen_at: Walmart
+  times_purchased: 1
+  first_seen: 2026-08-08
+  last_seen: 2026-08-08
+  notes: From the master product table. Purchased 1 time(s) between 2026-08-08 and 2026-08-08. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Penn's Best Non-Alcoholic Lager"
+  brand: "Penn's Best"
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: Total Wine
+  times_purchased: 1
+  first_seen: 2026-08-11
+  last_seen: 2026-08-11
+  notes: From the master product table. Purchased 1 time(s) between 2026-08-11 and 2026-08-11. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Ariel Non-Alcoholic Chardonnay
+  brand: Ariel (Ariel Vineyards / J. Lohr)
+  category: wine
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: "Marketed as \"Dealcoholized Wine\"; specific method not detailed"
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-08-22
+  last_seen: 2026-08-22
+  notes: From the master product table. Purchased 1 time(s) between 2026-08-22 and 2026-08-22. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Greenbar \"UNRum + Cola\" Non-Alcoholic Canned Cocktail"
+  brand: Greenbar
+  category: cocktails
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-08-28
+  last_seen: 2026-08-28
+  notes: From the master product table. Purchased 1 time(s) between 2026-08-28 and 2026-08-28. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Flying Dog \"Deep Fake\" Non-Alcoholic IPA"
+  brand: Flying Dog Brewery
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-08-28
+  last_seen: 2026-08-28
+  notes: From the master product table. Purchased 1 time(s) between 2026-08-28 and 2026-08-28. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Untitled Art \"FLVR!\" Non-Alcoholic Juicy IPA"
+  brand: Untitled Art Brewing
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-09-05
+  last_seen: 2026-09-05
+  notes: From the master product table. Purchased 1 time(s) between 2026-09-05 and 2026-09-05. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Pure Project \"Grounded\" Non-Alcoholic IPA"
+  brand: Pure Project
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-09-05
+  last_seen: 2026-09-05
+  notes: From the master product table. Purchased 1 time(s) between 2026-09-05 and 2026-09-05. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Birrificio Baladin \"Passione In Rosso\" Non-Alcoholic Italian Aperitivo"
+  brand: Birrificio Baladin
+  category: cocktails
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: Not verified
+  abv: Not verified
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-09-05
+  last_seen: 2026-09-05
+  notes: From the master product table. Purchased 1 time(s) between 2026-09-05 and 2026-09-05. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Deschutes Non-Alcoholic Fresh Squeezed IPA
+  brand: Deschutes Brewery
+  category: beer
+  priority: low
+  status: queued
+  dealcoholized: no
+  method: "Brand markets line as \"non-alcoholic\"; brewing/alcohol-removal process not independently confirmed"
+  abv: Not verified
+  seen_at: Deschutes Brewery
+  times_purchased: 1
+  first_seen: 2026-09-06
+  last_seen: 2026-09-06
+  notes: From the master product table. Purchased 1 time(s) between 2026-09-06 and 2026-09-06. Do not publish until ABV and dealcoholization are sourced.
+
+- product: Spiritless Jalisco 55 Non-Alcoholic Reposado Tequila
+  brand: Spiritless
+  category: spirits
+  priority: low
+  status: queued
+  dealcoholized: yes
+  method: Reverse distillation (same documented method as Spiritless Kentucky 74)
+  abv: "0.0%"
+  seen_at: InternetWines.com
+  times_purchased: 1
+  first_seen: 2026-09-14
+  last_seen: 2026-09-14
+  notes: From the master product table. Purchased 1 time(s) between 2026-09-14 and 2026-09-14. Do not publish until ABV and dealcoholization are sourced.
+
+- product: "Giesen 0% Sauvignon Blanc"
+  brand: Giesen
+  category: wine
+  priority: normal
+  status: published
+  notes: Already published at reviews/wine/giesen-0-sauvignon-blanc/. Same SKU as Giesen Non-Alcoholic Sauvignon Blanc in the master table.
+
+- product: Oddbird Blanc de Blancs
+  brand: Oddbird
+  category: wine
+  priority: normal
+  status: published
+  notes: Already published at reviews/wine/oddbird-blanc-de-blancs/. The Oddbird bundle in the master table is a different SKU.
 
 - product: Freixenet 0.0
   brand: Freixenet
   category: wine
   priority: normal
   status: published
-  notes: Sparkling. Verify production method before using the word dealcoholized.
-
-- product: Greenbar UNRum + Cola
-  brand: Greenbar
-  category: cocktails
-  priority: high
-  status: queued
-  dealcoholized: not-verified
-  method: not-verified
-  abv: not-verified
-  seen_at: Metro Wine & Spirits
-  sightings: 1
-  first_seen: "2026-08-28"
-  last_seen: "2026-08-28"
-  notes: In-store canned RTD. Confirm whether this is a formulated cocktail or alcohol-removed rum and cola.
-
-- product: Flying Dog Deep Fake Non-Alcoholic IPA
-  brand: Flying Dog Brewery
-  category: beer
-  priority: high
-  status: queued
-  dealcoholized: not-verified
-  method: not-verified
-  abv: not-verified
-  seen_at: Metro Wine & Spirits
-  sightings: 1
-  first_seen: "2026-08-28"
-  last_seen: "2026-08-28"
-  notes: In-store NA IPA. Do not assume dealcoholization.
-
-- product: Untitled Art FLVR! Non-Alcoholic Juicy IPA
-  brand: Untitled Art Brewing
-  category: beer
-  priority: high
-  status: queued
-  dealcoholized: not-verified
-  method: not-verified
-  abv: not-verified
-  seen_at: Metro Wine & Spirits
-  sightings: 1
-  first_seen: "2026-09-05"
-  last_seen: "2026-09-05"
-  notes: In-store NA juicy IPA. Confirm production method from Untitled Art before labeling dealcoholized.
-
-- product: Pure Project Grounded Non-Alcoholic IPA
-  brand: Pure Project
-  category: beer
-  priority: high
-  status: queued
-  dealcoholized: not-verified
-  method: not-verified
-  abv: not-verified
-  seen_at: Metro Wine & Spirits
-  sightings: 1
-  first_seen: "2026-09-05"
-  last_seen: "2026-09-05"
-  notes: In-store NA IPA. Verify whether alcohol is removed or brewing is limited to ≤0.5% ABV.
-
-- product: Birrificio Baladin Passione In Rosso
-  brand: Birrificio Baladin
-  category: cocktails
-  priority: high
-  status: queued
-  dealcoholized: not-verified
-  method: not-verified
-  abv: not-verified
-  seen_at: Metro Wine & Spirits
-  sightings: 1
-  first_seen: "2026-09-05"
-  last_seen: "2026-09-05"
-  notes: In-store Italian aperitivo, filed under cocktails. Confirm whether it is dealcoholized or formulated.
+  notes: "Already published at reviews/wine/freixenet-0-0/ as Freixenet 0,0 Sparkling White. Sparkling Rosé is a separate queue item."
 
 - product: Spiritless Kentucky 74
   brand: Spiritless
@@ -124,12 +1321,11 @@
   status: published
   dealcoholized: yes
   method: Proprietary reverse distillation of an oak-extracted high-proof spirit
-  abv: "Not verified as a single figure (FDA non-alcoholic, typically ≤0.5%)"
-  seen_at: Metro Wine & Spirits
-  sightings: 1
-  first_seen: "2026-09-05"
-  last_seen: "2026-09-05"
-  notes: Already published at reviews/spirits/spiritless-kentucky-74/. In-store sighting confirms US retail. Do not write a second review.
+  seen_at: "Metro Wine & Spirits"
+  times_purchased: 1
+  first_seen: 2026-09-05
+  last_seen: 2026-09-05
+  notes: Already published at reviews/spirits/spiritless-kentucky-74/. Do not write a second review.
 
 - product: St. Regis Non-Alcoholic Rosé
   brand: St. Regis
@@ -140,7 +1336,7 @@
   method: not-verified
   abv: not-verified
   seen_at: Total Wine
-  sightings: 1
-  first_seen: "2026-09-17"
-  last_seen: "2026-09-17"
-  notes: In-store NA rosé. Confirm dealcoholization method from St. Regis or the importer before using Dealcoholized Yes.
+  times_purchased: 1
+  first_seen: 2026-09-17
+  last_seen: 2026-09-17
+  notes: Already published at reviews/wine/st-regis-non-alcoholic-rose/.
