@@ -46,3 +46,101 @@
   priority: normal
   status: queued
   notes: Sparkling. Verify production method before using the word dealcoholized.
+
+- product: Greenbar UNRum + Cola
+  brand: Greenbar
+  category: cocktails
+  priority: high
+  status: queued
+  dealcoholized: not-verified
+  method: not-verified
+  abv: not-verified
+  seen_at: Metro Wine & Spirits
+  sightings: 1
+  first_seen: "2026-08-28"
+  last_seen: "2026-08-28"
+  notes: In-store canned RTD. Confirm whether this is a formulated cocktail or alcohol-removed rum and cola.
+
+- product: Flying Dog Deep Fake Non-Alcoholic IPA
+  brand: Flying Dog Brewery
+  category: beer
+  priority: high
+  status: queued
+  dealcoholized: not-verified
+  method: not-verified
+  abv: not-verified
+  seen_at: Metro Wine & Spirits
+  sightings: 1
+  first_seen: "2026-08-28"
+  last_seen: "2026-08-28"
+  notes: In-store NA IPA. Do not assume dealcoholization.
+
+- product: Untitled Art FLVR! Non-Alcoholic Juicy IPA
+  brand: Untitled Art Brewing
+  category: beer
+  priority: high
+  status: queued
+  dealcoholized: not-verified
+  method: not-verified
+  abv: not-verified
+  seen_at: Metro Wine & Spirits
+  sightings: 1
+  first_seen: "2026-09-05"
+  last_seen: "2026-09-05"
+  notes: In-store NA juicy IPA. Confirm production method from Untitled Art before labeling dealcoholized.
+
+- product: Pure Project Grounded Non-Alcoholic IPA
+  brand: Pure Project
+  category: beer
+  priority: high
+  status: queued
+  dealcoholized: not-verified
+  method: not-verified
+  abv: not-verified
+  seen_at: Metro Wine & Spirits
+  sightings: 1
+  first_seen: "2026-09-05"
+  last_seen: "2026-09-05"
+  notes: In-store NA IPA. Verify whether alcohol is removed or brewing is limited to ≤0.5% ABV.
+
+- product: Birrificio Baladin Passione In Rosso
+  brand: Birrificio Baladin
+  category: cocktails
+  priority: high
+  status: queued
+  dealcoholized: not-verified
+  method: not-verified
+  abv: not-verified
+  seen_at: Metro Wine & Spirits
+  sightings: 1
+  first_seen: "2026-09-05"
+  last_seen: "2026-09-05"
+  notes: In-store Italian aperitivo, filed under cocktails. Confirm whether it is dealcoholized or formulated.
+
+- product: Spiritless Kentucky 74
+  brand: Spiritless
+  category: spirits
+  priority: normal
+  status: published
+  dealcoholized: yes
+  method: Proprietary reverse distillation of an oak-extracted high-proof spirit
+  abv: "Not verified as a single figure (FDA non-alcoholic, typically ≤0.5%)"
+  seen_at: Metro Wine & Spirits
+  sightings: 1
+  first_seen: "2026-09-05"
+  last_seen: "2026-09-05"
+  notes: Already published at reviews/spirits/spiritless-kentucky-74/. In-store sighting confirms US retail. Do not write a second review.
+
+- product: St. Regis Non-Alcoholic Rosé
+  brand: St. Regis
+  category: wine
+  priority: high
+  status: queued
+  dealcoholized: not-verified
+  method: not-verified
+  abv: not-verified
+  seen_at: Total Wine
+  sightings: 1
+  first_seen: "2026-09-17"
+  last_seen: "2026-09-17"
+  notes: In-store NA rosé. Confirm dealcoholization method from St. Regis or the importer before using Dealcoholized Yes.
