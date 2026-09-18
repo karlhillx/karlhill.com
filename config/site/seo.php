@@ -1,11 +1,11 @@
 <?php
 
 return [
-    // Homepage title matches the H1 and is the primary "Karl Hill" document.
-    // Interior pages use "{Page} — Karl Hill". Affiliation belongs in
-    // descriptions and JSON-LD, not in every title.
+    // Homepage <title> disambiguates in search. The H1 stays the name.
+    // Interior pages use "{Page} — Karl Hill". Employer and programs stay
+    // in the description and JSON-LD, not in interior titles.
     'home' => [
-        'title' => 'Karl Hill',
+        'title' => 'Karl Hill · Staff Aerospace Software Engineer',
         'description' => 'Karl Hill is a Staff Aerospace Software Engineer at Jacobs. NASA Goddard Earth science (2017–2025) and GeoHorizons flood-mapping co-author.',
         'og_description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs. NASA flood mapping (GeoHorizons 2026), LAADS, and Earth Observatory.',
     ],

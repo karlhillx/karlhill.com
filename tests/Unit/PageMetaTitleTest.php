@@ -3,11 +3,12 @@
 use App\Support\PageMeta;
 use App\Support\ProjectCatalog;
 
-it('homepage title is the name and interior titles use a single brand suffix', function () {
+it('homepage title disambiguates in search and interior titles use a single brand suffix', function () {
     expect(PageMeta::titled('Karl Hill'))->toBe('Karl Hill')
         ->and(PageMeta::titled('Work'))->toBe('Work — Karl Hill')
         ->and(PageMeta::titled('Work — Karl Hill'))->toBe('Work — Karl Hill')
-        ->and(PageMeta::home()->title)->toBe('Karl Hill')
+        ->and(PageMeta::home()->title)->toBe('Karl Hill · Staff Aerospace Software Engineer')
+        ->and(PageMeta::home()->ogTitle)->toBe(PageMeta::home()->title)
         ->and(PageMeta::about()->title)->toBe('About — Karl Hill')
         ->and(PageMeta::work()->title)->toBe('Work — Karl Hill')
         ->and(PageMeta::blogIndex()->title)->toBe('Writing — Karl Hill')

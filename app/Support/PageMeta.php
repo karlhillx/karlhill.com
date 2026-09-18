@@ -31,8 +31,9 @@ final class PageMeta
     }
 
     /**
-     * Document title convention: the homepage is the name; every other page is
-     * "{Page} — Karl Hill". Do not append employer or program keywords here.
+     * Document title convention: the homepage title is authored in seo.home
+     * (name · role for search). Every other page is "{Page} — Karl Hill".
+     * Do not append employer or program keywords to interior titles.
      */
     public static function titled(string $page): string
     {
@@ -305,15 +306,18 @@ final class PageMeta
         $seo = config('site.seo.'.$key);
         $url = self::siteUrl();
         $canonical = $path === '/' ? $url : $url.$path;
+        $title = $key === 'home'
+            ? (string) $seo['title']
+            : self::titled($seo['title']);
 
         return new self(
-            title: self::titled($seo['title']),
+            title: $title,
             description: $seo['description'],
             canonical: $canonical,
-            ogTitle: self::titled($seo['title']),
+            ogTitle: $title,
             ogDescription: $seo['og_description'],
             ogImage: $url.'/img/og-home.jpg',
-            ogImageAlt: self::titled($seo['title']),
+            ogImageAlt: $title,
             ogImageWidth: 1200,
             ogImageHeight: 630,
             activeNav: $activeNav,

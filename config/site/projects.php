@@ -140,6 +140,8 @@ return [
         'sector' => 'NASA Earth Science',
         'description' => 'Ingest, processing, and distribution software for NASA direct-readout products. The portal is public.',
         'image' => '/img/webp/ss-direct-readout2.webp',
+        'image_alt' => 'NASA Direct Readout Laboratory — Real-time Earth observation for societal benefits, with recent software highlights.',
+        'imagePosition' => 'object-top',
         'url' => '/work/direct-readout-laboratory',
         'artifact' => [
             'label' => 'Open the portal',

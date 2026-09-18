@@ -96,11 +96,14 @@ it('homepage structured data describes the person website and blog graph', funct
         ->and($profile['image']['url'])->toEndWith('/img/profile.jpg');
 });
 
-it('homepage html includes preferred-name title and json-ld', function () {
+it('homepage html includes a disambiguating title and json-ld', function () {
     $response = $this->get('/');
 
     $response->assertOk();
-    $response->assertSee('<title>Karl Hill</title>', escape: false);
+    $response->assertSee('<title>Karl Hill · Staff Aerospace Software Engineer</title>', escape: false);
+    $response->assertSee('property="og:title" content="Karl Hill · Staff Aerospace Software Engineer"', escape: false);
+    $response->assertSee('<span class="hero-shine">Karl Hill</span>', escape: false);
+    $response->assertDontSee('<title>Karl Hill</title>', escape: false);
     $response->assertSee('Karl Hill is a Staff Aerospace Software Engineer at Jacobs', escape: false);
     $response->assertSee('NASA Goddard Earth science', escape: false);
     $response->assertSee('"@type": "WebSite"', escape: false);
