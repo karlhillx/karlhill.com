@@ -66,6 +66,9 @@ final class Review
         public readonly string $bodyMarkdown,
         public readonly string $sourcePath,
         public readonly ?string $availability = null,
+        public readonly ?string $image = null,
+        public readonly ?string $imageAlt = null,
+        public readonly ?string $imageCredit = null,
     ) {}
 
     /**
@@ -121,6 +124,9 @@ final class Review
             bodyMarkdown: trim($body),
             sourcePath: $sourcePath,
             availability: self::nullableString($matter['availability'] ?? null),
+            image: self::nullableString($matter['image'] ?? null),
+            imageAlt: self::nullableString($matter['image_alt'] ?? null),
+            imageCredit: self::nullableString($matter['image_credit'] ?? null),
         );
     }
 
@@ -173,8 +179,11 @@ final class Review
             'style' => $this->style,
             'abv' => $this->abv,
             'abv_numeric' => $this->abvNumeric,
+            'brand_slug' => Str::slug($this->brand),
+            'origin' => $this->originLabel(),
             'dealcoholized' => $this->dealcoholized,
             'dealcoholization_method' => $this->dealcoholizationMethod,
+            'method_slug' => $this->methodKey(),
             'producer' => $this->producer,
             'price' => $this->price,
             'volume' => $this->volume,
@@ -184,7 +193,76 @@ final class Review
             'path' => $this->path(),
             'review_date' => $this->reviewDate->toDateString(),
             'updated_date' => $this->modifiedAt()->toDateString(),
+            'search_text' => $this->searchText(),
+            'image' => $this->imageSrc(),
         ];
+    }
+
+    public function imageSrc(): ?string
+    {
+        $root = Paths::default()->path();
+        $candidates = array_values(array_filter([
+            $this->image,
+            'media/reviews/'.$this->slug.'.jpg',
+            'media/reviews/'.$this->slug.'.webp',
+            'media/reviews/'.$this->slug.'.png',
+        ]));
+
+        foreach ($candidates as $relative) {
+            $relative = ltrim(str_replace('\\', '/', (string) $relative), '/');
+            $absolute = $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $relative);
+
+            if (is_file($absolute)) {
+                return $relative;
+            }
+        }
+
+        return null;
+    }
+
+    public function imageAltText(): string
+    {
+        return $this->imageAlt ?? $this->title;
+    }
+
+    public function methodKey(): ?string
+    {
+        $text = strtolower($this->dealcoholizationMethod ?? '');
+
+        if ($text === '') {
+            return null;
+        }
+
+        foreach ([
+            'vacuum distillation' => 'vacuum-distillation',
+            'spinning cone' => 'spinning-cone',
+            'reverse osmosis' => 'reverse-osmosis',
+            'cold filtration' => 'membrane-filtration',
+            'membrane' => 'membrane-filtration',
+            'reverse distillation' => 'reverse-distillation',
+            'arrested fermentation' => 'arrested-fermentation',
+        ] as $needle => $key) {
+            if (str_contains($text, $needle)) {
+                return $key;
+            }
+        }
+
+        return Str::slug($this->dealcoholizationMethod);
+    }
+
+    public function searchText(): string
+    {
+        return strtolower(implode(' ', array_filter([
+            $this->title,
+            $this->brand,
+            $this->product,
+            $this->category,
+            $this->subcategory,
+            $this->originLabel(),
+            $this->dealcoholizationMethod,
+            $this->style,
+            $this->summary,
+        ])));
     }
 
     public function fact(string $field): ?string

@@ -58,4 +58,42 @@ it('exposes a feed, sitemap, and catalog for the client site', function () {
     $catalogResponse = $this->get('/clients/the-dry-standard/catalog.json')->assertOk();
     $catalog = json_decode($catalogResponse->streamedContent(), true, flags: JSON_THROW_ON_ERROR);
     expect($catalog['reviews'])->toBeArray()->not->toBeEmpty();
+    expect($catalog['facets']['categories'])->toContain('wine');
+    expect($catalog['reviews'][0])->toHaveKeys(['brand_slug', 'method_slug', 'origin', 'search_text', 'image']);
+});
+
+it('serves product stills on reviews and the archive', function () {
+    $this->get('/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/')
+        ->assertOk()
+        ->assertSee('media/reviews/leitz-eins-zwei-zero-riesling.jpg', escape: false)
+        ->assertSee('og:image', escape: false)
+        ->assertSee('product-figure--hero', escape: false);
+
+    $this->get('/clients/the-dry-standard/media/reviews/guinness-0-0.jpg')->assertOk();
+
+    $this->get('/clients/the-dry-standard/reviews/')
+        ->assertOk()
+        ->assertSee('product-figure--thumb', escape: false)
+        ->assertSee('media/reviews/lyres-italian-orange.jpg', escape: false);
+});
+
+it('builds a searchable review archive', function () {
+    $this->get('/clients/the-dry-standard/')
+        ->assertOk()
+        ->assertSee('header-search', escape: false)
+        ->assertSee('Search the cellar', escape: false)
+        ->assertSee('ledger-row', escape: false);
+
+    $this->get('/clients/the-dry-standard/reviews/')
+        ->assertOk()
+        ->assertSee('data-archive', escape: false)
+        ->assertSee('Search brand, product, origin, or method', escape: false)
+        ->assertSee('data-archive-category', escape: false)
+        ->assertSee('data-search=', escape: false)
+        ->assertSee('ledger-row', escape: false);
+
+    $this->get('/clients/the-dry-standard/reviews/wine/')
+        ->assertOk()
+        ->assertSee('data-locked-category="wine"', escape: false)
+        ->assertSee('disabled', escape: false);
 });

@@ -36,6 +36,10 @@ Taste can be tart. Facts cannot be.
 6. Verdict
 7. Sources
 
+## Product images
+
+Save one editorial still per review at `media/reviews/{slug}.jpg` (3:4, bottle or can on paper). Set `image`, `image_alt`, and `image_credit` in frontmatter. Do not scrape brand photography. If the file is missing, the page still builds; the cellar just shows an empty frame.
+
 ## Sources
 
 Every factual field in frontmatter must be listed under a source `claims` array. Allowed claim tokens include `abv`, `method`, `origin`, `producer`, `ingredients`, `calories`, `sugar`, `price`, `availability`, `volume`, `dealcoholized`, `base_beverage`, `country`, `region`.

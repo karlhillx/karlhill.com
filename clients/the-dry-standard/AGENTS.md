@@ -56,6 +56,7 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 ## File map
 
 - Reviews: `clients/the-dry-standard/content/reviews/`
+- Product stills: `clients/the-dry-standard/media/reviews/{slug}.jpg`
 - Queue: `clients/the-dry-standard/data/review-queue.yaml`
 - Config: `clients/the-dry-standard/data/config.yaml`
 - Schema reminder: `clients/the-dry-standard/data/schema/review.schema.yaml`

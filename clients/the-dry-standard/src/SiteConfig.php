@@ -133,6 +133,33 @@ final class SiteConfig
     }
 
     /**
+     * @return array<string, string>
+     */
+    public function methods(): array
+    {
+        $methods = $this->get('methods', []);
+
+        if (! is_array($methods)) {
+            return [];
+        }
+
+        $labels = [];
+
+        foreach ($methods as $slug => $label) {
+            if (is_string($slug) && is_string($label) && $label !== '') {
+                $labels[$slug] = $label;
+            }
+        }
+
+        return $labels;
+    }
+
+    public function methodLabel(string $slug): string
+    {
+        return $this->methods()[$slug] ?? ucfirst(str_replace('-', ' ', $slug));
+    }
+
+    /**
      * @return array<int, string>
      */
     public function allowedStatuses(): array

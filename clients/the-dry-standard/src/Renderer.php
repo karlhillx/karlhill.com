@@ -21,6 +21,19 @@ final class Renderer
         $jsonLd = (string) ($options['json_ld'] ?? '');
         $extraHead = (string) ($options['head'] ?? '');
         $current = $this->navKey((string) ($options['nav'] ?? $path));
+        $image = (string) ($options['image'] ?? '');
+        $ogImage = '';
+
+        if ($image !== '') {
+            $imageUrl = $this->e($this->config->canonicalUrl($image));
+            $ogImage = <<<HTML
+  <meta property="og:image" content="{$imageUrl}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{$imageUrl}">
+HTML;
+        } else {
+            $ogImage = '  <meta name="twitter:card" content="summary">';
+        }
 
         return <<<HTML
 <!DOCTYPE html>
@@ -36,15 +49,15 @@ final class Renderer
   <meta property="og:description" content="{$this->e($description)}">
   <meta property="og:type" content="{$ogType}">
   <meta property="og:url" content="{$this->e($canonical)}">
-  <meta name="twitter:card" content="summary">
+  {$ogImage}
   <meta name="twitter:title" content="{$this->e($title)}">
   <meta name="twitter:description" content="{$this->e($description)}">
   <link rel="alternate" type="application/atom+xml" title="{$siteName} reviews" href="{$this->url('feed.xml')}">
   <link rel="icon" href="{$this->url('mark.svg')}" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{$this->url('styles.css')}?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{$this->url('styles.css')}?v=6">
   {$extraHead}
   {$jsonLd}
 </head>
@@ -55,7 +68,7 @@ final class Renderer
     {$body}
   </main>
   {$this->footer()}
-  <script src="{$this->url('script.js')}?v=2" defer></script>
+  <script src="{$this->url('script.js')}?v=3" defer></script>
 </body>
 </html>
 HTML;
@@ -80,8 +93,8 @@ HTML;
                 ->take(3);
         }
 
-        $latestCards = $this->reviewCards($latest);
-        $ratedCards = $this->reviewCards($highlyRated, compact: true);
+        $latestCards = $this->reviewCards($latest, ledger: true);
+        $ratedCards = $this->reviewCards($highlyRated, ledger: true);
         $categoryBlocks = '';
 
         foreach ($byCategory as $category => $items) {
@@ -129,7 +142,7 @@ HTML;
         $body = <<<HTML
     <section class="hero">
       <div class="shell hero-inner">
-        <p class="kicker">An editorial publication</p>
+        <p class="kicker">Independent reviews</p>
         <h1>The standard for what remains after the alcohol is gone.</h1>
         <p class="lede">{$tagline} We review beverages at 0.5% ABV or less, and we separate products that were actually dealcoholized from those formulated to imitate a drink.</p>
         <div class="hero-actions">
@@ -152,7 +165,7 @@ HTML;
           </div>
           <a class="text-link" href="{$this->url('reviews/')}">All reviews</a>
         </div>
-        <div class="card-grid">{$latestCards}</div>
+        <div class="ledger">{$latestCards}</div>
       </div>
     </section>
     <section class="section section--paper">
@@ -174,7 +187,7 @@ HTML;
             <h2>What holds up in the glass</h2>
           </div>
         </div>
-        <div class="card-grid card-grid--compact">{$ratedCards}</div>
+        <div class="ledger">{$ratedCards}</div>
       </div>
     </section>
     <section class="section section--ink">
@@ -237,39 +250,28 @@ HTML;
         array $crumbs,
         string $nav = 'reviews',
         bool $filterable = false,
+        ?string $lockedCategory = null,
     ): string {
-        $cards = $reviews->isEmpty()
-            ? '<p class="empty">No published reviews in this section yet. Products can sit in the queue until the facts are good enough to print.</p>'
-            : '<div class="card-grid" data-review-grid>'.$this->reviewCards($reviews, filterable: $filterable).'</div>';
+        $empty = '<p class="empty" data-archive-empty>No published reviews in this section yet. Products can sit in the queue until the facts are good enough to print.</p>';
+        $list = $reviews->isEmpty()
+            ? $empty
+            : '<div class="ledger" data-review-grid>'.$this->reviewCards($reviews, ledger: true).'</div>'
+                .'<p class="empty" data-archive-empty hidden>No reviews match those filters.</p>';
 
-        $filter = '';
-        if ($filterable && $reviews->isNotEmpty()) {
-            $filter = <<<'HTML'
-        <div class="filters" data-filters>
-          <label>Show
-            <select data-filter-dealcoholized>
-              <option value="all">All products</option>
-              <option value="yes">Dealcoholized</option>
-              <option value="no">Formulated / not dealcoholized</option>
-              <option value="not-verified">Not verified</option>
-            </select>
-          </label>
-        </div>
-HTML;
-        }
+        $tools = $filterable && $reviews->isNotEmpty() ? $this->archiveTools($reviews, $lockedCategory) : '';
 
         $body = <<<HTML
     <header class="page-header">
       <div class="shell">
         {$this->breadcrumbs($crumbs)}
-        <p class="kicker">The Dry Standard</p>
+        <p class="kicker">The cellar</p>
         <h1>{$this->e($title)}</h1>
         <p class="lede">{$this->e($description)}</p>
-        {$filter}
+        {$tools}
       </div>
     </header>
-    <section class="section">
-      <div class="shell">{$cards}</div>
+    <section class="section section--tight">
+      <div class="shell">{$list}</div>
     </section>
 HTML;
 
@@ -343,7 +345,7 @@ HTML;
     public function brandPage(string $name, Collection $brandReviews, string $path, array $crumbs): string
     {
         $description = 'Reviews of dealcoholized and non-alcoholic products from '.$name.'.';
-        $cards = $this->reviewCards($brandReviews);
+        $cards = $this->reviewCards($brandReviews, ledger: true);
 
         $body = <<<HTML
     <header class="page-header">
@@ -356,7 +358,7 @@ HTML;
     </header>
     <section class="section">
       <div class="shell">
-        <div class="card-grid">{$cards}</div>
+        <div class="ledger">{$cards}</div>
       </div>
     </section>
 HTML;
@@ -394,6 +396,7 @@ HTML;
             'no' => 'badge badge--no',
             default => 'badge badge--unknown',
         };
+        $figure = $this->productFigure($review, 'product-figure product-figure--hero', hero: true);
 
         $body = <<<HTML
     <article class="review" data-review>
@@ -402,6 +405,7 @@ HTML;
           {$this->breadcrumbs($crumbs)}
           <p class="kicker">{$this->e($this->config->categoryLabel($review->category))}</p>
           <div class="review-hero">
+            {$figure}
             <div>
               <h1>{$this->e($review->title)}</h1>
               <p class="lede">{$this->e($review->summary)}</p>
@@ -453,6 +457,7 @@ HTML;
             [
                 'nav' => 'reviews',
                 'og_type' => 'article',
+                'image' => $review->imageSrc() ?? '',
                 'json_ld' => $this->jsonLd([
                     $this->breadcrumbGraph($crumbs),
                     $this->articleGraph($review),
@@ -575,9 +580,13 @@ XML;
   <header class="site-header" data-header>
     <div class="header-inner">
       <a class="logo" href="{$this->url()}"{$homeCurrent}>
-        <img src="{$this->url('mark.svg')}" alt="" width="28" height="28">
+        <img src="{$this->url('mark.svg')}" alt="" width="18" height="18">
         <span>The Dry Standard</span>
       </a>
+      <form class="header-search" action="{$this->url('reviews/')}" method="get" role="search">
+        <label class="visually-hidden" for="header-q">Search reviews</label>
+        <input id="header-q" type="search" name="q" placeholder="Search the cellar">
+      </form>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
         <span class="nav-toggle-bar"></span>
         <span class="visually-hidden">Menu</span>
@@ -618,17 +627,99 @@ HTML;
     /**
      * @param  Collection<int, Review>  $reviews
      */
-    private function reviewCards(Collection $reviews, bool $compact = false, bool $filterable = false): string
+    private function archiveTools(Collection $reviews, ?string $lockedCategory): string
     {
-        return $reviews->map(function (Review $review) use ($compact, $filterable): string {
+        $categoryOptions = '<option value="">All categories</option>';
+        foreach ($this->config->categories() as $category) {
+            $selected = $lockedCategory === $category ? ' selected' : '';
+            $categoryOptions .= '<option value="'.Str::e($category).'"'.$selected.'>'.Str::e($this->config->categoryLabel($category)).'</option>';
+        }
+
+        $methods = $reviews
+            ->map(fn (Review $review): ?string => $review->methodKey())
+            ->filter()
+            ->unique()
+            ->sort()
+            ->values();
+
+        $methodOptions = '<option value="">All methods</option>';
+        foreach ($methods as $method) {
+            $methodOptions .= '<option value="'.Str::e((string) $method).'">'.Str::e($this->config->methodLabel((string) $method)).'</option>';
+        }
+
+        $locked = $lockedCategory !== null ? ' data-locked-category="'.Str::e($lockedCategory).'"' : '';
+        $categoryDisabled = $lockedCategory !== null ? ' disabled' : '';
+
+        return <<<HTML
+        <form class="archive-tools" data-archive{$locked} role="search">
+          <label class="visually-hidden" for="archive-q">Search reviews</label>
+          <input id="archive-q" type="search" name="q" placeholder="Search brand, product, origin, or method" data-archive-q>
+          <div class="archive-controls">
+            <label>Category
+              <select name="category" data-archive-category{$categoryDisabled}>{$categoryOptions}</select>
+            </label>
+            <label>Process
+              <select name="dealcoholized" data-archive-dealcoholized>
+                <option value="">All processes</option>
+                <option value="yes">Dealcoholized</option>
+                <option value="no">Formulated</option>
+                <option value="not-verified">Not verified</option>
+              </select>
+            </label>
+            <label>Method
+              <select name="method" data-archive-method>{$methodOptions}</select>
+            </label>
+            <label>Sort
+              <select name="sort" data-archive-sort>
+                <option value="newest">Newest</option>
+                <option value="rating">Highest rated</option>
+                <option value="title">Name</option>
+              </select>
+            </label>
+          </div>
+          <p class="archive-count" data-archive-count></p>
+        </form>
+HTML;
+    }
+
+    private function reviewCards(Collection $reviews, bool $compact = false, bool $ledger = false): string
+    {
+        return $reviews->map(function (Review $review) use ($compact, $ledger): string {
             $score = $review->rating !== null ? '<span class="card-score">'.$review->rating.'</span>' : '';
             $meta = trim($this->config->categoryLabel($review->category).($review->originLabel() ? ' · '.$review->originLabel() : ''));
+            $method = $review->dealcoholizationMethod ?? 'Method unpublished';
             $badge = '<span class="badge badge--'.Str::e($review->dealcoholized).'">'.Str::e($review->dealcoholizedLabel()).'</span>';
-            $filterAttr = $filterable ? ' data-dealcoholized="'.Str::e($review->dealcoholized).'"' : '';
+            $attrs = implode(' ', [
+                'data-dealcoholized="'.Str::e($review->dealcoholized).'"',
+                'data-category="'.Str::e($review->category).'"',
+                'data-brand="'.Str::e(Str::slug($review->brand)).'"',
+                'data-method="'.Str::e($review->methodKey() ?? '').'"',
+                'data-rating="'.Str::e((string) ($review->rating ?? 0)).'"',
+                'data-date="'.Str::e($review->reviewDate->toDateString()).'"',
+                'data-search="'.Str::e($review->searchText()).'"',
+            ]);
             $compactClass = $compact ? ' card--compact' : '';
 
+            $thumb = $this->productFigure($review, 'product-figure product-figure--thumb');
+
+            if ($ledger) {
+                return <<<HTML
+      <article class="ledger-row" {$attrs}>
+        {$thumb}
+        <div>
+          <p class="ledger-brand">{$this->e($review->brand)}</p>
+          <h3><a href="{$this->url($review->path())}">{$this->e($review->title)}</a></h3>
+          <p class="ledger-meta">{$this->e($meta)} · {$this->e($method)}</p>
+          {$badge}
+        </div>
+        {$score}
+      </article>
+HTML;
+            }
+
             return <<<HTML
-      <article class="card{$compactClass}"{$filterAttr}>
+      <article class="card{$compactClass}" {$attrs}>
+        {$thumb}
         <div class="card-top">
           <p class="card-meta">{$this->e($meta)}</p>
           {$score}
@@ -836,14 +927,15 @@ HTML;
                 'bestRating' => 100,
                 'worstRating' => 0,
             ],
-            'itemReviewed' => [
+            'itemReviewed' => array_filter([
                 '@type' => 'Product',
                 'name' => $review->product,
                 'brand' => [
                     '@type' => 'Brand',
                     'name' => $review->brand,
                 ],
-            ],
+                'image' => $review->imageSrc() ? $this->config->canonicalUrl($review->imageSrc()) : null,
+            ]),
         ]);
     }
 
@@ -861,8 +953,30 @@ HTML;
             ],
             'category' => $this->config->categoryLabel($review->category),
             'description' => $review->summary,
+            'image' => $review->imageSrc() ? $this->config->canonicalUrl($review->imageSrc()) : null,
             'alcoholWarning' => $review->abv,
         ], fn (mixed $value): bool => $value !== null && $value !== '');
+    }
+
+    private function productFigure(Review $review, string $class, bool $hero = false): string
+    {
+        $src = $review->imageSrc();
+
+        if ($src === null) {
+            return '<div class="'.Str::e($class).' product-figure--empty" aria-hidden="true"></div>';
+        }
+
+        $credit = $hero && $review->imageCredit !== null
+            ? '<figcaption>'.$this->e($review->imageCredit).'</figcaption>'
+            : '';
+        $loading = $hero ? 'eager' : 'lazy';
+
+        return <<<HTML
+        <figure class="{$this->e($class)}">
+          <img src="{$this->url($src)}" alt="{$this->e($review->imageAltText())}" width="720" height="960" loading="{$loading}">
+          {$credit}
+        </figure>
+HTML;
     }
 
     private function optionalBlock(?string $value, string $prefix = ''): string

@@ -30,6 +30,14 @@ categories:
   cocktails: Cocktails
   cider: Cider
 
+methods:
+  vacuum-distillation: Vacuum distillation
+  spinning-cone: Spinning cone
+  reverse-osmosis: Reverse osmosis
+  membrane-filtration: Membrane / cold filtration
+  reverse-distillation: Reverse distillation
+  arrested-fermentation: Arrested fermentation
+
 rating:
   scale: 100
   description: Scores judge beverage quality, not how closely a drink impersonates ethanol.

@@ -33,6 +33,7 @@ php artisan dry-standard:publish {slug} --force
 
 ```
 content/reviews/*.md     # review source of truth (YAML frontmatter + body)
+media/reviews/{slug}.jpg # editorial product stills
 content/guides/*.md
 content/methods/*.md
 content/pages/about.md

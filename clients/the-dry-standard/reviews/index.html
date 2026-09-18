@@ -11,15 +11,15 @@
   <meta property="og:description" content="Independent tasting notes and production facts for dealcoholized and non-alcoholic drinks at 0.5% ABV or less.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://karlhill.com/clients/the-dry-standard/reviews/">
-  <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="All reviews">
   <meta name="twitter:description" content="Independent tasting notes and production facts for dealcoholized and non-alcoholic drinks at 0.5% ABV or less.">
   <link rel="alternate" type="application/atom+xml" title="The Dry Standard reviews" href="/clients/the-dry-standard/feed.xml">
   <link rel="icon" href="/clients/the-dry-standard/mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=6">
   
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://karlhill.com/clients/the-dry-standard/"},{"@type":"ListItem","position":2,"name":"Reviews","item":"https://karlhill.com/clients/the-dry-standard/reviews/"}]},{"@type":"CollectionPage","name":"All reviews","description":"Independent tasting notes and production facts for dealcoholized and non-alcoholic drinks at 0.5% ABV or less.","url":"https://karlhill.com/clients/the-dry-standard/reviews/"}]}</script>
 </head>
@@ -28,9 +28,13 @@
     <header class="site-header" data-header>
     <div class="header-inner">
       <a class="logo" href="/clients/the-dry-standard/">
-        <img src="/clients/the-dry-standard/mark.svg" alt="" width="28" height="28">
+        <img src="/clients/the-dry-standard/mark.svg" alt="" width="18" height="18">
         <span>The Dry Standard</span>
       </a>
+      <form class="header-search" action="/clients/the-dry-standard/reviews/" method="get" role="search">
+        <label class="visually-hidden" for="header-q">Search reviews</label>
+        <input id="header-q" type="search" name="q" placeholder="Search the cellar">
+      </form>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
         <span class="nav-toggle-bar"></span>
         <span class="visually-hidden">Menu</span>
@@ -42,95 +46,137 @@
         <header class="page-header">
       <div class="shell">
         <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/clients/the-dry-standard/">Home</a></li><li><span aria-current="page">Reviews</span></li></ol></nav>
-        <p class="kicker">The Dry Standard</p>
+        <p class="kicker">The cellar</p>
         <h1>All reviews</h1>
         <p class="lede">Independent tasting notes and production facts for dealcoholized and non-alcoholic drinks at 0.5% ABV or less.</p>
-                <div class="filters" data-filters>
-          <label>Show
-            <select data-filter-dealcoholized>
-              <option value="all">All products</option>
-              <option value="yes">Dealcoholized</option>
-              <option value="no">Formulated / not dealcoholized</option>
-              <option value="not-verified">Not verified</option>
-            </select>
-          </label>
-        </div>
+                <form class="archive-tools" data-archive role="search">
+          <label class="visually-hidden" for="archive-q">Search reviews</label>
+          <input id="archive-q" type="search" name="q" placeholder="Search brand, product, origin, or method" data-archive-q>
+          <div class="archive-controls">
+            <label>Category
+              <select name="category" data-archive-category><option value="">All categories</option><option value="wine">Wine</option><option value="beer">Beer</option><option value="spirits">Spirits</option><option value="cocktails">Cocktails</option><option value="cider">Cider</option></select>
+            </label>
+            <label>Process
+              <select name="dealcoholized" data-archive-dealcoholized>
+                <option value="">All processes</option>
+                <option value="yes">Dealcoholized</option>
+                <option value="no">Formulated</option>
+                <option value="not-verified">Not verified</option>
+              </select>
+            </label>
+            <label>Method
+              <select name="method" data-archive-method><option value="">All methods</option><option value="membrane-filtration">Membrane / cold filtration</option><option value="reverse-distillation">Reverse distillation</option><option value="spinning-cone">Spinning cone</option><option value="vacuum-distillation">Vacuum distillation</option></select>
+            </label>
+            <label>Sort
+              <select name="sort" data-archive-sort>
+                <option value="newest">Newest</option>
+                <option value="rating">Highest rated</option>
+                <option value="title">Name</option>
+              </select>
+            </label>
+          </div>
+          <p class="archive-count" data-archive-count></p>
+        </form>
       </div>
     </header>
-    <section class="section">
-      <div class="shell"><div class="card-grid" data-review-grid>      <article class="card" data-dealcoholized="not-verified">
-        <div class="card-top">
-          <p class="card-meta">Wine · Penedès, Spain</p>
-          <span class="card-score">79</span>
+    <section class="section section--tight">
+      <div class="shell"><div class="ledger" data-review-grid>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="wine" data-brand="freixenet" data-method="" data-rating="79" data-date="2026-09-18" data-search="freixenet 0,0 sparkling white freixenet 0,0 sparkling white wine sparkling penedès, spain alcohol-removed sparkling white (method not verified) freixenet&apos;s alcohol-removed sparkling white, made from airén grapes in penedès, the same do as the brand&apos;s cava. sub-0.05% abv, sold nationwide at a cava-adjacent price point. removal method unpublished.">
+        <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
+        <div>
+          <p class="ledger-brand">Freixenet</p>
+          <h3><a href="/clients/the-dry-standard/reviews/wine/freixenet-0-0/">Freixenet 0,0 Sparkling White</a></h3>
+          <p class="ledger-meta">Wine · Penedès, Spain · Method unpublished</p>
+          <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
-        <h3><a href="/clients/the-dry-standard/reviews/wine/freixenet-0-0/">Freixenet 0,0 Sparkling White</a></h3>
-        <p>Freixenet&apos;s alcohol-removed sparkling white, made from Airén grapes in Penedès, the same DO as the brand&apos;s Cava. Sub-0.05% ABV, sold nationwide at a Cava-adjacent price point. Removal method unpublished.</p>
-        <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
-      </article>      <article class="card" data-dealcoholized="yes">
-        <div class="card-top">
-          <p class="card-meta">Wine · Marlborough, New Zealand</p>
-          <span class="card-score">85</span>
+        <span class="card-score">79</span>
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="wine" data-brand="giesen" data-method="spinning-cone" data-rating="85" data-date="2026-09-18" data-search="giesen 0% sauvignon blanc giesen 0% sauvignon blanc wine sauvignon blanc marlborough, new zealand spinning cone distillation dealcoholized sauvignon blanc new zealand&apos;s best-selling alcohol-removed white, built the honest way: full-strength sauvignon blanc first, alcohol stripped after via spinning cone.">
+        <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
+        <div>
+          <p class="ledger-brand">Giesen</p>
+          <h3><a href="/clients/the-dry-standard/reviews/wine/giesen-0-sauvignon-blanc/">Giesen 0% Sauvignon Blanc</a></h3>
+          <p class="ledger-meta">Wine · Marlborough, New Zealand · Spinning cone distillation</p>
+          <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
-        <h3><a href="/clients/the-dry-standard/reviews/wine/giesen-0-sauvignon-blanc/">Giesen 0% Sauvignon Blanc</a></h3>
-        <p>New Zealand&apos;s best-selling alcohol-removed white, built the honest way: full-strength Sauvignon Blanc first, alcohol stripped after via spinning cone.</p>
-        <span class="badge badge--yes">Dealcoholized: Yes</span>
-      </article>      <article class="card" data-dealcoholized="yes">
-        <div class="card-top">
-          <p class="card-meta">Beer · Dublin, Ireland</p>
-          <span class="card-score">91</span>
+        <span class="card-score">85</span>
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="beer" data-brand="guinness" data-method="membrane-filtration" data-rating="91" data-date="2026-09-18" data-search="guinness 0.0 guinness guinness 0.0 beer stout dublin, ireland cold filtration after a conventional guinness brew dealcoholized dry stout a st james&apos;s gate stout with the alcohol filtered out cold. cream, coffee, and that familiar surge — then a slightly sweeter, lighter finish.">
+                <figure class="product-figure product-figure--thumb">
+          <img src="/clients/the-dry-standard/media/reviews/guinness-0-0.jpg" alt="Guinness 0.0 can" width="720" height="960" loading="lazy">
+          
+        </figure>
+        <div>
+          <p class="ledger-brand">Guinness</p>
+          <h3><a href="/clients/the-dry-standard/reviews/beer/guinness-0-0/">Guinness 0.0</a></h3>
+          <p class="ledger-meta">Beer · Dublin, Ireland · Cold filtration after a conventional Guinness brew</p>
+          <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
-        <h3><a href="/clients/the-dry-standard/reviews/beer/guinness-0-0/">Guinness 0.0</a></h3>
-        <p>A St James&apos;s Gate stout with the alcohol filtered out cold. Cream, coffee, and that familiar surge — then a slightly sweeter, lighter finish.</p>
-        <span class="badge badge--yes">Dealcoholized: Yes</span>
-      </article>      <article class="card" data-dealcoholized="yes">
-        <div class="card-top">
-          <p class="card-meta">Wine · Rheingau, Germany</p>
-          <span class="card-score">88</span>
+        <span class="card-score">91</span>
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="wine" data-brand="leitz" data-method="vacuum-distillation" data-rating="88" data-date="2026-09-18" data-search="leitz eins-zwei-zero riesling leitz eins-zwei-zero riesling wine riesling rheingau, germany vacuum distillation dealcoholized riesling a rheingau riesling put through vacuum distillation. citrus, rhubarb, and a dry-seeming finish — with more residual sugar than the word dry implies.">
+                <figure class="product-figure product-figure--thumb">
+          <img src="/clients/the-dry-standard/media/reviews/leitz-eins-zwei-zero-riesling.jpg" alt="Leitz Eins-Zwei-Zero Riesling bottle" width="720" height="960" loading="lazy">
+          
+        </figure>
+        <div>
+          <p class="ledger-brand">Leitz</p>
+          <h3><a href="/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/">Leitz Eins-Zwei-Zero Riesling</a></h3>
+          <p class="ledger-meta">Wine · Rheingau, Germany · Vacuum distillation</p>
+          <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
-        <h3><a href="/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/">Leitz Eins-Zwei-Zero Riesling</a></h3>
-        <p>A Rheingau Riesling put through vacuum distillation. Citrus, rhubarb, and a dry-seeming finish — with more residual sugar than the word dry implies.</p>
-        <span class="badge badge--yes">Dealcoholized: Yes</span>
-      </article>      <article class="card" data-dealcoholized="no">
-        <div class="card-top">
-          <p class="card-meta">Cocktails</p>
-          <span class="card-score">82</span>
+        <span class="card-score">88</span>
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="lyre-s" data-method="" data-rating="82" data-date="2026-09-18" data-search="lyre&apos;s italian orange lyre&apos;s italian orange cocktails aperitif formulated bitter orange aperitif a built-from-scratch blood-orange aperitif under 0.3% abv. useful in a negroni-shaped drink. not wine, not a spirit, not dealcoholized.">
+                <figure class="product-figure product-figure--thumb">
+          <img src="/clients/the-dry-standard/media/reviews/lyres-italian-orange.jpg" alt="Lyre&apos;s Italian Orange bottle" width="720" height="960" loading="lazy">
+          
+        </figure>
+        <div>
+          <p class="ledger-brand">Lyre&apos;s</p>
+          <h3><a href="/clients/the-dry-standard/reviews/cocktails/lyres-italian-orange/">Lyre&apos;s Italian Orange</a></h3>
+          <p class="ledger-meta">Cocktails · Method unpublished</p>
+          <span class="badge badge--no">Dealcoholized: No — formulated as a zero-proof alternative</span>
         </div>
-        <h3><a href="/clients/the-dry-standard/reviews/cocktails/lyres-italian-orange/">Lyre&apos;s Italian Orange</a></h3>
-        <p>A built-from-scratch blood-orange aperitif under 0.3% ABV. Useful in a Negroni-shaped drink. Not wine, not a spirit, not dealcoholized.</p>
-        <span class="badge badge--no">Dealcoholized: No — formulated as a zero-proof alternative</span>
-      </article>      <article class="card" data-dealcoholized="yes">
-        <div class="card-top">
-          <p class="card-meta">Wine · Castilla–La Mancha, Spain</p>
-          <span class="card-score">84</span>
+        <span class="card-score">82</span>
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="wine" data-brand="thomson-scott" data-method="vacuum-distillation" data-rating="84" data-date="2026-09-18" data-search="thomson &amp; scott noughty sparkling chardonnay thomson &amp; scott noughty sparkling chardonnay wine sparkling castilla–la mancha, spain vacuum distillation with aroma recovery; some trade sheets also name spinning-cone technology dealcoholized sparkling chardonnay organic la mancha chardonnay, dealcoholized, then lightly carbonated. pale, crisp, and modestly sweet — with a documented alcohol-removal step.">
+                <figure class="product-figure product-figure--thumb">
+          <img src="/clients/the-dry-standard/media/reviews/noughty-sparkling-chardonnay.jpg" alt="Thomson &amp; Scott Noughty Sparkling Chardonnay bottle" width="720" height="960" loading="lazy">
+          
+        </figure>
+        <div>
+          <p class="ledger-brand">Thomson &amp; Scott</p>
+          <h3><a href="/clients/the-dry-standard/reviews/wine/noughty-sparkling-chardonnay/">Thomson &amp; Scott Noughty Sparkling Chardonnay</a></h3>
+          <p class="ledger-meta">Wine · Castilla–La Mancha, Spain · Vacuum distillation with aroma recovery; some trade sheets also name spinning-cone technology</p>
+          <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
-        <h3><a href="/clients/the-dry-standard/reviews/wine/noughty-sparkling-chardonnay/">Thomson &amp; Scott Noughty Sparkling Chardonnay</a></h3>
-        <p>Organic La Mancha Chardonnay, dealcoholized, then lightly carbonated. Pale, crisp, and modestly sweet — with a documented alcohol-removal step.</p>
-        <span class="badge badge--yes">Dealcoholized: Yes</span>
-      </article>      <article class="card" data-dealcoholized="yes">
-        <div class="card-top">
-          <p class="card-meta">Wine · Languedoc-Roussillon, France</p>
-          <span class="card-score">84</span>
+        <span class="card-score">84</span>
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="wine" data-brand="oddbird" data-method="vacuum-distillation" data-rating="84" data-date="2026-09-18" data-search="oddbird blanc de blancs oddbird blanc de blancs wine sparkling languedoc-roussillon, france vacuum distillation dealcoholized sparkling white (oak-aged) a swedish brand&apos;s french-made sparkling blanc de blancs, aged 12 months in oak before the alcohol is vacuum-distilled out. reads closer to champagne-style than most dealcoholized proseccos.">
+        <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
+        <div>
+          <p class="ledger-brand">Oddbird</p>
+          <h3><a href="/clients/the-dry-standard/reviews/wine/oddbird-blanc-de-blancs/">Oddbird Blanc de Blancs</a></h3>
+          <p class="ledger-meta">Wine · Languedoc-Roussillon, France · Vacuum distillation</p>
+          <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
-        <h3><a href="/clients/the-dry-standard/reviews/wine/oddbird-blanc-de-blancs/">Oddbird Blanc de Blancs</a></h3>
-        <p>A Swedish brand&apos;s French-made sparkling Blanc de Blancs, aged 12 months in oak before the alcohol is vacuum-distilled out. Reads closer to Champagne-style than most dealcoholized proseccos.</p>
-        <span class="badge badge--yes">Dealcoholized: Yes</span>
-      </article>      <article class="card" data-dealcoholized="yes">
-        <div class="card-top">
-          <p class="card-meta">Spirits · Kentucky, United States</p>
-          <span class="card-score">78</span>
+        <span class="card-score">84</span>
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="spirits" data-brand="spiritless" data-method="reverse-distillation" data-rating="78" data-date="2026-09-18" data-search="spiritless kentucky 74 spiritless kentucky 74 spirits whiskey alternative kentucky, united states reverse distillation after thermal oak extraction in high-proof neutral grain spirit reverse-distilled oak spirit louisville&apos;s reverse-distilled whiskey alternative. alcohol is removed from an oak-charged high-proof spirit. it is not dealcoholized maker&apos;s mark.">
+                <figure class="product-figure product-figure--thumb">
+          <img src="/clients/the-dry-standard/media/reviews/spiritless-kentucky-74.jpg" alt="Spiritless Kentucky 74 bottle" width="720" height="960" loading="lazy">
+          
+        </figure>
+        <div>
+          <p class="ledger-brand">Spiritless</p>
+          <h3><a href="/clients/the-dry-standard/reviews/spirits/spiritless-kentucky-74/">Spiritless Kentucky 74</a></h3>
+          <p class="ledger-meta">Spirits · Kentucky, United States · Reverse distillation after thermal oak extraction in high-proof neutral grain spirit</p>
+          <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
-        <h3><a href="/clients/the-dry-standard/reviews/spirits/spiritless-kentucky-74/">Spiritless Kentucky 74</a></h3>
-        <p>Louisville&apos;s reverse-distilled whiskey alternative. Alcohol is removed from an oak-charged high-proof spirit. It is not dealcoholized Maker&apos;s Mark.</p>
-        <span class="badge badge--yes">Dealcoholized: Yes</span>
-      </article>      <article class="card" data-dealcoholized="yes">
-        <div class="card-top">
-          <p class="card-meta">Wine · Germany</p>
-          <span class="card-score">76</span>
+        <span class="card-score">78</span>
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="wine" data-brand="st-regis" data-method="vacuum-distillation" data-rating="76" data-date="2026-09-18" data-search="st. regis non-alcoholic rosé st. regis non-alcoholic rosé wine syrah/shiraz rosé germany vacuum distillation dealcoholized rosé a german-made syrah/shiraz rosé, vacuum-distilled to remove alcohol, sold nationally at total wine for under $13. producer-confirmed method; taste reception is mixed.">
+        <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
+        <div>
+          <p class="ledger-brand">St. Regis</p>
+          <h3><a href="/clients/the-dry-standard/reviews/wine/st-regis-non-alcoholic-rose/">St. Regis Non-Alcoholic Rosé</a></h3>
+          <p class="ledger-meta">Wine · Germany · Vacuum distillation</p>
+          <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
-        <h3><a href="/clients/the-dry-standard/reviews/wine/st-regis-non-alcoholic-rose/">St. Regis Non-Alcoholic Rosé</a></h3>
-        <p>A German-made Syrah/Shiraz rosé, vacuum-distilled to remove alcohol, sold nationally at Total Wine for under $13. Producer-confirmed method; taste reception is mixed.</p>
-        <span class="badge badge--yes">Dealcoholized: Yes</span>
-      </article></div></div>
+        <span class="card-score">76</span>
+      </article></div><p class="empty" data-archive-empty hidden>No reviews match those filters.</p></div>
     </section>
   </main>
     <footer class="site-footer">
@@ -154,6 +200,6 @@
     </div>
     <p class="copyright">© <span data-year></span> The Dry Standard. Staging preview on karlhill.com.</p>
   </footer>
-  <script src="/clients/the-dry-standard/script.js?v=2" defer></script>
+  <script src="/clients/the-dry-standard/script.js?v=3" defer></script>
 </body>
 </html>

@@ -65,6 +65,8 @@ final class SiteBuilder
                         'Reviews' => 'reviews/',
                         $label => 'reviews/'.$category.'/',
                     ]),
+                    filterable: true,
+                    lockedCategory: $category,
                 ),
             );
         }
@@ -175,6 +177,12 @@ final class SiteBuilder
                 'site' => $this->config->name(),
                 'generated_at' => now()->toIso8601String(),
                 'reviews' => $published->map(fn (Review $review): array => $review->catalogRecord())->values(),
+                'facets' => [
+                    'categories' => $published->pluck('category')->unique()->values(),
+                    'brands' => $published->pluck('brand')->unique()->sort()->values(),
+                    'dealcoholized' => $published->pluck('dealcoholized')->unique()->values(),
+                    'methods' => $published->map(fn (Review $review): ?string => $review->methodKey())->filter()->unique()->values(),
+                ],
             ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n",
         );
 

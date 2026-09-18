@@ -77,6 +77,14 @@ it('rejects a product above the 0.5 percent ceiling', function () {
     expect($errors)->toContain('abv_numeric exceeds the 0.5% editorial ceiling; do not publish over-limit products');
 });
 
+it('rejects a missing image file when one is declared', function () {
+    $review = dryStandardReview(['image' => 'media/reviews/does-not-exist.jpg']);
+
+    $errors = (new ReviewValidator)->errors($review, dryStandardConfig());
+
+    expect($errors)->toContain('image file is missing: media/reviews/does-not-exist.jpg');
+});
+
 it('rejects dates in slugs', function () {
     $review = dryStandardReview(['slug' => 'test-wine-2026-09-18']);
 

@@ -87,6 +87,14 @@ final class ReviewValidator
             $errors[] = 'rating must be between 0 and 100';
         }
 
+        if ($review->image !== null) {
+            $imagePath = Paths::default()->path($review->image);
+
+            if (! is_file($imagePath)) {
+                $errors[] = 'image file is missing: '.$review->image;
+            }
+        }
+
         if ($forPublish) {
             if ($review->summary === '' || $review->verdict === '') {
                 $errors[] = 'published reviews require summary and verdict';

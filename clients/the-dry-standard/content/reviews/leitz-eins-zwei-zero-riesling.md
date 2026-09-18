@@ -23,6 +23,9 @@ purchase_links:
   - label: Empire Wine
     url: https://www.empirewine.com/grocery/leitz-eins-zwei-zero-non-alcoholic-riesling-750ml-h50738/
     region: US
+image: media/reviews/leitz-eins-zwei-zero-riesling.jpg
+image_alt: "Leitz Eins-Zwei-Zero Riesling bottle"
+image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 88

@@ -11,15 +11,15 @@
   <meta property="og:description" content="Dealcoholized and non-alcoholic Cocktails reviewed for what they are, not what the label implies.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://karlhill.com/clients/the-dry-standard/reviews/cocktails/">
-  <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Cocktails reviews">
   <meta name="twitter:description" content="Dealcoholized and non-alcoholic Cocktails reviewed for what they are, not what the label implies.">
   <link rel="alternate" type="application/atom+xml" title="The Dry Standard reviews" href="/clients/the-dry-standard/feed.xml">
   <link rel="icon" href="/clients/the-dry-standard/mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=6">
   
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://karlhill.com/clients/the-dry-standard/"},{"@type":"ListItem","position":2,"name":"Reviews","item":"https://karlhill.com/clients/the-dry-standard/reviews/"},{"@type":"ListItem","position":3,"name":"Cocktails","item":"https://karlhill.com/clients/the-dry-standard/reviews/cocktails/"}]},{"@type":"CollectionPage","name":"Cocktails reviews","description":"Dealcoholized and non-alcoholic Cocktails reviewed for what they are, not what the label implies.","url":"https://karlhill.com/clients/the-dry-standard/reviews/cocktails/"}]}</script>
 </head>
@@ -28,9 +28,13 @@
     <header class="site-header" data-header>
     <div class="header-inner">
       <a class="logo" href="/clients/the-dry-standard/">
-        <img src="/clients/the-dry-standard/mark.svg" alt="" width="28" height="28">
+        <img src="/clients/the-dry-standard/mark.svg" alt="" width="18" height="18">
         <span>The Dry Standard</span>
       </a>
+      <form class="header-search" action="/clients/the-dry-standard/reviews/" method="get" role="search">
+        <label class="visually-hidden" for="header-q">Search reviews</label>
+        <input id="header-q" type="search" name="q" placeholder="Search the cellar">
+      </form>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
         <span class="nav-toggle-bar"></span>
         <span class="visually-hidden">Menu</span>
@@ -42,22 +46,53 @@
         <header class="page-header">
       <div class="shell">
         <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/clients/the-dry-standard/">Home</a></li><li><a href="/clients/the-dry-standard/reviews/">Reviews</a></li><li><span aria-current="page">Cocktails</span></li></ol></nav>
-        <p class="kicker">The Dry Standard</p>
+        <p class="kicker">The cellar</p>
         <h1>Cocktails reviews</h1>
         <p class="lede">Dealcoholized and non-alcoholic Cocktails reviewed for what they are, not what the label implies.</p>
-        
+                <form class="archive-tools" data-archive data-locked-category="cocktails" role="search">
+          <label class="visually-hidden" for="archive-q">Search reviews</label>
+          <input id="archive-q" type="search" name="q" placeholder="Search brand, product, origin, or method" data-archive-q>
+          <div class="archive-controls">
+            <label>Category
+              <select name="category" data-archive-category disabled><option value="">All categories</option><option value="wine">Wine</option><option value="beer">Beer</option><option value="spirits">Spirits</option><option value="cocktails" selected>Cocktails</option><option value="cider">Cider</option></select>
+            </label>
+            <label>Process
+              <select name="dealcoholized" data-archive-dealcoholized>
+                <option value="">All processes</option>
+                <option value="yes">Dealcoholized</option>
+                <option value="no">Formulated</option>
+                <option value="not-verified">Not verified</option>
+              </select>
+            </label>
+            <label>Method
+              <select name="method" data-archive-method><option value="">All methods</option></select>
+            </label>
+            <label>Sort
+              <select name="sort" data-archive-sort>
+                <option value="newest">Newest</option>
+                <option value="rating">Highest rated</option>
+                <option value="title">Name</option>
+              </select>
+            </label>
+          </div>
+          <p class="archive-count" data-archive-count></p>
+        </form>
       </div>
     </header>
-    <section class="section">
-      <div class="shell"><div class="card-grid" data-review-grid>      <article class="card">
-        <div class="card-top">
-          <p class="card-meta">Cocktails</p>
-          <span class="card-score">82</span>
+    <section class="section section--tight">
+      <div class="shell"><div class="ledger" data-review-grid>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="lyre-s" data-method="" data-rating="82" data-date="2026-09-18" data-search="lyre&apos;s italian orange lyre&apos;s italian orange cocktails aperitif formulated bitter orange aperitif a built-from-scratch blood-orange aperitif under 0.3% abv. useful in a negroni-shaped drink. not wine, not a spirit, not dealcoholized.">
+                <figure class="product-figure product-figure--thumb">
+          <img src="/clients/the-dry-standard/media/reviews/lyres-italian-orange.jpg" alt="Lyre&apos;s Italian Orange bottle" width="720" height="960" loading="lazy">
+          
+        </figure>
+        <div>
+          <p class="ledger-brand">Lyre&apos;s</p>
+          <h3><a href="/clients/the-dry-standard/reviews/cocktails/lyres-italian-orange/">Lyre&apos;s Italian Orange</a></h3>
+          <p class="ledger-meta">Cocktails · Method unpublished</p>
+          <span class="badge badge--no">Dealcoholized: No — formulated as a zero-proof alternative</span>
         </div>
-        <h3><a href="/clients/the-dry-standard/reviews/cocktails/lyres-italian-orange/">Lyre&apos;s Italian Orange</a></h3>
-        <p>A built-from-scratch blood-orange aperitif under 0.3% ABV. Useful in a Negroni-shaped drink. Not wine, not a spirit, not dealcoholized.</p>
-        <span class="badge badge--no">Dealcoholized: No — formulated as a zero-proof alternative</span>
-      </article></div></div>
+        <span class="card-score">82</span>
+      </article></div><p class="empty" data-archive-empty hidden>No reviews match those filters.</p></div>
     </section>
   </main>
     <footer class="site-footer">
@@ -81,6 +116,6 @@
     </div>
     <p class="copyright">© <span data-year></span> The Dry Standard. Staging preview on karlhill.com.</p>
   </footer>
-  <script src="/clients/the-dry-standard/script.js?v=2" defer></script>
+  <script src="/clients/the-dry-standard/script.js?v=3" defer></script>
 </body>
 </html>

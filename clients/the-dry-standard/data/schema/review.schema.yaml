@@ -41,4 +41,7 @@ sources:
 discrepancies:
   - field: string
     note: string
+image: path under media/reviews/{slug}.jpg, optional override
+image_alt: string, optional; defaults to title
+image_credit: Editorial still | photographer credit
 status: queued | researching | draft | validated | scheduled | published | needs-review

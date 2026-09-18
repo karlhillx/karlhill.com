@@ -1,6 +1,6 @@
 {
     "site": "The Dry Standard",
-    "generated_at": "2026-09-18T23:02:59+00:00",
+    "generated_at": "2026-09-18T23:31:02+00:00",
     "reviews": [
         {
             "title": "Freixenet 0,0 Sparkling White",
@@ -14,8 +14,11 @@
             "style": "Alcohol-removed sparkling white (method not verified)",
             "abv": "Less than 0.05% ABV (producer)",
             "abv_numeric": 0.05,
+            "brand_slug": "freixenet",
+            "origin": "Pened\u00e8s, Spain",
             "dealcoholized": "not-verified",
             "dealcoholization_method": null,
+            "method_slug": null,
             "producer": "Freixenet (Henkell Freixenet)",
             "price": "$12 (US launch SRP)",
             "volume": null,
@@ -24,7 +27,9 @@
             "status": "published",
             "path": "reviews/wine/freixenet-0-0/",
             "review_date": "2026-09-18",
-            "updated_date": "2026-09-18"
+            "updated_date": "2026-09-18",
+            "search_text": "freixenet 0,0 sparkling white freixenet 0,0 sparkling white wine sparkling pened\u00e8s, spain alcohol-removed sparkling white (method not verified) freixenet's alcohol-removed sparkling white, made from air\u00e9n grapes in pened\u00e8s, the same do as the brand's cava. sub-0.05% abv, sold nationwide at a cava-adjacent price point. removal method unpublished.",
+            "image": null
         },
         {
             "title": "Giesen 0% Sauvignon Blanc",
@@ -38,8 +43,11 @@
             "style": "Dealcoholized Sauvignon Blanc",
             "abv": "Less than 0.5% ABV (producer, FDA non-alcoholic threshold)",
             "abv_numeric": 0.5,
+            "brand_slug": "giesen",
+            "origin": "Marlborough, New Zealand",
             "dealcoholized": "yes",
             "dealcoholization_method": "Spinning cone distillation",
+            "method_slug": "spinning-cone",
             "producer": "Giesen Wines (Giesen Group), Marlborough, New Zealand",
             "price": null,
             "volume": "750 ml",
@@ -48,7 +56,9 @@
             "status": "published",
             "path": "reviews/wine/giesen-0-sauvignon-blanc/",
             "review_date": "2026-09-18",
-            "updated_date": "2026-09-18"
+            "updated_date": "2026-09-18",
+            "search_text": "giesen 0% sauvignon blanc giesen 0% sauvignon blanc wine sauvignon blanc marlborough, new zealand spinning cone distillation dealcoholized sauvignon blanc new zealand's best-selling alcohol-removed white, built the honest way: full-strength sauvignon blanc first, alcohol stripped after via spinning cone.",
+            "image": null
         },
         {
             "title": "Guinness 0.0",
@@ -62,8 +72,11 @@
             "style": "Dealcoholized dry stout",
             "abv": "Marketed as 0.0%; independent testers have reported a detectable ceiling around 0.05%",
             "abv_numeric": 0,
+            "brand_slug": "guinness",
+            "origin": "Dublin, Ireland",
             "dealcoholized": "yes",
             "dealcoholization_method": "Cold filtration after a conventional Guinness brew",
+            "method_slug": "membrane-filtration",
             "producer": "Guinness (Diageo), St James's Gate",
             "price": null,
             "volume": "440 ml can (secondary listing; US cans also appear as 14.9 fl oz)",
@@ -72,7 +85,9 @@
             "status": "published",
             "path": "reviews/beer/guinness-0-0/",
             "review_date": "2026-09-18",
-            "updated_date": "2026-09-18"
+            "updated_date": "2026-09-18",
+            "search_text": "guinness 0.0 guinness guinness 0.0 beer stout dublin, ireland cold filtration after a conventional guinness brew dealcoholized dry stout a st james's gate stout with the alcohol filtered out cold. cream, coffee, and that familiar surge \u2014 then a slightly sweeter, lighter finish.",
+            "image": "media/reviews/guinness-0-0.jpg"
         },
         {
             "title": "Leitz Eins-Zwei-Zero Riesling",
@@ -86,8 +101,11 @@
             "style": "Dealcoholized Riesling",
             "abv": "<0.1% vol (producer); bottling tolerance up to 0.38% vol",
             "abv_numeric": 0.1,
+            "brand_slug": "leitz",
+            "origin": "Rheingau, Germany",
             "dealcoholized": "yes",
             "dealcoholization_method": "Vacuum distillation",
+            "method_slug": "vacuum-distillation",
             "producer": "Weingut Leitz",
             "price": "$16\u201320",
             "volume": "750 ml",
@@ -96,7 +114,9 @@
             "status": "published",
             "path": "reviews/wine/leitz-eins-zwei-zero-riesling/",
             "review_date": "2026-09-18",
-            "updated_date": "2026-09-18"
+            "updated_date": "2026-09-18",
+            "search_text": "leitz eins-zwei-zero riesling leitz eins-zwei-zero riesling wine riesling rheingau, germany vacuum distillation dealcoholized riesling a rheingau riesling put through vacuum distillation. citrus, rhubarb, and a dry-seeming finish \u2014 with more residual sugar than the word dry implies.",
+            "image": "media/reviews/leitz-eins-zwei-zero-riesling.jpg"
         },
         {
             "title": "Lyre's Italian Orange",
@@ -110,8 +130,11 @@
             "style": "Formulated bitter orange aperitif",
             "abv": "<0.3% ABV",
             "abv_numeric": 0.3,
+            "brand_slug": "lyre-s",
+            "origin": null,
             "dealcoholized": "no",
             "dealcoholization_method": null,
+            "method_slug": null,
             "producer": "Lyre's",
             "price": "$38",
             "volume": "700 ml",
@@ -120,7 +143,9 @@
             "status": "published",
             "path": "reviews/cocktails/lyres-italian-orange/",
             "review_date": "2026-09-18",
-            "updated_date": "2026-09-18"
+            "updated_date": "2026-09-18",
+            "search_text": "lyre's italian orange lyre's italian orange cocktails aperitif formulated bitter orange aperitif a built-from-scratch blood-orange aperitif under 0.3% abv. useful in a negroni-shaped drink. not wine, not a spirit, not dealcoholized.",
+            "image": "media/reviews/lyres-italian-orange.jpg"
         },
         {
             "title": "Thomson & Scott Noughty Sparkling Chardonnay",
@@ -134,8 +159,11 @@
             "style": "Dealcoholized sparkling Chardonnay",
             "abv": "0.0% vol on producer technical data; some US retailers list <0.5% ABV",
             "abv_numeric": 0,
+            "brand_slug": "thomson-scott",
+            "origin": "Castilla\u2013La Mancha, Spain",
             "dealcoholized": "yes",
             "dealcoholization_method": "Vacuum distillation with aroma recovery; some trade sheets also name spinning-cone technology",
+            "method_slug": "vacuum-distillation",
             "producer": "Thomson & Scott, with dealcoholization associated with Carl Jung",
             "price": "$22\u201323",
             "volume": "750 ml",
@@ -144,7 +172,9 @@
             "status": "published",
             "path": "reviews/wine/noughty-sparkling-chardonnay/",
             "review_date": "2026-09-18",
-            "updated_date": "2026-09-18"
+            "updated_date": "2026-09-18",
+            "search_text": "thomson & scott noughty sparkling chardonnay thomson & scott noughty sparkling chardonnay wine sparkling castilla\u2013la mancha, spain vacuum distillation with aroma recovery; some trade sheets also name spinning-cone technology dealcoholized sparkling chardonnay organic la mancha chardonnay, dealcoholized, then lightly carbonated. pale, crisp, and modestly sweet \u2014 with a documented alcohol-removal step.",
+            "image": "media/reviews/noughty-sparkling-chardonnay.jpg"
         },
         {
             "title": "Oddbird Blanc de Blancs",
@@ -158,8 +188,11 @@
             "style": "Dealcoholized sparkling white (oak-aged)",
             "abv": "Less than 0.5% ABV (retailer)",
             "abv_numeric": 0.5,
+            "brand_slug": "oddbird",
+            "origin": "Languedoc-Roussillon, France",
             "dealcoholized": "yes",
             "dealcoholization_method": "Vacuum distillation",
+            "method_slug": "vacuum-distillation",
             "producer": "Oddbird International AB (Swedish company; wine made in Languedoc-Roussillon, France)",
             "price": null,
             "volume": "750 ml",
@@ -168,7 +201,9 @@
             "status": "published",
             "path": "reviews/wine/oddbird-blanc-de-blancs/",
             "review_date": "2026-09-18",
-            "updated_date": "2026-09-18"
+            "updated_date": "2026-09-18",
+            "search_text": "oddbird blanc de blancs oddbird blanc de blancs wine sparkling languedoc-roussillon, france vacuum distillation dealcoholized sparkling white (oak-aged) a swedish brand's french-made sparkling blanc de blancs, aged 12 months in oak before the alcohol is vacuum-distilled out. reads closer to champagne-style than most dealcoholized proseccos.",
+            "image": null
         },
         {
             "title": "Spiritless Kentucky 74",
@@ -182,8 +217,11 @@
             "style": "Reverse-distilled oak spirit",
             "abv": "Typically labeled 0.5% ABV or below; some later brand copy has said under 0.05%",
             "abv_numeric": 0.5,
+            "brand_slug": "spiritless",
+            "origin": "Kentucky, United States",
             "dealcoholized": "yes",
             "dealcoholization_method": "Reverse distillation after thermal oak extraction in high-proof neutral grain spirit",
+            "method_slug": "reverse-distillation",
             "producer": "Spiritless, Louisville",
             "price": "$36\u201338",
             "volume": "700 ml",
@@ -192,7 +230,9 @@
             "status": "published",
             "path": "reviews/spirits/spiritless-kentucky-74/",
             "review_date": "2026-09-18",
-            "updated_date": "2026-09-18"
+            "updated_date": "2026-09-18",
+            "search_text": "spiritless kentucky 74 spiritless kentucky 74 spirits whiskey alternative kentucky, united states reverse distillation after thermal oak extraction in high-proof neutral grain spirit reverse-distilled oak spirit louisville's reverse-distilled whiskey alternative. alcohol is removed from an oak-charged high-proof spirit. it is not dealcoholized maker's mark.",
+            "image": "media/reviews/spiritless-kentucky-74.jpg"
         },
         {
             "title": "St. Regis Non-Alcoholic Ros\u00e9",
@@ -206,8 +246,11 @@
             "style": "Dealcoholized ros\u00e9",
             "abv": "Less than 0.5% ABV (retailer)",
             "abv_numeric": 0.5,
+            "brand_slug": "st-regis",
+            "origin": "Germany",
             "dealcoholized": "yes",
             "dealcoholization_method": "Vacuum distillation",
+            "method_slug": "vacuum-distillation",
             "producer": "St. Regis (non-alcoholic wine brand; unrelated to the St. Regis hotel brand)",
             "price": "$12.99 (Total Wine, 750 ml)",
             "volume": "750 ml",
@@ -216,7 +259,39 @@
             "status": "published",
             "path": "reviews/wine/st-regis-non-alcoholic-rose/",
             "review_date": "2026-09-18",
-            "updated_date": "2026-09-18"
+            "updated_date": "2026-09-18",
+            "search_text": "st. regis non-alcoholic ros\u00e9 st. regis non-alcoholic ros\u00e9 wine syrah/shiraz ros\u00e9 germany vacuum distillation dealcoholized ros\u00e9 a german-made syrah/shiraz ros\u00e9, vacuum-distilled to remove alcohol, sold nationally at total wine for under $13. producer-confirmed method; taste reception is mixed.",
+            "image": null
         }
-    ]
+    ],
+    "facets": {
+        "categories": [
+            "wine",
+            "beer",
+            "cocktails",
+            "spirits"
+        ],
+        "brands": [
+            "Freixenet",
+            "Giesen",
+            "Guinness",
+            "Leitz",
+            "Lyre's",
+            "Oddbird",
+            "Spiritless",
+            "St. Regis",
+            "Thomson & Scott"
+        ],
+        "dealcoholized": [
+            "not-verified",
+            "yes",
+            "no"
+        ],
+        "methods": [
+            "spinning-cone",
+            "membrane-filtration",
+            "vacuum-distillation",
+            "reverse-distillation"
+        ]
+    }
 }

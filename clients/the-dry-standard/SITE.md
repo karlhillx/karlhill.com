@@ -5,7 +5,7 @@ Public base: `/clients/the-dry-standard/`
 | Path | Purpose |
 | --- | --- |
 | `/` | Editorial homepage |
-| `/reviews/` | All reviews, filterable by dealcoholized status |
+| `/reviews/` | Searchable cellar: query, category, process, method, sort |
 | `/reviews/wine/` | Wine, including sparkling |
 | `/reviews/beer/` | Beer |
 | `/reviews/spirits/` | Spirits |
@@ -18,7 +18,7 @@ Public base: `/clients/the-dry-standard/`
 | `/about/` | Mission and scoring |
 | `/feed.xml` | Atom feed |
 | `/sitemap.xml` | URL list for this client site |
-| `/catalog.json` | Structured review index |
+| `/catalog.json` | Structured review index plus facets |
 
 ## Sample reviews
 
@@ -30,7 +30,7 @@ Public base: `/clients/the-dry-standard/`
 
 ## Design
 
-Warm paper, black masthead, Fraunces / Source Serif 4 / DM Sans. No product photography in phase one (no stock mocktail images). Typography carries the pages.
+Cool paper, black masthead, Cormorant Garamond / Source Serif 4 / IBM Plex Sans. Reviews render as a wine-list ledger, not cards. Header search goes to `/reviews/?q=`. Filters stay in the URL so the archive can grow without a database. Product stills live in `media/reviews/{slug}.jpg` and appear on the ledger, review hero, and Open Graph tags. Typography still carries the pages.
 
 ## Parent platform
 
