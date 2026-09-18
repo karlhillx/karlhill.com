@@ -172,6 +172,7 @@ final class ScholarlyArticleJsonLd
 
         if ($abstract !== '') {
             $node['abstract'] = $abstract;
+            $node['description'] = $abstract;
         }
 
         $keywords = collect($research['keywords'] ?? [])
@@ -332,9 +333,7 @@ final class ScholarlyArticleJsonLd
 
     public static function datasetId(): string
     {
-        $zenodo = self::config()['zenodo'] ?? 'https://doi.org/10.5281/zenodo.15881676';
-
-        return is_string($zenodo) && $zenodo !== '' ? $zenodo : 'https://doi.org/10.5281/zenodo.15881676';
+        return self::url().'#dataset';
     }
 
     /**
@@ -347,13 +346,27 @@ final class ScholarlyArticleJsonLd
             return null;
         }
 
+        $title = (string) ($research['title'] ?? 'the paper');
+        $description = trim((string) ($research['zenodo_description'] ?? ''));
+        if ($description === '') {
+            $description = 'Figure datasets deposited on Zenodo for “'.$title.'” (GeoHorizons, 2026).';
+        }
+
+        $zenodo = (string) $research['zenodo'];
+
         return [
             '@type' => 'Dataset',
             '@id' => self::datasetId(),
-            'name' => 'Data used in publication of “'.($research['title'] ?? 'the paper').'”',
-            'description' => (string) ($research['zenodo_description'] ?? ''),
-            'url' => $research['zenodo'],
-            'identifier' => $research['zenodo'],
+            'name' => 'Data used in publication of “'.$title.'”',
+            'description' => $description,
+            'url' => $zenodo,
+            'sameAs' => $zenodo,
+            'identifier' => [
+                '@type' => 'PropertyValue',
+                'propertyID' => 'DOI',
+                'value' => (string) $research['zenodo_doi'],
+                'url' => $zenodo,
+            ],
             'license' => $research['license'] ?? 'https://creativecommons.org/licenses/by/4.0/',
             'creator' => [
                 '@type' => 'Person',
@@ -368,6 +381,7 @@ final class ScholarlyArticleJsonLd
             // Google Dataset: isPartOf must be a Dataset or URL, not a
             // ScholarlyArticle stub. citation is the related paper.
             'citation' => (string) ($research['doi'] ?? 'https://doi.org/10.1144/gh2025-7'),
+            'isAccessibleForFree' => true,
         ];
     }
 

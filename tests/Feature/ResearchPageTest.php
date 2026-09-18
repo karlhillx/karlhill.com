@@ -66,15 +66,20 @@ it('builds complete scholarly article json-ld', function () {
         ->and($node['citation'])->toContain('10.1144/gh2025-7')
         ->and(collect($node['author'])->firstWhere('name', 'Karl M. Hill')['identifier']['value'])->toBe('0009-0002-6847-3368')
         ->and(collect($node['author'])->firstWhere('name', 'Karl M. Hill')['description'])->toBe('Software (Equal); Writing – review & editing (Equal)')
-        ->and($node['keywords'])->toContain('NASA flood mapping');
+        ->and($node['keywords'])->toContain('NASA flood mapping')
+        ->and($node['description'])->toBe($node['abstract'])
+        ->and(mb_strlen($node['description']))->toBeGreaterThanOrEqual(50);
 
     $graph = ScholarlyArticleJsonLd::pageGraph()['@graph'];
     $dataset = collect($graph)->firstWhere('@type', 'Dataset');
 
     expect(collect($graph)->pluck('@type')->all())->toContain('Person', 'ScholarlyArticle', 'WebPage', 'Dataset')
         ->and(collect($graph)->firstWhere('@type', 'WebPage')['name'])->toBe(PageMeta::research()->title)
+        ->and($dataset['@id'])->toEndWith('#dataset')
         ->and($dataset['description'])->toBe(config('site.research.zenodo_description'))
         ->and(mb_strlen($dataset['description']))->toBeGreaterThanOrEqual(50)
         ->and($dataset)->not->toHaveKey('isPartOf')
-        ->and($dataset['citation'])->toBe(config('site.research.doi'));
+        ->and($dataset['citation'])->toBe(config('site.research.doi'))
+        ->and($dataset['sameAs'])->toBe(config('site.research.zenodo'))
+        ->and($node['hasPart']['@id'])->toBe($dataset['@id']);
 });
