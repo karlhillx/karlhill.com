@@ -1,0 +1,68 @@
+# Closed style vocabulary. Editorial `style` text stays on the review;
+# filters, related bottles, and /styles/{slug}/ use these slugs only.
+negroni:
+  label: Negroni
+  categories: [cocktails]
+stout:
+  label: Stout
+  categories: [beer]
+porter:
+  label: Porter
+  categories: [beer]
+ipa:
+  label: IPA
+  categories: [beer]
+pils:
+  label: Pils
+  categories: [beer]
+kolsch:
+  label: Kölsch
+  categories: [beer]
+lager:
+  label: Lager
+  categories: [beer]
+sour:
+  label: Sour
+  categories: [beer]
+wheat:
+  label: Wheat
+  categories: [beer]
+riesling:
+  label: Riesling
+  categories: [wine]
+sauvignon-blanc:
+  label: Sauvignon Blanc
+  categories: [wine]
+chardonnay:
+  label: Chardonnay
+  categories: [wine]
+pinot-noir:
+  label: Pinot Noir
+  categories: [wine]
+pinot-grigio:
+  label: Pinot Grigio
+  categories: [wine]
+malbec:
+  label: Malbec
+  categories: [wine]
+sparkling:
+  label: Sparkling
+  categories: [wine]
+sparkling-rose:
+  label: Sparkling rosé
+  categories: [wine]
+rose:
+  label: Rosé
+  categories: [wine]
+tequila:
+  label: Tequila
+  categories: [spirits]
+whisky:
+  label: Whisky
+  categories: [spirits]
+cider:
+  label: Cider
+  categories: [cider]
+aperitif:
+  label: Aperitif
+  categories: [cocktails]

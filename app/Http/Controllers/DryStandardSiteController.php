@@ -4,16 +4,28 @@ namespace App\Http\Controllers;
 
 use DryStandard\StillPipeline;
 use DryStandard\Workspace;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class DryStandardSiteController extends Controller
 {
-    public function show(?string $path = null): BinaryFileResponse|Response
+    public function show(?string $path = null): BinaryFileResponse|Response|RedirectResponse
     {
         $relative = $this->normalizePath($path);
         $workspace = Workspace::default();
         $site = $workspace->site();
+
+        $redirect = $site->redirect($relative);
+        if ($redirect !== null) {
+            $location = rtrim($workspace->config()->basePath(), '/').'/'.ltrim($redirect, '/');
+            $query = request()->getQueryString();
+            if ($query) {
+                $location .= '?'.$query;
+            }
+
+            return redirect($location, 301);
+        }
 
         if ($relative === 'feed.xml') {
             return $this->payload($site->feed(), 'application/atom+xml; charset=UTF-8');
@@ -88,11 +100,28 @@ class DryStandardSiteController extends Controller
 
     private function payload(string $contents, string $contentType, int $status = 200): Response
     {
-        return response($contents, $status, [
+        $headers = [
             'X-Robots-Tag' => 'noindex, nofollow',
             'Cache-Control' => 'public, max-age=300, s-maxage=600, stale-while-revalidate=120',
             'Content-Type' => $contentType,
-        ]);
+        ];
+
+        if (str_contains($contentType, 'text/html')) {
+            $headers['Content-Security-Policy'] = implode('; ', [
+                "default-src 'self'",
+                "base-uri 'self'",
+                "form-action 'self'",
+                "frame-ancestors 'none'",
+                "object-src 'none'",
+                "script-src 'self'",
+                "style-src 'self'",
+                "img-src 'self' data:",
+                "font-src 'self'",
+                "connect-src 'self'",
+            ]);
+        }
+
+        return response($contents, $status, $headers);
     }
 
     private function withBaseHref(string $html): string

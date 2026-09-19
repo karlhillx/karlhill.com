@@ -8,14 +8,17 @@ use Illuminate\Support\Collection;
 
 final class Renderer
 {
-    private const CSS_VERSION = '21';
-
-    private const JS_VERSION = '11';
-
     public function __construct(
         private readonly SiteConfig $config,
         private readonly View $view = new View(__DIR__.DIRECTORY_SEPARATOR.'views'),
     ) {}
+
+    private function assetVersion(string $relative): string
+    {
+        $absolute = Paths::default()->path($relative);
+
+        return is_file($absolute) ? (string) filemtime($absolute) : '1';
+    }
 
     /**
      * @param  array<string, mixed>  $options
@@ -46,8 +49,10 @@ HTML;
             'iconUrl' => $this->config->publicUrl('mark.svg'),
             'fontDisplay' => $this->config->publicUrl('fonts/fraunces.woff2'),
             'fontSans' => $this->config->publicUrl('fonts/figtree.woff2'),
-            'stylesheet' => $this->config->publicUrl('styles.css').'?v='.self::CSS_VERSION,
-            'script' => $this->config->publicUrl('script.js').'?v='.self::JS_VERSION,
+            'stylesheet' => $this->config->publicUrl('styles.css').'?v='.$this->assetVersion('styles.css'),
+            'script' => $this->config->publicUrl('script.js').'?v='.$this->assetVersion('script.js'),
+            'baseHref' => $this->config->basePath() === '' ? '' : $this->config->basePath().'/',
+            'analyticsEnabled' => $this->config->bool('analytics.enabled', true),
             'extraHead' => (string) ($options['head'] ?? ''),
             'jsonLd' => (string) ($options['json_ld'] ?? ''),
             'bodyClass' => (string) ($options['body_class'] ?? ''),
@@ -114,9 +119,28 @@ HTML;
             ->sortByDesc(fn (Review $review): int => $review->rating ?? 0)
             ->first();
         $featuredSlug = $featuredReview?->slug;
-        $latest = $reviews
-            ->reject(fn (Review $review): bool => $review->slug === $featuredSlug)
-            ->take(3);
+        $used = array_filter([$featuredSlug]);
+        $latest = collect();
+        foreach ($this->config->categories() as $category) {
+            $pick = $reviews->first(
+                fn (Review $review): bool => $review->category === $category && ! in_array($review->slug, $used, true),
+            );
+            if ($pick instanceof Review) {
+                $latest->push($pick);
+                $used[] = $pick->slug;
+            }
+        }
+        foreach ($reviews as $review) {
+            if ($latest->count() >= 3) {
+                break;
+            }
+            if (in_array($review->slug, $used, true)) {
+                continue;
+            }
+            $latest->push($review);
+            $used[] = $review->slug;
+        }
+        $latest = $latest->take(3);
         $highlyRated = $reviews
             ->filter(fn (Review $review): bool => ($review->rating ?? 0) >= 85)
             ->sortByDesc(fn (Review $review): int => $review->rating ?? 0)
@@ -166,7 +190,7 @@ HTML;
             'bestUrl' => $this->config->publicUrl('best/'),
             'stats' => [
                 ['value' => (string) $reviews->count(), 'label' => $reviews->count() === 1 ? 'Review' : 'Reviews', 'href' => $this->config->publicUrl('reviews/')],
-                ['value' => (string) $reviews->pluck('brand')->unique()->count(), 'label' => 'Brands', 'href' => $this->config->publicUrl('brands/')],
+                ['value' => (string) $reviews->map(fn (Review $review): string => $review->brandSlug())->unique()->count(), 'label' => 'Brands', 'href' => $this->config->publicUrl('brands/')],
                 ['value' => (string) $dealcoholized, 'label' => 'Dealcoholized', 'href' => $this->config->publicUrl('reviews/').'?production=dealcoholized'],
                 ['value' => '0.5%', 'label' => 'ABV ceiling', 'href' => null],
             ],
@@ -222,9 +246,11 @@ HTML;
         ?ArchiveQuery $query = null,
         array $publishOrder = [],
         bool $fragment = false,
+        ?Collection $filtered = null,
     ): string {
         $query ??= new ArchiveQuery(lockedCategory: $lockedCategory);
-        $filtered = $query->apply($reviews, $publishOrder);
+        $lockedCategory ??= $query->lockedCategory;
+        $filtered ??= $query->apply($reviews, $publishOrder);
         $total = $filtered->count();
         $pages = $query->pageCount($total);
         $page = $query->currentPage($total);
@@ -419,7 +445,7 @@ HTML;
     /**
      * @param  Collection<int, array{slug: string, name: string, reviews: Collection<int, Review>}>  $brands
      */
-    public function brandIndex(Collection $brands): string
+    public function brandIndex(Collection $brands, string $query = ''): string
     {
         $groups = $brands
             ->groupBy(fn (array $brand): string => mb_strtoupper(mb_substr($brand['name'], 0, 1)))
@@ -443,12 +469,14 @@ HTML;
                     ->map(fn (string $category): string => $this->config->categoryLabel($category))
                     ->implode(', ');
 
+                $aliasText = implode(' ', Taxonomy::brandAliases($brand['slug']));
+
                 return $this->view->render('partials/directory-row', [
                     'href' => $this->config->publicUrl('brands/'.$brand['slug'].'/'),
                     'title' => $brand['name'],
                     'summary' => '',
                     'meta' => ($count === 1 ? '1 review' : $count.' reviews').($categories !== '' ? ' · '.$categories : ''),
-                    'search' => mb_strtolower($brand['name'].' '.$categories),
+                    'search' => mb_strtolower($brand['name'].' '.$categories.' '.$aliasText),
                 ]);
             })->implode('');
 
@@ -471,13 +499,14 @@ HTML;
             searchable: true,
             searchPlaceholder: 'Find a brand',
             letterNav: $letterNav,
+            directoryQuery: $query,
         );
     }
 
     /**
      * @param  Collection<int, array{slug: string, label: string, reviews: Collection<int, Review>}>  $styles
      */
-    public function styleIndex(Collection $styles): string
+    public function styleIndex(Collection $styles, string $query = ''): string
     {
         $cards = $styles->map(function (array $style): string {
             $count = $style['reviews']->count();
@@ -499,12 +528,13 @@ HTML;
             'Styles',
             'Generated indexes for styles with enough bottles to compare — Riesling, IPA, stout, and the rest of the cellar.',
             'styles/',
-            'reviews',
+            'styles',
             $this->crumbs(['Styles' => 'styles/']),
             'The Dry Standard',
             $listing,
             searchable: $styles->isNotEmpty(),
             searchPlaceholder: 'Find a style',
+            directoryQuery: $query,
         );
     }
 
@@ -519,6 +549,7 @@ HTML;
         string $nav,
         Collection $documents,
         array $counts = [],
+        string $query = '',
     ): string {
         $kind = ucfirst(rtrim($path, '/'));
         $cards = $documents->map(function (PageDocument $document) use ($path, $kind, $counts): string {
@@ -551,6 +582,7 @@ HTML;
             $listing,
             searchable: $documents->isNotEmpty(),
             searchPlaceholder: 'Find a '.$kind,
+            directoryQuery: $query,
         );
     }
 
@@ -560,21 +592,31 @@ HTML;
      */
     public function review(Review $review, array $crumbs, ?Collection $relatedReviews = null): string
     {
-        $badgeClass = 'badge badge--'.Str::e($review->productionType);
         $bodyHtml = Markdown::toHtml($review->bodyMarkdown);
+        $hasServe = ($review->serve !== null && $review->serve !== '')
+            || ($review->bestFor !== null && $review->bestFor !== '');
         $related = $relatedReviews?->isNotEmpty()
             ? $this->reviewCards($relatedReviews, compact: true)
             : '';
         $relatedHeading = 'More from the cellar';
+        $relatedHref = $this->config->publicUrl('reviews/');
+        $relatedLinkLabel = 'All reviews';
         if ($relatedReviews?->isNotEmpty()) {
-            $style = $review->styleSlug();
-            $sameStyle = $relatedReviews->filter(fn (Review $other): bool => $other->styleSlug() === $style)->count();
-            if ($sameStyle >= 2) {
+            if ($review->hasComparableStyle()) {
                 $relatedHeading = 'Other '.$review->styleLabel();
+                $relatedHref = $this->config->publicUrl('styles/'.$review->styleSlug().'/');
+                $relatedLinkLabel = 'All '.$review->styleLabel();
             } elseif ($relatedReviews->contains(fn (Review $other): bool => $other->brandSlug() === $review->brandSlug())) {
-                $relatedHeading = 'More from '.$review->brand;
+                $relatedHeading = 'More from '.$review->brandDisplayName();
+                $relatedHref = $this->config->publicUrl('brands/'.$review->brandSlug().'/');
+                $relatedLinkLabel = $review->brandDisplayName();
             }
         }
+
+        $badge = $this->view->render('partials/production-badge', [
+            'type' => $review->productionType,
+            'label' => $review->productionTypeShortLabel(),
+        ]);
 
         $body = $this->view->render('review', [
             'title' => $review->title,
@@ -583,18 +625,20 @@ HTML;
             'breadcrumbs' => $this->breadcrumbs($crumbs),
             'figure' => $this->productFigure($review, 'product-figure product-figure--hero', hero: true),
             'metaLine' => $this->reviewMetaLine($review),
-            'badgeClass' => $badgeClass,
-            'badgeLabel' => $review->productionTypeShortLabel(),
+            'identity' => $this->view->render('partials/identity', [
+                'factsPeek' => $this->factsPeek($review),
+                'badge' => $badge,
+                'verifiedLabel' => $review->verifiedLabel(),
+            ]),
             'score' => $review->rating !== null
                 ? '<p class="score" aria-label="Score '.$review->rating.' out of 100"><span>'.$review->rating.'</span><small>/100</small></p>'
                 : '',
             'statusLabel' => $review->productionTypeLabel(),
-            'verifiedLabel' => $review->verifiedLabel(),
-            'factsPeek' => $this->factsPeek($review),
             'methodBlock' => $this->methodBlock($review),
             'discrepancies' => $this->discrepancies($review),
             'overview' => $bodyHtml !== '' ? '<section class="prose"><h2>Product overview</h2>'.$bodyHtml.'</section>' : '',
             'tasting' => $this->tasting($review),
+            'hasServe' => $hasServe,
             'serveBlock' => $this->optionalBlock($review->serve),
             'bestForBlock' => $this->optionalBlock($review->bestFor, 'Best for: '),
             'verdict' => $review->verdict,
@@ -603,6 +647,8 @@ HTML;
             'links' => $this->purchaseLinks($review),
             'related' => $related,
             'relatedHeading' => $relatedHeading,
+            'relatedHref' => $relatedHref,
+            'relatedLinkLabel' => $relatedLinkLabel,
             'reviewsUrl' => $this->config->publicUrl('reviews/'),
         ]);
 
@@ -753,6 +799,7 @@ XML;
         bool $searchable = false,
         string $searchPlaceholder = 'Find a name',
         string $letterNav = '',
+        string $directoryQuery = '',
     ): string {
         $body = $this->view->render('directory', [
             'title' => $title,
@@ -763,6 +810,8 @@ XML;
             'searchPlaceholder' => $searchPlaceholder,
             'letterNav' => $letterNav,
             'listing' => $listing,
+            'directoryQuery' => $directoryQuery,
+            'searchAction' => $this->config->publicUrl($path),
         ]);
 
         return $this->document($title, $description, $path, $body, [
@@ -784,14 +833,23 @@ XML;
         $links = [
             'reviews' => ['Reviews', 'reviews/'],
             'best' => ['Best', 'best/'],
+            'brands' => ['Brands', 'brands/'],
             'guides' => ['Guides', 'guides/'],
-            'about' => ['About', 'about/'],
+        ];
+        $cellar = [
+            'methods' => ['Methods', 'methods/'],
+            'styles' => ['Styles', 'styles/'],
         ];
 
         $items = '';
         foreach ($links as $key => [$label, $path]) {
             $currentAttr = $current === $key ? ' aria-current="page"' : '';
             $items .= '<a href="'.$this->url($path).'"'.$currentAttr.'>'.Str::e($label).'</a>';
+        }
+        $items .= '<span class="nav-split" aria-hidden="true"></span>';
+        foreach ($cellar as $key => [$label, $path]) {
+            $currentAttr = $current === $key ? ' aria-current="page"' : '';
+            $items .= '<a class="nav-cellar" href="'.$this->url($path).'"'.$currentAttr.'>'.Str::e($label).'</a>';
         }
 
         return $this->view->render('partials/header', [
@@ -839,6 +897,9 @@ XML;
         string $path,
     ): string {
         $locked = $lockedCategory !== null ? ' data-locked-category="'.Str::e($lockedCategory).'"' : '';
+        if ($query->lockedStyle !== null && $query->lockedStyle !== '') {
+            $locked .= ' data-locked-style="'.Str::e($query->lockedStyle).'"';
+        }
         $compact = $reviews->count() < 12 ? ' archive-layout--compact' : '';
         $noun = $reviews->count() === 1 ? 'review' : 'reviews';
         $countLabel = $total === $reviews->count()
@@ -858,6 +919,7 @@ XML;
                     'production' => $review->productionType,
                     'method' => $review->methodFacetKey(),
                     'style' => $review->styleSlug(),
+                    'country' => $review->countrySlug(),
                     default => '',
                 };
 
@@ -873,6 +935,7 @@ XML;
                 'production' => $query->production,
                 'method' => $query->methods,
                 'style' => $query->styles,
+                'country' => $query->countries,
                 default => [],
             };
 
@@ -892,7 +955,7 @@ XML;
         $brandOptions = $reviews
             ->map(fn (Review $review): array => [
                 'value' => $review->brandSlug(),
-                'label' => $review->brand,
+                'label' => $review->brandDisplayName(),
             ])
             ->unique('value')
             ->sortBy(fn (array $option): string => mb_strtolower($option['label']), SORT_NATURAL)
@@ -910,7 +973,10 @@ XML;
         if ($lockedCategory === null) {
             foreach ($this->config->categories() as $category) {
                 if ($reviews->contains(fn (Review $review): bool => $review->category === $category)) {
-                    $categoryOptions[] = ['value' => $category, 'label' => $this->config->categoryLabel($category)];
+                    $categoryOptions[] = [
+                        'value' => $category,
+                        'label' => $this->config->categoryLabel($category),
+                    ];
                 }
             }
         }
@@ -925,6 +991,7 @@ XML;
         $methodLabels = $this->config->methods() + [
             'other' => 'Other documented method',
             'unknown' => 'Unpublished',
+            'not-applicable' => 'Formulated (no removal)',
         ];
         $methodOptions = [];
         foreach (array_keys($methodLabels) as $method) {
@@ -934,10 +1001,22 @@ XML;
         }
 
         $styleOptions = $reviews
+            ->filter(fn (Review $review): bool => $review->hasComparableStyle() || $review->styleSlug() === 'other')
             ->map(fn (Review $review): array => [
                 'value' => $review->styleSlug(),
                 'label' => $review->styleLabel(),
             ])
+            ->unique('value')
+            ->sortBy(fn (array $option): string => mb_strtolower($option['label']), SORT_NATURAL)
+            ->values()
+            ->all();
+
+        $countryOptions = $reviews
+            ->map(fn (Review $review): array => [
+                'value' => $review->countrySlug(),
+                'label' => $review->countryLabel() ?? '',
+            ])
+            ->filter(fn (array $option): bool => $option['value'] !== '' && $option['label'] !== '')
             ->unique('value')
             ->sortBy(fn (array $option): string => mb_strtolower($option['label']), SORT_NATURAL)
             ->values()
@@ -956,14 +1035,15 @@ XML;
             .($categoryOptions === [] ? '' : $this->facetGroup('Category', 'category', $withMeta($categoryOptions, 'category')))
             .$this->facetGroup('Production type', 'production', $withMeta($processOptions, 'production'))
             .$this->facetGroup('Method', 'method', $withMeta($methodOptions, 'method'))
-            .$this->facetGroup(
+            .($query->lockedStyle ? '' : $this->facetGroup(
                 'Style',
                 'style',
                 $withMeta($styleOptions, 'style'),
                 searchable: count($styleOptions) > 10,
                 collapsible: count($styleOptions) > 8,
                 collapsed: count($styleOptions) > 8,
-            );
+            ))
+            .$this->facetGroup('Country', 'country', $withMeta($countryOptions, 'country'));
 
         $chips = $this->filterChips($query, $reviews, $path);
 
@@ -1026,13 +1106,16 @@ XML;
 
     private function featuredReview(Review $review): string
     {
-        $badge = '<span class="badge badge--'.Str::e($review->productionType).'">'.Str::e($review->productionTypeShortLabel()).'</span>';
+        $badge = $this->view->render('partials/production-badge', [
+            'type' => $review->productionType,
+            'label' => $review->productionTypeShortLabel(),
+        ]);
 
         return $this->view->render('partials/featured-review', [
             'href' => $this->config->publicUrl($review->path()),
             'figure' => $this->productFigure($review, 'product-figure product-figure--feature', hero: true),
-            'brand' => '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brand).'</a>',
-            'title' => $review->title,
+            'brand' => '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brandDisplayName()).'</a>',
+            'title' => $review->cardTitle(),
             'summary' => $review->summary,
             'score' => $review->rating !== null ? '<span class="card-score">'.$review->rating.'</span>' : '',
             'badge' => $badge,
@@ -1044,7 +1127,10 @@ XML;
         return $reviews->map(function (Review $review) use ($compact): string {
             $score = $review->rating !== null ? '<span class="card-score">'.$review->rating.'</span>' : '';
             $meta = $review->cardMetaLine($this->config->categoryLabel($review->category));
-            $badge = '<span class="badge badge--'.Str::e($review->productionType).'">'.Str::e($review->productionTypeShortLabel()).'</span>';
+            $badge = $this->view->render('partials/production-badge', [
+                'type' => $review->productionType,
+                'label' => $review->productionTypeShortLabel(),
+            ]);
             $attrs = implode(' ', [
                 'data-production="'.Str::e($review->productionType).'"',
                 'data-verified="'.Str::e($review->verified).'"',
@@ -1057,7 +1143,7 @@ XML;
                 'data-search="'.Str::e($review->searchText()).'"',
             ]);
             $thumb = $this->productFigure($review, 'product-figure product-figure--thumb');
-            $brand = '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brand).'</a>';
+            $brand = '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brandDisplayName()).'</a>';
 
             return $this->view->render('partials/review-card', [
                 'compact' => $compact,
@@ -1065,7 +1151,7 @@ XML;
                 'thumb' => $thumb,
                 'brand' => $brand,
                 'href' => $this->config->publicUrl($review->path()),
-                'title' => $review->title,
+                'title' => $review->cardTitle(),
                 'summary' => $review->summary,
                 'meta' => $meta,
                 'badge' => $badge,
@@ -1077,9 +1163,13 @@ XML;
     private function reviewMetaLine(Review $review): string
     {
         $parts = [
-            '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brand).'</a>',
+            '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brandDisplayName()).'</a>',
             '<a href="'.$this->url('reviews/'.$review->category.'/').'">'.$this->e($this->config->categoryLabel($review->category)).'</a>',
         ];
+
+        if ($review->hasComparableStyle()) {
+            $parts[] = '<a href="'.$this->url('styles/'.$review->styleSlug().'/').'">'.$this->e($review->styleLabel()).'</a>';
+        }
 
         $methodKey = $review->methodKey();
         if ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)) {
@@ -1137,18 +1227,37 @@ XML;
      */
     private function factsPeek(Review $review): array
     {
-        $rows = [
-            'ABV' => $review->abv,
-            'Origin' => $review->countryLabel(),
-            'Style' => $review->style,
-        ];
-
         $peek = [];
-        foreach ($rows as $label => $value) {
-            if ($value === null || $value === '') {
-                continue;
-            }
-            $peek[] = ['label' => $label, 'value' => $value];
+        if ($review->abv !== null && $review->abv !== '') {
+            $peek[] = ['label' => 'ABV', 'value' => $review->abv];
+        }
+        $country = $review->countryLabel();
+        if ($country !== null && $country !== '') {
+            $peek[] = [
+                'label' => 'Origin',
+                'value' => $country,
+                'href' => $this->config->publicUrl('reviews/').'?country='.$review->countrySlug(),
+            ];
+        }
+        if ($review->hasComparableStyle()) {
+            $peek[] = [
+                'label' => 'Style',
+                'value' => $review->styleLabel(),
+                'href' => $this->config->publicUrl('styles/'.$review->styleSlug().'/'),
+            ];
+        } elseif ($review->style) {
+            $peek[] = ['label' => 'Style', 'value' => $review->style];
+        }
+
+        $methodKey = $review->methodKey();
+        if ($review->methodFacetKey() === 'not-applicable') {
+            $peek[] = ['label' => 'Method', 'value' => 'Formulated, not removed'];
+        } elseif ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)) {
+            $peek[] = [
+                'label' => 'Method',
+                'value' => $review->methodCardLabel(),
+                'href' => $this->config->publicUrl('methods/'.$methodKey.'/'),
+            ];
         }
 
         return $peek;
@@ -1219,7 +1328,7 @@ XML;
 
         $items = '';
         foreach ($review->purchaseLinks as $link) {
-            $items .= '<li><a href="'.Str::e($link['url']).'" rel="nofollow noopener">'.Str::e($link['label']).'</a></li>';
+            $items .= '<li><a href="'.Str::e($link['url']).'" rel="nofollow noopener" data-analytics-event="outbound_buy">'.Str::e($link['label']).'</a></li>';
         }
 
         return $this->view->render('partials/purchase-links', [
@@ -1481,6 +1590,7 @@ XML;
             'production' => 'Production type',
             'method' => 'Method',
             'style' => 'Style',
+            'country' => 'Country',
         ];
 
         if ($query->q !== '') {
@@ -1488,14 +1598,14 @@ XML;
             $items .= '<a class="filter-chip" href="'.$this->e($href).'">Search: '.$this->e($query->q).'<span aria-hidden="true">×</span></a>';
         }
 
-        foreach (['brand' => $query->brands, 'abv' => $query->abv, 'category' => $query->categories, 'production' => $query->production, 'method' => $query->methods, 'style' => $query->styles] as $key => $values) {
+        foreach (['brand' => $query->brands, 'abv' => $query->abv, 'category' => $query->categories, 'production' => $query->production, 'method' => $query->methods, 'style' => $query->styles, 'country' => $query->countries] as $key => $values) {
             foreach ($values as $value) {
                 $remaining = array_values(array_filter($values, fn (string $item): bool => $item !== $value));
                 $href = $this->listingHref($path, $query, 1, [$key => implode(',', $remaining)]);
                 $label = $value;
                 if ($key === 'brand') {
                     $match = $reviews->first(fn (Review $review): bool => $review->brandSlug() === $value);
-                    $label = $match?->brand ?? $value;
+                    $label = $match?->brandDisplayName() ?? $value;
                 } elseif ($key === 'abv') {
                     $label = Review::ABV_BUCKETS[$value] ?? $value;
                 } elseif ($key === 'category') {
@@ -1510,9 +1620,15 @@ XML;
                     if ($value === 'other') {
                         $label = 'Other documented method';
                     }
+                    if ($value === 'not-applicable') {
+                        $label = 'Formulated (no removal)';
+                    }
                 } elseif ($key === 'style') {
                     $match = $reviews->first(fn (Review $review): bool => $review->styleSlug() === $value);
                     $label = $match?->styleLabel() ?? $value;
+                } elseif ($key === 'country') {
+                    $match = $reviews->first(fn (Review $review): bool => $review->countrySlug() === $value);
+                    $label = $match?->countryLabel() ?? $value;
                 }
                 $items .= '<a class="filter-chip" href="'.$this->e($href).'">'.$this->e($labels[$key].': '.$label).'<span aria-hidden="true">×</span></a>';
             }

@@ -68,6 +68,8 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 - Queue: `clients/the-dry-standard/data/review-queue.yaml`
 - Config: `clients/the-dry-standard/data/config.yaml`
 - Schema reminder: `clients/the-dry-standard/data/schema/review.schema.yaml`
+- Brand aliases: `clients/the-dry-standard/data/schema/brands.yaml`
+- Style vocabulary: `clients/the-dry-standard/data/schema/styles.yaml`
 - Public site: Laravel renders `/clients/the-dry-standard/` live from the catalog
 - Commands: `php artisan dry-standard:*`
 
@@ -83,4 +85,6 @@ Default: Monday, Wednesday, Friday, three reviews a week. Change it in config. I
 
 ## Architecture constraint
 
-This is a Laravel client preview. Product data lives in one SQLite catalog (`data/catalog.sqlite`), with `data/products.csv` as the spreadsheet export. Markdown reviews are the editorial draft/import format. Do not introduce a second framework or ecommerce. Do not generate or check in HTML pages.
+This is a Laravel client preview. Product data lives in one SQLite catalog (`data/catalog.sqlite`), with `data/products.csv` as the spreadsheet export. Markdown reviews are the editorial draft/import format. Do not introduce a second framework or ecommerce. Do not generate or check in HTML pages. GET requests must not write the catalog. The validator remains the publish gate.
+
+Brand pages collapse aliases from `data/schema/brands.yaml`. Style filters and `/styles/{slug}/` use the closed vocabulary in `data/schema/styles.yaml`; editorial `style` text can stay free. Alternatives use method facet `not-applicable`, not unpublished. Completeness lives in `php artisan dry-standard:status`, not on the public product page.

@@ -50,6 +50,35 @@ final class ReviewRepository
     }
 
     /**
+     * Card/index payload without review bodies.
+     *
+     * @return Collection<int, Review>
+     */
+    public function listing(): Collection
+    {
+        $order = $this->publishOrder();
+
+        return $this->catalog()->publishedListing()
+            ->sortByDesc(function (Review $review) use ($order): string {
+                return sprintf(
+                    '%010d-%s-%s',
+                    $order[$review->slug] ?? 0,
+                    $review->modifiedAt()->format('YmdHis'),
+                    $review->slug,
+                );
+            })
+            ->values();
+    }
+
+    /**
+     * @return Collection<int, Review>
+     */
+    public function archive(ArchiveQuery $query): Collection
+    {
+        return $this->catalog()->publishedMatching($query, $this->publishOrder());
+    }
+
+    /**
      * @return array<string, int>
      */
     public function publishOrder(): array
@@ -81,10 +110,8 @@ final class ReviewRepository
         }
 
         $document = YamlFrontMatter::parseFile($file);
-        $imported = Review::fromMatter($document->matter(), $document->body(), $file);
-        $this->catalog()->upsert($imported);
 
-        return $imported;
+        return Review::fromMatter($document->matter(), $document->body(), $file);
     }
 
     public function exists(string $slug): bool
@@ -139,7 +166,7 @@ final class ReviewRepository
             ->groupBy(fn (Review $review): string => $review->brandSlug())
             ->map(fn (Collection $reviews, string $slug): array => [
                 'slug' => $slug,
-                'name' => (string) $reviews->first()?->brand,
+                'name' => (string) ($reviews->first()?->brandDisplayName() ?? $slug),
                 'reviews' => $reviews->values(),
             ])
             ->sortBy('name')
@@ -174,7 +201,7 @@ final class ReviewRepository
                     'reviews' => $reviews->values(),
                 ];
             })
-            ->filter(fn (array $style): bool => $style['slug'] !== '' && $style['reviews']->count() >= 2)
+            ->filter(fn (array $style): bool => Taxonomy::hasStyle($style['slug']) && $style['reviews']->count() >= 2)
             ->sortBy(fn (array $style): string => mb_strtolower($style['label']), SORT_NATURAL)
             ->values();
     }
@@ -189,28 +216,28 @@ final class ReviewRepository
             ->sortByDesc(function (Review $other) use ($review): float {
                 $score = 0.0;
 
+                if ($review->hasComparableStyle() && $other->styleSlug() === $review->styleSlug()) {
+                    $score += 12;
+                }
+
                 if ($other->brandSlug() === $review->brandSlug()) {
                     $score += 8;
                 }
 
-                if ($review->styleSlug() !== '' && $other->styleSlug() === $review->styleSlug()) {
-                    $score += 10;
-                }
-
                 if ($review->style && $other->style && mb_strtolower($other->style) === mb_strtolower($review->style)) {
-                    $score += 6;
-                }
-
-                if ($review->subcategory && $other->subcategory && mb_strtolower($other->subcategory) === mb_strtolower($review->subcategory)) {
                     $score += 4;
                 }
 
-                if ($other->category === $review->category) {
+                if ($review->subcategory && $other->subcategory && mb_strtolower($other->subcategory) === mb_strtolower($review->subcategory)) {
                     $score += 3;
                 }
 
+                if ($other->category === $review->category) {
+                    $score += 2;
+                }
+
                 if ($other->methodFacetKey() === $review->methodFacetKey()
-                    && ! in_array($review->methodFacetKey(), ['unknown', 'other'], true)) {
+                    && ! in_array($review->methodFacetKey(), ['unknown', 'other', 'not-applicable'], true)) {
                     $score += 2;
                 }
 

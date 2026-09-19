@@ -39,11 +39,14 @@ it('serves sourced sample reviews with production-type badges', function () {
     $this->get('/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/')
         ->assertOk()
         ->assertSee('Production type: Dealcoholized', escape: false)
-        ->assertSee('class="facts-peek"', escape: false)
-        ->assertSee('Verified', escape: false)
+        ->assertSee('class="identity"', escape: false)
+        ->assertSee('Sourced production type', escape: false)
         ->assertSee('Vacuum distillation', escape: false)
         ->assertSee('Weingut Leitz', escape: false)
+        ->assertSee('id="how-it-was-made"', escape: false)
         ->assertSee('application/ld+json', escape: false)
+        ->assertSee('"gtin":"4260196280136"', escape: false)
+        ->assertSee('alcoholContent', escape: false)
         ->assertDontSee('TDS-0096', escape: false)
         ->assertDontSee('<dt>ID</dt>', escape: false)
         ->assertDontSee('<dt>EAN</dt>', escape: false);
@@ -52,6 +55,7 @@ it('serves sourced sample reviews with production-type badges', function () {
         ->assertOk()
         ->assertSee('Production type: Alternative', escape: false)
         ->assertSee('Formulated as a zero-proof alternative', escape: false)
+        ->assertSee('Formulated, not removed', escape: false)
         ->assertSee('lyres.com/pages/faqs', escape: false)
         ->assertDontSee('abv, method', escape: false)
         ->assertDontSee('class="source-claims"', escape: false);
@@ -194,6 +198,8 @@ it('builds a searchable review archive', function () {
         ->assertSee('data-facet="brand"', escape: false)
         ->assertSee('data-facet="production"', escape: false)
         ->assertSee('data-facet="method"', escape: false)
+        ->assertSee('data-facet="country"', escape: false)
+        ->assertSee('Formulated (no removal)', escape: false)
         ->assertDontSee('data-facet="partials/facet-group"', escape: false)
         ->assertSee('data-abv=', escape: false)
         ->assertSee('data-search=', escape: false)
@@ -274,6 +280,9 @@ it('disallows crawlers while staged and puts Best in the primary nav', function 
     $this->get('/clients/the-dry-standard/')
         ->assertOk()
         ->assertSee('>Best</a>', escape: false)
+        ->assertSee('>Brands</a>', escape: false)
+        ->assertSee('>Methods</a>', escape: false)
+        ->assertSee('>Styles</a>', escape: false)
         ->assertSee('fonts/fraunces.woff2', escape: false)
         ->assertDontSee('fonts.googleapis.com', escape: false);
 });
@@ -289,4 +298,67 @@ it('emits responsive stills and archive fragments', function () {
     $fragment = $this->get('/clients/the-dry-standard/reviews/?fragment=archive')->assertOk();
     expect($fragment->getContent())->toContain('data-archive')
         ->and($fragment->getContent())->not->toContain('<html');
+});
+
+it('collapses Leitz aliases onto one brand page', function () {
+    $this->get('/clients/the-dry-standard/brands/weingut-leitz/')
+        ->assertRedirect('/clients/the-dry-standard/brands/leitz/')
+        ->assertStatus(301);
+
+    $this->get('/clients/the-dry-standard/brands/weingut-josef-leitz/')
+        ->assertRedirect('/clients/the-dry-standard/brands/leitz/')
+        ->assertStatus(301);
+
+    $index = $this->get('/clients/the-dry-standard/brands/?q=Weingut+Leitz')->assertOk();
+    expect(substr_count($index->getContent(), '<h3><a href="'))->toBeGreaterThan(0);
+    $index->assertSee('<h3><a href="', escape: false)
+        ->assertSee('brands/leitz/', escape: false)
+        ->assertDontSee('brands/weingut-leitz/', escape: false);
+
+    $this->get('/clients/the-dry-standard/brands/leitz/')
+        ->assertOk()
+        ->assertSee('leitz-eins-zwei-zero-riesling', escape: false)
+        ->assertSee('leitz-sparkling-rose', escape: false);
+});
+
+it('does not write the catalog on a review GET', function () {
+    $pdo = new PDO('sqlite:'.base_path('clients/the-dry-standard/data/catalog.sqlite'));
+    $before = $pdo->query(
+        "SELECT image_source, brand_slug, style_slug, method_facet FROM products WHERE slug = 'leitz-eins-zwei-zero-riesling'"
+    )->fetch(PDO::FETCH_ASSOC);
+
+    $this->get('/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/')->assertOk();
+
+    $after = $pdo->query(
+        "SELECT image_source, brand_slug, style_slug, method_facet FROM products WHERE slug = 'leitz-eins-zwei-zero-riesling'"
+    )->fetch(PDO::FETCH_ASSOC);
+
+    expect($after)->toBe($before)
+        ->and($before['brand_slug'])->toBe('leitz')
+        ->and($before['style_slug'])->toBe('riesling')
+        ->and($before['image_source'])->not->toBeEmpty();
+});
+
+it('sends a client CSP and first-party analytics flag', function () {
+    $response = $this->get('/clients/the-dry-standard/')->assertOk();
+    $csp = (string) $response->headers->get('Content-Security-Policy');
+
+    expect($csp)->toContain("default-src 'self'")
+        ->and($csp)->toContain("script-src 'self'")
+        ->and($csp)->toContain("object-src 'none'");
+
+    $response->assertSee('data-analytics="1"', escape: false)
+        ->assertDontSee('window.__dryStandardAnalytics', escape: false);
+});
+
+it('keeps Guinness card title and related-by-style', function () {
+    $this->get('/clients/the-dry-standard/reviews/beer/guinness-0-0/')
+        ->assertOk()
+        ->assertSee('Other Stout', escape: false)
+        ->assertSee('id="how-it-was-made"', escape: false)
+        ->assertSee('class="identity"', escape: false);
+
+    $this->get('/clients/the-dry-standard/reviews/?q=guinness')
+        ->assertOk()
+        ->assertSee('Guinness 0.0', escape: false);
 });

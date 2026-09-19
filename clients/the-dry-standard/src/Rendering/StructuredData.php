@@ -106,6 +106,26 @@ final class StructuredData
     public function product(Review $review, string $categoryLabel): array
     {
         $url = $this->config->canonicalUrl($review->path());
+        $properties = [];
+
+        if ($review->abv !== null && $review->abv !== '') {
+            $properties[] = [
+                '@type' => 'PropertyValue',
+                'name' => 'ABV',
+                'value' => $review->abv,
+            ];
+        }
+
+        if ($review->abvNumeric !== null) {
+            $properties[] = [
+                '@type' => 'PropertyValue',
+                'name' => 'alcoholContent',
+                'value' => $review->abvNumeric,
+                'unitText' => '% alcohol by volume',
+            ];
+        }
+
+        $ean = preg_replace('/\D+/', '', (string) $review->ean) ?: '';
 
         return array_filter([
             '@type' => 'Product',
@@ -113,16 +133,13 @@ final class StructuredData
             'name' => $review->product !== '' ? $review->product : $review->title,
             'brand' => [
                 '@type' => 'Brand',
-                'name' => $review->brand,
+                'name' => $review->brandDisplayName(),
             ],
             'category' => $categoryLabel,
             'description' => $review->summary,
             'image' => $review->imageSrc() ? $this->config->canonicalUrl($review->imageSrc()) : null,
-            'additionalProperty' => $review->abv === null ? null : [
-                '@type' => 'PropertyValue',
-                'name' => 'ABV',
-                'value' => $review->abv,
-            ],
+            'gtin' => $ean !== '' ? $ean : null,
+            'additionalProperty' => $properties === [] ? null : $properties,
             'review' => ['@id' => $url.'#review'],
         ], fn (mixed $value): bool => $value !== null && $value !== '');
     }

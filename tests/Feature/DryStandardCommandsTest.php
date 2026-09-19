@@ -7,7 +7,9 @@ it('validates and builds The Dry Standard site', function () {
         '--publish' => true,
     ])->assertSuccessful();
     $this->artisan('dry-standard:build')->assertSuccessful();
-    $this->artisan('dry-standard:status')->assertSuccessful();
+    $this->artisan('dry-standard:status')
+        ->expectsOutputToContain('Completeness')
+        ->assertSuccessful();
 });
 
 it('audits Dry Standard stills', function () {

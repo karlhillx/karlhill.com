@@ -15,6 +15,7 @@ final class ArchiveQuery
      * @param  array<int, string>  $production
      * @param  array<int, string>  $methods
      * @param  array<int, string>  $styles
+     * @param  array<int, string>  $countries
      */
     public function __construct(
         public readonly string $q = '',
@@ -24,15 +25,17 @@ final class ArchiveQuery
         public readonly array $production = [],
         public readonly array $methods = [],
         public readonly array $styles = [],
+        public readonly array $countries = [],
         public readonly string $sort = 'newest',
         public readonly int $page = 1,
         public readonly ?string $lockedCategory = null,
+        public readonly ?string $lockedStyle = null,
     ) {}
 
     /**
      * @param  array<string, mixed>  $query
      */
-    public static function from(array $query, ?string $lockedCategory = null): self
+    public static function from(array $query, ?string $lockedCategory = null, ?string $lockedStyle = null): self
     {
         $sort = (string) ($query['sort'] ?? 'newest');
         if (! in_array($sort, ['newest', 'rating', 'title'], true)) {
@@ -52,9 +55,11 @@ final class ArchiveQuery
             production: self::productionList($query),
             methods: self::methodList($query),
             styles: self::list($query, 'style'),
+            countries: self::list($query, 'country'),
             sort: $sort,
             page: $page,
             lockedCategory: $lockedCategory,
+            lockedStyle: $lockedStyle,
         );
     }
 
@@ -78,11 +83,16 @@ final class ArchiveQuery
             return false;
         }
 
+        if ($this->lockedStyle !== null && $this->lockedStyle !== '' && $review->styleSlug() !== $this->lockedStyle) {
+            return false;
+        }
+
         return $this->matchesFacet($skip, 'brand', $this->brands, $review->brandSlug())
             && $this->matchesFacet($skip, 'abv', $this->abv, $review->abvBucket())
             && $this->matchesFacet($skip, 'production', $this->production, $review->productionType)
             && $this->matchesFacet($skip, 'method', $this->methods, $review->methodFacetKey())
-            && $this->matchesFacet($skip, 'style', $this->styles, $review->styleSlug());
+            && $this->matchesFacet($skip, 'style', $this->styles, $review->styleSlug())
+            && $this->matchesFacet($skip, 'country', $this->countries, $review->countrySlug());
     }
 
     /**
@@ -140,6 +150,7 @@ final class ArchiveQuery
             || $this->production !== []
             || $this->methods !== []
             || $this->styles !== []
+            || $this->countries !== []
             || $this->sort !== 'newest';
     }
 
@@ -157,7 +168,7 @@ final class ArchiveQuery
             $parts['q'] = $q;
         }
 
-        foreach (['brand' => $this->brands, 'abv' => $this->abv, 'category' => $this->categories, 'production' => $this->production, 'method' => $this->methods, 'style' => $this->styles] as $key => $values) {
+        foreach (['brand' => $this->brands, 'abv' => $this->abv, 'category' => $this->categories, 'production' => $this->production, 'method' => $this->methods, 'style' => $this->styles, 'country' => $this->countries] as $key => $values) {
             if (array_key_exists($key, $overrides)) {
                 $value = (string) $overrides[$key];
                 if ($value !== '') {
@@ -243,6 +254,94 @@ final class ArchiveQuery
             fn (string $value): string => $legacy[$value] ?? $value,
             self::list($query, 'method'),
         ));
+    }
+
+    /**
+     * SQL WHERE for the archive. Search text and facet columns must be stored
+     * on the products row (CatalogSync writes them from Review::toRecord()).
+     *
+     * @return array{0: string, 1: array<string, string>}
+     */
+    public function sqlWhere(string $skip = ''): array
+    {
+        $clauses = [
+            "status = 'published'",
+            "slug IS NOT NULL AND slug != ''",
+            "category IS NOT NULL AND category != ''",
+            "TRIM(COALESCE(body_markdown, '')) != ''",
+            'rating IS NOT NULL',
+            "INSTR(lower(title || ' ' || product), 'bundle') = 0",
+        ];
+        $params = [];
+
+        if ($this->q !== '') {
+            $terms = preg_split('/\s+/', mb_strtolower($this->q)) ?: [];
+            foreach (array_values($terms) as $index => $term) {
+                if ($term === '') {
+                    continue;
+                }
+                $key = 'q'.$index;
+                $clauses[] = 'instr(coalesce(search_text, \'\'), :'.$key.') > 0';
+                $params[$key] = $term;
+            }
+        }
+
+        $category = $this->lockedCategory;
+        if (is_string($category) && $category !== '') {
+            $clauses[] = 'category = :locked_category';
+            $params['locked_category'] = $category;
+        } elseif ($skip !== 'category' && $this->categories !== []) {
+            $clauses[] = $this->inClause('category', $this->categories, $params, 'cat');
+        }
+
+        $styleLock = $this->lockedStyle;
+        if (is_string($styleLock) && $styleLock !== '') {
+            $clauses[] = 'style_slug = :locked_style';
+            $params['locked_style'] = $styleLock;
+        }
+
+        if ($skip !== 'brand') {
+            $clauses[] = $this->inClause('brand_slug', $this->brands, $params, 'brand');
+        }
+        if ($skip !== 'abv') {
+            $clauses[] = $this->inClause('abv_bucket', $this->abv, $params, 'abv');
+        }
+        if ($skip !== 'production') {
+            $clauses[] = $this->inClause('production_type', $this->production, $params, 'prod');
+        }
+        if ($skip !== 'method') {
+            $clauses[] = $this->inClause('method_facet', $this->methods, $params, 'method');
+        }
+        if ($skip !== 'style' && ($styleLock === null || $styleLock === '')) {
+            $clauses[] = $this->inClause('style_slug', $this->styles, $params, 'style');
+        }
+        if ($skip !== 'country') {
+            $clauses[] = $this->inClause('country_slug', $this->countries, $params, 'country');
+        }
+
+        $clauses = array_values(array_filter($clauses, fn (string $clause): bool => $clause !== ''));
+
+        return [implode(' AND ', $clauses), $params];
+    }
+
+    /**
+     * @param  array<int, string>  $values
+     * @param  array<string, string>  $params
+     */
+    private function inClause(string $column, array $values, array &$params, string $prefix): string
+    {
+        if ($values === []) {
+            return '';
+        }
+
+        $placeholders = [];
+        foreach (array_values($values) as $index => $value) {
+            $key = $prefix.$index;
+            $placeholders[] = ':'.$key;
+            $params[$key] = $value;
+        }
+
+        return $column.' IN ('.implode(', ', $placeholders).')';
     }
 
     /**

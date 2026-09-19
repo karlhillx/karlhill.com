@@ -8,3 +8,5 @@ On a configured publish day, or when asked to check the desk:
 4. If a review is `validated` or `scheduled`, run `php artisan dry-standard:publish {slug}`.
 5. If nothing is ready, pick the highest-priority `queued` product and start research. Do not publish a thin draft to hit three-a-week.
 6. After a successful publish, confirm `feed.xml` and the category index updated.
+7. When brand or style drift shows up (duplicate house pages, a pile of `other` styles), run the `suggest-taxonomy` skill. Do not apply YAML until asked.
+

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use DryStandard\Review;
 use DryStandard\Workspace;
 use Illuminate\Console\Command;
 
@@ -41,6 +42,44 @@ class DryStandardStatus extends Command
         ])->all();
         $this->table(['product', 'brand', 'category', 'priority', 'status'], $queue);
 
+        $published = $workspace->reviews()->published();
+        $total = $published->count();
+        $this->newLine();
+        $this->info('Completeness ('.$total.' published)');
+        $this->table(
+            ['field', 'present', 'missing'],
+            $this->completenessRows($published, $total),
+        );
+
         return self::SUCCESS;
+    }
+
+    /**
+     * @param  \Illuminate\Support\Collection<int, Review>  $published
+     * @return array<int, array{0: string, 1: string, 2: string}>
+     */
+    private function completenessRows($published, int $total): array
+    {
+        $checks = [
+            'purchase_links' => fn (Review $review): bool => $review->purchaseLinks !== [],
+            'ingredients' => fn (Review $review): bool => filled($review->ingredients),
+            'sugar' => fn (Review $review): bool => filled($review->sugar),
+            'calories' => fn (Review $review): bool => filled($review->calories),
+            'ean' => fn (Review $review): bool => filled($review->ean),
+            'dealcoholization_method' => fn (Review $review): bool => $review->productionType !== 'dealcoholized'
+                || filled($review->dealcoholizationMethod),
+            'region' => fn (Review $review): bool => filled($review->region),
+            'price' => fn (Review $review): bool => filled($review->price),
+            'abv_numeric' => fn (Review $review): bool => $review->abvNumeric !== null,
+            'image_source' => fn (Review $review): bool => filled($review->imageSource),
+        ];
+
+        $rows = [];
+        foreach ($checks as $field => $present) {
+            $count = $published->filter($present)->count();
+            $rows[] = [$field, (string) $count, (string) max(0, $total - $count)];
+        }
+
+        return $rows;
     }
 }

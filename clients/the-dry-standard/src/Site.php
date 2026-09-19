@@ -16,7 +16,7 @@ final class Site
     public function html(string $path, array $query = []): ?string
     {
         $path = trim($path, '/');
-        $published = $this->reviews->published();
+        $published = $this->reviews->listing();
         $guides = PageDocument::loadDirectory($this->paths->content('guides'));
         $methods = PageDocument::loadDirectory($this->paths->content('methods'));
         $renderer = new Renderer($this->config);
@@ -38,6 +38,7 @@ final class Site
                 query: ArchiveQuery::from($query),
                 publishOrder: $publishOrder,
                 fragment: (string) ($query['fragment'] ?? '') === 'archive',
+                filtered: $this->reviews->archive(ArchiveQuery::from($query)),
             );
         }
 
@@ -49,7 +50,7 @@ final class Site
                 $label.' reviews',
                 'Dealcoholized and non-alcoholic '.$label.' reviewed for what they are, not what the label implies.',
                 'reviews/'.$category.'/',
-                $this->reviews->byCategory($category),
+                $published->filter(fn (Review $review): bool => $review->category === $category)->values(),
                 $renderer->crumbs([
                     'Reviews' => 'reviews/',
                     $label => 'reviews/'.$category.'/',
@@ -60,6 +61,7 @@ final class Site
                 query: ArchiveQuery::from($query, $category),
                 publishOrder: $publishOrder,
                 fragment: (string) ($query['fragment'] ?? '') === 'archive',
+                filtered: $this->reviews->archive(ArchiveQuery::from($query, $category)),
             );
         }
 
@@ -82,7 +84,7 @@ final class Site
         }
 
         if ($path === 'brands') {
-            return $renderer->brandIndex($this->reviews->brands());
+            return $renderer->brandIndex($this->reviews->brands(), (string) ($query['q'] ?? ''));
         }
 
         if (preg_match('#^brands/([^/]+)$#', $path, $matches) === 1) {
@@ -110,6 +112,7 @@ final class Site
                 'guides/',
                 'guides',
                 $guides,
+                query: (string) ($query['q'] ?? ''),
             );
         }
 
@@ -145,6 +148,7 @@ final class Site
                 'methods',
                 $methods,
                 $methodCounts,
+                query: (string) ($query['q'] ?? ''),
             );
         }
 
@@ -189,7 +193,7 @@ final class Site
         }
 
         if ($path === 'styles') {
-            return $renderer->styleIndex($this->reviews->styles());
+            return $renderer->styleIndex($this->reviews->styles(), (string) ($query['q'] ?? ''));
         }
 
         if (preg_match('#^styles/([a-z0-9-]+)$#', $path, $matches) === 1) {
@@ -201,6 +205,8 @@ final class Site
                 return null;
             }
 
+            $archiveQuery = ArchiveQuery::from($query, lockedStyle: $style['slug']);
+
             return $renderer->listing(
                 $style['label'],
                 'Published reviews in the '.$style['label'].' style.',
@@ -210,11 +216,13 @@ final class Site
                     'Styles' => 'styles/',
                     $style['label'] => 'styles/'.$style['slug'].'/',
                 ]),
+                nav: 'styles',
                 filterable: true,
                 allReviews: $published,
-                query: ArchiveQuery::from($query),
+                query: $archiveQuery,
                 publishOrder: $publishOrder,
                 fragment: (string) ($query['fragment'] ?? '') === 'archive',
+                filtered: $this->reviews->archive($archiveQuery),
             );
         }
 
@@ -242,10 +250,33 @@ final class Site
                 query: $query,
                 publishOrder: $publishOrder,
                 fragment: (string) ($query['fragment'] ?? '') === 'archive',
+                filtered: $this->reviews->archive($query)->filter(
+                    fn (Review $review): bool => ($review->rating ?? 0) >= 80,
+                )->values(),
             );
         }
 
         return null;
+    }
+
+    public function redirect(string $path): ?string
+    {
+        $path = trim($path, '/');
+
+        if (preg_match('#^brands/([^/]+)$#', $path, $matches) !== 1) {
+            return null;
+        }
+
+        $canonical = Taxonomy::canonicalBrandSlug($matches[1]);
+        if ($canonical === null || $canonical === $matches[1]) {
+            return null;
+        }
+
+        $exists = $this->reviews->brands()->contains(
+            fn (array $item): bool => $item['slug'] === $canonical,
+        );
+
+        return $exists ? 'brands/'.$canonical.'/' : null;
     }
 
     public function notFound(): string
@@ -282,7 +313,7 @@ final class Site
 
     public function catalogJson(): string
     {
-        $published = $this->reviews->published();
+        $published = $this->reviews->listing();
 
         return json_encode([
             'site' => $this->config->name(),

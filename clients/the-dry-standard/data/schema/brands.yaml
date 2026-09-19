@@ -1,0 +1,14 @@
+# Canonical brand slugs. Review frontmatter may still use an alias;
+# brand pages, filters, and URLs collapse to the canonical slug.
+leitz:
+  name: Leitz
+  aliases:
+    - Weingut Leitz
+    - Weingut Josef Leitz
+    - Josef Leitz
+valckenberg:
+  name: Valckenberg
+  aliases:
+    - P.J. Valckenberg
+    - PJ Valckenberg
+    - P. J. Valckenberg

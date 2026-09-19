@@ -63,6 +63,62 @@ final class Catalog
             ->values();
     }
 
+    /**
+     * Published reviews without body markdown — for listings, facets, and cards.
+     *
+     * @return Collection<int, Review>
+     */
+    public function publishedListing(): Collection
+    {
+        $columns = array_values(array_filter(
+            $this->columns(),
+            fn (string $column): bool => $column !== 'body_markdown',
+        ));
+
+        $rows = $this->pdo->query(
+            'SELECT '.implode(', ', $columns)
+            ." FROM products WHERE status = 'published' AND slug IS NOT NULL AND slug != '' AND category IS NOT NULL AND category != '' AND TRIM(COALESCE(body_markdown, '')) != '' AND rating IS NOT NULL AND INSTR(lower(title || ' ' || product), 'bundle') = 0 ORDER BY review_date DESC, slug ASC"
+        )->fetchAll();
+
+        return collect($rows)
+            ->map(function (array $row): Review {
+                $row['body_markdown'] = ' ';
+
+                return Review::fromRecord($row);
+            })
+            ->filter(fn (Review $review): bool => $review->isListed())
+            ->values();
+    }
+
+    /**
+     * @param  array<string, int>  $publishOrder
+     * @return Collection<int, Review>
+     */
+    public function publishedMatching(ArchiveQuery $query, array $publishOrder = []): Collection
+    {
+        [$where, $params] = $query->sqlWhere();
+        $columns = array_values(array_filter(
+            $this->columns(),
+            fn (string $column): bool => $column !== 'body_markdown',
+        ));
+        $statement = $this->pdo->prepare(
+            'SELECT '.implode(', ', $columns).' FROM products WHERE '.$where
+        );
+        $statement->execute($params);
+        $rows = $statement->fetchAll();
+
+        $reviews = collect($rows)
+            ->map(function (array $row): Review {
+                $row['body_markdown'] = ' ';
+
+                return Review::fromRecord($row);
+            })
+            ->filter(fn (Review $review): bool => $review->isListed())
+            ->values();
+
+        return $query->apply($reviews, $publishOrder);
+    }
+
     public function find(string $slug): ?Review
     {
         $statement = $this->pdo->prepare('SELECT * FROM products WHERE slug = :slug LIMIT 1');
@@ -403,10 +459,19 @@ final class Catalog
             'image',
             'image_alt',
             'image_credit',
+            'image_source',
+            'image_source_url',
+            'image_sku_confirmed',
             'status',
             'priority',
             'notes',
             'retailers',
+            'brand_slug',
+            'style_slug',
+            'method_facet',
+            'abv_bucket',
+            'country_slug',
+            'search_text',
         ];
     }
 
@@ -471,8 +536,22 @@ SQL);
 
         $this->ensureColumn('production_type', "production_type TEXT NOT NULL DEFAULT 'not-verified'");
         $this->ensureColumn('verified', "verified TEXT NOT NULL DEFAULT 'no'");
+        $this->ensureColumn('image_source', 'image_source TEXT');
+        $this->ensureColumn('image_source_url', 'image_source_url TEXT');
+        $this->ensureColumn('image_sku_confirmed', 'image_sku_confirmed TEXT');
+        $this->ensureColumn('brand_slug', 'brand_slug TEXT');
+        $this->ensureColumn('style_slug', 'style_slug TEXT');
+        $this->ensureColumn('method_facet', 'method_facet TEXT');
+        $this->ensureColumn('abv_bucket', 'abv_bucket TEXT');
+        $this->ensureColumn('country_slug', 'country_slug TEXT');
+        $this->ensureColumn('search_text', 'search_text TEXT');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_production_type_idx ON products(production_type)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_style_idx ON products(style)');
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_brand_slug_idx ON products(brand_slug)');
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_style_slug_idx ON products(style_slug)');
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_method_facet_idx ON products(method_facet)');
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_country_slug_idx ON products(country_slug)');
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_abv_bucket_idx ON products(abv_bucket)');
         $this->dropColumn('times_purchased');
         $this->dropColumn('first_purchase');
         $this->dropColumn('most_recent_purchase');

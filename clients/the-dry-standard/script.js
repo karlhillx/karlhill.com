@@ -6,6 +6,18 @@
     body.classList.toggle("is-locked", locked);
   };
 
+  const analyticsEnabled = () => body.getAttribute("data-analytics") === "1";
+
+  const track = (name, detail = {}) => {
+    if (!analyticsEnabled() || !name) {
+      return;
+    }
+
+    window.dispatchEvent(new CustomEvent("dry-standard:event", {
+      detail: { name, ...detail },
+    }));
+  };
+
   const trapFocus = (root, event) => {
     if (event.key !== "Tab" || !root) {
       return;
@@ -151,7 +163,28 @@
       }
     };
 
-    input.addEventListener("input", apply);
+    const syncUrl = () => {
+      const next = new URL(window.location.href);
+      const value = input.value.trim();
+
+      if (value) {
+        next.searchParams.set("q", value);
+      } else {
+        next.searchParams.delete("q");
+      }
+
+      const path = `${next.pathname}${next.search}${next.hash}`;
+      const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+      if (path !== current) {
+        history.replaceState({}, "", path);
+      }
+    };
+
+    input.addEventListener("input", () => {
+      apply();
+      syncUrl();
+    });
     apply();
   };
 
@@ -169,6 +202,7 @@
     const filterToggle = root.querySelector("[data-filter-toggle]");
     const filterBackdrop = root.querySelector("[data-filter-backdrop]");
     const lockedCategory = root.getAttribute("data-locked-category") || "";
+    const lockedStyle = root.getAttribute("data-locked-style") || "";
     let searchTimer = 0;
 
     const selectedValues = (name) =>
@@ -182,8 +216,11 @@
         next.set("q", query);
       }
 
-      ["brand", "abv", "category", "production", "method", "style"].forEach((key) => {
+      ["brand", "abv", "category", "production", "method", "style", "country"].forEach((key) => {
         if (key === "category" && lockedCategory) {
+          return;
+        }
+        if (key === "style" && lockedStyle) {
           return;
         }
 
@@ -215,6 +252,37 @@
       archive();
     };
 
+    const fragmentUrlFor = (href) =>
+      href.includes("?") ? `${href}&fragment=archive` : `${href}?fragment=archive`;
+
+    const swapFrom = (href, push) => {
+      root.setAttribute("aria-busy", "true");
+
+      const swap = () =>
+        fetch(fragmentUrlFor(href), { headers: { Accept: "text/html" } })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("filter");
+            }
+            return response.text();
+          })
+          .then((html) => {
+            if (push) {
+              history.pushState({}, "", href);
+            }
+            replaceArchive(html);
+          })
+          .catch(() => window.location.assign(href))
+          .finally(() => root.removeAttribute("aria-busy"));
+
+      if (document.startViewTransition) {
+        document.startViewTransition(swap);
+        return;
+      }
+
+      swap();
+    };
+
     const navigate = () => {
       const next = hrefFromState();
       const current = `${window.location.pathname}${window.location.search}`;
@@ -223,28 +291,7 @@
         return;
       }
 
-      const fragmentUrl = next.includes("?") ? `${next}&fragment=archive` : `${next}?fragment=archive`;
-
-      const swap = () =>
-        fetch(fragmentUrl, { headers: { Accept: "text/html" } })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("filter");
-            }
-            return response.text();
-          })
-          .then((html) => {
-            history.pushState({}, "", next);
-            replaceArchive(html);
-          })
-          .catch(() => window.location.assign(next));
-
-      if (document.startViewTransition) {
-        document.startViewTransition(swap);
-        return;
-      }
-
-      swap();
+      swapFrom(next, true);
     };
 
     const setFiltersOpen = (open) => {
@@ -323,10 +370,37 @@
         trapFocus(form, event);
       }
     });
+
+    root._swapFromLocation = () => {
+      const href = `${window.location.pathname}${window.location.search}`;
+      swapFrom(href, false);
+    };
+  };
+
+  const analytics = () => {
+    document.addEventListener("click", (event) => {
+      const target = event.target.closest("[data-analytics-event]");
+      if (!target) {
+        return;
+      }
+
+      track(target.getAttribute("data-analytics-event"), {
+        href: target.getAttribute("href") || "",
+      });
+    });
   };
 
   chrome();
   directory();
   archive();
-  window.addEventListener("popstate", () => window.location.reload());
+  analytics();
+  window.addEventListener("popstate", () => {
+    const root = document.querySelector("[data-archive]");
+    if (root && typeof root._swapFromLocation === "function") {
+      root._swapFromLocation();
+      return;
+    }
+
+    window.location.reload();
+  });
 })();

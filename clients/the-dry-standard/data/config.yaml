@@ -42,3 +42,6 @@ methods:
 rating:
   scale: 100
   description: Scores judge beverage quality, not how closely a drink impersonates ethanol.
+
+analytics:
+  enabled: true

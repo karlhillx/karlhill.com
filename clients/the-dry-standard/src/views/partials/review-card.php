@@ -7,7 +7,7 @@
             <p class="card-brand"><?= $brand ?></p>
             <?= $score ?>
           </div>
-          <h3><a href="<?= $view->e($href) ?>"><?= $view->e($title) ?></a></h3>
+          <h3><a href="<?= $view->e($href) ?>" data-analytics-event="review_opened"><?= $view->e($title) ?></a></h3>
           <p class="card-meta"><?= $view->e($meta) ?></p>
           <?php if (empty($compact) && ! empty($summary)) { ?>
           <p class="card-summary"><?= $view->e($summary) ?></p>

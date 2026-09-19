@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#14110e">
   <meta name="color-scheme" content="light">
-  <base href="/clients/the-dry-standard/">
+  <?php if (! empty($baseHref)) { ?>
+  <base href="<?= $view->e($baseHref) ?>">
+  <?php } ?>
   <title><?= $view->e($fullTitle) ?></title>
   <meta name="description" content="<?= $view->e($description) ?>">
   <link rel="canonical" href="<?= $view->e($canonical) ?>">
@@ -25,7 +27,7 @@
   <?= $extraHead ?>
   <?= $jsonLd ?>
 </head>
-<body<?= ! empty($bodyClass) ? ' class="'.$view->e($bodyClass).'"' : '' ?><?= ! empty($bodyAttrs) ? ' '.$bodyAttrs : '' ?>>
+<body<?= ! empty($bodyClass) ? ' class="'.$view->e($bodyClass).'"' : '' ?><?= ! empty($bodyAttrs) ? ' '.$bodyAttrs : '' ?><?= ! empty($analyticsEnabled) ? ' data-analytics="1"' : '' ?>>
   <a class="skip-link" href="#main">Skip to content</a>
   <?= $header ?>
   <main id="main">

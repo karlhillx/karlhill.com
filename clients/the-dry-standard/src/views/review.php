@@ -9,18 +9,14 @@
               <h1><?= $view->e($title) ?></h1>
               <?= $metaLine ?>
               <p class="lede"><?= $view->e($summary) ?></p>
-              <?php if (! empty($factsPeek)) { ?>
-              <ul class="facts-peek">
-                <?php foreach ($factsPeek as $item) { ?>
-                <li><span><?= $view->e($item['label']) ?></span> <?= $view->e($item['value']) ?></li>
-                <?php } ?>
-              </ul>
-              <?php } ?>
-              <p class="<?= $view->e($badgeClass) ?>"><?= $view->e($badgeLabel) ?></p>
+              <?= $identity ?? '' ?>
               <p class="review-jump">
+                <a href="#how-it-was-made">How it was made</a>
                 <a href="#tasting">Tasting</a>
                 <a href="#facts">Facts</a>
+                <?php if (! empty($hasServe)) { ?>
                 <a href="#how-to-drink">Serve</a>
+                <?php } ?>
               </p>
             </div>
             <?= $score ?>
@@ -30,20 +26,21 @@
       <div class="section">
         <div class="shell review-layout">
           <div class="stack-lg">
-            <section class="callout">
+            <section class="callout" id="how-it-was-made">
               <h2>How was it made?</h2>
               <p class="callout-status"><?= $view->e($statusLabel) ?></p>
-              <p class="callout-verified"><?= $view->e($verifiedLabel) ?></p>
               <?= $methodBlock ?>
               <?= $discrepancies ?>
             </section>
             <?= $overview ?>
             <?= $tasting ?>
+            <?php if (! empty($hasServe)) { ?>
             <section class="prose" id="how-to-drink">
               <h2>How to drink it</h2>
               <?= $serveBlock ?>
               <?= $bestForBlock ?>
             </section>
+            <?php } ?>
             <section class="verdict">
               <h2>Verdict</h2>
               <p><?= $view->e($verdict) ?></p>
@@ -64,8 +61,8 @@
           <?= $view->render('partials/section-head', [
               'kicker' => 'Keep tasting',
               'title' => $relatedHeading ?? 'More from the cellar',
-              'href' => $reviewsUrl,
-              'linkLabel' => 'All reviews',
+              'href' => $relatedHref ?? $reviewsUrl,
+              'linkLabel' => $relatedLinkLabel ?? 'All reviews',
           ]) ?>
           <div class="card-grid"><?= $related ?></div>
         </div>

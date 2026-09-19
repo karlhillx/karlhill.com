@@ -9,6 +9,7 @@ subcategory: string, optional
 country: string, sourced
 region: string, sourced
 style: string, editorial
+style_slug: optional closed-vocab override (see styles.yaml)
 abv: 0.0% | <0.5% | Not published
 abv_numeric: number <= 0.5, optional
 production_type: dealcoholized | alternative | naturally-low-alcohol | hybrid | not-verified

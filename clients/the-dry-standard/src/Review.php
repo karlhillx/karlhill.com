@@ -85,6 +85,7 @@ final class Review
         public readonly ?string $imageSource = null,
         public readonly ?string $imageSourceUrl = null,
         public readonly ?string $imageSkuConfirmed = null,
+        public readonly ?string $styleSlugOverride = null,
     ) {}
 
     /**
@@ -150,6 +151,7 @@ final class Review
             imageSource: self::nullableLower($matter['image_source'] ?? null),
             imageSourceUrl: self::nullableString($matter['image_source_url'] ?? null),
             imageSkuConfirmed: self::normalizeVerified($matter['image_sku_confirmed'] ?? null),
+            styleSlugOverride: self::nullableString($matter['style_slug'] ?? null),
         );
     }
 
@@ -219,7 +221,16 @@ final class Review
             'image' => $this->image,
             'image_alt' => $this->imageAlt,
             'image_credit' => $this->imageCredit,
+            'image_source' => $this->imageSource,
+            'image_source_url' => $this->imageSourceUrl,
+            'image_sku_confirmed' => $this->imageSkuConfirmed,
             'status' => $this->status,
+            'brand_slug' => $this->brandSlug(),
+            'style_slug' => $this->styleSlug(),
+            'method_facet' => $this->methodFacetKey(),
+            'abv_bucket' => $this->abvBucket(),
+            'country_slug' => $this->countrySlug(),
+            'search_text' => $this->searchText(),
         ];
     }
 
@@ -254,6 +265,13 @@ final class Review
             && ! str_contains(mb_strtolower($this->title.' '.$this->product), 'bundle');
     }
 
+    public function isListed(): bool
+    {
+        return $this->isPublished()
+            && $this->rating !== null
+            && ! str_contains(mb_strtolower($this->title.' '.$this->product), 'bundle');
+    }
+
     public function path(): string
     {
         return 'reviews/'.$this->category.'/'.$this->slug.'/';
@@ -280,84 +298,42 @@ final class Review
             $parts[] = $country;
         }
 
-        if ($this->methodFacetKey() !== 'unknown') {
+        if (! in_array($this->methodFacetKey(), ['unknown', 'not-applicable'], true)) {
             $parts[] = $this->methodCardLabel();
         }
 
         return implode(' · ', $parts);
     }
 
-    public function styleSlug(): string
+    public function cardTitle(): string
     {
-        $text = strtolower(trim(($this->style ?? '').' '.($this->subcategory ?? '').' '.($this->product ?? '')));
+        $product = trim($this->product);
+        $brand = trim($this->brand);
 
-        $needles = [
-            'negroni' => 'negroni',
-            'stout' => 'stout',
-            'porter' => 'porter',
-            'hazy' => 'ipa',
-            'ipa' => 'ipa',
-            'pils' => 'pils',
-            'kölsch' => 'kolsch',
-            'kolsch' => 'kolsch',
-            'lager' => 'lager',
-            'sour' => 'sour',
-            'riesling' => 'riesling',
-            'sauvignon' => 'sauvignon-blanc',
-            'chardonnay' => 'chardonnay',
-            'pinot noir' => 'pinot-noir',
-            'pinot gr' => 'pinot-grigio',
-            'malbec' => 'malbec',
-            'sparkling' => 'sparkling',
-            'cava' => 'sparkling',
-            'prosecco' => 'sparkling',
-            'brut' => 'sparkling',
-            'rosé' => 'rose',
-            'rose' => 'rose',
-            'tequila' => 'tequila',
-            'mezcal' => 'tequila',
-            'whisky' => 'whisky',
-            'whiskey' => 'whisky',
-            'cider' => 'cider',
-            'poire' => 'cider',
-        ];
-
-        foreach ($needles as $needle => $slug) {
-            if (str_contains($text, $needle)) {
-                return $slug;
-            }
+        if ($product === '' || $brand === '') {
+            return $this->title;
         }
 
-        return $this->style !== null && $this->style !== ''
-            ? Str::slug($this->style)
-            : $this->category;
+        if (strcasecmp(trim($this->title), $brand.' '.$product) === 0) {
+            return $product;
+        }
+
+        return $this->title;
+    }
+
+    public function styleSlug(): string
+    {
+        return Taxonomy::styleSlug($this->style, $this->subcategory, $this->product, $this->styleSlugOverride);
     }
 
     public function styleLabel(): string
     {
-        $labels = [
-            'negroni' => 'Negroni',
-            'stout' => 'Stout',
-            'porter' => 'Porter',
-            'ipa' => 'IPA',
-            'pils' => 'Pils',
-            'kolsch' => 'Kölsch',
-            'lager' => 'Lager',
-            'sour' => 'Sour',
-            'riesling' => 'Riesling',
-            'sauvignon-blanc' => 'Sauvignon Blanc',
-            'chardonnay' => 'Chardonnay',
-            'pinot-noir' => 'Pinot Noir',
-            'pinot-grigio' => 'Pinot Grigio',
-            'malbec' => 'Malbec',
-            'sparkling' => 'Sparkling',
-            'rose' => 'Rosé',
-            'tequila' => 'Tequila',
-            'whisky' => 'Whisky',
-            'cider' => 'Cider',
-        ];
+        return Taxonomy::styleLabel($this->styleSlug(), $this->style);
+    }
 
-        return $labels[$this->styleSlug()] ?? ($this->style ?: ucfirst($this->category));
+    public function hasComparableStyle(): bool
+    {
+        return Taxonomy::hasStyle($this->styleSlug());
     }
 
     public function productionTypeLabel(): string
@@ -378,7 +354,26 @@ final class Review
 
     public function verifiedLabel(): string
     {
-        return $this->verified === 'yes' ? 'Verified' : 'Not verified';
+        if ($this->productionType === 'not-verified') {
+            return '';
+        }
+
+        return $this->verified === 'yes' ? 'Sourced production type' : 'Production type not fully sourced';
+    }
+
+    public function brandDisplayName(): string
+    {
+        return Taxonomy::brandName($this->brand);
+    }
+
+    public function brandSlug(): string
+    {
+        return Taxonomy::brandSlug($this->brand);
+    }
+
+    public function countrySlug(): string
+    {
+        return Taxonomy::countrySlug($this->countryLabel());
     }
 
     public function dealcoholizedLabel(): string
@@ -389,11 +384,6 @@ final class Review
     public function dealcoholizedShortLabel(): string
     {
         return $this->productionTypeShortLabel();
-    }
-
-    public function brandSlug(): string
-    {
-        return Str::slug($this->brand);
     }
 
     public function modifiedAt(): CarbonImmutable
@@ -419,7 +409,7 @@ final class Review
             'abv' => $this->abv,
             'abv_numeric' => $this->abvNumeric,
             'abv_bucket' => $this->abvBucket(),
-            'brand_slug' => Str::slug($this->brand),
+            'brand_slug' => $this->brandSlug(),
             'origin' => $this->originLabel(),
             'dealcoholized' => $this->dealcoholized,
             'production_type' => $this->productionType,
@@ -438,6 +428,8 @@ final class Review
             'search_text' => $this->searchText(),
             'image' => $this->imageSrc(),
             'style_slug' => $this->styleSlug(),
+            'country_slug' => $this->countrySlug(),
+            'method_facet' => $this->methodFacetKey(),
         ];
     }
 
@@ -546,6 +538,10 @@ final class Review
 
     public function methodFacetKey(): string
     {
+        if ($this->productionType === 'alternative') {
+            return 'not-applicable';
+        }
+
         $key = $this->methodKey();
 
         if ($key !== null && in_array($key, self::METHOD_FACETS, true)) {
@@ -579,6 +575,7 @@ final class Review
             'osmotic-distillation' => 'Osmotic distillation',
             'arrested-fermentation' => 'Arrested fermentation',
             'other' => 'Other documented method',
+            'not-applicable' => 'Formulated alternative',
         ];
 
         if (isset($named[$key])) {
@@ -605,9 +602,6 @@ final class Review
 
         $root = Paths::default()->path();
         $absolute = $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $src);
-        if (preg_match('/\.jpe?g$/i', $src) === 1) {
-            (new StillPipeline(new Paths($root)))->ensureDerivatives($absolute);
-        }
 
         $size = is_file($absolute) ? @getimagesize($absolute) : false;
         $webpRelative = is_string($src) ? preg_replace('/\.(jpe?g|png)$/i', '.webp', $src) : null;
@@ -647,13 +641,15 @@ final class Review
     {
         return strtolower(implode(' ', array_filter([
             $this->title,
-            $this->brand,
+            Taxonomy::brandSearchTokens($this->brand),
             $this->product,
             $this->category,
             $this->subcategory,
             $this->originLabel(),
             $this->dealcoholizationMethod,
             $this->style,
+            $this->styleLabel(),
+            $this->productionTypeShortLabel(),
             $this->summary,
         ])));
     }

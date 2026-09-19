@@ -5,7 +5,7 @@
         <div class="featured-body">
           <p class="kicker">Start here</p>
           <p class="featured-brand"><?= $brand ?></p>
-          <h2><a href="<?= $view->e($href) ?>"><?= $view->e($title) ?></a></h2>
+          <h2><a href="<?= $view->e($href) ?>" data-analytics-event="review_opened"><?= $view->e($title) ?></a></h2>
           <p><?= $view->e($summary) ?></p>
           <div class="featured-meta">
             <?= $score ?>
