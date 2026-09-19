@@ -14,6 +14,7 @@ final class ArchiveQuery
      * @param  array<int, string>  $categories
      * @param  array<int, string>  $production
      * @param  array<int, string>  $methods
+     * @param  array<int, string>  $styles
      */
     public function __construct(
         public readonly string $q = '',
@@ -22,6 +23,7 @@ final class ArchiveQuery
         public readonly array $categories = [],
         public readonly array $production = [],
         public readonly array $methods = [],
+        public readonly array $styles = [],
         public readonly string $sort = 'newest',
         public readonly int $page = 1,
         public readonly ?string $lockedCategory = null,
@@ -49,6 +51,7 @@ final class ArchiveQuery
             categories: $lockedCategory !== null ? [] : self::list($query, 'category'),
             production: self::productionList($query),
             methods: self::methodList($query),
+            styles: self::list($query, 'style'),
             sort: $sort,
             page: $page,
             lockedCategory: $lockedCategory,
@@ -78,7 +81,8 @@ final class ArchiveQuery
         return $this->matchesFacet($skip, 'brand', $this->brands, $review->brandSlug())
             && $this->matchesFacet($skip, 'abv', $this->abv, $review->abvBucket())
             && $this->matchesFacet($skip, 'production', $this->production, $review->productionType)
-            && $this->matchesFacet($skip, 'method', $this->methods, $review->methodFacetKey());
+            && $this->matchesFacet($skip, 'method', $this->methods, $review->methodFacetKey())
+            && $this->matchesFacet($skip, 'style', $this->styles, $review->styleSlug());
     }
 
     /**
@@ -135,6 +139,7 @@ final class ArchiveQuery
             || $this->categories !== []
             || $this->production !== []
             || $this->methods !== []
+            || $this->styles !== []
             || $this->sort !== 'newest';
     }
 
@@ -152,7 +157,7 @@ final class ArchiveQuery
             $parts['q'] = $q;
         }
 
-        foreach (['brand' => $this->brands, 'abv' => $this->abv, 'category' => $this->categories, 'production' => $this->production, 'method' => $this->methods] as $key => $values) {
+        foreach (['brand' => $this->brands, 'abv' => $this->abv, 'category' => $this->categories, 'production' => $this->production, 'method' => $this->methods, 'style' => $this->styles] as $key => $values) {
             if (array_key_exists($key, $overrides)) {
                 $value = (string) $overrides[$key];
                 if ($value !== '') {

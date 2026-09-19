@@ -111,6 +111,11 @@ final class SiteConfig
         return $host.$this->publicUrl($path);
     }
 
+    public function indexable(): bool
+    {
+        return $this->bool('site.index', false);
+    }
+
     /**
      * @return array<int, string>
      */

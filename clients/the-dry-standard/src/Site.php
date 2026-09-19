@@ -37,6 +37,7 @@ final class Site
                 allReviews: $published,
                 query: ArchiveQuery::from($query),
                 publishOrder: $publishOrder,
+                fragment: (string) ($query['fragment'] ?? '') === 'archive',
             );
         }
 
@@ -58,6 +59,7 @@ final class Site
                 allReviews: $published,
                 query: ArchiveQuery::from($query, $category),
                 publishOrder: $publishOrder,
+                fragment: (string) ($query['fragment'] ?? '') === 'archive',
             );
         }
 
@@ -153,6 +155,12 @@ final class Site
                 return null;
             }
 
+            $methodReviews = $this->reviews->byMethod($method->slug);
+            $methodCount = $methodReviews->count();
+            $methodMeta = $methodCount === 0
+                ? ''
+                : '<p class="page-meta">'.($methodCount === 1 ? '1 bottle' : $methodCount.' bottles').' reviewed with this method. Other methods are listed below.</p>';
+
             return $renderer->articlePage(
                 $method,
                 'methods/'.$method->slug.'/',
@@ -162,8 +170,10 @@ final class Site
                 ]),
                 'Method',
                 'methods',
-                $this->reviews->byMethod($method->slug),
+                $methodReviews,
                 'Reviewed with this method',
+                afterProse: $methodMeta,
+                siblings: $renderer->methodSiblings($methods, $method->slug),
             );
         }
 
@@ -175,6 +185,36 @@ final class Site
                 'About',
                 'about',
                 afterProse: $renderer->scoreHistogram($published),
+            );
+        }
+
+        if ($path === 'styles') {
+            return $renderer->styleIndex($this->reviews->styles());
+        }
+
+        if (preg_match('#^styles/([a-z0-9-]+)$#', $path, $matches) === 1) {
+            $style = $this->reviews->styles()->first(
+                fn (array $item): bool => $item['slug'] === $matches[1],
+            );
+
+            if ($style === null) {
+                return null;
+            }
+
+            return $renderer->listing(
+                $style['label'],
+                'Published reviews in the '.$style['label'].' style.',
+                'styles/'.$style['slug'].'/',
+                $style['reviews'],
+                $renderer->crumbs([
+                    'Styles' => 'styles/',
+                    $style['label'] => 'styles/'.$style['slug'].'/',
+                ]),
+                filterable: true,
+                allReviews: $published,
+                query: ArchiveQuery::from($query),
+                publishOrder: $publishOrder,
+                fragment: (string) ($query['fragment'] ?? '') === 'archive',
             );
         }
 
@@ -201,10 +241,25 @@ final class Site
                 allReviews: $published,
                 query: $query,
                 publishOrder: $publishOrder,
+                fragment: (string) ($query['fragment'] ?? '') === 'archive',
             );
         }
 
         return null;
+    }
+
+    public function notFound(): string
+    {
+        return (new Renderer($this->config))->notFound();
+    }
+
+    public function robots(): string
+    {
+        if (! $this->config->indexable()) {
+            return "User-agent: *\nDisallow: /\n";
+        }
+
+        return "User-agent: *\nAllow: /\n\nSitemap: ".$this->config->canonicalUrl('sitemap.xml')."\n";
     }
 
     public function feed(): string
@@ -221,6 +276,7 @@ final class Site
             PageDocument::loadDirectory($this->paths->content('guides')),
             PageDocument::loadDirectory($this->paths->content('methods')),
             $this->reviews->brands(),
+            $this->reviews->styles(),
         );
     }
 
@@ -239,6 +295,7 @@ final class Site
                 'production_type' => $published->pluck('productionType')->unique()->values(),
                 'verified' => $published->pluck('verified')->unique()->values(),
                 'methods' => $published->map(fn (Review $review): string => $review->methodFacetKey())->unique()->values(),
+                'styles' => $published->map(fn (Review $review): string => $review->styleSlug())->unique()->values(),
             ],
         ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n";
     }

@@ -53,7 +53,12 @@ final class Catalog
      */
     public function published(): Collection
     {
-        return $this->reviews()
+        $rows = $this->pdo->query(
+            "SELECT * FROM products WHERE status = 'published' AND slug IS NOT NULL AND slug != '' AND category IS NOT NULL AND category != '' AND TRIM(COALESCE(body_markdown, '')) != '' AND rating IS NOT NULL ORDER BY review_date DESC, slug ASC"
+        )->fetchAll();
+
+        return collect($rows)
+            ->map(fn (array $row): Review => Review::fromRecord($row))
             ->filter(fn (Review $review): bool => $review->isPublic())
             ->values();
     }
@@ -459,10 +464,14 @@ CREATE INDEX IF NOT EXISTS products_status_idx ON products(status);
 CREATE INDEX IF NOT EXISTS products_category_idx ON products(category);
 CREATE INDEX IF NOT EXISTS products_brand_idx ON products(brand);
 CREATE INDEX IF NOT EXISTS products_id_idx ON products(id);
+CREATE INDEX IF NOT EXISTS products_production_type_idx ON products(production_type);
+CREATE INDEX IF NOT EXISTS products_style_idx ON products(style);
 SQL);
 
         $this->ensureColumn('production_type', "production_type TEXT NOT NULL DEFAULT 'not-verified'");
         $this->ensureColumn('verified', "verified TEXT NOT NULL DEFAULT 'no'");
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_production_type_idx ON products(production_type)');
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_style_idx ON products(style)');
         $this->dropColumn('times_purchased');
         $this->dropColumn('first_purchase');
         $this->dropColumn('most_recent_purchase');

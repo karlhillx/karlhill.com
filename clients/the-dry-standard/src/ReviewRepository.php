@@ -7,6 +7,11 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 final class ReviewRepository
 {
+    private ?Catalog $catalog = null;
+
+    /** @var Collection<int, Review>|null */
+    private ?Collection $published = null;
+
     public function __construct(private readonly Paths $paths) {}
 
     /**
@@ -24,9 +29,13 @@ final class ReviewRepository
      */
     public function published(): Collection
     {
+        if ($this->published instanceof Collection) {
+            return $this->published;
+        }
+
         $order = $this->publishOrder();
 
-        return $this->catalog()->published()
+        $this->published = $this->catalog()->published()
             ->sortByDesc(function (Review $review) use ($order): string {
                 return sprintf(
                     '%010d-%s-%s',
@@ -36,6 +45,8 @@ final class ReviewRepository
                 );
             })
             ->values();
+
+        return $this->published;
     }
 
     /**
@@ -146,6 +157,29 @@ final class ReviewRepository
     }
 
     /**
+     * Generated style indexes with at least two published bottles.
+     *
+     * @return Collection<int, array{slug: string, label: string, reviews: Collection<int, Review>}>
+     */
+    public function styles(): Collection
+    {
+        return $this->published()
+            ->groupBy(fn (Review $review): string => $review->styleSlug())
+            ->map(function (Collection $reviews, string $slug): array {
+                $first = $reviews->first();
+
+                return [
+                    'slug' => $slug,
+                    'label' => $first instanceof Review ? $first->styleLabel() : $slug,
+                    'reviews' => $reviews->values(),
+                ];
+            })
+            ->filter(fn (array $style): bool => $style['slug'] !== '' && $style['reviews']->count() >= 2)
+            ->sortBy(fn (array $style): string => mb_strtolower($style['label']), SORT_NATURAL)
+            ->values();
+    }
+
+    /**
      * @return Collection<int, Review>
      */
     public function relatedTo(Review $review, int $limit = 4): Collection
@@ -157,6 +191,10 @@ final class ReviewRepository
 
                 if ($other->brandSlug() === $review->brandSlug()) {
                     $score += 8;
+                }
+
+                if ($review->styleSlug() !== '' && $other->styleSlug() === $review->styleSlug()) {
+                    $score += 10;
                 }
 
                 if ($review->style && $other->style && mb_strtolower($other->style) === mb_strtolower($review->style)) {
@@ -188,12 +226,17 @@ final class ReviewRepository
 
     public function catalog(): Catalog
     {
-        $catalog = Catalog::open($this->paths);
-
-        if ($catalog->isEmpty()) {
-            (new CatalogSync($this->paths, $catalog))->run();
+        if ($this->catalog instanceof Catalog) {
+            return $this->catalog;
         }
 
-        return $catalog;
+        $this->catalog = Catalog::open($this->paths);
+
+        if ($this->catalog->isEmpty()) {
+            (new CatalogSync($this->paths, $this->catalog))->run();
+            $this->published = null;
+        }
+
+        return $this->catalog;
     }
 }

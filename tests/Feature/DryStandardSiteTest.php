@@ -29,6 +29,7 @@ it('serves the Dry Standard homepage and primary sections', function () {
         '/clients/the-dry-standard/brands/',
         '/clients/the-dry-standard/methods/',
         '/clients/the-dry-standard/about/',
+        '/clients/the-dry-standard/styles/',
     ] as $url) {
         $this->get($url)->assertOk();
     }
@@ -38,6 +39,7 @@ it('serves sourced sample reviews with production-type badges', function () {
     $this->get('/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/')
         ->assertOk()
         ->assertSee('Production type: Dealcoholized', escape: false)
+        ->assertSee('class="facts-peek"', escape: false)
         ->assertSee('Verified', escape: false)
         ->assertSee('Vacuum distillation', escape: false)
         ->assertSee('Weingut Leitz', escape: false)
@@ -61,7 +63,8 @@ it('exposes a feed, sitemap, and catalog for the client site', function () {
 
     $sitemap = $this->get('/clients/the-dry-standard/sitemap.xml')->assertOk();
     expect($sitemap->getContent())->toContain('reviews/wine/leitz-eins-zwei-zero-riesling')
-        ->and($sitemap->getContent())->toContain('best/');
+        ->and($sitemap->getContent())->toContain('best/')
+        ->and($sitemap->getContent())->toContain('styles/riesling');
 
     $catalogResponse = $this->get('/clients/the-dry-standard/catalog.json')->assertOk();
     $catalog = json_decode($catalogResponse->getContent(), true, flags: JSON_THROW_ON_ERROR);
@@ -82,6 +85,8 @@ it('serves product stills on reviews and the archive', function () {
         ->assertSee('product-figure--hero', escape: false);
 
     $this->get('/clients/the-dry-standard/media/reviews/guinness-0-0.jpg')->assertOk();
+    $this->get('/clients/the-dry-standard/media/reviews/guinness-0-0.webp')->assertOk();
+    $this->get('/clients/the-dry-standard/media/reviews/guinness-0-0-400.webp')->assertOk();
 
     $this->get('/clients/the-dry-standard/reviews/')
         ->assertOk()
@@ -138,7 +143,7 @@ it('keeps a master product table without duplicating published reviews', functio
 it('links related reviews and exposes directory search', function () {
     $this->get('/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/')
         ->assertOk()
-        ->assertSee('More from the cellar', escape: false)
+        ->assertSee('Other Riesling', escape: false)
         ->assertSee('brands/leitz/', escape: false)
         ->assertSee('methods/vacuum-distillation/', escape: false)
         ->assertSee('Dealcoholized', escape: false);
@@ -157,7 +162,18 @@ it('links related reviews and exposes directory search', function () {
     $this->get('/clients/the-dry-standard/methods/vacuum-distillation/')
         ->assertOk()
         ->assertSee('Reviewed with this method', escape: false)
+        ->assertSee('reviewed with this method', escape: false)
         ->assertSee('leitz-eins-zwei-zero-riesling', escape: false);
+
+    $this->get('/clients/the-dry-standard/styles/')
+        ->assertOk()
+        ->assertSee('Riesling', escape: false)
+        ->assertSee('styles/riesling/', escape: false);
+
+    $this->get('/clients/the-dry-standard/styles/riesling/')
+        ->assertOk()
+        ->assertSee('leitz-eins-zwei-zero-riesling', escape: false)
+        ->assertDontSee('Guinness 0.0', escape: false);
 });
 
 it('builds a searchable review archive', function () {
@@ -240,4 +256,37 @@ it('normalizes United States on review pages', function () {
     $this->get('/clients/the-dry-standard/reviews/spirits/ritual-zero-proof-tequila/')
         ->assertOk()
         ->assertSee('United States', escape: false);
+});
+
+it('serves a Dry Standard 404 instead of the parent chrome', function () {
+    $this->get('/clients/the-dry-standard/reviews/wine/not-a-real-bottle/')
+        ->assertNotFound()
+        ->assertSee('That bottle is not on the shelf', escape: false)
+        ->assertSee('Browse the cellar', escape: false)
+        ->assertDontSee('Book a conversation', escape: false);
+});
+
+it('disallows crawlers while staged and puts Best in the primary nav', function () {
+    $this->get('/clients/the-dry-standard/robots.txt')
+        ->assertOk()
+        ->assertSee('Disallow: /', escape: false);
+
+    $this->get('/clients/the-dry-standard/')
+        ->assertOk()
+        ->assertSee('>Best</a>', escape: false)
+        ->assertSee('fonts/fraunces.woff2', escape: false)
+        ->assertDontSee('fonts.googleapis.com', escape: false);
+});
+
+it('emits responsive stills and archive fragments', function () {
+    $this->get('/clients/the-dry-standard/reviews/')
+        ->assertOk()
+        ->assertSee('type="image/webp"', escape: false)
+        ->assertSee('sizes="', escape: false)
+        ->assertSee('data-facet="style"', escape: false)
+        ->assertSee('h2 class="visually-hidden">Reviews', escape: false);
+
+    $fragment = $this->get('/clients/the-dry-standard/reviews/?fragment=archive')->assertOk();
+    expect($fragment->getContent())->toContain('data-archive')
+        ->and($fragment->getContent())->not->toContain('<html');
 });

@@ -5,6 +5,7 @@ site:
   mission: The Dry Standard concentrates on beverages at 0.5% ABV or less. We give particular weight to drinks made by removing alcohol from a finished beer, wine, or spirit — and we say so when a product was simply formulated to taste like one.
   base_path: /clients/the-dry-standard
   canonical_host: https://karlhill.com
+  index: false
 
 publishing:
   enabled: true

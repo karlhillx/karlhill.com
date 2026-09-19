@@ -1,0 +1,129 @@
+<?php
+
+namespace DryStandard\Rendering;
+
+use DryStandard\Review;
+use DryStandard\SiteConfig;
+
+final class StructuredData
+{
+    public function __construct(private readonly SiteConfig $config) {}
+
+    /**
+     * @param  array<int, array<string, mixed>>  $graph
+     */
+    public function script(array $graph): string
+    {
+        $payload = [
+            '@context' => 'https://schema.org',
+            '@graph' => $graph,
+        ];
+
+        return '<script type="application/ld+json">'.json_encode(
+            $payload,
+            JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR,
+        ).'</script>';
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function website(): array
+    {
+        return [
+            '@type' => 'WebSite',
+            '@id' => $this->config->canonicalUrl().'#website',
+            'name' => $this->config->name(),
+            'url' => $this->config->canonicalUrl(),
+            'description' => $this->config->string('site.description'),
+            'potentialAction' => [
+                '@type' => 'SearchAction',
+                'target' => [
+                    '@type' => 'EntryPoint',
+                    'urlTemplate' => $this->config->canonicalUrl('reviews/').'?q={search_term_string}',
+                ],
+                'query-input' => 'required name=search_term_string',
+            ],
+        ];
+    }
+
+    /**
+     * @param  array<int, array{label: string, url: string}>  $crumbs
+     * @return array<string, mixed>
+     */
+    public function breadcrumbs(array $crumbs): array
+    {
+        $items = [];
+
+        foreach (array_values($crumbs) as $index => $crumb) {
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'name' => $crumb['label'],
+                'item' => $this->config->canonicalUrl(ltrim($crumb['url'] ?? '', '/')),
+            ];
+        }
+
+        return [
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => $items,
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function review(Review $review): array
+    {
+        $url = $this->config->canonicalUrl($review->path());
+
+        return array_filter([
+            '@type' => 'Review',
+            '@id' => $url.'#review',
+            'headline' => $review->title,
+            'name' => $review->title,
+            'description' => $review->summary,
+            'url' => $url,
+            'datePublished' => $review->reviewDate->toDateString(),
+            'dateModified' => $review->modifiedAt()->toDateString(),
+            'author' => [
+                '@type' => 'Organization',
+                'name' => $this->config->name(),
+            ],
+            'reviewRating' => $review->rating === null ? null : [
+                '@type' => 'Rating',
+                'ratingValue' => $review->rating,
+                'bestRating' => 100,
+                'worstRating' => 0,
+            ],
+            'itemReviewed' => ['@id' => $url.'#product'],
+        ]);
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function product(Review $review, string $categoryLabel): array
+    {
+        $url = $this->config->canonicalUrl($review->path());
+
+        return array_filter([
+            '@type' => 'Product',
+            '@id' => $url.'#product',
+            'name' => $review->product !== '' ? $review->product : $review->title,
+            'brand' => [
+                '@type' => 'Brand',
+                'name' => $review->brand,
+            ],
+            'category' => $categoryLabel,
+            'description' => $review->summary,
+            'image' => $review->imageSrc() ? $this->config->canonicalUrl($review->imageSrc()) : null,
+            'additionalProperty' => $review->abv === null ? null : [
+                '@type' => 'PropertyValue',
+                'name' => 'ABV',
+                'value' => $review->abv,
+            ],
+            'review' => ['@id' => $url.'#review'],
+        ], fn (mixed $value): bool => $value !== null && $value !== '');
+    }
+}

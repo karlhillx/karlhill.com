@@ -1,4 +1,4 @@
-<section class="tasting">
+<section class="tasting" id="tasting">
   <h2>Tasting notes</h2>
   <ol class="tasting-flight">
     <?php foreach ($notes as $index => $note) { ?>

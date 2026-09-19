@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#14110e">
+  <meta name="color-scheme" content="light">
   <base href="/clients/the-dry-standard/">
   <title><?= $view->e($fullTitle) ?></title>
   <meta name="description" content="<?= $view->e($description) ?>">
@@ -18,10 +19,8 @@
   <meta name="twitter:description" content="<?= $view->e($description) ?>">
   <link rel="alternate" type="application/atom+xml" title="<?= $view->e($siteName) ?> reviews" href="<?= $view->e($feedUrl) ?>">
   <link rel="icon" href="<?= $view->e($iconUrl) ?>" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+  <link rel="preload" href="<?= $view->e($fontDisplay) ?>" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="<?= $view->e($fontSans) ?>" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="<?= $view->e($stylesheet) ?>">
   <?= $extraHead ?>
   <?= $jsonLd ?>

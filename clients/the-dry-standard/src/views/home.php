@@ -32,10 +32,9 @@
     <section class="section">
       <div class="shell stack">
         <?= $view->render('partials/section-head', [
-            'kicker' => 'Browse',
-            'title' => 'Find a bottle by what it is',
+            'kicker' => 'Production',
+            'title' => 'Find a bottle by how it was made',
         ]) ?>
-        <?= $categoryRail ?>
         <?= $processRail ?>
       </div>
     </section>
@@ -64,22 +63,11 @@
     <section class="section section--ink">
       <div class="shell stack">
         <?= $view->render('partials/section-head', [
-            'kicker' => 'How it\'s made',
-            'title' => 'The techniques that remove alcohol — and the ones that never put it in',
-            'href' => $methodsUrl,
-            'linkLabel' => 'Method index',
-        ]) ?>
-        <div class="card-grid card-grid--compact"><?= $methodCards ?></div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="shell stack">
-        <?= $view->render('partials/section-head', [
-            'kicker' => 'Guides',
-            'title' => 'How to read a bottle before you buy it',
+            'kicker' => 'Read',
+            'title' => 'Methods and buying notes',
             'href' => $guidesUrl,
             'linkLabel' => 'All guides',
         ]) ?>
-        <div class="card-grid card-grid--compact"><?= $guideCards ?></div>
+        <div class="card-grid card-grid--compact"><?= $readCards ?></div>
       </div>
     </section>

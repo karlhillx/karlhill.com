@@ -1,12 +1,10 @@
     <article class="best">
-      <header class="page-header">
-        <div class="shell">
-          <?= $breadcrumbs ?>
-          <p class="kicker">The cellar</p>
-          <h1>What holds up in the glass</h1>
-          <p class="lede">Scores of 85 and up, then the strongest bottles in each category. Quality, not how closely a drink impersonates ethanol.</p>
-        </div>
-      </header>
+      <?= $view->render('partials/page-header', [
+          'breadcrumbs' => $breadcrumbs,
+          'kicker' => 'The cellar',
+          'title' => 'What holds up in the glass',
+          'lede' => 'Scores of 85 and up, then the strongest bottles in each category. Quality, not how closely a drink impersonates ethanol.',
+      ]) ?>
       <section class="section">
         <div class="shell stack">
           <?= $view->render('partials/section-head', [

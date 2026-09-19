@@ -10,6 +10,9 @@ final class StillPipeline
 
     private const TARGET_HEIGHT = 1200;
 
+    /** @var list<int> */
+    private const DERIVATIVE_WIDTHS = [400, 800];
+
     public function __construct(private readonly Paths $paths) {}
 
     /**
@@ -70,9 +73,79 @@ final class StillPipeline
             if ($this->writeWebp($source, $webp)) {
                 $converted++;
             }
+
+            $converted += $this->writeWidthSet($source, $jpeg);
         }
 
         return $converted;
+    }
+
+    /**
+     * Build WebP (and width variants) next to a JPEG if they are missing or stale.
+     */
+    public function ensureDerivatives(string $jpegPath): void
+    {
+        if (! is_file($jpegPath) || ! function_exists('imagecreatefromjpeg') || ! function_exists('imagewebp')) {
+            return;
+        }
+
+        $webp = preg_replace('/\.jpe?g$/i', '.webp', $jpegPath) ?: $jpegPath.'.webp';
+        $needsFull = ! is_file($webp) || filemtime($webp) < filemtime($jpegPath);
+        $needsWidths = false;
+
+        foreach (self::DERIVATIVE_WIDTHS as $width) {
+            $variant = $this->widthPath($jpegPath, $width, 'webp');
+            if (! is_file($variant) || filemtime($variant) < filemtime($jpegPath)) {
+                $needsWidths = true;
+                break;
+            }
+        }
+
+        if (! $needsFull && ! $needsWidths) {
+            return;
+        }
+
+        $source = @imagecreatefromjpeg($jpegPath);
+        if ($source === false) {
+            return;
+        }
+
+        $this->flattenLightBackground($source);
+
+        if ($needsFull) {
+            $this->writeWebp($source, $webp);
+        }
+
+        if ($needsWidths) {
+            $this->writeWidthSet($source, $jpegPath);
+        }
+    }
+
+    /**
+     * Serve a generated still (WebP or width variant) from the JPEG master.
+     */
+    public function serve(string $relative): ?string
+    {
+        $relative = ltrim(str_replace('\\', '/', $relative), '/');
+        $directory = $this->paths->path('media/reviews');
+        $target = $directory.DIRECTORY_SEPARATOR.basename($relative);
+
+        if (is_file($target)) {
+            return $target;
+        }
+
+        if (! preg_match('/^(?<slug>[a-z0-9-]+?)(?:-(?<width>400|800))?\.webp$/i', basename($relative), $matches)) {
+            return null;
+        }
+
+        $jpeg = $directory.DIRECTORY_SEPARATOR.$matches['slug'].'.jpg';
+        if (! is_file($jpeg)) {
+            return null;
+        }
+
+        $this->ensureDerivatives($jpeg);
+
+        return is_file($target) ? $target : null;
     }
 
     private function writeWebp(\GdImage $source, string $webp): bool
@@ -96,6 +169,35 @@ final class StillPipeline
         }
 
         return imagewebp($canvas, $webp, 78);
+    }
+
+    private function writeWidthSet(\GdImage $source, string $jpegPath): int
+    {
+        $written = 0;
+        $width = imagesx($source);
+        $height = imagesy($source);
+
+        foreach (self::DERIVATIVE_WIDTHS as $targetWidth) {
+            $path = $this->widthPath($jpegPath, $targetWidth, 'webp');
+            if (is_file($path) && filemtime($path) >= filemtime($jpegPath)) {
+                continue;
+            }
+
+            $targetHeight = max(1, (int) round($targetWidth * ($height / max($width, 1))));
+            $scaled = imagecreatetruecolor($targetWidth, $targetHeight);
+            imagecopyresampled($scaled, $source, 0, 0, 0, 0, $targetWidth, $targetHeight, $width, $height);
+
+            if (imagewebp($scaled, $path, 78)) {
+                $written++;
+            }
+        }
+
+        return $written;
+    }
+
+    private function widthPath(string $jpegPath, int $width, string $extension): string
+    {
+        return (string) preg_replace('/\.jpe?g$/i', '-'.$width.'.'.$extension, $jpegPath);
     }
 
     /**

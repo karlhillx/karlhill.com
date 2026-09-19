@@ -73,7 +73,7 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 
 ## Site structure
 
-`/`, `/reviews/`, `/reviews/{wine|beer|spirits|cocktails|cider}/`, `/reviews/{category}/{slug}/`, `/guides/`, `/brands/`, `/methods/`, `/best/`, `/best/{category}/`, `/about/`.
+`/`, `/reviews/`, `/reviews/{wine|beer|spirits|cocktails|cider}/`, `/reviews/{category}/{slug}/`, `/guides/`, `/brands/`, `/methods/`, `/styles/`, `/styles/{slug}/`, `/best/`, `/best/{category}/`, `/about/`.
 
 No dates in review URLs.
 

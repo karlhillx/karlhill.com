@@ -1,20 +1,24 @@
     <article class="article">
-      <header class="page-header">
-        <div class="shell shell--narrow">
-          <?= $breadcrumbs ?>
-          <p class="kicker"><?= $view->e($kicker) ?></p>
-          <h1><?= $view->e($title) ?></h1>
-          <?php if ($summary !== '') { ?>
-          <p class="lede"><?= $view->e($summary) ?></p>
-          <?php } ?>
-        </div>
-      </header>
+      <?= $view->render('partials/page-header', [
+          'breadcrumbs' => $breadcrumbs,
+          'kicker' => $kicker,
+          'title' => $title,
+          'lede' => $summary,
+          'narrow' => true,
+      ]) ?>
       <div class="section">
         <div class="shell shell--narrow prose">
           <?= $bodyHtml ?>
           <?= $afterProse ?? '' ?>
         </div>
       </div>
+      <?php if (! empty($siblings)) { ?>
+      <section class="section">
+        <div class="shell shell--narrow">
+          <?= $siblings ?>
+        </div>
+      </section>
+      <?php } ?>
       <?php if (! empty($related)) { ?>
       <section class="section section--paper">
         <div class="shell stack">

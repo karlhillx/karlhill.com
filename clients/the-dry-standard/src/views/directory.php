@@ -1,19 +1,16 @@
-    <header class="page-header">
-      <div class="shell">
-        <?= $breadcrumbs ?>
-        <p class="kicker"><?= $view->e($kicker) ?></p>
-        <h1><?= $view->e($title) ?></h1>
-        <p class="lede"><?= $view->e($description) ?></p>
-        <?php if (! empty($searchable)) { ?>
-        <form class="directory-search" data-directory role="search">
+    <?= $view->render('partials/page-header', [
+    'breadcrumbs' => $breadcrumbs,
+    'kicker' => $kicker,
+    'title' => $title,
+    'lede' => $description,
+    'afterLede' => ($searchable ?? false)
+        ? '<form class="directory-search" data-directory role="search">
           <label class="visually-hidden" for="directory-q">Filter this index</label>
-          <input id="directory-q" type="search" placeholder="<?= $view->e($searchPlaceholder ?? 'Find a name') ?>" data-directory-q autocomplete="off">
+          <input id="directory-q" type="search" placeholder="'.$view->e($searchPlaceholder ?? 'Find a name').'" data-directory-q autocomplete="off">
           <p class="archive-count" data-directory-count></p>
-        </form>
-        <?php } ?>
-        <?= $letterNav ?? '' ?>
-      </div>
-    </header>
+        </form>'.($letterNav ?? '')
+        : ($letterNav ?? ''),
+]) ?>
     <section class="section section--tight">
       <div class="shell">
         <?= $listing ?>

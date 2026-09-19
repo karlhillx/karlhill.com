@@ -1,8 +1,31 @@
 (() => {
   const body = document.body;
+  const focusableSelector = 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
   const setLocked = (locked) => {
     body.classList.toggle("is-locked", locked);
+  };
+
+  const trapFocus = (root, event) => {
+    if (event.key !== "Tab" || !root) {
+      return;
+    }
+
+    const items = [...root.querySelectorAll(focusableSelector)].filter((el) => !el.hidden && el.offsetParent !== null);
+    if (!items.length) {
+      return;
+    }
+
+    const first = items[0];
+    const last = items[items.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   };
 
   const chrome = () => {
@@ -11,6 +34,8 @@
     const toggle = document.querySelector("[data-nav-toggle]");
     const backdrop = document.querySelector("[data-nav-backdrop]");
     const headerQuery = document.querySelector("[data-header-q]");
+    const searchToggle = document.querySelector("[data-search-toggle]");
+    const searchPanel = document.querySelector("[data-search-panel]");
 
     if (header) {
       const onScroll = () => {
@@ -29,6 +54,18 @@
       }
     }
 
+    const setSearchOpen = (open) => {
+      searchToggle?.setAttribute("aria-expanded", String(open));
+      searchPanel?.classList.toggle("is-open", open);
+      if (open) {
+        headerQuery?.focus();
+      }
+    };
+
+    searchToggle?.addEventListener("click", () => {
+      setSearchOpen(searchToggle.getAttribute("aria-expanded") !== "true");
+    });
+
     if (!toggle || !nav) {
       return;
     }
@@ -38,9 +75,15 @@
       nav.classList.toggle("is-open", open);
       if (backdrop) {
         backdrop.hidden = !open;
+        backdrop.inert = !open;
         backdrop.classList.toggle("is-visible", open);
       }
       setLocked(open || Boolean(document.querySelector("[data-archive-filters].is-open")));
+      if (open) {
+        nav.querySelector(focusableSelector)?.focus();
+      } else {
+        toggle.focus();
+      }
     };
 
     toggle.addEventListener("click", () => {
@@ -56,12 +99,10 @@
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         setOpen(false);
+        setSearchOpen(false);
       }
-    });
-
-    header?.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        setOpen(false);
+      if (nav.classList.contains("is-open")) {
+        trapFocus(nav, event);
       }
     });
   };
@@ -123,6 +164,7 @@
     }
 
     const queryInput = root.querySelector("[data-archive-q]");
+    const headerQuery = document.querySelector("[data-header-q]");
     const sortSelect = root.querySelector("[data-archive-sort]");
     const filterToggle = root.querySelector("[data-filter-toggle]");
     const filterBackdrop = root.querySelector("[data-filter-backdrop]");
@@ -134,13 +176,13 @@
 
     const hrefFromState = () => {
       const next = new URLSearchParams();
-      const query = queryInput?.value.trim() || "";
+      const query = (queryInput?.value || headerQuery?.value || "").trim();
 
       if (query) {
         next.set("q", query);
       }
 
-      ["brand", "abv", "category", "production", "method"].forEach((key) => {
+      ["brand", "abv", "category", "production", "method", "style"].forEach((key) => {
         if (key === "category" && lockedCategory) {
           return;
         }
@@ -161,13 +203,48 @@
       return qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
     };
 
+    const replaceArchive = (html) => {
+      const parsed = document.createElement("div");
+      parsed.innerHTML = html.trim();
+      const next = parsed.querySelector("[data-archive]") || parsed.firstElementChild;
+      if (!next) {
+        window.location.assign(hrefFromState());
+        return;
+      }
+      root.replaceWith(next);
+      archive();
+    };
+
     const navigate = () => {
       const next = hrefFromState();
       const current = `${window.location.pathname}${window.location.search}`;
 
-      if (next !== current) {
-        window.location.assign(next);
+      if (next === current) {
+        return;
       }
+
+      const fragmentUrl = next.includes("?") ? `${next}&fragment=archive` : `${next}?fragment=archive`;
+
+      const swap = () =>
+        fetch(fragmentUrl, { headers: { Accept: "text/html" } })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("filter");
+            }
+            return response.text();
+          })
+          .then((html) => {
+            history.pushState({}, "", next);
+            replaceArchive(html);
+          })
+          .catch(() => window.location.assign(next));
+
+      if (document.startViewTransition) {
+        document.startViewTransition(swap);
+        return;
+      }
+
+      swap();
     };
 
     const setFiltersOpen = (open) => {
@@ -175,9 +252,13 @@
       filterToggle?.setAttribute("aria-expanded", String(open));
       if (filterBackdrop) {
         filterBackdrop.hidden = !open;
+        filterBackdrop.inert = !open;
         filterBackdrop.classList.toggle("is-visible", open);
       }
       setLocked(open);
+      if (open) {
+        form.querySelector(focusableSelector)?.focus();
+      }
     };
 
     root.querySelectorAll("[data-facet-find]").forEach((input) => {
@@ -192,6 +273,15 @@
       });
     });
 
+    root.querySelectorAll("[data-facet-toggle]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const group = button.closest("[data-facet]");
+        const open = !group?.classList.contains("is-open");
+        group?.classList.toggle("is-open", open);
+        button.setAttribute("aria-expanded", String(open));
+      });
+    });
+
     root.addEventListener("change", (event) => {
       if (event.target.matches("[data-facet-find], [data-archive-q]")) {
         return;
@@ -203,6 +293,12 @@
     queryInput?.addEventListener("input", () => {
       window.clearTimeout(searchTimer);
       searchTimer = window.setTimeout(navigate, 320);
+    });
+
+    headerQuery?.addEventListener("change", () => {
+      if (queryInput) {
+        queryInput.value = headerQuery.value;
+      }
     });
 
     form.addEventListener("submit", (event) => {
@@ -223,10 +319,14 @@
       if (event.key === "Escape") {
         setFiltersOpen(false);
       }
+      if (form.classList.contains("is-open")) {
+        trapFocus(form, event);
+      }
     });
   };
 
   chrome();
   directory();
   archive();
+  window.addEventListener("popstate", () => window.location.reload());
 })();

@@ -1,12 +1,11 @@
-    <header class="page-header">
-      <div class="shell">
-        <?= $breadcrumbs ?>
-        <p class="kicker">The cellar</p>
-        <h1><?= $view->e($title) ?></h1>
-        <p class="lede"><?= $view->e($description) ?></p>
-        <?= $categoryRail ?>
-      </div>
-    </header>
+    <?= $view->render('partials/page-header', [
+    'breadcrumbs' => $breadcrumbs,
+    'kicker' => 'The cellar',
+    'title' => $title,
+    'lede' => $description,
+    'afterLede' => $categoryRail,
+]) ?>
     <section class="section section--tight">
+      <h2 class="visually-hidden">Reviews</h2>
       <?= $archive ?>
     </section>

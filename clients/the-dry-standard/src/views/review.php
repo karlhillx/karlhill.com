@@ -1,5 +1,5 @@
     <article class="review" data-review>
-      <header class="page-header">
+      <header class="page-header page-header--review">
         <div class="shell">
           <?= $breadcrumbs ?>
           <p class="kicker"><?= $view->e($categoryLabel) ?></p>
@@ -9,8 +9,19 @@
               <h1><?= $view->e($title) ?></h1>
               <?= $metaLine ?>
               <p class="lede"><?= $view->e($summary) ?></p>
+              <?php if (! empty($factsPeek)) { ?>
+              <ul class="facts-peek">
+                <?php foreach ($factsPeek as $item) { ?>
+                <li><span><?= $view->e($item['label']) ?></span> <?= $view->e($item['value']) ?></li>
+                <?php } ?>
+              </ul>
+              <?php } ?>
               <p class="<?= $view->e($badgeClass) ?>"><?= $view->e($badgeLabel) ?></p>
-              <p class="review-jump"><a href="#facts">Product facts</a></p>
+              <p class="review-jump">
+                <a href="#tasting">Tasting</a>
+                <a href="#facts">Facts</a>
+                <a href="#how-to-drink">Serve</a>
+              </p>
             </div>
             <?= $score ?>
           </div>
@@ -24,12 +35,11 @@
               <p class="callout-status"><?= $view->e($statusLabel) ?></p>
               <p class="callout-verified"><?= $view->e($verifiedLabel) ?></p>
               <?= $methodBlock ?>
-              <?= $baseBlock ?>
               <?= $discrepancies ?>
             </section>
             <?= $overview ?>
             <?= $tasting ?>
-            <section class="prose">
+            <section class="prose" id="how-to-drink">
               <h2>How to drink it</h2>
               <?= $serveBlock ?>
               <?= $bestForBlock ?>
@@ -53,7 +63,7 @@
         <div class="shell stack">
           <?= $view->render('partials/section-head', [
               'kicker' => 'Keep tasting',
-              'title' => 'More from the cellar',
+              'title' => $relatedHeading ?? 'More from the cellar',
               'href' => $reviewsUrl,
               'linkLabel' => 'All reviews',
           ]) ?>

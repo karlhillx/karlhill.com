@@ -261,10 +261,103 @@ final class Review
 
     public function originLabel(): ?string
     {
-        $country = self::normalizeCountry($this->country);
+        $country = $this->countryLabel();
         $parts = array_values(array_filter([$this->region, $country]));
 
         return $parts === [] ? null : implode(', ', $parts);
+    }
+
+    public function countryLabel(): ?string
+    {
+        return self::normalizeCountry($this->country);
+    }
+
+    public function cardMetaLine(string $categoryLabel): string
+    {
+        $parts = [$categoryLabel];
+        $country = $this->countryLabel();
+        if ($country !== null && $country !== '') {
+            $parts[] = $country;
+        }
+
+        if ($this->methodFacetKey() !== 'unknown') {
+            $parts[] = $this->methodCardLabel();
+        }
+
+        return implode(' · ', $parts);
+    }
+
+    public function styleSlug(): string
+    {
+        $text = strtolower(trim(($this->style ?? '').' '.($this->subcategory ?? '').' '.($this->product ?? '')));
+
+        $needles = [
+            'negroni' => 'negroni',
+            'stout' => 'stout',
+            'porter' => 'porter',
+            'hazy' => 'ipa',
+            'ipa' => 'ipa',
+            'pils' => 'pils',
+            'kölsch' => 'kolsch',
+            'kolsch' => 'kolsch',
+            'lager' => 'lager',
+            'sour' => 'sour',
+            'riesling' => 'riesling',
+            'sauvignon' => 'sauvignon-blanc',
+            'chardonnay' => 'chardonnay',
+            'pinot noir' => 'pinot-noir',
+            'pinot gr' => 'pinot-grigio',
+            'malbec' => 'malbec',
+            'sparkling' => 'sparkling',
+            'cava' => 'sparkling',
+            'prosecco' => 'sparkling',
+            'brut' => 'sparkling',
+            'rosé' => 'rose',
+            'rose' => 'rose',
+            'tequila' => 'tequila',
+            'mezcal' => 'tequila',
+            'whisky' => 'whisky',
+            'whiskey' => 'whisky',
+            'cider' => 'cider',
+            'poire' => 'cider',
+        ];
+
+        foreach ($needles as $needle => $slug) {
+            if (str_contains($text, $needle)) {
+                return $slug;
+            }
+        }
+
+        return $this->style !== null && $this->style !== ''
+            ? Str::slug($this->style)
+            : $this->category;
+    }
+
+    public function styleLabel(): string
+    {
+        $labels = [
+            'negroni' => 'Negroni',
+            'stout' => 'Stout',
+            'porter' => 'Porter',
+            'ipa' => 'IPA',
+            'pils' => 'Pils',
+            'kolsch' => 'Kölsch',
+            'lager' => 'Lager',
+            'sour' => 'Sour',
+            'riesling' => 'Riesling',
+            'sauvignon-blanc' => 'Sauvignon Blanc',
+            'chardonnay' => 'Chardonnay',
+            'pinot-noir' => 'Pinot Noir',
+            'pinot-grigio' => 'Pinot Grigio',
+            'malbec' => 'Malbec',
+            'sparkling' => 'Sparkling',
+            'rose' => 'Rosé',
+            'tequila' => 'Tequila',
+            'whisky' => 'Whisky',
+            'cider' => 'Cider',
+        ];
+
+        return $labels[$this->styleSlug()] ?? ($this->style ?: ucfirst($this->category));
     }
 
     public function productionTypeLabel(): string
@@ -344,6 +437,7 @@ final class Review
             'updated_date' => $this->modifiedAt()->toDateString(),
             'search_text' => $this->searchText(),
             'image' => $this->imageSrc(),
+            'style_slug' => $this->styleSlug(),
         ];
     }
 
@@ -500,7 +594,7 @@ final class Review
     }
 
     /**
-     * @return array{src: string, webp: ?string, width: int, height: int}|null
+     * @return array{src: string, webp: ?string, srcset: string, webpSrcset: string, width: int, height: int}|null
      */
     public function imageAssets(): ?array
     {
@@ -511,16 +605,40 @@ final class Review
 
         $root = Paths::default()->path();
         $absolute = $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $src);
+        if (preg_match('/\.jpe?g$/i', $src) === 1) {
+            (new StillPipeline(new Paths($root)))->ensureDerivatives($absolute);
+        }
+
         $size = is_file($absolute) ? @getimagesize($absolute) : false;
         $webpRelative = is_string($src) ? preg_replace('/\.(jpe?g|png)$/i', '.webp', $src) : null;
         $webpAbsolute = is_string($webpRelative)
             ? $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $webpRelative)
             : '';
+        $webp = (is_string($webpRelative) && $webpAbsolute !== '' && is_file($webpAbsolute)) ? $webpRelative : null;
+
+        $webpSrcset = [];
+        foreach ([400, 800] as $width) {
+            $variant = is_string($src) ? preg_replace('/\.(jpe?g|png)$/i', '-'.$width.'.webp', $src) : null;
+            if (! is_string($variant)) {
+                continue;
+            }
+            $variantAbsolute = $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $variant);
+            if (is_file($variantAbsolute)) {
+                $webpSrcset[] = $variant.' '.$width.'w';
+            }
+        }
+        if ($webp !== null) {
+            $webpSrcset[] = $webp.' 900w';
+        }
+
+        $nativeWidth = is_array($size) ? (int) $size[0] : 720;
 
         return [
             'src' => $src,
-            'webp' => (is_string($webpRelative) && $webpAbsolute !== '' && is_file($webpAbsolute)) ? $webpRelative : null,
-            'width' => is_array($size) ? (int) $size[0] : 720,
+            'webp' => $webp,
+            'srcset' => $src.' '.$nativeWidth.'w',
+            'webpSrcset' => implode(', ', $webpSrcset),
+            'width' => $nativeWidth,
             'height' => is_array($size) ? (int) $size[1] : 960,
         ];
     }
