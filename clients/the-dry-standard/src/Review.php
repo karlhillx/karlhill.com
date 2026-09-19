@@ -161,6 +161,20 @@ final class Review
         };
     }
 
+    public function dealcoholizedShortLabel(): string
+    {
+        return match ($this->dealcoholized) {
+            'yes' => 'Dealcoholized: Yes',
+            'no' => 'Dealcoholized: No',
+            default => 'Dealcoholized: Not verified',
+        };
+    }
+
+    public function brandSlug(): string
+    {
+        return Str::slug($this->brand);
+    }
+
     public function modifiedAt(): CarbonImmutable
     {
         return $this->updatedDate ?? $this->reviewDate;

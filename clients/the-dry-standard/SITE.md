@@ -37,7 +37,9 @@ Internal data (not a public page):
 
 ## Design
 
-Cool paper, black masthead, Cormorant Garamond / Source Serif 4 / IBM Plex Sans. Reviews render as a wine-list ledger, not cards. Header search goes to `/reviews/?q=`. Filters stay in the URL so the archive can grow without a database. Product stills live in `media/reviews/{slug}.jpg` and appear on the ledger, review hero, and Open Graph tags. Typography still carries the pages.
+Cool paper, black masthead, Cormorant Garamond / Source Serif 4 / IBM Plex Sans. Reviews render as a wine-list ledger, not cards. Header search goes to `/reviews/?q=`. Filters stay in the URL so the archive can grow without a database. On small screens, archive filters open as a drawer; selected filters also appear as removable chips. Brand, guide, and method indexes are searchable directories. Review pages link the producer, method, and related bottles. Product stills live in `media/reviews/{slug}.jpg` and appear on the ledger, review hero, and Open Graph tags. Typography still carries the pages.
+
+HTML is assembled from reusable PHP views in `src/views/`. Edit those templates, then rebuild. Do not hand-edit generated `index.html` files.
 
 ## Parent platform
 

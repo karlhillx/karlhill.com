@@ -82,6 +82,49 @@ final class ReviewRepository
             ->values();
     }
 
+    /**
+     * @return Collection<int, Review>
+     */
+    public function byMethod(string $methodSlug): Collection
+    {
+        return $this->published()
+            ->filter(fn (Review $review): bool => $review->methodKey() === $methodSlug)
+            ->values();
+    }
+
+    /**
+     * @return Collection<int, Review>
+     */
+    public function relatedTo(Review $review, int $limit = 4): Collection
+    {
+        return $this->published()
+            ->reject(fn (Review $other): bool => $other->slug === $review->slug)
+            ->sortByDesc(function (Review $other) use ($review): float {
+                $score = 0.0;
+
+                if ($other->brandSlug() === $review->brandSlug()) {
+                    $score += 8;
+                }
+
+                if ($other->category === $review->category) {
+                    $score += 3;
+                }
+
+                if ($other->methodFacetKey() === $review->methodFacetKey()
+                    && $review->methodFacetKey() !== 'unpublished') {
+                    $score += 2;
+                }
+
+                if ($other->dealcoholized === $review->dealcoholized) {
+                    $score += 1;
+                }
+
+                return $score + (($other->rating ?? 0) / 200);
+            })
+            ->take($limit)
+            ->values();
+    }
+
     private function hydrate(string $file): Review
     {
         $document = YamlFrontMatter::parseFile($file);

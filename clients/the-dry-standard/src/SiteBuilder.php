@@ -2,8 +2,6 @@
 
 namespace DryStandard;
 
-use Illuminate\Support\Collection;
-
 final class SiteBuilder
 {
     public function __construct(
@@ -47,8 +45,9 @@ final class SiteBuilder
                 'Independent tasting notes and production facts for dealcoholized and non-alcoholic drinks at 0.5% ABV or less.',
                 'reviews/',
                 $published,
-                $this->crumbs(['Reviews' => 'reviews/']),
+                $renderer->crumbs(['Reviews' => 'reviews/']),
                 filterable: true,
+                allReviews: $published,
             ),
         );
 
@@ -61,12 +60,13 @@ final class SiteBuilder
                     'Dealcoholized and non-alcoholic '.$label.' reviewed for what they are, not what the label implies.',
                     'reviews/'.$category.'/',
                     $this->reviews->byCategory($category),
-                    $this->crumbs([
+                    $renderer->crumbs([
                         'Reviews' => 'reviews/',
                         $label => 'reviews/'.$category.'/',
                     ]),
                     filterable: true,
                     lockedCategory: $category,
+                    allReviews: $published,
                 ),
             );
         }
@@ -74,17 +74,21 @@ final class SiteBuilder
         foreach ($published as $review) {
             $pages += $this->write(
                 $review->path().'index.html',
-                $renderer->review($review, $this->crumbs([
-                    'Reviews' => 'reviews/',
-                    $this->config->categoryLabel($review->category) => 'reviews/'.$review->category.'/',
-                    $review->title => $review->path(),
-                ])),
+                $renderer->review(
+                    $review,
+                    $renderer->crumbs([
+                        'Reviews' => 'reviews/',
+                        $this->config->categoryLabel($review->category) => 'reviews/'.$review->category.'/',
+                        $review->title => $review->path(),
+                    ]),
+                    $this->reviews->relatedTo($review),
+                ),
             );
         }
 
         $pages += $this->write(
             'brands/index.html',
-            $this->brandIndex($renderer, $brands),
+            $renderer->brandIndex($brands),
         );
 
         foreach ($brands as $brand) {
@@ -94,7 +98,7 @@ final class SiteBuilder
                     $brand['name'],
                     $brand['reviews'],
                     'brands/'.$brand['slug'].'/',
-                    $this->crumbs([
+                    $renderer->crumbs([
                         'Brands' => 'brands/',
                         $brand['name'] => 'brands/'.$brand['slug'].'/',
                     ]),
@@ -104,8 +108,7 @@ final class SiteBuilder
 
         $pages += $this->write(
             'guides/index.html',
-            $this->documentIndex(
-                $renderer,
+            $renderer->documentIndex(
                 'Guides',
                 'Buying guides and the editorial distinctions that keep this site from becoming another generic NA roundup.',
                 'guides/',
@@ -120,7 +123,7 @@ final class SiteBuilder
                 $renderer->articlePage(
                     $guide,
                     'guides/'.$guide->slug.'/',
-                    $this->crumbs([
+                    $renderer->crumbs([
                         'Guides' => 'guides/',
                         $guide->title => 'guides/'.$guide->slug.'/',
                     ]),
@@ -130,15 +133,20 @@ final class SiteBuilder
             );
         }
 
+        $methodCounts = [];
+        foreach ($methods as $method) {
+            $methodCounts[$method->slug] = $this->reviews->byMethod($method->slug)->count();
+        }
+
         $pages += $this->write(
             'methods/index.html',
-            $this->documentIndex(
-                $renderer,
+            $renderer->documentIndex(
                 'Dealcoholization methods',
                 'How alcohol is removed — and which common NA techniques are not dealcoholization at all.',
                 'methods/',
                 'methods',
                 $methods,
+                $methodCounts,
             ),
         );
 
@@ -148,12 +156,14 @@ final class SiteBuilder
                 $renderer->articlePage(
                     $method,
                     'methods/'.$method->slug.'/',
-                    $this->crumbs([
+                    $renderer->crumbs([
                         'Methods' => 'methods/',
                         $method->title => 'methods/'.$method->slug.'/',
                     ]),
                     'Method',
                     'methods',
+                    $this->reviews->byMethod($method->slug),
+                    'Reviewed with this method',
                 ),
             );
         }
@@ -163,7 +173,7 @@ final class SiteBuilder
             $renderer->articlePage(
                 $about,
                 'about/',
-                $this->crumbs(['About' => 'about/']),
+                $renderer->crumbs(['About' => 'about/']),
                 'About',
                 'about',
             ),
@@ -190,106 +200,6 @@ final class SiteBuilder
         return ['pages' => $pages, 'errors' => []];
     }
 
-    /**
-     * @param  Collection<int, array{slug: string, name: string, reviews: Collection<int, Review>}>  $brands
-     */
-    private function brandIndex(Renderer $renderer, Collection $brands): string
-    {
-        $cards = $brands->map(function (array $brand): string {
-            $count = $brand['reviews']->count();
-            $label = $count === 1 ? '1 review' : $count.' reviews';
-
-            return <<<HTML
-      <article class="card">
-        <p class="card-meta">{$this->e($label)}</p>
-        <h3><a href="{$this->e($this->config->publicUrl('brands/'.$brand['slug'].'/'))}">{$this->e($brand['name'])}</a></h3>
-        <p>Published Dry Standard coverage for {$this->e($brand['name'])}.</p>
-      </article>
-HTML;
-        })->implode('');
-
-        $listing = $cards === ''
-            ? '<p class="empty">Brand pages appear after the first review is published.</p>'
-            : '<div class="card-grid">'.$cards.'</div>';
-
-        $body = <<<HTML
-    <header class="page-header">
-      <div class="shell">
-        <p class="kicker">The Dry Standard</p>
-        <h1>Brands</h1>
-        <p class="lede">Producers with published reviews. This index is generated from review data, not a separate marketing directory.</p>
-      </div>
-    </header>
-    <section class="section">
-      <div class="shell">{$listing}</div>
-    </section>
-HTML;
-
-        return $renderer->document(
-            'Brands',
-            'An index of producers reviewed by The Dry Standard.',
-            'brands/',
-            $body,
-            ['nav' => 'brands'],
-        );
-    }
-
-    /**
-     * @param  Collection<int, PageDocument>  $documents
-     */
-    private function documentIndex(
-        Renderer $renderer,
-        string $title,
-        string $description,
-        string $path,
-        string $nav,
-        Collection $documents,
-    ): string {
-        $cards = $documents->map(function (PageDocument $document) use ($path): string {
-            return <<<HTML
-      <article class="card">
-        <p class="card-meta">{$this->e(ucfirst(rtrim($path, '/')))}</p>
-        <h3><a href="{$this->e($this->config->publicUrl($path.$document->slug.'/'))}">{$this->e($document->title)}</a></h3>
-        <p>{$this->e($document->summary)}</p>
-      </article>
-HTML;
-        })->implode('');
-
-        $listing = $cards === ''
-            ? '<p class="empty">Nothing published here yet.</p>'
-            : '<div class="card-grid">'.$cards.'</div>';
-
-        $body = <<<HTML
-    <header class="page-header">
-      <div class="shell">
-        <p class="kicker">The Dry Standard</p>
-        <h1>{$this->e($title)}</h1>
-        <p class="lede">{$this->e($description)}</p>
-      </div>
-    </header>
-    <section class="section">
-      <div class="shell">{$listing}</div>
-    </section>
-HTML;
-
-        return $renderer->document($title, $description, $path, $body, ['nav' => $nav]);
-    }
-
-    /**
-     * @param  array<string, string>  $items
-     * @return array<int, array{label: string, url: string}>
-     */
-    private function crumbs(array $items): array
-    {
-        $crumbs = [['label' => 'Home', 'url' => '']];
-
-        foreach ($items as $label => $url) {
-            $crumbs[] = ['label' => $label, 'url' => $url];
-        }
-
-        return $crumbs;
-    }
-
     private function write(string $relative, string $contents): int
     {
         $file = $this->paths->path($relative);
@@ -302,10 +212,5 @@ HTML;
         file_put_contents($file, $contents);
 
         return 1;
-    }
-
-    private function e(string $value): string
-    {
-        return Str::e($value);
     }
 }

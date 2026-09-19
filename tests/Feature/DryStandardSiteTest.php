@@ -123,6 +123,26 @@ it('keeps a master product table without duplicating published reviews', functio
         ->and(substr_count($queue, "status: queued\n"))->toBeGreaterThan(20);
 });
 
+it('links related reviews and exposes directory search', function () {
+    $this->get('/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/')
+        ->assertOk()
+        ->assertSee('More from the cellar', escape: false)
+        ->assertSee('brands/leitz/', escape: false)
+        ->assertSee('methods/vacuum-distillation/', escape: false)
+        ->assertSee('Dealcoholized: Yes', escape: false);
+
+    $this->get('/clients/the-dry-standard/brands/')
+        ->assertOk()
+        ->assertSee('data-directory', escape: false)
+        ->assertSee('data-directory-q', escape: false)
+        ->assertSee('directory-row', escape: false);
+
+    $this->get('/clients/the-dry-standard/methods/vacuum-distillation/')
+        ->assertOk()
+        ->assertSee('Reviewed with this method', escape: false)
+        ->assertSee('leitz-eins-zwei-zero-riesling', escape: false);
+});
+
 it('builds a searchable review archive', function () {
     $this->get('/clients/the-dry-standard/')
         ->assertOk()

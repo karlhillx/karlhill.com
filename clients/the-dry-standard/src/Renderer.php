@@ -7,7 +7,14 @@ use Illuminate\Support\Collection;
 
 final class Renderer
 {
-    public function __construct(private readonly SiteConfig $config) {}
+    private const CSS_VERSION = '9';
+
+    private const JS_VERSION = '6';
+
+    public function __construct(
+        private readonly SiteConfig $config,
+        private readonly View $view = new View(__DIR__.DIRECTORY_SEPARATOR.'views'),
+    ) {}
 
     /**
      * @param  array<string, mixed>  $options
@@ -15,63 +22,36 @@ final class Renderer
     public function document(string $title, string $description, string $path, string $body, array $options = []): string
     {
         $canonical = $this->config->canonicalUrl($path);
-        $siteName = Str::e($this->config->name());
-        $fullTitle = $path === '' ? $title : $title.' — '.$this->config->name();
-        $ogType = Str::e((string) ($options['og_type'] ?? 'website'));
-        $jsonLd = (string) ($options['json_ld'] ?? '');
-        $extraHead = (string) ($options['head'] ?? '');
-        $current = $this->navKey((string) ($options['nav'] ?? $path));
+        $ogType = (string) ($options['og_type'] ?? 'website');
         $image = (string) ($options['image'] ?? '');
-        $ogImage = '';
-
-        if ($image !== '') {
-            $imageUrl = $this->e($this->config->canonicalUrl($image));
-            $ogImage = <<<HTML
-  <meta property="og:image" content="{$imageUrl}">
+        $ogImage = $image === ''
+            ? '  <meta name="twitter:card" content="summary">'
+            : <<<HTML
+  <meta property="og:image" content="{$this->e($this->config->canonicalUrl($image))}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="{$imageUrl}">
+  <meta name="twitter:image" content="{$this->e($this->config->canonicalUrl($image))}">
 HTML;
-        } else {
-            $ogImage = '  <meta name="twitter:card" content="summary">';
-        }
 
-        return <<<HTML
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{$this->e($fullTitle)}</title>
-  <meta name="description" content="{$this->e($description)}">
-  <link rel="canonical" href="{$this->e($canonical)}">
-  <meta property="og:site_name" content="{$siteName}">
-  <meta property="og:title" content="{$this->e($title)}">
-  <meta property="og:description" content="{$this->e($description)}">
-  <meta property="og:type" content="{$ogType}">
-  <meta property="og:url" content="{$this->e($canonical)}">
-  {$ogImage}
-  <meta name="twitter:title" content="{$this->e($title)}">
-  <meta name="twitter:description" content="{$this->e($description)}">
-  <link rel="alternate" type="application/atom+xml" title="{$siteName} reviews" href="{$this->url('feed.xml')}">
-  <link rel="icon" href="{$this->url('mark.svg')}" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{$this->url('styles.css')}?v=7">
-  {$extraHead}
-  {$jsonLd}
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  {$this->header($current)}
-  <main id="main">
-    {$body}
-  </main>
-  {$this->footer()}
-  <script src="{$this->url('script.js')}?v=4" defer></script>
-</body>
-</html>
-HTML;
+        return $this->view->render('layout', [
+            'title' => $title,
+            'fullTitle' => $path === '' ? $title : $title.' — '.$this->config->name(),
+            'description' => $description,
+            'canonical' => $canonical,
+            'siteName' => $this->config->name(),
+            'ogType' => $ogType,
+            'ogImage' => $ogImage,
+            'feedUrl' => $this->config->publicUrl('feed.xml'),
+            'iconUrl' => $this->config->publicUrl('mark.svg'),
+            'stylesheet' => $this->config->publicUrl('styles.css').'?v='.self::CSS_VERSION,
+            'script' => $this->config->publicUrl('script.js').'?v='.self::JS_VERSION,
+            'extraHead' => (string) ($options['head'] ?? ''),
+            'jsonLd' => (string) ($options['json_ld'] ?? ''),
+            'bodyClass' => (string) ($options['body_class'] ?? ''),
+            'bodyAttrs' => (string) ($options['body_attrs'] ?? ''),
+            'header' => $this->header($this->navKey((string) ($options['nav'] ?? $path))),
+            'footer' => $this->footer(),
+            'body' => $body,
+        ]);
     }
 
     /**
@@ -84,137 +64,84 @@ HTML;
         $latest = $reviews->take(4);
         $highlyRated = $reviews->filter(fn (Review $review): bool => ($review->rating ?? 0) >= 85)
             ->sortByDesc(fn (Review $review): int => $review->rating ?? 0)
-            ->take(3);
-        $byCategory = [];
+            ->take(4);
+        $dealcoholized = $reviews->filter(fn (Review $review): bool => $review->dealcoholized === 'yes')->count();
 
+        $categoryItems = [];
         foreach ($this->config->categories() as $category) {
-            $byCategory[$category] = $reviews
-                ->filter(fn (Review $review): bool => $review->category === $category)
-                ->take(3);
+            $count = $reviews->filter(fn (Review $review): bool => $review->category === $category)->count();
+            $categoryItems[] = [
+                'href' => $this->config->publicUrl('reviews/'.$category.'/'),
+                'label' => $this->config->categoryLabel($category),
+                'count' => $count,
+            ];
         }
 
-        $latestCards = $this->reviewCards($latest, ledger: true);
-        $ratedCards = $this->reviewCards($highlyRated, ledger: true);
-        $categoryBlocks = '';
+        $processItems = [
+            [
+                'href' => $this->config->publicUrl('reviews/').'?dealcoholized=yes',
+                'label' => 'Dealcoholized',
+                'count' => $dealcoholized,
+            ],
+            [
+                'href' => $this->config->publicUrl('reviews/').'?dealcoholized=no',
+                'label' => 'Formulated',
+                'count' => $reviews->filter(fn (Review $review): bool => $review->dealcoholized === 'no')->count(),
+            ],
+            [
+                'href' => $this->config->publicUrl('reviews/').'?dealcoholized=not-verified',
+                'label' => 'Not verified',
+                'count' => $reviews->filter(fn (Review $review): bool => $review->dealcoholized === 'not-verified')->count(),
+            ],
+        ];
 
-        foreach ($byCategory as $category => $items) {
-            if ($items->isEmpty()) {
-                continue;
-            }
+        $methodCards = $methods->take(4)->map(function (PageDocument $method) use ($reviews): string {
+            $count = $reviews->filter(fn (Review $review): bool => $review->methodKey() === $method->slug)->count();
 
-            $label = Str::e($this->config->categoryLabel($category));
-            $href = $this->url('reviews/'.$category.'/');
-            $cards = $this->reviewCards($items, compact: true);
-            $categoryBlocks .= <<<HTML
-        <section class="stack">
-          <div class="section-head">
-            <h3>{$label}</h3>
-            <a class="text-link" href="{$href}">All {$label}</a>
-          </div>
-          <div class="card-grid card-grid--compact">{$cards}</div>
-        </section>
-HTML;
-        }
+            return $this->view->render('partials/text-card', [
+                'kicker' => 'Method',
+                'href' => $this->config->publicUrl('methods/'.$method->slug.'/'),
+                'title' => $method->title,
+                'summary' => $method->summary,
+                'meta' => $count === 0 ? null : ($count === 1 ? '1 review' : $count.' reviews'),
+            ]);
+        })->implode('');
 
         $guideCards = $guides->take(3)->map(function (PageDocument $guide): string {
-            return <<<HTML
-        <article class="text-card">
-          <p class="kicker">Guide</p>
-          <h3><a href="{$this->url('guides/'.$guide->slug.'/')}">{$this->e($guide->title)}</a></h3>
-          <p>{$this->e($guide->summary)}</p>
-        </article>
-HTML;
+            return $this->view->render('partials/text-card', [
+                'kicker' => 'Guide',
+                'href' => $this->config->publicUrl('guides/'.$guide->slug.'/'),
+                'title' => $guide->title,
+                'summary' => $guide->summary,
+                'meta' => null,
+            ]);
         })->implode('');
 
-        $methodCards = $methods->take(4)->map(function (PageDocument $method): string {
-            return <<<HTML
-        <article class="text-card">
-          <p class="kicker">Method</p>
-          <h3><a href="{$this->url('methods/'.$method->slug.'/')}">{$this->e($method->title)}</a></h3>
-          <p>{$this->e($method->summary)}</p>
-        </article>
-HTML;
-        })->implode('');
-
-        $mission = Str::e($this->config->string('site.mission'));
-        $tagline = Str::e($this->config->tagline());
-
-        $body = <<<HTML
-    <section class="hero">
-      <div class="shell hero-inner">
-        <p class="kicker">Independent reviews</p>
-        <h1>The standard for what remains after the alcohol is gone.</h1>
-        <p class="lede">{$tagline} We review beverages at 0.5% ABV or less, and we separate products that were actually dealcoholized from those formulated to imitate a drink.</p>
-        <div class="hero-actions">
-          <a class="btn" href="{$this->url('reviews/')}">Read the reviews</a>
-          <a class="btn btn--ghost" href="{$this->url('about/')}">Editorial method</a>
-        </div>
-      </div>
-    </section>
-    <section class="band">
-      <div class="shell">
-        <p class="mission">{$mission}</p>
-      </div>
-    </section>
-    <section class="section">
-      <div class="shell stack">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Latest Reviews</p>
-            <h2>Recently reviewed</h2>
-          </div>
-          <a class="text-link" href="{$this->url('reviews/')}">All reviews</a>
-        </div>
-        <div class="ledger">{$latestCards}</div>
-      </div>
-    </section>
-    <section class="section section--paper">
-      <div class="shell stack-lg">
-        <div class="section-head">
-          <div>
-            <p class="kicker">By category</p>
-            <h2>Wine, beer, spirits, and the rest of the cellar</h2>
-          </div>
-        </div>
-        {$categoryBlocks}
-      </div>
-    </section>
-    <section class="section">
-      <div class="shell stack">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Highly Rated</p>
-            <h2>What holds up in the glass</h2>
-          </div>
-        </div>
-        <div class="ledger">{$ratedCards}</div>
-      </div>
-    </section>
-    <section class="section section--ink">
-      <div class="shell stack">
-        <div class="section-head">
-          <div>
-            <p class="kicker">How it's made</p>
-            <h2>The techniques that remove alcohol — and the ones that never put it in</h2>
-          </div>
-          <a class="text-link" href="{$this->url('methods/')}">Method index</a>
-        </div>
-        <div class="card-grid card-grid--compact">{$methodCards}</div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="shell stack">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Guides</p>
-            <h2>How to read a bottle before you buy it</h2>
-          </div>
-          <a class="text-link" href="{$this->url('guides/')}">All guides</a>
-        </div>
-        <div class="card-grid card-grid--compact">{$guideCards}</div>
-      </div>
-    </section>
-HTML;
+        $body = $this->view->render('home', [
+            'tagline' => $this->config->tagline(),
+            'reviewsUrl' => $this->config->publicUrl('reviews/'),
+            'aboutUrl' => $this->config->publicUrl('about/'),
+            'methodsUrl' => $this->config->publicUrl('methods/'),
+            'guidesUrl' => $this->config->publicUrl('guides/'),
+            'stats' => [
+                ['value' => (string) $reviews->count(), 'label' => $reviews->count() === 1 ? 'Review' : 'Reviews', 'href' => $this->config->publicUrl('reviews/')],
+                ['value' => (string) $reviews->pluck('brand')->unique()->count(), 'label' => 'Brands', 'href' => $this->config->publicUrl('brands/')],
+                ['value' => (string) $dealcoholized, 'label' => 'Dealcoholized', 'href' => $this->config->publicUrl('reviews/').'?dealcoholized=yes'],
+                ['value' => '0.5%', 'label' => 'ABV ceiling', 'href' => null],
+            ],
+            'categoryRail' => $this->view->render('partials/category-rail', [
+                'label' => 'Browse by category',
+                'items' => $categoryItems,
+            ]),
+            'processRail' => $this->view->render('partials/category-rail', [
+                'label' => 'Browse by process',
+                'items' => $processItems,
+            ]),
+            'latestCards' => $this->reviewCards($latest, ledger: true),
+            'ratedCards' => $this->reviewCards($highlyRated, ledger: true),
+            'methodCards' => $methodCards,
+            'guideCards' => $guideCards,
+        ]);
 
         return $this->document(
             $this->config->name(),
@@ -251,6 +178,7 @@ HTML;
         string $nav = 'reviews',
         bool $filterable = false,
         ?string $lockedCategory = null,
+        Collection $allReviews = new Collection,
     ): string {
         $empty = '<p class="empty" data-archive-empty>No published reviews in this section yet. Products can sit in the queue until the facts are good enough to print.</p>';
         $list = $reviews->isEmpty()
@@ -262,19 +190,36 @@ HTML;
             ? $this->archiveLayout($reviews, $lockedCategory, $list)
             : '<div class="shell">'.$list.'</div>';
 
-        $body = <<<HTML
-    <header class="page-header">
-      <div class="shell">
-        {$this->breadcrumbs($crumbs)}
-        <p class="kicker">The cellar</p>
-        <h1>{$this->e($title)}</h1>
-        <p class="lede">{$this->e($description)}</p>
-      </div>
-    </header>
-    <section class="section section--tight">
-      {$archive}
-    </section>
-HTML;
+        $railSource = $allReviews->isNotEmpty() ? $allReviews : $reviews;
+        $categoryItems = [
+            [
+                'href' => $this->config->publicUrl('reviews/'),
+                'label' => 'All',
+                'count' => $railSource->count(),
+                'current' => $lockedCategory === null,
+            ],
+        ];
+
+        foreach ($this->config->categories() as $category) {
+            $count = $railSource->filter(fn (Review $review): bool => $review->category === $category)->count();
+            $categoryItems[] = [
+                'href' => $this->config->publicUrl('reviews/'.$category.'/'),
+                'label' => $this->config->categoryLabel($category),
+                'count' => $count,
+                'current' => $lockedCategory === $category,
+            ];
+        }
+
+        $body = $this->view->render('listing', [
+            'title' => $title,
+            'description' => $description,
+            'breadcrumbs' => $this->breadcrumbs($crumbs),
+            'archive' => $archive,
+            'categoryRail' => $this->view->render('partials/category-rail', [
+                'label' => 'Review categories',
+                'items' => $categoryItems,
+            ]),
+        ]);
 
         return $this->document($title, $description, $path, $body, [
             'nav' => $nav,
@@ -292,6 +237,7 @@ HTML;
 
     /**
      * @param  array<int, array{label: string, url: string}>  $crumbs
+     * @param  Collection<int, Review>|null  $relatedReviews
      */
     public function articlePage(
         PageDocument $page,
@@ -299,26 +245,23 @@ HTML;
         array $crumbs,
         string $kicker,
         string $nav,
+        ?Collection $relatedReviews = null,
+        string $relatedHeading = 'From the cellar',
     ): string {
         $description = $page->summary !== '' ? $page->summary : $this->config->string('site.description');
+        $related = $relatedReviews?->isNotEmpty()
+            ? $this->reviewCards($relatedReviews, ledger: true)
+            : '';
 
-        $body = <<<HTML
-    <article class="article">
-      <header class="page-header">
-        <div class="shell shell--narrow">
-          {$this->breadcrumbs($crumbs)}
-          <p class="kicker">{$this->e($kicker)}</p>
-          <h1>{$this->e($page->title)}</h1>
-          <p class="lede">{$this->e($page->summary)}</p>
-        </div>
-      </header>
-      <div class="section">
-        <div class="shell shell--narrow prose">
-          {$page->bodyHtml}
-        </div>
-      </div>
-    </article>
-HTML;
+        $body = $this->view->render('article', [
+            'title' => $page->title,
+            'summary' => $page->summary,
+            'kicker' => $kicker,
+            'breadcrumbs' => $this->breadcrumbs($crumbs),
+            'bodyHtml' => $page->bodyHtml,
+            'related' => $related,
+            'relatedHeading' => $relatedHeading,
+        ]);
 
         return $this->document($page->title, $description, $path, $body, [
             'nav' => $nav,
@@ -346,23 +289,22 @@ HTML;
     public function brandPage(string $name, Collection $brandReviews, string $path, array $crumbs): string
     {
         $description = 'Reviews of dealcoholized and non-alcoholic products from '.$name.'.';
-        $cards = $this->reviewCards($brandReviews, ledger: true);
+        $categories = $brandReviews
+            ->pluck('category')
+            ->unique()
+            ->map(fn (string $category): string => $this->config->categoryLabel($category))
+            ->values();
+        $count = $brandReviews->count();
+        $meta = ($count === 1 ? '1 review' : $count.' reviews')
+            .($categories->isNotEmpty() ? ' · '.$categories->implode(', ') : '');
 
-        $body = <<<HTML
-    <header class="page-header">
-      <div class="shell">
-        {$this->breadcrumbs($crumbs)}
-        <p class="kicker">Brand</p>
-        <h1>{$this->e($name)}</h1>
-        <p class="lede">{$this->e($description)}</p>
-      </div>
-    </header>
-    <section class="section">
-      <div class="shell">
-        <div class="ledger">{$cards}</div>
-      </div>
-    </section>
-HTML;
+        $body = $this->view->render('brand', [
+            'name' => $name,
+            'description' => $description,
+            'meta' => $meta,
+            'breadcrumbs' => $this->breadcrumbs($crumbs),
+            'cards' => $this->reviewCards($brandReviews, ledger: true),
+        ]);
 
         return $this->document($name, $description, $path, $body, [
             'nav' => 'brands',
@@ -378,77 +320,152 @@ HTML;
     }
 
     /**
-     * @param  array<int, array{label: string, url: string}>  $crumbs
+     * @param  Collection<int, array{slug: string, name: string, reviews: Collection<int, Review>}>  $brands
      */
-    public function review(Review $review, array $crumbs): string
+    public function brandIndex(Collection $brands): string
     {
-        $facts = $this->facts($review);
-        $tasting = $this->tasting($review);
-        $sources = $this->sources($review);
-        $discrepancies = $this->discrepancies($review);
-        $score = $review->rating !== null
-            ? '<p class="score" aria-label="Score '.$review->rating.' out of 100"><span>'.$review->rating.'</span><small>/100</small></p>'
-            : '';
-        $bodyHtml = Markdown::toHtml($review->bodyMarkdown);
-        $overview = $bodyHtml !== '' ? '<section class="prose"><h2>Product overview</h2>'.$bodyHtml.'</section>' : '';
-        $links = $this->purchaseLinks($review);
+        $groups = $brands
+            ->groupBy(fn (array $brand): string => mb_strtoupper(mb_substr($brand['name'], 0, 1)))
+            ->sortKeys();
+
+        $letters = $groups->keys()->all();
+        $letterNav = $letters === []
+            ? ''
+            : '<nav class="letter-nav" aria-label="Brands by letter">'.implode('', array_map(
+                fn (string $letter): string => '<a href="#letter-'.$this->e($letter).'">'.$this->e($letter).'</a>',
+                $letters,
+            )).'</nav>';
+
+        $listing = '';
+        foreach ($groups as $letter => $items) {
+            $rows = $items->map(function (array $brand): string {
+                $count = $brand['reviews']->count();
+                $categories = $brand['reviews']
+                    ->pluck('category')
+                    ->unique()
+                    ->map(fn (string $category): string => $this->config->categoryLabel($category))
+                    ->implode(', ');
+
+                return $this->view->render('partials/directory-row', [
+                    'href' => $this->config->publicUrl('brands/'.$brand['slug'].'/'),
+                    'title' => $brand['name'],
+                    'summary' => 'Published Dry Standard coverage for '.rtrim($brand['name'], '.').'.',
+                    'meta' => ($count === 1 ? '1 review' : $count.' reviews').($categories !== '' ? ' · '.$categories : ''),
+                    'search' => mb_strtolower($brand['name'].' '.$categories),
+                ]);
+            })->implode('');
+
+            $listing .= '<section class="directory-group" id="letter-'.$this->e((string) $letter).'" data-directory-group>'
+                .'<h2>'.$this->e((string) $letter).'</h2>'
+                .'<div class="directory-list">'.$rows.'</div>'
+                .'</section>';
+        }
+
+        return $this->directoryPage(
+            'Brands',
+            'Producers with published reviews. This index is generated from review data, not a separate marketing directory.',
+            'brands/',
+            'brands',
+            $this->crumbs(['Brands' => 'brands/']),
+            'The Dry Standard',
+            $listing === ''
+                ? '<p class="empty">Brand pages appear after the first review is published.</p>'
+                : $listing,
+            searchable: true,
+            searchPlaceholder: 'Find a brand',
+            letterNav: $letterNav,
+        );
+    }
+
+    /**
+     * @param  Collection<int, PageDocument>  $documents
+     * @param  array<string, int>  $counts
+     */
+    public function documentIndex(
+        string $title,
+        string $description,
+        string $path,
+        string $nav,
+        Collection $documents,
+        array $counts = [],
+    ): string {
+        $kind = ucfirst(rtrim($path, '/'));
+        $cards = $documents->map(function (PageDocument $document) use ($path, $kind, $counts): string {
+            $count = $counts[$document->slug] ?? null;
+            $meta = $kind;
+            if (is_int($count)) {
+                $meta .= $count === 1 ? ' · 1 review' : ' · '.$count.' reviews';
+            }
+
+            return $this->view->render('partials/directory-row', [
+                'href' => $this->config->publicUrl($path.$document->slug.'/'),
+                'title' => $document->title,
+                'summary' => $document->summary,
+                'meta' => $meta,
+                'search' => mb_strtolower($document->title.' '.$document->summary),
+            ]);
+        })->implode('');
+
+        $listing = $cards === ''
+            ? '<p class="empty">Nothing published here yet.</p>'
+            : '<div class="directory-list">'.$cards.'</div>';
+
+        return $this->directoryPage(
+            $title,
+            $description,
+            $path,
+            $nav,
+            $this->crumbs([$title => $path]),
+            'The Dry Standard',
+            $listing,
+            searchable: $documents->isNotEmpty(),
+            searchPlaceholder: 'Find a '.$kind,
+        );
+    }
+
+    /**
+     * @param  array<int, array{label: string, url: string}>  $crumbs
+     * @param  Collection<int, Review>|null  $relatedReviews
+     */
+    public function review(Review $review, array $crumbs, ?Collection $relatedReviews = null): string
+    {
         $badgeClass = match ($review->dealcoholized) {
             'yes' => 'badge badge--yes',
             'no' => 'badge badge--no',
             default => 'badge badge--unknown',
         };
-        $figure = $this->productFigure($review, 'product-figure product-figure--hero', hero: true);
+        $bodyHtml = Markdown::toHtml($review->bodyMarkdown);
+        $related = $relatedReviews?->isNotEmpty()
+            ? $this->reviewCards($relatedReviews, ledger: true)
+            : '';
 
-        $body = <<<HTML
-    <article class="review" data-review>
-      <header class="page-header">
-        <div class="shell">
-          {$this->breadcrumbs($crumbs)}
-          <p class="kicker">{$this->e($this->config->categoryLabel($review->category))}</p>
-          <div class="review-hero">
-            {$figure}
-            <div>
-              <h1>{$this->e($review->title)}</h1>
-              <p class="lede">{$this->e($review->summary)}</p>
-              <p class="{$badgeClass}">{$this->e($review->dealcoholizedLabel())}</p>
-            </div>
-            {$score}
-          </div>
-        </div>
-      </header>
-      <div class="section">
-        <div class="shell review-layout">
-          <div class="stack-lg">
-            <section class="callout">
-              <h2>Is it actually dealcoholized?</h2>
-              <p class="callout-status">{$this->e($review->dealcoholizedLabel())}</p>
-              {$this->optionalBlock($review->dealcoholizationMethod, 'Method: ')}
-              {$this->optionalBlock($review->baseBeverage, 'Base beverage: ')}
-              {$discrepancies}
-            </section>
-            {$overview}
-            {$tasting}
-            <section class="prose">
-              <h2>How to drink it</h2>
-              {$this->optionalBlock($review->serve)}
-              {$this->optionalBlock($review->bestFor, 'Best for: ')}
-            </section>
-            <section class="verdict">
-              <h2>Verdict</h2>
-              <p>{$this->e($review->verdict)}</p>
-            </section>
-            {$sources}
-          </div>
-          <aside class="facts" aria-label="Product facts">
-            <h2>Product facts</h2>
-            {$facts}
-            {$links}
-            <p class="fine-print">Editorial tasting notes are opinion. Production facts are printed only when a source is attached.</p>
-          </aside>
-        </div>
-      </div>
-    </article>
-HTML;
+        $body = $this->view->render('review', [
+            'title' => $review->title,
+            'summary' => $review->summary,
+            'categoryLabel' => $this->config->categoryLabel($review->category),
+            'breadcrumbs' => $this->breadcrumbs($crumbs),
+            'figure' => $this->productFigure($review, 'product-figure product-figure--hero', hero: true),
+            'metaLine' => $this->reviewMetaLine($review),
+            'badgeClass' => $badgeClass,
+            'badgeLabel' => $review->dealcoholizedShortLabel(),
+            'score' => $review->rating !== null
+                ? '<p class="score" aria-label="Score '.$review->rating.' out of 100"><span>'.$review->rating.'</span><small>/100</small></p>'
+                : '',
+            'statusLabel' => $review->dealcoholizedLabel(),
+            'methodBlock' => $this->methodBlock($review),
+            'baseBlock' => $this->optionalBlock($review->baseBeverage, 'Base beverage: '),
+            'discrepancies' => $this->discrepancies($review),
+            'overview' => $bodyHtml !== '' ? '<section class="prose"><h2>Product overview</h2>'.$bodyHtml.'</section>' : '',
+            'tasting' => $this->tasting($review),
+            'serveBlock' => $this->optionalBlock($review->serve),
+            'bestForBlock' => $this->optionalBlock($review->bestFor, 'Best for: '),
+            'verdict' => $review->verdict,
+            'sources' => $this->sources($review),
+            'facts' => $this->facts($review),
+            'links' => $this->purchaseLinks($review),
+            'related' => $related,
+            'reviewsUrl' => $this->config->publicUrl('reviews/'),
+        ]);
 
         return $this->document(
             $review->title,
@@ -559,6 +576,61 @@ XML;
 XML;
     }
 
+    /**
+     * @param  array<string, string>  $items
+     * @return array<int, array{label: string, url: string}>
+     */
+    public function crumbs(array $items): array
+    {
+        $crumbs = [['label' => 'Home', 'url' => '']];
+
+        foreach ($items as $label => $url) {
+            $crumbs[] = ['label' => $label, 'url' => $url];
+        }
+
+        return $crumbs;
+    }
+
+    /**
+     * @param  array<int, array{label: string, url: string}>  $crumbs
+     */
+    private function directoryPage(
+        string $title,
+        string $description,
+        string $path,
+        string $nav,
+        array $crumbs,
+        string $kicker,
+        string $listing,
+        bool $searchable = false,
+        string $searchPlaceholder = 'Find a name',
+        string $letterNav = '',
+    ): string {
+        $body = $this->view->render('directory', [
+            'title' => $title,
+            'description' => $description,
+            'kicker' => $kicker,
+            'breadcrumbs' => $this->breadcrumbs($crumbs),
+            'searchable' => $searchable,
+            'searchPlaceholder' => $searchPlaceholder,
+            'letterNav' => $letterNav,
+            'listing' => $listing,
+        ]);
+
+        return $this->document($title, $description, $path, $body, [
+            'nav' => $nav,
+            'json_ld' => $this->jsonLd([
+                $this->breadcrumbGraph($crumbs),
+                [
+                    '@type' => 'CollectionPage',
+                    'name' => $title,
+                    'description' => $description,
+                    'url' => $this->config->canonicalUrl($path),
+                ],
+            ]),
+        ]);
+    }
+
     private function header(string $current): string
     {
         $links = [
@@ -575,54 +647,34 @@ XML;
             $items .= '<a href="'.$this->url($path).'"'.$currentAttr.'>'.Str::e($label).'</a>';
         }
 
-        $homeCurrent = $current === 'home' ? ' aria-current="page"' : '';
-
-        return <<<HTML
-  <header class="site-header" data-header>
-    <div class="header-inner">
-      <a class="logo" href="{$this->url()}"{$homeCurrent}>
-        <img src="{$this->url('mark.svg')}" alt="" width="18" height="18">
-        <span>The Dry Standard</span>
-      </a>
-      <form class="header-search" action="{$this->url('reviews/')}" method="get" role="search">
-        <label class="visually-hidden" for="header-q">Search reviews</label>
-        <input id="header-q" type="search" name="q" placeholder="Search the cellar">
-      </form>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
-        <span class="nav-toggle-bar"></span>
-        <span class="visually-hidden">Menu</span>
-      </button>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="Primary">{$items}</nav>
-    </div>
-  </header>
-HTML;
+        return $this->view->render('partials/header', [
+            'homeUrl' => $this->config->publicUrl(),
+            'homeCurrent' => $current === 'home',
+            'markUrl' => $this->config->publicUrl('mark.svg'),
+            'searchUrl' => $this->config->publicUrl('reviews/'),
+            'items' => $items,
+        ]);
     }
 
     private function footer(): string
     {
-        return <<<HTML
-  <footer class="site-footer">
-    <div class="shell footer-grid">
-      <div>
-        <p class="logo-text">The Dry Standard</p>
-        <p>Independent reviews of dealcoholized beer, wine, spirits, and cocktails at 0.5% ABV or less.</p>
-      </div>
-      <div>
-        <p class="footer-label">Read</p>
-        <a href="{$this->url('reviews/')}">Reviews</a>
-        <a href="{$this->url('guides/')}">Guides</a>
-        <a href="{$this->url('methods/')}">Methods</a>
-      </div>
-      <div>
-        <p class="footer-label">The desk</p>
-        <a href="{$this->url('about/')}">About &amp; methodology</a>
-        <a href="{$this->url('brands/')}">Brands</a>
-        <a href="{$this->url('feed.xml')}">RSS</a>
-      </div>
-    </div>
-    <p class="copyright">© <span data-year></span> The Dry Standard. Staging preview on karlhill.com.</p>
-  </footer>
-HTML;
+        $categories = [];
+        foreach ($this->config->categories() as $category) {
+            $categories[] = [
+                'href' => $this->config->publicUrl('reviews/'.$category.'/'),
+                'label' => $this->config->categoryLabel($category),
+            ];
+        }
+
+        return $this->view->render('partials/footer', [
+            'reviewsUrl' => $this->config->publicUrl('reviews/'),
+            'guidesUrl' => $this->config->publicUrl('guides/'),
+            'methodsUrl' => $this->config->publicUrl('methods/'),
+            'brandsUrl' => $this->config->publicUrl('brands/'),
+            'aboutUrl' => $this->config->publicUrl('about/'),
+            'feedUrl' => $this->config->publicUrl('feed.xml'),
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -634,7 +686,7 @@ HTML;
 
         $brandOptions = $reviews
             ->map(fn (Review $review): array => [
-                'value' => Str::slug($review->brand),
+                'value' => $review->brandSlug(),
                 'label' => $review->brand,
             ])
             ->unique('value')
@@ -658,13 +710,12 @@ HTML;
             }
         }
 
-        $processOptions = [
-            ['value' => 'yes', 'label' => 'Dealcoholized'],
-            ['value' => 'no', 'label' => 'Formulated'],
-            ['value' => 'not-verified', 'label' => 'Not verified'],
-        ];
         $processOptions = array_values(array_filter(
-            $processOptions,
+            [
+                ['value' => 'yes', 'label' => 'Dealcoholized'],
+                ['value' => 'no', 'label' => 'Formulated'],
+                ['value' => 'not-verified', 'label' => 'Not verified'],
+            ],
             fn (array $option): bool => $reviews->contains(fn (Review $review): bool => $review->dealcoholized === $option['value']),
         ));
 
@@ -679,48 +730,30 @@ HTML;
             }
         }
 
-        $categoryFacet = $categoryOptions === []
-            ? ''
-            : $this->facetGroup('Category', 'category', $categoryOptions);
-        $processFacet = $this->facetGroup('Process', 'dealcoholized', $processOptions);
-        $methodFacet = $this->facetGroup('Method', 'method', $methodOptions);
+        $facets = $this->facetGroup('ABV', 'abv', $abvOptions)
+            .$this->facetGroup('Brand', 'brand', $brandOptions, searchable: true, collapsible: true, collapsed: count($brandOptions) > 8)
+            .($categoryOptions === [] ? '' : $this->facetGroup('Category', 'category', $categoryOptions))
+            .$this->facetGroup('Process', 'dealcoholized', $processOptions)
+            .$this->facetGroup('Method', 'method', $methodOptions);
 
-        return <<<HTML
-      <div class="shell archive-layout" data-archive{$locked}>
-        <form class="archive-sidebar" role="search">
-          <div class="facet">
-            <label class="facet-legend" for="archive-q">Search</label>
-            <input id="archive-q" type="search" name="q" placeholder="Brand, product, origin, or method" data-archive-q>
-          </div>
-          {$this->facetGroup('ABV', 'abv', $abvOptions)}
-          {$this->facetGroup('Brand', 'brand', $brandOptions, searchable: true)}
-          {$categoryFacet}
-          {$processFacet}
-          {$methodFacet}
-          <p class="archive-clear"><button type="button" data-archive-clear>Clear filters</button></p>
-        </form>
-        <div class="archive-main">
-          <div class="archive-toolbar">
-            <p class="archive-count" data-archive-count></p>
-            <label class="archive-sort">Sort
-              <select name="sort" data-archive-sort>
-                <option value="newest">Newest</option>
-                <option value="rating">Highest rated</option>
-                <option value="title">Name</option>
-              </select>
-            </label>
-          </div>
-          {$list}
-        </div>
-      </div>
-HTML;
+        return $this->view->render('partials/archive', [
+            'locked' => $locked,
+            'facets' => $facets,
+            'list' => $list,
+        ]);
     }
 
     /**
      * @param  array<int, array{value: string, label: string}>  $options
      */
-    private function facetGroup(string $legend, string $name, array $options, bool $searchable = false): string
-    {
+    private function facetGroup(
+        string $legend,
+        string $name,
+        array $options,
+        bool $searchable = false,
+        bool $collapsible = false,
+        bool $collapsed = false,
+    ): string {
         if ($options === []) {
             return '';
         }
@@ -741,64 +774,94 @@ HTML;
                 .'</label>';
         }
 
-        return <<<HTML
-          <fieldset class="facet" data-facet="{$this->e($name)}">
-            <legend class="facet-legend">{$this->e($legend)}</legend>
-            {$search}
-            <div class="facet-list">{$items}</div>
-          </fieldset>
-HTML;
+        return $this->view->render('partials/facet-group', [
+            'name' => $name,
+            'legend' => $legend,
+            'search' => $search,
+            'items' => $items,
+            'collapsible' => $collapsible,
+            'collapsed' => $collapsed,
+        ]);
     }
 
     private function reviewCards(Collection $reviews, bool $compact = false, bool $ledger = false): string
     {
         return $reviews->map(function (Review $review) use ($compact, $ledger): string {
             $score = $review->rating !== null ? '<span class="card-score">'.$review->rating.'</span>' : '';
-            $meta = trim($this->config->categoryLabel($review->category).($review->originLabel() ? ' · '.$review->originLabel() : ''));
+            $origin = $review->originLabel();
+            $meta = trim($this->config->categoryLabel($review->category).($origin ? ' · '.$origin : ''));
             $method = $review->dealcoholizationMethod ?? 'Method unpublished';
-            $badge = '<span class="badge badge--'.Str::e($review->dealcoholized).'">'.Str::e($review->dealcoholizedLabel()).'</span>';
+            $badge = '<span class="badge badge--'.Str::e($review->dealcoholized).'">'.Str::e($review->dealcoholizedShortLabel()).'</span>';
             $attrs = implode(' ', [
                 'data-dealcoholized="'.Str::e($review->dealcoholized).'"',
                 'data-category="'.Str::e($review->category).'"',
-                'data-brand="'.Str::e(Str::slug($review->brand)).'"',
+                'data-brand="'.Str::e($review->brandSlug()).'"',
                 'data-abv="'.Str::e($review->abvBucket()).'"',
                 'data-method="'.Str::e($review->methodFacetKey()).'"',
                 'data-rating="'.Str::e((string) ($review->rating ?? 0)).'"',
                 'data-date="'.Str::e($review->reviewDate->toDateString()).'"',
                 'data-search="'.Str::e($review->searchText()).'"',
             ]);
-            $compactClass = $compact ? ' card--compact' : '';
-
             $thumb = $this->productFigure($review, 'product-figure product-figure--thumb');
+            $brand = '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brand).'</a>';
 
             if ($ledger) {
-                return <<<HTML
-      <article class="ledger-row" {$attrs}>
-        {$thumb}
-        <div>
-          <p class="ledger-brand">{$this->e($review->brand)}</p>
-          <h3><a href="{$this->url($review->path())}">{$this->e($review->title)}</a></h3>
-          <p class="ledger-meta">{$this->e($meta)} · {$this->e($method)}</p>
-          {$badge}
-        </div>
-        {$score}
-      </article>
-HTML;
+                return $this->view->render('partials/ledger-row', [
+                    'attrs' => $attrs,
+                    'thumb' => $thumb,
+                    'brand' => $brand,
+                    'href' => $this->config->publicUrl($review->path()),
+                    'title' => $review->title,
+                    'meta' => $meta.' · '.$method,
+                    'badge' => $badge,
+                    'score' => $score,
+                ]);
             }
 
-            return <<<HTML
-      <article class="card{$compactClass}" {$attrs}>
-        {$thumb}
-        <div class="card-top">
-          <p class="card-meta">{$this->e($meta)}</p>
-          {$score}
-        </div>
-        <h3><a href="{$this->url($review->path())}">{$this->e($review->title)}</a></h3>
-        <p>{$this->e($review->summary)}</p>
-        {$badge}
-      </article>
-HTML;
+            return $this->view->render('partials/review-card', [
+                'compact' => $compact,
+                'attrs' => $attrs,
+                'thumb' => $thumb,
+                'href' => $this->config->publicUrl($review->path()),
+                'title' => $review->title,
+                'summary' => $review->summary,
+                'meta' => $meta,
+                'badge' => $badge,
+                'score' => $score,
+            ]);
         })->implode('');
+    }
+
+    private function reviewMetaLine(Review $review): string
+    {
+        $parts = [
+            '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brand).'</a>',
+            '<a href="'.$this->url('reviews/'.$review->category.'/').'">'.$this->e($this->config->categoryLabel($review->category)).'</a>',
+        ];
+
+        $methodKey = $review->methodKey();
+        if ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)) {
+            $label = $review->dealcoholizationMethod ?? $this->config->methodLabel($methodKey);
+            $parts[] = '<a href="'.$this->url('methods/'.$methodKey.'/').'">'.$this->e($label).'</a>';
+        } elseif ($review->dealcoholizationMethod) {
+            $parts[] = $this->e($review->dealcoholizationMethod);
+        }
+
+        return '<p class="review-meta">'.implode('<span aria-hidden="true"> · </span>', $parts).'</p>';
+    }
+
+    private function methodBlock(Review $review): string
+    {
+        if ($review->dealcoholizationMethod === null || $review->dealcoholizationMethod === '') {
+            return '';
+        }
+
+        $methodKey = $review->methodKey();
+        if ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)) {
+            return '<p>Method: <a href="'.$this->url('methods/'.$methodKey.'/').'">'.$this->e($review->dealcoholizationMethod).'</a></p>';
+        }
+
+        return $this->optionalBlock($review->dealcoholizationMethod, 'Method: ');
     }
 
     private function facts(Review $review): string
@@ -818,7 +881,7 @@ HTML;
             'Sugar' => $review->sugar,
         ];
 
-        $html = '<dl>';
+        $html = '';
         foreach ($rows as $label => $value) {
             if ($value === null || $value === '') {
                 continue;
@@ -826,7 +889,7 @@ HTML;
             $html .= '<div><dt>'.Str::e($label).'</dt><dd>'.Str::e($value).'</dd></div>';
         }
 
-        return $html.'</dl>';
+        return $this->view->render('partials/facts', ['rows' => $html]);
     }
 
     private function tasting(Review $review): string
@@ -849,7 +912,7 @@ HTML;
             return '';
         }
 
-        return '<section class="tasting"><h2>Tasting notes</h2><div class="tasting-grid">'.$items.'</div></section>';
+        return $this->view->render('partials/tasting', ['items' => $items]);
     }
 
     private function sources(Review $review): string
@@ -864,7 +927,7 @@ HTML;
             $items .= '<li><a href="'.Str::e($source['url']).'" rel="nofollow noopener">'.Str::e($source['title']).'</a>'.$claims.'</li>';
         }
 
-        return '<section class="sources"><h2>Sources</h2><ol>'.$items.'</ol></section>';
+        return $this->view->render('partials/sources', ['items' => $items]);
     }
 
     private function discrepancies(Review $review): string
@@ -878,7 +941,7 @@ HTML;
             $items .= '<li><strong>'.Str::e(ucfirst($row['field'])).':</strong> '.Str::e($row['note']).'</li>';
         }
 
-        return '<div class="discrepancies"><p>Sources disagree on the following points. We do not pick a winner.</p><ul>'.$items.'</ul></div>';
+        return $this->view->render('partials/discrepancies', ['items' => $items]);
     }
 
     private function purchaseLinks(Review $review): string
@@ -894,11 +957,10 @@ HTML;
             $items .= '<li><a href="'.Str::e($link['url']).'" rel="nofollow noopener">'.Str::e($link['label']).'</a></li>';
         }
 
-        $availability = $review->availability
-            ? '<p>'.Str::e($review->availability).'</p>'
-            : '';
-
-        return '<div class="buy"><h3>Where to buy in the United States</h3>'.$availability.'<ul>'.$items.'</ul></div>';
+        return $this->view->render('partials/purchase-links', [
+            'availability' => $review->availability ? '<p>'.Str::e($review->availability).'</p>' : '',
+            'items' => $items,
+        ]);
     }
 
     /**
@@ -917,7 +979,7 @@ HTML;
             }
         }
 
-        return '<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>'.$items.'</ol></nav>';
+        return $this->view->render('partials/breadcrumbs', ['items' => $items]);
     }
 
     /**
@@ -1031,21 +1093,15 @@ HTML;
     {
         $src = $review->imageSrc();
 
-        if ($src === null) {
-            return '<div class="'.Str::e($class).' product-figure--empty" aria-hidden="true"></div>';
-        }
-
-        $credit = $hero && $review->imageCredit !== null
-            ? '<figcaption>'.$this->e($review->imageCredit).'</figcaption>'
-            : '';
-        $loading = $hero ? 'eager' : 'lazy';
-
-        return <<<HTML
-        <figure class="{$this->e($class)}">
-          <img src="{$this->url($src)}" alt="{$this->e($review->imageAltText())}" width="720" height="960" loading="{$loading}">
-          {$credit}
-        </figure>
-HTML;
+        return $this->view->render('partials/product-figure', [
+            'class' => $class,
+            'src' => $src === null ? '' : $this->config->publicUrl($src),
+            'alt' => $review->imageAltText(),
+            'loading' => $hero ? 'eager' : 'lazy',
+            'credit' => $hero && $review->imageCredit !== null
+                ? '<figcaption>'.$this->e($review->imageCredit).'</figcaption>'
+                : '',
+        ]);
     }
 
     private function optionalBlock(?string $value, string $prefix = ''): string

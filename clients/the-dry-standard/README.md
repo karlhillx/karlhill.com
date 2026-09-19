@@ -42,6 +42,7 @@ data/master-products.csv # one row per unique product, internal ID + sourced EAN
 data/review-queue.yaml
 data/publish-log.yaml
 src/                     # PHP builder (DryStandard\)
+src/views/               # Reusable page and partial templates
 ```
 
 HTML, `feed.xml`, `sitemap.xml`, and `catalog.json` are generated. Edit markdown, then build.
