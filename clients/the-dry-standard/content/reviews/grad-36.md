@@ -2,6 +2,7 @@
 title: "Grad 36°"
 slug: grad-36
 id: TDS-0029
+ean: "4260044674674"
 brand: Jörg Geiger
 product: "Grad 36°"
 category: wine

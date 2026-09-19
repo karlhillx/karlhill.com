@@ -473,6 +473,7 @@
 -
   product: 'WiesenObst Cider Rosé'
   id: TDS-0028
+  ean: 4260044674827
   brand: 'Jörg Geiger'
   category: cider
   priority: low
@@ -489,6 +490,7 @@
 -
   product: 'Grad 36°'
   id: TDS-0029
+  ean: 4260044674674
   brand: 'Jörg Geiger'
   category: wine
   priority: low
@@ -892,6 +894,7 @@
 -
   product: 'ViSecco Pinot Meunier'
   id: TDS-0057
+  ean: 4262449340727
   brand: 'Jörg Geiger'
   category: wine
   priority: low
@@ -908,6 +911,7 @@
 -
   product: 'Blanc de Blanc'
   id: TDS-0058
+  ean: 4262449340697
   brand: 'Jörg Geiger'
   category: wine
   priority: low

@@ -2,6 +2,7 @@
 title: "WiesenObst Cider Rosé"
 slug: wiesenobst-cider-rose
 id: TDS-0028
+ean: "4260044674827"
 brand: Jörg Geiger
 product: WiesenObst Cider Rosé
 category: cider

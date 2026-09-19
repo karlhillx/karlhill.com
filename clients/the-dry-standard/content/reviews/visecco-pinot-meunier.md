@@ -2,6 +2,7 @@
 title: "ViSecco Pinot Meunier"
 slug: visecco-pinot-meunier
 id: TDS-0057
+ean: "4262449340727"
 brand: Jörg Geiger
 product: ViSecco Pinot Meunier
 category: wine

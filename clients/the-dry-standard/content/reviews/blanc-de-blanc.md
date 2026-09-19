@@ -2,6 +2,7 @@
 title: "Blanc de Blanc Non-Alcoholic Sparkling Wine (Jörg Geiger)"
 slug: blanc-de-blanc
 id: TDS-0058
+ean: "4262449340697"
 brand: Jörg Geiger
 product: Blanc de Blanc
 category: wine
