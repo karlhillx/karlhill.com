@@ -14,12 +14,12 @@ final class View
     /**
      * @param  array<string, mixed>  $data
      */
-    public function render(string $name, array $data = []): string
+    public function render(string $template, array $data = []): string
     {
-        $file = $this->directory.DIRECTORY_SEPARATOR.str_replace('.', DIRECTORY_SEPARATOR, $name).'.php';
+        $file = $this->directory.DIRECTORY_SEPARATOR.str_replace('.', DIRECTORY_SEPARATOR, $template).'.php';
 
         if (! is_file($file)) {
-            throw new \RuntimeException('Missing Dry Standard view: '.$name);
+            throw new \RuntimeException('Missing Dry Standard view: '.$template);
         }
 
         $view = $this;

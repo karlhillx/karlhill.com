@@ -220,8 +220,8 @@ spot-check `/resume` + `/about`):
 
 ### Client staging
 
-Static client previews live in `clients/{domain}/` (must include `index.html`)
-and are served at:
+Client previews live in `clients/{domain}/` (static `index.html`, or a
+Laravel-rendered catalog with `data/config.yaml`) and are served at:
 
 - `/clients` — staging index (noindex)
 - `/clients/{domain}/` — the client site
@@ -230,8 +230,8 @@ Not linked from the main nav or sitemap. Add a new folder under `clients/` to
 stage the next preview.
 
 The Dry Standard (`/clients/the-dry-standard/`) is an editorial review site
-with markdown reviews and `php artisan dry-standard:*` to validate, build, and
-publish. See `clients/the-dry-standard/README.md`.
+rendered live from `data/catalog.sqlite`. Markdown reviews import into that
+catalog via `php artisan dry-standard:*`. See `clients/the-dry-standard/README.md`.
 
 ## Project Layout
 

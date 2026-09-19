@@ -53,13 +53,13 @@ it('serves sourced sample reviews with dealcoholized badges', function () {
 
 it('exposes a feed, sitemap, and catalog for the client site', function () {
     $feed = $this->get('/clients/the-dry-standard/feed.xml')->assertOk();
-    expect($feed->streamedContent())->toContain('Leitz Eins-Zwei-Zero Riesling');
+    expect($feed->getContent())->toContain('Leitz Eins-Zwei-Zero Riesling');
 
     $sitemap = $this->get('/clients/the-dry-standard/sitemap.xml')->assertOk();
-    expect($sitemap->streamedContent())->toContain('reviews/wine/leitz-eins-zwei-zero-riesling');
+    expect($sitemap->getContent())->toContain('reviews/wine/leitz-eins-zwei-zero-riesling');
 
     $catalogResponse = $this->get('/clients/the-dry-standard/catalog.json')->assertOk();
-    $catalog = json_decode($catalogResponse->streamedContent(), true, flags: JSON_THROW_ON_ERROR);
+    $catalog = json_decode($catalogResponse->getContent(), true, flags: JSON_THROW_ON_ERROR);
     expect($catalog['reviews'])->toBeArray()->not->toBeEmpty();
     expect($catalog['facets']['categories'])->toContain('wine');
     expect($catalog['facets']['brands'])->not->toBeEmpty();
@@ -137,6 +137,11 @@ it('links related reviews and exposes directory search', function () {
         ->assertSee('data-directory-q', escape: false)
         ->assertSee('directory-row', escape: false);
 
+    $this->get('/clients/the-dry-standard/brands/leitz/')
+        ->assertOk()
+        ->assertSee('<h1>Leitz</h1>', escape: false)
+        ->assertDontSee('<h1>brand</h1>', escape: false);
+
     $this->get('/clients/the-dry-standard/methods/vacuum-distillation/')
         ->assertOk()
         ->assertSee('Reviewed with this method', escape: false)
@@ -157,6 +162,11 @@ it('builds a searchable review archive', function () {
         ->assertSee('data-archive-brand', escape: false)
         ->assertSee('data-archive-abv', escape: false)
         ->assertSee('data-archive-category', escape: false)
+        ->assertSee('data-facet="abv"', escape: false)
+        ->assertSee('data-facet="brand"', escape: false)
+        ->assertSee('data-facet="dealcoholized"', escape: false)
+        ->assertSee('data-facet="method"', escape: false)
+        ->assertDontSee('data-facet="partials/facet-group"', escape: false)
         ->assertSee('data-abv=', escape: false)
         ->assertSee('data-search=', escape: false)
         ->assertSee('ledger-row', escape: false);

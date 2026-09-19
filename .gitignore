@@ -58,6 +58,12 @@ Thumbs.db
 /blob-report/
 /playwright/.cache/
 
+# Generated Dry Standard catalog (rebuild with php artisan dry-standard:build)
+/clients/the-dry-standard/data/catalog.sqlite
+/clients/the-dry-standard/data/catalog.sqlite-journal
+/clients/the-dry-standard/data/catalog.sqlite-wal
+/clients/the-dry-standard/data/catalog.sqlite-shm
+
 # Optional no-db feature stores
 /storage/app/webmentions
 /storage/app/push

@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientSiteController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DeliveryController;
+use App\Http\Controllers\DryStandardSiteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
 use App\Http\Controllers\LeadController;
@@ -70,6 +71,9 @@ Route::middleware('cache.headers:public;max_age=300;s_maxage=600;stale_while_rev
 
     // Client staging — static sites under /clients/{slug}/ (noindex, not in nav/sitemap).
     Route::get('/clients', [ClientSiteController::class, 'index'])->name('clients.index');
+    Route::get('/clients/the-dry-standard/{path?}', [DryStandardSiteController::class, 'show'])
+        ->where('path', '.*')
+        ->name('dry-standard.show');
     Route::get('/clients/{client}/{path?}', [ClientSiteController::class, 'show'])
         ->where([
             'client' => '[A-Za-z0-9][A-Za-z0-9.-]*',

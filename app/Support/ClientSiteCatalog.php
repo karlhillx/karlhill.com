@@ -3,11 +3,13 @@
 namespace App\Support;
 
 use Illuminate\Support\Collection;
+use Symfony\Component\Yaml\Yaml;
 
 /**
- * Flat-file client staging sites under /clients/{slug}.
+ * Client staging sites under /clients/{slug}.
  *
- * Each directory with an index.html is a previewable client site.
+ * A directory is previewable when it has index.html or a Laravel-rendered
+ * catalog (data/config.yaml).
  */
 final class ClientSiteCatalog
 {
@@ -31,7 +33,7 @@ final class ClientSiteCatalog
             ->filter(fn (string $entry): bool => $entry !== '.' && $entry !== '..')
             ->filter(fn (string $entry): bool => is_dir($root.DIRECTORY_SEPARATOR.$entry))
             ->filter(fn (string $entry): bool => $this->isValidSlug($entry))
-            ->filter(fn (string $entry): bool => is_file($root.DIRECTORY_SEPARATOR.$entry.DIRECTORY_SEPARATOR.'index.html'))
+            ->filter(fn (string $entry): bool => $this->isPreviewable($entry))
             ->sort()
             ->values()
             ->map(fn (string $slug): array => [
@@ -43,8 +45,15 @@ final class ClientSiteCatalog
 
     public function exists(string $slug): bool
     {
-        return $this->isValidSlug($slug)
-            && is_file($this->root().DIRECTORY_SEPARATOR.$slug.DIRECTORY_SEPARATOR.'index.html');
+        return $this->isValidSlug($slug) && $this->isPreviewable($slug);
+    }
+
+    public function isPreviewable(string $slug): bool
+    {
+        $directory = $this->root().DIRECTORY_SEPARATOR.$slug;
+
+        return is_file($directory.DIRECTORY_SEPARATOR.'index.html')
+            || is_file($directory.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'config.yaml');
     }
 
     public function isValidSlug(string $slug): bool
@@ -108,6 +117,15 @@ final class ClientSiteCatalog
 
     public function titleFor(string $slug): string
     {
+        $config = $this->root().DIRECTORY_SEPARATOR.$slug.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'config.yaml';
+        if (is_file($config)) {
+            $parsed = Yaml::parseFile($config);
+            $name = is_array($parsed) ? data_get($parsed, 'site.name') : null;
+            if (is_string($name) && $name !== '') {
+                return $name;
+            }
+        }
+
         $index = $this->root().DIRECTORY_SEPARATOR.$slug.DIRECTORY_SEPARATOR.'index.html';
         if (! is_file($index)) {
             return $slug;

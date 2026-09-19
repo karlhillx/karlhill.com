@@ -9,7 +9,7 @@ class DryStandardBuild extends Command
 {
     protected $signature = 'dry-standard:build';
 
-    protected $description = 'Rebuild The Dry Standard static site from review and page markdown.';
+    protected $description = 'Sync The Dry Standard product catalog and validate published reviews.';
 
     public function handle(): int
     {
@@ -21,12 +21,12 @@ class DryStandardBuild extends Command
                 $this->error($error);
             }
 
-            $this->error('Build halted. Unpublished or invalid reviews were not written.');
+            $this->error('Build halted. Invalid published reviews were not synced.');
 
             return self::FAILURE;
         }
 
-        $this->info("Built {$result['pages']} Dry Standard pages.");
+        $this->info("Synced {$result['products']} catalog products ({$result['pages']} published reviews).");
 
         return self::SUCCESS;
     }

@@ -41,6 +41,24 @@ final class Workspace
         return new PublishSchedule($this->config(), $this->log());
     }
 
+    public function catalog(): Catalog
+    {
+        return Catalog::open($this->paths);
+    }
+
+    /**
+     * @return array{reviews: int, products: int, queued: int}
+     */
+    public function sync(): array
+    {
+        return (new CatalogSync($this->paths, $this->catalog()))->run();
+    }
+
+    public function site(): Site
+    {
+        return new Site($this->paths, $this->config(), $this->reviews());
+    }
+
     public function builder(): SiteBuilder
     {
         return new SiteBuilder($this->paths, $this->config(), $this->reviews(), $this->validator());

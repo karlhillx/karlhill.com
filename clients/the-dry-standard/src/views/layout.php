@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/clients/the-dry-standard/">
   <title><?= $view->e($fullTitle) ?></title>
   <meta name="description" content="<?= $view->e($description) ?>">
   <link rel="canonical" href="<?= $view->e($canonical) ?>">

@@ -44,7 +44,7 @@ If a fact cannot be sourced, delete the field.
 8. Run `php artisan dry-standard:validate {slug} --publish`.
 9. If it fails, set `status: needs-review` and stop. Do not publish to satisfy the calendar.
 10. If it passes, `php artisan dry-standard:publish {slug}`.
-11. Rebuild updates category pages, brand pages, RSS, sitemap, and `catalog.json`.
+11. `php artisan dry-standard:build` syncs `data/catalog.sqlite` and `data/products.csv`. Pages render live from the catalog.
 12. Record the publish (the command writes `data/publish-log.yaml` and updates the queue).
 
 Duplicate slugs and duplicate queue product+brand pairs are rejected.
@@ -55,13 +55,15 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 
 ## File map
 
-- Reviews: `clients/the-dry-standard/content/reviews/`
+- Reviews (editorial draft/import): `clients/the-dry-standard/content/reviews/`
 - Product stills: `clients/the-dry-standard/media/reviews/{slug}.jpg`
-- Master product table: `clients/the-dry-standard/data/master-products.csv` (internal `ID` and sourced `EAN`; do not render)
+- Product database: `clients/the-dry-standard/data/catalog.sqlite` (runtime source of truth; generated)
+- Spreadsheet export: `clients/the-dry-standard/data/products.csv`
+- Purchase ledger: `clients/the-dry-standard/data/master-products.csv` (internal `ID` and sourced `EAN`; do not render)
 - Queue: `clients/the-dry-standard/data/review-queue.yaml`
 - Config: `clients/the-dry-standard/data/config.yaml`
 - Schema reminder: `clients/the-dry-standard/data/schema/review.schema.yaml`
-- Public site: generated HTML under `clients/the-dry-standard/`
+- Public site: Laravel renders `/clients/the-dry-standard/` live from the catalog
 - Commands: `php artisan dry-standard:*`
 
 ## Site structure
@@ -76,4 +78,4 @@ Default: Monday, Wednesday, Friday, three reviews a week. Change it in config. I
 
 ## Architecture constraint
 
-This is a static client site plus a PHP builder, matching karlhill.com. Do not introduce a second framework, a database, or ecommerce.
+This is a Laravel client preview. Product data lives in one SQLite catalog (`data/catalog.sqlite`), with `data/products.csv` as the spreadsheet export. Markdown reviews are the editorial draft/import format. Do not introduce a second framework or ecommerce. Do not generate or check in HTML pages.

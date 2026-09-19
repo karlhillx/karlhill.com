@@ -14,6 +14,7 @@ class DryStandardValidate extends Command
     public function handle(): int
     {
         $workspace = Workspace::default();
+        $workspace->sync();
         $reviews = $workspace->reviews()->all();
         $slug = $this->argument('slug');
 

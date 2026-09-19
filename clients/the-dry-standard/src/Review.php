@@ -3,6 +3,7 @@
 namespace DryStandard;
 
 use Carbon\CarbonImmutable;
+use Illuminate\Support\Str;
 
 final class Review
 {
@@ -132,6 +133,92 @@ final class Review
             id: self::nullableString($matter['id'] ?? null),
             ean: self::nullableString($matter['ean'] ?? null),
         );
+    }
+
+    /**
+     * @param  array<string, mixed>  $row
+     */
+    public static function fromRecord(array $row): self
+    {
+        $matter = $row;
+        $matter['purchase_links'] = self::decodeJsonList($row['purchase_links'] ?? '[]');
+        $matter['sources'] = self::decodeJsonList($row['sources'] ?? '[]');
+        $matter['discrepancies'] = self::decodeJsonList($row['discrepancies'] ?? '[]');
+
+        return self::fromMatter(
+            $matter,
+            (string) ($row['body_markdown'] ?? ''),
+            'catalog:'.((string) ($row['slug'] ?? 'unknown')),
+        );
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function toRecord(): array
+    {
+        return [
+            'id' => $this->id,
+            'ean' => $this->ean,
+            'slug' => $this->slug,
+            'title' => $this->title,
+            'brand' => $this->brand,
+            'product' => $this->product,
+            'category' => $this->category,
+            'subcategory' => $this->subcategory,
+            'country' => $this->country,
+            'region' => $this->region,
+            'style' => $this->style,
+            'abv' => $this->abv,
+            'abv_numeric' => $this->abvNumeric,
+            'dealcoholized' => $this->dealcoholized,
+            'dealcoholized_note' => $this->dealcoholizedNote,
+            'dealcoholization_method' => $this->dealcoholizationMethod,
+            'base_beverage' => $this->baseBeverage,
+            'producer' => $this->producer,
+            'price' => $this->price,
+            'volume' => $this->volume,
+            'ingredients' => $this->ingredients,
+            'calories' => $this->calories,
+            'sugar' => $this->sugar,
+            'availability' => $this->availability,
+            'purchase_links' => json_encode($this->purchaseLinks, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+            'review_date' => $this->reviewDate->toDateString(),
+            'updated_date' => $this->updatedDate?->toDateString(),
+            'rating' => $this->rating,
+            'verdict' => $this->verdict,
+            'summary' => $this->summary,
+            'nose' => $this->nose,
+            'palate' => $this->palate,
+            'finish' => $this->finish,
+            'best_for' => $this->bestFor,
+            'serve' => $this->serve,
+            'sources' => json_encode($this->sources, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+            'discrepancies' => json_encode($this->discrepancies, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+            'body_markdown' => $this->bodyMarkdown,
+            'image' => $this->image,
+            'image_alt' => $this->imageAlt,
+            'image_credit' => $this->imageCredit,
+            'status' => $this->status,
+        ];
+    }
+
+    /**
+     * @return array<int, mixed>
+     */
+    private static function decodeJsonList(mixed $value): array
+    {
+        if (is_array($value)) {
+            return $value;
+        }
+
+        if (! is_string($value) || $value === '') {
+            return [];
+        }
+
+        $decoded = json_decode($value, true);
+
+        return is_array($decoded) ? $decoded : [];
     }
 
     public function isPublished(): bool

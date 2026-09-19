@@ -21,13 +21,19 @@ class DryStandardQueueAdd extends Command
         $workspace = Workspace::default();
 
         try {
-            $workspace->queue()->add([
+            $item = [
                 'product' => (string) $this->argument('product'),
                 'brand' => (string) $this->option('brand'),
-                'category' => (string) $this->option('category'),
+                'category' => (string) $this->option('category') ?: 'wine',
                 'priority' => (string) $this->option('priority'),
                 'notes' => (string) $this->option('notes'),
                 'status' => 'queued',
+            ];
+            $workspace->queue()->add($item);
+            $workspace->reviews()->catalog()->upsertRow([
+                ...$item,
+                'slug' => \Illuminate\Support\Str::slug((string) $this->argument('product')),
+                'title' => (string) $this->argument('product'),
             ]);
         } catch (\RuntimeException|\InvalidArgumentException $exception) {
             $this->error($exception->getMessage());

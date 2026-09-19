@@ -1,6 +1,6 @@
 # Publishing system
 
-OpenClaw (or a human) researches and writes. PHP validates, builds, and logs. Local models do not get a write path around the validator.
+OpenClaw (or a human) researches and writes. PHP validates, syncs the catalog, and logs. Local models do not get a write path around the validator.
 
 ## States
 
@@ -57,7 +57,7 @@ php artisan dry-standard:queue "Giesen 0% Sauvignon Blanc" --brand=Giesen --cate
 php artisan dry-standard:build
 ```
 
-Regenerates HTML indexes, review pages, brand pages, `feed.xml`, `sitemap.xml`, and `catalog.json`.
+Syncs markdown reviews, the purchase ledger, and the queue into `data/catalog.sqlite`, then writes `data/products.csv`. Pages, the feed, sitemap, and `catalog.json` render live from the catalog.
 
 ## Git
 
@@ -67,8 +67,8 @@ Regenerates HTML indexes, review pages, brand pages, `feed.xml`, `sitemap.xml`, 
 
 - One markdown file per slug.
 - Queue add rejects the same product+brand pair.
-- `catalog.json` is the machine index for future comparison pages.
+- `data/catalog.sqlite` is the product database. `catalog.json` remains the public machine index.
 
 ## Future
 
-The catalog is already a product database. Search, "best of" pages, affiliate tags, and price tracking can read `catalog.json` without changing the review schema. Ecommerce is out of scope.
+Search, "best of" pages, affiliate tags, and price tracking can read the catalog without changing the review schema. Ecommerce is out of scope.

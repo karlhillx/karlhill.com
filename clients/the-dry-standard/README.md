@@ -4,7 +4,7 @@ Editorial review site for dealcoholized and non-alcoholic drinks at **0.5% ABV o
 
 Positioning: **the standard for what remains after the alcohol is gone.**
 
-This is not a shop. It is a small autonomous publication: a review queue, sourced facts, tasting notes, and a rebuildable static site that follows the karlhill.com client-preview convention.
+This is not a shop. It is a small autonomous publication: a review queue, sourced facts, tasting notes, and a Laravel-rendered catalog that follows the karlhill.com client-preview convention.
 
 ## Start here
 
@@ -32,17 +32,19 @@ php artisan dry-standard:publish {slug} --force
 ## Layout
 
 ```
-content/reviews/*.md     # review source of truth (YAML frontmatter + body)
+content/reviews/*.md     # editorial drafts imported into the catalog
 media/reviews/{slug}.jpg # editorial product stills
 content/guides/*.md
 content/methods/*.md
 content/pages/about.md
+data/catalog.sqlite      # product database (generated; do not commit)
+data/products.csv        # spreadsheet export of the catalog
 data/config.yaml         # cadence, models, categories, URLs
-data/master-products.csv # one row per unique product, internal ID + sourced EAN, sorted by times purchased
+data/master-products.csv # purchase ledger: internal ID + sourced EAN, sorted by times purchased
 data/review-queue.yaml
 data/publish-log.yaml
-src/                     # PHP builder (DryStandard\)
+src/                     # PHP catalog + renderer (DryStandard\)
 src/views/               # Reusable page and partial templates
 ```
 
-HTML, `feed.xml`, `sitemap.xml`, and `catalog.json` are generated. Edit markdown, then build.
+Pages, `feed.xml`, `sitemap.xml`, and `catalog.json` render live from SQLite. Edit markdown, then `php artisan dry-standard:build` to sync.

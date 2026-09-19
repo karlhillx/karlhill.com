@@ -14,16 +14,7 @@ final class ReviewRepository
      */
     public function all(): Collection
     {
-        $directory = $this->paths->content('reviews');
-
-        if (! is_dir($directory)) {
-            return collect();
-        }
-
-        $files = glob($directory.DIRECTORY_SEPARATOR.'*.md') ?: [];
-
-        return collect($files)
-            ->map(fn (string $file): Review => $this->hydrate($file))
+        return $this->catalog()->reviews()
             ->sortByDesc(fn (Review $review): string => $review->reviewDate->toDateString())
             ->values();
     }
@@ -33,17 +24,33 @@ final class ReviewRepository
      */
     public function published(): Collection
     {
-        return $this->all()->filter(fn (Review $review): bool => $review->isPublished())->values();
+        return $this->catalog()->published();
     }
 
     public function find(string $slug): ?Review
     {
-        return $this->all()->first(fn (Review $review): bool => $review->slug === $slug);
+        $review = $this->catalog()->find($slug);
+
+        if ($review instanceof Review && $review->bodyMarkdown !== '') {
+            return $review;
+        }
+
+        $file = $this->paths->content('reviews'.DIRECTORY_SEPARATOR.$slug.'.md');
+
+        if (! is_file($file)) {
+            return $review;
+        }
+
+        $document = YamlFrontMatter::parseFile($file);
+        $imported = Review::fromMatter($document->matter(), $document->body(), $file);
+        $this->catalog()->upsert($imported);
+
+        return $imported;
     }
 
     public function exists(string $slug): bool
     {
-        return $this->find($slug) !== null;
+        return $this->catalog()->exists($slug);
     }
 
     /**
@@ -62,7 +69,7 @@ final class ReviewRepository
     public function byBrand(string $brandSlug): Collection
     {
         return $this->published()
-            ->filter(fn (Review $review): bool => Str::slug($review->brand) === $brandSlug)
+            ->filter(fn (Review $review): bool => $review->brandSlug() === $brandSlug)
             ->values();
     }
 
@@ -72,7 +79,7 @@ final class ReviewRepository
     public function brands(): Collection
     {
         return $this->published()
-            ->groupBy(fn (Review $review): string => Str::slug($review->brand))
+            ->groupBy(fn (Review $review): string => $review->brandSlug())
             ->map(fn (Collection $reviews, string $slug): array => [
                 'slug' => $slug,
                 'name' => (string) $reviews->first()?->brand,
@@ -125,10 +132,14 @@ final class ReviewRepository
             ->values();
     }
 
-    private function hydrate(string $file): Review
+    public function catalog(): Catalog
     {
-        $document = YamlFrontMatter::parseFile($file);
+        $catalog = Catalog::open($this->paths);
 
-        return Review::fromMatter($document->matter(), $document->body(), $file);
+        if ($catalog->isEmpty()) {
+            (new CatalogSync($this->paths, $catalog))->run();
+        }
+
+        return $catalog;
     }
 }

@@ -13,7 +13,7 @@ class DryStandardPublish extends Command
         {--force : Ignore the weekly schedule}
         {--commit : Create a git commit after a successful build}';
 
-    protected $description = 'Validate a Dry Standard review, rebuild the site, and record publication.';
+    protected $description = 'Validate a Dry Standard review, sync the catalog, and record publication.';
 
     public function handle(): int
     {
@@ -51,7 +51,8 @@ class DryStandardPublish extends Command
         }
 
         if ($review->status !== 'published') {
-            $this->markPublished($review->sourcePath);
+            $this->markPublished($review);
+            $workspace->reviews()->catalog()->markStatus($review->slug, 'published');
         }
 
         $rebuild = $workspace->builder()->build();
@@ -86,8 +87,18 @@ class DryStandardPublish extends Command
         return self::SUCCESS;
     }
 
-    private function markPublished(string $path): void
+    private function markPublished(\DryStandard\Review $review): void
     {
+        $path = $review->sourcePath;
+
+        if (! is_file($path)) {
+            $path = \DryStandard\Paths::default()->content('reviews'.DIRECTORY_SEPARATOR.$review->slug.'.md');
+        }
+
+        if (! is_file($path)) {
+            return;
+        }
+
         $contents = File::get($path);
         $updated = preg_replace('/^status:\s*.+$/m', 'status: published', $contents, 1) ?? $contents;
         File::put($path, $updated);
@@ -112,7 +123,7 @@ class DryStandardPublish extends Command
         );
 
         if ($commitStatus !== 0) {
-            $this->warn('git commit skipped or failed. The site files were still written.');
+            $this->warn('git commit skipped or failed. The catalog was still updated.');
 
             return;
         }
