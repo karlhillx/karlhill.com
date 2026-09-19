@@ -7,9 +7,9 @@ use Illuminate\Support\Collection;
 
 final class Renderer
 {
-    private const CSS_VERSION = '10';
+    private const CSS_VERSION = '13';
 
-    private const JS_VERSION = '6';
+    private const JS_VERSION = '7';
 
     public function __construct(
         private readonly SiteConfig $config,
@@ -61,10 +61,19 @@ HTML;
      */
     public function home(Collection $reviews, Collection $guides, Collection $methods): string
     {
-        $latest = $reviews->take(4);
-        $highlyRated = $reviews->filter(fn (Review $review): bool => ($review->rating ?? 0) >= 85)
+        $featuredReview = $reviews
+            ->filter(fn (Review $review): bool => ($review->rating ?? 0) >= 85)
             ->sortByDesc(fn (Review $review): int => $review->rating ?? 0)
-            ->take(4);
+            ->first();
+        $featuredSlug = $featuredReview?->slug;
+        $latest = $reviews
+            ->reject(fn (Review $review): bool => $review->slug === $featuredSlug)
+            ->take(6);
+        $highlyRated = $reviews
+            ->filter(fn (Review $review): bool => ($review->rating ?? 0) >= 85)
+            ->sortByDesc(fn (Review $review): int => $review->rating ?? 0)
+            ->reject(fn (Review $review): bool => $review->slug === $featuredSlug)
+            ->take(3);
         $dealcoholized = $reviews->filter(fn (Review $review): bool => $review->dealcoholized === 'yes')->count();
 
         $categoryItems = [];
@@ -129,16 +138,18 @@ HTML;
                 ['value' => (string) $dealcoholized, 'label' => 'Dealcoholized', 'href' => $this->config->publicUrl('reviews/').'?dealcoholized=yes'],
                 ['value' => '0.5%', 'label' => 'ABV ceiling', 'href' => null],
             ],
+            'featured' => $featuredReview instanceof Review ? $this->featuredReview($featuredReview) : '',
             'categoryRail' => $this->view->render('partials/category-rail', [
                 'label' => 'Browse by category',
+                'variant' => 'tiles',
                 'items' => $categoryItems,
             ]),
             'processRail' => $this->view->render('partials/category-rail', [
                 'label' => 'Browse by process',
                 'items' => $processItems,
             ]),
-            'latestCards' => $this->reviewCards($latest, ledger: true),
-            'ratedCards' => $this->reviewCards($highlyRated, ledger: true),
+            'latestCards' => $this->reviewCards($latest, compact: true),
+            'ratedCards' => $this->reviewCards($highlyRated, compact: true),
             'methodCards' => $methodCards,
             'guideCards' => $guideCards,
         ]);
@@ -183,7 +194,7 @@ HTML;
         $empty = '<p class="empty" data-archive-empty>No published reviews in this section yet. Products can sit in the queue until the facts are good enough to print.</p>';
         $list = $reviews->isEmpty()
             ? $empty
-            : '<div class="ledger" data-review-grid>'.$this->reviewCards($reviews, ledger: true).'</div>'
+            : '<div class="card-grid" data-review-grid>'.$this->reviewCards($reviews, compact: true).'</div>'
                 .'<p class="empty" data-archive-empty hidden>No reviews match those filters.</p>';
 
         $archive = $filterable && $reviews->isNotEmpty()
@@ -250,7 +261,7 @@ HTML;
     ): string {
         $description = $page->summary !== '' ? $page->summary : $this->config->string('site.description');
         $related = $relatedReviews?->isNotEmpty()
-            ? $this->reviewCards($relatedReviews, ledger: true)
+            ? $this->reviewCards($relatedReviews, compact: true)
             : '';
 
         $body = $this->view->render('article', [
@@ -303,7 +314,7 @@ HTML;
             'description' => $description,
             'meta' => $meta,
             'breadcrumbs' => $this->breadcrumbs($crumbs),
-            'cards' => $this->reviewCards($brandReviews, ledger: true),
+            'cards' => $this->reviewCards($brandReviews, compact: true),
         ]);
 
         return $this->document($name, $description, $path, $body, [
@@ -436,7 +447,7 @@ HTML;
         };
         $bodyHtml = Markdown::toHtml($review->bodyMarkdown);
         $related = $relatedReviews?->isNotEmpty()
-            ? $this->reviewCards($relatedReviews, ledger: true)
+            ? $this->reviewCards($relatedReviews, compact: true)
             : '';
 
         $body = $this->view->render('review', [
@@ -784,9 +795,24 @@ XML;
         ]);
     }
 
-    private function reviewCards(Collection $reviews, bool $compact = false, bool $ledger = false): string
+    private function featuredReview(Review $review): string
     {
-        return $reviews->map(function (Review $review) use ($compact, $ledger): string {
+        $badge = '<span class="badge badge--'.Str::e($review->dealcoholized).'">'.Str::e($review->dealcoholizedShortLabel()).'</span>';
+
+        return $this->view->render('partials/featured-review', [
+            'href' => $this->config->publicUrl($review->path()),
+            'figure' => $this->productFigure($review, 'product-figure product-figure--feature', hero: true),
+            'brand' => '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brand).'</a>',
+            'title' => $review->title,
+            'summary' => $review->summary,
+            'score' => $review->rating !== null ? '<span class="card-score">'.$review->rating.'</span>' : '',
+            'badge' => $badge,
+        ]);
+    }
+
+    private function reviewCards(Collection $reviews, bool $compact = false): string
+    {
+        return $reviews->map(function (Review $review) use ($compact): string {
             $score = $review->rating !== null ? '<span class="card-score">'.$review->rating.'</span>' : '';
             $origin = $review->originLabel();
             $meta = trim($this->config->categoryLabel($review->category).($origin ? ' · '.$origin : ''));
@@ -805,27 +831,15 @@ XML;
             $thumb = $this->productFigure($review, 'product-figure product-figure--thumb');
             $brand = '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brand).'</a>';
 
-            if ($ledger) {
-                return $this->view->render('partials/ledger-row', [
-                    'attrs' => $attrs,
-                    'thumb' => $thumb,
-                    'brand' => $brand,
-                    'href' => $this->config->publicUrl($review->path()),
-                    'title' => $review->title,
-                    'meta' => $meta.' · '.$method,
-                    'badge' => $badge,
-                    'score' => $score,
-                ]);
-            }
-
             return $this->view->render('partials/review-card', [
                 'compact' => $compact,
                 'attrs' => $attrs,
                 'thumb' => $thumb,
+                'brand' => $brand,
                 'href' => $this->config->publicUrl($review->path()),
                 'title' => $review->title,
                 'summary' => $review->summary,
-                'meta' => $meta,
+                'meta' => $meta.($compact ? ' · '.$method : ''),
                 'badge' => $badge,
                 'score' => $score,
             ]);
@@ -1102,6 +1116,7 @@ XML;
             'src' => $src === null ? '' : $this->config->publicUrl($src),
             'alt' => $review->imageAltText(),
             'loading' => $hero ? 'eager' : 'lazy',
+            'priority' => $hero,
             'credit' => $hero && $review->imageCredit !== null
                 ? '<figcaption>'.$this->e($review->imageCredit).'</figcaption>'
                 : '',

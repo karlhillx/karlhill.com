@@ -1,5 +1,5 @@
 <?php if ($items !== []) { ?>
-      <nav class="category-rail" aria-label="<?= $view->e($label ?? 'Categories') ?>">
+      <nav class="category-rail<?= ! empty($variant) ? ' category-rail--'.$view->e($variant) : '' ?>" aria-label="<?= $view->e($label ?? 'Categories') ?>">
         <?php foreach ($items as $item) { ?>
         <a href="<?= $view->e($item['href']) ?>"<?= ! empty($item['current']) ? ' aria-current="page"' : '' ?>>
           <span><?= $view->e($item['label']) ?></span>

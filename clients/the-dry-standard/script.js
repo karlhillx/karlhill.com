@@ -17,6 +17,15 @@
       year.textContent = String(new Date().getFullYear());
     }
 
+    if (header) {
+      const onScroll = () => {
+        header.classList.toggle("is-scrolled", window.scrollY > 8);
+      };
+
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
+
     if (headerQuery) {
       const query = new URLSearchParams(window.location.search).get("q");
 

@@ -39,7 +39,7 @@ Internal data (not a public page):
 
 ## Design
 
-Cool paper, black masthead, Cormorant Garamond / Source Serif 4 / IBM Plex Sans. Reviews render as a wine-list ledger, not cards. Header search goes to `/reviews/?q=`. Filters stay in the URL. On small screens, archive filters open as a drawer; selected filters also appear as removable chips. Brand, guide, and method indexes are searchable directories. Review pages link the producer, method, and related bottles. Product stills live in `media/reviews/{slug}.jpg` and appear on the ledger, review hero, and Open Graph tags. Typography still carries the pages.
+Warm paper, espresso masthead, Fraunces / Figtree. The homepage opens with a featured bottle beside the masthead line; reviews render as a visual catalog with product stills, scores, and process badges. Header search goes to `/reviews/?q=`. Filters stay in the URL. On small screens, archive filters open as a drawer; selected filters also appear as removable chips. Brand, guide, and method indexes are searchable directories. Review pages link the producer, method, and related bottles. Product stills live in `media/reviews/{slug}.jpg` and appear on cards, the review hero, and Open Graph tags.
 
 HTML is assembled from reusable PHP views in `src/views/` and rendered live by Laravel. Edit those templates; do not add static `index.html` pages.
 

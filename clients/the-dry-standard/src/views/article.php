@@ -21,7 +21,7 @@
               'kicker' => 'From the cellar',
               'title' => $relatedHeading ?? 'Reviewed with this method',
           ]) ?>
-          <div class="ledger"><?= $related ?></div>
+          <div class="card-grid"><?= $related ?></div>
         </div>
       </section>
       <?php } ?>

@@ -1,11 +1,14 @@
   <header class="site-header" data-header>
     <div class="header-inner">
       <a class="logo" href="<?= $view->e($homeUrl) ?>"<?= $homeCurrent ? ' aria-current="page"' : '' ?>>
-        <img src="<?= $view->e($markUrl) ?>" alt="" width="18" height="18">
+        <img src="<?= $view->e($markUrl) ?>" alt="" width="22" height="22">
         <span>The Dry Standard</span>
       </a>
       <form class="header-search" action="<?= $view->e($searchUrl) ?>" method="get" role="search">
         <label class="visually-hidden" for="header-q">Search reviews</label>
+        <span class="header-search-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.25" stroke="currentColor" stroke-width="1.4"/><path d="M10.2 10.2 13.5 13.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </span>
         <input id="header-q" type="search" name="q" placeholder="Search the cellar" autocomplete="off" data-header-q>
       </form>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>

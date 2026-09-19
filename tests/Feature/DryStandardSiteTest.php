@@ -153,7 +153,7 @@ it('builds a searchable review archive', function () {
         ->assertOk()
         ->assertSee('header-search', escape: false)
         ->assertSee('Search the cellar', escape: false)
-        ->assertSee('ledger-row', escape: false);
+        ->assertSee('review-card', escape: false);
 
     $this->get('/clients/the-dry-standard/reviews/')
         ->assertOk()
@@ -169,7 +169,7 @@ it('builds a searchable review archive', function () {
         ->assertDontSee('data-facet="partials/facet-group"', escape: false)
         ->assertSee('data-abv=', escape: false)
         ->assertSee('data-search=', escape: false)
-        ->assertSee('ledger-row', escape: false);
+        ->assertSee('review-card', escape: false);
 
     $this->get('/clients/the-dry-standard/reviews/wine/')
         ->assertOk()

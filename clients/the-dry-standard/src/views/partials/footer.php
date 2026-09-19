@@ -2,7 +2,7 @@
     <div class="shell footer-grid">
       <div>
         <p class="logo-text">The Dry Standard</p>
-        <p>Independent reviews of dealcoholized beer, wine, spirits, and cocktails at 0.5% ABV or less.</p>
+        <p>Independent reviews of dealcoholized beer, wine, spirits, and cocktails at 0.5% ABV or less. We score what remains in the glass — not the lifestyle around it.</p>
       </div>
       <div>
         <p class="footer-label">The cellar</p>

@@ -1,12 +1,15 @@
     <section class="hero">
-      <div class="shell hero-inner">
-        <p class="kicker">Independent reviews</p>
-        <h1>The standard for what remains after the alcohol is gone.</h1>
-        <p class="lede"><?= $view->e($tagline) ?> We review beverages at 0.5% ABV or less, and we separate products that were actually dealcoholized from those formulated to imitate a drink.</p>
-        <div class="hero-actions">
-          <a class="btn" href="<?= $view->e($reviewsUrl) ?>">Read the reviews</a>
-          <a class="btn btn--ghost" href="<?= $view->e($aboutUrl) ?>">Editorial method</a>
+      <div class="shell hero-inner<?= $featured !== '' ? ' hero-inner--split' : '' ?>">
+        <div class="hero-copy">
+          <p class="kicker">Independent reviews</p>
+          <h1>The standard for what remains after the alcohol is gone.</h1>
+          <p class="lede"><?= $view->e($tagline) ?> We review beverages at 0.5% ABV or less, and we separate products that were actually dealcoholized from those formulated to imitate a drink.</p>
+          <div class="hero-actions">
+            <a class="btn" href="<?= $view->e($reviewsUrl) ?>">Browse the cellar</a>
+            <a class="btn btn--ghost" href="<?= $view->e($aboutUrl) ?>">Editorial method</a>
+          </div>
         </div>
+        <?= $featured ?>
       </div>
     </section>
     <section class="band">
@@ -26,13 +29,17 @@
         <?php } ?>
       </div>
     </section>
-    <section class="section section--tight">
+    <section class="section">
       <div class="shell stack">
+        <?= $view->render('partials/section-head', [
+            'kicker' => 'Browse',
+            'title' => 'Find a bottle by what it is',
+        ]) ?>
         <?= $categoryRail ?>
         <?= $processRail ?>
       </div>
     </section>
-    <section class="section">
+    <section class="section section--paper">
       <div class="shell stack">
         <?= $view->render('partials/section-head', [
             'kicker' => 'Latest Reviews',
@@ -40,10 +47,10 @@
             'href' => $reviewsUrl,
             'linkLabel' => 'All reviews',
         ]) ?>
-        <div class="ledger"><?= $latestCards ?></div>
+        <div class="card-grid"><?= $latestCards ?></div>
       </div>
     </section>
-    <section class="section section--paper">
+    <section class="section">
       <div class="shell stack">
         <?= $view->render('partials/section-head', [
             'kicker' => 'Highly Rated',
@@ -51,7 +58,7 @@
             'href' => $reviewsUrl.'?sort=rating',
             'linkLabel' => 'Highest rated',
         ]) ?>
-        <div class="ledger"><?= $ratedCards ?></div>
+        <div class="card-grid card-grid--compact"><?= $ratedCards ?></div>
       </div>
     </section>
     <section class="section section--ink">

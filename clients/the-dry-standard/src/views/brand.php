@@ -11,6 +11,6 @@
     </header>
     <section class="section">
       <div class="shell">
-        <div class="ledger"><?= $cards ?></div>
+        <div class="card-grid"><?= $cards ?></div>
       </div>
     </section>

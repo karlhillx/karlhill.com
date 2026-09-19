@@ -5,7 +5,7 @@
           <p class="kicker"><?= $view->e($categoryLabel) ?></p>
           <div class="review-hero">
             <?= $figure ?>
-            <div>
+            <div class="review-hero-copy">
               <h1><?= $view->e($title) ?></h1>
               <?= $metaLine ?>
               <p class="lede"><?= $view->e($summary) ?></p>
@@ -56,7 +56,7 @@
               'href' => $reviewsUrl,
               'linkLabel' => 'All reviews',
           ]) ?>
-          <div class="ledger"><?= $related ?></div>
+          <div class="card-grid"><?= $related ?></div>
         </div>
       </section>
       <?php } ?>
