@@ -1267,16 +1267,31 @@ XML;
 
         $methodKey = $review->methodKey();
         if ($review->methodFacetKey() === 'not-applicable') {
-            $peek[] = ['label' => 'Method', 'value' => 'Formulated, not removed'];
+            $peek[] = ['label' => 'Method', 'value' => 'Formulated'];
         } elseif ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)) {
             $peek[] = [
                 'label' => 'Method',
-                'value' => $review->methodCardLabel(),
+                'value' => $this->peekMethodLabel($review),
                 'href' => $this->config->publicUrl('methods/'.$methodKey.'/'),
             ];
         }
 
         return $peek;
+    }
+
+    private function peekMethodLabel(Review $review): string
+    {
+        return match ($review->methodFacetKey()) {
+            'membrane-filtration' => 'Cold filtration',
+            'vacuum-distillation' => 'Vacuum',
+            'reverse-osmosis' => 'Reverse osmosis',
+            'spinning-cone' => 'Spinning cone',
+            'osmotic-distillation' => 'Osmotic',
+            'arrested-fermentation' => 'Arrested',
+            'not-applicable' => 'Formulated',
+            'other' => 'Other method',
+            default => $review->methodCardLabel(),
+        };
     }
 
     private function tasting(Review $review): string

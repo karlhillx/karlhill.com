@@ -60,7 +60,7 @@ it('serves sourced sample reviews with production-type badges', function () {
         ->assertOk()
         ->assertSee('Production type: Alternative', escape: false)
         ->assertSee('Formulated as a zero-proof alternative', escape: false)
-        ->assertSee('Formulated, not removed', escape: false)
+        ->assertSee('class="identity-value">Formulated</span>', escape: false)
         ->assertSee('lyres.com/pages/faqs', escape: false)
         ->assertDontSee('abv, method', escape: false)
         ->assertDontSee('class="source-claims"', escape: false);

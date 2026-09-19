@@ -1272,6 +1272,11 @@ a.stat:hover strong {
   box-shadow: var(--shadow);
 }
 
+.review-hero-copy {
+  min-width: 0;
+  container-type: inline-size;
+}
+
 .review-hero .product-figure--hero {
   padding: 0.75rem;
   border-radius: var(--radius-sm);
@@ -1837,38 +1842,80 @@ a.stat:hover strong {
   margin-right: 0;
 }
 
-.identity {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(7.2rem, 1fr));
-  gap: 0.75rem 1.1rem;
-  margin: 1rem 0 0.75rem;
-  padding: 0.95rem 1rem;
-  list-style: none;
-  background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.95), rgba(232, 225, 210, 0.42));
+.identity-block {
+  margin: 0.65rem 0 0;
+  padding: 0.5rem 0.7rem 0.45rem;
+  overflow: hidden;
   border: 1px solid var(--rule);
   border-radius: var(--radius-sm);
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
+  background: color-mix(in srgb, var(--paper-deep) 42%, var(--surface));
 }
 
-.identity li span {
+.identity {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.28rem 1.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  line-height: 1.2;
+}
+
+.identity li {
+  min-width: 0;
+}
+
+.identity li span:first-child {
   display: block;
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
+  margin-bottom: 0.06rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
+.identity-value,
 .identity a {
+  display: block;
+  overflow: hidden;
   color: inherit;
+  font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+
+.identity a:hover {
+  color: var(--claret);
+}
+
+.identity-foot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  padding-top: 0.32rem;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 75%, transparent);
+}
+
+.identity-foot .badge {
+  margin: 0;
 }
 
 .identity-verified {
-  margin: 0.2rem 0 0;
+  margin: 0;
   font-family: var(--font-sans);
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   color: var(--muted);
+}
+
+@container (min-width: 36rem) {
+  .identity {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.12rem 0.9rem;
+  }
 }
 
 [data-archive][aria-busy="true"] {
