@@ -75,7 +75,7 @@ $selected = static fn (string $key, string $want): bool => $value($key) === $wan
               </label>
             </div>
           </fieldset>
-          <p class="fine-print">We will not publish this form as a review. <?php if (! empty($editorMailto)) { ?>We reply within three business days from <a href="<?= $view->e($editorMailto) ?>"><?= $view->e($editorEmail) ?></a>. <?php } ?>See <a href="<?= $view->e($samplesUrl) ?>">editorial sample policy</a>.</p>
+          <p class="fine-print">We will not publish this form as a review. <?php if (! empty($editorMailto)) { ?>We reply within three business days from <a href="<?= $view->e($editorMailto) ?>"><?= $view->e($editorEmail) ?></a>. <?php } ?>See the <a href="<?= $view->e($samplesUrl) ?>">editorial sample policy</a> and <a href="<?= $view->e($privacyUrl) ?>">privacy policy</a>.</p>
           <p><button class="btn" type="submit">Send for editorial consideration</button></p>
         </form>
       </div>

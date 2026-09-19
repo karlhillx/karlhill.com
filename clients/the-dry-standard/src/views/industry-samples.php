@@ -18,6 +18,7 @@
         <h2>How to send a product</h2>
         <p>Start with the <a href="<?= $view->e($submitUrl) ?>">product submission form</a>. If a sample is useful, we reply within three business days<?php if (! empty($editorMailto)) { ?> from <a href="<?= $view->e($editorMailto) ?>"><?= $view->e($editorEmail) ?></a><?php } ?> with shipping instructions. We do not publish a receiving address on this page.</p>
         <p>Please wait for that reply before shipping. Unsolicited parcels without a matching submission may be refused.</p>
+        <p>How we store form mail is in the <a href="<?= $view->e($privacyUrl) ?>">privacy policy</a>.</p>
         <p><a href="<?= $view->e($industryUrl) ?>">Back to For Brands &amp; Industry</a></p>
       </div>
     </section>

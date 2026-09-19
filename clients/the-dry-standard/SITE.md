@@ -20,6 +20,7 @@ Public base: `/clients/the-dry-standard/`
 | `/best/` | Highest-rated bottles, generated from the catalog |
 | `/best/{category}/` | Category best-of, scores 80+ |
 | `/about/` | Mission and scoring |
+| `/privacy/` | Privacy policy |
 | `/industry/` | For Brands & Industry; named editor and three-business-day reply SLA |
 | `/industry/submit/` | Product submission (editorial queue, not auto-published) |
 | `/industry/samples/` | Sample policy; shipping details by reply |

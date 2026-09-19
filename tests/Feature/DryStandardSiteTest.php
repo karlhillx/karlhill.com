@@ -29,6 +29,7 @@ it('serves the Dry Standard homepage and primary sections', function () {
         '/clients/the-dry-standard/brands/',
         '/clients/the-dry-standard/methods/',
         '/clients/the-dry-standard/about/',
+        '/clients/the-dry-standard/privacy/',
         '/clients/the-dry-standard/styles/',
         '/clients/the-dry-standard/industry/',
         '/clients/the-dry-standard/industry/samples/',
@@ -73,7 +74,8 @@ it('exposes a feed, sitemap, and catalog for the client site', function () {
     expect($sitemap->getContent())->toContain('reviews/wine/leitz-eins-zwei-zero-riesling')
         ->and($sitemap->getContent())->toContain('best/')
         ->and($sitemap->getContent())->toContain('styles/riesling')
-        ->and($sitemap->getContent())->toContain('industry/submit');
+        ->and($sitemap->getContent())->toContain('industry/submit')
+        ->and($sitemap->getContent())->toContain('privacy/');
 
     $catalogResponse = $this->get('/clients/the-dry-standard/catalog.json')->assertOk();
     $catalog = json_decode($catalogResponse->getContent(), true, flags: JSON_THROW_ON_ERROR);
@@ -233,6 +235,15 @@ it('hides source claim tokens and ships search + share metadata', function () {
     $this->get('/clients/the-dry-standard/about/')
         ->assertOk()
         ->assertSee('How published scores sit on the 100-point scale', escape: false);
+
+    $this->get('/clients/the-dry-standard/privacy/')
+        ->assertOk()
+        ->assertSee('Privacy policy', escape: false)
+        ->assertSee('drinkdrystandard@gmail.com', escape: false)
+        ->assertSee('session cookie', escape: false)
+        ->assertSee('not published automatically', escape: false)
+        ->assertSee('"@type":"PrivacyPolicy"', escape: false)
+        ->assertDontSee('Google Analytics', escape: false);
 
     $this->get('/clients/the-dry-standard/best/')
         ->assertOk()

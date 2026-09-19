@@ -79,7 +79,7 @@ Research tools may help assemble sources. They do not invent a spinning cone, an
 
 ## What this is not
 
-This is not a shop. There are no carts and no accounts. Purchase links are citations of where a bottle has been sold, not endorsements of a retailer.
+This is not a shop. There are no carts and no accounts. Purchase links are citations of where a bottle has been sold, not endorsements of a retailer. How we handle industry forms is in the [privacy policy](privacy/).
 
 ## For brands and industry
 

@@ -193,6 +193,16 @@ final class Site
             );
         }
 
+        if ($path === 'privacy') {
+            return $renderer->articlePage(
+                PageDocument::load($this->paths->content('pages/privacy.md')),
+                'privacy/',
+                $renderer->crumbs(['Privacy' => 'privacy/']),
+                'Legal',
+                'privacy',
+            );
+        }
+
         if ($path === 'industry') {
             return $renderer->industryHome();
         }

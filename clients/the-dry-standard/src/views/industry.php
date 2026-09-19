@@ -26,6 +26,6 @@
             <p>Advertising, distribution, product feeds, and other partnerships — without a pitch deck on the public site.</p>
           </a>
         </div>
-        <p class="fine-print">Readers looking for methodology can start with <a href="<?= $view->e($aboutUrl) ?>">About</a>. This page is the front desk for companies.</p>
+        <p class="fine-print">Readers looking for methodology can start with <a href="<?= $view->e($aboutUrl) ?>">About</a>. How we handle form mail is in the <a href="<?= $view->e($privacyUrl) ?>">privacy policy</a>. This page is the front desk for companies.</p>
       </div>
     </section>

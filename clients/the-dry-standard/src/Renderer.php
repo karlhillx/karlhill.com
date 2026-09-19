@@ -379,7 +379,7 @@ HTML;
             'json_ld' => $this->jsonLd([
                 $this->breadcrumbGraph($crumbs),
                 [
-                    '@type' => 'Article',
+                    '@type' => $page->slug === 'privacy' ? 'PrivacyPolicy' : 'Article',
                     'headline' => $page->title,
                     'description' => $description,
                     'url' => $this->config->canonicalUrl($path),
@@ -687,6 +687,7 @@ HTML;
             $this->sitemapUrl('methods/', 'monthly', '0.6'),
             $this->sitemapUrl('styles/', 'weekly', '0.6'),
             $this->sitemapUrl('about/', 'monthly', '0.5'),
+            $this->sitemapUrl('privacy/', 'yearly', '0.2'),
             $this->sitemapUrl('best/', 'weekly', '0.7'),
             $this->sitemapUrl('industry/', 'monthly', '0.4'),
             $this->sitemapUrl('industry/submit/', 'monthly', '0.4'),
@@ -884,6 +885,7 @@ XML;
             'methodsUrl' => $this->config->publicUrl('methods/'),
             'brandsUrl' => $this->config->publicUrl('brands/'),
             'aboutUrl' => $this->config->publicUrl('about/'),
+            'privacyUrl' => $this->config->publicUrl('privacy/'),
             'feedUrl' => $this->config->publicUrl('feed.xml'),
             'bestUrl' => $this->config->publicUrl('best/'),
             'stylesUrl' => $this->config->publicUrl('styles/'),
@@ -1784,6 +1786,7 @@ XML;
             'samplesUrl' => $this->config->publicUrl('industry/samples/'),
             'partnershipsUrl' => $this->config->publicUrl('industry/partnerships/'),
             'aboutUrl' => $this->config->publicUrl('about/'),
+            'privacyUrl' => $this->config->publicUrl('privacy/'),
             'editorDesk' => $this->editorDesk(),
         ]);
 
@@ -1816,6 +1819,7 @@ XML;
             'breadcrumbs' => $this->breadcrumbs($crumbs),
             'submitUrl' => $this->config->publicUrl('industry/submit/'),
             'industryUrl' => $this->config->publicUrl('industry/'),
+            'privacyUrl' => $this->config->publicUrl('privacy/'),
             ...$this->editorViewData(),
         ]);
 
@@ -1863,6 +1867,7 @@ XML;
             'industryUrl' => $this->config->publicUrl('industry/'),
             'samplesUrl' => $this->config->publicUrl('industry/samples/'),
             'submitUrl' => $this->config->publicUrl('industry/submit/'),
+            'privacyUrl' => $this->config->publicUrl('privacy/'),
             'categories' => array_map(
                 fn (string $category): array => [
                     'value' => $category,

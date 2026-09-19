@@ -21,6 +21,7 @@
         <a href="<?= $view->e($methodsUrl) ?>">Methods</a>
         <a href="<?= $view->e($brandsUrl) ?>">Brands</a>
         <a href="<?= $view->e($aboutUrl) ?>">About &amp; methodology</a>
+        <a href="<?= $view->e($privacyUrl) ?>">Privacy</a>
         <a href="<?= $view->e($bestUrl) ?>">Best of the cellar</a>
         <a href="<?= $view->e($feedUrl) ?>">RSS</a>
       </div>
