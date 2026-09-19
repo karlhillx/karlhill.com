@@ -60,10 +60,18 @@ final class ReviewQueue
             'status' => (string) ($item['status'] ?? 'queued'),
             'notes' => (string) ($item['notes'] ?? ''),
         ];
-        $code = trim((string) ($item['id'] ?? $item['sku'] ?? ''));
+        $code = trim((string) ($item['id'] ?? ''));
+        $ean = trim((string) ($item['ean'] ?? ''));
 
-        if ($code !== '') {
-            $row = ['product' => $product, 'id' => $code, 'sku' => $code, ...array_slice($row, 1)];
+        if ($code !== '' || $ean !== '') {
+            $identifiers = ['product' => $product];
+            if ($code !== '') {
+                $identifiers['id'] = $code;
+            }
+            if ($ean !== '') {
+                $identifiers['ean'] = $ean;
+            }
+            $row = [...$identifiers, ...array_slice($row, 1)];
         }
 
         $items[] = $row;

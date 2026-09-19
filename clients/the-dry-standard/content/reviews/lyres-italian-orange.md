@@ -2,7 +2,6 @@
 title: "Lyre's Italian Orange"
 slug: lyres-italian-orange
 id: TDS-0099
-sku: TDS-0099
 brand: Lyre's
 product: Italian Orange
 category: cocktails

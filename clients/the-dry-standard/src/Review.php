@@ -70,7 +70,7 @@ final class Review
         public readonly ?string $imageAlt = null,
         public readonly ?string $imageCredit = null,
         public readonly ?string $id = null,
-        public readonly ?string $sku = null,
+        public readonly ?string $ean = null,
     ) {}
 
     /**
@@ -129,8 +129,8 @@ final class Review
             image: self::nullableString($matter['image'] ?? null),
             imageAlt: self::nullableString($matter['image_alt'] ?? null),
             imageCredit: self::nullableString($matter['image_credit'] ?? null),
-            id: self::nullableString($matter['id'] ?? $matter['sku'] ?? null),
-            sku: self::nullableString($matter['sku'] ?? $matter['id'] ?? null),
+            id: self::nullableString($matter['id'] ?? null),
+            ean: self::nullableString($matter['ean'] ?? null),
         );
     }
 

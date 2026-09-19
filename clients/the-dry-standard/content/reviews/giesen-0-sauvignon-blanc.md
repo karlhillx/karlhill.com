@@ -2,7 +2,6 @@
 title: "Giesen 0% Sauvignon Blanc"
 slug: giesen-0-sauvignon-blanc
 id: TDS-0054
-sku: TDS-0054
 brand: Giesen
 product: 0% Sauvignon Blanc
 category: wine

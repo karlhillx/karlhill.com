@@ -2,7 +2,6 @@
 title: "Leitz Eins-Zwei-Zero Riesling"
 slug: leitz-eins-zwei-zero-riesling
 id: TDS-0096
-sku: TDS-0096
 brand: Leitz
 product: Eins-Zwei-Zero Riesling
 category: wine

@@ -2,7 +2,6 @@
 title: "Thomson & Scott Noughty Sparkling Chardonnay"
 slug: noughty-sparkling-chardonnay
 id: TDS-0098
-sku: TDS-0098
 brand: Thomson & Scott
 product: Noughty Sparkling Chardonnay
 category: wine

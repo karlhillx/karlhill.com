@@ -43,7 +43,7 @@ it('serves sourced sample reviews with dealcoholized badges', function () {
         ->assertSee('application/ld+json', escape: false)
         ->assertDontSee('TDS-0096', escape: false)
         ->assertDontSee('<dt>ID</dt>', escape: false)
-        ->assertDontSee('<dt>SKU</dt>', escape: false);
+        ->assertDontSee('<dt>EAN</dt>', escape: false);
 
     $this->get('/clients/the-dry-standard/reviews/cocktails/lyres-italian-orange/')
         ->assertOk()
@@ -64,7 +64,7 @@ it('exposes a feed, sitemap, and catalog for the client site', function () {
     expect($catalog['facets']['categories'])->toContain('wine');
     expect($catalog['reviews'][0])->toHaveKeys(['brand_slug', 'method_slug', 'origin', 'search_text', 'image']);
     expect($catalog['reviews'][0])->not->toHaveKey('id');
-    expect($catalog['reviews'][0])->not->toHaveKey('sku');
+    expect($catalog['reviews'][0])->not->toHaveKey('ean');
 });
 
 it('serves product stills on reviews and the archive', function () {
@@ -89,7 +89,7 @@ it('keeps a master product table without duplicating published reviews', functio
     $rows = array_map(fn (string $line): array => str_getcsv($line), file($path, FILE_IGNORE_NEW_LINES) ?: []);
     expect($rows[0])->toBe([
         'ID',
-        'SKU',
+        'EAN',
         'Product',
         'Brand',
         'Category',
@@ -104,11 +104,14 @@ it('keeps a master product table without duplicating published reviews', functio
     expect(count($rows))->toBeGreaterThan(90);
 
     $ids = array_column(array_slice($rows, 1), 0);
-    $skus = array_column(array_slice($rows, 1), 1);
+    $eans = array_column(array_slice($rows, 1), 1);
     $products = array_column(array_slice($rows, 1), 2);
-    expect($ids)->toBe($skus);
+    $byProduct = array_combine($products, $eans);
     expect($ids)->each->toStartWith('TDS-');
     expect(count($ids))->toBe(count(array_unique($ids)));
+    expect($byProduct['Be Free Rose Non-Alcoholic Wine'])->toBe('4003301079788');
+    expect($byProduct['Appalina Alcohol Free Chardonnay'])->toBe('4049366003207');
+    expect($byProduct['Be Free White Sparkling Non-Alcoholic Wine'])->toBe('4003301080005');
     expect($products)->toContain('Be Free Rose Non-Alcoholic Wine');
     expect(count($products))->toBe(count(array_unique($products)));
 

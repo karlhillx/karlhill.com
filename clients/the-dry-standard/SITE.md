@@ -24,7 +24,7 @@ Internal data (not a public page):
 
 | Path | Purpose |
 | --- | --- |
-| `data/master-products.csv` | Master product table: one row per unique product, with internal `ID` and `SKU` columns (currently the same value), sorted by times purchased. Neither is shown on the public site. |
+| `data/master-products.csv` | Master product table: one row per unique product, with an internal `ID` and a sourced `EAN` when known, sorted by times purchased. Neither is shown on the public site. |
 | `data/review-queue.yaml` | Review pipeline. Published SKUs stay marked published so they are not drafted twice |
 
 ## Sample reviews

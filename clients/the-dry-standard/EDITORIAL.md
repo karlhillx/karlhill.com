@@ -42,7 +42,7 @@ Save one editorial still per review at `media/reviews/{slug}.jpg` (3:4, bottle o
 
 ## Sources
 
-`id` is our internal product identifier from `data/master-products.csv`. `sku` currently duplicates `id`. Store both in frontmatter when known. Do not print them on the public site.
+`id` is our internal product identifier from `data/master-products.csv`. `ean` is a sourced barcode when we have one. Do not invent either. Do not print them on the public site.
 
 Every factual field in frontmatter must be listed under a source `claims` array. Allowed claim tokens include `abv`, `method`, `origin`, `producer`, `ingredients`, `calories`, `sugar`, `price`, `availability`, `volume`, `dealcoholized`, `base_beverage`, `country`, `region`.
 

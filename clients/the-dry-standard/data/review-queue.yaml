@@ -1,6 +1,5 @@
 - product: Athletic Brewing Run Wild IPA
   id: TDS-0101
-  sku: TDS-0101
   brand: Athletic Brewing
   category: beer
   priority: high
@@ -9,7 +8,6 @@
 
 - product: Sober Spirits Whisky
   id: TDS-0102
-  sku: TDS-0102
   brand: Sober Spirits
   category: spirits
   priority: high
@@ -18,7 +16,6 @@
 
 - product: Heineken 0.0
   id: TDS-0103
-  sku: TDS-0103
   brand: Heineken
   category: beer
   priority: normal
@@ -27,7 +24,7 @@
 
 - product: Be Free Rose Non-Alcoholic Wine
   id: TDS-0001
-  sku: TDS-0001
+  ean: 4003301079788
   brand: Be Free
   category: wine
   priority: high
@@ -43,7 +40,6 @@
 
 - product: Magic Box Vanish Non-Alcoholic Riesling
   id: TDS-0002
-  sku: TDS-0002
   brand: Magic Box
   category: wine
   priority: high
@@ -59,7 +55,7 @@
 
 - product: Appalina Alcohol Free Chardonnay
   id: TDS-0003
-  sku: TDS-0003
+  ean: 4049366003207
   brand: Appalina
   category: wine
   priority: high
@@ -75,7 +71,7 @@
 
 - product: Be Free White Sparkling Non-Alcoholic Wine
   id: TDS-0004
-  sku: TDS-0004
+  ean: 4003301080005
   brand: Be Free
   category: wine
   priority: high
@@ -91,7 +87,6 @@
 
 - product: "Halfway Crooks Non-Alcoholic IPA \"Brevet\""
   id: TDS-0005
-  sku: TDS-0005
   brand: Halfway Crooks Beer
   category: beer
   priority: high
@@ -107,7 +102,6 @@
 
 - product: Be Free Chardonnay Non-Alcoholic Wine
   id: TDS-0006
-  sku: TDS-0006
   brand: Be Free
   category: wine
   priority: high
@@ -123,7 +117,6 @@
 
 - product: "Giesen 0% Non-Alcoholic Riesling"
   id: TDS-0007
-  sku: TDS-0007
   brand: Giesen
   category: wine
   priority: high
@@ -139,7 +132,6 @@
 
 - product: "Halfway Crooks Non-Alcoholic Pilsner \"Brevet\""
   id: TDS-0008
-  sku: TDS-0008
   brand: Halfway Crooks Beer
   category: beer
   priority: high
@@ -155,7 +147,6 @@
 
 - product: DC Brau Non-Alcoholic Pale Ale
   id: TDS-0009
-  sku: TDS-0009
   brand: DC Brau Brewing Co.
   category: beer
   priority: normal
@@ -171,7 +162,6 @@
 
 - product: Clearscape Non-Alcoholic Rose
   id: TDS-0010
-  sku: TDS-0010
   brand: Clearscape
   category: wine
   priority: normal
@@ -187,7 +177,6 @@
 
 - product: Freixenet Non-Alcoholic Sparkling Rose
   id: TDS-0011
-  sku: TDS-0011
   brand: Freixenet
   category: wine
   priority: normal
@@ -203,7 +192,6 @@
 
 - product: Almost Zero Ravishing Rose Non-Alcoholic Wine
   id: TDS-0012
-  sku: TDS-0012
   brand: Almost Zero
   category: wine
   priority: normal
@@ -219,7 +207,6 @@
 
 - product: Savyll Non-Alcoholic Moscow Mule
   id: TDS-0013
-  sku: TDS-0013
   brand: Savyll
   category: cocktails
   priority: normal
@@ -235,7 +222,6 @@
 
 - product: "90+ Cellars Alcohol-Removed Sparkling Rosé \"Lot 229\""
   id: TDS-0014
-  sku: TDS-0014
   brand: 90+ Cellars
   category: wine
   priority: normal
@@ -251,7 +237,6 @@
 
 - product: Lagunitas Non-Alcoholic Hazy IPNA
   id: TDS-0015
-  sku: TDS-0015
   brand: Lagunitas
   category: beer
   priority: normal
@@ -267,7 +252,6 @@
 
 - product: "Josef Leitz Non-Alcoholic Sparkling Riesling \"Eins Zwei Zero\""
   id: TDS-0016
-  sku: TDS-0016
   brand: Weingut Leitz
   category: wine
   priority: normal
@@ -283,7 +267,6 @@
 
 - product: Dr. Heidemanns Bergweiler Non-Alcoholic Riesling
   id: TDS-0017
-  sku: TDS-0017
   brand: Dr. Heidemanns Bergweiler
   category: wine
   priority: normal
@@ -299,7 +282,6 @@
 
 - product: "Giesen 0% Non-Alcoholic Rose"
   id: TDS-0018
-  sku: TDS-0018
   brand: Giesen
   category: wine
   priority: normal
@@ -315,7 +297,6 @@
 
 - product: Band of Vintners Freestyle Non-Alcoholic Skin-Contact Wine
   id: TDS-0019
-  sku: TDS-0019
   brand: Band of Vintners
   category: wine
   priority: normal
@@ -331,7 +312,6 @@
 
 - product: Kolonne Null Non-Alcoholic Riesling
   id: TDS-0020
-  sku: TDS-0020
   brand: Kolonne Null
   category: wine
   priority: normal
@@ -347,7 +327,6 @@
 
 - product: Clearscape Non-Alcoholic Chardonnay
   id: TDS-0021
-  sku: TDS-0021
   brand: Clearscape
   category: wine
   priority: normal
@@ -363,7 +342,6 @@
 
 - product: Be Free Sauvignon Blanc Non-Alcoholic Wine
   id: TDS-0022
-  sku: TDS-0022
   brand: Be Free
   category: wine
   priority: normal
@@ -379,7 +357,6 @@
 
 - product: "Miguel Torres Non-Alcoholic Sauvignon Blanc \"Serena\""
   id: TDS-0023
-  sku: TDS-0023
   brand: Familia Torres (Natureo line)
   category: wine
   priority: normal
@@ -395,7 +372,6 @@
 
 - product: Rondel Zero Cava Rose Non-Alcoholic Wine
   id: TDS-0024
-  sku: TDS-0024
   brand: Rondel
   category: wine
   priority: normal
@@ -411,7 +387,6 @@
 
 - product: Wolffer Spring in a Bottle Alcohol Removed Rose Sparkling
   id: TDS-0025
-  sku: TDS-0025
   brand: Wolffer Estate
   category: wine
   priority: low
@@ -427,7 +402,6 @@
 
 - product: Biagio Cru Non-Alcoholic Rose All Day
   id: TDS-0026
-  sku: TDS-0026
   brand: Biagio Cru
   category: wine
   priority: low
@@ -443,7 +417,6 @@
 
 - product: Noughty Dealcoholized Rosé
   id: TDS-0027
-  sku: TDS-0027
   brand: "Noughty (Thomson & Scott)"
   category: wine
   priority: low
@@ -459,7 +432,6 @@
 
 - product: WiesenObst Cider Rosé Non-Alcoholic Cider
   id: TDS-0028
-  sku: TDS-0028
   brand: Jörg Geiger
   category: cider
   priority: low
@@ -475,7 +447,6 @@
 
 - product: Grad 36° Non-Alcoholic Wine
   id: TDS-0029
-  sku: TDS-0029
   brand: Jörg Geiger
   category: wine
   priority: low
@@ -491,7 +462,6 @@
 
 - product: Lautus Non-Alcoholic Wine Bundle
   id: TDS-0030
-  sku: TDS-0030
   brand: Lautus
   category: wine
   priority: low
@@ -507,7 +477,6 @@
 
 - product: Mionetto Non Alcoholic Italy White Wine
   id: TDS-0031
-  sku: TDS-0031
   brand: Mionetto
   category: wine
   priority: low
@@ -523,7 +492,6 @@
 
 - product: Crodino Non-Alcoholic Spritz
   id: TDS-0032
-  sku: TDS-0032
   brand: Crodino (Campari Group)
   category: cocktails
   priority: low
@@ -539,7 +507,6 @@
 
 - product: "90+ Cellars Alcohol-Removed Sparkling Brut \"Lot 230\""
   id: TDS-0033
-  sku: TDS-0033
   brand: 90+ Cellars
   category: wine
   priority: low
@@ -555,7 +522,6 @@
 
 - product: "Lyre's \"Amalfi Spritz\" Non-Alcoholic Canned Cocktail"
   id: TDS-0034
-  sku: TDS-0034
   brand: "Lyre's"
   category: cocktails
   priority: low
@@ -571,7 +537,6 @@
 
 - product: Best Day Brewing Kölsch Non-Alcoholic Beer
   id: TDS-0035
-  sku: TDS-0035
   brand: Best Day Brewing
   category: beer
   priority: low
@@ -587,7 +552,6 @@
 
 - product: "HOP WTR Sparkling Hop Water, Blood Orange, Non-Alcoholic"
   id: TDS-0036
-  sku: TDS-0036
   brand: HOP WTR
   category: beer
   priority: low
@@ -603,7 +567,6 @@
 
 - product: Original Sin Non-Alcoholic Cider Mix Pack (Golden/White/Dragon Widow)
   id: TDS-0037
-  sku: TDS-0037
   brand: Original Sin Cider
   category: cider
   priority: low
@@ -619,7 +582,6 @@
 
 - product: "St. Agrestis \"Phony Negroni\" Non-Alcoholic Negroni Cocktail"
   id: TDS-0038
-  sku: TDS-0038
   brand: St. Agrestis
   category: cocktails
   priority: low
@@ -635,7 +597,6 @@
 
 - product: French Bloom Le Blanc Non-Alcoholic Sparkling Wine
   id: TDS-0039
-  sku: TDS-0039
   brand: French Bloom
   category: wine
   priority: low
@@ -651,7 +612,6 @@
 
 - product: "Lapo's Non-Alcoholic Negroni"
   id: TDS-0040
-  sku: TDS-0040
   brand: "Lapo's"
   category: cocktails
   priority: low
@@ -667,7 +627,6 @@
 
 - product: Kolonne Null Non-Alcoholic Rosé
   id: TDS-0041
-  sku: TDS-0041
   brand: Kolonne Null
   category: wine
   priority: low
@@ -683,7 +642,6 @@
 
 - product: "Go Brewing Sunbeam Pils Non-Alcoholic (Brew Non-Alcoholic Sunbeam Pils with German Malt & Hops)"
   id: TDS-0042
-  sku: TDS-0042
   brand: Go Brewing
   category: beer
   priority: low
@@ -699,7 +657,6 @@
 
 - product: Mingle Non-Alcoholic Sparkling Raspberry Rose
   id: TDS-0043
-  sku: TDS-0043
   brand: Mingle
   category: cocktails
   priority: low
@@ -715,7 +672,6 @@
 
 - product: "Untitled Art \"FLVR!\" Non-Alcoholic Sour Ale w/ Mango & Dragonfruit"
   id: TDS-0044
-  sku: TDS-0044
   brand: Untitled Art Brewing
   category: beer
   priority: low
@@ -731,7 +687,6 @@
 
 - product: "Asahi \"Dry\" Non-Alcoholic"
   id: TDS-0045
-  sku: TDS-0045
   brand: Asahi Breweries
   category: beer
   priority: low
@@ -747,7 +702,6 @@
 
 - product: Alcohol-Free Sparkling Rose (Single/750ml Bottle)
   id: TDS-0046
-  sku: TDS-0046
   brand: Unknown/unverified
   category: wine
   priority: low
@@ -763,7 +717,6 @@
 
 - product: Nonny Czech Pilsner Non-Alcoholic Beer
   id: TDS-0047
-  sku: TDS-0047
   brand: Nonny Beer
   category: beer
   priority: low
@@ -779,7 +732,6 @@
 
 - product: "Grolsch 0.0% Non-Alcoholic Pilsner"
   id: TDS-0048
-  sku: TDS-0048
   brand: Grolsch
   category: beer
   priority: low
@@ -795,7 +747,6 @@
 
 - product: Pierre Zero Non-Alcoholic Rosé (Bag-in-Box)
   id: TDS-0049
-  sku: TDS-0049
   brand: Pierre Zero
   category: wine
   priority: low
@@ -811,7 +762,6 @@
 
 - product: JP. Chenet Non-Alcoholic Sparkling Rosé
   id: TDS-0050
-  sku: TDS-0050
   brand: JP. Chenet
   category: wine
   priority: low
@@ -827,7 +777,6 @@
 
 - product: "Christian Drouin \"Jus de Poire Petillant\" Non-Alcoholic Pear Cider"
   id: TDS-0051
-  sku: TDS-0051
   brand: Christian Drouin
   category: cider
   priority: low
@@ -843,7 +792,6 @@
 
 - product: "Untitled Art N/A FLVR! Italian-Style Pils"
   id: TDS-0052
-  sku: TDS-0052
   brand: Untitled Art Brewing
   category: beer
   priority: low
@@ -859,7 +807,6 @@
 
 - product: Gruvi Non-Alcoholic Sangria
   id: TDS-0053
-  sku: TDS-0053
   brand: Grüvi
   category: cocktails
   priority: low
@@ -875,7 +822,6 @@
 
 - product: "Eric Bordelet \"Jus de Pommes A Sydre Perlant\" Non-Alcoholic French Cider"
   id: TDS-0055
-  sku: TDS-0055
   brand: Eric Bordelet
   category: cider
   priority: low
@@ -891,7 +837,6 @@
 
 - product: "King Maui 0% Non-Alcoholic Marlborough Sauvignon Blanc"
   id: TDS-0056
-  sku: TDS-0056
   brand: King Maui
   category: wine
   priority: low
@@ -907,7 +852,6 @@
 
 - product: ViSecco Pinot Meunier Non-Alcoholic Sparkling Red
   id: TDS-0057
-  sku: TDS-0057
   brand: Jörg Geiger
   category: wine
   priority: low
@@ -923,7 +867,6 @@
 
 - product: Blanc de Blanc Non-Alcoholic Sparkling Wine (Delmosa)
   id: TDS-0058
-  sku: TDS-0058
   brand: Jörg Geiger
   category: wine
   priority: low
@@ -939,7 +882,6 @@
 
 - product: Nozeco Alcohol Free Brut Rose
   id: TDS-0059
-  sku: TDS-0059
   brand: Nozeco
   category: wine
   priority: low
@@ -955,7 +897,6 @@
 
 - product: "Ollivier Cottenceau Phénomène Non-Alcoholic \"Muscadet\""
   id: TDS-0060
-  sku: TDS-0060
   brand: Ollivier Cottenceau (Domaine de la Grenaudière)
   category: wine
   priority: low
@@ -971,7 +912,6 @@
 
 - product: Domaine de Montrose Non-Alcoholic Rosé
   id: TDS-0061
-  sku: TDS-0061
   brand: Domaine de Montrose
   category: wine
   priority: low
@@ -987,7 +927,6 @@
 
 - product: Oddbird Non-Alcoholic Wine Bundle
   id: TDS-0062
-  sku: TDS-0062
   brand: Oddbird
   category: wine
   priority: low
@@ -1003,7 +942,6 @@
 
 - product: Tired Hands Non-Alcoholic N/Alien Church
   id: TDS-0063
-  sku: TDS-0063
   brand: Tired Hands
   category: beer
   priority: low
@@ -1019,7 +957,6 @@
 
 - product: "Valckenberg \"Zero\" Non-Alcoholic Riesling"
   id: TDS-0064
-  sku: TDS-0064
   brand: P.J. Valckenberg
   category: wine
   priority: low
@@ -1035,7 +972,6 @@
 
 - product: "Valckenberg \"Zero\" Non-Alcoholic Sparkling"
   id: TDS-0065
-  sku: TDS-0065
   brand: P.J. Valckenberg
   category: wine
   priority: low
@@ -1051,7 +987,6 @@
 
 - product: "Erdinger Weissbrau N/A Lager \"Alkoholfrei\""
   id: TDS-0066
-  sku: TDS-0066
   brand: Erdinger Weißbräu
   category: beer
   priority: low
@@ -1067,7 +1002,6 @@
 
 - product: Missing Thorn Non-Alcoholic Still White
   id: TDS-0067
-  sku: TDS-0067
   brand: Missing Thorn
   category: wine
   priority: low
@@ -1083,7 +1017,6 @@
 
 - product: "Josef Leitz Non-Alcoholic Sparkling Rosé \"Eins Zwei Zero\""
   id: TDS-0068
-  sku: TDS-0068
   brand: Weingut Leitz
   category: wine
   priority: low
@@ -1099,7 +1032,6 @@
 
 - product: Athletic Brewing Co. Athletic ESB Non-Alcoholic Beer (Limited Edition)
   id: TDS-0069
-  sku: TDS-0069
   brand: Athletic Brewing Company
   category: beer
   priority: low
@@ -1115,7 +1047,6 @@
 
 - product: De Nada Non-Alcoholic Rosé
   id: TDS-0070
-  sku: TDS-0070
   brand: De Nada (Paumanok Vineyards)
   category: wine
   priority: low
@@ -1131,7 +1062,6 @@
 
 - product: "Josef Leitz Non-Alcoholic Sparkling Blanc de Blancs \"Eins Zwei Zero\""
   id: TDS-0071
-  sku: TDS-0071
   brand: Weingut Leitz
   category: wine
   priority: low
@@ -1147,7 +1077,6 @@
 
 - product: "Fio Non-Alcoholic Riesling \"Fabelhaft\""
   id: TDS-0073
-  sku: TDS-0073
   brand: Fio
   category: wine
   priority: low
@@ -1163,7 +1092,6 @@
 
 - product: Ritual Zero Proof Tequila Alternative
   id: TDS-0074
-  sku: TDS-0074
   brand: Ritual Zero Proof
   category: spirits
   priority: low
@@ -1179,7 +1107,6 @@
 
 - product: "P.J. Valckenberg \"It's Not a Sin\" NA Ginger/Bitter Orange Peel Wine"
   id: TDS-0075
-  sku: TDS-0075
   brand: P.J. Valckenberg
   category: cocktails
   priority: low
@@ -1195,7 +1122,6 @@
 
 - product: Sea Monster Tidal Wave White Alcohol Removed Wine
   id: TDS-0076
-  sku: TDS-0076
   brand: Sea Monster
   category: wine
   priority: low
@@ -1211,7 +1137,6 @@
 
 - product: Butter Zero Sparkling Rosé Non-Alcoholic
   id: TDS-0077
-  sku: TDS-0077
   brand: Butter Zero
   category: wine
   priority: low
@@ -1227,7 +1152,6 @@
 
 - product: Mount Fishtail Zero Sauvignon Blanc
   id: TDS-0078
-  sku: TDS-0078
   brand: Mount Fishtail
   category: wine
   priority: low
@@ -1243,7 +1167,6 @@
 
 - product: Butter Zero Pinot Noir Non-Alcoholic
   id: TDS-0079
-  sku: TDS-0079
   brand: Butter Zero
   category: wine
   priority: low
@@ -1259,7 +1182,6 @@
 
 - product: Zolo Zero Malbec Rosé Non-Alcoholic Wine
   id: TDS-0080
-  sku: TDS-0080
   brand: Zolo
   category: wine
   priority: low
@@ -1275,7 +1197,6 @@
 
 - product: Butter Zero Chardonnay Non-Alcoholic
   id: TDS-0081
-  sku: TDS-0081
   brand: Butter Zero
   category: wine
   priority: low
@@ -1291,7 +1212,6 @@
 
 - product: Chloe Alcohol-Removed Pinot Grigio
   id: TDS-0082
-  sku: TDS-0082
   brand: Chloe Wine Collection
   category: wine
   priority: low
@@ -1307,7 +1227,6 @@
 
 - product: Chateau Diana Zero Non-Alcoholic California White Wine Blend
   id: TDS-0083
-  sku: TDS-0083
   brand: Chateau Diana
   category: wine
   priority: low
@@ -1323,7 +1242,6 @@
 
 - product: Chateau Diana Zero Non-Alcoholic California Rosé
   id: TDS-0084
-  sku: TDS-0084
   brand: Chateau Diana
   category: wine
   priority: low
@@ -1339,7 +1257,6 @@
 
 - product: "Penn's Best Non-Alcoholic Lager"
   id: TDS-0085
-  sku: TDS-0085
   brand: "Penn's Best"
   category: beer
   priority: low
@@ -1355,7 +1272,6 @@
 
 - product: Ariel Non-Alcoholic Chardonnay
   id: TDS-0086
-  sku: TDS-0086
   brand: Ariel (Ariel Vineyards / J. Lohr)
   category: wine
   priority: low
@@ -1371,7 +1287,6 @@
 
 - product: "Greenbar \"UNRum + Cola\" Non-Alcoholic Canned Cocktail"
   id: TDS-0087
-  sku: TDS-0087
   brand: Greenbar
   category: cocktails
   priority: low
@@ -1387,7 +1302,6 @@
 
 - product: "Flying Dog \"Deep Fake\" Non-Alcoholic IPA"
   id: TDS-0088
-  sku: TDS-0088
   brand: Flying Dog Brewery
   category: beer
   priority: low
@@ -1403,7 +1317,6 @@
 
 - product: "Untitled Art \"FLVR!\" Non-Alcoholic Juicy IPA"
   id: TDS-0089
-  sku: TDS-0089
   brand: Untitled Art Brewing
   category: beer
   priority: low
@@ -1419,7 +1332,6 @@
 
 - product: "Pure Project \"Grounded\" Non-Alcoholic IPA"
   id: TDS-0090
-  sku: TDS-0090
   brand: Pure Project
   category: beer
   priority: low
@@ -1435,7 +1347,6 @@
 
 - product: "Birrificio Baladin \"Passione In Rosso\" Non-Alcoholic Italian Aperitivo"
   id: TDS-0091
-  sku: TDS-0091
   brand: Birrificio Baladin
   category: cocktails
   priority: low
@@ -1451,7 +1362,6 @@
 
 - product: Deschutes Non-Alcoholic Fresh Squeezed IPA
   id: TDS-0093
-  sku: TDS-0093
   brand: Deschutes Brewery
   category: beer
   priority: low
@@ -1467,7 +1377,6 @@
 
 - product: Spiritless Jalisco 55 Non-Alcoholic Reposado Tequila
   id: TDS-0094
-  sku: TDS-0094
   brand: Spiritless
   category: spirits
   priority: low
@@ -1483,7 +1392,6 @@
 
 - product: "Giesen 0% Sauvignon Blanc"
   id: TDS-0054
-  sku: TDS-0054
   brand: Giesen
   category: wine
   priority: normal
@@ -1492,7 +1400,6 @@
 
 - product: Oddbird Blanc de Blancs
   id: TDS-0100
-  sku: TDS-0100
   brand: Oddbird
   category: wine
   priority: normal
@@ -1501,7 +1408,6 @@
 
 - product: Freixenet 0.0
   id: TDS-0072
-  sku: TDS-0072
   brand: Freixenet
   category: wine
   priority: normal
@@ -1510,7 +1416,6 @@
 
 - product: Spiritless Kentucky 74
   id: TDS-0092
-  sku: TDS-0092
   brand: Spiritless
   category: spirits
   priority: normal
@@ -1525,7 +1430,6 @@
 
 - product: St. Regis Non-Alcoholic Rosé
   id: TDS-0095
-  sku: TDS-0095
   brand: St. Regis
   category: wine
   priority: high

@@ -57,7 +57,7 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 
 - Reviews: `clients/the-dry-standard/content/reviews/`
 - Product stills: `clients/the-dry-standard/media/reviews/{slug}.jpg`
-- Master product table: `clients/the-dry-standard/data/master-products.csv` (internal `ID` and `SKU` columns; do not render)
+- Master product table: `clients/the-dry-standard/data/master-products.csv` (internal `ID` and sourced `EAN`; do not render)
 - Queue: `clients/the-dry-standard/data/review-queue.yaml`
 - Config: `clients/the-dry-standard/data/config.yaml`
 - Schema reminder: `clients/the-dry-standard/data/schema/review.schema.yaml`

@@ -2,7 +2,6 @@
 title: "Freixenet 0,0 Sparkling White"
 slug: freixenet-0-0
 id: TDS-0072
-sku: TDS-0072
 brand: Freixenet
 product: "0,0 Sparkling White"
 category: wine
