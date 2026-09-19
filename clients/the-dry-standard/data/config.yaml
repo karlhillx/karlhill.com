@@ -32,10 +32,10 @@ categories:
 
 methods:
   vacuum-distillation: Vacuum distillation
-  spinning-cone: Spinning cone
+  spinning-cone: Spinning cone column
   reverse-osmosis: Reverse osmosis
   membrane-filtration: Membrane / cold filtration
-  reverse-distillation: Reverse distillation
+  osmotic-distillation: Osmotic distillation
   arrested-fermentation: Arrested fermentation
 
 rating:

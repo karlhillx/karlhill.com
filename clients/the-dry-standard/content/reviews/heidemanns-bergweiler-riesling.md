@@ -15,7 +15,7 @@ verified: no
 production_note: "Sold as a non-alcoholic Riesling. No estate method page was found."
 image: media/reviews/heidemanns-bergweiler-riesling.jpg
 image_alt: "Dr. Heidemanns-Bergweiler Non-Alcoholic Riesling"
-image_credit: Editorial still
+image_credit: Product photo via Dr. Heidemanns-Bergweiler
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 79

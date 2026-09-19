@@ -114,3 +114,29 @@ it('keeps naturally low alcohol separate from alternative', function () {
     expect($review->productionType)->toBe('naturally-low-alcohol')
         ->and($review->productionTypeShortLabel())->toBe('Naturally low alcohol');
 });
+
+it('classifies named dealcoholization methods and leaves generic removal unknown', function () {
+    expect(dryStandardReview([
+        'dealcoholization_method' => 'Three-stage vacuum dealcoholization at low temperature',
+    ])->methodFacetKey())->toBe('vacuum-distillation');
+
+    expect(dryStandardReview([
+        'dealcoholization_method' => 'Very low-temperature spinning cone column vacuum distillation',
+    ])->methodFacetKey())->toBe('spinning-cone');
+
+    expect(dryStandardReview([
+        'dealcoholization_method' => 'Reverse distillation after thermal oak extraction',
+    ])->methodFacetKey())->toBe('other');
+
+    expect(dryStandardReview([
+        'dealcoholization_method' => 'Spiritless reverse-distillation process as Kentucky 74',
+    ])->methodFacetKey())->toBe('other');
+
+    expect(dryStandardReview([
+        'dealcoholization_method' => 'Alcohol removed from conventionally vinified Chardonnay',
+    ])->methodFacetKey())->toBe('unknown');
+
+    expect(dryStandardReview([
+        'dealcoholization_method' => null,
+    ])->methodFacetKey())->toBe('unknown');
+});

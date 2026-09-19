@@ -9,7 +9,7 @@ final class Renderer
 {
     private const CSS_VERSION = '16';
 
-    private const JS_VERSION = '7';
+    private const JS_VERSION = '8';
 
     public function __construct(
         private readonly SiteConfig $config,
@@ -718,7 +718,7 @@ XML;
 
         $methodLabels = $this->config->methods() + [
             'other' => 'Other documented method',
-            'unpublished' => 'Unpublished',
+            'unknown' => 'Unknown',
         ];
         $methodOptions = [];
         foreach (array_keys($methodLabels) as $method) {
@@ -802,7 +802,7 @@ XML;
             $score = $review->rating !== null ? '<span class="card-score">'.$review->rating.'</span>' : '';
             $origin = $review->originLabel();
             $meta = trim($this->config->categoryLabel($review->category).($origin ? ' · '.$origin : ''));
-            $method = $review->dealcoholizationMethod ?? 'Method unpublished';
+            $method = $review->dealcoholizationMethod ?? 'Method unknown';
             $badge = '<span class="badge badge--'.Str::e($review->productionType).'">'.Str::e($review->productionTypeShortLabel()).'</span>';
             $attrs = implode(' ', [
                 'data-production="'.Str::e($review->productionType).'"',

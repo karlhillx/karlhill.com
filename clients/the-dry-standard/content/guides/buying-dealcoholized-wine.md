@@ -13,7 +13,7 @@ If you would not drink the estate's full-strength bottle, do not expect the deal
 
 ## Ask how the alcohol left
 
-Vacuum distillation is the method you will see most often on wines that bother to explain themselves. Spinning-cone columns show up in trade sheets. Reverse osmosis exists; it is less commonly advertised on consumer pages. If the only word on the site is "removed," keep walking.
+Vacuum distillation is the method you will see most often on wines that bother to explain themselves. Spinning-cone columns show up in trade sheets. Reverse osmosis and osmotic distillation are the membrane processes worth asking about. If the only word on the site is "removed," the method is unknown. Keep walking.
 
 ## Taste for acid, not for body
 

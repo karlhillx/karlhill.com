@@ -14,7 +14,7 @@ A product may be reviewed if it is at or below 0.5% ABV.
 
 Set `production_type` to one of:
 
-- **dealcoholized** — a cited source shows alcohol was removed from an alcoholic (or high-proof) liquid. Vacuum distillation, spinning cone, reverse osmosis, membrane / cold filtration, reverse distillation, and other named removal processes count.
+- **dealcoholized** — a cited source shows alcohol was removed from an alcoholic (or high-proof) liquid. Named methods are vacuum distillation, spinning cone column, reverse osmosis, membrane / cold filtration, osmotic distillation, or another documented removal process. Do not invent "reverse distillation" as a standard method name; if a producer uses that phrase, keep it in the method field and classify the facet as other.
 - **alternative** — built as a non-alcoholic analogue from the start (flavors, botanicals, extracts, distillates, juice). A botanical "whiskey alternative" is Alternative, not "Dealcoholized: No."
 - **naturally-low-alcohol** — fermented or otherwise traditionally produced, but finishes at ≤0.5% ABV without a separate removal step (arrested fermentation, specialized yeasts, limited fermentation).
 - **hybrid** — dealcoholized material plus other defining non-alcoholic ingredients, or more than one production approach. Standard must-back-addition after removal stays dealcoholized.

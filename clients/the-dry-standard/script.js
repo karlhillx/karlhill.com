@@ -152,6 +152,10 @@
       no: "alternative",
       "not-verified": "not-verified",
     };
+    const legacyMethod = {
+      unpublished: "unknown",
+      "reverse-distillation": "other",
+    };
 
     const selectedValues = (name) =>
       [...root.querySelectorAll(`[data-archive-${name}]:checked`)].map((input) => input.value);
@@ -182,7 +186,7 @@
     if (!selectedValues("production").length) {
       setChecked("production", readList("dealcoholized").map((value) => legacyProduction[value] || value));
     }
-    setChecked("method", readList("method"));
+    setChecked("method", readList("method").map((value) => legacyMethod[value] || value));
 
     if (sortSelect) {
       const options = [...sortSelect.options].map((option) => option.value);

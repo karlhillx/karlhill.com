@@ -30,7 +30,7 @@ best_for: "The value-tier NA red drinker, an everyday pour."
 serve: "Slightly chilled."
 image: media/reviews/zolo-zero-malbec-rose.jpg
 image_alt: "Zolo Zero Malbec Rosé bottle"
-image_credit: "Product photo via Zolo"
+image_credit: Product photo via Zolo
 sources:
   - title: "Zolo Zero Non-Alcoholic Malbec Rosé — Vino del Sol technical sheet"
     url: https://vinodelsol.com/wp-content/uploads/custom-filebase/699652b5f30c9_Tech_ZoloZero_NV-M.pdf

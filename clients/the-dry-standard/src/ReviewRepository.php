@@ -118,7 +118,7 @@ final class ReviewRepository
                 }
 
                 if ($other->methodFacetKey() === $review->methodFacetKey()
-                    && $review->methodFacetKey() !== 'unpublished') {
+                    && ! in_array($review->methodFacetKey(), ['unknown', 'other'], true)) {
                     $score += 2;
                 }
 

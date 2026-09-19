@@ -12,7 +12,7 @@ abv: "0.0%"
 abv_numeric: 0
 production_type: dealcoholized
 verified: yes
-dealcoholization_method: "Alcohol removed from a real reposado tequila — the same distillery-to-bottle approach as Spiritless Kentucky 74"
+dealcoholization_method: "Alcohol removed by the same Spiritless reverse-distillation process as Kentucky 74 — ethanol taken off an oak-extracted high-proof spirit"
 base_beverage: "Real reposado tequila from Jalisco, Mexico, dealcoholized after aging"
 producer: Spiritless (same producer as Kentucky 74)
 volume: "750 ml"

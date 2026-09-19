@@ -14,7 +14,9 @@ Dealcoholized wine, beer, spirits, aperitifs, cider, sparkling wine, and ready-t
 
 ## How we classify production
 
-**Dealcoholized** means a documented alcohol-removal step: vacuum distillation, spinning cone, reverse osmosis, membrane or cold filtration, reverse distillation, or another named process.
+**Dealcoholized** means a documented alcohol-removal step: vacuum distillation, spinning cone column, reverse osmosis, membrane or cold filtration, osmotic distillation, or another named process.
+
+Method and disclosure are separate. A named still is a method. "Alcohol removed" without a technique is Method: Unknown — the producer has not published how it was done. Unpublished is not a method.
 
 **Alternative** means the drink was built as a non-alcoholic analogue from the start. Botanicals, flavors, juices, and extracts are legitimate tools. They are not dealcoholization.
 

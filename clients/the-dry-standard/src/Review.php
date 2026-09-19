@@ -370,8 +370,32 @@ final class Review
         'spinning-cone',
         'reverse-osmosis',
         'membrane-filtration',
-        'reverse-distillation',
+        'osmotic-distillation',
         'arrested-fermentation',
+    ];
+
+    private const METHOD_NEEDLES = [
+        'reverse osmosis' => 'reverse-osmosis',
+        'spinning cone' => 'spinning-cone',
+        'spun cone' => 'spinning-cone',
+        'osmotic distillation' => 'osmotic-distillation',
+        'cold filtration' => 'membrane-filtration',
+        'membrane filtration' => 'membrane-filtration',
+        'vacuum distill' => 'vacuum-distillation',
+        'vacuum evaporat' => 'vacuum-distillation',
+        'vacuum dealcohol' => 'vacuum-distillation',
+        'arrested fermentation' => 'arrested-fermentation',
+    ];
+
+    private const NAMED_OTHER_NEEDLES = [
+        'reverse distillation',
+        'reverse-distillation',
+        'mechanical separator',
+        'boiled off',
+        'thermal shock',
+        'pervaporat',
+        'diafiltrat',
+        'centrifug',
     ];
 
     public function abvBucket(): string
@@ -395,32 +419,41 @@ final class Review
             return null;
         }
 
-        foreach ([
-            'vacuum distillation' => 'vacuum-distillation',
-            'spinning cone' => 'spinning-cone',
-            'reverse osmosis' => 'reverse-osmosis',
-            'cold filtration' => 'membrane-filtration',
-            'membrane' => 'membrane-filtration',
-            'reverse distillation' => 'reverse-distillation',
-            'arrested fermentation' => 'arrested-fermentation',
-        ] as $needle => $key) {
-            if (str_contains($text, $needle)) {
-                return $key;
+        $best = null;
+        $position = PHP_INT_MAX;
+
+        foreach (self::METHOD_NEEDLES as $needle => $key) {
+            $found = strpos($text, $needle);
+            if ($found !== false && $found < $position) {
+                $position = $found;
+                $best = $key;
             }
         }
 
-        return Str::slug($this->dealcoholizationMethod);
+        return $best;
     }
 
     public function methodFacetKey(): string
     {
         $key = $this->methodKey();
 
-        if ($key === null || $key === '') {
-            return 'unpublished';
+        if ($key !== null && in_array($key, self::METHOD_FACETS, true)) {
+            return $key;
         }
 
-        return in_array($key, self::METHOD_FACETS, true) ? $key : 'other';
+        $text = strtolower($this->dealcoholizationMethod ?? '');
+
+        if ($text === '') {
+            return 'unknown';
+        }
+
+        foreach (self::NAMED_OTHER_NEEDLES as $needle) {
+            if (str_contains($text, $needle)) {
+                return 'other';
+            }
+        }
+
+        return 'unknown';
     }
 
     public function searchText(): string

@@ -17,7 +17,7 @@ base_beverage: "Riesling, then dealcoholized; sparkling bottling in the Eins-Zwe
 producer: Weingut Leitz
 image: media/reviews/leitz-eins-zwei-zero-sparkling-riesling.jpg
 image_alt: "Leitz Eins-Zwei-Zero Sparkling Riesling"
-image_credit: Editorial still
+image_credit: Product photo via Weingut Leitz
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 88

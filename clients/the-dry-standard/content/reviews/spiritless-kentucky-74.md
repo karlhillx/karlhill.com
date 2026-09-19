@@ -40,7 +40,7 @@ review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 78
 verdict: "A dealcoholized spirit with a real still story — and a cocktail ingredient, not a neat pour for bourbon people. Oak and caramel show up; ethanol heat does not, and the thickeners are doing part of the work."
-summary: "Louisville's reverse-distilled whiskey alternative. Alcohol is removed from an oak-charged high-proof spirit. It is not dealcoholized Maker's Mark."
+summary: "Louisville whiskey alternative. Ethanol is taken off an oak-charged high-proof spirit. Spiritless calls that reverse distillation; it is not a standard method name, and it is not dealcoholized Maker's Mark."
 nose: "Caramel, vanilla, and a carpenter's-shop oak. Less grain sweetness than bourbon, more extract. No ethanol bloom when you put your nose in the glass."
 palate: "Soft, slightly syrupy, and recognizably oak-driven. Glycerine and gum are on the label; you can feel them. In an Old Fashioned the structure holds. Neat, it is a flavored tea with ambition."
 finish: "Short vanilla and a lingering tannin that reads more like wood tea than barrel heat."

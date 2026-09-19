@@ -27,7 +27,7 @@ best_for: "The aperitivo hour, spritzed over ice with sparkling water."
 serve: "Over ice with sparkling water and an orange slice."
 image: media/reviews/valckenberg-not-a-sin.jpg
 image_alt: "P.J. Valckenberg It's Not a Sin bottle"
-image_credit: "Product photo via P.J. Valckenberg"
+image_credit: Product photo via P.J. Valckenberg
 sources:
   - title: "Valckenberg Zero line — P.J. Valckenberg"
     url: https://www.valckenberg.com/en/wineries/winery/77-valckenberg-zero
