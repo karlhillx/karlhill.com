@@ -2,6 +2,7 @@
 title: "HOP WTR Blood Orange"
 slug: hop-wtr-blood-orange
 id: TDS-0036
+ean: "0850020883202"
 brand: HOP WTR
 product: Blood Orange
 category: beer

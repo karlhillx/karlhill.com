@@ -2,6 +2,7 @@
 title: "Leitz Eins-Zwei-Zero Sparkling Riesling"
 slug: leitz-eins-zwei-zero-sparkling-riesling
 id: TDS-0016
+ean: "4260196280174"
 brand: Weingut Leitz
 product: "Eins-Zwei-Zero Sparkling Riesling"
 abv: "Not published"

@@ -2,6 +2,7 @@
 title: "Freixenet 0,0 Sparkling Rosé"
 slug: freixenet-sparkling-rose
 id: TDS-0011
+ean: "8410384053073"
 brand: Freixenet
 product: "0,0 Sparkling Rosé"
 category: wine

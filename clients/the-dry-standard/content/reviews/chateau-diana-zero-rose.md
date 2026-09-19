@@ -2,6 +2,7 @@
 title: "Chateau Diana Zero California Rosé"
 slug: chateau-diana-zero-rose
 id: TDS-0084
+ean: "0019988504530"
 brand: Chateau Diana
 product: Zero California Rosé
 category: wine

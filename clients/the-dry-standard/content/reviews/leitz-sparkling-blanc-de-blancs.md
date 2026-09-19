@@ -2,6 +2,7 @@
 title: "Leitz Eins-Zwei-Zero Sparkling Blanc de Blancs"
 slug: leitz-sparkling-blanc-de-blancs
 id: TDS-0071
+ean: "4260196280075"
 brand: Weingut Josef Leitz
 product: Eins-Zwei-Zero Sparkling Blanc de Blancs
 category: wine

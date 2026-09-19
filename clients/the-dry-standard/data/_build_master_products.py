@@ -35,6 +35,22 @@ SOURCED_EANS = {
     "Appalina Alcohol Free Chardonnay": "4049366003207",
     "Be Free White Sparkling Non-Alcoholic Wine": "4003301080005",
     'Greenbar "UNRum + Cola" Non-Alcoholic Canned Cocktail': "855675002565",
+    "Giesen Non-Alcoholic Sauvignon Blanc": "0637411000819",
+    "Giesen 0% Non-Alcoholic Rose": "0637411000956",
+    'Josef Leitz Non-Alcoholic Sparkling Riesling "Eins Zwei Zero"': "4260196280174",
+    'Josef Leitz Non-Alcoholic Sparkling Rosé "Eins Zwei Zero"': "4260196280198",
+    'Josef Leitz Non-Alcoholic Sparkling Blanc de Blancs "Eins Zwei Zero"': "4260196280075",
+    "Leitz Eins-Zwei-Zero Riesling": "4260196280136",
+    "Freixenet Non-Alcoholic Sparkling Rose": "8410384053073",
+    "Freixenet Non-Alcoholic Sparkling": "8410384003023",
+    "Thomson & Scott Noughty Sparkling Chardonnay": "4009427083906",
+    "Oddbird Blanc de Blancs": "7350067732226",
+    "Ritual Zero Proof Tequila Alternative": "0850005389057",
+    "French Bloom Le Blanc Non-Alcoholic Sparkling Wine": "3770019748008",
+    "Athletic Brewing Run Wild IPA": "0855352008057",
+    "HOP WTR Sparkling Hop Water, Blood Orange, Non-Alcoholic": "0850020883202",
+    "Chateau Diana Zero Non-Alcoholic California Rosé": "0019988504530",
+    "Wolffer Spring in a Bottle Alcohol Removed Rose Sparkling": "0644996140106",
 }
 
 SKU_ALIASES = {

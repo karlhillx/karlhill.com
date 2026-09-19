@@ -2,6 +2,7 @@
 title: "Ritual Zero Proof Tequila Alternative"
 slug: ritual-zero-proof-tequila
 id: R4
+ean: "0850005389057"
 brand: Ritual Zero Proof
 product: Tequila Alternative
 category: spirits

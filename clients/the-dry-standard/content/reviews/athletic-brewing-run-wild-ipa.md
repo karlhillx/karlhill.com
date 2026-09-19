@@ -2,6 +2,7 @@
 title: "Athletic Brewing Run Wild IPA"
 slug: athletic-brewing-run-wild-ipa
 id: TDS-0101
+ean: "0855352008057"
 brand: Athletic Brewing
 product: Run Wild IPA
 category: beer

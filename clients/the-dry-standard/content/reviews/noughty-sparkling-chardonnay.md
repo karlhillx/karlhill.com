@@ -2,6 +2,7 @@
 title: "Thomson & Scott Noughty Sparkling Chardonnay"
 slug: noughty-sparkling-chardonnay
 id: TDS-0098
+ean: "4009427083906"
 brand: Thomson & Scott
 product: Noughty Sparkling Chardonnay
 category: wine

@@ -2,6 +2,7 @@
 title: "Oddbird Blanc de Blancs"
 slug: oddbird-blanc-de-blancs
 id: TDS-0100
+ean: "7350067732226"
 brand: Oddbird
 product: Blanc de Blancs
 category: wine

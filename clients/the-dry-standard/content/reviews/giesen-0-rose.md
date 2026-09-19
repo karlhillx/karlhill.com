@@ -2,6 +2,7 @@
 title: "Giesen 0% Rosé"
 slug: giesen-0-rose
 id: TDS-0018
+ean: "0637411000956"
 brand: Giesen
 product: 0% Rosé
 category: wine

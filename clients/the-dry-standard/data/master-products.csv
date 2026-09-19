@@ -9,21 +9,21 @@ TDS-0007,,Giesen 0% Non-Alcoholic Riesling,Giesen,Non-alcoholic wine,<0.5%,Dealc
 TDS-0008,,"Halfway Crooks Non-Alcoholic Pilsner ""Brevet""",Halfway Crooks Beer,Non-alcoholic beer,<0.5%,Naturally low alcohol,Yes,"Chiber mushroom extract keeps yeast static, halting alcohol production during fermentation (Atlanta Magazine)",Metro Wine & Spirits
 TDS-0009,,DC Brau Non-Alcoholic Pale Ale,DC Brau Brewing Co.,Non-alcoholic beer,<0.5%,Dealcoholized,Yes,"Mechanical separator removing alcohol from finished beer, combined with a hybrid low-alcohol Lallemand yeast","Total Wine, Total Wine (Instacart), Metro Wine & Spirits"
 TDS-0010,,Clearscape Non-Alcoholic Rose,Clearscape,Non-alcoholic wine,Not published,Dealcoholized,Yes,Not verified in detail,"Total Wine (Instacart), Total Wine"
-TDS-0011,,Freixenet Non-Alcoholic Sparkling Rose,Freixenet,Non-alcoholic sparkling wine,Not published,Dealcoholized,Yes,"Branded ""Alcohol Removed""; specific method not detailed",Metro Wine & Spirits
+TDS-0011,8410384053073,Freixenet Non-Alcoholic Sparkling Rose,Freixenet,Non-alcoholic sparkling wine,Not published,Dealcoholized,Yes,"Branded ""Alcohol Removed""; specific method not detailed",Metro Wine & Spirits
 TDS-0012,,Almost Zero Ravishing Rose Non-Alcoholic Wine,Almost Zero,Non-alcoholic wine,Not published,Dealcoholized,Yes,Spinning cone column after full vinification (producer),"Total Wine (Instacart), Total Wine"
 TDS-0013,,Savyll Non-Alcoholic Moscow Mule,Savyll,Non-alcoholic cocktails/RTDs,Not published,Alternative,Yes,Not verified,Total Wine
 TDS-0014,,"90+ Cellars Alcohol-Removed Sparkling Rosé ""Lot 229""",90+ Cellars,Non-alcoholic sparkling wine,<0.5%,Dealcoholized,Yes,"Traditionally made, then alcohol removed via reverse osmosis",Metro Wine & Spirits
 TDS-0015,,Lagunitas Non-Alcoholic Hazy IPNA,Lagunitas,Non-alcoholic beer,<0.5%,Naturally low alcohol,Yes,"Brewed with same ingredients as regular Hazy IPA, fermentation halted early — not dealcoholized",Total Wine
-TDS-0016,,"Josef Leitz Non-Alcoholic Sparkling Riesling ""Eins Zwei Zero""",Weingut Leitz,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation at low temperature,"Metro Wine & Spirits, Upside Drinks"
+TDS-0016,4260196280174,"Josef Leitz Non-Alcoholic Sparkling Riesling ""Eins Zwei Zero""",Weingut Leitz,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation at low temperature,"Metro Wine & Spirits, Upside Drinks"
 TDS-0017,,Dr. Heidemanns Bergweiler Non-Alcoholic Riesling,Dr. Heidemanns Bergweiler,Non-alcoholic wine,Not published,Not verified,No,Not verified,Total Wine (Instacart)
-TDS-0018,,Giesen 0% Non-Alcoholic Rose,Giesen,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Spinning cone technology,"Wegmans (Instacart), Total Wine"
+TDS-0018,0637411000956,Giesen 0% Non-Alcoholic Rose,Giesen,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Spinning cone technology,"Wegmans (Instacart), Total Wine"
 TDS-0019,,Band of Vintners Freestyle Non-Alcoholic Skin-Contact Wine,Band of Vintners,Non-alcoholic wine,Not published,Dealcoholized,Yes,"Brand states wine is ""skin fermented with native yeasts"" and balanced ""once the alcohol is removed""; specific removal technique not disclosed",The Zero Proof
 TDS-0020,,Kolonne Null Non-Alcoholic Riesling,Kolonne Null,Non-alcoholic wine,0.0%,Dealcoholized,Yes,Vacuum distillation at ~30°C to remove alcohol from base wine,The Zero Proof
 TDS-0021,,Clearscape Non-Alcoholic Chardonnay,Clearscape,Non-alcoholic wine,Not published,Dealcoholized,Yes,Not verified in detail,Total Wine
 TDS-0022,,Be Free Sauvignon Blanc Non-Alcoholic Wine,Be Free,Non-alcoholic wine,Not published,Dealcoholized,Yes,"Dealcoholized (""special method"", not detailed)",Total Wine
 TDS-0023,,"Miguel Torres Non-Alcoholic Sauvignon Blanc ""Serena""",Familia Torres (Natureo line),Non-alcoholic wine,Not published,Dealcoholized,Yes,"Torres describes an ""improved dealcoholizing technique""; exact process not detailed",Metro Wine & Spirits
 TDS-0024,,Rondel Zero Cava Rose Non-Alcoholic Wine,Rondel,Non-alcoholic sparkling wine,Not published,Dealcoholized,Yes,Not verified,Total Wine
-TDS-0025,,Wolffer Spring in a Bottle Alcohol Removed Rose Sparkling,Wolffer Estate,Non-alcoholic sparkling wine,Not published,Dealcoholized,Yes,Alcohol-removed (branded); method not detailed,Total Wine
+TDS-0025,0644996140106,Wolffer Spring in a Bottle Alcohol Removed Rose Sparkling,Wolffer Estate,Non-alcoholic sparkling wine,Not published,Dealcoholized,Yes,Alcohol-removed (branded); method not detailed,Total Wine
 TDS-0026,,Biagio Cru Non-Alcoholic Rose All Day,Biagio Cru,Non-alcoholic wine,Not published,Dealcoholized,Yes,Delicate alcohol removal after early-harvest grapes and low-sugar yeasts (Total Wine product highlights); specific technology not named,Total Wine
 TDS-0027,,Noughty Dealcoholized Rosé,Noughty (Thomson & Scott),Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Gently spun cone technology under vacuum at low temperature,The Zero Proof
 TDS-0028,,WiesenObst Cider Rosé Non-Alcoholic Cider,Jörg Geiger,Non-alcoholic cider,<0.5%,Hybrid,Yes,"Dealcoholized cider made from cider apples, perry pears and dealcoholized red wine, hops, herbs and flowers",Delmosa
@@ -33,10 +33,10 @@ TDS-0032,,Crodino Non-Alcoholic Spritz,Crodino (Campari Group),Non-alcoholic ape
 TDS-0033,,"90+ Cellars Alcohol-Removed Sparkling Brut ""Lot 230""",90+ Cellars,Non-alcoholic sparkling wine,<0.5%,Dealcoholized,Yes,"Traditionally made, then alcohol removed via reverse osmosis",Metro Wine & Spirits
 TDS-0034,,"Lyre's ""Amalfi Spritz"" Non-Alcoholic Canned Cocktail",Lyre's,Non-alcoholic cocktails/RTDs,<0.5%,Alternative,Yes,"Crafted from natural essences/extracts, not dealcoholized",Metro Wine & Spirits
 TDS-0035,,Best Day Brewing Kölsch Non-Alcoholic Beer,Best Day Brewing,Non-alcoholic beer,<0.5%,Dealcoholized,Yes,"Traditionally brewed, then alcohol gently removed post-fermentation (Paste Magazine brewery-briefed review); specific technology not named",Best Day Brewing
-TDS-0036,,"HOP WTR Sparkling Hop Water, Blood Orange, Non-Alcoholic",HOP WTR,Non-alcoholic beer,0.0%,Alternative,Yes,Hop-flavored sparkling water; not a brewed/fermented beer,Giant Food (Instacart)
+TDS-0036,0850020883202,"HOP WTR Sparkling Hop Water, Blood Orange, Non-Alcoholic",HOP WTR,Non-alcoholic beer,0.0%,Alternative,Yes,Hop-flavored sparkling water; not a brewed/fermented beer,Giant Food (Instacart)
 TDS-0037,,Original Sin Non-Alcoholic Cider Mix Pack (Golden/White/Dragon Widow),Original Sin Cider,Non-alcoholic cider,Not published,Alternative,Yes,"Made with apple cider vinegar and fruit juice, not from a dealcoholized alcoholic cider",Metro Wine & Spirits
 TDS-0038,,"St. Agrestis ""Phony Negroni"" Non-Alcoholic Negroni Cocktail",St. Agrestis,Non-alcoholic cocktails/RTDs,0.0%,Alternative,Yes,"Company states explicitly: process maintains flavor ""and not with dealcoholizing""",Metro Wine & Spirits
-TDS-0039,,French Bloom Le Blanc Non-Alcoholic Sparkling Wine,French Bloom,Non-alcoholic sparkling wine,0.0%,Hybrid,Yes,"Organic French Chardonnay wine that is dealcoholized, then blended with spring water, grape juice and organic lemon juice",The Zero Proof
+TDS-0039,3770019748008,French Bloom Le Blanc Non-Alcoholic Sparkling Wine,French Bloom,Non-alcoholic sparkling wine,0.0%,Hybrid,Yes,"Organic French Chardonnay wine that is dealcoholized, then blended with spring water, grape juice and organic lemon juice",The Zero Proof
 TDS-0040,,Lapo's Non-Alcoholic Negroni,Lapo's,Non-alcoholic cocktails/RTDs,0.0%,Alternative,Yes,Canned Italian-style negroni alternative; marketed as 0.0% ABV zero-proof cocktail (not dealcoholized),The Zero Proof
 TDS-0041,,Kolonne Null Non-Alcoholic Rosé,Kolonne Null,Non-alcoholic wine,0.0%,Dealcoholized,Yes,Vacuum distillation at ~30°C to remove alcohol from base wine,The Zero Proof
 TDS-0042,,Go Brewing Sunbeam Pils Non-Alcoholic (Brew Non-Alcoholic Sunbeam Pils with German Malt & Hops),Go Brewing,Non-alcoholic beer,<0.5%,Naturally low alcohol,Yes,Producer FAQ: proprietary brewing keeps the beer naturally under 0.5% ABV without dilution or dealcoholization,Giant Food (Instacart)
@@ -50,7 +50,7 @@ TDS-0050,,JP. Chenet Non-Alcoholic Sparkling Rosé,JP. Chenet,Non-alcoholic spar
 TDS-0051,,"Christian Drouin ""Jus de Poire Petillant"" Non-Alcoholic Pear Cider",Christian Drouin,Non-alcoholic cider,Not published,Alternative,Yes,"Pressed pear juice with carbonation — sparkling pear juice, not a dealcoholized cider (producer)",Metro Wine & Spirits
 TDS-0052,,Untitled Art N/A FLVR! Italian-Style Pils,Untitled Art Brewing,Non-alcoholic beer,<0.5%,Dealcoholized,Yes,Reverse osmosis membrane filtration after full fermentation,Metro Wine & Spirits
 TDS-0053,,Gruvi Non-Alcoholic Sangria,Grüvi,Non-alcoholic cocktails/RTDs,<0.5%,Hybrid,Yes,Dealcoholized California red wine blended with natural fruit extracts (producer),Total Wine
-TDS-0054,,Giesen Non-Alcoholic Sauvignon Blanc,Giesen,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Spinning cone technology,Metro Wine & Spirits
+TDS-0054,0637411000819,Giesen Non-Alcoholic Sauvignon Blanc,Giesen,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Spinning cone technology,Metro Wine & Spirits
 TDS-0055,,"Eric Bordelet ""Jus de Pommes A Sydre Perlant"" Non-Alcoholic French Cider",Eric Bordelet,Non-alcoholic cider,Not published,Alternative,Yes,"Pressed cider-apple juice with added CO2 — never fermented, so no alcohol to remove",Metro Wine & Spirits
 TDS-0056,,King Maui 0% Non-Alcoholic Marlborough Sauvignon Blanc,King Maui,Non-alcoholic wine,Not published,Dealcoholized,Yes,Not verified,Total Wine
 TDS-0057,,ViSecco Pinot Meunier Non-Alcoholic Sparkling Red,Jörg Geiger,Non-alcoholic sparkling wine,Not published,Dealcoholized,Yes,Not independently verified for this specific SKU,Delmosa
@@ -63,13 +63,13 @@ TDS-0064,,"Valckenberg ""Zero"" Non-Alcoholic Riesling",P.J. Valckenberg,Non-alc
 TDS-0065,,"Valckenberg ""Zero"" Non-Alcoholic Sparkling",P.J. Valckenberg,Non-alcoholic sparkling wine,Not published,Dealcoholized,Yes,Not verified,Metro Wine & Spirits
 TDS-0066,,"Erdinger Weissbrau N/A Lager ""Alkoholfrei""",Erdinger Weißbräu,Non-alcoholic beer,<0.5%,Not verified,No,Brewed under Bavarian Purity Law; specific alcohol-removal method not disclosed,Metro Wine & Spirits
 TDS-0067,,Missing Thorn Non-Alcoholic Still White,Missing Thorn,Non-alcoholic wine,Not published,Dealcoholized,Yes,Not independently verified; brand markets wines as alcohol-removed by winemaker Aaron Pott,The Zero Proof
-TDS-0068,,"Josef Leitz Non-Alcoholic Sparkling Rosé ""Eins Zwei Zero""",Weingut Leitz,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation at low temperature,The Zero Proof
+TDS-0068,4260196280198,"Josef Leitz Non-Alcoholic Sparkling Rosé ""Eins Zwei Zero""",Weingut Leitz,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation at low temperature,The Zero Proof
 TDS-0069,,Athletic Brewing Co. Athletic ESB Non-Alcoholic Beer (Limited Edition),Athletic Brewing Company,Non-alcoholic beer,<0.5%,Naturally low alcohol,Yes,Proprietary process built for NA from the start; Fast Company (2025) and Popular Mechanics quote founders saying it is neither dealcoholization of finished beer nor simple arrested fermentation,Minus Moonshine
 TDS-0070,,De Nada Non-Alcoholic Rosé,De Nada (Paumanok Vineyards),Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Alcohol removed from conventionally vinified Chilean rosé (Maule Valley; collaboration with Juan Esteban Sepulveda),Minus Moonshine
-TDS-0071,,"Josef Leitz Non-Alcoholic Sparkling Blanc de Blancs ""Eins Zwei Zero""",Weingut Leitz,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation at low temperature,Metro Wine & Spirits
-TDS-0072,,Freixenet Non-Alcoholic Sparkling,Freixenet,Non-alcoholic sparkling wine,Not published,Dealcoholized,Yes,"Branded ""Alcohol Removed""; specific method not detailed",Metro Wine & Spirits
+TDS-0071,4260196280075,"Josef Leitz Non-Alcoholic Sparkling Blanc de Blancs ""Eins Zwei Zero""",Weingut Leitz,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation at low temperature,Metro Wine & Spirits
+TDS-0072,8410384003023,Freixenet Non-Alcoholic Sparkling,Freixenet,Non-alcoholic sparkling wine,Not published,Dealcoholized,Yes,"Branded ""Alcohol Removed""; specific method not detailed",Metro Wine & Spirits
 TDS-0073,,"Fio Non-Alcoholic Riesling ""Fabelhaft""",Fio,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Alcohol removed from stainless-steel-fermented Mosel Riesling (importer),Metro Wine & Spirits
-TDS-0074,,Ritual Zero Proof Tequila Alternative,Ritual Zero Proof,Non-alcoholic spirits,0.0%,Alternative,Yes,"Formulated agave spirit alternative, never distilled from alcohol",Metro Wine & Spirits
+TDS-0074,0850005389057,Ritual Zero Proof Tequila Alternative,Ritual Zero Proof,Non-alcoholic spirits,0.0%,Alternative,Yes,"Formulated agave spirit alternative, never distilled from alcohol",Metro Wine & Spirits
 TDS-0075,,"P.J. Valckenberg ""It's Not a Sin"" NA Ginger/Bitter Orange Peel Wine",P.J. Valckenberg,Non-alcoholic aperitifs,Not published,Alternative,Yes,Formulated botanical beverage — no underlying alcoholic drink before removal,InternetWines.com
 TDS-0076,,Sea Monster Tidal Wave White Alcohol Removed Wine,Sea Monster,Non-alcoholic wine,Not published,Dealcoholized,Yes,"Branded ""Alcohol Removed""; specific method not detailed",InternetWines.com
 TDS-0077,,Butter Zero Sparkling Rosé Non-Alcoholic,Butter Zero,Non-alcoholic sparkling wine,<0.5%,Dealcoholized,Yes,Alcohol removed from conventionally vinified California sparkling rosé (producer launch),InternetWines.com
@@ -79,7 +79,7 @@ TDS-0080,,Zolo Zero Malbec Rosé Non-Alcoholic Wine,Zolo,Non-alcoholic wine,0.0%
 TDS-0081,,Butter Zero Chardonnay Non-Alcoholic,Butter Zero,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Alcohol removed from conventionally vinified Chardonnay (producer launch),InternetWines.com
 TDS-0082,,Chloe Alcohol-Removed Pinot Grigio,Chloe Wine Collection,Non-alcoholic wine,Not published,Dealcoholized,Yes,Alcohol-removed (branded); method not detailed,Total Wine
 TDS-0083,,Chateau Diana Zero Non-Alcoholic California White Wine Blend,Chateau Diana,Non-alcoholic wine,Not published,Dealcoholized,Yes,"Branded ""Alcohol Removed""; specific method not detailed",Walmart
-TDS-0084,,Chateau Diana Zero Non-Alcoholic California Rosé,Chateau Diana,Non-alcoholic wine,Not published,Dealcoholized,Yes,"Branded ""Alcohol Removed""; specific method not detailed",Walmart
+TDS-0084,0019988504530,Chateau Diana Zero Non-Alcoholic California Rosé,Chateau Diana,Non-alcoholic wine,Not published,Dealcoholized,Yes,"Branded ""Alcohol Removed""; specific method not detailed",Walmart
 TDS-0085,,Penn's Best Non-Alcoholic Lager,Penn's Best,Non-alcoholic beer,Not published,Not verified,No,Not verified,Total Wine
 TDS-0086,,Ariel Non-Alcoholic Chardonnay,Ariel (Ariel Vineyards / J. Lohr),Non-alcoholic wine,Not published,Dealcoholized,Yes,"Marketed as ""Dealcoholized Wine""; specific method not detailed",Metro Wine & Spirits
 TDS-0087,855675002565,"Greenbar ""UNRum + Cola"" Non-Alcoholic Canned Cocktail",Greenbar,Non-alcoholic cocktails/RTDs,<0.5%,Hybrid,Yes,Alcohol boiled off after distillation and infusion (producer spec sheet),Metro Wine & Spirits
@@ -91,8 +91,8 @@ TDS-0092,,"Spiritless ""Kentucky 74"" Non-Alcoholic Whiskey Spirit",Spiritless,N
 TDS-0093,,Deschutes Non-Alcoholic Fresh Squeezed IPA,Deschutes Brewery,Non-alcoholic beer,<0.5%,Dealcoholized,Yes,"Reverse osmosis (BrewVo process via Sustainable Beverage Technologies), then secondary cold fermentation and dry-hopping",Deschutes Brewery
 TDS-0094,,Spiritless Jalisco 55 Non-Alcoholic Reposado Tequila,Spiritless,Non-alcoholic spirits,0.0%,Dealcoholized,Yes,Reverse distillation (same documented method as Spiritless Kentucky 74),InternetWines.com
 TDS-0095,,St. Regis Non-Alcoholic Rose,St. Regis,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Vacuum distillation of fermented and aged Syrah/Shiraz rosé (producer about page),Total Wine
-TDS-0096,,Leitz Eins-Zwei-Zero Riesling,Leitz,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Vacuum distillation,
+TDS-0096,4260196280136,Leitz Eins-Zwei-Zero Riesling,Leitz,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Vacuum distillation,
 TDS-0097,,Guinness 0.0,Guinness,Non-alcoholic beer,0.0%,Dealcoholized,Yes,Cold filtration after a conventional Guinness brew,
-TDS-0098,,Thomson & Scott Noughty Sparkling Chardonnay,Thomson & Scott,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation with aroma recovery,
+TDS-0098,4009427083906,Thomson & Scott Noughty Sparkling Chardonnay,Thomson & Scott,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation with aroma recovery,
 TDS-0099,,Lyre's Italian Orange,Lyre's,Non-alcoholic aperitifs,<0.5%,Alternative,Yes,Formulated as a zero-proof alternative,
-TDS-0100,,Oddbird Blanc de Blancs,Oddbird,Non-alcoholic sparkling wine,Not published,Dealcoholized,Yes,,
+TDS-0100,7350067732226,Oddbird Blanc de Blancs,Oddbird,Non-alcoholic sparkling wine,Not published,Dealcoholized,Yes,,

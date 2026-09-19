@@ -2,6 +2,7 @@
 title: "Leitz Eins-Zwei-Zero Sparkling Rosé"
 slug: leitz-sparkling-rose
 id: TDS-0068
+ean: "4260196280198"
 brand: Weingut Josef Leitz
 product: Eins-Zwei-Zero Sparkling Rosé
 category: wine

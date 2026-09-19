@@ -2,6 +2,7 @@
 title: "Wölffer Spring in a Bottle"
 slug: wolffer-spring-in-a-bottle
 id: TDS-0025
+ean: "0644996140106"
 brand: Wolffer Estate
 product: Spring in a Bottle Alcohol Removed Rosé Sparkling
 category: wine

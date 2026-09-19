@@ -2,6 +2,7 @@
 title: "Giesen 0% Sauvignon Blanc"
 slug: giesen-0-sauvignon-blanc
 id: TDS-0054
+ean: "0637411000819"
 brand: Giesen
 product: 0% Sauvignon Blanc
 category: wine

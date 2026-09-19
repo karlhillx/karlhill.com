@@ -2,6 +2,7 @@
 title: "French Bloom Le Blanc"
 slug: french-bloom-le-blanc
 id: TDS-0039
+ean: "3770019748008"
 brand: French Bloom
 product: Le Blanc
 category: wine
