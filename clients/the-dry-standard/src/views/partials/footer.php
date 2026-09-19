@@ -21,9 +21,7 @@
         <a href="<?= $view->e($methodsUrl) ?>">Methods</a>
         <a href="<?= $view->e($brandsUrl) ?>">Brands</a>
         <a href="<?= $view->e($aboutUrl) ?>">About &amp; methodology</a>
-        <a href="<?= $view->e($privacyUrl) ?>">Privacy</a>
         <a href="<?= $view->e($bestUrl) ?>">Best of the cellar</a>
-        <a href="<?= $view->e($feedUrl) ?>">RSS</a>
       </div>
       <div>
         <p class="footer-label">Industry</p>
@@ -32,5 +30,11 @@
         <a href="<?= $view->e($partnershipsUrl) ?>">Partnerships</a>
       </div>
     </div>
-    <p class="copyright">© <?= $view->e($year ?? date('Y')) ?> The Dry Standard.</p>
+    <div class="copyright">
+      <p>© <?= $view->e($year ?? date('Y')) ?> The Dry Standard.</p>
+      <nav class="copyright-nav" aria-label="Legal">
+        <a href="<?= $view->e($privacyUrl) ?>">Privacy</a>
+        <a href="<?= $view->e($feedUrl) ?>">RSS</a>
+      </nav>
+    </div>
   </footer>

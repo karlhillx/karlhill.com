@@ -1555,8 +1555,27 @@ a.stat:hover strong {
   margin: 2rem auto 0;
   padding-top: 1.2rem;
   border-top: 1px solid rgba(250, 247, 241, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
   font-family: var(--font-sans);
   font-size: 0.78rem;
+}
+
+.copyright p {
+  margin: 0;
+}
+
+.copyright-nav {
+  display: flex;
+  gap: 1.1rem;
+}
+
+.copyright-nav a {
+  display: inline;
+  margin: 0;
 }
 
 @media (max-width: 80rem) {
