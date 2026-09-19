@@ -631,7 +631,7 @@
   brand: 'Kolonne Null'
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'yes'
   method: 'Vacuum distillation at ~30°C to remove alcohol from base wine'
   abv: 0.0%
@@ -646,7 +646,7 @@
   brand: 'Go Brewing'
   category: beer
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -661,7 +661,7 @@
   brand: Mingle
   category: cocktails
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -676,7 +676,7 @@
   brand: 'Untitled Art Brewing'
   category: beer
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -691,7 +691,7 @@
   brand: 'Asahi Breweries'
   category: beer
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Wort-free complete formulation method — unfermented wort blended with flavor compounds (incl. MBT); not dealcoholized'
   abv: 0.00%
@@ -706,7 +706,7 @@
   brand: Unknown/unverified
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -721,7 +721,7 @@
   brand: 'Nonny Beer'
   category: beer
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -736,7 +736,7 @@
   brand: Grolsch
   category: beer
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Major-brewery 0.0% pilsner; production method (limited fermentation vs. dealcoholization) not independently confirmed'
   abv: 0.0%
@@ -751,7 +751,7 @@
   brand: 'Pierre Zero'
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'yes'
   method: 'French brand marketed as "Zero" alcohol-removed wine; specific technique not independently verified'
   abv: '<0.5%'
@@ -766,7 +766,7 @@
   brand: 'JP. Chenet'
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'yes'
   method: 'Made from dealcoholized rosé wine plus rectified grape must concentrate, per ingredient list'
   abv: '<0.5%'
