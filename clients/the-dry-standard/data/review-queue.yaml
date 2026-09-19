@@ -5,7 +5,8 @@
   category: beer
   priority: high
   status: published
-  notes: 'Proprietary low-ABV brewing. Confirm whether alcohol is removed from finished beer or limited during fermentation before drafting.'
+  dealcoholized: 'no'
+  notes: 'Proprietary NA brewing. Founders told Fast Company (2025) and Popular Mechanics the process is neither dealcoholization of finished beer nor simple arrested fermentation.'
 -
   product: 'Sober Spirits Whisky'
   id: TDS-0102
@@ -93,7 +94,7 @@
   priority: high
   status: published
   dealcoholized: 'no'
-  method: 'Not verified'
+  method: 'Chiber extract keeps yeast static, arresting fermentation rather than removing alcohol (Atlanta Magazine; Brevet line includes IPA)'
   abv: 'Not verified'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 9
@@ -1008,8 +1009,8 @@
   priority: low
   status: queued
   dealcoholized: 'no'
-  method: 'Athletic Brewing markets its beers generally as "Near Beer <0.5% alc/vol"; this SKU''s specific brewing/alcohol-removal process not independently confirmed'
-  abv: 'Not verified'
+  method: 'Proprietary process built for NA from the start; founders say it is neither dealcoholization of finished beer nor simple arrested fermentation'
+  abv: '<0.5% (retail listing)'
   seen_at: 'Minus Moonshine'
   times_purchased: 1
   first_seen: 1780358400
@@ -1157,9 +1158,9 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'no'
-  method: 'Not independently verified beyond retailer listing'
-  abv: 'Not verified'
+  dealcoholized: 'yes'
+  method: '96% dealcoholized by proprietary technique plus 4% grape juice (Vino del Sol tech sheet)'
+  abv: '0% (importer tech sheet)'
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1785024000
