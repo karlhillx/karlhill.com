@@ -58,6 +58,16 @@
     <summary>Appalina is the alcohol-free line of Rheinhessen&apos;s Weinkellerei Hechtsheim: lemon, pear and green apple under 0.5%, priced like a house wine.</summary>
   </entry>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/ariel-chardonnay/</id>
+    <title>Ariel Non-Alcoholic Chardonnay</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/ariel-chardonnay/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Ariel&apos;s Non-Alcoholic Chardonnay is a spinning-cone dealcoholized California Chardonnay from the J. Lohr family — one of the category&apos;s originals.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/asahi-dry-zero/</id>
     <title>Asahi Dry Zero</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/beer/asahi-dry-zero/"/>
@@ -76,6 +86,26 @@
     <author><name>The Dry Standard</name></author>
     <category term="beer"/>
     <summary>America&apos;s largest dedicated NA brewery built Run Wild on a proprietary process it doesn&apos;t disclose: under 0.5% ABV, 70 calories, Citra and Mosaic over US and German malt.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/athletic-esb/</id>
+    <title>Athletic ESB</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/beer/athletic-esb/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="beer"/>
+    <summary>Athletic ESB is a limited-release non-alcoholic English-style bitter: smooth and balanced at under 0.5% ABV, sold online only.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/cocktails/baladin-passione-in-rosso/</id>
+    <title>Baladin Passione in Rosso</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/cocktails/baladin-passione-in-rosso/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="cocktails"/>
+    <summary>Baladin&apos;s Passione in Rosso is a formulated non-alcoholic Italian aperitivo: 0.0% ABV, bittersweet and botanical, from Piozzo.</summary>
   </entry>
   <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/band-of-vintners-freestyle/</id>
@@ -158,6 +188,66 @@
     <summary>Jörg Geiger&apos;s Blanc de Blanc is organic Chardonnay and Colombard, bottle-fermented and aged two years on the lees before vacuum distillation: brioche, apple, gooseberry and blossom.</summary>
   </entry>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/butter-zero-chardonnay/</id>
+    <title>Butter Zero Chardonnay</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/butter-zero-chardonnay/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Butter Zero&apos;s Chardonnay is an alcohol-removed California Chardonnay: the brand&apos;s signature rich style adapted for zero proof at &lt;0.5% ABV.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/butter-zero-pinot-noir/</id>
+    <title>Butter Zero Pinot Noir</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/butter-zero-pinot-noir/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Butter Zero&apos;s Pinot Noir is an alcohol-removed California red: bright cherry and red berry with a smooth finish at &lt;0.5% ABV.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/butter-zero-sparkling-rose/</id>
+    <title>Butter Zero Sparkling Rosé</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/butter-zero-sparkling-rose/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Butter Zero&apos;s Sparkling Rosé is an alcohol-removed California sparkling rosé launched in March 2026: light, fresh, and fruity at &lt;0.5% ABV.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/chateau-diana-zero-rose/</id>
+    <title>Chateau Diana Zero California Rosé</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/chateau-diana-zero-rose/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Chateau Diana&apos;s Zero Rosé is an alcohol-removed California rosé: ripe strawberries and bright acidity at 0.0% ABV, 80 calories.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/chateau-diana-zero-white/</id>
+    <title>Chateau Diana Zero California White Blend</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/chateau-diana-zero-white/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Chateau Diana&apos;s Zero White Blend is an alcohol-removed California white at 0.0% ABV: honeysuckle, pineapple, pear and creamy apple.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/chloe-pinot-grigio/</id>
+    <title>Chloe Alcohol-Removed Pinot Grigio</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/chloe-pinot-grigio/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Chloe&apos;s Alcohol-Removed Pinot Grigio is a dealcoholized white: light and citrusy, sold at Total Wine-friendly pricing.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/cider/christian-drouin-poire/</id>
     <title>Christian Drouin Jus de Poire Pétillant</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/cider/christian-drouin-poire/"/>
@@ -208,6 +298,26 @@
     <summary>DC Brau&apos;s non-alcoholic pale ale is a Washington, DC brewery product sold at Total Wine and Metro. Method and ABV are not published on a page we can cite.</summary>
   </entry>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/de-nada-rose/</id>
+    <title>De Nada Non-Alcoholic Rosé</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/de-nada-rose/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>De Nada&apos;s Non-Alcoholic Rosé is a dealcoholized Chilean wine from the Maule Valley, made in collaboration with veteran Long Island winemaker Juan Esteban Sepulveda.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/deschutes-fresh-squeezed-na/</id>
+    <title>Deschutes Non-Alcoholic Fresh Squeezed IPA</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/beer/deschutes-fresh-squeezed-na/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="beer"/>
+    <summary>Deschutes&apos; Non-Alcoholic Fresh Squeezed IPA is their flagship IPA at &lt;0.5% ABV: 83 calories, 50 IBU, built on patented NA brewing technology.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/domaine-de-montrose-rose/</id>
     <title>Domaine de Montrose Rosé Zéro</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/domaine-de-montrose-rose/"/>
@@ -218,6 +328,16 @@
     <summary>Domaine Montrose&apos;s Rosé Zéro is a dealcoholized 80% Grenache / 20% Cinsault rosé from Hérault: round and fresh, priced near €12.50 in French retail.</summary>
   </entry>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/erdinger-alkoholfrei/</id>
+    <title>Erdinger Alkoholfrei</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/beer/erdinger-alkoholfrei/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="beer"/>
+    <summary>Erdinger Alkoholfrei is a Bavarian non-alcoholic wheat beer under the Reinheitsgebot, marketed as a naturally isotonic sports recovery drink.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/cider/eric-bordelet-perlant/</id>
     <title>Eric Bordelet Perlant Jus de Pommes à Sydre</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/cider/eric-bordelet-perlant/"/>
@@ -226,6 +346,26 @@
     <author><name>The Dry Standard</name></author>
     <category term="cider"/>
     <summary>Eric Bordelet&apos;s Perlant is pressed juice of 12 organic heritage cider apple varieties from Normandy, lightly sparkling: estate-grown, gently pasteurized, never fermented.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/fio-fabelhaft-riesling/</id>
+    <title>Fio &apos;Fabelhaft&apos; Non-Alcoholic Riesling</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/fio-fabelhaft-riesling/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Fio&apos;s Fabelhaft is a dealcoholized Mosel Riesling from steep-slope vineyards: light, elegant, fresh, with the acidity and sweetness in Riesling balance.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/flying-dog-deep-fake/</id>
+    <title>Flying Dog Deep Fake Non-Alcoholic IPA</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/beer/flying-dog-deep-fake/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="beer"/>
+    <summary>Flying Dog&apos;s Deep Fake is a non-alcoholic IPA under 0.5% ABV: hazy, hoppy, self-aware about being an imitation of the real thing.</summary>
   </entry>
   <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/freixenet-0-0/</id>
@@ -306,6 +446,16 @@
     <author><name>The Dry Standard</name></author>
     <category term="wine"/>
     <summary>Grad 36° is 75% dealcoholized red wine with damson, currant, and blackberry juice. Under 0.5% ABV, still, 750 ml.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/cocktails/greenbar-unrum-cola/</id>
+    <title>Greenbar UNRum + Cola</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/cocktails/greenbar-unrum-cola/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="cocktails"/>
+    <summary>Greenbar&apos;s UNRum + Cola is a formulated non-alcoholic canned cocktail from Los Angeles: the rum silhouette drawn in botanicals, mixed with cola.</summary>
   </entry>
   <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/grolsch-0-0/</id>
@@ -478,6 +628,26 @@
     <summary>Johannes Leitz dealcoholizes the Eins-Zwei-Zero family — still and sparkling — by vacuum distillation at about 29°C. The sparkling Riesling is that process with bubbles.</summary>
   </entry>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/leitz-sparkling-blanc-de-blancs/</id>
+    <title>Leitz Eins-Zwei-Zero Sparkling Blanc de Blancs</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/leitz-sparkling-blanc-de-blancs/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Leitz&apos;s Eins-Zwei-Zero Sparkling Blanc de Blancs applies the spinning cone process to a white Burgundy-family base: 0.0% ABV, crisp and fine-bubbled.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/leitz-sparkling-rose/</id>
+    <title>Leitz Eins-Zwei-Zero Sparkling Rosé</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/leitz-sparkling-rose/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Leitz&apos;s Eins-Zwei-Zero Sparkling Rosé applies the same spinning cone dealcoholization as their Riesling to a Rheingau rosé: 0.0% ABV, delicate and fresh.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/cocktails/lyres-amalfi-spritz/</id>
     <title>Lyre&apos;s Amalfi Spritz</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/cocktails/lyres-amalfi-spritz/"/>
@@ -526,6 +696,26 @@
     <author><name>The Dry Standard</name></author>
     <category term="wine"/>
     <summary>Mionetto 0.0% is a Prosecco-method Venetian sparkling white, fully fermented before the alcohol is extracted: gentle bubbles, off-dry fruit, 0.5% ABV, $16.99 a bottle.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/missing-thorn-still-white/</id>
+    <title>Missing Thorn Non-Alcoholic Still White</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/missing-thorn-still-white/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Missing Thorn&apos;s Still White is a dealcoholized Napa Albariño: lychee, passionfruit and citrus over a crisp, light frame, &lt;0.5% ABV.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/mount-fishtail-sauvignon-blanc/</id>
+    <title>Mount Fishtail Zero Sauvignon Blanc</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/mount-fishtail-sauvignon-blanc/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Mount Fishtail&apos;s Zero Sauvignon Blanc is an alcohol-removed Marlborough white from the Upper Wairau Valley: passionfruit, citrus, fresh and expressive.</summary>
   </entry>
   <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/nonny-czech-pilsner/</id>
@@ -578,6 +768,16 @@
     <summary>A Swedish brand&apos;s French-made sparkling Blanc de Blancs, aged 12 months in oak before the alcohol is vacuum-distilled out. Reads closer to Champagne-style than most dealcoholized proseccos.</summary>
   </entry>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/oddbird-bundle/</id>
+    <title>Oddbird Non-Alcoholic Wine Bundle</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/oddbird-bundle/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Oddbird&apos;s wine bundle is a mixed-case SKU from the Swedish producer: vacuum-distilled dealcoholized wines, individual bottles not itemized in the order.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/ollivier-cottenceau-phenomene/</id>
     <title>Ollivier Cottenceau Phénomène</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/ollivier-cottenceau-phenomene/"/>
@@ -598,6 +798,16 @@
     <summary>Original Sin&apos;s Widow Family 12-pack is their NA lineup: apple-cider-vinegar and fruit-juice based, monk-fruit sweetened, never alcohol-fermented; four flavors from White Widow blackberry to Dragon&apos;s blood.</summary>
   </entry>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/penns-best-lager/</id>
+    <title>Penn&apos;s Best Non-Alcoholic Lager</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/beer/penns-best-lager/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="beer"/>
+    <summary>Penn&apos;s Best NA is a naturally brewed non-alcoholic American lager from Fred Koch Brewery: 70 calories, &lt;0.5% ABV, the value shelf.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/pierre-zero-rose/</id>
     <title>Pierre Zéro Rosé (Bag-in-Box)</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/pierre-zero-rose/"/>
@@ -606,6 +816,26 @@
     <author><name>The Dry Standard</name></author>
     <category term="wine"/>
     <summary>Pierre Zéro&apos;s Bag-in-Box rosé is three litres of dealcoholized French rosé from Maison Chavin, the range&apos;s pioneer since 2010: redcurrant and bilberry fruit, &lt;0.5% ABV.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/pure-project-grounded/</id>
+    <title>Pure Project Grounded Non-Alcoholic IPA</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/beer/pure-project-grounded/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="beer"/>
+    <summary>Pure Project&apos;s Grounded is a non-alcoholic IPA from San Diego built on Citra and Mosaic hops: &lt;0.5% ABV, medium-bodied, citrus and resin.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/spirits/ritual-zero-proof-tequila/</id>
+    <title>Ritual Zero Proof Tequila Alternative</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/spirits/ritual-zero-proof-tequila/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="spirits"/>
+    <summary>Ritual Zero Proof&apos;s Tequila Alternative is a botanical formulation with agave, lime and spice at 0.0% ABV: built for margaritas, not for sipping.</summary>
   </entry>
   <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/rondel-zero-cava-rose/</id>
@@ -628,6 +858,16 @@
     <summary>Savyll&apos;s Moscow Mule is a Total Wine RTD. It is treated as formulated, not dealcoholized, because no source describes alcohol removal.</summary>
   </entry>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/sea-monster-tidal-wave-white/</id>
+    <title>Sea Monster Tidal Wave White</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/sea-monster-tidal-wave-white/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Sea Monster&apos;s Tidal Wave White is a dealcoholized California white blend using low-temperature spinning cone vacuum distillation: $13-15 retail.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/spirits/sober-spirits-whisky/</id>
     <title>Sober Spirits W 0.0% Whisky</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/spirits/sober-spirits-whisky/"/>
@@ -636,6 +876,16 @@
     <author><name>The Dry Standard</name></author>
     <category term="spirits"/>
     <summary>A real dealcoholized Scottish whisky, rebuilt in France: 0.0% ABV, 0% sugar, the closest thing to an honest zero-proof whisky pour.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/spirits/spiritless-jalisco-55/</id>
+    <title>Spiritless Jalisco 55 Non-Alcoholic Tequila</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/spirits/spiritless-jalisco-55/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="spirits"/>
+    <summary>Spiritless Jalisco 55 is a dealcoholized reposado tequila: real agave spirit from Jalisco with the alcohol removed at 0.0% ABV.</summary>
   </entry>
   <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/spirits/spiritless-kentucky-74/</id>
@@ -668,6 +918,16 @@
     <summary>St. Agrestis&apos; Phony Negroni is the brand&apos;s flagship NA cocktail: 30 organic, non-GMO botanicals, 0.0% ABV, and the closest any formulated NA negroni gets to the bitter-piney Italian original.</summary>
   </entry>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/tired-hands-n-alien-church/</id>
+    <title>Tired Hands N/Alien Church</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/beer/tired-hands-n-alien-church/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="beer"/>
+    <summary>Tired Hands&apos; N/Alien Church is their first non-alcoholic beer: a hazy New England IPA from Ardmore PA, under 0.5% ABV, $16 a six-pack.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/torres-serena-sauvignon-blanc/</id>
     <title>Torres Serena Sauvignon Blanc</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/torres-serena-sauvignon-blanc/"/>
@@ -688,6 +948,16 @@
     <summary>Untitled Art&apos;s FLVR! NA Italian-Style Pils is a dry-hopped non-alcoholic Italian pilsner: floral and herbal hop character, subtle citrus, crisp finish, 60 calories.</summary>
   </entry>
   <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/untitled-art-flvr-juicy-ipa/</id>
+    <title>Untitled Art FLVR! NA Juicy IPA</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/beer/untitled-art-flvr-juicy-ipa/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="beer"/>
+    <summary>Untitled Art&apos;s FLVR! NA Juicy IPA is a hazy, juicy non-alcoholic IPA from Wisconsin: under 0.5% ABV, fruit-forward and drinkable.</summary>
+  </entry>
+  <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/beer/untitled-art-flvr-mango-dragonfruit/</id>
     <title>Untitled Art FLVR! NA Mango Dragonfruit Sour</title>
     <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/beer/untitled-art-flvr-mango-dragonfruit/"/>
@@ -696,6 +966,36 @@
     <author><name>The Dry Standard</name></author>
     <category term="beer"/>
     <summary>Untitled Art&apos;s FLVR! Mango Dragonfruit Sour is a tart, tropical NA fruit sour from Wisconsin: under 0.5% ABV, 90 calories, vivid mango and dragonfruit character.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/cocktails/valckenberg-not-a-sin/</id>
+    <title>P.J. Valckenberg &apos;It&apos;s Not a Sin&apos; NA Ginger/Bitter Orange</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/cocktails/valckenberg-not-a-sin/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="cocktails"/>
+    <summary>P.J. Valckenberg&apos;s &apos;It&apos;s Not a Sin&apos; is a formulated NA aperitivo with ginger and bitter orange: 0.0% ABV, built for spritzes.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/valckenberg-zero-riesling/</id>
+    <title>Valckenberg Zero Riesling</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/valckenberg-zero-riesling/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Valckenberg&apos;s Zero Riesling is a dealcoholized Mosel Riesling: pineapple and green apple over a mineral edge, 0.0% ABV.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/valckenberg-zero-sparkling/</id>
+    <title>Valckenberg Cuvée Zero Sparkling</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/valckenberg-zero-sparkling/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Valckenberg&apos;s Cuvée Sparkling Zero is a dealcoholized German sparkling wine: elderberry and lemon, fine bubbles, 0.0% ABV.</summary>
   </entry>
   <entry>
     <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/visecco-pinot-meunier/</id>
@@ -726,5 +1026,15 @@
     <author><name>The Dry Standard</name></author>
     <category term="wine"/>
     <summary>Spring in a Bottle is sold at Total Wine as 0.0% ABV alcohol-removed sparkling rosé, organically grown, $20.99. The process is not named.</summary>
+  </entry>
+  <entry>
+    <id>https://karlhill.com/clients/the-dry-standard/reviews/wine/zolo-zero-malbec-rose/</id>
+    <title>Zolo Zero Malbec Rosé</title>
+    <link rel="alternate" type="text/html" href="https://karlhill.com/clients/the-dry-standard/reviews/wine/zolo-zero-malbec-rose/"/>
+    <updated>2026-09-18T00:00:00+00:00</updated>
+    <published>2026-09-18T00:00:00+00:00</published>
+    <author><name>The Dry Standard</name></author>
+    <category term="wine"/>
+    <summary>Zolo&apos;s Zero Malbec Rosé is a dealcoholized Argentine rosé: red fruit and gentle acidity, sold at the value tier.</summary>
   </entry>
 </feed>
