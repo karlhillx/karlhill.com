@@ -16,6 +16,9 @@ $selected = static fn (string $key, string $want): bool => $value($key) === $wan
         <?php if (! empty($sent)) { ?>
         <p class="notice notice--ok" role="status">Received. We reply within three business days from <?= $view->e($editorEmail ?? 'drinkdrystandard@gmail.com') ?>.</p>
         <?php } ?>
+        <?php if (! empty($failed)) { ?>
+        <p class="notice notice--error" role="alert">Couldn't save that just now. Email <?= $view->e($editorEmail ?? 'drinkdrystandard@gmail.com') ?> directly and we'll pick it up from there.</p>
+        <?php } ?>
         <form class="intake-form" method="post" action="<?= $view->e($action) ?>" novalidate>
           <input type="hidden" name="_token" value="<?= $view->e($csrf ?? '') ?>">
           <p class="visually-hidden" hidden>

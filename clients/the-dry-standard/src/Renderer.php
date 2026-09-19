@@ -1749,7 +1749,7 @@ XML;
     }
 
     /**
-     * @param  array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool}  $form
+     * @param  array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool, failed: bool}  $form
      */
     public function industrySubmit(array $form): string
     {
@@ -1763,7 +1763,7 @@ XML;
     }
 
     /**
-     * @param  array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool}  $form
+     * @param  array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool, failed: bool}  $form
      */
     public function industryPartnerships(array $form): string
     {
@@ -1842,7 +1842,7 @@ XML;
     }
 
     /**
-     * @param  array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool}  $form
+     * @param  array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool, failed: bool}  $form
      */
     private function industryFormPage(
         string $title,
@@ -1863,6 +1863,7 @@ XML;
             'errors' => $form['errors'],
             'old' => $form['old'],
             'sent' => $form['sent'],
+            'failed' => $form['failed'] ?? false,
             'industryUrl' => $this->config->publicUrl('industry/'),
             'samplesUrl' => $this->config->publicUrl('industry/samples/'),
             'submitUrl' => $this->config->publicUrl('industry/submit/'),

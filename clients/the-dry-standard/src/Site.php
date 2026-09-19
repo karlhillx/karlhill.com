@@ -362,7 +362,7 @@ final class Site
     /**
      * @param  array<string, mixed>  $query
      * @param  array<string, mixed>  $form
-     * @return array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool}
+     * @return array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool, failed: bool}
      */
     private function formState(array $query, array $form): array
     {
@@ -390,6 +390,7 @@ final class Site
             'errors' => $flat,
             'old' => $old,
             'sent' => (bool) ($form['sent'] ?? ((string) ($query['sent'] ?? '') === '1')),
+            'failed' => (bool) ($form['failed'] ?? false),
         ];
     }
 }

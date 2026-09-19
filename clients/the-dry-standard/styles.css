@@ -2055,6 +2055,12 @@ a.stat:hover strong {
   font-family: var(--font-sans);
 }
 
+.notice--error {
+  border-color: var(--no);
+  background: var(--no-soft);
+  color: var(--no);
+}
+
 .hp {
   position: absolute;
   left: -9999px;

@@ -57,13 +57,14 @@ class DryStandardIndustryController extends Controller
         $data['sample_offered'] = $request->boolean('sample_offered');
         unset($data['fax']);
 
-        $id = Workspace::default()->inbox()->recordSubmission($data);
-        $this->notify(
+        return $this->accept(
+            $request,
+            'industry/submit',
+            fn (): string => Workspace::default()->inbox()->recordSubmission($data),
             '[Dry Standard] Product submission: '.$data['product_name'],
-            $this->formatPayload('Product submission', $id, $data),
+            'Product submission',
+            $data,
         );
-
-        return $this->sent('industry/submit');
     }
 
     public function storePartnerships(Request $request): RedirectResponse|Response
@@ -89,13 +90,49 @@ class DryStandardIndustryController extends Controller
         }
 
         $data = $validator->validated();
-        $id = Workspace::default()->inbox()->recordInquiry($data);
-        $this->notify(
+
+        return $this->accept(
+            $request,
+            'industry/partnerships',
+            fn (): string => Workspace::default()->inbox()->recordInquiry($data),
             '[Dry Standard] Industry inquiry: '.$data['topic'],
-            $this->formatPayload('Industry inquiry', $id, $data),
+            'Industry inquiry',
+            $data,
+        );
+    }
+
+    /**
+     * @param  callable(): string  $store
+     * @param  array<string, mixed>  $data
+     */
+    private function accept(
+        Request $request,
+        string $path,
+        callable $store,
+        string $subject,
+        string $title,
+        array $data,
+    ): RedirectResponse|Response {
+        $id = '';
+        try {
+            $id = $store();
+        } catch (\Throwable $e) {
+            report($e);
+        }
+
+        $emailed = $this->notify(
+            $subject,
+            $this->formatPayload($title, $id !== '' ? $id : 'unwritten', $data),
         );
 
-        return $this->sent('industry/partnerships');
+        if ($id === '' && ! $emailed) {
+            return $this->page($request, $path, 503, [
+                'failed' => true,
+                'old' => $data,
+            ]);
+        }
+
+        return $this->sent($path);
     }
 
     /**
@@ -110,6 +147,7 @@ class DryStandardIndustryController extends Controller
         }
 
         $form['csrf'] = csrf_token();
+        $form['failed'] = (bool) ($form['failed'] ?? false);
         $form['sent'] = $form['sent'] ?? $request->session()->get('status') === 'industry-sent'
             || (string) $request->query('sent') === '1';
 
@@ -125,14 +163,14 @@ class DryStandardIndustryController extends Controller
         return redirect($location.'?sent=1')->with('status', 'industry-sent');
     }
 
-    private function notify(string $subject, string $body): void
+    private function notify(string $subject, string $body): bool
     {
         $to = Workspace::default()->config()->editorEmail();
         if ($to === '') {
             $to = (string) config('site.person.email');
         }
         if ($to === '') {
-            return;
+            return false;
         }
 
         try {
@@ -141,7 +179,11 @@ class DryStandardIndustryController extends Controller
             });
         } catch (\Throwable $e) {
             report($e);
+
+            return false;
         }
+
+        return true;
     }
 
     /**

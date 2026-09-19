@@ -37,7 +37,7 @@ Internal data (not a public page):
 | `data/products.csv` | Spreadsheet export of the catalog (one row per product). |
 | `data/master-products.csv` | Purchase ledger: one row per unique product. `Product` is the SKU name (no brand prefix, no "Non-Alcoholic {category}" suffix). `ID` and sourced `EAN` are not shown on the public site. |
 | `data/review-queue.yaml` | Review pipeline. Published SKUs stay marked published so they are not drafted twice |
-| `data/inbox/` | Product submissions and partnership inquiries (jsonl). Never auto-published. |
+| `storage/app/private/dry-standard/inbox/` | Product submissions and partnership inquiries (jsonl). Never auto-published. |
 
 ## Sample reviews
 

@@ -4,7 +4,12 @@ namespace DryStandard;
 
 final class Inbox
 {
-    public function __construct(private readonly Paths $paths) {}
+    public function __construct(private readonly string $directory) {}
+
+    public static function directory(): string
+    {
+        return storage_path('app/private/dry-standard/inbox');
+    }
 
     /**
      * @param  array<string, mixed>  $payload
@@ -37,9 +42,11 @@ final class Inbox
      */
     private function append(string $kind, array $payload): string
     {
-        $directory = $this->paths->data('inbox');
+        $directory = $this->directory;
         if (! is_dir($directory)) {
-            mkdir($directory, 0755, true);
+            if (! @mkdir($directory, 0775, true) && ! is_dir($directory)) {
+                throw new \RuntimeException('Unable to create Dry Standard inbox directory '.$directory);
+            }
         }
 
         $id = (string) ($payload['id'] ?? '');
@@ -55,8 +62,12 @@ final class Inbox
         ];
 
         $file = $directory.DIRECTORY_SEPARATOR.$kind.'.jsonl';
-        $line = json_encode($row, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR)."\n";
-        $ok = file_put_contents($file, $line, FILE_APPEND | LOCK_EX);
+        $json = json_encode($row, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE);
+        if ($json === false) {
+            throw new \RuntimeException('Unable to encode Dry Standard inbox row');
+        }
+
+        $ok = @file_put_contents($file, $json."\n", FILE_APPEND | LOCK_EX);
 
         if ($ok === false) {
             throw new \RuntimeException('Unable to write Dry Standard inbox file '.$file);
@@ -67,7 +78,7 @@ final class Inbox
 
     private function count(string $kind): int
     {
-        $file = $this->paths->data('inbox/'.$kind.'.jsonl');
+        $file = $this->directory.DIRECTORY_SEPARATOR.$kind.'.jsonl';
         if (! is_file($file)) {
             return 0;
         }

@@ -12,10 +12,10 @@ style: Dealcoholized dry stout
 abv: "0.0%"
 abv_numeric: 0.0
 image: media/reviews/guinness-0-0.jpg
-image_alt: "Guinness 0.0 14.9 fl oz can"
+image_alt: "Guinness 0.0 Draught alcohol-free stout can"
 image_credit: "Product photo via Diageo / Guinness press"
 image_source: producer
-image_source_url: https://www.newswire.ca/news-releases/guinness-brings-its-magic-to-canada-with-the-launch-of-guinness-0-non-alcoholic-draught-897187951.html
+image_source_url: https://www.guinness.com/en/our-beers/guinness-zero
 image_sku_confirmed: yes
 production_type: dealcoholized
 verified: yes

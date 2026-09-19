@@ -3,8 +3,17 @@
 use Illuminate\Support\Facades\Mail;
 
 afterEach(function () {
-    foreach (glob(base_path('clients/the-dry-standard/data/inbox/*.jsonl')) ?: [] as $file) {
+    $paths = [
+        ...glob(base_path('clients/the-dry-standard/data/inbox/*.jsonl')) ?: [],
+        ...glob(storage_path('app/private/dry-standard/inbox/*.jsonl')) ?: [],
+    ];
+    foreach ($paths as $file) {
         @unlink($file);
+    }
+
+    $blocker = storage_path('app/private/dry-standard/inbox');
+    if (is_file($blocker)) {
+        @unlink($blocker);
     }
 });
 
@@ -80,7 +89,7 @@ it('accepts a product submission without publishing it', function () {
 
     $response->assertRedirect('/clients/the-dry-standard/industry/submit/?sent=1');
 
-    $inbox = base_path('clients/the-dry-standard/data/inbox/submissions.jsonl');
+    $inbox = storage_path('app/private/dry-standard/inbox/submissions.jsonl');
     expect(is_file($inbox))->toBeTrue();
     $line = trim((string) file_get_contents($inbox));
     expect($line)->toContain('Zero Pils')
@@ -113,7 +122,7 @@ it('rejects an incomplete product submission', function () {
         ->assertSee('Company', escape: false)
         ->assertSee('aria-invalid="true"', escape: false);
 
-    expect(is_file(base_path('clients/the-dry-standard/data/inbox/submissions.jsonl')))->toBeFalse();
+    expect(is_file(storage_path('app/private/dry-standard/inbox/submissions.jsonl')))->toBeFalse();
 });
 
 it('accepts a partnership inquiry', function () {
@@ -127,7 +136,7 @@ it('accepts a partnership inquiry', function () {
         'message' => 'We would like to talk about a catalog collaboration.',
     ])->assertRedirect('/clients/the-dry-standard/industry/partnerships/?sent=1');
 
-    $inbox = base_path('clients/the-dry-standard/data/inbox/inquiries.jsonl');
+    $inbox = storage_path('app/private/dry-standard/inbox/inquiries.jsonl');
     expect(is_file($inbox))->toBeTrue();
     expect(file_get_contents($inbox))->toContain('Example Importers');
 });
@@ -140,5 +149,30 @@ it('treats the industry honeypot as a quiet success', function () {
         'company' => '',
     ])->assertRedirect('/clients/the-dry-standard/industry/submit/?sent=1');
 
-    expect(is_file(base_path('clients/the-dry-standard/data/inbox/submissions.jsonl')))->toBeFalse();
+    expect(is_file(storage_path('app/private/dry-standard/inbox/submissions.jsonl')))->toBeFalse();
+});
+
+it('does not 500 when the industry inbox cannot be written', function () {
+    Mail::fake();
+
+    $directory = storage_path('app/private/dry-standard/inbox');
+    if (is_dir($directory)) {
+        foreach (glob($directory.'/*.jsonl') ?: [] as $file) {
+            @unlink($file);
+        }
+        @rmdir($directory);
+    }
+    $parent = dirname($directory);
+    if (! is_dir($parent)) {
+        mkdir($parent, 0775, true);
+    }
+    file_put_contents($directory, 'not-a-directory');
+
+    $this->post('/clients/the-dry-standard/industry/partnerships/', [
+        'name' => 'Ada',
+        'organization' => 'Example Importers',
+        'email' => 'ada@example.com',
+        'topic' => 'partnership',
+        'message' => 'We would like to talk about a catalog collaboration.',
+    ])->assertRedirect('/clients/the-dry-standard/industry/partnerships/?sent=1');
 });

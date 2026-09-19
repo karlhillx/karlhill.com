@@ -48,7 +48,7 @@ final class Workspace
 
     public function inbox(): Inbox
     {
-        return new Inbox($this->paths);
+        return new Inbox(Inbox::directory());
     }
 
     /**

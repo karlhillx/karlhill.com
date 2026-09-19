@@ -203,6 +203,7 @@ final class StillPipeline
     /**
      * Sweep a uniform near-white studio into paper. Skip dark studios — black
      * cans connect to black backdrops and a flood fill would erase the SKU.
+     * Pure white packshots are left white so JPEG and WebP stay in sync.
      */
     private function flattenLightBackground(\GdImage $image): bool
     {
@@ -224,6 +225,17 @@ final class StillPipeline
 
         if ($whiteCorners < 4) {
             return false;
+        }
+
+        $alreadyWhite = 0;
+        foreach ($seeds as [$x, $y]) {
+            [$r, $g, $b] = $this->pixel($image, $x, $y);
+            if ($r >= 254 && $g >= 254 && $b >= 254) {
+                $alreadyWhite++;
+            }
+        }
+        if ($alreadyWhite === 4) {
+            return true;
         }
 
         [$pr, $pg, $pb] = self::PAPER;
