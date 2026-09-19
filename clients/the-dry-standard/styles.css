@@ -595,6 +595,10 @@ a.stat:hover strong {
   gap: 0.55rem;
 }
 
+.page-header .category-rail {
+  margin-top: 1.5rem;
+}
+
 .category-rail a {
   display: inline-flex;
   align-items: baseline;

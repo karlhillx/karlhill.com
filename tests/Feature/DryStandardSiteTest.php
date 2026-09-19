@@ -373,7 +373,11 @@ it('keeps Guinness card title and related-by-style', function () {
         ->assertOk()
         ->assertSee('Other Stout', escape: false)
         ->assertSee('id="how-it-was-made"', escape: false)
-        ->assertSee('class="identity"', escape: false);
+        ->assertSee('class="identity"', escape: false)
+        ->assertSee('#how-it-was-made', escape: false)
+        ->assertSee('#tasting', escape: false)
+        ->assertSee('#facts', escape: false)
+        ->assertSee('#how-to-drink', escape: false);
 
     $this->get('/clients/the-dry-standard/reviews/?q=guinness')
         ->assertOk()
