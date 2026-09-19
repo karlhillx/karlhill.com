@@ -32,5 +32,5 @@
         <a href="<?= $view->e($partnershipsUrl) ?>">Partnerships</a>
       </div>
     </div>
-    <p class="copyright">© <?= $view->e($year ?? date('Y')) ?> The Dry Standard.<?php if (! empty($editorName)) { ?> Edited by <?= $view->e($editorName) ?>.<?php } ?></p>
+    <p class="copyright">© <?= $view->e($year ?? date('Y')) ?> The Dry Standard.</p>
   </footer>
