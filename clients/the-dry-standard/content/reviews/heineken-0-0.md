@@ -23,14 +23,14 @@ image_alt: "Heineken 0.0 bottle"
 image_credit: Product photo via heineken.com
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
-rating: 82
-verdict: "The most findable zero-proof beer on earth, and one of the few macros with a citable dealcoholization process: double-brewed, then run through vacuum distillation. It tastes like the green bottle it came from — which is the entire point."
-summary: "Heineken brews its traditional beer with A-Yeast, double-brews to protect aromatics, then extracts the ethanol with vacuum distillation columns: 0.0% ABV, 21 kcal per 100 ml."
-nose: "Soft malt and a faint fruit note — the A-Yeast signature carried over from the original."
-palate: "Clean and familiar; light malt body, gentle bitterness, none of the cooked or syrupy off-notes that plague cheap NA lagers."
-finish: "Crisp and short, very close to the alcoholic original's exit."
-best_for: "The default order at any bar with no NA craft on tap, game days, travel."
-serve: "Ice cold, from the bottle."
+rating: 53
+verdict: "A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty."
+summary: "Heineken brews its traditional beer with A-Yeast, double-brews, then extracts the ethanol with vacuum distillation: 0.0% ABV, 21 kcal per 100 ml. What remains has almost no flavor."
+nose: "Wet cardboard and a faint grain whisper. Nothing you would call malt."
+palate: "Water with a hint of sweetness and almost no bitterness. It tastes like nothing."
+finish: "Gone before you swallow. No hop, no malt, no aftertaste."
+best_for: "When the only other option is tap water, and you still might pick the water."
+serve: "Ice cold, if you drink it at all. Warmth makes the emptiness louder."
 sources:
   - title: "Heineken® 0.0 | Non alcoholic beer — Heineken.com"
     url: https://www.heineken.com/global/en/our-products/heineken-0-0
@@ -44,6 +44,6 @@ sources:
 status: published
 ---
 
-The most available zero-proof beer in the world is also one of the few macros with an honestly citable process. The Process's video coverage documents the pipeline step by step: the traditional Heineken brew is made with the house A-Yeast, a double-brew step protects the volatile flavor compounds, and then vacuum distillation columns extract the ethanol without cooking the liquid. Named method, documented removal, real beer as the base — that combination puts Heineken 0.0 in the rare `yes` column for dealcoholization, no asterisk needed. The rest of the numbers: 0.0% ABV, 21 kcal per 100 ml, and roughly $9.99 a six-pack of 11.2 oz bottles at Target.
+The most available zero-proof beer in the world is also one of the few macros with an honestly citable process. The Process documents the pipeline: the traditional Heineken brew is made with the house A-Yeast, a double-brew step is meant to protect the volatile flavor compounds, and vacuum distillation columns extract the ethanol. Named method, documented removal, real beer as the base. That combination still puts Heineken 0.0 in the `yes` column for dealcoholization. The rest of the numbers: 0.0% ABV, 21 kcal per 100 ml, and roughly $9.99 a six-pack of 11.2 oz bottles at Target.
 
-What lands in the glass is exactly the promise: the same green-bottle profile, minus the ethanol. Soft malt, that faint A-yeast fruit note, a clean and familiar finish — it tastes like Heineken rather than like an approximation of beer, which is the whole engineering brief. This is not a beer for surprising anyone. It is the floor — the zero-proof pour you can find anywhere on the planet, the one every other NA lager has to beat to justify itself. Most days, it's good enough to be the answer.
+The glass does not repay the engineering. The vacuum columns took the alcohol and, with it, almost everything else. The nose is damp grain at best. The palate is thin, faintly sweet, and otherwise blank. There is no hop snap, no malt body, no bitterness to hang on to. It tastes like nothing — not like Heineken, not like a lager, not like a near-beer with a flaw you can argue about. Just a cold, green-bottled absence. You can find it anywhere. That is not a reason to drink it.

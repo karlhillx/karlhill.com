@@ -351,7 +351,7 @@ HTML;
                 return $this->view->render('partials/directory-row', [
                     'href' => $this->config->publicUrl('brands/'.$brand['slug'].'/'),
                     'title' => $brand['name'],
-                    'summary' => 'Published Dry Standard coverage for '.rtrim($brand['name'], '.').'.',
+                    'summary' => '',
                     'meta' => ($count === 1 ? '1 review' : $count.' reviews').($categories !== '' ? ' · '.$categories : ''),
                     'search' => mb_strtolower($brand['name'].' '.$categories),
                 ]);

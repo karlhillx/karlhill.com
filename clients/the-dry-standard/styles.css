@@ -1076,10 +1076,14 @@ a.stat:hover strong {
 }
 
 .directory-row h3 {
-  margin: 0 0 0.3rem;
+  margin: 0;
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 500;
+}
+
+.directory-row h3 + p {
+  margin-top: 0.3rem;
 }
 
 .directory-row h3 a {
