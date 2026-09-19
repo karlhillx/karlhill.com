@@ -66,6 +66,9 @@ echo "→ Generating OG images and WebP variants"
 php artisan og:generate --quiet
 php artisan assets:webp --quiet
 
+echo "→ Building Dry Standard catalog"
+php artisan dry-standard:build
+
 echo "→ Optimizing Laravel"
 php artisan cache:clear
 php artisan optimize
@@ -73,5 +76,18 @@ php artisan optimize
 echo "→ Fixing runtime permissions"
 chown -R www-data:www-data storage bootstrap/cache
 chmod -R ug+rwx storage bootstrap/cache
+
+# catalog.sqlite is generated and gitignored. The data directory arrives
+# from the deploy tarball as 0755 root/developer-owned, so www-data cannot
+# create or journal the database unless we fix ownership here.
+data_dir="$ROOT/clients/the-dry-standard/data"
+mkdir -p "$data_dir"
+chown www-data:www-data "$data_dir"
+chmod 775 "$data_dir"
+shopt -s nullglob
+for catalog in "$data_dir"/catalog.sqlite "$data_dir"/catalog.sqlite-*; do
+  chown www-data:www-data "$catalog"
+  chmod 664 "$catalog"
+done
 
 echo "✓ Deploy complete"
