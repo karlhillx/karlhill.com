@@ -64,6 +64,7 @@ Thumbs.db
 /clients/the-dry-standard/data/catalog.sqlite-wal
 /clients/the-dry-standard/data/catalog.sqlite-shm
 /clients/the-dry-standard/media/reviews/*.webp
+/clients/the-dry-standard/data/inbox/*.jsonl
 
 # Optional no-db feature stores
 /storage/app/webmentions

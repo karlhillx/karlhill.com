@@ -87,6 +87,50 @@ final class ReviewValidator
             $errors[] = 'rating must be between 0 and 100';
         }
 
+        if ($review->acquisition !== null && ! array_key_exists($review->acquisition, Review::ACQUISITIONS)) {
+            $errors[] = 'acquisition must be purchased, manufacturer-sample, distributor-sample, or unknown';
+        }
+
+        if (! in_array($review->sponsored, ['yes', 'no'], true)) {
+            $errors[] = 'sponsored must be yes or no';
+        }
+
+        if (! in_array($review->affiliateRelationship, ['none', 'present'], true)) {
+            $errors[] = 'affiliate_relationship must be none or present';
+        }
+
+        if (! in_array($review->advertisingRelationship, ['none', 'present'], true)) {
+            $errors[] = 'advertising_relationship must be none or present';
+        }
+
+        if (! in_array($review->commercialRelationship, Review::COMMERCIAL_RELATIONSHIPS, true)) {
+            $errors[] = 'commercial_relationship must be none, brand, retailer, distributor, or other';
+        }
+
+        foreach ($review->identifiersRecord() as $identifier) {
+            if (! in_array($identifier['type'], Review::IDENTIFIER_TYPES, true)) {
+                $errors[] = 'identifier type is not recognized: '.$identifier['type'];
+            }
+        }
+
+        foreach ($review->provenance as $field => $entry) {
+            $kind = is_array($entry) ? (string) ($entry['kind'] ?? '') : '';
+            if ($kind !== '' && ! in_array($kind, Review::PROVENANCE_KINDS, true)) {
+                $errors[] = "provenance.{$field} has an unrecognized source kind";
+            }
+        }
+
+        foreach ($review->purchaseLinks as $index => $link) {
+            $relationship = $link['relationship'] ?? 'citation';
+            if (! in_array($relationship, Review::OFFER_RELATIONSHIPS, true)) {
+                $errors[] = 'purchase_links '.($index + 1).' has an unrecognized relationship';
+            }
+            $affiliate = $link['affiliate_url'] ?? '';
+            if ($affiliate !== '' && ! filter_var($affiliate, FILTER_VALIDATE_URL)) {
+                $errors[] = 'purchase_links '.($index + 1).' has an invalid affiliate URL';
+            }
+        }
+
         if ($review->image !== null) {
             $imagePath = Paths::default()->path($review->image);
 

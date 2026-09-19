@@ -140,3 +140,35 @@ it('classifies named dealcoholization methods and leaves generic removal unknown
         'dealcoholization_method' => null,
     ])->methodFacetKey())->toBe('unknown');
 });
+
+it('keeps offer-shaped purchase links and identifiers without requiring them to publish', function () {
+    $review = dryStandardReview([
+        'id' => 'TDS-0999',
+        'ean' => '0123456789012',
+        'purchase_links' => [
+            [
+                'label' => 'Producer shop',
+                'url' => 'https://example.com/buy',
+                'region' => 'US',
+                'relationship' => 'citation',
+                'retailer' => 'Producer',
+            ],
+        ],
+        'identifiers' => [
+            ['type' => 'gtin', 'value' => '0123456789012', 'source' => 'manufacturer'],
+        ],
+        'acquisition' => 'manufacturer-sample',
+        'provenance' => [
+            'abv' => ['kind' => 'manufacturer', 'url' => 'https://example.com/wine'],
+        ],
+    ]);
+
+    expect($review->productIdValue())->toBe('TDS-0999')
+        ->and($review->hasPublicDisclosure())->toBeTrue()
+        ->and($review->purchaseLinks[0]['relationship'])->toBe('citation')
+        ->and($review->identifiersRecord()[0]['type'])->toBe('gtin')
+        ->and($review->provenance['abv']['kind'])->toBe('manufacturer');
+
+    $errors = (new ReviewValidator)->errors($review, dryStandardConfig(), forPublish: true);
+    expect($errors)->toBe([]);
+});

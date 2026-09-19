@@ -21,6 +21,12 @@
         <a href="<?= $view->e($bestUrl) ?>">Best of the cellar</a>
         <a href="<?= $view->e($feedUrl) ?>">RSS</a>
       </div>
+      <div>
+        <p class="footer-label">Industry</p>
+        <a href="<?= $view->e($industryUrl) ?>">For Brands &amp; Industry</a>
+        <a href="<?= $view->e($submitUrl) ?>">Submit a product</a>
+        <a href="<?= $view->e($partnershipsUrl) ?>">Partnerships</a>
+      </div>
     </div>
     <p class="copyright">© <?= $view->e($year ?? date('Y')) ?> The Dry Standard.</p>
   </footer>

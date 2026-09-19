@@ -652,6 +652,8 @@ HTML;
             'relatedLinkLabel' => $relatedLinkLabel,
             'reviewsUrl' => $this->config->publicUrl('reviews/'),
             'pageUrl' => $this->config->publicUrl($review->path()),
+            'disclosure' => $this->disclosure($review),
+            'industryUrl' => $this->config->publicUrl('industry/'),
         ]);
 
         return $this->document(
@@ -688,6 +690,10 @@ HTML;
             $this->sitemapUrl('styles/', 'weekly', '0.6'),
             $this->sitemapUrl('about/', 'monthly', '0.5'),
             $this->sitemapUrl('best/', 'weekly', '0.7'),
+            $this->sitemapUrl('industry/', 'monthly', '0.4'),
+            $this->sitemapUrl('industry/submit/', 'monthly', '0.4'),
+            $this->sitemapUrl('industry/samples/', 'monthly', '0.3'),
+            $this->sitemapUrl('industry/partnerships/', 'monthly', '0.4'),
         ];
 
         foreach ($this->config->categories() as $category) {
@@ -882,6 +888,9 @@ XML;
             'feedUrl' => $this->config->publicUrl('feed.xml'),
             'bestUrl' => $this->config->publicUrl('best/'),
             'stylesUrl' => $this->config->publicUrl('styles/'),
+            'industryUrl' => $this->config->publicUrl('industry/'),
+            'submitUrl' => $this->config->publicUrl('industry/submit/'),
+            'partnershipsUrl' => $this->config->publicUrl('industry/partnerships/'),
             'year' => (string) now()->year,
             'categories' => $categories,
         ]);
@@ -1330,13 +1339,42 @@ XML;
 
         $items = '';
         foreach ($review->purchaseLinks as $link) {
-            $items .= '<li><a href="'.Str::e($link['url']).'" rel="nofollow noopener" data-analytics-event="outbound_buy">'.Str::e($link['label']).'</a></li>';
+            $relationship = $link['relationship'] ?? 'citation';
+            $rel = $relationship === 'affiliate'
+                ? 'sponsored nofollow noopener'
+                : 'nofollow noopener';
+            $label = $link['label'];
+            if (! empty($link['region'])) {
+                $label .= ' ('.$link['region'].')';
+            }
+            $items .= '<li><a href="'.Str::e($link['url']).'" rel="'.$rel.'" data-analytics-event="outbound_buy">'.Str::e($label).'</a></li>';
         }
 
         return $this->view->render('partials/purchase-links', [
             'availability' => $review->availability ? '<p>'.Str::e($review->availability).'</p>' : '',
             'items' => $items,
         ]);
+    }
+
+    private function disclosure(Review $review): string
+    {
+        if (! $review->hasPublicDisclosure()) {
+            return '';
+        }
+
+        $items = '';
+        foreach ($review->disclosureLines() as $line) {
+            $items .= '<li>'.Str::e($line).'</li>';
+        }
+
+        return $this->view->render('partials/disclosure', ['items' => $items]);
+    }
+
+    public function industryNote(): string
+    {
+        $url = $this->config->publicUrl('industry/');
+
+        return '<p class="industry-note">Brands, producers, importers, and other industry partners may <a href="'.$this->e($url).'">submit a product</a> or inquire about collaborations. Editorial coverage is independent of samples and commercial relationships.</p>';
     }
 
     /**
@@ -1675,5 +1713,141 @@ XML;
         }
 
         return explode('/', $path)[0];
+    }
+
+    /**
+     * @param  array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool}  $form
+     */
+    public function industrySubmit(array $form): string
+    {
+        return $this->industryFormPage(
+            'Submit a product',
+            'Tell us about a non-alcoholic drink for editorial consideration. Submission does not guarantee publication or a favorable review.',
+            'industry/submit/',
+            'submit',
+            $form,
+        );
+    }
+
+    /**
+     * @param  array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool}  $form
+     */
+    public function industryPartnerships(array $form): string
+    {
+        return $this->industryFormPage(
+            'Partnerships & business inquiries',
+            'A quiet front desk for advertising, distribution, product feeds, and other collaborations — without turning the cellar into a sales floor.',
+            'industry/partnerships/',
+            'partnerships',
+            $form,
+        );
+    }
+
+    public function industryHome(): string
+    {
+        $crumbs = $this->crumbs(['For Brands & Industry' => 'industry/']);
+        $body = $this->view->render('industry', [
+            'breadcrumbs' => $this->breadcrumbs($crumbs),
+            'submitUrl' => $this->config->publicUrl('industry/submit/'),
+            'samplesUrl' => $this->config->publicUrl('industry/samples/'),
+            'partnershipsUrl' => $this->config->publicUrl('industry/partnerships/'),
+            'aboutUrl' => $this->config->publicUrl('about/'),
+        ]);
+
+        return $this->document(
+            'For Brands & Industry',
+            'Submit a product for editorial consideration, request sample-shipping details, or inquire about collaborations with The Dry Standard.',
+            'industry/',
+            $body,
+            [
+                'nav' => 'industry',
+                'json_ld' => $this->jsonLd([
+                    $this->breadcrumbGraph($crumbs),
+                    [
+                        '@type' => 'WebPage',
+                        'name' => 'For Brands & Industry',
+                        'url' => $this->config->canonicalUrl('industry/'),
+                    ],
+                ]),
+            ],
+        );
+    }
+
+    public function industrySamples(): string
+    {
+        $crumbs = $this->crumbs([
+            'For Brands & Industry' => 'industry/',
+            'Editorial samples' => 'industry/samples/',
+        ]);
+        $body = $this->view->render('industry-samples', [
+            'breadcrumbs' => $this->breadcrumbs($crumbs),
+            'submitUrl' => $this->config->publicUrl('industry/submit/'),
+            'industryUrl' => $this->config->publicUrl('industry/'),
+        ]);
+
+        return $this->document(
+            'Editorial samples',
+            'How brands may send products to The Dry Standard for independent editorial consideration.',
+            'industry/samples/',
+            $body,
+            [
+                'nav' => 'industry',
+                'json_ld' => $this->jsonLd([
+                    $this->breadcrumbGraph($crumbs),
+                    [
+                        '@type' => 'WebPage',
+                        'name' => 'Editorial samples',
+                        'url' => $this->config->canonicalUrl('industry/samples/'),
+                    ],
+                ]),
+            ],
+        );
+    }
+
+    /**
+     * @param  array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool}  $form
+     */
+    private function industryFormPage(
+        string $title,
+        string $description,
+        string $path,
+        string $kind,
+        array $form,
+    ): string {
+        $crumbs = $this->crumbs([
+            'For Brands & Industry' => 'industry/',
+            $title => $path,
+        ]);
+        $template = $kind === 'partnerships' ? 'industry-partnerships' : 'industry-submit';
+        $body = $this->view->render($template, [
+            'breadcrumbs' => $this->breadcrumbs($crumbs),
+            'action' => $this->config->publicUrl($path),
+            'csrf' => $form['csrf'],
+            'errors' => $form['errors'],
+            'old' => $form['old'],
+            'sent' => $form['sent'],
+            'industryUrl' => $this->config->publicUrl('industry/'),
+            'samplesUrl' => $this->config->publicUrl('industry/samples/'),
+            'submitUrl' => $this->config->publicUrl('industry/submit/'),
+            'categories' => array_map(
+                fn (string $category): array => [
+                    'value' => $category,
+                    'label' => $this->config->categoryLabel($category),
+                ],
+                $this->config->categories(),
+            ),
+        ]);
+
+        return $this->document($title, $description, $path, $body, [
+            'nav' => 'industry',
+            'json_ld' => $this->jsonLd([
+                $this->breadcrumbGraph($crumbs),
+                [
+                    '@type' => 'WebPage',
+                    'name' => $title,
+                    'url' => $this->config->canonicalUrl($path),
+                ],
+            ]),
+        ]);
     }
 }

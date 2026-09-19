@@ -1,1 +1,1 @@
-<div class="buy"><h3>Where to buy in the United States</h3><?= $availability ?><ul><?= $items ?></ul></div>
+<div class="buy"><h3>Where to buy</h3><?= $availability ?><ul><?= $items ?></ul></div>

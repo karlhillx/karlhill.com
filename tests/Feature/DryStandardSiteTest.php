@@ -30,6 +30,10 @@ it('serves the Dry Standard homepage and primary sections', function () {
         '/clients/the-dry-standard/methods/',
         '/clients/the-dry-standard/about/',
         '/clients/the-dry-standard/styles/',
+        '/clients/the-dry-standard/industry/',
+        '/clients/the-dry-standard/industry/samples/',
+        '/clients/the-dry-standard/industry/submit/',
+        '/clients/the-dry-standard/industry/partnerships/',
     ] as $url) {
         $this->get($url)->assertOk();
     }
@@ -68,11 +72,13 @@ it('exposes a feed, sitemap, and catalog for the client site', function () {
     $sitemap = $this->get('/clients/the-dry-standard/sitemap.xml')->assertOk();
     expect($sitemap->getContent())->toContain('reviews/wine/leitz-eins-zwei-zero-riesling')
         ->and($sitemap->getContent())->toContain('best/')
-        ->and($sitemap->getContent())->toContain('styles/riesling');
+        ->and($sitemap->getContent())->toContain('styles/riesling')
+        ->and($sitemap->getContent())->toContain('industry/submit');
 
     $catalogResponse = $this->get('/clients/the-dry-standard/catalog.json')->assertOk();
     $catalog = json_decode($catalogResponse->getContent(), true, flags: JSON_THROW_ON_ERROR);
     expect($catalog['reviews'])->toBeArray()->not->toBeEmpty();
+    expect($catalog['version'])->toBe(1);
     expect($catalog['facets']['categories'])->toContain('wine');
     expect($catalog['facets']['brands'])->not->toBeEmpty();
     expect($catalog['facets']['abv'])->not->toBeEmpty();

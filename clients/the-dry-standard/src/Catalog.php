@@ -183,6 +183,15 @@ final class Catalog
             if ($match instanceof Review) {
                 return $match;
             }
+
+            $statement = $this->pdo->prepare(
+                "SELECT * FROM products WHERE product_id = :id ORDER BY (TRIM(COALESCE(body_markdown, '')) = '') ASC, slug ASC LIMIT 1"
+            );
+            $statement->execute(['id' => $id]);
+            $row = $statement->fetch();
+            if ($row !== false) {
+                return Review::fromRecord($row);
+            }
         }
 
         if ($ean !== null && $ean !== '') {
@@ -472,6 +481,16 @@ final class Catalog
             'abv_bucket',
             'country_slug',
             'search_text',
+            'product_id',
+            'identifiers',
+            'producer_slug',
+            'acquisition',
+            'sponsored',
+            'affiliate_relationship',
+            'advertising_relationship',
+            'commercial_relationship',
+            'disclosure_note',
+            'provenance',
         ];
     }
 
@@ -545,6 +564,16 @@ SQL);
         $this->ensureColumn('abv_bucket', 'abv_bucket TEXT');
         $this->ensureColumn('country_slug', 'country_slug TEXT');
         $this->ensureColumn('search_text', 'search_text TEXT');
+        $this->ensureColumn('product_id', 'product_id TEXT');
+        $this->ensureColumn('identifiers', "identifiers TEXT NOT NULL DEFAULT '[]'");
+        $this->ensureColumn('producer_slug', 'producer_slug TEXT');
+        $this->ensureColumn('acquisition', 'acquisition TEXT');
+        $this->ensureColumn('sponsored', "sponsored TEXT NOT NULL DEFAULT 'no'");
+        $this->ensureColumn('affiliate_relationship', "affiliate_relationship TEXT NOT NULL DEFAULT 'none'");
+        $this->ensureColumn('advertising_relationship', "advertising_relationship TEXT NOT NULL DEFAULT 'none'");
+        $this->ensureColumn('commercial_relationship', "commercial_relationship TEXT NOT NULL DEFAULT 'none'");
+        $this->ensureColumn('disclosure_note', 'disclosure_note TEXT');
+        $this->ensureColumn('provenance', "provenance TEXT NOT NULL DEFAULT '{}'");
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_production_type_idx ON products(production_type)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_style_idx ON products(style)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_brand_slug_idx ON products(brand_slug)');
@@ -552,6 +581,7 @@ SQL);
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_method_facet_idx ON products(method_facet)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_country_slug_idx ON products(country_slug)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_abv_bucket_idx ON products(abv_bucket)');
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_product_id_idx ON products(product_id)');
         $this->dropColumn('times_purchased');
         $this->dropColumn('first_purchase');
         $this->dropColumn('most_recent_purchase');

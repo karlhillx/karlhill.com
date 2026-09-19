@@ -70,12 +70,13 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 - Schema reminder: `clients/the-dry-standard/data/schema/review.schema.yaml`
 - Brand aliases: `clients/the-dry-standard/data/schema/brands.yaml`
 - Style vocabulary: `clients/the-dry-standard/data/schema/styles.yaml`
+- Industry inbox: `clients/the-dry-standard/data/inbox/` (submissions and inquiries; not public)
 - Public site: Laravel renders `/clients/the-dry-standard/` live from the catalog
 - Commands: `php artisan dry-standard:*`
 
 ## Site structure
 
-`/`, `/reviews/`, `/reviews/{wine|beer|spirits|cocktails|cider}/`, `/reviews/{category}/{slug}/`, `/guides/`, `/brands/`, `/methods/`, `/styles/`, `/styles/{slug}/`, `/best/`, `/best/{category}/`, `/about/`.
+`/`, `/reviews/`, `/reviews/{wine|beer|spirits|cocktails|cider}/`, `/reviews/{category}/{slug}/`, `/guides/`, `/brands/`, `/methods/`, `/styles/`, `/styles/{slug}/`, `/best/`, `/best/{category}/`, `/about/`, `/industry/`, `/industry/submit/`, `/industry/samples/`, `/industry/partnerships/`.
 
 No dates in review URLs.
 
@@ -85,6 +86,8 @@ Default: Monday, Wednesday, Friday, three reviews a week. Change it in config. I
 
 ## Architecture constraint
 
-This is a Laravel client preview. Product data lives in one SQLite catalog (`data/catalog.sqlite`), with `data/products.csv` as the spreadsheet export. Markdown reviews are the editorial draft/import format. Do not introduce a second framework or ecommerce. Do not generate or check in HTML pages. GET requests must not write the catalog. The validator remains the publish gate.
+This is a Laravel client preview. Product data lives in one SQLite catalog (`data/catalog.sqlite`), with `data/products.csv` as the spreadsheet export. Markdown reviews are the editorial draft/import format. Do not introduce a second framework or ecommerce. Do not generate or check in HTML pages. GET requests must not write the catalog. Product submissions and partnership inquiries write `data/inbox/` only and never publish. The validator remains the publish gate.
+
+Optional structured fields (do not require them to publish; do not invent them): `product_id`, `identifiers` (`gtin|ean|upc|mfr|asin|tds` — never a retailer SKU), offer-shaped `purchase_links` (`relationship: citation|affiliate|paid|unknown`; public href stays `url`), `acquisition` / `sample_source`, disclosure flags, `provenance` per fact, `producer_slug`. Display disclosure only when it is not the default independent/purchased case.
 
 Brand pages collapse aliases from `data/schema/brands.yaml`. Style filters and `/styles/{slug}/` use the closed vocabulary in `data/schema/styles.yaml`; editorial `style` text can stay free. Alternatives use method facet `not-applicable`, not unpublished. Completeness lives in `php artisan dry-standard:status`, not on the public product page.

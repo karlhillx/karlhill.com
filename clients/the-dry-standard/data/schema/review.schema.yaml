@@ -27,7 +27,29 @@ availability: string, sourced
 purchase_links:
   - label: string
     url: url
-    region: US
+    region: optional
+    retailer: optional
+    price: optional
+    currency: optional
+    availability: optional
+    last_verified: YYYY-MM-DD, optional
+    relationship: citation | affiliate | paid | unknown
+    referral_type: optional
+    affiliate_url: optional; store only; do not use as the public href
+product_id: TDS-#### durable key; defaults to id
+identifiers:
+  - type: gtin | ean | upc | mfr | asin | tds
+    value: string
+    source: optional
+producer_slug: optional
+acquisition: purchased | manufacturer-sample | distributor-sample | unknown
+sponsored: yes | no
+affiliate_relationship: none | present
+advertising_relationship: none | present
+commercial_relationship: none | brand | retailer | distributor | other
+disclosure_note: optional public sentence
+provenance:
+  abv: {kind: manufacturer | label | retailer | distributor | government | research | press | inference | unknown}
 review_date: YYYY-MM-DD
 updated_date: YYYY-MM-DD
 rating: 0-100

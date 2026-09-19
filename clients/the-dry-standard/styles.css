@@ -1524,7 +1524,7 @@ a.stat:hover strong {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 2rem;
 }
 
@@ -1884,6 +1884,149 @@ a.stat:hover strong {
 
 .card-grid[data-review-grid] {
   view-transition-name: cellar-grid;
+}
+
+.lede--follow {
+  margin-top: 0;
+}
+
+.industry-doors {
+  display: grid;
+  gap: 1rem;
+}
+
+.industry-door {
+  display: block;
+  padding: 1.15rem 1.2rem 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+}
+
+.industry-door h2 {
+  margin: 0.15rem 0 0.45rem;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+}
+
+.industry-door p {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+}
+
+.industry-door:hover {
+  border-color: var(--ink);
+}
+
+.intake-form {
+  display: grid;
+  gap: 1.15rem;
+  font-family: var(--font-sans);
+}
+
+.intake-form fieldset {
+  margin: 0;
+  padding: 1rem 1.1rem 1.15rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  display: grid;
+  gap: 0.85rem;
+}
+
+.intake-form legend {
+  padding: 0 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.field label {
+  font-size: 0.92rem;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="url"],
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 0.35rem;
+  background: var(--cream);
+  color: var(--ink);
+  font: inherit;
+}
+
+.field input[type="checkbox"] {
+  margin-right: 0.45rem;
+}
+
+.field-hint,
+.field-error {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.field-error {
+  color: var(--claret-deep);
+}
+
+.field.is-invalid input,
+.field.is-invalid select,
+.field.is-invalid textarea {
+  border-color: var(--claret);
+}
+
+.notice {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--yes);
+  background: var(--yes-soft);
+  color: var(--yes);
+  font-family: var(--font-sans);
+}
+
+.hp {
+  position: absolute;
+  left: -9999px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.disclosure {
+  margin: 1rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--rule);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+}
+
+.disclosure h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.disclosure ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.industry-note {
+  margin-top: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
 }
 
 @media print {

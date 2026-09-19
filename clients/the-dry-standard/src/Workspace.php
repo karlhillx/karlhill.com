@@ -46,6 +46,11 @@ final class Workspace
         return Catalog::open($this->paths);
     }
 
+    public function inbox(): Inbox
+    {
+        return new Inbox($this->paths);
+    }
+
     /**
      * @return array{reviews: int, products: int, queued: int}
      */

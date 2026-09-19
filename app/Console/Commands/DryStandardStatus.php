@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use DryStandard\Review;
 use DryStandard\Workspace;
 use Illuminate\Console\Command;
+use Illuminate\Support\Collection;
 
 class DryStandardStatus extends Command
 {
@@ -51,11 +52,17 @@ class DryStandardStatus extends Command
             $this->completenessRows($published, $total),
         );
 
+        $inbox = $workspace->inbox();
+        $this->newLine();
+        $this->info('Industry inbox');
+        $this->line('Submissions: '.$inbox->submissionCount());
+        $this->line('Inquiries: '.$inbox->inquiryCount());
+
         return self::SUCCESS;
     }
 
     /**
-     * @param  \Illuminate\Support\Collection<int, Review>  $published
+     * @param  Collection<int, Review>  $published
      * @return array<int, array{0: string, 1: string, 2: string}>
      */
     private function completenessRows($published, int $total): array

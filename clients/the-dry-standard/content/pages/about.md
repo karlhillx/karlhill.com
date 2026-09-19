@@ -75,4 +75,8 @@ Local models do the drafting work where that is practical. They do not get to in
 
 ## What this is not
 
-This is not a shop. There are no carts, no accounts, and no affiliate obligation in the first phase. Purchase links are citations of where a bottle has been sold in the United States, not endorsements of a retailer.
+This is not a shop. There are no carts and no accounts. Purchase links are citations of where a bottle has been sold, not endorsements of a retailer.
+
+## For brands and industry
+
+Brands, producers, importers, distributors, and other industry partners may [submit a product](industry/submit/) for editorial consideration or [inquire about collaborations](industry/partnerships/). A sample does not guarantee a review, and it does not guarantee a favorable one. Details: [For Brands & Industry](industry/).

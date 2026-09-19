@@ -12,8 +12,9 @@ final class Site
 
     /**
      * @param  array<string, mixed>  $query
+     * @param  array<string, mixed>  $form
      */
-    public function html(string $path, array $query = []): ?string
+    public function html(string $path, array $query = [], array $form = []): ?string
     {
         $path = trim($path, '/');
         $published = $this->reviews->listing();
@@ -188,8 +189,24 @@ final class Site
                 $renderer->crumbs(['About' => 'about/']),
                 'About',
                 'about',
-                afterProse: $renderer->scoreHistogram($published),
+                afterProse: $renderer->scoreHistogram($published).$renderer->industryNote(),
             );
+        }
+
+        if ($path === 'industry') {
+            return $renderer->industryHome();
+        }
+
+        if ($path === 'industry/samples') {
+            return $renderer->industrySamples();
+        }
+
+        if ($path === 'industry/submit') {
+            return $renderer->industrySubmit($this->formState($query, $form));
+        }
+
+        if ($path === 'industry/partnerships') {
+            return $renderer->industryPartnerships($this->formState($query, $form));
         }
 
         if ($path === 'styles') {
@@ -316,6 +333,7 @@ final class Site
         $published = $this->reviews->listing();
 
         return json_encode([
+            'version' => 1,
             'site' => $this->config->name(),
             'generated_at' => now()->toIso8601String(),
             'reviews' => $published->map(fn (Review $review): array => $review->catalogRecord())->values(),
@@ -329,5 +347,39 @@ final class Site
                 'styles' => $published->map(fn (Review $review): string => $review->styleSlug())->unique()->values(),
             ],
         ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n";
+    }
+
+    /**
+     * @param  array<string, mixed>  $query
+     * @param  array<string, mixed>  $form
+     * @return array{csrf: string, errors: array<string, string>, old: array<string, mixed>, sent: bool}
+     */
+    private function formState(array $query, array $form): array
+    {
+        $errors = $form['errors'] ?? [];
+        if (! is_array($errors)) {
+            $errors = [];
+        }
+
+        $flat = [];
+        foreach ($errors as $field => $messages) {
+            if (is_array($messages)) {
+                $flat[(string) $field] = (string) ($messages[0] ?? '');
+            } else {
+                $flat[(string) $field] = (string) $messages;
+            }
+        }
+
+        $old = $form['old'] ?? [];
+        if (! is_array($old)) {
+            $old = [];
+        }
+
+        return [
+            'csrf' => (string) ($form['csrf'] ?? ''),
+            'errors' => $flat,
+            'old' => $old,
+            'sent' => (bool) ($form['sent'] ?? ((string) ($query['sent'] ?? '') === '1')),
+        ];
     }
 }

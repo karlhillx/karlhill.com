@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientSiteController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DeliveryController;
+use App\Http\Controllers\DryStandardIndustryController;
 use App\Http\Controllers\DryStandardSiteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
@@ -52,6 +53,21 @@ if (config('site.a11y_fixtures')) {
             ->header('Cache-Control', 'no-store, private');
     })->name('a11y.contact-errors');
 }
+
+Route::get('/clients/the-dry-standard/industry/submit/{slash?}', [DryStandardIndustryController::class, 'showSubmit'])
+    ->where('slash', '/')
+    ->name('dry-standard.industry.submit');
+Route::post('/clients/the-dry-standard/industry/submit/{slash?}', [DryStandardIndustryController::class, 'storeSubmit'])
+    ->where('slash', '/')
+    ->middleware('throttle:5,1')
+    ->name('dry-standard.industry.submit.store');
+Route::get('/clients/the-dry-standard/industry/partnerships/{slash?}', [DryStandardIndustryController::class, 'showPartnerships'])
+    ->where('slash', '/')
+    ->name('dry-standard.industry.partnerships');
+Route::post('/clients/the-dry-standard/industry/partnerships/{slash?}', [DryStandardIndustryController::class, 'storePartnerships'])
+    ->where('slash', '/')
+    ->middleware('throttle:5,1')
+    ->name('dry-standard.industry.partnerships.store');
 
 // HTML pages: the site is effectively static (flat-file blog, cached GitHub
 // data) so a short public TTL plus an ETag lets browsers and any future CDN

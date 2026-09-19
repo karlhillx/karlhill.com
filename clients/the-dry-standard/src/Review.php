@@ -31,8 +31,33 @@ final class Review
         'not-verified' => 'Not verified',
     ];
 
+    public const ACQUISITIONS = [
+        'purchased' => 'Purchased independently',
+        'manufacturer-sample' => 'Sample provided by the manufacturer',
+        'distributor-sample' => 'Sample provided by a distributor',
+        'unknown' => 'Acquisition not recorded',
+    ];
+
+    public const IDENTIFIER_TYPES = ['gtin', 'ean', 'upc', 'mfr', 'asin', 'tds'];
+
+    public const PROVENANCE_KINDS = [
+        'manufacturer',
+        'label',
+        'retailer',
+        'distributor',
+        'government',
+        'research',
+        'press',
+        'inference',
+        'unknown',
+    ];
+
+    public const OFFER_RELATIONSHIPS = ['citation', 'affiliate', 'paid', 'unknown'];
+
+    public const COMMERCIAL_RELATIONSHIPS = ['none', 'brand', 'retailer', 'distributor', 'other'];
+
     /**
-     * @param  array<int, array{label: string, url: string, region?: string}>  $purchaseLinks
+     * @param  array<int, array{label: string, url: string, region?: string, retailer?: string, price?: string, currency?: string, availability?: string, last_verified?: string, relationship?: string, referral_type?: string, affiliate_url?: string}>  $purchaseLinks
      * @param  array<int, array{title: string, url: string, claims: array<int, string>}>  $sources
      * @param  array<int, array{field: string, note: string}>  $discrepancies
      */
@@ -86,6 +111,16 @@ final class Review
         public readonly ?string $imageSourceUrl = null,
         public readonly ?string $imageSkuConfirmed = null,
         public readonly ?string $styleSlugOverride = null,
+        public readonly ?string $productId = null,
+        public readonly array $identifiers = [],
+        public readonly ?string $producerSlug = null,
+        public readonly ?string $acquisition = null,
+        public readonly string $sponsored = 'no',
+        public readonly string $affiliateRelationship = 'none',
+        public readonly string $advertisingRelationship = 'none',
+        public readonly string $commercialRelationship = 'none',
+        public readonly ?string $disclosureNote = null,
+        public readonly array $provenance = [],
     ) {}
 
     /**
@@ -152,6 +187,16 @@ final class Review
             imageSourceUrl: self::nullableString($matter['image_source_url'] ?? null),
             imageSkuConfirmed: self::normalizeVerified($matter['image_sku_confirmed'] ?? null),
             styleSlugOverride: self::nullableString($matter['style_slug'] ?? null),
+            productId: self::nullableString($matter['product_id'] ?? $matter['id'] ?? null),
+            identifiers: self::identifiers($matter['identifiers'] ?? []),
+            producerSlug: self::nullableString($matter['producer_slug'] ?? null),
+            acquisition: self::normalizeAcquisition($matter['acquisition'] ?? $matter['sample_source'] ?? null),
+            sponsored: self::normalizeFlag($matter['sponsored'] ?? null, 'no'),
+            affiliateRelationship: self::normalizePresence($matter['affiliate_relationship'] ?? null),
+            advertisingRelationship: self::normalizePresence($matter['advertising_relationship'] ?? null),
+            commercialRelationship: self::normalizeCommercial($matter['commercial_relationship'] ?? null),
+            disclosureNote: self::nullableString($matter['disclosure_note'] ?? null),
+            provenance: self::provenance($matter['provenance'] ?? []),
         );
     }
 
@@ -164,6 +209,8 @@ final class Review
         $matter['purchase_links'] = self::decodeJsonList($row['purchase_links'] ?? '[]');
         $matter['sources'] = self::decodeJsonList($row['sources'] ?? '[]');
         $matter['discrepancies'] = self::decodeJsonList($row['discrepancies'] ?? '[]');
+        $matter['identifiers'] = self::decodeJsonList($row['identifiers'] ?? '[]');
+        $matter['provenance'] = self::decodeJsonMap($row['provenance'] ?? '{}');
 
         return self::fromMatter(
             $matter,
@@ -231,6 +278,16 @@ final class Review
             'abv_bucket' => $this->abvBucket(),
             'country_slug' => $this->countrySlug(),
             'search_text' => $this->searchText(),
+            'product_id' => $this->productIdValue(),
+            'identifiers' => json_encode($this->identifiersRecord(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+            'producer_slug' => $this->resolvedProducerSlug(),
+            'acquisition' => $this->acquisition,
+            'sponsored' => $this->sponsored,
+            'affiliate_relationship' => $this->affiliateRelationship,
+            'advertising_relationship' => $this->advertisingRelationship,
+            'commercial_relationship' => $this->commercialRelationship,
+            'disclosure_note' => $this->disclosureNote,
+            'provenance' => json_encode($this->provenance, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
         ];
     }
 
@@ -238,6 +295,24 @@ final class Review
      * @return array<int, mixed>
      */
     private static function decodeJsonList(mixed $value): array
+    {
+        if (is_array($value)) {
+            return $value;
+        }
+
+        if (! is_string($value) || $value === '') {
+            return [];
+        }
+
+        $decoded = json_decode($value, true);
+
+        return is_array($decoded) ? $decoded : [];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private static function decodeJsonMap(mixed $value): array
     {
         if (is_array($value)) {
             return $value;
@@ -374,6 +449,107 @@ final class Review
     public function countrySlug(): string
     {
         return Taxonomy::countrySlug($this->countryLabel());
+    }
+
+    public function productIdValue(): ?string
+    {
+        $id = $this->productId ?? $this->id;
+
+        return $id === null || $id === '' ? null : $id;
+    }
+
+    public function resolvedProducerSlug(): ?string
+    {
+        if ($this->producerSlug !== null && $this->producerSlug !== '') {
+            return $this->producerSlug;
+        }
+
+        if ($this->producer === null || $this->producer === '') {
+            return null;
+        }
+
+        $slug = Str::slug($this->producer);
+
+        return $slug === '' ? null : $slug;
+    }
+
+    /**
+     * @return array<int, array{type: string, value: string, source?: string}>
+     */
+    public function identifiersRecord(): array
+    {
+        $items = [];
+        $seen = [];
+
+        foreach ($this->identifiers as $identifier) {
+            $type = strtolower((string) ($identifier['type'] ?? ''));
+            $value = trim((string) ($identifier['value'] ?? ''));
+            if ($type === '' || $value === '' || isset($seen[$type.':'.$value])) {
+                continue;
+            }
+            $seen[$type.':'.$value] = true;
+            $item = ['type' => $type, 'value' => $value];
+            if (! empty($identifier['source'])) {
+                $item['source'] = (string) $identifier['source'];
+            }
+            $items[] = $item;
+        }
+
+        $ean = preg_replace('/\D+/', '', (string) $this->ean) ?: '';
+        if ($ean !== '' && ! isset($seen['ean:'.$ean]) && ! isset($seen['gtin:'.$ean])) {
+            $items[] = ['type' => 'ean', 'value' => $ean];
+        }
+
+        $tds = $this->productIdValue();
+        if ($tds !== null && ! isset($seen['tds:'.$tds])) {
+            $items[] = ['type' => 'tds', 'value' => $tds];
+        }
+
+        return $items;
+    }
+
+    public function hasPublicDisclosure(): bool
+    {
+        return ($this->acquisition !== null && $this->acquisition !== 'purchased' && $this->acquisition !== 'unknown')
+            || $this->sponsored === 'yes'
+            || $this->affiliateRelationship === 'present'
+            || $this->advertisingRelationship === 'present'
+            || ($this->commercialRelationship !== 'none')
+            || ($this->disclosureNote !== null && $this->disclosureNote !== '');
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function disclosureLines(): array
+    {
+        $lines = [];
+
+        if ($this->acquisition !== null && isset(self::ACQUISITIONS[$this->acquisition]) && $this->acquisition !== 'unknown') {
+            $lines[] = self::ACQUISITIONS[$this->acquisition];
+        }
+
+        if ($this->sponsored === 'yes') {
+            $lines[] = 'This page includes sponsored material, labeled separately from the editorial review.';
+        }
+
+        if ($this->affiliateRelationship === 'present') {
+            $lines[] = 'Some outbound retailer links may be affiliate links.';
+        }
+
+        if ($this->advertisingRelationship === 'present') {
+            $lines[] = 'The Dry Standard has an advertising relationship connected to this product.';
+        }
+
+        if ($this->commercialRelationship !== 'none') {
+            $lines[] = 'A commercial relationship exists with a '.$this->commercialRelationship.'.';
+        }
+
+        if ($this->disclosureNote !== null && $this->disclosureNote !== '') {
+            $lines[] = $this->disclosureNote;
+        }
+
+        return $lines;
     }
 
     public function dealcoholizedLabel(): string
@@ -824,7 +1000,7 @@ final class Review
     }
 
     /**
-     * @return array<int, array{label: string, url: string, region?: string}>
+     * @return array<int, array{label: string, url: string, region?: string, retailer?: string, price?: string, currency?: string, availability?: string, last_verified?: string, relationship?: string, referral_type?: string, affiliate_url?: string}>
      */
     private static function purchaseLinks(mixed $value): array
     {
@@ -847,16 +1023,143 @@ final class Review
             }
 
             $item = ['label' => $label, 'url' => $url];
-            $region = self::nullableString($link['region'] ?? null);
 
-            if ($region !== null) {
-                $item['region'] = $region;
+            foreach (['region', 'retailer', 'price', 'currency', 'availability', 'last_verified', 'referral_type', 'affiliate_url'] as $optional) {
+                $field = self::nullableString($link[$optional] ?? null);
+                if ($field !== null) {
+                    $item[$optional] = $field;
+                }
+            }
+
+            $relationship = self::nullableLower($link['relationship'] ?? null);
+            if ($relationship !== null && in_array($relationship, self::OFFER_RELATIONSHIPS, true)) {
+                $item['relationship'] = $relationship;
             }
 
             $links[] = $item;
         }
 
         return $links;
+    }
+
+    /**
+     * @return array<int, array{type: string, value: string, source?: string}>
+     */
+    private static function identifiers(mixed $value): array
+    {
+        if (! is_array($value)) {
+            return [];
+        }
+
+        $items = [];
+
+        foreach ($value as $identifier) {
+            if (! is_array($identifier)) {
+                continue;
+            }
+
+            $type = strtolower(self::string($identifier['type'] ?? null));
+            $code = self::string($identifier['value'] ?? null);
+            if (! in_array($type, self::IDENTIFIER_TYPES, true) || $code === '') {
+                continue;
+            }
+
+            $item = ['type' => $type, 'value' => $code];
+            $source = self::nullableString($identifier['source'] ?? null);
+            if ($source !== null) {
+                $item['source'] = $source;
+            }
+            $items[] = $item;
+        }
+
+        return $items;
+    }
+
+    /**
+     * @return array<string, array{kind: string, url?: string, note?: string}>
+     */
+    private static function provenance(mixed $value): array
+    {
+        if (! is_array($value)) {
+            return [];
+        }
+
+        $rows = [];
+
+        foreach ($value as $field => $entry) {
+            if (! is_string($field) || $field === '') {
+                continue;
+            }
+
+            if (is_string($entry)) {
+                $kind = strtolower(trim($entry));
+                if (in_array($kind, self::PROVENANCE_KINDS, true)) {
+                    $rows[$field] = ['kind' => $kind];
+                }
+
+                continue;
+            }
+
+            if (! is_array($entry)) {
+                continue;
+            }
+
+            $kind = strtolower(self::string($entry['kind'] ?? $entry['source_kind'] ?? null));
+            if (! in_array($kind, self::PROVENANCE_KINDS, true)) {
+                continue;
+            }
+
+            $item = ['kind' => $kind];
+            $url = self::nullableString($entry['url'] ?? null);
+            if ($url !== null) {
+                $item['url'] = $url;
+            }
+            $note = self::nullableString($entry['note'] ?? null);
+            if ($note !== null) {
+                $item['note'] = $note;
+            }
+            $rows[$field] = $item;
+        }
+
+        return $rows;
+    }
+
+    private static function normalizeAcquisition(mixed $value): ?string
+    {
+        $normalized = strtolower(trim((string) $value));
+        $normalized = str_replace(['_', ' '], '-', $normalized);
+
+        return match ($normalized) {
+            'purchased', 'purchased-independently', 'independent' => 'purchased',
+            'manufacturer-sample', 'manufacturer', 'producer-sample', 'brand-sample' => 'manufacturer-sample',
+            'distributor-sample', 'distributor', 'importer-sample' => 'distributor-sample',
+            'unknown', 'not-recorded' => 'unknown',
+            default => null,
+        };
+    }
+
+    private static function normalizeFlag(mixed $value, string $default): string
+    {
+        $normalized = self::normalizeVerified($value);
+
+        return $normalized ?? $default;
+    }
+
+    private static function normalizePresence(mixed $value): string
+    {
+        $normalized = strtolower(trim((string) $value));
+
+        return match ($normalized) {
+            'present', 'yes', 'true', '1' => 'present',
+            default => 'none',
+        };
+    }
+
+    private static function normalizeCommercial(mixed $value): string
+    {
+        $normalized = strtolower(trim((string) $value));
+
+        return in_array($normalized, self::COMMERCIAL_RELATIONSHIPS, true) ? $normalized : 'none';
     }
 
     /**

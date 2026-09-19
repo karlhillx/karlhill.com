@@ -51,7 +51,9 @@
             <h2>Product facts</h2>
             <?= $facts ?>
             <?= $links ?>
+            <?= $disclosure ?? '' ?>
             <p class="fine-print">Editorial tasting notes are opinion. Production facts are printed only when a source is attached.</p>
+            <p class="fine-print"><a href="<?= $view->e($industryUrl ?? 'industry/') ?>">Brands may submit products for editorial consideration.</a></p>
           </aside>
         </div>
       </div>

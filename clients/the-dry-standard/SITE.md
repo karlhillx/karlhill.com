@@ -20,6 +20,10 @@ Public base: `/clients/the-dry-standard/`
 | `/best/` | Highest-rated bottles, generated from the catalog |
 | `/best/{category}/` | Category best-of, scores 80+ |
 | `/about/` | Mission and scoring |
+| `/industry/` | For Brands & Industry |
+| `/industry/submit/` | Product submission (editorial queue, not auto-published) |
+| `/industry/samples/` | Sample policy; shipping details by reply |
+| `/industry/partnerships/` | Partnership & business inquiries |
 | `/feed.xml` | Atom feed |
 | `/sitemap.xml` | URL list for this client site |
 | `/catalog.json` | Structured review index plus facets |
@@ -32,6 +36,7 @@ Internal data (not a public page):
 | `data/products.csv` | Spreadsheet export of the catalog (one row per product). |
 | `data/master-products.csv` | Purchase ledger: one row per unique product. `Product` is the SKU name (no brand prefix, no "Non-Alcoholic {category}" suffix). `ID` and sourced `EAN` are not shown on the public site. |
 | `data/review-queue.yaml` | Review pipeline. Published SKUs stay marked published so they are not drafted twice |
+| `data/inbox/` | Product submissions and partnership inquiries (jsonl). Never auto-published. |
 
 ## Sample reviews
 
