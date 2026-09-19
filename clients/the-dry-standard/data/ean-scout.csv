@@ -19,8 +19,8 @@ TDS-0023,Serena Mode Sauvignon Blanc,Familia Torres (Natureo line),Non-alcoholic
 TDS-0024,Zero Cava Rosé,Rondel,Non-alcoholic sparkling wine,0012976991862,ean-search.org API,scout,matched: Zero Cava Rose Non-Alcoholic Wine | Champagne & Sparkling Wine by Rondel | 750ml
 TDS-0026,Non-Alcoholic Rosé All Day,Biagio Cru,Non-alcoholic wine,0833202003339,ean-search.org API,scout,matched: Non-Alcoholic Rose All Day | Rose & Blush Wine by Biagio Cru | 750ml | Languedoc
 TDS-0027,Noughty Non-Alcoholic Rosé,Noughty (Thomson & Scott),Non-alcoholic wine,6002339001882,ean-search.org API,scout,matched: Thomson y Scott Noughty Dealcoholized Rosé - 75cl
-TDS-0028,WiesenObst Cider Rosé,Jörg Geiger,Non-alcoholic cider,,,,
-TDS-0029,Grad 36°,Jörg Geiger,Non-alcoholic wine,,,,
+TDS-0028,WiesenObst Cider Rosé,Jörg Geiger,Non-alcoholic cider,4260044674827,producer site scrape + retailer web search (free-DB pass),scout,"WiesenObst Cider Rosé alkoholfrei 330ml — manufaktur-joerg-geiger.de (producer site, JSON-LD gtin13 + EAN label in HTML); Jörg Geiger prefix 4260044 (still/cider line); checksum valid"
+TDS-0029,Grad 36°,Jörg Geiger,Non-alcoholic wine,4260044674674,producer site scrape (free-DB pass),scout,"Jörg Geiger Grad 36° Grenache/Zwetschge/Kräuter alkoholfrei 750ml — manufaktur-joerg-geiger.de (producer site, EAN label in HTML); Jörg Geiger prefix 4260044 (still/cider line, shares with WiesenObst and the other 'Grad' wines — 32/35/36/37 Grad); checksum valid"
 TDS-0031,0.0% Alcohol-Removed White,Mionetto,Non-alcoholic sparkling wine,,,,
 TDS-0032,Crodino Non-Alcoholic Spritz,Crodino (Campari Group),Non-alcoholic aperitifs,8000040720427,retailer web search (free-DB pass),scout,Crodino Non-Alcoholic Spritz 4x17.5cl — Open Food Facts; checksum valid; Italian EAN (8000040 = Campari). NOTE: 4-pack retail format EAN; review describes single-serve 175ml bottle format
 TDS-0033,Lot 230,90+ Cellars,Non-alcoholic sparkling wine,,,,
@@ -43,8 +43,8 @@ TDS-0052,FLVR! NA Italian-Style Pils,Untitled Art Brewing,Non-alcoholic beer,,,,
 TDS-0053,Sangria,Grüvi,Non-alcoholic cocktails/RTDs,,,,
 TDS-0055,Perlant Jus de Pommes à Sydre,Eric Bordelet,Non-alcoholic cider,,,,
 TDS-0056,0% Marlborough Sauvignon Blanc,King Maui,Non-alcoholic wine,,,,
-TDS-0057,ViSecco Pinot Meunier,Jörg Geiger,Non-alcoholic sparkling wine,,,,
-TDS-0058,Blanc de Blanc,Jörg Geiger,Non-alcoholic sparkling wine,,,,
+TDS-0057,ViSecco Pinot Meunier,Jörg Geiger,Non-alcoholic sparkling wine,4262449340727,producer site scrape + retailer web search (free-DB pass),scout,ViSecco Pinot Meunier Vin Spumante alkoholfrei — c-und-d.de retailer (European Article Number field); Jörg Geiger prefix 4262449 (sparkling line); checksum valid
+TDS-0058,Blanc de Blanc,Jörg Geiger,Non-alcoholic sparkling wine,4262449340697,producer site scrape + retailer web search (free-DB pass),scout,"Blanc de Blancs alkoholfrei (Chardonnay/Colombard) — manufaktur-joerg-geiger.de (producer site, EAN label in HTML); Jörg Geiger prefix 4262449 (sparkling line); checksum valid"
 TDS-0059,Alcohol Free Brut Rosé,Nozeco,Non-alcoholic sparkling wine,0641586348867,ean-search.org API,scout,matched: Alcohol Free Brut Rose Wine | Champagne & Sparkling Wine by Nozeco | 750ml | Fra
 TDS-0060,Phénomène,Ollivier Cottenceau (Domaine de la Grenaudière),Non-alcoholic wine,,,,
 TDS-0061,Rosé Zéro (Rose Mont Rose),Domaine de Montrose,Non-alcoholic wine,,,,LOW-CONFIDENCE top: Domaine Montrose Domaine de Montrose - Bisou Rosé 2025 (3560682100506) score=1
