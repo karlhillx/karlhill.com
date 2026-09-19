@@ -358,6 +358,7 @@ body.is-locked {
 }
 
 .lede {
+  margin: 0;
   max-width: 40rem;
   font-size: clamp(1.05rem, 1.8vw, 1.2rem);
   color: inherit;
@@ -654,6 +655,7 @@ a.stat:hover strong {
   padding: clamp(2.4rem, 6vw, 4.25rem) 0;
 }
 
+.page-header + .section,
 .section--tight {
   padding-top: 1.5rem;
 }
