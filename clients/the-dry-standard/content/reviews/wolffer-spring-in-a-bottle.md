@@ -17,7 +17,7 @@ price: "$20.99 (Total Wine)"
 volume: 750 ml
 availability: "Total Wine & More"
 image: media/reviews/wolffer-spring-in-a-bottle.jpg
-image_alt: "Wölffer Spring in a Bottle"
+image_alt: "Wölffer Spring in a Bottle sparkling rosé"
 image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"

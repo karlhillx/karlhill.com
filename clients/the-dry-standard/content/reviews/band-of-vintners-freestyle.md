@@ -16,7 +16,7 @@ price: "$20"
 volume: 750 ml
 availability: "Producer shop and The Zero Proof"
 image: media/reviews/band-of-vintners-freestyle.jpg
-image_alt: "Band of Vintners Freestyle"
+image_alt: "Band of Vintners Freestyle NA white wine bottle"
 image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
