@@ -18,9 +18,7 @@ production_note: "Vivino lists the wine as 'Be Free De-Alcoholised Rosé,' and a
 volume: "750 ml (75 cl retail listings)"
 price: "$10.49 at Total Wine & More (Postmates listing)"
 availability: "Total Wine & More (US); European retailers including Supervin (SE/DK)"
-image: media/reviews/be-free-rose.jpg
 image_alt: "Be Free Rosé"
-image_credit: Product photo via supervin.se
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 78

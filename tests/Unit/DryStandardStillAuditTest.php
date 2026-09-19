@@ -40,7 +40,7 @@ it('accepts the Leitz gold-standard still for publish', function () {
 
 it('rejects retailer credits', function () {
     $result = (new StillAudit)->inspect(
-        dryStandardStillReview('be-free-chardonnay'),
+        dryStandardStillReview('penns-best-lager'),
         dryStandardStillHashes(),
     );
 
@@ -89,6 +89,31 @@ it('rejects lifestyle tablescapes', function () {
     try {
         $result = (new StillAudit)->inspect($review);
         expect($result['errors'])->toContain('lifestyle or multi-object scene, not a single SKU on paper');
+    } finally {
+        @unlink($path);
+    }
+});
+
+it('rejects a close-up of part of the bottle', function () {
+    $relative = 'media/reviews/__fragment-audit.jpg';
+    $path = Paths::default()->path($relative);
+    $image = imagecreatetruecolor(600, 800);
+    imagefill($image, 0, 0, imagecolorallocate($image, 255, 255, 255));
+    imagefilledrectangle($image, 20, 0, 579, 799, imagecolorallocate($image, 196, 92, 48));
+    imagejpeg($image, $path, 90);
+
+    $file = Paths::default()->content('reviews'.DIRECTORY_SEPARATOR.'chloe-pinot-grigio.md');
+    $document = YamlFrontMatter::parseFile($file);
+    $matter = $document->matter();
+    $matter['slug'] = '__fragment-audit';
+    $matter['image'] = $relative;
+    $matter['image_source'] = 'editorial';
+    $matter['image_sku_confirmed'] = 'yes';
+    $review = Review::fromMatter($matter, $document->body(), $file);
+
+    try {
+        $result = (new StillAudit)->inspect($review);
+        expect($result['errors'])->toContain('still is a close-up of part of the bottle; use a full-bottle packshot with the whole label visible');
     } finally {
         @unlink($path);
     }

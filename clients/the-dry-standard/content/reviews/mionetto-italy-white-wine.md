@@ -20,6 +20,9 @@ price: "$16.99 per 750 ml bottle (Mionetto USA shopmionetto.com)"
 image: media/reviews/mionetto-italy-white-wine.jpg
 image_alt: "Mionetto Alcohol-Removed Sparkling Wine"
 image_credit: Product photo via freixenetmionettousa.com
+image_source: producer
+image_source_url: https://www.freixenetmionettousa.com/wines/mionetto-alcohol-removed-sparkling-wine/
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 79

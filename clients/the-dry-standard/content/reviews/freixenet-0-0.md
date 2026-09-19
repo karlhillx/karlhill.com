@@ -35,8 +35,11 @@ finish: "Soft and short. Pleasant, uncomplicated, easy to drink on its own."
 best_for: "Goat cheese salad, poultry, sushi — or any occasion that wants a bubbly pour without ceremony."
 serve: "Chilled, 5–7°C, in a flute."
 image: media/reviews/freixenet-0-0.jpg
-image_alt: "Freixenet 0,0 Sparkling bottle"
-image_credit: "Product photo via Freixenet"
+image_alt: "Freixenet 0,0 Sparkling White bottle"
+image_credit: Product photo via freixenet.com
+image_source: producer
+image_source_url: https://freixenet.com/us/product/alcohol-removed-sparkling-white
+image_sku_confirmed: yes
 sources:
   - title: "Freixenet Global — 0,0 Sparkling White product page"
     url: https://freixenet.com/product/alcohol-free-sparkling-white

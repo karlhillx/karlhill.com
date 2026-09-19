@@ -45,7 +45,7 @@ If a fact cannot be sourced, delete the field.
 5. Decide production_type and verified.
 6. Collect only sourced metadata.
 7. Draft the review markdown in `content/reviews/{slug}.md`.
-8. Photograph or obtain a still: editorial photo of the tasted bottle, or producer/importer press art with `image_source_url`. Confirm the label. An empty frame is better than a wrong-SKU bottle. Run `php artisan dry-standard:audit-stills {slug}`.
+8. Photograph or obtain a still: editorial photo of the tasted bottle, or producer/importer press art with `image_source_url`. Confirm the label. Show the whole bottle and the full front label. An empty frame is better than a wrong-SKU bottle. Run `php artisan dry-standard:audit-stills {slug}`.
 9. Run `php artisan dry-standard:validate {slug} --publish`.
 10. If it fails, set `status: needs-review` and stop. Do not publish to satisfy the calendar.
 11. If it passes, `php artisan dry-standard:publish {slug}`.

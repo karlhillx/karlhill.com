@@ -29,7 +29,10 @@ best_for: "The aperitivo hour, Italian-style; a Campari spritz without the prose
 serve: "Build over ice with an orange slice; finish with sparkling water for a true Spritz."
 image: media/reviews/crodino-non-alcoholic-spritz.jpg
 image_alt: "Crodino Non-Alcoholic Spritz bottle"
-image_credit: "Product photo via Crodino"
+image_credit: Product photo via crodino.com
+image_source: producer
+image_source_url: https://www.crodino.com/en-us/the-original/
+image_sku_confirmed: yes
 sources:
   - title: "Crodino — the original non-alcoholic spritz (Crodino)"
     url: https://www.crodino.com/the-original/

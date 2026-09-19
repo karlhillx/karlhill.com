@@ -16,9 +16,7 @@ verified: yes
 production_note: "Vivino lists the wine as 'Be Free Dealcoholized Chardonnay' with an alcohol content of 0.01%, confirming the wine was fermented and then had alcohol removed; the specific named technology is not published."
 volume: "750 ml (0.75 L retail listing)"
 availability: "European retail including Spiżarnia pod Łysą Górą (PL)"
-image: media/reviews/be-free-chardonnay.jpg
 image_alt: "Be Free Chardonnay"
-image_credit: Product photo via spizarniapodlysagora.pl
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 76

@@ -18,9 +18,7 @@ volume: "750 ml"
 price: "$12.79 (RoomBox listing)"
 calories: "29 kcal per 100 ml (Alcohol Change UK)"
 availability: "Total Wine & More (US); European retailers including Supervin (SE/DK) and RoomBox"
-image: media/reviews/be-free-white-sparkling.jpg
 image_alt: "Be Free White Sparkling"
-image_credit: Product photo via supervin.se
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 77

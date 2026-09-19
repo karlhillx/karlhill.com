@@ -15,7 +15,7 @@ it('audits Dry Standard stills', function () {
         'slug' => 'leitz-eins-zwei-zero-riesling',
     ])->assertSuccessful();
     $this->artisan('dry-standard:audit-stills', [
-        'slug' => 'be-free-chardonnay',
+        'slug' => 'penns-best-lager',
     ])->assertFailed();
 });
 

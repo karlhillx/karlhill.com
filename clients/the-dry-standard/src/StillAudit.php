@@ -145,6 +145,15 @@ final class StillAudit
             $warnings[] = 'label area looks sparse — possible unlabeled mockup or cropped logo';
         }
 
+        $fragment = $this->fragmentCrop($image, $width, $height);
+        $metrics['top_bleed'] = round($fragment['top_bleed'], 2);
+        $metrics['bottom_bleed'] = round($fragment['bottom_bleed'], 2);
+        $metrics['neck_ratio'] = round($fragment['neck_ratio'], 2);
+
+        if ($fragment['crop']) {
+            $errors[] = 'still is a close-up of part of the bottle; use a full-bottle packshot with the whole label visible';
+        }
+
         return ['errors' => $errors, 'warnings' => $warnings, 'metrics' => $metrics];
     }
 
@@ -220,6 +229,86 @@ final class StillAudit
         }
 
         return $values;
+    }
+
+    /**
+     * Close-up of a bottle body or logo: the subject runs off the top and
+     * bottom, and the top of the frame is as wide as the shoulder — no neck,
+     * cork, or can lid. Skip dark studios and lifestyle tablescapes.
+     *
+     * @return array{crop: bool, top_bleed: float, bottom_bleed: float, neck_ratio: float}
+     */
+    private function fragmentCrop(\GdImage $image, int $width, int $height): array
+    {
+        $whiteCorners = 0;
+        foreach ([
+            [8, 8],
+            [$width - 9, 8],
+            [8, $height - 9],
+            [$width - 9, $height - 9],
+        ] as [$x, $y]) {
+            if ($this->luma($image, $x, $y) > 220) {
+                $whiteCorners++;
+            }
+        }
+
+        $topBleed = $this->rowSubjectShare($image, $width, max(1, (int) round($height * 0.03)));
+        $bottomBleed = $this->rowSubjectShare($image, $width, min($height - 2, (int) round($height * 0.97)));
+        $topWidth = $this->rowSubjectWidth($image, $width, max(1, (int) round($height * 0.10)));
+        $midWidth = $this->rowSubjectWidth($image, $width, (int) round($height * 0.42));
+        $neckRatio = $midWidth > 8 ? $topWidth / $midWidth : 0.0;
+        $reachesSides = ! $this->isPaperPixel($image, max(1, (int) round($width * 0.08)), (int) round($height * 0.50))
+            && ! $this->isPaperPixel($image, min($width - 2, (int) round($width * 0.92)), (int) round($height * 0.50));
+
+        return [
+            'crop' => $whiteCorners >= 4
+                && $reachesSides
+                && $topBleed >= 0.28
+                && $bottomBleed >= 0.28
+                && $neckRatio >= 0.62,
+            'top_bleed' => $topBleed,
+            'bottom_bleed' => $bottomBleed,
+            'neck_ratio' => $neckRatio,
+        ];
+    }
+
+    private function isPaperPixel(\GdImage $image, int $x, int $y): bool
+    {
+        $rgb = imagecolorat($image, $x, $y);
+        $r = ($rgb >> 16) & 255;
+        $g = ($rgb >> 8) & 255;
+        $b = $rgb & 255;
+        $luma = 0.299 * $r + 0.587 * $g + 0.114 * $b;
+
+        return $luma > 220 && abs($r - $g) < 18 && abs($g - $b) < 18;
+    }
+
+    private function rowSubjectShare(\GdImage $image, int $width, int $y): float
+    {
+        $subject = 0;
+        $total = 0;
+        for ($x = 0; $x < $width; $x += 3) {
+            if (! $this->isPaperPixel($image, $x, $y)) {
+                $subject++;
+            }
+            $total++;
+        }
+
+        return $total === 0 ? 0.0 : $subject / $total;
+    }
+
+    private function rowSubjectWidth(\GdImage $image, int $width, int $y): int
+    {
+        $left = null;
+        $right = null;
+        for ($x = 0; $x < $width; $x += 2) {
+            if (! $this->isPaperPixel($image, $x, $y)) {
+                $left ??= $x;
+                $right = $x;
+            }
+        }
+
+        return $left === null ? 0 : ($right - $left + 1);
     }
 
     private function darkStripShare(\GdImage $image, int $width, int $height): float

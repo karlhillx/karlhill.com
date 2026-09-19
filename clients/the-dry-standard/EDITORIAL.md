@@ -62,7 +62,7 @@ Allowed sources, in order:
 2. **Producer** — press or product photography from the brand site, with `image_source_url` to that page.
 3. **Importer** — press photography from the importer, with `image_source_url`.
 
-Do not use retailer, marketplace, or delivery-app photography. Do not reuse a still across SKUs. Do not publish unlabeled mockups, lifestyle tablescapes, or another product's bottle. An empty frame is better than a wrong-SKU bottle. Flatten stills onto paper (`rgb(243,239,230)`), not pure white.
+Do not use retailer, marketplace, or delivery-app photography. Do not reuse a still across SKUs. Do not publish unlabeled mockups, lifestyle tablescapes, or another product's bottle. An empty frame is better than a wrong-SKU bottle. The still must show the **entire bottle or can** and the **full front label** — not a shoulder crop, label close-up, or logo fragment. Flatten stills onto paper (`rgb(243,239,230)`), not pure white.
 
 Frontmatter:
 
@@ -75,7 +75,7 @@ image_source_url: https://…   # required unless image_source is editorial
 image_sku_confirmed: yes      # set only after looking at the label
 ```
 
-`php artisan dry-standard:audit-stills` flags retailer credits, byte-identical files, stills under 500px, dark studio voids, lifestyle scenes, and sparse unlabeled mockups. `dry-standard:validate {slug} --publish` and `dry-standard:publish` refuse those errors. `dry-standard:build` still syncs the existing cellar; it does not mass-fail on legacy stills.
+`php artisan dry-standard:audit-stills` flags retailer credits, byte-identical files, stills under 500px, dark studio voids, lifestyle scenes, unlabeled mockups, and close-ups of part of a bottle. `dry-standard:validate {slug} --publish` and `dry-standard:publish` refuse those errors. `dry-standard:build` still syncs the existing cellar; it does not mass-fail on legacy stills.
 
 WebP output letterboxes non-3:4 JPEGs onto paper (`rgb(243,239,230)`). Uniform near-white cutouts are flooded onto the same paper. Dark studio packshots are not auto-filled — a black can would disappear — so recrop or reshoot those.
 

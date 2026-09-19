@@ -18,9 +18,7 @@ base_beverage: "Cuvée from high-quality grape varieties, vinified conventionall
 producer: P.J. Valckenberg (Germany)
 volume: "750 ml"
 availability: "US and German retail including vinello.de"
-image: media/reviews/valckenberg-zero-sparkling.jpg
 image_alt: "Valckenberg Cuvée Zero Sparkling bottle"
-image_credit: Product photo via vinello.de
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 78
