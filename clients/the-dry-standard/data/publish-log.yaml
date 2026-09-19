@@ -202,3 +202,63 @@
   brand: 'Unverified house label'
   published_at: '2026-09-19T00:50:49+00:00'
   path: reviews/wine/alcohol-free-sparkling-rose/
+-
+  slug: christian-drouin-poire
+  product: 'Jus de Poire Pétillant'
+  brand: 'Christian Drouin'
+  published_at: '2026-09-19T00:54:29+00:00'
+  path: reviews/cider/christian-drouin-poire/
+-
+  slug: untitled-art-flvr-italian-pils
+  product: 'FLVR! NA Italian-Style Pils'
+  brand: 'Untitled Art Brewing'
+  published_at: '2026-09-19T00:54:29+00:00'
+  path: reviews/beer/untitled-art-flvr-italian-pils/
+-
+  slug: gruvi-sangria
+  product: Sangria
+  brand: Grüvi
+  published_at: '2026-09-19T00:54:29+00:00'
+  path: reviews/cocktails/gruvi-sangria/
+-
+  slug: eric-bordelet-perlant
+  product: 'Perlant Jus de Pommes à Sydre'
+  brand: 'Eric Bordelet'
+  published_at: '2026-09-19T00:54:30+00:00'
+  path: reviews/cider/eric-bordelet-perlant/
+-
+  slug: king-maui-sauvignon-blanc
+  product: '0% Marlborough Sauvignon Blanc'
+  brand: 'King Maui'
+  published_at: '2026-09-19T00:54:30+00:00'
+  path: reviews/wine/king-maui-sauvignon-blanc/
+-
+  slug: visecco-pinot-meunier
+  product: 'ViSecco Pinot Meunier'
+  brand: 'Jörg Geiger'
+  published_at: '2026-09-19T00:54:30+00:00'
+  path: reviews/wine/visecco-pinot-meunier/
+-
+  slug: blanc-de-blanc
+  product: 'Blanc de Blanc'
+  brand: 'Jörg Geiger'
+  published_at: '2026-09-19T00:54:30+00:00'
+  path: reviews/wine/blanc-de-blanc/
+-
+  slug: nozeco-brut-rose
+  product: 'Alcohol Free Brut Rosé'
+  brand: Nozeco
+  published_at: '2026-09-19T00:54:30+00:00'
+  path: reviews/wine/nozeco-brut-rose/
+-
+  slug: ollivier-cottenceau-phenomene
+  product: Phénomène
+  brand: 'Ollivier Cottenceau'
+  published_at: '2026-09-19T00:54:31+00:00'
+  path: reviews/wine/ollivier-cottenceau-phenomene/
+-
+  slug: domaine-de-montrose-rose
+  product: 'Rosé Zéro (Rose Mont Rose)'
+  brand: 'Domaine de Montrose'
+  published_at: '2026-09-19T00:54:31+00:00'
+  path: reviews/wine/domaine-de-montrose-rose/

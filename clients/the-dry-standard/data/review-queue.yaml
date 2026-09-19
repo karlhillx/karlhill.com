@@ -781,7 +781,7 @@
   brand: 'Christian Drouin'
   category: cider
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Product name translates to "sparkling pear juice" — likely never fermented'
   abv: 'Not verified'
@@ -796,7 +796,7 @@
   brand: 'Untitled Art Brewing'
   category: beer
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -811,7 +811,7 @@
   brand: Grüvi
   category: cocktails
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -826,7 +826,7 @@
   brand: 'Eric Bordelet'
   category: cider
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Product name translates to "sparkling apple juice" — likely never fermented'
   abv: 'Not verified'
@@ -841,7 +841,7 @@
   brand: 'King Maui'
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'yes'
   method: 'Not verified'
   abv: 'Not verified'
@@ -856,7 +856,7 @@
   brand: 'Jörg Geiger'
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'yes'
   method: 'Not independently verified for this specific SKU'
   abv: 'Not verified (brand line typically <0.5%)'
@@ -871,7 +871,7 @@
   brand: 'Jörg Geiger'
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'yes'
   method: 'Organic Chardonnay/Colombard wine fermented and aged on lees for two years, then "gently dealcoholized" (specific technique not detailed)'
   abv: '<0.5%'
@@ -886,7 +886,7 @@
   brand: Nozeco
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'yes'
   method: 'Not verified'
   abv: 'Not verified'
@@ -901,7 +901,7 @@
   brand: 'Ollivier Cottenceau (Domaine de la Grenaudière)'
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Not independently verified; sold as non-alcoholic Melon de Bourgogne (Muscadet-style) via Schatzi Wines/Boisson'
   abv: 'Not verified'
@@ -916,7 +916,7 @@
   brand: 'Domaine de Montrose'
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: 'no'
   method: 'Not independently verified; sold as "Rosé Zero" via Schatzi Wines/Boisson'
   abv: 'Not verified'
