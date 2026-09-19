@@ -20,5 +20,5 @@
         <a href="<?= $view->e($feedUrl) ?>">RSS</a>
       </div>
     </div>
-    <p class="copyright">© <span data-year></span> The Dry Standard. Staging preview on karlhill.com.</p>
+    <p class="copyright">© <span data-year></span> The Dry Standard.</p>
   </footer>

@@ -76,7 +76,3 @@ Local models do the drafting work where that is practical. They do not get to in
 ## What this is not
 
 This is not a shop. There are no carts, no accounts, and no affiliate obligation in the first phase. Purchase links are citations of where a bottle has been sold in the United States, not endorsements of a retailer.
-
-## Contact
-
-The Dry Standard is staged from the karlhill.com client preview. Editorial questions can go to Karl Hill through the main site.
