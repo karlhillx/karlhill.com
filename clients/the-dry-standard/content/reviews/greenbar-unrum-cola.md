@@ -2,36 +2,55 @@
 title: "Greenbar UNRum + Cola"
 slug: greenbar-unrum-cola
 id: TDS-0087
+ean: "855675002565"
 brand: Greenbar
 product: UNRum + Cola
 category: cocktails
 subcategory: canned cocktail
 country: USA
 region: Los Angeles, California
-style: Formulated non-alcoholic canned cocktail
-dealcoholized: no
-dealcoholized_note: "Greenbar's UNRum is a formulated spirit alternative, not a dealcoholized rum; the canned cocktail mixes it with cola."
-base_beverage: "UNRum (Greenbar's formulated rum alternative) mixed with natural cola flavor"
-producer: Greenbar Distillery (Los Angeles, California)
-volume: "Canned format"
-availability: "US retail including Metro Wine & Spirits"
+style: Dealcoholized rum and cola highball
+abv: "<0.5% ABV (producer)"
+abv_numeric: 0.5
+dealcoholized: yes
+dealcoholized_note: "Greenbar lists organic dealcoholized molasses rum as the first flavor ingredient and says it boils the alcohol off after distillation and infusion."
+dealcoholization_method: "Alcohol boiled off after distillation and infusion (producer spec sheet)"
+base_beverage: "Organic dealcoholized molasses rum mixed with cola botanicals"
+producer: Greenbar Distillery
+volume: "12 oz (355 mL) slim can"
+calories: "62 calories per 12 fl oz can (producer)"
+ingredients: "Water, organic dealcoholized molasses rum, organic botanicals (kola nut, lime, tamarind, nutmeg, coriander, vanilla, clove, orange, cinnamon, allspice, osmanthus, chili, gentian), citric acid, carbon dioxide, organic cane sugar, organic molasses"
+availability: "US retail including Metro Wine & Spirits; also sold as 4-packs from Greenbar"
+purchase_links:
+  - label: Greenbar Distillery — non-alcoholic canned cocktails
+    url: https://greenbardistillery.com/non-alcoholic/
+    region: US
+image: media/reviews/greenbar-unrum-cola.jpg
+image_alt: "Greenbar UNRum + Cola slim can"
+image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 76
-verdict: "A canned rum-and-cola built on Greenbar's UNRum alternative — organic, LA-distilled, and honest about being a formulated drink rather than a dealcoholized one."
-summary: "Greenbar's UNRum + Cola is a formulated non-alcoholic canned cocktail from Los Angeles: the rum silhouette drawn in botanicals, mixed with cola."
-nose: "Caramel and molasses with a cola spice — the rum-and-coca aromatic signature, lighter than the real thing."
-palate: "Caramel sweetness with a gentle cola bitterness; the UNRum base reads as rum-adjacent rather than rum-like, which is the honest framing."
-finish: "Clean and gently spiced."
-best_for: "The rum-and-coke ritual, zero proof, from a distillery that makes both alcoholic and non-alcoholic spirits."
-serve: "Over ice, from the can."
+verdict: "A canned rum-and-cola that starts as rum. Greenbar names the still work — dealcoholized molasses rum, then cola botanicals — so the badge is Yes, not a formulated highball in a rum costume."
+summary: "Los Angeles distillery Greenbar boils the alcohol off a molasses rum, then cans it with kola nut, baking spice, and citrus. Less than 0.5% ABV, 62 calories, one slim can."
+nose: "Molasses and baking spice first, then kola and lime peel. It smells like a rum-and-cola that was mixed in a kitchen, not a soda fountain."
+palate: "Warm spice over a light cola bitterness. The rum is there as caramel and clove, not as heat. Sweet, but the gentian and chili keep it from reading as cola syrup."
+finish: "Nutmeg and a dry kola close. Short. The can is the pour."
+best_for: "The rum-and-cola ritual when the rest of the table is drinking the 80-proof version."
+serve: "Cold, over ice. Greenbar says cold or over ice; the ice helps."
+discrepancies:
+  - field: sugar
+    note: "The product page lists 7 g of carbohydrate per 12 fl oz can. Greenbar's 2022 RTD spec sheet lists 8 g of carbohydrate and 8 g of sugar for the same serving. We print calories, which both sheets give as 62, and leave sugar off the facts table."
 sources:
-  - title: "Greenbar Distillery — producer"
-    url: https://greenbar.com/
-    claims: [producer, country, region, dealcoholized, base_beverage, availability, volume]
+  - title: "Canned highball cocktails — Greenbar Distillery"
+    url: https://greenbardistillery.com/non-alcoholic/
+    claims: [abv, ingredients, calories, volume, producer, country, region, dealcoholized, base_beverage, availability]
+  - title: "Greenbar Distillery non-alcohol RTD spec sheets"
+    url: https://cdn.greenbardistillery.com/wp-content/uploads/2022/08/Greenbar_RTDs_UNs__Spec_Sheets_email.pdf
+    claims: [method, dealcoholized, ingredients, calories, volume, producer, country, region]
 status: published
 ---
 
-Greenbar is a Los Angeles distillery that makes both alcoholic and non-alcoholic spirits, and the UNRum + Cola is their entry in the canned RTD space: their UNRum formulation (a botanical approximation of rum's character) mixed with natural cola flavor in a single-serve can. The queue notes ask whether this is a formulated cocktail or an alcohol-removed rum and cola — it's the former, and Greenbar is transparent about that.
+The first published version of this note treated UNRum as a formulated rum alternative. That was wrong. Greenbar's own ingredient line opens with organic dealcoholized molasses rum. The 2022 spec sheet is blunter: classic distillation and infusion, then boiling off the alcohol. The cola is kola nut, lime, tamarind, and a spice drawer. The badge is Yes.
 
-The drink delivers a caramel-and-molasses profile with the cola's spice and bitterness providing structure — recognizably a rum-and-cola shape without pretending it's a real one. Greenbar's organic, LA-made positioning gives it a craft credibility that most canned NA cocktails lack. As a canned cocktail it's not trying to be complex; it's trying to be the drink you grab from the cooler, and it does that well.
+What remains is a highball, not a spirit. Sixty-two calories, under 0.5% ABV, a 12-ounce slim can. It drinks warm-spicy, as the label says, and it does not pretend the ethanol is still in the glass. That is the honest version of a rum-and-cola from a distillery that also makes the 80-proof kind.

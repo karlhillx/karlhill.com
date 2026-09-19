@@ -18,7 +18,7 @@ volume: 12 oz can
 producer: Lagunitas Brewing Company
 availability: "Year-round 12 oz cans"
 image: media/reviews/lagunitas-hazy-ipna.jpg
-image_alt: "Lagunitas Hazy IPNA can"
+image_alt: "Lagunitas Hazy IPNA 12 oz can"
 image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"

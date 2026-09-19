@@ -1261,10 +1261,10 @@
   brand: Greenbar
   category: cocktails
   priority: low
-  status: queued
-  dealcoholized: 'no'
-  method: 'Not verified'
-  abv: 'Not verified'
+  status: published
+  dealcoholized: 'yes'
+  method: 'Alcohol boiled off after distillation and infusion (producer spec sheet)'
+  abv: '<0.5%'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1787875200
