@@ -15,6 +15,9 @@ dealcoholized_note: "Asahi's own R&D documentation describes Dry Zero as a non-a
 base_beverage: "Formulated beverage from unfermented ingredients and flavor compounds; no full-strength beer is produced and then stripped"
 producer: Asahi Breweries (Japan)
 availability: "Widely available in Japan; international markets including US specialty retailers"
+image: media/reviews/asahi-dry-zero.jpg
+image_alt: "Asahi Super Dry 0.0% bottle"
+image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 76

@@ -12,7 +12,7 @@ style: Dealcoholized dry stout
 abv: "Marketed as 0.0%; independent testers have reported a detectable ceiling around 0.05%"
 abv_numeric: 0.0
 image: media/reviews/guinness-0-0.jpg
-image_alt: "Guinness 0.0 can"
+image_alt: "Guinness 0.0 14.9 fl oz can"
 image_credit: Editorial still
 dealcoholized: yes
 dealcoholization_method: Cold filtration after a conventional Guinness brew
