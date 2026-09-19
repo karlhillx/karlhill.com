@@ -14,7 +14,7 @@ $selected = static fn (string $key, string $want): bool => $value($key) === $wan
     <section class="section">
       <div class="shell shell--narrow">
         <?php if (! empty($sent)) { ?>
-        <p class="notice notice--ok" role="status">Received. We will reply from The Dry Standard if there is a fit.</p>
+        <p class="notice notice--ok" role="status">Received. We reply within three business days from <?= $view->e($editorEmail ?? 'drinkdrystandard@gmail.com') ?>.</p>
         <?php } ?>
         <form class="intake-form" method="post" action="<?= $view->e($action) ?>" novalidate>
           <input type="hidden" name="_token" value="<?= $view->e($csrf ?? '') ?>">
@@ -46,7 +46,7 @@ $selected = static fn (string $key, string $want): bool => $value($key) === $wan
             <textarea id="inquiry-message" name="message" rows="6" required><?= $view->e($value('message')) ?></textarea>
             <?php if (! empty($errors['message'])) { ?><p class="field-error"><?= $view->e($errors['message']) ?></p><?php } ?>
           </div>
-          <p class="fine-print">This is not a product-submission form. To have a bottle considered for review, <a href="<?= $view->e($submitUrl) ?>">submit a product</a>.</p>
+          <p class="fine-print"><?php if (! empty($editorMailto)) { ?>We reply within three business days from <a href="<?= $view->e($editorMailto) ?>"><?= $view->e($editorEmail) ?></a>. <?php } ?>This is not a product-submission form. To have a bottle considered for review, <a href="<?= $view->e($submitUrl) ?>">submit a product</a>.</p>
           <p><button class="btn" type="submit">Send inquiry</button></p>
         </form>
       </div>

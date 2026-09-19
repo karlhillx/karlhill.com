@@ -4,7 +4,7 @@ Read this file before researching, drafting, or publishing anything for The Dry 
 
 ## What this is
 
-An editorial publication about beverages at **≤0.5% ABV**, staged at `/clients/the-dry-standard/` inside the karlhill.com Laravel repo. The visual and legal parent is a client preview (Laravel sends `X-Robots-Tag: noindex` on `/clients/*`). On-page SEO, feeds, and structured data are implemented so the site can move to its own domain later.
+An editorial publication about beverages at **≤0.5% ABV**, staged at `/clients/the-dry-standard/` inside the karlhill.com Laravel repo. The visual and legal parent is a client preview (Laravel sends `X-Robots-Tag: noindex` on `/clients/*`). On-page SEO, feeds, and structured data are implemented so the site can move to its own domain later. Karl Hill is the public editor; industry mail goes to `drinkdrystandard@gmail.com` and is answered within three business days.
 
 The differentiator is aggressive: **dealcoholized** is not a synonym for **non-alcoholic**. Classify by production type, and keep a separate verified field.
 

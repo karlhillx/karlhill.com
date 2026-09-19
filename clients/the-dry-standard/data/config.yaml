@@ -7,6 +7,11 @@ site:
   canonical_host: https://karlhill.com
   index: false
 
+editor:
+  name: Karl Hill
+  role: Editor
+  email: drinkdrystandard@gmail.com
+
 publishing:
   enabled: true
   reviews_per_week: 3

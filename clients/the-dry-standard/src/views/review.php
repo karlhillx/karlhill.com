@@ -8,6 +8,9 @@
             <div class="review-hero-copy">
               <h1><?= $view->e($title) ?></h1>
               <?= $metaLine ?>
+              <?php if (! empty($byline)) { ?>
+              <p class="review-byline"><?= $byline ?></p>
+              <?php } ?>
               <p class="lede"><?= $view->e($summary) ?></p>
               <?= $identity ?? '' ?>
               <p class="review-jump">

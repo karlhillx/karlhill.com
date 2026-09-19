@@ -3,6 +3,9 @@
       <div>
         <p class="logo-text">The Dry Standard</p>
         <p>Independent reviews of dealcoholized beer, wine, spirits, and cocktails at 0.5% ABV or less. We score what remains in the glass — not the lifestyle around it.</p>
+        <?php if (! empty($editorName)) { ?>
+        <p class="footer-editor">Edited by <?= $view->e($editorName) ?><?php if (! empty($editorMailto)) { ?><br><a href="<?= $view->e($editorMailto) ?>"><?= $view->e($editorEmail) ?></a><?php } ?></p>
+        <?php } ?>
       </div>
       <div>
         <p class="footer-label">The cellar</p>
@@ -28,5 +31,5 @@
         <a href="<?= $view->e($partnershipsUrl) ?>">Partnerships</a>
       </div>
     </div>
-    <p class="copyright">© <?= $view->e($year ?? date('Y')) ?> The Dry Standard.</p>
+    <p class="copyright">© <?= $view->e($year ?? date('Y')) ?> The Dry Standard.<?php if (! empty($editorName)) { ?> Edited by <?= $view->e($editorName) ?>.<?php } ?></p>
   </footer>

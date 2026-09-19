@@ -73,6 +73,23 @@ final class StructuredData
     /**
      * @return array<string, mixed>
      */
+    public function person(): array
+    {
+        $email = $this->config->editorEmail();
+
+        return array_filter([
+            '@type' => 'Person',
+            '@id' => $this->config->canonicalUrl('about/').'#editor',
+            'name' => $this->config->editorName(),
+            'jobTitle' => $this->config->editorRole(),
+            'email' => $email === '' ? null : 'mailto:'.$email,
+            'url' => $this->config->canonicalUrl('about/'),
+        ]);
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
     public function review(Review $review): array
     {
         $url = $this->config->canonicalUrl($review->path());
@@ -86,9 +103,11 @@ final class StructuredData
             'url' => $url,
             'datePublished' => $review->reviewDate->toDateString(),
             'dateModified' => $review->modifiedAt()->toDateString(),
-            'author' => [
+            'author' => $this->person(),
+            'publisher' => [
                 '@type' => 'Organization',
                 'name' => $this->config->name(),
+                'url' => $this->config->canonicalUrl(),
             ],
             'reviewRating' => $review->rating === null ? null : [
                 '@type' => 'Rating',

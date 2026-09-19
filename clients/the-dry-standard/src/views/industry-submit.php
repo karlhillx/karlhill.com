@@ -15,7 +15,7 @@ $selected = static fn (string $key, string $want): bool => $value($key) === $wan
     <section class="section">
       <div class="shell shell--narrow">
         <?php if (! empty($sent)) { ?>
-        <p class="notice notice--ok" role="status">Received. We will reply if we need shipping details or have a question. Nothing is published until an editor verifies it.</p>
+        <p class="notice notice--ok" role="status">Received. We reply within three business days from <?= $view->e($editorEmail ?? 'drinkdrystandard@gmail.com') ?>. Nothing is published until an editor verifies it.</p>
         <?php } ?>
         <form class="intake-form" method="post" action="<?= $view->e($action) ?>" novalidate>
           <input type="hidden" name="_token" value="<?= $view->e($csrf ?? '') ?>">
@@ -75,7 +75,7 @@ $selected = static fn (string $key, string $want): bool => $value($key) === $wan
               </label>
             </div>
           </fieldset>
-          <p class="fine-print">We will not publish this form as a review. See <a href="<?= $view->e($samplesUrl) ?>">editorial sample policy</a>.</p>
+          <p class="fine-print">We will not publish this form as a review. <?php if (! empty($editorMailto)) { ?>We reply within three business days from <a href="<?= $view->e($editorMailto) ?>"><?= $view->e($editorEmail) ?></a>. <?php } ?>See <a href="<?= $view->e($samplesUrl) ?>">editorial sample policy</a>.</p>
           <p><button class="btn" type="submit">Send for editorial consideration</button></p>
         </form>
       </div>

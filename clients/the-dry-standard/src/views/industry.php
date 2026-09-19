@@ -8,6 +8,7 @@
     <section class="section">
       <div class="shell shell--narrow stack">
         <p class="lede lede--follow">Editorial coverage is independent of samples, advertising, and any commercial relationship. Submission does not guarantee publication or a favorable review.</p>
+        <?= $editorDesk ?? '' ?>
         <div class="industry-doors">
           <a class="industry-door" href="<?= $view->e($submitUrl) ?>">
             <p class="kicker">Products</p>

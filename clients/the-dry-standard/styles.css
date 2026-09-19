@@ -1890,6 +1890,40 @@ a.stat:hover strong {
   margin-top: 0;
 }
 
+.editor-desk {
+  padding: 1.1rem 1.15rem 1.2rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.editor-desk p {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-sans);
+}
+
+.editor-desk p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+
+.editor-desk a {
+  color: inherit;
+}
+
+.review-byline {
+  margin: -0.45rem 0 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.footer-editor {
+  margin: 1rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
 .industry-doors {
   display: grid;
   gap: 1rem;

@@ -127,7 +127,10 @@ class DryStandardIndustryController extends Controller
 
     private function notify(string $subject, string $body): void
     {
-        $to = (string) config('site.person.email');
+        $to = Workspace::default()->config()->editorEmail();
+        if ($to === '') {
+            $to = (string) config('site.person.email');
+        }
         if ($to === '') {
             return;
         }

@@ -92,6 +92,28 @@ final class SiteConfig
         return $this->string('site.tagline');
     }
 
+    public function editorName(): string
+    {
+        return $this->string('editor.name', 'Karl Hill');
+    }
+
+    public function editorRole(): string
+    {
+        return $this->string('editor.role', 'Editor');
+    }
+
+    public function editorEmail(): string
+    {
+        return $this->string('editor.email', 'drinkdrystandard@gmail.com');
+    }
+
+    public function editorMailto(): string
+    {
+        $email = $this->editorEmail();
+
+        return $email === '' ? '' : 'mailto:'.$email;
+    }
+
     public function basePath(): string
     {
         return rtrim($this->string('site.base_path', '/clients/the-dry-standard'), '/');

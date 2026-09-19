@@ -67,11 +67,15 @@ Bands we use internally:
 
 Methodology lives with the reviews, not in a PDF nobody reads.
 
+## Who edits this
+
+Karl Hill is the editor. Write [drinkdrystandard@gmail.com](mailto:drinkdrystandard@gmail.com). Industry mail is answered within three business days; details: [For Brands & Industry](industry/).
+
 ## How reviews get published
 
 Products enter a queue. They are researched, drafted, and checked against sources. A review that fails factual validation does not publish, even if the calendar says it is a publishing day. The cadence is configurable — by default, three reviews a week — and it is a ceiling, not a demand.
 
-Local models do the drafting work where that is practical. They do not get to invent a spinning cone.
+Research tools may help assemble sources. They do not invent a spinning cone, and they do not publish. Karl Hill signs the review.
 
 ## What this is not
 

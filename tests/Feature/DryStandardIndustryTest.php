@@ -14,30 +14,43 @@ it('serves the industry doorway and forms', function () {
     $this->get('/clients/the-dry-standard/')
         ->assertOk()
         ->assertSee('For Brands &amp; Industry', escape: false)
-        ->assertSee('industry/submit/', escape: false);
+        ->assertSee('industry/submit/', escape: false)
+        ->assertSee('Edited by Karl Hill', escape: false)
+        ->assertSee('drinkdrystandard@gmail.com', escape: false);
 
     $this->get('/clients/the-dry-standard/industry/')
         ->assertOk()
         ->assertSee('Submit a product', escape: false)
         ->assertSee('Editorial samples', escape: false)
         ->assertSee('Partnerships &amp; business inquiries', escape: false)
+        ->assertSee('Karl Hill', escape: false)
+        ->assertSee('drinkdrystandard@gmail.com', escape: false)
+        ->assertSee('three business days', escape: false)
+        ->assertSee('mailto:drinkdrystandard@gmail.com', escape: false)
         ->assertDontSee('Pay us to promote', escape: false)
         ->assertDontSee('We are looking to sell', escape: false);
 
     $this->get('/clients/the-dry-standard/about/')
         ->assertOk()
         ->assertSee('submit a product', escape: false)
-        ->assertSee('industry/', escape: false);
+        ->assertSee('industry/', escape: false)
+        ->assertSee('Karl Hill is the editor', escape: false)
+        ->assertSee('drinkdrystandard@gmail.com', escape: false);
 
     $this->get('/clients/the-dry-standard/industry/samples/')
         ->assertOk()
         ->assertSee('does not guarantee publication', escape: false)
-        ->assertSee('will not be returned', escape: false);
+        ->assertSee('will not be returned', escape: false)
+        ->assertSee('three business days', escape: false)
+        ->assertSee('drinkdrystandard@gmail.com', escape: false);
 
     $this->get('/clients/the-dry-standard/reviews/beer/guinness-0-0/')
         ->assertOk()
         ->assertSee('Brands may submit products for editorial consideration.', escape: false)
         ->assertSee('Where to buy', escape: false)
+        ->assertSee('Reviewed by Karl Hill', escape: false)
+        ->assertSee('"@type":"Person"', escape: false)
+        ->assertSee('"name":"Karl Hill"', escape: false)
         ->assertDontSee('Where to buy in the United States', escape: false);
 });
 

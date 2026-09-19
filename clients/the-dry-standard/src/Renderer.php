@@ -383,10 +383,7 @@ HTML;
                     'headline' => $page->title,
                     'description' => $description,
                     'url' => $this->config->canonicalUrl($path),
-                    'author' => [
-                        '@type' => 'Organization',
-                        'name' => $this->config->name(),
-                    ],
+                    'author' => $this->personGraph(),
                 ],
             ]),
         ]);
@@ -626,6 +623,7 @@ HTML;
             'breadcrumbs' => $this->breadcrumbs($crumbs),
             'figure' => $this->productFigure($review, 'product-figure product-figure--hero', hero: true),
             'metaLine' => $this->reviewMetaLine($review),
+            'byline' => 'Reviewed by '.$this->e($this->config->editorName()).', '.strtolower($this->config->editorRole()),
             'identity' => $this->view->render('partials/identity', [
                 'factsPeek' => $this->factsPeek($review),
                 'badge' => $badge,
@@ -752,7 +750,7 @@ XML;
     <link rel="alternate" type="text/html" href="{$url}"/>
     <updated>{$updated}</updated>
     <published>{$published}</published>
-    <author><name>{$this->config->name()}</name></author>
+    <author><name>{$this->xml($this->config->editorName())}</name></author>
     <category term="{$review->category}"/>
     <summary>{$summary}</summary>
   </entry>
@@ -762,6 +760,7 @@ XML;
         $home = $this->config->canonicalUrl();
         $feed = $this->config->canonicalUrl('feed.xml');
         $name = Str::xml($this->config->name());
+        $editor = $this->xml($this->config->editorName());
 
         return <<<XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -772,7 +771,7 @@ XML;
   <link rel="self" type="application/atom+xml" href="{$feed}"/>
   <id>{$feed}</id>
   <updated>{$updated}</updated>
-  <author><name>{$name}</name></author>
+  <author><name>{$editor}</name></author>
 {$entries}
 </feed>
 XML;
@@ -893,6 +892,9 @@ XML;
             'partnershipsUrl' => $this->config->publicUrl('industry/partnerships/'),
             'year' => (string) now()->year,
             'categories' => $categories,
+            'editorName' => $this->config->editorName(),
+            'editorEmail' => $this->config->editorEmail(),
+            'editorMailto' => $this->config->editorMailto(),
         ]);
     }
 
@@ -1437,6 +1439,36 @@ XML;
         return (new StructuredData($this->config))->product($review, $this->config->categoryLabel($review->category));
     }
 
+    /**
+     * @return array<string, mixed>
+     */
+    private function personGraph(): array
+    {
+        return (new StructuredData($this->config))->person();
+    }
+
+    /**
+     * @return array{editorName: string, editorEmail: string, editorMailto: string}
+     */
+    private function editorViewData(): array
+    {
+        return [
+            'editorName' => $this->config->editorName(),
+            'editorEmail' => $this->config->editorEmail(),
+            'editorMailto' => $this->config->editorMailto(),
+        ];
+    }
+
+    private function editorDesk(): string
+    {
+        return $this->view->render('partials/editor-desk', $this->editorViewData() + [
+            'name' => $this->config->editorName(),
+            'role' => $this->config->editorRole(),
+            'email' => $this->config->editorEmail(),
+            'mailto' => $this->config->editorMailto(),
+        ]);
+    }
+
     private function productFigure(Review $review, string $class, bool $hero = false): string
     {
         $assets = $review->imageAssets();
@@ -1752,6 +1784,7 @@ XML;
             'samplesUrl' => $this->config->publicUrl('industry/samples/'),
             'partnershipsUrl' => $this->config->publicUrl('industry/partnerships/'),
             'aboutUrl' => $this->config->publicUrl('about/'),
+            'editorDesk' => $this->editorDesk(),
         ]);
 
         return $this->document(
@@ -1783,6 +1816,7 @@ XML;
             'breadcrumbs' => $this->breadcrumbs($crumbs),
             'submitUrl' => $this->config->publicUrl('industry/submit/'),
             'industryUrl' => $this->config->publicUrl('industry/'),
+            ...$this->editorViewData(),
         ]);
 
         return $this->document(
@@ -1836,6 +1870,7 @@ XML;
                 ],
                 $this->config->categories(),
             ),
+            ...$this->editorViewData(),
         ]);
 
         return $this->document($title, $description, $path, $body, [
