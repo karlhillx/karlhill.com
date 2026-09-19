@@ -49,11 +49,50 @@
         <p class="kicker">The cellar</p>
         <h1>Cider reviews</h1>
         <p class="lede">Dealcoholized and non-alcoholic Cider reviewed for what they are, not what the label implies.</p>
-        
+                <form class="archive-tools" data-archive data-locked-category="cider" role="search">
+          <label class="visually-hidden" for="archive-q">Search reviews</label>
+          <input id="archive-q" type="search" name="q" placeholder="Search brand, product, origin, or method" data-archive-q>
+          <div class="archive-controls">
+            <label>Category
+              <select name="category" data-archive-category disabled><option value="">All categories</option><option value="wine">Wine</option><option value="beer">Beer</option><option value="spirits">Spirits</option><option value="cocktails">Cocktails</option><option value="cider" selected>Cider</option></select>
+            </label>
+            <label>Process
+              <select name="dealcoholized" data-archive-dealcoholized>
+                <option value="">All processes</option>
+                <option value="yes">Dealcoholized</option>
+                <option value="no">Formulated</option>
+                <option value="not-verified">Not verified</option>
+              </select>
+            </label>
+            <label>Method
+              <select name="method" data-archive-method><option value="">All methods</option><option value="dealcoholized-cider-from-cider-apples-perry-pears-and-dealcoholized-red-wine-plus-hops-herbs-and-flowers">Dealcoholized cider from cider apples perry pears and dealcoholized red wine plus hops herbs and flowers</option></select>
+            </label>
+            <label>Sort
+              <select name="sort" data-archive-sort>
+                <option value="newest">Newest</option>
+                <option value="rating">Highest rated</option>
+                <option value="title">Name</option>
+              </select>
+            </label>
+          </div>
+          <p class="archive-count" data-archive-count></p>
+        </form>
       </div>
     </header>
     <section class="section section--tight">
-      <div class="shell"><p class="empty" data-archive-empty>No published reviews in this section yet. Products can sit in the queue until the facts are good enough to print.</p></div>
+      <div class="shell"><div class="ledger" data-review-grid>      <article class="ledger-row" data-dealcoholized="yes" data-category="cider" data-brand="j-rg-geiger" data-method="dealcoholized-cider-from-cider-apples-perry-pears-and-dealcoholized-red-wine-plus-hops-herbs-and-flowers" data-rating="85" data-date="2026-09-18" data-search="wiesenobst cider rosé jörg geiger wiesenobst cider rosé cider cider rosé schlat, germany dealcoholized cider from cider apples, perry pears, and dealcoholized red wine, plus hops, herbs, and flowers dealcoholized cider with dealcoholized red wine jörg geiger&apos;s wiesenobst rosé is dealcoholized cider cut with dealcoholized red wine, hops, herbs, and flowers. under 0.5% abv, 330 ml cans.">
+                <figure class="product-figure product-figure--thumb">
+          <img src="/clients/the-dry-standard/media/reviews/wiesenobst-cider-rose.jpg" alt="WiesenObst Cider Rosé" width="720" height="960" loading="lazy">
+          
+        </figure>
+        <div>
+          <p class="ledger-brand">Jörg Geiger</p>
+          <h3><a href="/clients/the-dry-standard/reviews/cider/wiesenobst-cider-rose/">WiesenObst Cider Rosé</a></h3>
+          <p class="ledger-meta">Cider · Schlat, Germany · Dealcoholized cider from cider apples, perry pears, and dealcoholized red wine, plus hops, herbs, and flowers</p>
+          <span class="badge badge--yes">Dealcoholized: Yes</span>
+        </div>
+        <span class="card-score">85</span>
+      </article></div><p class="empty" data-archive-empty hidden>No reviews match those filters.</p></div>
     </section>
   </main>
     <footer class="site-footer">

@@ -118,7 +118,7 @@ it('keeps a master product table without duplicating published reviews', functio
     $queue = file_get_contents(base_path('clients/the-dry-standard/data/review-queue.yaml')) ?: '';
     expect($queue)->toContain("status: published\n")
         ->and($queue)->toContain('Giesen 0% Sauvignon Blanc')
-        ->and(substr_count($queue, "status: queued\n"))->toBeGreaterThan(80);
+        ->and(substr_count($queue, "status: queued\n"))->toBeGreaterThan(50);
 });
 
 it('builds a searchable review archive', function () {

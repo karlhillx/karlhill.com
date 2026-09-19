@@ -15,6 +15,9 @@ dealcoholized: yes
 dealcoholization_method: "Spinning cone technology separating aroma, alcohol and body, then recombining aroma and body without the alcohol"
 base_beverage: "Full-strength Marlborough Riesling — grown, fully fermented, then gently dealcoholized"
 producer: Giesen Wines, Marlborough, New Zealand
+image: media/reviews/giesen-0-riesling.jpg
+image_alt: "Giesen 0% Riesling"
+image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 87

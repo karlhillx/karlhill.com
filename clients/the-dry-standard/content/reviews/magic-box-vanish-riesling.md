@@ -13,6 +13,9 @@ abv_numeric: 0.5
 dealcoholized: not-verified
 dealcoholized_note: "Supplier copy says dealcoholized, but no removal method is publicly documented for the Vanish line."
 base_beverage: "German Riesling, sourced from Germany and dealcoholized in Europe (supplier and directory copy)"
+image: media/reviews/magic-box-vanish-riesling.jpg
+image_alt: "Magic Box Vanish Riesling"
+image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 80

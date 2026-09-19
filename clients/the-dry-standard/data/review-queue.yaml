@@ -90,7 +90,7 @@
   brand: Halfway Crooks Beer
   category: beer
   priority: high
-  status: queued
+  status: published
   dealcoholized: no
   method: Not verified
   abv: Not verified
@@ -135,7 +135,7 @@
   brand: Halfway Crooks Beer
   category: beer
   priority: high
-  status: queued
+  status: published
   dealcoholized: no
   method: Not verified
   abv: Not verified
@@ -150,7 +150,7 @@
   brand: DC Brau Brewing Co.
   category: beer
   priority: normal
-  status: queued
+  status: published
   dealcoholized: no
   method: Not verified
   abv: Not verified
@@ -165,7 +165,7 @@
   brand: Clearscape
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: yes
   method: Not verified in detail
   abv: Not verified
@@ -180,7 +180,7 @@
   brand: Freixenet
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: yes
   method: "Branded \"Alcohol Removed\"; specific method not detailed"
   abv: Not verified
@@ -195,7 +195,7 @@
   brand: Almost Zero
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: no
   method: Not verified
   abv: Not verified
@@ -210,7 +210,7 @@
   brand: Savyll
   category: cocktails
   priority: normal
-  status: queued
+  status: published
   dealcoholized: no
   method: Not verified
   abv: Not verified
@@ -225,7 +225,7 @@
   brand: 90+ Cellars
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: yes
   method: "Traditionally made, then alcohol removed via reverse osmosis"
   abv: "<0.5%"
@@ -240,7 +240,7 @@
   brand: Lagunitas
   category: beer
   priority: normal
-  status: queued
+  status: published
   dealcoholized: no
   method: "Brewed with same ingredients as regular Hazy IPA, fermentation halted early — not dealcoholized"
   abv: "0.5%"
@@ -255,7 +255,7 @@
   brand: Weingut Leitz
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: yes
   method: Vacuum distillation at low temperature
   abv: "0%"
@@ -270,7 +270,7 @@
   brand: Dr. Heidemanns Bergweiler
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: no
   method: Not verified
   abv: Not verified
@@ -285,7 +285,7 @@
   brand: Giesen
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: yes
   method: Spinning cone technology
   abv: "≤0.5%"
@@ -300,7 +300,7 @@
   brand: Band of Vintners
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: yes
   method: "Brand states wine is \"skin fermented with native yeasts\" and balanced \"once the alcohol is removed\"; specific removal technique not disclosed"
   abv: Not verified
@@ -315,7 +315,7 @@
   brand: Kolonne Null
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: yes
   method: Vacuum distillation at ~30°C to remove alcohol from base wine
   abv: "0.0%"
@@ -330,7 +330,7 @@
   brand: Clearscape
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: yes
   method: Not verified in detail
   abv: Not verified
@@ -345,7 +345,7 @@
   brand: Be Free
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: yes
   method: "Dealcoholized (\"special method\", not detailed)"
   abv: Not verified
@@ -360,7 +360,7 @@
   brand: Familia Torres (Natureo line)
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: yes
   method: "Torres describes an \"improved dealcoholizing technique\"; exact process not detailed"
   abv: Not verified
@@ -375,7 +375,7 @@
   brand: Rondel
   category: wine
   priority: normal
-  status: queued
+  status: published
   dealcoholized: yes
   method: Not verified
   abv: Not verified
@@ -390,7 +390,7 @@
   brand: Wolffer Estate
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: yes
   method: Alcohol-removed (branded); method not detailed
   abv: Not verified
@@ -405,7 +405,7 @@
   brand: Biagio Cru
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: no
   method: Not verified
   abv: Not verified
@@ -420,7 +420,7 @@
   brand: "Noughty (Thomson & Scott)"
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: yes
   method: Gently spun cone technology under vacuum at low temperature
   abv: "<0.5%"
@@ -435,7 +435,7 @@
   brand: Jörg Geiger
   category: cider
   priority: low
-  status: queued
+  status: published
   dealcoholized: yes
   method: "Dealcoholized cider made from cider apples, perry pears and dealcoholized red wine, hops, herbs and flowers"
   abv: "<0.5%"
@@ -450,7 +450,7 @@
   brand: Jörg Geiger
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: yes
   method: "Blend of dealcoholized red (Grenache) wine (75%) with damson plum, currant and blackberry juice plus herb/wildflower extracts"
   abv: "<0.5%"
@@ -465,7 +465,7 @@
   brand: Lautus
   category: wine
   priority: low
-  status: queued
+  status: published
   dealcoholized: no
   method: Bundle SKU; The Zero Proof order email does not itemize which individual Lautus wines were included
   abv: Not verified
