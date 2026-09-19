@@ -18,10 +18,16 @@ use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\WebmentionController;
 use App\Http\Controllers\WorkController;
 use App\Support\PageMeta;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Illuminate\Cookie\Middleware\EncryptCookies;
+use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
+use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
+use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 // Accessibility fixtures — only registered when A11Y_FIXTURES=true (CI).
 if (config('site.a11y_fixtures')) {
@@ -74,12 +80,12 @@ Route::middleware('cache.headers:public;max_age=300;s_maxage=600;stale_while_rev
     Route::get('/clients/the-dry-standard/{path?}', [DryStandardSiteController::class, 'show'])
         ->where('path', '.*')
         ->withoutMiddleware([
-            \Illuminate\Cookie\Middleware\EncryptCookies::class,
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class,
-            \Illuminate\Foundation\Http\Middleware\PreventRequestForgery::class,
+            EncryptCookies::class,
+            AddQueuedCookiesToResponse::class,
+            StartSession::class,
+            ShareErrorsFromSession::class,
+            ValidateCsrfToken::class,
+            PreventRequestForgery::class,
         ])
         ->name('dry-standard.show');
     Route::get('/clients/{client}/{path?}', [ClientSiteController::class, 'show'])
