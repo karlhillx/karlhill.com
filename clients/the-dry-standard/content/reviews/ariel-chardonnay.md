@@ -25,6 +25,9 @@ palate: "Round and fruity; the oak shows as a soft spice rather than butter, and
 finish: "Clean and lightly oaked."
 best_for: "The Chardonnay drinker who wants a zero-proof version from a producer with decades of NA winemaking experience."
 serve: "Chilled."
+image: media/reviews/ariel-chardonnay.jpg
+image_alt: "Ariel Non-Alcoholic Chardonnay bottle (shown with Cabernet Sauvignon)"
+image_credit: "Product photo via arielvineyards.com"
 sources:
   - title: "Ariel Vineyards — producer"
     url: https://www.arielvineyards.com/

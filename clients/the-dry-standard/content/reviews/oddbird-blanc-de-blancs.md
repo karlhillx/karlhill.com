@@ -34,6 +34,9 @@ palate: "Rich, velvety bubbles carry ripe pear and mango alongside the citrus. F
 finish: "Creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler."
 best_for: "Brunch, a celebratory toast, or as the base of a spritz — treat it like a Prosecco stand-in, not a Champagne substitute."
 serve: "Well chilled, in a flute or white-wine glass."
+image: media/reviews/oddbird-blanc-de-blancs.jpg
+image_alt: "Oddbird Blanc de Blancs bottle"
+image_credit: "Product photo via thezeroproof.com"
 sources:
   - title: "The Zero Proof — Oddbird's Blanc de Blancs Non-Alcoholic Sparkling Wine"
     url: https://thezeroproof.com/products/oddbird-blanc-de-blancs-sparkling-white-wine

@@ -25,6 +25,9 @@ palate: "Smooth and light; the malt is present but subdued, no hop character to 
 finish: "Clean and brief."
 best_for: "The budget NA option, the beer you buy by the case."
 serve: "Very cold."
+image: media/reviews/penns-best-lager.jpg
+image_alt: "Penn's Best Non-Alcoholic Lager can"
+image_credit: "Product photo via nabeerclub.com"
 sources:
   - title: "Penn's Best N.A. — beerfordriving"
     url: https://beerfordriving.com/beer/fred-koch-brewery/penn-s-best-n-a/

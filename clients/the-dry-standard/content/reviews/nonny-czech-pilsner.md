@@ -26,6 +26,9 @@ palate: "Crisp and properly bitter; grassy hops over a light, clean malt body wi
 finish: "Dry, bitter and refreshing — the hop character carries a long way for a 42-calorie can."
 best_for: "Anyone who drinks Czech lager and wants the zero-proof version to taste like Czech lager."
 serve: "Cold, in a pils glass."
+image: media/reviews/nonny-czech-pilsner.jpg
+image_alt: "Nonny Czech Pilsner can"
+image_credit: "Product photo via us.nonny.beer"
 sources:
   - title: "Nonny Czech Pilsner — Nonny Beer (US)"
     url: https://us.nonny.beer/products/nonny-czech-pilsner
