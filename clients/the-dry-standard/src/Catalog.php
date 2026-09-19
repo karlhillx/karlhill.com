@@ -458,13 +458,14 @@ CREATE TABLE IF NOT EXISTS products (
     status TEXT NOT NULL DEFAULT 'queued',
     priority TEXT DEFAULT 'normal',
     notes TEXT,
-    retailers TEXT
+    retailers TEXT,
+    production_type TEXT NOT NULL DEFAULT 'not-verified',
+    verified TEXT NOT NULL DEFAULT 'no'
 );
 CREATE INDEX IF NOT EXISTS products_status_idx ON products(status);
 CREATE INDEX IF NOT EXISTS products_category_idx ON products(category);
 CREATE INDEX IF NOT EXISTS products_brand_idx ON products(brand);
 CREATE INDEX IF NOT EXISTS products_id_idx ON products(id);
-CREATE INDEX IF NOT EXISTS products_production_type_idx ON products(production_type);
 CREATE INDEX IF NOT EXISTS products_style_idx ON products(style);
 SQL);
 
