@@ -76,6 +76,7 @@ final class StructuredData
     public function person(): array
     {
         $email = $this->config->editorEmail();
+        $location = $this->config->editorLocation();
 
         return array_filter([
             '@type' => 'Person',
@@ -84,6 +85,10 @@ final class StructuredData
             'jobTitle' => $this->config->editorRole(),
             'email' => $email === '' ? null : 'mailto:'.$email,
             'url' => $this->config->canonicalUrl('about/'),
+            'homeLocation' => $location === '' ? null : [
+                '@type' => 'Place',
+                'name' => $location,
+            ],
         ]);
     }
 

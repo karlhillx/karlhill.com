@@ -1979,6 +1979,11 @@ a.stat:hover strong {
   color: var(--muted);
 }
 
+.editor-desk-place {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
 .editor-desk a {
   color: inherit;
 }

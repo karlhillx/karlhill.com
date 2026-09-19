@@ -36,6 +36,7 @@ it('serves the industry doorway and forms', function () {
         ->assertSee('Editorial samples', escape: false)
         ->assertSee('Partnerships &amp; business inquiries', escape: false)
         ->assertSee('Karl Hill', escape: false)
+        ->assertSee('Washington, DC', escape: false)
         ->assertSee('drinkdrystandard@gmail.com', escape: false)
         ->assertSee('three business days', escape: false)
         ->assertSee('mailto:drinkdrystandard@gmail.com', escape: false)
@@ -48,7 +49,12 @@ it('serves the industry doorway and forms', function () {
         ->assertSee('submit a product', escape: false)
         ->assertSee('industry/', escape: false)
         ->assertSee('Karl Hill is the editor', escape: false)
-        ->assertSee('drinkdrystandard@gmail.com', escape: false);
+        ->assertSee('Washington, DC', escape: false)
+        ->assertSee('tastes and writes', escape: false)
+        ->assertSee('sorting problem', escape: false)
+        ->assertSee('flavored water', escape: false)
+        ->assertSee('drinkdrystandard@gmail.com', escape: false)
+        ->assertDontSee('tel:', escape: false);
 
     $this->get('/clients/the-dry-standard/industry/samples/')
         ->assertOk()
@@ -64,6 +70,8 @@ it('serves the industry doorway and forms', function () {
         ->assertSee('Reviewed by Karl Hill', escape: false)
         ->assertSee('"@type":"Person"', escape: false)
         ->assertSee('"name":"Karl Hill"', escape: false)
+        ->assertSee('"homeLocation"', escape: false)
+        ->assertSee('"name":"Washington, DC"', escape: false)
         ->assertDontSee('Where to buy in the United States', escape: false);
 });
 

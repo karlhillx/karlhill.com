@@ -1484,6 +1484,7 @@ XML;
             'role' => $this->config->editorRole(),
             'email' => $this->config->editorEmail(),
             'mailto' => $this->config->editorMailto(),
+            'location' => $this->config->editorLocation(),
         ]);
     }
 

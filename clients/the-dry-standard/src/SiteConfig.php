@@ -107,6 +107,11 @@ final class SiteConfig
         return $this->string('editor.email', 'drinkdrystandard@gmail.com');
     }
 
+    public function editorLocation(): string
+    {
+        return $this->string('editor.location');
+    }
+
     public function editorMailto(): string
     {
         $email = $this->editorEmail();

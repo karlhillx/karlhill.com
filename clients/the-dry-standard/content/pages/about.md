@@ -69,7 +69,11 @@ Methodology lives with the reviews, not in a PDF nobody reads.
 
 ## Who edits this
 
-Karl Hill is the editor. Write [drinkdrystandard@gmail.com](mailto:drinkdrystandard@gmail.com). Industry mail is answered within three business days; details: [For Brands & Industry](industry/).
+Karl Hill is the editor. He tastes and writes in Washington, DC.
+
+The cellar started as a sorting problem. The non-alcoholic aisle puts dealcoholized wine next to botanical spirits next to flavored water at ten dollars for twelve ounces, then grows too fast for the labels to keep up. Drinkers are not one type — some will take 0.5%, some want 0.0, some want an alternative that was never alcoholic — and it is easy to buy the wrong bottle. Classification, search, and provenance are the work: what a drink is, how it was made, how much alcohol it contains, and whether that matches what you wanted. A production method is printed only when a source will stand behind it.
+
+Write [drinkdrystandard@gmail.com](mailto:drinkdrystandard@gmail.com). Industry mail is answered within three business days; details: [For Brands & Industry](industry/).
 
 ## How reviews get published
 
