@@ -1,79 +1,79 @@
 ID,Product,Brand,Category,EAN,EAN_Source,EAN_Verified,Notes
-TDS-0002,Magic Box Vanish Non-Alcoholic Riesling,Magic Box,Non-alcoholic wine,0641586357111,ean-search.org,scout,
-TDS-0005,"Halfway Crooks Non-Alcoholic IPA ""Brevet""",Halfway Crooks Beer,Non-alcoholic beer,,,,
-TDS-0006,Be Free Chardonnay Non-Alcoholic Wine,Be Free,Non-alcoholic wine,4003301080029,ean-search.org API,scout,"Be Free Chardonnay Alcoholvrij* (DE) — brand-sweep, prefix-verified 4003301"
-TDS-0007,Giesen 0% Non-Alcoholic Riesling,Giesen,Non-alcoholic wine,0637411001038,ean-search.org,scout,
-TDS-0008,"Halfway Crooks Non-Alcoholic Pilsner ""Brevet""",Halfway Crooks Beer,Non-alcoholic beer,,,,
-TDS-0009,DC Brau Non-Alcoholic Pale Ale,DC Brau Brewing Co.,Non-alcoholic beer,,,,
-TDS-0010,Clearscape Non-Alcoholic Rose,Clearscape,Non-alcoholic wine,,,,not in ean-search.org DB as of 2026-09-19 (Clearscape query collides with EHEIM aquarium products)
-TDS-0012,Almost Zero Ravishing Rose Non-Alcoholic Wine,Almost Zero,Non-alcoholic wine,0600226900407,ean-search.org API,scout,matched: Ravishing Rose Non-Alcoholic Wine | Rose & Blush Wine by Almost Zero | 750ml | S
-TDS-0013,Savyll Non-Alcoholic Moscow Mule,Savyll,Non-alcoholic cocktails/RTDs,,,,
-TDS-0014,"90+ Cellars Alcohol-Removed Sparkling Rosé ""Lot 229""",90+ Cellars,Non-alcoholic sparkling wine,,,,"not in ean-search.org DB as of 2026-09-19 (""Lot 229"" returns non-wine products)"
-TDS-0015,Lagunitas Non-Alcoholic Hazy IPNA,Lagunitas,Non-alcoholic beer,,,,
-TDS-0017,Dr. Heidemanns Bergweiler Non-Alcoholic Riesling,Dr. Heidemanns Bergweiler,Non-alcoholic wine,0883122400114,ean-search.org,scout,matched NA variant specifically; 10 other Dr. Heidemanns results are alcoholic
-TDS-0019,Band of Vintners Freestyle Non-Alcoholic Skin-Contact Wine,Band of Vintners,Non-alcoholic wine,,,,not in ean-search.org DB as of 2026-09-19 (only their alcoholic Consortium Cabernet listed)
-TDS-0020,Kolonne Null Non-Alcoholic Riesling,Kolonne Null,Non-alcoholic wine,4260660140096,ean-search.org API,scout,"Kolonne Null Riesling alkoholfrei (DE) — brand-sweep, prefix 4260660; alt candidate 4260714561006 (0,75l listing)"
-TDS-0021,Clearscape Non-Alcoholic Chardonnay,Clearscape,Non-alcoholic wine,0935843208064,ean-search.org API,scout,matched: Non-Alcoholic Chardonnay | White Wine by Clearscape | 750ml | Australia
-TDS-0022,Be Free Sauvignon Blanc Non-Alcoholic Wine,Be Free,Non-alcoholic wine,,,,not in ean-search.org DB as of 2026-09-19 (brand sweep shows only Rosé/Merlot/Chardonnay/White Sparkling in Be Free line)
-TDS-0023,"Miguel Torres Non-Alcoholic Sauvignon Blanc ""Serena""",Familia Torres (Natureo line),Non-alcoholic wine,0716819560917,ean-search.org API,scout,Miguel Torres Serena Mode Sauvignon Blanc Non Alcoholic 750ml (US) — exact match; ES-market alt 8410113560919
-TDS-0024,Rondel Zero Cava Rose Non-Alcoholic Wine,Rondel,Non-alcoholic sparkling wine,0012976991862,ean-search.org API,scout,matched: Zero Cava Rose Non-Alcoholic Wine | Champagne & Sparkling Wine by Rondel | 750ml
-TDS-0026,Biagio Cru Non-Alcoholic Rose All Day,Biagio Cru,Non-alcoholic wine,0833202003339,ean-search.org API,scout,matched: Non-Alcoholic Rose All Day | Rose & Blush Wine by Biagio Cru | 750ml | Languedoc
-TDS-0027,Noughty Dealcoholized Rosé,Noughty (Thomson & Scott),Non-alcoholic wine,6002339001882,ean-search.org API,scout,matched: Thomson y Scott Noughty Dealcoholized Rosé - 75cl
-TDS-0028,WiesenObst Cider Rosé Non-Alcoholic Cider,Jörg Geiger,Non-alcoholic cider,,,,
-TDS-0029,Grad 36° Non-Alcoholic Wine,Jörg Geiger,Non-alcoholic wine,,,,
-TDS-0031,Mionetto Non Alcoholic Italy White Wine,Mionetto,Non-alcoholic sparkling wine,,,,
+TDS-0002,Vanish Riesling,Magic Box,Non-alcoholic wine,0641586357111,ean-search.org,scout,
+TDS-0005,Brevet IPA,Halfway Crooks Beer,Non-alcoholic beer,,,,
+TDS-0006,Chardonnay,Be Free,Non-alcoholic wine,4003301080029,ean-search.org API,scout,"Be Free Chardonnay Alcoholvrij* (DE) — brand-sweep, prefix-verified 4003301"
+TDS-0007,0% Riesling,Giesen,Non-alcoholic wine,0637411001038,ean-search.org,scout,
+TDS-0008,Brevet Pils,Halfway Crooks Beer,Non-alcoholic beer,,,,
+TDS-0009,Pale Ale,DC Brau Brewing Co.,Non-alcoholic beer,,,,
+TDS-0010,Rosé,Clearscape,Non-alcoholic wine,,,,not in ean-search.org DB as of 2026-09-19 (Clearscape query collides with EHEIM aquarium products)
+TDS-0012,Ravishing Rosé,Almost Zero,Non-alcoholic wine,0600226900407,ean-search.org API,scout,matched: Ravishing Rose Non-Alcoholic Wine | Rose & Blush Wine by Almost Zero | 750ml | S
+TDS-0013,Non-Alcoholic Moscow Mule,Savyll,Non-alcoholic cocktails/RTDs,,,,
+TDS-0014,Alcohol-Removed Sparkling Rosé Lot 229,90+ Cellars,Non-alcoholic sparkling wine,,,,"not in ean-search.org DB as of 2026-09-19 (""Lot 229"" returns non-wine products)"
+TDS-0015,Hazy IPNA,Lagunitas,Non-alcoholic beer,,,,
+TDS-0017,Non-Alcoholic Riesling,Dr. Heidemanns Bergweiler,Non-alcoholic wine,0883122400114,ean-search.org,scout,matched NA variant specifically; 10 other Dr. Heidemanns results are alcoholic
+TDS-0019,Freestyle NA California,Band of Vintners,Non-alcoholic wine,,,,not in ean-search.org DB as of 2026-09-19 (only their alcoholic Consortium Cabernet listed)
+TDS-0020,Alcohol-Free Riesling,Kolonne Null,Non-alcoholic wine,4260660140096,ean-search.org API,scout,"Kolonne Null Riesling alkoholfrei (DE) — brand-sweep, prefix 4260660; alt candidate 4260714561006 (0,75l listing)"
+TDS-0021,Chardonnay,Clearscape,Non-alcoholic wine,0935843208064,ean-search.org API,scout,matched: Non-Alcoholic Chardonnay | White Wine by Clearscape | 750ml | Australia
+TDS-0022,Sauvignon Blanc,Be Free,Non-alcoholic wine,,,,not in ean-search.org DB as of 2026-09-19 (brand sweep shows only Rosé/Merlot/Chardonnay/White Sparkling in Be Free line)
+TDS-0023,Serena Mode Sauvignon Blanc,Familia Torres (Natureo line),Non-alcoholic wine,0716819560917,ean-search.org API,scout,Miguel Torres Serena Mode Sauvignon Blanc Non Alcoholic 750ml (US) — exact match; ES-market alt 8410113560919
+TDS-0024,Zero Cava Rosé,Rondel,Non-alcoholic sparkling wine,0012976991862,ean-search.org API,scout,matched: Zero Cava Rose Non-Alcoholic Wine | Champagne & Sparkling Wine by Rondel | 750ml
+TDS-0026,Non-Alcoholic Rosé All Day,Biagio Cru,Non-alcoholic wine,0833202003339,ean-search.org API,scout,matched: Non-Alcoholic Rose All Day | Rose & Blush Wine by Biagio Cru | 750ml | Languedoc
+TDS-0027,Noughty Non-Alcoholic Rosé,Noughty (Thomson & Scott),Non-alcoholic wine,6002339001882,ean-search.org API,scout,matched: Thomson y Scott Noughty Dealcoholized Rosé - 75cl
+TDS-0028,WiesenObst Cider Rosé,Jörg Geiger,Non-alcoholic cider,,,,
+TDS-0029,Grad 36°,Jörg Geiger,Non-alcoholic wine,,,,
+TDS-0031,0.0% Alcohol-Removed White,Mionetto,Non-alcoholic sparkling wine,,,,
 TDS-0032,Crodino Non-Alcoholic Spritz,Crodino (Campari Group),Non-alcoholic aperitifs,8000040720427,retailer web search (free-DB pass),scout,Crodino Non-Alcoholic Spritz 4x17.5cl — Open Food Facts; checksum valid; Italian EAN (8000040 = Campari). NOTE: 4-pack retail format EAN; review describes single-serve 175ml bottle format
-TDS-0033,"90+ Cellars Alcohol-Removed Sparkling Brut ""Lot 230""",90+ Cellars,Non-alcoholic sparkling wine,,,,
-TDS-0034,"Lyre's ""Amalfi Spritz"" Non-Alcoholic Canned Cocktail",Lyre's,Non-alcoholic cocktails/RTDs,,,,
-TDS-0035,Best Day Brewing Kölsch Non-Alcoholic Beer,Best Day Brewing,Non-alcoholic beer,,,,
-TDS-0037,Original Sin Non-Alcoholic Cider Mix Pack (Golden/White/Dragon Widow),Original Sin Cider,Non-alcoholic cider,,,,
-TDS-0038,"St. Agrestis ""Phony Negroni"" Non-Alcoholic Negroni Cocktail",St. Agrestis,Non-alcoholic cocktails/RTDs,040232609510,retailer web search (free-DB pass),scout,St. Agrestis Phony Negroni — Airgoods (B2B); checksum valid. CAUTION: SKU 101244-12 suggests 12-pack case-level UPC; reviewed format is 200ml single bottle — verify pack level before promoting to master
-TDS-0040,Lapo's Non-Alcoholic Negroni,Lapo's,Non-alcoholic cocktails/RTDs,,,,
-TDS-0041,Kolonne Null Non-Alcoholic Rosé,Kolonne Null,Non-alcoholic wine,4260660140119,ean-search.org API,scout,"Kolonne Null Rose alkoholfrei (DE) — brand sweep, single-bottle still Rosé, same 4260660 line as Riesling (…0096)"
-TDS-0042,Go Brewing Sunbeam Pils Non-Alcoholic (Brew Non-Alcoholic Sunbeam Pils with German Malt & Hops),Go Brewing,Non-alcoholic beer,,,,
-TDS-0043,Mingle Non-Alcoholic Sparkling Raspberry Rose,Mingle,Non-alcoholic cocktails/RTDs,,,,
-TDS-0044,"Untitled Art ""FLVR!"" Non-Alcoholic Sour Ale w/ Mango & Dragonfruit",Untitled Art Brewing,Non-alcoholic beer,,,,
-TDS-0045,"Asahi ""Dry"" Non-Alcoholic",Asahi Breweries,Non-alcoholic beer,,,,
-TDS-0047,Nonny Czech Pilsner Non-Alcoholic Beer,Nonny Beer,Non-alcoholic beer,,,,
-TDS-0048,Grolsch 0.0% Non-Alcoholic Pilsner,Grolsch,Non-alcoholic beer,,,,
-TDS-0049,Pierre Zero Non-Alcoholic Rosé (Bag-in-Box),Pierre Zero,Non-alcoholic wine,,,,
-TDS-0050,JP. Chenet Non-Alcoholic Sparkling Rosé,JP. Chenet,Non-alcoholic sparkling wine,3500610129254,retailer web search (free-DB pass),scout,J.P. Chenet Spark Pinot Noir NA Sparkling Rosé — dankin.com.ua 'Barcode 3500610129254'; checksum valid; review confirms Pinot Noir base
-TDS-0051,"Christian Drouin ""Jus de Poire Petillant"" Non-Alcoholic Pear Cider",Christian Drouin,Non-alcoholic cider,,,,
-TDS-0052,Untitled Art N/A FLVR! Italian-Style Pils,Untitled Art Brewing,Non-alcoholic beer,,,,
-TDS-0053,Gruvi Non-Alcoholic Sangria,Grüvi,Non-alcoholic cocktails/RTDs,,,,
-TDS-0055,"Eric Bordelet ""Jus de Pommes A Sydre Perlant"" Non-Alcoholic French Cider",Eric Bordelet,Non-alcoholic cider,,,,
-TDS-0056,King Maui 0% Non-Alcoholic Marlborough Sauvignon Blanc,King Maui,Non-alcoholic wine,,,,
-TDS-0057,ViSecco Pinot Meunier Non-Alcoholic Sparkling Red,Jörg Geiger,Non-alcoholic sparkling wine,,,,
-TDS-0058,Blanc de Blanc Non-Alcoholic Sparkling Wine (Delmosa),Jörg Geiger,Non-alcoholic sparkling wine,,,,
-TDS-0059,Nozeco Alcohol Free Brut Rose,Nozeco,Non-alcoholic sparkling wine,0641586348867,ean-search.org API,scout,matched: Alcohol Free Brut Rose Wine | Champagne & Sparkling Wine by Nozeco | 750ml | Fra
-TDS-0060,"Ollivier Cottenceau Phénomène Non-Alcoholic ""Muscadet""",Ollivier Cottenceau (Domaine de la Grenaudière),Non-alcoholic wine,,,,
-TDS-0061,Domaine de Montrose Non-Alcoholic Rosé,Domaine de Montrose,Non-alcoholic wine,,,,LOW-CONFIDENCE top: Domaine Montrose Domaine de Montrose - Bisou Rosé 2025 (3560682100506) score=1
-TDS-0063,Tired Hands Non-Alcoholic N/Alien Church,Tired Hands,Non-alcoholic beer,,,,
-TDS-0064,"Valckenberg ""Zero"" Non-Alcoholic Riesling",P.J. Valckenberg,Non-alcoholic wine,4004068000046,ean-search.org API,scout,matched: Zero Riesling alkoholfreier Wein P.J. Valckenberg - alkoholfreie Getränke
-TDS-0065,"Valckenberg ""Zero"" Non-Alcoholic Sparkling",P.J. Valckenberg,Non-alcoholic sparkling wine,4004068000053,ean-search.org API,scout,"Cuvée Zero alkoholfreier Sekt (DE) — review-confirmed (Cuvée Zero Sparkling, subcategory sparkling white); prefix-verified 4004068"
-TDS-0066,"Erdinger Weissbrau N/A Lager ""Alkoholfrei""",Erdinger Weißbräu,Non-alcoholic beer,4002103283270,retailer web search (free-DB pass),scout,"Erdinger Alkoholfrei Weissbier 500ml — Open Food Facts; checksum valid; review confirms wheat beer. FLAG: scout CSV product name says 'Lager' but this is the Weissbier — catalog mislabel, Erdinger Weissbräu is the brewery name"
-TDS-0067,Missing Thorn Non-Alcoholic Still White,Missing Thorn,Non-alcoholic wine,850061516114,retailer web search (free-DB pass),scout,"Missing Thorn Still White — Amazon UPC 850061516114; checksum valid. Note: marketed as 'Riesling', review verified base is Albariño (same product)"
-TDS-0069,Athletic Brewing Co. Athletic ESB Non-Alcoholic Beer (Limited Edition),Athletic Brewing Company,Non-alcoholic beer,,,,
-TDS-0070,De Nada Non-Alcoholic Rosé,De Nada (Paumanok Vineyards),Non-alcoholic wine,,,,LOW-CONFIDENCE top: ROSÉ rosie (0075679632197) score=-5
-TDS-0073,"Fio Non-Alcoholic Riesling ""Fabelhaft""",Fio,Non-alcoholic wine,,,,LOW-CONFIDENCE top: Fio Wines Fio Fabelhaft Riesling 2022 (4041712000267) score=1
-TDS-0075,"P.J. Valckenberg ""It's Not a Sin"" NA Ginger/Bitter Orange Peel Wine",P.J. Valckenberg,Non-alcoholic aperitifs,,,,
-TDS-0076,Sea Monster Tidal Wave White Alcohol Removed Wine,Sea Monster,Non-alcoholic wine,,,,
-TDS-0077,Butter Zero Sparkling Rosé Non-Alcoholic,Butter Zero,Non-alcoholic sparkling wine,,,,
-TDS-0078,Mount Fishtail Zero Sauvignon Blanc,Mount Fishtail,Non-alcoholic wine,,,,
-TDS-0079,Butter Zero Pinot Noir Non-Alcoholic,Butter Zero,Non-alcoholic wine,0853706002898,ean-search.org API,scout,matched: Non-Alcoholic Zero Pinot Noir | Red Wine by Butter | 750ml | California
-TDS-0080,Zolo Zero Malbec Rosé Non-Alcoholic Wine,Zolo,Non-alcoholic wine,0852282002049,retailer web search (free-DB pass),scout,Zolo Zero Malbec Rose — SKU 852282002049 shown on 3 retailers (byronsliquor/hokuspokus/wyattswetgoods); checksum-validated UPC-A
-TDS-0081,Butter Zero Chardonnay Non-Alcoholic,Butter Zero,Non-alcoholic wine,0853706002911,ean-search.org API,scout,matched: Non-Alcoholic Zero Chardonnay | White Wine by Butter | 750ml | California
-TDS-0082,Chloe Alcohol-Removed Pinot Grigio,Chloe Wine Collection,Non-alcoholic wine,,,,
-TDS-0083,Chateau Diana Zero Non-Alcoholic California White Wine Blend,Chateau Diana,Non-alcoholic wine,0019988504158,ean-search.org API,scout,Chateau Diana Zero Alcohol White 750Ml — prefix-verified 0019988504 (matches Zero Rose)
-TDS-0085,Penn's Best Non-Alcoholic Lager,Penn's Best,Non-alcoholic beer,,,,
-TDS-0086,Ariel Non-Alcoholic Chardonnay,Ariel (Ariel Vineyards / J. Lohr),Non-alcoholic wine,0089121830024,ean-search.org API,scout,matched: Ariel Chardonnay (Non-Alcoholic) Non-alcoholic - Specialty Wine From California 
-TDS-0088,"Flying Dog ""Deep Fake"" Non-Alcoholic IPA",Flying Dog Brewery,Non-alcoholic beer,,,,
-TDS-0089,"Untitled Art ""FLVR!"" Non-Alcoholic Juicy IPA",Untitled Art Brewing,Non-alcoholic beer,,,,
-TDS-0090,"Pure Project ""Grounded"" Non-Alcoholic IPA",Pure Project,Non-alcoholic beer,,,,
-TDS-0091,"Birrificio Baladin ""Passione In Rosso"" Non-Alcoholic Italian Aperitivo",Birrificio Baladin,Non-alcoholic aperitifs,,,,
-TDS-0092,"Spiritless ""Kentucky 74"" Non-Alcoholic Whiskey Spirit",Spiritless,Non-alcoholic spirits,850018886024,retailer web search (free-DB pass),scout,Spiritless Kentucky 74 single 700ml bottle — Amazon; checksum valid; review volume confirms 700ml; 2-pack UPC 850018886390 shares prefix 8500188 (Spiritless) — prefix-verified
-TDS-0093,Deschutes Non-Alcoholic Fresh Squeezed IPA,Deschutes Brewery,Non-alcoholic beer,0076317661906,retailer web search (free-DB pass),scout,Deschutes Fresh Squeezed Non-Alcoholic IPA 6-pack 12oz cans — King Soopers; checksum valid (Kroger number that PASSES — some are real UPCs)
-TDS-0094,Spiritless Jalisco 55 Non-Alcoholic Reposado Tequila,Spiritless,Non-alcoholic spirits,,,,
-TDS-0095,St. Regis Non-Alcoholic Rose,St. Regis,Non-alcoholic wine,0021296975001,ean-search.org API,scout,St. Regis De-Alcoholized Wine Shiraz Rose — matches review (Syrah/Shiraz rosé)
+TDS-0033,Lot 230,90+ Cellars,Non-alcoholic sparkling wine,,,,
+TDS-0034,Amalfi Spritz,Lyre's,Non-alcoholic cocktails/RTDs,,,,
+TDS-0035,Kölsch,Best Day Brewing,Non-alcoholic beer,,,,
+TDS-0037,Widow Family Mix Pack (Original Sin's NA lineup),Original Sin Cider,Non-alcoholic cider,,,,
+TDS-0038,Phony Negroni,St. Agrestis,Non-alcoholic cocktails/RTDs,040232609510,retailer web search (free-DB pass),scout,St. Agrestis Phony Negroni — Airgoods (B2B); checksum valid. CAUTION: SKU 101244-12 suggests 12-pack case-level UPC; reviewed format is 200ml single bottle — verify pack level before promoting to master
+TDS-0040,Non-Alcoholic Negroni,Lapo's,Non-alcoholic cocktails/RTDs,,,,
+TDS-0041,Rosé,Kolonne Null,Non-alcoholic wine,4260660140119,ean-search.org API,scout,"Kolonne Null Rose alkoholfrei (DE) — brand sweep, single-bottle still Rosé, same 4260660 line as Riesling (…0096)"
+TDS-0042,Suspended In A Sunbeam Pils,Go Brewing,Non-alcoholic beer,,,,
+TDS-0043,Sparkling Raspberry Rosé,Mingle,Non-alcoholic cocktails/RTDs,,,,
+TDS-0044,FLVR! NA Mango Dragonfruit Sour,Untitled Art Brewing,Non-alcoholic beer,,,,
+TDS-0045,Dry Zero,Asahi Breweries,Non-alcoholic beer,,,,
+TDS-0047,Czech Pilsner,Nonny Beer,Non-alcoholic beer,,,,
+TDS-0048,0.0%,Grolsch,Non-alcoholic beer,,,,
+TDS-0049,Rosé (3 L bag-in-box),Pierre Zero,Non-alcoholic wine,,,,
+TDS-0050,So Free Sparkling Rosé,JP. Chenet,Non-alcoholic sparkling wine,3500610129254,retailer web search (free-DB pass),scout,J.P. Chenet Spark Pinot Noir NA Sparkling Rosé — dankin.com.ua 'Barcode 3500610129254'; checksum valid; review confirms Pinot Noir base
+TDS-0051,Jus de Poire Pétillant,Christian Drouin,Non-alcoholic cider,,,,
+TDS-0052,FLVR! NA Italian-Style Pils,Untitled Art Brewing,Non-alcoholic beer,,,,
+TDS-0053,Sangria,Grüvi,Non-alcoholic cocktails/RTDs,,,,
+TDS-0055,Perlant Jus de Pommes à Sydre,Eric Bordelet,Non-alcoholic cider,,,,
+TDS-0056,0% Marlborough Sauvignon Blanc,King Maui,Non-alcoholic wine,,,,
+TDS-0057,ViSecco Pinot Meunier,Jörg Geiger,Non-alcoholic sparkling wine,,,,
+TDS-0058,Blanc de Blanc,Jörg Geiger,Non-alcoholic sparkling wine,,,,
+TDS-0059,Alcohol Free Brut Rosé,Nozeco,Non-alcoholic sparkling wine,0641586348867,ean-search.org API,scout,matched: Alcohol Free Brut Rose Wine | Champagne & Sparkling Wine by Nozeco | 750ml | Fra
+TDS-0060,Phénomène,Ollivier Cottenceau (Domaine de la Grenaudière),Non-alcoholic wine,,,,
+TDS-0061,Rosé Zéro (Rose Mont Rose),Domaine de Montrose,Non-alcoholic wine,,,,LOW-CONFIDENCE top: Domaine Montrose Domaine de Montrose - Bisou Rosé 2025 (3560682100506) score=1
+TDS-0063,N/Alien Church,Tired Hands,Non-alcoholic beer,,,,
+TDS-0064,Zero Riesling,P.J. Valckenberg,Non-alcoholic wine,4004068000046,ean-search.org API,scout,matched: Zero Riesling alkoholfreier Wein P.J. Valckenberg - alkoholfreie Getränke
+TDS-0065,Cuvée Sparkling Zero,P.J. Valckenberg,Non-alcoholic sparkling wine,4004068000053,ean-search.org API,scout,"Cuvée Zero alkoholfreier Sekt (DE) — review-confirmed (Cuvée Zero Sparkling, subcategory sparkling white); prefix-verified 4004068"
+TDS-0066,Alkoholfrei,Erdinger Weißbräu,Non-alcoholic beer,4002103283270,retailer web search (free-DB pass),scout,"Erdinger Alkoholfrei Weissbier 500ml — Open Food Facts; checksum valid; review confirms wheat beer. FLAG: scout CSV product name says 'Lager' but this is the Weissbier — catalog mislabel, Erdinger Weissbräu is the brewery name"
+TDS-0067,Non-Alcoholic Still White,Missing Thorn,Non-alcoholic wine,850061516114,retailer web search (free-DB pass),scout,"Missing Thorn Still White — Amazon UPC 850061516114; checksum valid. Note: marketed as 'Riesling', review verified base is Albariño (same product)"
+TDS-0069,ESB (Extra Special Bitter),Athletic Brewing Company,Non-alcoholic beer,,,,
+TDS-0070,Non-Alcoholic Rosé,De Nada (Paumanok Vineyards),Non-alcoholic wine,,,,LOW-CONFIDENCE top: ROSÉ rosie (0075679632197) score=-5
+TDS-0073,Fabelhaft Alcohol Free Riesling,Fio,Non-alcoholic wine,,,,LOW-CONFIDENCE top: Fio Wines Fio Fabelhaft Riesling 2022 (4041712000267) score=1
+TDS-0075,It's Not a Sin Ginger/Bitter Orange,P.J. Valckenberg,Non-alcoholic aperitifs,,,,
+TDS-0076,Tidal Wave White,Sea Monster,Non-alcoholic wine,,,,
+TDS-0077,Sparkling Rosé,Butter Zero,Non-alcoholic sparkling wine,,,,
+TDS-0078,Zero Sauvignon Blanc,Mount Fishtail,Non-alcoholic wine,,,,
+TDS-0079,Pinot Noir,Butter Zero,Non-alcoholic wine,0853706002898,ean-search.org API,scout,matched: Non-Alcoholic Zero Pinot Noir | Red Wine by Butter | 750ml | California
+TDS-0080,Zero Malbec Rosé,Zolo,Non-alcoholic wine,0852282002049,retailer web search (free-DB pass),scout,Zolo Zero Malbec Rose — SKU 852282002049 shown on 3 retailers (byronsliquor/hokuspokus/wyattswetgoods); checksum-validated UPC-A
+TDS-0081,Chardonnay,Butter Zero,Non-alcoholic wine,0853706002911,ean-search.org API,scout,matched: Non-Alcoholic Zero Chardonnay | White Wine by Butter | 750ml | California
+TDS-0082,Alcohol-Removed Pinot Grigio,Chloe Wine Collection,Non-alcoholic wine,,,,
+TDS-0083,Zero California White Blend,Chateau Diana,Non-alcoholic wine,0019988504158,ean-search.org API,scout,Chateau Diana Zero Alcohol White 750Ml — prefix-verified 0019988504 (matches Zero Rose)
+TDS-0085,Non-Alcoholic Lager,Penn's Best,Non-alcoholic beer,,,,
+TDS-0086,Chardonnay,Ariel (Ariel Vineyards / J. Lohr),Non-alcoholic wine,0089121830024,ean-search.org API,scout,matched: Ariel Chardonnay (Non-Alcoholic) Non-alcoholic - Specialty Wine From California 
+TDS-0088,Deep Fake Non-Alcoholic IPA,Flying Dog Brewery,Non-alcoholic beer,,,,
+TDS-0089,FLVR! NA Juicy IPA,Untitled Art Brewing,Non-alcoholic beer,,,,
+TDS-0090,Grounded Non-Alcoholic IPA,Pure Project,Non-alcoholic beer,,,,
+TDS-0091,Passione in Rosso,Birrificio Baladin,Non-alcoholic aperitifs,,,,
+TDS-0092,Kentucky 74,Spiritless,Non-alcoholic spirits,850018886024,retailer web search (free-DB pass),scout,Spiritless Kentucky 74 single 700ml bottle — Amazon; checksum valid; review volume confirms 700ml; 2-pack UPC 850018886390 shares prefix 8500188 (Spiritless) — prefix-verified
+TDS-0093,Non-Alcoholic Fresh Squeezed IPA,Deschutes Brewery,Non-alcoholic beer,0076317661906,retailer web search (free-DB pass),scout,Deschutes Fresh Squeezed Non-Alcoholic IPA 6-pack 12oz cans — King Soopers; checksum valid (Kroger number that PASSES — some are real UPCs)
+TDS-0094,Jalisco 55 Non-Alcoholic Reposado Tequila,Spiritless,Non-alcoholic spirits,,,,
+TDS-0095,Non-Alcoholic Rosé,St. Regis,Non-alcoholic wine,0021296975001,ean-search.org API,scout,St. Regis De-Alcoholized Wine Shiraz Rose — matches review (Syrah/Shiraz rosé)
 TDS-0097,Guinness 0.0,Guinness,Non-alcoholic beer,0794712956594,retailer web search (free-DB pass),scout,Guinness 0.0 Alcohol Free Stout 8x440ml (=14.9oz US cans) — barcodesdatabase.org; checksum valid. NOTE: this is the 8-PACK multipack UPC; reviewed format is single 14.9oz can — refine to 4-pack/can UPC later if needed
-TDS-0099,Lyre's Italian Orange,Lyre's,Non-alcoholic aperitifs,,,,
+TDS-0099,Italian Orange,Lyre's,Non-alcoholic aperitifs,,,,

@@ -21,7 +21,7 @@ it('audits Dry Standard stills', function () {
 
 it('refuses to queue a duplicate product', function () {
     $this->artisan('dry-standard:queue', [
-        'product' => 'Athletic Brewing Run Wild IPA',
+        'product' => 'Run Wild IPA',
         '--brand' => 'Athletic Brewing',
     ])->assertFailed();
 });

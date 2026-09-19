@@ -3,7 +3,7 @@ title: "Clearscape Non-Alcoholic Rosé"
 slug: clearscape-rose
 id: TDS-0010
 brand: Clearscape
-product: Non-Alcoholic Rosé
+product: Rosé
 abv: "Not published"
 category: wine
 subcategory: rosé

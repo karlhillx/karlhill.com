@@ -4,7 +4,7 @@ slug: clearscape-chardonnay
 id: TDS-0021
 ean: "0935843208064"
 brand: Clearscape
-product: Non-Alcoholic Chardonnay
+product: Chardonnay
 abv: "Not published"
 category: wine
 subcategory: chardonnay

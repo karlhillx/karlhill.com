@@ -1,9 +1,9 @@
-title: string
+title: string; public headline, usually brand + product
 slug: kebab-case, no dates
 id: TDS-#### internal identifier, optional; do not render
 ean: sourced barcode when known, optional; do not render
-brand: string
-product: string
+brand: producer or label house
+product: SKU name; do not repeat brand; do not append Non-Alcoholic {category}
 category: wine | beer | spirits | cocktails | cider
 subcategory: string, optional
 country: string, sourced

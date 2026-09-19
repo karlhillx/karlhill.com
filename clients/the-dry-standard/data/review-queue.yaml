@@ -1,15 +1,15 @@
 -
-  product: 'Athletic Brewing Run Wild IPA'
+  product: 'Run Wild IPA'
   id: TDS-0101
   brand: 'Athletic Brewing'
   category: beer
   priority: high
   status: published
   production_type: naturally-low-alcohol
-  verified: yes
+  verified: 'yes'
   notes: 'Proprietary NA brewing. Founders told Fast Company (2025) and Popular Mechanics the process is neither dealcoholization of finished beer nor simple arrested fermentation.'
 -
-  product: 'Sober Spirits Whisky'
+  product: 'W 0.0% Whisky'
   id: TDS-0102
   brand: 'Sober Spirits'
   category: spirits
@@ -17,7 +17,7 @@
   status: published
   notes: 'Confirm the product exists, the exact SKU, ABV, and whether it is dealcoholized or formulated.'
 -
-  product: 'Heineken 0.0'
+  product: '0.0'
   id: TDS-0103
   brand: Heineken
   category: beer
@@ -25,7 +25,7 @@
   status: published
   notes: 'Widely available. Confirm dealcoholization method from Heineken technical communications.'
 -
-  product: 'Be Free Rose Non-Alcoholic Wine'
+  product: Rosé
   id: TDS-0001
   ean: 4003301079788
   brand: 'Be Free'
@@ -33,7 +33,7 @@
   priority: high
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Dealcoholized ("special method", not detailed)'
   abv: 'Not published'
   seen_at: 'Total Wine, Total Wine (Instacart)'
@@ -42,15 +42,15 @@
   last_seen: 1788307200
   notes: 'From the master product table. Purchased 31 time(s) between 2026-01-11 and 2026-09-02. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Magic Box Vanish Non-Alcoholic Riesling'
+  product: 'Vanish Riesling'
   id: TDS-0002
-  ean: "0641586357111"
+  ean: '0641586357111'
   brand: 'Magic Box'
   category: wine
   priority: high
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Dealcoholized (method not publicly detailed)'
   abv: 'Not published'
   seen_at: 'Total Wine, Total Wine (Instacart)'
@@ -59,7 +59,7 @@
   last_seen: 1789603200
   notes: 'From the master product table. Purchased 23 time(s) between 2026-01-11 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Appalina Alcohol Free Chardonnay'
+  product: Chardonnay
   id: TDS-0003
   ean: 4049366003207
   brand: Appalina
@@ -67,7 +67,7 @@
   priority: high
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -76,7 +76,7 @@
   last_seen: 1786665600
   notes: 'From the master product table. Purchased 23 time(s) between 2026-03-28 and 2026-08-14. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Be Free White Sparkling Non-Alcoholic Wine'
+  product: 'White Sparkling'
   id: TDS-0004
   ean: 4003301080005
   brand: 'Be Free'
@@ -84,7 +84,7 @@
   priority: high
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Dealcoholized ("special method", not detailed)'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -93,14 +93,14 @@
   last_seen: 1785283200
   notes: 'From the master product table. Purchased 13 time(s) between 2026-04-03 and 2026-07-29. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Halfway Crooks Non-Alcoholic IPA "Brevet"'
+  product: 'Brevet IPA'
   id: TDS-0005
   brand: 'Halfway Crooks Beer'
   category: beer
   priority: high
   status: published
   production_type: naturally-low-alcohol
-  verified: yes
+  verified: 'yes'
   method: 'Chiber extract keeps yeast static, arresting fermentation rather than removing alcohol (Atlanta Magazine; Brevet line includes IPA)'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -109,7 +109,7 @@
   last_seen: 1787356800
   notes: 'From the master product table. Purchased 9 time(s) between 2026-03-21 and 2026-08-22. Do not publish until ABV and dealcoholization are sourced. 2026-09-18 desk — no citable public specs found (no ABV, no producer page, no taste copy anywhere); awaiting editor tasting notes.'
 -
-  product: 'Be Free Chardonnay Non-Alcoholic Wine'
+  product: Chardonnay
   id: TDS-0006
   ean: 4003301080029
   brand: 'Be Free'
@@ -117,7 +117,7 @@
   priority: high
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Dealcoholized ("special method", not detailed)'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -126,15 +126,15 @@
   last_seen: 1789603200
   notes: 'From the master product table. Purchased 9 time(s) between 2026-03-28 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Giesen 0% Non-Alcoholic Riesling'
+  product: '0% Riesling'
   id: TDS-0007
-  ean: "0637411001038"
+  ean: '0637411001038'
   brand: Giesen
   category: wine
   priority: high
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Spinning cone technology (gentle distillation); full-strength wine made then dealcoholized'
   abv: '<0.5%'
   seen_at: 'Wegmans (Instacart), Total Wine'
@@ -143,14 +143,14 @@
   last_seen: 1775174400
   notes: 'From the master product table. Purchased 8 time(s) between 2026-01-31 and 2026-04-03. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Halfway Crooks Non-Alcoholic Pilsner "Brevet"'
+  product: 'Brevet Pils'
   id: TDS-0008
   brand: 'Halfway Crooks Beer'
   category: beer
   priority: high
   status: published
   production_type: naturally-low-alcohol
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -159,14 +159,14 @@
   last_seen: 1787356800
   notes: 'From the master product table. Purchased 8 time(s) between 2026-02-22 and 2026-08-22. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'DC Brau Non-Alcoholic Pale Ale'
+  product: 'Pale Ale'
   id: TDS-0009
   brand: 'DC Brau Brewing Co.'
   category: beer
   priority: normal
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine, Total Wine (Instacart), Metro Wine & Spirits'
@@ -175,14 +175,14 @@
   last_seen: 1787875200
   notes: 'From the master product table. Purchased 6 time(s) between 2026-01-11 and 2026-08-28. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Clearscape Non-Alcoholic Rose'
+  product: 'Rosé'
   id: TDS-0010
   brand: Clearscape
   category: wine
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Not verified in detail'
   abv: 'Not published'
   seen_at: 'Total Wine (Instacart), Total Wine'
@@ -191,14 +191,14 @@
   last_seen: 1788652800
   notes: 'From the master product table. Purchased 6 time(s) between 2026-01-21 and 2026-09-06. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Freixenet Non-Alcoholic Sparkling Rose'
+  product: '0,0 Sparkling Rosé'
   id: TDS-0011
   brand: Freixenet
   category: wine
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Branded "Alcohol Removed"; specific method not detailed'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -207,15 +207,15 @@
   last_seen: 1778371200
   notes: 'From the master product table. Purchased 6 time(s) between 2026-01-23 and 2026-05-10. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Almost Zero Ravishing Rose Non-Alcoholic Wine'
+  product: 'Ravishing Rosé'
   id: TDS-0012
-  ean: "0600226900407"
+  ean: '0600226900407'
   brand: 'Almost Zero'
   category: wine
   priority: normal
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine (Instacart), Total Wine'
@@ -224,14 +224,14 @@
   last_seen: 1789603200
   notes: 'From the master product table. Purchased 5 time(s) between 2026-01-21 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Savyll Non-Alcoholic Moscow Mule'
+  product: 'Non-Alcoholic Moscow Mule'
   id: TDS-0013
   brand: Savyll
   category: cocktails
   priority: normal
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -240,14 +240,14 @@
   last_seen: 1782950400
   notes: 'From the master product table. Purchased 5 time(s) between 2026-04-03 and 2026-07-02. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: '90+ Cellars Alcohol-Removed Sparkling Rosé "Lot 229"'
+  product: 'Alcohol-Removed Sparkling Rosé Lot 229'
   id: TDS-0014
   brand: '90+ Cellars'
   category: wine
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Traditionally made, then alcohol removed via reverse osmosis'
   abv: '<0.5%'
   seen_at: 'Metro Wine & Spirits'
@@ -256,14 +256,14 @@
   last_seen: 1786147200
   notes: 'From the master product table. Purchased 4 time(s) between 2026-01-23 and 2026-08-08. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Lagunitas Non-Alcoholic Hazy IPNA'
+  product: 'Hazy IPNA'
   id: TDS-0015
   brand: Lagunitas
   category: beer
   priority: normal
   status: published
   production_type: naturally-low-alcohol
-  verified: yes
+  verified: 'yes'
   method: 'Brewed with same ingredients as regular Hazy IPA, fermentation halted early — not dealcoholized'
   abv: '<0.5%'
   seen_at: 'Total Wine'
@@ -272,31 +272,31 @@
   last_seen: 1786406400
   notes: 'From the master product table. Purchased 4 time(s) between 2026-06-05 and 2026-08-11. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Josef Leitz Non-Alcoholic Sparkling Riesling "Eins Zwei Zero"'
+  product: 'Eins-Zwei-Zero Sparkling Riesling'
   id: TDS-0016
   brand: 'Weingut Leitz'
   category: wine
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Vacuum distillation at low temperature'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'Metro Wine & Spirits, Upside Drinks'
   times_purchased: 3
   first_seen: 1761004800
   last_seen: 1772582400
   notes: 'From the master product table. Purchased 3 time(s) between 2025-10-21 and 2026-03-04. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Dr. Heidemanns Bergweiler Non-Alcoholic Riesling'
+  product: 'Non-Alcoholic Riesling'
   id: TDS-0017
-  ean: "0883122400114"
+  ean: '0883122400114'
   brand: 'Dr. Heidemanns Bergweiler'
   category: wine
   priority: normal
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine (Instacart)'
@@ -305,14 +305,14 @@
   last_seen: 1771027200
   notes: 'From the master product table. Purchased 3 time(s) between 2026-01-21 and 2026-02-14. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Giesen 0% Non-Alcoholic Rose'
+  product: '0% Rosé'
   id: TDS-0018
   brand: Giesen
   category: wine
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Spinning cone technology'
   abv: '<0.5%'
   seen_at: 'Wegmans (Instacart), Total Wine'
@@ -321,14 +321,14 @@
   last_seen: 1774310400
   notes: 'From the master product table. Purchased 3 time(s) between 2026-01-31 and 2026-03-24. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Band of Vintners Freestyle Non-Alcoholic Skin-Contact Wine'
+  product: 'Freestyle NA California'
   id: TDS-0019
   brand: 'Band of Vintners'
   category: wine
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Brand states wine is "skin fermented with native yeasts" and balanced "once the alcohol is removed"; specific removal technique not disclosed'
   abv: 'Not published'
   seen_at: 'The Zero Proof'
@@ -337,7 +337,7 @@
   last_seen: 1780358400
   notes: 'From the master product table. Purchased 3 time(s) between 2026-03-06 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Kolonne Null Non-Alcoholic Riesling'
+  product: 'Alcohol-Free Riesling'
   id: TDS-0020
   ean: 4260660140096
   brand: 'Kolonne Null'
@@ -345,24 +345,24 @@
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Vacuum distillation at ~30°C to remove alcohol from base wine'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'The Zero Proof'
   times_purchased: 3
   first_seen: 1772755200
   last_seen: 1786492800
   notes: 'From the master product table. Purchased 3 time(s) between 2026-03-06 and 2026-08-12. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Clearscape Non-Alcoholic Chardonnay'
+  product: 'Chardonnay'
   id: TDS-0021
-  ean: "0935843208064"
+  ean: '0935843208064'
   brand: Clearscape
   category: wine
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Not verified in detail'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -371,14 +371,14 @@
   last_seen: 1786406400
   notes: 'From the master product table. Purchased 3 time(s) between 2026-03-28 and 2026-08-11. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Be Free Sauvignon Blanc Non-Alcoholic Wine'
+  product: 'Sauvignon Blanc'
   id: TDS-0022
   brand: 'Be Free'
   category: wine
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Dealcoholized ("special method", not detailed)'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -387,15 +387,15 @@
   last_seen: 1785628800
   notes: 'From the master product table. Purchased 3 time(s) between 2026-03-28 and 2026-08-02. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Miguel Torres Non-Alcoholic Sauvignon Blanc "Serena"'
+  product: 'Serena Mode Sauvignon Blanc'
   id: TDS-0023
-  ean: "0716819560917"
+  ean: '0716819560917'
   brand: 'Familia Torres (Natureo line)'
   category: wine
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Torres describes an "improved dealcoholizing technique"; exact process not detailed'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -404,15 +404,15 @@
   last_seen: 1780012800
   notes: 'From the master product table. Purchased 3 time(s) between 2026-04-19 and 2026-05-29. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Rondel Zero Cava Rose Non-Alcoholic Wine'
+  product: 'Zero Cava Rosé'
   id: TDS-0024
-  ean: "0012976991862"
+  ean: '0012976991862'
   brand: Rondel
   category: wine
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -421,14 +421,14 @@
   last_seen: 1789603200
   notes: 'From the master product table. Purchased 3 time(s) between 2026-04-29 and 2026-09-17. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Wolffer Spring in a Bottle Alcohol Removed Rose Sparkling'
+  product: 'Spring in a Bottle Alcohol Removed Rosé Sparkling'
   id: TDS-0025
   brand: 'Wolffer Estate'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Alcohol-removed (branded); method not detailed'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -437,15 +437,15 @@
   last_seen: 1772236800
   notes: 'From the master product table. Purchased 2 time(s) between 2026-01-11 and 2026-02-28. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Biagio Cru Non-Alcoholic Rose All Day'
+  product: 'Non-Alcoholic Rosé All Day'
   id: TDS-0026
-  ean: "0833202003339"
+  ean: '0833202003339'
   brand: 'Biagio Cru'
   category: wine
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -454,7 +454,7 @@
   last_seen: 1782000000
   notes: 'From the master product table. Purchased 2 time(s) between 2026-03-06 and 2026-06-21. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Noughty Dealcoholized Rosé'
+  product: 'Noughty Non-Alcoholic Rosé'
   id: TDS-0027
   ean: 6002339001882
   brand: 'Noughty (Thomson & Scott)'
@@ -462,7 +462,7 @@
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Gently spun cone technology under vacuum at low temperature'
   abv: '<0.5%'
   seen_at: 'The Zero Proof'
@@ -471,14 +471,14 @@
   last_seen: 1774137600
   notes: 'From the master product table. Purchased 2 time(s) between 2026-03-06 and 2026-03-22. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'WiesenObst Cider Rosé Non-Alcoholic Cider'
+  product: 'WiesenObst Cider Rosé'
   id: TDS-0028
   brand: 'Jörg Geiger'
   category: cider
   priority: low
   status: published
   production_type: hybrid
-  verified: yes
+  verified: 'yes'
   method: 'Dealcoholized cider made from cider apples, perry pears and dealcoholized red wine, hops, herbs and flowers'
   abv: '<0.5%'
   seen_at: Delmosa
@@ -487,14 +487,14 @@
   last_seen: 1782172800
   notes: 'From the master product table. Purchased 2 time(s) between 2026-04-25 and 2026-06-23. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Grad 36° Non-Alcoholic Wine'
+  product: 'Grad 36°'
   id: TDS-0029
   brand: 'Jörg Geiger'
   category: wine
   priority: low
   status: published
   production_type: hybrid
-  verified: yes
+  verified: 'yes'
   method: 'Blend of dealcoholized red (Grenache) wine (75%) with damson plum, currant and blackberry juice plus herb/wildflower extracts'
   abv: '<0.5%'
   seen_at: Delmosa
@@ -503,14 +503,14 @@
   last_seen: 1782172800
   notes: 'From the master product table. Purchased 2 time(s) between 2026-04-25 and 2026-06-23. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Mionetto Non Alcoholic Italy White Wine'
+  product: '0.0% Alcohol-Removed White'
   id: TDS-0031
   brand: Mionetto
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Alcohol-removed Prosecco (branded); method not detailed'
   abv: 'Not published'
   seen_at: 'Harris Teeter (Instacart)'
@@ -527,7 +527,7 @@
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Produced as a non-alcoholic bitter aperitif since 1964; never an alcoholic product that was dealcoholized'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -536,14 +536,14 @@
   last_seen: 1759449600
   notes: 'From the master product table. Purchased 1 time(s) between 2025-10-03 and 2025-10-03. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: '90+ Cellars Alcohol-Removed Sparkling Brut "Lot 230"'
+  product: 'Lot 230'
   id: TDS-0033
   brand: '90+ Cellars'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Traditionally made, then alcohol removed via reverse osmosis'
   abv: '<0.5%'
   seen_at: 'Metro Wine & Spirits'
@@ -552,14 +552,14 @@
   last_seen: 1759449600
   notes: 'From the master product table. Purchased 1 time(s) between 2025-10-03 and 2025-10-03. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Lyre''s "Amalfi Spritz" Non-Alcoholic Canned Cocktail'
+  product: 'Amalfi Spritz'
   id: TDS-0034
   brand: "Lyre's"
   category: cocktails
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Crafted from natural essences/extracts, not dealcoholized'
   abv: '<0.5%'
   seen_at: 'Metro Wine & Spirits'
@@ -568,14 +568,14 @@
   last_seen: 1759449600
   notes: 'From the master product table. Purchased 1 time(s) between 2025-10-03 and 2025-10-03. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Best Day Brewing Kölsch Non-Alcoholic Beer'
+  product: Kölsch
   id: TDS-0035
   brand: 'Best Day Brewing'
   category: beer
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Brewed then alcohol removed per brand marketing; specific process not independently confirmed'
   abv: 'Not published'
   seen_at: 'Best Day Brewing'
@@ -584,30 +584,30 @@
   last_seen: 1760054400
   notes: 'From the master product table. Purchased 1 time(s) between 2025-10-10 and 2025-10-10. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'HOP WTR Sparkling Hop Water, Blood Orange, Non-Alcoholic'
+  product: 'Blood Orange'
   id: TDS-0036
   brand: 'HOP WTR'
   category: beer
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Hop-flavored sparkling water; not a brewed/fermented beer'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'Giant Food (Instacart)'
   times_purchased: 1
   first_seen: 1760486400
   last_seen: 1760486400
   notes: 'From the master product table. Purchased 1 time(s) between 2025-10-15 and 2025-10-15. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Original Sin Non-Alcoholic Cider Mix Pack (Golden/White/Dragon Widow)'
+  product: "Widow Family Mix Pack (Original Sin's NA lineup)"
   id: TDS-0037
   brand: 'Original Sin Cider'
   category: cider
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -616,55 +616,55 @@
   last_seen: 1761004800
   notes: 'From the master product table. Purchased 1 time(s) between 2025-10-21 and 2025-10-21. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'St. Agrestis "Phony Negroni" Non-Alcoholic Negroni Cocktail'
+  product: 'Phony Negroni'
   id: TDS-0038
   brand: 'St. Agrestis'
   category: cocktails
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Company states explicitly: process maintains flavor "and not with dealcoholizing"'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1761004800
   last_seen: 1761004800
   notes: 'From the master product table. Purchased 1 time(s) between 2025-10-21 and 2025-10-21. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'French Bloom Le Blanc Non-Alcoholic Sparkling Wine'
+  product: 'Le Blanc'
   id: TDS-0039
   brand: 'French Bloom'
   category: wine
   priority: low
   status: published
   production_type: hybrid
-  verified: yes
+  verified: 'yes'
   method: 'Organic French Chardonnay wine that is dealcoholized, then blended with spring water, grape juice and organic lemon juice'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'The Zero Proof'
   times_purchased: 1
   first_seen: 1763424000
   last_seen: 1763424000
   notes: 'From the master product table. Purchased 1 time(s) between 2025-11-18 and 2025-11-18. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: "Lapo's Non-Alcoholic Negroni"
+  product: 'Non-Alcoholic Negroni'
   id: TDS-0040
   brand: "Lapo's"
   category: cocktails
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Canned Italian-style negroni alternative; marketed as 0.0% ABV zero-proof cocktail (not dealcoholized)'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'The Zero Proof'
   times_purchased: 1
   first_seen: 1763596800
   last_seen: 1763596800
   notes: 'From the master product table. Purchased 1 time(s) between 2025-11-20 and 2025-11-20. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Kolonne Null Non-Alcoholic Rosé'
+  product: Rosé
   id: TDS-0041
   ean: 4260660140119
   brand: 'Kolonne Null'
@@ -672,23 +672,23 @@
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Vacuum distillation at ~30°C to remove alcohol from base wine'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'The Zero Proof'
   times_purchased: 1
   first_seen: 1763596800
   last_seen: 1763596800
   notes: 'From the master product table. Purchased 1 time(s) between 2025-11-20 and 2025-11-20. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Go Brewing Sunbeam Pils Non-Alcoholic (Brew Non-Alcoholic Sunbeam Pils with German Malt & Hops)'
+  product: 'Suspended In A Sunbeam Pils'
   id: TDS-0042
   brand: 'Go Brewing'
   category: beer
   priority: low
   status: published
   production_type: naturally-low-alcohol
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Giant Food (Instacart)'
@@ -697,14 +697,14 @@
   last_seen: 1764806400
   notes: 'From the master product table. Purchased 1 time(s) between 2025-12-04 and 2025-12-04. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Mingle Non-Alcoholic Sparkling Raspberry Rose'
+  product: 'Sparkling Raspberry Rosé'
   id: TDS-0043
   brand: Mingle
   category: cocktails
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -713,14 +713,14 @@
   last_seen: 1768089600
   notes: 'From the master product table. Purchased 1 time(s) between 2026-01-11 and 2026-01-11. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Untitled Art "FLVR!" Non-Alcoholic Sour Ale w/ Mango & Dragonfruit'
+  product: 'FLVR! NA Mango Dragonfruit Sour'
   id: TDS-0044
   brand: 'Untitled Art Brewing'
   category: beer
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -729,30 +729,30 @@
   last_seen: 1769126400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-01-23 and 2026-01-23. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Asahi "Dry" Non-Alcoholic'
+  product: 'Dry Zero'
   id: TDS-0045
   brand: 'Asahi Breweries'
   category: beer
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Wort-free complete formulation method — unfermented wort blended with flavor compounds (incl. MBT); not dealcoholized'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1769558400
   last_seen: 1769558400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-01-28 and 2026-01-28. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Nonny Czech Pilsner Non-Alcoholic Beer'
+  product: 'Czech Pilsner'
   id: TDS-0047
   brand: 'Nonny Beer'
   category: beer
   priority: low
   status: published
   production_type: naturally-low-alcohol
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Upside Drinks'
@@ -761,30 +761,30 @@
   last_seen: 1771372800
   notes: 'From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Grolsch 0.0% Non-Alcoholic Pilsner'
+  product: 0.0%
   id: TDS-0048
   brand: Grolsch
   category: beer
   priority: low
   status: published
   production_type: naturally-low-alcohol
-  verified: yes
+  verified: 'yes'
   method: 'Major-brewery 0.0% pilsner; production method (limited fermentation vs. dealcoholization) not independently confirmed'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'Upside Drinks'
   times_purchased: 1
   first_seen: 1771372800
   last_seen: 1771372800
   notes: 'From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Pierre Zero Non-Alcoholic Rosé (Bag-in-Box)'
+  product: 'Rosé (3 L bag-in-box)'
   id: TDS-0049
   brand: 'Pierre Zero'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'French brand marketed as "Zero" alcohol-removed wine; specific technique not independently verified'
   abv: '<0.5%'
   seen_at: 'Upside Drinks'
@@ -793,7 +793,7 @@
   last_seen: 1771372800
   notes: 'From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'JP. Chenet Non-Alcoholic Sparkling Rosé'
+  product: 'So Free Sparkling Rosé'
   id: TDS-0050
   ean: 3500610129254
   brand: 'JP. Chenet'
@@ -801,7 +801,7 @@
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Made from dealcoholized rosé wine plus rectified grape must concentrate, per ingredient list'
   abv: '<0.5%'
   seen_at: 'Upside Drinks'
@@ -810,14 +810,14 @@
   last_seen: 1771372800
   notes: 'From the master product table. Purchased 1 time(s) between 2026-02-18 and 2026-02-18. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Christian Drouin "Jus de Poire Petillant" Non-Alcoholic Pear Cider'
+  product: 'Jus de Poire Pétillant'
   id: TDS-0051
   brand: 'Christian Drouin'
   category: cider
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Product name translates to "sparkling pear juice" — likely never fermented'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -826,14 +826,14 @@
   last_seen: 1771718400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-02-22 and 2026-02-22. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Untitled Art N/A FLVR! Italian-Style Pils'
+  product: 'FLVR! NA Italian-Style Pils'
   id: TDS-0052
   brand: 'Untitled Art Brewing'
   category: beer
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -842,14 +842,14 @@
   last_seen: 1772582400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-03-04 and 2026-03-04. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Gruvi Non-Alcoholic Sangria'
+  product: Sangria
   id: TDS-0053
   brand: Grüvi
   category: cocktails
   priority: low
   status: published
   production_type: hybrid
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -858,14 +858,14 @@
   last_seen: 1774310400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-03-24 and 2026-03-24. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Eric Bordelet "Jus de Pommes A Sydre Perlant" Non-Alcoholic French Cider'
+  product: 'Perlant Jus de Pommes à Sydre'
   id: TDS-0055
   brand: 'Eric Bordelet'
   category: cider
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Product name translates to "sparkling apple juice" — likely never fermented'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -874,14 +874,14 @@
   last_seen: 1776556800
   notes: 'From the master product table. Purchased 1 time(s) between 2026-04-19 and 2026-04-19. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'King Maui 0% Non-Alcoholic Marlborough Sauvignon Blanc'
+  product: '0% Marlborough Sauvignon Blanc'
   id: TDS-0056
   brand: 'King Maui'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -890,14 +890,14 @@
   last_seen: 1776816000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-04-22 and 2026-04-22. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'ViSecco Pinot Meunier Non-Alcoholic Sparkling Red'
+  product: 'ViSecco Pinot Meunier'
   id: TDS-0057
   brand: 'Jörg Geiger'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Not independently verified for this specific SKU'
   abv: 'Not published'
   seen_at: Delmosa
@@ -906,14 +906,14 @@
   last_seen: 1777075200
   notes: 'From the master product table. Purchased 1 time(s) between 2026-04-25 and 2026-04-25. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Blanc de Blanc Non-Alcoholic Sparkling Wine (Delmosa)'
+  product: 'Blanc de Blanc'
   id: TDS-0058
   brand: 'Jörg Geiger'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Organic Chardonnay/Colombard wine fermented and aged on lees for two years, then "gently dealcoholized" (specific technique not detailed)'
   abv: '<0.5%'
   seen_at: Delmosa
@@ -922,15 +922,15 @@
   last_seen: 1777075200
   notes: 'From the master product table. Purchased 1 time(s) between 2026-04-25 and 2026-04-25. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Nozeco Alcohol Free Brut Rose'
+  product: 'Alcohol Free Brut Rosé'
   id: TDS-0059
-  ean: "0641586348867"
+  ean: '0641586348867'
   brand: Nozeco
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -939,14 +939,14 @@
   last_seen: 1777420800
   notes: 'From the master product table. Purchased 1 time(s) between 2026-04-29 and 2026-04-29. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Ollivier Cottenceau Phénomène Non-Alcoholic "Muscadet"'
+  product: Phénomène
   id: TDS-0060
   brand: 'Ollivier Cottenceau (Domaine de la Grenaudière)'
   category: wine
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not independently verified; sold as non-alcoholic Melon de Bourgogne (Muscadet-style) via Schatzi Wines/Boisson'
   abv: 'Not published'
   seen_at: Boisson
@@ -955,14 +955,14 @@
   last_seen: 1777680000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-05-02 and 2026-05-02. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Domaine de Montrose Non-Alcoholic Rosé'
+  product: 'Rosé Zéro (Rose Mont Rose)'
   id: TDS-0061
   brand: 'Domaine de Montrose'
   category: wine
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not independently verified; sold as "Rosé Zero" via Schatzi Wines/Boisson'
   abv: 'Not published'
   seen_at: Boisson
@@ -971,14 +971,14 @@
   last_seen: 1777680000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-05-02 and 2026-05-02. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Tired Hands Non-Alcoholic N/Alien Church'
+  product: 'N/Alien Church'
   id: TDS-0063
   brand: 'Tired Hands'
   category: beer
   priority: low
   status: published
   production_type: naturally-low-alcohol
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -987,7 +987,7 @@
   last_seen: 1779408000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-05-22 and 2026-05-22. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Valckenberg "Zero" Non-Alcoholic Riesling'
+  product: 'Zero Riesling'
   id: TDS-0064
   ean: 4004068000046
   brand: 'P.J. Valckenberg'
@@ -995,7 +995,7 @@
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -1004,7 +1004,7 @@
   last_seen: 1779580800
   notes: 'From the master product table. Purchased 1 time(s) between 2026-05-24 and 2026-05-24. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Valckenberg "Zero" Non-Alcoholic Sparkling'
+  product: 'Cuvée Sparkling Zero'
   id: TDS-0065
   ean: 4004068000053
   brand: 'P.J. Valckenberg'
@@ -1012,7 +1012,7 @@
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -1021,7 +1021,7 @@
   last_seen: 1779580800
   notes: 'From the master product table. Purchased 1 time(s) between 2026-05-24 and 2026-05-24. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Erdinger Weissbrau N/A Lager "Alkoholfrei"'
+  product: Alkoholfrei
   id: TDS-0066
   ean: 4002103283270
   brand: 'Erdinger Weißbräu'
@@ -1029,7 +1029,7 @@
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Brewed under Bavarian Purity Law; specific alcohol-removal method not disclosed'
   abv: '<0.5%'
   seen_at: 'Metro Wine & Spirits'
@@ -1038,7 +1038,7 @@
   last_seen: 1780012800
   notes: 'From the master product table. Purchased 1 time(s) between 2026-05-29 and 2026-05-29. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Missing Thorn Non-Alcoholic Still White'
+  product: 'Non-Alcoholic Still White'
   id: TDS-0067
   ean: 850061516114
   brand: 'Missing Thorn'
@@ -1046,7 +1046,7 @@
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Not independently verified; brand markets wines as alcohol-removed by winemaker Aaron Pott'
   abv: 'Not published'
   seen_at: 'The Zero Proof'
@@ -1055,30 +1055,30 @@
   last_seen: 1780358400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Josef Leitz Non-Alcoholic Sparkling Rosé "Eins Zwei Zero"'
+  product: 'Eins-Zwei-Zero Sparkling Rosé'
   id: TDS-0068
   brand: 'Weingut Leitz'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Vacuum distillation at low temperature'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'The Zero Proof'
   times_purchased: 1
   first_seen: 1780358400
   last_seen: 1780358400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Athletic Brewing Co. Athletic ESB Non-Alcoholic Beer (Limited Edition)'
+  product: 'ESB (Extra Special Bitter)'
   id: TDS-0069
   brand: 'Athletic Brewing Company'
   category: beer
   priority: low
   status: published
   production_type: naturally-low-alcohol
-  verified: yes
+  verified: 'yes'
   method: 'Proprietary process built for NA from the start; founders say it is neither dealcoholization of finished beer nor simple arrested fermentation'
   abv: '<0.5%'
   seen_at: 'Minus Moonshine'
@@ -1087,14 +1087,14 @@
   last_seen: 1780358400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'De Nada Non-Alcoholic Rosé'
+  product: 'Non-Alcoholic Rosé'
   id: TDS-0070
   brand: 'De Nada (Paumanok Vineyards)'
   category: wine
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not independently verified'
   abv: 'Not published'
   seen_at: 'Minus Moonshine'
@@ -1103,30 +1103,30 @@
   last_seen: 1780358400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-06-02 and 2026-06-02. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Josef Leitz Non-Alcoholic Sparkling Blanc de Blancs "Eins Zwei Zero"'
+  product: 'Eins-Zwei-Zero Sparkling Blanc de Blancs'
   id: TDS-0071
   brand: 'Weingut Leitz'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Vacuum distillation at low temperature'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1782259200
   last_seen: 1782259200
   notes: 'From the master product table. Purchased 1 time(s) between 2026-06-24 and 2026-06-24. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Fio Non-Alcoholic Riesling "Fabelhaft"'
+  product: 'Fabelhaft Alcohol Free Riesling'
   id: TDS-0073
   brand: Fio
   category: wine
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -1135,30 +1135,30 @@
   last_seen: 1783123200
   notes: 'From the master product table. Purchased 1 time(s) between 2026-07-04 and 2026-07-04. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Ritual Zero Proof Tequila Alternative'
+  product: 'Tequila Alternative'
   id: TDS-0074
   brand: 'Ritual Zero Proof'
   category: spirits
   priority: high
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Formulated agave spirit alternative, never distilled from alcohol'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1783123200
   last_seen: 1783123200
   notes: 'From the master product table. Purchased 1 time(s) between 2026-07-04 and 2026-07-04. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'P.J. Valckenberg "It''s Not a Sin" NA Ginger/Bitter Orange Peel Wine'
+  product: "It's Not a Sin Ginger/Bitter Orange"
   id: TDS-0075
   brand: 'P.J. Valckenberg'
   category: cocktails
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Same producer as Valckenberg''s verified "Zero" dealcoholized wine line, but this specific botanical-infused SKU''s own production method not independently verified'
   abv: 'Not published'
   seen_at: InternetWines.com
@@ -1167,14 +1167,14 @@
   last_seen: 1785024000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Sea Monster Tidal Wave White Alcohol Removed Wine'
+  product: 'Tidal Wave White'
   id: TDS-0076
   brand: 'Sea Monster'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Branded "Alcohol Removed"; specific method not detailed'
   abv: 'Not published'
   seen_at: InternetWines.com
@@ -1183,14 +1183,14 @@
   last_seen: 1785024000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Butter Zero Sparkling Rosé Non-Alcoholic'
+  product: 'Sparkling Rosé'
   id: TDS-0077
   brand: 'Butter Zero'
   category: wine
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not independently verified beyond retailer listing'
   abv: 'Not published'
   seen_at: InternetWines.com
@@ -1199,14 +1199,14 @@
   last_seen: 1785024000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Mount Fishtail Zero Sauvignon Blanc'
+  product: 'Zero Sauvignon Blanc'
   id: TDS-0078
   brand: 'Mount Fishtail'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Branded "Alcohol Removed"; specific method not detailed'
   abv: 'Not published'
   seen_at: InternetWines.com
@@ -1215,15 +1215,15 @@
   last_seen: 1785024000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Butter Zero Pinot Noir Non-Alcoholic'
+  product: 'Pinot Noir'
   id: TDS-0079
-  ean: "0853706002898"
+  ean: '0853706002898'
   brand: 'Butter Zero'
   category: wine
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not independently verified beyond retailer listing'
   abv: 'Not published'
   seen_at: InternetWines.com
@@ -1232,32 +1232,32 @@
   last_seen: 1785024000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Zolo Zero Malbec Rosé Non-Alcoholic Wine'
+  product: 'Zero Malbec Rosé'
   id: TDS-0080
-  ean: "0852282002049"
+  ean: '0852282002049'
   brand: Zolo
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: '96% dealcoholized by proprietary technique plus 4% grape juice (Vino del Sol tech sheet)'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1785024000
   last_seen: 1785024000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Butter Zero Chardonnay Non-Alcoholic'
+  product: Chardonnay
   id: TDS-0081
-  ean: "0853706002911"
+  ean: '0853706002911'
   brand: 'Butter Zero'
   category: wine
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not independently verified beyond retailer listing'
   abv: 'Not published'
   seen_at: InternetWines.com
@@ -1266,14 +1266,14 @@
   last_seen: 1785024000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Chloe Alcohol-Removed Pinot Grigio'
+  product: 'Alcohol-Removed Pinot Grigio'
   id: TDS-0082
   brand: 'Chloe Wine Collection'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Alcohol-removed (branded); method not detailed'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -1282,15 +1282,15 @@
   last_seen: 1785110400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-07-27 and 2026-07-27. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Chateau Diana Zero Non-Alcoholic California White Wine Blend'
+  product: 'Zero California White Blend'
   id: TDS-0083
-  ean: "0019988504158"
+  ean: '0019988504158'
   brand: 'Chateau Diana'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Branded "Alcohol Removed"; specific method not detailed'
   abv: 'Not published'
   seen_at: Walmart
@@ -1299,14 +1299,14 @@
   last_seen: 1786147200
   notes: 'From the master product table. Purchased 1 time(s) between 2026-08-08 and 2026-08-08. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Chateau Diana Zero Non-Alcoholic California Rosé'
+  product: 'Zero California Rosé'
   id: TDS-0084
   brand: 'Chateau Diana'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Branded "Alcohol Removed"; specific method not detailed'
   abv: 'Not published'
   seen_at: Walmart
@@ -1315,14 +1315,14 @@
   last_seen: 1786147200
   notes: 'From the master product table. Purchased 1 time(s) between 2026-08-08 and 2026-08-08. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: "Penn's Best Non-Alcoholic Lager"
+  product: 'Non-Alcoholic Lager'
   id: TDS-0085
   brand: "Penn's Best"
   category: beer
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Total Wine'
@@ -1331,15 +1331,15 @@
   last_seen: 1786406400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-08-11 and 2026-08-11. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Ariel Non-Alcoholic Chardonnay'
+  product: 'Chardonnay'
   id: TDS-0086
-  ean: "0089121830024"
+  ean: '0089121830024'
   brand: 'Ariel (Ariel Vineyards / J. Lohr)'
   category: wine
   priority: low
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Marketed as "Dealcoholized Wine"; specific method not detailed'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -1348,14 +1348,14 @@
   last_seen: 1787356800
   notes: 'From the master product table. Purchased 1 time(s) between 2026-08-22 and 2026-08-22. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Greenbar "UNRum + Cola" Non-Alcoholic Canned Cocktail'
+  product: 'UNRum + Cola'
   id: TDS-0087
   brand: Greenbar
   category: cocktails
   priority: low
   status: published
   production_type: hybrid
-  verified: yes
+  verified: 'yes'
   method: 'Alcohol boiled off after distillation and infusion (producer spec sheet)'
   abv: '<0.5%'
   seen_at: 'Metro Wine & Spirits'
@@ -1364,14 +1364,14 @@
   last_seen: 1787875200
   notes: 'From the master product table. Purchased 1 time(s) between 2026-08-28 and 2026-08-28. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Flying Dog "Deep Fake" Non-Alcoholic IPA'
+  product: 'Deep Fake Non-Alcoholic IPA'
   id: TDS-0088
   brand: 'Flying Dog Brewery'
   category: beer
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -1380,14 +1380,14 @@
   last_seen: 1787875200
   notes: 'From the master product table. Purchased 1 time(s) between 2026-08-28 and 2026-08-28. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Untitled Art "FLVR!" Non-Alcoholic Juicy IPA'
+  product: 'FLVR! NA Juicy IPA'
   id: TDS-0089
   brand: 'Untitled Art Brewing'
   category: beer
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -1396,14 +1396,14 @@
   last_seen: 1788566400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-09-05 and 2026-09-05. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Pure Project "Grounded" Non-Alcoholic IPA'
+  product: 'Grounded Non-Alcoholic IPA'
   id: TDS-0090
   brand: 'Pure Project'
   category: beer
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -1412,14 +1412,14 @@
   last_seen: 1788566400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-09-05 and 2026-09-05. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Birrificio Baladin "Passione In Rosso" Non-Alcoholic Italian Aperitivo'
+  product: 'Passione in Rosso'
   id: TDS-0091
   brand: 'Birrificio Baladin'
   category: cocktails
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Not verified'
   abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
@@ -1428,15 +1428,15 @@
   last_seen: 1788566400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-09-05 and 2026-09-05. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Deschutes Non-Alcoholic Fresh Squeezed IPA'
+  product: 'Non-Alcoholic Fresh Squeezed IPA'
   id: TDS-0093
-  ean: "0076317661906"
+  ean: '0076317661906'
   brand: 'Deschutes Brewery'
   category: beer
   priority: low
   status: published
   production_type: alternative
-  verified: yes
+  verified: 'yes'
   method: 'Brand markets line as "non-alcoholic"; brewing/alcohol-removal process not independently confirmed'
   abv: 'Not published'
   seen_at: 'Deschutes Brewery'
@@ -1445,23 +1445,23 @@
   last_seen: 1788652800
   notes: 'From the master product table. Purchased 1 time(s) between 2026-09-06 and 2026-09-06. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Spiritless Jalisco 55 Non-Alcoholic Reposado Tequila'
+  product: 'Jalisco 55 Non-Alcoholic Reposado Tequila'
   id: TDS-0094
   brand: Spiritless
   category: spirits
   priority: high
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Reverse distillation (same documented method as Spiritless Kentucky 74)'
-  abv: '0.0%'
+  abv: 0.0%
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1789344000
   last_seen: 1789344000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-09-14 and 2026-09-14. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Giesen 0% Sauvignon Blanc'
+  product: '0% Sauvignon Blanc'
   id: TDS-0054
   brand: Giesen
   category: wine
@@ -1469,7 +1469,7 @@
   status: published
   notes: 'Already published at reviews/wine/giesen-0-sauvignon-blanc/. Same SKU as Giesen Non-Alcoholic Sauvignon Blanc in the master table.'
 -
-  product: 'Oddbird Blanc de Blancs'
+  product: 'Blanc de Blancs'
   id: TDS-0100
   brand: Oddbird
   category: wine
@@ -1477,7 +1477,7 @@
   status: published
   notes: 'Already published at reviews/wine/oddbird-blanc-de-blancs/.'
 -
-  product: 'Freixenet 0.0'
+  product: '0,0 Sparkling White'
   id: TDS-0072
   brand: Freixenet
   category: wine
@@ -1485,7 +1485,7 @@
   status: published
   notes: 'Already published at reviews/wine/freixenet-0-0/ as Freixenet 0,0 Sparkling White. Sparkling Rosé is a separate queue item.'
 -
-  product: 'Spiritless Kentucky 74'
+  product: 'Kentucky 74'
   id: TDS-0092
   ean: 850018886024
   brand: Spiritless
@@ -1493,7 +1493,7 @@
   priority: normal
   status: published
   production_type: dealcoholized
-  verified: yes
+  verified: 'yes'
   method: 'Proprietary reverse distillation of an oak-extracted high-proof spirit'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
@@ -1501,15 +1501,15 @@
   last_seen: 1788566400
   notes: 'Already published at reviews/spirits/spiritless-kentucky-74/. Do not write a second review.'
 -
-  product: 'St. Regis Non-Alcoholic Rosé'
+  product: 'Non-Alcoholic Rosé'
   id: TDS-0095
-  ean: "0021296975001"
+  ean: '0021296975001'
   brand: 'St. Regis'
   category: wine
   priority: high
   status: published
   production_type: not-verified
-  verified: no
+  verified: 'no'
   method: not-verified
   abv: 'Not published'
   seen_at: 'Total Wine'

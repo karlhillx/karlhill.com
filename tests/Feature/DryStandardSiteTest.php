@@ -109,23 +109,29 @@ it('keeps a master product table without duplicating published reviews', functio
     expect(count($rows))->toBeGreaterThan(90);
 
     $ids = array_column(array_slice($rows, 1), 0);
-    $eans = array_column(array_slice($rows, 1), 1);
     $products = array_column(array_slice($rows, 1), 2);
-    $byProduct = array_combine($products, $eans);
+    $brands = array_column(array_slice($rows, 1), 3);
+    $byId = [];
+    foreach (array_slice($rows, 1) as $row) {
+        $byId[$row[0]] = $row;
+    }
     expect($ids)->each->toStartWith('TDS-');
     expect(count($ids))->toBe(count(array_unique($ids)));
-    expect($byProduct['Be Free Rose Non-Alcoholic Wine'])->toBe('4003301079788');
-    expect($byProduct['Appalina Alcohol Free Chardonnay'])->toBe('4049366003207');
-    expect($byProduct['Be Free White Sparkling Non-Alcoholic Wine'])->toBe('4003301080005');
-    expect($byProduct['Magic Box Vanish Non-Alcoholic Riesling'])->toBe('0641586357111');
-    expect($byProduct['Be Free Chardonnay Non-Alcoholic Wine'])->toBe('4003301080029');
-    expect($byProduct['Guinness 0.0'])->toBe('0794712956594');
-    expect($products)->toContain('Be Free Rose Non-Alcoholic Wine');
-    expect(count($products))->toBe(count(array_unique($products)));
+    expect($byId['TDS-0001'][2])->toBe('Rosé');
+    expect($byId['TDS-0001'][1])->toBe('4003301079788');
+    expect($byId['TDS-0003'][2])->toBe('Chardonnay');
+    expect($byId['TDS-0003'][1])->toBe('4049366003207');
+    expect($byId['TDS-0004'][2])->toBe('White Sparkling');
+    expect($byId['TDS-0002'][2])->toBe('Vanish Riesling');
+    expect($byId['TDS-0006'][2])->toBe('Chardonnay');
+    expect($byId['TDS-0097'][2])->toBe('Guinness 0.0');
+    expect($products)->toContain('Rosé');
+    $brandProduct = array_map(fn (int $i): string => mb_strtolower($brands[$i])."\0".$products[$i], array_keys($products));
+    expect(count($brandProduct))->toBe(count(array_unique($brandProduct)));
 
     $queue = file_get_contents(base_path('clients/the-dry-standard/data/review-queue.yaml')) ?: '';
     expect($queue)->toContain("status: published\n")
-        ->and($queue)->toContain('Giesen 0% Sauvignon Blanc')
+        ->and($queue)->toContain('0% Sauvignon Blanc')
         ->and($queue)->not->toContain("status: queued\n");
 });
 

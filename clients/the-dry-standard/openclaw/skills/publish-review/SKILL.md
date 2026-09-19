@@ -9,7 +9,7 @@ A product in `data/review-queue.yaml` should move to a public review page.
 1. Open `clients/the-dry-standard/AGENTS.md` and `EDITORIAL.md`.
 2. Confirm the product exists and is ≤0.5% ABV from primary sources.
 3. Classify `production_type` (`dealcoholized`, `alternative`, `naturally-low-alcohol`, `hybrid`, or `not-verified`) and set `verified` separately.
-4. Write `content/reviews/{slug}.md` using `data/schema/review.schema.yaml`.
+4. Write `content/reviews/{slug}.md` using `data/schema/review.schema.yaml`. `product` is the SKU only; `title` is usually brand + product. Do not repeat the brand in `product` unless it is the official SKU name.
 5. Add a still at `media/reviews/{slug}.jpg`. Prefer an editorial photo of the tasted bottle on paper. Producer or importer press art is allowed with `image_source_url`. Never use a retailer store photo.
 6. Set `image`, `image_alt`, `image_credit`, `image_source` (`editorial`, `producer`, or `importer`), and `image_sku_confirmed: yes` only after looking at the label.
 7. Attach `sources` with `claims` for every factual field you filled.

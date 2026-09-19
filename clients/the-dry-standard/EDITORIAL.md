@@ -34,6 +34,14 @@ Taste can be tart. Facts cannot be.
 
 100-point quality scale. See `/about/` for the rubric. Do not score "how close is this to booze?" as the primary axis.
 
+## Names
+
+`brand` is the producer or label house. `product` is the SKU name. Do not repeat the brand in `product`. Do not append "Non-Alcoholic Wine" (or beer, cider, …) — `category` already says that.
+
+Keep the house in `product` only when it is the official SKU (Guinness 0.0) or when it is a sub-brand and `brand` is the parent (Noughty under Thomson & Scott; Eins-Zwei-Zero under Leitz; WiesenObst under Jörg Geiger).
+
+`title` is the public headline, usually `{brand} {product}`. The purchase ledger `Product` column matches `product`, not `title`.
+
 ## Review skeleton
 
 1. Product overview

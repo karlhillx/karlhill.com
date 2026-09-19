@@ -3,7 +3,7 @@ title: "DC Brau Non-Alcoholic Pale Ale"
 slug: dc-brau-pale-ale
 id: TDS-0009
 brand: DC Brau Brewing Co.
-product: Non-Alcoholic Pale Ale
+product: Pale Ale
 category: beer
 subcategory: pale ale
 country: United States

@@ -36,7 +36,7 @@ Change the cadence there. Do not hard-code it into an agent prompt.
 `data/review-queue.yaml` holds discovered products. Adding a product does not publish it.
 
 ```bash
-php artisan dry-standard:queue "Giesen 0% Sauvignon Blanc" --brand=Giesen --category=wine
+php artisan dry-standard:queue "0% Sauvignon Blanc" --brand=Giesen --category=wine
 ```
 
 ## Hallucination brake

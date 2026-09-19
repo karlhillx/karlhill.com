@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Generate the master product CSV and merge new SKUs into the review queue."""
+"""Historical generator for the first master CSV.
+
+Do not rerun. Product names are now SKU-only (`brand` + `product` as separate
+fields) and live in master-products.csv and review frontmatter.
+"""
 
 from __future__ import annotations
 

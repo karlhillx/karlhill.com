@@ -64,7 +64,7 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 - Product stills: `clients/the-dry-standard/media/reviews/{slug}.jpg` (audit with `php artisan dry-standard:audit-stills`)
 - Product database: `clients/the-dry-standard/data/catalog.sqlite` (runtime source of truth; generated)
 - Spreadsheet export: `clients/the-dry-standard/data/products.csv`
-- Purchase ledger: `clients/the-dry-standard/data/master-products.csv` (internal `ID` and sourced `EAN`; do not render)
+- Purchase ledger: `clients/the-dry-standard/data/master-products.csv` (internal `ID` and sourced `EAN`; `Product` is the SKU, not brand + SKU; do not render)
 - Queue: `clients/the-dry-standard/data/review-queue.yaml`
 - Config: `clients/the-dry-standard/data/config.yaml`
 - Schema reminder: `clients/the-dry-standard/data/schema/review.schema.yaml`
