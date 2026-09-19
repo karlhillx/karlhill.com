@@ -687,21 +687,6 @@
   last_seen: 1769558400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-01-28 and 2026-01-28. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Alcohol-Free Sparkling Rose (Single/750ml Bottle)'
-  id: TDS-0046
-  brand: Unknown/unverified
-  category: wine
-  priority: low
-  status: published
-  dealcoholized: 'no'
-  method: 'Not verified'
-  abv: 'Not verified'
-  seen_at: 'Wegmans (Instacart)'
-  times_purchased: 1
-  first_seen: 1769817600
-  last_seen: 1769817600
-  notes: 'From the master product table. Purchased 1 time(s) between 2026-01-31 and 2026-01-31. Do not publish until ABV and dealcoholization are sourced.'
--
   product: 'Nonny Czech Pilsner Non-Alcoholic Beer'
   id: TDS-0047
   brand: 'Nonny Beer'

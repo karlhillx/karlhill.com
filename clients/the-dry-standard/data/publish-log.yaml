@@ -197,12 +197,6 @@
   published_at: '2026-09-19T00:50:48+00:00'
   path: reviews/wine/jp-chenet-sparkling-rose/
 -
-  slug: alcohol-free-sparkling-rose
-  product: 'Alcohol-Free Sparkling Rosé (750 ml)'
-  brand: 'Unverified house label'
-  published_at: '2026-09-19T00:50:49+00:00'
-  path: reviews/wine/alcohol-free-sparkling-rose/
--
   slug: christian-drouin-poire
   product: 'Jus de Poire Pétillant'
   brand: 'Christian Drouin'
