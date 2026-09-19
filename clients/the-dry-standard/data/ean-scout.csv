@@ -70,7 +70,7 @@ TDS-0086,Chardonnay,Ariel (Ariel Vineyards / J. Lohr),Non-alcoholic wine,0089121
 TDS-0088,Deep Fake Non-Alcoholic IPA,Flying Dog Brewery,Non-alcoholic beer,,,,
 TDS-0089,FLVR! NA Juicy IPA,Untitled Art Brewing,Non-alcoholic beer,,,,
 TDS-0090,Grounded Non-Alcoholic IPA,Pure Project,Non-alcoholic beer,,,,
-TDS-0091,Passione in Rosso,Birrificio Baladin,Non-alcoholic aperitifs,,,,
+TDS-0091,Passione in Rosso,Birrificio Baladin,Non-alcoholic aperitifs,8009980894687,Open Food Facts + bunitedint.com brand confirmation (free-DB pass),scout,"Baladin 'Passione in Rosso' Non-Alcoholic Italian Aperitif (200ml) — Open Food Facts (EAN 8009980894687, 'Aperitivo analcolico rosso' manufactured by Spumador S.p.a. — Spumador is Baladin's Italian contract manufacturer for this line, hence OFF's generic naming). Brand confirmation: bunitedint.com explicitly names 'Baladin Passione in Rosso | Non-Alcoholic Aperitif' with same prefix range. Prefix 800998 = Italian GS1. Checksum valid."
 TDS-0092,Kentucky 74,Spiritless,Non-alcoholic spirits,850018886024,retailer web search (free-DB pass),scout,Spiritless Kentucky 74 single 700ml bottle — Amazon; checksum valid; review volume confirms 700ml; 2-pack UPC 850018886390 shares prefix 8500188 (Spiritless) — prefix-verified
 TDS-0093,Non-Alcoholic Fresh Squeezed IPA,Deschutes Brewery,Non-alcoholic beer,0076317661906,retailer web search (free-DB pass),scout,Deschutes Fresh Squeezed Non-Alcoholic IPA 6-pack 12oz cans — King Soopers; checksum valid (Kroger number that PASSES — some are real UPCs)
 TDS-0094,Jalisco 55 Non-Alcoholic Reposado Tequila,Spiritless,Non-alcoholic spirits,,,,
