@@ -28,8 +28,6 @@ serve: "Cold, in a pils glass."
 image: media/reviews/grolsch-0-0.jpg
 image_alt: "Grolsch 0.0% non-alcoholic lager"
 image_credit: "Product photo via craftzero.com.au"
-review_date: "2026-09-18"
-updated_date: "2026-09-18"
 sources:
   - title: "Grolsch 0.0% — Grolsch"
     url: https://www.grolsch.com/grolsch-0-0

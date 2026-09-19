@@ -461,21 +461,6 @@
   last_seen: 1782172800
   notes: 'From the master product table. Purchased 2 time(s) between 2026-04-25 and 2026-06-23. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Lautus Non-Alcoholic Wine Bundle'
-  id: TDS-0030
-  brand: Lautus
-  category: wine
-  priority: low
-  status: published
-  dealcoholized: 'no'
-  method: 'Bundle SKU; The Zero Proof order email does not itemize which individual Lautus wines were included'
-  abv: 'Not verified'
-  seen_at: 'The Zero Proof'
-  times_purchased: 2
-  first_seen: 1781395200
-  last_seen: 1786492800
-  notes: 'From the master product table. Purchased 2 time(s) between 2026-06-14 and 2026-08-12. Do not publish until ABV and dealcoholization are sourced.'
--
   product: 'Mionetto Non Alcoholic Italy White Wine'
   id: TDS-0031
   brand: Mionetto
@@ -925,21 +910,6 @@
   first_seen: 1777680000
   last_seen: 1777680000
   notes: 'From the master product table. Purchased 1 time(s) between 2026-05-02 and 2026-05-02. Do not publish until ABV and dealcoholization are sourced.'
--
-  product: 'Oddbird Non-Alcoholic Wine Bundle'
-  id: TDS-0062
-  brand: Oddbird
-  category: wine
-  priority: low
-  status: queued
-  dealcoholized: 'yes'
-  method: 'Bundle SKU; The Zero Proof order email does not itemize which individual Oddbird wines were included'
-  abv: 'Not verified'
-  seen_at: 'The Zero Proof'
-  times_purchased: 1
-  first_seen: 1778457600
-  last_seen: 1778457600
-  notes: 'From the master product table. Purchased 1 time(s) between 2026-05-11 and 2026-05-11. Do not publish until ABV and dealcoholization are sourced.'
 -
   product: 'Tired Hands Non-Alcoholic N/Alien Church'
   id: TDS-0063
@@ -1405,7 +1375,7 @@
   category: wine
   priority: normal
   status: published
-  notes: 'Already published at reviews/wine/oddbird-blanc-de-blancs/. The Oddbird bundle in the master table is a different SKU.'
+  notes: 'Already published at reviews/wine/oddbird-blanc-de-blancs/.'
 -
   product: 'Freixenet 0.0'
   id: TDS-0072

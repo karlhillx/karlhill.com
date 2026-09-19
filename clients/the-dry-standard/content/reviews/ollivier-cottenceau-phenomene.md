@@ -30,8 +30,6 @@ serve: "Well chilled."
 image: media/reviews/ollivier-cottenceau-phenomene.jpg
 image_alt: "Ollivier Cottenceau Phénomène bottle"
 image_credit: "Product photo via schatziwines.com"
-review_date: "2026-09-18"
-updated_date: "2026-09-18"
 sources:
   - title: "Ollivier Cottenceau Phénomène — Schatzi Wines"
     url: https://schatziwines.com/wine/ollivier-cottenceau-phenomene/
