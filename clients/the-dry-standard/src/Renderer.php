@@ -600,7 +600,9 @@ HTML;
         $relatedHref = $this->config->publicUrl('reviews/');
         $relatedLinkLabel = 'All reviews';
         if ($relatedReviews?->isNotEmpty()) {
-            if ($review->hasComparableStyle()) {
+            $sameStyle = $review->hasComparableStyle()
+                && $relatedReviews->every(fn (Review $other): bool => $other->styleSlug() === $review->styleSlug());
+            if ($sameStyle) {
                 $relatedHeading = 'Other '.$review->styleLabel();
                 $relatedHref = $this->config->publicUrl('styles/'.$review->styleSlug().'/');
                 $relatedLinkLabel = 'All '.$review->styleLabel();

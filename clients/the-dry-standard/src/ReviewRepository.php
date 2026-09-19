@@ -211,44 +211,57 @@ final class ReviewRepository
      */
     public function relatedTo(Review $review, int $limit = 4): Collection
     {
-        return $this->published()
-            ->reject(fn (Review $other): bool => $other->slug === $review->slug)
-            ->sortByDesc(function (Review $other) use ($review): float {
-                $score = 0.0;
+        $candidates = $this->published()
+            ->reject(fn (Review $other): bool => $other->slug === $review->slug);
 
-                if ($review->hasComparableStyle() && $other->styleSlug() === $review->styleSlug()) {
-                    $score += 12;
-                }
+        if ($review->hasComparableStyle()) {
+            $sameStyle = $candidates->filter(
+                fn (Review $other): bool => $other->styleSlug() === $review->styleSlug(),
+            );
+            if ($sameStyle->isNotEmpty()) {
+                return $this->rankRelated($sameStyle, $review)->take($limit)->values();
+            }
+        }
 
-                if ($other->brandSlug() === $review->brandSlug()) {
-                    $score += 8;
-                }
+        return $this->rankRelated($candidates, $review)->take($limit)->values();
+    }
 
-                if ($review->style && $other->style && mb_strtolower($other->style) === mb_strtolower($review->style)) {
-                    $score += 4;
-                }
+    /**
+     * @param  Collection<int, Review>  $candidates
+     * @return Collection<int, Review>
+     */
+    private function rankRelated(Collection $candidates, Review $review): Collection
+    {
+        return $candidates->sortByDesc(function (Review $other) use ($review): float {
+            $score = 0.0;
 
-                if ($review->subcategory && $other->subcategory && mb_strtolower($other->subcategory) === mb_strtolower($review->subcategory)) {
-                    $score += 3;
-                }
+            if ($other->brandSlug() === $review->brandSlug()) {
+                $score += 8;
+            }
 
-                if ($other->category === $review->category) {
-                    $score += 2;
-                }
+            if ($review->style && $other->style && mb_strtolower($other->style) === mb_strtolower($review->style)) {
+                $score += 4;
+            }
 
-                if ($other->methodFacetKey() === $review->methodFacetKey()
-                    && ! in_array($review->methodFacetKey(), ['unknown', 'other', 'not-applicable'], true)) {
-                    $score += 2;
-                }
+            if ($review->subcategory && $other->subcategory && mb_strtolower($other->subcategory) === mb_strtolower($review->subcategory)) {
+                $score += 3;
+            }
 
-                if ($other->productionType === $review->productionType) {
-                    $score += 1;
-                }
+            if ($other->category === $review->category) {
+                $score += 2;
+            }
 
-                return $score + (($other->rating ?? 0) / 200);
-            })
-            ->take($limit)
-            ->values();
+            if ($other->methodFacetKey() === $review->methodFacetKey()
+                && ! in_array($review->methodFacetKey(), ['unknown', 'other', 'not-applicable'], true)) {
+                $score += 2;
+            }
+
+            if ($other->productionType === $review->productionType) {
+                $score += 1;
+            }
+
+            return $score + (($other->rating ?? 0) / 200);
+        });
     }
 
     public function catalog(): Catalog

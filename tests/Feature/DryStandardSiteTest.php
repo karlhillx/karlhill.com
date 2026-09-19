@@ -371,7 +371,8 @@ it('sends a client CSP and first-party analytics flag', function () {
 it('keeps Guinness card title and related-by-style', function () {
     $this->get('/clients/the-dry-standard/reviews/beer/guinness-0-0/')
         ->assertOk()
-        ->assertSee('Other Stout', escape: false)
+        ->assertDontSee('Other Stout', escape: false)
+        ->assertSee('More from the cellar', escape: false)
         ->assertSee('id="how-it-was-made"', escape: false)
         ->assertSee('class="identity"', escape: false)
         ->assertSee('#how-it-was-made', escape: false)
@@ -382,4 +383,10 @@ it('keeps Guinness card title and related-by-style', function () {
     $this->get('/clients/the-dry-standard/reviews/?q=guinness')
         ->assertOk()
         ->assertSee('Guinness 0.0', escape: false);
+
+    $this->get('/clients/the-dry-standard/reviews/beer/athletic-brewing-run-wild-ipa/')
+        ->assertOk()
+        ->assertSee('Other IPA', escape: false)
+        ->assertDontSee('Guinness 0.0', escape: false)
+        ->assertDontSee('>Kölsch</a>', escape: false);
 });
