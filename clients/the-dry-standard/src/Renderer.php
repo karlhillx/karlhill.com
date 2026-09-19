@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 
 final class Renderer
 {
-    private const CSS_VERSION = '9';
+    private const CSS_VERSION = '10';
 
     private const JS_VERSION = '6';
 
@@ -900,19 +900,23 @@ XML;
             'Finish' => $review->finish,
         ];
 
-        $items = '';
+        $notes = [];
         foreach ($parts as $label => $value) {
             if ($value === null) {
                 continue;
             }
-            $items .= '<div><h3>'.Str::e($label).'</h3><p>'.Str::e($value).'</p></div>';
+
+            $notes[] = [
+                'label' => $label,
+                'text' => $value,
+            ];
         }
 
-        if ($items === '') {
+        if ($notes === []) {
             return '';
         }
 
-        return $this->view->render('partials/tasting', ['items' => $items]);
+        return $this->view->render('partials/tasting', ['notes' => $notes]);
     }
 
     private function sources(Review $review): string

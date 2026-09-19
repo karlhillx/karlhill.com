@@ -11,19 +11,19 @@
     </section>
     <section class="band">
       <div class="shell stats-grid">
-        <?php foreach ($stats as $stat): ?>
-        <?php if (! empty($stat['href'])): ?>
+        <?php foreach ($stats as $stat) { ?>
+        <?php if (! empty($stat['href'])) { ?>
         <a class="stat" href="<?= $view->e($stat['href']) ?>">
           <strong><?= $view->e($stat['value']) ?></strong>
           <span><?= $view->e($stat['label']) ?></span>
         </a>
-        <?php else: ?>
+        <?php } else { ?>
         <p class="stat">
           <strong><?= $view->e($stat['value']) ?></strong>
           <span><?= $view->e($stat['label']) ?></span>
         </p>
-        <?php endif; ?>
-        <?php endforeach; ?>
+        <?php } ?>
+        <?php } ?>
       </div>
     </section>
     <section class="section section--tight">

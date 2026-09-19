@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use DryStandard\Paths;
+use DryStandard\Review;
 use DryStandard\Workspace;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -87,12 +89,12 @@ class DryStandardPublish extends Command
         return self::SUCCESS;
     }
 
-    private function markPublished(\DryStandard\Review $review): void
+    private function markPublished(Review $review): void
     {
         $path = $review->sourcePath;
 
         if (! is_file($path)) {
-            $path = \DryStandard\Paths::default()->content('reviews'.DIRECTORY_SEPARATOR.$review->slug.'.md');
+            $path = Paths::default()->content('reviews'.DIRECTORY_SEPARATOR.$review->slug.'.md');
         }
 
         if (! is_file($path)) {

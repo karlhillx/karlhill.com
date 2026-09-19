@@ -4,9 +4,9 @@
         <p class="kicker">Brand</p>
         <h1><?= $view->e($name) ?></h1>
         <p class="lede"><?= $view->e($description) ?></p>
-        <?php if (! empty($meta)): ?>
+        <?php if (! empty($meta)) { ?>
         <p class="page-meta"><?= $view->e($meta) ?></p>
-        <?php endif; ?>
+        <?php } ?>
       </div>
     </header>
     <section class="section">

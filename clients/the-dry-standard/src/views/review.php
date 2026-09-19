@@ -47,7 +47,7 @@
           </aside>
         </div>
       </div>
-      <?php if (! empty($related)): ?>
+      <?php if (! empty($related)) { ?>
       <section class="section section--paper">
         <div class="shell stack">
           <?= $view->render('partials/section-head', [
@@ -59,5 +59,5 @@
           <div class="ledger"><?= $related ?></div>
         </div>
       </section>
-      <?php endif; ?>
+      <?php } ?>
     </article>

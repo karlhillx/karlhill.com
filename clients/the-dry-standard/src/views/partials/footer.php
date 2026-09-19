@@ -7,9 +7,9 @@
       <div>
         <p class="footer-label">The cellar</p>
         <a href="<?= $view->e($reviewsUrl) ?>">All reviews</a>
-        <?php foreach ($categories as $category): ?>
+        <?php foreach ($categories as $category) { ?>
         <a href="<?= $view->e($category['href']) ?>"><?= $view->e($category['label']) ?></a>
-        <?php endforeach; ?>
+        <?php } ?>
       </div>
       <div>
         <p class="footer-label">Read</p>

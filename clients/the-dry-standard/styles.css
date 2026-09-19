@@ -1099,16 +1099,52 @@ a.stat:hover strong {
   margin: 0.2rem 0 0;
 }
 
-.tasting-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+.tasting {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ink);
 }
 
-.tasting-grid h3 {
-  margin: 0 0 0.4rem;
+.tasting-flight {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.tasting-flight li {
+  padding: 1.15rem 1.4rem 0.15rem 0;
+}
+
+.tasting-flight li + li {
+  padding-left: 1.4rem;
+  border-left: 1px solid var(--rule);
+}
+
+.tasting-index {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tasting-flight h3 {
+  margin: 0 0 0.55rem;
   font-family: var(--font-display);
+  font-size: 1.7rem;
   font-weight: 500;
+  line-height: 1.1;
+}
+
+.tasting-flight p:last-child {
+  margin: 0;
+  max-width: 22rem;
+  font-size: 1.02rem;
+  line-height: 1.5;
 }
 
 .prose > * + * {
@@ -1197,12 +1233,22 @@ a.stat:hover strong {
   .card-grid,
   .card-grid--compact,
   .review-layout,
-  .tasting-grid,
+  .tasting-flight,
   .footer-grid,
   .archive-layout,
   .stats-grid,
   .directory-row {
     grid-template-columns: 1fr;
+  }
+
+  .tasting-flight li {
+    padding: 1rem 0 0.25rem;
+  }
+
+  .tasting-flight li + li {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--rule);
   }
 
   .filter-toggle,

@@ -204,7 +204,7 @@ final class Catalog
     public function queueItems(): array
     {
         $rows = $this->pdo->query(
-            "SELECT product, brand, category, priority, status, notes, id, ean FROM products ORDER BY status, product"
+            'SELECT product, brand, category, priority, status, notes, id, ean FROM products ORDER BY status, product'
         )->fetchAll();
 
         return array_map(function (array $row): array {

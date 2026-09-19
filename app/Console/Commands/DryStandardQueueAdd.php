@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use DryStandard\Workspace;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 class DryStandardQueueAdd extends Command
 {
@@ -32,7 +33,7 @@ class DryStandardQueueAdd extends Command
             $workspace->queue()->add($item);
             $workspace->reviews()->catalog()->upsertRow([
                 ...$item,
-                'slug' => \Illuminate\Support\Str::slug((string) $this->argument('product')),
+                'slug' => Str::slug((string) $this->argument('product')),
                 'title' => (string) $this->argument('product'),
             ]);
         } catch (\RuntimeException|\InvalidArgumentException $exception) {

@@ -4,9 +4,9 @@
           <?= $breadcrumbs ?>
           <p class="kicker"><?= $view->e($kicker) ?></p>
           <h1><?= $view->e($title) ?></h1>
-          <?php if ($summary !== ''): ?>
+          <?php if ($summary !== '') { ?>
           <p class="lede"><?= $view->e($summary) ?></p>
-          <?php endif; ?>
+          <?php } ?>
         </div>
       </header>
       <div class="section">
@@ -14,7 +14,7 @@
           <?= $bodyHtml ?>
         </div>
       </div>
-      <?php if (! empty($related)): ?>
+      <?php if (! empty($related)) { ?>
       <section class="section section--paper">
         <div class="shell stack">
           <?= $view->render('partials/section-head', [
@@ -24,5 +24,5 @@
           <div class="ledger"><?= $related ?></div>
         </div>
       </section>
-      <?php endif; ?>
+      <?php } ?>
     </article>
