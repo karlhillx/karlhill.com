@@ -24,7 +24,10 @@ sugar: "2.8 g / 100 ml (producer)"
 availability: "US Noughty shop and The Zero Proof"
 image: media/reviews/noughty-dealcoholized-rose.jpg
 image_alt: "Noughty Dealcoholized Rosé"
-image_credit: Editorial still
+image_credit: Product photo via us.noughtyaf.com
+image_source: producer
+image_source_url: https://us.noughtyaf.com/products/noughty-non-alcoholic-rose
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 84

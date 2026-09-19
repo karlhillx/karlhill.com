@@ -16,9 +16,7 @@ production_note: "Retailer copy describes a Chardonnay experience without alcoho
 volume: 750 ml
 price: "$11.51 (RoomBox / Total Wine listing)"
 availability: "Total Wine & More"
-image: media/reviews/clearscape-chardonnay.jpg
 image_alt: "Clearscape Non-Alcoholic Chardonnay"
-image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 75

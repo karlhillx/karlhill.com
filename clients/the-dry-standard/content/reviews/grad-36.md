@@ -21,7 +21,10 @@ price: "$25 (Delmosa)"
 availability: "Delmosa (US importer)"
 image: media/reviews/grad-36.jpg
 image_alt: "Jörg Geiger Grad 36°"
-image_credit: Editorial still
+image_credit: Product photo via delmosa.com
+image_source: importer
+image_source_url: https://delmosa.com/products/jorg-geiger-grad36
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 84

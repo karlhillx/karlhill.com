@@ -62,7 +62,7 @@ Allowed sources, in order:
 2. **Producer** — press or product photography from the brand site, with `image_source_url` to that page.
 3. **Importer** — press photography from the importer, with `image_source_url`.
 
-Do not use retailer, marketplace, or delivery-app photography. Do not reuse a still across SKUs. Do not publish unlabeled mockups, lifestyle tablescapes, or another product's bottle.
+Do not use retailer, marketplace, or delivery-app photography. Do not reuse a still across SKUs. Do not publish unlabeled mockups, lifestyle tablescapes, or another product's bottle. An empty frame is better than a wrong-SKU bottle. Flatten stills onto paper (`rgb(243,239,230)`), not pure white.
 
 Frontmatter:
 
@@ -79,7 +79,7 @@ image_sku_confirmed: yes      # set only after looking at the label
 
 WebP output letterboxes non-3:4 JPEGs onto paper (`rgb(243,239,230)`). Uniform near-white cutouts are flooded onto the same paper. Dark studio packshots are not auto-filled — a black can would disappear — so recrop or reshoot those.
 
-If the file is missing, the page still builds; the cellar shows an empty frame.
+If the file is missing, the page still builds; the cellar shows an empty frame. Do not set `image:` until the still is a confirmed SKU.
 
 ## Sources
 

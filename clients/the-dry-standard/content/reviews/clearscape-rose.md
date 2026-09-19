@@ -14,9 +14,7 @@ verified: no
 production_note: "Retailer listings call it non-alcoholic. No producer method page was found."
 volume: 750 ml
 availability: "Total Wine & More"
-image: media/reviews/clearscape-rose.jpg
 image_alt: "Clearscape Non-Alcoholic Rosé"
-image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 74

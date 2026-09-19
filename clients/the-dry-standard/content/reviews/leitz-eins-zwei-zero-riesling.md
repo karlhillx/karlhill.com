@@ -28,8 +28,9 @@ purchase_links:
     region: US
 image: media/reviews/leitz-eins-zwei-zero-riesling.jpg
 image_alt: "Leitz Eins-Zwei-Zero Riesling bottle"
-image_credit: Editorial still
-image_source: editorial
+image_credit: Product photo via leitz-wein.shop
+image_source: producer
+image_source_url: https://www.leitz-wein.shop/products/eins-zwei-zero-riesling-alkoholfrei-0-75-l
 image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"

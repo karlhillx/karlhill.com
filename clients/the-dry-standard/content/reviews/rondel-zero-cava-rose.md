@@ -14,9 +14,7 @@ production_type: not-verified
 verified: no
 production_note: "Sold as Rondel Zero. No producer method page was found."
 availability: "Total Wine & More"
-image: media/reviews/rondel-zero-cava-rose.jpg
 image_alt: "Rondel Zero Cava Rosé"
-image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 80

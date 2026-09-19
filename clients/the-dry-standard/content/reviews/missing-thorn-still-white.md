@@ -23,6 +23,9 @@ availability: "US via thezeroproof.com, betterrhodes.com, and missingthorn.com"
 image: media/reviews/missing-thorn-still-white.jpg
 image_alt: "Missing Thorn Non-Alcoholic Still White bottle"
 image_credit: Product photo via missingthorn.com
+image_source: producer
+image_source_url: https://missingthorn.com/pages/white-wines
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 81

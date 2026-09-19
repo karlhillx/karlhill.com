@@ -68,12 +68,40 @@ it('rejects dark studio packshots', function () {
 });
 
 it('rejects lifestyle tablescapes', function () {
+    $relative = 'media/reviews/__lifestyle-audit.jpg';
+    $path = Paths::default()->path($relative);
+    $image = imagecreatetruecolor(600, 800);
+    imagefilledrectangle($image, 0, 0, 299, 399, imagecolorallocate($image, 10, 90, 20));
+    imagefilledrectangle($image, 300, 0, 599, 399, imagecolorallocate($image, 200, 30, 30));
+    imagefilledrectangle($image, 0, 400, 299, 799, imagecolorallocate($image, 20, 20, 180));
+    imagefilledrectangle($image, 300, 400, 599, 799, imagecolorallocate($image, 240, 240, 40));
+    imagejpeg($image, $path, 90);
+
+    $file = Paths::default()->content('reviews'.DIRECTORY_SEPARATOR.'chloe-pinot-grigio.md');
+    $document = YamlFrontMatter::parseFile($file);
+    $matter = $document->matter();
+    $matter['slug'] = '__lifestyle-audit';
+    $matter['image'] = $relative;
+    $matter['image_source'] = 'editorial';
+    $matter['image_sku_confirmed'] = 'yes';
+    $review = Review::fromMatter($matter, $document->body(), $file);
+
+    try {
+        $result = (new StillAudit)->inspect($review);
+        expect($result['errors'])->toContain('lifestyle or multi-object scene, not a single SKU on paper');
+    } finally {
+        @unlink($path);
+    }
+});
+
+it('warns on an honest empty frame', function () {
     $result = (new StillAudit)->inspect(
-        dryStandardStillReview('biagio-cru-rose-all-day'),
+        dryStandardStillReview('leitz-sparkling-blanc-de-blancs'),
         dryStandardStillHashes(),
     );
 
-    expect($result['errors'])->toContain('lifestyle or multi-object scene, not a single SKU on paper');
+    expect($result['errors'])->toBe([]);
+    expect($result['warnings'])->toContain('empty frame — no confirmed producer or editorial still');
 });
 
 it('warns when a still looks unlabeled', function () {

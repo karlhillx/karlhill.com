@@ -16,9 +16,7 @@ producer: Be Free
 volume: 750 ml
 price: "$9.99 (Total Wine)"
 availability: "Total Wine & More"
-image: media/reviews/be-free-sauvignon-blanc.jpg
 image_alt: "Be Free Sauvignon Blanc"
-image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 77

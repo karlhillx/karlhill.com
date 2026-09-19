@@ -12,6 +12,34 @@ final class StillPipeline
 
     public function __construct(private readonly Paths $paths) {}
 
+    /**
+     * Flatten a producer/editorial packshot onto paper and write a 900×1200 JPEG.
+     */
+    public function ingest(string $sourcePath, string $destinationJpeg): bool
+    {
+        if (! function_exists('imagecreatetruecolor') || ! function_exists('imagejpeg')) {
+            return false;
+        }
+
+        $loaded = $this->load($sourcePath);
+        if ($loaded === false) {
+            return false;
+        }
+
+        $canvas = $this->compositeOnPaper($loaded);
+        $canvas = $this->scaleDown($canvas, 1800);
+        $this->flattenDarkBackground($canvas);
+        $this->flattenLightBackground($canvas);
+        $canvas = $this->letterbox($canvas, imagesx($canvas), imagesy($canvas));
+
+        $directory = dirname($destinationJpeg);
+        if (! is_dir($directory) && ! mkdir($directory, 0755, true) && ! is_dir($directory)) {
+            return false;
+        }
+
+        return imagejpeg($canvas, $destinationJpeg, 90);
+    }
+
     public function run(): int
     {
         if (! function_exists('imagecreatefromjpeg') || ! function_exists('imagewebp')) {
@@ -100,7 +128,43 @@ final class StillPipeline
         $paper = imagecolorallocate($image, $pr, $pg, $pb);
 
         foreach ($seeds as [$x, $y]) {
-            $this->floodNearWhite($image, $x, $y, $paper);
+            $this->flood($image, $x, $y, $paper, fn (int $x, int $y): bool => $this->isNearWhite($image, $x, $y));
+        }
+
+        return true;
+    }
+
+    /**
+     * Sweep a uniform near-black studio into paper. Green/amber glass stays;
+     * only pixels connected to the corners are replaced.
+     */
+    private function flattenDarkBackground(\GdImage $image): bool
+    {
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $seeds = [
+            [2, 2],
+            [$width - 3, 2],
+            [2, $height - 3],
+            [$width - 3, $height - 3],
+        ];
+
+        $blackCorners = 0;
+        foreach ($seeds as [$x, $y]) {
+            if ($this->isNearBlack($image, $x, $y)) {
+                $blackCorners++;
+            }
+        }
+
+        if ($blackCorners < 4) {
+            return false;
+        }
+
+        [$pr, $pg, $pb] = self::PAPER;
+        $paper = imagecolorallocate($image, $pr, $pg, $pb);
+
+        foreach ($seeds as [$x, $y]) {
+            $this->flood($image, $x, $y, $paper, fn (int $x, int $y): bool => $this->isNearBlack($image, $x, $y));
         }
 
         return true;
@@ -108,51 +172,84 @@ final class StillPipeline
 
     private function isNearWhite(\GdImage $image, int $x, int $y): bool
     {
+        [$r, $g, $b, $luma] = $this->pixel($image, $x, $y);
+
+        return $luma > 248 && abs($r - $g) < 10 && abs($g - $b) < 10;
+    }
+
+    private function isNearBlack(\GdImage $image, int $x, int $y): bool
+    {
+        [$r, $g, $b, $luma] = $this->pixel($image, $x, $y);
+
+        return $luma < 22 && max($r, $g, $b) < 32;
+    }
+
+    /**
+     * @return array{0: int, 1: int, 2: int, 3: float}
+     */
+    private function pixel(\GdImage $image, int $x, int $y): array
+    {
         $rgb = imagecolorat($image, $x, $y);
         $r = ($rgb >> 16) & 255;
         $g = ($rgb >> 8) & 255;
         $b = $rgb & 255;
         $luma = 0.299 * $r + 0.587 * $g + 0.114 * $b;
 
-        return $luma > 248 && abs($r - $g) < 10 && abs($g - $b) < 10;
+        return [$r, $g, $b, $luma];
     }
 
-    private function floodNearWhite(\GdImage $image, int $sx, int $sy, int $paper): void
+    /**
+     * Scanline flood fill from a corner. Painted paper is outside the match
+     * predicates, so visited pixels do not need a separate mask.
+     *
+     * @param  callable(int, int): bool  $matches
+     */
+    private function flood(\GdImage $image, int $sx, int $sy, int $paper, callable $matches): void
     {
-        if (! $this->isNearWhite($image, $sx, $sy)) {
+        if (! $matches($sx, $sy)) {
             return;
         }
 
         $width = imagesx($image);
         $height = imagesy($image);
-        $seen = array_fill(0, $width * $height, false);
-        $queue = [[$sx, $sy]];
+        $stack = [[$sx, $sy]];
 
-        while ($queue !== []) {
-            [$x, $y] = array_pop($queue);
-            $index = $y * $width + $x;
-            if ($seen[$index]) {
-                continue;
-            }
-            $seen[$index] = true;
+        while ($stack !== []) {
+            [$x, $y] = array_pop($stack);
 
-            if (! $this->isNearWhite($image, $x, $y)) {
-                continue;
+            while ($x > 0 && $matches($x - 1, $y)) {
+                $x--;
             }
 
-            imagesetpixel($image, $x, $y, $paper);
+            $spanUp = false;
+            $spanDown = false;
 
-            if ($x > 0) {
-                $queue[] = [$x - 1, $y];
-            }
-            if ($x < $width - 1) {
-                $queue[] = [$x + 1, $y];
-            }
-            if ($y > 0) {
-                $queue[] = [$x, $y - 1];
-            }
-            if ($y < $height - 1) {
-                $queue[] = [$x, $y + 1];
+            while ($x < $width && $matches($x, $y)) {
+                imagesetpixel($image, $x, $y, $paper);
+
+                if ($y > 0) {
+                    if ($matches($x, $y - 1)) {
+                        if (! $spanUp) {
+                            $stack[] = [$x, $y - 1];
+                            $spanUp = true;
+                        }
+                    } else {
+                        $spanUp = false;
+                    }
+                }
+
+                if ($y < $height - 1) {
+                    if ($matches($x, $y + 1)) {
+                        if (! $spanDown) {
+                            $stack[] = [$x, $y + 1];
+                            $spanDown = true;
+                        }
+                    } else {
+                        $spanDown = false;
+                    }
+                }
+
+                $x++;
             }
         }
     }
@@ -171,5 +268,52 @@ final class StillPipeline
         imagecopyresampled($canvas, $source, $x, $y, 0, 0, $drawW, $drawH, $width, $height);
 
         return $canvas;
+    }
+
+    private function load(string $path): \GdImage|false
+    {
+        if (! is_file($path)) {
+            return false;
+        }
+
+        $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+
+        return match ($extension) {
+            'jpg', 'jpeg' => @imagecreatefromjpeg($path),
+            'png' => @imagecreatefrompng($path),
+            'webp' => function_exists('imagecreatefromwebp') ? @imagecreatefromwebp($path) : false,
+            default => false,
+        };
+    }
+
+    private function compositeOnPaper(\GdImage $source): \GdImage
+    {
+        $width = imagesx($source);
+        $height = imagesy($source);
+        $canvas = imagecreatetruecolor($width, $height);
+        [$r, $g, $b] = self::PAPER;
+        imagefill($canvas, 0, 0, imagecolorallocate($canvas, $r, $g, $b));
+        imagealphablending($canvas, true);
+        imagecopy($canvas, $source, 0, 0, 0, 0, $width, $height);
+
+        return $canvas;
+    }
+
+    private function scaleDown(\GdImage $source, int $maxSide): \GdImage
+    {
+        $width = imagesx($source);
+        $height = imagesy($source);
+        $long = max($width, $height);
+        if ($long <= $maxSide) {
+            return $source;
+        }
+
+        $scale = $maxSide / $long;
+        $drawW = max(1, (int) round($width * $scale));
+        $drawH = max(1, (int) round($height * $scale));
+        $scaled = imagecreatetruecolor($drawW, $drawH);
+        imagecopyresampled($scaled, $source, 0, 0, 0, 0, $drawW, $drawH, $width, $height);
+
+        return $scaled;
     }
 }

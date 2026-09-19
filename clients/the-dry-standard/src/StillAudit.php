@@ -46,9 +46,17 @@ final class StillAudit
 
         $absolute = $this->absolutePath($review);
         if ($absolute === null) {
+            if (($review->image ?? '') !== '') {
+                return [
+                    'errors' => ['still file is missing'],
+                    'warnings' => [],
+                    'metrics' => $metrics,
+                ];
+            }
+
             return [
-                'errors' => ['still file is missing'],
-                'warnings' => [],
+                'errors' => [],
+                'warnings' => ['empty frame — no confirmed producer or editorial still'],
                 'metrics' => $metrics,
             ];
         }
@@ -133,7 +141,7 @@ final class StillAudit
             $errors[] = 'lifestyle or multi-object scene, not a single SKU on paper';
         }
 
-        if ($labelColors < 70) {
+        if ($labelColors < 70 && ($review->imageSkuConfirmed ?? '') !== 'yes') {
             $warnings[] = 'label area looks sparse — possible unlabeled mockup or cropped logo';
         }
 

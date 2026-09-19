@@ -19,7 +19,10 @@ producer: Freixenet
 sugar: "38 g/L residual sugar from 2022 (producer)"
 image: media/reviews/freixenet-sparkling-rose.jpg
 image_alt: "Freixenet 0,0 Sparkling Rosé"
-image_credit: Editorial still
+image_credit: Product photo via freixenet.com
+image_source: producer
+image_source_url: https://freixenet.com/us/product/alcohol-removed-sparkling-rose
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 78
