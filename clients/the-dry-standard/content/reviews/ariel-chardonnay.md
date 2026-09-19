@@ -7,7 +7,7 @@ product: Non-Alcoholic Chardonnay
 abv: "Not published"
 category: wine
 subcategory: chardonnay
-country: USA
+country: United States
 region: California
 style: Dealcoholized Chardonnay
 production_type: dealcoholized

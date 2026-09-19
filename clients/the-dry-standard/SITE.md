@@ -15,6 +15,8 @@ Public base: `/clients/the-dry-standard/`
 | `/guides/` | Educational / buying guides |
 | `/brands/` | Brand index generated from reviews |
 | `/methods/` | Dealcoholization-method reference |
+| `/best/` | Highest-rated bottles, generated from the catalog |
+| `/best/{category}/` | Category best-of, scores 80+ |
 | `/about/` | Mission and scoring |
 | `/feed.xml` | Atom feed |
 | `/sitemap.xml` | URL list for this client site |
@@ -39,7 +41,7 @@ Internal data (not a public page):
 
 ## Design
 
-Warm paper, espresso masthead, Fraunces / Figtree. The homepage opens with a featured bottle beside the masthead line; reviews render as a visual catalog with product stills, scores, and process badges. Header search goes to `/reviews/?q=`. Filters stay in the URL. On small screens, archive filters open as a drawer; selected filters also appear as removable chips. Brand, guide, and method indexes are searchable directories. Review pages link the producer, method, and related bottles. Product stills live in `media/reviews/{slug}.jpg` and appear on cards, the review hero, and Open Graph tags.
+Warm paper, espresso masthead, Fraunces / Figtree. The homepage opens with a featured bottle beside the masthead line; reviews render as a visual catalog with product stills, scores, and process badges. Header search goes to `/reviews/?q=`. Filters stay in the URL. On small screens, archive filters open as a drawer; selected filters also appear as removable chips. Brand, guide, and method indexes are searchable directories. Review pages link the producer, method, and related bottles. Product stills live in `media/reviews/{slug}.jpg` and appear on cards, the review hero, and Open Graph tags. `php artisan dry-standard:build` emits a 3:4 WebP beside each JPEG when GD is available; pages prefer WebP and fall back to JPEG.
 
 HTML is assembled from reusable PHP views in `src/views/` and rendered live by Laravel. Edit those templates; do not add static `index.html` pages.
 

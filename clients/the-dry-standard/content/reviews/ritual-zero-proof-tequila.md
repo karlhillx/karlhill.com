@@ -1,13 +1,13 @@
 ---
 title: "Ritual Zero Proof Tequila Alternative"
 slug: ritual-zero-proof-tequila
-id: R4
+id: TDS-0074
 ean: "0850005389057"
 brand: Ritual Zero Proof
 product: Tequila Alternative
 category: spirits
 subcategory: non-alcoholic spirit alternative
-country: USA
+country: United States
 style: Formulated non-alcoholic tequila alternative
 abv: "0.0%"
 abv_numeric: 0

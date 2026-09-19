@@ -6,7 +6,7 @@ brand: Go Brewing
 product: Suspended In A Sunbeam Pils
 category: beer
 subcategory: German-style pilsner
-country: USA
+country: United States
 region: Naperville, Illinois
 style: Non-alcoholic German-style pilsner
 abv: "<0.5%"

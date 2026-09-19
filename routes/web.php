@@ -73,6 +73,14 @@ Route::middleware('cache.headers:public;max_age=300;s_maxage=600;stale_while_rev
     Route::get('/clients', [ClientSiteController::class, 'index'])->name('clients.index');
     Route::get('/clients/the-dry-standard/{path?}', [DryStandardSiteController::class, 'show'])
         ->where('path', '.*')
+        ->withoutMiddleware([
+            \Illuminate\Cookie\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class,
+            \Illuminate\Foundation\Http\Middleware\PreventRequestForgery::class,
+        ])
         ->name('dry-standard.show');
     Route::get('/clients/{client}/{path?}', [ClientSiteController::class, 'show'])
         ->where([

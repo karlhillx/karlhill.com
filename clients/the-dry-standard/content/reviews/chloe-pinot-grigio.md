@@ -7,7 +7,7 @@ product: Alcohol-Removed Pinot Grigio
 abv: "Not published"
 category: wine
 subcategory: pinot grigio
-country: USA
+country: United States
 style: Alcohol-removed Pinot Grigio
 production_type: dealcoholized
 verified: yes

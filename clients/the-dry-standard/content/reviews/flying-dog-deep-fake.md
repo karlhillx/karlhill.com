@@ -6,7 +6,7 @@ brand: Flying Dog Brewery
 product: Deep Fake Non-Alcoholic IPA
 category: beer
 subcategory: IPA
-country: USA
+country: United States
 region: Frederick, Maryland
 style: Non-alcoholic IPA
 abv: "<0.5%"

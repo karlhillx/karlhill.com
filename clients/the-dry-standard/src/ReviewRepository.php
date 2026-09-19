@@ -24,7 +24,35 @@ final class ReviewRepository
      */
     public function published(): Collection
     {
-        return $this->catalog()->published();
+        $order = $this->publishOrder();
+
+        return $this->catalog()->published()
+            ->sortByDesc(function (Review $review) use ($order): string {
+                return sprintf(
+                    '%010d-%s-%s',
+                    $order[$review->slug] ?? 0,
+                    $review->modifiedAt()->format('YmdHis'),
+                    $review->slug,
+                );
+            })
+            ->values();
+    }
+
+    /**
+     * @return array<string, int>
+     */
+    public function publishOrder(): array
+    {
+        $order = [];
+
+        foreach ((new PublishLog($this->paths))->all() as $index => $entry) {
+            $slug = (string) ($entry['slug'] ?? '');
+            if ($slug !== '') {
+                $order[$slug] = $index + 1;
+            }
+        }
+
+        return $order;
     }
 
     public function find(string $slug): ?Review
@@ -111,6 +139,14 @@ final class ReviewRepository
 
                 if ($other->brandSlug() === $review->brandSlug()) {
                     $score += 8;
+                }
+
+                if ($review->style && $other->style && mb_strtolower($other->style) === mb_strtolower($review->style)) {
+                    $score += 6;
+                }
+
+                if ($review->subcategory && $other->subcategory && mb_strtolower($other->subcategory) === mb_strtolower($review->subcategory)) {
+                    $score += 4;
                 }
 
                 if ($other->category === $review->category) {

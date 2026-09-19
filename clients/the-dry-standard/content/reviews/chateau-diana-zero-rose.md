@@ -7,7 +7,7 @@ brand: Chateau Diana
 product: Zero California Rosé
 category: wine
 subcategory: rosé
-country: USA
+country: United States
 region: California
 style: Alcohol-removed California rosé
 abv: "0.0%"

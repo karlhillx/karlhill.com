@@ -1,29 +1,29 @@
-      <div class="shell archive-layout" data-archive<?= $locked ?>>
+      <div class="shell archive-layout<?= $compact ?? '' ?>" data-archive<?= $locked ?>>
         <div class="filter-backdrop" data-filter-backdrop hidden></div>
-        <form class="archive-sidebar" id="archive-filters" role="search" data-archive-filters>
+        <form class="archive-sidebar" id="archive-filters" role="search" method="get" data-archive-filters>
           <div class="archive-sidebar-head">
             <p class="facet-legend">Filters</p>
             <button class="filter-close" type="button" data-filter-close>Close</button>
           </div>
           <div class="facet">
-            <label class="facet-legend" for="archive-q">Search</label>
-            <input id="archive-q" type="search" name="q" placeholder="Brand, product, origin, or method" data-archive-q autocomplete="off">
+            <label class="facet-legend" for="archive-q">Narrow list</label>
+            <input id="archive-q" type="search" name="q" placeholder="Brand or method" value="<?= $view->e($q ?? '') ?>" data-archive-q autocomplete="off">
           </div>
           <?= $facets ?>
           <div class="archive-sidebar-actions">
-            <p class="archive-clear"><button type="button" data-archive-clear>Clear filters</button></p>
-            <button class="btn filter-apply" type="button" data-filter-close>Show results</button>
+            <p class="archive-clear"><a href="<?= $view->e($clearHref ?? '') ?>">Clear filters</a></p>
+            <button class="btn filter-apply" type="submit">Show results</button>
           </div>
         </form>
         <div class="archive-main">
           <div class="archive-toolbar">
-            <p class="archive-count" data-archive-count></p>
+            <p class="archive-count" data-archive-count><?= $view->e($countLabel ?? '') ?></p>
             <div class="archive-toolbar-actions">
               <label class="archive-sort">Sort
-                <select name="sort" data-archive-sort>
-                  <option value="newest">Newest</option>
-                  <option value="rating">Highest rated</option>
-                  <option value="title">Name</option>
+                <select name="sort" form="archive-filters" data-archive-sort>
+                  <option value="newest"<?= ($sort ?? '') === 'newest' ? ' selected' : '' ?>>Newest</option>
+                  <option value="rating"<?= ($sort ?? '') === 'rating' ? ' selected' : '' ?>>Highest rated</option>
+                  <option value="title"<?= ($sort ?? '') === 'title' ? ' selected' : '' ?>>Name</option>
                 </select>
               </label>
               <button class="filter-toggle" type="button" aria-expanded="false" aria-controls="archive-filters" data-filter-toggle>
@@ -31,7 +31,7 @@
               </button>
             </div>
           </div>
-          <div class="filter-chips" data-filter-chips hidden></div>
+          <div class="filter-chips" data-filter-chips<?= empty($hasChips) ? ' hidden' : '' ?>><?= $chips ?? '' ?></div>
           <?= $list ?>
         </div>
       </div>

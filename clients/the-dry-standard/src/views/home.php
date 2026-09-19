@@ -55,8 +55,8 @@
         <?= $view->render('partials/section-head', [
             'kicker' => 'Highly Rated',
             'title' => 'What holds up in the glass',
-            'href' => $reviewsUrl.'?sort=rating',
-            'linkLabel' => 'Highest rated',
+            'href' => $bestUrl,
+            'linkLabel' => 'Best of the cellar',
         ]) ?>
         <div class="card-grid card-grid--compact"><?= $ratedCards ?></div>
       </div>

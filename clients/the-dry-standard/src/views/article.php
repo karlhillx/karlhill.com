@@ -12,6 +12,7 @@
       <div class="section">
         <div class="shell shell--narrow prose">
           <?= $bodyHtml ?>
+          <?= $afterProse ?? '' ?>
         </div>
       </div>
       <?php if (! empty($related)) { ?>

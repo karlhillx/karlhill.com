@@ -103,7 +103,7 @@ final class Review
             product: self::string($matter['product'] ?? null),
             category: $category,
             subcategory: self::nullableString($matter['subcategory'] ?? null),
-            country: self::nullableString($matter['country'] ?? null),
+            country: self::normalizeCountry(self::nullableString($matter['country'] ?? null)),
             region: self::nullableString($matter['region'] ?? null),
             style: self::nullableString($matter['style'] ?? null),
             abv: self::nullableString($matter['abv'] ?? null),
@@ -240,6 +240,14 @@ final class Review
         return $this->status === 'published';
     }
 
+    public function isPublic(): bool
+    {
+        return $this->isPublished()
+            && trim($this->bodyMarkdown) !== ''
+            && $this->rating !== null
+            && ! str_contains(mb_strtolower($this->title.' '.$this->product), 'bundle');
+    }
+
     public function path(): string
     {
         return 'reviews/'.$this->category.'/'.$this->slug.'/';
@@ -247,7 +255,8 @@ final class Review
 
     public function originLabel(): ?string
     {
-        $parts = array_values(array_filter([$this->region, $this->country]));
+        $country = self::normalizeCountry($this->country);
+        $parts = array_values(array_filter([$this->region, $country]));
 
         return $parts === [] ? null : implode(', ', $parts);
     }
@@ -384,7 +393,9 @@ final class Review
         'vacuum distill' => 'vacuum-distillation',
         'vacuum evaporat' => 'vacuum-distillation',
         'vacuum dealcohol' => 'vacuum-distillation',
+        'cold vacuum' => 'vacuum-distillation',
         'arrested fermentation' => 'arrested-fermentation',
+        'arresting fermentation' => 'arrested-fermentation',
     ];
 
     private const NAMED_OTHER_NEEDLES = [
@@ -454,6 +465,58 @@ final class Review
         }
 
         return 'unknown';
+    }
+
+    public function methodCardLabel(): string
+    {
+        $key = $this->methodFacetKey();
+
+        $named = [
+            'vacuum-distillation' => 'Vacuum distillation',
+            'spinning-cone' => 'Spinning cone',
+            'reverse-osmosis' => 'Reverse osmosis',
+            'membrane-filtration' => 'Membrane / cold filtration',
+            'osmotic-distillation' => 'Osmotic distillation',
+            'arrested-fermentation' => 'Arrested fermentation',
+            'other' => 'Other documented method',
+        ];
+
+        if (isset($named[$key])) {
+            return $named[$key];
+        }
+
+        return match ($this->productionType) {
+            'alternative' => 'Formulated alternative',
+            'naturally-low-alcohol' => 'Brewed or fermented to ≤0.5%',
+            'hybrid' => 'Hybrid process',
+            default => 'Method unpublished',
+        };
+    }
+
+    /**
+     * @return array{src: string, webp: ?string, width: int, height: int}|null
+     */
+    public function imageAssets(): ?array
+    {
+        $src = $this->imageSrc();
+        if ($src === null) {
+            return null;
+        }
+
+        $root = Paths::default()->path();
+        $absolute = $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $src);
+        $size = is_file($absolute) ? @getimagesize($absolute) : false;
+        $webpRelative = is_string($src) ? preg_replace('/\.(jpe?g|png)$/i', '.webp', $src) : null;
+        $webpAbsolute = is_string($webpRelative)
+            ? $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $webpRelative)
+            : '';
+
+        return [
+            'src' => $src,
+            'webp' => (is_string($webpRelative) && $webpAbsolute !== '' && is_file($webpAbsolute)) ? $webpRelative : null,
+            'width' => is_array($size) ? (int) $size[0] : 720,
+            'height' => is_array($size) ? (int) $size[1] : 960,
+        ];
     }
 
     public function searchText(): string
@@ -580,6 +643,21 @@ final class Review
             'yes', 'true', '1' => 'yes',
             'no', 'false', '0' => 'no',
             default => 'not-verified',
+        };
+    }
+
+    private static function normalizeCountry(?string $country): ?string
+    {
+        if ($country === null || $country === '') {
+            return $country;
+        }
+
+        $normalized = strtolower(trim($country, " \t\n\r\0\x0B."));
+
+        return match ($normalized) {
+            'usa', 'u.s.a', 'u.s', 'us', 'united states', 'united states of america' => 'United States',
+            'uk', 'u.k', 'great britain', 'britain' => 'United Kingdom',
+            default => $country,
         };
     }
 

@@ -6,7 +6,7 @@ brand: Untitled Art Brewing
 product: FLVR! NA Juicy IPA
 category: beer
 subcategory: juicy IPA
-country: USA
+country: United States
 region: Waunakee, Wisconsin
 style: Non-alcoholic juicy IPA
 abv: "<0.5%"

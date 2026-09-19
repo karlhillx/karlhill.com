@@ -6,7 +6,7 @@ brand: Athletic Brewing
 product: ESB (Extra Special Bitter)
 category: beer
 subcategory: English-style bitter
-country: USA
+country: United States
 region: "Milford, Connecticut"
 style: Non-alcoholic English-style bitter
 abv: "<0.5%"

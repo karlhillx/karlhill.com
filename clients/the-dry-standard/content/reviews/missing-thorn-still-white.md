@@ -6,7 +6,7 @@ brand: Missing Thorn
 product: Non-Alcoholic Still White
 category: wine
 subcategory: white
-country: USA
+country: United States
 region: Napa Valley
 style: Dealcoholized Albariño-style white wine
 abv: "<0.5%"

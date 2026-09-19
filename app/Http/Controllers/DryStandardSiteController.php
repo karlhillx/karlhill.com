@@ -25,7 +25,7 @@ class DryStandardSiteController extends Controller
             return $this->payload($site->catalogJson(), 'application/json; charset=UTF-8');
         }
 
-        $html = $site->html($relative);
+        $html = $site->html($relative, request()->query());
 
         if ($html !== null) {
             return $this->payload($this->withBaseHref($html), 'text/html; charset=UTF-8');
@@ -53,7 +53,7 @@ class DryStandardSiteController extends Controller
     {
         return response($contents, 200, [
             'X-Robots-Tag' => 'noindex, nofollow',
-            'Cache-Control' => 'private, max-age=60',
+            'Cache-Control' => 'public, max-age=300, s-maxage=600, stale-while-revalidate=120',
             'Content-Type' => $contentType,
         ]);
     }

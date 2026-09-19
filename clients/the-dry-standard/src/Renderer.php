@@ -7,9 +7,9 @@ use Illuminate\Support\Collection;
 
 final class Renderer
 {
-    private const CSS_VERSION = '16';
+    private const CSS_VERSION = '19';
 
-    private const JS_VERSION = '8';
+    private const JS_VERSION = '9';
 
     public function __construct(
         private readonly SiteConfig $config,
@@ -23,11 +23,12 @@ final class Renderer
     {
         $canonical = $this->config->canonicalUrl($path);
         $ogType = (string) ($options['og_type'] ?? 'website');
-        $image = (string) ($options['image'] ?? '');
+        $image = (string) ($options['image'] ?? $this->defaultShareImage());
         $ogImage = $image === ''
             ? '  <meta name="twitter:card" content="summary">'
             : <<<HTML
   <meta property="og:image" content="{$this->e($this->config->canonicalUrl($image))}">
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{$this->e($this->config->canonicalUrl($image))}">
 HTML;
@@ -123,6 +124,7 @@ HTML;
             'aboutUrl' => $this->config->publicUrl('about/'),
             'methodsUrl' => $this->config->publicUrl('methods/'),
             'guidesUrl' => $this->config->publicUrl('guides/'),
+            'bestUrl' => $this->config->publicUrl('best/'),
             'stats' => [
                 ['value' => (string) $reviews->count(), 'label' => $reviews->count() === 1 ? 'Review' : 'Reviews', 'href' => $this->config->publicUrl('reviews/')],
                 ['value' => (string) $reviews->pluck('brand')->unique()->count(), 'label' => 'Brands', 'href' => $this->config->publicUrl('brands/')],
@@ -152,6 +154,7 @@ HTML;
             $body,
             [
                 'nav' => 'home',
+                'image' => $featuredReview?->imageSrc() ?? '',
                 'json_ld' => $this->jsonLd([
                     $this->websiteGraph(),
                     [
@@ -170,6 +173,8 @@ HTML;
     /**
      * @param  Collection<int, Review>  $reviews
      * @param  array<int, array{label: string, url: string}>  $crumbs
+     * @param  Collection<int, Review>  $allReviews
+     * @param  array<string, int>  $publishOrder
      */
     public function listing(
         string $title,
@@ -181,15 +186,27 @@ HTML;
         bool $filterable = false,
         ?string $lockedCategory = null,
         Collection $allReviews = new Collection,
+        ?ArchiveQuery $query = null,
+        array $publishOrder = [],
     ): string {
+        $query ??= new ArchiveQuery(lockedCategory: $lockedCategory);
+        $filtered = $query->apply($reviews, $publishOrder);
+        $total = $filtered->count();
+        $pages = $query->pageCount($total);
+        $page = $query->currentPage($total);
+        $visible = $query->page($filtered);
+
         $empty = '<p class="empty" data-archive-empty>No published reviews in this section yet. Products can sit in the queue until the facts are good enough to print.</p>';
+        $none = '<p class="empty">No reviews match those filters.</p>';
         $list = $reviews->isEmpty()
             ? $empty
-            : '<div class="card-grid" data-review-grid>'.$this->reviewCards($reviews, compact: true).'</div>'
-                .'<p class="empty" data-archive-empty hidden>No reviews match those filters.</p>';
+            : ($total === 0
+                ? $none
+                : '<div class="card-grid" data-review-grid>'.$this->reviewCards($visible, compact: true).'</div>'
+                    .$this->pagination($path, $query, $page, $pages, $total));
 
         $archive = $filterable && $reviews->isNotEmpty()
-            ? $this->archiveLayout($reviews, $lockedCategory, $list)
+            ? $this->archiveLayout($reviews, $query, $lockedCategory, $list, $total, $path)
             : '<div class="shell">'.$list.'</div>';
 
         $railSource = $allReviews->isNotEmpty() ? $allReviews : $reviews;
@@ -212,6 +229,15 @@ HTML;
             ];
         }
 
+        $itemList = $visible->values()->map(function (Review $review, int $index): array {
+            return [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'url' => $this->config->canonicalUrl($review->path()),
+                'name' => $review->title,
+            ];
+        })->all();
+
         $body = $this->view->render('listing', [
             'title' => $title,
             'description' => $description,
@@ -223,8 +249,16 @@ HTML;
             ]),
         ]);
 
+        $head = $page > 1
+            ? '  <link rel="prev" href="'.$this->e($this->listingHref($path, $query, $page - 1)).'">'."\n"
+            : '';
+        if ($page < $pages) {
+            $head .= '  <link rel="next" href="'.$this->e($this->listingHref($path, $query, $page + 1)).'">'."\n";
+        }
+
         return $this->document($title, $description, $path, $body, [
             'nav' => $nav,
+            'head' => $head,
             'json_ld' => $this->jsonLd([
                 $this->breadcrumbGraph($crumbs),
                 [
@@ -232,6 +266,11 @@ HTML;
                     'name' => $title,
                     'description' => $description,
                     'url' => $this->config->canonicalUrl($path),
+                    'mainEntity' => [
+                        '@type' => 'ItemList',
+                        'numberOfItems' => $total,
+                        'itemListElement' => $itemList,
+                    ],
                 ],
             ]),
         ]);
@@ -249,6 +288,7 @@ HTML;
         string $nav,
         ?Collection $relatedReviews = null,
         string $relatedHeading = 'From the cellar',
+        string $afterProse = '',
     ): string {
         $description = $page->summary !== '' ? $page->summary : $this->config->string('site.description');
         $related = $relatedReviews?->isNotEmpty()
@@ -261,6 +301,7 @@ HTML;
             'kicker' => $kicker,
             'breadcrumbs' => $this->breadcrumbs($crumbs),
             'bodyHtml' => $page->bodyHtml,
+            'afterProse' => $afterProse,
             'related' => $related,
             'relatedHeading' => $relatedHeading,
         ]);
@@ -496,10 +537,12 @@ HTML;
             $this->sitemapUrl('brands/', 'weekly', '0.6'),
             $this->sitemapUrl('methods/', 'monthly', '0.6'),
             $this->sitemapUrl('about/', 'monthly', '0.5'),
+            $this->sitemapUrl('best/', 'weekly', '0.7'),
         ];
 
         foreach ($this->config->categories() as $category) {
             $urls[] = $this->sitemapUrl('reviews/'.$category.'/', 'weekly', '0.7');
+            $urls[] = $this->sitemapUrl('best/'.$category.'/', 'weekly', '0.6');
         }
 
         foreach ($reviews as $review) {
@@ -672,6 +715,8 @@ XML;
             'brandsUrl' => $this->config->publicUrl('brands/'),
             'aboutUrl' => $this->config->publicUrl('about/'),
             'feedUrl' => $this->config->publicUrl('feed.xml'),
+            'bestUrl' => $this->config->publicUrl('best/'),
+            'year' => (string) now()->year,
             'categories' => $categories,
         ]);
     }
@@ -679,9 +724,62 @@ XML;
     /**
      * @param  Collection<int, Review>  $reviews
      */
-    private function archiveLayout(Collection $reviews, ?string $lockedCategory, string $list): string
-    {
+    private function archiveLayout(
+        Collection $reviews,
+        ArchiveQuery $query,
+        ?string $lockedCategory,
+        string $list,
+        int $total,
+        string $path,
+    ): string {
         $locked = $lockedCategory !== null ? ' data-locked-category="'.Str::e($lockedCategory).'"' : '';
+        $compact = $reviews->count() < 12 ? ' archive-layout--compact' : '';
+        $noun = $reviews->count() === 1 ? 'review' : 'reviews';
+        $countLabel = $total === $reviews->count()
+            ? $reviews->count().' '.$noun
+            : $total.' of '.$reviews->count().' '.$noun;
+
+        $facetCount = function (string $name, string $value) use ($reviews, $query): int {
+            return $reviews->filter(function (Review $review) use ($query, $name, $value): bool {
+                if (! $query->matches($review, $name)) {
+                    return false;
+                }
+
+                $actual = match ($name) {
+                    'brand' => $review->brandSlug(),
+                    'abv' => $review->abvBucket(),
+                    'category' => $review->category,
+                    'production' => $review->productionType,
+                    'method' => $review->methodFacetKey(),
+                    default => '',
+                };
+
+                return $actual === $value;
+            })->count();
+        };
+
+        $withMeta = function (array $options, string $name) use ($query, $facetCount): array {
+            $selected = match ($name) {
+                'brand' => $query->brands,
+                'abv' => $query->abv,
+                'category' => $query->categories,
+                'production' => $query->production,
+                'method' => $query->methods,
+                default => [],
+            };
+
+            $rows = [];
+            foreach ($options as $option) {
+                $count = $facetCount($name, $option['value']);
+                $checked = in_array($option['value'], $selected, true);
+                if ($count === 0 && ! $checked) {
+                    continue;
+                }
+                $rows[] = [...$option, 'count' => $count, 'checked' => $checked];
+            }
+
+            return $rows;
+        };
 
         $brandOptions = $reviews
             ->map(fn (Review $review): array => [
@@ -718,7 +816,7 @@ XML;
 
         $methodLabels = $this->config->methods() + [
             'other' => 'Other documented method',
-            'unknown' => 'Unknown',
+            'unknown' => 'Unpublished',
         ];
         $methodOptions = [];
         foreach (array_keys($methodLabels) as $method) {
@@ -727,21 +825,38 @@ XML;
             }
         }
 
-        $facets = $this->facetGroup('ABV', 'abv', $abvOptions)
-            .$this->facetGroup('Brand', 'brand', $brandOptions, searchable: true, collapsible: true, collapsed: count($brandOptions) > 8)
-            .($categoryOptions === [] ? '' : $this->facetGroup('Category', 'category', $categoryOptions))
-            .$this->facetGroup('Production type', 'production', $processOptions)
-            .$this->facetGroup('Method', 'method', $methodOptions);
+        $brandMeta = $withMeta($brandOptions, 'brand');
+        $facets = $this->facetGroup('ABV', 'abv', $withMeta($abvOptions, 'abv'))
+            .$this->facetGroup(
+                'Brand',
+                'brand',
+                $brandMeta,
+                searchable: count($brandMeta) > 8,
+                collapsible: count($brandMeta) > 8,
+                collapsed: count($brandMeta) > 8,
+            )
+            .($categoryOptions === [] ? '' : $this->facetGroup('Category', 'category', $withMeta($categoryOptions, 'category')))
+            .$this->facetGroup('Production type', 'production', $withMeta($processOptions, 'production'))
+            .$this->facetGroup('Method', 'method', $withMeta($methodOptions, 'method'));
+
+        $chips = $this->filterChips($query, $reviews, $path);
 
         return $this->view->render('partials/archive', [
             'locked' => $locked,
+            'compact' => $compact,
             'facets' => $facets,
             'list' => $list,
+            'countLabel' => $countLabel,
+            'sort' => $query->sort,
+            'q' => $query->q,
+            'chips' => $chips,
+            'hasChips' => $chips !== '',
+            'clearHref' => $this->config->publicUrl($path),
         ]);
     }
 
     /**
-     * @param  array<int, array{value: string, label: string}>  $options
+     * @param  array<int, array{value: string, label: string, count?: int, checked?: bool}>  $options
      */
     private function facetGroup(
         string $legend,
@@ -764,10 +879,12 @@ XML;
         $items = '';
         foreach ($options as $option) {
             $id = 'archive-'.$name.'-'.Str::e($option['value']);
+            $checked = ! empty($option['checked']) ? ' checked' : '';
+            $count = (int) ($option['count'] ?? 0);
             $items .= '<label class="facet-option" data-facet-label="'.Str::e(mb_strtolower($option['label'])).'">'
-                .'<input id="'.$id.'" type="checkbox" name="'.Str::e($name).'[]" value="'.Str::e($option['value']).'" data-archive-'.Str::e($name).'>'
+                .'<input id="'.$id.'" type="checkbox" name="'.Str::e($name).'[]" value="'.Str::e($option['value']).'" data-archive-'.Str::e($name).$checked.'>'
                 .'<span>'.Str::e($option['label']).'</span>'
-                .'<span class="facet-count" data-facet-count></span>'
+                .'<span class="facet-count">'.$count.'</span>'
                 .'</label>';
         }
 
@@ -802,7 +919,7 @@ XML;
             $score = $review->rating !== null ? '<span class="card-score">'.$review->rating.'</span>' : '';
             $origin = $review->originLabel();
             $meta = trim($this->config->categoryLabel($review->category).($origin ? ' · '.$origin : ''));
-            $method = $review->dealcoholizationMethod ?? 'Method unknown';
+            $method = $review->methodCardLabel();
             $badge = '<span class="badge badge--'.Str::e($review->productionType).'">'.Str::e($review->productionTypeShortLabel()).'</span>';
             $attrs = implode(' ', [
                 'data-production="'.Str::e($review->productionType).'"',
@@ -842,10 +959,9 @@ XML;
 
         $methodKey = $review->methodKey();
         if ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)) {
-            $label = $review->dealcoholizationMethod ?? $this->config->methodLabel($methodKey);
-            $parts[] = '<a href="'.$this->url('methods/'.$methodKey.'/').'">'.$this->e($label).'</a>';
+            $parts[] = '<a href="'.$this->url('methods/'.$methodKey.'/').'">'.$this->e($review->methodCardLabel()).'</a>';
         } elseif ($review->dealcoholizationMethod) {
-            $parts[] = $this->e($review->dealcoholizationMethod);
+            $parts[] = $this->e($review->methodCardLabel());
         }
 
         return '<p class="review-meta">'.implode('<span aria-hidden="true"> · </span>', $parts).'</p>';
@@ -869,14 +985,10 @@ XML;
     {
         $rows = [
             'ABV' => $review->abv,
-            'Production type' => $review->productionTypeShortLabel(),
-            'Verified' => $review->verifiedLabel(),
             'Origin' => $review->originLabel(),
             'Category' => $this->config->categoryLabel($review->category).($review->subcategory ? ' / '.$review->subcategory : ''),
             'Style' => $review->style,
             'Producer' => $review->producer,
-            'Production method' => $review->dealcoholizationMethod,
-            'Base beverage' => $review->baseBeverage,
             'Bottle / can' => $review->volume,
             'Typical price' => $review->price,
             'Ingredients' => $review->ingredients,
@@ -930,8 +1042,7 @@ XML;
 
         $items = '';
         foreach ($review->sources as $source) {
-            $claims = $source['claims'] === [] ? '' : '<span class="source-claims">'.Str::e(implode(', ', $source['claims'])).'</span>';
-            $items .= '<li><a href="'.Str::e($source['url']).'" rel="nofollow noopener">'.Str::e($source['title']).'</a>'.$claims.'</li>';
+            $items .= '<li><a href="'.Str::e($source['url']).'" rel="nofollow noopener">'.Str::e($source['title']).'</a></li>';
         }
 
         return $this->view->render('partials/sources', ['items' => $items]);
@@ -1016,6 +1127,14 @@ XML;
             'name' => $this->config->name(),
             'url' => $this->config->canonicalUrl(),
             'description' => $this->config->string('site.description'),
+            'potentialAction' => [
+                '@type' => 'SearchAction',
+                'target' => [
+                    '@type' => 'EntryPoint',
+                    'urlTemplate' => $this->config->canonicalUrl('reviews/').'?q={search_term_string}',
+                ],
+                'query-input' => 'required name=search_term_string',
+            ],
         ];
     }
 
@@ -1047,12 +1166,15 @@ XML;
      */
     private function articleGraph(Review $review): array
     {
+        $url = $this->config->canonicalUrl($review->path());
+
         return array_filter([
             '@type' => 'Review',
+            '@id' => $url.'#review',
             'headline' => $review->title,
             'name' => $review->title,
             'description' => $review->summary,
-            'url' => $this->config->canonicalUrl($review->path()),
+            'url' => $url,
             'datePublished' => $review->reviewDate->toDateString(),
             'dateModified' => $review->modifiedAt()->toDateString(),
             'author' => [
@@ -1065,15 +1187,7 @@ XML;
                 'bestRating' => 100,
                 'worstRating' => 0,
             ],
-            'itemReviewed' => array_filter([
-                '@type' => 'Product',
-                'name' => $review->product,
-                'brand' => [
-                    '@type' => 'Brand',
-                    'name' => $review->brand,
-                ],
-                'image' => $review->imageSrc() ? $this->config->canonicalUrl($review->imageSrc()) : null,
-            ]),
+            'itemReviewed' => ['@id' => $url.'#product'],
         ]);
     }
 
@@ -1082,9 +1196,12 @@ XML;
      */
     private function productGraph(Review $review): array
     {
+        $url = $this->config->canonicalUrl($review->path());
+
         return array_filter([
             '@type' => 'Product',
-            'name' => $review->title,
+            '@id' => $url.'#product',
+            'name' => $review->product !== '' ? $review->product : $review->title,
             'brand' => [
                 '@type' => 'Brand',
                 'name' => $review->brand,
@@ -1092,17 +1209,25 @@ XML;
             'category' => $this->config->categoryLabel($review->category),
             'description' => $review->summary,
             'image' => $review->imageSrc() ? $this->config->canonicalUrl($review->imageSrc()) : null,
-            'alcoholWarning' => $review->abv,
+            'additionalProperty' => $review->abv === null ? null : [
+                '@type' => 'PropertyValue',
+                'name' => 'ABV',
+                'value' => $review->abv,
+            ],
+            'review' => ['@id' => $url.'#review'],
         ], fn (mixed $value): bool => $value !== null && $value !== '');
     }
 
     private function productFigure(Review $review, string $class, bool $hero = false): string
     {
-        $src = $review->imageSrc();
+        $assets = $review->imageAssets();
 
         return $this->view->render('partials/product-figure', [
             'class' => $class,
-            'src' => $src === null ? '' : $this->config->publicUrl($src),
+            'src' => $assets === null ? '' : $this->config->publicUrl($assets['src']),
+            'webp' => ($assets['webp'] ?? null) ? $this->config->publicUrl((string) $assets['webp']) : '',
+            'width' => $assets['width'] ?? 720,
+            'height' => $assets['height'] ?? 960,
             'alt' => $review->imageAltText(),
             'loading' => $hero ? 'eager' : 'lazy',
             'priority' => $hero,
@@ -1142,6 +1267,189 @@ XML;
     private function xml(string $value): string
     {
         return Str::xml($value);
+    }
+
+    /**
+     * @param  Collection<int, Review>  $reviews
+     */
+    public function bestIndex(Collection $reviews): string
+    {
+        $top = $reviews
+            ->filter(fn (Review $review): bool => ($review->rating ?? 0) >= 85)
+            ->sortByDesc(fn (Review $review): int => $review->rating ?? 0)
+            ->take(12)
+            ->values();
+
+        $sections = '';
+        foreach ($this->config->categories() as $category) {
+            $subset = $reviews
+                ->filter(fn (Review $review): bool => $review->category === $category && ($review->rating ?? 0) >= 80)
+                ->sortByDesc(fn (Review $review): int => $review->rating ?? 0)
+                ->take(6)
+                ->values();
+
+            if ($subset->isEmpty()) {
+                continue;
+            }
+
+            $sections .= $this->view->render('partials/section-head', [
+                'kicker' => $this->config->categoryLabel($category),
+                'title' => 'Highest rated '.$this->config->categoryLabel($category),
+                'href' => $this->config->publicUrl('best/'.$category.'/'),
+                'linkLabel' => 'See all',
+            ]).'<div class="card-grid card-grid--compact">'.$this->reviewCards($subset, compact: true).'</div>';
+        }
+
+        $body = $this->view->render('best', [
+            'breadcrumbs' => $this->breadcrumbs($this->crumbs(['Best of' => 'best/'])),
+            'topCards' => $this->reviewCards($top, compact: true),
+            'sections' => $sections,
+        ]);
+
+        return $this->document(
+            'Best of the cellar',
+            'Highest-rated dealcoholized and non-alcoholic drinks we have actually tasted, grouped by category.',
+            'best/',
+            $body,
+            [
+                'nav' => 'reviews',
+                'json_ld' => $this->jsonLd([
+                    $this->breadcrumbGraph($this->crumbs(['Best of' => 'best/'])),
+                    [
+                        '@type' => 'CollectionPage',
+                        'name' => 'Best of the cellar',
+                        'url' => $this->config->canonicalUrl('best/'),
+                    ],
+                ]),
+            ],
+        );
+    }
+
+    /**
+     * @param  Collection<int, Review>  $reviews
+     */
+    public function scoreHistogram(Collection $reviews): string
+    {
+        $bands = [
+            '90–100' => 0,
+            '80–89' => 0,
+            '70–79' => 0,
+            '60–69' => 0,
+            'Below 60' => 0,
+        ];
+
+        foreach ($reviews as $review) {
+            $score = $review->rating ?? 0;
+            $key = match (true) {
+                $score >= 90 => '90–100',
+                $score >= 80 => '80–89',
+                $score >= 70 => '70–79',
+                $score >= 60 => '60–69',
+                default => 'Below 60',
+            };
+            $bands[$key]++;
+        }
+
+        $max = max(1, ...array_values($bands));
+        $rows = '';
+        foreach ($bands as $label => $count) {
+            $width = round(100 * $count / $max);
+            $rows .= '<div class="score-bar"><span class="score-bar-label">'.$this->e($label).'</span>'
+                .'<span class="score-bar-track"><span class="score-bar-fill" style="width: '.$width.'%"></span></span>'
+                .'<span class="score-bar-count">'.$count.'</span></div>';
+        }
+
+        return '<figure class="score-chart"><figcaption>How published scores sit on the 100-point scale</figcaption>'
+            .$rows
+            .'<p class="fine-print">The scale measures drink quality, not likeness to ethanol. We do not spread scores to fill bands.</p></figure>';
+    }
+
+    private function defaultShareImage(): string
+    {
+        foreach (['media/reviews/guinness-0-0.jpg', 'mark.svg'] as $relative) {
+            $absolute = Paths::default()->path().DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $relative);
+            if (is_file($absolute)) {
+                return $relative;
+            }
+        }
+
+        return '';
+    }
+
+    /**
+     * @param  Collection<int, Review>  $reviews
+     */
+    private function filterChips(ArchiveQuery $query, Collection $reviews, string $path): string
+    {
+        $items = '';
+        $labels = [
+            'brand' => 'Brand',
+            'abv' => 'ABV',
+            'category' => 'Category',
+            'production' => 'Production type',
+            'method' => 'Method',
+        ];
+
+        if ($query->q !== '') {
+            $href = $this->listingHref($path, $query, 1, ['q' => '']);
+            $items .= '<a class="filter-chip" href="'.$this->e($href).'">Search: '.$this->e($query->q).'<span aria-hidden="true">×</span></a>';
+        }
+
+        foreach (['brand' => $query->brands, 'abv' => $query->abv, 'category' => $query->categories, 'production' => $query->production, 'method' => $query->methods] as $key => $values) {
+            foreach ($values as $value) {
+                $remaining = array_values(array_filter($values, fn (string $item): bool => $item !== $value));
+                $href = $this->listingHref($path, $query, 1, [$key => implode(',', $remaining)]);
+                $label = $value;
+                if ($key === 'brand') {
+                    $match = $reviews->first(fn (Review $review): bool => $review->brandSlug() === $value);
+                    $label = $match?->brand ?? $value;
+                } elseif ($key === 'abv') {
+                    $label = Review::ABV_BUCKETS[$value] ?? $value;
+                } elseif ($key === 'category') {
+                    $label = $this->config->categoryLabel($value);
+                } elseif ($key === 'production') {
+                    $label = Review::PRODUCTION_TYPES[$value] ?? $value;
+                } elseif ($key === 'method') {
+                    $label = $this->config->methodLabel($value);
+                    if ($value === 'unknown') {
+                        $label = 'Unpublished';
+                    }
+                    if ($value === 'other') {
+                        $label = 'Other documented method';
+                    }
+                }
+                $items .= '<a class="filter-chip" href="'.$this->e($href).'">'.$this->e($labels[$key].': '.$label).'<span aria-hidden="true">×</span></a>';
+            }
+        }
+
+        return $items;
+    }
+
+    private function pagination(string $path, ArchiveQuery $query, int $page, int $pages, int $total): string
+    {
+        if ($total <= ArchiveQuery::PER_PAGE) {
+            return '';
+        }
+
+        $prev = $page > 1
+            ? '<a href="'.$this->e($this->listingHref($path, $query, $page - 1)).'" rel="prev">Previous</a>'
+            : '<span>Previous</span>';
+        $next = $page < $pages
+            ? '<a href="'.$this->e($this->listingHref($path, $query, $page + 1)).'" rel="next">Next</a>'
+            : '<span>Next</span>';
+
+        return '<nav class="pagination" aria-label="Reviews pages">'.$prev
+            .'<p>Page '.$page.' of '.$pages.'</p>'.$next.'</nav>';
+    }
+
+    /**
+     * @param  array<string, string|int>  $overrides
+     */
+    private function listingHref(string $path, ArchiveQuery $query, int $page, array $overrides = []): string
+    {
+        $qs = $query->queryString(['page' => $page, ...$overrides]);
+
+        return $this->config->publicUrl($path).($qs === '' ? '' : '?'.$qs);
     }
 
     private function navKey(string $path): string

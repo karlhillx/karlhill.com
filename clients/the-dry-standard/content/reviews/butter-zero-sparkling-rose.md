@@ -6,7 +6,7 @@ brand: Butter Zero
 product: Sparkling Rosé
 category: wine
 subcategory: sparkling rosé
-country: USA
+country: United States
 region: California
 style: Alcohol-removed sparkling rosé
 abv: "<0.5%"

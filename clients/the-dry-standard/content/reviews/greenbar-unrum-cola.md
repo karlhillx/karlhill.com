@@ -7,7 +7,7 @@ brand: Greenbar
 product: UNRum + Cola
 category: cocktails
 subcategory: canned cocktail
-country: USA
+country: United States
 region: Los Angeles, California
 style: Dealcoholized rum and cola highball
 abv: "<0.5%"

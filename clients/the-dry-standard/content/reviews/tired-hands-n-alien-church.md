@@ -6,7 +6,7 @@ brand: Tired Hands Brewing Company
 product: N/Alien Church
 category: beer
 subcategory: New England IPA
-country: USA
+country: United States
 region: Ardmore, Pennsylvania
 style: Non-alcoholic New England IPA
 abv: "<0.5%"

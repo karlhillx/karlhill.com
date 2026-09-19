@@ -7,7 +7,7 @@ brand: HOP WTR
 product: Blood Orange
 category: beer
 subcategory: hop water (alcohol-free, non-fermented)
-country: USA
+country: United States
 style: Sparkling hop water (alcohol-free by composition, not dealcoholized)
 abv: "0.0%"
 abv_numeric: 0

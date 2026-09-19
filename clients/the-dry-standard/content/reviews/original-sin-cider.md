@@ -6,7 +6,7 @@ brand: Original Sin Cider
 product: Widow Family Mix Pack (Original Sin's NA lineup)
 category: cider
 subcategory: non-fermented NA cider
-country: USA
+country: United States
 style: Sparkling non-alcoholic apple-cider-vinegar-based cider
 abv: "0.0%"
 abv_numeric: 0

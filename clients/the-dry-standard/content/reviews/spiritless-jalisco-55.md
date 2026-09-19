@@ -6,7 +6,7 @@ brand: Spiritless
 product: Jalisco 55 Non-Alcoholic Reposado Tequila
 category: spirits
 subcategory: non-alcoholic tequila alternative
-country: USA
+country: United States
 style: Dealcoholized non-alcoholic reposado tequila
 abv: "0.0%"
 abv_numeric: 0

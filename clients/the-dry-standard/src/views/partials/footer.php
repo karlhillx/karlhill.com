@@ -17,8 +17,9 @@
         <a href="<?= $view->e($methodsUrl) ?>">Methods</a>
         <a href="<?= $view->e($brandsUrl) ?>">Brands</a>
         <a href="<?= $view->e($aboutUrl) ?>">About &amp; methodology</a>
+        <a href="<?= $view->e($bestUrl) ?>">Best of the cellar</a>
         <a href="<?= $view->e($feedUrl) ?>">RSS</a>
       </div>
     </div>
-    <p class="copyright">© <span data-year></span> The Dry Standard.</p>
+    <p class="copyright">© <?= $view->e($year ?? date('Y')) ?> The Dry Standard.</p>
   </footer>

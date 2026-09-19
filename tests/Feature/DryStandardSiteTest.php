@@ -50,7 +50,9 @@ it('serves sourced sample reviews with production-type badges', function () {
         ->assertOk()
         ->assertSee('Production type: Alternative', escape: false)
         ->assertSee('Formulated as a zero-proof alternative', escape: false)
-        ->assertSee('lyres.com/pages/faqs', escape: false);
+        ->assertSee('lyres.com/pages/faqs', escape: false)
+        ->assertDontSee('abv, method', escape: false)
+        ->assertDontSee('class="source-claims"', escape: false);
 });
 
 it('exposes a feed, sitemap, and catalog for the client site', function () {
@@ -58,7 +60,8 @@ it('exposes a feed, sitemap, and catalog for the client site', function () {
     expect($feed->getContent())->toContain('Leitz Eins-Zwei-Zero Riesling');
 
     $sitemap = $this->get('/clients/the-dry-standard/sitemap.xml')->assertOk();
-    expect($sitemap->getContent())->toContain('reviews/wine/leitz-eins-zwei-zero-riesling');
+    expect($sitemap->getContent())->toContain('reviews/wine/leitz-eins-zwei-zero-riesling')
+        ->and($sitemap->getContent())->toContain('best/');
 
     $catalogResponse = $this->get('/clients/the-dry-standard/catalog.json')->assertOk();
     $catalog = json_decode($catalogResponse->getContent(), true, flags: JSON_THROW_ON_ERROR);
@@ -83,7 +86,7 @@ it('serves product stills on reviews and the archive', function () {
     $this->get('/clients/the-dry-standard/reviews/')
         ->assertOk()
         ->assertSee('product-figure--thumb', escape: false)
-        ->assertSee('media/reviews/lyres-italian-orange.jpg', escape: false);
+        ->assertSee('media/reviews/', escape: false);
 });
 
 it('keeps a master product table without duplicating published reviews', function () {
@@ -120,7 +123,7 @@ it('keeps a master product table without duplicating published reviews', functio
     $queue = file_get_contents(base_path('clients/the-dry-standard/data/review-queue.yaml')) ?: '';
     expect($queue)->toContain("status: published\n")
         ->and($queue)->toContain('Giesen 0% Sauvignon Blanc')
-        ->and(substr_count($queue, "status: queued\n"))->toBeGreaterThan(20);
+        ->and($queue)->not->toContain("status: queued\n");
 });
 
 it('links related reviews and exposes directory search', function () {
@@ -169,10 +172,63 @@ it('builds a searchable review archive', function () {
         ->assertDontSee('data-facet="partials/facet-group"', escape: false)
         ->assertSee('data-abv=', escape: false)
         ->assertSee('data-search=', escape: false)
-        ->assertSee('review-card', escape: false);
+        ->assertSee('review-card', escape: false)
+        ->assertSee('pagination', escape: false)
+        ->assertSee('page=2', escape: false);
+
+    $this->get('/clients/the-dry-standard/reviews/?q=leitz')
+        ->assertOk()
+        ->assertSee('Leitz', escape: false)
+        ->assertDontSee('Guinness 0.0', escape: false);
 
     $this->get('/clients/the-dry-standard/reviews/wine/')
         ->assertOk()
         ->assertSee('data-locked-category="wine"', escape: false)
         ->assertDontSee('data-archive-category', escape: false);
+});
+
+it('hides source claim tokens and ships search + share metadata', function () {
+    $home = $this->get('/clients/the-dry-standard/')->assertOk();
+    $home->assertSee('og:image', escape: false)
+        ->assertSee('SearchAction', escape: false)
+        ->assertSee('Best of the cellar', escape: false);
+
+    $this->get('/clients/the-dry-standard/about/')
+        ->assertOk()
+        ->assertSee('How published scores sit on the 100-point scale', escape: false);
+
+    $this->get('/clients/the-dry-standard/best/')
+        ->assertOk()
+        ->assertSee('What holds up in the glass', escape: false)
+        ->assertSee('Guinness 0.0', escape: false);
+
+    $this->get('/clients/the-dry-standard/guides/buying-na-spirits/')
+        ->assertOk()
+        ->assertSee('How to buy a non-alcoholic spirit', escape: false);
+});
+
+it('does not duplicate catalog IDs or publish inventory bundles', function () {
+    $this->get('/clients/the-dry-standard/reviews/')
+        ->assertDontSee('Oddbird Non-Alcoholic Wine Bundle', escape: false);
+
+    $pdo = new PDO('sqlite:'.base_path('clients/the-dry-standard/data/catalog.sqlite'));
+    $ids = $pdo->query('SELECT id FROM products WHERE id IS NOT NULL AND id != ""')->fetchAll(PDO::FETCH_COLUMN);
+    expect($ids)->toHaveCount(count(array_unique($ids)));
+    expect($ids)->toContain('TDS-0074')->not->toContain('R4');
+});
+
+it('serves Dry Standard HTML without a session cookie', function () {
+    $response = $this->get('/clients/the-dry-standard/');
+
+    $response->assertOk()
+        ->assertHeader('X-Robots-Tag', 'noindex, nofollow');
+
+    expect($response->headers->get('Cache-Control'))->toContain('public');
+    expect($response->headers->get('Set-Cookie'))->toBeNull();
+});
+
+it('normalizes United States on review pages', function () {
+    $this->get('/clients/the-dry-standard/reviews/spirits/ritual-zero-proof-tequila/')
+        ->assertOk()
+        ->assertSee('United States', escape: false);
 });

@@ -28,7 +28,9 @@ final class CatalogSync
 
         $this->mergeMasterProducts();
         $this->mergeQueue();
+        $this->catalog->pruneGhosts();
         $this->exportProductsCsv();
+        (new StillPipeline($this->paths))->run();
 
         $rows = $this->catalog->rows();
 
@@ -90,11 +92,12 @@ final class CatalogSync
                 continue;
             }
 
-            $existing = $id !== '' ? $this->catalog->findById($id) : null;
+            $ean = trim((string) ($row['EAN'] ?? '')) ?: null;
+            $existing = $this->catalog->findIdentity($id !== '' ? $id : null, $product, $brand, $ean);
             $slug = $existing?->slug ?: Str::slug($product);
             $extra = [
                 'id' => $id !== '' ? $id : null,
-                'ean' => trim((string) ($row['EAN'] ?? '')) ?: null,
+                'ean' => $ean,
                 'retailers' => trim((string) ($row['Retailer(s)'] ?? '')) ?: null,
             ];
 
@@ -144,8 +147,28 @@ final class CatalogSync
             $product = trim((string) ($item['product'] ?? ''));
             $brand = trim((string) ($item['brand'] ?? ''));
 
-            if ($product === '' || $this->catalog->containsProduct($product, $brand)) {
+            if ($product === '') {
                 continue;
+            }
+
+            $id = trim((string) ($item['id'] ?? '')) ?: null;
+            $ean = trim((string) ($item['ean'] ?? '')) ?: null;
+            $existing = $this->catalog->findIdentity($id, $product, $brand, $ean);
+
+            if ($existing instanceof Review) {
+                if (trim($existing->bodyMarkdown) === '') {
+                    $this->catalog->upsert($existing, [
+                        'priority' => $this->queuePriority($item),
+                        'notes' => (string) ($item['notes'] ?? ''),
+                    ]);
+                }
+
+                continue;
+            }
+
+            $status = (string) ($item['status'] ?? 'queued');
+            if ($status === 'published') {
+                $status = 'queued';
             }
 
             $this->catalog->upsertRow([
@@ -154,11 +177,11 @@ final class CatalogSync
                 'product' => $product,
                 'brand' => $brand,
                 'category' => (string) ($item['category'] ?? 'wine'),
-                'status' => (string) ($item['status'] ?? 'queued'),
-                'priority' => (string) ($item['priority'] ?? 'normal'),
+                'status' => $status,
+                'priority' => $this->queuePriority($item),
                 'notes' => (string) ($item['notes'] ?? ''),
-                'id' => trim((string) ($item['id'] ?? '')) ?: null,
-                'ean' => trim((string) ($item['ean'] ?? '')) ?: null,
+                'id' => $id,
+                'ean' => $ean,
             ]);
         }
     }
@@ -239,5 +262,20 @@ final class CatalogSync
             $value === 'no', str_starts_with($value, 'no') => 'no',
             default => 'no',
         };
+    }
+
+    /**
+     * @param  array<string, mixed>  $item
+     */
+    private function queuePriority(array $item): string
+    {
+        $category = (string) ($item['category'] ?? '');
+        $current = (string) ($item['priority'] ?? 'normal');
+
+        if (in_array($category, ['spirits', 'cider'], true)) {
+            return 'high';
+        }
+
+        return $current !== '' ? $current : 'normal';
     }
 }

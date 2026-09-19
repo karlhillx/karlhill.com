@@ -6,7 +6,7 @@ brand: DC Brau Brewing Co.
 product: Non-Alcoholic Pale Ale
 category: beer
 subcategory: pale ale
-country: USA
+country: United States
 region: "Washington, DC"
 style: Non-alcoholic pale ale
 abv: "<0.5%"

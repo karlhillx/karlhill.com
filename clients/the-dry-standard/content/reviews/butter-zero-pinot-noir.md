@@ -6,7 +6,7 @@ brand: Butter Zero
 product: Pinot Noir
 category: wine
 subcategory: pinot noir
-country: USA
+country: United States
 region: California
 style: Alcohol-removed Pinot Noir
 abv: "<0.5%"

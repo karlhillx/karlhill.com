@@ -6,7 +6,7 @@ brand: Lagunitas
 product: Hazy IPNA
 category: beer
 subcategory: hazy IPA
-country: USA
+country: United States
 style: Non-alcoholic hazy IPA
 abv: "<0.5%"
 abv_numeric: 0.5

@@ -6,7 +6,7 @@ brand: Mingle
 product: Sparkling Raspberry Rosé
 category: cocktails
 subcategory: canned mocktail
-country: USA
+country: United States
 style: Non-alcoholic sparkling mocktail (formulated, not dealcoholized)
 abv: "0.0%"
 abv_numeric: 0

@@ -71,4 +71,4 @@ Syncs markdown reviews, the purchase ledger, and the queue into `data/catalog.sq
 
 ## Future
 
-Search, "best of" pages, affiliate tags, and price tracking can read the catalog without changing the review schema. Ecommerce is out of scope.
+`/best/` is generated from published scores. Affiliate tags and price tracking can read the catalog without changing the review schema. Ecommerce is out of scope.

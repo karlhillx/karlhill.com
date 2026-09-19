@@ -6,7 +6,7 @@ brand: Sea Monster
 product: Tidal Wave White
 category: wine
 subcategory: white
-country: USA
+country: United States
 region: California
 style: Dealcoholized California white wine
 abv: "<0.5%"

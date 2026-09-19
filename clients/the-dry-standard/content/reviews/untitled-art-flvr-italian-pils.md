@@ -6,7 +6,7 @@ brand: Untitled Art Brewing
 product: FLVR! NA Italian-Style Pils
 category: beer
 subcategory: Italian-style pilsner
-country: USA
+country: United States
 region: Waunakee, Wisconsin
 style: Non-alcoholic Italian-style pilsner
 abv: "<0.5%"

@@ -6,7 +6,7 @@ brand: Untitled Art Brewing
 product: FLVR! NA Mango Dragonfruit Sour
 category: beer
 subcategory: fruit sour
-country: USA
+country: United States
 region: Waunakee, Wisconsin
 style: Non-alcoholic fruited sour ale
 abv: "<0.5%"

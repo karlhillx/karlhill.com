@@ -7,7 +7,7 @@ product: "Brevet IPA"
 abv: "Not published"
 category: beer
 subcategory: IPA
-country: USA
+country: United States
 region: "Atlanta, Georgia"
 style: Non-alcoholic IPA
 production_type: naturally-low-alcohol

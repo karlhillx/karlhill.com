@@ -6,7 +6,7 @@ brand: Butter Zero
 product: Chardonnay
 category: wine
 subcategory: chardonnay
-country: USA
+country: United States
 region: California
 style: Alcohol-removed Chardonnay
 abv: "<0.5%"

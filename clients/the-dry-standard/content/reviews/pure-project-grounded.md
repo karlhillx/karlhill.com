@@ -6,7 +6,7 @@ brand: Pure Project
 product: Grounded Non-Alcoholic IPA
 category: beer
 subcategory: IPA
-country: USA
+country: United States
 region: San Diego, California
 style: Non-alcoholic IPA
 abv: "<0.5%"

@@ -6,7 +6,7 @@ brand: Penn's Best
 product: Non-Alcoholic Lager
 category: beer
 subcategory: American lager
-country: USA
+country: United States
 style: Non-alcoholic American lager
 abv: "<0.5%"
 abv_numeric: 0.5

@@ -54,7 +54,7 @@ final class Catalog
     public function published(): Collection
     {
         return $this->reviews()
-            ->filter(fn (Review $review): bool => $review->isPublished())
+            ->filter(fn (Review $review): bool => $review->isPublic())
             ->values();
     }
 
@@ -73,11 +73,133 @@ final class Catalog
             return null;
         }
 
-        $statement = $this->pdo->prepare('SELECT * FROM products WHERE id = :id LIMIT 1');
+        $statement = $this->pdo->prepare(
+            "SELECT * FROM products WHERE id = :id ORDER BY (TRIM(COALESCE(body_markdown, '')) = '') ASC, slug ASC LIMIT 1"
+        );
         $statement->execute(['id' => $id]);
         $row = $statement->fetch();
 
         return $row === false ? null : Review::fromRecord($row);
+    }
+
+    public function findByProduct(string $product, string $brand = ''): ?Review
+    {
+        $sql = 'SELECT * FROM products WHERE lower(product) = lower(:product)';
+        $params = ['product' => $product];
+
+        if ($brand !== '') {
+            $sql .= ' AND lower(brand) = lower(:brand)';
+            $params['brand'] = $brand;
+        }
+
+        $sql .= " ORDER BY (TRIM(COALESCE(body_markdown, '')) = '') ASC, slug ASC LIMIT 1";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute($params);
+        $row = $statement->fetch();
+
+        return $row === false ? null : Review::fromRecord($row);
+    }
+
+    public function findByEan(string $ean): ?Review
+    {
+        if ($ean === '') {
+            return null;
+        }
+
+        $statement = $this->pdo->prepare(
+            "SELECT * FROM products WHERE ean = :ean ORDER BY (TRIM(COALESCE(body_markdown, '')) = '') ASC, slug ASC LIMIT 1"
+        );
+        $statement->execute(['ean' => $ean]);
+        $row = $statement->fetch();
+
+        return $row === false ? null : Review::fromRecord($row);
+    }
+
+    public function findIdentity(?string $id, string $product, string $brand = '', ?string $ean = null): ?Review
+    {
+        if ($id !== null && $id !== '') {
+            $match = $this->findById($id);
+            if ($match instanceof Review) {
+                return $match;
+            }
+        }
+
+        if ($ean !== null && $ean !== '') {
+            $match = $this->findByEan($ean);
+            if ($match instanceof Review) {
+                return $match;
+            }
+        }
+
+        if ($product === '') {
+            return null;
+        }
+
+        return $this->findByProduct($product, $brand);
+    }
+
+    public function deleteSlug(string $slug): void
+    {
+        $statement = $this->pdo->prepare('DELETE FROM products WHERE slug = :slug');
+        $statement->execute(['slug' => $slug]);
+    }
+
+    public function pruneGhosts(): int
+    {
+        $deleted = 0;
+
+        foreach ([
+            "DELETE FROM products WHERE slug IN (
+                SELECT slug FROM (
+                    SELECT ghost.slug
+                    FROM products AS ghost
+                    WHERE ghost.id IS NOT NULL AND ghost.id != ''
+                      AND EXISTS (
+                          SELECT 1 FROM products AS keep
+                          WHERE keep.id = ghost.id
+                            AND keep.slug != ghost.slug
+                            AND (
+                                (TRIM(COALESCE(keep.body_markdown, '')) != '' AND TRIM(COALESCE(ghost.body_markdown, '')) = '')
+                                OR (
+                                    (TRIM(COALESCE(keep.body_markdown, '')) != '') = (TRIM(COALESCE(ghost.body_markdown, '')) != '')
+                                    AND (
+                                        (keep.status = 'published' AND ghost.status != 'published')
+                                        OR (
+                                            (keep.status = 'published') = (ghost.status = 'published')
+                                            AND keep.slug < ghost.slug
+                                        )
+                                    )
+                                )
+                            )
+                      )
+                )
+            )",
+            "DELETE FROM products WHERE slug IN (
+                SELECT slug FROM (
+                    SELECT ghost.slug
+                    FROM products AS ghost
+                    WHERE ghost.ean IS NOT NULL AND ghost.ean != ''
+                      AND EXISTS (
+                          SELECT 1 FROM products AS keep
+                          WHERE keep.ean = ghost.ean
+                            AND keep.slug != ghost.slug
+                            AND TRIM(COALESCE(keep.body_markdown, '')) != ''
+                            AND TRIM(COALESCE(ghost.body_markdown, '')) = ''
+                      )
+                )
+            )",
+        ] as $sql) {
+            $count = $this->pdo->exec($sql);
+            $deleted += is_int($count) ? $count : 0;
+        }
+
+        $this->pdo->exec(
+            "UPDATE products SET status = 'queued' WHERE status = 'published' AND TRIM(COALESCE(body_markdown, '')) = ''"
+        );
+        $this->pdo->exec("UPDATE products SET id = NULL WHERE id = ''");
+        $this->pdo->exec("UPDATE products SET ean = NULL WHERE ean = ''");
+
+        return $deleted;
     }
 
     /**

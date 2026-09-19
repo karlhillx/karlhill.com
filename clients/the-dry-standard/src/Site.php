@@ -10,13 +10,17 @@ final class Site
         private readonly ReviewRepository $reviews,
     ) {}
 
-    public function html(string $path): ?string
+    /**
+     * @param  array<string, mixed>  $query
+     */
+    public function html(string $path, array $query = []): ?string
     {
         $path = trim($path, '/');
         $published = $this->reviews->published();
         $guides = PageDocument::loadDirectory($this->paths->content('guides'));
         $methods = PageDocument::loadDirectory($this->paths->content('methods'));
         $renderer = new Renderer($this->config);
+        $publishOrder = $this->reviews->publishOrder();
 
         if ($path === '') {
             return $renderer->home($published, $guides, $methods);
@@ -31,6 +35,8 @@ final class Site
                 $renderer->crumbs(['Reviews' => 'reviews/']),
                 filterable: true,
                 allReviews: $published,
+                query: ArchiveQuery::from($query),
+                publishOrder: $publishOrder,
             );
         }
 
@@ -50,13 +56,15 @@ final class Site
                 filterable: true,
                 lockedCategory: $category,
                 allReviews: $published,
+                query: ArchiveQuery::from($query, $category),
+                publishOrder: $publishOrder,
             );
         }
 
         if (preg_match('#^reviews/(wine|beer|spirits|cocktails|cider)/([^/]+)$#', $path, $matches) === 1) {
             $review = $this->reviews->find($matches[2]);
 
-            if ($review === null || ! $review->isPublished() || $review->category !== $matches[1]) {
+            if ($review === null || ! $review->isPublic() || $review->category !== $matches[1]) {
                 return null;
             }
 
@@ -166,6 +174,33 @@ final class Site
                 $renderer->crumbs(['About' => 'about/']),
                 'About',
                 'about',
+                afterProse: $renderer->scoreHistogram($published),
+            );
+        }
+
+        if ($path === 'best') {
+            return $renderer->bestIndex($published);
+        }
+
+        if (preg_match('#^best/(wine|beer|spirits|cocktails|cider)$#', $path, $matches) === 1) {
+            $category = $matches[1];
+            $label = $this->config->categoryLabel($category);
+            $query = ArchiveQuery::from(array_merge(['sort' => 'rating'], $query), $category);
+
+            return $renderer->listing(
+                'Best '.$label,
+                'Highest-rated '.$label.' we have tasted, sorted by score.',
+                'best/'.$category.'/',
+                $this->reviews->byCategory($category)->filter(fn (Review $review): bool => ($review->rating ?? 0) >= 80)->values(),
+                $renderer->crumbs([
+                    'Best of' => 'best/',
+                    $label => 'best/'.$category.'/',
+                ]),
+                filterable: true,
+                lockedCategory: $category,
+                allReviews: $published,
+                query: $query,
+                publishOrder: $publishOrder,
             );
         }
 

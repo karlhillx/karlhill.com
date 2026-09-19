@@ -6,7 +6,7 @@ brand: Best Day Brewing
 product: Kölsch
 category: beer
 subcategory: Kölsch-style ale
-country: USA
+country: United States
 style: Non-alcoholic Kölsch-style craft beer
 abv: "<0.5%"
 abv_numeric: 0.5

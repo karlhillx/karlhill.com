@@ -6,7 +6,7 @@ brand: Halfway Crooks Beer
 product: Brevet Pils
 category: beer
 subcategory: German-style pilsner
-country: USA
+country: United States
 region: "Atlanta, Georgia"
 style: Non-alcoholic German-style pilsner
 abv: "<0.5%"

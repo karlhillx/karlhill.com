@@ -6,7 +6,7 @@ brand: St. Agrestis
 product: Phony Negroni
 category: cocktails
 subcategory: ready-to-serve non-alcoholic cocktail
-country: USA
+country: United States
 style: Non-alcoholic formulated negroni-style cocktail, 30 botanicals
 abv: "0.0%"
 abv_numeric: 0

@@ -7,7 +7,7 @@ brand: Athletic Brewing
 product: Run Wild IPA
 category: beer
 subcategory: India Pale Ale
-country: USA
+country: United States
 region: "Milford, Connecticut, with a second brewhouse in San Diego, California"
 style: Non-alcoholic IPA
 abv: "<0.5%"

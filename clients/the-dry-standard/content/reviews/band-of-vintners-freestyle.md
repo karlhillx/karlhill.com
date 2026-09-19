@@ -7,7 +7,7 @@ product: Freestyle NA California
 abv: "Not published"
 category: wine
 subcategory: skin-contact
-country: USA
+country: United States
 region: "Sonoma County and Lodi"
 style: Non-alcoholic California wine
 production_type: dealcoholized

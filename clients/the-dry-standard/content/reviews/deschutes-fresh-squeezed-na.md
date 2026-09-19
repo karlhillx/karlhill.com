@@ -6,7 +6,7 @@ brand: Deschutes Brewery
 product: Non-Alcoholic Fresh Squeezed IPA
 category: beer
 subcategory: IPA
-country: USA
+country: United States
 region: Bend, Oregon
 style: Non-alcoholic IPA
 abv: "<0.5%"

@@ -6,7 +6,7 @@ brand: Chateau Diana
 product: Zero California White Blend
 category: wine
 subcategory: white blend
-country: USA
+country: United States
 region: California
 style: Alcohol-removed California white blend
 abv: "0.0%"

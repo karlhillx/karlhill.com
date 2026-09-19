@@ -6,7 +6,7 @@ brand: Grüvi
 product: Sangria
 category: cocktails
 subcategory: non-alcoholic wine cocktail
-country: USA
+country: United States
 style: Alcohol-removed red sangria
 abv: "<0.5%"
 abv_numeric: 0.5
