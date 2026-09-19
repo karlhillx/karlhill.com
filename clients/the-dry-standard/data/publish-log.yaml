@@ -142,3 +142,63 @@
   brand: 'St. Agrestis'
   published_at: '2026-09-19T00:45:46+00:00'
   path: reviews/cocktails/stagrestis-phony-negroni/
+-
+  slug: kolonne-null-rose
+  product: Rosé
+  brand: 'Kolonne Null'
+  published_at: '2026-09-19T00:50:47+00:00'
+  path: reviews/wine/kolonne-null-rose/
+-
+  slug: go-brewing-sunbeam-pils
+  product: 'Suspended In A Sunbeam Pils'
+  brand: 'Go Brewing'
+  published_at: '2026-09-19T00:50:47+00:00'
+  path: reviews/beer/go-brewing-sunbeam-pils/
+-
+  slug: mingle-sparkling-raspberry-rose
+  product: 'Sparkling Raspberry Rosé'
+  brand: Mingle
+  published_at: '2026-09-19T00:50:47+00:00'
+  path: reviews/cocktails/mingle-sparkling-raspberry-rose/
+-
+  slug: untitled-art-flvr-mango-dragonfruit
+  product: 'FLVR! NA Mango Dragonfruit Sour'
+  brand: 'Untitled Art Brewing'
+  published_at: '2026-09-19T00:50:47+00:00'
+  path: reviews/beer/untitled-art-flvr-mango-dragonfruit/
+-
+  slug: asahi-dry-zero
+  product: 'Dry Zero'
+  brand: 'Asahi Breweries'
+  published_at: '2026-09-19T00:50:48+00:00'
+  path: reviews/beer/asahi-dry-zero/
+-
+  slug: nonny-czech-pilsner
+  product: 'Czech Pilsner'
+  brand: 'Nonny Beer'
+  published_at: '2026-09-19T00:50:48+00:00'
+  path: reviews/beer/nonny-czech-pilsner/
+-
+  slug: grolsch-0-0
+  product: 0.0%
+  brand: Grolsch
+  published_at: '2026-09-19T00:50:48+00:00'
+  path: reviews/beer/grolsch-0-0/
+-
+  slug: pierre-zero-rose
+  product: 'Rosé (3 L bag-in-box)'
+  brand: 'Pierre Zéro'
+  published_at: '2026-09-19T00:50:48+00:00'
+  path: reviews/wine/pierre-zero-rose/
+-
+  slug: jp-chenet-sparkling-rose
+  product: 'So Free Sparkling Rosé'
+  brand: 'JP. Chenet'
+  published_at: '2026-09-19T00:50:48+00:00'
+  path: reviews/wine/jp-chenet-sparkling-rose/
+-
+  slug: alcohol-free-sparkling-rose
+  product: 'Alcohol-Free Sparkling Rosé (750 ml)'
+  brand: 'Unverified house label'
+  published_at: '2026-09-19T00:50:49+00:00'
+  path: reviews/wine/alcohol-free-sparkling-rose/

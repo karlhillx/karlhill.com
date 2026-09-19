@@ -1,0 +1,47 @@
+---
+title: "Mingle Sparkling Raspberry Rosé"
+slug: mingle-sparkling-raspberry-rose
+id: TDS-0043
+brand: Mingle
+product: Sparkling Raspberry Rosé
+category: cocktails
+subcategory: canned mocktail
+country: USA
+style: Non-alcoholic sparkling mocktail (formulated, not dealcoholized)
+abv: "0.00% ABV (retail listing)"
+abv_numeric: 0
+dealcoholized: no
+dealcoholized_note: "Mingle is formulated as an alcohol-free mocktail — real juice, sparkling water and botanicals — rather than made by removing alcohol from an alcoholic cocktail."
+base_beverage: "Sparkling water with real raspberry juice and natural flavorings; no underlying alcoholic drink"
+producer: Mingle Mocktails (women-founded US brand)
+price: "$44.95 per 12-pack direct (~$3.75/can); $13.99 per 4-pack at Thrive Market; from $4.59 single at Instacart"
+availability: "US retail including Total Wine, Thrive Market, and Instacart"
+image: media/reviews/mingle-sparkling-raspberry-rose.jpg
+image_alt: "Mingle Sparkling Raspberry Rosé can"
+image_credit: Product photo via minglemocktails.com
+review_date: "2026-09-18"
+updated_date: "2026-09-18"
+rating: 79
+verdict: "A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink."
+summary: "Mingle's Sparkling Raspberry Rosé is a real-juice sparkling mocktail at 0.00% ABV: crisp raspberry, light bubbles, sold by the can and the case."
+nose: "Bright raspberry and a soft floral top note; lightly sparkling."
+palate: "Crisp and refreshing, real raspberry juice over a clean sparkling base — a touch of sweetness without syrup weight."
+finish: "Clean and short, the fruit trailing off gently."
+best_for: "Brunch, the patio, spritzing up a glass when the rosé bottle isn't the point."
+serve: "Straight from the can, or over ice with a raspberry or a mint leaf."
+sources:
+  - title: "Sparkling Raspberry Rosé Mocktail — Mingle"
+    url: https://www.minglemocktails.com/products/sparkling-raspberry-rose
+    claims: [abv, base_beverage, producer, price, dealcoholized, country]
+  - title: "Mingle, Mocktail, Sparkling Raspberry Rosé — Thrive Market"
+    url: https://thrivemarket.com/p/mingle-mocktail-sparkling-raspberry-ros
+    claims: [price, volume]
+  - title: "Mingle Mocktails Sparkling Raspberry Rose — Instacart"
+    url: https://www.instacart.com/products/51867151-mingle-sparkling-raspberry-rose-mocktail-non-alocholic-abv-0-00-12-0-fl-oz
+    claims: [abv, price, volume, availability]
+status: published
+---
+
+Mingle is a women-founded US mocktail brand that does the one thing most of this shelf doesn't: it sells canned, sparkling, real-juice drinks at soft-drink prices rather than wine prices. The Sparkling Raspberry Rosé is the flagship flavor, and at 0.00% ABV it's never been alcoholic — this is a formulated mocktail in the cocktail category, not a dealcoholized wine. The ingredient list is short: sparkling water, cane sugar, raspberry juice, lemon.
+
+At $3.75 a can by the case (and $2.95 single at some retailers), it undercuts basically everything else in the NA cocktail aisle — including the canned spritzes that position themselves as alternatives to Aperol. In the glass it's a light raspberry spritz: crisp, gently sweet, with real fruit and a clean sparkling finish. It won't convince anyone it's a negroni, and it isn't trying to. It's the drink for the third hour of the party, when the first two were something better and this one is just supposed to be good company.
