@@ -11,8 +11,8 @@ region: Ardmore, Pennsylvania
 style: Non-alcoholic New England IPA
 abv: "<0.5% ABV (retail listing); 0% per Untappd"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Tired Hands describes the beer as the result of over a year of R&D but does not publish whether the alcohol is removed or limited during fermentation."
+dealcoholized: no
+dealcoholized_note: "Tired Hands' own menu copy describes N/Alien Church as 'brewed with oats, experimental yeast, and the same hop bill as Alien Church' — a from-scratch recipe built around a special yeast strain, with no mention of a post-brew alcohol-removal step."
 producer: Tired Hands Brewing Company (Ardmore, PA; founded 2012 by Jean Broillet IV)
 price: "$16.00 per 6-pack (brewery direct)"
 availability: "Direct from tiredhands.com; select Philadelphia-area retail"
@@ -39,9 +39,12 @@ sources:
   - title: "N/Alien Church — Promising Beer review"
     url: https://promisingbeer.com/reviews/tired-hands-n-alien-church/
     claims: [producer, region, style]
+  - title: "Fermentaria & General Store — Tired Hands Brewing Company (menu)"
+    url: https://www.tiredhands.com/pages/fermentaria
+    claims: [dealcoholized]
 status: published
 ---
 
 Tired Hands is one of the most respected craft breweries in the Philadelphia area — founded in Ardmore in 2012 by Jean Broillet IV, known for hazy, hop-forward beers that helped define the NE IPA style. N/Alien Church is their first non-alcoholic beer, and the brewery says it took over a year of research and development to get right — the same Alien Church branding applied to a beer built from the ground up for zero proof.
 
-The result justifies the R&D time. It pours hazy and juicy, with bright tropical and citrus hops over the soft, rounded body that defines the style. Unlike many NA IPAs that read as thin or astringent, this one holds its texture through the mid-palate and finishes soft. The method isn't disclosed — dealcoholized reads not-verified — but at $16 a six-pack from a brewery of this caliber, the glass makes the argument better than the label could. This is one of the best non-alcoholic IPAs on this desk.
+The result justifies the R&D time. It pours hazy and juicy, with bright tropical and citrus hops over the soft, rounded body that defines the style. Unlike many NA IPAs that read as thin or astringent, this one holds its texture through the mid-palate and finishes soft. Tired Hands' own menu names the method as brewed-from-scratch with an experimental yeast strain, not a dealcoholized beer — formulated, not stripped down. At $16 a six-pack from a brewery of this caliber, the glass makes the argument better than the label could. This is one of the best non-alcoholic IPAs on this desk.

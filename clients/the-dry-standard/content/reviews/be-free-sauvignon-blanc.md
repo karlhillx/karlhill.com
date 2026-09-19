@@ -9,7 +9,7 @@ subcategory: sauvignon blanc
 country: Germany
 style: De-alcoholised Sauvignon Blanc
 dealcoholized: not-verified
-dealcoholized_note: "Total Wine says the wine is dealcoholized by a special method. The method is not named."
+dealcoholized_note: "Total Wine's product highlights state the wine 'gets dealcoholized using a special method, conserving all the beautiful aromas and flavors'; the specific named technology is not published."
 producer: Be Free
 volume: 750 ml
 price: "$9.99 (Total Wine)"
@@ -34,6 +34,6 @@ sources:
 status: published
 ---
 
-Total Wine's product page is the citation: Germany, 750 ml, $9.99, "dealcoholized using a special method." That sentence is not enough for a Yes. Same rule as the Be Free Rosé. The ABV is omitted here because the page does not print one.
+Total Wine's product page is the citation: Germany, 750 ml, $9.99, "dealcoholized using a special method." That sentence describes a real Sauvignon Blanc with the alcohol taken back out, but without naming the technique the field reads not-verified — same reasoning as the Be Free Rosé. The ABV is omitted here because the page does not print one.
 
 What you get is a light citrus white at the price of the rest of the line. It will not trouble the Giesen 0% Sauvignon Blanc already in this cellar. It will fill the weeknight slot the rosé already occupies.

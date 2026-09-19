@@ -7,11 +7,11 @@ product: "0,0 Sparkling Rosé"
 category: wine
 subcategory: sparkling rosé
 country: Spain
-style: Alcohol-removed sparkling rosé (method not verified)
+style: Alcohol-removed sparkling rosé
 abv: "<0.05% ABV (producer)"
 abv_numeric: 0.05
-dealcoholized: not-verified
-dealcoholized_note: "Freixenet sells this as alcohol-removed / sin alcohol but does not name the removal method on consumer pages."
+dealcoholized: yes
+dealcoholization_method: "Low-temperature vacuum evaporation, applied after making the wine to full strength"
 base_beverage: "Blend of classic Spanish grapes, Airén dominant"
 producer: Freixenet
 sugar: "38 g/L residual sugar from 2022 (producer)"
@@ -21,8 +21,8 @@ image_credit: Editorial still
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 78
-verdict: "The pink twin of the 0,0 Sparkling White already here. Same unpublished method, same 38 g/L sugar, more berry. Competent supermarket fizz."
-summary: "Freixenet's alcohol-removed sparkling rosé is Airén-led, under 0.05% ABV, and 38 g/L residual sugar. The removal method is still unpublished."
+verdict: "The pink twin of the 0,0 Sparkling White already here. Same vacuum-evaporation method, same 38 g/L sugar, more berry. Competent supermarket fizz, and genuinely dealcoholized."
+summary: "Freixenet's dealcoholized sparkling rosé is Airén-led, under 0.05% ABV, vacuum-evaporated at low temperature, and 38 g/L residual sugar."
 nose: "Red berry and a little citrus. Fruit-forward, not yeasty."
 palate: "Soft bead, noticeable sweetness, easy red fruit. The sugar does more work than the acidity."
 finish: "Short and candy-adjacent if it warms. Keep it iced."
@@ -35,9 +35,12 @@ sources:
   - title: "Espumoso Sin Alcohol Rosé — Freixenet Spain"
     url: https://freixenet.com/es/en/product/espumoso-sin-alcohol-rose/
     claims: [abv, country, sugar, base_beverage]
+  - title: "NEW: Freixenet Cordon Negro 0,0% brut and rosé — Henkell Freixenet newsroom"
+    url: https://www.henkell-freixenet.com/en/news/newsroom/detail/new-freixenet-cordon-negro-00-brut-and-rose-freixenet-strengthens-its-alcohol-free-portfolio.html
+    claims: [dealcoholized, method, sugar]
 status: published
 ---
 
-This is not the 0,0 Sparkling White already reviewed. It is the rosé SKU, bought at Metro, listed by Freixenet as alcohol-removed. The US and Spanish pages give ABV under 0.05%, Airén-dominant fruit, and 38 g/L residual sugar from 2022. They do not name vacuum distillation, reverse osmosis, or a cone. The badge stays not-verified, same house rule as the white.
+This is not the 0,0 Sparkling White already reviewed. It is the rosé SKU, bought at Metro, listed by Freixenet as alcohol-removed. Henkell Freixenet's launch press release covers both the white and rosé together: made to full strength, then de-alcoholised at low temperature with vacuum evaporation. Same method as the white, same house style.
 
 The glass is sweeter pink fizz: berry, soft bead, a short finish. Useful. Not a method lesson.

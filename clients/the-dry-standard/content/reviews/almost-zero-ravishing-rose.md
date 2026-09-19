@@ -6,10 +6,12 @@ brand: Almost Zero
 product: Ravishing Rosé
 category: wine
 subcategory: rosé
-style: Non-alcoholic rosé
-dealcoholized: not-verified
-dealcoholized_note: "Sold as non-alcoholic rosé at Total Wine. No producer technical page was found."
-availability: "Total Wine & More"
+country: South Africa
+producer: Van Loveren Family Vineyards
+style: Dealcoholised rosé
+dealcoholized: yes
+dealcoholization_method: "Spinning cone column, applied after full vinification"
+availability: "Total Wine & More; produced by Van Loveren, South Africa"
 image: media/reviews/almost-zero-ravishing-rose.jpg
 image_alt: "Almost Zero Ravishing Rosé"
 image_credit: Editorial still
@@ -24,12 +26,18 @@ finish: "Short and candy-pink."
 best_for: "The bottle you already keep buying. This review will not talk you out of it, or into it."
 serve: "Very cold."
 sources:
-  - title: "The Dry Standard master product table — Almost Zero Ravishing Rose"
-    url: https://www.totalwine.com/
-    claims: [availability]
+  - title: "Almost Zero Ravishing Rosé — Almost Zero (South Africa)"
+    url: https://almostzero.co.za/range/ravishing-rose/
+    claims: [dealcoholized, method, producer, country]
+  - title: "Almost Zero Non-Alcoholic Ravishing Rose Wine — Zero Drinks (retailer)"
+    url: https://zerodrinks.co.za/products/almost-zero-ravishing-rose-non-alcoholic-wine
+    claims: [dealcoholized]
+  - title: "Non-Alcoholic Wine at Total Wine: What's Available — YOURS Non-Alcoholic Wine"
+    url: https://sipyours.com/blogs/news/can-you-buy-non-alcoholic-wine-at-total-wine
+    claims: [availability, country, producer]
 status: published
 ---
 
-This SKU is on the purchase ledger five times. That is the fact we have. Total Wine is the retailer. No producer URL, ABV, or method survived a source check, so those fields are empty and the badge is not-verified.
+This SKU is on the purchase ledger five times. That is the fact we now have documented: Almost Zero is a South African brand from Van Loveren Family Vineyards, sold in the US through Total Wine. The producer's own page confirms the method — "de-alcoholised with the latest spinning cone technology" after full vinification — which upgrades this from not-verified to a genuine dealcoholized wine.
 
-The glass is a soft, sweet rosé. If you already like it, the cellar is not going to pretend a technical sheet exists.
+The glass is a soft, sweet rosé: rose petal and strawberry over a smooth, gentle palate. Knowing it started as real wine and had the alcohol spun off afterward makes the case for it more than the label alone did.

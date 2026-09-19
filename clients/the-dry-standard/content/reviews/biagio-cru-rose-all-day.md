@@ -6,9 +6,12 @@ brand: Biagio Cru
 product: Non-Alcoholic Rosé All Day
 category: wine
 subcategory: rosé
-style: Non-alcoholic rosé
+country: France
+region: Languedoc
+style: Dealcoholized Côtes du Roussillon rosé (Grenache)
+base_beverage: "Grenache rosé, Côtes du Roussillon"
 dealcoholized: not-verified
-dealcoholized_note: "Sold as non-alcoholic rosé at Total Wine. No producer method page was found."
+dealcoholized_note: "Total Wine's product highlights describe 'early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal—preserving the wine's natural balance, flavor, and elegance'; the specific named removal technology is not published."
 availability: "Total Wine & More"
 image: media/reviews/biagio-cru-rose-all-day.jpg
 image_alt: "Biagio Cru Non-Alcoholic Rosé All Day"
@@ -24,10 +27,10 @@ finish: "Short."
 best_for: "The name, if that is why you picked it up."
 serve: "Very cold."
 sources:
-  - title: "Total Wine & More"
-    url: https://www.totalwine.com/
-    claims: [availability]
+  - title: "Biagio Cru Non-Alcoholic Rose All Day — Total Wine & More"
+    url: https://www.totalwine.com/wine/rose-blush-wine/grenache/biagio-cru-nonalcoholic-rose-all-day/p/2126275660
+    claims: [availability, country, region, dealcoholized, base_beverage]
 status: published
 ---
 
-Two purchases, no technical sheet. The badge is not-verified. The glass is a sweet supermarket rosé. This cellar will not invent a Mosel or a cone for a pun.
+Two purchases, and this time a real technical description: Total Wine's listing places it in Languedoc's Côtes du Roussillon, made from Grenache with "early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal." That's a real dealcoholization claim, but without a named process the field reads not-verified. The glass is a sweet, easy rosé — better pedigree than the pun on the label suggests.

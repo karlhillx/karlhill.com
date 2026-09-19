@@ -7,12 +7,14 @@ product: Spring in a Bottle Alcohol Removed Rosé Sparkling
 category: wine
 subcategory: sparkling rosé
 country: Germany
+region: Rheinhessen
 style: Alcohol-removed sparkling rosé
 abv: "0.0% ABV (Total Wine product copy)"
 abv_numeric: 0.0
 dealcoholized: not-verified
-dealcoholized_note: "Branded alcohol-removed. Total Wine does not name the removal method."
-producer: Wolffer Estate
+dealcoholized_note: "Made from a real fermented wine base — a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — produced in partnership with a winery in Rheinhessen, Germany, then dealcoholized; the specific named removal technology is not published."
+base_beverage: "Organic Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder blend"
+producer: "Wölffer Estate (Sagaponack, NY); produced in partnership with a winery in Rheinhessen, Germany"
 price: "$20.99 (Total Wine)"
 volume: 750 ml
 availability: "Total Wine & More"
@@ -31,14 +33,20 @@ best_for: "The nicer toast on this list."
 serve: "Well chilled."
 discrepancies:
   - field: origin
-    note: "Total Wine's highlight copy says Germany; the brand is Wölffer Estate of New York. We treat the wine as German-made under a New York estate label and do not collapse the two."
+    note: "Total Wine's highlight copy says Germany; the brand is Wölffer Estate of New York. Resolved: Wölffer Estate is the Sagaponack, NY brand, which partnered with a winery in Rheinhessen, Germany to produce this wine — both are accurate, describing brand versus production origin."
 sources:
   - title: "Wölffer Spring in a Bottle Alcohol Removed Rosé Sparkling — Total Wine"
     url: https://www.totalwine.com/wine/champagne-sparkling-wine/sparkling-wine/wolffer-spring-in-a-bottle-alcohol-removed-rose-sparkling/p/340565750
     claims: [abv, origin, country, price, volume, availability, producer]
+  - title: "Wölffer Estate's Spring in a Bottle Non-Alcoholic Rosé — The Zero Proof"
+    url: https://thezeroproof.com/products/wolffer-spring-in-a-bottle
+    claims: [base_beverage, region, producer]
+  - title: "No & Low-Alc — Wölffer Estate Vineyard"
+    url: https://wolffer.com/pages/no-low-alc
+    claims: [dealcoholized, producer]
 status: published
 ---
 
-Wölffer is a Sagaponack estate. Total Wine's page for this bottle says Germany in the tasting copy, New York in the brand field, 0.0% ABV, organically grown, alcohol-removed, $20.99. That contradiction is recorded. The method is not named, so the badge is not-verified.
+Wölffer is a Sagaponack, NY estate that partnered with a winery in Rheinhessen, Germany to make this wine — Total Wine's "Germany" tasting copy and "Wölffer Estate" brand field are both accurate, just describing production versus brand origin. The wine itself is a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — a real fermented base, dealcoholized afterward, at 0.0% ABV, organically grown. The specific removal technology isn't named publicly, so the field reads not-verified, same as most of the category.
 
 The glass is the best cheap-adjacent sparkling rosé on this list: berry, peach, acidity. Pay the extra ten dollars over Rondel if you want mouthfeel.

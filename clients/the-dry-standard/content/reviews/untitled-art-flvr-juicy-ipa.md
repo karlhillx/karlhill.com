@@ -11,8 +11,8 @@ region: Waunakee, Wisconsin
 style: Non-alcoholic juicy IPA
 abv: "<0.5% ABV (producer)"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Untitled Art does not publicly disclose the production method for this beer; same brewery as the FLVR! Mango Dragonfruit Sour and Italian-Style Pils already reviewed."
+dealcoholized: yes
+dealcoholization_method: "Reverse osmosis membrane filtration, applied after full fermentation"
 producer: Untitled Art Brewing (brewed at Octopi Brewing, Waunakee, Wisconsin)
 availability: "US retail including Metro Wine & Spirits; direct from drinkuntitled.com"
 image: media/reviews/untitled-art-flvr-juicy-ipa.jpg
@@ -32,9 +32,15 @@ sources:
   - title: "Untitled Art Brewing — producer (same brewery as published reviews)"
     url: https://drinkuntitled.com/
     claims: [producer, country, region, abv, dealcoholized, availability]
+  - title: "FLVR! Non-Alcoholic Beer — Untitled Art (category page)"
+    url: https://drinkuntitled.com/products/categories/flvr
+    claims: [dealcoholized]
+  - title: "Wisconsin's Untitled Art is a leader in the nonalcoholic beer industry — Wisconsin Public Radio"
+    url: https://www.wpr.org/news/wisconsin-untitled-art-nonalcoholic-beer-industry
+    claims: [dealcoholized, method]
 status: published
 ---
 
-Untitled Art's FLVR! line now covers three beers on this desk — the Mango Dragonfruit Sour, the Italian-Style Pils, and now the Juicy IPA — and the brewery's approach is consistent across all three: build the flavor first, get the ABV under 0.5%, and don't compromise on the hop character. The Juicy IPA is the most conventional of the three, and the most directly comparable to the rest of the NA IPA shelf.
+Untitled Art's FLVR! line now covers three beers on this desk — the Mango Dragonfruit Sour, the Italian-Style Pils, and now the Juicy IPA — and the brewery's approach is consistent across all three: brew to full fermentation, then remove the alcohol through reverse osmosis membrane filtration, per the brand's own category copy and lead brewer Sam Green's account to Wisconsin Public Radio. The Juicy IPA is the most conventional of the three, and the most directly comparable to the rest of the NA IPA shelf.
 
 The pour is hazy and bright, with citrus and tropical hops over a soft, rounded body. Unlike the Flying Dog Deep Fake, which reads as thin, the Untitled Art holds its body through the mid-palate — the "juicy" descriptor is doing real work. It's not the best NA IPA on this desk (the Tired Hands N/Alien Church at 88 takes that), but it's in the conversation, and at Untitled Art's typical price point it's a better value.

@@ -10,7 +10,7 @@ country: USA
 region: "Sonoma County and Lodi"
 style: Non-alcoholic California wine
 dealcoholized: not-verified
-dealcoholized_note: "Sold as Freestyle NA. The current shop page does not name a removal method."
+dealcoholized_note: "Producer's own product detail page confirms the wine is 'skin fermented with native yeasts' and blended 'in perfect balance once the alcohol is removed'; the specific named removal technology is not published."
 producer: Band of Vintners
 price: "$20"
 volume: 750 ml
@@ -32,9 +32,12 @@ sources:
   - title: "Shop our Wines — Band of Vintners"
     url: https://www.bandofvintners.com/wines/
     claims: [origin, region, country, price, volume, producer, availability]
+  - title: "2024 Band of Vintners Freestyle NA California — product detail"
+    url: https://www.bandofvintners.com/product/detail/BOV-NA-24/
+    claims: [dealcoholized, base_beverage]
 status: published
 ---
 
-Band of Vintners is a Napa tasting-group brand. The shop lists 2024 Freestyle NA California at $20, late-harvest organic fruit from Sonoma and Lodi. That is all the current page will support. No ABV, no vacuum, no cone. The badge is not-verified.
+Band of Vintners is a Napa tasting-group brand. The shop lists 2024 Freestyle NA California at $20, late-harvest organic fruit from Sonoma and Lodi, skin fermented with native yeasts and blended "in perfect balance once the alcohol is removed" — the producer's own words describe a real wine with the alcohol taken out, but the specific technology (vacuum, cone, membrane) isn't named, so the field reads not-verified.
 
 The glass still has more texture than the supermarket NA whites on this list. Treat the skin-contact story as a rumor until the tech sheet is public. Treat the bottle as a $20 California NA that does not taste like juice.

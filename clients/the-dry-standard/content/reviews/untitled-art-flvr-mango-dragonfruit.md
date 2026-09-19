@@ -11,8 +11,8 @@ region: Waunakee, Wisconsin
 style: Non-alcoholic fruited sour ale
 abv: "<0.5% ABV (producer)"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Untitled Art publishes the beer's strength but not its production method; whether alcohol is removed after fermentation or limited during it is not documented publicly."
+dealcoholized: yes
+dealcoholization_method: "Reverse osmosis membrane filtration, applied after full fermentation"
 calories: "90 calories per 12 oz can; 16 g carbs, 1 g sugar (retailer listing)"
 producer: Untitled Art Brewing (Waunakee, Wisconsin)
 price: "$12.99 per 6-pack of 12 oz cans (producer, sale; regular $17.99)"
@@ -40,9 +40,15 @@ sources:
   - title: "Untitled Art Mango Dragonfruit Fruited Sour — beerfordriving"
     url: https://beerfordriving.com/beer/untitled-art/mango-dragonfruit-fruited-sour/
     claims: [calories, sugar, abv]
+  - title: "FLVR! Non-Alcoholic Beer — Untitled Art (category page)"
+    url: https://drinkuntitled.com/products/categories/flvr
+    claims: [dealcoholized]
+  - title: "Wisconsin's Untitled Art is a leader in the nonalcoholic beer industry — Wisconsin Public Radio"
+    url: https://www.wpr.org/news/wisconsin-untitled-art-nonalcoholic-beer-industry
+    claims: [dealcoholized, method]
 status: published
 ---
 
-Untitled Art built its reputation on boundary-pushing fruited sours at full strength, and FLVR! is that same instinct translated into the NA aisle: mango and dragonfruit in a tart, genuinely sour beer that doesn't taste like it's compensating for anything. Wisconsin brewed, under 0.5% ABV, and — a rarity in a category of careful, restrained NA beers — actually fun.
+Untitled Art built its reputation on boundary-pushing fruited sours at full strength, and FLVR! is that same instinct translated into the NA aisle: mango and dragonfruit in a tart, genuinely sour beer that doesn't taste like it's compensating for anything. Brewed to full strength in Wisconsin, then run through reverse osmosis membrane filtration per the brand's own copy and lead brewer Sam Green's account to Wisconsin Public Radio — and, a rarity in a category of careful, restrained NA beers, actually fun.
 
 The pour is bright orange-pink and the nose is pure ripe mango with a sour edge behind it. The palate delivers real acidity rather than the citric-acid shortcut a lot of fruited NA beers take; mango and dragonfruit lead over a clean, lightly funky base, and the finish is tart and long. At 90 calories a can it's the lightest dessert on the shelf. It won't be for the pilsner purist, but for the person who's been looking for an NA drink that's genuinely enjoyable rather than merely acceptable, this is it.

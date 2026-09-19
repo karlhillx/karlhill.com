@@ -12,8 +12,8 @@ region: Rheinhessen
 style: Dealcoholised Rheinhessen Chardonnay
 abv: "≤0.5% (0.5° retail listing, FR)"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Sold as dealcoholised by its retailers; the winery does not document the removal method."
+dealcoholized: yes
+dealcoholization_method: "Cold vacuum distillation, with aromas extracted before removal and reintegrated afterward"
 producer: Weinkellerei Hechtsheim
 volume: "750 ml"
 price: "€8.40 (gueuledejoie.com, FR)"
@@ -37,7 +37,7 @@ sources:
     claims: [producer, dealcoholized]
   - title: "Appalina — Dealcoholised Chardonnay, 75cl — gueuledejoie (FR)"
     url: https://www.gueuledejoie.com/en/products/appalina-dealcoholised-chardonnay
-    claims: [abv, volume, price]
+    claims: [abv, volume, price, dealcoholized, method]
   - title: "Appalina Chardonnay, Alcohol Free — WineStyle (UK)"
     url: https://winestyle.co.uk/products/Appalina-Chardonnay-Alcohol-Free-2022.html
     claims: [country, region]
@@ -46,4 +46,4 @@ status: published
 
 Appalina is the rare non-alcoholic label with a winery you can actually visit: the alcohol-free line of Weinkellerei Hechtsheim, a Rheinhessen producer whose German-language page pitches the range as proof "that full wine flavor doesn't require alcohol." That pedigree matters more than it sounds — most bottles at this price are broker brands with no address — and it shows in the wine's discipline: lemon, pear and green apple over a clean, slightly mineral palate, at 0.5% and 750 ml for about €8 in French retail.
 
-The dealcoholised claim still lacks a named method — the winery says dealcoholised, the retailers say dealcoholised, nobody says how — so the field reads not-verified. But the glass doesn't need the engineering footnote: this tastes made rather than assembled, dry-leaning and fresh where the budget tier trends sweet. As an aperitif pour it's the best value in this batch, and the one we'd hand someone who claims non-alcoholic wine all tastes the same.
+The dealcoholised claim now has a named method: French retailer gueuledejoie's technical sheet specifies cold vacuum distillation, no heat, with the aromas extracted before removal and reintegrated into the dealcoholised base afterward — a real, citable production step, not a marketing gesture. This tastes made rather than assembled, dry-leaning and fresh where the budget tier trends sweet. As an aperitif pour it's the best value in this batch, and the one we'd hand someone who claims non-alcoholic wine all tastes the same.

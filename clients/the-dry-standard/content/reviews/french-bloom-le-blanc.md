@@ -10,8 +10,8 @@ country: France
 style: Alcohol-removed organic French sparkling white (classic method)
 abv: "0.0% ABV (producer)"
 abv_numeric: 0
-dealcoholized: not-verified
-dealcoholized_note: "The producer (frenchbloom.com) describes a controlled alcohol-removal step blended with grape juice, but does not name the specific technique — consistent with the dealcoholized field reading not-verified."
+dealcoholized: yes
+dealcoholization_method: "Three-stage vacuum dealcoholization at low temperature, with aroma recovery and reintegration (producer's own site)"
 base_beverage: "Organic French Chardonnay (classic method sparkling base), with organic grape juice and natural lemon flavor blended in after alcohol removal."
 producer: French Bloom (France)
 availability: "EU via frenchbloom.com; US via The Zero Proof (thezeroproof.com) and select retailers"
@@ -31,7 +31,7 @@ serve: "Flute, slightly cooler than service temperature for Champagne; a careful
 sources:
   - title: "Le Blanc, Alcohol-Free Sparkling Wine — French Bloom"
     url: https://www.frenchbloom.com/en/products/white-effervescent-wine-without-alcohol
-    claims: [abv, dealcoholized, base_beverage, producer, country, volume]
+    claims: [abv, dealcoholized, method, base_beverage, producer, country, volume]
   - title: "French Bloom's Le Blanc (375 mL) — The Zero Proof"
     url: https://thezeroproof.com/products/french-bloom-le-blanc-non-alcoholic-sparkling-white-wine-375ml
     claims: [dealcoholized, base_beverage, volume, availability]
@@ -41,6 +41,6 @@ sources:
 status: published
 ---
 
-French Bloom positions Le Blanc as the dealcoholized Champagne alternative: organic, 0.0% ABV, made from Chardonnay grapes grown in France and pulled through a controlled alcohol-removal step before being blended with organic grape juice and natural lemon flavor to round out a wine that would otherwise be too thin. The grape-juice blend is the move that makes this bottle work; a straight dealcoholized Chardonnay can taste sour and thin, but the grape juice adds the round mid-palate and the natural lemon keeps the citrusy lift true to the Chablis-style profile.
+French Bloom positions Le Blanc as the dealcoholized Champagne alternative: organic, 0.0% ABV, made from Chardonnay grapes grown in France and dealcoholized via a three-stage vacuum process at low temperature, with aromas extracted before removal and reintegrated afterward — then blended with organic grape juice and natural lemon flavor to round out a wine that would otherwise be too thin. The grape-juice blend is the move that makes this bottle work; a straight dealcoholized Chardonnay can taste sour and thin, but the grape juice adds the round mid-palate and the natural lemon keeps the citrusy lift true to the Chablis-style profile.
 
-There is more body here than most of the NA sparkling shelf will give you, and more length — the mineral close in particular. As an event pour (the bottle you'd bring to a dinner that asks you to stay sober for a night), Le Blanc stands above the Mionetto and the cheaper Lot 230, and at €29 on the EU site its positioning is premium but accessible. The catch: organic, French, dealcoholized, blended with grape juice — the claim stack is a lot, and only one of those (the dealcoholization itself) has any unstated wrinkle. So the dealcoholization field reads `yes` rather than `not-verified`, even though the producer has chosen not to publish the named technique.
+There is more body here than most of the NA sparkling shelf will give you, and more length — the mineral close in particular. As an event pour (the bottle you'd bring to a dinner that asks you to stay sober for a night), Le Blanc stands above the Mionetto and the cheaper Lot 230, and at €29 on the EU site its positioning is premium but accessible. Organic, French, genuinely dealcoholized, then blended with grape juice — the claim stack holds up, and the producer's own site now confirms both the dealcoholization and the general process family.

@@ -11,8 +11,8 @@ region: Bend, Oregon
 style: Non-alcoholic IPA
 abv: "<0.5% ABV (producer)"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Deschutes has installed patented and proprietary non-alcoholic brewing technology but does not name the specific process for this beer."
+dealcoholized: yes
+dealcoholization_method: "Reverse osmosis (BrewVo process via Sustainable Beverage Technologies), followed by secondary cold fermentation and dry-hopping"
 calories: "83 calories per 12 oz can; 50 IBU (producer)"
 producer: Deschutes Brewery (Bend, Oregon)
 availability: "US retail nationwide; direct from deschutesbrewery.com"
@@ -39,9 +39,12 @@ sources:
   - title: "Deschutes Brewery Introduces Fresh Squeezed Non-Alcoholic IPA — GlobeNewswire"
     url: https://www.globenewswire.com/news-release/2024/03/19/2848644/0/en/Deschutes-Brewery-Introduces-Fresh-Squeezed-Non-Alcoholic-IPA-to-the-Market-Alongside-Black-Butte-Non-Alcoholic-and-Installs-Groundbreaking-Patented-and-Proprietary-Non-Alcoholic-B.html
     claims: [dealcoholized, producer]
+  - title: "Deschutes to Move Non-Alcoholic Beer Production In-House — Brewbound"
+    url: https://www.brewbound.com/news/deschutes-to-move-non-alcoholic-beer-production-in-house-eyes-adding-na-fresh-squeezed-ipa-to-portfolio/
+    claims: [dealcoholized, method, producer]
 status: published
 ---
 
-Deschutes is one of the largest craft breweries in the US, and their decision to translate Fresh Squeezed — one of the most recognizable IPAs in the country — into the non-alcoholic register is a signal moment for the category. They didn't just license the name; they installed patented, proprietary NA brewing technology in their Bend facility specifically to make this work, and the beer launched nationwide in March 2024.
+Deschutes is one of the largest craft breweries in the US, and their decision to translate Fresh Squeezed — one of the most recognizable IPAs in the country — into the non-alcoholic register is a signal moment for the category. They didn't just license the name; they installed patented, proprietary NA brewing technology (BrewVo, via Sustainable Beverage Technologies) in their Bend facility specifically to make this work, and the beer launched nationwide in March 2024. CEO Peter Skrbek told Brewbound directly how the hop character survives "dealcoholization as you go through reverse osmosis and then maybe dry hopping or adding hops after that first dealcoholization step."
 
-The result is one of the best NA IPAs available. The bright tangerine and grapefruit character of Fresh Squeezed carries through at <0.5% ABV, the 50 IBU bitterness is properly present (most NA IPAs round down), and at 83 calories it's lighter than many. The method is proprietary rather than published, so dealcoholized reads not-verified. But the glass makes the case: this tastes like Fresh Squeezed, not like a compromise, and it's the benchmark for what a major craft brewery can do when it takes NA seriously.
+The result is one of the best NA IPAs available. The bright tangerine and grapefruit character of Fresh Squeezed carries through at <0.5% ABV, the 50 IBU bitterness is properly present (most NA IPAs round down), and at 83 calories it's lighter than many. The reverse-osmosis method is now on record from the CEO himself, and the glass backs it up: this tastes like Fresh Squeezed, not like a compromise, and it's the benchmark for what a major craft brewery can do when it takes NA seriously.

@@ -11,8 +11,8 @@ region: "Atlanta, Georgia"
 style: Non-alcoholic German-style pilsner
 abv: "<0.5% ABV (brewery); 0.3% ABV per BeerMenus listing"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "The brewery publishes no process details for the Brevet line; it is not stated whether alcohol is removed after fermentation or limited during it."
+dealcoholized: no
+dealcoholized_note: "Atlanta Magazine quotes co-owner Shawn Cooper describing the brewery's NA process directly: he uses a mushroom-derived extract called Chiber that 'keeps the yeast static,' halting alcohol production during fermentation rather than removing it afterward. The article names Brevet Pils as one of the brewery's NA beers made this way."
 calories: "~45 calories per can (BeerMenus listing)"
 producer: "Halfway Crooks Beer, 60 Georgia Ave SE, Atlanta"
 price: "$3.75 per single can (Better Times Market)"
@@ -43,9 +43,12 @@ sources:
   - title: "Halfway Crooks Beer — NA Bar Finder"
     url: https://nabarfinder.com/venue/halfway-crooks-atlanta/
     claims: [producer, region, country]
+  - title: "High demand, low ABV: Atlanta's nonalcoholic beer craze is testing local brewers — Atlanta Magazine"
+    url: https://www.atlantamagazine.com/drinks/high-demand-low-abv-atlantas-nonalcoholic-beer-craze-is-testing-local-brewers/
+    claims: [dealcoholized, producer]
 status: published
 ---
 
-Halfway Crooks brews at 60 Georgia Ave SE in Atlanta, and the Brevet series — French for the credential a Tour de France rider earns; the brewery's copy leans hard into cycling romance — is their non-alcoholic line. What the brewery doesn't publish is the process: no dealcoholization claim, no fermentation details, just "<0.5% ABV" on the page, so this one gets marked not-verified like the rest of the NA-beer world's less talkative producers. BeerMenus lists it at 0.3% ABV and roughly 45 calories a can, which is really all the number you need.
+Halfway Crooks brews at 60 Georgia Ave SE in Atlanta, and the Brevet series — French for the credential a Tour de France rider earns; the brewery's copy leans hard into cycling romance — is their non-alcoholic line. The product page itself stays quiet, but co-owner Shawn Cooper told Atlanta Magazine directly how it's made: a mushroom-derived extract called Chiber that "keeps the yeast static," halting fermentation before real alcohol forms rather than stripping it out afterward. That's formulated, not dealcoholized. BeerMenus lists it at 0.3% ABV and roughly 45 calories a can, which is really all the number you need.
 
 The beer itself is the best argument for skipping the science lecture. The brewery's own tasting note is fennel, oyster crackers, lemon and moderate tangerine — an odd, precise set of words only a brewery actually brewing to a style would write — and the pour delivers: a crackery, snappy pils with an anise whisper and a clean, short finish. Too many NA pilsners taste like apology; this one tastes like a pilsner that happens to be under 0.5%. At $3.75 a can from NA-focused online shops, it also undercuts most of the category's craft names on price.

@@ -11,8 +11,8 @@ region: Naperville, Illinois
 style: Non-alcoholic German-style pilsner
 abv: "<0.5% ABV (producer)"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Go Brewing publishes the beer's strength but not its production method; whether the alcohol is removed after fermentation or limited during it is not documented on the product page."
+dealcoholized: no
+dealcoholized_note: "Go Brewing's own product FAQ states: 'We use Go Brewing's proprietary brewing process to keep it naturally under 0.5% ABV without dilution or dealcoholization, allowing for full pilsner character' — an explicit statement ruling out dealcoholization."
 producer: "Go Brewing (Naperville, Illinois; Illinois' first non-alcoholic craft brewery, founded 2022)"
 price: "$14.99 per 6-pack of 12 oz cans (retail listing)"
 availability: "US retail including Giant Food, and direct from gobrewing.com"
@@ -44,4 +44,4 @@ status: published
 
 Go Brewing opened in Naperville in 2022 as Illinois' first dedicated non-alcoholic craft brewery, and the Sunbeam Pils is their flagship — the beer that has to prove the whole operation works. It's built the way a German pilsner should be: German malt, German-style noble hops, and a bitterness that's supposed to be there rather than hidden. At under 0.5% ABV in a 12 oz can, it's the lightest credible pilsner on the shelf at this price.
 
-The pour delivers. Bread-crust malt, a grassy hop lift, and a properly bitter, snappy finish — the kind of clean, no-notes beer that makes the case for the whole category better than any marketing can. It doesn't say how it gets to under 0.5%, so the dealcoholized field reads not-verified, but the glass is unambiguous. At $14.99 a six-pack it's priced above the macro NA lagers and worth every cent of the difference for anyone who actually likes pilsner.
+The pour delivers. Bread-crust malt, a grassy hop lift, and a properly bitter, snappy finish — the kind of clean, no-notes beer that makes the case for the whole category better than any marketing can. Go Brewing's own FAQ explicitly rules out dealcoholization: "proprietary brewing process to keep it naturally under 0.5% ABV without dilution or dealcoholization." Formulated from the start, not stripped down — and the glass doesn't taste like a compromise either way. At $14.99 a six-pack it's priced above the macro NA lagers and worth every cent of the difference for anyone who actually likes pilsner.

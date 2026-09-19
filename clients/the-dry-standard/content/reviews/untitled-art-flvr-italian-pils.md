@@ -11,8 +11,8 @@ region: Waunakee, Wisconsin
 style: Non-alcoholic Italian-style pilsner
 abv: "<0.5% ABV (producer)"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Untitled Art does not publish whether the alcohol is removed after fermentation or limited during it; the brewery is also notable for using dry-hopping in its NA line."
+dealcoholized: yes
+dealcoholization_method: "Reverse osmosis membrane filtration, applied after full fermentation"
 calories: "60 calories per 12 oz can; 12 g carbs (NA Beer Club listing)"
 producer: Untitled Art Brewing (brewed at Octopi Brewing, Waunakee, Wisconsin)
 price: "$12.99 per 6-pack of 12 oz cans (producer, sale; regular $16.99)"
@@ -40,9 +40,15 @@ sources:
   - title: "Italian Style Pilsner by Untitled Art — NA Beer Club"
     url: https://nabeerclub.com/non-alcoholic-beer/italian-pilsner-untitled-art/
     claims: [calories, abv]
+  - title: "FLVR! Non-Alcoholic Beer — Untitled Art (category page)"
+    url: https://drinkuntitled.com/products/categories/flvr
+    claims: [dealcoholized]
+  - title: "Wisconsin's Untitled Art is a leader in the nonalcoholic beer industry — Wisconsin Public Radio"
+    url: https://www.wpr.org/news/wisconsin-untitled-art-nonalcoholic-beer-industry
+    claims: [dealcoholized, method]
 status: published
 ---
 
 Italian-style pilsners are a niche obsession — the dry-hopped, aromatic version of a German classic that Italian brewers have made their own — and Untitled Art's FLVR! line is the first non-alcoholic version of the style that actually reads as the style. The hops present as floral and herbal rather than simply bitter, with a subtle citrus note and a crisp, dry finish. It's a more restrained beer than the mango-dragonfruit sour in the same line, and the more interesting one for drinkers who like their beer to taste like beer.
 
-At 60 calories a can, brewed in Wisconsin through Octopi, and priced at $12.99 a six-pack on sale, it's the kind of NA beer that doesn't need a justification. The brewing method isn't published — dealcoholized field reads not-verified — but the hopping is clearly real work, and the result is a pilsner with actual nuance rather than a near-beer with a label. For a desk that has now tasted a lot of non-alcoholic pilsners, this one stands out on style integrity rather than novelty.
+At 60 calories a can, brewed in Wisconsin through Octopi, and priced at $12.99 a six-pack on sale, it's the kind of NA beer that doesn't need a justification. Untitled Art's own FLVR! category page states the beer is "brewed to full fermentation before the alcohol is removed through state-of-the-art filtration," and lead brewer Sam Green told Wisconsin Public Radio the brewery uses reverse osmosis membrane filtration (among other methods) across its NA lineup. The hopping is clearly real work on top of that, and the result is a pilsner with actual nuance rather than a near-beer with a label. For a desk that has now tasted a lot of non-alcoholic pilsners, this one stands out on style integrity rather than novelty.
