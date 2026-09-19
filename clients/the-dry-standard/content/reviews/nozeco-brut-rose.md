@@ -27,6 +27,9 @@ palate: "Fine bubbles over light red-fruit flavours; simple but clean, without t
 finish: "Short and clean."
 best_for: "Large gatherings where buying by the case matters more than nuance."
 serve: "Well chilled."
+image: media/reviews/nozeco-brut-rose.jpg
+image_alt: "Nozeco Brut Rosé bottle"
+image_credit: "Product photo via RoomBox"
 sources:
   - title: "PRODUCT SHEET ROSÉ — Nozeco"
     url: https://www.nozeco.buzz/page3.html

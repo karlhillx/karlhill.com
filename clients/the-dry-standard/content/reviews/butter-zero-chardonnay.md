@@ -27,6 +27,9 @@ palate: "Round and approachable; the fruit carries the mid-palate, the body is l
 finish: "Smooth and gentle."
 best_for: "The Butter Chardonnay drinker who wants the same style at zero proof."
 serve: "Chilled."
+image: media/reviews/butter-zero-chardonnay.jpg
+image_alt: "Butter Zero Chardonnay bottle"
+image_credit: "Product photo via Butter Wines"
 sources:
   - title: "INTRODUCING NEW BUTTERZERO — PRNewswire (March 2026)"
     url: https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html

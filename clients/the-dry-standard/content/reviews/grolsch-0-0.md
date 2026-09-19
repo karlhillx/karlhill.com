@@ -25,10 +25,15 @@ palate: "Full-bodied for an NA pilsner; crisp hop bitterness over a rounded malt
 finish: "Clean and crisp with a pleasant, lasting bitterness."
 best_for: "Anyone who knows Grolsch and wants the zero-proof version to actually taste like Grolsch."
 serve: "Cold, in a pils glass."
+image: media/reviews/grolsch-0-0.jpg
+image_alt: "Grolsch 0.0% non-alcoholic lager"
+image_credit: "Product photo via craftzero.com.au"
+review_date: "2026-09-18"
+updated_date: "2026-09-18"
 sources:
   - title: "Grolsch 0.0% — Grolsch"
     url: https://www.grolsch.com/grolsch-0-0
-    claims: [abv, producer, style, country, ingredients, availability]
+    claims: [abv, producer, style, country, ingredients, availability, image_credit]
   - title: "Grolsch 0.0% — Grolsch (NL) product page"
     url: https://www.grolsch.nl/bieren/grolsch-alcoholvrij/grolsch-0.0.html
     claims: [abv, country, style]

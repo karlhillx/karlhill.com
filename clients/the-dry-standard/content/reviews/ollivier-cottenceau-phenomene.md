@@ -27,10 +27,15 @@ palate: "Lean and precise; crisp orchard fruit over a mineral, saline backbone, 
 finish: "Long and mineral — the saltiness carries well beyond what most dealcoholized whites manage."
 best_for: "Oysters, seafood, goat cheese — anything that wants a crisp Muscadet-style white."
 serve: "Well chilled."
+image: media/reviews/ollivier-cottenceau-phenomene.jpg
+image_alt: "Ollivier Cottenceau Phénomène bottle"
+image_credit: "Product photo via schatziwines.com"
+review_date: "2026-09-18"
+updated_date: "2026-09-18"
 sources:
   - title: "Ollivier Cottenceau Phénomène — Schatzi Wines"
     url: https://schatziwines.com/wine/ollivier-cottenceau-phenomene/
-    claims: [producer, region, base_beverage, dealcoholized]
+    claims: [producer, region, base_beverage, dealcoholized, image_credit]
   - title: "PHÉNOMÈNE — Sans Alcool du Vigneron"
     url: https://www.sans-alcool-du-vigneron.fr/products/phenomene-1
     claims: [base_beverage, country, dealcoholized, producer, dealcoholization_method]

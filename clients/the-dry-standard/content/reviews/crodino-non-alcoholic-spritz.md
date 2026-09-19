@@ -26,6 +26,9 @@ palate: "Bittersweet and a touch syrupy, bright orange-citrus with the gentian b
 finish: "Refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol warmth."
 best_for: "The aperitivo hour, Italian-style; a Campari spritz without the prosecco or the proof."
 serve: "Build over ice with an orange slice; finish with sparkling water for a true Spritz."
+image: media/reviews/crodino-non-alcoholic-spritz.jpg
+image_alt: "Crodino Non-Alcoholic Spritz bottle"
+image_credit: "Product photo via Crodino"
 sources:
   - title: "Crodino — the original non-alcoholic spritz (Crodino)"
     url: https://www.crodino.com/the-original/

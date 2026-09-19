@@ -24,6 +24,9 @@ palate: "Light and fruit-forward; the Malbec character shows as dark berry rathe
 finish: "Clean and brief."
 best_for: "The value-tier NA red drinker, an everyday pour."
 serve: "Slightly chilled."
+image: media/reviews/zolo-zero-malbec-rose.jpg
+image_alt: "Zolo Zero Malbec Rosé bottle"
+image_credit: "Product photo via Zolo"
 sources:
   - title: "Zolo Zero Malbec Rosé — InternetWines.com"
     url: https://internetwines.com/

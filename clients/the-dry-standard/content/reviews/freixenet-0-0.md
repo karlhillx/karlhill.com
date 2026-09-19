@@ -31,6 +31,9 @@ palate: "Fresh and fruity with balanced bubbles; residual sugar (38 g/L) is noti
 finish: "Soft and short. Pleasant, uncomplicated, easy to drink on its own."
 best_for: "Goat cheese salad, poultry, sushi — or any occasion that wants a bubbly pour without ceremony."
 serve: "Chilled, 5–7°C, in a flute."
+image: media/reviews/freixenet-0-0.jpg
+image_alt: "Freixenet 0,0 Sparkling bottle"
+image_credit: "Product photo via Freixenet"
 sources:
   - title: "Freixenet Global — 0,0 Sparkling White product page"
     url: https://freixenet.com/product/alcohol-free-sparkling-white

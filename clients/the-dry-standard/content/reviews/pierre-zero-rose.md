@@ -26,6 +26,9 @@ palate: "Light and fresh; berry fruit over gentle acidity, designed to be poured
 finish: "Clean and short, gently fruity."
 best_for: "Weeknight pours, big tables, the box that lives in the fridge door."
 serve: "Chilled; the bag-in-box format keeps it fresh for weeks after opening."
+image: media/reviews/pierre-zero-rose.jpg
+image_alt: "Pierre Zéro Rosé bottle"
+image_credit: "Product photo via Maison Chavin"
 sources:
   - title: "Pierre Zéro non-alcoholic collection — Maison Chavin"
     url: https://www.pierre-chavin.com/en/the-non-alcoholic-collection/pierre-zero/

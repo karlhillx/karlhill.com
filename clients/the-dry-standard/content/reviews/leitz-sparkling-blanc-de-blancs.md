@@ -27,6 +27,9 @@ palate: "Fine and persistent bubbles over a crisp, green-fruit body; leaner than
 finish: "Clean and precise, the citrus carrying."
 best_for: "The Champagne-shape occasion, zero-proof."
 serve: "Well chilled, in a flute."
+image: media/reviews/leitz-sparkling-blanc-de-blancs.jpg
+image_alt: "Leitz Eins-Zwei-Zero Sparkling Blanc de Blancs bottle"
+image_credit: "Product photo via Manufaktur Jörg Geiger"
 sources:
   - title: "Leitz Eins-Zwei-Zero Riesling (published review — same process)"
     url: https://karlhill.com/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/

@@ -28,6 +28,9 @@ palate: "Dry and aromatic; Chilean fruit over a light frame, the Maule Valley ri
 finish: "Clean and dry."
 best_for: "The dry-rosé drinker who wants Chilean fruit without the alcohol."
 serve: "Well chilled."
+image: media/reviews/de-nada-rose.jpg
+image_alt: "De Nada Non-Alcoholic Rosé bottle"
+image_credit: "Product photo via Palmer Vineyards"
 sources:
   - title: "De Nada Rosé — Palmer Vineyards"
     url: https://www.palmervineyards.com/shop/de-nada-ros

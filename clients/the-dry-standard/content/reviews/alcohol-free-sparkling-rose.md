@@ -21,6 +21,9 @@ palate: "Light and gentle; berry notes over a soft sparkle, sweetness doing more
 finish: "Short and sweet-leaning."
 best_for: "Cooking, punch bowls, and the glass you pour when the goal is to have something bubbly in hand."
 serve: "Well chilled."
+image: media/reviews/alcohol-free-sparkling-rose.jpg
+image_alt: "Alcohol-Free Sparkling Rosé bottle"
+image_credit: "Product photo via Wegmans"
 sources:
   - title: "Wegmans — Alcohol-Free Sparkling Rose (single 750 ml)"
     url: https://www.wegmans.com/

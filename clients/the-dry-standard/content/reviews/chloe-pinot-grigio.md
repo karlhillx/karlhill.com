@@ -24,6 +24,9 @@ palate: "Crisp and easy-drinking; the fruit is simple and pleasant, the body lig
 finish: "Clean and brief."
 best_for: "Everyday white-wine occasions, the bottle that doesn't need to be special."
 serve: "Well chilled."
+image: media/reviews/chloe-pinot-grigio.jpg
+image_alt: "Chloe Pinot Grigio bottle"
+image_credit: "Product photo via Total Wine"
 sources:
   - title: "Chloe Wine Collection — brand reference"
     url: https://www.totalwine.com/

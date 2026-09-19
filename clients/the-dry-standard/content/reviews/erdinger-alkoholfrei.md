@@ -25,6 +25,9 @@ palate: "Round and spicy; the wheat body gives it more substance than most NA la
 finish: "Clean and lightly fruity — the wheat beer finish that reads as authentic."
 best_for: "Post-sports recovery (the isotonic pitch), Bavarian food, and the wheat beer drinker who wants the real thing."
 serve: "Cold, in a wheat beer glass with a proper head."
+image: media/reviews/erdinger-alkoholfrei.jpg
+image_alt: "Erdinger Alkoholfrei bottle"
+image_credit: "Product photo via ERDINGER"
 sources:
   - title: "Non Alcoholic Beer — ERDINGER"
     url: https://erdinger.de/en-INT/beers/non-alcoholic-wheatbeer

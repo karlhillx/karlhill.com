@@ -28,6 +28,9 @@ palate: "Round and fresh at once; berry fruit over gentle structure, dry rather 
 finish: "Clean and rounded, the fruit trailing gently."
 best_for: "Hot afternoons, Mediterranean food, and anyone who wants a rosé with actual shape."
 serve: "Well chilled."
+image: media/reviews/domaine-de-montrose-rose.jpg
+image_alt: "Domaine Montrose Rosé bottle"
+image_credit: "Product photo via Domaine de Montrose"
 sources:
   - title: "Rose Mont Rose, Rosé Zéro — Domaine de Montrose"
     url: https://domaine-montrose.com/shop/fr/rose-mont-rose/61-rose-mont-rose-rose-.html

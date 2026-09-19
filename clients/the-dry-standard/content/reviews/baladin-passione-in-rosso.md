@@ -28,6 +28,9 @@ palate: "Bittersweet and gently spiced; cane sugar provides the body, natural bo
 finish: "Clean and pleasantly bitter."
 best_for: "The Italian aperitivo ritual — over ice with sparkling water, or straight as a pre-dinner pour."
 serve: "Over ice with sparkling water and an orange slice."
+image: media/reviews/baladin-passione-in-rosso.jpg
+image_alt: "Baladin Passione in Rosso bottle"
+image_credit: "Product photo via B. United International"
 sources:
   - title: "Baladin 'Passione in Rosso' — B. United International"
     url: https://www.bunitedint.com/information/brands/description/1002/

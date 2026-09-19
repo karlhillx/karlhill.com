@@ -27,6 +27,9 @@ palate: "Crisp and citrus-forward; tropical fruit over a light body, less weight
 finish: "Clean and short, citrus-led."
 best_for: "Everyday white-wine occasions, seafood, and anyone who wants Sauvignon Blanc character at a low price."
 serve: "Well chilled."
+image: media/reviews/king-maui-sauvignon-blanc.jpg
+image_alt: "King Maui 0% Sauvignon Blanc bottle"
+image_credit: "Product photo via RoomBox"
 sources:
   - title: "King Maui 0% Non-Alcoholic Marlborough Sauvignon Blanc — RoomBox"
     url: https://www.orderroombox.com/product/king-maui-0-non-alcoholic-marlborough-sauvignon-blanc/

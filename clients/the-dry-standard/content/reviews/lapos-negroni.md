@@ -27,6 +27,9 @@ palate: "Bittersweet, with a Campari-style bitter-orange lift balanced by a swee
 finish: "Bitter and a touch warm, the gentian-like lift carrying the close."
 best_for: "A 6 PM pour when Aperol doesn't suit and you want something closer to the bitter Italian side of the Negroni family."
 serve: "Always over a large ice cube; the can benefits from the dilution and from the chilling."
+image: media/reviews/lapos-negroni.jpg
+image_alt: "Lapo's Non-Alcoholic Negroni can"
+image_credit: "Product photo via Lapo's"
 sources:
   - title: "Lapo's Non-Alcoholic Negroni (cans) — The Zero Proof"
     url: https://thezeroproof.com/products/lapos-negroni-cans

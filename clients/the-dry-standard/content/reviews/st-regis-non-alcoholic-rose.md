@@ -31,6 +31,9 @@ palate: "Light pink and smooth; retailer notes describe strawberry and raspberry
 finish: "Soft, per retailer description."
 best_for: "Mild cheeses, crab cakes, or other simple pairings, per the retailer's own suggestion."
 serve: "Chilled, in a white-wine or rosé glass."
+image: media/reviews/st-regis-non-alcoholic-rose.jpg
+image_alt: "St. Regis Non-Alcoholic Rosé bottle"
+image_credit: "Product photo via Total Wine"
 sources:
   - title: "Total Wine & More — St. Regis Non-Alcoholic Rose (SKU 81590750)"
     url: https://www.totalwine.com/wine/rose-blush-wine/syrahshiraz/st-regis-nonalcoholic-rose/p/81590750

@@ -26,6 +26,9 @@ palate: "Crisp and sharp, closer to a shrub than a cider; the vinegar is the str
 finish: "Long and clean, a vinegar-tight close that begs to drink the next one."
 best_for: "Anyone who liked dry cider before; the cocktail-likeness of a shrub, in cans."
 serve: "Best slightly colder than the ice I'd put in a cocktail; pair with rich food, or use as a mixing component."
+image: media/reviews/original-sin-cider.jpg
+image_alt: "Original Sin Cider Widow Family 12-pack"
+image_credit: "Product photo via Original Sin Cider"
 sources:
   - title: "Widow Family 12-Pack — Original Sin Cider"
     url: https://www.originalsincider.com/na-ciders/widow-family-12-pack

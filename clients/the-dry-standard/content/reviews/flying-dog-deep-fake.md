@@ -25,6 +25,9 @@ palate: "Light-bodied with the hop character carrying; the malt is minimal, the 
 finish: "Dry and hoppy, the bitterness lingering briefly."
 best_for: "The Flying Dog fan who wants the brewery's attitude at zero proof."
 serve: "Cold, from the can."
+image: media/reviews/flying-dog-deep-fake.jpg
+image_alt: "Flying Dog Deep Fake Non-Alcoholic IPA can"
+image_credit: "Product photo via Flying Dog Brewery"
 sources:
   - title: "Deep Fake Non-Alcoholic IPA — Flying Dog Brewery"
     url: https://flyingdog.com/beers/deep-fake-non-alcoholic-ipa/

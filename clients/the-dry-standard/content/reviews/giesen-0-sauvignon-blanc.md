@@ -33,6 +33,9 @@ palate: "Lemon shortbread and tart pear up front, with blackcurrant leaf underne
 finish: "Clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate."
 best_for: "Fresh salads, hard cheese, tuna, or anyone who wants a Marlborough Sauvignon Blanc pour without the alcohol."
 serve: "Well chilled, in a standard white-wine glass."
+image: media/reviews/giesen-0-sauvignon-blanc.jpg
+image_alt: "Giesen 0% Sauvignon Blanc bottle"
+image_credit: "Product photo via Giesen Wines"
 sources:
   - title: "Giesen Wines USA — FAQs (alcohol-free wine)"
     url: https://www.giesenwines.com/frequently-asked-questions-alcohol-free-wine

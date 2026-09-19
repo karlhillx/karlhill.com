@@ -27,6 +27,9 @@ palate: "Bittersweet and well-balanced; the orange citrusy lift grounds a rhubar
 finish: "Crisp and lightly bitter, the rhubarb trailing just a beat behind the orange."
 best_for: "Late-afternoon spritzes when you want Aperol vibes without Aperol's proof."
 serve: "Build over ice with a large orange peel; the canned format is ready-to-drink but the build is better."
+image: media/reviews/lyres-amalfi-spritz.jpg
+image_alt: "Lyre's Amalfi Spritz can"
+image_credit: "Product photo via Lyre's"
 sources:
   - title: "Non-Alcoholic Amalfi Spritz — Lyre's"
     url: https://lyres.com/products/amalfi-spritz-case-of-12
