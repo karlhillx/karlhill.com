@@ -862,19 +862,28 @@ a.stat:hover strong {
 }
 
 .facet {
+  display: flex;
+  flex-direction: column;
   margin: 0;
-  padding: 1rem 0 0;
+  padding: 0;
   border: 0;
-  border-top: 1px solid var(--rule);
+  min-inline-size: 0;
 }
 
-.archive-sidebar .facet:first-child {
-  padding-top: 0;
-  border-top: 0;
+.facet + .facet {
+  margin-top: 1.15rem;
+}
+
+.facet + .facet::before {
+  content: "";
+  height: 0;
+  margin: 0 0 1.15rem;
+  border-top: 1px solid var(--rule);
 }
 
 .facet-legend {
   display: block;
+  float: none;
   padding: 0;
   margin: 0 0 0.65rem;
   color: var(--ink);
@@ -1457,6 +1466,12 @@ a.stat:hover strong {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .archive-sidebar-head {
+    margin-bottom: 1.15rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--rule);
   }
 
   .filter-apply {

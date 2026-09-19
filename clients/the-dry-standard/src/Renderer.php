@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 
 final class Renderer
 {
-    private const CSS_VERSION = '13';
+    private const CSS_VERSION = '16';
 
     private const JS_VERSION = '7';
 
