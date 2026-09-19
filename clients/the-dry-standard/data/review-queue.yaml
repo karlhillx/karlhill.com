@@ -3,7 +3,7 @@
   brand: Athletic Brewing
   category: beer
   priority: high
-  status: queued
+  status: published
   notes: Proprietary low-ABV brewing. Confirm whether alcohol is removed from finished beer or limited during fermentation before drafting.
 
 - product: Sober Spirits Whisky
@@ -11,7 +11,7 @@
   brand: Sober Spirits
   category: spirits
   priority: high
-  status: queued
+  status: published
   notes: "Confirm the product exists, the exact SKU, ABV, and whether it is dealcoholized or formulated."
 
 - product: Heineken 0.0
@@ -19,7 +19,7 @@
   brand: Heineken
   category: beer
   priority: normal
-  status: queued
+  status: published
   notes: Widely available. Confirm dealcoholization method from Heineken technical communications.
 
 - product: Be Free Rose Non-Alcoholic Wine
@@ -28,7 +28,7 @@
   brand: Be Free
   category: wine
   priority: high
-  status: queued
+  status: published
   dealcoholized: yes
   method: "Dealcoholized (\"special method\", not detailed)"
   abv: Not verified
@@ -43,7 +43,7 @@
   brand: Magic Box
   category: wine
   priority: high
-  status: queued
+  status: published
   dealcoholized: yes
   method: Dealcoholized (method not publicly detailed)
   abv: "Not verified (industry-typical ≤0.5%)"
@@ -59,7 +59,7 @@
   brand: Appalina
   category: wine
   priority: high
-  status: queued
+  status: published
   dealcoholized: yes
   method: Not verified
   abv: Not verified
@@ -75,7 +75,7 @@
   brand: Be Free
   category: wine
   priority: high
-  status: queued
+  status: published
   dealcoholized: yes
   method: "Dealcoholized (\"special method\", not detailed)"
   abv: Not verified
@@ -98,14 +98,14 @@
   times_purchased: 9
   first_seen: 2026-03-21
   last_seen: 2026-08-22
-  notes: From the master product table. Purchased 9 time(s) between 2026-03-21 and 2026-08-22. Do not publish until ABV and dealcoholization are sourced.
+  notes: From the master product table. Purchased 9 time(s) between 2026-03-21 and 2026-08-22. Do not publish until ABV and dealcoholization are sourced. 2026-09-18 desk — no citable public specs found (no ABV, no producer page, no taste copy anywhere); awaiting editor tasting notes.
 
 - product: Be Free Chardonnay Non-Alcoholic Wine
   id: TDS-0006
   brand: Be Free
   category: wine
   priority: high
-  status: queued
+  status: published
   dealcoholized: yes
   method: "Dealcoholized (\"special method\", not detailed)"
   abv: Not verified
@@ -120,7 +120,7 @@
   brand: Giesen
   category: wine
   priority: high
-  status: queued
+  status: published
   dealcoholized: yes
   method: Spinning cone technology (gentle distillation); full-strength wine made then dealcoholized
   abv: "≤0.5%"

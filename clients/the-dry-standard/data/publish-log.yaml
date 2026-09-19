@@ -22,3 +22,63 @@
   brand: 'St. Regis'
   published_at: '2026-09-18T23:02:54+00:00'
   path: reviews/wine/st-regis-non-alcoholic-rose/
+-
+  slug: athletic-brewing-run-wild-ipa
+  product: 'Run Wild IPA'
+  brand: 'Athletic Brewing'
+  published_at: '2026-09-19T00:23:45+00:00'
+  path: reviews/beer/athletic-brewing-run-wild-ipa/
+-
+  slug: sober-spirits-whisky
+  product: 'W 0.0% Whisky'
+  brand: 'Sober Spirits'
+  published_at: '2026-09-19T00:23:45+00:00'
+  path: reviews/spirits/sober-spirits-whisky/
+-
+  slug: halfway-crooks-brevet-pils
+  product: 'Brevet Pils'
+  brand: 'Halfway Crooks Beer'
+  published_at: '2026-09-19T00:23:45+00:00'
+  path: reviews/beer/halfway-crooks-brevet-pils/
+-
+  slug: be-free-rose
+  product: Rosé
+  brand: 'Be Free'
+  published_at: '2026-09-19T00:23:45+00:00'
+  path: reviews/wine/be-free-rose/
+-
+  slug: be-free-white-sparkling
+  product: 'White Sparkling'
+  brand: 'Be Free'
+  published_at: '2026-09-19T00:23:46+00:00'
+  path: reviews/wine/be-free-white-sparkling/
+-
+  slug: be-free-chardonnay
+  product: Chardonnay
+  brand: 'Be Free'
+  published_at: '2026-09-19T00:23:46+00:00'
+  path: reviews/wine/be-free-chardonnay/
+-
+  slug: appalina-chardonnay
+  product: Chardonnay
+  brand: Appalina
+  published_at: '2026-09-19T00:23:46+00:00'
+  path: reviews/wine/appalina-chardonnay/
+-
+  slug: magic-box-vanish-riesling
+  product: 'Vanish Riesling'
+  brand: 'Magic Box'
+  published_at: '2026-09-19T00:23:46+00:00'
+  path: reviews/wine/magic-box-vanish-riesling/
+-
+  slug: giesen-0-riesling
+  product: '0% Riesling'
+  brand: Giesen
+  published_at: '2026-09-19T00:23:46+00:00'
+  path: reviews/wine/giesen-0-riesling/
+-
+  slug: heineken-0-0
+  product: '0'
+  brand: Heineken
+  published_at: '2026-09-19T00:23:46+00:00'
+  path: reviews/beer/heineken-0-0/

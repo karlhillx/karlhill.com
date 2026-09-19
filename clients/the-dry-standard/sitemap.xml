@@ -11,13 +11,23 @@
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/spirits/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/cocktails/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/cider/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/appalina-chardonnay/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/beer/athletic-brewing-run-wild-ipa/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/be-free-chardonnay/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/be-free-rose/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/be-free-white-sparkling/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/freixenet-0-0/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/giesen-0-riesling/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/giesen-0-sauvignon-blanc/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/beer/guinness-0-0/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/beer/halfway-crooks-brevet-pils/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/beer/heineken-0-0/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/cocktails/lyres-italian-orange/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/magic-box-vanish-riesling/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/noughty-sparkling-chardonnay/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/oddbird-blanc-de-blancs/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/spirits/sober-spirits-whisky/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/spirits/spiritless-kentucky-74/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/reviews/wine/st-regis-non-alcoholic-rose/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/guides/dealcoholized-vs-formulated/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -29,12 +39,19 @@
   <url><loc>https://karlhill.com/clients/the-dry-standard/methods/membrane-filtration/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/methods/reverse-distillation/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/methods/arrested-fermentation/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/brands/appalina/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/brands/athletic-brewing/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/brands/be-free/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/brands/freixenet/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/brands/giesen/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/brands/guinness/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/brands/halfway-crooks-beer/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/brands/heineken/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/brands/leitz/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/brands/lyre-s/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/brands/magic-box/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/brands/oddbird/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://karlhill.com/clients/the-dry-standard/brands/sober-spirits/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/brands/spiritless/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/brands/st-regis/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://karlhill.com/clients/the-dry-standard/brands/thomson-scott/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
