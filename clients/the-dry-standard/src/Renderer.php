@@ -894,7 +894,6 @@ XML;
             'partnershipsUrl' => $this->config->publicUrl('industry/partnerships/'),
             'year' => (string) now()->year,
             'categories' => $categories,
-            'editorName' => $this->config->editorName(),
             'editorEmail' => $this->config->editorEmail(),
             'editorMailto' => $this->config->editorMailto(),
         ]);

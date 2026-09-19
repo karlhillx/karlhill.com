@@ -15,8 +15,8 @@ it('serves the industry doorway and forms', function () {
         ->assertOk()
         ->assertSee('For Brands &amp; Industry', escape: false)
         ->assertSee('industry/submit/', escape: false)
-        ->assertSee('Edited by Karl Hill', escape: false)
         ->assertSee('drinkdrystandard@gmail.com', escape: false)
+        ->assertDontSee('Edited by Karl Hill', escape: false)
         ->assertSee('>Privacy</a>', escape: false);
 
     $this->get('/clients/the-dry-standard/industry/')

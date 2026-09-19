@@ -3,8 +3,8 @@
       <div>
         <p class="logo-text">The Dry Standard</p>
         <p>Independent reviews of dealcoholized beer, wine, spirits, and cocktails at 0.5% ABV or less. We score what remains in the glass — not the lifestyle around it.</p>
-        <?php if (! empty($editorName)) { ?>
-        <p class="footer-editor">Edited by <?= $view->e($editorName) ?><?php if (! empty($editorMailto)) { ?><br><a href="<?= $view->e($editorMailto) ?>"><?= $view->e($editorEmail) ?></a><?php } ?></p>
+        <?php if (! empty($editorMailto)) { ?>
+        <p class="footer-editor"><a href="<?= $view->e($editorMailto) ?>"><?= $view->e($editorEmail) ?></a></p>
         <?php } ?>
       </div>
       <div>
