@@ -22,8 +22,8 @@ image: media/reviews/halfway-crooks-brevet-pils.jpg
 image_alt: "Halfway Crooks Brevet Pils"
 image_credit: Photo via halfwaycrooks.beer
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
-rating: 86
+updated_date: "2026-09-19"
+rating: 88
 verdict: "A pilsner that commits to the style instead of apologizing for the 0.5% — fennel, oyster cracker and lemon, from an Atlanta brewery that writes the most precise tasting copy in the business."
 summary: "Atlanta's Halfway Crooks brews the Brevet line under 0.5% ABV; the pilsner is crisp, quietly weird in the best way, and cheap by NA-can standards."
 nose: "Crackery malt and a soft fennel note over lemon — a German pils with a secret."

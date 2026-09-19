@@ -15,11 +15,14 @@ verified: yes
 production_note: "Atlanta Magazine quotes co-owner Shawn Cooper describing Halfway Crooks' NA process as Chiber, a mushroom extract that keeps yeast static and halts alcohol production rather than removing it afterward. Craft Beer & Brewing describes the Brevet line as lager and IPA iterations of that same NA work."
 producer: Halfway Crooks Beer
 image: media/reviews/halfway-crooks-brevet-ipa.jpg
-image_alt: "Halfway Crooks Brevet IPA"
-image_credit: Editorial still
+image_alt: "Halfway Crooks Brevet IPA 375ml can"
+image_credit: "Product photo via Halfway Crooks Beer"
+image_source: producer
+image_source_url: https://halfwaycrooks.beer/
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
-rating: 83
+updated_date: "2026-09-19"
+rating: 90
 verdict: "The hoppier Brevet. Same Atlanta can, same arrested-fermentation process as the pilsner. Drink it as an IPA that happens to be NA."
 summary: "Halfway Crooks' non-alcoholic Brevet IPA uses the brewery's Chiber arrested-fermentation process: yeast kept static, alcohol never formed. Untappd lists the SKU; the brewery still has not published an ABV for this can."
 nose: "Citrus peel and a crackery malt line — hoppier than the pils, still tidy."
