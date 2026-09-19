@@ -28,7 +28,7 @@
   <?= $jsonLd ?>
 </head>
 <body<?= ! empty($bodyClass) ? ' class="'.$view->e($bodyClass).'"' : '' ?><?= ! empty($bodyAttrs) ? ' '.$bodyAttrs : '' ?><?= ! empty($analyticsEnabled) ? ' data-analytics="1"' : '' ?>>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="<?= $view->e($pageUrl ?? '') ?>#main">Skip to content</a>
   <?= $header ?>
   <main id="main">
     <?= $body ?>

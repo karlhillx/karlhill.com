@@ -11,11 +11,11 @@
               <p class="lede"><?= $view->e($summary) ?></p>
               <?= $identity ?? '' ?>
               <p class="review-jump">
-                <a href="#how-it-was-made">How it was made</a>
-                <a href="#tasting">Tasting</a>
-                <a href="#facts">Facts</a>
+                <a href="<?= $view->e($pageUrl) ?>#how-it-was-made">How it was made</a>
+                <a href="<?= $view->e($pageUrl) ?>#tasting">Tasting</a>
+                <a href="<?= $view->e($pageUrl) ?>#facts">Facts</a>
                 <?php if (! empty($hasServe)) { ?>
-                <a href="#how-to-drink">Serve</a>
+                <a href="<?= $view->e($pageUrl) ?>#how-to-drink">Serve</a>
                 <?php } ?>
               </p>
             </div>

@@ -52,6 +52,7 @@ HTML;
             'stylesheet' => $this->config->publicUrl('styles.css').'?v='.$this->assetVersion('styles.css'),
             'script' => $this->config->publicUrl('script.js').'?v='.$this->assetVersion('script.js'),
             'baseHref' => $this->config->basePath() === '' ? '' : $this->config->basePath().'/',
+            'pageUrl' => $this->config->publicUrl($path),
             'analyticsEnabled' => $this->config->bool('analytics.enabled', true),
             'extraHead' => (string) ($options['head'] ?? ''),
             'jsonLd' => (string) ($options['json_ld'] ?? ''),
@@ -455,7 +456,7 @@ HTML;
         $letterNav = $letters === []
             ? ''
             : '<nav class="letter-nav" aria-label="Brands by letter">'.implode('', array_map(
-                fn (string $letter): string => '<a href="#letter-'.$this->e($letter).'">'.$this->e($letter).'</a>',
+                fn (string $letter): string => '<a href="'.$this->url('brands/').'#letter-'.$this->e($letter).'">'.$this->e($letter).'</a>',
                 $letters,
             )).'</nav>';
 
@@ -650,6 +651,7 @@ HTML;
             'relatedHref' => $relatedHref,
             'relatedLinkLabel' => $relatedLinkLabel,
             'reviewsUrl' => $this->config->publicUrl('reviews/'),
+            'pageUrl' => $this->config->publicUrl($review->path()),
         ]);
 
         return $this->document(
@@ -1004,7 +1006,7 @@ XML;
             ->filter(fn (Review $review): bool => $review->hasComparableStyle() || $review->styleSlug() === 'other')
             ->map(fn (Review $review): array => [
                 'value' => $review->styleSlug(),
-                'label' => $review->styleLabel(),
+                'label' => $review->styleSlug() === 'other' ? 'Other' : $review->styleLabel(),
             ])
             ->unique('value')
             ->sortBy(fn (array $option): string => mb_strtolower($option['label']), SORT_NATURAL)
