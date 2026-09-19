@@ -22,7 +22,10 @@ calories: "13 calories per 100 ml (producer)"
 sugar: "18 g/L residual sugar (producer)"
 image: media/reviews/giesen-0-rose.jpg
 image_alt: "Giesen 0% Rosé"
-image_credit: Editorial still
+image_credit: "Product photo via giesen.co.nz"
+image_source: producer
+image_source_url: https://giesen.co.nz/products/0-rose
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 86

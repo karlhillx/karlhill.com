@@ -2,6 +2,7 @@
 title: "Be Free Chardonnay"
 slug: be-free-chardonnay
 id: TDS-0006
+ean: "4003301080029"
 brand: Be Free
 product: Chardonnay
 category: wine

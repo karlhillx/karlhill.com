@@ -2,6 +2,7 @@
 title: "Butter Zero Chardonnay"
 slug: butter-zero-chardonnay
 id: TDS-0081
+ean: "0853706002911"
 brand: Butter Zero
 product: Chardonnay
 category: wine

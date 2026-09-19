@@ -21,7 +21,10 @@ price: "$15 (US retail listing)"
 availability: "US via specialty retailers including Minus Moonshine (NYC) and Hop, Cask & Barrel (DC)"
 image: media/reviews/christian-drouin-poire.jpg
 image_alt: "Christian Drouin Jus de Poire Pétillant bottle"
-image_credit: Product photo via minusmoonshine.com
+image_credit: "Product photo via calvados-drouin-boutique.com"
+image_source: producer
+image_source_url: https://calvados-drouin-boutique.com/products/6-x-jus-de-poire-petillant-tree-of-love
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 84

@@ -2,6 +2,7 @@
 title: "Kolonne Null Riesling"
 slug: kolonne-null-riesling
 id: TDS-0020
+ean: "4260660140096"
 brand: Kolonne Null
 product: Alcohol-Free Riesling
 category: wine
@@ -22,7 +23,10 @@ ingredients: "Dealcoholized wine from Germany, rectified concentrated grape must
 price: "€10.90"
 image: media/reviews/kolonne-null-riesling.jpg
 image_alt: "Kolonne Null Riesling"
-image_credit: Editorial still
+image_credit: "Product photo via kolonnenull.com"
+image_source: producer
+image_source_url: https://kolonnenull.com/en/products/alkoholfreier-riesling
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 87

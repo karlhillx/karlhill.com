@@ -2,6 +2,7 @@
 title: "Biagio Cru Rosé All Day"
 slug: biagio-cru-rose-all-day
 id: TDS-0026
+ean: "0833202003339"
 brand: Biagio Cru
 product: Non-Alcoholic Rosé All Day
 abv: "Not published"

@@ -117,6 +117,9 @@ it('keeps a master product table without duplicating published reviews', functio
     expect($byProduct['Be Free Rose Non-Alcoholic Wine'])->toBe('4003301079788');
     expect($byProduct['Appalina Alcohol Free Chardonnay'])->toBe('4049366003207');
     expect($byProduct['Be Free White Sparkling Non-Alcoholic Wine'])->toBe('4003301080005');
+    expect($byProduct['Magic Box Vanish Non-Alcoholic Riesling'])->toBe('0641586357111');
+    expect($byProduct['Be Free Chardonnay Non-Alcoholic Wine'])->toBe('4003301080029');
+    expect($byProduct['Guinness 0.0'])->toBe('0794712956594');
     expect($products)->toContain('Be Free Rose Non-Alcoholic Wine');
     expect(count($products))->toBe(count(array_unique($products)));
 

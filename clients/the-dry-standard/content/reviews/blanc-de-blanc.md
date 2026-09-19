@@ -20,7 +20,10 @@ price: "$34.00 (US retail); £32.00 (UK)"
 availability: "US via Delmosa; UK via Jörg Geiger Ltd."
 image: media/reviews/blanc-de-blanc.jpg
 image_alt: "Blanc de Blanc non-alcoholic sparkling wine"
-image_credit: Product photo via delmosa.com
+image_credit: "Product photo via joerg-geiger.co.uk"
+image_source: producer
+image_source_url: https://joerg-geiger.co.uk/products/blanc-de-blanc-with-chardonnay-0-75l
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 87

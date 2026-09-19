@@ -2,6 +2,7 @@
 title: "Valckenberg Cuvée Zero Sparkling"
 slug: valckenberg-zero-sparkling
 id: TDS-0065
+ean: "4004068000053"
 brand: Valckenberg
 product: Cuvée Sparkling Zero
 category: wine

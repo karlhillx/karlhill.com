@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use DryStandard\Paths;
 use DryStandard\Review;
+use DryStandard\StillAudit;
 use DryStandard\Workspace;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -41,7 +42,11 @@ class DryStandardPublish extends Command
             return self::SUCCESS;
         }
 
-        $errors = $workspace->validator()->errors($review, $workspace->config(), forPublish: true);
+        $errors = $workspace->validator()->errorsForPublish(
+            $review,
+            $workspace->config(),
+            (new StillAudit)->hashes($workspace->paths),
+        );
 
         if ($errors !== []) {
             $this->error("Refusing to publish [{$review->slug}] — validation failed.");

@@ -2,6 +2,7 @@
 title: "St. Regis Non-Alcoholic Rosé"
 slug: st-regis-non-alcoholic-rose
 id: TDS-0095
+ean: "0021296975001"
 brand: St. Regis
 product: Non-Alcoholic Rosé
 category: wine
@@ -34,7 +35,10 @@ best_for: "Mild cheeses, crab cakes, or other simple pairings, per the retailer'
 serve: "Chilled, in a white-wine or rosé glass."
 image: media/reviews/st-regis-non-alcoholic-rose.jpg
 image_alt: "St. Regis Non-Alcoholic Rosé bottle"
-image_credit: "Product photo via Total Wine"
+image_credit: "Product photo via stregiswines.com"
+image_source: producer
+image_source_url: https://stregiswines.com/en/cellar/dealcoholized-shiraz-rose
+image_sku_confirmed: yes
 sources:
   - title: "Total Wine & More — St. Regis Non-Alcoholic Rose (SKU 81590750)"
     url: https://www.totalwine.com/wine/rose-blush-wine/syrahshiraz/st-regis-nonalcoholic-rose/p/81590750

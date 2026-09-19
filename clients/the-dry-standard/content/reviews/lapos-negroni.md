@@ -30,7 +30,10 @@ best_for: "A 6 PM pour when Aperol doesn't suit and you want something closer to
 serve: "Always over a large ice cube; the can benefits from the dilution and from the chilling."
 image: media/reviews/lapos-negroni.jpg
 image_alt: "Lapo's Non-Alcoholic Negroni can"
-image_credit: "Product photo via Lapo's"
+image_credit: "Product photo via drinklapos.com"
+image_source: producer
+image_source_url: https://drinklapos.com/products/negroni
+image_sku_confirmed: yes
 sources:
   - title: "Lapo's Non-Alcoholic Negroni (cans) — The Zero Proof"
     url: https://thezeroproof.com/products/lapos-negroni-cans

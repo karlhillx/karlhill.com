@@ -44,6 +44,7 @@
 -
   product: 'Magic Box Vanish Non-Alcoholic Riesling'
   id: TDS-0002
+  ean: "0641586357111"
   brand: 'Magic Box'
   category: wine
   priority: high
@@ -110,6 +111,7 @@
 -
   product: 'Be Free Chardonnay Non-Alcoholic Wine'
   id: TDS-0006
+  ean: 4003301080029
   brand: 'Be Free'
   category: wine
   priority: high
@@ -126,6 +128,7 @@
 -
   product: 'Giesen 0% Non-Alcoholic Riesling'
   id: TDS-0007
+  ean: "0637411001038"
   brand: Giesen
   category: wine
   priority: high
@@ -206,6 +209,7 @@
 -
   product: 'Almost Zero Ravishing Rose Non-Alcoholic Wine'
   id: TDS-0012
+  ean: "0600226900407"
   brand: 'Almost Zero'
   category: wine
   priority: normal
@@ -286,6 +290,7 @@
 -
   product: 'Dr. Heidemanns Bergweiler Non-Alcoholic Riesling'
   id: TDS-0017
+  ean: "0883122400114"
   brand: 'Dr. Heidemanns Bergweiler'
   category: wine
   priority: normal
@@ -334,6 +339,7 @@
 -
   product: 'Kolonne Null Non-Alcoholic Riesling'
   id: TDS-0020
+  ean: 4260660140096
   brand: 'Kolonne Null'
   category: wine
   priority: normal
@@ -350,6 +356,7 @@
 -
   product: 'Clearscape Non-Alcoholic Chardonnay'
   id: TDS-0021
+  ean: "0935843208064"
   brand: Clearscape
   category: wine
   priority: normal
@@ -382,6 +389,7 @@
 -
   product: 'Miguel Torres Non-Alcoholic Sauvignon Blanc "Serena"'
   id: TDS-0023
+  ean: "0716819560917"
   brand: 'Familia Torres (Natureo line)'
   category: wine
   priority: normal
@@ -398,6 +406,7 @@
 -
   product: 'Rondel Zero Cava Rose Non-Alcoholic Wine'
   id: TDS-0024
+  ean: "0012976991862"
   brand: Rondel
   category: wine
   priority: normal
@@ -430,6 +439,7 @@
 -
   product: 'Biagio Cru Non-Alcoholic Rose All Day'
   id: TDS-0026
+  ean: "0833202003339"
   brand: 'Biagio Cru'
   category: wine
   priority: low
@@ -446,6 +456,7 @@
 -
   product: 'Noughty Dealcoholized Rosé'
   id: TDS-0027
+  ean: 6002339001882
   brand: 'Noughty (Thomson & Scott)'
   category: wine
   priority: low
@@ -510,6 +521,7 @@
 -
   product: 'Crodino Non-Alcoholic Spritz'
   id: TDS-0032
+  ean: 8000040720427
   brand: 'Crodino (Campari Group)'
   category: cocktails
   priority: low
@@ -654,6 +666,7 @@
 -
   product: 'Kolonne Null Non-Alcoholic Rosé'
   id: TDS-0041
+  ean: 4260660140119
   brand: 'Kolonne Null'
   category: wine
   priority: low
@@ -782,6 +795,7 @@
 -
   product: 'JP. Chenet Non-Alcoholic Sparkling Rosé'
   id: TDS-0050
+  ean: 3500610129254
   brand: 'JP. Chenet'
   category: wine
   priority: low
@@ -910,6 +924,7 @@
 -
   product: 'Nozeco Alcohol Free Brut Rose'
   id: TDS-0059
+  ean: "0641586348867"
   brand: Nozeco
   category: wine
   priority: low
@@ -974,6 +989,7 @@
 -
   product: 'Valckenberg "Zero" Non-Alcoholic Riesling'
   id: TDS-0064
+  ean: 4004068000046
   brand: 'P.J. Valckenberg'
   category: wine
   priority: low
@@ -990,6 +1006,7 @@
 -
   product: 'Valckenberg "Zero" Non-Alcoholic Sparkling'
   id: TDS-0065
+  ean: 4004068000053
   brand: 'P.J. Valckenberg'
   category: wine
   priority: low
@@ -1006,6 +1023,7 @@
 -
   product: 'Erdinger Weissbrau N/A Lager "Alkoholfrei"'
   id: TDS-0066
+  ean: 4002103283270
   brand: 'Erdinger Weißbräu'
   category: beer
   priority: low
@@ -1022,6 +1040,7 @@
 -
   product: 'Missing Thorn Non-Alcoholic Still White'
   id: TDS-0067
+  ean: 850061516114
   brand: 'Missing Thorn'
   category: wine
   priority: low
@@ -1198,6 +1217,7 @@
 -
   product: 'Butter Zero Pinot Noir Non-Alcoholic'
   id: TDS-0079
+  ean: "0853706002898"
   brand: 'Butter Zero'
   category: wine
   priority: low
@@ -1214,6 +1234,7 @@
 -
   product: 'Zolo Zero Malbec Rosé Non-Alcoholic Wine'
   id: TDS-0080
+  ean: "0852282002049"
   brand: Zolo
   category: wine
   priority: low
@@ -1230,6 +1251,7 @@
 -
   product: 'Butter Zero Chardonnay Non-Alcoholic'
   id: TDS-0081
+  ean: "0853706002911"
   brand: 'Butter Zero'
   category: wine
   priority: low
@@ -1262,6 +1284,7 @@
 -
   product: 'Chateau Diana Zero Non-Alcoholic California White Wine Blend'
   id: TDS-0083
+  ean: "0019988504158"
   brand: 'Chateau Diana'
   category: wine
   priority: low
@@ -1310,6 +1333,7 @@
 -
   product: 'Ariel Non-Alcoholic Chardonnay'
   id: TDS-0086
+  ean: "0089121830024"
   brand: 'Ariel (Ariel Vineyards / J. Lohr)'
   category: wine
   priority: low
@@ -1406,6 +1430,7 @@
 -
   product: 'Deschutes Non-Alcoholic Fresh Squeezed IPA'
   id: TDS-0093
+  ean: "0076317661906"
   brand: 'Deschutes Brewery'
   category: beer
   priority: low
@@ -1462,6 +1487,7 @@
 -
   product: 'Spiritless Kentucky 74'
   id: TDS-0092
+  ean: 850018886024
   brand: Spiritless
   category: spirits
   priority: normal
@@ -1477,6 +1503,7 @@
 -
   product: 'St. Regis Non-Alcoholic Rosé'
   id: TDS-0095
+  ean: "0021296975001"
   brand: 'St. Regis'
   category: wine
   priority: high

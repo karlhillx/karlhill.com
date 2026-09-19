@@ -45,11 +45,12 @@ If a fact cannot be sourced, delete the field.
 5. Decide production_type and verified.
 6. Collect only sourced metadata.
 7. Draft the review markdown in `content/reviews/{slug}.md`.
-8. Run `php artisan dry-standard:validate {slug} --publish`.
-9. If it fails, set `status: needs-review` and stop. Do not publish to satisfy the calendar.
-10. If it passes, `php artisan dry-standard:publish {slug}`.
-11. `php artisan dry-standard:build` syncs `data/catalog.sqlite` and `data/products.csv`. Pages render live from the catalog.
-12. Record the publish (the command writes `data/publish-log.yaml` and updates the queue).
+8. Photograph or obtain a still: editorial photo of the tasted bottle, or producer/importer press art with `image_source_url`. Confirm the label. Run `php artisan dry-standard:audit-stills {slug}`.
+9. Run `php artisan dry-standard:validate {slug} --publish`.
+10. If it fails, set `status: needs-review` and stop. Do not publish to satisfy the calendar.
+11. If it passes, `php artisan dry-standard:publish {slug}`.
+12. `php artisan dry-standard:build` syncs `data/catalog.sqlite` and `data/products.csv`. Pages render live from the catalog.
+13. Record the publish (the command writes `data/publish-log.yaml` and updates the queue).
 
 Duplicate slugs and duplicate queue product+brand pairs are rejected.
 
@@ -60,7 +61,7 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 ## File map
 
 - Reviews (editorial draft/import): `clients/the-dry-standard/content/reviews/`
-- Product stills: `clients/the-dry-standard/media/reviews/{slug}.jpg`
+- Product stills: `clients/the-dry-standard/media/reviews/{slug}.jpg` (audit with `php artisan dry-standard:audit-stills`)
 - Product database: `clients/the-dry-standard/data/catalog.sqlite` (runtime source of truth; generated)
 - Spreadsheet export: `clients/the-dry-standard/data/products.csv`
 - Purchase ledger: `clients/the-dry-standard/data/master-products.csv` (internal `ID` and sourced `EAN`; do not render)

@@ -2,6 +2,7 @@
 title: "Dr. Heidemanns-Bergweiler Riesling"
 slug: heidemanns-bergweiler-riesling
 id: TDS-0017
+ean: "0883122400114"
 brand: Dr. Heidemanns Bergweiler
 product: Non-Alcoholic Riesling
 abv: "Not published"

@@ -2,6 +2,7 @@
 title: "Zolo Zero Malbec Rosé"
 slug: zolo-zero-malbec-rose
 id: TDS-0080
+ean: "0852282002049"
 brand: Zolo
 product: Zero Malbec Rosé
 category: wine

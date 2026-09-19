@@ -32,7 +32,14 @@ final class StillPipeline
                 continue;
             }
 
-            if ($this->writeWebp($jpeg, $webp)) {
+            $source = @imagecreatefromjpeg($jpeg);
+            if ($source === false) {
+                continue;
+            }
+
+            $this->flattenLightBackground($source);
+
+            if ($this->writeWebp($source, $webp)) {
                 $converted++;
             }
         }
@@ -40,22 +47,15 @@ final class StillPipeline
         return $converted;
     }
 
-    private function writeWebp(string $jpeg, string $webp): bool
+    private function writeWebp(\GdImage $source, string $webp): bool
     {
-        $source = @imagecreatefromjpeg($jpeg);
-        if ($source === false) {
-            return false;
-        }
-
         $width = imagesx($source);
         $height = imagesy($source);
         $ratio = $height > 0 ? $width / $height : 1;
         $canvas = $source;
 
         if (abs($ratio - 0.75) > 0.08) {
-            $padded = $this->letterbox($source, $width, $height);
-            imagedestroy($source);
-            $canvas = $padded;
+            $canvas = $this->letterbox($source, $width, $height);
             $width = imagesx($canvas);
             $height = imagesy($canvas);
         }
@@ -64,14 +64,97 @@ final class StillPipeline
             $scaledHeight = (int) round(self::TARGET_WIDTH * ($height / $width));
             $scaled = imagecreatetruecolor(self::TARGET_WIDTH, $scaledHeight);
             imagecopyresampled($scaled, $canvas, 0, 0, 0, 0, self::TARGET_WIDTH, $scaledHeight, $width, $height);
-            imagedestroy($canvas);
             $canvas = $scaled;
         }
 
-        $ok = imagewebp($canvas, $webp, 78);
-        imagedestroy($canvas);
+        return imagewebp($canvas, $webp, 78);
+    }
 
-        return $ok;
+    /**
+     * Sweep a uniform near-white studio into paper. Skip dark studios — black
+     * cans connect to black backdrops and a flood fill would erase the SKU.
+     */
+    private function flattenLightBackground(\GdImage $image): bool
+    {
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $seeds = [
+            [2, 2],
+            [$width - 3, 2],
+            [2, $height - 3],
+            [$width - 3, $height - 3],
+        ];
+
+        $whiteCorners = 0;
+        foreach ($seeds as [$x, $y]) {
+            if ($this->isNearWhite($image, $x, $y)) {
+                $whiteCorners++;
+            }
+        }
+
+        if ($whiteCorners < 4) {
+            return false;
+        }
+
+        [$pr, $pg, $pb] = self::PAPER;
+        $paper = imagecolorallocate($image, $pr, $pg, $pb);
+
+        foreach ($seeds as [$x, $y]) {
+            $this->floodNearWhite($image, $x, $y, $paper);
+        }
+
+        return true;
+    }
+
+    private function isNearWhite(\GdImage $image, int $x, int $y): bool
+    {
+        $rgb = imagecolorat($image, $x, $y);
+        $r = ($rgb >> 16) & 255;
+        $g = ($rgb >> 8) & 255;
+        $b = $rgb & 255;
+        $luma = 0.299 * $r + 0.587 * $g + 0.114 * $b;
+
+        return $luma > 248 && abs($r - $g) < 10 && abs($g - $b) < 10;
+    }
+
+    private function floodNearWhite(\GdImage $image, int $sx, int $sy, int $paper): void
+    {
+        if (! $this->isNearWhite($image, $sx, $sy)) {
+            return;
+        }
+
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $seen = array_fill(0, $width * $height, false);
+        $queue = [[$sx, $sy]];
+
+        while ($queue !== []) {
+            [$x, $y] = array_pop($queue);
+            $index = $y * $width + $x;
+            if ($seen[$index]) {
+                continue;
+            }
+            $seen[$index] = true;
+
+            if (! $this->isNearWhite($image, $x, $y)) {
+                continue;
+            }
+
+            imagesetpixel($image, $x, $y, $paper);
+
+            if ($x > 0) {
+                $queue[] = [$x - 1, $y];
+            }
+            if ($x < $width - 1) {
+                $queue[] = [$x + 1, $y];
+            }
+            if ($y > 0) {
+                $queue[] = [$x, $y - 1];
+            }
+            if ($y < $height - 1) {
+                $queue[] = [$x, $y + 1];
+            }
+        }
     }
 
     private function letterbox(\GdImage $source, int $width, int $height): \GdImage

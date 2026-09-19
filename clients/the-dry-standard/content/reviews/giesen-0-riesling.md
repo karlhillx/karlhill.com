@@ -2,6 +2,7 @@
 title: "Giesen 0% Riesling"
 slug: giesen-0-riesling
 id: TDS-0007
+ean: "0637411001038"
 brand: Giesen
 product: 0% Riesling
 category: wine

@@ -21,7 +21,10 @@ price: "€8.40 (gueuledejoie.com, FR)"
 availability: "Total Wine & More (US); European retail including gueuledejoie (FR) and vinello (DE)"
 image: media/reviews/appalina-chardonnay.jpg
 image_alt: "Appalina Chardonnay"
-image_credit: Product photo via gueuledejoie.com
+image_credit: "Product photo via weinkellerei-hxm.com"
+image_source: producer
+image_source_url: https://weinkellerei-hxm.com/appalina/
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 79

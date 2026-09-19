@@ -10,13 +10,14 @@ A product in `data/review-queue.yaml` should move to a public review page.
 2. Confirm the product exists and is ≤0.5% ABV from primary sources.
 3. Classify `production_type` (`dealcoholized`, `alternative`, `naturally-low-alcohol`, `hybrid`, or `not-verified`) and set `verified` separately.
 4. Write `content/reviews/{slug}.md` using `data/schema/review.schema.yaml`.
-5. Add an editorial still at `media/reviews/{slug}.jpg` and set `image`, `image_alt`, and `image_credit`.
-6. Attach `sources` with `claims` for every factual field you filled.
-7. Leave tasting notes in `nose` / `palate` / `finish` — those are editorial, not sourced facts.
-8. `php artisan dry-standard:validate {slug} --publish`
-9. On failure: set `status: needs-review`, write what is missing, stop.
-10. On success: `php artisan dry-standard:publish {slug}` (add `--force` only when an editor overrides the calendar; add `--commit` only when a git snapshot is requested).
-11. Never create a second review for the same slug.
+5. Add a still at `media/reviews/{slug}.jpg`. Prefer an editorial photo of the tasted bottle on paper. Producer or importer press art is allowed with `image_source_url`. Never use a retailer store photo.
+6. Set `image`, `image_alt`, `image_credit`, `image_source` (`editorial`, `producer`, or `importer`), and `image_sku_confirmed: yes` only after looking at the label.
+7. Attach `sources` with `claims` for every factual field you filled.
+8. Leave tasting notes in `nose` / `palate` / `finish` — those are editorial, not sourced facts.
+9. `php artisan dry-standard:audit-stills {slug}` then `php artisan dry-standard:validate {slug} --publish`
+10. On failure: set `status: needs-review`, write what is missing, stop.
+11. On success: `php artisan dry-standard:publish {slug}` (add `--force` only when an editor overrides the calendar; add `--commit` only when a git snapshot is requested).
+12. Never create a second review for the same slug.
 
 ## Models
 

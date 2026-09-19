@@ -2,6 +2,7 @@
 title: "Noughty Dealcoholized Rosé"
 slug: noughty-dealcoholized-rose
 id: TDS-0027
+ean: "6002339001882"
 brand: Thomson & Scott
 product: Noughty Non-Alcoholic Rosé
 category: wine

@@ -2,6 +2,7 @@
 title: "Almost Zero Ravishing Rosé"
 slug: almost-zero-ravishing-rose
 id: TDS-0012
+ean: "0600226900407"
 brand: Almost Zero
 product: Ravishing Rosé
 abv: "Not published"

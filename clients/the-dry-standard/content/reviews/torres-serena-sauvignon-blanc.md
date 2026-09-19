@@ -2,6 +2,7 @@
 title: "Torres Serena Sauvignon Blanc"
 slug: torres-serena-sauvignon-blanc
 id: TDS-0023
+ean: "0716819560917"
 brand: Familia Torres
 product: "Serena Mode Sauvignon Blanc"
 category: wine

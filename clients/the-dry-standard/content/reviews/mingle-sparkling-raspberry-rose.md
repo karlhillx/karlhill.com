@@ -19,7 +19,10 @@ price: "$44.95 per 12-pack direct (~$3.75/can); $13.99 per 4-pack at Thrive Mark
 availability: "US retail including Total Wine, Thrive Market, and Instacart"
 image: media/reviews/mingle-sparkling-raspberry-rose.jpg
 image_alt: "Mingle Sparkling Raspberry Rosé can"
-image_credit: Product photo via minglemocktails.com
+image_credit: "Product photo via minglemocktails.com"
+image_source: producer
+image_source_url: https://www.minglemocktails.com/products/sparkling-raspberry-rose
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 79

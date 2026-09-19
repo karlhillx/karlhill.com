@@ -21,6 +21,7 @@ This is not a shop. It is a small autonomous publication: a review queue, source
 php artisan dry-standard:status
 php artisan dry-standard:validate
 php artisan dry-standard:validate leitz-eins-zwei-zero-riesling --publish
+php artisan dry-standard:audit-stills
 php artisan dry-standard:build
 php artisan dry-standard:queue "Athletic Brewing Run Wild IPA" --brand="Athletic Brewing" --category=beer --priority=high
 php artisan dry-standard:publish {slug}

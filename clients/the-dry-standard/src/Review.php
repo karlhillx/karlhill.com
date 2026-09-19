@@ -82,6 +82,9 @@ final class Review
         public readonly ?string $imageCredit = null,
         public readonly ?string $id = null,
         public readonly ?string $ean = null,
+        public readonly ?string $imageSource = null,
+        public readonly ?string $imageSourceUrl = null,
+        public readonly ?string $imageSkuConfirmed = null,
     ) {}
 
     /**
@@ -144,6 +147,9 @@ final class Review
             imageCredit: self::nullableString($matter['image_credit'] ?? null),
             id: self::nullableString($matter['id'] ?? null),
             ean: self::nullableString($matter['ean'] ?? null),
+            imageSource: self::nullableLower($matter['image_source'] ?? null),
+            imageSourceUrl: self::nullableString($matter['image_source_url'] ?? null),
+            imageSkuConfirmed: self::normalizeVerified($matter['image_sku_confirmed'] ?? null),
         );
     }
 
@@ -671,6 +677,13 @@ final class Review
         $string = self::string($value);
 
         return $string === '' ? null : $string;
+    }
+
+    private static function nullableLower(mixed $value): ?string
+    {
+        $string = self::nullableString($value);
+
+        return $string === null ? null : strtolower($string);
     }
 
     private static function date(mixed $value): ?CarbonImmutable

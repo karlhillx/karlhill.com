@@ -2,6 +2,7 @@
 title: "Rondel Zero Cava Rosé"
 slug: rondel-zero-cava-rose
 id: TDS-0024
+ean: "0012976991862"
 brand: Rondel
 product: Zero Cava Rosé
 abv: "Not published"

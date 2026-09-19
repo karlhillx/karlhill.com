@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use DryStandard\StillAudit;
 use DryStandard\Workspace;
 use Illuminate\Console\Command;
 
@@ -29,13 +30,19 @@ class DryStandardValidate extends Command
         }
 
         $failed = 0;
+        $hashes = [];
+        $fromDisk = collect();
+
+        if ($this->option('publish')) {
+            $hashes = (new StillAudit)->hashes($workspace->paths);
+            $fromDisk = $workspace->reviews()->fromDisk()->keyBy('slug');
+        }
 
         foreach ($reviews as $review) {
-            $errors = $workspace->validator()->errors(
-                $review,
-                $workspace->config(),
-                forPublish: (bool) $this->option('publish'),
-            );
+            $candidate = $fromDisk->get($review->slug) ?? $review;
+            $errors = $this->option('publish')
+                ? $workspace->validator()->errorsForPublish($candidate, $workspace->config(), $hashes)
+                : $workspace->validator()->errors($review, $workspace->config());
 
             if ($errors === []) {
                 $this->info("OK  {$review->slug}");

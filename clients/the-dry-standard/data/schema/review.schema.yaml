@@ -46,5 +46,8 @@ discrepancies:
     note: string
 image: path under media/reviews/{slug}.jpg, optional override
 image_alt: string, optional; defaults to title
-image_credit: Editorial still | photographer credit
+image_credit: Editorial still | Product photo via {producer-or-importer}
+image_source: editorial | producer | importer
+image_source_url: url to the original asset page; required unless image_source is editorial
+image_sku_confirmed: yes | no; yes only after a human confirms the label matches this SKU
 status: queued | researching | draft | validated | scheduled | published | needs-review

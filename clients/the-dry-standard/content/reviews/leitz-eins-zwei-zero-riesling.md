@@ -29,6 +29,8 @@ purchase_links:
 image: media/reviews/leitz-eins-zwei-zero-riesling.jpg
 image_alt: "Leitz Eins-Zwei-Zero Riesling bottle"
 image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 88

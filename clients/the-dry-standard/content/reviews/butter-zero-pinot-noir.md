@@ -2,6 +2,7 @@
 title: "Butter Zero Pinot Noir"
 slug: butter-zero-pinot-noir
 id: TDS-0079
+ean: "0853706002898"
 brand: Butter Zero
 product: Pinot Noir
 category: wine

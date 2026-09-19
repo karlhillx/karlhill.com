@@ -2,6 +2,7 @@
 title: "Clearscape Non-Alcoholic Chardonnay"
 slug: clearscape-chardonnay
 id: TDS-0021
+ean: "0935843208064"
 brand: Clearscape
 product: Non-Alcoholic Chardonnay
 abv: "Not published"

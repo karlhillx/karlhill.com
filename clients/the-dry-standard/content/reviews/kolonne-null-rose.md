@@ -2,6 +2,7 @@
 title: "Kolonne Null Rosé"
 slug: kolonne-null-rose
 id: TDS-0041
+ean: "4260660140119"
 brand: Kolonne Null
 product: Rosé
 category: wine

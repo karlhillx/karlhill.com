@@ -21,7 +21,10 @@ price: "$29.99-$35.99 (US retail)"
 availability: "Widely available in US retail including Total Wine, Target, and direct from ritualzeroproof.com"
 image: media/reviews/ritual-zero-proof-tequila.jpg
 image_alt: "Ritual Zero Proof Tequila Alternative bottle"
-image_credit: Product photo via ritualzeroproof.com
+image_credit: "Product photo via ritualzeroproof.com"
+image_source: producer
+image_source_url: https://www.ritualzeroproof.com/products/ritual-agave-spirit-alternative
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 78

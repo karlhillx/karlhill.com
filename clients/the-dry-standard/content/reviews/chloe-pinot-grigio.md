@@ -28,7 +28,10 @@ best_for: "Everyday white-wine occasions, the bottle that doesn't need to be spe
 serve: "Well chilled."
 image: media/reviews/chloe-pinot-grigio.jpg
 image_alt: "Chloe Pinot Grigio bottle"
-image_credit: "Product photo via Total Wine"
+image_credit: "Product photo via chloewinecollection.com"
+image_source: producer
+image_source_url: https://www.chloewinecollection.com/wines/alcohol-removed-pinot-grigio/
+image_sku_confirmed: yes
 sources:
   - title: "Chloe Wine Collection — brand reference"
     url: https://www.totalwine.com/

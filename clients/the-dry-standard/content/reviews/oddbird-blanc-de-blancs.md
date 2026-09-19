@@ -38,7 +38,10 @@ best_for: "Brunch, a celebratory toast, or as the base of a spritz — treat it 
 serve: "Well chilled, in a flute or white-wine glass."
 image: media/reviews/oddbird-blanc-de-blancs.jpg
 image_alt: "Oddbird Blanc de Blancs bottle"
-image_credit: "Product photo via thezeroproof.com"
+image_credit: "Product photo via oddbird.com"
+image_source: producer
+image_source_url: https://oddbird.com/products/blanc-de-blancs
+image_sku_confirmed: yes
 sources:
   - title: "The Zero Proof — Oddbird's Blanc de Blancs Non-Alcoholic Sparkling Wine"
     url: https://thezeroproof.com/products/oddbird-blanc-de-blancs-sparkling-white-wine

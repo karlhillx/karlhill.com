@@ -2,6 +2,7 @@
 title: "Valckenberg Zero Riesling"
 slug: valckenberg-zero-riesling
 id: TDS-0064
+ean: "4004068000046"
 brand: Valckenberg
 product: Zero Riesling
 category: wine

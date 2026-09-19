@@ -2,6 +2,7 @@
 title: "Chateau Diana Zero California White Blend"
 slug: chateau-diana-zero-white
 id: TDS-0083
+ean: "0019988504158"
 brand: Chateau Diana
 product: Zero California White Blend
 category: wine

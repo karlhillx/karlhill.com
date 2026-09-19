@@ -2,6 +2,7 @@
 title: "Erdinger Alkoholfrei"
 slug: erdinger-alkoholfrei
 id: TDS-0066
+ean: "4002103283270"
 brand: Erdinger Weissbräu
 product: Alkoholfrei
 category: beer

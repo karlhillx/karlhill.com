@@ -21,7 +21,10 @@ calories: "25 calories per 5 oz serving (producer)"
 availability: "Producer shop and US wine shops including Metro Wine & Spirits"
 image: media/reviews/90-cellars-lot-229.jpg
 image_alt: "90+ Cellars Lot 229 Alcohol-Removed Sparkling Rosé"
-image_credit: Editorial still
+image_credit: "Product photo via ninetypluscellars.com"
+image_source: producer
+image_source_url: https://www.ninetypluscellars.com/products/lot-229-non-alcoholic-sparkling-rose-france
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 83

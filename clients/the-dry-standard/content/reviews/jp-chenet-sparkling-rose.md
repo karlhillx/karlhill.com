@@ -2,6 +2,7 @@
 title: "JP. Chenet So Free Sparkling Rosé"
 slug: jp-chenet-sparkling-rose
 id: TDS-0050
+ean: "3500610129254"
 brand: JP. Chenet
 product: So Free Sparkling Rosé
 category: wine

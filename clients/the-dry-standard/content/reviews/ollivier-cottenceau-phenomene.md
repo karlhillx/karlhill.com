@@ -30,7 +30,10 @@ best_for: "Oysters, seafood, goat cheese — anything that wants a crisp Muscade
 serve: "Well chilled."
 image: media/reviews/ollivier-cottenceau-phenomene.jpg
 image_alt: "Ollivier Cottenceau Phénomène bottle"
-image_credit: "Product photo via schatziwines.com"
+image_credit: "Product photo via sans-alcool-du-vigneron.fr"
+image_source: producer
+image_source_url: https://www.sans-alcool-du-vigneron.fr/products/phenomene-1
+image_sku_confirmed: yes
 sources:
   - title: "Ollivier Cottenceau Phénomène — Schatzi Wines"
     url: https://schatziwines.com/wine/ollivier-cottenceau-phenomene/

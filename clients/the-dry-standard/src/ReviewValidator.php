@@ -112,6 +112,20 @@ final class ReviewValidator
         return $errors;
     }
 
+    /**
+     * Publish gate: sourced facts plus a confirmed, non-retailer still.
+     *
+     * @param  array<string, string>  $hashesBySlug
+     * @return array<int, string>
+     */
+    public function errorsForPublish(Review $review, SiteConfig $config, array $hashesBySlug = []): array
+    {
+        return array_merge(
+            $this->errors($review, $config, forPublish: true),
+            (new StillAudit)->inspect($review, $hashesBySlug, forPublish: true)['errors'],
+        );
+    }
+
     public function passes(Review $review, SiteConfig $config, bool $forPublish = false): bool
     {
         return $this->errors($review, $config, $forPublish) === [];

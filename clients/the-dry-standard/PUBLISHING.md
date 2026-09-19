@@ -48,8 +48,9 @@ php artisan dry-standard:queue "Giesen 0% Sauvignon Blanc" --brand=Giesen --cate
 - a classified `production_type` has no production_type, dealcoholized, or method source
 - `abv_numeric` is over 0.5
 - required tasting/verdict fields are empty
+- the still is a retailer scrape, a duplicate file, too small, a dark studio void, a lifestyle scene, or an unconfirmed SKU
 
-`dry-standard:publish` runs the same check and **refuses** a failed review. A closed calendar slot exits 0 and prints why it skipped.
+`php artisan dry-standard:audit-stills` prints the still table without blocking `dry-standard:build`. `dry-standard:publish` runs the same publish check and **refuses** a failed review. A closed calendar slot exits 0 and prints why it skipped.
 
 ## Build
 

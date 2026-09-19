@@ -2,6 +2,7 @@
 title: "Missing Thorn Non-Alcoholic Still White"
 slug: missing-thorn-still-white
 id: TDS-0067
+ean: "850061516114"
 brand: Missing Thorn
 product: Non-Alcoholic Still White
 category: wine

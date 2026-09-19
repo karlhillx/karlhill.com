@@ -2,6 +2,7 @@
 title: "Nozeco Alcohol Free Brut Rosé"
 slug: nozeco-brut-rose
 id: TDS-0059
+ean: "0641586348867"
 brand: Nozeco
 product: Alcohol Free Brut Rosé
 category: wine

@@ -82,6 +82,24 @@ final class ReviewRepository
     }
 
     /**
+     * Markdown on disk, including image provenance that is not stored in SQLite.
+     *
+     * @return Collection<int, Review>
+     */
+    public function fromDisk(): Collection
+    {
+        $directory = $this->paths->content('reviews');
+        $reviews = collect();
+
+        foreach (glob($directory.DIRECTORY_SEPARATOR.'*.md') ?: [] as $file) {
+            $document = YamlFrontMatter::parseFile($file);
+            $reviews->push(Review::fromMatter($document->matter(), $document->body(), $file));
+        }
+
+        return $reviews->sortBy('slug')->values();
+    }
+
+    /**
      * @return Collection<int, Review>
      */
     public function byCategory(string $category): Collection

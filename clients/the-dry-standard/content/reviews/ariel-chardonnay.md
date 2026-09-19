@@ -2,6 +2,7 @@
 title: "Ariel Non-Alcoholic Chardonnay"
 slug: ariel-chardonnay
 id: TDS-0086
+ean: "0089121830024"
 brand: Ariel
 product: Non-Alcoholic Chardonnay
 abv: "Not published"

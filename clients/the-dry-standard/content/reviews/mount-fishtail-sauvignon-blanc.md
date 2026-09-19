@@ -20,7 +20,10 @@ volume: "750 ml"
 availability: "US retail including InternetWines.com, Serendipity Wines, Southern Starz"
 image: media/reviews/mount-fishtail-sauvignon-blanc.jpg
 image_alt: "Mount Fishtail Zero Sauvignon Blanc bottle"
-image_credit: Product photo via internetwines.com
+image_credit: "Product photo via southernstarz.com"
+image_source: importer
+image_source_url: https://southernstarz.com/wines/mount-fishtail-sauvignon-blanc-zero/
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-18"
 rating: 80

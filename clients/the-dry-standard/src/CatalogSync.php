@@ -97,9 +97,11 @@ final class CatalogSync
             $slug = $existing?->slug ?: Str::slug($product);
             $extra = [
                 'id' => $id !== '' ? $id : null,
-                'ean' => $ean,
                 'retailers' => trim((string) ($row['Retailer(s)'] ?? '')) ?: null,
             ];
+            if ($ean !== null) {
+                $extra['ean'] = $ean;
+            }
 
             if ($existing instanceof Review) {
                 $this->catalog->upsert($existing, $extra);

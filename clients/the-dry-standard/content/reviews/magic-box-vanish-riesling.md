@@ -2,6 +2,7 @@
 title: "Magic Box Vanish Riesling"
 slug: magic-box-vanish-riesling
 id: TDS-0002
+ean: "0641586357111"
 brand: Magic Box
 product: Vanish Riesling
 category: wine

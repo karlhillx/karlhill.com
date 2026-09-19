@@ -46,7 +46,32 @@ Taste can be tart. Facts cannot be.
 
 ## Product images
 
-Save one editorial still per review at `media/reviews/{slug}.jpg` (3:4, bottle or can on paper). Set `image`, `image_alt`, and `image_credit` in frontmatter. Do not scrape brand photography. If the file is missing, the page still builds; the cellar just shows an empty frame.
+Save one still per review at `media/reviews/{slug}.jpg` (JPEG source) plus a generated 3:4 WebP.
+
+Allowed sources, in order:
+
+1. **Editorial** — a photograph of the bottle or can that was tasted, on paper, label readable.
+2. **Producer** — press or product photography from the brand site, with `image_source_url` to that page.
+3. **Importer** — press photography from the importer, with `image_source_url`.
+
+Do not use retailer, marketplace, or delivery-app photography. Do not reuse a still across SKUs. Do not publish unlabeled mockups, lifestyle tablescapes, or another product's bottle.
+
+Frontmatter:
+
+```yaml
+image: media/reviews/{slug}.jpg
+image_alt: "{Brand} {Product} bottle"
+image_credit: Editorial still | Product photo via {producer-or-importer-domain}
+image_source: editorial | producer | importer
+image_source_url: https://…   # required unless image_source is editorial
+image_sku_confirmed: yes      # set only after looking at the label
+```
+
+`php artisan dry-standard:audit-stills` flags retailer credits, byte-identical files, stills under 500px, dark studio voids, lifestyle scenes, and sparse unlabeled mockups. `dry-standard:validate {slug} --publish` and `dry-standard:publish` refuse those errors. `dry-standard:build` still syncs the existing cellar; it does not mass-fail on legacy stills.
+
+WebP output letterboxes non-3:4 JPEGs onto paper (`rgb(243,239,230)`). Uniform near-white cutouts are flooded onto the same paper. Dark studio packshots are not auto-filled — a black can would disappear — so recrop or reshoot those.
+
+If the file is missing, the page still builds; the cellar shows an empty frame.
 
 ## Sources
 
