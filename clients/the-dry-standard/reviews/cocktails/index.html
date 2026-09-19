@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=6">
+  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=7">
   
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://karlhill.com/clients/the-dry-standard/"},{"@type":"ListItem","position":2,"name":"Reviews","item":"https://karlhill.com/clients/the-dry-standard/reviews/"},{"@type":"ListItem","position":3,"name":"Cocktails","item":"https://karlhill.com/clients/the-dry-standard/reviews/cocktails/"}]},{"@type":"CollectionPage","name":"Cocktails reviews","description":"Dealcoholized and non-alcoholic Cocktails reviewed for what they are, not what the label implies.","url":"https://karlhill.com/clients/the-dry-standard/reviews/cocktails/"}]}</script>
 </head>
@@ -49,25 +49,42 @@
         <p class="kicker">The cellar</p>
         <h1>Cocktails reviews</h1>
         <p class="lede">Dealcoholized and non-alcoholic Cocktails reviewed for what they are, not what the label implies.</p>
-                <form class="archive-tools" data-archive data-locked-category="cocktails" role="search">
-          <label class="visually-hidden" for="archive-q">Search reviews</label>
-          <input id="archive-q" type="search" name="q" placeholder="Search brand, product, origin, or method" data-archive-q>
-          <div class="archive-controls">
-            <label>Category
-              <select name="category" data-archive-category disabled><option value="">All categories</option><option value="wine">Wine</option><option value="beer">Beer</option><option value="spirits">Spirits</option><option value="cocktails" selected>Cocktails</option><option value="cider">Cider</option></select>
-            </label>
-            <label>Process
-              <select name="dealcoholized" data-archive-dealcoholized>
-                <option value="">All processes</option>
-                <option value="yes">Dealcoholized</option>
-                <option value="no">Formulated</option>
-                <option value="not-verified">Not verified</option>
-              </select>
-            </label>
-            <label>Method
-              <select name="method" data-archive-method><option value="">All methods</option><option value="california-red-wine-is-dealcoholized-and-blended-with-natural-fruit-extracts-producer">California red wine is dealcoholized and blended with natural fruit extracts producer</option></select>
-            </label>
-            <label>Sort
+      </div>
+    </header>
+    <section class="section section--tight">
+            <div class="shell archive-layout" data-archive data-locked-category="cocktails">
+        <form class="archive-sidebar" role="search">
+          <div class="facet">
+            <label class="facet-legend" for="archive-q">Search</label>
+            <input id="archive-q" type="search" name="q" placeholder="Brand, product, origin, or method" data-archive-q>
+          </div>
+                    <fieldset class="facet" data-facet="abv">
+            <legend class="facet-legend">ABV</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="0.0%"><input id="archive-abv-zero" type="checkbox" name="abv[]" value="zero" data-archive-abv><span>0.0%</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="≤0.5%"><input id="archive-abv-half" type="checkbox" name="abv[]" value="half" data-archive-abv><span>≤0.5%</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="not published"><input id="archive-abv-unpublished" type="checkbox" name="abv[]" value="unpublished" data-archive-abv><span>Not published</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+                    <fieldset class="facet" data-facet="brand">
+            <legend class="facet-legend">Brand</legend>
+            <label class="visually-hidden" for="archive-brand-find">Find a Brand</label><input id="archive-brand-find" type="search" class="facet-find" placeholder="Find a brand" data-facet-find="brand">
+            <div class="facet-list"><label class="facet-option" data-facet-label="baladin"><input id="archive-brand-baladin" type="checkbox" name="brand[]" value="baladin" data-archive-brand><span>Baladin</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="crodino (campari group)"><input id="archive-brand-crodino-campari-group" type="checkbox" name="brand[]" value="crodino-campari-group" data-archive-brand><span>Crodino (Campari Group)</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="greenbar"><input id="archive-brand-greenbar" type="checkbox" name="brand[]" value="greenbar" data-archive-brand><span>Greenbar</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="grüvi"><input id="archive-brand-gr-vi" type="checkbox" name="brand[]" value="gr-vi" data-archive-brand><span>Grüvi</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="lapo&apos;s"><input id="archive-brand-lapo-s" type="checkbox" name="brand[]" value="lapo-s" data-archive-brand><span>Lapo&apos;s</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="lyre&apos;s"><input id="archive-brand-lyre-s" type="checkbox" name="brand[]" value="lyre-s" data-archive-brand><span>Lyre&apos;s</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="mingle"><input id="archive-brand-mingle" type="checkbox" name="brand[]" value="mingle" data-archive-brand><span>Mingle</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="p.j. valckenberg"><input id="archive-brand-p-j-valckenberg" type="checkbox" name="brand[]" value="p-j-valckenberg" data-archive-brand><span>P.J. Valckenberg</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="savyll"><input id="archive-brand-savyll" type="checkbox" name="brand[]" value="savyll" data-archive-brand><span>Savyll</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="st. agrestis"><input id="archive-brand-st-agrestis" type="checkbox" name="brand[]" value="st-agrestis" data-archive-brand><span>St. Agrestis</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+          
+                    <fieldset class="facet" data-facet="dealcoholized">
+            <legend class="facet-legend">Process</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="dealcoholized"><input id="archive-dealcoholized-yes" type="checkbox" name="dealcoholized[]" value="yes" data-archive-dealcoholized><span>Dealcoholized</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="formulated"><input id="archive-dealcoholized-no" type="checkbox" name="dealcoholized[]" value="no" data-archive-dealcoholized><span>Formulated</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+                    <fieldset class="facet" data-facet="method">
+            <legend class="facet-legend">Method</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="other documented method"><input id="archive-method-other" type="checkbox" name="method[]" value="other" data-archive-method><span>Other documented method</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="unpublished"><input id="archive-method-unpublished" type="checkbox" name="method[]" value="unpublished" data-archive-method><span>Unpublished</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+          <p class="archive-clear"><button type="button" data-archive-clear>Clear filters</button></p>
+        </form>
+        <div class="archive-main">
+          <div class="archive-toolbar">
+            <p class="archive-count" data-archive-count></p>
+            <label class="archive-sort">Sort
               <select name="sort" data-archive-sort>
                 <option value="newest">Newest</option>
                 <option value="rating">Highest rated</option>
@@ -75,12 +92,7 @@
               </select>
             </label>
           </div>
-          <p class="archive-count" data-archive-count></p>
-        </form>
-      </div>
-    </header>
-    <section class="section section--tight">
-      <div class="shell"><div class="ledger" data-review-grid>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="baladin" data-method="" data-rating="80" data-date="2026-09-18" data-search="baladin passione in rosso baladin passione in rosso cocktails non-alcoholic italian aperitivo piozzo, italy, italy formulated non-alcoholic italian aperitivo baladin&apos;s passione in rosso is a formulated non-alcoholic italian aperitivo: 0.0% abv, bittersweet and botanical, from piozzo.">
+          <div class="ledger" data-review-grid>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="baladin" data-abv="zero" data-method="unpublished" data-rating="80" data-date="2026-09-18" data-search="baladin passione in rosso baladin passione in rosso cocktails non-alcoholic italian aperitivo piozzo, italy, italy formulated non-alcoholic italian aperitivo baladin&apos;s passione in rosso is a formulated non-alcoholic italian aperitivo: 0.0% abv, bittersweet and botanical, from piozzo.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">Baladin</p>
@@ -89,7 +101,7 @@
           <span class="badge badge--no">Passione in Rosso is a formulated aperitivo made with water, cane sugar, and natural flavors — no underlying alcoholic drink.</span>
         </div>
         <span class="card-score">80</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="crodino-campari-group" data-method="" data-rating="78" data-date="2026-09-18" data-search="crodino non-alcoholic spritz crodino (campari group) crodino non-alcoholic spritz cocktails non-alcoholic aperitivo italy non-alcoholic italian bitter aperitivo crodino is a 1965 italian non-alcoholic bitter that arrived in the us in may 2025: 0.0% abv, bittersweet and golden, designed to be poured over ice the same way you pour an aperol spritz.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="crodino-campari-group" data-abv="zero" data-method="unpublished" data-rating="78" data-date="2026-09-18" data-search="crodino non-alcoholic spritz crodino (campari group) crodino non-alcoholic spritz cocktails non-alcoholic aperitivo italy non-alcoholic italian bitter aperitivo crodino is a 1965 italian non-alcoholic bitter that arrived in the us in may 2025: 0.0% abv, bittersweet and golden, designed to be poured over ice the same way you pour an aperol spritz.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">Crodino (Campari Group)</p>
@@ -98,7 +110,7 @@
           <span class="badge badge--no">Crodino is formulated alcohol-free from the start (blends of botanical infusions and a non-alcoholic base), not made by removing alcohol from a once-alcoholic aperitivo.</span>
         </div>
         <span class="card-score">78</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="greenbar" data-method="" data-rating="76" data-date="2026-09-18" data-search="greenbar unrum + cola greenbar unrum + cola cocktails canned cocktail los angeles, california, usa formulated non-alcoholic canned cocktail greenbar&apos;s unrum + cola is a formulated non-alcoholic canned cocktail from los angeles: the rum silhouette drawn in botanicals, mixed with cola.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="greenbar" data-abv="unpublished" data-method="unpublished" data-rating="76" data-date="2026-09-18" data-search="greenbar unrum + cola greenbar unrum + cola cocktails canned cocktail los angeles, california, usa formulated non-alcoholic canned cocktail greenbar&apos;s unrum + cola is a formulated non-alcoholic canned cocktail from los angeles: the rum silhouette drawn in botanicals, mixed with cola.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">Greenbar</p>
@@ -107,7 +119,7 @@
           <span class="badge badge--no">Greenbar&apos;s UNRum is a formulated spirit alternative, not a dealcoholized rum; the canned cocktail mixes it with cola.</span>
         </div>
         <span class="card-score">76</span>
-      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="cocktails" data-brand="gr-vi" data-method="california-red-wine-is-dealcoholized-and-blended-with-natural-fruit-extracts-producer" data-rating="80" data-date="2026-09-18" data-search="grüvi non-alcoholic sangria grüvi sangria cocktails non-alcoholic wine cocktail usa california red wine is dealcoholized and blended with natural fruit extracts (producer) alcohol-removed red sangria grüvi&apos;s sangria is dealcoholized california red wine blended with natural fruit extracts: under 0.5% abv, blood orange and warm spice, served by the can.">
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="cocktails" data-brand="gr-vi" data-abv="half" data-method="other" data-rating="80" data-date="2026-09-18" data-search="grüvi non-alcoholic sangria grüvi sangria cocktails non-alcoholic wine cocktail usa california red wine is dealcoholized and blended with natural fruit extracts (producer) alcohol-removed red sangria grüvi&apos;s sangria is dealcoholized california red wine blended with natural fruit extracts: under 0.5% abv, blood orange and warm spice, served by the can.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/gruvi-sangria.jpg" alt="Grüvi Non-Alcoholic Sangria can" width="720" height="960" loading="lazy">
           
@@ -119,7 +131,7 @@
           <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
         <span class="card-score">80</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="lapo-s" data-method="" data-rating="81" data-date="2026-09-18" data-search="lapo&apos;s non-alcoholic negroni lapo&apos;s non-alcoholic negroni cocktails ready-to-drink canned negroni-style cocktail italy non-alcoholic formulated negroni-style canned cocktail from florence lapo&apos;s non-alcoholic negroni is a florence-born canned na cocktail: &lt;0.5% abv, made from italian ingredients to be built rather than poured straight.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="lapo-s" data-abv="half" data-method="unpublished" data-rating="81" data-date="2026-09-18" data-search="lapo&apos;s non-alcoholic negroni lapo&apos;s non-alcoholic negroni cocktails ready-to-drink canned negroni-style cocktail italy non-alcoholic formulated negroni-style canned cocktail from florence lapo&apos;s non-alcoholic negroni is a florence-born canned na cocktail: &lt;0.5% abv, made from italian ingredients to be built rather than poured straight.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">Lapo&apos;s</p>
@@ -128,7 +140,7 @@
           <span class="badge badge--no">Lapo&apos;s brand copy frames the product as an &apos;Italian-inspired cocktail&apos; built for the NA shelf; there is no claim that the drink was ever alcoholic and then dealcoholized — the formula is built fresh.</span>
         </div>
         <span class="card-score">81</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="lyre-s" data-method="" data-rating="83" data-date="2026-09-18" data-search="lyre&apos;s amalfi spritz lyre&apos;s amalfi spritz cocktails canned cocktail / ready-to-drink spritz australia non-alcoholic mediterranean spritz in a can lyre&apos;s amalfi spritz is an australian-made non-alcoholic canned spritz inspired by mediterranean aperitivo culture: bitter orange, rhubarb, and a fine persistent bubble at &lt;0.5% abv.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="lyre-s" data-abv="half" data-method="unpublished" data-rating="83" data-date="2026-09-18" data-search="lyre&apos;s amalfi spritz lyre&apos;s amalfi spritz cocktails canned cocktail / ready-to-drink spritz australia non-alcoholic mediterranean spritz in a can lyre&apos;s amalfi spritz is an australian-made non-alcoholic canned spritz inspired by mediterranean aperitivo culture: bitter orange, rhubarb, and a fine persistent bubble at &lt;0.5% abv.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/lyres-amalfi-spritz.jpg" alt="Lyre&apos;s Amalfi Spritz" width="720" height="960" loading="lazy">
           
@@ -140,7 +152,7 @@
           <span class="badge badge--no">Lyre&apos;s range is formulated from scratch using natural flavors and distillates — none of the brand&apos;s products are made by removing alcohol from a finished alcoholic version.</span>
         </div>
         <span class="card-score">83</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="lyre-s" data-method="" data-rating="82" data-date="2026-09-18" data-search="lyre&apos;s italian orange lyre&apos;s italian orange cocktails aperitif formulated bitter orange aperitif a built-from-scratch blood-orange aperitif under 0.3% abv. useful in a negroni-shaped drink. not wine, not a spirit, not dealcoholized.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="lyre-s" data-abv="half" data-method="unpublished" data-rating="82" data-date="2026-09-18" data-search="lyre&apos;s italian orange lyre&apos;s italian orange cocktails aperitif formulated bitter orange aperitif a built-from-scratch blood-orange aperitif under 0.3% abv. useful in a negroni-shaped drink. not wine, not a spirit, not dealcoholized.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/lyres-italian-orange.jpg" alt="Lyre&apos;s Italian Orange bottle" width="720" height="960" loading="lazy">
           
@@ -152,7 +164,7 @@
           <span class="badge badge--no">Dealcoholized: No — formulated as a zero-proof alternative</span>
         </div>
         <span class="card-score">82</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="mingle" data-method="" data-rating="79" data-date="2026-09-18" data-search="mingle sparkling raspberry rosé mingle sparkling raspberry rosé cocktails canned mocktail usa non-alcoholic sparkling mocktail (formulated, not dealcoholized) mingle&apos;s sparkling raspberry rosé is a real-juice sparkling mocktail at 0.00% abv: crisp raspberry, light bubbles, sold by the can and the case.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="mingle" data-abv="zero" data-method="unpublished" data-rating="79" data-date="2026-09-18" data-search="mingle sparkling raspberry rosé mingle sparkling raspberry rosé cocktails canned mocktail usa non-alcoholic sparkling mocktail (formulated, not dealcoholized) mingle&apos;s sparkling raspberry rosé is a real-juice sparkling mocktail at 0.00% abv: crisp raspberry, light bubbles, sold by the can and the case.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/mingle-sparkling-raspberry-rose.jpg" alt="Mingle Sparkling Raspberry Rosé can" width="720" height="960" loading="lazy">
           
@@ -164,7 +176,7 @@
           <span class="badge badge--no">Mingle is formulated as an alcohol-free mocktail — real juice, sparkling water and botanicals — rather than made by removing alcohol from an alcoholic cocktail.</span>
         </div>
         <span class="card-score">79</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="savyll" data-method="" data-rating="73" data-date="2026-09-18" data-search="savyll moscow mule savyll non-alcoholic moscow mule cocktails rtd formulated moscow mule savyll&apos;s moscow mule is a total wine rtd. it is treated as formulated, not dealcoholized, because no source describes alcohol removal.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="savyll" data-abv="unpublished" data-method="unpublished" data-rating="73" data-date="2026-09-18" data-search="savyll moscow mule savyll non-alcoholic moscow mule cocktails rtd formulated moscow mule savyll&apos;s moscow mule is a total wine rtd. it is treated as formulated, not dealcoholized, because no source describes alcohol removal.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/savyll-moscow-mule.jpg" alt="Savyll Non-Alcoholic Moscow Mule" width="720" height="960" loading="lazy">
           
@@ -176,7 +188,7 @@
           <span class="badge badge--no">An RTD mule. No source describes a spirit that was later dealcoholized.</span>
         </div>
         <span class="card-score">73</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="st-agrestis" data-method="" data-rating="86" data-date="2026-09-18" data-search="st. agrestis phony negroni st. agrestis phony negroni cocktails ready-to-serve non-alcoholic cocktail usa non-alcoholic formulated negroni-style cocktail, 30 botanicals st. agrestis&apos; phony negroni is the brand&apos;s flagship na cocktail: 30 organic, non-gmo botanicals, 0.0% abv, and the closest any formulated na negroni gets to the bitter-piney italian original.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="st-agrestis" data-abv="zero" data-method="unpublished" data-rating="86" data-date="2026-09-18" data-search="st. agrestis phony negroni st. agrestis phony negroni cocktails ready-to-serve non-alcoholic cocktail usa non-alcoholic formulated negroni-style cocktail, 30 botanicals st. agrestis&apos; phony negroni is the brand&apos;s flagship na cocktail: 30 organic, non-gmo botanicals, 0.0% abv, and the closest any formulated na negroni gets to the bitter-piney italian original.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/stagrestis-phony-negroni.jpg" alt="St. Agrestis Phony Negroni" width="720" height="960" loading="lazy">
           
@@ -188,7 +200,7 @@
           <span class="badge badge--no">St. Agrestis cocktails are formulated from a base of 30 organic, non-GMO botanicals — not dealcoholized from a once-alcoholic Negroni.</span>
         </div>
         <span class="card-score">86</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="p-j-valckenberg" data-method="" data-rating="77" data-date="2026-09-18" data-search="p.j. valckenberg &apos;it&apos;s not a sin&apos; na ginger/bitter orange p.j. valckenberg it&apos;s not a sin ginger/bitter orange cocktails non-alcoholic aperitivo germany formulated non-alcoholic ginger and bitter-orange aperitivo p.j. valckenberg&apos;s &apos;it&apos;s not a sin&apos; is a formulated na aperitivo with ginger and bitter orange: 0.0% abv, built for spritzes.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cocktails" data-brand="p-j-valckenberg" data-abv="unpublished" data-method="unpublished" data-rating="77" data-date="2026-09-18" data-search="p.j. valckenberg &apos;it&apos;s not a sin&apos; na ginger/bitter orange p.j. valckenberg it&apos;s not a sin ginger/bitter orange cocktails non-alcoholic aperitivo germany formulated non-alcoholic ginger and bitter-orange aperitivo p.j. valckenberg&apos;s &apos;it&apos;s not a sin&apos; is a formulated na aperitivo with ginger and bitter orange: 0.0% abv, built for spritzes.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">P.J. Valckenberg</p>
@@ -197,7 +209,9 @@
           <span class="badge badge--no">Formulated beverage — no underlying alcoholic drink before removal; part of Valckenberg&apos;s Zero non-alcoholic line.</span>
         </div>
         <span class="card-score">77</span>
-      </article></div><p class="empty" data-archive-empty hidden>No reviews match those filters.</p></div>
+      </article></div><p class="empty" data-archive-empty hidden>No reviews match those filters.</p>
+        </div>
+      </div>
     </section>
   </main>
     <footer class="site-footer">
@@ -221,6 +235,6 @@
     </div>
     <p class="copyright">© <span data-year></span> The Dry Standard. Staging preview on karlhill.com.</p>
   </footer>
-  <script src="/clients/the-dry-standard/script.js?v=3" defer></script>
+  <script src="/clients/the-dry-standard/script.js?v=4" defer></script>
 </body>
 </html>

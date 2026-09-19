@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=6">
+  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=7">
   
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://karlhill.com/clients/the-dry-standard/"},{"@type":"ListItem","position":2,"name":"Reviews","item":"https://karlhill.com/clients/the-dry-standard/reviews/"},{"@type":"ListItem","position":3,"name":"Spirits","item":"https://karlhill.com/clients/the-dry-standard/reviews/spirits/"}]},{"@type":"CollectionPage","name":"Spirits reviews","description":"Dealcoholized and non-alcoholic Spirits reviewed for what they are, not what the label implies.","url":"https://karlhill.com/clients/the-dry-standard/reviews/spirits/"}]}</script>
 </head>
@@ -49,25 +49,42 @@
         <p class="kicker">The cellar</p>
         <h1>Spirits reviews</h1>
         <p class="lede">Dealcoholized and non-alcoholic Spirits reviewed for what they are, not what the label implies.</p>
-                <form class="archive-tools" data-archive data-locked-category="spirits" role="search">
-          <label class="visually-hidden" for="archive-q">Search reviews</label>
-          <input id="archive-q" type="search" name="q" placeholder="Search brand, product, origin, or method" data-archive-q>
-          <div class="archive-controls">
-            <label>Category
-              <select name="category" data-archive-category disabled><option value="">All categories</option><option value="wine">Wine</option><option value="beer">Beer</option><option value="spirits" selected>Spirits</option><option value="cocktails">Cocktails</option><option value="cider">Cider</option></select>
-            </label>
-            <label>Process
-              <select name="dealcoholized" data-archive-dealcoholized>
-                <option value="">All processes</option>
-                <option value="yes">Dealcoholized</option>
-                <option value="no">Formulated</option>
-                <option value="not-verified">Not verified</option>
-              </select>
-            </label>
-            <label>Method
-              <select name="method" data-archive-method><option value="">All methods</option><option value="alcohol-extracted-in-grasse-using-heat-pressure-and-thermal-shocks-the-aromatic-fraction-is-redistilled-in-century-old-copper-pot-stills-at-a-french-distillery-founded-in-1875">Alcohol extracted in grasse using heat pressure and thermal shocks the aromatic fraction is redistilled in century old copper pot stills at a french distillery founded in 1875</option><option value="alcohol-removed-from-a-real-reposado-tequila-the-same-distillery-to-bottle-approach-as-spiritless-kentucky-74">Alcohol removed from a real reposado tequila the same distillery to bottle approach as spiritless kentucky 74</option><option value="reverse-distillation">Reverse distillation</option></select>
-            </label>
-            <label>Sort
+      </div>
+    </header>
+    <section class="section section--tight">
+            <div class="shell archive-layout" data-archive data-locked-category="spirits">
+        <form class="archive-sidebar" role="search">
+          <div class="facet">
+            <label class="facet-legend" for="archive-q">Search</label>
+            <input id="archive-q" type="search" name="q" placeholder="Brand, product, origin, or method" data-archive-q>
+          </div>
+                    <fieldset class="facet" data-facet="abv">
+            <legend class="facet-legend">ABV</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="0.0%"><input id="archive-abv-zero" type="checkbox" name="abv[]" value="zero" data-archive-abv><span>0.0%</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="≤0.5%"><input id="archive-abv-half" type="checkbox" name="abv[]" value="half" data-archive-abv><span>≤0.5%</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+                    <fieldset class="facet" data-facet="brand">
+            <legend class="facet-legend">Brand</legend>
+            <label class="visually-hidden" for="archive-brand-find">Find a Brand</label><input id="archive-brand-find" type="search" class="facet-find" placeholder="Find a brand" data-facet-find="brand">
+            <div class="facet-list"><label class="facet-option" data-facet-label="ritual zero proof"><input id="archive-brand-ritual-zero-proof" type="checkbox" name="brand[]" value="ritual-zero-proof" data-archive-brand><span>Ritual Zero Proof</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="sober spirits"><input id="archive-brand-sober-spirits" type="checkbox" name="brand[]" value="sober-spirits" data-archive-brand><span>Sober Spirits</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="spiritless"><input id="archive-brand-spiritless" type="checkbox" name="brand[]" value="spiritless" data-archive-brand><span>Spiritless</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+          
+                    <fieldset class="facet" data-facet="dealcoholized">
+            <legend class="facet-legend">Process</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="dealcoholized"><input id="archive-dealcoholized-yes" type="checkbox" name="dealcoholized[]" value="yes" data-archive-dealcoholized><span>Dealcoholized</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="formulated"><input id="archive-dealcoholized-no" type="checkbox" name="dealcoholized[]" value="no" data-archive-dealcoholized><span>Formulated</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+                    <fieldset class="facet" data-facet="method">
+            <legend class="facet-legend">Method</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="reverse distillation"><input id="archive-method-reverse-distillation" type="checkbox" name="method[]" value="reverse-distillation" data-archive-method><span>Reverse distillation</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="other documented method"><input id="archive-method-other" type="checkbox" name="method[]" value="other" data-archive-method><span>Other documented method</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="unpublished"><input id="archive-method-unpublished" type="checkbox" name="method[]" value="unpublished" data-archive-method><span>Unpublished</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+          <p class="archive-clear"><button type="button" data-archive-clear>Clear filters</button></p>
+        </form>
+        <div class="archive-main">
+          <div class="archive-toolbar">
+            <p class="archive-count" data-archive-count></p>
+            <label class="archive-sort">Sort
               <select name="sort" data-archive-sort>
                 <option value="newest">Newest</option>
                 <option value="rating">Highest rated</option>
@@ -75,12 +92,7 @@
               </select>
             </label>
           </div>
-          <p class="archive-count" data-archive-count></p>
-        </form>
-      </div>
-    </header>
-    <section class="section section--tight">
-      <div class="shell"><div class="ledger" data-review-grid>      <article class="ledger-row" data-dealcoholized="no" data-category="spirits" data-brand="ritual-zero-proof" data-method="" data-rating="78" data-date="2026-09-18" data-search="ritual zero proof tequila alternative ritual zero proof tequila alternative spirits non-alcoholic spirit alternative usa formulated non-alcoholic tequila alternative ritual zero proof&apos;s tequila alternative is a botanical formulation with agave, lime and spice at 0.0% abv: built for margaritas, not for sipping.">
+          <div class="ledger" data-review-grid>      <article class="ledger-row" data-dealcoholized="no" data-category="spirits" data-brand="ritual-zero-proof" data-abv="zero" data-method="unpublished" data-rating="78" data-date="2026-09-18" data-search="ritual zero proof tequila alternative ritual zero proof tequila alternative spirits non-alcoholic spirit alternative usa formulated non-alcoholic tequila alternative ritual zero proof&apos;s tequila alternative is a botanical formulation with agave, lime and spice at 0.0% abv: built for margaritas, not for sipping.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/ritual-zero-proof-tequila.jpg" alt="Ritual Zero Proof Tequila Alternative bottle" width="720" height="960" loading="lazy">
           
@@ -92,7 +104,7 @@
           <span class="badge badge--no">Ritual Zero Proof spirits are formulated from botanicals and natural flavors — not made by removing alcohol from a once-alcoholic spirit.</span>
         </div>
         <span class="card-score">78</span>
-      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="spirits" data-brand="sober-spirits" data-method="alcohol-extracted-in-grasse-using-heat-pressure-and-thermal-shocks-the-aromatic-fraction-is-redistilled-in-century-old-copper-pot-stills-at-a-french-distillery-founded-in-1875" data-rating="84" data-date="2026-09-18" data-search="sober spirits w 0.0% whisky sober spirits w 0.0% whisky spirits dealcoholized whisky alternative france alcohol extracted in grasse using heat, pressure and thermal shocks; the aromatic fraction is redistilled in century-old copper pot stills at a french distillery founded in 1875 dealcoholized non-alcoholic spirit a real dealcoholized scottish whisky, rebuilt in france: 0.0% abv, 0% sugar, the closest thing to an honest zero-proof whisky pour.">
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="spirits" data-brand="sober-spirits" data-abv="zero" data-method="other" data-rating="84" data-date="2026-09-18" data-search="sober spirits w 0.0% whisky sober spirits w 0.0% whisky spirits dealcoholized whisky alternative france alcohol extracted in grasse using heat, pressure and thermal shocks; the aromatic fraction is redistilled in century-old copper pot stills at a french distillery founded in 1875 dealcoholized non-alcoholic spirit a real dealcoholized scottish whisky, rebuilt in france: 0.0% abv, 0% sugar, the closest thing to an honest zero-proof whisky pour.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/sober-spirits-whisky.jpg" alt="Sober Spirits W 0.0% whisky" width="720" height="960" loading="lazy">
           
@@ -104,7 +116,7 @@
           <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
         <span class="card-score">84</span>
-      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="spirits" data-brand="spiritless" data-method="alcohol-removed-from-a-real-reposado-tequila-the-same-distillery-to-bottle-approach-as-spiritless-kentucky-74" data-rating="82" data-date="2026-09-18" data-search="spiritless jalisco 55 non-alcoholic tequila spiritless jalisco 55 non-alcoholic reposado tequila spirits non-alcoholic tequila alternative usa alcohol removed from a real reposado tequila — the same distillery-to-bottle approach as spiritless kentucky 74 dealcoholized non-alcoholic reposado tequila spiritless jalisco 55 is a dealcoholized reposado tequila: real agave spirit from jalisco with the alcohol removed at 0.0% abv.">
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="spirits" data-brand="spiritless" data-abv="zero" data-method="other" data-rating="82" data-date="2026-09-18" data-search="spiritless jalisco 55 non-alcoholic tequila spiritless jalisco 55 non-alcoholic reposado tequila spirits non-alcoholic tequila alternative usa alcohol removed from a real reposado tequila — the same distillery-to-bottle approach as spiritless kentucky 74 dealcoholized non-alcoholic reposado tequila spiritless jalisco 55 is a dealcoholized reposado tequila: real agave spirit from jalisco with the alcohol removed at 0.0% abv.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/spiritless-jalisco-55.jpg" alt="Spiritless Jalisco 55 tequila bottle" width="720" height="960" loading="lazy">
           
@@ -116,7 +128,7 @@
           <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
         <span class="card-score">82</span>
-      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="spirits" data-brand="spiritless" data-method="reverse-distillation" data-rating="78" data-date="2026-09-18" data-search="spiritless kentucky 74 spiritless kentucky 74 spirits whiskey alternative kentucky, united states reverse distillation after thermal oak extraction in high-proof neutral grain spirit reverse-distilled oak spirit louisville&apos;s reverse-distilled whiskey alternative. alcohol is removed from an oak-charged high-proof spirit. it is not dealcoholized maker&apos;s mark.">
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="spirits" data-brand="spiritless" data-abv="half" data-method="reverse-distillation" data-rating="78" data-date="2026-09-18" data-search="spiritless kentucky 74 spiritless kentucky 74 spirits whiskey alternative kentucky, united states reverse distillation after thermal oak extraction in high-proof neutral grain spirit reverse-distilled oak spirit louisville&apos;s reverse-distilled whiskey alternative. alcohol is removed from an oak-charged high-proof spirit. it is not dealcoholized maker&apos;s mark.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/spiritless-kentucky-74.jpg" alt="Spiritless Kentucky 74 bottle" width="720" height="960" loading="lazy">
           
@@ -128,7 +140,9 @@
           <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
         <span class="card-score">78</span>
-      </article></div><p class="empty" data-archive-empty hidden>No reviews match those filters.</p></div>
+      </article></div><p class="empty" data-archive-empty hidden>No reviews match those filters.</p>
+        </div>
+      </div>
     </section>
   </main>
     <footer class="site-footer">
@@ -152,6 +166,6 @@
     </div>
     <p class="copyright">© <span data-year></span> The Dry Standard. Staging preview on karlhill.com.</p>
   </footer>
-  <script src="/clients/the-dry-standard/script.js?v=3" defer></script>
+  <script src="/clients/the-dry-standard/script.js?v=4" defer></script>
 </body>
 </html>

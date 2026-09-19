@@ -180,8 +180,9 @@ final class SiteBuilder
                 'facets' => [
                     'categories' => $published->pluck('category')->unique()->values(),
                     'brands' => $published->pluck('brand')->unique()->sort()->values(),
+                    'abv' => $published->map(fn (Review $review): string => $review->abvBucket())->unique()->values(),
                     'dealcoholized' => $published->pluck('dealcoholized')->unique()->values(),
-                    'methods' => $published->map(fn (Review $review): ?string => $review->methodKey())->filter()->unique()->values(),
+                    'methods' => $published->map(fn (Review $review): string => $review->methodFacetKey())->unique()->values(),
                 ],
             ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n",
         );

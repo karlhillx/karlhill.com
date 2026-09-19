@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=6">
+  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=7">
   
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://karlhill.com/clients/the-dry-standard/"},{"@type":"ListItem","position":2,"name":"Reviews","item":"https://karlhill.com/clients/the-dry-standard/reviews/"},{"@type":"ListItem","position":3,"name":"Cider","item":"https://karlhill.com/clients/the-dry-standard/reviews/cider/"}]},{"@type":"CollectionPage","name":"Cider reviews","description":"Dealcoholized and non-alcoholic Cider reviewed for what they are, not what the label implies.","url":"https://karlhill.com/clients/the-dry-standard/reviews/cider/"}]}</script>
 </head>
@@ -49,25 +49,42 @@
         <p class="kicker">The cellar</p>
         <h1>Cider reviews</h1>
         <p class="lede">Dealcoholized and non-alcoholic Cider reviewed for what they are, not what the label implies.</p>
-                <form class="archive-tools" data-archive data-locked-category="cider" role="search">
-          <label class="visually-hidden" for="archive-q">Search reviews</label>
-          <input id="archive-q" type="search" name="q" placeholder="Search brand, product, origin, or method" data-archive-q>
-          <div class="archive-controls">
-            <label>Category
-              <select name="category" data-archive-category disabled><option value="">All categories</option><option value="wine">Wine</option><option value="beer">Beer</option><option value="spirits">Spirits</option><option value="cocktails">Cocktails</option><option value="cider" selected>Cider</option></select>
-            </label>
-            <label>Process
-              <select name="dealcoholized" data-archive-dealcoholized>
-                <option value="">All processes</option>
-                <option value="yes">Dealcoholized</option>
-                <option value="no">Formulated</option>
-                <option value="not-verified">Not verified</option>
-              </select>
-            </label>
-            <label>Method
-              <select name="method" data-archive-method><option value="">All methods</option><option value="dealcoholized-cider-from-cider-apples-perry-pears-and-dealcoholized-red-wine-plus-hops-herbs-and-flowers">Dealcoholized cider from cider apples perry pears and dealcoholized red wine plus hops herbs and flowers</option></select>
-            </label>
-            <label>Sort
+      </div>
+    </header>
+    <section class="section section--tight">
+            <div class="shell archive-layout" data-archive data-locked-category="cider">
+        <form class="archive-sidebar" role="search">
+          <div class="facet">
+            <label class="facet-legend" for="archive-q">Search</label>
+            <input id="archive-q" type="search" name="q" placeholder="Brand, product, origin, or method" data-archive-q>
+          </div>
+                    <fieldset class="facet" data-facet="abv">
+            <legend class="facet-legend">ABV</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="0.0%"><input id="archive-abv-zero" type="checkbox" name="abv[]" value="zero" data-archive-abv><span>0.0%</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="≤0.5%"><input id="archive-abv-half" type="checkbox" name="abv[]" value="half" data-archive-abv><span>≤0.5%</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+                    <fieldset class="facet" data-facet="brand">
+            <legend class="facet-legend">Brand</legend>
+            <label class="visually-hidden" for="archive-brand-find">Find a Brand</label><input id="archive-brand-find" type="search" class="facet-find" placeholder="Find a brand" data-facet-find="brand">
+            <div class="facet-list"><label class="facet-option" data-facet-label="christian drouin"><input id="archive-brand-christian-drouin" type="checkbox" name="brand[]" value="christian-drouin" data-archive-brand><span>Christian Drouin</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="eric bordelet"><input id="archive-brand-eric-bordelet" type="checkbox" name="brand[]" value="eric-bordelet" data-archive-brand><span>Eric Bordelet</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="jörg geiger"><input id="archive-brand-j-rg-geiger" type="checkbox" name="brand[]" value="j-rg-geiger" data-archive-brand><span>Jörg Geiger</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="original sin cider"><input id="archive-brand-original-sin-cider" type="checkbox" name="brand[]" value="original-sin-cider" data-archive-brand><span>Original Sin Cider</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+          
+                    <fieldset class="facet" data-facet="dealcoholized">
+            <legend class="facet-legend">Process</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="dealcoholized"><input id="archive-dealcoholized-yes" type="checkbox" name="dealcoholized[]" value="yes" data-archive-dealcoholized><span>Dealcoholized</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="formulated"><input id="archive-dealcoholized-no" type="checkbox" name="dealcoholized[]" value="no" data-archive-dealcoholized><span>Formulated</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+                    <fieldset class="facet" data-facet="method">
+            <legend class="facet-legend">Method</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="other documented method"><input id="archive-method-other" type="checkbox" name="method[]" value="other" data-archive-method><span>Other documented method</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="unpublished"><input id="archive-method-unpublished" type="checkbox" name="method[]" value="unpublished" data-archive-method><span>Unpublished</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+          <p class="archive-clear"><button type="button" data-archive-clear>Clear filters</button></p>
+        </form>
+        <div class="archive-main">
+          <div class="archive-toolbar">
+            <p class="archive-count" data-archive-count></p>
+            <label class="archive-sort">Sort
               <select name="sort" data-archive-sort>
                 <option value="newest">Newest</option>
                 <option value="rating">Highest rated</option>
@@ -75,12 +92,7 @@
               </select>
             </label>
           </div>
-          <p class="archive-count" data-archive-count></p>
-        </form>
-      </div>
-    </header>
-    <section class="section section--tight">
-      <div class="shell"><div class="ledger" data-review-grid>      <article class="ledger-row" data-dealcoholized="no" data-category="cider" data-brand="christian-drouin" data-method="" data-rating="84" data-date="2026-09-18" data-search="christian drouin jus de poire pétillant christian drouin jus de poire pétillant cider sparkling pear juice normandy (coudray-rabut), france non-alcoholic sparkling pear juice christian drouin&apos;s jus de poire pétillant is pressed juice from normandy heritage pears, lightly sparkling: never fermented, never stripped, just fruit.">
+          <div class="ledger" data-review-grid>      <article class="ledger-row" data-dealcoholized="no" data-category="cider" data-brand="christian-drouin" data-abv="zero" data-method="unpublished" data-rating="84" data-date="2026-09-18" data-search="christian drouin jus de poire pétillant christian drouin jus de poire pétillant cider sparkling pear juice normandy (coudray-rabut), france non-alcoholic sparkling pear juice christian drouin&apos;s jus de poire pétillant is pressed juice from normandy heritage pears, lightly sparkling: never fermented, never stripped, just fruit.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/christian-drouin-poire.jpg" alt="Christian Drouin Jus de Poire Pétillant bottle" width="720" height="960" loading="lazy">
           
@@ -92,7 +104,7 @@
           <span class="badge badge--no">This is pressed pear juice with carbonation, not a fermented pear cider with the alcohol removed — the producer markets it as non-alcoholic pear juice.</span>
         </div>
         <span class="card-score">84</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cider" data-brand="eric-bordelet" data-method="" data-rating="86" data-date="2026-09-18" data-search="eric bordelet perlant jus de pommes à sydre eric bordelet perlant jus de pommes à sydre cider sparkling apple juice normandy (pays d&apos;auge), france non-alcoholic sparkling apple juice from cider apples eric bordelet&apos;s perlant is pressed juice of 12 organic heritage cider apple varieties from normandy, lightly sparkling: estate-grown, gently pasteurized, never fermented.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cider" data-brand="eric-bordelet" data-abv="zero" data-method="unpublished" data-rating="86" data-date="2026-09-18" data-search="eric bordelet perlant jus de pommes à sydre eric bordelet perlant jus de pommes à sydre cider sparkling apple juice normandy (pays d&apos;auge), france non-alcoholic sparkling apple juice from cider apples eric bordelet&apos;s perlant is pressed juice of 12 organic heritage cider apple varieties from normandy, lightly sparkling: estate-grown, gently pasteurized, never fermented.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/eric-bordelet-perlant.jpg" alt="Eric Bordelet Perlant sparkling apple juice" width="720" height="960" loading="lazy">
           
@@ -104,7 +116,7 @@
           <span class="badge badge--no">Pressed apple juice from cider varieties with carbon dioxide added — never fermented, so there is no alcohol to remove. Distinct from Bordelet&apos;s alcoholic ciders.</span>
         </div>
         <span class="card-score">86</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cider" data-brand="original-sin-cider" data-method="" data-rating="78" data-date="2026-09-18" data-search="original sin cider (widow family) original sin cider widow family mix pack (original sin&apos;s na lineup) cider non-fermented na cider usa sparkling non-alcoholic apple-cider-vinegar-based cider original sin&apos;s widow family 12-pack is their na lineup: apple-cider-vinegar and fruit-juice based, monk-fruit sweetened, never alcohol-fermented; four flavors from white widow blackberry to dragon&apos;s blood.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="cider" data-brand="original-sin-cider" data-abv="zero" data-method="unpublished" data-rating="78" data-date="2026-09-18" data-search="original sin cider (widow family) original sin cider widow family mix pack (original sin&apos;s na lineup) cider non-fermented na cider usa sparkling non-alcoholic apple-cider-vinegar-based cider original sin&apos;s widow family 12-pack is their na lineup: apple-cider-vinegar and fruit-juice based, monk-fruit sweetened, never alcohol-fermented; four flavors from white widow blackberry to dragon&apos;s blood.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">Original Sin Cider</p>
@@ -113,7 +125,7 @@
           <span class="badge badge--no">Original Sin&apos;s NA ciders are made with apple cider vinegar and fruit juice, not from a dealcoholized alcoholic cider.</span>
         </div>
         <span class="card-score">78</span>
-      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="cider" data-brand="j-rg-geiger" data-method="dealcoholized-cider-from-cider-apples-perry-pears-and-dealcoholized-red-wine-plus-hops-herbs-and-flowers" data-rating="85" data-date="2026-09-18" data-search="wiesenobst cider rosé jörg geiger wiesenobst cider rosé cider cider rosé schlat, germany dealcoholized cider from cider apples, perry pears, and dealcoholized red wine, plus hops, herbs, and flowers dealcoholized cider with dealcoholized red wine jörg geiger&apos;s wiesenobst rosé is dealcoholized cider cut with dealcoholized red wine, hops, herbs, and flowers. under 0.5% abv, 330 ml cans.">
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="cider" data-brand="j-rg-geiger" data-abv="half" data-method="other" data-rating="85" data-date="2026-09-18" data-search="wiesenobst cider rosé jörg geiger wiesenobst cider rosé cider cider rosé schlat, germany dealcoholized cider from cider apples, perry pears, and dealcoholized red wine, plus hops, herbs, and flowers dealcoholized cider with dealcoholized red wine jörg geiger&apos;s wiesenobst rosé is dealcoholized cider cut with dealcoholized red wine, hops, herbs, and flowers. under 0.5% abv, 330 ml cans.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/wiesenobst-cider-rose.jpg" alt="WiesenObst Cider Rosé" width="720" height="960" loading="lazy">
           
@@ -125,7 +137,9 @@
           <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
         <span class="card-score">85</span>
-      </article></div><p class="empty" data-archive-empty hidden>No reviews match those filters.</p></div>
+      </article></div><p class="empty" data-archive-empty hidden>No reviews match those filters.</p>
+        </div>
+      </div>
     </section>
   </main>
     <footer class="site-footer">
@@ -149,6 +163,6 @@
     </div>
     <p class="copyright">© <span data-year></span> The Dry Standard. Staging preview on karlhill.com.</p>
   </footer>
-  <script src="/clients/the-dry-standard/script.js?v=3" defer></script>
+  <script src="/clients/the-dry-standard/script.js?v=4" defer></script>
 </body>
 </html>

@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=6">
+  <link rel="stylesheet" href="/clients/the-dry-standard/styles.css?v=7">
   
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://karlhill.com/clients/the-dry-standard/"},{"@type":"ListItem","position":2,"name":"Reviews","item":"https://karlhill.com/clients/the-dry-standard/reviews/"},{"@type":"ListItem","position":3,"name":"Beer","item":"https://karlhill.com/clients/the-dry-standard/reviews/beer/"}]},{"@type":"CollectionPage","name":"Beer reviews","description":"Dealcoholized and non-alcoholic Beer reviewed for what they are, not what the label implies.","url":"https://karlhill.com/clients/the-dry-standard/reviews/beer/"}]}</script>
 </head>
@@ -49,25 +49,42 @@
         <p class="kicker">The cellar</p>
         <h1>Beer reviews</h1>
         <p class="lede">Dealcoholized and non-alcoholic Beer reviewed for what they are, not what the label implies.</p>
-                <form class="archive-tools" data-archive data-locked-category="beer" role="search">
-          <label class="visually-hidden" for="archive-q">Search reviews</label>
-          <input id="archive-q" type="search" name="q" placeholder="Search brand, product, origin, or method" data-archive-q>
-          <div class="archive-controls">
-            <label>Category
-              <select name="category" data-archive-category disabled><option value="">All categories</option><option value="wine">Wine</option><option value="beer" selected>Beer</option><option value="spirits">Spirits</option><option value="cocktails">Cocktails</option><option value="cider">Cider</option></select>
-            </label>
-            <label>Process
-              <select name="dealcoholized" data-archive-dealcoholized>
-                <option value="">All processes</option>
-                <option value="yes">Dealcoholized</option>
-                <option value="no">Formulated</option>
-                <option value="not-verified">Not verified</option>
-              </select>
-            </label>
-            <label>Method
-              <select name="method" data-archive-method><option value="">All methods</option><option value="membrane-filtration">Membrane / cold filtration</option><option value="vacuum-distillation">Vacuum distillation</option></select>
-            </label>
-            <label>Sort
+      </div>
+    </header>
+    <section class="section section--tight">
+            <div class="shell archive-layout" data-archive data-locked-category="beer">
+        <form class="archive-sidebar" role="search">
+          <div class="facet">
+            <label class="facet-legend" for="archive-q">Search</label>
+            <input id="archive-q" type="search" name="q" placeholder="Brand, product, origin, or method" data-archive-q>
+          </div>
+                    <fieldset class="facet" data-facet="abv">
+            <legend class="facet-legend">ABV</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="0.0%"><input id="archive-abv-zero" type="checkbox" name="abv[]" value="zero" data-archive-abv><span>0.0%</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="≤0.5%"><input id="archive-abv-half" type="checkbox" name="abv[]" value="half" data-archive-abv><span>≤0.5%</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="not published"><input id="archive-abv-unpublished" type="checkbox" name="abv[]" value="unpublished" data-archive-abv><span>Not published</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+                    <fieldset class="facet" data-facet="brand">
+            <legend class="facet-legend">Brand</legend>
+            <label class="visually-hidden" for="archive-brand-find">Find a Brand</label><input id="archive-brand-find" type="search" class="facet-find" placeholder="Find a brand" data-facet-find="brand">
+            <div class="facet-list"><label class="facet-option" data-facet-label="asahi breweries"><input id="archive-brand-asahi-breweries" type="checkbox" name="brand[]" value="asahi-breweries" data-archive-brand><span>Asahi Breweries</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="athletic brewing"><input id="archive-brand-athletic-brewing" type="checkbox" name="brand[]" value="athletic-brewing" data-archive-brand><span>Athletic Brewing</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="best day brewing"><input id="archive-brand-best-day-brewing" type="checkbox" name="brand[]" value="best-day-brewing" data-archive-brand><span>Best Day Brewing</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="dc brau brewing co."><input id="archive-brand-dc-brau-brewing-co" type="checkbox" name="brand[]" value="dc-brau-brewing-co" data-archive-brand><span>DC Brau Brewing Co.</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="deschutes brewery"><input id="archive-brand-deschutes-brewery" type="checkbox" name="brand[]" value="deschutes-brewery" data-archive-brand><span>Deschutes Brewery</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="erdinger weissbräu"><input id="archive-brand-erdinger-weissbr-u" type="checkbox" name="brand[]" value="erdinger-weissbr-u" data-archive-brand><span>Erdinger Weissbräu</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="flying dog brewery"><input id="archive-brand-flying-dog-brewery" type="checkbox" name="brand[]" value="flying-dog-brewery" data-archive-brand><span>Flying Dog Brewery</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="go brewing"><input id="archive-brand-go-brewing" type="checkbox" name="brand[]" value="go-brewing" data-archive-brand><span>Go Brewing</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="grolsch"><input id="archive-brand-grolsch" type="checkbox" name="brand[]" value="grolsch" data-archive-brand><span>Grolsch</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="guinness"><input id="archive-brand-guinness" type="checkbox" name="brand[]" value="guinness" data-archive-brand><span>Guinness</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="halfway crooks beer"><input id="archive-brand-halfway-crooks-beer" type="checkbox" name="brand[]" value="halfway-crooks-beer" data-archive-brand><span>Halfway Crooks Beer</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="heineken"><input id="archive-brand-heineken" type="checkbox" name="brand[]" value="heineken" data-archive-brand><span>Heineken</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="hop wtr"><input id="archive-brand-hop-wtr" type="checkbox" name="brand[]" value="hop-wtr" data-archive-brand><span>HOP WTR</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="lagunitas"><input id="archive-brand-lagunitas" type="checkbox" name="brand[]" value="lagunitas" data-archive-brand><span>Lagunitas</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="nonny beer"><input id="archive-brand-nonny-beer" type="checkbox" name="brand[]" value="nonny-beer" data-archive-brand><span>Nonny Beer</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="penn&apos;s best"><input id="archive-brand-penn-s-best" type="checkbox" name="brand[]" value="penn-s-best" data-archive-brand><span>Penn&apos;s Best</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="pure project"><input id="archive-brand-pure-project" type="checkbox" name="brand[]" value="pure-project" data-archive-brand><span>Pure Project</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="tired hands brewing company"><input id="archive-brand-tired-hands-brewing-company" type="checkbox" name="brand[]" value="tired-hands-brewing-company" data-archive-brand><span>Tired Hands Brewing Company</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="untitled art brewing"><input id="archive-brand-untitled-art-brewing" type="checkbox" name="brand[]" value="untitled-art-brewing" data-archive-brand><span>Untitled Art Brewing</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+          
+                    <fieldset class="facet" data-facet="dealcoholized">
+            <legend class="facet-legend">Process</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="dealcoholized"><input id="archive-dealcoholized-yes" type="checkbox" name="dealcoholized[]" value="yes" data-archive-dealcoholized><span>Dealcoholized</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="formulated"><input id="archive-dealcoholized-no" type="checkbox" name="dealcoholized[]" value="no" data-archive-dealcoholized><span>Formulated</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="not verified"><input id="archive-dealcoholized-not-verified" type="checkbox" name="dealcoholized[]" value="not-verified" data-archive-dealcoholized><span>Not verified</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+                    <fieldset class="facet" data-facet="method">
+            <legend class="facet-legend">Method</legend>
+            
+            <div class="facet-list"><label class="facet-option" data-facet-label="vacuum distillation"><input id="archive-method-vacuum-distillation" type="checkbox" name="method[]" value="vacuum-distillation" data-archive-method><span>Vacuum distillation</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="membrane / cold filtration"><input id="archive-method-membrane-filtration" type="checkbox" name="method[]" value="membrane-filtration" data-archive-method><span>Membrane / cold filtration</span><span class="facet-count" data-facet-count></span></label><label class="facet-option" data-facet-label="unpublished"><input id="archive-method-unpublished" type="checkbox" name="method[]" value="unpublished" data-archive-method><span>Unpublished</span><span class="facet-count" data-facet-count></span></label></div>
+          </fieldset>
+          <p class="archive-clear"><button type="button" data-archive-clear>Clear filters</button></p>
+        </form>
+        <div class="archive-main">
+          <div class="archive-toolbar">
+            <p class="archive-count" data-archive-count></p>
+            <label class="archive-sort">Sort
               <select name="sort" data-archive-sort>
                 <option value="newest">Newest</option>
                 <option value="rating">Highest rated</option>
@@ -75,12 +92,7 @@
               </select>
             </label>
           </div>
-          <p class="archive-count" data-archive-count></p>
-        </form>
-      </div>
-    </header>
-    <section class="section section--tight">
-      <div class="shell"><div class="ledger" data-review-grid>      <article class="ledger-row" data-dealcoholized="no" data-category="beer" data-brand="asahi-breweries" data-method="" data-rating="76" data-date="2026-09-18" data-search="asahi dry zero asahi breweries dry zero beer non-alcoholic beer-like beverage japan non-alcoholic beer-style beverage (formulated, not dealcoholized) asahi dry zero is japan&apos;s flagship non-alcohol beer-style drink: 0.00% abv, formulated from the ground up rather than dealcoholized, dry and clean.">
+          <div class="ledger" data-review-grid>      <article class="ledger-row" data-dealcoholized="no" data-category="beer" data-brand="asahi-breweries" data-abv="zero" data-method="unpublished" data-rating="76" data-date="2026-09-18" data-search="asahi dry zero asahi breweries dry zero beer non-alcoholic beer-like beverage japan non-alcoholic beer-style beverage (formulated, not dealcoholized) asahi dry zero is japan&apos;s flagship non-alcohol beer-style drink: 0.00% abv, formulated from the ground up rather than dealcoholized, dry and clean.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">Asahi Breweries</p>
@@ -89,7 +101,7 @@
           <span class="badge badge--no">Asahi&apos;s own R&amp;D documentation describes Dry Zero as a non-alcohol beer-like beverage built from wort-free formulation rather than made by removing alcohol from a finished beer.</span>
         </div>
         <span class="card-score">76</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="athletic-brewing" data-method="" data-rating="88" data-date="2026-09-18" data-search="athletic brewing run wild ipa athletic brewing run wild ipa beer india pale ale milford, connecticut, with a second brewhouse in san diego, california, usa non-alcoholic ipa america&apos;s largest dedicated na brewery built run wild on a proprietary process it doesn&apos;t disclose: under 0.5% abv, 70 calories, citra and mosaic over us and german malt.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="athletic-brewing" data-abv="half" data-method="unpublished" data-rating="88" data-date="2026-09-18" data-search="athletic brewing run wild ipa athletic brewing run wild ipa beer india pale ale milford, connecticut, with a second brewhouse in san diego, california, usa non-alcoholic ipa america&apos;s largest dedicated na brewery built run wild on a proprietary process it doesn&apos;t disclose: under 0.5% abv, 70 calories, citra and mosaic over us and german malt.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/athletic-brewing-run-wild-ipa.jpg" alt="Athletic Brewing Run Wild IPA" width="720" height="960" loading="lazy">
           
@@ -101,7 +113,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">88</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="athletic-brewing" data-method="" data-rating="82" data-date="2026-09-18" data-search="athletic esb athletic brewing esb (extra special bitter) beer english-style bitter milford, connecticut, usa non-alcoholic english-style bitter athletic esb is a limited-release non-alcoholic english-style bitter: smooth and balanced at under 0.5% abv, sold online only.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="athletic-brewing" data-abv="half" data-method="unpublished" data-rating="82" data-date="2026-09-18" data-search="athletic esb athletic brewing esb (extra special bitter) beer english-style bitter milford, connecticut, usa non-alcoholic english-style bitter athletic esb is a limited-release non-alcoholic english-style bitter: smooth and balanced at under 0.5% abv, sold online only.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/athletic-esb.jpg" alt="Athletic ESB can" width="720" height="960" loading="lazy">
           
@@ -113,7 +125,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">82</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="best-day-brewing" data-method="" data-rating="84" data-date="2026-09-18" data-search="best day brewing kölsch best day brewing kölsch beer kölsch-style ale usa non-alcoholic kölsch-style craft beer best day brewing&apos;s kölsch is one of the cleanest expressions in american craft na: light, crisp, gently toasty, finishing dry and clean at &lt;0.5% abv.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="best-day-brewing" data-abv="half" data-method="unpublished" data-rating="84" data-date="2026-09-18" data-search="best day brewing kölsch best day brewing kölsch beer kölsch-style ale usa non-alcoholic kölsch-style craft beer best day brewing&apos;s kölsch is one of the cleanest expressions in american craft na: light, crisp, gently toasty, finishing dry and clean at &lt;0.5% abv.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/best-day-kolsch.jpg" alt="Best Day Brewing Kölsch cans" width="720" height="960" loading="lazy">
           
@@ -125,7 +137,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">84</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="dc-brau-brewing-co" data-method="" data-rating="76" data-date="2026-09-18" data-search="dc brau non-alcoholic pale ale dc brau brewing co. non-alcoholic pale ale beer pale ale washington, dc, usa non-alcoholic pale ale dc brau&apos;s non-alcoholic pale ale is a washington, dc brewery product sold at total wine and metro. method and abv are not published on a page we can cite.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="dc-brau-brewing-co" data-abv="unpublished" data-method="unpublished" data-rating="76" data-date="2026-09-18" data-search="dc brau non-alcoholic pale ale dc brau brewing co. non-alcoholic pale ale beer pale ale washington, dc, usa non-alcoholic pale ale dc brau&apos;s non-alcoholic pale ale is a washington, dc brewery product sold at total wine and metro. method and abv are not published on a page we can cite.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/dc-brau-pale-ale.jpg" alt="DC Brau Non-Alcoholic Pale Ale" width="720" height="960" loading="lazy">
           
@@ -137,7 +149,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">76</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="deschutes-brewery" data-method="" data-rating="84" data-date="2026-09-18" data-search="deschutes non-alcoholic fresh squeezed ipa deschutes brewery non-alcoholic fresh squeezed ipa beer ipa bend, oregon, usa non-alcoholic ipa deschutes&apos; non-alcoholic fresh squeezed ipa is their flagship ipa at &lt;0.5% abv: 83 calories, 50 ibu, built on patented na brewing technology.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="deschutes-brewery" data-abv="half" data-method="unpublished" data-rating="84" data-date="2026-09-18" data-search="deschutes non-alcoholic fresh squeezed ipa deschutes brewery non-alcoholic fresh squeezed ipa beer ipa bend, oregon, usa non-alcoholic ipa deschutes&apos; non-alcoholic fresh squeezed ipa is their flagship ipa at &lt;0.5% abv: 83 calories, 50 ibu, built on patented na brewing technology.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/deschutes-fresh-squeezed-na.jpg" alt="Deschutes Non-Alcoholic Fresh Squeezed IPA can" width="720" height="960" loading="lazy">
           
@@ -149,7 +161,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">84</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="erdinger-weissbr-u" data-method="" data-rating="82" data-date="2026-09-18" data-search="erdinger alkoholfrei erdinger weissbräu alkoholfrei beer non-alcoholic wheat beer bavaria, germany non-alcoholic bavarian wheat beer (weissbier) erdinger alkoholfrei is a bavarian non-alcoholic wheat beer under the reinheitsgebot, marketed as a naturally isotonic sports recovery drink.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="erdinger-weissbr-u" data-abv="half" data-method="unpublished" data-rating="82" data-date="2026-09-18" data-search="erdinger alkoholfrei erdinger weissbräu alkoholfrei beer non-alcoholic wheat beer bavaria, germany non-alcoholic bavarian wheat beer (weissbier) erdinger alkoholfrei is a bavarian non-alcoholic wheat beer under the reinheitsgebot, marketed as a naturally isotonic sports recovery drink.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">Erdinger Weissbräu</p>
@@ -158,7 +170,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">82</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="flying-dog-brewery" data-method="" data-rating="77" data-date="2026-09-18" data-search="flying dog deep fake non-alcoholic ipa flying dog brewery deep fake non-alcoholic ipa beer ipa frederick, maryland, usa non-alcoholic ipa flying dog&apos;s deep fake is a non-alcoholic ipa under 0.5% abv: hazy, hoppy, self-aware about being an imitation of the real thing.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="flying-dog-brewery" data-abv="half" data-method="unpublished" data-rating="77" data-date="2026-09-18" data-search="flying dog deep fake non-alcoholic ipa flying dog brewery deep fake non-alcoholic ipa beer ipa frederick, maryland, usa non-alcoholic ipa flying dog&apos;s deep fake is a non-alcoholic ipa under 0.5% abv: hazy, hoppy, self-aware about being an imitation of the real thing.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">Flying Dog Brewery</p>
@@ -167,7 +179,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">77</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="go-brewing" data-method="" data-rating="85" data-date="2026-09-18" data-search="go brewing suspended in a sunbeam pils go brewing suspended in a sunbeam pils beer german-style pilsner naperville, illinois, usa non-alcoholic german-style pilsner go brewing&apos;s sunbeam pils is a german-malt-and-hop non-alcoholic pilsner from naperville, illinois: under 0.5% abv, crisp and clean, $14.99 a six-pack.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="go-brewing" data-abv="half" data-method="unpublished" data-rating="85" data-date="2026-09-18" data-search="go brewing suspended in a sunbeam pils go brewing suspended in a sunbeam pils beer german-style pilsner naperville, illinois, usa non-alcoholic german-style pilsner go brewing&apos;s sunbeam pils is a german-malt-and-hop non-alcoholic pilsner from naperville, illinois: under 0.5% abv, crisp and clean, $14.99 a six-pack.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/go-brewing-sunbeam-pils.jpg" alt="Go Brewing Suspended In A Sunbeam Pils can" width="720" height="960" loading="lazy">
           
@@ -179,7 +191,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">85</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="grolsch" data-method="" data-rating="80" data-date="2026-09-18" data-search="grolsch 0.0% grolsch 0.0% beer pilsner netherlands non-alcoholic dutch pilsner grolsch 0.0% is a dutch pilsner brewed with barley, two hop varieties and spring water: 0% abv, full-bodied, with the brewery&apos;s signature green-hop character.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="grolsch" data-abv="zero" data-method="unpublished" data-rating="80" data-date="2026-09-18" data-search="grolsch 0.0% grolsch 0.0% beer pilsner netherlands non-alcoholic dutch pilsner grolsch 0.0% is a dutch pilsner brewed with barley, two hop varieties and spring water: 0% abv, full-bodied, with the brewery&apos;s signature green-hop character.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">Grolsch</p>
@@ -188,7 +200,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">80</span>
-      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="beer" data-brand="guinness" data-method="membrane-filtration" data-rating="91" data-date="2026-09-18" data-search="guinness 0.0 guinness guinness 0.0 beer stout dublin, ireland cold filtration after a conventional guinness brew dealcoholized dry stout a st james&apos;s gate stout with the alcohol filtered out cold. cream, coffee, and that familiar surge — then a slightly sweeter, lighter finish.">
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="beer" data-brand="guinness" data-abv="zero" data-method="membrane-filtration" data-rating="91" data-date="2026-09-18" data-search="guinness 0.0 guinness guinness 0.0 beer stout dublin, ireland cold filtration after a conventional guinness brew dealcoholized dry stout a st james&apos;s gate stout with the alcohol filtered out cold. cream, coffee, and that familiar surge — then a slightly sweeter, lighter finish.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/guinness-0-0.jpg" alt="Guinness 0.0 can" width="720" height="960" loading="lazy">
           
@@ -200,7 +212,7 @@
           <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
         <span class="card-score">91</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="halfway-crooks-beer" data-method="" data-rating="83" data-date="2026-09-18" data-search="halfway crooks brevet ipa halfway crooks beer brevet ipa beer ipa atlanta, georgia, usa non-alcoholic ipa halfway crooks&apos; non-alcoholic brevet ipa is a real sku, logged on untappd and bought at metro. the brewery has not published its abv or method on a product page we can cite.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="halfway-crooks-beer" data-abv="unpublished" data-method="unpublished" data-rating="83" data-date="2026-09-18" data-search="halfway crooks brevet ipa halfway crooks beer brevet ipa beer ipa atlanta, georgia, usa non-alcoholic ipa halfway crooks&apos; non-alcoholic brevet ipa is a real sku, logged on untappd and bought at metro. the brewery has not published its abv or method on a product page we can cite.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/halfway-crooks-brevet-ipa.jpg" alt="Halfway Crooks Brevet IPA" width="720" height="960" loading="lazy">
           
@@ -212,7 +224,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">83</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="halfway-crooks-beer" data-method="" data-rating="86" data-date="2026-09-18" data-search="halfway crooks brevet pils halfway crooks beer brevet pils beer german-style pilsner atlanta, georgia, usa non-alcoholic german-style pilsner atlanta&apos;s halfway crooks brews the brevet line under 0.5% abv; the pilsner is crisp, quietly weird in the best way, and cheap by na-can standards.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="halfway-crooks-beer" data-abv="half" data-method="unpublished" data-rating="86" data-date="2026-09-18" data-search="halfway crooks brevet pils halfway crooks beer brevet pils beer german-style pilsner atlanta, georgia, usa non-alcoholic german-style pilsner atlanta&apos;s halfway crooks brews the brevet line under 0.5% abv; the pilsner is crisp, quietly weird in the best way, and cheap by na-can standards.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/halfway-crooks-brevet-pils.jpg" alt="Halfway Crooks Brevet Pils" width="720" height="960" loading="lazy">
           
@@ -224,7 +236,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">86</span>
-      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="beer" data-brand="heineken" data-method="vacuum-distillation" data-rating="82" data-date="2026-09-18" data-search="heineken 0.0 heineken beer non-alcoholic lager alcohol extracted from the traditional brew using vacuum distillation columns, following a double-brew step with heineken&apos;s a-yeast (documented by the process) non-alcoholic international pale lager heineken brews its traditional beer with a-yeast, double-brews to protect aromatics, then extracts the ethanol with vacuum distillation columns: 0.0% abv, 21 kcal per 100 ml.">
+      </article>      <article class="ledger-row" data-dealcoholized="yes" data-category="beer" data-brand="heineken" data-abv="zero" data-method="vacuum-distillation" data-rating="82" data-date="2026-09-18" data-search="heineken 0.0 heineken beer non-alcoholic lager alcohol extracted from the traditional brew using vacuum distillation columns, following a double-brew step with heineken&apos;s a-yeast (documented by the process) non-alcoholic international pale lager heineken brews its traditional beer with a-yeast, double-brews to protect aromatics, then extracts the ethanol with vacuum distillation columns: 0.0% abv, 21 kcal per 100 ml.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/heineken-0-0.jpg" alt="Heineken 0.0 bottle" width="720" height="960" loading="lazy">
           
@@ -236,7 +248,7 @@
           <span class="badge badge--yes">Dealcoholized: Yes</span>
         </div>
         <span class="card-score">82</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="beer" data-brand="hop-wtr" data-method="" data-rating="78" data-date="2026-09-18" data-search="hop wtr blood orange hop wtr blood orange beer hop water (alcohol-free, non-fermented) usa sparkling hop water (alcohol-free by composition, not dealcoholized) hop wtr&apos;s blood orange is a hopping sparkling water blended with italian blood orange, adaptogens and vitamins at &lt;0.5% abv; closest thing to an american na shandy on a non-fermented base.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="beer" data-brand="hop-wtr" data-abv="zero" data-method="unpublished" data-rating="78" data-date="2026-09-18" data-search="hop wtr blood orange hop wtr blood orange beer hop water (alcohol-free, non-fermented) usa sparkling hop water (alcohol-free by composition, not dealcoholized) hop wtr&apos;s blood orange is a hopping sparkling water blended with italian blood orange, adaptogens and vitamins at &lt;0.5% abv; closest thing to an american na shandy on a non-fermented base.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/hop-wtr-blood-orange.jpg" alt="HOP WTR Blood Orange cans" width="720" height="960" loading="lazy">
           
@@ -248,7 +260,7 @@
           <span class="badge badge--no">HOP WTR is a hopped, sparkling, fortified water rather than a de-alcoholized beer; the brand is roughly 85% sparkling water with hops, vitamins and adaptogens and no alcohol ever present.</span>
         </div>
         <span class="card-score">78</span>
-      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="beer" data-brand="lagunitas" data-method="" data-rating="82" data-date="2026-09-18" data-search="lagunitas hazy ipna lagunitas hazy ipna beer hazy ipa usa non-alcoholic hazy ipa lagunitas&apos; non-alcoholic hazy ipa sits at 0.50% abv. the brewery is explicit: it does not remove alcohol from finished beer.">
+      </article>      <article class="ledger-row" data-dealcoholized="no" data-category="beer" data-brand="lagunitas" data-abv="half" data-method="unpublished" data-rating="82" data-date="2026-09-18" data-search="lagunitas hazy ipna lagunitas hazy ipna beer hazy ipa usa non-alcoholic hazy ipa lagunitas&apos; non-alcoholic hazy ipa sits at 0.50% abv. the brewery is explicit: it does not remove alcohol from finished beer.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/lagunitas-hazy-ipna.jpg" alt="Lagunitas Hazy IPNA can" width="720" height="960" loading="lazy">
           
@@ -260,7 +272,7 @@
           <span class="badge badge--no">Brewed to remain under 0.5% ABV. Lagunitas says it does not dealcoholize the finished beer.</span>
         </div>
         <span class="card-score">82</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="nonny-beer" data-method="" data-rating="83" data-date="2026-09-18" data-search="nonny czech pilsner nonny beer czech pilsner beer czech-style pilsner czech republic non-alcoholic czech-style craft pilsner nonny&apos;s czech pilsner is a traditional-ingredient na lager from the czech republic: water, barley, hops, yeast, 42 calories a can, real bitterness.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="nonny-beer" data-abv="half" data-method="unpublished" data-rating="83" data-date="2026-09-18" data-search="nonny czech pilsner nonny beer czech pilsner beer czech-style pilsner czech republic non-alcoholic czech-style craft pilsner nonny&apos;s czech pilsner is a traditional-ingredient na lager from the czech republic: water, barley, hops, yeast, 42 calories a can, real bitterness.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">Nonny Beer</p>
@@ -269,7 +281,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">83</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="penn-s-best" data-method="" data-rating="72" data-date="2026-09-18" data-search="penn&apos;s best non-alcoholic lager penn&apos;s best non-alcoholic lager beer american lager usa non-alcoholic american lager penn&apos;s best na is a naturally brewed non-alcoholic american lager from fred koch brewery: 70 calories, &lt;0.5% abv, the value shelf.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="penn-s-best" data-abv="half" data-method="unpublished" data-rating="72" data-date="2026-09-18" data-search="penn&apos;s best non-alcoholic lager penn&apos;s best non-alcoholic lager beer american lager usa non-alcoholic american lager penn&apos;s best na is a naturally brewed non-alcoholic american lager from fred koch brewery: 70 calories, &lt;0.5% abv, the value shelf.">
         <div class="product-figure product-figure--thumb product-figure--empty" aria-hidden="true"></div>
         <div>
           <p class="ledger-brand">Penn&apos;s Best</p>
@@ -278,7 +290,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">72</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="pure-project" data-method="" data-rating="83" data-date="2026-09-18" data-search="pure project grounded non-alcoholic ipa pure project grounded non-alcoholic ipa beer ipa san diego, california, usa non-alcoholic ipa pure project&apos;s grounded is a non-alcoholic ipa from san diego built on citra and mosaic hops: &lt;0.5% abv, medium-bodied, citrus and resin.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="pure-project" data-abv="half" data-method="unpublished" data-rating="83" data-date="2026-09-18" data-search="pure project grounded non-alcoholic ipa pure project grounded non-alcoholic ipa beer ipa san diego, california, usa non-alcoholic ipa pure project&apos;s grounded is a non-alcoholic ipa from san diego built on citra and mosaic hops: &lt;0.5% abv, medium-bodied, citrus and resin.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/pure-project-grounded.jpg" alt="Pure Project Grounded IPA can" width="720" height="960" loading="lazy">
           
@@ -290,7 +302,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">83</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="tired-hands-brewing-company" data-method="" data-rating="88" data-date="2026-09-18" data-search="tired hands n/alien church tired hands brewing company n/alien church beer new england ipa ardmore, pennsylvania, usa non-alcoholic new england ipa tired hands&apos; n/alien church is their first non-alcoholic beer: a hazy new england ipa from ardmore pa, under 0.5% abv, $16 a six-pack.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="tired-hands-brewing-company" data-abv="half" data-method="unpublished" data-rating="88" data-date="2026-09-18" data-search="tired hands n/alien church tired hands brewing company n/alien church beer new england ipa ardmore, pennsylvania, usa non-alcoholic new england ipa tired hands&apos; n/alien church is their first non-alcoholic beer: a hazy new england ipa from ardmore pa, under 0.5% abv, $16 a six-pack.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/tired-hands-n-alien-church.jpg" alt="Tired Hands N/Alien Church can" width="720" height="960" loading="lazy">
           
@@ -302,7 +314,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">88</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="untitled-art-brewing" data-method="" data-rating="83" data-date="2026-09-18" data-search="untitled art flvr! na italian-style pils untitled art brewing flvr! na italian-style pils beer italian-style pilsner waunakee, wisconsin, usa non-alcoholic italian-style pilsner untitled art&apos;s flvr! na italian-style pils is a dry-hopped non-alcoholic italian pilsner: floral and herbal hop character, subtle citrus, crisp finish, 60 calories.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="untitled-art-brewing" data-abv="half" data-method="unpublished" data-rating="83" data-date="2026-09-18" data-search="untitled art flvr! na italian-style pils untitled art brewing flvr! na italian-style pils beer italian-style pilsner waunakee, wisconsin, usa non-alcoholic italian-style pilsner untitled art&apos;s flvr! na italian-style pils is a dry-hopped non-alcoholic italian pilsner: floral and herbal hop character, subtle citrus, crisp finish, 60 calories.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/untitled-art-flvr-italian-pils.jpg" alt="Untitled Art FLVR! NA Italian-Style Pils can" width="720" height="960" loading="lazy">
           
@@ -314,7 +326,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">83</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="untitled-art-brewing" data-method="" data-rating="82" data-date="2026-09-18" data-search="untitled art flvr! na juicy ipa untitled art brewing flvr! na juicy ipa beer juicy ipa waunakee, wisconsin, usa non-alcoholic juicy ipa untitled art&apos;s flvr! na juicy ipa is a hazy, juicy non-alcoholic ipa from wisconsin: under 0.5% abv, fruit-forward and drinkable.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="untitled-art-brewing" data-abv="half" data-method="unpublished" data-rating="82" data-date="2026-09-18" data-search="untitled art flvr! na juicy ipa untitled art brewing flvr! na juicy ipa beer juicy ipa waunakee, wisconsin, usa non-alcoholic juicy ipa untitled art&apos;s flvr! na juicy ipa is a hazy, juicy non-alcoholic ipa from wisconsin: under 0.5% abv, fruit-forward and drinkable.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/untitled-art-flvr-juicy-ipa.jpg" alt="Untitled Art FLVR! NA Juicy IPA can" width="720" height="960" loading="lazy">
           
@@ -326,7 +338,7 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">82</span>
-      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="untitled-art-brewing" data-method="" data-rating="84" data-date="2026-09-18" data-search="untitled art flvr! na mango dragonfruit sour untitled art brewing flvr! na mango dragonfruit sour beer fruit sour waunakee, wisconsin, usa non-alcoholic fruited sour ale untitled art&apos;s flvr! mango dragonfruit sour is a tart, tropical na fruit sour from wisconsin: under 0.5% abv, 90 calories, vivid mango and dragonfruit character.">
+      </article>      <article class="ledger-row" data-dealcoholized="not-verified" data-category="beer" data-brand="untitled-art-brewing" data-abv="half" data-method="unpublished" data-rating="84" data-date="2026-09-18" data-search="untitled art flvr! na mango dragonfruit sour untitled art brewing flvr! na mango dragonfruit sour beer fruit sour waunakee, wisconsin, usa non-alcoholic fruited sour ale untitled art&apos;s flvr! mango dragonfruit sour is a tart, tropical na fruit sour from wisconsin: under 0.5% abv, 90 calories, vivid mango and dragonfruit character.">
                 <figure class="product-figure product-figure--thumb">
           <img src="/clients/the-dry-standard/media/reviews/untitled-art-flvr-mango-dragonfruit.jpg" alt="Untitled Art FLVR! Mango Dragonfruit Sour can" width="720" height="960" loading="lazy">
           
@@ -338,7 +350,9 @@
           <span class="badge badge--not-verified">Dealcoholized: Not verified</span>
         </div>
         <span class="card-score">84</span>
-      </article></div><p class="empty" data-archive-empty hidden>No reviews match those filters.</p></div>
+      </article></div><p class="empty" data-archive-empty hidden>No reviews match those filters.</p>
+        </div>
+      </div>
     </section>
   </main>
     <footer class="site-footer">
@@ -362,6 +376,6 @@
     </div>
     <p class="copyright">© <span data-year></span> The Dry Standard. Staging preview on karlhill.com.</p>
   </footer>
-  <script src="/clients/the-dry-standard/script.js?v=3" defer></script>
+  <script src="/clients/the-dry-standard/script.js?v=4" defer></script>
 </body>
 </html>

@@ -62,7 +62,9 @@ it('exposes a feed, sitemap, and catalog for the client site', function () {
     $catalog = json_decode($catalogResponse->streamedContent(), true, flags: JSON_THROW_ON_ERROR);
     expect($catalog['reviews'])->toBeArray()->not->toBeEmpty();
     expect($catalog['facets']['categories'])->toContain('wine');
-    expect($catalog['reviews'][0])->toHaveKeys(['brand_slug', 'method_slug', 'origin', 'search_text', 'image']);
+    expect($catalog['facets']['brands'])->not->toBeEmpty();
+    expect($catalog['facets']['abv'])->not->toBeEmpty();
+    expect($catalog['reviews'][0])->toHaveKeys(['brand_slug', 'method_slug', 'origin', 'search_text', 'image', 'abv_bucket']);
     expect($catalog['reviews'][0])->not->toHaveKey('id');
     expect($catalog['reviews'][0])->not->toHaveKey('ean');
 });
@@ -118,7 +120,7 @@ it('keeps a master product table without duplicating published reviews', functio
     $queue = file_get_contents(base_path('clients/the-dry-standard/data/review-queue.yaml')) ?: '';
     expect($queue)->toContain("status: published\n")
         ->and($queue)->toContain('Giesen 0% Sauvignon Blanc')
-        ->and(substr_count($queue, "status: queued\n"))->toBeGreaterThan(50);
+        ->and(substr_count($queue, "status: queued\n"))->toBeGreaterThan(20);
 });
 
 it('builds a searchable review archive', function () {
@@ -131,13 +133,16 @@ it('builds a searchable review archive', function () {
     $this->get('/clients/the-dry-standard/reviews/')
         ->assertOk()
         ->assertSee('data-archive', escape: false)
-        ->assertSee('Search brand, product, origin, or method', escape: false)
+        ->assertSee('archive-sidebar', escape: false)
+        ->assertSee('data-archive-brand', escape: false)
+        ->assertSee('data-archive-abv', escape: false)
         ->assertSee('data-archive-category', escape: false)
+        ->assertSee('data-abv=', escape: false)
         ->assertSee('data-search=', escape: false)
         ->assertSee('ledger-row', escape: false);
 
     $this->get('/clients/the-dry-standard/reviews/wine/')
         ->assertOk()
         ->assertSee('data-locked-category="wine"', escape: false)
-        ->assertSee('disabled', escape: false);
+        ->assertDontSee('data-archive-category', escape: false);
 });

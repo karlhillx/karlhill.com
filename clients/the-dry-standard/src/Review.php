@@ -183,6 +183,7 @@ final class Review
             'style' => $this->style,
             'abv' => $this->abv,
             'abv_numeric' => $this->abvNumeric,
+            'abv_bucket' => $this->abvBucket(),
             'brand_slug' => Str::slug($this->brand),
             'origin' => $this->originLabel(),
             'dealcoholized' => $this->dealcoholized,
@@ -229,6 +230,39 @@ final class Review
         return $this->imageAlt ?? $this->title;
     }
 
+    public const ABV_BUCKETS = [
+        'zero' => '0.0%',
+        'trace' => '≤0.05%',
+        'half' => '≤0.5%',
+        'unpublished' => 'Not published',
+    ];
+
+    public const METHOD_FACETS = [
+        'vacuum-distillation',
+        'spinning-cone',
+        'reverse-osmosis',
+        'membrane-filtration',
+        'reverse-distillation',
+        'arrested-fermentation',
+    ];
+
+    public function abvBucket(): string
+    {
+        if ($this->abvNumeric === null) {
+            return 'unpublished';
+        }
+
+        if ($this->abvNumeric <= 0.0) {
+            return 'zero';
+        }
+
+        if ($this->abvNumeric <= 0.05) {
+            return 'trace';
+        }
+
+        return 'half';
+    }
+
     public function methodKey(): ?string
     {
         $text = strtolower($this->dealcoholizationMethod ?? '');
@@ -252,6 +286,17 @@ final class Review
         }
 
         return Str::slug($this->dealcoholizationMethod);
+    }
+
+    public function methodFacetKey(): string
+    {
+        $key = $this->methodKey();
+
+        if ($key === null || $key === '') {
+            return 'unpublished';
+        }
+
+        return in_array($key, self::METHOD_FACETS, true) ? $key : 'other';
     }
 
     public function searchText(): string

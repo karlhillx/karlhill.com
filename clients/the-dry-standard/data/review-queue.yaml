@@ -931,7 +931,7 @@
   brand: Oddbird
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Bundle SKU; The Zero Proof order email does not itemize which individual Oddbird wines were included'
   abv: 'Not verified'
@@ -946,7 +946,7 @@
   brand: 'Tired Hands'
   category: beer
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -961,7 +961,7 @@
   brand: 'P.J. Valckenberg'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Not verified'
   abv: 'Not verified'
@@ -976,7 +976,7 @@
   brand: 'P.J. Valckenberg'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Not verified'
   abv: 'Not verified'
@@ -991,7 +991,7 @@
   brand: 'Erdinger Weißbräu'
   category: beer
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Brewed under Bavarian Purity Law; specific alcohol-removal method not disclosed'
   abv: '<0.5%'
@@ -1006,7 +1006,7 @@
   brand: 'Missing Thorn'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Not independently verified; brand markets wines as alcohol-removed by winemaker Aaron Pott'
   abv: 'Not verified'
@@ -1021,7 +1021,7 @@
   brand: 'Weingut Leitz'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Vacuum distillation at low temperature'
   abv: 0%
@@ -1036,7 +1036,7 @@
   brand: 'Athletic Brewing Company'
   category: beer
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Athletic Brewing markets its beers generally as "Near Beer <0.5% alc/vol"; this SKU''s specific brewing/alcohol-removal process not independently confirmed'
   abv: 'Not verified'
@@ -1051,7 +1051,7 @@
   brand: 'De Nada (Paumanok Vineyards)'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not independently verified'
   abv: 'Not verified'
@@ -1066,7 +1066,7 @@
   brand: 'Weingut Leitz'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Vacuum distillation at low temperature'
   abv: 0%
@@ -1081,7 +1081,7 @@
   brand: Fio
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -1096,7 +1096,7 @@
   brand: 'Ritual Zero Proof'
   category: spirits
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Formulated agave spirit alternative, never distilled from alcohol'
   abv: 0%
@@ -1111,7 +1111,7 @@
   brand: 'P.J. Valckenberg'
   category: cocktails
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Same producer as Valckenberg''s verified "Zero" dealcoholized wine line, but this specific botanical-infused SKU''s own production method not independently verified'
   abv: 'Not verified'
@@ -1126,7 +1126,7 @@
   brand: 'Sea Monster'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Branded "Alcohol Removed"; specific method not detailed'
   abv: 'Not verified'
@@ -1141,7 +1141,7 @@
   brand: 'Butter Zero'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not independently verified beyond retailer listing'
   abv: 'Not verified'
@@ -1156,7 +1156,7 @@
   brand: 'Mount Fishtail'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Branded "Alcohol Removed"; specific method not detailed'
   abv: 'Not verified'
@@ -1171,7 +1171,7 @@
   brand: 'Butter Zero'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not independently verified beyond retailer listing'
   abv: 'Not verified'
@@ -1186,7 +1186,7 @@
   brand: Zolo
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not independently verified beyond retailer listing'
   abv: 'Not verified'
@@ -1201,7 +1201,7 @@
   brand: 'Butter Zero'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not independently verified beyond retailer listing'
   abv: 'Not verified'
@@ -1216,7 +1216,7 @@
   brand: 'Chloe Wine Collection'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Alcohol-removed (branded); method not detailed'
   abv: 'Not verified'
@@ -1231,7 +1231,7 @@
   brand: 'Chateau Diana'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Branded "Alcohol Removed"; specific method not detailed'
   abv: 'Not verified'
@@ -1246,7 +1246,7 @@
   brand: 'Chateau Diana'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Branded "Alcohol Removed"; specific method not detailed'
   abv: 'Not verified'
@@ -1261,7 +1261,7 @@
   brand: "Penn's Best"
   category: beer
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -1276,7 +1276,7 @@
   brand: 'Ariel (Ariel Vineyards / J. Lohr)'
   category: wine
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Marketed as "Dealcoholized Wine"; specific method not detailed'
   abv: 'Not verified'
@@ -1291,7 +1291,7 @@
   brand: Greenbar
   category: cocktails
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -1306,7 +1306,7 @@
   brand: 'Flying Dog Brewery'
   category: beer
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -1321,7 +1321,7 @@
   brand: 'Untitled Art Brewing'
   category: beer
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -1336,7 +1336,7 @@
   brand: 'Pure Project'
   category: beer
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -1351,7 +1351,7 @@
   brand: 'Birrificio Baladin'
   category: cocktails
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Not verified'
   abv: 'Not verified'
@@ -1366,7 +1366,7 @@
   brand: 'Deschutes Brewery'
   category: beer
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'no'
   method: 'Brand markets line as "non-alcoholic"; brewing/alcohol-removal process not independently confirmed'
   abv: 'Not verified'
@@ -1381,7 +1381,7 @@
   brand: Spiritless
   category: spirits
   priority: low
-  status: published
+  status: queued
   dealcoholized: 'yes'
   method: 'Reverse distillation (same documented method as Spiritless Kentucky 74)'
   abv: 0.0%

@@ -57,7 +57,7 @@ HTML;
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{$this->url('styles.css')}?v=6">
+  <link rel="stylesheet" href="{$this->url('styles.css')}?v=7">
   {$extraHead}
   {$jsonLd}
 </head>
@@ -68,7 +68,7 @@ HTML;
     {$body}
   </main>
   {$this->footer()}
-  <script src="{$this->url('script.js')}?v=3" defer></script>
+  <script src="{$this->url('script.js')}?v=4" defer></script>
 </body>
 </html>
 HTML;
@@ -258,7 +258,9 @@ HTML;
             : '<div class="ledger" data-review-grid>'.$this->reviewCards($reviews, ledger: true).'</div>'
                 .'<p class="empty" data-archive-empty hidden>No reviews match those filters.</p>';
 
-        $tools = $filterable && $reviews->isNotEmpty() ? $this->archiveTools($reviews, $lockedCategory) : '';
+        $archive = $filterable && $reviews->isNotEmpty()
+            ? $this->archiveLayout($reviews, $lockedCategory, $list)
+            : '<div class="shell">'.$list.'</div>';
 
         $body = <<<HTML
     <header class="page-header">
@@ -267,11 +269,10 @@ HTML;
         <p class="kicker">The cellar</p>
         <h1>{$this->e($title)}</h1>
         <p class="lede">{$this->e($description)}</p>
-        {$tools}
       </div>
     </header>
     <section class="section section--tight">
-      <div class="shell">{$list}</div>
+      {$archive}
     </section>
 HTML;
 
@@ -627,49 +628,81 @@ HTML;
     /**
      * @param  Collection<int, Review>  $reviews
      */
-    private function archiveTools(Collection $reviews, ?string $lockedCategory): string
+    private function archiveLayout(Collection $reviews, ?string $lockedCategory, string $list): string
     {
-        $categoryOptions = '<option value="">All categories</option>';
-        foreach ($this->config->categories() as $category) {
-            $selected = $lockedCategory === $category ? ' selected' : '';
-            $categoryOptions .= '<option value="'.Str::e($category).'"'.$selected.'>'.Str::e($this->config->categoryLabel($category)).'</option>';
-        }
-
-        $methods = $reviews
-            ->map(fn (Review $review): ?string => $review->methodKey())
-            ->filter()
-            ->unique()
-            ->sort()
-            ->values();
-
-        $methodOptions = '<option value="">All methods</option>';
-        foreach ($methods as $method) {
-            $methodOptions .= '<option value="'.Str::e((string) $method).'">'.Str::e($this->config->methodLabel((string) $method)).'</option>';
-        }
-
         $locked = $lockedCategory !== null ? ' data-locked-category="'.Str::e($lockedCategory).'"' : '';
-        $categoryDisabled = $lockedCategory !== null ? ' disabled' : '';
+
+        $brandOptions = $reviews
+            ->map(fn (Review $review): array => [
+                'value' => Str::slug($review->brand),
+                'label' => $review->brand,
+            ])
+            ->unique('value')
+            ->sortBy(fn (array $option): string => mb_strtolower($option['label']), SORT_NATURAL)
+            ->values()
+            ->all();
+
+        $abvOptions = [];
+        foreach (Review::ABV_BUCKETS as $value => $label) {
+            if ($reviews->contains(fn (Review $review): bool => $review->abvBucket() === $value)) {
+                $abvOptions[] = ['value' => $value, 'label' => $label];
+            }
+        }
+
+        $categoryOptions = [];
+        if ($lockedCategory === null) {
+            foreach ($this->config->categories() as $category) {
+                if ($reviews->contains(fn (Review $review): bool => $review->category === $category)) {
+                    $categoryOptions[] = ['value' => $category, 'label' => $this->config->categoryLabel($category)];
+                }
+            }
+        }
+
+        $processOptions = [
+            ['value' => 'yes', 'label' => 'Dealcoholized'],
+            ['value' => 'no', 'label' => 'Formulated'],
+            ['value' => 'not-verified', 'label' => 'Not verified'],
+        ];
+        $processOptions = array_values(array_filter(
+            $processOptions,
+            fn (array $option): bool => $reviews->contains(fn (Review $review): bool => $review->dealcoholized === $option['value']),
+        ));
+
+        $methodLabels = $this->config->methods() + [
+            'other' => 'Other documented method',
+            'unpublished' => 'Unpublished',
+        ];
+        $methodOptions = [];
+        foreach (array_keys($methodLabels) as $method) {
+            if ($reviews->contains(fn (Review $review): bool => $review->methodFacetKey() === $method)) {
+                $methodOptions[] = ['value' => $method, 'label' => $methodLabels[$method]];
+            }
+        }
+
+        $categoryFacet = $categoryOptions === []
+            ? ''
+            : $this->facetGroup('Category', 'category', $categoryOptions);
+        $processFacet = $this->facetGroup('Process', 'dealcoholized', $processOptions);
+        $methodFacet = $this->facetGroup('Method', 'method', $methodOptions);
 
         return <<<HTML
-        <form class="archive-tools" data-archive{$locked} role="search">
-          <label class="visually-hidden" for="archive-q">Search reviews</label>
-          <input id="archive-q" type="search" name="q" placeholder="Search brand, product, origin, or method" data-archive-q>
-          <div class="archive-controls">
-            <label>Category
-              <select name="category" data-archive-category{$categoryDisabled}>{$categoryOptions}</select>
-            </label>
-            <label>Process
-              <select name="dealcoholized" data-archive-dealcoholized>
-                <option value="">All processes</option>
-                <option value="yes">Dealcoholized</option>
-                <option value="no">Formulated</option>
-                <option value="not-verified">Not verified</option>
-              </select>
-            </label>
-            <label>Method
-              <select name="method" data-archive-method>{$methodOptions}</select>
-            </label>
-            <label>Sort
+      <div class="shell archive-layout" data-archive{$locked}>
+        <form class="archive-sidebar" role="search">
+          <div class="facet">
+            <label class="facet-legend" for="archive-q">Search</label>
+            <input id="archive-q" type="search" name="q" placeholder="Brand, product, origin, or method" data-archive-q>
+          </div>
+          {$this->facetGroup('ABV', 'abv', $abvOptions)}
+          {$this->facetGroup('Brand', 'brand', $brandOptions, searchable: true)}
+          {$categoryFacet}
+          {$processFacet}
+          {$methodFacet}
+          <p class="archive-clear"><button type="button" data-archive-clear>Clear filters</button></p>
+        </form>
+        <div class="archive-main">
+          <div class="archive-toolbar">
+            <p class="archive-count" data-archive-count></p>
+            <label class="archive-sort">Sort
               <select name="sort" data-archive-sort>
                 <option value="newest">Newest</option>
                 <option value="rating">Highest rated</option>
@@ -677,8 +710,43 @@ HTML;
               </select>
             </label>
           </div>
-          <p class="archive-count" data-archive-count></p>
-        </form>
+          {$list}
+        </div>
+      </div>
+HTML;
+    }
+
+    /**
+     * @param  array<int, array{value: string, label: string}>  $options
+     */
+    private function facetGroup(string $legend, string $name, array $options, bool $searchable = false): string
+    {
+        if ($options === []) {
+            return '';
+        }
+
+        $search = '';
+        if ($searchable) {
+            $search = '<label class="visually-hidden" for="archive-'.$name.'-find">Find a '.Str::e($legend).'</label>'
+                .'<input id="archive-'.$name.'-find" type="search" class="facet-find" placeholder="Find a '.Str::e(strtolower($legend)).'" data-facet-find="'.Str::e($name).'">';
+        }
+
+        $items = '';
+        foreach ($options as $option) {
+            $id = 'archive-'.$name.'-'.Str::e($option['value']);
+            $items .= '<label class="facet-option" data-facet-label="'.Str::e(mb_strtolower($option['label'])).'">'
+                .'<input id="'.$id.'" type="checkbox" name="'.Str::e($name).'[]" value="'.Str::e($option['value']).'" data-archive-'.Str::e($name).'>'
+                .'<span>'.Str::e($option['label']).'</span>'
+                .'<span class="facet-count" data-facet-count></span>'
+                .'</label>';
+        }
+
+        return <<<HTML
+          <fieldset class="facet" data-facet="{$this->e($name)}">
+            <legend class="facet-legend">{$this->e($legend)}</legend>
+            {$search}
+            <div class="facet-list">{$items}</div>
+          </fieldset>
 HTML;
     }
 
@@ -693,7 +761,8 @@ HTML;
                 'data-dealcoholized="'.Str::e($review->dealcoholized).'"',
                 'data-category="'.Str::e($review->category).'"',
                 'data-brand="'.Str::e(Str::slug($review->brand)).'"',
-                'data-method="'.Str::e($review->methodKey() ?? '').'"',
+                'data-abv="'.Str::e($review->abvBucket()).'"',
+                'data-method="'.Str::e($review->methodFacetKey()).'"',
                 'data-rating="'.Str::e((string) ($review->rating ?? 0)).'"',
                 'data-date="'.Str::e($review->reviewDate->toDateString()).'"',
                 'data-search="'.Str::e($review->searchText()).'"',

@@ -30,39 +30,47 @@
   }
 
   const queryInput = archive.querySelector("[data-archive-q]");
-  const categorySelect = archive.querySelector("[data-archive-category]");
-  const processSelect = archive.querySelector("[data-archive-dealcoholized]");
-  const methodSelect = archive.querySelector("[data-archive-method]");
   const sortSelect = archive.querySelector("[data-archive-sort]");
   const count = archive.querySelector("[data-archive-count]");
   const empty = document.querySelector("[data-archive-empty]");
+  const clearButton = archive.querySelector("[data-archive-clear]");
   const lockedCategory = archive.getAttribute("data-locked-category") || "";
   const rows = [...grid.querySelectorAll("article")];
   const params = new URLSearchParams(window.location.search);
+  const facetKeys = ["brand", "abv", "category", "dealcoholized", "method"];
 
-  const setValue = (field, value) => {
-    if (!field || field.disabled) {
-      return;
-    }
+  const selectedValues = (name) =>
+    [...archive.querySelectorAll(`[data-archive-${name}]:checked`)].map((input) => input.value);
 
-    const options = [...field.options].map((option) => option.value);
-    field.value = options.includes(value) ? value : "";
+  const setChecked = (name, values) => {
+    archive.querySelectorAll(`[data-archive-${name}]`).forEach((input) => {
+      input.checked = values.includes(input.value);
+    });
   };
+
+  const readList = (key) =>
+    (params.get(key) || "")
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean);
 
   if (queryInput) {
     queryInput.value = params.get("q") || "";
   }
 
   if (!lockedCategory) {
-    setValue(categorySelect, params.get("category") || "");
+    setChecked("category", readList("category"));
   }
 
-  setValue(processSelect, params.get("dealcoholized") || "");
-  setValue(methodSelect, params.get("method") || "");
-  setValue(sortSelect, params.get("sort") || "newest");
+  setChecked("brand", readList("brand"));
+  setChecked("abv", readList("abv"));
+  setChecked("dealcoholized", readList("dealcoholized"));
+  setChecked("method", readList("method"));
 
-  if (sortSelect && !sortSelect.value) {
-    sortSelect.value = "newest";
+  if (sortSelect) {
+    const options = [...sortSelect.options].map((option) => option.value);
+    const sort = params.get("sort") || "newest";
+    sortSelect.value = options.includes(sort) ? sort : "newest";
   }
 
   const writeUrl = () => {
@@ -73,17 +81,17 @@
       next.set("q", query);
     }
 
-    if (!lockedCategory && categorySelect?.value) {
-      next.set("category", categorySelect.value);
-    }
+    facetKeys.forEach((key) => {
+      if (key === "category" && lockedCategory) {
+        return;
+      }
 
-    if (processSelect?.value) {
-      next.set("dealcoholized", processSelect.value);
-    }
+      const values = selectedValues(key);
 
-    if (methodSelect?.value) {
-      next.set("method", methodSelect.value);
-    }
+      if (values.length) {
+        next.set(key, values.join(","));
+      }
+    });
 
     if (sortSelect?.value && sortSelect.value !== "newest") {
       next.set("sort", sortSelect.value);
@@ -94,21 +102,63 @@
     window.history.replaceState({}, "", url);
   };
 
-  const apply = (updateHistory = true) => {
+  const matchesFacets = (row, skip = "") => {
     const query = (queryInput?.value || "").trim().toLowerCase();
     const terms = query ? query.split(/\s+/) : [];
-    const category = lockedCategory || categorySelect?.value || "";
-    const process = processSelect?.value || "";
-    const method = methodSelect?.value || "";
-    const sortBy = sortSelect?.value || "newest";
+    const search = row.getAttribute("data-search") || "";
+    const matchQuery = terms.every((term) => search.includes(term));
+    const category = lockedCategory || (skip === "category" ? "" : selectedValues("category"));
+    const matchCategory = Array.isArray(category)
+      ? !category.length || category.includes(row.getAttribute("data-category") || "")
+      : !category || row.getAttribute("data-category") === category;
 
+    const matchFacet = (name, attr) => {
+      if (skip === name) {
+        return true;
+      }
+
+      const values = selectedValues(name);
+
+      return !values.length || values.includes(row.getAttribute(attr) || "");
+    };
+
+    return matchQuery
+      && matchCategory
+      && matchFacet("brand", "data-brand")
+      && matchFacet("abv", "data-abv")
+      && matchFacet("dealcoholized", "data-dealcoholized")
+      && matchFacet("method", "data-method");
+  };
+
+  const updateCounts = () => {
+    archive.querySelectorAll("[data-facet]").forEach((group) => {
+      const name = group.getAttribute("data-facet");
+      const attr = name === "dealcoholized" ? "data-dealcoholized" : `data-${name}`;
+
+      group.querySelectorAll(".facet-option").forEach((option) => {
+        const input = option.querySelector("input");
+        const total = rows.filter((row) => {
+          if (!matchesFacets(row, name)) {
+            return false;
+          }
+
+          return (row.getAttribute(attr) || "") === input.value;
+        }).length;
+        const countNode = option.querySelector("[data-facet-count]");
+
+        if (countNode) {
+          countNode.textContent = String(total);
+        }
+
+        option.hidden = total === 0 && !input.checked;
+      });
+    });
+  };
+
+  const apply = (updateHistory = true) => {
+    const sortBy = sortSelect?.value || "newest";
     const visible = rows.filter((row) => {
-      const search = row.getAttribute("data-search") || "";
-      const matchQuery = terms.every((term) => search.includes(term));
-      const matchCategory = !category || row.getAttribute("data-category") === category;
-      const matchProcess = !process || row.getAttribute("data-dealcoholized") === process;
-      const matchMethod = !method || row.getAttribute("data-method") === method;
-      const show = matchQuery && matchCategory && matchProcess && matchMethod;
+      const show = matchesFacets(row);
       row.hidden = !show;
 
       return show;
@@ -139,17 +189,61 @@
       empty.hidden = visible.length > 0;
     }
 
+    updateCounts();
+
     if (updateHistory) {
       writeUrl();
     }
   };
 
-  apply(false);
+  archive.querySelectorAll("[data-facet-find]").forEach((input) => {
+    input.addEventListener("input", () => {
+      const needle = input.value.trim().toLowerCase();
+      const group = input.closest("[data-facet]");
 
-  archive.addEventListener("input", () => apply());
+      group?.querySelectorAll(".facet-option").forEach((option) => {
+        const label = option.getAttribute("data-facet-label") || "";
+        const matchesFind = !needle || label.includes(needle);
+        option.classList.toggle("is-filtered", !matchesFind);
+      });
+    });
+  });
+
+  archive.addEventListener("input", (event) => {
+    if (event.target.matches("[data-facet-find]")) {
+      return;
+    }
+
+    apply();
+  });
   archive.addEventListener("change", () => apply());
   archive.addEventListener("submit", (event) => {
     event.preventDefault();
     apply();
   });
+
+  clearButton?.addEventListener("click", () => {
+    if (queryInput) {
+      queryInput.value = "";
+    }
+
+    archive.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+      input.checked = false;
+    });
+
+    archive.querySelectorAll("[data-facet-find]").forEach((input) => {
+      input.value = "";
+      input.closest("[data-facet]")?.querySelectorAll(".facet-option").forEach((option) => {
+        option.classList.remove("is-filtered");
+      });
+    });
+
+    if (sortSelect) {
+      sortSelect.value = "newest";
+    }
+
+    apply();
+  });
+
+  apply(false);
 })();
