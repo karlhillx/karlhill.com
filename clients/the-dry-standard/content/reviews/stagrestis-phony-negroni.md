@@ -1,0 +1,50 @@
+---
+title: "St. Agrestis Phony Negroni"
+slug: stagrestis-phony-negroni
+id: TDS-0038
+brand: St. Agrestis
+product: Phony Negroni
+category: cocktails
+subcategory: ready-to-serve non-alcoholic cocktail
+country: USA
+style: Non-alcoholic formulated negroni-style cocktail, 30 botanicals
+abv: "0.0% ABV (producer)"
+abv_numeric: 0
+dealcoholized: no
+dealcoholized_note: "St. Agrestis cocktails are formulated from a base of 30 organic, non-GMO botanicals — not dealcoholized from a once-alcoholic Negroni."
+base_beverage: "30 organic, non-GMO botanicals designed to replicate negroni aromatics without any underlying spirit."
+producer: St. Agrestis (Greenpoint, Brooklyn, NY)
+volume: "200 ml (US) / 100 ml available in markets where the larger size is restricted"
+availability: "US launch via the brand's DTC site stagrestis.com and select NA-focused retailers; rollout ongoing"
+image: media/reviews/stagrestis-phony-negroni.jpg
+image_alt: "St. Agrestis Phony Negroni"
+image_credit: Product photo via stagrestis.com
+review_date: "2026-09-18"
+updated_date: "2026-09-18"
+rating: 86
+verdict: "VinePair's 2025 Rising Drinks Brand of the Year is, by a sensible margin, the closest NA pour to an actual Negroni. Built from scratch with 30 botanicals — and built right."
+summary: "St. Agrestis' Phony Negroni is the brand's flagship NA cocktail: 30 organic, non-GMO botanicals, 0.0% ABV, and the closest any formulated NA negroni gets to the bitter-piney Italian original."
+nose: "Piney and bitter, gentian and wormwood, layered with a citrusy high note that's unmistakably Negroni-adjacent without borrowing."
+palate: "Bitter and botanical, the gentian carrying the middle, the citrus and herbal notes framing it; bone-dry, no sugar overlay."
+finish: "Long and bitter — closer to a Cocchi Americano rinse than to a juice mocktail."
+best_for: "The 6 PM hour when nothing else on the NA shelf gets close to an Italian aperitivo."
+serve: "Build like a real Negroni — pour over a large ice cube, a curl of orange peel. The canned format needs less help than expected."
+sources:
+  - title: "Phony Negroni Non-Alcoholic Cocktail — St. Agrestis"
+    url: https://stagrestis.com/products/phony-negroni
+    claims: [abv, dealcoholized, base_beverage, producer, style, availability]
+  - title: "Phony Negroni (100 ml) — Good Eggs"
+    url: https://www.goodeggs.com/stagrestis/phony-negroni/6668d9ca2e5248001147691f
+    claims: [volume, base_beverage, ingredients]
+  - title: "Next Wave Awards: Rising Brand — VinePair"
+    url: https://vinepair.com/articles/2025-next-wave-phony-negroni-by-st-agrestis/
+    claims: [producer, style]
+  - title: "St. Agrestis Phony Negroni — Difford's Guide"
+    url: https://www.diffordsguide.com/beer-wine-spirits/11580/phony-negroni
+    claims: [abv, country, producer, volume]
+status: published
+---
+
+St. Agrestis doesn't call itself a cocktail company — it calls itself "drinks for recovering hedonists" out of Greenpoint, and the Phony Negroni is the flagship. The conceit is that a Negroni isn't really about alcohol; it's about the way bitter orange, gentian and juniper build a structure around the gin. So they build the same structure from a base of 30 organic, non-GMO botanicals, no alcohol ever present, no real Campari ever crossed, and a 0.0% ABV number that doesn't need to apologize for itself.
+
+The pour reaches the bar. Piney bitterness up top, gentian on the mid-palate, an orange-citrus lift that reads unmistakably as Negroni-adjacent without being a copy of the Italian original, and a bone-dry finish closer to a Cocchi Americano rinse than to a juice mocktail. Build it like a Negroni — over a large ice cube, orange peel — and the ritual works. VinePair named it the 2025 Rising Brand of the Year for a reason: at a category this young, with the consumer search for "what can I drink at 6 PM" running hotter every quarter, this is currently the best answer.

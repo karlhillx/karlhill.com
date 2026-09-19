@@ -82,3 +82,63 @@
   brand: Heineken
   published_at: '2026-09-19T00:23:46+00:00'
   path: reviews/beer/heineken-0-0/
+-
+  slug: lyres-amalfi-spritz
+  product: 'Amalfi Spritz'
+  brand: "Lyre's"
+  published_at: '2026-09-19T00:45:24+00:00'
+  path: reviews/cocktails/lyres-amalfi-spritz/
+-
+  slug: best-day-kolsch
+  product: Kölsch
+  brand: 'Best Day Brewing'
+  published_at: '2026-09-19T00:45:25+00:00'
+  path: reviews/beer/best-day-kolsch/
+-
+  slug: hop-wtr-blood-orange
+  product: 'Blood Orange'
+  brand: 'HOP WTR'
+  published_at: '2026-09-19T00:45:25+00:00'
+  path: reviews/beer/hop-wtr-blood-orange/
+-
+  slug: original-sin-cider
+  product: "Widow Family Mix Pack (Original Sin's NA lineup)"
+  brand: 'Original Sin Cider'
+  published_at: '2026-09-19T00:45:25+00:00'
+  path: reviews/cider/original-sin-cider/
+-
+  slug: french-bloom-le-blanc
+  product: 'Le Blanc'
+  brand: 'French Bloom'
+  published_at: '2026-09-19T00:45:25+00:00'
+  path: reviews/wine/french-bloom-le-blanc/
+-
+  slug: lapos-negroni
+  product: 'Non-Alcoholic Negroni'
+  brand: "Lapo's"
+  published_at: '2026-09-19T00:45:26+00:00'
+  path: reviews/cocktails/lapos-negroni/
+-
+  slug: mionetto-italy-white-wine
+  product: '0.0% Alcohol-Removed White'
+  brand: Mionetto
+  published_at: '2026-09-19T00:45:45+00:00'
+  path: reviews/wine/mionetto-italy-white-wine/
+-
+  slug: crodino-non-alcoholic-spritz
+  product: 'Crodino Non-Alcoholic Spritz'
+  brand: 'Crodino (Campari Group)'
+  published_at: '2026-09-19T00:45:45+00:00'
+  path: reviews/cocktails/crodino-non-alcoholic-spritz/
+-
+  slug: 90-cellars-lot-230
+  product: 'Lot 230'
+  brand: '90+ Cellars'
+  published_at: '2026-09-19T00:45:46+00:00'
+  path: reviews/wine/90-cellars-lot-230/
+-
+  slug: stagrestis-phony-negroni
+  product: 'Phony Negroni'
+  brand: 'St. Agrestis'
+  published_at: '2026-09-19T00:45:46+00:00'
+  path: reviews/cocktails/stagrestis-phony-negroni/
