@@ -10,7 +10,7 @@ country: Germany
 style: De-alcoholised German Chardonnay
 abv: "<0.5% ABV (retail listing, PL)"
 abv_numeric: 0.5
-dealcoholized: not-verified
+dealcoholized: yes
 dealcoholized_note: "Vivino lists the wine as 'Be Free Dealcoholized Chardonnay' with an alcohol content of 0.01%, confirming the wine was fermented and then had alcohol removed; the specific named technology is not published."
 volume: "750 ml (0.75 L retail listing)"
 availability: "European retail including Spiżarnia pod Łysą Górą (PL)"
@@ -37,6 +37,6 @@ sources:
 status: published
 ---
 
-The Chardonnay is the least glamorous bottle in Be Free's lineup and probably the most bought: German fruit, Chardonnay label, under 0.5% ABV, dealcoholized down to 0.01% per Vivino's listing — a real wine with the alcohol taken back out, but the brand doesn't name the exact process, so the field reads not-verified. The most honest data point comes from a Polish retail listing, which flatly calls it a semi-sweet white, and that description sets the correct expectation before the cork is out.
+The Chardonnay is the least glamorous bottle in Be Free's lineup and probably the most bought: German fruit, Chardonnay label, under 0.5% ABV, dealcoholized down to 0.01% per Vivino's listing — a real wine with the alcohol taken back out, even if the brand doesn't name the exact process. The most honest data point comes from a Polish retail listing, which flatly calls it a semi-sweet white, and that description sets the correct expectation before the cork is out.
 
 Semi-sweet is exactly what lands in the glass: soft pear and green apple, a rounded, gently floral pour with the sweetness carrying the finish. There is no oak conversation to be had and no pretense of one — this is comfort wine, the bottle you open when the goal is an easy glass rather than an experience. As the white-wine equivalent of a shrug that turns out pleasant, it earns its slot on the shelf.

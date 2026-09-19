@@ -11,7 +11,7 @@ region: Rheinhessen
 style: Alcohol-removed sparkling rosé
 abv: "0.0% ABV (Total Wine product copy)"
 abv_numeric: 0.0
-dealcoholized: not-verified
+dealcoholized: yes
 dealcoholized_note: "Made from a real fermented wine base — a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — produced in partnership with a winery in Rheinhessen, Germany, then dealcoholized; the specific named removal technology is not published."
 base_beverage: "Organic Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder blend"
 producer: "Wölffer Estate (Sagaponack, NY); produced in partnership with a winery in Rheinhessen, Germany"
@@ -47,6 +47,6 @@ sources:
 status: published
 ---
 
-Wölffer is a Sagaponack, NY estate that partnered with a winery in Rheinhessen, Germany to make this wine — Total Wine's "Germany" tasting copy and "Wölffer Estate" brand field are both accurate, just describing production versus brand origin. The wine itself is a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — a real fermented base, dealcoholized afterward, at 0.0% ABV, organically grown. The specific removal technology isn't named publicly, so the field reads not-verified, same as most of the category.
+Wölffer is a Sagaponack, NY estate that partnered with a winery in Rheinhessen, Germany to make this wine — Total Wine's "Germany" tasting copy and "Wölffer Estate" brand field are both accurate, just describing production versus brand origin. The wine itself is a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — a real fermented base, dealcoholized afterward, at 0.0% ABV, organically grown. The specific removal technology isn't named publicly, but the fermentation-then-removal sequence is documented enough to call this dealcoholized.
 
 The glass is the best cheap-adjacent sparkling rosé on this list: berry, peach, acidity. Pay the extra ten dollars over Rondel if you want mouthfeel.

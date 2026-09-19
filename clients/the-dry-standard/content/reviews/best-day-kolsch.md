@@ -10,7 +10,7 @@ country: USA
 style: Non-alcoholic Kölsch-style craft beer
 abv: "<0.5% ABV (producer; Typical NA craft range)"
 abv_numeric: 0.5
-dealcoholized: not-verified
+dealcoholized: yes
 dealcoholized_note: "Paste Magazine's brewery-briefed review describes Best Day's beers as 'traditionally produced non-alcoholic beers, with alcohol \"gently removed\" post fermentation, leaving less than .5% ABV in the final product'; the specific named removal technology is not published."
 producer: Best Day Brewing (US craft brewery, founded 2019)
 price: "$10.99 per 6-pack of 12 fl oz cans (Target)"
@@ -43,4 +43,4 @@ status: published
 
 Best Day Brewing has built its entire brand around the simple — and loudly stated — ambition of making "the world's best-tasting non-alcoholic beer," which is a category where the chasm between the best and the rest is enormous. The Kölsch is the line where they show it best: the closest thing to a Kölsch that has ever been poured here, with the malty, slightly toasty backbone that defines the style and a clean hop bitterness that finishes dry instead of vague.
 
-Paste Magazine's brewery-briefed tasting notes are the best public account of the process: these are "traditionally produced non-alcoholic beers, with alcohol 'gently removed' post fermentation" to land under 0.5% ABV — real beer, brewed to strength, then stripped down, rather than an arrested-fermentation product. The exact removal technology still isn't named publicly, so the field reads not-verified. At $10.99 for a 6-pack of 12 oz cans at Target, it's priced like a competent craft lager should be — about the same as Athletic, less than Athletic's IPA. Best Day's Kölsch won't surprise anyone about anything except this: it's an NA ale that's drinkable through a whole game day, and the category can do a lot worse.
+Paste Magazine's brewery-briefed tasting notes are the best public account of the process: these are "traditionally produced non-alcoholic beers, with alcohol 'gently removed' post fermentation" to land under 0.5% ABV — real beer, brewed to strength, then stripped down, rather than an arrested-fermentation product. The exact removal technology still isn't named publicly, but the fermentation-then-removal sequence is clear enough to call this dealcoholized. At $10.99 for a 6-pack of 12 oz cans at Target, it's priced like a competent craft lager should be — about the same as Athletic, less than Athletic's IPA. Best Day's Kölsch won't surprise anyone about anything except this: it's an NA ale that's drinkable through a whole game day, and the category can do a lot worse.

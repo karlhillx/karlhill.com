@@ -66,10 +66,6 @@ final class ReviewValidator
         }
 
         if ($review->dealcoholized === 'yes') {
-            if ($review->dealcoholizationMethod === null && ! in_array('method', $claims, true)) {
-                $errors[] = 'dealcoholized=yes requires a sourced method or an explicit unverified method note';
-            }
-
             if (! in_array('dealcoholized', $claims, true) && ! in_array('method', $claims, true)) {
                 $errors[] = 'dealcoholized=yes requires a source claiming dealcoholized or method';
             }

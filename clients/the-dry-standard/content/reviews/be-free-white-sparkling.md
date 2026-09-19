@@ -11,8 +11,8 @@ country: Germany
 style: De-alcoholised German sparkling white
 abv: "0.5% ABV (Supervin retail listing; confirmed by Alcohol Change UK)"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Vivino lists the wine as 'Be Free Dealcoholized White Sparkling,' and retailer copy describes it as 'gently de-alcoholised'; the specific named technology is not published."
+dealcoholized: yes
+dealcoholized_note: "Supervin's retail listing describes the Free Feather line (which includes this bottle) as 'gently dealcoholized products'; the specific named technology for this SKU is not published."
 volume: "750 ml"
 price: "$12.79 (RoomBox listing)"
 calories: "29 kcal per 100 ml (Alcohol Change UK)"
@@ -33,7 +33,7 @@ serve: "Chilled, in a flute or straight from the bottle."
 sources:
   - title: "Be Free White Sparkling — 0.5% Alkoholfri, Supervin (SE)"
     url: https://www.supervin.se/be-free-white-sparkling-0-5-alkoholfri
-    claims: [abv, country, volume]
+    claims: [abv, country, volume, dealcoholized]
   - title: "Be Free White Sparkling — Alcohol Change UK review"
     url: https://alcoholchange.org.uk/low-and-no-alcohol-reviews/be-free-white-sparkling
     claims: [abv, calories]
@@ -43,6 +43,6 @@ sources:
 status: published
 ---
 
-The sparkling sibling of Be Free's still wines is the brand's most festive move: same German provenance, same 0.5% ABV, but with the bubbles doing the heavy lifting. It is also, on paper, one of the lightest pours on this desk — 29 kcal per 100 ml per Alcohol Change UK's review, which makes a 250 ml glass (73 kcal, per the same review) lighter than a single standard pour of most full-strength sparkling. As with the rest of the line, "gently de-alcoholised" is the claim and the exact process is the missing detail, so the field reads not-verified.
+The sparkling sibling of Be Free's still wines is the brand's most festive move: same German provenance, same 0.5% ABV, but with the bubbles doing the heavy lifting. It is also, on paper, one of the lightest pours on this desk — 29 kcal per 100 ml per Alcohol Change UK's review, which makes a 250 ml glass (73 kcal, per the same review) lighter than a single standard pour of most full-strength sparkling. As with the rest of the line, Supervin's retailer copy calls the Free Feather series "gently dealcoholized," and the exact process for this specific bottle is the missing detail — but the removal itself is the documented claim.
 
 The pour is gentle rather than racy — soft citrus and cream, a nutty hint behind the bubbles, sweetness kept polite. Alcohol Change UK called it "a fizzy, pleasant summer drink," which is exactly the right review: pleasant is the promise and pleasant is the delivery. It will not stand up to a vintage Champagne conversation, and at this price it doesn't need to. It needs to toast well and disappear easily, and it does both.

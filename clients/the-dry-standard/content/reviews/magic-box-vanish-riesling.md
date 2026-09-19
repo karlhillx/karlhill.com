@@ -10,7 +10,7 @@ country: Germany
 style: Dealcoholized German Riesling
 abv: "0.5% ABV (beerfordriving listing)"
 abv_numeric: 0.5
-dealcoholized: not-verified
+dealcoholized: yes
 dealcoholized_note: "beerfordriving.com's directory listing describes the wine as 'a German dealcoholized white wine made in the classic Riesling style... with the alcohol removed'; the specific named removal technology is not published."
 base_beverage: "German Riesling, sourced from Germany and dealcoholized in Europe (supplier and directory copy)"
 image: media/reviews/magic-box-vanish-riesling.jpg
@@ -36,7 +36,7 @@ sources:
 status: published
 ---
 
-Magic Box is a value wine brand, and Vanish is its non-alcoholic line — European-made, with the Riesling sourced from Germany, per the supplier copy that distributes it through US retail. The citable facts are the ABV (0.5% per NA-directory listings), the German origin, and an explicit dealcoholization claim — "a German dealcoholized white wine... with the alcohol removed," per beerfordriving.com's directory listing. The specific technology behind that claim is not documented anywhere, so the field reads not-verified, same as most of the category's budget tier.
+Magic Box is a value wine brand, and Vanish is its non-alcoholic line — European-made, with the Riesling sourced from Germany, per the supplier copy that distributes it through US retail. The citable facts are the ABV (0.5% per NA-directory listings), the German origin, and an explicit dealcoholization claim — "a German dealcoholized white wine... with the alcohol removed," per beerfordriving.com's directory listing. The specific technology behind that claim is not documented anywhere, same as most of the category's budget tier, but the removal itself is stated plainly enough to clear the bar.
 
 What makes the bottle interesting is that it leans into actual Riesling markers instead of generic "crisp white": delicate citrus, lingering acidity, and the mineral-and-petrol note that supplier copy surprisingly admits to. Petrol is the aroma that separates real Riesling character from flavored water, and finding even a whisper of it under a ten-dollar NA label is the whole reason this desk exists. Body is predictably light and the finish honest rather than long, but at the price the varietal fidelity is the story.
 

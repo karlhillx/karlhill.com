@@ -10,7 +10,7 @@ country: France
 region: Languedoc
 style: Dealcoholized Côtes du Roussillon rosé (Grenache)
 base_beverage: "Grenache rosé, Côtes du Roussillon"
-dealcoholized: not-verified
+dealcoholized: yes
 dealcoholized_note: "Total Wine's product highlights describe 'early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal—preserving the wine's natural balance, flavor, and elegance'; the specific named removal technology is not published."
 availability: "Total Wine & More"
 image: media/reviews/biagio-cru-rose-all-day.jpg
@@ -33,4 +33,4 @@ sources:
 status: published
 ---
 
-Two purchases, and this time a real technical description: Total Wine's listing places it in Languedoc's Côtes du Roussillon, made from Grenache with "early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal." That's a real dealcoholization claim, but without a named process the field reads not-verified. The glass is a sweet, easy rosé — better pedigree than the pun on the label suggests.
+Two purchases, and this time a real technical description: Total Wine's listing places it in Languedoc's Côtes du Roussillon, made from Grenache with "early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal." That's a genuine dealcoholization claim, even without a named process. The glass is a sweet, easy rosé — better pedigree than the pun on the label suggests.
