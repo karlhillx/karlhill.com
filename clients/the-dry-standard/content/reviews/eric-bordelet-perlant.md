@@ -9,9 +9,11 @@ subcategory: sparkling apple juice
 country: France
 region: Normandy (Pays d'Auge)
 style: Non-alcoholic sparkling apple juice from cider apples
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: no
-dealcoholized_note: "Pressed apple juice from cider varieties with carbon dioxide added — never fermented, so there is no alcohol to remove. Distinct from Bordelet's alcoholic ciders."
+production_type: alternative
+verified: yes
+production_note: "Pressed apple juice from cider varieties with carbon dioxide added — never fermented, so there is no alcohol to remove. Distinct from Bordelet's alcoholic ciders."
 base_beverage: "Juice of 12 varieties of organic heritage cider apples (bitter-sharp, bitter-sweet, sour)"
 producer: Domaine Eric Bordelet (Pays d'Auge, Normandy; estate-grown, certified organic)
 volume: "750 ml (also 330 ml)"
@@ -34,7 +36,7 @@ serve: "Well chilled, in a wine glass."
 sources:
   - title: "Perlant | Non-Alcoholic Cider — Delmosa"
     url: https://delmosa.com/products/eric-bordelet-perlant
-    claims: [base_beverage, ingredients, volume, price, dealcoholized, producer]
+    claims: [base_beverage, ingredients, volume, price, dealcoholized, producer, abv]
   - title: "Eric Bordelet 'Perlant' — Chapter 4"
     url: https://chapfour.com/products/bordelet-perlant-jus-pommes-750ml
     claims: [price, dealcoholized, country]

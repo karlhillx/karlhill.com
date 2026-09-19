@@ -139,13 +139,18 @@
     const lockedCategory = root.getAttribute("data-locked-category") || "";
     const rows = [...grid.querySelectorAll("article")];
     const params = new URLSearchParams(window.location.search);
-    const facetKeys = ["brand", "abv", "category", "dealcoholized", "method"];
+    const facetKeys = ["brand", "abv", "category", "production", "method"];
     const facetLabels = {
       brand: "Brand",
       abv: "ABV",
       category: "Category",
-      dealcoholized: "Process",
+      production: "Production type",
       method: "Method",
+    };
+    const legacyProduction = {
+      yes: "dealcoholized",
+      no: "alternative",
+      "not-verified": "not-verified",
     };
 
     const selectedValues = (name) =>
@@ -172,8 +177,11 @@
     }
 
     setChecked("brand", readList("brand"));
-    setChecked("abv", readList("abv"));
-    setChecked("dealcoholized", readList("dealcoholized"));
+    setChecked("abv", readList("abv").map((value) => (value === "trace" ? "half" : value)));
+    setChecked("production", readList("production").map((value) => legacyProduction[value] || value));
+    if (!selectedValues("production").length) {
+      setChecked("production", readList("dealcoholized").map((value) => legacyProduction[value] || value));
+    }
     setChecked("method", readList("method"));
 
     if (sortSelect) {
@@ -235,14 +243,14 @@
         && matchCategory
         && matchFacet("brand", "data-brand")
         && matchFacet("abv", "data-abv")
-        && matchFacet("dealcoholized", "data-dealcoholized")
+        && matchFacet("production", "data-production")
         && matchFacet("method", "data-method");
     };
 
     const updateCounts = () => {
       root.querySelectorAll("[data-facet]").forEach((group) => {
         const name = group.getAttribute("data-facet");
-        const attr = name === "dealcoholized" ? "data-dealcoholized" : `data-${name}`;
+        const attr = `data-${name}`;
 
         group.querySelectorAll(".facet-option").forEach((option) => {
           const input = option.querySelector("input");

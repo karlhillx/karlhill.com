@@ -8,9 +8,10 @@ category: wine
 subcategory: sparkling rosé
 country: France
 style: Dealcoholized sparkling rosé
-abv: "<0.5% ABV (retail listings)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Made from alcohol-removed wine using a state-of-the-art process (producer product sheet)"
 base_beverage: "French sparkling rosé wine, fermented conventionally before alcohol removal"
 producer: Nozeco (France)

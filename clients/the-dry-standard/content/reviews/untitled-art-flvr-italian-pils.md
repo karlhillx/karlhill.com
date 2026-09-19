@@ -9,9 +9,10 @@ subcategory: Italian-style pilsner
 country: USA
 region: Waunakee, Wisconsin
 style: Non-alcoholic Italian-style pilsner
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Reverse osmosis membrane filtration, applied after full fermentation"
 calories: "60 calories per 12 oz can; 12 g carbs (NA Beer Club listing)"
 producer: Untitled Art Brewing (brewed at Octopi Brewing, Waunakee, Wisconsin)

@@ -9,12 +9,13 @@ subcategory: sparkling
 country: Spain
 region: Castilla–La Mancha
 style: Dealcoholized sparkling Chardonnay
-abv: "0.0% vol on producer technical data; some US retailers list <0.5% ABV"
+abv: "0.0%"
 abv_numeric: 0.0
 image: media/reviews/noughty-sparkling-chardonnay.jpg
 image_alt: "Thomson & Scott Noughty Sparkling Chardonnay bottle"
 image_credit: Editorial still
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: Vacuum distillation with aroma recovery; some trade sheets also name spinning-cone technology
 base_beverage: Organically grown Spanish Chardonnay, fermented in stainless steel, then carbonated after alcohol removal
 producer: Thomson & Scott, with dealcoholization associated with Carl Jung

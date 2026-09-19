@@ -9,9 +9,10 @@ subcategory: white
 country: USA
 region: Napa Valley
 style: Dealcoholized Albariño-style white wine
-abv: "<0.5% ABV (retail listings)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from conventionally vinified wine (producer's range description)"
 base_beverage: "Albariño from Napa Valley, vinified conventionally before alcohol removal"
 producer: Missing Thorn (Napa Valley)

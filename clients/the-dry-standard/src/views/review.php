@@ -20,8 +20,9 @@
         <div class="shell review-layout">
           <div class="stack-lg">
             <section class="callout">
-              <h2>Is it actually dealcoholized?</h2>
+              <h2>How was it made?</h2>
               <p class="callout-status"><?= $view->e($statusLabel) ?></p>
+              <p class="callout-verified"><?= $view->e($verifiedLabel) ?></p>
               <?= $methodBlock ?>
               <?= $baseBlock ?>
               <?= $discrepancies ?>

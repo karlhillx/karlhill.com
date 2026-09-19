@@ -8,9 +8,10 @@ category: wine
 subcategory: riesling
 country: Germany
 style: Dealcoholized Riesling
-abv: "0.0% vol (producer)"
+abv: "0.0%"
 abv_numeric: 0.0
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Vacuum distillation at around 30°C"
 base_beverage: "Organic German Riesling, fermented then dealcoholized"
 producer: Kolonne Null, Berlin

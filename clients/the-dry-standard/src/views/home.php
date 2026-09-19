@@ -3,7 +3,7 @@
         <div class="hero-copy">
           <p class="kicker">Independent reviews</p>
           <h1>The standard for what remains after the alcohol is gone.</h1>
-          <p class="lede"><?= $view->e($tagline) ?> We review beverages at 0.5% ABV or less, and we separate products that were actually dealcoholized from those formulated to imitate a drink.</p>
+          <p class="lede"><?= $view->e($tagline) ?> We review beverages at 0.5% ABV or less, and we classify them by how they were made — not by whether they pass a dealcoholized test.</p>
           <div class="hero-actions">
             <a class="btn" href="<?= $view->e($reviewsUrl) ?>">Browse the cellar</a>
             <a class="btn btn--ghost" href="<?= $view->e($aboutUrl) ?>">Editorial method</a>

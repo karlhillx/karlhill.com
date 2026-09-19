@@ -8,9 +8,10 @@ category: wine
 subcategory: sparkling white (Chardonnay-based, alcohol-removed)
 country: France
 style: Alcohol-removed organic French sparkling white (classic method)
-abv: "0.0% ABV (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: yes
+production_type: hybrid
+verified: yes
 dealcoholization_method: "Three-stage vacuum dealcoholization at low temperature, with aroma recovery and reintegration (producer's own site)"
 base_beverage: "Organic French Chardonnay (classic method sparkling base), with organic grape juice and natural lemon flavor blended in after alcohol removal."
 producer: French Bloom (France)

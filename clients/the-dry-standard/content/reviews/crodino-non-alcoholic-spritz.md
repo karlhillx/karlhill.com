@@ -8,10 +8,11 @@ category: cocktails
 subcategory: non-alcoholic aperitivo
 country: Italy
 style: Non-alcoholic Italian bitter aperitivo
-abv: "Alcohol-free per EU Regulation 1129/2011 (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: no
-dealcoholized_note: "Crodino is formulated alcohol-free from the start (blends of botanical infusions and a non-alcoholic base), not made by removing alcohol from a once-alcoholic aperitivo."
+production_type: alternative
+verified: yes
+production_note: "Crodino is formulated alcohol-free from the start (blends of botanical infusions and a non-alcoholic base), not made by removing alcohol from a once-alcoholic aperitivo."
 base_beverage: "Non-alcoholic aromatic base blended with botanicals (no underlying spirit before alcohol removal)"
 producer: Crodino (Campari Group, launched 1965 in Italy)
 volume: "Single-serve 175 ml glass bottles (producer)"

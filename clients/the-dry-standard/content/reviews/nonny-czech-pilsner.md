@@ -8,10 +8,11 @@ category: beer
 subcategory: Czech-style pilsner
 country: Canada
 style: Non-alcoholic Czech-style craft pilsner
-abv: "<0.5% ABV (producer); 'always below 0.5% alcohol'"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: no
-dealcoholized_note: "Nonny's own site describes the beer as 'always below 0.5% alcohol' with no removal-process language anywhere across its product or brand pages, consistent with formulated-from-the-start production. 'Czech Pilsner' names the beer style Nonny is brewed to replicate, not its country of origin — Nonny is a Canadian brewery based in Vancouver, BC."
+production_type: naturally-low-alcohol
+verified: yes
+production_note: "Nonny's own site describes the beer as 'always below 0.5% alcohol' with no removal-process language anywhere across its product or brand pages, consistent with formulated-from-the-start production. 'Czech Pilsner' names the beer style Nonny is brewed to replicate, not its country of origin — Nonny is a Canadian brewery based in Vancouver, BC."
 calories: "42 calories per can; 9 g carbs, 0 g sugar (producer)"
 ingredients: "Water, barley, hops, yeast (producer)"
 producer: "Nonny Beer (Vancouver, BC, Canada)"

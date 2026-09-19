@@ -9,9 +9,10 @@ subcategory: pale ale
 country: USA
 region: "Washington, DC"
 style: Non-alcoholic pale ale
-abv: "0.3% ABV (producer, per DC Beer interview)"
+abv: "<0.5%"
 abv_numeric: 0.3
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Mechanical separator removing alcohol from finished beer, combined with a hybrid low-alcohol Lallemand yeast strain during fermentation"
 producer: DC Brau Brewing Co.
 image: media/reviews/dc-brau-pale-ale.jpg

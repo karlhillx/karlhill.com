@@ -9,9 +9,10 @@ subcategory: juicy IPA
 country: USA
 region: Waunakee, Wisconsin
 style: Non-alcoholic juicy IPA
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Reverse osmosis membrane filtration, applied after full fermentation"
 producer: Untitled Art Brewing (brewed at Octopi Brewing, Waunakee, Wisconsin)
 availability: "US retail including Metro Wine & Spirits; direct from drinkuntitled.com"

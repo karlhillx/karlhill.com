@@ -9,9 +9,10 @@ subcategory: chardonnay
 country: USA
 region: California
 style: Alcohol-removed Chardonnay
-abv: "<0.5% ABV (producer's launch)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from conventionally vinified Chardonnay (producer's March 2026 launch)"
 base_beverage: "California Chardonnay, vinified conventionally before alcohol removal"
 producer: Butter Wines (Napa, California)

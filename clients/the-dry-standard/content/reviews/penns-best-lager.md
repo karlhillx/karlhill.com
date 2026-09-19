@@ -8,10 +8,11 @@ category: beer
 subcategory: American lager
 country: USA
 style: Non-alcoholic American lager
-abv: "<0.5% ABV (retail listing)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Described as 'naturally brewed' without specification of whether alcohol is removed or fermentation is limited."
+production_type: not-verified
+verified: no
+production_note: "Described as 'naturally brewed' without specification of whether alcohol is removed or fermentation is limited."
 calories: "70 calories (retail listing)"
 producer: Fred Koch Brewery (Pittsburgh, PA; also listed under Genesee Brewing Company)
 availability: "US retail including beerfordriving.com listings"

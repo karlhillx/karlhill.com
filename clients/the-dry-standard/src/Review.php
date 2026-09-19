@@ -23,6 +23,14 @@ final class Review
         'region',
     ];
 
+    public const PRODUCTION_TYPES = [
+        'dealcoholized' => 'Dealcoholized',
+        'alternative' => 'Alternative',
+        'naturally-low-alcohol' => 'Naturally low alcohol',
+        'hybrid' => 'Hybrid',
+        'not-verified' => 'Not verified',
+    ];
+
     /**
      * @param  array<int, array{label: string, url: string, region?: string}>  $purchaseLinks
      * @param  array<int, array{title: string, url: string, claims: array<int, string>}>  $sources
@@ -42,6 +50,8 @@ final class Review
         public readonly ?float $abvNumeric,
         public readonly string $dealcoholized,
         public readonly ?string $dealcoholizedNote,
+        public readonly string $productionType,
+        public readonly string $verified,
         public readonly ?string $dealcoholizationMethod,
         public readonly ?string $baseBeverage,
         public readonly ?string $producer,
@@ -100,8 +110,10 @@ final class Review
             abvNumeric: isset($matter['abv_numeric']) && is_numeric($matter['abv_numeric'])
                 ? (float) $matter['abv_numeric']
                 : null,
-            dealcoholized: self::normalizeDealcoholized($matter['dealcoholized'] ?? null),
-            dealcoholizedNote: self::nullableString($matter['dealcoholized_note'] ?? null),
+            dealcoholized: ($production = self::resolveProduction($matter))['dealcoholized'],
+            dealcoholizedNote: self::nullableString($matter['production_note'] ?? $matter['dealcoholized_note'] ?? null),
+            productionType: $production['type'],
+            verified: $production['verified'],
             dealcoholizationMethod: self::nullableString($matter['dealcoholization_method'] ?? null),
             baseBeverage: self::nullableString($matter['base_beverage'] ?? null),
             producer: self::nullableString($matter['producer'] ?? null),
@@ -173,6 +185,8 @@ final class Review
             'abv_numeric' => $this->abvNumeric,
             'dealcoholized' => $this->dealcoholized,
             'dealcoholized_note' => $this->dealcoholizedNote,
+            'production_type' => $this->productionType,
+            'verified' => $this->verified,
             'dealcoholization_method' => $this->dealcoholizationMethod,
             'base_beverage' => $this->baseBeverage,
             'producer' => $this->producer,
@@ -238,23 +252,35 @@ final class Review
         return $parts === [] ? null : implode(', ', $parts);
     }
 
+    public function productionTypeLabel(): string
+    {
+        $label = self::PRODUCTION_TYPES[$this->productionType] ?? 'Not verified';
+
+        if ($this->dealcoholizedNote) {
+            return 'Production type: '.$label.' — '.$this->dealcoholizedNote;
+        }
+
+        return 'Production type: '.$label;
+    }
+
+    public function productionTypeShortLabel(): string
+    {
+        return self::PRODUCTION_TYPES[$this->productionType] ?? 'Not verified';
+    }
+
+    public function verifiedLabel(): string
+    {
+        return $this->verified === 'yes' ? 'Verified' : 'Not verified';
+    }
+
     public function dealcoholizedLabel(): string
     {
-        return match ($this->dealcoholized) {
-            'yes' => 'Dealcoholized: Yes',
-            'no' => $this->dealcoholizedNote
-                ?: 'Dealcoholized: No — formulated as a zero-proof alternative',
-            default => 'Dealcoholized: Not verified',
-        };
+        return $this->productionTypeLabel();
     }
 
     public function dealcoholizedShortLabel(): string
     {
-        return match ($this->dealcoholized) {
-            'yes' => 'Dealcoholized: Yes',
-            'no' => 'Dealcoholized: No',
-            default => 'Dealcoholized: Not verified',
-        };
+        return $this->productionTypeShortLabel();
     }
 
     public function brandSlug(): string
@@ -288,6 +314,8 @@ final class Review
             'brand_slug' => Str::slug($this->brand),
             'origin' => $this->originLabel(),
             'dealcoholized' => $this->dealcoholized,
+            'production_type' => $this->productionType,
+            'verified' => $this->verified,
             'dealcoholization_method' => $this->dealcoholizationMethod,
             'method_slug' => $this->methodKey(),
             'producer' => $this->producer,
@@ -333,8 +361,7 @@ final class Review
 
     public const ABV_BUCKETS = [
         'zero' => '0.0%',
-        'trace' => '≤0.05%',
-        'half' => '≤0.5%',
+        'half' => '<0.5%',
         'unpublished' => 'Not published',
     ];
 
@@ -355,10 +382,6 @@ final class Review
 
         if ($this->abvNumeric <= 0.0) {
             return 'zero';
-        }
-
-        if ($this->abvNumeric <= 0.05) {
-            return 'trace';
         }
 
         return 'half';
@@ -431,6 +454,7 @@ final class Review
             'base_beverage' => $this->baseBeverage,
             'country' => $this->country,
             'region' => $this->region,
+            'production_type' => $this->productionTypeShortLabel(),
             default => null,
         };
     }
@@ -451,9 +475,73 @@ final class Review
         return array_values(array_unique($claims));
     }
 
+    /**
+     * @return array{type: string, verified: string, dealcoholized: string}
+     */
+    private static function resolveProduction(array $matter): array
+    {
+        $type = self::normalizeProductionType($matter['production_type'] ?? null);
+
+        if ($type === null) {
+            $legacy = self::normalizeDealcoholized($matter['dealcoholized'] ?? null);
+            $type = match ($legacy) {
+                'yes' => 'dealcoholized',
+                'no' => 'alternative',
+                default => 'not-verified',
+            };
+        }
+
+        $verified = self::normalizeVerified($matter['verified'] ?? null);
+        if ($verified === null) {
+            $verified = $type === 'not-verified' ? 'no' : 'yes';
+        }
+
+        $dealcoholized = match ($type) {
+            'dealcoholized' => 'yes',
+            'not-verified' => 'not-verified',
+            default => 'no',
+        };
+
+        return [
+            'type' => $type,
+            'verified' => $verified,
+            'dealcoholized' => $dealcoholized,
+        ];
+    }
+
+    private static function normalizeProductionType(mixed $value): ?string
+    {
+        $normalized = strtolower(trim((string) $value));
+        $normalized = str_replace(['_', ' '], '-', $normalized);
+
+        return match ($normalized) {
+            'dealcoholized' => 'dealcoholized',
+            'alternative' => 'alternative',
+            'naturally-low-alcohol', 'naturally-low', 'low-alcohol' => 'naturally-low-alcohol',
+            'hybrid', 'blended', 'blended-hybrid' => 'hybrid',
+            'not-verified', 'unknown', 'unpublished' => 'not-verified',
+            default => null,
+        };
+    }
+
+    private static function normalizeVerified(mixed $value): ?string
+    {
+        $normalized = strtolower(trim((string) $value));
+
+        return match ($normalized) {
+            'yes', 'true', '1' => 'yes',
+            'no', 'false', '0' => 'no',
+            default => null,
+        };
+    }
+
     private static function normalizeDealcoholized(mixed $value): string
     {
         $normalized = strtolower(trim((string) $value));
+
+        if (str_starts_with($normalized, 'not')) {
+            return 'not-verified';
+        }
 
         return match ($normalized) {
             'yes', 'true', '1' => 'yes',

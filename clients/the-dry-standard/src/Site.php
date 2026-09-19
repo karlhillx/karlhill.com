@@ -201,7 +201,8 @@ final class Site
                 'categories' => $published->pluck('category')->unique()->values(),
                 'brands' => $published->pluck('brand')->unique()->sort()->values(),
                 'abv' => $published->map(fn (Review $review): string => $review->abvBucket())->unique()->values(),
-                'dealcoholized' => $published->pluck('dealcoholized')->unique()->values(),
+                'production_type' => $published->pluck('productionType')->unique()->values(),
+                'verified' => $published->pluck('verified')->unique()->values(),
                 'methods' => $published->map(fn (Review $review): string => $review->methodFacetKey())->unique()->values(),
             ],
         ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n";

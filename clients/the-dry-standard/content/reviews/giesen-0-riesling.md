@@ -9,9 +9,10 @@ subcategory: riesling
 country: New Zealand
 region: Marlborough
 style: Dealcoholized Marlborough Riesling
-abv: "Not more than 0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Spinning cone technology separating aroma, alcohol and body, then recombining aroma and body without the alcohol"
 base_beverage: "Full-strength Marlborough Riesling — grown, fully fermented, then gently dealcoholized"
 producer: Giesen Wines, Marlborough, New Zealand

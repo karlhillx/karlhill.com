@@ -8,10 +8,11 @@ category: cocktails
 subcategory: canned cocktail / ready-to-drink spritz
 country: Australia
 style: Non-alcoholic Mediterranean spritz in a can
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: no
-dealcoholized_note: "Lyre's range is formulated from scratch using natural flavors and distillates — none of the brand's products are made by removing alcohol from a finished alcoholic version."
+production_type: alternative
+verified: yes
+production_note: "Lyre's range is formulated from scratch using natural flavors and distillates — none of the brand's products are made by removing alcohol from a finished alcoholic version."
 base_beverage: "Lyre's Italian Orange spirit replica base (no underlying alcohol-containing spirit)"
 producer: Lyre's (Australian-founded, ship-to-the-US)
 volume: "8.4 fl oz (250 ml) can, sold in 4-packs, 8-packs, and 12-packs (producer)"

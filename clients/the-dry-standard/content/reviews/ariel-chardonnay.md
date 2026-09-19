@@ -4,12 +4,14 @@ slug: ariel-chardonnay
 id: TDS-0086
 brand: Ariel
 product: Non-Alcoholic Chardonnay
+abv: "Not published"
 category: wine
 subcategory: chardonnay
 country: USA
 region: California
 style: Dealcoholized Chardonnay
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Spinning cone column distillation at low temperature (Ariel's documented process, shared with the J. Lohr family of wines)"
 base_beverage: "California Chardonnay from J. Lohr's vineyards, vinified conventionally before dealcoholization"
 producer: "Ariel Vineyards (J. Lohr family, California)"

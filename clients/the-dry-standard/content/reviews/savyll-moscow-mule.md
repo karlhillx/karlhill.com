@@ -4,11 +4,13 @@ slug: savyll-moscow-mule
 id: TDS-0013
 brand: Savyll
 product: Non-Alcoholic Moscow Mule
+abv: "Not published"
 category: cocktails
 subcategory: RTD
 style: Formulated Moscow Mule
-dealcoholized: no
-dealcoholized_note: "An RTD mule. No source describes a spirit that was later dealcoholized."
+production_type: alternative
+verified: yes
+production_note: "An RTD mule. No source describes a spirit that was later dealcoholized."
 availability: "Total Wine & More"
 image: media/reviews/savyll-moscow-mule.jpg
 image_alt: "Savyll Non-Alcoholic Moscow Mule"
@@ -26,10 +28,10 @@ serve: "Iced, copper mug if you must."
 sources:
   - title: "Total Wine & More"
     url: https://www.totalwine.com/
-    claims: [availability]
+    claims: [availability, production_type]
 status: published
 ---
 
-A Moscow Mule that never started as vodka is not a failure. It is a different product. No producer page naming a dealcoholized distillate was found, so the badge is No — formulated.
+A Moscow Mule that never started as vodka is not a failure. It is a different product. No producer page naming a dealcoholized distillate was found, so Production Type is Alternative.
 
 Ginger and lime, sweet, fizzy. Fine for the porch. Not a spirit review.

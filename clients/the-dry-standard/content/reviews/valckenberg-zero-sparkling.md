@@ -8,9 +8,10 @@ category: wine
 subcategory: sparkling white
 country: Germany
 style: Dealcoholized German sparkling wine
-abv: "0.0% vol (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from conventionally vinified sparkling cuvée (producer's Zero line)"
 base_beverage: "Cuvée from high-quality grape varieties, vinified conventionally before alcohol removal"
 producer: P.J. Valckenberg (Germany)

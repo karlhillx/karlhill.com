@@ -8,7 +8,7 @@ A product in `data/review-queue.yaml` should move to a public review page.
 
 1. Open `clients/the-dry-standard/AGENTS.md` and `EDITORIAL.md`.
 2. Confirm the product exists and is ≤0.5% ABV from primary sources.
-3. Classify `dealcoholized` as `yes`, `no`, or `not-verified`.
+3. Classify `production_type` (`dealcoholized`, `alternative`, `naturally-low-alcohol`, `hybrid`, or `not-verified`) and set `verified` separately.
 4. Write `content/reviews/{slug}.md` using `data/schema/review.schema.yaml`.
 5. Add an editorial still at `media/reviews/{slug}.jpg` and set `image`, `image_alt`, and `image_credit`.
 6. Attach `sources` with `claims` for every factual field you filled.

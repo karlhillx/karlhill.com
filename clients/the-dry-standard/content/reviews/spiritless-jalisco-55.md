@@ -8,9 +8,10 @@ category: spirits
 subcategory: non-alcoholic tequila alternative
 country: USA
 style: Dealcoholized non-alcoholic reposado tequila
-abv: "0.0% ABV (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from a real reposado tequila — the same distillery-to-bottle approach as Spiritless Kentucky 74"
 base_beverage: "Real reposado tequila from Jalisco, Mexico, dealcoholized after aging"
 producer: Spiritless (same producer as Kentucky 74)

@@ -9,10 +9,11 @@ subcategory: IPA
 country: USA
 region: San Diego, California
 style: Non-alcoholic IPA
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Pure Project does not publicly disclose the production method; the beer is brewed with Citra, Citra Cryo and Mosaic Abstrax hops."
+production_type: not-verified
+verified: no
+production_note: "Pure Project does not publicly disclose the production method; the beer is brewed with Citra, Citra Cryo and Mosaic Abstrax hops."
 producer: Pure Project Brewing (San Diego, California)
 availability: "US retail; direct from purebrewing.org"
 image: media/reviews/pure-project-grounded.jpg

@@ -8,10 +8,11 @@ category: cocktails
 subcategory: ready-to-drink canned negroni-style cocktail
 country: Italy
 style: Non-alcoholic formulated Negroni-style canned cocktail from Florence
-abv: "<0.5% ABV (The Zero Proof listing)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: no
-dealcoholized_note: "Lapo's brand copy frames the product as an 'Italian-inspired cocktail' built for the NA shelf; there is no claim that the drink was ever alcoholic and then dealcoholized — the formula is built fresh."
+production_type: alternative
+verified: yes
+production_note: "Lapo's brand copy frames the product as an 'Italian-inspired cocktail' built for the NA shelf; there is no claim that the drink was ever alcoholic and then dealcoholized — the formula is built fresh."
 base_beverage: "Italian-sourced ingredients with bitter liqueur analogues (likely sourced and built from a spirit replica or aperitivo-style formulation), no underlying Gin/Campari before dealcoholization."
 producer: "Lapo's (Florence, Italy — the brand's name, a smiling barman in a tuxedo at Florence's most famous bar)"
 volume: "8.4 fl oz (250 ml) can, sold in 4-packs (US launch); also 100 ml formats in select markets"
@@ -39,7 +40,7 @@ sources:
     claims: [price, volume, availability]
   - title: "Lapo's — Negroni (drinklapos.com)"
     url: https://drinklapos.com/products/negroni
-    claims: [producer, country, style, volume, base_beverage]
+    claims: [producer, country, style, volume, base_beverage, production_type]
 status: published
 ---
 

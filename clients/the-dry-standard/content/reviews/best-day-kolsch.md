@@ -8,10 +8,11 @@ category: beer
 subcategory: Kölsch-style ale
 country: USA
 style: Non-alcoholic Kölsch-style craft beer
-abv: "<0.5% ABV (producer; Typical NA craft range)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
-dealcoholized_note: "Paste Magazine's brewery-briefed review describes Best Day's beers as 'traditionally produced non-alcoholic beers, with alcohol \"gently removed\" post fermentation, leaving less than .5% ABV in the final product'; the specific named removal technology is not published."
+production_type: dealcoholized
+verified: yes
+production_note: "Paste Magazine's brewery-briefed review describes Best Day's beers as 'traditionally produced non-alcoholic beers, with alcohol \"gently removed\" post fermentation, leaving less than .5% ABV in the final product'; the specific named removal technology is not published."
 producer: Best Day Brewing (US craft brewery, founded 2019)
 price: "$10.99 per 6-pack of 12 fl oz cans (Target)"
 availability: "US retail including Target, and direct from bestdaybrewing.com"

@@ -8,10 +8,11 @@ category: wine
 subcategory: riesling
 country: Germany
 style: Dealcoholized German Riesling
-abv: "0.5% ABV (beerfordriving listing)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
-dealcoholized_note: "beerfordriving.com's directory listing describes the wine as 'a German dealcoholized white wine made in the classic Riesling style... with the alcohol removed'; the specific named removal technology is not published."
+production_type: dealcoholized
+verified: yes
+production_note: "beerfordriving.com's directory listing describes the wine as 'a German dealcoholized white wine made in the classic Riesling style... with the alcohol removed'; the specific named removal technology is not published."
 base_beverage: "German Riesling, sourced from Germany and dealcoholized in Europe (supplier and directory copy)"
 image: media/reviews/magic-box-vanish-riesling.jpg
 image_alt: "Magic Box Vanish Riesling"

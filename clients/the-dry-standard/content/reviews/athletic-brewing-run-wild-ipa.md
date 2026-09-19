@@ -9,10 +9,11 @@ subcategory: India Pale Ale
 country: USA
 region: "Milford, Connecticut, with a second brewhouse in San Diego, California"
 style: Non-alcoholic IPA
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: no
-dealcoholized_note: "Athletic's process is proprietary, but founder interviews state it is neither dealcoholization of finished beer nor simple arrested fermentation — the beers are built as NA from the start."
+production_type: naturally-low-alcohol
+verified: yes
+production_note: "Athletic's process is proprietary, but founder interviews state it is neither dealcoholization of finished beer nor simple arrested fermentation — the beers are built as NA from the start."
 calories: "70 calories (producer)"
 ingredients: "Premium malts from the US and Germany; a blend of Northwest hops with Citra and Mosaic at the forefront (producer)"
 producer: Athletic Brewing Company
@@ -49,6 +50,6 @@ sources:
 status: published
 ---
 
-Run Wild is the closest thing non-alcoholic beer has to a household name, and the story behind it is a Connecticut one: founders Bill and John test-brewed more than 100 batches on homebrew equipment in Stratford before building what is believed to be the world's largest dedicated non-alcoholic brewery in Milford, with a second brewhouse in San Diego. The company still will not name the vessels. What they have said, to Fast Company and Popular Mechanics, is that they do not brew a full-strength beer and strip the alcohol, and that the method is not simple arrested fermentation either. That is enough to mark Dealcoholized: No. The beers are built under 0.5% from the start. What else is citable: 70 calories, 35 IBU, premium US and German malts, and that Northwest hop blend with Citra and Mosaic up front.
+Run Wild is the closest thing non-alcoholic beer has to a household name, and the story behind it is a Connecticut one: founders Bill and John test-brewed more than 100 batches on homebrew equipment in Stratford before building what is believed to be the world's largest dedicated non-alcoholic brewery in Milford, with a second brewhouse in San Diego. The company still will not name the vessels. What they have said, to Fast Company and Popular Mechanics, is that they do not brew a full-strength beer and strip the alcohol, and that the method is not simple arrested fermentation either. That is enough to classify it as naturally low alcohol. The beers are built under 0.5% from the start. What else is citable: 70 calories, 35 IBU, premium US and German malts, and that Northwest hop blend with Citra and Mosaic up front.
 
 The pour is the standard other NA IPAs get measured against, and it earns it. Pine and citrus on the nose, bitterness that reads as intentional rather than apologetic, and the dry, crisp finish that separates breweries who formulated for zero-proof from ones that just arrested a lager. It won gold at the 2018 International Beer Challenge with the company noting its awards come "when up against full-strength beers" — which is either marketing or the single best argument for the category, and we read it as the latter. The honest complaint is body: without ethanol the mid-palate thins, and a fresh full-strength IPA still wins on texture. On flavor discipline, it doesn't lose.

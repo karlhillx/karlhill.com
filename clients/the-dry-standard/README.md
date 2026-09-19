@@ -11,7 +11,7 @@ This is not a shop. It is a small autonomous publication: a review queue, source
 | Document | What it is |
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | Durable instructions for OpenClaw and any future agent |
-| [EDITORIAL.md](EDITORIAL.md) | Voice, dealcoholized vs formulated, scoring |
+| [EDITORIAL.md](EDITORIAL.md) | Voice, production types, scoring |
 | [PUBLISHING.md](PUBLISHING.md) | Queue, validation, schedule, commands |
 | [SITE.md](SITE.md) | URLs, files, data model |
 
@@ -40,7 +40,7 @@ content/pages/about.md
 data/catalog.sqlite      # product database (generated; do not commit)
 data/products.csv        # spreadsheet export of the catalog
 data/config.yaml         # cadence, models, categories, URLs
-data/master-products.csv # purchase ledger: internal ID + sourced EAN, sorted by times purchased
+data/master-products.csv # purchase ledger: internal ID + sourced EAN
 data/review-queue.yaml
 data/publish-log.yaml
 src/                     # PHP catalog + renderer (DryStandard\)

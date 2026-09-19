@@ -9,9 +9,10 @@ subcategory: white
 country: France
 region: Loire Valley (Clisson and Château-Thébaud)
 style: Dealcoholized Melon de Bourgogne (Muscadet-style)
-abv: "<0.5% ABV (retail listings)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Melon de Bourgogne wine vinified conventionally then dealcoholized (producer range described as vin désalcoolisé)"
 base_beverage: "Melon de Bourgogne from the Clisson and Château-Thébaud Crus Communaux — the first dealcoholized wine made from the variety"
 producer: Ollivier Cottenceau (Domaine de la Grenaudière, 8th generation)

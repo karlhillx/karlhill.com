@@ -96,9 +96,6 @@ final class CatalogSync
                 'id' => $id !== '' ? $id : null,
                 'ean' => trim((string) ($row['EAN'] ?? '')) ?: null,
                 'retailers' => trim((string) ($row['Retailer(s)'] ?? '')) ?: null,
-                'times_purchased' => is_numeric($row['Times Purchased'] ?? null) ? (int) $row['Times Purchased'] : 0,
-                'first_purchase' => trim((string) ($row['First Purchase'] ?? '')) ?: null,
-                'most_recent_purchase' => trim((string) ($row['Most Recent Purchase'] ?? '')) ?: null,
             ];
 
             if ($existing instanceof Review) {
@@ -114,7 +111,8 @@ final class CatalogSync
                 'brand' => $brand,
                 'category' => $this->mapCategory((string) ($row['Category'] ?? '')),
                 'abv' => trim((string) ($row['ABV'] ?? '')) ?: null,
-                'dealcoholized' => $this->mapDealcoholized((string) ($row['Dealcoholized?'] ?? '')),
+                'production_type' => $this->mapProductionType((string) ($row['Production Type'] ?? $row['Dealcoholized?'] ?? '')),
+                'verified' => $this->mapVerified((string) ($row['Verified'] ?? '')),
                 'dealcoholization_method' => trim((string) ($row['Method'] ?? '')) ?: null,
                 'status' => 'queued',
                 'priority' => 'normal',
@@ -185,12 +183,13 @@ final class CatalogSync
             'abv',
             'abv_numeric',
             'dealcoholized',
+            'production_type',
+            'verified',
             'dealcoholization_method',
             'status',
             'rating',
             'review_date',
             'retailers',
-            'times_purchased',
         ];
 
         fputcsv($handle, $columns);
@@ -215,14 +214,30 @@ final class CatalogSync
         };
     }
 
-    private function mapDealcoholized(string $value): string
+    private function mapProductionType(string $value): string
+    {
+        $value = strtolower(trim($value));
+        $value = str_replace(['_', ' '], '-', $value);
+
+        return match (true) {
+            $value === 'dealcoholized', str_starts_with($value, 'yes') => 'dealcoholized',
+            str_contains($value, 'naturally') => 'naturally-low-alcohol',
+            $value === 'hybrid', str_contains($value, 'blend') => 'hybrid',
+            $value === 'alternative', str_contains($value, 'formulated') => 'alternative',
+            str_starts_with($value, 'not') => 'not-verified',
+            str_starts_with($value, 'no') => 'alternative',
+            default => 'not-verified',
+        };
+    }
+
+    private function mapVerified(string $value): string
     {
         $value = strtolower(trim($value));
 
         return match (true) {
             $value === 'yes', str_starts_with($value, 'yes') => 'yes',
-            $value === 'no', str_contains($value, 'formulated') => 'no',
-            default => 'not-verified',
+            $value === 'no', str_starts_with($value, 'no') => 'no',
+            default => 'no',
         };
     }
 }

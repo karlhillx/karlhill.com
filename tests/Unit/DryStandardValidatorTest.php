@@ -92,3 +92,25 @@ it('rejects dates in slugs', function () {
 
     expect($errors)->toContain('slug must not include dates');
 });
+
+it('maps a formulated spirit to alternative rather than a failed dealcoholized test', function () {
+    $review = dryStandardReview([
+        'dealcoholized' => 'no',
+        'dealcoholized_note' => 'Formulated as a zero-proof alternative',
+    ]);
+
+    expect($review->productionType)->toBe('alternative')
+        ->and($review->verified)->toBe('yes')
+        ->and($review->productionTypeShortLabel())->toBe('Alternative')
+        ->and($review->productionTypeLabel())->not->toContain('Dealcoholized: No');
+});
+
+it('keeps naturally low alcohol separate from alternative', function () {
+    $review = dryStandardReview([
+        'production_type' => 'naturally-low-alcohol',
+        'verified' => 'yes',
+    ]);
+
+    expect($review->productionType)->toBe('naturally-low-alcohol')
+        ->and($review->productionTypeShortLabel())->toBe('Naturally low alcohol');
+});

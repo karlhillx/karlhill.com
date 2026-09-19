@@ -772,9 +772,17 @@ a.stat:hover strong {
   background: var(--unknown-soft);
 }
 
-.badge--yes {
+.badge--yes,
+.badge--dealcoholized {
   color: var(--yes);
   background: var(--yes-soft);
+}
+
+.badge--alternative,
+.badge--naturally-low-alcohol,
+.badge--hybrid {
+  color: #3d3a32;
+  background: #efe8d8;
 }
 
 .badge--no {
@@ -1230,6 +1238,15 @@ a.stat:hover strong {
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   background: var(--surface);
+}
+
+.callout-verified {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .callout-status,

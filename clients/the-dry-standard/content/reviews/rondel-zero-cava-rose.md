@@ -4,12 +4,14 @@ slug: rondel-zero-cava-rose
 id: TDS-0024
 brand: Rondel
 product: Zero Cava Rosé
+abv: "Not published"
 category: wine
 subcategory: sparkling rosé
 country: Spain
 style: Non-alcoholic sparkling rosé
-dealcoholized: not-verified
-dealcoholized_note: "Sold as Rondel Zero. No producer method page was found."
+production_type: not-verified
+verified: no
+production_note: "Sold as Rondel Zero. No producer method page was found."
 availability: "Total Wine & More"
 image: media/reviews/rondel-zero-cava-rose.jpg
 image_alt: "Rondel Zero Cava Rosé"

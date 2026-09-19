@@ -9,9 +9,10 @@ subcategory: riesling
 country: Germany
 region: Mosel
 style: Dealcoholized German Riesling
-abv: "0.0% vol (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from conventionally vinified Riesling (producer describes the Zero line as non-alcoholic without specifying the technique)"
 base_beverage: "Riesling from Mosel steep-slope vineyards, vinified conventionally before alcohol removal"
 producer: P.J. Valckenberg (Germany)

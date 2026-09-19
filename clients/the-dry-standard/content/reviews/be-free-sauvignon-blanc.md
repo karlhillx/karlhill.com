@@ -4,12 +4,14 @@ slug: be-free-sauvignon-blanc
 id: TDS-0022
 brand: Be Free
 product: Sauvignon Blanc
+abv: "Not published"
 category: wine
 subcategory: sauvignon blanc
 country: Germany
 style: De-alcoholised Sauvignon Blanc
-dealcoholized: yes
-dealcoholized_note: "Total Wine's product highlights state the wine 'gets dealcoholized using a special method, conserving all the beautiful aromas and flavors'; the specific named technology is not published."
+production_type: dealcoholized
+verified: yes
+production_note: "Total Wine's product highlights state the wine 'gets dealcoholized using a special method, conserving all the beautiful aromas and flavors'; the specific named technology is not published."
 producer: Be Free
 volume: 750 ml
 price: "$9.99 (Total Wine)"

@@ -9,10 +9,11 @@ subcategory: German-style pilsner
 country: USA
 region: Naperville, Illinois
 style: Non-alcoholic German-style pilsner
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: no
-dealcoholized_note: "Go Brewing's own product FAQ states: 'We use Go Brewing's proprietary brewing process to keep it naturally under 0.5% ABV without dilution or dealcoholization, allowing for full pilsner character' — an explicit statement ruling out dealcoholization."
+production_type: naturally-low-alcohol
+verified: yes
+production_note: "Go Brewing's own product FAQ states: 'We use Go Brewing's proprietary brewing process to keep it naturally under 0.5% ABV without dilution or dealcoholization, allowing for full pilsner character' — an explicit statement ruling out dealcoholization."
 producer: "Go Brewing (Naperville, Illinois; Illinois' first non-alcoholic craft brewery, founded 2022)"
 price: "$14.99 per 6-pack of 12 oz cans (retail listing)"
 availability: "US retail including Giant Food, and direct from gobrewing.com"
@@ -32,7 +33,7 @@ serve: "Cold, in a tall pils glass."
 sources:
   - title: "Suspended In A Sunbeam Pils — Go Brewing"
     url: https://gobrewing.com/products/suspended-in-a-sunbeam-lager-non-alcoholic-beer
-    claims: [abv, producer, country, style, availability]
+    claims: [abv, producer, country, style, availability, production_type]
   - title: "Go Brewing Suspended In A Sunbeam Pils — beerfordriving"
     url: https://beerfordriving.com/beer/go-brewing/suspended-in-a-sunbeam-pils/
     claims: [abv, price, style]

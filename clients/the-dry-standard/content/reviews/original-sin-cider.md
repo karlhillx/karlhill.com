@@ -8,9 +8,11 @@ category: cider
 subcategory: non-fermented NA cider
 country: USA
 style: Sparkling non-alcoholic apple-cider-vinegar-based cider
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: no
-dealcoholized_note: "Original Sin's NA ciders are made with apple cider vinegar and fruit juice, not from a dealcoholized alcoholic cider."
+production_type: alternative
+verified: yes
+production_note: "Original Sin's NA ciders are made with apple cider vinegar and fruit juice, not from a dealcoholized alcoholic cider."
 base_beverage: "Apple cider vinegar + fruit juice + monk fruit sweetener; no underlying alcoholic apple cider before dealcoholization."
 producer: Original Sin Cider (New York, NY)
 volume: "12 fl oz cans, sold as the Widow Family 12-pack across four flavors"
@@ -32,7 +34,7 @@ image_credit: "Product photo via Original Sin Cider"
 sources:
   - title: "Widow Family 12-Pack — Original Sin Cider"
     url: https://www.originalsincider.com/na-ciders/widow-family-12-pack
-    claims: [dealcoholized, base_beverage, producer, country, volume]
+    claims: [dealcoholized, base_beverage, producer, country, volume, abv]
   - title: "White Widow (Original Sin NA Cider product page)"
     url: https://www.originalsincider.com/na-ciders/white-widow
     claims: [volume, country, process]

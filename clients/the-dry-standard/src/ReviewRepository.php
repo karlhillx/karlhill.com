@@ -122,7 +122,7 @@ final class ReviewRepository
                     $score += 2;
                 }
 
-                if ($other->dealcoholized === $review->dealcoholized) {
+                if ($other->productionType === $review->productionType) {
                     $score += 1;
                 }
 

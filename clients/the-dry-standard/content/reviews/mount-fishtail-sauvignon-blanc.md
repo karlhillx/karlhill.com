@@ -9,9 +9,10 @@ subcategory: sauvignon blanc
 country: New Zealand
 region: Marlborough
 style: Alcohol-removed Marlborough Sauvignon Blanc
-abv: "<0.5% ABV (retail listings)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from conventionally vinified Marlborough Sauvignon Blanc"
 base_beverage: "Sauvignon Blanc from the Upper Wairau Valley, Marlborough, vinified conventionally before alcohol removal"
 producer: Mount Fishtail Wines (Marlborough, New Zealand)

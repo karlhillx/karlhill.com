@@ -4,12 +4,14 @@ slug: valckenberg-not-a-sin
 id: TDS-0075
 brand: P.J. Valckenberg
 product: "It's Not a Sin Ginger/Bitter Orange"
+abv: "Not published"
 category: cocktails
 subcategory: non-alcoholic aperitivo
 country: Germany
 style: Formulated non-alcoholic ginger and bitter-orange aperitivo
-dealcoholized: no
-dealcoholized_note: "Formulated beverage — no underlying alcoholic drink before removal; part of Valckenberg's Zero non-alcoholic line."
+production_type: alternative
+verified: yes
+production_note: "Formulated beverage — no underlying alcoholic drink before removal; part of Valckenberg's Zero non-alcoholic line."
 base_beverage: "Botanical formulation with ginger and bitter orange"
 producer: P.J. Valckenberg (Germany)
 availability: "US retail; German retail"

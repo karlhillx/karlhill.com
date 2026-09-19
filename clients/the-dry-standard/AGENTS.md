@@ -6,17 +6,21 @@ Read this file before researching, drafting, or publishing anything for The Dry 
 
 An editorial publication about beverages at **≤0.5% ABV**, staged at `/clients/the-dry-standard/` inside the karlhill.com Laravel repo. The visual and legal parent is a client preview (Laravel sends `X-Robots-Tag: noindex` on `/clients/*`). On-page SEO, feeds, and structured data are implemented so the site can move to its own domain later.
 
-The differentiator is aggressive: **dealcoholized** is not a synonym for **non-alcoholic**.
+The differentiator is aggressive: **dealcoholized** is not a synonym for **non-alcoholic**. Classify by production type, and keep a separate verified field.
 
 ## What qualifies
 
 A product may be reviewed if it is at or below 0.5% ABV.
 
-It may be labeled **Dealcoholized: Yes** only when a cited source shows alcohol was removed from an alcoholic (or high-proof) liquid. Vacuum distillation, spinning cone, reverse osmosis, membrane / cold filtration, reverse distillation, and other named removal processes count.
+Set `production_type` to one of:
 
-Formulated zero-proof drinks are in scope as contrasts. Mark them **Dealcoholized: No**.
+- **dealcoholized** — a cited source shows alcohol was removed from an alcoholic (or high-proof) liquid. Vacuum distillation, spinning cone, reverse osmosis, membrane / cold filtration, reverse distillation, and other named removal processes count.
+- **alternative** — built as a non-alcoholic analogue from the start (flavors, botanicals, extracts, distillates, juice). A botanical "whiskey alternative" is Alternative, not "Dealcoholized: No."
+- **naturally-low-alcohol** — fermented or otherwise traditionally produced, but finishes at ≤0.5% ABV without a separate removal step (arrested fermentation, specialized yeasts, limited fermentation).
+- **hybrid** — dealcoholized material plus other defining non-alcoholic ingredients, or more than one production approach. Standard must-back-addition after removal stays dealcoholized.
+- **not-verified** — the factory floor is unpublished. Never upgrade a marketing zero to a method.
 
-If the factory floor is unpublished, mark **Dealcoholized: Not verified**. Never upgrade a marketing zero to a method.
+Set `verified: yes` only when a cited source supports that type. Otherwise `verified: no`.
 
 ## Voice
 
@@ -38,7 +42,7 @@ If a fact cannot be sourced, delete the field.
 2. Confirm the product exists.
 3. Research primary sources (producer, importer, press, retailer technical sheets).
 4. Verify ABV ≤ 0.5%.
-5. Decide dealcoholized: yes / no / not-verified.
+5. Decide production_type and verified.
 6. Collect only sourced metadata.
 7. Draft the review markdown in `content/reviews/{slug}.md`.
 8. Run `php artisan dry-standard:validate {slug} --publish`.

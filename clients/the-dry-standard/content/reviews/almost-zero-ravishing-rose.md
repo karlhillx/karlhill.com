@@ -4,12 +4,14 @@ slug: almost-zero-ravishing-rose
 id: TDS-0012
 brand: Almost Zero
 product: Ravishing Rosé
+abv: "Not published"
 category: wine
 subcategory: rosé
 country: South Africa
 producer: Van Loveren Family Vineyards
 style: Dealcoholised rosé
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Spinning cone column, applied after full vinification"
 availability: "Total Wine & More; produced by Van Loveren, South Africa"
 image: media/reviews/almost-zero-ravishing-rose.jpg

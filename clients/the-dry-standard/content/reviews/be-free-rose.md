@@ -10,10 +10,11 @@ subcategory: rosé
 country: Germany
 region: Mosel
 style: De-alcoholised German rosé
-abv: "0.5% ABV (Supervin retail listing)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
-dealcoholized_note: "Vivino lists the wine as 'Be Free De-Alcoholised Rosé,' and a retailer listing describes 'a gentle de-alcoholisation method'; the specific named technology is not published."
+production_type: dealcoholized
+verified: yes
+production_note: "Vivino lists the wine as 'Be Free De-Alcoholised Rosé,' and a retailer listing describes 'a gentle de-alcoholisation method'; the specific named technology is not published."
 volume: "750 ml (75 cl retail listings)"
 price: "$10.49 at Total Wine & More (Postmates listing)"
 availability: "Total Wine & More (US); European retailers including Supervin (SE/DK)"

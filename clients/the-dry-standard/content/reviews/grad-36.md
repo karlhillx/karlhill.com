@@ -9,9 +9,10 @@ subcategory: red blend
 country: Germany
 region: Schlat
 style: Dealcoholized red wine blended with orchard juice
-abv: "<0.5% ABV (importer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: hybrid
+verified: yes
 dealcoholization_method: "75% dealcoholized red wine blended with damson plum, currant, and blackberry juice plus herb and wildflower extracts"
 producer: Manufaktur Jörg Geiger
 volume: 750 ml

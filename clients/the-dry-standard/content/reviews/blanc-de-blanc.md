@@ -8,9 +8,10 @@ category: wine
 subcategory: sparkling white
 country: Germany
 style: Dealcoholized organic sparkling wine, Chardonnay/Colombard, two years on lees
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Organic Chardonnay and Colombard wine, bottle-fermented and matured on the lees for two years, then vacuum distilled (producer)"
 base_beverage: "Organic Chardonnay and Colombard, conventionally vinified with secondary bottle fermentation and lees ageing before dealcoholization"
 producer: Manufaktur Jörg Geiger (Germany)

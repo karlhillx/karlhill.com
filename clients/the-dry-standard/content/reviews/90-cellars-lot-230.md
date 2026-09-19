@@ -9,9 +9,10 @@ subcategory: sparkling brut
 country: France
 region: South West France
 style: Alcohol-removed South West French sparkling brut
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Reverse osmosis (applied after traditional winemaking)"
 base_beverage: "Souvignier Gris (a German-bred Piwi hybrid grape resistant to downy mildew)"
 producer: 90+ Cellars

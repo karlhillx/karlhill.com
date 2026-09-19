@@ -8,9 +8,10 @@ category: wine
 subcategory: sparkling rosé
 country: Spain
 style: Alcohol-removed sparkling rosé
-abv: "<0.05% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.05
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Low-temperature vacuum evaporation, applied after making the wine to full strength"
 base_beverage: "Blend of classic Spanish grapes, Airén dominant"
 producer: Freixenet

@@ -7,9 +7,10 @@ product: 0.0
 category: beer
 subcategory: non-alcoholic lager
 style: Non-alcoholic international pale lager
-abv: "0.0% ABV (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol extracted from the traditional brew using vacuum distillation columns, following a double-brew step with Heineken's A-Yeast (documented by The Process)"
 base_beverage: "The traditional Heineken brew, made with the same A-Yeast before alcohol extraction"
 producer: Heineken

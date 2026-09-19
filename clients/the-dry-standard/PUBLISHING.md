@@ -45,7 +45,7 @@ php artisan dry-standard:queue "Giesen 0% Sauvignon Blanc" --brand=Giesen --cate
 
 - a factual field has no source claim
 - ABV is missing a source
-- `dealcoholized: yes` has no method/dealcoholized source
+- a classified `production_type` has no production_type, dealcoholized, or method source
 - `abv_numeric` is over 0.5
 - required tasting/verdict fields are empty
 

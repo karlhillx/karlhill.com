@@ -8,10 +8,11 @@ category: spirits
 subcategory: non-alcoholic spirit alternative
 country: USA
 style: Formulated non-alcoholic tequila alternative
-abv: "0.0% ABV (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: no
-dealcoholized_note: "Ritual Zero Proof spirits are formulated from botanicals and natural flavors — not made by removing alcohol from a once-alcoholic spirit."
+production_type: alternative
+verified: yes
+production_note: "Ritual Zero Proof spirits are formulated from botanicals and natural flavors — not made by removing alcohol from a once-alcoholic spirit."
 base_beverage: "Botanical formulation with agave, lime, and other natural flavors; no underlying tequila"
 producer: Ritual Zero Proof (USA)
 volume: "750 ml"

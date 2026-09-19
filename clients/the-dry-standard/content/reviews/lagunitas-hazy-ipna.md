@@ -8,10 +8,11 @@ category: beer
 subcategory: hazy IPA
 country: USA
 style: Non-alcoholic hazy IPA
-abv: "0.50% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: no
-dealcoholized_note: "Brewed to remain under 0.5% ABV. Lagunitas says it does not dealcoholize the finished beer."
+production_type: naturally-low-alcohol
+verified: yes
+production_note: "Brewed to remain under 0.5% ABV. Lagunitas says it does not dealcoholize the finished beer."
 calories: "60 calories per serving (producer)"
 sugar: "5 g sugar per serving (producer)"
 volume: 12 oz can

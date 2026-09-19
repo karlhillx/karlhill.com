@@ -9,11 +9,12 @@ subcategory: string, optional
 country: string, sourced
 region: string, sourced
 style: string, editorial
-abv: string, sourced
+abv: 0.0% | <0.5% | Not published
 abv_numeric: number <= 0.5, optional
-dealcoholized: yes | no | not-verified
-dealcoholized_note: optional display override
-dealcoholization_method: string, sourced when dealcoholized=yes
+production_type: dealcoholized | alternative | naturally-low-alcohol | hybrid | not-verified
+verified: yes | no
+production_note: optional display override
+dealcoholization_method: string, sourced when production_type=dealcoholized
 base_beverage: string, sourced
 producer: string, sourced
 price: approximate retail, sourced
@@ -39,7 +40,7 @@ serve: editorial
 sources:
   - title: string
     url: url
-    claims: [abv, method, origin, producer, ingredients, calories, sugar, price, availability, volume, dealcoholized, base_beverage, country, region]
+    claims: [abv, method, origin, producer, ingredients, calories, sugar, price, availability, volume, production_type, dealcoholized, base_beverage, country, region]
 discrepancies:
   - field: string
     note: string

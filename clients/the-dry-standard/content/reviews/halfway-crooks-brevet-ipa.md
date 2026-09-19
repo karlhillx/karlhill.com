@@ -4,13 +4,15 @@ slug: halfway-crooks-brevet-ipa
 id: TDS-0005
 brand: Halfway Crooks Beer
 product: "Brevet IPA"
+abv: "Not published"
 category: beer
 subcategory: IPA
 country: USA
 region: "Atlanta, Georgia"
 style: Non-alcoholic IPA
-dealcoholized: no
-dealcoholized_note: "Atlanta Magazine quotes co-owner Shawn Cooper describing Halfway Crooks' NA process as Chiber, a mushroom extract that keeps yeast static and halts alcohol production rather than removing it afterward. Craft Beer & Brewing describes the Brevet line as lager and IPA iterations of that same NA work."
+production_type: naturally-low-alcohol
+verified: yes
+production_note: "Atlanta Magazine quotes co-owner Shawn Cooper describing Halfway Crooks' NA process as Chiber, a mushroom extract that keeps yeast static and halts alcohol production rather than removing it afterward. Craft Beer & Brewing describes the Brevet line as lager and IPA iterations of that same NA work."
 producer: Halfway Crooks Beer
 image: media/reviews/halfway-crooks-brevet-ipa.jpg
 image_alt: "Halfway Crooks Brevet IPA"

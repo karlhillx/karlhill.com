@@ -9,10 +9,11 @@ subcategory: New England IPA
 country: USA
 region: Ardmore, Pennsylvania
 style: Non-alcoholic New England IPA
-abv: "<0.5% ABV (retail listing); 0% per Untappd"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: no
-dealcoholized_note: "Tired Hands' own menu copy describes N/Alien Church as 'brewed with oats, experimental yeast, and the same hop bill as Alien Church' — a from-scratch recipe built around a special yeast strain, with no mention of a post-brew alcohol-removal step."
+production_type: naturally-low-alcohol
+verified: yes
+production_note: "Tired Hands' own menu copy describes N/Alien Church as 'brewed with oats, experimental yeast, and the same hop bill as Alien Church' — a from-scratch recipe built around a special yeast strain, with no mention of a post-brew alcohol-removal step."
 producer: Tired Hands Brewing Company (Ardmore, PA; founded 2012 by Jean Broillet IV)
 price: "$16.00 per 6-pack (brewery direct)"
 availability: "Direct from tiredhands.com; select Philadelphia-area retail"

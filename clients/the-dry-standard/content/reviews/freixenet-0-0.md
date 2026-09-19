@@ -9,9 +9,10 @@ subcategory: sparkling
 country: Spain
 region: Penedès
 style: Alcohol-removed sparkling white
-abv: "Less than 0.05% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.05
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Low-temperature vacuum evaporation, applied after making the wine to full strength"
 base_beverage: "Blend of classic Spanish grapes, mainly Airén"
 producer: Freixenet (Henkell Freixenet)

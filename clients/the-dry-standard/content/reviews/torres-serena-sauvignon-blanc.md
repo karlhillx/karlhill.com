@@ -9,9 +9,10 @@ subcategory: sauvignon blanc
 country: Chile
 region: Central Valley
 style: Dealcoholized Sauvignon Blanc
-abv: "0.0% ABV (producer technical sheet)"
+abv: "0.0%"
 abv_numeric: 0.0
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Fermented 16 days, then the finished wine undergoes a dealcoholization process (technique not named)"
 base_beverage: "100% Sauvignon Blanc, destemmed, fermented 16 days at 12–16°C"
 producer: Miguel Torres Chile / Familia Torres

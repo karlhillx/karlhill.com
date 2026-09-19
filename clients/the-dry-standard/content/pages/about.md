@@ -1,7 +1,7 @@
 ---
 title: About The Dry Standard
 slug: about
-summary: "Why this site exists, how we tell dealcoholized drinks from formulated ones, and how the scores work."
+summary: "Why this site exists, how we classify drinks by production type, and how the scores work."
 ---
 
 The Dry Standard is an editorial review site for beverages at **0.5% ABV or less**. We are especially interested in drinks that were fermented or distilled first and then had the alcohol taken out.
@@ -12,13 +12,19 @@ That is a narrower brief than "non-alcoholic." It is also the point.
 
 Dealcoholized wine, beer, spirits, aperitifs, cider, sparkling wine, and ready-to-drink cocktails or spritzes. A product can appear here if it meets the ABV ceiling. It will not be called dealcoholized unless we can show that alcohol was removed from a finished, or at least high-proof, alcoholic liquid.
 
-## The distinction we will not blur
+## How we classify production
 
 **Dealcoholized** means a documented alcohol-removal step: vacuum distillation, spinning cone, reverse osmosis, membrane or cold filtration, reverse distillation, or another named process.
 
-**Formulated / zero-proof** means the drink was built to taste like beer, wine, or a spirit without that step. Botanicals, flavors, juices, and thickeners are legitimate tools. They are not dealcoholization.
+**Alternative** means the drink was built as a non-alcoholic analogue from the start. Botanicals, flavors, juices, and extracts are legitimate tools. They are not dealcoholization.
+
+**Naturally low alcohol** means a traditional process — fermentation, specialized yeasts, arrested fermentation — that finishes at or below 0.5% ABV without a separate removal step.
+
+**Hybrid** means the drink is defined by more than one approach: dealcoholized wine in a sangria, dealcoholized rum in a cola, or a fruit-wine blend. Adding grape must back after removal does not, by itself, make a hybrid.
 
 **Not verified** means the producer has not published a method we can cite. We do not infer one from a "0.0" on the label.
+
+Verification is a separate field. A botanical whiskey alternative is Alternative, verified, not "Dealcoholized: No."
 
 If sources disagree, we print the disagreement.
 

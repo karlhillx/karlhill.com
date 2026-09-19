@@ -4,12 +4,14 @@ slug: clearscape-chardonnay
 id: TDS-0021
 brand: Clearscape
 product: Non-Alcoholic Chardonnay
+abv: "Not published"
 category: wine
 subcategory: chardonnay
 country: Australia
 style: Non-alcoholic Australian Chardonnay
-dealcoholized: not-verified
-dealcoholized_note: "Retailer copy describes a Chardonnay experience without alcohol. No method is named."
+production_type: not-verified
+verified: no
+production_note: "Retailer copy describes a Chardonnay experience without alcohol. No method is named."
 volume: 750 ml
 price: "$11.51 (RoomBox / Total Wine listing)"
 availability: "Total Wine & More"

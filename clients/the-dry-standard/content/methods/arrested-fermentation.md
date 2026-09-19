@@ -5,7 +5,7 @@ summary: "The beer or wine is kept from making much ethanol in the first place. 
 order: 6
 ---
 
-Arrested fermentation, specialized yeasts, and mash bills designed to stay under 0.5% ABV are brewing methods. They belong in a complete map of how NA drinks are made. They do not earn a **Dealcoholized: Yes** badge.
+Arrested fermentation, specialized yeasts, and mash bills designed to stay under 0.5% ABV are brewing methods. They belong in a complete map of how NA drinks are made. They are **Naturally low alcohol**, not Dealcoholized.
 
 If a brewery later strips residual alcohol from a low-fermentation beer, say so — that hybrid is dealcoholization plus limited fermentation. If they only describe a proprietary brew, the honest badge is **not verified** or **no**, depending on how explicit they are.
 

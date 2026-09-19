@@ -5,7 +5,8 @@
   category: beer
   priority: high
   status: published
-  dealcoholized: 'no'
+  production_type: naturally-low-alcohol
+  verified: yes
   notes: 'Proprietary NA brewing. Founders told Fast Company (2025) and Popular Mechanics the process is neither dealcoholization of finished beer nor simple arrested fermentation.'
 -
   product: 'Sober Spirits Whisky'
@@ -31,9 +32,10 @@
   category: wine
   priority: high
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Dealcoholized ("special method", not detailed)'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine, Total Wine (Instacart)'
   times_purchased: 31
   first_seen: 1768089600
@@ -46,9 +48,10 @@
   category: wine
   priority: high
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Dealcoholized (method not publicly detailed)'
-  abv: 'Not verified (industry-typical ≤0.5%)'
+  abv: 'Not published'
   seen_at: 'Total Wine, Total Wine (Instacart)'
   times_purchased: 23
   first_seen: 1768089600
@@ -62,9 +65,10 @@
   category: wine
   priority: high
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 23
   first_seen: 1774656000
@@ -78,9 +82,10 @@
   category: wine
   priority: high
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Dealcoholized ("special method", not detailed)'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 13
   first_seen: 1775174400
@@ -93,9 +98,10 @@
   category: beer
   priority: high
   status: published
-  dealcoholized: 'no'
+  production_type: naturally-low-alcohol
+  verified: yes
   method: 'Chiber extract keeps yeast static, arresting fermentation rather than removing alcohol (Atlanta Magazine; Brevet line includes IPA)'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 9
   first_seen: 1774051200
@@ -108,9 +114,10 @@
   category: wine
   priority: high
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Dealcoholized ("special method", not detailed)'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 9
   first_seen: 1774656000
@@ -123,9 +130,10 @@
   category: wine
   priority: high
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Spinning cone technology (gentle distillation); full-strength wine made then dealcoholized'
-  abv: ≤0.5%
+  abv: '<0.5%'
   seen_at: 'Wegmans (Instacart), Total Wine'
   times_purchased: 8
   first_seen: 1769817600
@@ -138,9 +146,10 @@
   category: beer
   priority: high
   status: published
-  dealcoholized: 'no'
+  production_type: naturally-low-alcohol
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 8
   first_seen: 1771718400
@@ -153,9 +162,10 @@
   category: beer
   priority: normal
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine, Total Wine (Instacart), Metro Wine & Spirits'
   times_purchased: 6
   first_seen: 1768089600
@@ -168,9 +178,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Not verified in detail'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine (Instacart), Total Wine'
   times_purchased: 6
   first_seen: 1768953600
@@ -183,9 +194,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Branded "Alcohol Removed"; specific method not detailed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 6
   first_seen: 1769126400
@@ -198,9 +210,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine (Instacart), Total Wine'
   times_purchased: 5
   first_seen: 1768953600
@@ -213,9 +226,10 @@
   category: cocktails
   priority: normal
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 5
   first_seen: 1775174400
@@ -228,7 +242,8 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Traditionally made, then alcohol removed via reverse osmosis'
   abv: '<0.5%'
   seen_at: 'Metro Wine & Spirits'
@@ -243,9 +258,10 @@
   category: beer
   priority: normal
   status: published
-  dealcoholized: 'no'
+  production_type: naturally-low-alcohol
+  verified: yes
   method: 'Brewed with same ingredients as regular Hazy IPA, fermentation halted early — not dealcoholized'
-  abv: 0.5%
+  abv: '<0.5%'
   seen_at: 'Total Wine'
   times_purchased: 4
   first_seen: 1780617600
@@ -258,9 +274,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Vacuum distillation at low temperature'
-  abv: 0%
+  abv: '0.0%'
   seen_at: 'Metro Wine & Spirits, Upside Drinks'
   times_purchased: 3
   first_seen: 1761004800
@@ -273,9 +290,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine (Instacart)'
   times_purchased: 3
   first_seen: 1768953600
@@ -288,9 +306,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Spinning cone technology'
-  abv: ≤0.5%
+  abv: '<0.5%'
   seen_at: 'Wegmans (Instacart), Total Wine'
   times_purchased: 3
   first_seen: 1769817600
@@ -303,9 +322,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Brand states wine is "skin fermented with native yeasts" and balanced "once the alcohol is removed"; specific removal technique not disclosed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'The Zero Proof'
   times_purchased: 3
   first_seen: 1772755200
@@ -318,9 +338,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Vacuum distillation at ~30°C to remove alcohol from base wine'
-  abv: 0.0%
+  abv: '0.0%'
   seen_at: 'The Zero Proof'
   times_purchased: 3
   first_seen: 1772755200
@@ -333,9 +354,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Not verified in detail'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 3
   first_seen: 1774656000
@@ -348,9 +370,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Dealcoholized ("special method", not detailed)'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 3
   first_seen: 1774656000
@@ -363,9 +386,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Torres describes an "improved dealcoholizing technique"; exact process not detailed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 3
   first_seen: 1776556800
@@ -378,9 +402,10 @@
   category: wine
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 3
   first_seen: 1777420800
@@ -393,9 +418,10 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Alcohol-removed (branded); method not detailed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 2
   first_seen: 1768089600
@@ -408,9 +434,10 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 2
   first_seen: 1772755200
@@ -423,7 +450,8 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Gently spun cone technology under vacuum at low temperature'
   abv: '<0.5%'
   seen_at: 'The Zero Proof'
@@ -438,7 +466,8 @@
   category: cider
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: hybrid
+  verified: yes
   method: 'Dealcoholized cider made from cider apples, perry pears and dealcoholized red wine, hops, herbs and flowers'
   abv: '<0.5%'
   seen_at: Delmosa
@@ -453,7 +482,8 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: hybrid
+  verified: yes
   method: 'Blend of dealcoholized red (Grenache) wine (75%) with damson plum, currant and blackberry juice plus herb/wildflower extracts'
   abv: '<0.5%'
   seen_at: Delmosa
@@ -468,9 +498,10 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Alcohol-removed Prosecco (branded); method not detailed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Harris Teeter (Instacart)'
   times_purchased: 1
   first_seen: 1758499200
@@ -483,9 +514,10 @@
   category: cocktails
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Produced as a non-alcoholic bitter aperitif since 1964; never an alcoholic product that was dealcoholized'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1759449600
@@ -498,7 +530,8 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Traditionally made, then alcohol removed via reverse osmosis'
   abv: '<0.5%'
   seen_at: 'Metro Wine & Spirits'
@@ -513,9 +546,10 @@
   category: cocktails
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Crafted from natural essences/extracts, not dealcoholized'
-  abv: '<0.3%'
+  abv: '<0.5%'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1759449600
@@ -528,9 +562,10 @@
   category: beer
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Brewed then alcohol removed per brand marketing; specific process not independently confirmed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Best Day Brewing'
   times_purchased: 1
   first_seen: 1760054400
@@ -543,9 +578,10 @@
   category: beer
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Hop-flavored sparkling water; not a brewed/fermented beer'
-  abv: 0%
+  abv: '0.0%'
   seen_at: 'Giant Food (Instacart)'
   times_purchased: 1
   first_seen: 1760486400
@@ -558,9 +594,10 @@
   category: cider
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1761004800
@@ -573,9 +610,10 @@
   category: cocktails
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Company states explicitly: process maintains flavor "and not with dealcoholizing"'
-  abv: 0%
+  abv: '0.0%'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1761004800
@@ -588,9 +626,10 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: hybrid
+  verified: yes
   method: 'Organic French Chardonnay wine that is dealcoholized, then blended with spring water, grape juice and organic lemon juice'
-  abv: 0%
+  abv: '0.0%'
   seen_at: 'The Zero Proof'
   times_purchased: 1
   first_seen: 1763424000
@@ -603,9 +642,10 @@
   category: cocktails
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Canned Italian-style negroni alternative; marketed as 0.0% ABV zero-proof cocktail (not dealcoholized)'
-  abv: 0.0%
+  abv: '0.0%'
   seen_at: 'The Zero Proof'
   times_purchased: 1
   first_seen: 1763596800
@@ -618,9 +658,10 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Vacuum distillation at ~30°C to remove alcohol from base wine'
-  abv: 0.0%
+  abv: '0.0%'
   seen_at: 'The Zero Proof'
   times_purchased: 1
   first_seen: 1763596800
@@ -633,9 +674,10 @@
   category: beer
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: naturally-low-alcohol
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Giant Food (Instacart)'
   times_purchased: 1
   first_seen: 1764806400
@@ -648,9 +690,10 @@
   category: cocktails
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 1
   first_seen: 1768089600
@@ -663,9 +706,10 @@
   category: beer
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1769126400
@@ -678,9 +722,10 @@
   category: beer
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Wort-free complete formulation method — unfermented wort blended with flavor compounds (incl. MBT); not dealcoholized'
-  abv: 0.00%
+  abv: '0.0%'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1769558400
@@ -693,9 +738,10 @@
   category: beer
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: naturally-low-alcohol
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Upside Drinks'
   times_purchased: 1
   first_seen: 1771372800
@@ -708,9 +754,10 @@
   category: beer
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: naturally-low-alcohol
+  verified: yes
   method: 'Major-brewery 0.0% pilsner; production method (limited fermentation vs. dealcoholization) not independently confirmed'
-  abv: 0.0%
+  abv: '0.0%'
   seen_at: 'Upside Drinks'
   times_purchased: 1
   first_seen: 1771372800
@@ -723,7 +770,8 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'French brand marketed as "Zero" alcohol-removed wine; specific technique not independently verified'
   abv: '<0.5%'
   seen_at: 'Upside Drinks'
@@ -738,7 +786,8 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Made from dealcoholized rosé wine plus rectified grape must concentrate, per ingredient list'
   abv: '<0.5%'
   seen_at: 'Upside Drinks'
@@ -753,9 +802,10 @@
   category: cider
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Product name translates to "sparkling pear juice" — likely never fermented'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1771718400
@@ -768,9 +818,10 @@
   category: beer
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1772582400
@@ -783,9 +834,10 @@
   category: cocktails
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: hybrid
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 1
   first_seen: 1774310400
@@ -798,9 +850,10 @@
   category: cider
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Product name translates to "sparkling apple juice" — likely never fermented'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1776556800
@@ -813,9 +866,10 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 1
   first_seen: 1776816000
@@ -828,9 +882,10 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Not independently verified for this specific SKU'
-  abv: 'Not verified (brand line typically <0.5%)'
+  abv: 'Not published'
   seen_at: Delmosa
   times_purchased: 1
   first_seen: 1777075200
@@ -843,7 +898,8 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Organic Chardonnay/Colombard wine fermented and aged on lees for two years, then "gently dealcoholized" (specific technique not detailed)'
   abv: '<0.5%'
   seen_at: Delmosa
@@ -858,9 +914,10 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 1
   first_seen: 1777420800
@@ -873,9 +930,10 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not independently verified; sold as non-alcoholic Melon de Bourgogne (Muscadet-style) via Schatzi Wines/Boisson'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: Boisson
   times_purchased: 1
   first_seen: 1777680000
@@ -888,9 +946,10 @@
   category: wine
   priority: low
   status: published
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not independently verified; sold as "Rosé Zero" via Schatzi Wines/Boisson'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: Boisson
   times_purchased: 1
   first_seen: 1777680000
@@ -903,9 +962,10 @@
   category: beer
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: naturally-low-alcohol
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 1
   first_seen: 1779408000
@@ -918,9 +978,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1779580800
@@ -933,9 +994,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1779580800
@@ -948,7 +1010,8 @@
   category: beer
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Brewed under Bavarian Purity Law; specific alcohol-removal method not disclosed'
   abv: '<0.5%'
   seen_at: 'Metro Wine & Spirits'
@@ -963,9 +1026,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Not independently verified; brand markets wines as alcohol-removed by winemaker Aaron Pott'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'The Zero Proof'
   times_purchased: 1
   first_seen: 1780358400
@@ -978,9 +1042,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Vacuum distillation at low temperature'
-  abv: 0%
+  abv: '0.0%'
   seen_at: 'The Zero Proof'
   times_purchased: 1
   first_seen: 1780358400
@@ -993,9 +1058,10 @@
   category: beer
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: naturally-low-alcohol
+  verified: yes
   method: 'Proprietary process built for NA from the start; founders say it is neither dealcoholization of finished beer nor simple arrested fermentation'
-  abv: '<0.5% (retail listing)'
+  abv: '<0.5%'
   seen_at: 'Minus Moonshine'
   times_purchased: 1
   first_seen: 1780358400
@@ -1008,9 +1074,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not independently verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Minus Moonshine'
   times_purchased: 1
   first_seen: 1780358400
@@ -1023,9 +1090,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Vacuum distillation at low temperature'
-  abv: 0%
+  abv: '0.0%'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1782259200
@@ -1038,9 +1106,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1783123200
@@ -1053,9 +1122,10 @@
   category: spirits
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Formulated agave spirit alternative, never distilled from alcohol'
-  abv: 0%
+  abv: '0.0%'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1783123200
@@ -1068,9 +1138,10 @@
   category: cocktails
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Same producer as Valckenberg''s verified "Zero" dealcoholized wine line, but this specific botanical-infused SKU''s own production method not independently verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1785024000
@@ -1083,9 +1154,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Branded "Alcohol Removed"; specific method not detailed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1785024000
@@ -1098,9 +1170,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not independently verified beyond retailer listing'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1785024000
@@ -1113,9 +1186,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Branded "Alcohol Removed"; specific method not detailed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1785024000
@@ -1128,9 +1202,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not independently verified beyond retailer listing'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1785024000
@@ -1143,9 +1218,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: '96% dealcoholized by proprietary technique plus 4% grape juice (Vino del Sol tech sheet)'
-  abv: '0% (importer tech sheet)'
+  abv: '0.0%'
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1785024000
@@ -1158,9 +1234,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not independently verified beyond retailer listing'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1785024000
@@ -1173,9 +1250,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Alcohol-removed (branded); method not detailed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 1
   first_seen: 1785110400
@@ -1188,9 +1266,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Branded "Alcohol Removed"; specific method not detailed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: Walmart
   times_purchased: 1
   first_seen: 1786147200
@@ -1203,9 +1282,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Branded "Alcohol Removed"; specific method not detailed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: Walmart
   times_purchased: 1
   first_seen: 1786147200
@@ -1218,9 +1298,10 @@
   category: beer
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 1
   first_seen: 1786406400
@@ -1233,9 +1314,10 @@
   category: wine
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Marketed as "Dealcoholized Wine"; specific method not detailed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1787356800
@@ -1248,7 +1330,8 @@
   category: cocktails
   priority: low
   status: published
-  dealcoholized: 'yes'
+  production_type: hybrid
+  verified: yes
   method: 'Alcohol boiled off after distillation and infusion (producer spec sheet)'
   abv: '<0.5%'
   seen_at: 'Metro Wine & Spirits'
@@ -1263,9 +1346,10 @@
   category: beer
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1787875200
@@ -1278,9 +1362,10 @@
   category: beer
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1788566400
@@ -1293,9 +1378,10 @@
   category: beer
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1788566400
@@ -1308,9 +1394,10 @@
   category: cocktails
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Not verified'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
   first_seen: 1788566400
@@ -1323,9 +1410,10 @@
   category: beer
   priority: low
   status: queued
-  dealcoholized: 'no'
+  production_type: alternative
+  verified: yes
   method: 'Brand markets line as "non-alcoholic"; brewing/alcohol-removal process not independently confirmed'
-  abv: 'Not verified'
+  abv: 'Not published'
   seen_at: 'Deschutes Brewery'
   times_purchased: 1
   first_seen: 1788652800
@@ -1338,9 +1426,10 @@
   category: spirits
   priority: low
   status: queued
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Reverse distillation (same documented method as Spiritless Kentucky 74)'
-  abv: 0.0%
+  abv: '0.0%'
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1789344000
@@ -1377,7 +1466,8 @@
   category: spirits
   priority: normal
   status: published
-  dealcoholized: 'yes'
+  production_type: dealcoholized
+  verified: yes
   method: 'Proprietary reverse distillation of an oak-extracted high-proof spirit'
   seen_at: 'Metro Wine & Spirits'
   times_purchased: 1
@@ -1391,9 +1481,10 @@
   category: wine
   priority: high
   status: published
-  dealcoholized: not-verified
+  production_type: not-verified
+  verified: no
   method: not-verified
-  abv: not-verified
+  abv: 'Not published'
   seen_at: 'Total Wine'
   times_purchased: 1
   first_seen: 1789603200

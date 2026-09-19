@@ -9,10 +9,11 @@ subcategory: IPA
 country: USA
 region: Frederick, Maryland
 style: Non-alcoholic IPA
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Flying Dog does not publicly disclose whether alcohol is removed or fermentation is limited; the name 'Deep Fake' acknowledges the beer's imitation of a real IPA."
+production_type: not-verified
+verified: no
+production_note: "Flying Dog does not publicly disclose whether alcohol is removed or fermentation is limited; the name 'Deep Fake' acknowledges the beer's imitation of a real IPA."
 producer: Flying Dog Brewery (Frederland, Maryland)
 availability: "US retail; year-round lineup since 2021"
 review_date: "2026-09-18"

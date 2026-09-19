@@ -9,10 +9,11 @@ subcategory: sparkling rosé
 country: Germany
 region: Rheinhessen
 style: Alcohol-removed sparkling rosé
-abv: "0.0% ABV (Total Wine product copy)"
+abv: "0.0%"
 abv_numeric: 0.0
-dealcoholized: yes
-dealcoholized_note: "Made from a real fermented wine base — a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — produced in partnership with a winery in Rheinhessen, Germany, then dealcoholized; the specific named removal technology is not published."
+production_type: dealcoholized
+verified: yes
+production_note: "Made from a real fermented wine base — a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — produced in partnership with a winery in Rheinhessen, Germany, then dealcoholized; the specific named removal technology is not published."
 base_beverage: "Organic Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder blend"
 producer: "Wölffer Estate (Sagaponack, NY); produced in partnership with a winery in Rheinhessen, Germany"
 price: "$20.99 (Total Wine)"

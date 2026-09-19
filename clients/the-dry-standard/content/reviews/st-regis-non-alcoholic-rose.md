@@ -8,9 +8,10 @@ category: wine
 subcategory: syrah/shiraz rosé
 country: Germany
 style: Dealcoholized rosé
-abv: "Less than 0.5% ABV (retailer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: Vacuum distillation
 base_beverage: Fermented and aged Syrah/Shiraz rosé wine, dealcoholized after full winemaking process
 producer: St. Regis (non-alcoholic wine brand; unrelated to the St. Regis hotel brand)

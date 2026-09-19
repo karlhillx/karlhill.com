@@ -9,9 +9,10 @@ subcategory: rosé
 country: Germany
 region: Provence (fruit), dealcoholized in Berlin
 style: Dealcoholized Provence rosé
-abv: "0.0% vol (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Vacuum distillation at approximately 30°C, run from the producer's in-house Berlin laboratory"
 base_beverage: "Traditionally vinified Provence rosé, fully fermented before alcohol removal"
 producer: Kolonne Null (Berlin, Germany)

@@ -9,9 +9,10 @@ subcategory: rosé
 country: South Africa
 region: Western Cape
 style: Dealcoholized Chenin Blanc / Pinotage rosé
-abv: "<0.5% vol (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Gently spun cone technology under vacuum at low temperature"
 base_beverage: "98% Chenin Blanc / 2% Pinotage, fermented 14 days, two months on lees, then dealcoholized"
 producer: Thomson & Scott

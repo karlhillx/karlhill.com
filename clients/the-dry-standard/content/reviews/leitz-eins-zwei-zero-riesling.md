@@ -9,9 +9,10 @@ subcategory: riesling
 country: Germany
 region: Rheingau
 style: Dealcoholized Riesling
-abv: "<0.1% vol (producer); bottling tolerance up to 0.38% vol"
+abv: "<0.5%"
 abv_numeric: 0.1
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: Vacuum distillation
 base_beverage: Estate Riesling, gently pressed and cool-fermented in stainless steel
 producer: Weingut Leitz

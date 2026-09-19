@@ -74,7 +74,7 @@ HTML;
             ->sortByDesc(fn (Review $review): int => $review->rating ?? 0)
             ->reject(fn (Review $review): bool => $review->slug === $featuredSlug)
             ->take(3);
-        $dealcoholized = $reviews->filter(fn (Review $review): bool => $review->dealcoholized === 'yes')->count();
+        $dealcoholized = $reviews->filter(fn (Review $review): bool => $review->productionType === 'dealcoholized')->count();
 
         $categoryItems = [];
         foreach ($this->config->categories() as $category) {
@@ -86,23 +86,14 @@ HTML;
             ];
         }
 
-        $processItems = [
-            [
-                'href' => $this->config->publicUrl('reviews/').'?dealcoholized=yes',
-                'label' => 'Dealcoholized',
-                'count' => $dealcoholized,
-            ],
-            [
-                'href' => $this->config->publicUrl('reviews/').'?dealcoholized=no',
-                'label' => 'Formulated',
-                'count' => $reviews->filter(fn (Review $review): bool => $review->dealcoholized === 'no')->count(),
-            ],
-            [
-                'href' => $this->config->publicUrl('reviews/').'?dealcoholized=not-verified',
-                'label' => 'Not verified',
-                'count' => $reviews->filter(fn (Review $review): bool => $review->dealcoholized === 'not-verified')->count(),
-            ],
-        ];
+        $processItems = [];
+        foreach (Review::PRODUCTION_TYPES as $value => $label) {
+            $processItems[] = [
+                'href' => $this->config->publicUrl('reviews/').'?production='.$value,
+                'label' => $label,
+                'count' => $reviews->filter(fn (Review $review): bool => $review->productionType === $value)->count(),
+            ];
+        }
 
         $methodCards = $methods->take(4)->map(function (PageDocument $method) use ($reviews): string {
             $count = $reviews->filter(fn (Review $review): bool => $review->methodKey() === $method->slug)->count();
@@ -135,7 +126,7 @@ HTML;
             'stats' => [
                 ['value' => (string) $reviews->count(), 'label' => $reviews->count() === 1 ? 'Review' : 'Reviews', 'href' => $this->config->publicUrl('reviews/')],
                 ['value' => (string) $reviews->pluck('brand')->unique()->count(), 'label' => 'Brands', 'href' => $this->config->publicUrl('brands/')],
-                ['value' => (string) $dealcoholized, 'label' => 'Dealcoholized', 'href' => $this->config->publicUrl('reviews/').'?dealcoholized=yes'],
+                ['value' => (string) $dealcoholized, 'label' => 'Dealcoholized', 'href' => $this->config->publicUrl('reviews/').'?production=dealcoholized'],
                 ['value' => '0.5%', 'label' => 'ABV ceiling', 'href' => null],
             ],
             'featured' => $featuredReview instanceof Review ? $this->featuredReview($featuredReview) : '',
@@ -145,7 +136,7 @@ HTML;
                 'items' => $categoryItems,
             ]),
             'processRail' => $this->view->render('partials/category-rail', [
-                'label' => 'Browse by process',
+                'label' => 'Browse by production type',
                 'items' => $processItems,
             ]),
             'latestCards' => $this->reviewCards($latest, compact: true),
@@ -440,11 +431,7 @@ HTML;
      */
     public function review(Review $review, array $crumbs, ?Collection $relatedReviews = null): string
     {
-        $badgeClass = match ($review->dealcoholized) {
-            'yes' => 'badge badge--yes',
-            'no' => 'badge badge--no',
-            default => 'badge badge--unknown',
-        };
+        $badgeClass = 'badge badge--'.Str::e($review->productionType);
         $bodyHtml = Markdown::toHtml($review->bodyMarkdown);
         $related = $relatedReviews?->isNotEmpty()
             ? $this->reviewCards($relatedReviews, compact: true)
@@ -458,11 +445,12 @@ HTML;
             'figure' => $this->productFigure($review, 'product-figure product-figure--hero', hero: true),
             'metaLine' => $this->reviewMetaLine($review),
             'badgeClass' => $badgeClass,
-            'badgeLabel' => $review->dealcoholizedShortLabel(),
+            'badgeLabel' => $review->productionTypeShortLabel(),
             'score' => $review->rating !== null
                 ? '<p class="score" aria-label="Score '.$review->rating.' out of 100"><span>'.$review->rating.'</span><small>/100</small></p>'
                 : '',
-            'statusLabel' => $review->dealcoholizedLabel(),
+            'statusLabel' => $review->productionTypeLabel(),
+            'verifiedLabel' => $review->verifiedLabel(),
             'methodBlock' => $this->methodBlock($review),
             'baseBlock' => $this->optionalBlock($review->baseBeverage, 'Base beverage: '),
             'discrepancies' => $this->discrepancies($review),
@@ -721,14 +709,12 @@ XML;
             }
         }
 
-        $processOptions = array_values(array_filter(
-            [
-                ['value' => 'yes', 'label' => 'Dealcoholized'],
-                ['value' => 'no', 'label' => 'Formulated'],
-                ['value' => 'not-verified', 'label' => 'Not verified'],
-            ],
-            fn (array $option): bool => $reviews->contains(fn (Review $review): bool => $review->dealcoholized === $option['value']),
-        ));
+        $processOptions = [];
+        foreach (Review::PRODUCTION_TYPES as $value => $label) {
+            if ($reviews->contains(fn (Review $review): bool => $review->productionType === $value)) {
+                $processOptions[] = ['value' => $value, 'label' => $label];
+            }
+        }
 
         $methodLabels = $this->config->methods() + [
             'other' => 'Other documented method',
@@ -744,7 +730,7 @@ XML;
         $facets = $this->facetGroup('ABV', 'abv', $abvOptions)
             .$this->facetGroup('Brand', 'brand', $brandOptions, searchable: true, collapsible: true, collapsed: count($brandOptions) > 8)
             .($categoryOptions === [] ? '' : $this->facetGroup('Category', 'category', $categoryOptions))
-            .$this->facetGroup('Process', 'dealcoholized', $processOptions)
+            .$this->facetGroup('Production type', 'production', $processOptions)
             .$this->facetGroup('Method', 'method', $methodOptions);
 
         return $this->view->render('partials/archive', [
@@ -797,7 +783,7 @@ XML;
 
     private function featuredReview(Review $review): string
     {
-        $badge = '<span class="badge badge--'.Str::e($review->dealcoholized).'">'.Str::e($review->dealcoholizedShortLabel()).'</span>';
+        $badge = '<span class="badge badge--'.Str::e($review->productionType).'">'.Str::e($review->productionTypeShortLabel()).'</span>';
 
         return $this->view->render('partials/featured-review', [
             'href' => $this->config->publicUrl($review->path()),
@@ -817,9 +803,10 @@ XML;
             $origin = $review->originLabel();
             $meta = trim($this->config->categoryLabel($review->category).($origin ? ' · '.$origin : ''));
             $method = $review->dealcoholizationMethod ?? 'Method unpublished';
-            $badge = '<span class="badge badge--'.Str::e($review->dealcoholized).'">'.Str::e($review->dealcoholizedShortLabel()).'</span>';
+            $badge = '<span class="badge badge--'.Str::e($review->productionType).'">'.Str::e($review->productionTypeShortLabel()).'</span>';
             $attrs = implode(' ', [
-                'data-dealcoholized="'.Str::e($review->dealcoholized).'"',
+                'data-production="'.Str::e($review->productionType).'"',
+                'data-verified="'.Str::e($review->verified).'"',
                 'data-category="'.Str::e($review->category).'"',
                 'data-brand="'.Str::e($review->brandSlug()).'"',
                 'data-abv="'.Str::e($review->abvBucket()).'"',
@@ -882,6 +869,8 @@ XML;
     {
         $rows = [
             'ABV' => $review->abv,
+            'Production type' => $review->productionTypeShortLabel(),
+            'Verified' => $review->verifiedLabel(),
             'Origin' => $review->originLabel(),
             'Category' => $this->config->categoryLabel($review->category).($review->subcategory ? ' / '.$review->subcategory : ''),
             'Style' => $review->style,

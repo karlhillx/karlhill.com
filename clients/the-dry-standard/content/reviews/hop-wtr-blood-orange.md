@@ -8,10 +8,11 @@ category: beer
 subcategory: hop water (alcohol-free, non-fermented)
 country: USA
 style: Sparkling hop water (alcohol-free by composition, not dealcoholized)
-abv: "<0.5% ABV (producer; effectively 0%, as HOP WTR is non-fermented)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: no
-dealcoholized_note: "HOP WTR is a hopped, sparkling, fortified water rather than a de-alcoholized beer; the brand is roughly 85% sparkling water with hops, vitamins and adaptogens and no alcohol ever present."
+production_type: alternative
+verified: yes
+production_note: "HOP WTR is a hopped, sparkling, fortified water rather than a de-alcoholized beer; the brand is roughly 85% sparkling water with hops, vitamins and adaptogens and no alcohol ever present."
 base_beverage: "Sparkling water + hops + vitamins + adaptogens; no underlying alcoholic beverage"
 producer: HOP WTR
 volume: "12 fl oz cans, sold in 6-packs (producer)"

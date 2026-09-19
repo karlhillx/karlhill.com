@@ -9,9 +9,10 @@ subcategory: riesling
 country: Germany
 region: Mosel
 style: Dealcoholized Mosel Riesling
-abv: "<0.5% ABV (importer listing)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from conventionally vinified Mosel Riesling; stainless steel fermentation before dealcoholization (importer)"
 base_beverage: "Riesling from a blend of Mosel steep-slope vineyards, stainless steel fermented, dealcoholized"
 producer: Fio (Mosel, Germany)

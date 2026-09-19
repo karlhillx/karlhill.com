@@ -8,9 +8,10 @@ category: wine
 subcategory: rosé
 country: France
 style: Dealcoholized French rosé
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from a traditionally vinified French rosé (producer markets the range as dealcoholized wine since 2010; the specific technique is not detailed publicly)"
 base_beverage: "Traditionally vinified French rosé (Chavin estate range), dealcoholized after fermentation"
 producer: Maison Chavin (France)

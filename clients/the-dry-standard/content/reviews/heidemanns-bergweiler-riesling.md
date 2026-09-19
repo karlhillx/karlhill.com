@@ -4,13 +4,15 @@ slug: heidemanns-bergweiler-riesling
 id: TDS-0017
 brand: Dr. Heidemanns Bergweiler
 product: Non-Alcoholic Riesling
+abv: "Not published"
 category: wine
 subcategory: riesling
 country: Germany
 region: Mosel
 style: Non-alcoholic Mosel Riesling
-dealcoholized: not-verified
-dealcoholized_note: "Sold as a non-alcoholic Riesling. No estate method page was found."
+production_type: not-verified
+verified: no
+production_note: "Sold as a non-alcoholic Riesling. No estate method page was found."
 image: media/reviews/heidemanns-bergweiler-riesling.jpg
 image_alt: "Dr. Heidemanns-Bergweiler Non-Alcoholic Riesling"
 image_credit: Editorial still

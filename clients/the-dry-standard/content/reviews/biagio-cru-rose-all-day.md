@@ -4,14 +4,16 @@ slug: biagio-cru-rose-all-day
 id: TDS-0026
 brand: Biagio Cru
 product: Non-Alcoholic Rosé All Day
+abv: "Not published"
 category: wine
 subcategory: rosé
 country: France
 region: Languedoc
 style: Dealcoholized Côtes du Roussillon rosé (Grenache)
 base_beverage: "Grenache rosé, Côtes du Roussillon"
-dealcoholized: yes
-dealcoholized_note: "Total Wine's product highlights describe 'early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal—preserving the wine's natural balance, flavor, and elegance'; the specific named removal technology is not published."
+production_type: dealcoholized
+verified: yes
+production_note: "Total Wine's product highlights describe 'early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal—preserving the wine's natural balance, flavor, and elegance'; the specific named removal technology is not published."
 availability: "Total Wine & More"
 image: media/reviews/biagio-cru-rose-all-day.jpg
 image_alt: "Biagio Cru Non-Alcoholic Rosé All Day"

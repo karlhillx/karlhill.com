@@ -9,9 +9,10 @@ subcategory: IPA
 country: USA
 region: Bend, Oregon
 style: Non-alcoholic IPA
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Reverse osmosis (BrewVo process via Sustainable Beverage Technologies), followed by secondary cold fermentation and dry-hopping"
 calories: "83 calories per 12 oz can; 50 IBU (producer)"
 producer: Deschutes Brewery (Bend, Oregon)

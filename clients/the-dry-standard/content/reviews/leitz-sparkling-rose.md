@@ -9,9 +9,10 @@ subcategory: sparkling rosé
 country: Germany
 region: Rheingau
 style: Dealcoholized sparkling rosé
-abv: "0.0% ABV (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Spinning cone technology applied to conventionally vinified Rheingau rosé (same process as the published Leitz Riesling)"
 base_beverage: "Rheingau rosé, vinified conventionally before dealcoholization"
 producer: Weingut Josef Leitz (Rheingau, Germany)

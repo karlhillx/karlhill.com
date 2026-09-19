@@ -10,10 +10,11 @@ subcategory: canned cocktail
 country: USA
 region: Los Angeles, California
 style: Dealcoholized rum and cola highball
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
-dealcoholized_note: "Greenbar lists organic dealcoholized molasses rum as the first flavor ingredient and says it boils the alcohol off after distillation and infusion."
+production_type: hybrid
+verified: yes
+production_note: "Greenbar lists organic dealcoholized molasses rum as the first flavor ingredient and says it boils the alcohol off after distillation and infusion."
 dealcoholization_method: "Alcohol boiled off after distillation and infusion (producer spec sheet)"
 base_beverage: "Organic dealcoholized molasses rum mixed with cola botanicals"
 producer: Greenbar Distillery

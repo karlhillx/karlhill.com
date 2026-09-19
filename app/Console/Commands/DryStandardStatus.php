@@ -26,10 +26,10 @@ class DryStandardStatus extends Command
             $review->slug,
             $review->status,
             $review->category,
-            $review->dealcoholized,
+            $review->productionType,
             (string) ($review->rating ?? '—'),
         ])->all();
-        $this->table(['slug', 'status', 'category', 'dealcoholized', 'score'], $rows);
+        $this->table(['slug', 'status', 'category', 'production', 'score'], $rows);
 
         $this->info('Queue');
         $queue = collect($workspace->queue()->all())->map(fn (array $item): array => [

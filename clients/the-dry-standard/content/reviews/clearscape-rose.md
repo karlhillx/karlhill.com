@@ -4,12 +4,14 @@ slug: clearscape-rose
 id: TDS-0010
 brand: Clearscape
 product: Non-Alcoholic Rosé
+abv: "Not published"
 category: wine
 subcategory: rosé
 country: Australia
 style: Non-alcoholic Australian rosé
-dealcoholized: not-verified
-dealcoholized_note: "Retailer listings call it non-alcoholic. No producer method page was found."
+production_type: not-verified
+verified: no
+production_note: "Retailer listings call it non-alcoholic. No producer method page was found."
 volume: 750 ml
 availability: "Total Wine & More"
 image: media/reviews/clearscape-rose.jpg

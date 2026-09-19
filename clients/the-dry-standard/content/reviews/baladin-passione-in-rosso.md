@@ -9,10 +9,11 @@ subcategory: non-alcoholic Italian aperitivo
 country: Italy
 region: Piozzo, Italy
 style: Formulated non-alcoholic Italian aperitivo
-abv: "0.0% ABV (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: no
-dealcoholized_note: "Passione in Rosso is a formulated aperitivo made with water, cane sugar, and natural flavors — no underlying alcoholic drink."
+production_type: alternative
+verified: yes
+production_note: "Passione in Rosso is a formulated aperitivo made with water, cane sugar, and natural flavors — no underlying alcoholic drink."
 base_beverage: "Water, cane sugar, natural flavors (botanical formulation)"
 producer: "Selezione Baladin Srl (Piozzo, Italy)"
 volume: "200 ml bottle"

@@ -4,13 +4,15 @@ slug: band-of-vintners-freestyle
 id: TDS-0019
 brand: Band of Vintners
 product: Freestyle NA California
+abv: "Not published"
 category: wine
 subcategory: skin-contact
 country: USA
 region: "Sonoma County and Lodi"
 style: Non-alcoholic California wine
-dealcoholized: yes
-dealcoholized_note: "Producer's own product detail page confirms the wine is 'skin fermented with native yeasts' and blended 'in perfect balance once the alcohol is removed'; the specific named removal technology is not published."
+production_type: dealcoholized
+verified: yes
+production_note: "Producer's own product detail page confirms the wine is 'skin fermented with native yeasts' and blended 'in perfect balance once the alcohol is removed'; the specific named removal technology is not published."
 producer: Band of Vintners
 price: "$20"
 volume: 750 ml

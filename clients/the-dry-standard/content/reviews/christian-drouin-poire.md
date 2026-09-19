@@ -9,9 +9,11 @@ subcategory: sparkling pear juice
 country: France
 region: Normandy (Coudray-Rabut)
 style: Non-alcoholic sparkling pear juice
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: no
-dealcoholized_note: "This is pressed pear juice with carbonation, not a fermented pear cider with the alcohol removed — the producer markets it as non-alcoholic pear juice."
+production_type: alternative
+verified: yes
+production_note: "This is pressed pear juice with carbonation, not a fermented pear cider with the alcohol removed — the producer markets it as non-alcoholic pear juice."
 base_beverage: "Pressed juice of local Normandy pear varieties (Plant de Blanc, Muscadet, Avenelle, Poire de Grise)"
 producer: Domaine Christian Drouin (Coudray-Rabut, Normandy)
 volume: "750 ml"
@@ -33,7 +35,7 @@ serve: "Well chilled, in a wine glass or a tumbler."
 sources:
   - title: "Drouin's Jus de Poire Petillant — B. United International"
     url: https://www.bunitedint.com/information/brands/description/962/
-    claims: [dealcoholized, base_beverage, producer, style, country, region]
+    claims: [dealcoholized, base_beverage, producer, style, country, region, abv]
   - title: "Christian Drouin — Non-Alcoholic Sparkling Pear Juice — Minus Moonshine"
     url: https://minusmoonshine.com/products/christian-drouin-non-alcoholic-sparkling-pear-juice-750-ml
     claims: [volume, availability]

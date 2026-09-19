@@ -9,9 +9,10 @@ subcategory: pinot noir
 country: USA
 region: California
 style: Alcohol-removed Pinot Noir
-abv: "<0.5% ABV (retail listing)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from conventionally vinified Pinot Noir (producer's March 2026 launch)"
 base_beverage: "California Pinot Noir, vinified conventionally before alcohol removal"
 producer: Butter Wines (Napa, California)

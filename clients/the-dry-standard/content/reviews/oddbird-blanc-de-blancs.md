@@ -9,9 +9,10 @@ subcategory: sparkling
 country: France
 region: Languedoc-Roussillon
 style: Dealcoholized sparkling white (oak-aged)
-abv: "Less than 0.5% ABV (retailer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: Vacuum distillation
 base_beverage: Chardonnay and Colombard, fermented and aged as regular wine, then oak-aged 12 months before alcohol removal
 producer: Oddbird International AB (Swedish company; wine made in Languedoc-Roussillon, France)

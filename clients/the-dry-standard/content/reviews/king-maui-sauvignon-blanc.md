@@ -9,9 +9,10 @@ subcategory: sauvignon blanc
 country: New Zealand
 region: Marlborough
 style: Dealcoholized Marlborough Sauvignon Blanc
-abv: "<0.5% ABV (retail listings)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from Marlborough Sauvignon Blanc (producer markets the range as zero alcohol; the specific technique is not detailed publicly)"
 base_beverage: "Marlborough Sauvignon Blanc, fermented conventionally before alcohol removal"
 volume: "750 ml"

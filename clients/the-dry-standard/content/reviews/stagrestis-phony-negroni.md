@@ -8,10 +8,11 @@ category: cocktails
 subcategory: ready-to-serve non-alcoholic cocktail
 country: USA
 style: Non-alcoholic formulated negroni-style cocktail, 30 botanicals
-abv: "0.0% ABV (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: no
-dealcoholized_note: "St. Agrestis cocktails are formulated from a base of 30 organic, non-GMO botanicals — not dealcoholized from a once-alcoholic Negroni."
+production_type: alternative
+verified: yes
+production_note: "St. Agrestis cocktails are formulated from a base of 30 organic, non-GMO botanicals — not dealcoholized from a once-alcoholic Negroni."
 base_beverage: "30 organic, non-GMO botanicals designed to replicate negroni aromatics without any underlying spirit."
 producer: St. Agrestis (Greenpoint, Brooklyn, NY)
 volume: "200 ml (US) / 100 ml available in markets where the larger size is restricted"

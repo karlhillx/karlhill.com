@@ -9,9 +9,10 @@ subcategory: white blend
 country: USA
 region: California
 style: Alcohol-removed California white blend
-abv: "0.0% ABV (retail listing)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from conventionally vinified California white blend"
 base_beverage: "California white wine blend, vinified conventionally before alcohol removal"
 producer: Chateau Diana (California)

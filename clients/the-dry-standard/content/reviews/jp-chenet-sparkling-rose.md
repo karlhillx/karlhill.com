@@ -9,9 +9,10 @@ subcategory: sparkling rosé
 country: France
 region: Bordeaux
 style: Dealcoholized Pinot Noir sparkling rosé
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Made as a full-strength wine and then dealcoholized (producer)"
 base_beverage: "Pinot Noir based Bordeaux rosé, fermented conventionally before alcohol removal"
 producer: JP. Chenet (Les Grands Chais de France)

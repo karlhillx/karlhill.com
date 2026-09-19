@@ -4,11 +4,13 @@ slug: chloe-pinot-grigio
 id: TDS-0082
 brand: Chloe Wine Collection
 product: Alcohol-Removed Pinot Grigio
+abv: "Not published"
 category: wine
 subcategory: pinot grigio
 country: USA
 style: Alcohol-removed Pinot Grigio
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from conventionally vinified Pinot Grigio (branded as alcohol-removed; method not detailed publicly)"
 base_beverage: "Pinot Grigio, vinified conventionally before alcohol removal"
 producer: Chloe Wine Collection (USA)

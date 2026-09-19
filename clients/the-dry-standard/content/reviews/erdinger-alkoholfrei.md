@@ -9,10 +9,11 @@ subcategory: non-alcoholic wheat beer
 country: Germany
 region: Bavaria
 style: Non-alcoholic Bavarian wheat beer (Weissbier)
-abv: "<0.5% ABV (producer; brewed under the Reinheitsgebot)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: not-verified
-dealcoholized_note: "Erdinger does not publish whether the alcohol is removed from finished beer or fermentation is stopped early; the beer is marketed as naturally isotonic."
+production_type: not-verified
+verified: no
+production_note: "Erdinger does not publish whether the alcohol is removed from finished beer or fermentation is stopped early; the beer is marketed as naturally isotonic."
 producer: Erdinger Weissbräu (Erding, Bavaria)
 availability: "International retail; widely available in Germany and exported"
 review_date: "2026-09-18"

@@ -8,9 +8,10 @@ category: cocktails
 subcategory: non-alcoholic wine cocktail
 country: USA
 style: Alcohol-removed red sangria
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: hybrid
+verified: yes
 dealcoholization_method: "California red wine is dealcoholized and blended with natural fruit extracts (producer)"
 base_beverage: "California red wine, alcohol-removed, blended with blood orange and fruit extracts"
 producer: Grüvi

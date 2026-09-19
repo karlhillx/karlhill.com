@@ -97,7 +97,7 @@ final class Catalog
      */
     public function rows(): Collection
     {
-        return collect($this->pdo->query('SELECT * FROM products ORDER BY times_purchased DESC, product ASC')->fetchAll());
+        return collect($this->pdo->query('SELECT * FROM products ORDER BY product ASC')->fetchAll());
     }
 
     public function exists(string $slug): bool
@@ -148,6 +148,8 @@ final class Catalog
             'product' => $row['product'] ?? '',
             'category' => $row['category'] ?? 'wine',
             'dealcoholized' => $row['dealcoholized'] ?? 'not-verified',
+            'production_type' => $row['production_type'] ?? null,
+            'verified' => $row['verified'] ?? null,
             'purchase_links' => '[]',
             'sources' => '[]',
             'discrepancies' => '[]',
@@ -164,9 +166,6 @@ final class Catalog
             'priority',
             'notes',
             'retailers',
-            'times_purchased',
-            'first_purchase',
-            'most_recent_purchase',
         ]));
 
         $this->upsert($review, $extra);
@@ -249,6 +248,8 @@ final class Catalog
             'abv_numeric',
             'dealcoholized',
             'dealcoholized_note',
+            'production_type',
+            'verified',
             'dealcoholization_method',
             'base_beverage',
             'producer',
@@ -279,9 +280,6 @@ final class Catalog
             'priority',
             'notes',
             'retailers',
-            'times_purchased',
-            'first_purchase',
-            'most_recent_purchase',
         ];
     }
 
@@ -333,15 +331,38 @@ CREATE TABLE IF NOT EXISTS products (
     status TEXT NOT NULL DEFAULT 'queued',
     priority TEXT DEFAULT 'normal',
     notes TEXT,
-    retailers TEXT,
-    times_purchased INTEGER DEFAULT 0,
-    first_purchase TEXT,
-    most_recent_purchase TEXT
+    retailers TEXT
 );
 CREATE INDEX IF NOT EXISTS products_status_idx ON products(status);
 CREATE INDEX IF NOT EXISTS products_category_idx ON products(category);
 CREATE INDEX IF NOT EXISTS products_brand_idx ON products(brand);
 CREATE INDEX IF NOT EXISTS products_id_idx ON products(id);
 SQL);
+
+        $this->ensureColumn('production_type', "production_type TEXT NOT NULL DEFAULT 'not-verified'");
+        $this->ensureColumn('verified', "verified TEXT NOT NULL DEFAULT 'no'");
+        $this->dropColumn('times_purchased');
+        $this->dropColumn('first_purchase');
+        $this->dropColumn('most_recent_purchase');
+    }
+
+    private function ensureColumn(string $name, string $definition): void
+    {
+        $columns = $this->pdo->query('PRAGMA table_info(products)')->fetchAll();
+        $existing = array_column($columns, 'name');
+
+        if (! in_array($name, $existing, true)) {
+            $this->pdo->exec('ALTER TABLE products ADD COLUMN '.$definition);
+        }
+    }
+
+    private function dropColumn(string $name): void
+    {
+        $columns = $this->pdo->query('PRAGMA table_info(products)')->fetchAll();
+        $existing = array_column($columns, 'name');
+
+        if (in_array($name, $existing, true)) {
+            $this->pdo->exec('ALTER TABLE products DROP COLUMN '.$name);
+        }
     }
 }

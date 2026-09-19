@@ -9,9 +9,10 @@ subcategory: rosé
 country: France
 region: Languedoc-Roussillon (Hérault, Pays d'Oc IGP)
 style: Dealcoholized Grenache-Cinsault rosé
-abv: "<0.5% ABV (retail listings)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Vin désalcoolisé — Grenache and Cinsault rosé fermented conventionally then dealcoholized (producer and retail listings)"
 base_beverage: "80% Grenache Noir, 20% Cinsault, from volcanic soils and villafranchian gravels"
 producer: Domaine Montrose (Côtes de Thongue, Hérault)

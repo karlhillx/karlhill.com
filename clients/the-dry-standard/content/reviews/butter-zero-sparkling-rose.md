@@ -9,9 +9,10 @@ subcategory: sparkling rosé
 country: USA
 region: California
 style: Alcohol-removed sparkling rosé
-abv: "<0.5% ABV (retail listing)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from conventionally vinified California sparkling rosé (producer's March 2026 launch announcement)"
 base_beverage: "California sparkling rosé, vinified conventionally before alcohol removal"
 producer: Butter Wines (Napa, California)

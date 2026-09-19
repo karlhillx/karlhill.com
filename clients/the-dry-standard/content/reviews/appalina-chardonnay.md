@@ -10,9 +10,10 @@ subcategory: chardonnay
 country: Germany
 region: Rheinhessen
 style: Dealcoholised Rheinhessen Chardonnay
-abv: "≤0.5% (0.5° retail listing, FR)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Cold vacuum distillation, with aromas extracted before removal and reintegrated afterward"
 producer: Weinkellerei Hechtsheim
 volume: "750 ml"

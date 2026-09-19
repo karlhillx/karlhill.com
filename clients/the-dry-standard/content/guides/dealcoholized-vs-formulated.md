@@ -24,10 +24,14 @@ Formulated products skip the hole. They design sweetness, bitterness, and mouthf
 
 ## What we print on every review
 
-**Dealcoholized: Yes** — we can cite the removal step.
+**Production type: Dealcoholized** — we can cite the removal step.
 
-**Dealcoholized: No — formulated as a zero-proof alternative** — the producer built it that way, or the ingredients make any other reading implausible.
+**Production type: Alternative** — built as a non-alcoholic analogue from the start.
 
-**Dealcoholized: Not verified** — the marketing is NA; the factory floor is unpublished.
+**Production type: Naturally low alcohol** — fermented or otherwise traditionally produced, finishing at ≤0.5% ABV without a removal step.
 
-We would rather under-claim than decorate a bottle with a spinning cone we have not seen.
+**Production type: Hybrid** — dealcoholized material plus other defining non-alcoholic ingredients, or more than one production approach.
+
+**Production type: Not verified** — the marketing is NA; the factory floor is unpublished.
+
+Verification sits on its own line. We would rather under-claim than decorate a bottle with a spinning cone we have not seen.

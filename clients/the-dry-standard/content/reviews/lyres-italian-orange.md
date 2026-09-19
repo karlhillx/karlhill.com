@@ -7,13 +7,14 @@ product: Italian Orange
 category: cocktails
 subcategory: aperitif
 style: Formulated bitter orange aperitif
-abv: "<0.3% ABV"
+abv: "<0.5%"
 abv_numeric: 0.3
 image: media/reviews/lyres-italian-orange.jpg
 image_alt: "Lyre's Italian Orange bottle"
 image_credit: Editorial still
-dealcoholized: no
-dealcoholized_note: "Dealcoholized: No — formulated as a zero-proof alternative"
+production_type: alternative
+verified: yes
+production_note: "Formulated as a zero-proof alternative"
 dealcoholization_method:
 base_beverage:
 producer: Lyre's

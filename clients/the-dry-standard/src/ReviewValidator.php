@@ -31,8 +31,12 @@ final class ReviewValidator
             $errors[] = 'category must be one of: '.implode(', ', $config->categories());
         }
 
-        if (! in_array($review->dealcoholized, ['yes', 'no', 'not-verified'], true)) {
-            $errors[] = 'dealcoholized must be yes, no, or not-verified';
+        if (! array_key_exists($review->productionType, Review::PRODUCTION_TYPES)) {
+            $errors[] = 'production_type must be dealcoholized, alternative, naturally-low-alcohol, hybrid, or not-verified';
+        }
+
+        if (! in_array($review->verified, ['yes', 'no'], true)) {
+            $errors[] = 'verified must be yes or no';
         }
 
         if (! in_array($review->status, $config->allowedStatuses(), true)) {
@@ -54,7 +58,7 @@ final class ReviewValidator
         foreach (Review::FACT_FIELDS as $field) {
             $value = $review->fact($field);
 
-            if ($value === null || $value === '') {
+            if ($value === null || $value === '' || ($field === 'abv' && $value === 'Not published')) {
                 continue;
             }
 
@@ -65,13 +69,13 @@ final class ReviewValidator
             }
         }
 
-        if ($review->dealcoholized === 'yes') {
-            if (! in_array('dealcoholized', $claims, true) && ! in_array('method', $claims, true)) {
-                $errors[] = 'dealcoholized=yes requires a source claiming dealcoholized or method';
+        if ($review->productionType !== 'not-verified') {
+            if (array_intersect(['production_type', 'dealcoholized', 'method'], $claims) === []) {
+                $errors[] = 'a classified production type requires a source claiming production_type, dealcoholized, or method';
             }
         }
 
-        if ($review->abv !== null && ! in_array('abv', $claims, true)) {
+        if ($review->abv !== null && $review->abv !== 'Not published' && ! in_array('abv', $claims, true)) {
             $errors[] = 'ABV is set but no source claims abv';
         }
 
@@ -120,6 +124,7 @@ final class ReviewValidator
     {
         return match ($field) {
             'dealcoholization_method' => ['method', 'dealcoholization_method'],
+            'production_type' => ['production_type', 'dealcoholized', 'method'],
             'country', 'region', 'origin' => ['origin', 'country', 'region'],
             'availability' => ['availability', 'price'],
             default => [$field],

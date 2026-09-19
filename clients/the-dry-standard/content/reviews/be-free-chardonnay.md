@@ -8,10 +8,11 @@ category: wine
 subcategory: chardonnay
 country: Germany
 style: De-alcoholised German Chardonnay
-abv: "<0.5% ABV (retail listing, PL)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
-dealcoholized_note: "Vivino lists the wine as 'Be Free Dealcoholized Chardonnay' with an alcohol content of 0.01%, confirming the wine was fermented and then had alcohol removed; the specific named technology is not published."
+production_type: dealcoholized
+verified: yes
+production_note: "Vivino lists the wine as 'Be Free Dealcoholized Chardonnay' with an alcohol content of 0.01%, confirming the wine was fermented and then had alcohol removed; the specific named technology is not published."
 volume: "750 ml (0.75 L retail listing)"
 availability: "European retail including Spiżarnia pod Łysą Górą (PL)"
 image: media/reviews/be-free-chardonnay.jpg

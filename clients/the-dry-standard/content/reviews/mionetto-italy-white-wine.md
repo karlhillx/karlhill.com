@@ -9,9 +9,10 @@ subcategory: sparkling white
 country: Italy
 region: Veneto
 style: Alcohol-removed Italian sparkling white (Prosecco-based)
-abv: "Not more than 0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol expertly extracted after traditional Prosecco-method winemaking (Freixenet Mionetto USA)"
 base_beverage: "Glera and a blend of other indigenous Italian grapes, made by traditional Prosecco methods"
 producer: Mionetto (founded 1887 in Valdobbiadene, Veneto); distributed in the US via Freixenet Mionetto USA

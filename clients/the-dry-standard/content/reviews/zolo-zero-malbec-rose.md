@@ -9,9 +9,10 @@ subcategory: malbec rosé
 country: Argentina
 region: "Mendoza (Jarillal, Alto Agrelo, Luján de Cuyo)"
 style: Dealcoholized Malbec rosé
-abv: "0% (importer tech sheet); 0.3% vol. on some Argentine retail listings"
-dealcoholized: yes
-dealcoholized_note: "Vino del Sol's importer tech sheet: 96% dealcoholized by a proprietary technique, plus 4% grape juice."
+abv: "<0.5%"
+production_type: dealcoholized
+verified: yes
+production_note: "Vino del Sol's importer tech sheet: 96% dealcoholized by a proprietary technique, plus 4% grape juice."
 dealcoholization_method: "Proprietary dealcoholization (96% of the blend) plus 4% grape juice (importer tech sheet)"
 base_beverage: "100% Malbec rosé from Jarillal, Alto Agrelo, Luján de Cuyo, Mendoza"
 producer: "Zolo / Fincas Patagónicas (winemaker Fabian Valenzuela)"

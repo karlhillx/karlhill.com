@@ -9,9 +9,10 @@ subcategory: cider rosé
 country: Germany
 region: Schlat
 style: Dealcoholized cider with dealcoholized red wine
-abv: "<0.5% ABV (importer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: hybrid
+verified: yes
 dealcoholization_method: "Dealcoholized cider from cider apples, perry pears, and dealcoholized red wine, plus hops, herbs, and flowers"
 producer: Manufaktur Jörg Geiger
 volume: "330 ml"

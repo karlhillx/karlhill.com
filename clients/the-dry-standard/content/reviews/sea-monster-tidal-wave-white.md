@@ -9,9 +9,10 @@ subcategory: white
 country: USA
 region: California
 style: Dealcoholized California white wine
-abv: "<0.5% ABV (retail listings)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Very low-temperature spinning cone column vacuum distillation (retailer quotes the producer's method)"
 base_beverage: "Traditionally made California white wine blend, dealcoholized after fermentation"
 producer: Sea Monster (California)

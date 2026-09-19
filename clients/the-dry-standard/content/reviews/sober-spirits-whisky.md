@@ -8,9 +8,10 @@ category: spirits
 subcategory: Dealcoholized whisky alternative
 country: France
 style: Dealcoholized non-alcoholic spirit
-abv: "0.0% ABV (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol extracted in Grasse using heat, pressure and thermal shocks; the aromatic fraction is redistilled in century-old copper pot stills at a French distillery founded in 1875"
 base_beverage: "Real Scottish whisky, aged three years in oak casks"
 producer: "Sober Spirits (founder Calixte), produced in France"

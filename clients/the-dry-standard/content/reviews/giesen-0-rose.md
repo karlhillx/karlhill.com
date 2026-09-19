@@ -9,9 +9,10 @@ subcategory: rosé
 country: New Zealand
 region: "Marlborough and Waipara"
 style: Dealcoholized New Zealand rosé
-abv: "<0.5% ABV (producer)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Spinning cone technology — aroma, alcohol, and body separated, then aroma and body recombined"
 base_beverage: "Full-strength New Zealand rosé from aromatic and red varietals, then dealcoholized"
 producer: Giesen Wines

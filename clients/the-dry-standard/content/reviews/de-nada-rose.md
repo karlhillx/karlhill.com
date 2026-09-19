@@ -9,9 +9,10 @@ subcategory: rosé
 country: Chile
 region: Maule Valley
 style: Dealcoholized Chilean rosé
-abv: "<0.5% ABV (retail listing)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Alcohol removed from conventionally vinified rosé (producer collaboration with Long Island winemaker Juan Esteban Sepulveda)"
 base_beverage: "Chilean rosé from the Maule Valley, sourced from ripe grapes, vinified conventionally before alcohol removal"
 producer: "De Nada (produced in collaboration with Palmer Vineyards / Juan Esteban Sepulveda)"

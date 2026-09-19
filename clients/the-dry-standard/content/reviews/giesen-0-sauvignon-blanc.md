@@ -9,9 +9,10 @@ subcategory: sauvignon blanc
 country: New Zealand
 region: Marlborough
 style: Dealcoholized Sauvignon Blanc
-abv: "Less than 0.5% ABV (producer, FDA non-alcoholic threshold)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: Spinning cone distillation
 base_beverage: Full-strength Marlborough Sauvignon Blanc, made through the complete winemaking process before alcohol removal
 producer: Giesen Wines (Giesen Group), Marlborough, New Zealand

@@ -9,13 +9,14 @@ subcategory: whiskey alternative
 country: United States
 region: Kentucky
 style: Reverse-distilled oak spirit
-abv: "Typically labeled 0.5% ABV or below; some later brand copy has said under 0.05%"
+abv: "<0.5%"
 abv_numeric: 0.5
 image: media/reviews/spiritless-kentucky-74.jpg
 image_alt: "Spiritless Kentucky 74 bottle"
 image_credit: Editorial still
-dealcoholized: yes
-dealcoholized_note: "Dealcoholized: Yes — ethanol is removed from an oak-extracted high-proof spirit, not from finished aged bourbon"
+production_type: dealcoholized
+verified: yes
+production_note: "Ethanol is removed from an oak-extracted high-proof spirit, not from finished aged bourbon"
 dealcoholization_method: Reverse distillation after thermal oak extraction in high-proof neutral grain spirit
 base_beverage: High-proof neutral grain spirit infused with American oak, not a conventional barrel-aged bourbon
 producer: Spiritless, Louisville

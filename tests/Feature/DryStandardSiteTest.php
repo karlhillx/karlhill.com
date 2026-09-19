@@ -34,10 +34,11 @@ it('serves the Dry Standard homepage and primary sections', function () {
     }
 });
 
-it('serves sourced sample reviews with dealcoholized badges', function () {
+it('serves sourced sample reviews with production-type badges', function () {
     $this->get('/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/')
         ->assertOk()
-        ->assertSee('Dealcoholized: Yes', escape: false)
+        ->assertSee('Production type: Dealcoholized', escape: false)
+        ->assertSee('Verified', escape: false)
         ->assertSee('Vacuum distillation', escape: false)
         ->assertSee('Weingut Leitz', escape: false)
         ->assertSee('application/ld+json', escape: false)
@@ -47,7 +48,8 @@ it('serves sourced sample reviews with dealcoholized badges', function () {
 
     $this->get('/clients/the-dry-standard/reviews/cocktails/lyres-italian-orange/')
         ->assertOk()
-        ->assertSee('formulated as a zero-proof alternative', escape: false)
+        ->assertSee('Production type: Alternative', escape: false)
+        ->assertSee('Formulated as a zero-proof alternative', escape: false)
         ->assertSee('lyres.com/pages/faqs', escape: false);
 });
 
@@ -96,12 +98,10 @@ it('keeps a master product table without duplicating published reviews', functio
         'Brand',
         'Category',
         'ABV',
-        'Dealcoholized?',
+        'Production Type',
+        'Verified',
         'Method',
         'Retailer(s)',
-        'Times Purchased',
-        'First Purchase',
-        'Most Recent Purchase',
     ]);
     expect(count($rows))->toBeGreaterThan(90);
 
@@ -129,7 +129,7 @@ it('links related reviews and exposes directory search', function () {
         ->assertSee('More from the cellar', escape: false)
         ->assertSee('brands/leitz/', escape: false)
         ->assertSee('methods/vacuum-distillation/', escape: false)
-        ->assertSee('Dealcoholized: Yes', escape: false);
+        ->assertSee('Dealcoholized', escape: false);
 
     $this->get('/clients/the-dry-standard/brands/')
         ->assertOk()
@@ -164,7 +164,7 @@ it('builds a searchable review archive', function () {
         ->assertSee('data-archive-category', escape: false)
         ->assertSee('data-facet="abv"', escape: false)
         ->assertSee('data-facet="brand"', escape: false)
-        ->assertSee('data-facet="dealcoholized"', escape: false)
+        ->assertSee('data-facet="production"', escape: false)
         ->assertSee('data-facet="method"', escape: false)
         ->assertDontSee('data-facet="partials/facet-group"', escape: false)
         ->assertSee('data-abv=', escape: false)

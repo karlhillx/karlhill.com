@@ -8,10 +8,11 @@ category: cocktails
 subcategory: canned mocktail
 country: USA
 style: Non-alcoholic sparkling mocktail (formulated, not dealcoholized)
-abv: "0.00% ABV (retail listing)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: no
-dealcoholized_note: "Mingle is formulated as an alcohol-free mocktail — real juice, sparkling water and botanicals — rather than made by removing alcohol from an alcoholic cocktail."
+production_type: alternative
+verified: yes
+production_note: "Mingle is formulated as an alcohol-free mocktail — real juice, sparkling water and botanicals — rather than made by removing alcohol from an alcoholic cocktail."
 base_beverage: "Sparkling water with real raspberry juice and natural flavorings; no underlying alcoholic drink"
 producer: Mingle Mocktails (women-founded US brand)
 price: "$44.95 per 12-pack direct (~$3.75/can); $13.99 per 4-pack at Thrive Market; from $4.59 single at Instacart"

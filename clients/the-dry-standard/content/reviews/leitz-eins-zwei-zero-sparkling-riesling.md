@@ -4,12 +4,14 @@ slug: leitz-eins-zwei-zero-sparkling-riesling
 id: TDS-0016
 brand: Weingut Leitz
 product: "Eins-Zwei-Zero Sparkling Riesling"
+abv: "Not published"
 category: wine
 subcategory: sparkling riesling
 country: Germany
 region: Rheingau
 style: Dealcoholized sparkling Riesling
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Vacuum distillation; under vacuum, alcohol boils at about 29°C"
 base_beverage: "Riesling, then dealcoholized; sparkling bottling in the Eins-Zwei-Zero family"
 producer: Weingut Leitz

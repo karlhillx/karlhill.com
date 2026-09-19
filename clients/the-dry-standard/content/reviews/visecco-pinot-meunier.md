@@ -8,9 +8,10 @@ category: wine
 subcategory: sparkling
 country: Germany
 style: Dealcoholized organic sparkling wine with meadow fruit infusion
-abv: "0% alcohol (producer)"
+abv: "0.0%"
 abv_numeric: 0
-dealcoholized: yes
+production_type: dealcoholized
+verified: yes
 dealcoholization_method: "Vacuum distillation of organic Sauvignon Blanc and Pinot Meunier base wines, then refined with meadow fruits, herbs and blossoms (producer)"
 base_beverage: "Organic Pinot Meunier and Sauvignon Blanc wines, vinified conventionally before dealcoholization"
 producer: Manufaktur Jörg Geiger (Germany)

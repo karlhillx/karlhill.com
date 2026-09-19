@@ -9,10 +9,11 @@ category: wine
 subcategory: sparkling white
 country: Germany
 style: De-alcoholised German sparkling white
-abv: "0.5% ABV (Supervin retail listing; confirmed by Alcohol Change UK)"
+abv: "<0.5%"
 abv_numeric: 0.5
-dealcoholized: yes
-dealcoholized_note: "Supervin's retail listing describes the Free Feather line (which includes this bottle) as 'gently dealcoholized products'; the specific named technology for this SKU is not published."
+production_type: dealcoholized
+verified: yes
+production_note: "Supervin's retail listing describes the Free Feather line (which includes this bottle) as 'gently dealcoholized products'; the specific named technology for this SKU is not published."
 volume: "750 ml"
 price: "$12.79 (RoomBox listing)"
 calories: "29 kcal per 100 ml (Alcohol Change UK)"
