@@ -519,9 +519,9 @@ trait RendersReview
         $items = '';
         foreach ($review->purchaseLinks as $link) {
             $relationship = $link['relationship'] ?? 'citation';
-            $rel = $relationship === 'affiliate'
-                ? 'sponsored nofollow noopener'
-                : 'nofollow noopener';
+            $relTokens = $relationship === 'affiliate'
+                ? ['sponsored', 'nofollow', 'noopener', 'noreferrer']
+                : ['nofollow', 'noopener', 'noreferrer'];
             $label = $link['label'];
             if (! empty($link['region'])) {
                 $label .= ' ('.$link['region'].')';
@@ -541,7 +541,8 @@ trait RendersReview
                 $meta[] = 'Checked '.$link['last_verified'];
             }
             $metaHtml = $meta === [] ? '' : '<span class="buy-meta">'.Str::e(implode(' · ', $meta)).'</span>';
-            $items .= '<li><a href="'.Str::e(Referral::append($link['url'])).'" rel="'.$rel.'" data-analytics-event="outbound_buy">'.Str::e($label).'</a>'.$metaHtml.'</li>';
+            $href = Referral::append($link['url']);
+            $items .= '<li><a href="'.Str::e($href).'"'.Referral::externalAttributeHtml($href, standalone: true, relTokens: $relTokens).' data-analytics-event="outbound_buy">'.Str::e($label).'</a>'.$metaHtml.'</li>';
         }
 
         return $this->view->render('partials/purchase-links', [

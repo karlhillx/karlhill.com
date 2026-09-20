@@ -1,4 +1,8 @@
-<?php if (! empty($groups) || ! empty($bibliography)) { ?>
+<?php
+
+use DryStandard\Referral;
+
+if (! empty($groups) || ! empty($bibliography)) { ?>
 <section class="sources-panel" id="provenance">
   <details class="provenance" data-provenance-panel>
     <summary>
@@ -17,7 +21,7 @@
           <span class="provenance-confidence provenance-confidence--<?= $view->e($group['confidenceClass']) ?>"><?= $view->e($group['confidence']) ?></span>
           <span class="provenance-kind"><?= $view->e($group['kind']) ?></span>
           <?php if (! empty($group['href'])) { ?>
-          <a href="<?= $view->e($group['href']) ?>" rel="nofollow noopener"><?= $view->e($group['source']) ?></a>
+          <a href="<?= $view->e($group['href']) ?>"<?= Referral::externalAttributeHtml($group['href'], standalone: true) ?>><?= $view->e($group['source']) ?></a>
           <?php } elseif (! empty($group['source'])) { ?>
           <span><?= $view->e($group['source']) ?></span>
           <?php } ?>
@@ -33,7 +37,7 @@
       <?php if (! empty($bibliography)) { ?>
       <ol class="sources-bibliography">
         <?php foreach ($bibliography as $item) { ?>
-        <li><a href="<?= $view->e($item['url']) ?>" rel="nofollow noopener"><?= $view->e($item['title']) ?></a></li>
+        <li><a href="<?= $view->e($item['url']) ?>"<?= Referral::externalAttributeHtml($item['url'], standalone: true) ?>><?= $view->e($item['title']) ?></a></li>
         <?php } ?>
       </ol>
       <?php } ?>

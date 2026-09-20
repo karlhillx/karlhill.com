@@ -88,11 +88,76 @@ final class Referral
         }
 
         // Never decorate our own host when absolute URLs appear in content.
-        $siteHost = strtolower((string) (parse_url((string) config('app.url', ''), PHP_URL_HOST) ?: ''));
-        if ($siteHost !== '' && ($host === $siteHost || str_ends_with($host, '.'.$siteHost))) {
-            return false;
+        foreach (self::internalHosts() as $siteHost) {
+            if ($host === $siteHost || str_ends_with($host, '.'.$siteHost)) {
+                return false;
+            }
         }
 
         return true;
+    }
+
+    /**
+     * Hosts treated as first-party for markdown ExternalLink and outbound checks.
+     *
+     * @return list<string>
+     */
+    public static function internalHosts(): array
+    {
+        $hosts = [];
+        $siteHost = strtolower((string) (parse_url((string) config('app.url', ''), PHP_URL_HOST) ?: ''));
+        if ($siteHost !== '') {
+            $hosts[] = $siteHost;
+        }
+
+        foreach (['localhost', '127.0.0.1'] as $local) {
+            if (! in_array($local, $hosts, true)) {
+                $hosts[] = $local;
+            }
+        }
+
+        return $hosts;
+    }
+
+    /**
+     * HTML attributes for an outbound http(s) anchor.
+     * Standalone links (buy list, sources) get class external-link for the ↗ marker;
+     * inline sentence links omit the class.
+     *
+     * @param  list<string>  $relTokens
+     * @return array{target?: string, rel?: string, class?: string}
+     */
+    public static function externalAttributes(string $url, bool $standalone = false, array $relTokens = ['nofollow', 'noopener', 'noreferrer']): array
+    {
+        if (! self::isOutboundHttp($url)) {
+            return [];
+        }
+
+        $rel = array_values(array_unique(array_filter($relTokens, fn (string $token): bool => $token !== '')));
+        $attrs = [
+            'target' => '_blank',
+            'rel' => implode(' ', $rel),
+        ];
+
+        if ($standalone) {
+            $attrs['class'] = 'external-link';
+        }
+
+        return $attrs;
+    }
+
+    /**
+     * Render attribute string (leading space when non-empty) for an outbound anchor.
+     *
+     * @param  list<string>  $relTokens
+     */
+    public static function externalAttributeHtml(string $url, bool $standalone = false, array $relTokens = ['nofollow', 'noopener', 'noreferrer']): string
+    {
+        $html = '';
+        foreach (self::externalAttributes($url, $standalone, $relTokens) as $name => $value) {
+            $html .= ' '.$name.'="'.Str::e($value).'"';
+        }
+
+        return $html;
     }
 }

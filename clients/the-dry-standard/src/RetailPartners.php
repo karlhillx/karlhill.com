@@ -84,7 +84,7 @@ final class RetailPartners
 
             $token = "\u{E000}".'RP'.$index."\u{E001}";
             $escaped = str_replace($needle, $token, $escaped);
-            $tokens[$token] = '<a href="'.Str::e($href).'" rel="nofollow noopener" data-analytics-event="outbound_retail" data-retailer="'.Str::e($name).'">'.$needle.'</a>';
+            $tokens[$token] = '<a href="'.Str::e($href).'"'.Referral::externalAttributeHtml($href, standalone: false).' data-analytics-event="outbound_retail" data-retailer="'.Str::e($name).'">'.$needle.'</a>';
         }
 
         return str_replace(array_keys($tokens), array_values($tokens), $escaped);

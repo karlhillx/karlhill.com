@@ -27,8 +27,26 @@ it('appends referral through markdown external links', function () {
 
     expect($html)
         ->toContain('href="https://www.metrowinedc.com/shop?ref=the-dry-standard"')
+        ->toContain('target="_blank"')
+        ->toContain('rel="nofollow noopener noreferrer"')
         ->toContain('href="../about/"')
-        ->not->toContain('href="../about/?ref=');
+        ->not->toContain('href="../about/?ref=')
+        ->not->toContain('class="external-link"');
+});
+
+it('marks standalone outbound attributes for arrow styling', function () {
+    $standalone = Referral::externalAttributeHtml('https://store.otherhalfbrewing.com/product/all-in/', standalone: true);
+    $inline = Referral::externalAttributeHtml('https://store.anxodc.com/', standalone: false);
+
+    expect($standalone)
+        ->toContain('target="_blank"')
+        ->toContain('class="external-link"')
+        ->toContain('rel="nofollow noopener noreferrer"')
+        ->and($inline)
+        ->toContain('target="_blank"')
+        ->not->toContain('external-link')
+        ->and(Referral::externalAttributeHtml('/reviews/', standalone: true))
+        ->toBe('');
 });
 
 it('builds partner hrefs from Referral', function () {
@@ -46,8 +64,10 @@ it('linkifies Metro Wine & Spirits in availability prose', function () {
 
     expect($html)
         ->toContain('href="https://www.metrowinedc.com/?ref=the-dry-standard"')
+        ->toContain('target="_blank"')
         ->toContain('data-analytics-event="outbound_retail"')
-        ->toContain('Metro Wine &amp; Spirits');
+        ->toContain('Metro Wine &amp; Spirits')
+        ->not->toContain('class="external-link"');
 });
 
 it('linkifies Brightwood Pizza and ANXO aliases', function () {

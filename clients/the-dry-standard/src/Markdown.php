@@ -6,6 +6,7 @@ use League\CommonMark\Environment\Environment;
 use League\CommonMark\Event\DocumentParsedEvent;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Extension\CommonMark\Node\Inline\AbstractWebResource;
+use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
 use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
 use League\CommonMark\MarkdownConverter;
@@ -29,10 +30,20 @@ final class Markdown
             return self::$converter;
         }
 
-        $environment = new Environment;
+        $environment = new Environment([
+            'external_link' => [
+                'internal_hosts' => Referral::internalHosts(),
+                'open_in_new_window' => true,
+                'html_class' => '',
+                'nofollow' => 'external',
+                'noopener' => 'external',
+                'noreferrer' => 'external',
+            ],
+        ]);
         $environment->addExtension(new CommonMarkCoreExtension);
         $environment->addExtension(new GithubFlavoredMarkdownExtension);
         $environment->addExtension(new SmartPunctExtension);
+        $environment->addExtension(new ExternalLinkExtension);
         $environment->addEventListener(DocumentParsedEvent::class, self::appendReferralToLinks(...));
 
         self::$converter = new MarkdownConverter($environment);

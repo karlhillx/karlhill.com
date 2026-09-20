@@ -3922,6 +3922,14 @@ img {
   border-top: 1px solid var(--rule);
 }
 
+/* Standalone outbound links (buy list, sources) — not inline sentence links. */
+a.external-link::after {
+  content: " ↗";
+  font-size: 0.85em;
+  opacity: 0.55;
+  speak: never;
+}
+
 .industry-home-cta {
   max-width: 36rem;
 }
