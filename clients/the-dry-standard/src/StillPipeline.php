@@ -12,6 +12,15 @@ final class StillPipeline
 
     private const TARGET_HEIGHT = 1200;
 
+    /** Bottle/can height as a fraction of the 3:4 frame. */
+    private const SUBJECT_HEIGHT_RATIO = 0.86;
+
+    /** Max bottle/can width as a fraction of the frame. */
+    private const SUBJECT_WIDTH_RATIO = 0.62;
+
+    /** Padding around the detected subject before scaling. */
+    private const SUBJECT_PAD_RATIO = 0.05;
+
     /** @var list<int> */
     private const DERIVATIVE_WIDTHS = [400, 800];
 
@@ -24,7 +33,8 @@ final class StillPipeline
     }
 
     /**
-     * Flatten a producer/editorial packshot onto paper and write a 900×1200 JPEG.
+     * Flatten a producer/editorial packshot onto paper/white, normalize bottle
+     * scale, and write a 900×1200 JPEG.
      *
      * @param  'paper'|'white'  $background
      */
@@ -45,7 +55,7 @@ final class StillPipeline
         $canvas = $this->scaleDown($canvas, 1800);
         $this->flattenDarkBackground($canvas);
         $this->flattenLightBackground($canvas);
-        $canvas = $this->letterbox($canvas, imagesx($canvas), imagesy($canvas));
+        $canvas = $this->normalizeSubject($canvas);
 
         $directory = dirname($destinationJpeg);
         if (! is_dir($directory) && ! mkdir($directory, 0755, true) && ! is_dir($directory)) {
@@ -56,6 +66,16 @@ final class StillPipeline
         $this->fill = self::PAPER;
 
         return $ok;
+    }
+
+    /**
+     * Re-normalize an existing still (crop to bottle, consistent scale, fill bg).
+     *
+     * @param  'paper'|'white'  $background
+     */
+    public function normalize(string $sourcePath, string $destinationJpeg, string $background = 'white'): bool
+    {
+        return $this->ingest($sourcePath, $destinationJpeg, $background);
     }
 
     public function run(): int
@@ -317,7 +337,203 @@ final class StillPipeline
     {
         [$r, $g, $b, $luma] = $this->pixel($image, $x, $y);
 
-        return $luma > 248 && abs($r - $g) < 10 && abs($g - $b) < 10;
+        // Includes cream paper and light gray studio stripes so corner floods
+        // can clear patterned packshot backdrops.
+        return $luma > 228 && abs($r - $g) < 18 && abs($g - $b) < 18;
+    }
+
+    /**
+     * Crop to the bottle/can and place it at a consistent size on the fill.
+     */
+    private function normalizeSubject(\GdImage $source): \GdImage
+    {
+        $bounds = $this->subjectBounds($source);
+        if ($bounds === null) {
+            return $this->letterbox($source, imagesx($source), imagesy($source));
+        }
+
+        [$x0, $y0, $x1, $y1] = $bounds;
+        $subjectW = max(1, $x1 - $x0 + 1);
+        $subjectH = max(1, $y1 - $y0 + 1);
+
+        $padX = (int) round($subjectW * self::SUBJECT_PAD_RATIO);
+        $padY = (int) round($subjectH * self::SUBJECT_PAD_RATIO);
+        $x0 = max(0, $x0 - $padX);
+        $y0 = max(0, $y0 - $padY);
+        $x1 = min(imagesx($source) - 1, $x1 + $padX);
+        $y1 = min(imagesy($source) - 1, $y1 + $padY);
+        $subjectW = max(1, $x1 - $x0 + 1);
+        $subjectH = max(1, $y1 - $y0 + 1);
+
+        $scale = min(
+            (self::TARGET_WIDTH * self::SUBJECT_WIDTH_RATIO) / $subjectW,
+            (self::TARGET_HEIGHT * self::SUBJECT_HEIGHT_RATIO) / $subjectH,
+        );
+        $drawW = max(1, (int) round($subjectW * $scale));
+        $drawH = max(1, (int) round($subjectH * $scale));
+
+        $canvas = imagecreatetruecolor(self::TARGET_WIDTH, self::TARGET_HEIGHT);
+        [$r, $g, $b] = $this->fill;
+        imagefill($canvas, 0, 0, imagecolorallocate($canvas, $r, $g, $b));
+
+        $dstX = (int) round((self::TARGET_WIDTH - $drawW) / 2);
+        $dstY = (int) round((self::TARGET_HEIGHT - $drawH) / 2);
+        imagecopyresampled($canvas, $source, $dstX, $dstY, $x0, $y0, $drawW, $drawH, $subjectW, $subjectH);
+
+        // Punch out residual paper / studio stripes around the bottle.
+        $this->wipeExteriorBackdrop($canvas);
+
+        return $canvas;
+    }
+
+    /**
+     * Replace light backdrop outside the bottle silhouette. Dilates the
+     * non-backdrop mask so white labels stay with the glass.
+     */
+    private function wipeExteriorBackdrop(\GdImage $image): void
+    {
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $size = $width * $height;
+        $distance = array_fill(0, $size, PHP_INT_MAX);
+        $queue = [];
+
+        for ($y = 0; $y < $height; $y++) {
+            $row = $y * $width;
+            for ($x = 0; $x < $width; $x++) {
+                if ($this->isBackdropPixel($image, $x, $y)) {
+                    continue;
+                }
+                $distance[$row + $x] = 0;
+                $queue[] = [$x, $y];
+            }
+        }
+
+        if ($queue === []) {
+            return;
+        }
+
+        $radius = max(6, (int) round(min($width, $height) * 0.018));
+        $head = 0;
+        while ($head < count($queue)) {
+            [$x, $y] = $queue[$head++];
+            $d = $distance[$y * $width + $x];
+            if ($d >= $radius) {
+                continue;
+            }
+            foreach ([[1, 0], [-1, 0], [0, 1], [0, -1]] as [$dx, $dy]) {
+                $nx = $x + $dx;
+                $ny = $y + $dy;
+                if ($nx < 0 || $ny < 0 || $nx >= $width || $ny >= $height) {
+                    continue;
+                }
+                $idx = $ny * $width + $nx;
+                $nd = $d + 1;
+                if ($nd < $distance[$idx] && $nd <= $radius) {
+                    $distance[$idx] = $nd;
+                    $queue[] = [$nx, $ny];
+                }
+            }
+        }
+
+        [$fr, $fg, $fb] = $this->fill;
+        $fill = imagecolorallocate($image, $fr, $fg, $fb);
+        for ($y = 0; $y < $height; $y++) {
+            $row = $y * $width;
+            for ($x = 0; $x < $width; $x++) {
+                if ($distance[$row + $x] <= $radius) {
+                    continue;
+                }
+                if ($this->isBackdropPixel($image, $x, $y)) {
+                    imagesetpixel($image, $x, $y, $fill);
+                }
+            }
+        }
+    }
+
+    /**
+     * Tight box around non-backdrop pixels (bottle glass, liquid, label ink).
+     * Light neutrals — paper, pure white, gray studio stripes — are ignored so
+     * patterned packshots still crop to the SKU.
+     *
+     * @return array{0: int, 1: int, 2: int, 3: int}|null
+     */
+    private function subjectBounds(\GdImage $image): ?array
+    {
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $minX = $width;
+        $minY = $height;
+        $maxX = -1;
+        $maxY = -1;
+        $step = max(1, (int) floor(min($width, $height) / 500));
+
+        for ($y = 0; $y < $height; $y += $step) {
+            for ($x = 0; $x < $width; $x += $step) {
+                if ($this->isBackdropPixel($image, $x, $y)) {
+                    continue;
+                }
+
+                $minX = min($minX, $x);
+                $minY = min($minY, $y);
+                $maxX = max($maxX, $x);
+                $maxY = max($maxY, $y);
+            }
+        }
+
+        if ($maxX < $minX || $maxY < $minY) {
+            return null;
+        }
+
+        // Refine edges at full resolution inside the coarse box.
+        $pad = $step * 2;
+        $rx0 = max(0, $minX - $pad);
+        $ry0 = max(0, $minY - $pad);
+        $rx1 = min($width - 1, $maxX + $pad);
+        $ry1 = min($height - 1, $maxY + $pad);
+        $minX = $width;
+        $minY = $height;
+        $maxX = -1;
+        $maxY = -1;
+
+        for ($y = $ry0; $y <= $ry1; $y++) {
+            for ($x = $rx0; $x <= $rx1; $x++) {
+                if ($this->isBackdropPixel($image, $x, $y)) {
+                    continue;
+                }
+
+                $minX = min($minX, $x);
+                $minY = min($minY, $y);
+                $maxX = max($maxX, $x);
+                $maxY = max($maxY, $y);
+            }
+        }
+
+        if ($maxX < $minX || $maxY < $minY) {
+            return null;
+        }
+
+        $boxH = $maxY - $minY + 1;
+        if ($boxH < (int) round($height * 0.12)) {
+            return null;
+        }
+
+        return [$minX, $minY, $maxX, $maxY];
+    }
+
+    private function isBackdropPixel(\GdImage $image, int $x, int $y): bool
+    {
+        [$r, $g, $b, $luma] = $this->pixel($image, $x, $y);
+        [$fr, $fg, $fb] = $this->fill;
+
+        if (abs($r - $fr) < 14 && abs($g - $fg) < 14 && abs($b - $fb) < 14) {
+            return true;
+        }
+
+        $chroma = max(abs($r - $g), abs($g - $b), abs($r - $b));
+
+        // Paper, white, and light gray diagonal studio stripes.
+        return $luma >= 200 && $chroma <= 22;
     }
 
     private function isNearBlack(\GdImage $image, int $x, int $y): bool
