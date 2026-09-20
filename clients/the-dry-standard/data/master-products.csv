@@ -103,11 +103,11 @@ TDS-0107,3760200893723,Sparkling Rosé,Pierre Zéro,Non-alcoholic sparkling wine
 TDS-0108,,Rum Mule,Lyre's,Non-alcoholic cocktails/RTDs,<0.1%,Alternative,Yes,Formulated as a zero-proof alternative,
 TDS-0109,883122700115,Riesling Dealcoholized,SITE,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,"Low-temperature evaporation (likely vacuum; equipment not named)",
 TDS-0110,,"Black Butte Non-Alcoholic","Deschutes Brewery","Non-alcoholic beer",<0.5%,Dealcoholized,Yes,"SBT BrewVo process (producer)",
-TDS-0111,,Rosé,"Plaisir d'Anaïs","Non-alcoholic wine",0.0%,"Not verified",No,"Not verified",Dis&Dis
-TDS-0112,,White,"Plaisir d'Anaïs","Non-alcoholic wine",0.0%,"Not verified",No,"Not verified",Dis&Dis
-TDS-0113,,White,"Tip Top","Non-alcoholic wine","Not published","Not verified",No,"Not verified",Dis&Dis
-TDS-0114,,"Organic White",Cypher,"Non-alcoholic wine","Not published","Not verified",No,"Not verified",Dis&Dis
-TDS-0115,,Blanc,Nooh,"Non-alcoholic wine",0.0%,"Not verified",No,"Not verified",Dis&Dis
-TDS-0116,,"Adegga Baezza",Elivo,"Non-alcoholic wine","Not published","Not verified",No,"Not verified",Dis&Dis
-TDS-0117,,"Riesling nr.420",Weinkönig,"Non-alcoholic wine",0.0%,"Not verified",No,"Not verified",Dis&Dis
-TDS-0118,,"Zéro Degré",Claouset,"Non-alcoholic wine","Not published","Not verified",No,"Not verified",Dis&Dis
+TDS-0111,,Rosé,"Plaisir d'Anaïs","Non-alcoholic wine",0.0%,Dealcoholized,Yes,"Vacuum distillation (retailer; secondary)",Dis&Dis
+TDS-0112,,Blanc,"Plaisir d'Anaïs","Non-alcoholic wine",0.0%,Dealcoholized,Yes,"Vacuum distillation (retailer; secondary)",Dis&Dis
+TDS-0113,,Blanc,"Tip Top","Non-alcoholic wine",<0.5%,Dealcoholized,Yes,"Low-temperature cold distillation by Zénothèque (producer)",Dis&Dis
+TDS-0114,,Blanc,Cypher,"Non-alcoholic wine",0.0%,Dealcoholized,Yes,"Dealcoholized after traditional vinification (exact tech unpublished on producer page)",Dis&Dis
+TDS-0115,,Blanc,"NOOH by La Coste","Non-alcoholic wine",0.0%,Hybrid,Yes,"Vacuum distillation max ~35–40°C; finished as flavored dealcoholized-wine beverage (producer)",Dis&Dis
+TDS-0116,,Blanco,"Adegga Baezza","Non-alcoholic wine",0.0%,Dealcoholized,Yes,"Cold evaporation with aroma reintroduction (Grupo Élivo)",Dis&Dis
+TDS-0117,,Riesling,Weinkönig,"Non-alcoholic wine",0.3%,Dealcoholized,Yes,"Vacuum dealcoholization ~28°C with aroma return (producer); ABV 0.3% secondary (WirWinzer)",Dis&Dis
+TDS-0118,,"Zéro Degré Blanc",Claouset,"Non-alcoholic wine",0.0%,Hybrid,Yes,"Low-temperature vacuum dealcoholization; wine-based beverage (producer). SKU confirm pending.",Dis&Dis

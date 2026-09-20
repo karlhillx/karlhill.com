@@ -1601,77 +1601,77 @@
   brand: "Plaisir d'Anaïs"
   category: wine
   priority: high
-  status: queued
-  notes: "Purchased 2026-09-20. Receipt: Plaisir d'Anaïs Rosé Wine Alcohol Free 0%, $18.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research."
-  production_type: not-verified
-  verified: 'no'
+  status: draft
+  notes: "Purchased 2026-09-20. Draft plaisir-anais-rose.md. Dealcoholized Cab Sauv Bordeaux 0.0%. Vacuum method secondary (retailer). Tasting/score pending."
+  production_type: dealcoholized
+  verified: 'yes'
 -
-  product: White
+  product: Blanc
   id: TDS-0112
   brand: "Plaisir d'Anaïs"
   category: wine
   priority: high
-  status: queued
-  notes: "Purchased 2026-09-20. Receipt: Plaisir d'Anaïs White Wine Alcohol Free 0%, $18.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research."
-  production_type: not-verified
-  verified: 'no'
+  status: draft
+  notes: "Purchased 2026-09-20. Draft plaisir-anais-white.md. Dealcoholized SB Bordeaux 0.0%. Vacuum method secondary (retailer). Tasting/score pending."
+  production_type: dealcoholized
+  verified: 'yes'
 -
-  product: White
+  product: Blanc
   id: TDS-0113
   brand: 'Tip Top'
   category: wine
   priority: high
-  status: queued
-  notes: 'Purchased 2026-09-20. Receipt: Tip Top Alcohol Free White Wine, $21.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
-  production_type: not-verified
-  verified: 'no'
+  status: draft
+  notes: 'Purchased 2026-09-20. Draft tip-top-white.md. Cold distillation via Zénothèque (Raguenot); SB+Sémillon; <0.5%. Tasting/score pending.'
+  production_type: dealcoholized
+  verified: 'yes'
 -
-  product: 'Organic White'
+  product: Blanc
   id: TDS-0114
   brand: Cypher
   category: wine
   priority: high
-  status: queued
-  notes: 'Purchased 2026-09-20. Receipt: Cypher Organic Alcohol Free White Wine, $23.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
-  production_type: not-verified
-  verified: 'no'
+  status: draft
+  notes: 'Purchased 2026-09-20. Draft cypher-organic-white.md. Roussanne+Colombard organic Gard; dealcoholized after vinification; exact tech unpublished. Tasting/score pending.'
+  production_type: dealcoholized
+  verified: 'yes'
 -
   product: Blanc
   id: TDS-0115
-  brand: Nooh
+  brand: 'NOOH by La Coste'
   category: wine
   priority: high
-  status: queued
-  notes: 'Purchased 2026-09-20. Receipt: Nooh Blanc 0%, $21.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
-  production_type: not-verified
-  verified: 'no'
+  status: draft
+  notes: 'Purchased 2026-09-20. Draft nooh-blanc.md. Vacuum ≤40°C; hybrid flavored dealcoholized-wine beverage. Tasting/score pending.'
+  production_type: hybrid
+  verified: 'yes'
 -
-  product: Baezza
+  product: Blanco
   id: TDS-0116
-  brand: Elivo
+  brand: 'Adegga Baezza'
   category: wine
   priority: high
-  status: queued
-  notes: 'Purchased 2026-09-20. Receipt: Elivo Adegga Baezza Premium Alcohol Free White Wine, $16.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
-  production_type: not-verified
-  verified: 'no'
+  status: draft
+  notes: 'Purchased 2026-09-20. Draft elivo-adegga-baezza.md. Brand Adegga Baezza / producer Grupo Élivo; cold evaporation + aroma return; Chardonnay 0.0%. Tasting/score pending.'
+  production_type: dealcoholized
+  verified: 'yes'
 -
-  product: 'Riesling nr.420'
+  product: Riesling
   id: TDS-0117
   brand: Weinkönig
   category: wine
   priority: high
-  status: queued
-  notes: 'Purchased 2026-09-20. Receipt: Weinkönig Riesling nr.420 Organic 0% White Wine, $21.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
-  production_type: not-verified
-  verified: 'no'
+  status: draft
+  notes: 'Purchased 2026-09-20. Draft weinkonig-riesling-nr-420.md. Product name Riesling (0420=Artikelnummer). Vacuum + aroma return; ABV 0.3% secondary. Organic claim needs bottle. Tasting/score pending.'
+  production_type: dealcoholized
+  verified: 'yes'
 -
-  product: 'Zéro Degré'
+  product: 'Zéro Degré Blanc'
   id: TDS-0118
   brand: Claouset
   category: wine
   priority: high
-  status: queued
-  notes: 'Purchased 2026-09-20. Receipt: Claouset Zéro Degré Non Alcoholic White Wine, 1 bottle (price not listed on cart line). Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
-  production_type: not-verified
-  verified: 'no'
+  status: needs-review
+  notes: 'Purchased 2026-09-20. Draft claouset-zero-degre.md assumes Blanc. Hold publish until bottle matches Blanc (not Rouge/Fines Bulles). Grape unpublished on producer page. Low-temp vacuum; hybrid wine-based beverage.'
+  production_type: hybrid
+  verified: 'yes'
