@@ -5,7 +5,9 @@ id: TDS-0086
 ean: '0089121830024'
 brand: Ariel
 product: Chardonnay
-abv: 'Not published'
+abv: '<0.5%'
+abv_numeric: 0.5
+abv_qualifier: less_than
 category: wine
 subcategory: chardonnay
 country: 'United States'
@@ -19,10 +21,14 @@ producer: 'Ariel Vineyards (J. Lohr family, California)'
 volume: '750 ml'
 availability: 'US retail and direct from arielvineyards.com'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 79
 verdict: 'One of the oldest names in NA wine — Ariel has been dealcoholizing J. Lohr fruit with a spinning cone since the 1980s, and the Chardonnay shows that experience.'
-summary: "Ariel's Non-Alcoholic Chardonnay is a spinning-cone dealcoholized California Chardonnay from the J. Lohr family — one of the category's originals."
+summary: "Ariel's Non-Alcoholic Chardonnay is a spinning-cone dealcoholized California Chardonnay from the J. Lohr family — less than 0.5% ABV by producer claim."
+discrepancies:
+  -
+    field: abv
+    note: 'ARIEL/J. Lohr states less than 0.5% alcohol by volume. Some store/nutrition databases also expose an Alcohol %: 0.5 field. We print <0.5% from the producer page and do not treat the store field as an exact residual.'
 tastes:
   - 'tropical fruit'
 profile:
@@ -44,6 +50,7 @@ sources:
     title: 'Ariel Vineyards — producer'
     url: 'https://www.arielvineyards.com/'
     claims:
+      - abv
       - dealcoholized
       - dealcoholization_method
       - producer
@@ -71,6 +78,11 @@ structure_scales:
   body: 1
   finish_length: 0
 provenance:
+  abv:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.arielvineyards.com/'
+    note: 'Producer: Less than 0.5% alcohol by volume. Do not upgrade store Alcohol %: 0.5 fields to an exact 0.5% claim.'
   production_type:
     kind: manufacturer
     confidence: manufacturer_verified

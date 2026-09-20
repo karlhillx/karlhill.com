@@ -5,7 +5,9 @@ id: TDS-0012
 ean: '0600226900407'
 brand: 'Almost Zero'
 product: 'Ravishing Rosé'
-abv: 'Not published'
+abv: 0.33%
+abv_numeric: 0.33
+abv_qualifier: exact
 category: wine
 subcategory: rosé
 country: 'South Africa'
@@ -21,10 +23,10 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 72
 verdict: 'A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process.'
-summary: 'Almost Zero Ravishing Rosé is a Total Wine regular in this house. Brand, method, and ABV are not documented beyond the shelf label.'
+summary: 'Almost Zero Ravishing Rosé is a Van Loveren dealcoholised rosé at 0.33% ABV — soft berry, short finish, spinning-cone after full vinification.'
 tastes:
   - strawberry
   - else
@@ -40,25 +42,27 @@ best_for: 'The bottle you already keep buying. This review will not talk you out
 serve: 'Very cold.'
 sources:
   -
-    title: 'Almost Zero Ravishing Rosé — Almost Zero (South Africa)'
-    url: 'https://almostzero.co.za/range/ravishing-rose/'
+    title: 'Almost Zero Moscato / Ravishing Rosé — Almost Zero (Van Loveren)'
+    url: 'https://almostzero.co.za/moscato/'
     claims:
+      - abv
       - dealcoholized
       - method
       - producer
       - country
+      - sugar
   -
-    title: 'Almost Zero Non-Alcoholic Ravishing Rose Wine — Zero Drinks (retailer)'
-    url: 'https://zerodrinks.co.za/products/almost-zero-ravishing-rose-non-alcoholic-wine'
+    title: 'Almost Zero Ravishing Rosé — wine.co.za'
+    url: 'https://wine.co.za/wine/wine.aspx?WINEID=45762'
     claims:
-      - dealcoholized
+      - abv
+      - producer
+      - country
   -
     title: "Non-Alcoholic Wine at Total Wine: What's Available — YOURS Non-Alcoholic Wine"
     url: 'https://sipyours.com/blogs/news/can-you-buy-non-alcoholic-wine-at-total-wine'
     claims:
       - availability
-      - country
-      - producer
 status: published
 product_id: TDS-0012
 identifiers:
@@ -80,22 +84,27 @@ structure_scales:
   body: 1
   finish_length: 0
 provenance:
+  abv:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://almostzero.co.za/moscato/'
+    note: 'Producer page: Alcohol – 0.33%.'
   production_type:
     kind: manufacturer
-    confidence: secondary
-    url: 'https://almostzero.co.za/range/ravishing-rose/'
+    confidence: manufacturer_verified
+    url: 'https://almostzero.co.za/moscato/'
   dealcoholization_method:
     kind: manufacturer
     confidence: secondary
-    url: 'https://almostzero.co.za/range/ravishing-rose/'
+    url: 'https://zerodrinks.co.za/products/almost-zero-ravishing-rose-non-alcoholic-wine'
   producer:
     kind: manufacturer
-    confidence: secondary
-    url: 'https://almostzero.co.za/range/ravishing-rose/'
+    confidence: manufacturer_verified
+    url: 'https://almostzero.co.za/moscato/'
   country:
     kind: manufacturer
-    confidence: secondary
-    url: 'https://almostzero.co.za/range/ravishing-rose/'
+    confidence: manufacturer_verified
+    url: 'https://almostzero.co.za/moscato/'
   availability:
     kind: retailer
     confidence: secondary

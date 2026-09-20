@@ -5,14 +5,16 @@ id: TDS-0024
 ean: '0012976991862'
 brand: Rondel
 product: 'Zero Cava Rosé'
-abv: 'Not published'
+abv: 0.0%
+abv_numeric: 0.0
+abv_qualifier: exact
 category: wine
 subcategory: 'sparkling rosé'
 country: Spain
 style: 'Dealcoholized sparkling rosé'
 production_type: dealcoholized
 verified: 'yes'
-production_note: 'Retail and press copy describe Rondel Zero as de-alcoholized sparkling wine (alcohol removed after fermentation). The named removal technology is not published for this SKU; do not ascribe Codorníu Zero vacuum distillation without a Rondel-specific source.'
+production_note: 'Retail and press copy describe Rondel Zero as de-alcoholized sparkling wine (alcohol removed after fermentation). Named removal technology is unpublished. NeoVina product data lists 0% ABV; Total Wine confirms the SKU without printing a residual number.'
 availability: 'Total Wine & More'
 image_alt: 'Rondel Zero Cava Rosé'
 image_source: editorial
@@ -21,7 +23,7 @@ review_date: '2026-09-18'
 updated_date: '2026-09-20'
 rating: 80
 verdict: 'Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Named method unpublished.'
-summary: 'Rondel Zero is a Spanish dealcoholized sparkling rosé sold at Total Wine. Fine bubbles, red fruit; named removal technology unpublished.'
+summary: 'Rondel Zero is a Spanish dealcoholized sparkling rosé at 0.0% ABV per specialist product data. Fine bubbles, red fruit; named removal technology unpublished.'
 tastes:
   - strawberry
   - cherry
@@ -37,6 +39,14 @@ finish: 'Crisp, a little sweet, short.'
 best_for: 'A cheap toast. The bottle people actually finish.'
 serve: 'Well chilled, flute.'
 sources:
+  -
+    title: 'Zero Sparkling Cava Rosé — NeoVina'
+    url: 'https://www.neovina.com/en/wines/rondel-zero-sparkling-cava-rose'
+    claims:
+      - abv
+      - country
+      - region
+      - volume
   -
     title: 'Wine Review: Rondel Non-Alcoholic Sparkling Rosé — Soberish Mom'
     url: 'https://www.soberishmom.com/post/rondelrosereview'
@@ -86,10 +96,15 @@ structure_scales:
   carbonation: 2
   finish_length: 0
 provenance:
-  country:
-    kind: unknown
+  abv:
+    kind: distributor
     confidence: secondary
-    url: 'https://www.soberishmom.com/post/rondelrosereview'
+    url: 'https://www.neovina.com/en/wines/rondel-zero-sparkling-cava-rose'
+    note: 'NeoVina product record: 0% ABV. Total Wine confirms the SKU but does not print a residual number on the product page.'
+  country:
+    kind: distributor
+    confidence: secondary
+    url: 'https://www.neovina.com/en/wines/rondel-zero-sparkling-cava-rose'
   availability:
     kind: retailer
     confidence: secondary
@@ -104,7 +119,7 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Rondel Zero Cava Rosé is dealcoholized from Spain. Total Wine calls it a de-alcoholized selection; Consumer Reports files it with sparkling wines made like wine, then stripped of alcohol. No Rondel-specific page names the machine, so the method stays unpublished.
+Rondel Zero Cava Rosé is dealcoholized from Spain. NeoVina lists 0% ABV; Total Wine confirms the bottle. No Rondel-specific page names the removal machine, so the method stays unpublished.
 
 The nose is strawberry and cherry, a hint of green apple.
 

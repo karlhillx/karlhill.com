@@ -654,6 +654,7 @@ final class Review
             'style_slug' => $this->styleSlug(),
             'method_facet' => $this->methodFacetKey(),
             'abv_bucket' => $this->abvBucket(),
+            'abv_qualifier' => $this->abvQualifier(),
             'country_slug' => $this->countrySlug(),
             'wine_color' => $this->wineColor(),
             'sweetness' => $this->structureScaleInt('sweetness'),
@@ -981,6 +982,7 @@ final class Review
             'abv' => $this->abv,
             'abv_numeric' => $this->abvNumeric,
             'abv_bucket' => $this->abvBucket(),
+            'abv_qualifier' => $this->abvQualifier(),
             'brand_slug' => $this->brandSlug(),
             'origin' => $this->originLabel(),
             'dealcoholized' => $this->dealcoholized,
@@ -1098,6 +1100,14 @@ final class Review
         }
 
         return 'half';
+    }
+
+    /**
+     * exact | less_than | unpublished — derived from the display claim.
+     */
+    public function abvQualifier(): string
+    {
+        return Registry::abvQualifier($this->abv);
     }
 
     public function methodKey(): ?string

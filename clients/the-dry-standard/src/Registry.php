@@ -16,6 +16,12 @@ final class Registry
         'Not published',
     ];
 
+    public const ABV_QUALIFIERS = [
+        'exact',
+        'less_than',
+        'unpublished',
+    ];
+
     public const METHOD_FACETS = [
         'vacuum-distillation',
         'spinning-cone',
@@ -159,13 +165,41 @@ final class Registry
             return true;
         }
 
-        return in_array($abv, self::ABV_LABELS, true);
+        if (in_array($abv, self::ABV_LABELS, true)) {
+            return true;
+        }
+
+        // Exact residual percentages (e.g. 0.33%) are first-class claims, not collapsed to <0.5%.
+        if (preg_match('/^\d+(?:\.\d+)?%$/', $abv) === 1) {
+            $num = (float) rtrim($abv, '%');
+
+            return $num >= 0.0 && $num <= 0.5;
+        }
+
+        return false;
     }
 
     /**
-     * Map a free-form ABV string to a display label without inventing a numeric value.
+     * How the display label should be read: exact value, less-than ceiling, or unpublished.
+     * 0.5%, <0.5%, and 0.33% are materially different claims.
+     */
+    public static function abvQualifier(?string $abv): string
+    {
+        $label = trim((string) $abv);
+        if ($label === '' || strcasecmp($label, 'Not published') === 0) {
+            return 'unpublished';
+        }
+        if (str_starts_with($label, '<') || str_starts_with($label, '≤')) {
+            return 'less_than';
+        }
+
+        return 'exact';
+    }
+
+    /**
+     * Map a free-form ABV string to a display label + numeric without inventing a value.
      *
-     * @return array{label: string, numeric: ?float}
+     * @return array{label: string, numeric: ?float, qualifier: string}
      */
     public static function normalizeAbv(?string $abv, ?float $numeric): array
     {
@@ -173,23 +207,43 @@ final class Registry
         $num = $numeric;
 
         if ($label === '' || strcasecmp($label, 'Not published') === 0) {
-            return ['label' => 'Not published', 'numeric' => $num];
+            return ['label' => 'Not published', 'numeric' => $num, 'qualifier' => 'unpublished'];
         }
 
         if (preg_match('/^0(?:\.0+)?%?$/i', $label) === 1 || $label === '0.0%' || $label === '0.00%') {
-            return ['label' => '0.0%', 'numeric' => $num ?? 0.0];
+            return ['label' => '0.0%', 'numeric' => $num ?? 0.0, 'qualifier' => 'exact'];
         }
 
         if (preg_match('/<\s*0\.1%?/i', $label) === 1 || preg_match('/≤\s*0\.1%?/u', $label) === 1) {
-            return ['label' => '<0.1%', 'numeric' => $num ?? 0.1];
+            return ['label' => '<0.1%', 'numeric' => $num ?? 0.1, 'qualifier' => 'less_than'];
         }
 
         if (preg_match('/<\s*0\.5%?/i', $label) === 1 || preg_match('/≤\s*0\.5%?/u', $label) === 1) {
-            return ['label' => '<0.5%', 'numeric' => $num];
+            return ['label' => '<0.5%', 'numeric' => $num, 'qualifier' => 'less_than'];
         }
 
         if (preg_match('/^0\.5\s*%?$/i', $label) === 1) {
-            return ['label' => '0.5%', 'numeric' => $num ?? 0.5];
+            return ['label' => '0.5%', 'numeric' => $num ?? 0.5, 'qualifier' => 'exact'];
+        }
+
+        // Preserve exact residuals such as 0.33% — do not collapse into <0.5%.
+        if (preg_match('/^(\d+(?:\.\d+)?)\s*%$/', $label, $m) === 1) {
+            $parsed = (float) $m[1];
+            if ($parsed > 1 && $parsed <= 100) {
+                $parsed = $parsed / 100;
+            }
+            $num ??= $parsed;
+            if ($parsed <= 0.0) {
+                return ['label' => '0.0%', 'numeric' => $num, 'qualifier' => 'exact'];
+            }
+            if (abs($parsed - 0.5) < 0.00001) {
+                return ['label' => '0.5%', 'numeric' => $num, 'qualifier' => 'exact'];
+            }
+            if ($parsed > 0.0 && $parsed < 0.5) {
+                $display = rtrim(rtrim(sprintf('%.2f', $parsed), '0'), '.').'%';
+
+                return ['label' => $display, 'numeric' => $num, 'qualifier' => 'exact'];
+            }
         }
 
         if (preg_match('/^0?\.?(\d+(?:\.\d+)?)\s*%?$/', $label, $m) === 1) {
@@ -199,30 +253,40 @@ final class Registry
             }
             $num ??= $parsed;
             if ($parsed <= 0.0) {
-                return ['label' => '0.0%', 'numeric' => $num];
+                return ['label' => '0.0%', 'numeric' => $num, 'qualifier' => 'exact'];
             }
             if (abs($parsed - 0.5) < 0.00001) {
-                return ['label' => '0.5%', 'numeric' => $num];
+                return ['label' => '0.5%', 'numeric' => $num, 'qualifier' => 'exact'];
+            }
+            if ($parsed > 0.0 && $parsed < 0.5) {
+                $display = rtrim(rtrim(sprintf('%.2f', $parsed), '0'), '.').'%';
+
+                return ['label' => $display, 'numeric' => $num, 'qualifier' => 'exact'];
             }
 
-            return ['label' => '<0.5%', 'numeric' => $num];
+            return ['label' => '<0.5%', 'numeric' => $num, 'qualifier' => 'less_than'];
         }
 
         if ($num !== null) {
             if ($num <= 0.0) {
-                return ['label' => '0.0%', 'numeric' => $num];
+                return ['label' => '0.0%', 'numeric' => $num, 'qualifier' => 'exact'];
             }
             if (abs($num - 0.5) < 0.00001) {
-                return ['label' => '0.5%', 'numeric' => $num];
+                return ['label' => '0.5%', 'numeric' => $num, 'qualifier' => 'exact'];
             }
             if ($num < 0.5) {
-                return ['label' => '<0.5%', 'numeric' => $num];
-            }
-            if ($num <= 0.5) {
-                return ['label' => '0.5%', 'numeric' => $num];
+                $display = rtrim(rtrim(sprintf('%.2f', $num), '0'), '.').'%';
+
+                return ['label' => $display, 'numeric' => $num, 'qualifier' => 'exact'];
             }
         }
 
-        return ['label' => $label !== '' ? $label : 'Not published', 'numeric' => $num];
+        $fallback = $label !== '' ? $label : 'Not published';
+
+        return [
+            'label' => $fallback,
+            'numeric' => $num,
+            'qualifier' => self::abvQualifier($fallback),
+        ];
     }
 }

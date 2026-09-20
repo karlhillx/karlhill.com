@@ -4,24 +4,31 @@ slug: clearscape-rose
 id: TDS-0010
 brand: Clearscape
 product: Rosé
-abv: 'Not published'
+abv: '<0.5%'
+abv_numeric: 0.5
+abv_qualifier: less_than
 category: wine
 subcategory: rosé
 country: Australia
 style: 'Non-alcoholic Australian rosé'
-production_type: not-verified
-verified: 'no'
-production_note: 'Retailer listings call it non-alcoholic. No producer method page was found.'
+production_type: dealcoholized
+verified: 'yes'
+production_note: 'Total Wine Winery Direct listing is Non-alcoholic: Yes for an Australian rosé blend. Fitatu indexes the same line as Zero Alcohol De-Alcoholized Rosé Wine. Commercial / US TTB dealcoholized-wine practice treats the residual ceiling as <0.5% ABV; Total Wine does not print a numeric residual. Named removal technology is unpublished.'
 volume: '750 ml'
-availability: 'Total Wine & More'
+price: '$8.99 (Total Wine)'
+availability: 'Total Wine & More (Winery Direct)'
 image_alt: 'Clearscape Non-Alcoholic Rosé'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 74
-verdict: 'Australian supermarket rosé, pink and easy. No method, no ABV on the pages we can use. Taste is the whole review.'
-summary: "Clearscape's non-alcoholic rosé is an Australian 750 ml bottle sold at Total Wine. Process details are unpublished."
+verdict: 'Australian supermarket rosé, pink and easy. Dealcoholized on secondary catalog language; residual ABV is a commercial ceiling, not a producer sheet.'
+summary: "Clearscape's non-alcoholic rosé is an Australian 750 ml Winery Direct bottle at Total Wine. Process details stay unpublished; ABV prints as <0.5% from commercial dealcoholized-wine practice."
+discrepancies:
+  -
+    field: abv
+    note: 'Total Wine product details mark Non-alcoholic: Yes but do not publish a residual ABV number. RoomBox catalog copy for the same SKU left ABV as N/A. We print <0.5% as the standard US commercial / TTB dealcoholized-wine ceiling, secondary confidence — not a producer-verified residual.'
 tastes:
   - 'red berry'
   - watermelon
@@ -38,13 +45,22 @@ best_for: 'The second pink on a week when Be Free is out.'
 serve: 'Well chilled.'
 sources:
   -
-    title: 'Clearscape Non-Alcoholic Chardonnay — RoomBox (same brand line)'
-    url: 'https://www.orderroombox.com/product/clearscape-non-alcoholic-chardonnay/'
+    title: 'Clearscape Non-Alcoholic Rose — Total Wine & More'
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/rose-blend/low-calorie/clearscape-nonalcoholic-rose/p/2126255591'
     claims:
       - origin
       - country
       - volume
+      - price
       - availability
+      - production_type
+      - abv
+  -
+    title: 'Zero Alcohol De-Alcoholized Rosé Wine (Clearscape) — Fitatu'
+    url: 'https://www.fitatu.com/catalog/us/zero-alcohol-de-alcoholized-rose-wine--120862617'
+    claims:
+      - dealcoholized
+      - production_type
 status: published
 product_id: TDS-0010
 identifiers:
@@ -67,23 +83,37 @@ structure_scales:
   finish_length: 0
 provenance:
   country:
-    kind: unknown
+    kind: retailer
     confidence: secondary
-    url: 'https://www.orderroombox.com/product/clearscape-non-alcoholic-chardonnay/'
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/rose-blend/low-calorie/clearscape-nonalcoholic-rose/p/2126255591'
   volume:
-    kind: unknown
+    kind: retailer
     confidence: secondary
-    url: 'https://www.orderroombox.com/product/clearscape-non-alcoholic-chardonnay/'
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/rose-blend/low-calorie/clearscape-nonalcoholic-rose/p/2126255591'
+  price:
+    kind: retailer
+    confidence: secondary
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/rose-blend/low-calorie/clearscape-nonalcoholic-rose/p/2126255591'
   availability:
-    kind: unknown
+    kind: retailer
     confidence: secondary
-    url: 'https://www.orderroombox.com/product/clearscape-non-alcoholic-chardonnay/'
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/rose-blend/low-calorie/clearscape-nonalcoholic-rose/p/2126255591'
+  abv:
+    kind: retailer
+    confidence: secondary
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/rose-blend/low-calorie/clearscape-nonalcoholic-rose/p/2126255591'
+    note: 'Total Wine does not print a residual ABV. <0.5% is the commercial / TTB dealcoholized-wine ceiling for this Non-alcoholic Winery Direct SKU — not producer-verified.'
+  production_type:
+    kind: retailer
+    confidence: secondary
+    url: 'https://www.fitatu.com/catalog/us/zero-alcohol-de-alcoholized-rose-wine--120862617'
+    note: 'Fitatu indexes Clearscape as De-Alcoholized Rosé; Total Wine Winery Direct lists Non-alcoholic. Named removal technology unpublished.'
 ---
 
-Clearscape Non-Alcoholic Rosé is non-alcoholic with an unpublished production process from Australia. No cited producer page names a removal technique, so the badge stays not-verified. The glass is easy pink fruit. It does the job the Be Free Rosé already does, with less documentation.
+Clearscape Non-Alcoholic Rosé is dealcoholized from Australia — Total Wine Winery Direct. Fitatu calls the line De-Alcoholized; residual strength here is <0.5% from commercial dealcoholized-wine practice, not a number on the Total Wine page. Named removal technology stays unpublished. The glass is easy pink fruit. It does the job the Be Free Rosé already does, with thinner documentation.
 
 The nose is soft red berry, a little watermelon. Simple.
 
-On the palate, light, slightly sweet, low acid. More refreshment than wine structure. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the palate, light, slightly sweet, low acid. More refreshment than wine structure.
 
-The finish is short and fruity. Australian supermarket rosé, pink and easy. No method, no ABV on the pages we can use. Taste is the whole review. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+The finish is short and fruity. Australian supermarket rosé, pink and easy. Dealcoholized on secondary catalog language; residual ABV is a commercial ceiling, not a producer sheet.

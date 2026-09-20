@@ -496,6 +496,7 @@ final class Catalog
             'style_slug',
             'method_facet',
             'abv_bucket',
+            'abv_qualifier',
             'country_slug',
             'search_text',
             'product_id',
@@ -588,6 +589,7 @@ SQL);
         $this->ensureColumn('style_slug', 'style_slug TEXT');
         $this->ensureColumn('method_facet', 'method_facet TEXT');
         $this->ensureColumn('abv_bucket', 'abv_bucket TEXT');
+        $this->ensureColumn('abv_qualifier', 'abv_qualifier TEXT');
         $this->ensureColumn('country_slug', 'country_slug TEXT');
         $this->ensureColumn('search_text', 'search_text TEXT');
         $this->ensureColumn('product_id', 'product_id TEXT');

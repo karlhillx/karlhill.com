@@ -5,7 +5,9 @@ id: TDS-0026
 ean: '0833202003339'
 brand: 'Biagio Cru'
 product: 'Non-Alcoholic Rosé All Day'
-abv: 'Not published'
+abv: 0.0%
+abv_numeric: 0.0
+abv_qualifier: exact
 category: wine
 subcategory: rosé
 country: France
@@ -14,16 +16,16 @@ style: 'Dealcoholized Côtes du Roussillon rosé (Grenache)'
 base_beverage: 'Grenache rosé, Côtes du Roussillon'
 production_type: dealcoholized
 verified: 'yes'
-production_note: "Total Wine's product highlights describe 'early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal—preserving the wine's natural balance, flavor, and elegance'; the specific named removal technology is not published."
-availability: 'Total Wine & More'
+production_note: "Rosé All Day Zero is the alcohol-removed extension of Biagio Cru's Rosé All Day. Trade press and Target manufacturer-supplied product data list 0% / Alcohol Percentage: 0. Named removal technology remains unpublished."
+availability: 'Total Wine & More; Target'
 image_alt: 'Biagio Cru Non-Alcoholic Rosé All Day'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 71
 verdict: 'A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf.'
-summary: 'Biagio Cru Rosé All Day is a Total Wine NA rosé bought twice in this house. Process and ABV are unpublished.'
+summary: 'Biagio Cru Rosé All Day Zero is an alcohol-removed French rosé at 0.0% ABV per brand launch copy and Target product data.'
 tastes:
   - 'generic red berry'
 profile:
@@ -46,6 +48,22 @@ sources:
       - region
       - dealcoholized
       - base_beverage
+  -
+    title: 'Rosé All Day Introduces Zero And Lower-Alcohol Sparkling Offerings — Market Watch'
+    url: 'https://www.marketwatchmag.com/rose-all-day-introduces-zero-and-lower-alcohol-sparkling-offerings/'
+    claims:
+      - abv
+      - dealcoholized
+      - producer
+  -
+    title: 'Rose All Day Zero Alcohol 750ml — Target'
+    url: 'https://www.target.com/p/rose-all-day-zero-alcohol-750ml-bottle/-/A-95009399'
+    claims:
+      - abv
+      - dealcoholized
+      - calories
+      - volume
+      - availability
 status: published
 product_id: TDS-0026
 identifiers:
@@ -62,10 +80,15 @@ structure_scales:
   body: 1
   finish_length: 0
 provenance:
+  abv:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.marketwatchmag.com/rose-all-day-introduces-zero-and-lower-alcohol-sparkling-offerings/'
+    note: 'Brand launch copy: Rosé All Day Zero (0% abv). Target manufacturer-supplied product data: Alcohol Percentage: 0.'
   availability:
     kind: retailer
     confidence: secondary
-    url: 'https://www.totalwine.com/wine/rose-blush-wine/grenache/biagio-cru-nonalcoholic-rose-all-day/p/2126275660'
+    url: 'https://www.target.com/p/rose-all-day-zero-alcohol-750ml-bottle/-/A-95009399'
   country:
     kind: retailer
     confidence: secondary
@@ -75,9 +98,9 @@ provenance:
     confidence: secondary
     url: 'https://www.totalwine.com/wine/rose-blush-wine/grenache/biagio-cru-nonalcoholic-rose-all-day/p/2126275660'
   production_type:
-    kind: retailer
-    confidence: secondary
-    url: 'https://www.totalwine.com/wine/rose-blush-wine/grenache/biagio-cru-nonalcoholic-rose-all-day/p/2126275660'
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.marketwatchmag.com/rose-all-day-introduces-zero-and-lower-alcohol-sparkling-offerings/'
   base_beverage:
     kind: retailer
     confidence: secondary
@@ -93,7 +116,7 @@ sensory:
       - palate
 ---
 
-Biagio Cru Rosé All Day is dealcoholized from Languedoc, France. The base is Grenache rosé, Côtes du Roussillon. Total Wine's product highlights describe 'early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal—preserving the wine's natural bal….
+Biagio Cru Rosé All Day Zero is dealcoholized Grenache rosé from Languedoc, France. Brand and Target product data list 0.0% ABV; the named removal machine stays unpublished.
 
 The nose is generic red berry.
 

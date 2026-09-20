@@ -21,10 +21,10 @@ hop-wtr-blood-orange,TDS-0036,78,2026-09-18,2026-09-19,published,,1,3,citrus,not
 halfway-crooks-brevet-ipa,TDS-0005,90,2026-09-18,2026-09-19,published,,1,,"orange_peel,biscuit",unpublished,unpublished,
 halfway-crooks-brevet-pils,TDS-0008,88,2026-09-18,2026-09-19,published,,,3,"biscuit,fennel",unpublished,half,
 appalina-chardonnay,TDS-0003,79,2026-09-18,2026-09-19,published,,1,,"lemon,pear,green_apple,mineral",vacuum-distillation,half,white
-ariel-chardonnay,TDS-0086,79,2026-09-18,2026-09-19,published,,1,,passionfruit,spinning-cone,unpublished,white
+ariel-chardonnay,TDS-0086,79,2026-09-18,2026-09-20,published,,1,,passionfruit,spinning-cone,half,white
 be-free-chardonnay,TDS-0006,76,2026-09-18,2026-09-19,draft,2,1,,"pear,green_apple",unpublished,half,white
 butter-zero-chardonnay,TDS-0081,76,2026-09-18,2026-09-19,published,,1,,pear,unpublished,half,white
-clearscape-chardonnay,TDS-0021,75,2026-09-18,2026-09-19,published,,1,3,"white_peach,melon,almond",unpublished,unpublished,white
+clearscape-chardonnay,TDS-0021,75,2026-09-18,2026-09-20,published,,1,3,"white_peach,melon,almond",unpublished,half,white
 crodino-non-alcoholic-spritz,TDS-0032,78,2026-09-18,2026-09-19,published,2,,,"orange_peel,gentian",not-applicable,zero,
 valckenberg-zero-sparkling,TDS-0065,78,2026-09-18,2026-09-19,published,,1,,lemon,unpublished,zero,sparkling
 nonny-czech-pilsner,TDS-0047,83,2026-09-18,2026-09-19,published,,1,3,malt,unpublished,half,
@@ -39,7 +39,7 @@ untitled-art-flvr-italian-pils,TDS-0052,83,2026-09-18,2026-09-19,published,2,,3,
 untitled-art-flvr-juicy-ipa,TDS-0089,82,2026-09-18,2026-09-19,published,,,,citrus,reverse-osmosis,half,
 untitled-art-flvr-mango-dragonfruit,TDS-0044,84,2026-09-18,2026-09-19,published,,1,3,"mango,passionfruit",reverse-osmosis,half,
 fio-fabelhaft-riesling,TDS-0073,81,2026-09-18,2026-09-19,published,2,1,3,"pear,citrus_blossom,nectarine",unpublished,half,white
-band-of-vintners-freestyle,TDS-0019,80,2026-09-18,2026-09-19,published,,1,,"orange_peel,tea,stone",unpublished,unpublished,
+band-of-vintners-freestyle,TDS-0019,80,2026-09-18,2026-09-20,published,,1,,"orange_peel,tea,stone",unpublished,half,
 grad-36,TDS-0029,84,2026-09-18,2026-09-19,published,2,,3,"plum,spice,blackcurrant,lavender",unpublished,half,red
 pure-project-grounded,TDS-0090,83,2026-09-18,2026-09-19,published,,1,,"lemongrass,grapefruit,orange,hops",unpublished,half,
 guinness-0-0,TDS-0097,91,2026-09-18,2026-09-19,published,2,1,,"roasted_barley,cocoa_nib,coffee",membrane-filtration,zero,
@@ -58,10 +58,10 @@ deschutes-fresh-squeezed-na,TDS-0093,84,2026-09-18,2026-09-19,published,,2,,"cit
 penns-best-lager,TDS-0085,72,2026-09-18,2026-09-19,published,,1,,"malt,toasted_grain",unpublished,half,
 savyll-moscow-mule,TDS-0013,73,2026-09-18,2026-09-19,published,2,,,"ginger,lime_zest",not-applicable,unpublished,
 lapos-negroni,TDS-0040,81,2026-09-18,2026-09-19,published,2,,,orange_peel,not-applicable,half,
-heidemanns-bergweiler-riesling,TDS-0017,79,2026-09-18,2026-09-20,published,2,1,3,"lime,green_apple,slate",unpublished,unpublished,white
+heidemanns-bergweiler-riesling,TDS-0017,79,2026-09-18,2026-09-20,published,2,1,3,"lime,green_apple,slate",unpublished,zero,white
 de-nada-rose,TDS-0070,79,2026-09-18,2026-09-19,published,,1,,"red_berry,citrus",unpublished,half,rose
 st-regis-non-alcoholic-rose,TDS-0095,76,2026-09-18,2026-09-19,published,2,2,3,"strawberry,raspberry,balsamic,molasses",vacuum-distillation,half,rose
-biagio-cru-rose-all-day,TDS-0026,71,2026-09-18,2026-09-19,published,2,1,3,red_berry,unpublished,unpublished,rose
+biagio-cru-rose-all-day,TDS-0026,71,2026-09-18,2026-09-20,published,2,1,3,red_berry,unpublished,zero,rose
 missing-thorn-still-white,TDS-0067,81,2026-09-18,2026-09-19,published,,1,3,lychee,unpublished,half,white
 noughty-dealcoholized-rose,TDS-0027,84,2026-09-18,2026-09-19,published,,,,apricot,spinning-cone,half,rose
 noughty-sparkling-chardonnay,TDS-0098,84,2026-09-18,2026-09-19,published,2,1,,"apple,lemon",vacuum-distillation,zero,sparkling
@@ -71,10 +71,10 @@ eric-bordelet-perlant,TDS-0055,86,2026-09-18,2026-09-19,published,,1,,"floral,ap
 stagrestis-phony-negroni,TDS-0038,86,2026-09-18,2026-09-19,published,2,,,"gentian,hops",not-applicable,zero,
 ollivier-cottenceau-phenomene,TDS-0060,84,2026-09-18,2026-09-19,published,2,,3,green_apple,unpublished,half,white
 butter-zero-pinot-noir,TDS-0079,75,2026-09-18,2026-09-19,published,,1,,"red_berry,cherry",unpublished,half,red
-almost-zero-ravishing-rose,TDS-0012,72,2026-09-18,2026-09-19,published,2,1,3,strawberry,spinning-cone,unpublished,rose
+almost-zero-ravishing-rose,TDS-0012,72,2026-09-18,2026-09-20,published,2,1,3,strawberry,spinning-cone,half,rose
 site-riesling-dealcoholized,TDS-0109,81,2026-09-19,2026-09-19,published,2,1,3,"green_apple,pear,lemon,white_peach",vacuum-distillation,half,white
 be-free-rose,TDS-0001,78,2026-09-18,2026-09-19,published,2,,3,"cherry,watermelon,red_berry",unpublished,half,rose
-clearscape-rose,TDS-0010,74,2026-09-18,2026-09-19,published,2,1,3,"red_berry,watermelon",unpublished,unpublished,rose
+clearscape-rose,TDS-0010,74,2026-09-18,2026-09-20,published,2,1,3,"red_berry,watermelon",unpublished,half,rose
 kolonne-null-rose,TDS-0041,82,2026-09-18,2026-09-19,published,,,3,"strawberry,white_peach",vacuum-distillation,zero,rose
 ohla-rose,TDS-0104,74,2026-09-19,2026-09-19,published,3,1,,red_fruit,unpublished,zero,rose
 pierre-zero-rose,TDS-0049,77,2026-09-18,2026-09-19,published,,1,3,"red_currant,blackberry,blossom",unpublished,half,rose
@@ -82,7 +82,7 @@ domaine-de-montrose-rose,TDS-0061,80,2026-09-18,2026-09-19,published,2,,,red_ber
 lyres-rum-mule,TDS-0108,76,2026-09-19,2026-09-19,published,2,,,lime_zest,not-applicable,half,
 athletic-brewing-run-wild-ipa,TDS-0101,88,2026-09-18,2026-09-19,published,,,3,"hops,orange_peel",unpublished,half,
 gruvi-sangria,TDS-0053,80,2026-09-18,2026-09-19,published,2,1,,blood_orange,unpublished,half,
-be-free-sauvignon-blanc,TDS-0022,77,2026-09-18,2026-09-19,published,2,1,3,"citrus,grapefruit,floral",unpublished,unpublished,white
+be-free-sauvignon-blanc,TDS-0022,77,2026-09-18,2026-09-20,published,2,1,3,"citrus,grapefruit,floral",unpublished,half,white
 torres-serena-sauvignon-blanc,TDS-0023,81,2026-09-18,2026-09-19,published,2,1,,citrus,unpublished,zero,white
 jp-chenet-sparkling-rose,TDS-0050,78,2026-09-18,2026-09-19,published,,1,3,strawberry,unpublished,half,sparkling-rose
 mingle-sparkling-raspberry-rose,TDS-0043,79,2026-09-18,2026-09-19,published,2,1,3,"raspberry,blossom,red_berry",not-applicable,zero,
@@ -101,7 +101,7 @@ original-sin-cider,TDS-0037,78,2026-09-18,2026-09-19,published,2,,3,"apple,aceti
 wiesenobst-cider-rose,TDS-0028,85,2026-09-18,2026-09-19,published,2,,3,red_berry,unpublished,half,
 chateau-diana-zero-rose,TDS-0084,75,2026-09-18,2026-09-19,published,,,3,fruit,unpublished,zero,rose
 chateau-diana-zero-white,TDS-0083,76,2026-09-18,2026-09-19,published,,1,,"honeysuckle,floral,tropical",unpublished,zero,white
-rondel-zero-cava-rose,TDS-0024,80,2026-09-18,2026-09-20,published,2,,3,"strawberry,cherry,green_apple",unpublished,unpublished,sparkling-rose
+rondel-zero-cava-rose,TDS-0024,80,2026-09-18,2026-09-20,published,2,,3,"strawberry,cherry,green_apple",unpublished,zero,sparkling-rose
 zolo-zero-malbec-rose,TDS-0080,74,2026-09-18,2026-09-19,published,,1,3,"red_berry,plum",unpublished,unpublished,rose
 valckenberg-zero-riesling,TDS-0064,80,2026-09-18,2026-09-19,published,,1,3,"pineapple,green_apple",unpublished,zero,white
 mount-fishtail-sauvignon-blanc,TDS-0078,80,2026-09-18,2026-09-19,published,,1,,citrus,unpublished,half,white

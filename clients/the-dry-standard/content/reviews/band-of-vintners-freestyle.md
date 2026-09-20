@@ -4,7 +4,9 @@ slug: band-of-vintners-freestyle
 id: TDS-0019
 brand: 'Band of Vintners'
 product: 'Freestyle NA California'
-abv: 'Not published'
+abv: '<0.5%'
+abv_numeric: 0.5
+abv_qualifier: less_than
 category: wine
 subcategory: skin-contact
 country: 'United States'
@@ -12,7 +14,7 @@ region: 'Sonoma County and Lodi'
 style: 'Non-alcoholic California wine'
 production_type: dealcoholized
 verified: 'yes'
-production_note: "Producer's own product detail page confirms the wine is 'skin fermented with native yeasts' and blended 'in perfect balance once the alcohol is removed'; the specific named removal technology is not published."
+production_note: "Producer's own product detail page confirms the wine is 'skin fermented with native yeasts' and blended 'in perfect balance once the alcohol is removed'; the specific named removal technology is not published. Residual ABV is not on the producer page; The Zero Proof lists <0.5% ABV."
 producer: 'Band of Vintners'
 price: $20
 volume: '750 ml'
@@ -23,10 +25,10 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 80
 verdict: 'A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second.'
-summary: "The 2024 Freestyle NA is late-harvest organic fruit from Sonoma County and Lodi. Band of Vintners' shop does not document how the alcohol left."
+summary: "The 2024 Freestyle NA is late-harvest organic fruit from Sonoma County and Lodi. Residual ABV is unpublished by the producer; specialist retail lists <0.5%."
 tastes:
   - 'orange peel'
   - tea
@@ -59,6 +61,14 @@ sources:
     claims:
       - dealcoholized
       - base_beverage
+  -
+    title: 'Band of Vintners Freestyle Non-Alcoholic Skin-Contact Wine — The Zero Proof'
+    url: 'https://thezeroproof.com/products/band-of-vintners-freestyle-non-alcoholic-skin-contact-wine'
+    claims:
+      - abv
+      - volume
+      - availability
+      - dealcoholized
 status: published
 product_id: TDS-0019
 identifiers:
@@ -82,6 +92,11 @@ structure_scales:
   body: 1
   finish_length: 0
 provenance:
+  abv:
+    kind: retailer
+    confidence: secondary
+    url: 'https://thezeroproof.com/products/band-of-vintners-freestyle-non-alcoholic-skin-contact-wine'
+    note: 'Specialist retailer lists <0.5% ABV. Producer confirms alcohol removal but does not publish residual ABV.'
   country:
     kind: retailer
     confidence: secondary

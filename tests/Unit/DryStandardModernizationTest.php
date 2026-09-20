@@ -24,9 +24,38 @@ it('normalizes provenance confidence aliases', function () {
 });
 
 it('normalizes abv labels without inventing facts', function () {
-    expect(Registry::normalizeAbv('0.3%', 0.3))->toBe(['label' => '<0.5%', 'numeric' => 0.3])
-        ->and(Registry::normalizeAbv('<0.1%', 0.1))->toBe(['label' => '<0.5%', 'numeric' => 0.1])
-        ->and(Registry::normalizeAbv('0.0%', 0.0))->toBe(['label' => '0.0%', 'numeric' => 0.0]);
+    expect(Registry::normalizeAbv('0.3%', 0.3))->toBe([
+        'label' => '0.3%',
+        'numeric' => 0.3,
+        'qualifier' => 'exact',
+    ])
+        ->and(Registry::normalizeAbv('<0.1%', 0.1))->toBe([
+            'label' => '<0.1%',
+            'numeric' => 0.1,
+            'qualifier' => 'less_than',
+        ])
+        ->and(Registry::normalizeAbv('<0.5%', 0.5))->toBe([
+            'label' => '<0.5%',
+            'numeric' => 0.5,
+            'qualifier' => 'less_than',
+        ])
+        ->and(Registry::normalizeAbv('0.5%', 0.5))->toBe([
+            'label' => '0.5%',
+            'numeric' => 0.5,
+            'qualifier' => 'exact',
+        ])
+        ->and(Registry::normalizeAbv('0.0%', 0.0))->toBe([
+            'label' => '0.0%',
+            'numeric' => 0.0,
+            'qualifier' => 'exact',
+        ])
+        ->and(Registry::normalizeAbv('Not published', null))->toBe([
+            'label' => 'Not published',
+            'numeric' => null,
+            'qualifier' => 'unpublished',
+        ])
+        ->and(Registry::abvQualifier('0.33%'))->toBe('exact')
+        ->and(Registry::abvQualifier('<0.5%'))->toBe('less_than');
 });
 
 it('maps empty dealcoholization methods to unpublished facet', function () {
