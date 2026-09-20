@@ -1229,21 +1229,21 @@
   last_seen: 1783123200
   notes: 'From the master product table. Purchased 1 time(s) between 2026-07-04 and 2026-07-04. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: "It's Not a Sin Ginger/Bitter Orange"
+  product: "It's not a SIN Ginger / Bitter Orange Peel"
   id: TDS-0075
   brand: 'P.J. Valckenberg'
-  category: cocktails
+  category: wine
   priority: low
   status: published
-  production_type: alternative
+  production_type: hybrid
   verified: 'yes'
-  method: 'Same producer as Valckenberg''s verified "Zero" dealcoholized wine line, but this specific botanical-infused SKU''s own production method not independently verified'
-  abv: 'Not published'
+  method: 'Vacuum rectification at 30°C; finished with natural ginger flavor, bitter-orange-peel distillate, and carbonic acid'
+  abv: '<0.5%'
   seen_at: InternetWines.com
   times_purchased: 1
   first_seen: 1785024000
   last_seen: 1785024000
-  notes: 'From the master product table. Purchased 1 time(s) between 2026-07-26 and 2026-07-26. Do not publish until ABV and dealcoholization are sourced.'
+  notes: 'Corrected from misclassified aperitivo/alternative. Dealcoholized Riesling hybrid with added ginger and bitter-orange peel plus CO2.'
 -
   product: 'Tidal Wave White'
   id: TDS-0076

@@ -41,7 +41,6 @@ slate salt: slate
 salty slate: slate
 bright citrus: citrus
 citrus fruit: citrus
-citrus peel: orange_peel
 citrusy lilt: citrus
 lime peel: lime_zest
 lime zest: lime_zest
@@ -51,9 +50,7 @@ bitter orange: orange
 blood orange: blood_orange
 ruby grapefruit: grapefruit
 grapefruit pith: grapefruit_pith
-white peach: white_peach
 white nectarine: nectarine
-tropical fruit: passionfruit
 tart passionfruit: passionfruit
 red berries: red_berry
 red-berry lift: red_berry
