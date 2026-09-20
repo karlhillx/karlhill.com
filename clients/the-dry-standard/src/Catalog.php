@@ -321,6 +321,16 @@ final class Catalog
             $statement->bindValue(':'.$name, $value);
         }
         $statement->execute();
+
+        $id = trim((string) ($record['id'] ?? ''));
+        $slug = trim((string) ($record['slug'] ?? ''));
+        if ($id !== '' && $slug !== '') {
+            $retire = $this->pdo->prepare('DELETE FROM products WHERE id = :id AND slug != :slug');
+            $retire->execute([
+                'id' => $id,
+                'slug' => $slug,
+            ]);
+        }
     }
 
     /**

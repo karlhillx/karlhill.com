@@ -256,3 +256,39 @@
   brand: 'Domaine de Montrose'
   published_at: '2026-09-19T00:54:31+00:00'
   path: reviews/wine/domaine-de-montrose-rose/
+-
+  slug: ohla-rosado
+  product: Rosado
+  brand: Ohla
+  published_at: '2026-09-19T23:56:54+00:00'
+  path: reviews/wine/ohla-rosado/
+-
+  slug: hitachino-nest-non-ale
+  product: 'Non Ale'
+  brand: 'Hitachino Nest'
+  published_at: '2026-09-19T23:56:54+00:00'
+  path: reviews/beer/hitachino-nest-non-ale/
+-
+  slug: dr-lo-alcohol-removed-riesling
+  product: 'Alcohol-Removed Riesling'
+  brand: 'Dr. Lo'
+  published_at: '2026-09-19T23:56:54+00:00'
+  path: reviews/wine/dr-lo-alcohol-removed-riesling/
+-
+  slug: pierre-zero-sparkling-rose
+  product: 'Sparkling Rosé'
+  brand: 'Pierre Zéro'
+  published_at: '2026-09-19T23:56:55+00:00'
+  path: reviews/wine/pierre-zero-sparkling-rose/
+-
+  slug: lyres-rum-mule
+  product: 'Rum Mule'
+  brand: "Lyre's"
+  published_at: '2026-09-19T23:56:55+00:00'
+  path: reviews/cocktails/lyres-rum-mule/
+-
+  slug: ohla-rose
+  product: Rosé
+  brand: Ohla
+  published_at: '2026-09-20T00:05:07+00:00'
+  path: reviews/wine/ohla-rose/

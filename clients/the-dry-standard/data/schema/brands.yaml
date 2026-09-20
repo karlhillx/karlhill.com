@@ -12,3 +12,30 @@ valckenberg:
     - P.J. Valckenberg
     - PJ Valckenberg
     - P. J. Valckenberg
+ohla:
+  name: Ohla
+  aliases:
+    - Ohla!
+    - OHLA
+hitachino-nest:
+  name: Hitachino Nest
+  aliases:
+    - Hitachino
+    - Kiuchi Brewery
+    - Kiuchi
+dr-lo:
+  name: Dr. Lo
+  aliases:
+    - Dr Lo
+    - Loosen Bros
+    - Loosen Bros.
+    - Gebrüder Loosen
+pierre-zero:
+  name: Pierre Zéro
+  aliases:
+    - Pierre Zero
+lyres:
+  name: Lyre's
+  aliases:
+    - Lyres
+    - Lyre's Spirit Co

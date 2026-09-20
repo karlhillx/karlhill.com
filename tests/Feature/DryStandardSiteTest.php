@@ -368,6 +368,51 @@ it('sends a client CSP and first-party analytics flag', function () {
         ->assertDontSee('window.__dryStandardAnalytics', escape: false);
 });
 
+it('serves the purchased Ohla, Hitachino, Dr. Lo, Pierre sparkling, and Lyre\'s mule reviews', function () {
+    $this->get('/clients/the-dry-standard/reviews/wine/ohla-rose/')
+        ->assertOk()
+        ->assertSee('Production type: Dealcoholized', escape: false)
+        ->assertSee('Syrah and Cabernet Sauvignon', escape: false)
+        ->assertSee('media/reviews/ohla-rose.jpg', escape: false)
+        ->assertSee('Ohla! Rosé', escape: false)
+        ->assertDontSee('TDS-0104', escape: false);
+
+    $this->get('/clients/the-dry-standard/reviews/wine/ohla-rosado/')
+        ->assertNotFound();
+
+    $this->get('/clients/the-dry-standard/reviews/beer/hitachino-nest-non-ale/')
+        ->assertOk()
+        ->assertSee('Production type: Naturally low alcohol', escape: false)
+        ->assertSee('0.3%', escape: false)
+        ->assertSee('media/reviews/hitachino-nest-non-ale.jpg', escape: false);
+
+    $this->get('/clients/the-dry-standard/reviews/wine/dr-lo-alcohol-removed-riesling/')
+        ->assertOk()
+        ->assertSee('Vacuum distillation', escape: false)
+        ->assertSee('Mosel', escape: false)
+        ->assertSee('media/reviews/dr-lo-alcohol-removed-riesling.jpg', escape: false);
+
+    $this->get('/clients/the-dry-standard/reviews/wine/pierre-zero-sparkling-rose/')
+        ->assertOk()
+        ->assertSee('Spinning cone', escape: false)
+        ->assertSee('Chardonnay and Merlot', escape: false)
+        ->assertDontSee('3 litres (bag-in-box)', escape: false);
+
+    $this->get('/clients/the-dry-standard/reviews/cocktails/lyres-rum-mule/')
+        ->assertOk()
+        ->assertSee('Production type: Alternative', escape: false)
+        ->assertSee('Formulated', escape: false)
+        ->assertSee('media/reviews/lyres-rum-mule.jpg', escape: false);
+
+    $this->get('/clients/the-dry-standard/styles/riesling/')
+        ->assertOk()
+        ->assertSee('dr-lo-alcohol-removed-riesling', escape: false);
+
+    $this->get('/clients/the-dry-standard/styles/sparkling-rose/')
+        ->assertOk()
+        ->assertSee('pierre-zero-sparkling-rose', escape: false);
+});
+
 it('keeps Guinness card title and related-by-style', function () {
     $this->get('/clients/the-dry-standard/reviews/beer/guinness-0-0/')
         ->assertOk()

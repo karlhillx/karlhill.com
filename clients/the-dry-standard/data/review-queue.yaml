@@ -1,4 +1,57 @@
 -
+  product: Rosé
+  id: TDS-0104
+  ean: '0716819559539'
+  brand: Ohla
+  category: wine
+  priority: high
+  status: published
+  production_type: dealcoholized
+  verified: 'yes'
+  notes: 'Purchased 2026-09-19. Receipt: OHLA ROSE NON ALCOHOLIC, $19.99, 1 bottle. US label is Ohla! De-Alcoholized Wine, not Rosado.'
+-
+  product: 'Non Ale'
+  id: TDS-0105
+  brand: 'Hitachino Nest'
+  category: beer
+  priority: high
+  status: published
+  production_type: naturally-low-alcohol
+  verified: 'yes'
+  notes: 'Purchased 2026-09-19. Receipt: HITACHIO NON-Alcoholic, $5.99, 1 bottle. Kiuchi original malt-and-hops Non Ale, not the yuzu-ginger SKU.'
+-
+  product: 'Alcohol-Removed Riesling'
+  id: TDS-0106
+  ean: '0810404021415'
+  brand: 'Dr. Lo'
+  category: wine
+  priority: high
+  status: published
+  production_type: dealcoholized
+  verified: 'yes'
+  notes: 'Purchased 2026-09-19. Receipt: SITE RIESLING DEALCOHOLIZED, $14.99, 1 bottle. Identified as Dr. Lo Alcohol-Removed Riesling (Loosen Bros., Mosel).'
+-
+  product: 'Sparkling Rosé'
+  id: TDS-0107
+  ean: '3760200893723'
+  brand: 'Pierre Zéro'
+  category: wine
+  priority: high
+  status: published
+  production_type: dealcoholized
+  verified: 'yes'
+  notes: 'Purchased 2026-09-19. Receipt: PIERRE ZERO SPARKLING ROSE, $16.99, 1 bottle. Distinct from the 3 L bag-in-box already published as pierre-zero-rose.'
+-
+  product: 'Rum Mule'
+  id: TDS-0108
+  brand: "Lyre's"
+  category: cocktails
+  priority: high
+  status: published
+  production_type: alternative
+  verified: 'yes'
+  notes: "Purchased 2026-09-19. Receipt: LYRE'S NON- ALCOHOLIC RUM MULE, $15.99, 1 can."
+-
   product: 'Run Wild IPA'
   id: TDS-0101
   brand: 'Athletic Brewing'
@@ -175,7 +228,7 @@
   last_seen: 1787875200
   notes: 'From the master product table. Purchased 6 time(s) between 2026-01-11 and 2026-08-28. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Rosé'
+  product: Rosé
   id: TDS-0010
   brand: Clearscape
   category: wine
@@ -354,7 +407,7 @@
   last_seen: 1786492800
   notes: 'From the master product table. Purchased 3 time(s) between 2026-03-06 and 2026-08-12. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Chardonnay'
+  product: Chardonnay
   id: TDS-0021
   ean: '0935843208064'
   brand: Clearscape
@@ -1335,7 +1388,7 @@
   last_seen: 1786406400
   notes: 'From the master product table. Purchased 1 time(s) between 2026-08-11 and 2026-08-11. Do not publish until ABV and dealcoholization are sourced.'
 -
-  product: 'Chardonnay'
+  product: Chardonnay
   id: TDS-0086
   ean: '0089121830024'
   brand: 'Ariel (Ariel Vineyards / J. Lohr)'
