@@ -320,6 +320,10 @@ it('disallows crawlers while staged and puts Best in the primary nav', function 
         ->assertSee('>How it’s made</a>', escape: false)
         ->assertSee('>Styles</a>', escape: false)
         ->assertSee('Find a bottle by how it was made', escape: false)
+        ->assertSee('Browse by drink', escape: false)
+        ->assertSee('page-home', escape: false)
+        ->assertSee('card-grid--rail', escape: false)
+        ->assertSee('category-rail--chips', escape: false)
         ->assertDontSee('stats-grid', escape: false)
         ->assertSee('fonts/fraunces.woff2', escape: false)
         ->assertDontSee('fonts.googleapis.com', escape: false);

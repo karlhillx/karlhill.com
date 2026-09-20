@@ -1,4 +1,14 @@
 -
+  product: 'Black Butte Non-Alcoholic'
+  id: TDS-0110
+  brand: 'Deschutes Brewery'
+  category: beer
+  priority: high
+  status: published
+  production_type: dealcoholized
+  verified: 'yes'
+  notes: 'Published 2026-09-20. Score 87. BrewVo dealcoholized; ABV <0.5% (label + producer). Editorial can still.'
+-
   product: Rosé
   id: TDS-0104
   ean: '0716819559539'

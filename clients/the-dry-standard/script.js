@@ -597,12 +597,93 @@
     }
   };
 
+  const reveal = () => {
+    const nodes = [...document.querySelectorAll("[data-reveal]")];
+    const mark = (node) => node.classList.add("is-inview");
+    const nearViewport = (node) => {
+      const rect = node.getBoundingClientRect();
+      return rect.top < window.innerHeight * 0.94 && rect.bottom > 0;
+    };
+
+    if (!nodes.length) {
+      document.documentElement.classList.add("js");
+      return;
+    }
+
+    // Mark what is already on screen before enabling hide-until-reveal CSS.
+    nodes.filter(nearViewport).forEach(mark);
+    document.documentElement.classList.add("js");
+
+    const pending = nodes.filter((node) => !node.classList.contains("is-inview"));
+    if (!pending.length) {
+      return;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      pending.forEach(mark);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+          mark(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.08 },
+    );
+
+    pending.forEach((node) => observer.observe(node));
+  };
+
+  const cardRails = () => {
+    const rails = [...document.querySelectorAll("[data-card-rail]")];
+    if (!rails.length) {
+      return;
+    }
+
+    const sync = (rail) => {
+      const track = rail.querySelector(".card-grid--rail");
+      if (!track) {
+        return;
+      }
+
+      const max = track.scrollWidth - track.clientWidth;
+      const scrollable = max > 8;
+      rail.classList.toggle("is-scrollable", scrollable);
+      if (!scrollable) {
+        rail.classList.remove("show-start", "show-end");
+        return;
+      }
+
+      rail.classList.toggle("show-start", track.scrollLeft > 8);
+      rail.classList.toggle("show-end", track.scrollLeft < max - 8);
+    };
+
+    rails.forEach((rail) => {
+      const track = rail.querySelector(".card-grid--rail");
+      if (!track) {
+        return;
+      }
+
+      sync(rail);
+      track.addEventListener("scroll", () => sync(rail), { passive: true });
+      window.addEventListener("resize", () => sync(rail), { passive: true });
+    });
+  };
+
   chrome();
   directory();
   archive();
   compareTray();
   analytics();
   inPageJump();
+  reveal();
+  cardRails();
   window.addEventListener("popstate", () => {
     const root = document.querySelector("[data-archive]");
     if (root && typeof root._swapFromLocation === "function") {

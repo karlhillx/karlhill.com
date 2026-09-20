@@ -42,7 +42,7 @@ purchase_links:
     url: 'https://thezeroproof.com/products/buy-noughty-sparkling-chardonna'
     region: US
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 84
 verdict: "A clean, apple-forward sparkling wine that was actually a wine first. It will not replace grower Champagne. It will replace most of the NA 'bubbly' that never fermented."
 summary: 'Organic La Mancha Chardonnay, dealcoholized, then lightly carbonated. Pale, crisp, and modestly sweet — with a documented alcohol-removal step.'

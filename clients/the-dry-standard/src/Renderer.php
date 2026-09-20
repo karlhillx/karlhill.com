@@ -169,7 +169,7 @@ HTML;
             ]);
         });
 
-        $guideCards = $guides->take(2)->map(function (PageDocument $guide): string {
+        $guideCards = $guides->take(1)->map(function (PageDocument $guide): string {
             return $this->view->render('partials/text-card', [
                 'kicker' => 'Guide',
                 'href' => $this->config->publicUrl('guides/'.$guide->slug.'/'),
@@ -181,6 +181,15 @@ HTML;
 
         $readCards = $methodCards->concat($guideCards)->implode('');
 
+        $categoryItems = [];
+        foreach ($this->config->categories() as $category) {
+            $categoryItems[] = [
+                'href' => $this->config->publicUrl('reviews/'.$category.'/'),
+                'label' => $this->config->categoryLabel($category),
+                'count' => $reviews->filter(fn (Review $review): bool => $review->category === $category)->count(),
+            ];
+        }
+
         $body = $this->view->render('home', [
             'tagline' => $this->config->tagline(),
             'reviewsUrl' => $this->config->publicUrl('reviews/'),
@@ -191,7 +200,13 @@ HTML;
             'featured' => $featuredReview instanceof Review ? $this->featuredReview($featuredReview) : '',
             'processRail' => $this->view->render('partials/category-rail', [
                 'label' => 'Browse by production type',
+                'variant' => 'chips',
                 'items' => $processItems,
+            ]),
+            'categoryRail' => $this->view->render('partials/category-rail', [
+                'label' => 'Browse by drink',
+                'variant' => 'tiles',
+                'items' => $categoryItems,
             ]),
             'latestCards' => $this->reviewCards($latest, compact: true),
             'ratedCards' => $this->reviewCards($highlyRated, compact: true),
@@ -205,6 +220,7 @@ HTML;
             $body,
             [
                 'nav' => 'home',
+                'body_class' => 'page-home',
                 'image' => $featuredReview?->imageSrc() ?? '',
                 'json_ld' => $this->jsonLd([
                     $this->websiteGraph(),
@@ -1753,9 +1769,11 @@ XML;
             'webp' => ($assets['webp'] ?? null) ? $this->config->publicUrl((string) $assets['webp']) : '',
             'webpSrcset' => $this->srcsetUrls($assets['webpSrcset'] ?? ''),
             'srcset' => $this->srcsetUrls($assets['srcset'] ?? ''),
-            'sizes' => $hero
-                ? '(max-width: 640px) 42vw, 224px'
-                : '(max-width: 640px) 92vw, (max-width: 980px) 45vw, 274px',
+            'sizes' => match (true) {
+                str_contains($class, 'product-figure--feature') => '(max-width: 640px) 78vw, (max-width: 1024px) 42vw, 420px',
+                $hero => '(max-width: 640px) 42vw, 224px',
+                default => '(max-width: 640px) 78vw, (max-width: 980px) 45vw, 274px',
+            },
             'width' => $assets['width'] ?? 720,
             'height' => $assets['height'] ?? 960,
             'alt' => $review->imageAltText(),

@@ -574,3 +574,9 @@
   brand: '90+ Cellars'
   published_at: '2026-09-20T01:19:40+00:00'
   path: reviews/wine/90-cellars-lot-229/
+-
+  slug: deschutes-black-butte-na
+  product: 'Black Butte Non-Alcoholic'
+  brand: 'Deschutes Brewery'
+  published_at: '2026-09-20T05:12:54+00:00'
+  path: reviews/beer/deschutes-black-butte-na/
