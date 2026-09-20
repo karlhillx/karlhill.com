@@ -29,13 +29,29 @@ image_sku_confirmed: yes
 review_date: "2026-09-19"
 updated_date: "2026-09-19"
 rating: 81
-verdict: "A real Japanese craft brewery, brewing — not stripping — a 0.3% ale. Malt and hops, 20 IBU, and an honest owl on the label."
-summary: "Kiuchi Brewery's Hitachino Nest Non Ale is brewed from malt and hops to 0.3% ABV. No dealcoholization step is published."
-nose: "Fresh malt and a floral hop lift — beer, not cola, not tea."
-palate: "Toasty malt body with a modest 20 IBU bitterness. Fuller than most supermarket NA lagers; not as hop-loud as an Athletic IPA."
+verdict: "Brewed to 0.3%, not stripped. Toasty malt, floral hops, modest bitterness — beer-shaped where most supermarket NA lagers are thin."
+summary: "Kiuchi brews Hitachino Nest Non Ale from malt and hops to 0.3% ABV. Toasty malt, floral hops, fuller than a supermarket 0.0% lager."
+tastes:
+  - fresh malt
+  - toast
+  - floral hops
+profile:
+  - Light-medium body
+  - Modest bitterness
+  - Slightly sweet malt
+  - Clean finish
+mouthfeel: "Fuller than most supermarket NA lagers — soft malt body with a light hop edge."
+highlight: "It smells and drinks like beer because it was brewed under the limit, not dealcoholized after the fact."
+likeness: "Clearly beer — malt, hops, and bitterness do the work. Not as hop-loud as a modern NA IPA, and it will not replace full-strength Hitachino White Ale."
+structure: "Bitterness and malt body supply beer structure without a removal step. Soft sweetness on the finish; no ethanol heat."
+drink_if_you_like:
+  - Japanese craft ales
+  - Malt-forward NA beers
+nose: "Fresh malt and a floral hop lift. Beer, not cola, not tea."
+palate: "Toasty malt body with modest bitterness. Fuller than most supermarket NA lagers; not as hop-loud as an Athletic IPA."
 finish: "Clean, slightly sweet malt, a little hop linger. Serve it cold."
-best_for: "People who want a Japanese craft name in the zero-proof fridge without a dealcoholized-lager story."
-serve: "6°C, in a glass. The 330 ml bottle is the right size."
+best_for: "Anyone who wants a Japanese craft name in the zero-proof fridge without a dealcoholized-lager story."
+serve: "Cold, in a glass. The 330 ml bottle is the right size."
 sources:
   - title: "Non-Ale — Kiuchi Brewery"
     url: https://kiuchibrewery.co.jp/en/products/beer/list/non-ale/
@@ -49,8 +65,10 @@ sources:
 status: published
 ---
 
-Kiuchi is a sake brewery in Ibaraki that learned to make beer, and Non Ale is what they brew when the brief is 0.3%. The English product page is blunt: malt and hops, carbon dioxide, 330 ml bottle, 0.3% alcohol, 20 IBU, SRM 7. The style line in Japan is "beer-flavored beverage," which is a legal category, not a dodge. There is no vacuum column, no spinning cone, no "we made White Ale and took the ethanol out." They brewed this under the limit. That is naturally low alcohol.
+Kiuchi is a sake brewery in Ibaraki that also makes beer. Non Ale is what they brew when the brief is 0.3%: malt, hops, and carbon dioxide — no vacuum column, no spinning cone, no White Ale with the ethanol taken out afterward. Naturally low alcohol. Do not confuse it with the yuzu-and-ginger Non Ale that also wears the Hitachino owl; this bottle is the malt-and-hops original.
 
-Do not confuse it with the yuzu-and-ginger Non Ale that US importers also sell under the Hitachino owl. This bottle is the malt-and-hops original. The label says Product of Japan, and the owl is the same one that sits on White Ale.
+The nose is straightforward beer: fresh malt and a floral hop lift. It does not smell like cola or tea.
 
-In the glass it is toastier than the NA lagers that dominate American coolers, with a floral hop top and enough bitterness to read as beer. It will not replace a full-strength Hitachino White Ale. It will replace a 0.0% supermarket lager in any fridge that already has a Japanese craft bias.
+On the palate the malt turns toasty and the body sits fuller than the thin supermarket NA lagers that dominate American coolers. Bitterness is modest — enough to read as ale, not enough to chase an Athletic IPA. Balance leans malt over hop. Mouthfeel is soft and beer-shaped rather than watery; structural authenticity is the point of the style here, because the bitterness and malt body were brewed in, not rebuilt after a strip.
+
+The finish is clean and short-to-medium: slightly sweet malt, a little hop linger. Serve it cold. It will not replace a full-strength Hitachino White Ale. It will replace a 0.0% supermarket lager in any fridge that already has a Japanese craft bias — and that is a fair job for a 0.3% ale.
