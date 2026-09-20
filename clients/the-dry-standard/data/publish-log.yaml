@@ -580,3 +580,51 @@
   brand: 'Deschutes Brewery'
   published_at: '2026-09-20T05:12:54+00:00'
   path: reviews/beer/deschutes-black-butte-na/
+-
+  slug: plaisir-anais-rose
+  product: Rosé
+  brand: "Plaisir d'Anaïs"
+  published_at: '2026-09-20T06:24:19+00:00'
+  path: reviews/wine/plaisir-anais-rose/
+-
+  slug: plaisir-anais-white
+  product: Blanc
+  brand: "Plaisir d'Anaïs"
+  published_at: '2026-09-20T06:24:19+00:00'
+  path: reviews/wine/plaisir-anais-white/
+-
+  slug: tip-top-white
+  product: Blanc
+  brand: 'Tip Top'
+  published_at: '2026-09-20T06:24:20+00:00'
+  path: reviews/wine/tip-top-white/
+-
+  slug: cypher-organic-white
+  product: Blanc
+  brand: Cypher
+  published_at: '2026-09-20T06:24:20+00:00'
+  path: reviews/wine/cypher-organic-white/
+-
+  slug: nooh-blanc
+  product: 'Sparkling Blanc'
+  brand: 'NOOH by La Coste'
+  published_at: '2026-09-20T06:24:20+00:00'
+  path: reviews/wine/nooh-blanc/
+-
+  slug: elivo-adegga-baezza
+  product: Blanco
+  brand: 'Adegga Baezza'
+  published_at: '2026-09-20T06:24:21+00:00'
+  path: reviews/wine/elivo-adegga-baezza/
+-
+  slug: weinkonig-riesling-nr-420
+  product: 'Riesling Nr. 420'
+  brand: Weinkönig
+  published_at: '2026-09-20T06:24:21+00:00'
+  path: reviews/wine/weinkonig-riesling-nr-420/
+-
+  slug: claouset-zero-degre
+  product: 'Zéro Degré Blanc'
+  brand: Claouset
+  published_at: '2026-09-20T06:24:22+00:00'
+  path: reviews/wine/claouset-zero-degre/

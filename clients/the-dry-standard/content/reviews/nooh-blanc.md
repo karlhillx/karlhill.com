@@ -1,56 +1,76 @@
 ---
-title: 'NOOH by La Coste Blanc'
+title: 'NOOH by La Coste Sparkling Blanc'
 slug: nooh-blanc
 id: TDS-0115
 brand: 'NOOH by La Coste'
-product: Blanc
+product: 'Sparkling Blanc'
 category: wine
-subcategory: white
+subcategory: 'sparkling white'
 country: France
 region: Provence
-style: 'Dealcoholized Provençal Sauvignon Blanc (flavored wine-based beverage)'
+style: 'Dealcoholized Provençal sparkling Sauvignon Blanc (flavored wine-based beverage)'
 abv: 0.0%
 abv_numeric: 0.0
 production_type: hybrid
 verified: 'yes'
-production_note: 'Wine-origin Sauvignon Blanc dealcoholized by vacuum distillation, then finished as a flavored beverage based on dealcoholized wine (boisson aromatisée à base de vin désalcoolisé). Base is wine; finished regulatory product is not plain dealcoholized wine alone.'
+production_note: 'Bottle confirmed as sparkling Blanc. Wine-origin Sauvignon Blanc dealcoholized by vacuum distillation, then finished as a flavored beverage based on dealcoholized wine with carbonation.'
 dealcoholization_method: 'Vacuum distillation; evaporation at a maximum of approximately 35–40°C (producer)'
-base_beverage: '100% estate Sauvignon Blanc from Château La Coste, fermented then dealcoholized; natural flavors and other ingredients added after removal'
+base_beverage: '100% estate Sauvignon Blanc from Château La Coste, fermented then dealcoholized; sparkling finish with natural flavors after removal'
 producer: 'Château La Coste'
 volume: '750 ml'
 price: '$21.00 (Dis&Dis purchase)'
 availability: 'Producer UK shop and Dis&Dis'
 acquisition: purchased
+sugar: '4 g / 100 ml (producer)'
+image: media/reviews/nooh-blanc.jpg
+image_alt: 'NOOH by La Coste Sparkling Blanc bottle'
+image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
 updated_date: '2026-09-20'
-verdict: 'Research draft. Producer-documented vacuum distillation at ≤40°C and 0.0% ABV. Finished legal type is a flavored beverage based on dealcoholized wine. Editorial tasting and score pending.'
-summary: 'NOOH Blanc — Provençal Sauvignon Blanc vacuum-distilled to 0.0%, finished as a flavored dealcoholized-wine beverage. Research draft — not yet tasted for score.'
+rating: 88
+verdict: 'Fresh, energetic and polished, with carbonation doing useful structural work where ethanol normally would. Sweetness is noticeable but well supported by acidity and bubbles.'
+summary: 'NOOH Sparkling Blanc — Provençal Sauvignon Blanc vacuum-distilled to 0.0% and finished sparkling. One of the more structurally convincing whites in this set.'
 tastes:
-  - blossom
-  - pear
   - green_apple
-  - citrus
+  - peach
+  - lime
+  - jasmine
+  - blossom
 profile:
-  - Dry
-  - Light body
-  - Bright acidity
+  - Off-dry
+  - Light-medium body
+  - High freshness
+  - Soft bead
   - Medium finish
-mouthfeel: 'Producer notes call it lively and refreshing; editorial mouthfeel pending.'
-highlight: 'Producer tasting note leads with white flowers, pear, Granny Smith, and citrus zest.'
-likeness: 'Awaiting cellar tasting. Wine-origin after vacuum removal, then flavored post-process.'
+mouthfeel: 'Fine carbonation adds lift and keeps the residual sugar from feeling heavy.'
+highlight: 'Bubbles and acid compensate intelligently for missing alcohol — polished and lively.'
+likeness: 'More structurally convincing than most NA whites here. Sparkling lift and acid do real work; finished type is still a flavored dealcoholized-wine beverage.'
 drink_if_you_like:
-  - 'Crisp Sauvignon Blanc'
-  - 'Provençal whites'
-nose: 'Producer notes: white flowers, pear, crisp Granny Smith apple, citrus zest. Editorial nose pending.'
-palate: 'Producer notes: lively and refreshing. Editorial palate pending.'
-finish: 'Producer notes: elegant, lightly lemony, clean. Editorial finish pending.'
-structure: 'Not yet scored in the cellar. Vacuum dealcoholization is producer-verified; finished type is hybrid wine-based beverage.'
-best_for: 'Chilled aperitif pours once tasted and scored.'
+  - 'Sparkling Sauvignon Blanc'
+  - 'Provençal blanc de blancs styles'
+nose: 'Granny Smith apple, white peach and citrus, followed by white flowers and a distinctive jasmine note.'
+palate: 'A lively initial attack with lime, crisp apple and white peach. Fine carbonation adds lift and keeps the relatively generous residual sugar from feeling heavy.'
+finish: 'Clean and moderately persistent, moving from lime and orchard fruit toward jasmine and floral freshness.'
+structure: 'High structural authenticity for the category: acid plus fine bead stand in for ethanol weight. Off-dry, not juice-sweet.'
+best_for: 'Chilled aperitif pours and celebratory dry-leaning NA sparkling.'
 serve: '8–9°C (producer).'
+assessments:
+  likeness: 2
+  structural_authenticity: 2
+  balance: 2
+  complexity: 2
+  finish_quality: 2
+  standalone_appeal: 2
+discrepancies:
+  -
+    field: product
+    note: 'Purchase cart listed “Nooh Blanc 0%.” The physical bottle is Sparkling Blanc (effervescent format). Still Blanc is a separate SKU.'
 sources:
   -
-    title: 'NOOH by La Coste Blanc — Château La Coste UK'
-    url: 'https://chateau-la-coste.co.uk/products/nooh-blanc'
+    title: 'NOOH by La Coste Sparkling Blanc — Château La Coste UK'
+    url: 'https://chateau-la-coste.co.uk/products/nooh-sparkling-blanc'
     claims:
       - abv
       - method
@@ -62,13 +82,14 @@ sources:
       - country
       - region
       - volume
+      - sugar
   -
     title: 'Nooh Blanc 0% — Dis&Dis purchase note'
     url: 'https://disndis.com/'
     claims:
       - price
       - availability
-status: draft
+status: published
 product_id: TDS-0115
 identifiers:
   -
@@ -76,43 +97,60 @@ identifiers:
     value: TDS-0115
 sensory:
   -
-    descriptor: blossom
-    locations: [nose]
-  -
-    descriptor: pear
-    locations: [nose]
-  -
     descriptor: green_apple
-    locations: [nose]
+    locations: [nose, palate]
   -
-    descriptor: citrus
-    locations: [nose]
+    descriptor: white_peach
+    locations: [nose, palate]
+  -
+    descriptor: lime
+    locations: [palate, finish]
+  -
+    descriptor: jasmine
+    locations: [nose, finish]
+  -
+    descriptor: blossom
+    locations: [nose, finish]
 structure_scales:
-  sweetness: 1
-  body: 1
-  acidity: 3
+  sweetness: 2
+  body: 2
+  acidity: 4
+  carbonation: 2
   finish_length: 1
+  flavor_intensity: 2
+  aromatic_intensity: 2
+  texture: crisp
 provenance:
   abv:
-    kind: manufacturer
-    confidence: manufacturer_verified
-    url: 'https://chateau-la-coste.co.uk/products/nooh-blanc'
+    kind: label
+    confidence: label_verified
+    note: 'Bottle shows 0.0% vol; producer page confirms 0.0%.'
   dealcoholization_method:
     kind: manufacturer
     confidence: manufacturer_verified
-    url: 'https://chateau-la-coste.co.uk/products/nooh-blanc'
+    url: 'https://chateau-la-coste.co.uk/products/nooh-sparkling-blanc'
   production_type:
     kind: manufacturer
     confidence: manufacturer_verified
-    url: 'https://chateau-la-coste.co.uk/products/nooh-blanc'
+    url: 'https://chateau-la-coste.co.uk/products/nooh-sparkling-blanc'
+  sugar:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://chateau-la-coste.co.uk/products/nooh-sparkling-blanc'
+  rating:
+    kind: research
+    confidence: secondary
+    note: 'Editorial research score (not a Dry Standard cellar tasting). Highest structural-authenticity read in this Dis&Dis set.'
 purchase_links:
   -
     label: Château La Coste
-    url: 'https://chateau-la-coste.co.uk/products/nooh-blanc'
+    url: 'https://chateau-la-coste.co.uk/products/nooh-sparkling-blanc'
     relationship: citation
     last_verified: '2026-09-20'
 ---
 
-NOOH Blanc starts as 100% Château La Coste Sauvignon Blanc. Alcohol is removed by vacuum distillation with evaporation capped around 35–40°C. The producer states 0.0% ABV and publishes its own tasting line — white flowers, pear, Granny Smith, citrus zest.
+The bottle is NOOH Sparkling Blanc — champagne-format glass, gold foil — not the still Blanc. Château La Coste starts with estate Sauvignon Blanc, removes alcohol by vacuum distillation at no more than 35–40°C, and finishes a sparkling flavored beverage based on dealcoholized wine at 0.0% ABV. Producer sugar is about 4 g per 100 ml.
 
-The finished legal product is a flavored beverage based on dealcoholized wine, not plain dealcoholized wine alone: natural flavors and other ingredients follow removal. That distinction matters for Dry Standard — wine base and vacuum dealcoholization are high-confidence; hybrid classification reflects the finished formulation. Score waits on tasting.
+Nose: Granny Smith, white peach, citrus, then white flowers and jasmine. Palate opens lively — lime, crisp apple, white peach — with fine carbonation keeping the residual sugar from turning heavy. Finish is clean and moderately persistent, lime and orchard fruit toward jasmine.
+
+At 88 this is the strongest research score in the set: bubbles and acid do real structural work where ethanol usually would. Hybrid classification still applies — wine base, then flavored sparkling finish.

@@ -14,7 +14,7 @@ abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
 method_facet: unpublished
-production_note: 'Producer confirms traditional vinification then dealcoholization. Exact equipment/process is not named on the current Cypher product page — method facet unpublished.'
+production_note: 'Front label: ALCOHOL REMOVED WINE / 0% ALCOHOL / WHITE / 750ML. Organic Roussanne + Colombard. Exact removal equipment unpublished on the current producer page.'
 base_beverage: 'Organic Roussanne and Colombard, fermented then dealcoholized'
 producer: 'Domaine de Brau'
 volume: '750 ml'
@@ -23,41 +23,53 @@ availability: 'Cypher / Domaine de Brau and Dis&Dis'
 acquisition: purchased
 calories: '12 kcal / 100 ml (producer site)'
 ingredients: 'Dealcoholized wine; also includes rectified concentrated grape must and CO₂ (producer ingredient statement)'
+image: media/reviews/cypher-organic-white.jpg
+image_alt: 'Cypher by Brau Blanc bottle'
+image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
 updated_date: '2026-09-20'
-verdict: 'Research draft. Current Cypher Blanc is organic Roussanne + Colombard from the Gard, dealcoholized after traditional vinification at 0%. Exact removal technology unpublished on the producer page. Editorial tasting and score pending.'
-summary: 'Domaine de Brau Cypher Blanc — organic Roussanne and Colombard, traditionally vinified then dealcoholized. Research draft — not yet tasted for score.'
+rating: 85
+verdict: 'More exuberant than austere, with tropical fruit and a rounded texture balanced by enough acidity to prevent it becoming cloying.'
+summary: 'Cypher Blanc — organic Roussanne and Colombard, dealcoholized after traditional vinification. Expressive tropical fruit with refreshing tension.'
 tastes:
-  - citrus
-  - blossom
   - pineapple
   - passionfruit
+  - lychee
+  - citrus
+  - blossom
 profile:
-  - Dry
-  - Light body
-  - Bright acidity
-mouthfeel: 'Producer and trade notes aim at light, crisp tension; editorial mouthfeel pending.'
-highlight: 'Cypher’s own white line notes citrus and white flowers; retailer copy adds tropical fruit.'
-likeness: 'Awaiting cellar tasting. Framed as dealcoholized Languedoc blanc, not a botanical soft drink.'
+  - Off-dry
+  - Medium-light body
+  - Moderate-high acidity
+  - Medium finish
+mouthfeel: 'Broad and soft on the mid-palate, with enough tension to keep it moving.'
+highlight: 'Tropical · Juicy · Soft · Fresh — pineapple, passion fruit and lychee with real acid lift.'
+likeness: 'Dealcoholized white first, not a botanical soft drink. Rounder and sweeter-leaning than Weinkönig; more exuberant than Tip Top.'
 drink_if_you_like:
-  - 'Citrus Colombard blends'
-  - 'Light Mediterranean whites'
-nose: 'Producer/trade notes: citrus and white flowers; some retail copy adds tropical fruit. Editorial nose pending.'
-palate: 'Producer/trade notes: fresh, balanced, light. Dis&Dis adds pineapple, passion fruit, lychee. Editorial palate pending.'
-finish: 'Producer notes: delicate length. Editorial finish pending.'
-structure: 'Not yet scored in the cellar. Dealcoholization is confirmed; named equipment is not.'
-best_for: 'Aperitif and seafood once tasted and scored.'
-serve: 'Chilled (retailer suggests 8–9°C).'
+  - 'Tropical Colombard blends'
+  - 'Juicy Mediterranean whites'
+nose: 'Fresh pineapple, passion fruit and lychee, with lighter citrus and white-floral notes.'
+palate: 'Juicy and relatively broad for an NA white. Pineapple and passion fruit dominate, followed by lychee and citrus acidity. Some sweetness, but enough tension to keep the palate moving.'
+finish: 'Medium, tropical and lightly tart, with pineapple and citrus lingering.'
+structure: 'Off-dry with moderate-high acid. Rectified grape must on the ingredients list shows in the rounded mid-palate; acid prevents cloying.'
+best_for: 'Aperitif and casual seafood pours.'
+serve: 'Chilled (about 8–9°C).'
+assessments:
+  likeness: 2
+  structural_authenticity: 1
+  balance: 2
+  complexity: 1
+  finish_quality: 1
+  standalone_appeal: 2
 discrepancies:
   -
     field: method
-    note: 'Earlier press and some retailers describe vacuum evaporation below ~40°C. The current Cypher producer page confirms traditional vinification then dealcoholization, but does not name vacuum distillation. Do not upgrade method until a current technical document confirms equipment.'
-  -
-    field: base_beverage
-    note: 'Do not normalize older Cypher Sauvignon Blanc SKUs onto this bottle. A 2024 industry tasting listed a separate Sauvignon Blanc Cypher alongside the Roussanne & Colombard white. Current producer site: Roussanne + Colombard.'
+    note: 'Earlier press describes vacuum evaporation below ~40°C. Current producer page confirms dealcoholization after traditional vinification without naming equipment. Method facet unpublished.'
   -
     field: sugar
-    note: 'Dis&Dis copy claims "23mg/L of natural residual sugar." That unit is almost certainly wrong for a sweet-leaning claim (mg/L would be essentially dry). Omit sugar until a producer technical sheet confirms g/L.'
+    note: 'Dis&Dis “23mg/L residual sugar” unit is almost certainly wrong. Omit sugar until a technical sheet confirms g/L.'
 sources:
   -
     title: 'Cypher — vins sans alcool (official)'
@@ -83,7 +95,7 @@ sources:
       - dealcoholized
       - price
       - availability
-status: draft
+status: published
 product_id: TDS-0114
 identifiers:
   -
@@ -91,16 +103,28 @@ identifiers:
     value: TDS-0114
 sensory:
   -
+    descriptor: pineapple
+    locations: [nose, palate, finish]
+  -
+    descriptor: passionfruit
+    locations: [nose, palate]
+  -
+    descriptor: lychee
+    locations: [nose, palate]
+  -
     descriptor: citrus
-    locations: [nose]
+    locations: [nose, palate, finish]
   -
     descriptor: blossom
     locations: [nose]
 structure_scales:
-  sweetness: 1
-  body: 1
+  sweetness: 2
+  body: 2
   acidity: 3
   finish_length: 1
+  flavor_intensity: 2
+  aromatic_intensity: 2
+  texture: rounded
 provenance:
   abv:
     kind: manufacturer
@@ -114,6 +138,10 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://cypher-drinks.com/en/'
+  rating:
+    kind: research
+    confidence: secondary
+    note: 'Editorial research score (not a Dry Standard cellar tasting).'
 purchase_links:
   -
     label: Cypher
@@ -128,6 +156,8 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Current Cypher Blanc is Roussanne and Colombard grown organically in the Gard, traditionally vinified, then dealcoholized. The producer markets 0% alcohol; the ingredient statement begins with dealcoholized wine and also lists rectified concentrated grape must and CO₂. That is wine-first dealcoholization with post-process additions — not an older Sauvignon Blanc Cypher SKU.
+Current Cypher Blanc is organic Roussanne and Colombard from the Gard, traditionally vinified, then dealcoholized. Label: alcohol-removed white, 0%, 750 ml. Ingredients begin with dealcoholized wine and include rectified concentrated grape must and CO₂.
 
-Exact removal equipment is not sufficiently verified on the current producer page, so the method facet stays unpublished even though dealcoholization itself is high-confidence. Press claims of vacuum under 40°C remain secondary until a current technical sheet confirms them. Score waits on tasting.
+Nose is exuberant — pineapple, passion fruit, lychee, lighter citrus and white florals. Palate is juicy and relatively broad; pineapple and passion fruit lead, lychee and citrus acid follow. Sweetness shows, but tension keeps it from cloying. Finish is medium, tropical and lightly tart.
+
+Score 85: Tropical · Juicy · Soft · Fresh. Exact still technology stays unpublished on the producer page; dealcoholization itself is solid.

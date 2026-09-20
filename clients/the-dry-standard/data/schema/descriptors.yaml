@@ -44,6 +44,7 @@ fruit:
         pineapple: { label: Pineapple }
         mango: { label: Mango }
         lychee: { label: Lychee }
+        banana: { label: Banana }
     red_fruit:
       label: Red fruit
       children:
@@ -132,6 +133,7 @@ sweet_caramelized:
     brown_sugar: { label: Brown sugar }
     molasses: { label: Molasses }
     honey: { label: Honey }
+    beeswax: { label: Beeswax }
     vanilla: { label: Vanilla }
 
 fermentation:

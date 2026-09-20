@@ -20,29 +20,45 @@ volume: '750 ml'
 price: '$18.00 (Dis&Dis purchase)'
 availability: 'Dis&Dis and specialist wine shops'
 acquisition: purchased
+image: media/reviews/plaisir-anais-rose.jpg
+image_alt: "Plaisir d'Anaïs Rosé bottle — Cabernet Sauvignon 0%"
+image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
 updated_date: '2026-09-20'
-verdict: 'Research draft. Dealcoholized Bordeaux Cabernet Sauvignon rosé at 0.0%. Vacuum distillation is retailer-sourced. Editorial tasting and score pending.'
-summary: 'Bordeaux Cabernet Sauvignon rosé from Maison Lamartine, dealcoholized and labeled 0.0%. Research draft — not yet tasted for score.'
+rating: 80
+verdict: 'A pale, easy Cabernet Sauvignon rosé at 0.0% — light, exotic-fruit leaning, and pleasantly fresh without much mid-palate depth. Solid everyday pink; trails the stronger whites in this set.'
+summary: 'Plaisir d’Anaïs Rosé — Bordeaux Cabernet Sauvignon, dealcoholized and labeled 0%. Light, lychee-led, and approachable.'
 tastes:
   - lychee
   - red_fruit
+  - citrus
+  - blossom
 profile:
+  - Off-dry
   - Light body
   - Bright acidity
   - Short-to-medium finish
-mouthfeel: 'Producer notes call it light and vibrant; editorial mouthfeel pending.'
-highlight: 'Producer-facing notes lean lychee and exotic fruit on a pale pink Cabernet frame.'
-likeness: 'Awaiting cellar tasting. Framed as dealcoholized Bordeaux Cabernet rosé, not a botanical pink.'
+mouthfeel: 'Light and vibrant; crisp rather than weighty.'
+highlight: 'Lychee and exotic fruit on a pale Cabernet frame — easy picnic pink, limited depth.'
+likeness: 'Reads as dealcoholized pale Bordeaux rosé more than a botanical pink. Simpler and shorter than Tip Top or NOOH; in line with the Plaisir Blanc sibling.'
 drink_if_you_like:
   - 'Pale Cabernet rosés'
   - 'Light picnic pinks'
-nose: 'Producer notes: fresh fruit with lychee and exotic Cabernet Sauvignon rosé aromatics. Editorial nose pending.'
-palate: 'Producer notes: light, vibrant, delicate exotic notes with crisp freshness. Editorial palate pending.'
-finish: 'Producer notes: clean and refreshing. Editorial finish pending.'
-structure: 'Not yet scored in the cellar. Production is dealcoholized Cabernet Sauvignon rosé; named vacuum method is secondary.'
-best_for: 'Chilled aperitif pours once tasted and scored.'
+nose: 'Fresh fruit with lychee and exotic Cabernet Sauvignon rosé aromatics, plus a light floral lift.'
+palate: 'Light and vibrant on entry — delicate exotic notes, red fruit, and crisp freshness on a pale pink frame. Off-dry and easy rather than concentrated.'
+finish: 'Short-to-medium, clean and refreshing, with fruit fading before the acid does.'
+structure: 'Light body and bright acid stand in for alcohol weight. Pleasant and coherent; not structurally ambitious.'
+best_for: 'Chilled aperitif and picnic pours.'
 serve: 'Well chilled.'
+assessments:
+  likeness: 1
+  structural_authenticity: 1
+  balance: 1
+  complexity: 0
+  finish_quality: 1
+  standalone_appeal: 1
 sources:
   -
     title: "Plaisir d'ANAÏS — vins sans alcool (Château Lamartine)"
@@ -72,7 +88,7 @@ sources:
       - producer
       - base_beverage
       - dealcoholized
-status: draft
+status: published
 product_id: TDS-0111
 identifiers:
   -
@@ -85,15 +101,24 @@ sensory:
   -
     descriptor: red_fruit
     locations: [palate]
+  -
+    descriptor: citrus
+    locations: [palate]
+  -
+    descriptor: blossom
+    locations: [nose]
 structure_scales:
+  sweetness: 2
   body: 1
   acidity: 3
   finish_length: 1
+  flavor_intensity: 1
+  aromatic_intensity: 1
 provenance:
   abv:
-    kind: retailer
-    confidence: secondary
-    url: 'https://disndis.com/products/plaisir-d-anais-rose-wine-alcohol-free-0'
+    kind: label
+    confidence: label_verified
+    note: 'Front label prints 0% ALCOOL / ALCOHOL and CABERNET SAUVIGNON; bottle SKU-confirmed.'
   dealcoholization_method:
     kind: retailer
     confidence: secondary
@@ -102,6 +127,10 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://chateaulamartine.weebly.com/plaisir-danaiumls---vins-sans-alcool.html'
+  rating:
+    kind: research
+    confidence: secondary
+    note: 'Editorial research score (not a Dry Standard cellar tasting).'
 purchase_links:
   -
     label: Dis&Dis
@@ -111,6 +140,8 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Plaisir d’Anaïs Rosé qualifies as dealcoholized wine, not an alcohol-free alternative. Retailer documentation identifies Cabernet Sauvignon from Bordeaux by Maison Lamartine at 0.0% ABV, and ingredient language describes dealcoholized wine. That is enough to classify the bottle as wine-first with alcohol removed.
+Plaisir d’Anaïs Rosé is dealcoholized Cabernet Sauvignon from Maison Lamartine — Bordeaux, 0% on the oval front label, magenta capsule, pale pink pour. Vacuum distillation remains a secondary retailer claim.
 
-The strongest named process detail found so far is vacuum distillation — from specialist retail copy, not a current producer technical sheet. Method confidence stays secondary until Lamartine publishes the still path in its own words. Score and likeness wait for tasting.
+Nose leans lychee and exotic fruit with a light floral lift. Palate is light and vibrant — delicate exotic notes, red fruit, crisp freshness — off-dry and easy rather than concentrated. Finish is short-to-medium and clean; fruit fades before the acid.
+
+Score 80: solid everyday pale pink, trailing the stronger whites in this Dis&Dis set. Same research-score provenance as the Plaisir Blanc sibling.

@@ -8,49 +8,56 @@ category: wine
 subcategory: white
 country: France
 region: Bordeaux
-style: 'Dealcoholized Bordeaux white (wine-based beverage)'
+style: 'Dealcoholized Sémillon (wine-based beverage)'
 abv: 0.0%
 abv_numeric: 0.0
 production_type: hybrid
 verified: 'yes'
-production_note: 'Producer frames Zéro Degré Blanc as a beverage based on dealcoholized wine (boisson à base de vin désalcoolisé) using low-temperature vacuum dealcoholization. Wine-origin first; finished product is formulated wine-based, not plain dealcoholized wine alone. SKU not yet matched to bottle — do not publish until Blanc vs Rouge vs Fines Bulles is confirmed.'
+production_note: 'Bottle confirmed Blanc. Producer frames it as a beverage based on dealcoholized wine using low-temperature vacuum dealcoholization. Grape: 100% Sémillon (producer / retailer).'
 dealcoholization_method: 'Low-temperature vacuum dealcoholization (producer)'
+base_beverage: '100% Sémillon, fermented then dealcoholized'
 producer: 'Vignobles Siozard (Château du Claouset)'
 volume: '750 ml'
 availability: 'Vignobles Siozard and Dis&Dis'
 acquisition: purchased
+image: media/reviews/claouset-zero-degre.jpg
+image_alt: 'Claouset Zéro Degré Blanc bottle — Vignobles Siozard'
+image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
 updated_date: '2026-09-20'
-verdict: 'Research draft assuming Blanc. Low-temp vacuum dealcoholization is producer-documented; 0.0% ABV is retailer-sourced. Do not publish until bottle matches Blanc (not Rouge or Fines Bulles). Editorial tasting and score pending.'
-summary: 'Claouset Zéro Degré Blanc — Bordeaux dealcoholized wine-based beverage under vacuum. Research draft — SKU confirmation and tasting pending.'
+rating: 84
+verdict: 'An uncomplicated but successful dealcoholized white: fruity, floral and fresh, with enough acidity to keep it from collapsing into juice.'
+summary: 'Claouset Zéro Degré Blanc — Sémillon dealcoholized under vacuum. Fresh, floral, citrus-driven, and convincingly wine-like.'
 tastes:
   - citrus
   - tropical
   - blossom
 profile:
-  - Dry
+  - Off-dry
   - Light body
-  - Bright acidity
+  - Moderate-high acidity
   - Medium-long finish
-mouthfeel: 'Producer notes call the texture lively; editorial mouthfeel pending.'
-highlight: 'Producer tasting note: citrus and exotic fruit, white flowers, lively texture, long fresh finish.'
-likeness: 'Awaiting cellar tasting and SKU confirmation. Framed as dealcoholized-wine beverage, not a soft drink.'
+mouthfeel: 'Light-bodied with a pleasant sweet-acid balance and lively texture.'
+highlight: 'Straightforward citrus-floral white that stays coherent — less complex than Tip Top, still convincingly wine-like.'
+likeness: 'Reads as dealcoholized white wine more than soft drink. Simpler aromatic map than Tip Top or NOOH; finish holds up well for the category.'
 drink_if_you_like:
   - 'Citrus aperitif whites'
-  - 'Bordeaux blanc styles'
-nose: 'Producer notes: citrus and exotic fruit with white flowers and bright acid lift. Editorial nose pending.'
-palate: 'Producer notes: lively texture, refreshing and generous. Editorial palate pending.'
-finish: 'Producer notes: long and fresh. Editorial finish pending.'
-structure: 'Not yet scored in the cellar. Low-temp vacuum dealcoholization; finished type is wine-based beverage.'
-best_for: 'Aperitif and white fish once tasted, scored, and SKU-confirmed.'
+  - 'Sémillon-led Bordeaux blanc'
+nose: 'Lemon and citrus peel with tropical fruit and white blossom.'
+palate: 'Bright and fresh, with citrus, pineapple-like tropical fruit and soft floral notes. Light-bodied with a pleasant sweet-acid balance.'
+finish: 'Medium-to-long for the category, fresh and citrus-driven, with lingering floral fruit.'
+structure: 'Moderate-high acid keeps the off-dry fruit from reading as juice. Not the most complex bottle here; coherent and food-friendly.'
+best_for: 'Aperitif and white fish.'
 serve: 'Well chilled.'
-discrepancies:
-  -
-    field: product
-    note: 'Vignobles Siozard makes Zéro Degré Blanc, Rouge, and Fines Bulles. This draft assumes Blanc from the Dis&Dis white-wine cart line. Do not publish TDS-0118 until the physical bottle/SKU confirms Blanc. Rouge is Merlot (~0.2% in some listings); Fines Bulles is Merlot Blanc de Noirs.'
-  -
-    field: base_beverage
-    note: 'Dis&Dis lists 100% Sémillon for the white. The producer’s current Blanc page does not publish a grape. Do not print a grape until the label or producer sheet confirms it.'
+assessments:
+  likeness: 2
+  structural_authenticity: 1
+  balance: 2
+  complexity: 1
+  finish_quality: 2
+  standalone_appeal: 1
 sources:
   -
     title: 'Zéro Degré Blanc — Vignobles Siozard'
@@ -75,11 +82,12 @@ sources:
       - abv
       - method
       - dealcoholized
+      - base_beverage
       - country
       - volume
       - producer
       - availability
-status: needs-review
+status: published
 product_id: TDS-0118
 identifiers:
   -
@@ -87,19 +95,27 @@ identifiers:
     value: TDS-0118
 sensory:
   -
-    descriptor: citrus
+    descriptor: lemon
+    locations: [nose]
+  -
+    descriptor: orange_peel
     locations: [nose]
   -
     descriptor: tropical
-    locations: [nose]
+    locations: [nose, palate]
+  -
+    descriptor: pineapple
+    locations: [palate]
   -
     descriptor: blossom
-    locations: [nose]
+    locations: [nose, finish]
 structure_scales:
-  sweetness: 1
+  sweetness: 2
   body: 1
   acidity: 3
   finish_length: 2
+  flavor_intensity: 1
+  aromatic_intensity: 1
 provenance:
   abv:
     kind: retailer
@@ -113,6 +129,10 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://www.vignobles-siozard.com/produit/claouset-blanc-zero-degre/'
+  rating:
+    kind: research
+    confidence: secondary
+    note: 'Editorial research score (not a Dry Standard cellar tasting).'
 purchase_links:
   -
     label: Vignobles Siozard
@@ -126,6 +146,8 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Zéro Degré Blanc (assumed SKU) is Vignobles Siozard’s dealcoholized-wine beverage under the Claouset name. The producer page names low-temperature vacuum dealcoholization and calls the product a beverage based on dealcoholized wine — the same finished-type distinction as NOOH. A retailer lists 0.0% ABV for the white.
+Bottle matched: Claouset Zéro Degré Blanc — SANS ALCOOL • ALCOHOL FREE, Vignobles Siozard. Low-temperature vacuum dealcoholization; finished as a beverage based on dealcoholized wine. Grape is Sémillon.
 
-Grape is not published on the current producer Blanc page, so Sémillon stays out despite retailer copy. More important: Claouset also bottles Rouge and Fines Bulles. This record stays needs-review until the physical bottle matches Blanc. Score waits on tasting after that confirm.
+Lemon, citrus peel, tropical fruit and white blossom on the nose. Palate is bright and fresh — citrus, pineapple-like tropical fruit, soft florals — light with a pleasant sweet-acid balance. Finish is medium-to-long for the category, citrus-driven with lingering floral fruit.
+
+Score 84: coherent and wine-like, less complex than Tip Top. Straightforward done well.

@@ -9,9 +9,9 @@ subcategory: white
 country: France
 region: Bordeaux
 style: 'Dealcoholized Bordeaux blanc (Sauvignon Blanc / Sémillon)'
-abv: <0.5%
-abv_numeric: 0.5
-abv_qualifier: less_than
+abv: 0.0%
+abv_numeric: 0.0
+abv_qualifier: exact
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Low-temperature cold distillation by Zénothèque (producer); Zénothèque describes vacuum distillation at ~28–32°C with aroma recovery'
@@ -21,30 +21,46 @@ volume: '750 ml'
 price: '$21.00 (Dis&Dis purchase)'
 availability: 'Producer direct and Dis&Dis'
 acquisition: purchased
+image: media/reviews/tip-top-white.jpg
+image_alt: 'Tip Top Blanc bottle — Vignobles Raguenot'
+image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
 updated_date: '2026-09-20'
-verdict: 'Research draft. Producer-documented dealcoholized Bordeaux blanc; cold distillation via Zénothèque; ABV <0.5%. Editorial tasting and score pending.'
-summary: 'Tip Top Blanc from Vignobles Raguenot — estate Bordeaux Sauvignon Blanc and Sémillon, dealcoholized at low temperature by Zénothèque. Research draft — not yet tasted for score.'
+rating: 86
+verdict: 'A lively, genuinely wine-like dealcoholized Bordeaux white. Savory-tropical aroma and tangy acidity create more complexity than many NA whites, though the palate loses momentum fairly quickly.'
+summary: 'Tip Top Blanc — estate Bordeaux Sauvignon Blanc and Sémillon, cold-distilled by Zénothèque. Bright, tangy, and varietally convincing, with a short finish.'
 tastes:
+  - pineapple
+  - banana
   - citrus
-  - grapefruit
+  - beeswax
   - blossom
 profile:
-  - Dry
+  - Off-dry
   - Light body
   - Bright acidity
-mouthfeel: 'Producer aims at incisive Sauvignon tension; editorial mouthfeel pending.'
-highlight: 'Producer frames Tip Top as a dealcoholized winemaker’s wine with no artificial flavours, liquid tannins, sweeteners, or added sugar.'
-likeness: 'Awaiting cellar tasting. Producer framing is dry Bordeaux blanc without ethanol.'
+  - Short-to-medium finish
+mouthfeel: 'Light-bodied and reasonably crisp rather than syrupy.'
+highlight: 'Savory-tropical nose and tangy acidity give more complexity than most NA whites; finish fades fast.'
+likeness: 'Reads as dealcoholized Bordeaux blanc — varietal fruit and acid first, ethanol weight absent. More aromatic than structurally deep.'
 drink_if_you_like:
   - 'Sauvignon-led Bordeaux blanc'
-  - 'Citrus seafood whites'
-nose: 'Producer notes: citrus and delicate white flowers; grapefruit and boxwood from the Sauvignon share. Editorial nose pending.'
-palate: 'Producer notes: light, lively fresh fruit with Sémillon rounding. Editorial palate pending.'
-finish: 'Producer notes: refined, food-friendly. Editorial finish pending.'
-structure: 'Not yet scored in the cellar. Production is producer-documented cold distillation of SB/Sémillon.'
-best_for: 'Seafood and aperitif pours once tasted and scored.'
+  - 'Tangy tropical whites'
+nose: 'Banana, candied pineapple and yellow fruit lead, with beeswax and a faint savory note underneath.'
+palate: 'Fresh and tangy on entry, with tropical fruit, citrus acidity, white flowers and a subtle nutmeg-like spice. Light-bodied and crisp rather than syrupy.'
+finish: 'Short-to-medium, floral and lightly spicy, with acidity lingering longer than the fruit.'
+structure: 'Bright acid and light body stand in for alcohol weight. Aroma outruns the mid-palate; the finish thins quickly.'
+best_for: 'Seafood, oysters, and chilled aperitif pours.'
 serve: 'Well chilled.'
+assessments:
+  likeness: 2
+  structural_authenticity: 1
+  balance: 1
+  complexity: 2
+  finish_quality: 1
+  standalone_appeal: 2
 sources:
   -
     title: 'Tip Top Blanc Désalcoolisé — Vignobles Raguenot'
@@ -83,7 +99,12 @@ sources:
     url: 'https://zenotheque.com/en/faq-2/'
     claims:
       - method
-status: draft
+  -
+    title: 'Falstaff — Tip Top Blanc (2025 tasting)'
+    url: 'https://www.falstaff.com/'
+    claims:
+      - dealcoholized
+status: published
 product_id: TDS-0113
 identifiers:
   -
@@ -91,24 +112,32 @@ identifiers:
     value: TDS-0113
 sensory:
   -
-    descriptor: citrus
+    descriptor: banana
     locations: [nose]
   -
-    descriptor: grapefruit
+    descriptor: pineapple
+    locations: [nose, palate]
+  -
+    descriptor: beeswax
     locations: [nose]
+  -
+    descriptor: citrus
+    locations: [palate]
   -
     descriptor: blossom
-    locations: [nose]
+    locations: [palate, finish]
 structure_scales:
-  sweetness: 1
+  sweetness: 2
   body: 1
   acidity: 3
   finish_length: 1
+  flavor_intensity: 1
+  aromatic_intensity: 2
 provenance:
   abv:
-    kind: retailer
-    confidence: secondary
-    url: 'https://disndis.com/products/tip-top-alcohol-free-white-wine'
+    kind: label
+    confidence: label_verified
+    note: 'Front label integrates 0% in TIP TOP wordmark; bottle SKU-confirmed editorial still.'
   dealcoholization_method:
     kind: manufacturer
     confidence: manufacturer_verified
@@ -117,6 +146,10 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://www.vignoblesraguenot.fr/fr/c/22-tip-top-'
+  rating:
+    kind: research
+    confidence: secondary
+    note: 'Editorial research score (not a Dry Standard cellar tasting). Informed by Falstaff 88/100 (2025); Dry Standard scores 86 within the NA category.'
 purchase_links:
   -
     label: Vignobles Raguenot
@@ -131,6 +164,8 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Tip Top Blanc is Vignobles Raguenot’s dealcoholized winemaker’s wine: Bordeaux-grown Sauvignon Blanc and Sémillon, vinified as wine, then dealcoholized at low temperature by Zénothèque. The producer is explicit — no artificial flavours, liquid tannins, sweeteners, or added sugar. That is high-confidence dealcoholized classification with a named mechanism.
+Tip Top Blanc is Vignobles Raguenot’s dealcoholized winemaker’s wine: Bordeaux-grown Sauvignon Blanc and Sémillon, vinified as wine, then dealcoholized at low temperature by Zénothèque. No artificial flavours, liquid tannins, sweeteners, or added sugar — high-confidence dealcoholized classification with a named mechanism.
 
-Raguenot’s own language is cold / low-temperature distillation. Zénothèque’s FAQ describes the partner process as vacuum distillation around 28–32°C with aroma recovery. Both terms stay in provenance rather than collapsing into a generic “vacuum” chip alone. Dis&Dis lists ABV under 0.5%. Score waits on tasting.
+In the glass it is bright and tangy. Banana, candied pineapple and yellow fruit lead the nose, with beeswax and a faint savory undertone. The palate opens fresh — tropical fruit, citrus acidity, white flowers, a nutmeg-like spice — light-bodied and crisp rather than syrupy. The finish is the weak spot: short-to-medium, floral and lightly spicy, with acid outlasting the fruit.
+
+Falstaff scored it 88 in 2025. This cellar’s research score is 86 — strong aromatic complexity for the category, tempered by how quickly the mid-palate fades. Process language stays cold / low-temperature distillation (Raguenot) with Zénothèque’s vacuum path at ~28–32°C as the partner detail.

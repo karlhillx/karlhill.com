@@ -114,3 +114,33 @@ it('normalizes a small bottle on a striped packshot to a consistent height', fun
         @unlink($destination);
     }
 });
+
+it('floods a white studio plate into a uniform white frame', function () {
+    $source = sys_get_temp_dir().DIRECTORY_SEPARATOR.'tds-plate-src.png';
+    $destination = sys_get_temp_dir().DIRECTORY_SEPARATOR.'tds-plate-out.jpg';
+
+    // Tall white studio with a green bottle — mimics packshots that left a
+    // white plate on a cream letterbox before the studio-plate flood.
+    $image = imagecreatetruecolor(500, 900);
+    imagefill($image, 0, 0, imagecolorallocate($image, 255, 255, 255));
+    imagefilledrectangle($image, 200, 100, 300, 800, imagecolorallocate($image, 30, 90, 50));
+    imagepng($image, $source);
+
+    try {
+        expect((new StillPipeline(Paths::default()))->normalize($source, $destination, 'white'))->toBeTrue();
+
+        $out = imagecreatefromjpeg($destination);
+        expect(imagesx($out))->toBe(900);
+        expect(imagesy($out))->toBe(1200);
+
+        foreach ([[8, 8], [890, 8], [8, 1190], [890, 1190], [50, 600], [850, 600]] as [$x, $y]) {
+            $rgb = imagecolorat($out, $x, $y);
+            expect(($rgb >> 16) & 255)->toBe(255)
+                ->and(($rgb >> 8) & 255)->toBe(255)
+                ->and($rgb & 255)->toBe(255);
+        }
+    } finally {
+        @unlink($source);
+        @unlink($destination);
+    }
+});

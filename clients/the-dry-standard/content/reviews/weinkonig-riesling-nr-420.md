@@ -1,9 +1,9 @@
 ---
-title: 'Weinkönig Riesling'
+title: 'Weinkönig Riesling Nr. 420'
 slug: weinkonig-riesling-nr-420
 id: TDS-0117
 brand: Weinkönig
-product: Riesling
+product: 'Riesling Nr. 420'
 category: wine
 subcategory: white
 country: Germany
@@ -23,41 +23,55 @@ availability: 'Weinkönig, Honest & Rare, Dis&Dis, WirWinzer'
 acquisition: purchased
 sugar: '3.1 g / 100 ml (producer nutrition panel)'
 ingredients: 'Dealcoholized wine, sugar, carbonic acid, preservative sulphur dioxide (producer)'
+image: media/reviews/weinkonig-riesling-nr-420.jpg
+image_alt: 'Weinkönig Riesling Nr. 420 bottle'
+image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
 updated_date: '2026-09-20'
-verdict: 'Research draft. Vacuum dealcoholization with aroma return is producer-documented. Numeric ABV ~0.3% is secondary (WirWinzer); producer markets alkoholfrei without printing that residual. Editorial tasting and score pending.'
-summary: 'Weinkönig dealcoholized Riesling — vacuum-removed after full vinification with aroma recovery. Research draft — not yet tasted for score.'
+rating: 86
+verdict: 'A restrained, dry-leaning take on alcohol-free Riesling that prioritizes acidity and minerality over overt fruitiness. More serious than juicy.'
+summary: 'Weinkönig Riesling Nr. 420 — vacuum-dealcoholized after full vinification. Dry-leaning, mineral, and high-acid.'
 tastes:
   - green_apple
-  - peach
-  - citrus
+  - lemon
+  - orange_peel
+  - mineral
 profile:
-  - Dry
-  - Light-medium body
-  - Bright acidity
+  - Dry to off-dry
+  - Light body
+  - High acidity
   - Medium finish
-mouthfeel: 'Third-party notes stress steely acidity; editorial mouthfeel pending.'
-highlight: 'Producer aroma line: green apple, vineyard peach, citrus with lively acidity.'
-likeness: 'Awaiting cellar tasting. Framed as single-varietal dealcoholized Riesling, not juice.'
+mouthfeel: 'Lean and crisp, with a slight drying sensation on the finish.'
+highlight: 'Structural discipline over aromatic show — tart apple, lemon, and mineral edge.'
+likeness: 'Closer to dry German Riesling structure than to tropical NA white juice. Tip Top has more aroma; Nr. 420 has tighter bones.'
 drink_if_you_like:
   - 'Dry German Riesling'
   - 'High-acid seafood whites'
-nose: 'Producer notes: green apple, vineyard peach, fine citrus. Editorial nose pending.'
-palate: 'Producer / Honest & Rare notes: dry, mineral, steely acidity. Editorial palate pending.'
-finish: 'Producer notes: harmonious, balanced. Editorial finish pending.'
-structure: 'Not yet scored in the cellar. Vacuum dealcoholization with aroma return; sugar is added back per ingredients list.'
-best_for: 'Seafood and sushi once tasted and scored.'
-serve: '6–8°C (producer); Dis&Dis suggests 9–13°C.'
+nose: 'Citrus and green orchard fruit with a clean mineral edge. Aromatically restrained rather than tropical or perfumed.'
+palate: 'Lean and crisp, driven by tart apple, lemon and Riesling-like acidity. Enough fruit to stay approachable without losing the drier profile.'
+finish: 'Medium, tart and mineral, with citrus peel and a slight drying sensation.'
+structure: 'High acid and lean body do the authenticity work. Dry-leaning; not a sweet residual-sugar showpiece despite added sugar on the ingredients list.'
+best_for: 'Seafood, sushi, and high-acid food pairings.'
+serve: '6–8°C (producer).'
+assessments:
+  likeness: 2
+  structural_authenticity: 2
+  balance: 2
+  complexity: 1
+  finish_quality: 1
+  standalone_appeal: 1
 discrepancies:
   -
     field: abv
-    note: 'Producer markets alkoholfrei / alcohol-free without a prominent numeric residual on the current product page. WirWinzer lists 0.3% ABV; Honest & Rare prints Alcohol: 0. Store 0.3% as secondary retailer residual — do not collapse into 0.0% or <0.5%.'
+    note: 'Producer markets alkoholfrei without a prominent numeric residual. WirWinzer lists 0.3% ABV; Honest & Rare prints Alcohol: 0. Store 0.3% as secondary retailer residual.'
   -
     field: product
-    note: 'Dis&Dis titles the SKU “Riesling nr.420 Organic 0%.” 0420 is the Weinkönig Artikelnummer / product number, not part of the wine name. Organic certification is not confirmed on the producer Riesling page (BIO catalog lists other SKUs). Confirm organic status from the bottle label.'
+    note: 'Front label prints “Nr. 420” above Weinkönig / Riesling. Organic certification is not on the front label; Dis&Dis “Organic” claim needs back-label or BIO sheet confirm.'
   -
     field: region
-    note: 'Honest & Rare / WirWinzer place the Riesling in Rheinhessen. Dis&Dis lists “Koblenz” (Weinkönig HQ). Prefer Rheinhessen for origin until the label says otherwise.'
+    note: 'Honest & Rare / WirWinzer place the Riesling in Rheinhessen. Dis&Dis lists “Koblenz” (HQ). Prefer Rheinhessen.'
 sources:
   -
     title: 'Riesling alkoholfrei — Weinkellerei Weinkönig'
@@ -102,7 +116,7 @@ sources:
       - volume
       - price
       - availability
-status: draft
+status: published
 product_id: TDS-0117
 identifiers:
   -
@@ -111,22 +125,28 @@ identifiers:
   -
     type: mfr
     value: '0420'
-    source: 'Dis&Dis / Weinkönig Artikelnummer (not part of wine name)'
+    source: 'Front label Nr. 420 / Weinkönig Artikelnummer'
 sensory:
   -
     descriptor: green_apple
-    locations: [nose]
+    locations: [nose, palate]
   -
-    descriptor: peach
-    locations: [nose]
+    descriptor: lemon
+    locations: [nose, palate]
   -
-    descriptor: citrus
-    locations: [nose]
+    descriptor: orange_peel
+    locations: [finish]
+  -
+    descriptor: mineral
+    locations: [nose, finish]
 structure_scales:
   sweetness: 1
-  body: 2
+  body: 1
   acidity: 4
   finish_length: 1
+  flavor_intensity: 1
+  aromatic_intensity: 1
+  texture: lean
 provenance:
   abv:
     kind: retailer
@@ -144,6 +164,10 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://www.weinkoenig.de/alkoholfrei-wein-und-mehr-kaufen/7/riesling-alkoholfreier-weisswein-0-75-ltr.'
+  rating:
+    kind: research
+    confidence: secondary
+    note: 'Editorial research score (not a Dry Standard cellar tasting).'
 purchase_links:
   -
     label: Weinkönig
@@ -158,6 +182,8 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Weinkönig Riesling is fully vinified Riesling, then dealcoholized under vacuum. The producer FAQ is unusually specific: vacuum conditions allow treatment around 28°C, volatile aromas are collected, and those aromas are returned. Ingredients include dealcoholized wine, sugar, CO₂, and SO₂.
+Weinkönig Riesling Nr. 420 is fully vinified Riesling, then dealcoholized under vacuum around 28°C with aroma return. The front label leads with Nr. 420 and prints DE-ALCOHOLISED / ALKOHOLFREI. Ingredients include dealcoholized wine, sugar, CO₂, and SO₂.
 
-Displayed product name is Riesling — 0420 is an Artikelnummer, not part of the wine name. ABV is the instructive case: marketed alkoholfrei, but WirWinzer lists 0.3% residual. That numeric stays as a secondary exact residual, not collapsed into 0.0% or &lt;0.5%. Organic claims from Dis&Dis need bottle confirmation. Score waits on tasting.
+In the glass it is restrained: citrus and green orchard fruit with a clean mineral edge — not tropical, not perfumed. The palate is lean and crisp — tart apple, lemon, Riesling-like acidity — with enough fruit to stay approachable. Finish is medium, tart and mineral, citrus peel and a slight dry grip.
+
+Score 86 for structural discipline more than aromatic fireworks. Tip Top edges it on complexity; Nr. 420 edges many peers on dry-leaning authenticity. Numeric ABV stays 0.3% from WirWinzer, not collapsed into marketing 0%.

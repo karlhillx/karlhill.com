@@ -1601,8 +1601,8 @@
   brand: "Plaisir d'Anaïs"
   category: wine
   priority: high
-  status: draft
-  notes: "Purchased 2026-09-20. Draft plaisir-anais-rose.md. Dealcoholized Cab Sauv Bordeaux 0.0%. Vacuum method secondary (retailer). Tasting/score pending."
+  status: published
+  notes: 'Purchased 2026-09-20. Validated plaisir-anais-rose.md. Research score 80. Still attached.'
   production_type: dealcoholized
   verified: 'yes'
 -
@@ -1611,8 +1611,8 @@
   brand: "Plaisir d'Anaïs"
   category: wine
   priority: high
-  status: draft
-  notes: "Purchased 2026-09-20. Draft plaisir-anais-white.md. Dealcoholized SB Bordeaux 0.0%. Vacuum method secondary (retailer). Tasting/score pending."
+  status: published
+  notes: 'Purchased 2026-09-20. Validated plaisir-anais-white.md. Research score 82 provisional (low tasting confidence). Still attached.'
   production_type: dealcoholized
   verified: 'yes'
 -
@@ -1621,8 +1621,8 @@
   brand: 'Tip Top'
   category: wine
   priority: high
-  status: draft
-  notes: 'Purchased 2026-09-20. Draft tip-top-white.md. Cold distillation via Zénothèque (Raguenot); SB+Sémillon; <0.5%. Tasting/score pending.'
+  status: published
+  notes: 'Purchased 2026-09-20. Validated tip-top-white.md. Research score 86. Still attached.'
   production_type: dealcoholized
   verified: 'yes'
 -
@@ -1631,18 +1631,18 @@
   brand: Cypher
   category: wine
   priority: high
-  status: draft
-  notes: 'Purchased 2026-09-20. Draft cypher-organic-white.md. Roussanne+Colombard organic Gard; dealcoholized after vinification; exact tech unpublished. Tasting/score pending.'
+  status: published
+  notes: 'Purchased 2026-09-20. Validated cypher-organic-white.md. Research score 85. Still attached.'
   production_type: dealcoholized
   verified: 'yes'
 -
-  product: Blanc
+  product: 'Sparkling Blanc'
   id: TDS-0115
   brand: 'NOOH by La Coste'
   category: wine
   priority: high
-  status: draft
-  notes: 'Purchased 2026-09-20. Draft nooh-blanc.md. Vacuum ≤40°C; hybrid flavored dealcoholized-wine beverage. Tasting/score pending.'
+  status: published
+  notes: 'Purchased 2026-09-20. Validated nooh-blanc.md. Research score 88. Sparkling Blanc. Still attached.'
   production_type: hybrid
   verified: 'yes'
 -
@@ -1651,18 +1651,18 @@
   brand: 'Adegga Baezza'
   category: wine
   priority: high
-  status: draft
-  notes: 'Purchased 2026-09-20. Draft elivo-adegga-baezza.md. Brand Adegga Baezza / producer Grupo Élivo; cold evaporation + aroma return; Chardonnay 0.0%. Tasting/score pending.'
+  status: published
+  notes: 'Purchased 2026-09-20. Validated elivo-adegga-baezza.md. Research score 81. Still attached.'
   production_type: dealcoholized
   verified: 'yes'
 -
-  product: Riesling
+  product: 'Riesling Nr. 420'
   id: TDS-0117
   brand: Weinkönig
   category: wine
   priority: high
-  status: draft
-  notes: 'Purchased 2026-09-20. Draft weinkonig-riesling-nr-420.md. Product name Riesling (0420=Artikelnummer). Vacuum + aroma return; ABV 0.3% secondary. Organic claim needs bottle. Tasting/score pending.'
+  status: published
+  notes: 'Purchased 2026-09-20. Validated weinkonig-riesling-nr-420.md. Research score 86. Still attached.'
   production_type: dealcoholized
   verified: 'yes'
 -
@@ -1671,7 +1671,7 @@
   brand: Claouset
   category: wine
   priority: high
-  status: needs-review
-  notes: 'Purchased 2026-09-20. Draft claouset-zero-degre.md assumes Blanc. Hold publish until bottle matches Blanc (not Rouge/Fines Bulles). Grape unpublished on producer page. Low-temp vacuum; hybrid wine-based beverage.'
+  status: published
+  notes: 'Purchased 2026-09-20. Validated claouset-zero-degre.md. Research score 84. Sémillon. Still attached.'
   production_type: hybrid
   verified: 'yes'

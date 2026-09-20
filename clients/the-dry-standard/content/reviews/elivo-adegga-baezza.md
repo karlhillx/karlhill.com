@@ -15,7 +15,7 @@ production_type: dealcoholized
 verified: 'yes'
 method_facet: other
 dealcoholization_method: 'Cold evaporation with reintroduction of the wine’s own aromas (producer Adegga Baezza range page)'
-base_beverage: 'Chardonnay, fermented then dealcoholized'
+base_beverage: 'Chardonnay from Galicia, fermented then dealcoholized'
 producer: 'Grupo Élivo'
 volume: '750 ml'
 price: '$16.00 (Dis&Dis purchase)'
@@ -23,33 +23,49 @@ availability: 'Grupo Élivo shop and Dis&Dis'
 acquisition: purchased
 calories: '14 kcal / 100 ml (producer)'
 ingredients: 'Dealcoholized white wine, tannins, preservatives E-220 and E-242 (producer)'
+image: media/reviews/elivo-adegga-baezza.jpg
+image_alt: 'Adegga Baezza Premium Blanco bottle'
+image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
 updated_date: '2026-09-20'
-verdict: 'Research draft. Grupo Élivo publishes 0.0% Chardonnay dealcoholized by cold evaporation with aroma return; 14 kcal/100 ml. Editorial tasting and score pending.'
-summary: 'Adegga Baezza Blanco — Spanish Chardonnay dealcoholized by cold evaporation with aroma reintroduction. Research draft — not yet tasted for score.'
+rating: 81
+verdict: 'Soft and approachable, but less structurally convincing than the strongest wines here. Fruit and sweetness dominate over acidity — pleasant, somewhat removed from classic dry Chardonnay.'
+summary: 'Adegga Baezza Blanco — Galician Chardonnay dealcoholized by cold evaporation. Fruity, soft, and noticeably sweet.'
 tastes:
   - tropical
+  - apple
   - blossom
+  - botanical
 profile:
-  - Off-dry
-  - Medium body
-  - Soft acidity
-mouthfeel: 'Producer notes emphasize silky softness after a sweeter attack; editorial mouthfeel pending.'
-highlight: 'Producer tasting line: exotic fruit, herbs/flowers, sweet entry then fresh fruit on a silky mid-palate.'
-likeness: 'Awaiting cellar tasting. Framed as dealcoholized Chardonnay, not a grape soft drink.'
+  - Off-dry to medium
+  - Medium-light body
+  - Low-moderate acidity
+  - Medium finish
+mouthfeel: 'Soft and silky; sweetness lingers more strongly than acidity.'
+highlight: 'Approachable exotic-fruit Chardonnay style — sweetness leads, acid stays gentle.'
+likeness: 'Further from dry white-wine structure than Tip Top, NOOH, or Weinkönig. Soft entry and lowish acid (producer TA 3.22 g/L) read more dessert-adjacent.'
 drink_if_you_like:
   - 'Soft Chardonnay'
-  - 'Easy aperitif whites'
-nose: 'Producer notes: exotic tropical fruit with herbal and floral hints. Editorial nose pending.'
-palate: 'Producer notes: sweet attack, then freshness and abundant fruit on a silky frame. Editorial palate pending.'
-finish: 'Producer notes: pleasant persistence. Editorial finish pending.'
-structure: 'Not yet scored in the cellar. Production is dealcoholized Chardonnay via cold evaporation.'
-best_for: 'Aperitif and seafood once tasted and scored.'
+  - 'Easy sweet-leaning aperitif whites'
+nose: 'Tropical and exotic fruit with floral notes and a faint herbal quality.'
+palate: 'Sweet-leaning and fruity on entry, with ripe tropical fruit and a soft, silky texture. Acidity provides some freshness but remains gentle.'
+finish: 'Medium, smooth and fruity, with sweetness lingering more strongly than acidity.'
+structure: 'Producer analysis: pH 3.25, total acidity 3.22 g/L — soft acid frame. Off-dry to medium sweetness dominates structural authenticity.'
+best_for: 'Casual aperitif and dessert-adjacent pours.'
 serve: 'About 10°C; finish within three days refrigerated once opened (producer).'
+assessments:
+  likeness: 1
+  structural_authenticity: 0
+  balance: 1
+  complexity: 1
+  finish_quality: 1
+  standalone_appeal: 1
 discrepancies:
   -
     field: base_beverage
-    note: 'Some secondary sources incorrectly call the grape Moscatel. Grupo Élivo’s current Blanco page states Chardonnay — use Chardonnay as canonical.'
+    note: 'Some secondary sources incorrectly call the grape Moscatel. Grupo Élivo’s current Blanco page states Chardonnay.'
 sources:
   -
     title: 'Adegga Baezza Blanco — Grupo Élivo shop'
@@ -81,7 +97,7 @@ sources:
       - dealcoholized
       - price
       - availability
-status: draft
+status: published
 product_id: TDS-0116
 identifiers:
   -
@@ -90,16 +106,24 @@ identifiers:
 sensory:
   -
     descriptor: tropical
-    locations: [nose]
+    locations: [nose, palate]
+  -
+    descriptor: apple
+    locations: [palate]
   -
     descriptor: blossom
     locations: [nose]
+  -
+    descriptor: botanical
+    locations: [nose]
 structure_scales:
-  sweetness: 2
+  sweetness: 3
   body: 2
-  acidity: 2
-  texture: silky
+  acidity: 1
   finish_length: 1
+  flavor_intensity: 1
+  aromatic_intensity: 1
+  texture: silky
 provenance:
   abv:
     kind: manufacturer
@@ -117,6 +141,10 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://shop.grupoelivo.com/es/inicio/4-adegga-baezza-blanco.html'
+  rating:
+    kind: research
+    confidence: secondary
+    note: 'Editorial research score (not a Dry Standard cellar tasting). 81 reflects soft acid and sweet-led structure vs stronger bottles in this set.'
 purchase_links:
   -
     label: Grupo Élivo
@@ -131,6 +159,8 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Adegga Baezza is the brand; Grupo Élivo is the company. Blanco is dealcoholized white wine from Chardonnay. The shop page prints 0.0% vol ethanol, 14 kcal per 100 ml, and a chemical analysis. The range page names cold evaporation with the wine’s own aromas returned afterward — producer terminology kept as cold evaporation, not collapsed into vacuum distillation.
+Adegga Baezza is the brand; Grupo Élivo the company. Blanco is dealcoholized Galician Chardonnay via cold evaporation with aroma return — 0.0% vol, 14 kcal/100 ml. Composition after removal includes tannins and preservatives.
 
-Composition after dealcoholization includes tannins and preservatives (E-220, E-242). Ignore secondary Moscatel claims; Chardonnay is canonical. Score waits on tasting.
+Nose: tropical/exotic fruit, florals, faint herbal note. Palate is sweet-leaning and fruity — ripe tropical fruit, soft silky texture, gentle acid. Finish is medium and smooth; sweetness outlasts acidity.
+
+Score 81 is deliberate: not poor, but lowish acidity (TA 3.22 g/L) and a soft sweet entry put it further from classic dry Chardonnay than the stronger bottles in this set.

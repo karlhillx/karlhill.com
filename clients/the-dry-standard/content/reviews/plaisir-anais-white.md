@@ -20,31 +20,49 @@ volume: '750 ml'
 price: '$18.00 (Dis&Dis purchase)'
 availability: 'Dis&Dis and specialist wine shops'
 acquisition: purchased
+image: media/reviews/plaisir-anais-white.jpg
+image_alt: "Plaisir d'Anaïs Blanc bottle — Sauvignon Blanc 0%"
+image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
 updated_date: '2026-09-20'
-verdict: 'Research draft. Dealcoholized Bordeaux Sauvignon Blanc at 0.0%. Vacuum distillation is retailer-sourced. Editorial tasting and score pending.'
-summary: 'Bordeaux Sauvignon Blanc from Maison Lamartine, dealcoholized and labeled 0.0%. Research draft — not yet tasted for score.'
+rating: 82
+verdict: 'A straightforward 0.0% Sauvignon Blanc built around freshness and citrus rather than complexity. Pleasant and easy, though depth and finish trail the strongest wines in this set.'
+summary: 'Plaisir d’Anaïs Blanc — Bordeaux Sauvignon Blanc, dealcoholized and labeled 0%. Provisional research score — least documented tasting profile in the group.'
 tastes:
-  - mango
-  - passionfruit
-  - white_peach
+  - citrus
+  - green_apple
   - blossom
+  - botanical
 profile:
-  - Dry
+  - Off-dry
   - Light body
-  - Bright acidity
-mouthfeel: 'Producer notes call it light and refreshing; editorial mouthfeel pending.'
-highlight: 'Producer notes lean tropical Sauvignon — mango, passion fruit, white peach — after dealcoholization.'
-likeness: 'Awaiting cellar tasting. Framed as dealcoholized Bordeaux Sauvignon Blanc, not a soft drink.'
+  - Moderate acidity
+  - Short-to-medium finish
+mouthfeel: 'Light and crisp; clean rather than concentrated.'
+highlight: 'Crisp Sauvignon-style freshness — provisional score until a cellar tasting or stronger third-party notes.'
+likeness: 'Reads as a simple dealcoholized Sauvignon Blanc. Less documented than Tip Top or NOOH; do not borrow notes from unrelated conventional “Plaisir Blanc” wines.'
 drink_if_you_like:
-  - 'Tropical Sauvignon Blanc'
-  - 'Light Bordeaux blanc'
-nose: 'Producer notes: floral Sauvignon Blanc bouquet. Editorial nose pending.'
-palate: 'Producer notes: ripe mango and passion fruit with white peach sweetness on a light frame. Editorial palate pending.'
-finish: 'Producer notes: clean and satisfying. Editorial finish pending.'
-structure: 'Not yet scored in the cellar. Production is dealcoholized Sauvignon Blanc; named vacuum method is secondary.'
-best_for: 'Chilled aperitif pours once tasted and scored.'
+  - 'Easy Sauvignon Blanc'
+  - 'Citrus aperitif whites'
+nose: 'Citrus, white fruit and subtle floral/herbal notes.'
+palate: 'Light and crisp, with lemon, green fruit and moderate acidity. Clean rather than particularly concentrated.'
+finish: 'Short-to-medium, citrus-led and refreshing.'
+structure: 'Moderate acid on a light frame. Enough freshness to stay wine-like; limited mid-palate depth.'
+best_for: 'Casual chilled aperitif pours.'
 serve: 'Well chilled.'
+assessments:
+  likeness: 1
+  structural_authenticity: 1
+  balance: 1
+  complexity: 0
+  finish_quality: 1
+  standalone_appeal: 1
+discrepancies:
+  -
+    field: rating
+    note: 'Provisional research score (82). Independent tasting notes for this exact NA Plaisir Blanc + Sauvignon Blanc + 0% SKU are thin; do not use conventional Plaisir Blanc wines as sensory sources. Upgrade after Dry Standard cellar tasting.'
 sources:
   -
     title: "Plaisir d'ANAÏS — vins sans alcool (Château Lamartine)"
@@ -74,7 +92,7 @@ sources:
       - producer
       - base_beverage
       - dealcoholized
-status: draft
+status: published
 product_id: TDS-0112
 identifiers:
   -
@@ -82,27 +100,32 @@ identifiers:
     value: TDS-0112
 sensory:
   -
-    descriptor: mango
+    descriptor: citrus
+    locations: [nose, palate, finish]
+  -
+    descriptor: lemon
     locations: [palate]
   -
-    descriptor: passionfruit
-    locations: [palate]
-  -
-    descriptor: white_peach
+    descriptor: green_apple
     locations: [palate]
   -
     descriptor: blossom
     locations: [nose]
+  -
+    descriptor: botanical
+    locations: [nose]
 structure_scales:
-  sweetness: 1
+  sweetness: 2
   body: 1
-  acidity: 3
+  acidity: 2
   finish_length: 1
+  flavor_intensity: 1
+  aromatic_intensity: 1
 provenance:
   abv:
-    kind: retailer
-    confidence: secondary
-    url: 'https://disndis.com/products/plaisir-d-anais-white-wine-alcohol-free-0'
+    kind: label
+    confidence: label_verified
+    note: 'Front label prints 0% ALCOOL / ALCOHOL and SAUVIGNON BLANC; bottle SKU-confirmed.'
   dealcoholization_method:
     kind: retailer
     confidence: secondary
@@ -111,6 +134,10 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://chateaulamartine.weebly.com/plaisir-danaiumls---vins-sans-alcool.html'
+  rating:
+    kind: research
+    confidence: inferred
+    note: 'Provisional editorial research score — not a Dry Standard cellar tasting. Low tasting-note confidence for this exact SKU.'
 purchase_links:
   -
     label: Dis&Dis
@@ -120,6 +147,8 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Same house as the Plaisir d’Anaïs rosé: dealcoholized Bordeaux Sauvignon Blanc at 0.0% ABV. European retail ingredients language points to dealcoholized French wine plus grape sugar, natural flavor, and preservatives — wine-origin first, then reformulation after removal.
+Bottle confirms Sauvignon Blanc and 0% on the front label. Maison Lamartine’s Plaisir d’Anaïs line is dealcoholized wine; vacuum distillation remains a secondary retailer claim.
 
-Vacuum distillation is the process name carried by specialist retailers. It is not yet confirmed on a current Lamartine technical sheet, so method provenance stays secondary. What already holds: Bordeaux Sauvignon Blanc, dealcoholized, purchased for review. Score waits on the glass.
+Sensory notes for this SKU are deliberately conservative — independent product-page tasting language is thin, and conventional wines named Plaisir Blanc must not contaminate the record. Nose: citrus, white fruit, subtle floral/herbal. Palate: light and crisp — lemon, green fruit, moderate acid. Finish: short-to-medium, citrus-led.
+
+Provisional research score 82 until a Dry Standard cellar tasting. Method provenance stays secondary.

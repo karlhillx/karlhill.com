@@ -53,10 +53,12 @@ final class StillPipeline
 
         $canvas = $this->compositeOnFill($loaded);
         $canvas = $this->scaleDown($canvas, 1800);
-        // Dark studios only — never flood light neutrals (white labels/foil
-        // connect to white packshot backdrops and get erased).
+        // Dark studios first (safe: glass stays). Light studios are flooded
+        // after normalizeSubject once the bottle sits on the fill canvas —
+        // otherwise the crop keeps a white studio plate on a paper/white frame.
         $this->flattenDarkBackground($canvas);
         $canvas = $this->normalizeSubject($canvas);
+        $this->flattenStudioPlate($canvas);
 
         $directory = dirname($destinationJpeg);
         if (! is_dir($directory) && ! mkdir($directory, 0755, true) && ! is_dir($directory)) {
@@ -237,9 +239,87 @@ final class StillPipeline
     }
 
     /**
-     * Sweep a uniform near-white studio into paper. Skip dark studios — black
-     * cans connect to black backdrops and a flood fill would erase the SKU.
-     * Pure white packshots are left white so JPEG and WebP stay in sync.
+     * After the bottle is placed on the fill canvas, sweep leftover studio
+     * (white / light gray / mismatched paper) connected to the corners into
+     * the fill. Without this, normalizeSubject pastes a white studio plate
+     * onto a paper (or white) frame and the plate edge stays visible.
+     *
+     * White foil/caps that touch the studio also become fill — fine when the
+     * fill is white; avoid --paper for white-capsule SKUs if the foil matters.
+     */
+    private function flattenStudioPlate(\GdImage $image): bool
+    {
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $seeds = [
+            [2, 2],
+            [$width - 3, 2],
+            [2, $height - 3],
+            [$width - 3, $height - 3],
+        ];
+
+        $backdropCorners = 0;
+        foreach ($seeds as [$x, $y]) {
+            if ($this->isBackdropPixel($image, $x, $y)) {
+                $backdropCorners++;
+            }
+        }
+
+        if ($backdropCorners < 1) {
+            return false;
+        }
+
+        [$pr, $pg, $pb] = $this->fill;
+        $fill = imagecolorallocate($image, $pr, $pg, $pb);
+
+        foreach ($seeds as [$x, $y]) {
+            $this->flood(
+                $image,
+                $x,
+                $y,
+                $fill,
+                fn (int $x, int $y): bool => $this->isStudioPlatePixel($image, $x, $y),
+            );
+        }
+
+        return true;
+    }
+
+    /**
+     * Studio plate / letterbox — not bottle glass, liquid, or label ink.
+     * Includes near-white, light gray, and the opposite fill tone (paper vs white).
+     */
+    private function isStudioPlatePixel(\GdImage $image, int $x, int $y): bool
+    {
+        [$r, $g, $b, $luma] = $this->pixel($image, $x, $y);
+        [$fr, $fg, $fb] = $this->fill;
+
+        if (abs($r - $fr) < 10 && abs($g - $fg) < 10 && abs($b - $fb) < 10) {
+            return true;
+        }
+
+        $chroma = max(abs($r - $g), abs($g - $b), abs($r - $b));
+
+        // White / light gray / cream studio left over from the source crop.
+        if ($luma >= 220 && $chroma <= 18) {
+            return true;
+        }
+
+        // Paper tone when fill is white (or the reverse mismatch).
+        if (abs($r - self::PAPER[0]) < 12 && abs($g - self::PAPER[1]) < 12 && abs($b - self::PAPER[2]) < 12) {
+            return true;
+        }
+
+        if ($r >= 250 && $g >= 250 && $b >= 250) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Sweep leftover light studio into a uniform fill for WebP derivatives.
+     * Prefer white when the JPEG is already on white; otherwise paper.
      */
     private function flattenLightBackground(\GdImage $image): bool
     {
@@ -252,14 +332,14 @@ final class StillPipeline
             [$width - 3, $height - 3],
         ];
 
-        $whiteCorners = 0;
+        $lightCorners = 0;
         foreach ($seeds as [$x, $y]) {
-            if ($this->isNearWhite($image, $x, $y)) {
-                $whiteCorners++;
+            if ($this->isStudioPlatePixel($image, $x, $y)) {
+                $lightCorners++;
             }
         }
 
-        if ($whiteCorners < 4) {
+        if ($lightCorners < 4) {
             return false;
         }
 
@@ -270,29 +350,18 @@ final class StillPipeline
                 $alreadyWhite++;
             }
         }
-        if ($alreadyWhite === 4) {
-            return true;
-        }
 
-        // Already on the site paper tone — leave it.
-        if ($this->fill === self::PAPER) {
-            $alreadyPaper = 0;
-            foreach ($seeds as [$x, $y]) {
-                [$r, $g, $b] = $this->pixel($image, $x, $y);
-                if (abs($r - self::PAPER[0]) < 8 && abs($g - self::PAPER[1]) < 8 && abs($b - self::PAPER[2]) < 8) {
-                    $alreadyPaper++;
-                }
-            }
-            if ($alreadyPaper === 4) {
-                return true;
-            }
-        }
-
-        [$pr, $pg, $pb] = $this->fill;
+        [$pr, $pg, $pb] = $alreadyWhite === 4 ? self::WHITE : self::PAPER;
         $fill = imagecolorallocate($image, $pr, $pg, $pb);
 
         foreach ($seeds as [$x, $y]) {
-            $this->flood($image, $x, $y, $fill, fn (int $x, int $y): bool => $this->isNearWhite($image, $x, $y));
+            $this->flood(
+                $image,
+                $x,
+                $y,
+                $fill,
+                fn (int $x, int $y): bool => $this->isStudioPlatePixel($image, $x, $y),
+            );
         }
 
         return true;
@@ -332,14 +401,6 @@ final class StillPipeline
         }
 
         return true;
-    }
-
-    private function isNearWhite(\GdImage $image, int $x, int $y): bool
-    {
-        [$r, $g, $b, $luma] = $this->pixel($image, $x, $y);
-
-        // Strict: only near-pure white/cream studio, not pale label stock.
-        return $luma > 248 && abs($r - $g) < 10 && abs($g - $b) < 10;
     }
 
     /**
