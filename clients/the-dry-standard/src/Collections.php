@@ -2,6 +2,8 @@
 
 namespace DryStandard;
 
+use Illuminate\Support\Collection;
+
 /**
  * Facet-backed editorial collections. Each entry is a real filter set plus a short lede —
  * not a thin SEO stub. Only surfaces when the catalog has enough matching bottles.
@@ -74,7 +76,7 @@ final class Collections
     }
 
     /**
-     * @return array<int, array{slug: string, title: string, lede: string, count: int, href: string, query: ArchiveQuery, reviews: \Illuminate\Support\Collection}>
+     * @return array<int, array{slug: string, title: string, lede: string, count: int, href: string, query: ArchiveQuery, reviews: Collection}>
      */
     public static function available(ReviewRepository $reviews, SiteConfig $config): array
     {
