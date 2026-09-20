@@ -144,3 +144,47 @@ it('floods a white studio plate into a uniform white frame', function () {
         @unlink($destination);
     }
 });
+
+it('writes a transparent cutout derivative from a white studio packshot', function () {
+    $directory = sys_get_temp_dir().DIRECTORY_SEPARATOR.'tds-cutout-'.uniqid();
+    mkdir($directory);
+    $jpeg = $directory.DIRECTORY_SEPARATOR.'demo-can.jpg';
+    $cutout = $directory.DIRECTORY_SEPARATOR.'demo-can-cutout.webp';
+
+    $image = imagecreatetruecolor(400, 600);
+    imagefill($image, 0, 0, imagecolorallocate($image, 255, 255, 255));
+    imagefilledrectangle($image, 160, 80, 240, 520, imagecolorallocate($image, 20, 20, 20));
+    imagejpeg($image, $jpeg, 90);
+
+    try {
+        (new StillPipeline(Paths::default()))->ensureCutout($jpeg);
+        expect(is_file($cutout))->toBeTrue();
+
+        $out = imagecreatefromwebp($cutout);
+        $width = imagesx($out);
+        $height = imagesy($out);
+        $corner = imagecolorat($out, 2, 2);
+        expect(($corner >> 24) & 0x7F)->toBe(127);
+
+        $body = imagecolorat($out, (int) ($width / 2), (int) ($height / 2));
+        expect(($body >> 24) & 0x7F)->toBeLessThan(16)
+            ->and(($body >> 16) & 255)->toBeLessThan(40);
+
+        $opaqueMinY = $height;
+        $opaqueMaxY = -1;
+        for ($y = 0; $y < $height; $y += 2) {
+            for ($x = 0; $x < $width; $x += 4) {
+                if (((imagecolorat($out, $x, $y) >> 24) & 0x7F) < 100) {
+                    $opaqueMinY = min($opaqueMinY, $y);
+                    $opaqueMaxY = max($opaqueMaxY, $y);
+                    break;
+                }
+            }
+        }
+        expect(($opaqueMaxY - $opaqueMinY + 1) / $height)->toBeGreaterThan(0.85);
+    } finally {
+        @unlink($jpeg);
+        @unlink($cutout);
+        @rmdir($directory);
+    }
+});

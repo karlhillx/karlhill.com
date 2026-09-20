@@ -1373,14 +1373,28 @@ XML;
             'label' => $review->productionTypeShortLabel(),
         ]);
 
+        $score = '';
+        if ($review->rating !== null) {
+            $score = '<p class="featured-score" aria-label="Score '.$review->rating.' out of 100">'
+                .'<span class="featured-score__value">'.$review->rating.'</span>'
+                .'<span class="featured-score__scale">/100</span>'
+                .'</p>';
+        }
+
+        $abv = $review->abv !== null && $review->abv !== ''
+            ? '<span class="featured-abv">'.$this->e($review->abv).' ABV</span>'
+            : '';
+
         return $this->view->render('partials/featured-review', [
             'href' => $this->config->publicUrl($review->path()),
-            'figure' => $this->productFigure($review, 'product-figure product-figure--feature', hero: true),
-            'brand' => '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brandDisplayName()).'</a>',
+            'figure' => $this->productFigure($review, 'product-figure product-figure--feature', eager: true),
+            'presentation' => $review->imagePresentation(),
+            'brand' => $this->e($review->brandDisplayName()),
             'title' => $review->cardTitle(),
             'summary' => $review->summary,
-            'score' => $review->rating !== null ? '<span class="card-score">'.$review->rating.'</span>' : '',
+            'score' => $score,
             'badge' => $badge,
+            'abv' => $abv,
         ]);
     }
 
@@ -1920,9 +1934,15 @@ XML;
         ]);
     }
 
-    private function productFigure(Review $review, string $class, bool $hero = false): string
+    private function productFigure(Review $review, string $class, bool $hero = false, bool $eager = false): string
     {
         $assets = $review->imageAssets();
+        $presentation = $review->imagePresentation();
+        $class = trim($class.' product-figure--'.$presentation);
+        if (! empty($assets['cutout'])) {
+            $class .= ' product-figure--cutout';
+        }
+        $loadEager = $hero || $eager;
 
         return $this->view->render('partials/product-figure', [
             'class' => $class,
@@ -1938,8 +1958,9 @@ XML;
             'width' => $assets['width'] ?? 720,
             'height' => $assets['height'] ?? 960,
             'alt' => $review->imageAltText(),
-            'loading' => $hero ? 'eager' : 'lazy',
-            'priority' => $hero,
+            'loading' => $loadEager ? 'eager' : 'lazy',
+            'priority' => $loadEager,
+            'presentation' => $presentation,
             'credit' => $hero && $review->imageCredit !== null
                 ? '<figcaption>'.$this->e($review->imageCredit).'</figcaption>'
                 : '',

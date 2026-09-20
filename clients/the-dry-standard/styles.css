@@ -482,6 +482,7 @@ body.is-locked {
 }
 
 .featured {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -490,58 +491,188 @@ body.is-locked {
   border-radius: calc(var(--radius) + 0.25rem);
   background: var(--surface);
   box-shadow: var(--shadow);
+  transition:
+    border-color 220ms var(--ease),
+    box-shadow 220ms var(--ease);
 }
 
-.featured-media {
-  display: block;
+.featured-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.featured-hit:focus-visible {
+  outline: 2px solid var(--claret);
+  outline-offset: 3px;
+}
+
+.featured-media,
+.product-stage {
+  display: grid;
+  place-items: center;
   position: relative;
   height: clamp(15.5rem, 38vw, 26rem);
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 18%, #fff, var(--paper-deep) 74%);
+  /* Match common studio plates until a cutout is available. */
+  background: #fff;
+}
+
+.featured-media:has(.product-figure--cutout),
+.product-stage:has(.product-figure--cutout),
+.review-card-media:has(.product-figure--cutout) {
+  background: var(--paper);
 }
 
 .featured-media .product-figure,
-.featured-media .product-figure img,
-.featured-media .product-figure--empty {
+.featured-media .product-figure--empty,
+.product-stage .product-figure,
+.product-stage .product-figure--empty {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.featured-media .product-figure picture,
+.product-stage .product-figure picture {
+  display: grid;
+  place-items: center;
   width: 100%;
   height: 100%;
 }
 
-.featured-media img {
+/* Isolated packshot without cutout: fill the stage, no floating plate shadow. */
+.product-stage--isolated .product-figure--isolated img,
+.featured--isolated .product-figure--isolated img,
+.review-card .product-figure--isolated img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  padding: 0.65rem 0.65rem 0;
-  transform-origin: 50% 60%;
+  object-position: center;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  filter: none;
+  box-shadow: none;
+  transform-origin: 50% 70%;
+  transition: transform 320ms var(--ease);
 }
 
-.featured-media .card-score {
+/* Isolated + transparent cutout: fill the stage so labels stay readable. */
+.product-stage--isolated .product-figure--cutout img,
+.featured--isolated .product-figure--cutout img {
+  max-width: min(78%, 16rem);
+  max-height: 88%;
+  filter: drop-shadow(0 14px 18px rgba(20, 17, 14, 0.18));
+}
+
+.review-card .product-figure--cutout img {
+  max-width: 92%;
+  max-height: 94%;
+  filter: drop-shadow(0 12px 16px rgba(20, 17, 14, 0.16));
+}
+
+/* Contained: keep rectangular source; letterbox on paper. */
+.product-stage--contained .product-figure--contained img,
+.featured--contained .product-figure--contained img,
+.review-card .product-figure--contained img {
+  width: auto;
+  height: auto;
+  max-width: 86%;
+  max-height: 88%;
+  object-fit: contain;
+  padding: 0;
+  box-shadow: none;
+}
+
+/* Photography: edge-to-edge crop. */
+.product-stage--photography,
+.featured--photography .featured-media {
+  background: var(--paper-deep);
+}
+
+.product-stage--photography .product-figure--photography img,
+.featured--photography .product-figure--photography img,
+.review-card .product-figure--photography img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
+  box-shadow: none;
+}
+
+.featured-score {
   position: absolute;
   top: 0.85rem;
   right: 0.85rem;
   z-index: 1;
-  min-width: 3.1rem;
-  padding: 0.35rem 0.55rem;
-  border-radius: 0.75rem;
-  background: color-mix(in srgb, var(--header) 88%, transparent);
-  color: var(--cream);
-  font-size: 1.35rem;
-  line-height: 1;
-  backdrop-filter: blur(10px);
-}
-
-.featured-body {
-  padding: 1.15rem 1.35rem 1.35rem;
-}
-
-.featured-brand,
-.card-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 3.35rem;
+  min-height: 3.35rem;
   margin: 0;
+  padding: 0.35rem 0.3rem 0.4rem;
+  border: 1px solid color-mix(in srgb, var(--ink) 88%, transparent);
+  border-radius: 0.28rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  color: var(--ink);
+  line-height: 1;
+  box-sizing: border-box;
+  backdrop-filter: blur(6px);
+}
+
+.featured-score__value {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.featured-score__scale {
+  margin-top: 0.12rem;
   font-family: var(--font-sans);
-  font-size: 0.74rem;
+  font-size: 0.58rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+.featured-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 1.15rem 1.35rem 1.35rem;
+  pointer-events: none;
+}
+
+.featured-body .kicker {
+  margin: 0 0 0.45rem;
+}
+
+.featured-brand {
+  order: 2;
+  margin: 0.2rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 42%, var(--muted));
 }
 
 .featured-brand a,
@@ -556,8 +687,11 @@ body.is-locked {
 }
 
 .featured h2 {
-  margin: 0.25rem 0 0.55rem;
-  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  order: 1;
+  margin: 0;
+  font-size: clamp(1.55rem, 2.6vw, 2rem);
+  line-height: 1.15;
+  pointer-events: none;
 }
 
 .featured h2 a,
@@ -573,21 +707,80 @@ body.is-locked {
   color: var(--claret);
 }
 
-.featured-body p {
-  margin: 0;
+.featured-dek {
+  order: 3;
+  margin: 0.7rem 0 0;
+  max-width: 36rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.98rem, 1.2vw, 1.05rem);
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--ink) 88%, var(--muted));
 }
 
 .featured-meta {
+  order: 4;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: 1.05rem;
+  pointer-events: none;
 }
 
-.featured-meta .card-score {
-  font-size: 1.8rem;
+.featured-facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.65rem;
+}
+
+.featured-facts .badge {
+  margin: 0;
+}
+
+.featured-abv {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 55%, var(--muted));
+}
+
+.featured-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--claret);
+}
+
+.featured-cta__arrow {
+  display: inline-block;
+  transition: transform 220ms var(--ease);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .featured:hover,
+  .featured:focus-within {
+    border-color: color-mix(in srgb, var(--ink) 28%, var(--rule));
+    box-shadow: 0 22px 44px -24px rgba(20, 17, 14, 0.38);
+  }
+
+  .featured:hover .product-figure--isolated img,
+  .featured:focus-within .product-figure--isolated img {
+    transform: scale(1.035);
+  }
+
+  .featured:hover .featured-cta__arrow,
+  .featured:focus-within .featured-cta__arrow {
+    transform: translateX(0.2rem);
+  }
 }
 
 .band {
@@ -797,22 +990,42 @@ a.stat:hover strong {
 }
 
 .review-card-media {
-  display: block;
+  display: grid;
+  place-items: center;
   aspect-ratio: 4 / 5;
-  background:
-    radial-gradient(circle at 50% 30%, #fff, var(--paper-deep) 70%);
+  overflow: hidden;
+  background: #fff;
 }
 
 .review-card-media .product-figure,
-.review-card-media .product-figure img,
 .review-card-media .product-figure--empty {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.review-card-media .product-figure picture {
+  display: grid;
+  place-items: center;
   width: 100%;
   height: 100%;
 }
 
-.review-card-media img {
-  object-fit: contain;
-  padding: 1rem;
+.review-card-media .product-figure--cutout img {
+  max-width: 92%;
+  max-height: 94%;
+}
+
+.card-brand {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .review-card-body {

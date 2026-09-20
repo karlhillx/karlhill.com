@@ -488,6 +488,7 @@ final class Catalog
             'image_source',
             'image_source_url',
             'image_sku_confirmed',
+            'image_presentation',
             'status',
             'priority',
             'notes',
@@ -585,6 +586,7 @@ SQL);
         $this->ensureColumn('image_source', 'image_source TEXT');
         $this->ensureColumn('image_source_url', 'image_source_url TEXT');
         $this->ensureColumn('image_sku_confirmed', 'image_sku_confirmed TEXT');
+        $this->ensureColumn('image_presentation', 'image_presentation TEXT');
         $this->ensureColumn('brand_slug', 'brand_slug TEXT');
         $this->ensureColumn('style_slug', 'style_slug TEXT');
         $this->ensureColumn('method_facet', 'method_facet TEXT');

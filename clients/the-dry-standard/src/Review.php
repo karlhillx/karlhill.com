@@ -110,6 +110,7 @@ final class Review
         public readonly ?string $imageSource = null,
         public readonly ?string $imageSourceUrl = null,
         public readonly ?string $imageSkuConfirmed = null,
+        public readonly ?string $imagePresentation = null,
         public readonly ?string $styleSlugOverride = null,
         public readonly ?string $productId = null,
         public readonly array $identifiers = [],
@@ -203,6 +204,7 @@ final class Review
             imageSource: self::nullableLower($matter['image_source'] ?? null),
             imageSourceUrl: self::nullableString($matter['image_source_url'] ?? null),
             imageSkuConfirmed: self::normalizeVerified($matter['image_sku_confirmed'] ?? null),
+            imagePresentation: self::normalizeImagePresentation($matter['image_presentation'] ?? null),
             styleSlugOverride: self::nullableString($matter['style_slug'] ?? null),
             productId: self::nullableString($matter['product_id'] ?? $matter['id'] ?? null),
             identifiers: self::identifiers($matter['identifiers'] ?? []),
@@ -740,6 +742,7 @@ final class Review
             'image_source' => $this->imageSource,
             'image_source_url' => $this->imageSourceUrl,
             'image_sku_confirmed' => $this->imageSkuConfirmed,
+            'image_presentation' => $this->imagePresentation,
             'status' => $this->status,
             'brand_slug' => $this->brandSlug(),
             'style_slug' => $this->styleSlug(),
@@ -1218,6 +1221,16 @@ final class Review
         return $this->imageAlt ?? $this->title;
     }
 
+    /**
+     * How product photography is staged in cards and heroes.
+     *
+     * @return 'isolated'|'contained'|'photography'
+     */
+    public function imagePresentation(): string
+    {
+        return $this->imagePresentation ?? 'isolated';
+    }
+
     public const ABV_BUCKETS = [
         'zero' => '0.0%',
         'half' => '<0.5%',
@@ -1385,19 +1398,36 @@ final class Review
             : '';
         $webp = (is_string($webpRelative) && $webpAbsolute !== '' && is_file($webpAbsolute)) ? $webpRelative : null;
 
-        $webpSrcset = [];
-        foreach ([400, 800] as $width) {
-            $variant = is_string($src) ? preg_replace('/\.(jpe?g|png)$/i', '-'.$width.'.webp', $src) : null;
-            if (! is_string($variant)) {
-                continue;
-            }
-            $variantAbsolute = $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $variant);
-            if (is_file($variantAbsolute)) {
-                $webpSrcset[] = $variant.' '.$width.'w';
+        $presentation = $this->imagePresentation();
+        $cutoutRelative = null;
+        if ($presentation === 'isolated' && is_string($src)) {
+            $candidate = preg_replace('/\.(jpe?g|png)$/i', '-cutout.webp', $src);
+            if (is_string($candidate)) {
+                $candidateAbsolute = $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $candidate);
+                if (is_file($candidateAbsolute)) {
+                    $cutoutRelative = $candidate;
+                }
             }
         }
-        if ($webp !== null) {
-            $webpSrcset[] = $webp.' 900w';
+
+        $webpSrcset = [];
+        if ($cutoutRelative === null) {
+            foreach ([400, 800] as $width) {
+                $variant = is_string($src) ? preg_replace('/\.(jpe?g|png)$/i', '-'.$width.'.webp', $src) : null;
+                if (! is_string($variant)) {
+                    continue;
+                }
+                $variantAbsolute = $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $variant);
+                if (is_file($variantAbsolute)) {
+                    $webpSrcset[] = $variant.' '.$width.'w';
+                }
+            }
+            if ($webp !== null) {
+                $webpSrcset[] = $webp.' 900w';
+            }
+        } else {
+            $webp = $cutoutRelative;
+            $webpSrcset[] = $cutoutRelative.' 900w';
         }
 
         $nativeWidth = is_array($size) ? (int) $size[0] : 720;
@@ -1409,6 +1439,8 @@ final class Review
             'webpSrcset' => implode(', ', $webpSrcset),
             'width' => $nativeWidth,
             'height' => is_array($size) ? (int) $size[1] : 960,
+            'presentation' => $presentation,
+            'cutout' => $cutoutRelative !== null,
         ];
     }
 
@@ -1546,6 +1578,21 @@ final class Review
         return match ($normalized) {
             'yes', 'true', '1' => 'yes',
             'no', 'false', '0' => 'no',
+            default => null,
+        };
+    }
+
+    /**
+     * @return 'isolated'|'contained'|'photography'|null
+     */
+    private static function normalizeImagePresentation(mixed $value): ?string
+    {
+        $normalized = strtolower(trim((string) $value));
+
+        return match ($normalized) {
+            'isolated', 'cutout', 'packshot' => 'isolated',
+            'contained', 'framed', 'box' => 'contained',
+            'photography', 'lifestyle', 'editorial', 'scene' => 'photography',
             default => null,
         };
     }

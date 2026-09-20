@@ -15,8 +15,14 @@ final class StillPipeline
     /** Bottle/can height as a fraction of the 3:4 frame. */
     private const SUBJECT_HEIGHT_RATIO = 0.94;
 
+    /** Cutout stage: slightly taller fill so card labels stay readable. */
+    private const CUTOUT_HEIGHT_RATIO = 0.96;
+
     /** Max bottle/can width as a fraction of the frame. */
     private const SUBJECT_WIDTH_RATIO = 0.72;
+
+    /** Cutouts may use more of the frame width (cans, short bottles). */
+    private const CUTOUT_WIDTH_RATIO = 0.82;
 
     /** Padding around the detected subject before scaling. */
     private const SUBJECT_PAD_RATIO = 0.02;
@@ -113,6 +119,7 @@ final class StillPipeline
             }
 
             $converted += $this->writeWidthSet($source, $jpeg);
+            $this->ensureCutout($jpeg);
         }
 
         return $converted;
@@ -157,6 +164,38 @@ final class StillPipeline
         if ($needsWidths) {
             $this->writeWidthSet($source, $jpegPath);
         }
+
+        $this->ensureCutout($jpegPath);
+    }
+
+    /**
+     * Write a transparent packshot cutout ({slug}-cutout.webp) for isolated
+     * product stages. Floods corner-connected studio plate to alpha.
+     */
+    public function ensureCutout(string $jpegPath): void
+    {
+        if (! is_file($jpegPath) || ! function_exists('imagecreatefromjpeg') || ! function_exists('imagewebp')) {
+            return;
+        }
+
+        $cutout = (string) preg_replace('/\.jpe?g$/i', '-cutout.webp', $jpegPath);
+        if (is_file($cutout) && filemtime($cutout) >= filemtime($jpegPath)) {
+            return;
+        }
+
+        $source = @imagecreatefromjpeg($jpegPath);
+        if ($source === false) {
+            return;
+        }
+
+        $cut = $this->cutoutFromStill($source);
+        if ($cut === false) {
+            return;
+        }
+
+        imagealphablending($cut, false);
+        imagesavealpha($cut, true);
+        imagewebp($cut, $cutout, 82);
     }
 
     /**
@@ -172,7 +211,18 @@ final class StillPipeline
             return $target;
         }
 
-        if (! preg_match('/^(?<slug>[a-z0-9-]+?)(?:-(?<width>400|800))?\.webp$/i', basename($relative), $matches)) {
+        $base = basename($relative);
+        if (preg_match('/^(?<slug>[a-z0-9-]+)-cutout\.webp$/i', $base, $matches)) {
+            $jpeg = $directory.DIRECTORY_SEPARATOR.$matches['slug'].'.jpg';
+            if (! is_file($jpeg)) {
+                return null;
+            }
+            $this->ensureCutout($jpeg);
+
+            return is_file($target) ? $target : null;
+        }
+
+        if (! preg_match('/^(?<slug>[a-z0-9-]+?)(?:-(?<width>400|800))?\.webp$/i', $base, $matches)) {
             return null;
         }
 
@@ -343,15 +393,9 @@ final class StillPipeline
             return false;
         }
 
-        $alreadyWhite = 0;
-        foreach ($seeds as [$x, $y]) {
-            [$r, $g, $b] = $this->pixel($image, $x, $y);
-            if ($r >= 254 && $g >= 254 && $b >= 254) {
-                $alreadyWhite++;
-            }
-        }
-
-        [$pr, $pg, $pb] = $alreadyWhite === 4 ? self::WHITE : self::PAPER;
+        // Always flood onto paper so packshots match the editorial media stage
+        // (pure white rectangles read as pasted-on cards against cream).
+        [$pr, $pg, $pb] = self::PAPER;
         $fill = imagecolorallocate($image, $pr, $pg, $pb);
 
         foreach ($seeds as [$x, $y]) {
@@ -590,6 +634,197 @@ final class StillPipeline
             while ($x < $width && ! $visited[$y * $width + $x] && $matches($x, $y)) {
                 $visited[$y * $width + $x] = true;
                 imagesetpixel($image, $x, $y, $paper);
+
+                if ($y > 0) {
+                    $up = ($y - 1) * $width + $x;
+                    if (! $visited[$up] && $matches($x, $y - 1)) {
+                        if (! $spanUp) {
+                            $stack[] = [$x, $y - 1];
+                            $spanUp = true;
+                        }
+                    } else {
+                        $spanUp = false;
+                    }
+                }
+
+                if ($y < $height - 1) {
+                    $down = ($y + 1) * $width + $x;
+                    if (! $visited[$down] && $matches($x, $y + 1)) {
+                        if (! $spanDown) {
+                            $stack[] = [$x, $y + 1];
+                            $spanDown = true;
+                        }
+                    } else {
+                        $spanDown = false;
+                    }
+                }
+
+                $x++;
+            }
+        }
+    }
+
+    /**
+     * Convert a flat packshot JPEG into a true-alpha cutout when the studio
+     * plate reaches the corners. Returns false when the still looks like
+     * lifestyle photography (no floodable plate).
+     *
+     * Crops to the bottle/can and re-places it on a transparent 3:4 stage so
+     * card UIs are not dominated by empty transparent padding.
+     */
+    private function cutoutFromStill(\GdImage $source): \GdImage|false
+    {
+        $width = imagesx($source);
+        $height = imagesy($source);
+        $seeds = [
+            [2, 2],
+            [$width - 3, 2],
+            [2, $height - 3],
+            [$width - 3, $height - 3],
+        ];
+
+        $plateCorners = 0;
+        foreach ($seeds as [$x, $y]) {
+            if ($this->isStudioPlatePixel($source, $x, $y)) {
+                $plateCorners++;
+            }
+        }
+
+        if ($plateCorners < 3) {
+            return false;
+        }
+
+        $cut = imagecreatetruecolor($width, $height);
+        imagealphablending($cut, false);
+        imagesavealpha($cut, true);
+        $transparent = imagecolorallocatealpha($cut, 0, 0, 0, 127);
+        imagefilledrectangle($cut, 0, 0, $width, $height, $transparent);
+        imagealphablending($cut, true);
+        imagecopy($cut, $source, 0, 0, 0, 0, $width, $height);
+        imagealphablending($cut, false);
+
+        foreach ($seeds as [$x, $y]) {
+            $this->floodAlpha(
+                $cut,
+                $x,
+                $y,
+                $transparent,
+                fn (int $x, int $y): bool => $this->isStudioPlatePixel($cut, $x, $y),
+            );
+        }
+
+        $bounds = $this->opaqueBounds($cut);
+        if ($bounds === null) {
+            return $cut;
+        }
+
+        return $this->placeOpaqueSubject($cut, $bounds);
+    }
+
+    /**
+     * @return array{0: int, 1: int, 2: int, 3: int}|null
+     */
+    private function opaqueBounds(\GdImage $image): ?array
+    {
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $minX = $width;
+        $minY = $height;
+        $maxX = -1;
+        $maxY = -1;
+        $step = max(1, (int) floor(min($width, $height) / 400));
+
+        for ($y = 0; $y < $height; $y += $step) {
+            for ($x = 0; $x < $width; $x += $step) {
+                if (((imagecolorat($image, $x, $y) >> 24) & 0x7F) >= 120) {
+                    continue;
+                }
+
+                $minX = min($minX, $x);
+                $minY = min($minY, $y);
+                $maxX = max($maxX, $x);
+                $maxY = max($maxY, $y);
+            }
+        }
+
+        if ($maxX < $minX || $maxY < $minY) {
+            return null;
+        }
+
+        $pad = max(4, (int) round(min($width, $height) * 0.012));
+
+        return [
+            max(0, $minX - $pad),
+            max(0, $minY - $pad),
+            min($width - 1, $maxX + $pad),
+            min($height - 1, $maxY + $pad),
+        ];
+    }
+
+    /**
+     * @param  array{0: int, 1: int, 2: int, 3: int}  $bounds
+     */
+    private function placeOpaqueSubject(\GdImage $source, array $bounds): \GdImage
+    {
+        [$x0, $y0, $x1, $y1] = $bounds;
+        $subjectW = max(1, $x1 - $x0 + 1);
+        $subjectH = max(1, $y1 - $y0 + 1);
+
+        $scale = min(
+            (self::TARGET_WIDTH * self::CUTOUT_WIDTH_RATIO) / $subjectW,
+            (self::TARGET_HEIGHT * self::CUTOUT_HEIGHT_RATIO) / $subjectH,
+        );
+        $drawW = max(1, (int) round($subjectW * $scale));
+        $drawH = max(1, (int) round($subjectH * $scale));
+
+        $canvas = imagecreatetruecolor(self::TARGET_WIDTH, self::TARGET_HEIGHT);
+        imagealphablending($canvas, false);
+        imagesavealpha($canvas, true);
+        $transparent = imagecolorallocatealpha($canvas, 0, 0, 0, 127);
+        imagefilledrectangle($canvas, 0, 0, self::TARGET_WIDTH, self::TARGET_HEIGHT, $transparent);
+
+        $dstX = (int) round((self::TARGET_WIDTH - $drawW) / 2);
+        $dstY = (int) round((self::TARGET_HEIGHT - $drawH) / 2);
+
+        imagealphablending($canvas, true);
+        imagecopyresampled($canvas, $source, $dstX, $dstY, $x0, $y0, $drawW, $drawH, $subjectW, $subjectH);
+        imagealphablending($canvas, false);
+        imagesavealpha($canvas, true);
+
+        return $canvas;
+    }
+
+    /**
+     * @param  callable(int, int): bool  $matches
+     */
+    private function floodAlpha(\GdImage $image, int $sx, int $sy, int $transparent, callable $matches): void
+    {
+        if (! $matches($sx, $sy)) {
+            return;
+        }
+
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $visited = array_fill(0, $width * $height, false);
+        $stack = [[$sx, $sy]];
+
+        while ($stack !== []) {
+            [$x, $y] = array_pop($stack);
+            $idx = $y * $width + $x;
+            if ($visited[$idx] || ! $matches($x, $y)) {
+                continue;
+            }
+
+            while ($x > 0 && ! $visited[$y * $width + ($x - 1)] && $matches($x - 1, $y)) {
+                $x--;
+            }
+
+            $spanUp = false;
+            $spanDown = false;
+
+            while ($x < $width && ! $visited[$y * $width + $x] && $matches($x, $y)) {
+                $visited[$y * $width + $x] = true;
+                imagesetpixel($image, $x, $y, $transparent);
 
                 if ($y > 0) {
                     $up = ($y - 1) * $width + $x;
