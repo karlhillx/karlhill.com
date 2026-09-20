@@ -1,0 +1,8 @@
+/* Injected by a11y / Playwright via <link> so CSP style-src 'self' stays strict. */
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}

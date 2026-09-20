@@ -41,8 +41,9 @@ try {
             continue;
         }
 
+        // Same-origin <link> — Dry Standard CSP is style-src 'self' (no unsafe-inline).
         await page.addStyleTag({
-            content: `*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}`,
+            url: `${base}/css/a11y-motion-freeze.css`,
         });
 
         let builder = new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']);

@@ -3034,20 +3034,17 @@ a.stat:hover strong {
     max-width: min(10.5rem, 52vw);
   }
 
+  .identity-block,
+  .product-facts {
+    gap: 0.75rem 1.15rem;
+    align-items: flex-start;
+  }
+
   .identity {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem 1.5rem;
   }
 
-  .identity-item--abv,
-  .identity-item--classification {
-    grid-column: span 1;
-  }
-
-  .identity-item--abv .identity-value {
-    font-size: clamp(1.55rem, 7vw, 1.9rem);
-  }
-
-  .identity-foot .identity-sources {
+  .identity-sources {
     margin-left: 0;
   }
 
@@ -3155,8 +3152,12 @@ a.stat:hover strong {
 
 .identity-block,
 .product-facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.85rem 1.5rem;
   margin: 1.25rem 0 0;
-  padding: 1rem 1.1rem 0.85rem;
+  padding: 0.85rem 1.1rem;
   overflow: visible;
   border: 1px solid var(--rule);
   border-radius: var(--radius);
@@ -3164,105 +3165,84 @@ a.stat:hover strong {
 }
 
 .identity {
-  display: grid;
-  grid-template-columns: minmax(5.75rem, 0.85fr) minmax(7.5rem, 1.2fr) repeat(3, minmax(0, 1fr));
-  gap: 0.95rem 1.35rem;
-  align-items: start;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.85rem 2rem;
   margin: 0;
-  padding: 0 0 0.9rem;
+  padding: 0;
+  min-width: 0;
   list-style: none;
   font-family: var(--font-sans);
-  font-size: 0.9rem;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .identity li,
 .identity-item {
+  flex: 0 0 auto;
   min-width: 0;
 }
 
 .identity-label {
   display: block;
-  margin-bottom: 0.28rem;
-  font-size: 0.66rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: color-mix(in srgb, var(--ink) 42%, var(--muted));
 }
 
+.identity-item--abv .identity-label {
+  color: var(--claret-deep);
+}
+
 .identity-value,
-.identity a {
+.identity a.identity-value {
   display: block;
-  overflow: hidden;
   color: var(--ink);
-  font-weight: 600;
-  font-size: 1.02rem;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
   white-space: nowrap;
-  text-overflow: ellipsis;
   text-decoration: none;
 }
 
-.identity a:hover {
+.identity a.identity-value:hover {
   color: var(--claret);
 }
 
-/* ABV is the hard gate for this site — lead with display type. */
-.identity-item--abv .identity-value {
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 2.6vw, 2.15rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
-  color: var(--ink);
-}
-
-.identity-item--abv .identity-label {
-  margin-bottom: 0.35rem;
+.identity-item--method .identity-label {
   color: var(--claret-deep);
 }
 
-/* Classification (dealcoholized / hybrid / …) is the production thesis. */
-.identity-item--classification .identity-value {
-  font-size: 1.08rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  line-height: 1.15;
-}
-
-.identity-item--classification .identity-label {
-  color: var(--claret-deep);
-}
-
-.identity-item--style .identity-value,
-.identity-item--method .identity-value,
-.identity-item--origin .identity-value,
-.identity-item--disclosure .identity-value {
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.identity-foot {
-  display: flex;
-  flex-wrap: wrap;
+.identity-pill {
+  display: inline-flex;
   align-items: center;
-  gap: 0.55rem 0.85rem;
-  margin-top: 0;
-  padding: 0.75rem 0 0;
-  border-top: 1px solid color-mix(in srgb, var(--rule) 80%, transparent);
-}
-
-.identity-foot .badge {
+  max-width: 100%;
   margin: 0;
-  padding: 0.28rem 0.7rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
+  padding: 0.38rem 0.85rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
-.identity-foot:has(.badge) .identity-verified {
-  display: none;
+.identity-pill a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.identity-pill a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 .identity-verified {
@@ -3272,8 +3252,12 @@ a.stat:hover strong {
   color: color-mix(in srgb, var(--ink) 40%, var(--muted));
 }
 
-.identity-foot .identity-sources {
-  margin-left: auto;
+.identity-sources {
+  flex: 0 0 auto;
+  margin: 0 0 0.15rem auto;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  white-space: nowrap;
 }
 
 
@@ -3636,15 +3620,18 @@ img {
 
 .identity-confidence {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   letter-spacing: 0.02em;
   color: color-mix(in srgb, var(--ink) 45%, var(--muted));
+  white-space: nowrap;
 }
 
 .identity-sources {
-  margin: 0;
+  flex: 0 0 auto;
+  margin: 0 0 0.15rem auto;
   font-family: var(--font-sans);
   font-size: 0.78rem;
+  white-space: nowrap;
 }
 
 .identity-sources a {
@@ -3821,20 +3808,16 @@ img {
     min-width: 36rem;
   }
 
+  .identity-block,
+  .product-facts {
+    gap: 0.75rem 1.15rem;
+  }
+
   .identity {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem 1.5rem;
   }
 
-  .identity-item--abv,
-  .identity-item--classification {
-    grid-column: span 1;
-  }
-
-  .identity-item--abv .identity-value {
-    font-size: clamp(1.55rem, 7vw, 1.9rem);
-  }
-
-  .identity-foot .identity-sources {
+  .identity-sources {
     margin-left: 0;
   }
 }

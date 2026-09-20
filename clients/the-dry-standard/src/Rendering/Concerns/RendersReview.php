@@ -61,7 +61,6 @@ trait RendersReview
             'identity' => $this->view->render('partials/identity', [
                 'factsPeek' => $this->factsPeek($review),
                 'badge' => $badge,
-                'verifiedLabel' => $review->verifiedLabel(),
             ]),
             'score' => $this->view->render('partials/score-badge', [
                 'rating' => $review->rating,
@@ -197,94 +196,76 @@ trait RendersReview
     }
 
     /**
-     * @return array<int, array{label: string, value: string}>
+     * Consumer scan strip: ABV, then Method. Style/origin/disclosure live elsewhere.
+     *
+     * @return array<int, array{key: string, label: string, value: string, href?: string, pill?: bool, tone?: string}>
      */
     private function factsPeek(Review $review): array
     {
         $peek = [];
+
         if ($review->abv !== null && $review->abv !== '') {
             $peek[] = [
                 'key' => 'abv',
                 'label' => 'ABV',
                 'value' => $review->abv,
-                'confidence' => $review->fieldConfidenceLabel('abv'),
             ];
         }
 
-        $peek[] = [
-            'key' => 'classification',
-            'label' => 'Classification',
-            'value' => $review->productionTypeShortLabel(),
-            'confidence' => $review->fieldConfidenceLabel('production_type')
-                ?? ($review->verified === 'yes' ? 'Producer verified' : null),
-        ];
+        $peek[] = $this->methodPeekItem($review);
 
-        $peek[] = [
-            'key' => 'disclosure',
-            'label' => 'Disclosure',
-            'value' => $review->disclosureLabel(),
-        ];
+        return $peek;
+    }
 
-        if ($review->hasComparableStyle()) {
-            $peek[] = [
-                'key' => 'style',
-                'label' => 'Style',
-                'value' => $review->styleLabel(),
-                'href' => $this->config->publicUrl('styles/'.$review->styleSlug().'/'),
-            ];
-        } elseif ($review->style) {
-            $peek[] = ['key' => 'style', 'label' => 'Style', 'value' => $review->style];
-        }
+    /**
+     * @return array{key: string, label: string, value: string, href?: string, pill?: bool, tone?: string}
+     */
+    private function methodPeekItem(Review $review): array
+    {
+        $facet = $review->methodFacetKey();
+        $tone = $review->productionType === 'not-verified' ? 'not-verified' : $review->productionType;
 
-        $methodKey = $review->methodKey();
-        if ($review->methodFacetKey() === 'not-applicable') {
-            $peek[] = [
+        if ($facet === 'not-applicable') {
+            return [
                 'key' => 'method',
                 'label' => 'Method',
                 'value' => 'Formulated',
-                'confidence' => $review->fieldConfidenceLabel('dealcoholization_method'),
+                'pill' => true,
+                'tone' => $tone,
             ];
-        } elseif ($review->methodFacetKey() === 'unpublished'
-            && in_array($review->productionType, ['dealcoholized', 'hybrid'], true)) {
-            $peek[] = [
-                'key' => 'method',
-                'label' => 'Method',
-                'value' => 'Technique undeclared',
-                'confidence' => $review->fieldConfidenceLabel('dealcoholization_method'),
-            ];
-        } elseif ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)) {
-            $peek[] = [
+        }
+
+        $methodKey = $review->methodKey();
+        if ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)
+            && ! in_array($facet, ['unpublished', 'unknown'], true)) {
+            return [
                 'key' => 'method',
                 'label' => 'Method',
                 'value' => $this->peekMethodLabel($review),
                 'href' => $this->config->publicUrl('methods/'.$methodKey.'/'),
-                'confidence' => $review->fieldConfidenceLabel('dealcoholization_method'),
+                'pill' => true,
+                'tone' => $tone,
             ];
         }
 
-        $country = $review->countryLabel();
-        if ($country !== null && $country !== '') {
-            $peek[] = [
-                'key' => 'origin',
-                'label' => 'Origin',
-                'value' => $country,
-                'href' => $this->config->publicUrl('reviews/').'?country='.$review->countrySlug(),
-                'confidence' => $review->fieldConfidenceLabel('country'),
-            ];
-        }
-
-        return $peek;
+        return [
+            'key' => 'method',
+            'label' => 'Method',
+            'value' => $review->productionTypeShortLabel(),
+            'pill' => true,
+            'tone' => $tone,
+        ];
     }
 
     private function peekMethodLabel(Review $review): string
     {
         return match ($review->methodFacetKey()) {
             'membrane-filtration' => 'Cold filtration',
-            'vacuum-distillation' => 'Vacuum',
+            'vacuum-distillation' => 'Vacuum distillation',
             'reverse-osmosis' => 'Reverse osmosis',
             'spinning-cone' => 'Spinning cone',
-            'osmotic-distillation' => 'Osmotic',
-            'arrested-fermentation' => 'Arrested',
+            'osmotic-distillation' => 'Osmotic distillation',
+            'arrested-fermentation' => 'Arrested fermentation',
             'not-applicable' => 'Formulated',
             'other' => 'Other method',
             default => $review->methodCardLabel(),

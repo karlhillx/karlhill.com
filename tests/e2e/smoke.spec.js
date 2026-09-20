@@ -4,14 +4,10 @@ import AxeBuilder from '@axe-core/playwright';
 /** Shared axe scan — serious/critical WCAG2 A/AA findings. */
 async function assertA11y(page, { exclude = [] } = {}) {
     // Freeze motion so axe samples real painted colors (not mid-animation layers).
+    // Use a same-origin stylesheet — inline <style> is blocked by Dry Standard CSP.
+    const origin = new URL(page.url()).origin;
     await page.addStyleTag({
-        content: `
-          *, *::before, *::after {
-            animation: none !important;
-            transition: none !important;
-            scroll-behavior: auto !important;
-          }
-        `,
+        url: `${origin}/css/a11y-motion-freeze.css`,
     });
 
     let builder = new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']);
