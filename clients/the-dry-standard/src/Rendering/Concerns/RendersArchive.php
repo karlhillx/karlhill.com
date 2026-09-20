@@ -388,7 +388,7 @@ trait RendersArchive
         $brandMeta = $withMeta($brandOptions, 'brand');
         $primaryFacets = $this->facetGroup('ABV', 'abv', $withMeta($abvOptions, 'abv'))
             .($categoryOptions === [] ? '' : $this->facetGroup('Category', 'category', $withMeta($categoryOptions, 'category')))
-            .$this->facetGroup('Production type', 'production', $withMeta($processOptions, 'production'))
+            .$this->facetGroup('Classification', 'production', $withMeta($processOptions, 'production'))
             .$this->facetGroup('Score', 'score', $withMeta($scoreOptions, 'score'));
 
         $advancedFacets = $this->facetGroup(
@@ -508,7 +508,7 @@ trait RendersArchive
             'brand' => 'Brand',
             'abv' => 'ABV',
             'category' => 'Category',
-            'production' => 'Production type',
+            'production' => 'Classification',
             'method' => 'Method',
             'style' => 'Style',
             'country' => 'Country',

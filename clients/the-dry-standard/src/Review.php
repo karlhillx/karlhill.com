@@ -548,7 +548,12 @@ final class Review
             return null;
         }
 
-        if ($this->verdict !== '' && trim($this->highlight) === trim($this->verdict)) {
+        $highlight = trim($this->highlight);
+        if ($this->verdict !== '' && $highlight === trim($this->verdict)) {
+            return null;
+        }
+
+        if ($this->nose !== null && $highlight === trim($this->nose)) {
             return null;
         }
 
@@ -863,7 +868,30 @@ final class Review
             $parts[] = $this->abv;
         }
 
+        $method = $this->cardMethodLabel();
+        if ($method !== null) {
+            $parts[] = $method;
+        }
+
         return implode(' · ', $parts);
+    }
+
+    /**
+     * Compact method label for cards — only when a named process (or formulated) is known.
+     */
+    public function cardMethodLabel(): ?string
+    {
+        return match ($this->methodFacetKey()) {
+            'membrane-filtration' => 'Cold filtration',
+            'vacuum-distillation' => 'Vacuum distillation',
+            'reverse-osmosis' => 'Reverse osmosis',
+            'spinning-cone' => 'Spinning cone',
+            'osmotic-distillation' => 'Osmotic distillation',
+            'arrested-fermentation' => 'Arrested fermentation',
+            'not-applicable' => 'Formulated',
+            'other' => 'Other method',
+            default => null,
+        };
     }
 
     /**
@@ -952,10 +980,10 @@ final class Review
         $label = self::PRODUCTION_TYPES[$this->productionType] ?? 'Unclassified';
 
         if ($this->dealcoholizedNote) {
-            return 'Production type: '.$label.' — '.$this->dealcoholizedNote;
+            return 'Classification: '.$label.' — '.$this->dealcoholizedNote;
         }
 
-        return 'Production type: '.$label;
+        return 'Classification: '.$label;
     }
 
     public function productionTypeShortLabel(): string
@@ -989,6 +1017,14 @@ final class Review
         return self::DISCLOSURE_STANCES[$this->disclosureStance()] ?? 'Undeclared';
     }
 
+    /**
+     * Public label for production-evidence stance (not commercial/editorial disclosure).
+     */
+    public function evidenceStatusLabel(): string
+    {
+        return $this->disclosureLabel();
+    }
+
     public function essayHeading(): string
     {
         return match ($this->category) {
@@ -1001,13 +1037,16 @@ final class Review
         };
     }
 
+    /**
+     * @deprecated Prefer evidenceStatusLabel() in UI; retained for tests and imports.
+     */
     public function verifiedLabel(): string
     {
         if ($this->productionType === 'not-verified') {
             return '';
         }
 
-        return $this->verified === 'yes' ? 'Sourced production type' : 'Production type not fully sourced';
+        return 'Evidence status: '.$this->evidenceStatusLabel();
     }
 
     public function brandDisplayName(): string

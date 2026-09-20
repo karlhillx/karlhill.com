@@ -1,6 +1,5 @@
-              <?php if (! empty($factsPeek) || ! empty($badge)) { ?>
+              <?php if (! empty($factsPeek)) { ?>
               <div class="product-facts identity-block">
-                <?php if (! empty($factsPeek)) { ?>
                 <ul class="identity" aria-label="Product identity">
                   <?php foreach ($factsPeek as $item) {
                       $key = (string) ($item['key'] ?? '');
@@ -26,7 +25,6 @@
                   </li>
                   <?php } ?>
                 </ul>
-                <?php } ?>
                 <p class="identity-sources"><a href="<?= $view->e(($pageUrl ?? '').'#provenance') ?>">Sources</a></p>
               </div>
               <?php } ?>

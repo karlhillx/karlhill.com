@@ -47,9 +47,9 @@ it('serves the Dry Standard homepage and primary sections', function () {
 it('serves sourced sample reviews with production-type badges', function () {
     $this->get('/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/')
         ->assertOk()
-        ->assertSee('Production type: Dealcoholized', escape: false)
+        ->assertSee('Classification: Dealcoholized', escape: false)
         ->assertSee('class="identity"', escape: false)
-        ->assertSee('Sourced production type', escape: false)
+        ->assertSee('Evidence status: Documented', escape: false)
         ->assertSee('Vacuum distillation', escape: false)
         ->assertSee('Weingut Leitz', escape: false)
         ->assertSee('id="how-it-was-made"', escape: false)
@@ -64,7 +64,7 @@ it('serves sourced sample reviews with production-type badges', function () {
 
     $this->get('/clients/the-dry-standard/reviews/cocktails/lyres-italian-orange/')
         ->assertOk()
-        ->assertSee('Production type: Alternative', escape: false)
+        ->assertSee('Classification: Alternative', escape: false)
         ->assertSee('Formulated as a zero-proof alternative', escape: false)
         ->assertSee('class="identity-pill badge badge--alternative"', escape: false)
         ->assertSee('Formulated', escape: false)
@@ -83,7 +83,7 @@ it('serves sourced sample reviews with production-type badges', function () {
         ->assertSee('How wine-like is it?', escape: false)
         ->assertSee('balsamic', escape: false)
         ->assertSee('id="provenance"', escape: false)
-        ->assertSee('Sources &amp; verification', escape: false)
+        ->assertSee('data-provenance-panel', escape: false)
         ->assertSee('provenance-summary-meta', escape: false)
         ->assertDontSee('Product overview', escape: false);
 });
@@ -367,10 +367,10 @@ it('serves bottle compare for two to four slugs', function () {
         ->assertSee('compare-table', escape: false);
 });
 
-it('labels Sources & verification without Unspecified source', function () {
+it('labels Sources without Unspecified source', function () {
     $this->get('/clients/the-dry-standard/reviews/wine/ohla-rose/')
         ->assertOk()
-        ->assertSee('Sources &amp; verification', escape: false)
+        ->assertSee('data-provenance-panel', escape: false)
         ->assertSee('Retail listing', escape: false)
         ->assertSee('morewines.com', escape: false)
         ->assertDontSee('Unspecified source', escape: false)
@@ -455,7 +455,7 @@ it('sends a client CSP and first-party analytics flag', function () {
 it('serves the purchased Ohla, Hitachino, Dr. Lo, Pierre sparkling, and Lyre\'s mule reviews', function () {
     $this->get('/clients/the-dry-standard/reviews/wine/ohla-rose/')
         ->assertOk()
-        ->assertSee('Production type: Dealcoholized', escape: false)
+        ->assertSee('Classification: Dealcoholized', escape: false)
         ->assertSee('Syrah and Cabernet Sauvignon', escape: false)
         ->assertSee('media/reviews/ohla-rose.jpg', escape: false)
         ->assertSee('Ohla! Rosé', escape: false)
@@ -470,7 +470,7 @@ it('serves the purchased Ohla, Hitachino, Dr. Lo, Pierre sparkling, and Lyre\'s 
 
     $this->get('/clients/the-dry-standard/reviews/beer/hitachino-nest-non-ale/')
         ->assertOk()
-        ->assertSee('Production type: Naturally low alcohol', escape: false)
+        ->assertSee('Classification: Naturally low alcohol', escape: false)
         ->assertSee('<0.5%', escape: false)
         ->assertSee('media/reviews/hitachino-nest-non-ale.jpg', escape: false);
 
@@ -488,7 +488,7 @@ it('serves the purchased Ohla, Hitachino, Dr. Lo, Pierre sparkling, and Lyre\'s 
 
     $this->get('/clients/the-dry-standard/reviews/cocktails/lyres-rum-mule/')
         ->assertOk()
-        ->assertSee('Production type: Alternative', escape: false)
+        ->assertSee('Classification: Alternative', escape: false)
         ->assertSee('Formulated', escape: false)
         ->assertSee('media/reviews/lyres-rum-mule.jpg', escape: false);
 

@@ -59,7 +59,7 @@ $selected = static fn (string $key, string $want): bool => $value($key) === $wan
             <legend>Helpful if you have it</legend>
             <?= $view->render('partials/form-field', ['name' => 'abv', 'label' => 'ABV', 'value' => $value('abv'), 'error' => $errors['abv'] ?? '', 'hint' => 'Must be 0.5% or less to be reviewed.']) ?>
             <div class="field">
-              <label for="submit-production">Production type</label>
+              <label for="submit-production">Classification</label>
               <select id="submit-production" name="production_type">
                 <option value="">Select if known</option>
                 <?php foreach (($productionTypes ?? []) as $type) { ?>

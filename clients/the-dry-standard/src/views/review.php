@@ -20,13 +20,14 @@
                   <?= $score ?>
                 </div>
               </div>
-              <p class="lede"><?= $view->e($summary) ?></p>
               <?= $identity ?? '' ?>
               <?php if (! empty($verdict)) { ?>
               <section class="verdict verdict--glance" id="verdict">
                 <h2 class="visually-hidden">Verdict</h2>
                 <p><?= $view->e($verdict) ?></p>
               </section>
+              <?php } elseif (! empty($summary)) { ?>
+              <p class="lede"><?= $view->e($summary) ?></p>
               <?php } ?>
             </div>
             <?= $sectionNav = $view->render('partials/review-section-nav', [
@@ -57,19 +58,15 @@
             </section>
             <?php } ?>
             <section class="callout" id="how-it-was-made">
-              <h2>How was it made?</h2>
+              <h2>How it was made</h2>
               <p class="callout-status"><?= $view->e($statusLabel) ?></p>
-              <?php if (! empty($verifiedLabel)) { ?>
-              <p class="callout-verified"><?= $view->e($verifiedLabel) ?></p>
-              <?php } ?>
-              <?php if (! empty($disclosureStanceLabel)) { ?>
-              <p class="callout-disclosure">Disclosure: <?= $view->e($disclosureStanceLabel) ?></p>
+              <?php if (! empty($evidenceStatusLabel)) { ?>
+              <p class="callout-disclosure">Evidence status: <?= $view->e($evidenceStatusLabel) ?></p>
               <?php } ?>
               <?= $methodBlock ?>
               <?= $discrepancies ?>
             </section>
             <?= $provenance ?? '' ?>
-            <?= $sources ?>
           </div>
           <aside class="facts" id="facts" aria-label="Product facts">
             <h2>Product facts</h2>

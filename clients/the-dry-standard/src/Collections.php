@@ -32,7 +32,7 @@ final class Collections
             'dealcoholized-wine' => [
                 'slug' => 'dealcoholized-wine',
                 'title' => 'Dealcoholized wines',
-                'lede' => 'Wine that started alcoholic and had the ethanol removed. Production type is sourced, not inferred from marketing.',
+                'lede' => 'Wine that started alcoholic and had the ethanol removed. Classification is sourced, not inferred from marketing.',
                 'query' => ['category' => 'wine', 'production' => 'dealcoholized'],
             ],
             'spinning-cone' => [

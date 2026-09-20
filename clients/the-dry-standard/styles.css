@@ -1178,6 +1178,12 @@ a.stat:hover strong {
   background: var(--unknown-soft);
 }
 
+.badge--method {
+  color: #1f4a3c;
+  background: color-mix(in srgb, #d7ebe3 70%, var(--surface));
+  border-color: color-mix(in srgb, #1f4a3c 16%, transparent);
+}
+
 .review-card[hidden],
 .directory-row[hidden] {
   display: none;
@@ -1547,6 +1553,38 @@ a.stat:hover strong {
 .page-meta,
 .review-meta {
   margin: 0 0 0.85rem;
+}
+
+.method-count {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.15rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--ink) 58%, var(--muted));
+}
+
+.method-count__chip {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border: 1.5px solid color-mix(in srgb, var(--claret) 55%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--claret) 8%, var(--surface));
+  color: var(--claret);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.method-count__copy {
+  max-width: 28rem;
 }
 
 .review-meta a {
@@ -2249,6 +2287,7 @@ a.stat:hover strong {
 .facts h3,
 .tasting h2,
 .sources h2,
+.sources-panel h2,
 .verdict h2,
 .callout h2,
 .serve h2 {
@@ -2362,8 +2401,12 @@ a.stat:hover strong {
 }
 
 .provenance {
-  margin: 0.5rem 0 0;
+  margin: 0;
   padding: 0;
+  border: 0;
+}
+
+.sources-panel .provenance {
   border-top: 1px solid var(--rule);
 }
 
@@ -2543,9 +2586,26 @@ a.stat:hover strong {
 }
 
 .sources ol,
+.sources-bibliography,
 .buy ul,
 .discrepancies ul {
   padding-left: 1.15rem;
+}
+
+.sources-panel {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.sources-bibliography {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.sources-bibliography li + li {
+  margin-top: 0.35rem;
 }
 
 .archive-layout--compact .archive-sidebar {
@@ -3296,17 +3356,11 @@ a.stat:hover strong {
   white-space: nowrap;
 }
 
-.identity-item--method .identity-pill {
+.identity-item--method .identity-pill,
+.identity-item--classification .identity-pill {
   font-size: 0.84rem;
   padding: 0.48rem 1.05rem;
   box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 6%, transparent);
-}
-
-.identity-item--disclosure .identity-pill {
-  padding: 0.32rem 0.78rem;
-  font-size: 0.72rem;
-  font-weight: 650;
-  letter-spacing: 0.07em;
 }
 
 .badge--documented {

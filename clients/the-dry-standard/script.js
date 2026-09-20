@@ -689,7 +689,15 @@
       return false;
     }
 
+    if (id === "provenance") {
+      const panel = target.querySelector("details[data-provenance-panel]") || target.closest("details[data-provenance-panel]");
+      if (panel && !panel.open) {
+        panel.open = true;
+      }
+    }
+
     target.scrollIntoView();
+    requestAnimationFrame(() => target.scrollIntoView());
     return true;
   };
 

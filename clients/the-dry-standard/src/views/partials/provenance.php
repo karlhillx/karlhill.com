@@ -1,12 +1,16 @@
-<?php if (! empty($groups)) { ?>
-<details class="provenance" id="provenance">
-  <summary>
-    <span class="provenance-summary-title"><?= $view->e($title ?? 'Sources & verification') ?></span>
-    <span class="provenance-summary-meta"><?= $view->e($summary) ?></span>
-  </summary>
-  <div class="provenance-body">
-    <p class="provenance-lede">Product facts are only as strong as their sources. Editorial tasting notes are opinion.</p>
-    <ul class="provenance-groups">
+<?php if (! empty($groups) || ! empty($bibliography)) { ?>
+<section class="sources-panel" id="provenance">
+  <details class="provenance" data-provenance-panel>
+    <summary>
+      <span class="provenance-summary-title"><?= $view->e($title ?? 'Sources') ?></span>
+      <?php if (! empty($summary)) { ?>
+      <span class="provenance-summary-meta"><?= $view->e($summary) ?></span>
+      <?php } ?>
+    </summary>
+    <div class="provenance-body">
+      <p class="provenance-lede">Product facts are only as strong as their sources. Editorial tasting notes are opinion.</p>
+      <?php if (! empty($groups)) { ?>
+      <ul class="provenance-groups">
       <?php foreach ($groups as $group) { ?>
       <li>
         <div class="provenance-group-head">
@@ -24,7 +28,16 @@
         <?php } ?>
       </li>
       <?php } ?>
-    </ul>
-  </div>
-</details>
+      </ul>
+      <?php } ?>
+      <?php if (! empty($bibliography)) { ?>
+      <ol class="sources-bibliography">
+        <?php foreach ($bibliography as $item) { ?>
+        <li><a href="<?= $view->e($item['url']) ?>" rel="nofollow noopener"><?= $view->e($item['title']) ?></a></li>
+        <?php } ?>
+      </ol>
+      <?php } ?>
+    </div>
+  </details>
+</section>
 <?php } ?>

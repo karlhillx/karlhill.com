@@ -18,7 +18,7 @@ producer: 'Mingle Mocktails (women-founded US brand)'
 price: '$44.95 per 12-pack direct (~$3.75/can); $13.99 per 4-pack at Thrive Market; from $4.59 single at Instacart'
 availability: 'US retail including Total Wine, Thrive Market, and Instacart'
 image: media/reviews/mingle-sparkling-raspberry-rose.jpg
-image_alt: 'Mingle Sparkling Raspberry Rosé can'
+image_alt: 'Mingle Sparkling Raspberry Rosé slim can — 0% ABV, 60 calories'
 image_credit: 'Product photo via minglemocktails.com'
 image_source: producer
 image_source_url: 'https://www.minglemocktails.com/products/sparkling-raspberry-rose'

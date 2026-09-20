@@ -48,7 +48,7 @@ it('marks formulated alternatives as method not-applicable', function () {
 
     expect($review->methodFacetKey())->toBe('not-applicable')
         ->and($review->methodCardLabel())->toBe('Formulated alternative')
-        ->and($review->verifiedLabel())->toBe('Sourced production type');
+        ->and($review->verifiedLabel())->toBe('Evidence status: Documented');
 });
 
 it('strips a redundant brand from card titles and keeps Guinness 0.0', function () {

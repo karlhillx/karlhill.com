@@ -162,7 +162,13 @@ final class Site
             $methodCount = $methodReviews->count();
             $methodMeta = $methodCount === 0
                 ? ''
-                : '<p class="page-meta">'.($methodCount === 1 ? '1 bottle' : $methodCount.' bottles').' reviewed with this method. Other methods are listed below.</p>';
+                : '<p class="method-count">'
+                    .'<span class="method-count__chip">'.$methodCount.'</span>'
+                    .'<span class="method-count__copy">'
+                    .($methodCount === 1 ? 'bottle' : 'bottles')
+                    .' reviewed with this method. Other methods are listed below.'
+                    .'</span>'
+                    .'</p>';
 
             return $renderer->articlePage(
                 $method,

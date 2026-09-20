@@ -44,15 +44,11 @@ trait RendersReview
         $compareSlugs = array_values(array_unique(array_slice($compareSlugs, 0, 4)));
         $compareHref = $this->config->publicUrl('compare/').'?slugs='.rawurlencode(implode(',', $compareSlugs));
 
-        $badge = $this->view->render('partials/production-badge', [
-            'type' => $review->productionType,
-            'label' => $review->productionTypeShortLabel(),
-        ]);
-
         $methodologyUrl = $this->config->publicUrl('methodology/');
+        $heroLede = $review->verdict !== '' ? null : $review->summary;
         $body = $this->view->render('review', [
             'title' => $review->title,
-            'summary' => $review->summary,
+            'summary' => $heroLede,
             'categoryLabel' => $this->config->categoryLabel($review->category),
             'breadcrumbs' => $this->breadcrumbs($crumbs),
             'figure' => $this->productFigure($review, 'product-figure product-figure--hero', hero: true),
@@ -60,7 +56,6 @@ trait RendersReview
             'byline' => 'Reviewed by '.$this->e($this->config->editorName()).', '.strtolower($this->config->editorRole()),
             'identity' => $this->view->render('partials/identity', [
                 'factsPeek' => $this->factsPeek($review),
-                'badge' => $badge,
                 'pageUrl' => $this->config->publicUrl($review->path()),
             ]),
             'score' => $this->view->render('partials/score-badge', [
@@ -70,8 +65,7 @@ trait RendersReview
                 'methodologyUrl' => $methodologyUrl,
             ]),
             'statusLabel' => $review->productionTypeLabel(),
-            'verifiedLabel' => $review->verifiedLabel(),
-            'disclosureStanceLabel' => $review->disclosureLabel(),
+            'evidenceStatusLabel' => $review->evidenceStatusLabel(),
             'methodBlock' => $this->methodBlock($review),
             'discrepancies' => $this->discrepancies($review),
             'overview' => $bodyHtml !== ''
@@ -83,7 +77,6 @@ trait RendersReview
             'serveBlock' => $this->optionalBlock($review->serve),
             'bestForBlock' => $hasGlance ? '' : $this->optionalBlock($review->bestFor, 'Best for: '),
             'verdict' => $review->verdict,
-            'sources' => $this->sources($review),
             'facts' => $this->facts($review),
             'links' => $this->purchaseLinks($review),
             'related' => $related,
@@ -146,13 +139,6 @@ trait RendersReview
             $parts[] = '<a href="'.$this->url('styles/'.$review->styleSlug().'/').'">'.$this->e($review->styleLabel()).'</a>';
         }
 
-        $methodKey = $review->methodKey();
-        if ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)) {
-            $parts[] = '<a href="'.$this->url('methods/'.$methodKey.'/').'">'.$this->e($review->methodCardLabel()).'</a>';
-        } elseif ($review->dealcoholizationMethod) {
-            $parts[] = $this->e($review->methodCardLabel());
-        }
-
         return '<p class="review-meta review-taxonomy">'.implode('<span class="review-meta-sep" aria-hidden="true"> · </span>', $parts).'</p>';
     }
 
@@ -198,8 +184,8 @@ trait RendersReview
     }
 
     /**
-     * Consumer scan strip, ranked by importance:
-     * ABV → Method → Disclosure → Style → Origin.
+     * Tier-1 scan strip: ABV → Classification → Method → Origin.
+     * Style lives in the taxonomy line; evidence status lives in “How it was made.”
      *
      * @return array<int, array{key: string, label: string, value: string, href?: string, pill?: bool, tone?: string}>
      */
@@ -215,33 +201,17 @@ trait RendersReview
             ];
         }
 
-        $peek[] = $this->methodPeekItem($review);
-
         $peek[] = [
-            'key' => 'disclosure',
-            'label' => 'Disclosure',
-            'value' => $review->disclosureLabel(),
+            'key' => 'classification',
+            'label' => 'Classification',
+            'value' => $review->productionTypeShortLabel(),
             'pill' => true,
-            'tone' => match ($review->disclosureStance()) {
-                'documented' => 'documented',
-                'withheld' => 'withheld',
-                default => 'undeclared',
-            },
+            'tone' => $review->productionType === 'not-verified' ? 'not-verified' : $review->productionType,
         ];
 
-        if ($review->hasComparableStyle()) {
-            $peek[] = [
-                'key' => 'style',
-                'label' => 'Style',
-                'value' => $review->styleLabel(),
-                'href' => $this->config->publicUrl('styles/'.$review->styleSlug().'/'),
-            ];
-        } elseif ($review->style) {
-            $peek[] = [
-                'key' => 'style',
-                'label' => 'Style',
-                'value' => $review->style,
-            ];
+        $method = $this->methodPeekItem($review);
+        if ($method !== null) {
+            $peek[] = $method;
         }
 
         $country = $review->countryLabel();
@@ -258,12 +228,11 @@ trait RendersReview
     }
 
     /**
-     * @return array{key: string, label: string, value: string, href?: string, pill?: bool, tone?: string}
+     * @return array{key: string, label: string, value: string, href?: string, pill?: bool, tone?: string}|null
      */
-    private function methodPeekItem(Review $review): array
+    private function methodPeekItem(Review $review): ?array
     {
         $facet = $review->methodFacetKey();
-        $tone = $review->productionType === 'not-verified' ? 'not-verified' : $review->productionType;
 
         if ($facet === 'not-applicable') {
             return [
@@ -271,7 +240,7 @@ trait RendersReview
                 'label' => 'Method',
                 'value' => 'Formulated',
                 'pill' => true,
-                'tone' => $tone,
+                'tone' => 'alternative',
             ];
         }
 
@@ -284,17 +253,11 @@ trait RendersReview
                 'value' => $this->peekMethodLabel($review),
                 'href' => $this->config->publicUrl('methods/'.$methodKey.'/'),
                 'pill' => true,
-                'tone' => $tone,
+                'tone' => 'method',
             ];
         }
 
-        return [
-            'key' => 'method',
-            'label' => 'Method',
-            'value' => $review->productionTypeShortLabel(),
-            'pill' => true,
-            'tone' => $tone,
-        ];
+        return null;
     }
 
     private function peekMethodLabel(Review $review): string
@@ -375,15 +338,17 @@ trait RendersReview
     private function provenancePanel(Review $review): string
     {
         $provenance = $review->provenanceRecord();
-        if ($provenance === []) {
+        $bibliography = $this->bibliographyItems($review, $provenance);
+
+        if ($provenance === [] && $bibliography === []) {
             return '';
         }
 
         $labels = [
             'abv' => 'ABV',
-            'dealcoholization_method' => 'Production method',
-            'production_type' => 'Production type',
-            'country' => 'Origin / country',
+            'dealcoholization_method' => 'Method',
+            'production_type' => 'Classification',
+            'country' => 'Country',
             'region' => 'Region',
             'producer' => 'Producer',
             'ingredients' => 'Ingredients',
@@ -460,29 +425,71 @@ trait RendersReview
 
         $groups = array_values($grouped);
         $fieldCount = array_sum(array_map(fn (array $group): int => count($group['fields']), $groups));
-        $sourceCount = count($groups);
-        $summary = $fieldCount.' '.($fieldCount === 1 ? 'fact' : 'facts')
-            .' · '.$sourceCount.' '.($sourceCount === 1 ? 'source' : 'sources');
+        $knownUrls = [];
+        foreach ($groups as $group) {
+            if (! empty($group['href'])) {
+                $knownUrls[$group['href']] = true;
+            }
+        }
+        $extraSources = 0;
+        foreach ($bibliography as $item) {
+            if (! isset($knownUrls[$item['url']])) {
+                $extraSources++;
+            }
+        }
+        $sourceCount = count($groups) + $extraSources;
+        if ($sourceCount === 0) {
+            $sourceCount = count($bibliography);
+        }
+
+        $summaryParts = [];
+        if ($fieldCount > 0) {
+            $summaryParts[] = $fieldCount.' '.($fieldCount === 1 ? 'fact' : 'facts');
+        }
+        if ($sourceCount > 0) {
+            $summaryParts[] = $sourceCount.' '.($sourceCount === 1 ? 'source' : 'sources');
+        }
+        $summary = implode(' · ', $summaryParts);
 
         return $this->view->render('partials/provenance', [
             'groups' => $groups,
+            'bibliography' => $bibliography,
             'summary' => $summary,
-            'title' => 'Sources & verification',
+            'title' => 'Sources',
         ]);
     }
 
-    private function sources(Review $review): string
+    /**
+     * @param  array<string, array<string, mixed>>  $provenance
+     * @return array<int, array{title: string, url: string}>
+     */
+    private function bibliographyItems(Review $review, array $provenance): array
     {
         if ($review->sources === []) {
-            return '';
+            return [];
         }
 
-        $items = '';
+        $knownUrls = [];
+        foreach ($provenance as $entry) {
+            $url = (string) ($entry['url'] ?? '');
+            if ($url !== '') {
+                $knownUrls[$url] = true;
+            }
+        }
+
+        $items = [];
         foreach ($review->sources as $source) {
-            $items .= '<li><a href="'.Str::e($source['url']).'" rel="nofollow noopener">'.Str::e($source['title']).'</a></li>';
+            $url = (string) ($source['url'] ?? '');
+            if ($url === '' || isset($knownUrls[$url])) {
+                continue;
+            }
+            $items[] = [
+                'title' => (string) ($source['title'] ?? $url),
+                'url' => $url,
+            ];
         }
 
-        return $this->view->render('partials/sources', ['items' => $items]);
+        return $items;
     }
 
     private function discrepancies(Review $review): string
