@@ -98,6 +98,11 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://us.nonny.beer/products/nonny-czech-pilsner'
+sensory:
+  -
+    descriptor: malt
+    locations:
+      - palate
 ---
 
 Nonny Czech Pilsner is brewed or fermented to finish at low ABV without a published removal step from Canada. Nonny's own site describes the beer as 'always below 0.5% alcohol' with no removal-process language anywhere across its product or brand pages, consistent wi….

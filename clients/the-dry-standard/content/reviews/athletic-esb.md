@@ -36,7 +36,6 @@ profile:
   - Off-dry
   - 'Modest bitterness'
   - 'Clean finish'
-highlight: "Athletic's limited-release take on the English bitter — smooth, balanced, and the style's caramel-malt character carried honestly into zero proof."
 nose: 'Caramel malt and a gentle English hop note — the ESB signature, subdued rather than loud.'
 palate: 'Smooth and balanced; the malt sweetness and hop bitterness in proper ESB proportion, with a clean body.'
 finish: 'Malty and clean, the bitterness lingering politely.'
@@ -107,13 +106,22 @@ provenance:
     confidence: manufacturer_verified
     url: 'https://athleticbrewing.com/products/athletic-esb'
   price:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://beerfordriving.com/beer/athletic-brewing/esb-extra-special-bitter-english-style-brew/'
   production_type:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.fastcompany.com/91270872/athletic-brewing-most-innovative-companies-2025'
+sensory:
+  -
+    descriptor: malt
+    locations:
+      - palate
+  -
+    descriptor: hops
+    locations:
+      - palate
 ---
 
 Athletic ESB is brewed or fermented to finish at low ABV without a published removal step from Milford, Connecticut, United States. Athletic's process is proprietary, but founder interviews state it is neither dealcoholization of finished beer nor simple arrested fermentation — the beers ….

@@ -128,6 +128,36 @@ it('builds a comparison snapshot from a review', function () {
         ->and($snap->toArray()['structure']['body'])->toBe(2);
 });
 
+it('reclassifies retail and registry provenance kinds', function () {
+    expect(Review::inferProvenanceKind('https://morewines.com/ohla-rosado/', 'Manufacturer notes'))
+        ->toBe('retailer')
+        ->and(Review::inferProvenanceKind('https://www.trademarkelite.com/trademark/detail', 'OHLA trademark'))
+        ->toBe('research')
+        ->and(Review::resolveProvenanceKind('unknown', 'https://morewines.com/ohla/', ''))
+        ->toBe('retailer');
+});
+
+it('labels score bands for the public 100-point scale', function () {
+    $review = Review::fromMatter([
+        'title' => 'Banded',
+        'slug' => 'banded',
+        'brand' => 'Test',
+        'product' => 'Wine',
+        'category' => 'wine',
+        'production_type' => 'dealcoholized',
+        'verified' => 'yes',
+        'abv' => '0.0%',
+        'rating' => 74,
+        'summary' => 'A',
+        'verdict' => 'B',
+        'status' => 'draft',
+        'review_date' => '2026-09-18',
+        'sources' => [['title' => 'P', 'url' => 'https://example.com', 'claims' => ['abv', 'dealcoholized']]],
+    ], '', '/tmp/banded.md');
+
+    expect($review->scoreBandLabel())->toBe('Recommended');
+});
+
 it('emits classification and length warnings without blocking', function () {
     $config = new SiteConfig([
         'categories' => [

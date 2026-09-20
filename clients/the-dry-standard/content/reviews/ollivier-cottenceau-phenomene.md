@@ -86,19 +86,19 @@ structure_scales:
   acidity: 3
 provenance:
   producer:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://schatziwines.com/wine/ollivier-cottenceau-phenomene/'
   region:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://schatziwines.com/wine/ollivier-cottenceau-phenomene/'
   base_beverage:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://schatziwines.com/wine/ollivier-cottenceau-phenomene/'
   production_type:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://schatziwines.com/wine/ollivier-cottenceau-phenomene/'
   country:

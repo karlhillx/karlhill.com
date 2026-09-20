@@ -39,7 +39,6 @@ profile:
   - Off-dry
   - 'Soft bead'
   - 'Clean finish'
-highlight: 'A French sparkling rosé that was wine first, then put through reverse osmosis. Strawberry and cranberry, dry enough to toast with, priced like supermarket Cava.'
 nose: "Strawberry, cranberry, and raspberry — the producer's own list, and the glass agrees."
 palate: 'Dry, fine bead, red fruit without soda sweetness. Body is thinner than a full-strength crémant, which is the osmosis tax.'
 finish: 'Clean berry and a little pith. Serve it colder than a still rosé.'

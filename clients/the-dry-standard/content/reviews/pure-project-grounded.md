@@ -37,7 +37,6 @@ profile:
   - 'Medium body'
   - 'Modest bitterness'
 mouthfeel: 'Dry and hoppy, light bitterness lingering.'
-highlight: "A San Diego craft brewery's serious NA IPA — Citra, Citra Cryo and Mosaic Abstrax hops, medium body, lemongrass and grapefruit. The West Coast take on zero proof."
 nose: 'Lemongrass, ruby grapefruit and navel orange — the Citra hop signature, bright and specific.'
 palate: 'Medium-bodied and balanced; the hop character leads over a light bready malt base, with the tropical-citrus profile carrying through the mid-palate.'
 finish: 'Dry and hoppy, light bitterness lingering.'
@@ -101,6 +100,23 @@ provenance:
     kind: unknown
     confidence: secondary
     url: 'https://www.purebrewing.org/product/grounded/'
+sensory:
+  -
+    descriptor: lemongrass
+    locations:
+      - palate
+  -
+    descriptor: grapefruit
+    locations:
+      - palate
+  -
+    descriptor: orange
+    locations:
+      - palate
+  -
+    descriptor: hops
+    locations:
+      - palate
 ---
 
 Pure Project Grounded Non-Alcoholic IPA is non-alcoholic with an unpublished production process from San Diego, California, United States. No cited producer page names a removal technique, so the badge stays not-verified.

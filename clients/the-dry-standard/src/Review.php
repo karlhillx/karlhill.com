@@ -340,6 +340,31 @@ final class Review
     }
 
     /**
+     * Public band label for the 100-point scale (matches About methodology).
+     */
+    public function scoreBandLabel(): ?string
+    {
+        $rating = $this->rating;
+        if ($rating === null) {
+            return null;
+        }
+        if ($rating >= 90) {
+            return 'Exceptional';
+        }
+        if ($rating >= 80) {
+            return 'Excellent';
+        }
+        if ($rating >= 70) {
+            return 'Recommended';
+        }
+        if ($rating >= 60) {
+            return 'Adequate';
+        }
+
+        return 'Not recommended';
+    }
+
+    /**
      * Explicit provenance merged with claim-derived evidence from sources.
      * Explicit entries always win; derived rows never invent unsourced facts.
      *
@@ -347,7 +372,18 @@ final class Review
      */
     public function provenanceRecord(): array
     {
-        $rows = $this->provenance;
+        $rows = [];
+        foreach ($this->provenance as $field => $entry) {
+            if (! is_array($entry)) {
+                continue;
+            }
+            $kind = self::resolveProvenanceKind(
+                (string) ($entry['kind'] ?? 'unknown'),
+                (string) ($entry['url'] ?? ''),
+                (string) ($entry['note'] ?? ''),
+            );
+            $rows[$field] = array_merge($entry, ['kind' => $kind]);
+        }
 
         foreach ($this->sources as $source) {
             $url = (string) ($source['url'] ?? '');
@@ -456,33 +492,74 @@ final class Review
         };
     }
 
-    private static function inferProvenanceKind(string $url, string $title): string
+    public static function inferProvenanceKind(string $url, string $title = ''): string
     {
-        $hay = strtolower($url.' '.$title);
+        $hay = strtolower(trim($url.' '.$title));
+        if ($hay === '') {
+            return 'unknown';
+        }
 
-        if (str_contains($hay, 'label') || str_contains($hay, 'nutrition')) {
+        $host = strtolower((string) (parse_url($url, PHP_URL_HOST) ?: ''));
+        if (str_starts_with($host, 'www.')) {
+            $host = substr($host, 4);
+        }
+
+        if (str_contains($hay, 'label') || str_contains($hay, 'nutrition facts') || str_contains($hay, 'nutrition-facts')) {
             return 'label';
         }
-        if (preg_match('/\b(gov|fda|usda|efsa|ttb)\b/', $hay) === 1) {
+        if (preg_match('/\b(gov|fda|usda|efsa|ttb|uspto)\b/', $hay) === 1) {
             return 'government';
         }
-        if (str_contains($hay, 'press') || str_contains($hay, 'prweb') || str_contains($hay, 'newsroom')) {
+        if (str_contains($hay, 'trademark') || str_contains($hay, 'patent') || str_contains($hay, 'scholar') || str_contains($hay, 'pubmed') || str_contains($hay, 'research')) {
+            return 'research';
+        }
+        if (str_contains($hay, 'press') || str_contains($hay, 'prweb') || str_contains($hay, 'prnewswire') || str_contains($hay, 'businesswire')
+            || str_contains($hay, 'newsroom') || str_contains($hay, 'news-releases') || str_contains($hay, 'irishtimes')
+            || str_contains($hay, 'fastcompany') || str_contains($hay, 'magazine') || str_contains($hay, 'untappd')
+            || str_contains($hay, 'news.')) {
             return 'press';
         }
-        if (preg_match('/\b(total wine|wine\.com|amazon|instacart|wegmans|retail|shop|store|cellar)\b/', $hay) === 1) {
-            return 'retailer';
-        }
-        if (preg_match('/\b(importer|distributor|wholesale)\b/', $hay) === 1) {
-            return 'distributor';
-        }
-        if (preg_match('/\b(weingut|winery|brewery|distill|producer|official|\.com\/products)\b/', $hay) === 1
+        if (preg_match('/\b(weingut|winery|brewery|brewing|distill|distillery|producer|official|\/products\/|\/our-beers\/|\/our-wines\/|\/range\/|\/na-ciders\/)\b/', $hay) === 1
             || str_contains($hay, 'guinness.com')
             || str_contains($hay, 'leitz-wein')
-            || str_contains($hay, 'giesen')) {
+            || str_contains($hay, 'giesen')
+            || str_contains($hay, 'lyres.com')
+            || str_contains($hay, 'athleticbrewing')
+            || str_contains($hay, 'diageo.com')
+            || str_contains($hay, 'originalsincider.com')
+            || str_contains($hay, 'almostzero.co')) {
             return 'manufacturer';
+        }
+        if (preg_match('/\b(importer|distributor|wholesale|winesellers)\b/', $hay) === 1) {
+            return 'distributor';
+        }
+        if (preg_match('/\b(total wine|wine\.com|amazon|instacart|wegmans|retail|shop|store|cellar|merchant|morewines|boisson|zero.?proof|drizly|minibar|thrivemarket|supervin)\b/', $hay) === 1
+            || str_contains($hay, 'listing')
+            || str_contains($host, 'market')
+            || str_contains($host, 'wine')
+            || str_contains($host, 'beer')
+            || str_contains($host, 'shop')
+            || str_contains($host, 'store')
+            || (bool) preg_match('/\b(buy|vin)\b/', $host)) {
+            return 'retailer';
         }
 
         return 'unknown';
+    }
+
+    /**
+     * Prefer an inferred kind when stored provenance left the source unclassified.
+     */
+    public static function resolveProvenanceKind(string $kind, string $url = '', string $title = ''): string
+    {
+        $kind = strtolower(trim($kind));
+        if ($kind !== '' && $kind !== 'unknown' && in_array($kind, self::PROVENANCE_KINDS, true)) {
+            return $kind;
+        }
+
+        $inferred = self::inferProvenanceKind($url, $title);
+
+        return $inferred !== 'unknown' ? $inferred : ($kind !== '' ? $kind : 'unknown');
     }
 
     /**

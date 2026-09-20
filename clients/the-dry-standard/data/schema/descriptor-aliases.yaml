@@ -81,3 +81,43 @@ lavender: lavender
 baking spice first: cinnamon
 floral lift: blossom
 gently floral: blossom
+pine resin: hops
+piney: hops
+esb signature: malt
+pale-ale citrus: citrus
+malt sweetness: malt
+fresh malt: malt
+toast: toasted_grain
+floral hops: hops
+citric hop lift: citrus
+bitter orange peel: orange_peel
+rhubarb sweetness: rhubarb
+light floral top notes: blossom
+floral top note: blossom
+candied cherry note: cherry
+wild strawberry: strawberry
+white strawberry: strawberry
+recognizably rosé: red_fruit
+ripe apple: apple
+lemon peel: lemon
+bright raspberry: raspberry
+lightly sparkling: red_berry
+red berry fruit: red_berry
+redcurrant: red_currant
+bilberry: blackberry
+lemongrass: lemongrass
+navel orange: orange
+citra hop signature: hops
+petrol note: petrol
+classic riesling tell: petrol
+wet cardboard: oxidative
+grain whisper: toasted_grain
+clean pilsner malt: malt
+light malt: malt
+grain note: toasted_grain
+ripe mango: mango
+tart tropical lift: passionfruit
+bright tropical: passionfruit
+ne ipa signature: hops
+jalapeño warmth: pepper
+fennel note over lemon: fennel

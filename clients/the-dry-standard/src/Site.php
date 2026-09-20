@@ -257,6 +257,10 @@ final class Site
             return $renderer->bestIndex($published);
         }
 
+        if ($path === 'compare') {
+            return $renderer->compare($published, $query);
+        }
+
         if (preg_match('#^best/(wine|beer|spirits|cocktails|cider)$#', $path, $matches) === 1) {
             $category = $matches[1];
             $label = $this->config->categoryLabel($category);

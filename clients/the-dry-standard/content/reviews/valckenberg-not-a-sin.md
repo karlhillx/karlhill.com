@@ -26,7 +26,6 @@ profile:
   - Off-dry
   - 'Modest bitterness'
   - 'Clean finish'
-highlight: "Valckenberg's contribution to the NA aperitivo shelf — ginger and bitter orange, built as a spritz base rather than a wine substitute."
 nose: 'Bright bitter orange with a ginger warmth underneath.'
 palate: 'Bittersweet and gently spiced; the ginger does the work that gentian does in an Aperol, the orange carries the fruit side.'
 finish: 'Clean and gently bitter.'

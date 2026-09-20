@@ -101,6 +101,14 @@ sensory:
     descriptor: molasses
     locations:
       - palate
+  -
+    descriptor: cinnamon
+    locations:
+      - palate
+  -
+    descriptor: lime_zest
+    locations:
+      - palate
 structure_scales:
   sweetness: 2
   acidity: 3

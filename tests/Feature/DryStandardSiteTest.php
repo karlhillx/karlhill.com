@@ -315,11 +315,49 @@ it('disallows crawlers while staged and puts Best in the primary nav', function 
     $this->get('/clients/the-dry-standard/')
         ->assertOk()
         ->assertSee('>Best</a>', escape: false)
+        ->assertSee('>Compare</a>', escape: false)
         ->assertSee('>Brands</a>', escape: false)
         ->assertSee('>How it’s made</a>', escape: false)
         ->assertSee('>Styles</a>', escape: false)
+        ->assertSee('Find a bottle by how it was made', escape: false)
+        ->assertDontSee('stats-grid', escape: false)
         ->assertSee('fonts/fraunces.woff2', escape: false)
         ->assertDontSee('fonts.googleapis.com', escape: false);
+});
+
+it('serves bottle compare for two to four slugs', function () {
+    $this->get('/clients/the-dry-standard/compare/')
+        ->assertOk()
+        ->assertSee('Compare bottles', escape: false)
+        ->assertSee('Style clusters ready to weigh', escape: false);
+
+    $this->get('/clients/the-dry-standard/compare/?slugs=guinness-0-0,athletic-brewing-run-wild-ipa,halfway-crooks-brevet-ipa')
+        ->assertOk()
+        ->assertSee('Guinness', escape: false)
+        ->assertSee('Run Wild', escape: false)
+        ->assertSee('Brevet IPA', escape: false)
+        ->assertSee('>Score</th>', escape: false)
+        ->assertSee('>Flavor</th>', escape: false)
+        ->assertSee('>Structure</th>', escape: false)
+        ->assertSee('compare-table', escape: false);
+});
+
+it('labels Evidence sources without Unspecified source', function () {
+    $this->get('/clients/the-dry-standard/reviews/wine/ohla-rose/')
+        ->assertOk()
+        ->assertSee('Evidence', escape: false)
+        ->assertSee('Retail listing', escape: false)
+        ->assertSee('morewines.com', escape: false)
+        ->assertDontSee('Unspecified source', escape: false)
+        ->assertSee('score-band', escape: false)
+        ->assertSee('Recommended', escape: false);
+});
+
+it('publishes the NA beer buying guide', function () {
+    $this->get('/clients/the-dry-standard/guides/buying-na-beer/')
+        ->assertOk()
+        ->assertSee('How to buy non-alcoholic beer', escape: false)
+        ->assertSee('named process', escape: false);
 });
 
 it('emits responsive stills and archive fragments', function () {

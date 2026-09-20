@@ -10,7 +10,7 @@ subcategory: 'hop water (alcohol-free, non-fermented)'
 country: 'United States'
 style: 'Sparkling hop water (alcohol-free by composition, not dealcoholized)'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: alternative
 verified: 'yes'
 production_note: 'HOP WTR is a hopped, sparkling, fortified water rather than a de-alcoholized beer; the brand is roughly 85% sparkling water with hops, vitamins and adaptogens and no alcohol ever present.'
@@ -36,7 +36,6 @@ profile:
   - 'Light body'
   - 'Soft bead'
   - 'Modest bitterness'
-highlight: 'Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon.'
 nose: 'Bright Italian blood orange with a light, citric hop lift — the Italian blood orange is the dominant note.'
 palate: 'Sparkling and lightly bitter; the orange citrusy lift sits on top of a soft hop bittering, light-bodied and easy.'
 finish: 'Crisp and clean, the orange trailing just behind a hop finish.'
@@ -122,6 +121,11 @@ provenance:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+sensory:
+  -
+    descriptor: citrus
+    locations:
+      - palate
 ---
 
 HOP WTR Blood Orange is formulated as an alcohol alternative from United States. The base is Sparkling water + hops + vitamins + adaptogens; no underlying alcoholic beverage. It was built without a dealcoholization step.

@@ -34,7 +34,6 @@ tastes:
 profile:
   - 'Bright acidity'
   - 'Clean finish'
-highlight: "A spinning-cone California white at a Binny's-friendly price — the method is documented, the fruit is real, and the bottle costs less than most NA whites."
 nose: 'Bright citrus and green apple with a light floral note.'
 palate: 'Clean and fruit-forward; the spinning cone process preserves the aromatic character better than most budget NA whites manage.'
 finish: 'Crisp and citric.'

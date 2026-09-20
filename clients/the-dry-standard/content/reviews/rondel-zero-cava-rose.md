@@ -31,7 +31,6 @@ profile:
   - 'Bright acidity'
   - 'Soft bead'
   - 'Short finish'
-highlight: 'Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Method unpublished.'
 nose: 'Strawberry and cherry, a hint of green apple.'
 palate: 'Fine bead, balanced sweetness, more cava-shaped than canned soda.'
 finish: 'Crisp, a little sweet, short.'

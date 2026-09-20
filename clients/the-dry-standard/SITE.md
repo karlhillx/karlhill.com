@@ -20,6 +20,7 @@ Public base: `/clients/the-dry-standard/`
 | `/styles/{slug}/` | Style cellar generated from the catalog |
 | `/best/` | Highest-rated bottles, generated from the catalog |
 | `/best/{category}/` | Category best-of, scores 80+ |
+| `/compare/` | Side-by-side bottle compare (2–4 slugs via `?slugs=`) |
 | `/about/` | Mission and scoring |
 | `/privacy/` | Privacy policy |
 | `/industry/` | For Brands & Industry; named editor and three-business-day reply SLA |
@@ -51,7 +52,7 @@ Internal data (not a public page):
 
 ## Design
 
-Warm paper, espresso masthead, Fraunces / Figtree. The homepage opens with a featured bottle beside the masthead line; reviews render as a visual catalog with product stills, scores, and process badges. Header search goes to `/reviews/?q=`. Primary nav is Reviews, Best, Brands, Learn. How it’s made and Styles sit as cellar links in the same header. Filters stay in the URL (including sweetness, body, score, wine color). On small screens, archive filters open as a drawer and header search expands from an icon. Brand, guide, and method indexes are searchable directories (`?q=`). Review pages lead with an identity block (ABV, origin, style, method), an Evidence panel when provenance is known, and jump to How it was made. Product stills live in `media/reviews/{slug}.jpg` and appear on cards, the review hero, and Open Graph tags. `php artisan dry-standard:build` emits a 3:4 WebP beside each JPEG when GD is available; pages prefer WebP and fall back to JPEG. `php artisan dry-standard:audit-stills` is the gate for provenance, duplicates, and background. Sourced EANs are omitted from the page and added to Product JSON-LD as `gtin` when present. Internal TDS ids are never rendered.
+Warm paper, espresso masthead, Fraunces / Figtree. The homepage opens with a featured bottle beside the masthead line, then the production-type rail, then latest and highly rated reviews. Reviews render as a visual catalog with product stills, scores, and process badges. Header search goes to `/reviews/?q=`. Primary nav is Reviews, Best, Compare, Brands, Learn. How it’s made and Styles sit as cellar links in the same header. Filters stay in the URL (including sweetness, body, score, wine color). On small screens, archive filters open as a drawer and header search expands from an icon. Brand, guide, and method indexes are searchable directories (`?q=`). Review pages lead with an identity block (ABV, origin, style, method), an Evidence panel when provenance is known, and jump to How it was made. Compare uses `ComparableSnapshot` at `/compare/?slugs=a,b,c` (max four). Product stills live in `media/reviews/{slug}.jpg` and appear on cards, the review hero, and Open Graph tags. `php artisan dry-standard:build` emits a 3:4 WebP beside each JPEG when GD is available; pages prefer WebP and fall back to JPEG. `php artisan dry-standard:audit-stills` is the gate for provenance, duplicates, and background. Sourced EANs are omitted from the page and added to Product JSON-LD as `gtin` when present. Internal TDS ids are never rendered.
 
 HTML is assembled from reusable PHP views in `src/views/` and rendered live by Laravel. Edit those templates; do not add static `index.html` pages.
 

@@ -34,7 +34,6 @@ profile:
   - 'Light body'
   - 'Modest bitterness'
   - 'Clean finish'
-highlight: 'The cleanest non-alcoholic Kölsch on the US craft shelf — a light, slightly toasty ale with the body and finish of a Kölsch, not a near-beer compromise.'
 nose: 'Pilsner-malt light toast, a touch of green apple, no corn-rice adjunct heaviness.'
 palate: 'Clean and crisp; a soft malt body with the slight hop bitterness Kölsch demands, dry rather than syrupy.'
 finish: 'Long and clean for an NA craft beer — the dryness carries the close.'
@@ -103,6 +102,15 @@ provenance:
     kind: unknown
     confidence: secondary
     url: 'https://www.target.com/p/best-day-kolsch-non-alcoholic-6pk-12-fl-oz-cans/-/A-90410934'
+sensory:
+  -
+    descriptor: malt
+    locations:
+      - palate
+  -
+    descriptor: green_apple
+    locations:
+      - palate
 ---
 
 Best Day Brewing Kölsch is dealcoholized from United States. Paste Magazine's brewery-briefed review describes Best Day's beers as 'traditionally produced non-alcoholic beers, with alcohol "gently removed" post ferment….

@@ -35,7 +35,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Clean finish'
-highlight: 'The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer.'
 nose: 'Ripe mango and a tart tropical lift — unmistakably fruit-forward, with sour-beer sharpness underneath.'
 palate: 'Tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap.'
 finish: 'Tart and clean, the tropical fruit lingering.'
@@ -108,11 +107,11 @@ provenance:
     confidence: manufacturer_verified
     url: 'https://drinkuntitled.com/products/non-alcoholic-mango-dragonfruit-sour/'
   calories:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://beerfordriving.com/beer/untitled-art/mango-dragonfruit-fruited-sour/'
   sugar:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://beerfordriving.com/beer/untitled-art/mango-dragonfruit-fruited-sour/'
   production_type:
@@ -123,6 +122,15 @@ provenance:
     kind: unknown
     confidence: secondary
     url: 'https://www.wpr.org/news/wisconsin-untitled-art-nonalcoholic-beer-industry'
+sensory:
+  -
+    descriptor: mango
+    locations:
+      - palate
+  -
+    descriptor: passionfruit
+    locations:
+      - palate
 ---
 
 Untitled Art FLVR! NA Mango Dragonfruit Sour is dealcoholized from Waunakee, Wisconsin, United States. Reverse osmosis membrane filtration, applied after full fermentation.

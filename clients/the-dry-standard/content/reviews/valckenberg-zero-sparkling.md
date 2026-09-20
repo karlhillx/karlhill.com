@@ -10,7 +10,7 @@ subcategory: 'sparkling white'
 country: Germany
 style: 'Dealcoholized German sparkling wine'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: "Alcohol removed from conventionally vinified sparkling cuvée (producer's Zero line)"
@@ -35,7 +35,6 @@ profile:
   - 'Light body'
   - 'Soft bead'
   - 'Clean finish'
-highlight: 'The sparkling sibling of the Zero Riesling — fine mousseux, elderberry and lemon, honest about being the casual sparkling option rather than the fine one.'
 nose: 'Elderberry and lemon — fruit-forward and fresh.'
 palate: 'Fine mousseux, semi-dry and fruit-forward; lighter body than alcoholic sparkling but the bubbles are real.'
 finish: 'Clean and gently citric.'

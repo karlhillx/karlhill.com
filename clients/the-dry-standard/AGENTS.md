@@ -77,7 +77,7 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 
 ## Site structure
 
-`/`, `/reviews/`, `/reviews/{wine|beer|spirits|cocktails|cider}/`, `/reviews/{category}/{slug}/`, `/guides/`, `/brands/`, `/methods/`, `/styles/`, `/styles/{slug}/`, `/best/`, `/best/{category}/`, `/about/`, `/privacy/`, `/industry/`, `/industry/submit/`, `/industry/samples/`, `/industry/partnerships/`.
+`/`, `/reviews/`, `/reviews/{wine|beer|spirits|cocktails|cider}/`, `/reviews/{category}/{slug}/`, `/guides/`, `/brands/`, `/methods/`, `/styles/`, `/styles/{slug}/`, `/best/`, `/best/{category}/`, `/compare/`, `/about/`, `/privacy/`, `/industry/`, `/industry/submit/`, `/industry/samples/`, `/industry/partnerships/`.
 
 No dates in review URLs.
 
@@ -99,6 +99,4 @@ Public glance vocabulary: **Flavor profile** (not “Taste”) · **Structure** 
 
 Spreadsheet exports: `data/products.csv` (product facts) and `data/reviews.csv` (review observations). Runtime catalog remains `data/catalog.sqlite`.
 
-Comparison-ready projection: `ComparableSnapshot::fromReview()` — no public compare UI yet.
-
-Product pages (`/products/…`) are deferred until a SKU has multiple tastings; keep `product_id` filled.
+Comparison UI: `/compare/?slugs=a,b,c` (max four) renders `ComparableSnapshot::fromReview()`. Card checkboxes and a floating tray also feed the page. Product pages (`/products/…`) are deferred until a SKU has multiple tastings; keep `product_id` filled.

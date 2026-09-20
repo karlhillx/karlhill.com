@@ -41,7 +41,6 @@ profile:
   - Off-dry
   - 'Soft bead'
 mouthfeel: "Creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler."
-highlight: 'The oak aging is doing real work here — a rare dealcoholized sparkling wine with actual structure instead of just sweetness and bubbles.'
 nose: 'Honeyed and a little toasty, with green apple and Meyer lemon underneath — the oak aging is audible before you even taste it.'
 palate: 'Rich, velvety bubbles carry ripe pear and mango alongside the citrus. Fuller-bodied than most dealcoholized sparkling wines in this queue.'
 finish: "Creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler."
@@ -139,7 +138,7 @@ provenance:
     confidence: manufacturer_verified
     url: 'https://thezeroproof.com/products/oddbird-blanc-de-blancs-sparkling-white-wine'
   sugar:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://prikeshop.lt/product/oddbird-blanc-de-blancs-alco-free-sparkling-wine'
   availability:

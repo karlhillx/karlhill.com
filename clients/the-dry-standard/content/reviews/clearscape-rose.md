@@ -31,7 +31,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-highlight: 'Australian supermarket rosé, pink and easy. No method, no ABV on the pages we can use. Taste is the whole review.'
 nose: 'Soft red berry, a little watermelon. Simple.'
 palate: 'Light, slightly sweet, low acid. More refreshment than wine structure.'
 finish: 'Short and fruity.'
@@ -55,6 +54,10 @@ identifiers:
 sensory:
   -
     descriptor: red_berry
+    locations:
+      - palate
+  -
+    descriptor: watermelon
     locations:
       - palate
 structure_scales:

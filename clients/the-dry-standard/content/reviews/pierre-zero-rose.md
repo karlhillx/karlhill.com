@@ -31,7 +31,6 @@ profile:
   - 'Light body'
   - 'Short finish'
   - 'Clean finish'
-highlight: "The category's great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions."
 nose: 'Redcurrant and bilberry, with a soft floral lift — fruit-forward rather than savoury.'
 palate: 'Light and fresh; berry fruit over gentle acidity, designed to be poured generously rather than studied.'
 finish: 'Clean and short, gently fruity.'
@@ -110,6 +109,19 @@ provenance:
     kind: unknown
     confidence: secondary
     url: 'https://www.pierre-zero.com/en/'
+sensory:
+  -
+    descriptor: red_currant
+    locations:
+      - palate
+  -
+    descriptor: blackberry
+    locations:
+      - palate
+  -
+    descriptor: blossom
+    locations:
+      - palate
 ---
 
 Pierre Zéro Rosé (Bag-in-Box) is dealcoholized from France. The base is Traditionally vinified French rosé (Chavin estate range), dealcoholized after fermentation. Alcohol removed from a traditionally vinified French rosé (producer markets the range as dealcoholized wine since 2010; the specific technique is not detaile….

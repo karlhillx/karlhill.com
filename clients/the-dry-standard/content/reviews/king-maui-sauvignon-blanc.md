@@ -31,7 +31,6 @@ profile:
   - 'Short finish'
   - 'Clean finish'
 mouthfeel: 'Clean and short, citrus-led.'
-highlight: 'A Marlborough Sauvignon Blanc at Total Wine pricing — clean tropical fruit and citrus, lighter than the real thing, and a fair value.'
 nose: 'Passionfruit and tropical fruit with a lemongrass edge — varietally correct Marlborough aromatics.'
 palate: 'Crisp and citrus-forward; tropical fruit over a light body, less weight than a full-strength Marlborough but the character survives.'
 finish: 'Clean and short, citrus-led.'

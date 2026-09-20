@@ -33,7 +33,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-highlight: 'The white sibling of the Be Free Rosé that leads this purchase list. Citrus and grapefruit, ten dollars, method still a slogan.'
 nose: 'Citrus, grapefruit, a little floral — the retailer list, and the glass is in that neighborhood.'
 palate: 'Light, crisp, a touch sweet. Less snap than Giesen 0% Sauvignon Blanc.'
 finish: 'Short and clean. Value white, not a Marlborough argument.'

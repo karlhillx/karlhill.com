@@ -84,6 +84,10 @@ sensory:
     descriptor: bready
     locations:
       - palate
+  -
+    descriptor: green_apple
+    locations:
+      - palate
 structure_scales:
   acidity: 3
   carbonation: 2
@@ -122,11 +126,11 @@ provenance:
     confidence: manufacturer_verified
     url: 'https://www.ninetypluscellars.com/products/lot-230-non-alc-sparkling-brut-france'
   volume:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://serendipitywines.com/product/90-cellars-lot-230-non-alc-brut-nv/'
   availability:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://serendipitywines.com/product/90-cellars-lot-230-non-alc-brut-nv/'
   price:

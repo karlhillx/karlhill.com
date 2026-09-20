@@ -182,13 +182,24 @@ function enrichMatter(array $matter, Review $review): array
     }
 
     $provenance = is_array($matter['provenance'] ?? null) ? $matter['provenance'] : [];
+    foreach ($provenance as $field => $entry) {
+        if (! is_array($entry)) {
+            continue;
+        }
+        $kind = Review::resolveProvenanceKind(
+            (string) ($entry['kind'] ?? 'unknown'),
+            (string) ($entry['url'] ?? ''),
+            (string) ($entry['note'] ?? ''),
+        );
+        $provenance[$field] = array_merge($entry, ['kind' => $kind]);
+    }
     foreach ($matter['sources'] ?? [] as $source) {
         if (! is_array($source)) {
             continue;
         }
         $url = trim((string) ($source['url'] ?? ''));
         $title = trim((string) ($source['title'] ?? ''));
-        $kind = inferKind($url, $title);
+        $kind = Review::inferProvenanceKind($url, $title);
         $confidence = in_array($kind, ['manufacturer', 'label'], true)
             ? 'manufacturer_verified'
             : 'secondary';
@@ -243,33 +254,4 @@ function claimField(string $claim): ?string
         'base_beverage' => 'base_beverage',
         default => null,
     };
-}
-
-function inferKind(string $url, string $title): string
-{
-    $hay = strtolower($url.' '.$title);
-    if (str_contains($hay, 'label') || str_contains($hay, 'nutrition')) {
-        return 'label';
-    }
-    if (preg_match('/\b(gov|fda|usda|efsa|ttb)\b/', $hay) === 1) {
-        return 'government';
-    }
-    if (str_contains($hay, 'press') || str_contains($hay, 'prweb') || str_contains($hay, 'newsroom')) {
-        return 'press';
-    }
-    if (preg_match('/\b(total wine|wine\.com|amazon|instacart|wegmans|retail|shop|store|cellar)\b/', $hay) === 1) {
-        return 'retailer';
-    }
-    if (preg_match('/\b(importer|distributor|wholesale)\b/', $hay) === 1) {
-        return 'distributor';
-    }
-    if (preg_match('/\b(weingut|winery|brewery|distill|producer|official|\/products)\b/', $hay) === 1
-        || str_contains($hay, 'guinness.com')
-        || str_contains($hay, 'leitz-wein')
-        || str_contains($hay, 'giesen')
-        || str_contains($hay, 'lyres.com')) {
-        return 'manufacturer';
-    }
-
-    return 'unknown';
 }

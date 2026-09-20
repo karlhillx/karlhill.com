@@ -40,7 +40,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-highlight: "A Berlin house that dealcoholizes other people's wine under vacuum and is willing to print 0.0% on the Riesling. Mirabelle, quince, and slate salt."
 nose: 'Ripe mirabelle and a hint of quince, then a salty slate edge.'
 palate: 'Light, precise, a little must-sweet from the rectified grape concentrate. Acidity still reads as Riesling.'
 finish: 'Short citrus and salt. Keep it cold or the sweetness shows.'

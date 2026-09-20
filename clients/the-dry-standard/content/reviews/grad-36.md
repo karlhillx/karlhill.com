@@ -38,7 +38,6 @@ tastes:
 profile:
   - Off-dry
   - 'Bright acidity'
-highlight: 'A dealcoholized red that admits it is also fruit and herbs. Cassis, plum, tannin, and a structure most NA reds fake with juice alone.'
 nose: 'Cassis, plum, a little lavender and spice — darker than the cider rosé.'
 palate: 'Grip and acidity, dark cherry, cocoa, pepper. The tannin is the reason to open it with food.'
 finish: 'Spice and dry fruit. Not a sweet red.'
@@ -75,6 +74,14 @@ sensory:
       - palate
   -
     descriptor: spice
+    locations:
+      - palate
+  -
+    descriptor: blackcurrant
+    locations:
+      - palate
+  -
+    descriptor: lavender
     locations:
       - palate
 structure_scales:

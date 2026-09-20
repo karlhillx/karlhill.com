@@ -37,7 +37,6 @@ profile:
   - Off-dry
   - 'Light body'
   - 'Short finish'
-highlight: 'The Riesling sibling of the 0% Sauvignon Blanc already on this desk, built on the same citable spinning-cone process — and arguably the better glass.'
 nose: 'Lime, citrus blossom and mandarin — bright, lifted, unmistakably Riesling.'
 palate: 'Beautifully balanced off-dry style; citrus fruit over a light frame, a small premium grape-juice addition restoring mouthfeel.'
 finish: 'Fresh and citric, shorter than the alcoholic original — the standard ethanol tradeoff, handled gracefully.'

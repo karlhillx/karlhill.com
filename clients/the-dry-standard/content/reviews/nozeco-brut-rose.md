@@ -34,7 +34,6 @@ profile:
   - 'Soft bead'
   - 'Short finish'
   - 'Clean finish'
-highlight: 'A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice.'
 nose: 'White strawberry and red berry fruit — expressive and fruit-forward.'
 palate: 'Fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings.'
 finish: 'Short and clean.'
@@ -121,6 +120,15 @@ provenance:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+sensory:
+  -
+    descriptor: strawberry
+    locations:
+      - palate
+  -
+    descriptor: red_berry
+    locations:
+      - palate
 ---
 
 Nozeco Alcohol Free Brut Rosé is dealcoholized from France. The base is French sparkling rosé wine, fermented conventionally before alcohol removal. Made from alcohol-removed wine using a state-of-the-art process (producer product sheet).

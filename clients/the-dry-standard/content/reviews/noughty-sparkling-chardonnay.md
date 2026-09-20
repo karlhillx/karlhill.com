@@ -55,7 +55,6 @@ profile:
   - 'Soft bead'
   - 'Short finish'
 mouthfeel: 'Short, clean, and a touch sugary if the glass sits. Serve it colder than you think.'
-highlight: "A clean, apple-forward sparkling wine that was actually a wine first. It will not replace grower Champagne. It will replace most of the NA 'bubbly' that never fermented."
 nose: 'Ripe apple, a little lemon peel, and a faint pastry note that never quite becomes brioche. The bubbles do more work than the aroma.'
 palate: 'Brisk, lightly sweet, and simpler than a bottle-fermented wine. Green apple and citrus sit on a slender body. The mousse is fine enough for a toast.'
 finish: 'Short, clean, and a touch sugary if the glass sits. Serve it colder than you think.'
@@ -192,6 +191,15 @@ provenance:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+sensory:
+  -
+    descriptor: apple
+    locations:
+      - palate
+  -
+    descriptor: lemon
+    locations:
+      - palate
 ---
 
 Thomson & Scott Noughty Sparkling Chardonnay is dealcoholized from Castilla–La Mancha, Spain. The base is Organically grown Spanish Chardonnay, fermented in stainless steel, then carbonated after alcohol removal. Vacuum distillation with aroma recovery; some trade sheets also name spinning-cone technology.

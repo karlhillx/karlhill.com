@@ -94,6 +94,10 @@ sensory:
     descriptor: grapefruit_pith
     locations:
       - palate
+  -
+    descriptor: passionfruit
+    locations:
+      - palate
 structure_scales:
   acidity: 3
   body: 1

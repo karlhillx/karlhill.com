@@ -36,7 +36,6 @@ profile:
   - 'Light body'
   - 'Soft bead'
   - 'Clean finish'
-highlight: 'Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity.'
 nose: 'Soft strawberry and red berry with a light, bright lift.'
 palate: 'Light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile.'
 finish: 'Clean and brief.'
@@ -78,23 +77,23 @@ structure_scales:
   finish_length: 0
 provenance:
   production_type:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   producer:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   country:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   dealcoholization_method:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   base_beverage:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   price:

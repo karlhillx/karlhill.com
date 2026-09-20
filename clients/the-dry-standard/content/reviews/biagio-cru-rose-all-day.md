@@ -31,7 +31,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-highlight: 'A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf.'
 nose: 'Generic red berry.'
 palate: 'Sweet, light, low acid.'
 finish: Short.
@@ -87,6 +86,11 @@ provenance:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+sensory:
+  -
+    descriptor: red_berry
+    locations:
+      - palate
 ---
 
 Biagio Cru Rosé All Day is dealcoholized from Languedoc, France. The base is Grenache rosé, Côtes du Roussillon. Total Wine's product highlights describe 'early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal—preserving the wine's natural bal….

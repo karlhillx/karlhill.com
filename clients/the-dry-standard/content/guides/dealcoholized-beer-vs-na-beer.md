@@ -2,7 +2,7 @@
 title: Dealcoholized beer versus beer brewed to 0.5%
 slug: dealcoholized-beer-vs-na-beer
 summary: "Some NA beers are full-strength brews with the alcohol filtered out. Others never get there. Both can be excellent. They are not the same process."
-order: 3
+order: 4
 ---
 
 The NA beer boom hid a fork in the brewery.

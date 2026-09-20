@@ -2,7 +2,7 @@
 title: How to buy a non-alcoholic spirit
 slug: buying-na-spirits
 summary: "Dealcoholized whiskey is not a botanical tea. Ask what was in the still before the alcohol left — and whether anything was in a still at all."
-order: 4
+order: 5
 ---
 
 The spirits shelf is where the production-type distinction does the most work. A 0.0 whiskey can be a high-proof distillate with the ethanol taken off. It can also be oak, botanicals, and flavor extracts that never fermented. Both can be worth drinking. They are not the same product.

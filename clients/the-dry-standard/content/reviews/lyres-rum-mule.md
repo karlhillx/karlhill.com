@@ -7,7 +7,7 @@ product: 'Rum Mule'
 category: cocktails
 subcategory: 'canned cocktail / ready-to-drink mule'
 style: 'Formulated rum mule in a can'
-abv: <0.5%
+abv: '<0.5%'
 abv_numeric: 0.1
 production_type: alternative
 verified: 'yes'
@@ -36,7 +36,6 @@ tastes:
 profile:
   - Off-dry
   - 'Short finish'
-highlight: 'Ginger, lime, and a toffee hint in a 250 ml can. Honest about being a recipe, not a stripped rum cocktail. Better over ice than straight from the tin.'
 nose: 'Ginger snap and lime zest, with a soft caramel note from the dark-cane replica underneath.'
 palate: 'Bright citrus, then ginger heat, then a toffee sweetness that is more soda than spirit. Carbonation does the work ethanol would.'
 finish: 'Short ginger and lime. The sugar hangs a beat longer than a proper mule.'

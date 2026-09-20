@@ -30,7 +30,6 @@ tastes:
   - 'bright citrus'
 profile:
   - 'Modest bitterness'
-highlight: 'The IPA in the FLVR! line — juicy, hazy, and hop-forward with the same Untitled Art commitment to flavor that makes their NA beers some of the best in the category.'
 nose: 'Bright citrus and tropical hops with a soft juicy note — the hazy IPA aromatic signature.'
 palate: 'Juicy and soft; tropical and citrus hops over a rounded body, gentle bitterness, no astringent gaps.'
 finish: 'Soft and fruity, the hop character trailing pleasantly.'

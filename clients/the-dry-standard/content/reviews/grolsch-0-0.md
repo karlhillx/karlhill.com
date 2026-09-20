@@ -9,7 +9,7 @@ subcategory: pilsner
 country: Netherlands
 style: 'Non-alcoholic Dutch pilsner'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: naturally-low-alcohol
 verified: 'yes'
 production_note: "Grolsch's own product page states: 'we use a special yeast to craft our core natural zero alcohol beer. Our unique full fermentation process produces no alcohol to create a 0.0% beer without compromise' — explicit formulated-from-the-start language, not a removal process."
@@ -27,7 +27,6 @@ profile:
   - 'Bright acidity'
   - 'Modest bitterness'
   - 'Clean finish'
-highlight: 'A real pilsner from a 400-year-old Dutch brewery, minus the alcohol: the green-hop bitterness and full malt body are unmistakably Grolsch.'
 nose: 'Green hop aroma with a soft bready malt base — the Grolsch house signature carried over.'
 palate: 'Full-bodied for an NA pilsner; crisp hop bitterness over a rounded malt backbone, no watery gaps.'
 finish: 'Clean and crisp with a pleasant, lasting bitterness.'

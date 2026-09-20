@@ -38,7 +38,6 @@ profile:
   - Off-dry
   - 'Soft bead'
   - 'Short finish'
-highlight: 'A reliable, inexpensive entry point into genuinely dealcoholized sparkling wine — vacuum-evaporated from full-strength wine, competent and widely available.'
 nose: 'Tropical fruit and citrus, straightforward and fruit-forward rather than yeasty or toasty.'
 palate: 'Fresh and fruity with balanced bubbles; residual sugar (38 g/L) is noticeable but not cloying.'
 finish: 'Soft and short. Pleasant, uncomplicated, easy to drink on its own.'

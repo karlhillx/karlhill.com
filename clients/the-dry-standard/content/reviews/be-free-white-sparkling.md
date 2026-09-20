@@ -33,7 +33,6 @@ profile:
   - 'Light body'
   - 'Soft bead'
   - 'Short finish'
-highlight: 'A fizzy, low-calorie German sparkling that plays the celebration without the substance — pleasant, gentle, and better than most NA fizz at the price.'
 nose: 'Soft citrus with a creamy edge and a nutty hint behind the bubbles.'
 palate: 'Gentle fizz over light apple-citrus fruit; easy, slightly sweet, no sharp edges.'
 finish: 'Soft and short, with the bubbles doing most of the closing work.'
@@ -83,19 +82,19 @@ structure_scales:
   finish_length: 0
 provenance:
   abv:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.supervin.se/be-free-white-sparkling-0-5-alkoholfri'
   country:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.supervin.se/be-free-white-sparkling-0-5-alkoholfri'
   volume:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.supervin.se/be-free-white-sparkling-0-5-alkoholfri'
   production_type:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.supervin.se/be-free-white-sparkling-0-5-alkoholfri'
   calories:

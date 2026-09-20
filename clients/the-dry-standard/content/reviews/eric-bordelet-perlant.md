@@ -10,7 +10,7 @@ country: France
 region: "Normandy (Pays d'Auge)"
 style: 'Non-alcoholic sparkling apple juice from cider apples'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: alternative
 verified: 'yes'
 production_note: "Pressed apple juice from cider varieties with carbon dioxide added — never fermented, so there is no alcohol to remove. Distinct from Bordelet's alcoholic ciders."
@@ -39,7 +39,6 @@ profile:
   - 'Soft bead'
   - 'Modest bitterness'
   - 'Clean finish'
-highlight: 'Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything.'
 nose: 'Complex apple — tart, floral, faintly bitter from the cider varieties rather than sweet supermarket fruit.'
 palate: 'Lightly sparkling and dry-leaning; the bitter-sharp apple character gives it real structure, with a clean, mineral mid-palate.'
 finish: 'Long and clean, the apple skin bitterness lingering pleasantly.'
@@ -83,6 +82,10 @@ sensory:
     descriptor: floral
     locations:
       - palate
+  -
+    descriptor: apple
+    locations:
+      - palate
 structure_scales:
   body: 1
   carbonation: 2
@@ -122,7 +125,7 @@ provenance:
     confidence: manufacturer_verified
     url: 'https://chapfour.com/products/bordelet-perlant-jus-pommes-750ml'
   region:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://creamwine.com/product.php?id=21334'
 ---

@@ -10,7 +10,7 @@ country: France
 region: 'Normandy (Coudray-Rabut)'
 style: 'Non-alcoholic sparkling pear juice'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: alternative
 verified: 'yes'
 production_note: 'This is pressed pear juice with carbonation, not a fermented pear cider with the alcohol removed — the producer markets it as non-alcoholic pear juice.'
@@ -40,7 +40,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Soft bead'
-highlight: 'Not a dealcoholized anything — pressed Normandy pear juice from a Calvados house, lightly sparkling, and better for it. The purest expression of pear on this desk.'
 nose: 'Ripe pear skin and a floral lift — fresh, clean, unmistakably real pear rather than pear flavoring.'
 palate: "Lightly sparkling and gently sweet; the pear's own acidity gives it structure instead of syrup."
 finish: 'Clean and short, the fruit fading naturally.'
@@ -117,6 +116,15 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://spencerandlynn.com/products/christian-drouin-jus-de-poire-petillant'
+sensory:
+  -
+    descriptor: pear
+    locations:
+      - palate
+  -
+    descriptor: blossom
+    locations:
+      - palate
 ---
 
 Christian Drouin Jus de Poire Pétillant is formulated as an alcohol alternative from Normandy (Coudray-Rabut), France. The base is Pressed juice of local Normandy pear varieties (Plant de Blanc, Muscadet, Avenelle, Poire de Grise). It was built without a dealcoholization step.

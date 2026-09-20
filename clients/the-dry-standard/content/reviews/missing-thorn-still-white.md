@@ -38,7 +38,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Clean finish'
-highlight: 'A Napa dealcoholized Albariño — lychee and passionfruit, zesty and crisp — from a producer focused exclusively on NA wine.'
 nose: "Lychee and passionfruit with a citrusy, aromatic lift — Albariño's varietal signature."
 palate: 'Zesty and crisp; tropical aromatics over a warm, light palate with the acidity doing the structural work.'
 finish: 'Clean and citric, the Albariño character carrying through.'

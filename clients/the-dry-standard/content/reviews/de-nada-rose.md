@@ -31,7 +31,6 @@ tastes:
 profile:
   - 'Light body'
   - 'Clean finish'
-highlight: 'A Chilean dealcoholized rosé made with Long Island winemaking expertise — dry, elegant, and honest about its Maule Valley fruit.'
 nose: 'Red berry and citrus — the dry, elegant rosé profile rather than sweet fruit.'
 palate: 'Dry and aromatic; Chilean fruit over a light frame, the Maule Valley ripeness balanced by alcohol removal.'
 finish: 'Clean and dry.'

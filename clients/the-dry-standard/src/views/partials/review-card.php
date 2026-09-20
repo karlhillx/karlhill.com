@@ -12,6 +12,14 @@
           <?php if (empty($compact) && ! empty($summary)) { ?>
           <p class="card-summary"><?= $view->e($summary) ?></p>
           <?php } ?>
-          <?= $badge ?>
+          <div class="card-foot">
+            <?= $badge ?>
+            <?php if (! empty($compareSlug)) { ?>
+            <label class="compare-toggle">
+              <input type="checkbox" data-compare-toggle value="<?= $view->e($compareSlug) ?>" data-compare-title="<?= $view->e($title) ?>">
+              <span>Compare</span>
+            </label>
+            <?php } ?>
+          </div>
         </div>
       </article>

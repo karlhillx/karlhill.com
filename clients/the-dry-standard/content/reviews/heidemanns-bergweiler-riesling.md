@@ -33,7 +33,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-highlight: 'A Mosel name on an NA Riesling. Citrus and a little residual sweetness, thinner than Leitz, better documented origin than most Total Wine whites.'
 nose: 'Lime and green apple, a faint slate note.'
 palate: 'Off-dry, light, Mosel-shaped acidity without ethanol weight.'
 finish: 'Short citrus. The sugar shows as it warms.'
@@ -65,6 +64,10 @@ sensory:
       - palate
   -
     descriptor: green_apple
+    locations:
+      - palate
+  -
+    descriptor: slate
     locations:
       - palate
 structure_scales:

@@ -86,15 +86,15 @@ structure_scales:
   finish_length: 0
 provenance:
   abv:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://halfwaycrooks.beer/beer/brevet-pils/'
   production_type:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://halfwaycrooks.beer/beer/brevet-pils/'
   calories:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.beermenus.com/beers/548817-halfway-crooks-brevet-n-a-pils'
   price:
@@ -117,6 +117,15 @@ provenance:
     kind: unknown
     confidence: secondary
     url: 'https://nabarfinder.com/venue/halfway-crooks-atlanta/'
+sensory:
+  -
+    descriptor: biscuit
+    locations:
+      - palate
+  -
+    descriptor: fennel
+    locations:
+      - palate
 ---
 
 Halfway Crooks Brevet Pils is brewed or fermented to finish at low ABV without a published removal step from Atlanta, Georgia, United States. Atlanta Magazine quotes co-owner Shawn Cooper describing the brewery's NA process directly: he uses a mushroom-derived extract called Chiber that 'keeps the ….

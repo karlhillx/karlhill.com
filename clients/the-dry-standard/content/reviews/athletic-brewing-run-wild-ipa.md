@@ -93,41 +93,50 @@ structure_scales:
   finish_length: 0
 provenance:
   abv:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://athleticbrewing.com/pages/product-details'
   calories:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://athleticbrewing.com/pages/product-details'
   ingredients:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://athleticbrewing.com/pages/product-details'
   producer:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://athleticbrewing.com/pages/about'
   country:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://athleticbrewing.com/pages/about'
   region:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://athleticbrewing.com/pages/about'
   availability:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://athleticbrewing.com/pages/about'
   production_type:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://athleticbrewing.com/pages/faq-item/how-do-you-brew-your-non-alcoholic-beer'
   ean:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+sensory:
+  -
+    descriptor: hops
+    locations:
+      - palate
+  -
+    descriptor: orange_peel
+    locations:
+      - palate
 ---
 
 Athletic Brewing Run Wild IPA is brewed or fermented to finish at low ABV without a published removal step from Milford, Connecticut, with a second brewhouse in San Diego, California, United States. Athletic's process is proprietary, but founder interviews state it is neither dealcoholization of finished beer nor simple arrested fermentation — the beers ….

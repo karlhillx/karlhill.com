@@ -9,7 +9,7 @@ subcategory: 'non-alcoholic beer-like beverage'
 country: Japan
 style: 'Non-alcoholic beer-style beverage (formulated, not dealcoholized)'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: alternative
 verified: 'yes'
 production_note: "Asahi's own R&D documentation describes Dry Zero as a non-alcohol beer-like beverage built from wort-free formulation rather than made by removing alcohol from a finished beer."
@@ -93,6 +93,15 @@ provenance:
     kind: press
     confidence: secondary
     url: 'https://www.asahigroup-holdings.com/en/newsroom/detail/20221115-0201.html'
+sensory:
+  -
+    descriptor: toasted_grain
+    locations:
+      - palate
+  -
+    descriptor: malt
+    locations:
+      - palate
 ---
 
 Asahi Dry Zero is formulated as an alcohol alternative from Japan. The base is Formulated beverage from unfermented ingredients and flavor compounds; no full-strength beer is produced and then stripped. It was built without a dealcoholization step.

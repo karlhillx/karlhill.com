@@ -147,7 +147,6 @@ HTML;
             ->sortByDesc(fn (Review $review): int => $review->rating ?? 0)
             ->reject(fn (Review $review): bool => $review->slug === $featuredSlug)
             ->take(3);
-        $dealcoholized = $reviews->filter(fn (Review $review): bool => $review->productionType === 'dealcoholized')->count();
 
         $processItems = [];
         foreach (Review::PRODUCTION_TYPES as $value => $label) {
@@ -189,12 +188,6 @@ HTML;
             'methodsUrl' => $this->config->publicUrl('methods/'),
             'guidesUrl' => $this->config->publicUrl('guides/'),
             'bestUrl' => $this->config->publicUrl('best/'),
-            'stats' => [
-                ['value' => (string) $reviews->count(), 'label' => $reviews->count() === 1 ? 'Review' : 'Reviews', 'href' => $this->config->publicUrl('reviews/')],
-                ['value' => (string) $reviews->map(fn (Review $review): string => $review->brandSlug())->unique()->count(), 'label' => 'Brands', 'href' => $this->config->publicUrl('brands/')],
-                ['value' => (string) $dealcoholized, 'label' => 'Dealcoholized', 'href' => $this->config->publicUrl('reviews/').'?production=dealcoholized'],
-                ['value' => '0.5%', 'label' => 'ABV ceiling', 'href' => null],
-            ],
             'featured' => $featuredReview instanceof Review ? $this->featuredReview($featuredReview) : '',
             'processRail' => $this->view->render('partials/category-rail', [
                 'label' => 'Browse by production type',
@@ -630,6 +623,7 @@ HTML;
         $relatedHeading = 'More from the cellar';
         $relatedHref = $this->config->publicUrl('reviews/');
         $relatedLinkLabel = 'All reviews';
+        $compareSlugs = [$review->slug];
         if ($relatedReviews?->isNotEmpty()) {
             $sameStyle = $review->hasComparableStyle()
                 && $relatedReviews->every(fn (Review $other): bool => $other->styleSlug() === $review->styleSlug());
@@ -637,12 +631,17 @@ HTML;
                 $relatedHeading = 'Other '.$review->styleLabel();
                 $relatedHref = $this->config->publicUrl('styles/'.$review->styleSlug().'/');
                 $relatedLinkLabel = 'All '.$review->styleLabel();
+                foreach ($relatedReviews->take(3) as $other) {
+                    $compareSlugs[] = $other->slug;
+                }
             } elseif ($relatedReviews->contains(fn (Review $other): bool => $other->brandSlug() === $review->brandSlug())) {
                 $relatedHeading = 'More from '.$review->brandDisplayName();
                 $relatedHref = $this->config->publicUrl('brands/'.$review->brandSlug().'/');
                 $relatedLinkLabel = $review->brandDisplayName();
             }
         }
+        $compareSlugs = array_values(array_unique(array_slice($compareSlugs, 0, 4)));
+        $compareHref = $this->config->publicUrl('compare/').'?slugs='.rawurlencode(implode(',', $compareSlugs));
 
         $badge = $this->view->render('partials/production-badge', [
             'type' => $review->productionType,
@@ -664,6 +663,7 @@ HTML;
             ]),
             'score' => $this->view->render('partials/score-badge', [
                 'rating' => $review->rating,
+                'band' => $review->scoreBandLabel(),
             ]),
             'statusLabel' => $review->productionTypeLabel(),
             'methodBlock' => $this->methodBlock($review),
@@ -686,6 +686,7 @@ HTML;
             'relatedLinkLabel' => $relatedLinkLabel,
             'reviewsUrl' => $this->config->publicUrl('reviews/'),
             'pageUrl' => $this->config->publicUrl($review->path()),
+            'compareHref' => $compareHref,
             'disclosure' => $this->disclosure($review),
             'industryUrl' => $this->config->publicUrl('industry/'),
         ]);
@@ -727,6 +728,7 @@ HTML;
             $this->sitemapUrl('about/', 'monthly', '0.5'),
             $this->sitemapUrl('privacy/', 'yearly', '0.2'),
             $this->sitemapUrl('best/', 'weekly', '0.7'),
+            $this->sitemapUrl('compare/', 'weekly', '0.6'),
             $this->sitemapUrl('industry/', 'monthly', '0.4'),
             $this->sitemapUrl('industry/submit/', 'monthly', '0.4'),
             $this->sitemapUrl('industry/samples/', 'monthly', '0.3'),
@@ -879,6 +881,7 @@ XML;
         $links = [
             'reviews' => ['Reviews', 'reviews/'],
             'best' => ['Best', 'best/'],
+            'compare' => ['Compare', 'compare/'],
             'brands' => ['Brands', 'brands/'],
             'guides' => ['Learn', 'guides/'],
         ];
@@ -926,6 +929,7 @@ XML;
             'privacyUrl' => $this->config->publicUrl('privacy/'),
             'feedUrl' => $this->config->publicUrl('feed.xml'),
             'bestUrl' => $this->config->publicUrl('best/'),
+            'compareUrl' => $this->config->publicUrl('compare/'),
             'stylesUrl' => $this->config->publicUrl('styles/'),
             'industryUrl' => $this->config->publicUrl('industry/'),
             'submitUrl' => $this->config->publicUrl('industry/submit/'),
@@ -1291,6 +1295,7 @@ XML;
                 'meta' => $meta,
                 'badge' => $badge,
                 'score' => $score,
+                'compareSlug' => $review->slug,
             ]);
         })->implode('');
     }
@@ -1498,15 +1503,15 @@ XML;
         ];
 
         $kindLabels = [
-            'manufacturer' => 'Manufacturer',
+            'manufacturer' => 'Producer',
             'label' => 'Bottle / can label',
-            'retailer' => 'Retailer',
+            'retailer' => 'Retail listing',
             'distributor' => 'Distributor / importer',
-            'government' => 'Government',
-            'research' => 'Research',
+            'government' => 'Government record',
+            'research' => 'Research / registry',
             'press' => 'Press',
-            'inference' => 'Inference',
-            'unknown' => 'Unspecified source',
+            'inference' => 'Editorial inference',
+            'unknown' => 'Cited source',
         ];
 
         $confidenceLabels = [
@@ -1525,27 +1530,33 @@ XML;
 
         $grouped = [];
         foreach ($provenance as $field => $entry) {
-            $kind = (string) ($entry['kind'] ?? 'unknown');
+            $url = (string) ($entry['url'] ?? '');
+            $kind = Review::resolveProvenanceKind(
+                (string) ($entry['kind'] ?? 'unknown'),
+                $url,
+                (string) ($entry['note'] ?? ''),
+            );
             $confidence = Sensory::normalizeConfidence((string) ($entry['confidence'] ?? (
                 in_array($kind, ['manufacturer', 'label'], true) ? 'manufacturer_verified' : 'secondary'
             )));
             if ($confidence === '') {
                 $confidence = 'secondary';
             }
-            $url = (string) ($entry['url'] ?? '');
             $key = $confidence.'|'.$kind.'|'.$url;
             if (! isset($grouped[$key])) {
                 $note = isset($entry['note']) && ! str_starts_with((string) $entry['note'], 'Derived from')
                     ? (string) $entry['note']
                     : null;
+                $host = $url !== '' ? (parse_url($url, PHP_URL_HOST) ?: null) : null;
+                if (is_string($host) && str_starts_with($host, 'www.')) {
+                    $host = substr($host, 4);
+                }
                 $grouped[$key] = [
                     'kind' => $kindLabels[$kind] ?? $kind,
                     'confidence' => $confidenceLabels[$confidence] ?? $confidence,
                     'confidenceClass' => preg_replace('/[^a-z0-9-]+/', '-', $confidence) ?: 'secondary',
                     'href' => $url !== '' ? $url : null,
-                    'source' => $url !== ''
-                        ? (parse_url($url, PHP_URL_HOST) ?: 'Source')
-                        : ($note ?? 'Recorded claim'),
+                    'source' => $host ?? ($note ?? 'Recorded claim'),
                     'note' => $url === '' ? $note : null,
                     'fields' => [],
                 ];
@@ -1859,6 +1870,228 @@ XML;
                 ]),
             ],
         );
+    }
+
+    /**
+     * Side-by-side bottle compare for 2–4 published reviews.
+     *
+     * @param  Collection<int, Review>  $published
+     * @param  array<string, mixed>  $query
+     */
+    public function compare(Collection $published, array $query = []): string
+    {
+        $slugs = $this->parseCompareSlugs($query);
+        $bySlug = $published->keyBy(fn (Review $review): string => $review->slug);
+        $selected = collect($slugs)
+            ->map(fn (string $slug): ?Review => $bySlug->get($slug))
+            ->filter(fn (mixed $review): bool => $review instanceof Review)
+            ->unique(fn (Review $review): string => $review->slug)
+            ->take(4)
+            ->values();
+
+        $columns = $selected->map(function (Review $review) use ($selected): array {
+            $snap = ComparableSnapshot::fromReview($review);
+            $production = Review::PRODUCTION_TYPES[$snap->productionType] ?? $snap->productionType;
+
+            return [
+                'slug' => $snap->slug,
+                'title' => $snap->title,
+                'brand' => $snap->brand,
+                'href' => $this->config->publicUrl($snap->path),
+                'figure' => $this->productFigure($review, 'product-figure product-figure--compare'),
+                'score' => $snap->score,
+                'band' => $review->scoreBandLabel(),
+                'abv' => $snap->abv ?? '—',
+                'category' => $this->config->categoryLabel($snap->category),
+                'style' => $snap->style ?? '—',
+                'production' => $production,
+                'method' => $snap->methodLabel ?? '—',
+                'price' => $snap->price ?? '—',
+                'descriptors' => $snap->descriptors,
+                'structure' => Sensory::structureLabels($snap->structure),
+                'removeHref' => $this->compareUrl(
+                    $selected->map(fn (Review $other): string => $other->slug)
+                        ->reject(fn (string $slug): bool => $slug === $snap->slug)
+                        ->values()
+                        ->all(),
+                ),
+            ];
+        })->all();
+
+        $clusters = $this->compareClusters($published);
+
+        $body = $this->view->render('compare', [
+            'breadcrumbs' => $this->breadcrumbs($this->crumbs(['Compare' => 'compare/'])),
+            'columns' => $columns,
+            'count' => count($columns),
+            'clusters' => $clusters,
+            'compareUrl' => $this->config->publicUrl('compare/'),
+            'reviewsUrl' => $this->config->publicUrl('reviews/'),
+            'clearHref' => $this->config->publicUrl('compare/'),
+            'canAddMore' => count($columns) < 4,
+            'picker' => $this->comparePicker($published, $selected->map(fn (Review $review): string => $review->slug)->all()),
+        ]);
+
+        $description = $selected->isEmpty()
+            ? 'Compare dealcoholized and non-alcoholic bottles side by side — score, ABV, method, structure, and flavor.'
+            : 'Comparing '.$selected->map(fn (Review $review): string => $review->cardTitle())->implode(', ').'.';
+
+        return $this->document(
+            'Compare bottles',
+            $description,
+            'compare/',
+            $body,
+            [
+                'nav' => 'compare',
+                'json_ld' => $this->jsonLd([
+                    $this->breadcrumbGraph($this->crumbs(['Compare' => 'compare/'])),
+                    [
+                        '@type' => 'WebPage',
+                        'name' => 'Compare bottles',
+                        'description' => $description,
+                        'url' => $this->config->canonicalUrl('compare/'),
+                    ],
+                ]),
+            ],
+        );
+    }
+
+    /**
+     * @param  array<string, mixed>  $query
+     * @return array<int, string>
+     */
+    private function parseCompareSlugs(array $query): array
+    {
+        $raw = [];
+        if (isset($query['slugs'])) {
+            $value = $query['slugs'];
+            if (is_array($value)) {
+                foreach ($value as $item) {
+                    $raw[] = (string) $item;
+                }
+            } else {
+                $raw = preg_split('/[,\s]+/', (string) $value) ?: [];
+            }
+        }
+        if (isset($query['compare']) && is_array($query['compare'])) {
+            foreach ($query['compare'] as $item) {
+                $raw[] = (string) $item;
+            }
+        }
+        foreach (['a', 'b', 'c', 'd'] as $key) {
+            if (! empty($query[$key]) && is_string($query[$key])) {
+                $raw[] = $query[$key];
+            }
+        }
+
+        $slugs = [];
+        foreach ($raw as $slug) {
+            $slug = strtolower(trim($slug));
+            if ($slug === '' || ! preg_match('/^[a-z0-9-]+$/', $slug) || in_array($slug, $slugs, true)) {
+                continue;
+            }
+            $slugs[] = $slug;
+            if (count($slugs) >= 4) {
+                break;
+            }
+        }
+
+        return $slugs;
+    }
+
+    /**
+     * @param  array<int, string>  $slugs
+     */
+    private function compareUrl(array $slugs): string
+    {
+        $base = $this->config->publicUrl('compare/');
+        if ($slugs === []) {
+            return $base;
+        }
+
+        return $base.'?slugs='.rawurlencode(implode(',', $slugs));
+    }
+
+    /**
+     * @param  Collection<int, Review>  $published
+     * @return array<int, array{label: string, href: string, count: int, meta: string}>
+     */
+    private function compareClusters(Collection $published): array
+    {
+        $preferred = ['riesling', 'ipa', 'rose', 'sparkling-rose', 'pilsner', 'stout'];
+        $grouped = [];
+        foreach ($published as $review) {
+            if (! $review->hasComparableStyle()) {
+                continue;
+            }
+            $slug = $review->styleSlug();
+            $grouped[$slug]['label'] = $review->styleLabel();
+            $grouped[$slug]['reviews'][] = $review;
+        }
+
+        $clusters = [];
+        foreach ($preferred as $styleSlug) {
+            if (! isset($grouped[$styleSlug]) || count($grouped[$styleSlug]['reviews']) < 2) {
+                continue;
+            }
+            /** @var array<int, Review> $reviews */
+            $reviews = $grouped[$styleSlug]['reviews'];
+            usort($reviews, fn (Review $a, Review $b): int => ($b->rating ?? 0) <=> ($a->rating ?? 0));
+            $pick = array_slice($reviews, 0, 4);
+            $slugs = array_map(fn (Review $review): string => $review->slug, $pick);
+            $clusters[] = [
+                'label' => $grouped[$styleSlug]['label'],
+                'href' => $this->compareUrl($slugs),
+                'count' => count($pick),
+                'meta' => $this->config->categoryLabel($pick[0]->category),
+            ];
+        }
+
+        return $clusters;
+    }
+
+    /**
+     * @param  Collection<int, Review>  $published
+     * @param  array<int, string>  $selected
+     */
+    private function comparePicker(Collection $published, array $selected): string
+    {
+        if (count($selected) >= 4) {
+            return '';
+        }
+
+        $options = $published
+            ->sortBy(fn (Review $review): string => mb_strtolower($review->cardTitle()))
+            ->map(function (Review $review) use ($selected): string {
+                if (in_array($review->slug, $selected, true)) {
+                    return '';
+                }
+
+                return '<option value="'.Str::e($review->slug).'">'
+                    .Str::e($review->brandDisplayName().' — '.$review->cardTitle())
+                    .'</option>';
+            })
+            ->implode('');
+
+        if ($options === '') {
+            return '';
+        }
+
+        $action = $this->config->publicUrl('compare/');
+        $hidden = '';
+        foreach ($selected as $slug) {
+            $hidden .= '<input type="hidden" name="slugs[]" value="'.Str::e($slug).'">';
+        }
+
+        return '<form class="compare-picker" method="get" action="'.Str::e($action).'" data-compare-picker>'
+            .$hidden
+            .'<label class="visually-hidden" for="compare-add">Add a bottle</label>'
+            .'<select id="compare-add" name="slugs[]" required>'
+            .'<option value="">Add a bottle…</option>'
+            .$options
+            .'</select>'
+            .'<button class="btn" type="submit">Add</button>'
+            .'</form>';
     }
 
     /**

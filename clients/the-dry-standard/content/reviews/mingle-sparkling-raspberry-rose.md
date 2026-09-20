@@ -9,7 +9,7 @@ subcategory: 'canned mocktail'
 country: 'United States'
 style: 'Non-alcoholic sparkling mocktail (formulated, not dealcoholized)'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: alternative
 verified: 'yes'
 production_note: 'Mingle is formulated as an alcohol-free mocktail — real juice, sparkling water and botanicals — rather than made by removing alcohol from an alcoholic cocktail.'
@@ -37,7 +37,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Soft bead'
-highlight: 'A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink.'
 nose: 'Bright raspberry and a soft floral top note; lightly sparkling.'
 palate: 'Crisp and refreshing, real raspberry juice over a clean sparkling base — a touch of sweetness without syrup weight.'
 finish: 'Clean and short, the fruit trailing off gently.'
@@ -105,13 +104,26 @@ provenance:
     confidence: manufacturer_verified
     url: 'https://www.minglemocktails.com/products/sparkling-raspberry-rose'
   volume:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://thrivemarket.com/p/mingle-mocktail-sparkling-raspberry-ros'
   availability:
     kind: retailer
     confidence: secondary
     url: 'https://www.instacart.com/products/51867151-mingle-sparkling-raspberry-rose-mocktail-non-alocholic-abv-0-00-12-0-fl-oz'
+sensory:
+  -
+    descriptor: raspberry
+    locations:
+      - palate
+  -
+    descriptor: blossom
+    locations:
+      - palate
+  -
+    descriptor: red_berry
+    locations:
+      - palate
 ---
 
 Mingle Sparkling Raspberry Rosé is formulated as an alcohol alternative from United States. The base is Sparkling water with real raspberry juice and natural flavorings; no underlying alcoholic drink. It was built without a dealcoholization step.

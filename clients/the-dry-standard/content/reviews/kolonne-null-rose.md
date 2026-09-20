@@ -11,7 +11,7 @@ country: Germany
 region: 'Provence (fruit), dealcoholized in Berlin'
 style: 'Dealcoholized Provence rosé'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: "Vacuum distillation at approximately 30°C, run from the producer's in-house Berlin laboratory"
@@ -36,7 +36,6 @@ tastes:
   - dry
 profile:
   - 'Bright acidity'
-highlight: 'The most transparent dealcoholization operation in the category: a Berlin lab, documented process, Provence fruit. The rosé is crisp, dry and honest about what it is.'
 nose: 'Fresh strawberry and white peach, with a dry, stony edge rather than candy sweetness.'
 palate: 'Crisp and lean; red berry fruit over a mineral spine, less weight than a full-strength Provence rosé but the shape holds.'
 finish: 'Dry and brief, citrus-tinged.'

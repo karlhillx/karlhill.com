@@ -11,7 +11,7 @@ country: Germany
 region: Mosel
 style: 'Dealcoholized German Riesling'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Alcohol removed from conventionally vinified Riesling (producer describes the Zero line as non-alcoholic without specifying the technique)'
@@ -35,7 +35,6 @@ profile:
   - 'Light body'
   - 'Clean finish'
 mouthfeel: 'Clean and citric.'
-highlight: "A Mosel Riesling at 0.0% from one of Germany's oldest wine houses — clean fruit, vibrant acidity, honest about what it is."
 nose: 'Pineapple, green apple and lemon with a mineral edge — varietally correct Riesling aromatics.'
 palate: 'Crystal-clear fruit, vibrant acidity and a fine mineral edge; lighter in body than a full-strength Mosel but the Riesling character survives.'
 finish: 'Clean and citric.'

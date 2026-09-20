@@ -36,7 +36,6 @@ tastes:
 profile:
   - 'Light body'
   - 'Short finish'
-highlight: 'A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second.'
 nose: 'Orange peel, tea, a little stone fruit — skin-contact adjacent, not a pale rosé.'
 palate: 'Textural for an NA white, light tannin, less ethanol oil than a full-strength amber.'
 finish: 'Dry and short. More interesting than most $20 NA California.'

@@ -36,7 +36,6 @@ profile:
   - Off-dry
   - 'Bright acidity'
   - 'Light body'
-highlight: "Italy's bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after."
 nose: 'Pear and white peach, with a green-apple lift and the faint yeastiness that distinguishes Prosecco-method sparkling.'
 palate: 'Light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver.'
 finish: 'Crisp and quick, a low-sugar finish that works as an aperitif.'

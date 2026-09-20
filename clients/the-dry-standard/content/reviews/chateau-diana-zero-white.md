@@ -11,7 +11,7 @@ country: 'United States'
 region: California
 style: 'Alcohol-removed California white blend'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Alcohol removed from conventionally vinified California white blend'
@@ -38,7 +38,6 @@ profile:
   - 'Light body'
   - 'Clean finish'
 mouthfeel: 'Clean and gentle.'
-highlight: 'A 0.0% California white blend at 80 calories from a family winery — honeysuckle, pineapple and pear, approachable and widely available.'
 nose: 'Honeysuckle and pineapple with a pear undertone — floral and tropical.'
 palate: "Light and creamy; the tropical fruit carries through a body that's thinner than the alcoholic version but recognizably Chardonnay-family in character."
 finish: 'Clean and gentle.'

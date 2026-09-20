@@ -9,7 +9,7 @@ subcategory: 'non-fermented NA cider'
 country: 'United States'
 style: 'Sparkling non-alcoholic apple-cider-vinegar-based cider'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: alternative
 verified: 'yes'
 production_note: "Original Sin's NA ciders are made with apple cider vinegar and fruit juice, not from a dealcoholized alcoholic cider."
@@ -24,15 +24,29 @@ rating: 78
 verdict: 'The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet.'
 summary: "Original Sin's Widow Family 12-pack is their NA lineup: apple-cider-vinegar and fruit-juice based, monk-fruit sweetened, never alcohol-fermented; four flavors from White Widow blackberry to Dragon's blood."
 tastes:
-  - bright
-  - tart
-  - 'no sticky-sweet aroma'
+  - apple
+  - acetic
+  - blackberry
+sensory:
+  -
+    descriptor: apple
+    locations:
+      - nose
+      - palate
+  -
+    descriptor: acetic
+    locations:
+      - nose
+      - palate
+  -
+    descriptor: blackberry
+    locations:
+      - palate
 profile:
   - Off-dry
   - 'Bright acidity'
   - 'Clean finish'
 mouthfeel: 'Long and clean, a vinegar-tight close that begs to drink the next one.'
-highlight: 'The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet.'
 nose: 'Bright and tart — natural apple cider vinegar carries the lift, fruit juice gives the fruit side, no sticky-sweet aroma.'
 palate: 'Crisp and sharp, closer to a shrub than a cider; the vinegar is the structural element, the fruit (depending on flavor) is the top note.'
 finish: 'Long and clean, a vinegar-tight close that begs to drink the next one.'
@@ -87,27 +101,27 @@ structure_scales:
   finish_length: 0
 provenance:
   production_type:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://www.originalsincider.com/na-ciders/widow-family-12-pack'
   base_beverage:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://www.originalsincider.com/na-ciders/widow-family-12-pack'
   producer:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://www.originalsincider.com/na-ciders/widow-family-12-pack'
   country:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://www.originalsincider.com/na-ciders/widow-family-12-pack'
   volume:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://www.originalsincider.com/na-ciders/widow-family-12-pack'
   abv:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://www.originalsincider.com/na-ciders/widow-family-12-pack'
   price:

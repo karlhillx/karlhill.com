@@ -33,7 +33,6 @@ profile:
   - 'Light body'
   - 'Medium body'
   - 'Short finish'
-highlight: 'Stone fruit and a hint of almond at a supermarket price. Australian, unlabeled as to process.'
 nose: 'Melon, white peach, a faint almond note.'
 palate: 'Medium-light, pear fruit, crisp enough acidity to keep it from juice.'
 finish: 'Short stone fruit.'
@@ -62,6 +61,14 @@ identifiers:
 sensory:
   -
     descriptor: white_peach
+    locations:
+      - palate
+  -
+    descriptor: melon
+    locations:
+      - palate
+  -
+    descriptor: almond
     locations:
       - palate
 structure_scales:

@@ -36,7 +36,6 @@ profile:
   - 'Light body'
   - 'Soft bead'
 mouthfeel: 'Citrus pith and a fine bead. Drink it colder than the still bottle.'
-highlight: 'The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, same citrus-and-rhubarb argument.'
 nose: 'Green apple, citrus, and a cool mineral line. The mousse lifts the zest.'
 palate: 'Brisk and a little sweet, then acidity pulls it taut. Lighter than a Rheingau Sekt with ethanol, but the grape is still the point.'
 finish: 'Citrus pith and a fine bead. Drink it colder than the still bottle.'

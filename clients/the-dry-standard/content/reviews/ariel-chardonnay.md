@@ -29,7 +29,6 @@ profile:
   - 'Light body'
   - 'Clean finish'
 mouthfeel: 'Clean and lightly oaked.'
-highlight: 'One of the oldest names in NA wine — Ariel has been dealcoholizing J. Lohr fruit with a spinning cone since the 1980s, and the Chardonnay shows that experience.'
 nose: 'Tropical fruit and pear over a light oak note — Chardonnay character preserved by the cold process.'
 palate: 'Round and fruity; the oak shows as a soft spice rather than butter, and the body holds better than most dealcoholized Chardonnays.'
 finish: 'Clean and lightly oaked.'

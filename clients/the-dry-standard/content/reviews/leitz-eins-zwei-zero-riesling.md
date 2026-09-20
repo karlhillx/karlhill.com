@@ -49,7 +49,6 @@ profile:
   - 'Light body'
   - 'Clean finish'
 mouthfeel: 'Clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold.'
-highlight: 'The dealcoholized Riesling most often worth opening. Acidity keeps the residual sugar honest; what is missing is ethanol weight, not varietal character.'
 nose: 'Lime zest, green apple skin, a snap of rhubarb, and a cool mineral line. It smells like Riesling first and like a reduced wine second.'
 palate: 'Bright and a little sweet, then pulled taut by acidity. Citrus and red apple sit over a lighter body than a full-strength Eins-Zwei-Dry, but the grape is still the point.'
 finish: 'Clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold.'
@@ -166,15 +165,15 @@ provenance:
     confidence: secondary
     url: 'https://bishopscellar.com/product/leitz-eins-zwei-zero/'
   price:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.empirewine.com/grocery/leitz-eins-zwei-zero-non-alcoholic-riesling-750ml-h50738/'
   volume:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.empirewine.com/grocery/leitz-eins-zwei-zero-non-alcoholic-riesling-750ml-h50738/'
   availability:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.empirewine.com/grocery/leitz-eins-zwei-zero-non-alcoholic-riesling-750ml-h50738/'
   ean:

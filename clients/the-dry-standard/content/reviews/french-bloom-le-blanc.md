@@ -10,7 +10,7 @@ subcategory: 'sparkling white (Chardonnay-based, alcohol-removed)'
 country: France
 style: 'Alcohol-removed organic French sparkling white (classic method)'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: hybrid
 verified: 'yes'
 dealcoholization_method: "Three-stage vacuum dealcoholization at low temperature, with aroma recovery and reintegration (producer's own site)"
@@ -121,6 +121,15 @@ provenance:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+sensory:
+  -
+    descriptor: pear
+    locations:
+      - palate
+  -
+    descriptor: citrus
+    locations:
+      - palate
 ---
 
 French Bloom Le Blanc is a hybrid of dealcoholized material and other defining ingredients from France. The base is Organic French Chardonnay (classic method sparkling base), with organic grape juice and natural lemon flavor blended in after alcohol removal. Three-stage vacuum dealcoholization at low temperature, with aroma recovery and reintegration (producer's own site).

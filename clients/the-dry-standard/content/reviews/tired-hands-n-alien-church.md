@@ -102,6 +102,15 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://tiredhands.com/products/n-alien-church-6-pack'
+sensory:
+  -
+    descriptor: passionfruit
+    locations:
+      - palate
+  -
+    descriptor: hops
+    locations:
+      - palate
 ---
 
 Tired Hands N/Alien Church is brewed or fermented to finish at low ABV without a published removal step from Ardmore, Pennsylvania, United States. Tired Hands' own menu copy describes N/Alien Church as 'brewed with oats, experimental yeast, and the same hop bill as Alien Church' — a from-scratch recipe ….

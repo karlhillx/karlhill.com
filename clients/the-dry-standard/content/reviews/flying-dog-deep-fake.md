@@ -29,7 +29,6 @@ profile:
   - 'Light body'
   - 'Modest bitterness'
 mouthfeel: 'Dry and hoppy, the bitterness lingering briefly.'
-highlight: "A beer named 'Deep Fake' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland's most recognizable craft breweries."
 nose: 'Citrus and pine hops — the IPA aromatic signature, present if a bit lighter than a full-strength version.'
 palate: 'Light-bodied with the hop character carrying; the malt is minimal, the bitterness present, and the overall effect is more hop-forward tea than IPA.'
 finish: 'Dry and hoppy, the bitterness lingering briefly.'
@@ -67,6 +66,10 @@ identifiers:
 sensory:
   -
     descriptor: citrus
+    locations:
+      - palate
+  -
+    descriptor: hops
     locations:
       - palate
 structure_scales:

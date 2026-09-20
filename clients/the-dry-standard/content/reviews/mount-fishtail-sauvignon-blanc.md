@@ -37,7 +37,6 @@ tastes:
 profile:
   - 'Light body'
   - 'Clean finish'
-highlight: 'Another Marlborough Sauvignon Blanc in the zero-proof register — this one from a real Upper Wairau Valley estate with passionfruit and citrus character intact.'
 nose: 'Ripe passionfruit and citrus — the Marlborough Sauvignon Blanc signature, present and aromatic.'
 palate: 'Fresh and expressive; tropical fruit over a light frame, with the varietal character carrying through the alcohol removal.'
 finish: 'Clean and citric, the passionfruit trailing.'
@@ -84,23 +83,23 @@ structure_scales:
   finish_length: 0
 provenance:
   producer:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://mountfishtailwines.co.nz/'
   country:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://mountfishtailwines.co.nz/'
   region:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://mountfishtailwines.co.nz/'
   base_beverage:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://mountfishtailwines.co.nz/'
   dealcoholization_method:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://mountfishtailwines.co.nz/'
   production_type:

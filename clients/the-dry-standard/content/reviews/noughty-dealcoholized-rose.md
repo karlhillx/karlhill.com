@@ -38,7 +38,6 @@ tastes:
   - apricot
 profile:
   - 'Soft bead'
-highlight: 'Still rosé, not the sparkling sibling already on this desk. Chenin and a dash of Pinotage, spun-cone dealcoholized, berry and apricot without the fizz.'
 nose: 'Summer berries and fresh apricot — the producer list, and it holds.'
 palate: 'Provence-shaped, balanced, a little softer than the sparkling Noughty. The Pinotage is a tint, not a tannin.'
 finish: 'Gently lingering fruit. Less snap than the sparkling Chardonnay.'

@@ -37,7 +37,6 @@ profile:
   - Off-dry
   - 'Bright acidity'
   - 'Modest bitterness'
-highlight: 'Not a wine trying to be cider or a cider trying to be wine. Apple, perry, a splash of dealcoholized red, hops. Tart in the way Geiger usually is.'
 nose: 'Red berries and a tart hop edge — more orchard than cellar.'
 palate: 'Sweet-sour, bitter at the edges, the red-wine cut giving tannin the cider would not have alone.'
 finish: 'Dry-tart, lingering hop. A food cider, not a picnic soda.'

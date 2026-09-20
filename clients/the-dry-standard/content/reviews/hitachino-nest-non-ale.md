@@ -9,7 +9,7 @@ subcategory: 'non-alcoholic ale'
 country: Japan
 region: 'Naka, Ibaraki Prefecture'
 style: 'Non-alcoholic Japanese ale'
-abv: <0.5%
+abv: '<0.5%'
 abv_numeric: 0.3
 production_type: naturally-low-alcohol
 verified: 'yes'
@@ -127,6 +127,19 @@ provenance:
     kind: retailer
     confidence: secondary
     url: 'https://kiuchi.shop/view/item/000000000024'
+sensory:
+  -
+    descriptor: malt
+    locations:
+      - palate
+  -
+    descriptor: toasted_grain
+    locations:
+      - palate
+  -
+    descriptor: hops
+    locations:
+      - palate
 ---
 
 Kiuchi is a sake brewery in Ibaraki that also makes beer. Non Ale is what they brew when the brief is 0.3%: malt, hops, and carbon dioxide — no vacuum column, no spinning cone, no White Ale with the ethanol taken out afterward. Naturally low alcohol. Do not confuse it with the yuzu-and-ginger Non Ale that also wears the Hitachino owl; this bottle is the malt-and-hops original.

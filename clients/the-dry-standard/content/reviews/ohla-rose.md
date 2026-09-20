@@ -96,39 +96,39 @@ structure_scales:
   finish_length: 0
 provenance:
   abv:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://morewines.com/ohla-rosado-non-alcoholic-wine-750ml/'
   production_type:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://morewines.com/ohla-rosado-non-alcoholic-wine-750ml/'
   dealcoholization_method:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://morewines.com/ohla-rosado-non-alcoholic-wine-750ml/'
   base_beverage:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://morewines.com/ohla-rosado-non-alcoholic-wine-750ml/'
   country:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://morewines.com/ohla-rosado-non-alcoholic-wine-750ml/'
   volume:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://morewines.com/ohla-rosado-non-alcoholic-wine-750ml/'
   price:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://morewines.com/ohla-rosado-non-alcoholic-wine-750ml/'
   availability:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://morewines.com/ohla-rosado-non-alcoholic-wine-750ml/'
   producer:
-    kind: unknown
+    kind: research
     confidence: secondary
     url: 'https://www.trademarkelite.com/trademark/trademark-detail/90775097/OHLA'
   ean:

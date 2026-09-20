@@ -9,7 +9,7 @@ subcategory: 'non-alcoholic aperitivo'
 country: Italy
 style: 'Non-alcoholic Italian bitter aperitivo'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: alternative
 verified: 'yes'
 production_note: 'Crodino is formulated alcohol-free from the start (blends of botanical infusions and a non-alcoholic base), not made by removing alcohol from a once-alcoholic aperitivo.'
@@ -29,7 +29,6 @@ profile:
   - Off-dry
   - 'Modest bitterness'
 mouthfeel: 'Refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol war…'
-highlight: "Campari's original non-alcoholic bitter from 1965 — formulated, never dealcoholized, and the only proper Campari bitter out there without the alcohol."
 nose: 'Bitter-orange peel and gentian root, with a softer floral note than Campari proper.'
 palate: 'Bittersweet and a touch syrupy, bright orange-citrus with the gentian bitterness Campari is known for, moderated for an alcohol-free serve.'
 finish: 'Refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol warmth.'
@@ -93,17 +92,26 @@ provenance:
     confidence: secondary
     url: 'https://www.crodino.com/the-original/'
   availability:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/campari-america-enters-the-non-alc-category-introducing-crodino-the-perfect-non-alcoholic-spritz-now-available-in-the-us-302453015.html'
   country:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/campari-america-enters-the-non-alc-category-introducing-crodino-the-perfect-non-alcoholic-spritz-now-available-in-the-us-302453015.html'
   volume:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/campari-america-enters-the-non-alc-category-introducing-crodino-the-perfect-non-alcoholic-spritz-now-available-in-the-us-302453015.html'
+sensory:
+  -
+    descriptor: orange_peel
+    locations:
+      - palate
+  -
+    descriptor: gentian
+    locations:
+      - palate
 ---
 
 Crodino Non-Alcoholic Spritz is formulated as an alcohol alternative from Italy. The base is Non-alcoholic aromatic base blended with botanicals (no underlying spirit before alcohol removal). It was built without a dealcoholization step.

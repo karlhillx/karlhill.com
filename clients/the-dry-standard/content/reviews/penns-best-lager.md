@@ -30,7 +30,6 @@ profile:
   - 'Light body'
   - 'Modest bitterness'
   - 'Clean finish'
-highlight: 'A budget American NA lager — smooth, light, and honest about being the cheap option rather than the craft one.'
 nose: 'Light malt and a faint grain note — the American lager profile, clean and unassertive.'
 palate: 'Smooth and light; the malt is present but subdued, no hop character to speak of, the mouthfeel of a standard macro lager.'
 finish: 'Clean and brief.'
@@ -94,6 +93,15 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://beerfordriving.com/beer/fred-koch-brewery/penn-s-best-n-a/'
+sensory:
+  -
+    descriptor: malt
+    locations:
+      - palate
+  -
+    descriptor: toasted_grain
+    locations:
+      - palate
 ---
 
 Penn's Best Non-Alcoholic Lager is non-alcoholic with an unpublished production process from United States. No cited producer page names a removal technique, so the badge stays not-verified.

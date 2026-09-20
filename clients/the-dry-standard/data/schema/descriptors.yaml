@@ -88,6 +88,8 @@ herbal:
     rhubarb: { label: Rhubarb }
     gentian: { label: Gentian }
     botanical: { label: Botanical }
+    lemongrass: { label: Lemongrass }
+    fennel: { label: Fennel }
 
 spice:
   label: Spice
@@ -152,6 +154,7 @@ mineral:
     mineral: { label: Mineral }
     earth: { label: Earth }
     smoke: { label: Smoke }
+    petrol: { label: Petrol }
 
 other:
   label: Other

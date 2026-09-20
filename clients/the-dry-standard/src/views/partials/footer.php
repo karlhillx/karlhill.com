@@ -22,6 +22,7 @@
         <a href="<?= $view->e($brandsUrl) ?>">Brands</a>
         <a href="<?= $view->e($aboutUrl) ?>">About &amp; methodology</a>
         <a href="<?= $view->e($bestUrl) ?>">Best of the cellar</a>
+        <a href="<?= $view->e($compareUrl) ?>">Compare bottles</a>
       </div>
       <div>
         <p class="footer-label">Industry</p>

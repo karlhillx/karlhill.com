@@ -77,21 +77,29 @@ sensory:
     descriptor: cherry
     locations:
       - palate
+  -
+    descriptor: watermelon
+    locations:
+      - palate
+  -
+    descriptor: red_berry
+    locations:
+      - palate
 structure_scales:
   sweetness: 2
   acidity: 3
   finish_length: 0
 provenance:
   abv:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.supervin.se/be-free-rose-0-5-alkoholfri'
   country:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.supervin.se/be-free-rose-0-5-alkoholfri'
   volume:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.supervin.se/be-free-rose-0-5-alkoholfri'
   region:

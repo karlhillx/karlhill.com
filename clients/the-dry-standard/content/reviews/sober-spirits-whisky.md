@@ -9,7 +9,7 @@ subcategory: 'Dealcoholized whisky alternative'
 country: France
 style: 'Dealcoholized non-alcoholic spirit'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Alcohol extracted in Grasse using heat, pressure and thermal shocks; the aromatic fraction is redistilled in century-old copper pot stills at a French distillery founded in 1875'

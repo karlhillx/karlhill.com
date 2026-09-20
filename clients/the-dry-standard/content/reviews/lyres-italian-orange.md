@@ -44,7 +44,6 @@ profile:
   - 'Modest bitterness'
   - 'Clean finish'
 mouthfeel: 'Pith and dye-bright citrus. Cleaner than a cheap grenadine, sweeter than Campari.'
-highlight: "A convincing bitter-orange mixer with no dealcoholization story to tell — and Lyre's is honest about that. Judge it as a formulated aperitif, not as stripped Campari."
 nose: 'Blood orange, ruby grapefruit, and a candied cherry note. The pith is there. So is a slightly cosmetic citrus that never quite smells like a bitter made from a barrel.'
 palate: 'Sweet-bitter and thick enough to mix. Orange oil, maraschino, and a dry peel finish. Cellulose gum is doing some of the grip. It works in soda and in a three-part cocktail; it is not a sipping amaro.'
 finish: 'Pith and dye-bright citrus. Cleaner than a cheap grenadine, sweeter than Campari.'
@@ -101,6 +100,19 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://lyres.com/pages/faqs'
+sensory:
+  -
+    descriptor: blood_orange
+    locations:
+      - palate
+  -
+    descriptor: grapefruit
+    locations:
+      - palate
+  -
+    descriptor: cherry
+    locations:
+      - palate
 ---
 
 Lyre's Italian Orange is formulated as an alcohol alternative. The base is producer: Lyre's. It was built without a dealcoholization step. Lyre's does the industry a favor on its FAQ: the products are "purposefully crafted as non-alcoholic from the outset." The same page draws the line this site exists to police. Dealcoholized drinks start as alcoholic drinks. Lyre's starts as a recipe.

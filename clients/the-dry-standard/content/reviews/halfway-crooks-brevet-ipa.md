@@ -33,7 +33,6 @@ profile:
   - 'Light body'
   - 'Modest bitterness'
   - 'Short finish'
-highlight: 'The hoppier Brevet. Same Atlanta can, same arrested-fermentation process as the pilsner. Drink it as an IPA that happens to be NA.'
 nose: 'Citrus peel and a crackery malt line — hoppier than the pils, still tidy.'
 palate: 'Light IPA bitterness, lemon and a little pine, body closer to a session beer than a 7% West Coast.'
 finish: 'Dry and short. No worty leftover.'
@@ -77,21 +76,30 @@ structure_scales:
   finish_length: 0
 provenance:
   producer:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://untappd.com/b/halfway-crooks-beer-brevet-ipa/6553046'
   country:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://halfwaycrooks.beer/beer/brevet-pils/'
   region:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://halfwaycrooks.beer/beer/brevet-pils/'
   production_type:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.atlantamagazine.com/drinks/high-demand-low-abv-atlantas-nonalcoholic-beer-craze-is-testing-local-brewers/'
+sensory:
+  -
+    descriptor: orange_peel
+    locations:
+      - palate
+  -
+    descriptor: biscuit
+    locations:
+      - palate
 ---
 
 Halfway Crooks Brevet IPA is brewed or fermented to finish at low ABV without a published removal step from Atlanta, Georgia, United States. Atlanta Magazine quotes co-owner Shawn Cooper describing Halfway Crooks' NA process as Chiber, a mushroom extract that keeps yeast static and halts alcohol p…. The can drinks like an IPA that was never asked to be 6%. Citrus, a little pine, a clean finish. Same Atlanta discipline as the pils.

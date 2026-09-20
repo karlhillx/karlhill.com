@@ -10,7 +10,7 @@ country: Italy
 region: 'Piozzo, Italy'
 style: 'Formulated non-alcoholic Italian aperitivo'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: alternative
 verified: 'yes'
 production_note: 'Passione in Rosso is a formulated aperitivo made with water, cane sugar, and natural flavors — no underlying alcoholic drink.'
@@ -33,7 +33,6 @@ profile:
   - Off-dry
   - 'Modest bitterness'
   - 'Clean finish'
-highlight: "An Italian aperitivo from one of Italy's most respected craft breweries — bittersweet, 0.0%, and the right shape for the spritz hour."
 nose: 'Bitter orange and botanicals — the aperitivo aromatic signature, lighter and softer than Campari.'
 palate: 'Bittersweet and gently spiced; cane sugar provides the body, natural botanicals carry the bitterness.'
 finish: 'Clean and pleasantly bitter.'
@@ -78,6 +77,10 @@ identifiers:
 sensory:
   -
     descriptor: orange
+    locations:
+      - palate
+  -
+    descriptor: botanical
     locations:
       - palate
 structure_scales:

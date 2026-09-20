@@ -32,7 +32,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Clean finish'
-highlight: 'A Riesling-shaped Riesling at a value price — citrus, mineral and a petrol whisper, which is more varietal honesty than most budget NA whites manage.'
 nose: 'Delicate citrus with a mineral edge and a faint petrol note — the classic Riesling tell.'
 palate: 'Light and fresh; citrus fruit with lingering acidity, less body than a full-strength Riesling but the shape holds.'
 finish: 'Clean and citric, the mineral note carrying the close.'
@@ -77,17 +76,22 @@ provenance:
     confidence: secondary
     url: 'https://www.orderroombox.com/product/magic-box-vanish-non-alcoholic-riesling/'
   abv:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://beerfordriving.com/wine/vanish/magic-box-riesling/'
   base_beverage:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://beerfordriving.com/wine/vanish/magic-box-riesling/'
   ean:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+sensory:
+  -
+    descriptor: petrol
+    locations:
+      - palate
 ---
 
 Magic Box Vanish Riesling is dealcoholized from Germany. The base is German Riesling, sourced from Germany and dealcoholized in Europe (supplier and directory copy). beerfordriving.com's directory listing describes the wine as 'a German dealcoholized white wine made in the classic Riesling style... with the alcohol remove….

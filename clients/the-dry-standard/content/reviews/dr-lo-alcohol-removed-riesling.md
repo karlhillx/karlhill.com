@@ -111,6 +111,10 @@ sensory:
     descriptor: green_apple
     locations:
       - palate
+  -
+    descriptor: slate
+    locations:
+      - palate
 structure_scales:
   sweetness: 2
   acidity: 3

@@ -29,7 +29,6 @@ tastes:
 profile:
   - Off-dry
   - 'Clean finish'
-highlight: 'An estate-grown Languedoc rosé in the zero-proof register: Grenache and Cinsault from volcanic soils, dry, round and built for hot weather.'
 nose: 'Red berries and a soft floral note with a faint savoury edge from the volcanic terroir.'
 palate: 'Round and fresh at once; berry fruit over gentle structure, dry rather than sweet, with more body than most dealcoholized rosés.'
 finish: 'Clean and rounded, the fruit trailing gently.'
@@ -106,7 +105,7 @@ provenance:
     confidence: secondary
     url: 'https://domaine-montrose.com/shop/fr/rose-mont-rose/61-rose-mont-rose-rose-.html'
   region:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://creamwine.com/product.php?id=20017'
   price:

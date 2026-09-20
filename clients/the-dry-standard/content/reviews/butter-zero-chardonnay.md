@@ -29,7 +29,6 @@ tastes:
 profile:
   - 'Light body'
 mouthfeel: 'Smooth and gentle.'
-highlight: "The wine that launched the brand, translated to zero proof — Butter's rich Chardonnay style, minus the alcohol, minus some of the butter."
 nose: 'Soft pear and apple with a light creamy note — the Chardonnay fruit without the oak-driven butter of the original.'
 palate: 'Round and approachable; the fruit carries the mid-palate, the body is lighter than the alcoholic Butter but the profile is recognizable.'
 finish: 'Smooth and gentle.'
@@ -73,35 +72,35 @@ structure_scales:
   body: 1
 provenance:
   production_type:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   producer:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   country:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   abv:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   dealcoholization_method:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   availability:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   volume:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   base_beverage:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   ean:

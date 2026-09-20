@@ -33,7 +33,6 @@ profile:
   - 'Light body'
   - 'Soft bead'
 mouthfeel: 'Crisp and lightly bitter, the rhubarb trailing just a beat behind the orange.'
-highlight: "The most Mediterranean thing Lyre's has ever canned: bitter orange, rhubarb, fine bubbles, and the right amount of bittersweet for the hour."
 nose: 'Bitter orange peel and rhubarb sweetness; light floral top notes.'
 palate: 'Bittersweet and well-balanced; the orange citrusy lift grounds a rhubarb-laced finish, no syrupy weight, no bitter liquorice hangover from the botanicals.'
 finish: 'Crisp and lightly bitter, the rhubarb trailing just a beat behind the orange.'
@@ -102,6 +101,19 @@ provenance:
     kind: retailer
     confidence: secondary
     url: 'https://www.woolworths.com.au/shop/productdetails/991844/lyres-amalfi-spritz-non-alocoholic-cans'
+sensory:
+  -
+    descriptor: orange_peel
+    locations:
+      - palate
+  -
+    descriptor: rhubarb
+    locations:
+      - palate
+  -
+    descriptor: blossom
+    locations:
+      - palate
 ---
 
 Lyre's Amalfi Spritz is formulated as an alcohol alternative from Australia. The base is Lyre's Italian Orange spirit replica base (no underlying alcohol-containing spirit). It was built without a dealcoholization step.

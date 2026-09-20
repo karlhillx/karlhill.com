@@ -38,7 +38,6 @@ tastes:
 profile:
   - 'Light body'
   - 'Clean finish'
-highlight: 'One of the few NA wines with an actual German winery behind the label — a clean, slightly mineral Chardonnay that tastes like somebody made it on purpose.'
 nose: 'Lemon and pear, a green-apple edge, faintly mineral.'
 palate: 'Fresh, dry-leaning and aromatic — orchard fruit with a clean, slightly mineral spine.'
 finish: 'Clean and light, the mineral note carrying through.'
@@ -83,6 +82,14 @@ sensory:
       - palate
   -
     descriptor: pear
+    locations:
+      - palate
+  -
+    descriptor: green_apple
+    locations:
+      - palate
+  -
+    descriptor: mineral
     locations:
       - palate
 structure_scales:

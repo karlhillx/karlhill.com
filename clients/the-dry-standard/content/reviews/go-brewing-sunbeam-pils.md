@@ -36,7 +36,6 @@ profile:
   - 'Light body'
   - 'Modest bitterness'
   - 'Clean finish'
-highlight: "A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass."
 nose: 'Fresh bread crust and a grassy hop lift — classic German pilsner aromatics, no ester heaviness.'
 palate: 'Light, crisp and properly bitter; noble-hop grass and a clean malt backbone that carries the bitterness rather than fighting it.'
 finish: 'Dry and snappy, the hop bitterness lingering politely.'
@@ -99,13 +98,22 @@ provenance:
     confidence: manufacturer_verified
     url: 'https://gobrewing.com/products/suspended-in-a-sunbeam-lager-non-alcoholic-beer'
   price:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://beerfordriving.com/beer/go-brewing/suspended-in-a-sunbeam-pils/'
   region:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://promisingbeer.com/reviews/go-brewing-sunbeam-pils/'
+sensory:
+  -
+    descriptor: bread
+    locations:
+      - palate
+  -
+    descriptor: hops
+    locations:
+      - palate
 ---
 
 Go Brewing Suspended In A Sunbeam Pils is brewed or fermented to finish at low ABV without a published removal step from Naperville, Illinois, United States. Go Brewing's own product FAQ states: 'We use Go Brewing's proprietary brewing process to keep it naturally under 0.5% ABV without dilution or dealcoholizatio….

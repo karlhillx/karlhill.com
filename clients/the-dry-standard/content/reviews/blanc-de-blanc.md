@@ -35,7 +35,6 @@ tastes:
 profile:
   - 'Soft bead'
 mouthfeel: 'Long and toasty, the brioche note extending the finish.'
-highlight: "Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk."
 nose: 'Brioche and baked apple with a floral lift — the lees ageing leaves a genuine Champagne-adjacent aromatic signature.'
 palate: 'Structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve.'
 finish: 'Long and toasty, the brioche note extending the finish.'
@@ -116,6 +115,11 @@ provenance:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+sensory:
+  -
+    descriptor: bready
+    locations:
+      - palate
 ---
 
 Blanc de Blanc Non-Alcoholic Sparkling Wine (Jörg Geiger) is dealcoholized from Germany. The base is Organic Chardonnay and Colombard, conventionally vinified with secondary bottle fermentation and lees ageing before dealcoholization. Organic Chardonnay and Colombard wine, bottle-fermented and matured on the lees for two years, then vacuum distilled (producer).

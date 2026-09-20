@@ -42,7 +42,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-highlight: 'The same spinning-cone pipeline as the 0% Sauvignon Blanc and Riesling, applied to a pale New Zealand rosé. White peach and strawberry, dry enough for lunch.'
 nose: 'White peach, apple, and fresh strawberry — lifted, not candied.'
 palate: 'Cranberry and stone fruit over a light frame. 18 g/L residual sugar reads off-dry, not soda.'
 finish: 'Crisp and short. The acidity does the work the ethanol used to.'

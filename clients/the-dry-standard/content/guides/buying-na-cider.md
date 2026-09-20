@@ -2,7 +2,7 @@
 title: How to buy non-alcoholic cider
 slug: buying-na-cider
 summary: "Some bottles are fermented cider with the alcohol removed. Others are juice that learned carbonation. The glass will tell you, if the label will not."
-order: 5
+order: 6
 ---
 
 Cider is the category most likely to hide behind "alcohol-free." Apple juice sparkling is a legitimate drink. It is not cider unless yeast did some work, or a producer took alcohol out of cider that already existed.

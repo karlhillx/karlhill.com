@@ -35,7 +35,6 @@ profile:
   - Off-dry
   - 'Light body'
   - 'Short finish'
-highlight: "A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and 'dealcoholization process' without naming the machine. The grape still shows."
 nose: 'Citrus and a grassy edge, quieter than a 13% Casablanca bottle.'
 palate: '36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body.'
 finish: 'Short citrus. The residual sugar lingers more than the herb.'

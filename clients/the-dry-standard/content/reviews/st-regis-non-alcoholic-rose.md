@@ -137,15 +137,15 @@ provenance:
     confidence: secondary
     url: 'https://www.totalwine.com/wine/rose-blush-wine/syrahshiraz/st-regis-nonalcoholic-rose/p/81590750'
   dealcoholization_method:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://stregiswines.com/en/about-us'
   production_type:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://stregiswines.com/en/about-us'
   base_beverage:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://stregiswines.com/en/about-us'
   ean:

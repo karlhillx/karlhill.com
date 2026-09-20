@@ -21,6 +21,9 @@
                 <?php } ?>
                 <a href="<?= $view->e($pageUrl) ?>#how-it-was-made">How it was made</a>
                 <a href="<?= $view->e($pageUrl) ?>#facts">Facts</a>
+                <?php if (! empty($compareHref)) { ?>
+                <a href="<?= $view->e($compareHref) ?>">Compare</a>
+                <?php } ?>
               </p>
             </div>
             <?= $score ?>

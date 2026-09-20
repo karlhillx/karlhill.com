@@ -35,7 +35,6 @@ profile:
   - 'Bright acidity'
   - 'Modest bitterness'
   - 'Clean finish'
-highlight: 'The drier, more grown-up sibling of the FLVR! sour: floral and herbal hops, subtle citrus, and the crisp snap of a real Italian pilsner.'
 nose: 'Floral and herbal hops with a light citrus lift — the distinctive Italian pilsner aromatic style.'
 palate: 'Crisp and dry; herbal hop character over a clean malt body, subtle citrus, no sweetness to speak of.'
 finish: 'Dry and snappy, the hop character carrying.'
@@ -112,7 +111,7 @@ provenance:
     confidence: manufacturer_verified
     url: 'https://drinkuntitled.com/products/non-alcoholic-italian-style-pils/'
   calories:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://nabeerclub.com/non-alcoholic-beer/italian-pilsner-untitled-art/'
   production_type:

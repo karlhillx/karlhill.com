@@ -11,7 +11,7 @@ country: 'United States'
 region: California
 style: 'Alcohol-removed California rosé'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Alcohol removed from conventionally vinified California rosé'
@@ -35,7 +35,6 @@ tastes:
 profile:
   - 'Bright acidity'
   - 'Clean finish'
-highlight: 'The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach.'
 nose: 'Ripe strawberries with a light floral note.'
 palate: 'Bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes.'
 finish: 'Clean and brief.'

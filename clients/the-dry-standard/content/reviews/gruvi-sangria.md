@@ -34,7 +34,6 @@ profile:
   - Off-dry
   - 'Light body'
   - 'Clean finish'
-highlight: 'A real dealcoholized California red with fruit extracts layered back in — the sangria shape is convincing, and the warm-spice notes are a nice touch.'
 nose: 'Blood orange and warm spice over red fruit — recognizably sangria rather than a fruit juice.'
 palate: 'Fruity and lightly spiced; red wine character beneath the orange, with the sweetness kept in check.'
 finish: 'Clean and gently spiced.'
@@ -113,6 +112,11 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://well.ca/products/gruvi-alcohol-removed-red-sangria_354760.html'
+sensory:
+  -
+    descriptor: blood_orange
+    locations:
+      - palate
 ---
 
 Grüvi Non-Alcoholic Sangria is a hybrid of dealcoholized material and other defining ingredients from United States. The base is California red wine, alcohol-removed, blended with blood orange and fruit extracts. California red wine is dealcoholized and blended with natural fruit extracts (producer).

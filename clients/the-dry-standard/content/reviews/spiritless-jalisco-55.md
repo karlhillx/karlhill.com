@@ -9,7 +9,7 @@ subcategory: 'non-alcoholic tequila alternative'
 country: 'United States'
 style: 'Dealcoholized non-alcoholic reposado tequila'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Alcohol removed by the same Spiritless reverse-distillation process as Kentucky 74 — ethanol taken off an oak-extracted high-proof spirit'
@@ -37,7 +37,6 @@ profile:
   - 'Light body'
   - 'Short finish'
 mouthfeel: 'Smooth and oaked, the agave trailing gently.'
-highlight: 'A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be.'
 nose: 'Cooked agave, oak and vanilla — the reposado signature, present and genuine.'
 palate: 'Round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body.'
 finish: 'Smooth and oaked, the agave trailing gently.'

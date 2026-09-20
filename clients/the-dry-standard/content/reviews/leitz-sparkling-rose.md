@@ -11,7 +11,7 @@ country: Germany
 region: Rheingau
 style: 'Dealcoholized sparkling rosé'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Spinning cone technology applied to conventionally vinified Rheingau rosé (same process as the published Leitz Riesling)'
@@ -38,7 +38,6 @@ profile:
   - 'Light body'
   - 'Soft bead'
   - 'Clean finish'
-highlight: 'The rosé sibling of the Eins-Zwei-Zero Riesling already on this desk — same spinning cone process, same Rheingau sourcing, delicate red fruit and bubbles.'
 nose: 'Wild strawberry and raspberry with a floral lift — recognizably rosé, recognizably Rheingau.'
 palate: 'Light and fresh; red berry fruit over fine bubbles, drier than expected for the category.'
 finish: 'Clean and crisp, the red fruit trailing.'
@@ -118,6 +117,15 @@ provenance:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+sensory:
+  -
+    descriptor: strawberry
+    locations:
+      - palate
+  -
+    descriptor: red_fruit
+    locations:
+      - palate
 ---
 
 Leitz Eins-Zwei-Zero Sparkling Rosé is dealcoholized from Rheingau, Germany. The base is Rheingau rosé, vinified conventionally before dealcoholization. Spinning cone technology applied to conventionally vinified Rheingau rosé (same process as the published Leitz Riesling).

@@ -38,7 +38,6 @@ profile:
   - 'Bright acidity'
   - 'Soft bead'
   - 'Clean finish'
-highlight: 'A Long Island estate name on a German-made alcohol-removed sparkling rosé. Red berry, peach, real acidity. Method still a label phrase.'
 nose: 'Red berry, ripe peach, fresh pear.'
 palate: 'Vibrant acidity, elegant fruit, a finer mouthfeel than the $10 NA pinks.'
 finish: 'Clean, a little earthy. More wine than soda.'

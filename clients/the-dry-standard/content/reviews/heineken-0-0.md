@@ -8,7 +8,7 @@ category: beer
 subcategory: 'non-alcoholic lager'
 style: 'Non-alcoholic international pale lager'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: "Alcohol extracted from the traditional brew using vacuum distillation columns, following a double-brew step with Heineken's A-Yeast (documented by The Process)"
@@ -34,7 +34,6 @@ tastes:
 profile:
   - Off-dry
   - 'Modest bitterness'
-highlight: 'A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty.'
 nose: 'Wet cardboard and a faint grain whisper. Nothing you would call malt.'
 palate: 'Water with a hint of sweetness and almost no bitterness. It tastes like nothing.'
 finish: 'Gone before you swallow. No hop, no malt, no aftertaste.'
@@ -108,6 +107,15 @@ provenance:
     kind: retailer
     confidence: secondary
     url: 'https://www.instacart.com/products/19506915-heineken-0-0-non-alcoholic-beer-11-2-oz?retailerSlug=target-corp'
+sensory:
+  -
+    descriptor: oxidative
+    locations:
+      - palate
+  -
+    descriptor: toasted_grain
+    locations:
+      - palate
 ---
 
 Heineken 0.0 is dealcoholized. The base is The traditional Heineken brew, made with the same A-Yeast before alcohol extraction. Alcohol extracted from the traditional brew using vacuum distillation columns, following a double-brew step with Heineken's A-Yeast (documented by The Process).

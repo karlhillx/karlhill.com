@@ -38,7 +38,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Clean finish'
-highlight: 'A Mosel Riesling imported by Skurnik — the same importer that handles serious German wine — with steep-slope fruit and honest acidity at zero proof.'
 nose: 'White nectarine, pear and citrus blossom — the Mosel Riesling aromatic signature.'
 palate: 'Light, elegant and fresh; a light sweetness balanced by vibrant Riesling acidity, clean and mineral.'
 finish: 'Clean and citric, the acidity carrying the close.'
@@ -81,6 +80,10 @@ sensory:
       - palate
   -
     descriptor: citrus_blossom
+    locations:
+      - palate
+  -
+    descriptor: nectarine
     locations:
       - palate
 structure_scales:

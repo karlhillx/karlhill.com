@@ -11,7 +11,7 @@ country: Germany
 region: Rheingau
 style: 'Dealcoholized sparkling white'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Spinning cone technology applied to conventionally vinified Rheingau sparkling wine (same process as the published Leitz Riesling)'

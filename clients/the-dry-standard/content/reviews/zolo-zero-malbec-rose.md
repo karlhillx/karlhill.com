@@ -32,7 +32,6 @@ profile:
   - 'Light body'
   - 'Clean finish'
 mouthfeel: 'Clean and brief.'
-highlight: 'An Argentine Malbec rosé with a cited removal step — red fruit and gentle acidity at the value tier.'
 nose: "Red berry and plum — Malbec's darker fruit profile translated to a rosé."
 palate: 'Light and fruit-forward; the Malbec character shows as dark berry rather than tannin, which the dealcoholization would strip anyway.'
 finish: 'Clean and brief.'
@@ -132,7 +131,7 @@ provenance:
     confidence: secondary
     url: 'https://vinodelsol.com/wp-content/uploads/custom-filebase/699652b5f30c9_Tech_ZoloZero_NV-M.pdf'
   availability:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://internetwines.com/'
   ean:

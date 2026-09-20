@@ -33,7 +33,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-highlight: 'A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process.'
 nose: 'Soft strawberry. Little else.'
 palate: 'Sweet-leaning, light, low acid.'
 finish: 'Short and candy-pink.'
@@ -82,19 +81,19 @@ structure_scales:
   finish_length: 0
 provenance:
   production_type:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://almostzero.co.za/range/ravishing-rose/'
   dealcoholization_method:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://almostzero.co.za/range/ravishing-rose/'
   producer:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://almostzero.co.za/range/ravishing-rose/'
   country:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://almostzero.co.za/range/ravishing-rose/'
   availability:

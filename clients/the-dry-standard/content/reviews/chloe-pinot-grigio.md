@@ -30,7 +30,6 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Clean finish'
-highlight: "The zero-proof version of Chloe's approachable Pinot Grigio — light, citrusy, and priced for the everyday shelf."
 nose: 'Citrus and green apple — the Pinot Grigio aromatic signature, clean and light.'
 palate: 'Crisp and easy-drinking; the fruit is simple and pleasant, the body lighter than a full-strength version.'
 finish: 'Clean and brief.'
@@ -75,31 +74,31 @@ structure_scales:
   finish_length: 0
 provenance:
   availability:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.totalwine.com/'
   producer:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.totalwine.com/'
   production_type:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.totalwine.com/'
   base_beverage:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.totalwine.com/'
   dealcoholization_method:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.totalwine.com/'
   country:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.totalwine.com/'
   volume:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.totalwine.com/'
 ---

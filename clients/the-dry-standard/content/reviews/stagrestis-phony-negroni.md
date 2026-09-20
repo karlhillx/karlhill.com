@@ -9,7 +9,7 @@ subcategory: 'ready-to-serve non-alcoholic cocktail'
 country: 'United States'
 style: 'Non-alcoholic formulated negroni-style cocktail, 30 botanicals'
 abv: 0.0%
-abv_numeric: 0
+abv_numeric: 0.0
 production_type: alternative
 verified: 'yes'
 production_note: 'St. Agrestis cocktails are formulated from a base of 30 organic, non-GMO botanicals — not dealcoholized from a once-alcoholic Negroni.'
@@ -82,6 +82,10 @@ identifiers:
 sensory:
   -
     descriptor: gentian
+    locations:
+      - palate
+  -
+    descriptor: hops
     locations:
       - palate
 structure_scales:

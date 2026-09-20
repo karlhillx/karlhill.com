@@ -48,35 +48,35 @@ provenance:
   ingredients:
     kind: label
   dealcoholization_method:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.winesellersltd.com/wine_asset/noble-house-riesling-alcohol-free/'
   production_type:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.winesellersltd.com/wine_asset/noble-house-riesling-alcohol-free/'
   producer:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.winesellersltd.com/wine_asset/noble-house-riesling-alcohol-free/'
   country:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.winesellersltd.com/wine_asset/noble-house-riesling-alcohol-free/'
   region:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.winesellersltd.com/wine_asset/noble-house-riesling-alcohol-free/'
   volume:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.winesellersltd.com/wine_asset/noble-house-riesling-alcohol-free/'
   base_beverage:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.winesellersltd.com/wine_asset/noble-house-riesling-alcohol-free/'
   availability:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://shopwinedirect.com/dr-pauly-bergweiler-noble-house-alcohol-free-german-riesling-nv-750ml.html'
   ean:

@@ -35,7 +35,6 @@ tastes:
   - 'red berry'
 profile:
   - 'Light body'
-highlight: 'The red entry in the Butter Zero lineup — bright cherry and red berry in a light Pinot Noir frame, honest about being the easy-drinking choice.'
 nose: 'Bright cherry and red berry — approachable fruit rather than complexity.'
 palate: 'Light and smooth; the red fruit carries over a thin body, the usual dealcoholized red tradeoff handled without off-notes.'
 finish: 'Smooth and brief.'
@@ -75,27 +74,31 @@ sensory:
     descriptor: red_berry
     locations:
       - palate
+  -
+    descriptor: cherry
+    locations:
+      - palate
 structure_scales:
   body: 1
 provenance:
   production_type:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   producer:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   country:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   dealcoholization_method:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   price:
-    kind: unknown
+    kind: press
     confidence: secondary
     url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
   abv:

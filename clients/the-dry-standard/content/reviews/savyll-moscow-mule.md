@@ -31,7 +31,6 @@ profile:
   - Off-dry
   - 'Soft bead'
   - 'Short finish'
-highlight: 'Ginger, lime, and fizz in a can. Not a dealcoholized vodka. A formulated mule, which is the honest category.'
 nose: 'Ginger and lime peel, bright and candy-adjacent.'
 palate: 'Spicy ginger, sweet lime, carbonation doing the work a spirit would.'
 finish: 'Short ginger heat. More soda than cocktail.'
@@ -53,6 +52,10 @@ identifiers:
 sensory:
   -
     descriptor: ginger
+    locations:
+      - palate
+  -
+    descriptor: lime_zest
     locations:
       - palate
 structure_scales:
