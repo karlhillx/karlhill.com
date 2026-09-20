@@ -21,9 +21,6 @@ final class StillPipeline
     /** Padding around the detected subject before scaling. */
     private const SUBJECT_PAD_RATIO = 0.02;
 
-    /** Dilate non-backdrop seeds so white labels/foil stay protected. */
-    private const SUBJECT_PROTECT_RATIO = 0.05;
-
     /** @var list<int> */
     private const DERIVATIVE_WIDTHS = [400, 800];
 
@@ -56,8 +53,9 @@ final class StillPipeline
 
         $canvas = $this->compositeOnFill($loaded);
         $canvas = $this->scaleDown($canvas, 1800);
+        // Dark studios only — never flood light neutrals (white labels/foil
+        // connect to white packshot backdrops and get erased).
         $this->flattenDarkBackground($canvas);
-        $this->flattenLightBackground($canvas);
         $canvas = $this->normalizeSubject($canvas);
 
         $directory = dirname($destinationJpeg);
@@ -340,9 +338,8 @@ final class StillPipeline
     {
         [$r, $g, $b, $luma] = $this->pixel($image, $x, $y);
 
-        // Includes cream paper and light gray studio stripes so corner floods
-        // can clear patterned packshot backdrops.
-        return $luma > 228 && abs($r - $g) < 18 && abs($g - $b) < 18;
+        // Strict: only near-pure white/cream studio, not pale label stock.
+        return $luma > 248 && abs($r - $g) < 10 && abs($g - $b) < 10;
     }
 
     /**
@@ -383,170 +380,12 @@ final class StillPipeline
         $dstY = (int) round((self::TARGET_HEIGHT - $drawH) / 2);
         imagecopyresampled($canvas, $source, $dstX, $dstY, $x0, $y0, $drawW, $drawH, $subjectW, $subjectH);
 
-        // Punch out residual paper / studio stripes around the bottle.
-        $this->wipeExteriorBackdrop($canvas);
-
         return $canvas;
     }
 
     /**
-     * Clear studio backdrop that touches the frame edge. Interior light pixels
-     * (white labels, foil) stay when they sit inside a dilated subject mask.
-     */
-    private function wipeExteriorBackdrop(\GdImage $image): void
-    {
-        $width = imagesx($image);
-        $height = imagesy($image);
-        $size = $width * $height;
-        $protected = $this->dilatedSubjectMask($image);
-        $visited = array_fill(0, $size, false);
-        $queue = [];
-
-        for ($x = 0; $x < $width; $x++) {
-            foreach ([0, $height - 1] as $y) {
-                $idx = $y * $width + $x;
-                if (! $protected[$idx] && $this->isBackdropPixel($image, $x, $y)) {
-                    $queue[] = $idx;
-                    $visited[$idx] = true;
-                }
-            }
-        }
-        for ($y = 1; $y < $height - 1; $y++) {
-            foreach ([0, $width - 1] as $x) {
-                $idx = $y * $width + $x;
-                if (! $protected[$idx] && $this->isBackdropPixel($image, $x, $y)) {
-                    $queue[] = $idx;
-                    $visited[$idx] = true;
-                }
-            }
-        }
-
-        $head = 0;
-        while ($head < count($queue)) {
-            $idx = $queue[$head++];
-            $x = $idx % $width;
-            $y = intdiv($idx, $width);
-            foreach ([[1, 0], [-1, 0], [0, 1], [0, -1]] as [$dx, $dy]) {
-                $nx = $x + $dx;
-                $ny = $y + $dy;
-                if ($nx < 0 || $ny < 0 || $nx >= $width || $ny >= $height) {
-                    continue;
-                }
-                $nIdx = $ny * $width + $nx;
-                if ($visited[$nIdx] || $protected[$nIdx] || ! $this->isBackdropPixel($image, $nx, $ny)) {
-                    continue;
-                }
-                $visited[$nIdx] = true;
-                $queue[] = $nIdx;
-            }
-        }
-
-        [$fr, $fg, $fb] = $this->fill;
-        $fill = imagecolorallocate($image, $fr, $fg, $fb);
-        foreach ($queue as $idx) {
-            imagesetpixel($image, $idx % $width, intdiv($idx, $width), $fill);
-        }
-    }
-
-    /**
-     * Closed subject silhouette: dilate then erode so white label interiors
-     * become walls for the backdrop flood, without swallowing nearby stripes.
-     *
-     * @return array<int, bool>
-     */
-    private function dilatedSubjectMask(\GdImage $image): array
-    {
-        $width = imagesx($image);
-        $height = imagesy($image);
-        $size = $width * $height;
-        $radius = max(10, (int) round(min($width, $height) * 0.012));
-        $seed = array_fill(0, $size, false);
-
-        for ($y = 0; $y < $height; $y++) {
-            $row = $y * $width;
-            for ($x = 0; $x < $width; $x++) {
-                if (! $this->isBackdropPixel($image, $x, $y)) {
-                    $seed[$row + $x] = true;
-                }
-            }
-        }
-
-        $dilated = $this->boxDilate($seed, $width, $height, $radius);
-
-        return $this->boxErode($dilated, $width, $height, $radius);
-    }
-
-    /**
-     * @param  array<int, bool>  $mask
-     * @return array<int, bool>
-     */
-    private function boxDilate(array $mask, int $width, int $height, int $radius): array
-    {
-        $size = $width * $height;
-        $horiz = array_fill(0, $size, false);
-        for ($y = 0; $y < $height; $y++) {
-            $row = $y * $width;
-            $runStart = null;
-            for ($x = 0; $x <= $width; $x++) {
-                $on = $x < $width && $mask[$row + $x];
-                if ($on && $runStart === null) {
-                    $runStart = $x;
-                } elseif (! $on && $runStart !== null) {
-                    $x0 = max(0, $runStart - $radius);
-                    $x1 = min($width - 1, $x - 1 + $radius);
-                    for ($xx = $x0; $xx <= $x1; $xx++) {
-                        $horiz[$row + $xx] = true;
-                    }
-                    $runStart = null;
-                }
-            }
-        }
-
-        $out = array_fill(0, $size, false);
-        for ($x = 0; $x < $width; $x++) {
-            $runStart = null;
-            for ($y = 0; $y <= $height; $y++) {
-                $on = $y < $height && $horiz[$y * $width + $x];
-                if ($on && $runStart === null) {
-                    $runStart = $y;
-                } elseif (! $on && $runStart !== null) {
-                    $y0 = max(0, $runStart - $radius);
-                    $y1 = min($height - 1, $y - 1 + $radius);
-                    for ($yy = $y0; $yy <= $y1; $yy++) {
-                        $out[$yy * $width + $x] = true;
-                    }
-                    $runStart = null;
-                }
-            }
-        }
-
-        return $out;
-    }
-
-    /**
-     * @param  array<int, bool>  $mask
-     * @return array<int, bool>
-     */
-    private function boxErode(array $mask, int $width, int $height, int $radius): array
-    {
-        // Erode = complement of dilate of complement.
-        $size = $width * $height;
-        $complement = array_fill(0, $size, false);
-        for ($i = 0; $i < $size; $i++) {
-            $complement[$i] = ! $mask[$i];
-        }
-
-        $dilatedComplement = $this->boxDilate($complement, $width, $height, $radius);
-        $out = array_fill(0, $size, false);
-        for ($i = 0; $i < $size; $i++) {
-            $out[$i] = ! $dilatedComplement[$i];
-        }
-
-        return $out;
-    }
-
-    /**
-     * Box around the bottle/can, expanding through white labels via padding.
+     * Box around the bottle/can. Light neutrals are ignored for detection so
+     * patterned backdrops drop out of the crop; label pixels are never rewritten.
      *
      * @return array{0: int, 1: int, 2: int, 3: int}|null
      */
@@ -609,8 +448,7 @@ final class StillPipeline
             return null;
         }
 
-        // Small grow so white foil/labels near the silhouette stay in-crop
-        // without pulling in a large stripe/paper margin that shrinks the bottle.
+        // Keep white foil / label edges that sit outside ink/glass seeds.
         $grow = max(10, (int) round(min($width, $height) * 0.015));
 
         return [
@@ -632,7 +470,7 @@ final class StillPipeline
 
         $chroma = max(abs($r - $g), abs($g - $b), abs($r - $b));
 
-        // Paper, white, and light gray diagonal studio stripes.
+        // Paper, white, and light gray studio stripes — detection only.
         return $luma >= 200 && $chroma <= 22;
     }
 
