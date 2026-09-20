@@ -252,11 +252,31 @@ final class ReviewRepository
             }
 
             if ($other->methodFacetKey() === $review->methodFacetKey()
-                && ! in_array($review->methodFacetKey(), ['unknown', 'other', 'not-applicable'], true)) {
-                $score += 2;
+                && ! in_array($review->methodFacetKey(), ['unknown', 'other', 'not-applicable', 'unpublished'], true)) {
+                $score += 3;
             }
 
             if ($other->productionType === $review->productionType) {
+                $score += 1.5;
+            }
+
+            $thisSweet = $review->structureScaleInt('sweetness');
+            $otherSweet = $other->structureScaleInt('sweetness');
+            if ($thisSweet !== null && $otherSweet !== null && abs($thisSweet - $otherSweet) <= 1) {
+                $score += 1.5;
+            }
+
+            $thisPrice = $review->priceNumeric();
+            $otherPrice = $other->priceNumeric();
+            if ($thisPrice !== null && $otherPrice !== null && abs($thisPrice - $otherPrice) <= 8) {
+                $score += 1;
+            }
+
+            $shared = array_intersect($review->descriptorIds(), $other->descriptorIds());
+            $score += min(3, count($shared) * 0.75);
+
+            $ratingGap = abs(($other->rating ?? 0) - ($review->rating ?? 0));
+            if ($ratingGap <= 5) {
                 $score += 1;
             }
 

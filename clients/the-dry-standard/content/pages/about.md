@@ -57,13 +57,17 @@ We weigh:
 | Value | Is the price honest for what you get? |
 | Authenticity to category | Does a stout still behave like a stout? |
 
-Bands we use internally:
+Bands we use internally (see [methodology](methodology/) for full guidance):
 
-- **90–100** — Exceptional. We would reorder it.
-- **80–89** — Excellent. Worth seeking out.
-- **70–79** — Recommended, with caveats.
-- **60–69** — Adequate. There is a reason to skip it.
+- **90+** — Rare; reorder / cellar reference.
+- **85–89** — Standout; shortlist material.
+- **80–84** — Clearly good; we would seek it again.
+- **75–79** — Solid everyday bottle when the style fits.
+- **70–74** — Drinkable with caveats.
+- **60–69** — Adequate; there is a reason to skip it.
 - **Below 60** — Not recommended.
+
+We do not print marketing stickers (“Excellent”, “World Class”) on the score badge. The number is enough; methodology lives next to it.
 
 Methodology lives with the reviews, not in a PDF nobody reads.
 

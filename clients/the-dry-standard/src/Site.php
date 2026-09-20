@@ -193,6 +193,50 @@ final class Site
             );
         }
 
+        if ($path === 'methodology') {
+            return $renderer->articlePage(
+                PageDocument::load($this->paths->content('pages/methodology.md')),
+                'methodology/',
+                $renderer->crumbs([
+                    'About' => 'about/',
+                    'Methodology' => 'methodology/',
+                ]),
+                'Methodology',
+                'methodology',
+                afterProse: $renderer->scoreHistogram($published),
+            );
+        }
+
+        if ($path === 'collections') {
+            return $renderer->collectionsIndex(Collections::available($this->reviews, $this->config));
+        }
+
+        if (preg_match('#^collections/([a-z0-9-]+)$#', $path, $matches) === 1) {
+            $available = Collections::available($this->reviews, $this->config);
+            $item = collect($available)->first(fn (array $row): bool => $row['slug'] === $matches[1]);
+            if ($item === null) {
+                return null;
+            }
+
+            return $renderer->listing(
+                $item['title'],
+                $item['lede'],
+                'collections/'.$item['slug'].'/',
+                $item['reviews'],
+                $renderer->crumbs([
+                    'Collections' => 'collections/',
+                    $item['title'] => 'collections/'.$item['slug'].'/',
+                ]),
+                nav: 'collections',
+                filterable: empty($item['min_score']),
+                allReviews: $published,
+                query: $item['query'],
+                publishOrder: $publishOrder,
+                fragment: (string) ($query['fragment'] ?? '') === 'archive',
+                filtered: $item['reviews'],
+            );
+        }
+
         if ($path === 'privacy') {
             return $renderer->articlePage(
                 PageDocument::load($this->paths->content('pages/privacy.md')),
@@ -270,7 +314,7 @@ final class Site
                 'Best '.$label,
                 'Highest-rated '.$label.' we have tasted, sorted by score.',
                 'best/'.$category.'/',
-                $this->reviews->byCategory($category)->filter(fn (Review $review): bool => ($review->rating ?? 0) >= 80)->values(),
+                $this->reviews->byCategory($category)->filter(fn (Review $review): bool => ($review->rating ?? 0) >= 85)->values(),
                 $renderer->crumbs([
                     'Best of' => 'best/',
                     $label => 'best/'.$category.'/',

@@ -290,7 +290,8 @@ final class Review
      */
     public function structureProfileLabels(): array
     {
-        $fromScales = Sensory::structureLabels($this->resolvedStructureScales());
+        $keys = Sensory::structureKeysForCategory($this->category);
+        $fromScales = Sensory::structureLabels($this->resolvedStructureScales(), $keys);
         if ($fromScales !== []) {
             return $fromScales;
         }
@@ -299,6 +300,81 @@ final class Review
             $this->profile,
             fn (string $chip): bool => ! Sensory::isNoiseTaste($chip),
         ));
+    }
+
+    /**
+     * Numeric shelf price when the sourced string parses cleanly.
+     */
+    public function priceNumeric(): ?float
+    {
+        if ($this->price === null || trim($this->price) === '') {
+            return null;
+        }
+
+        if (preg_match('/(\d+(?:[.,]\d+)?)/', $this->price, $matches) !== 1) {
+            return null;
+        }
+
+        $raw = str_replace(',', '', $matches[1]);
+
+        return is_numeric($raw) ? (float) $raw : null;
+    }
+
+    /**
+     * Facet bucket for archive filters and collections.
+     */
+    public function priceBucket(): string
+    {
+        $n = $this->priceNumeric();
+        if ($n === null) {
+            return 'unpublished';
+        }
+        if ($n < 20) {
+            return 'under20';
+        }
+        if ($n < 30) {
+            return 'under30';
+        }
+
+        return 'over30';
+    }
+
+    public const PRICE_BUCKETS = [
+        'under20' => 'Under $20',
+        'under30' => '$20–$29',
+        'over30' => '$30+',
+        'unpublished' => 'Price unknown',
+    ];
+
+    /**
+     * Short confidence label for a provenance field, for hero chips.
+     */
+    public function fieldConfidenceLabel(string $field): ?string
+    {
+        $entry = $this->provenanceRecord()[$field] ?? null;
+        if (! is_array($entry)) {
+            return null;
+        }
+
+        $confidence = Sensory::normalizeConfidence((string) ($entry['confidence'] ?? ''));
+        if ($confidence === '') {
+            $kind = (string) ($entry['kind'] ?? '');
+            $confidence = in_array($kind, ['manufacturer', 'label'], true)
+                ? 'manufacturer_verified'
+                : 'secondary';
+        }
+
+        return match ($confidence) {
+            'verified', 'independently_corroborated' => 'Independently verified',
+            'manufacturer_verified', 'producer_verified' => 'Producer verified',
+            'label_verified', 'bottle_verified' => 'Bottle verified',
+            'distributor_verified' => 'Distributor verified',
+            'retailer_verified' => 'Retailer verified',
+            'secondary' => 'Secondary source',
+            'inferred' => 'Inferred',
+            'unverified' => 'Unverified',
+            default => null,
+        };
     }
 
     public function structureScaleInt(string $key): ?int
@@ -340,28 +416,43 @@ final class Review
     }
 
     /**
-     * Public band label for the 100-point scale (matches About methodology).
+     * Public band label — intentionally unused on badges (number first).
+     * Kept for compare aria text and methodology docs.
      */
     public function scoreBandLabel(): ?string
+    {
+        return null;
+    }
+
+    /**
+     * Internal editorial guidance band (not shown as a sticker on the score).
+     */
+    public function scoreGuidanceBand(): ?string
     {
         $rating = $this->rating;
         if ($rating === null) {
             return null;
         }
         if ($rating >= 90) {
-            return 'Exceptional';
+            return '90+';
+        }
+        if ($rating >= 85) {
+            return '85–89';
         }
         if ($rating >= 80) {
-            return 'Excellent';
+            return '80–84';
+        }
+        if ($rating >= 75) {
+            return '75–79';
         }
         if ($rating >= 70) {
-            return 'Recommended';
+            return '70–74';
         }
         if ($rating >= 60) {
-            return 'Adequate';
+            return '60–69';
         }
 
-        return 'Not recommended';
+        return 'Below 60';
     }
 
     /**
@@ -753,16 +844,64 @@ final class Review
     public function cardMetaLine(string $categoryLabel): string
     {
         $parts = [$categoryLabel];
-        $country = $this->countryLabel();
-        if ($country !== null && $country !== '') {
-            $parts[] = $country;
+        if ($this->hasComparableStyle()) {
+            $parts[] = $this->styleLabel();
         }
-
-        if (! in_array($this->methodFacetKey(), ['unpublished', 'unknown', 'not-applicable'], true)) {
-            $parts[] = $this->methodCardLabel();
+        if ($this->abv !== null && $this->abv !== '') {
+            $parts[] = $this->abv;
         }
 
         return implode(' · ', $parts);
+    }
+
+    /**
+     * Editorial relation label for related-product rails.
+     */
+    public function relationTo(Review $other): string
+    {
+        if ($other->methodFacetKey() === $this->methodFacetKey()
+            && ! in_array($this->methodFacetKey(), ['unknown', 'other', 'unpublished', 'not-applicable'], true)) {
+            return 'Same method';
+        }
+
+        $thisSweet = $this->structureScaleInt('sweetness');
+        $otherSweet = $other->structureScaleInt('sweetness');
+        if ($thisSweet !== null && $otherSweet !== null) {
+            if ($otherSweet < $thisSweet) {
+                return 'Similar but drier';
+            }
+            if ($otherSweet > $thisSweet) {
+                return 'Similar but sweeter';
+            }
+        }
+
+        if ($other->productionType === 'dealcoholized' && $this->productionType === 'dealcoholized') {
+            return 'Also dealcoholized';
+        }
+
+        if ($other->productionType === $this->productionType && $this->productionType !== 'not-verified') {
+            return 'Same production type';
+        }
+
+        $thisLike = isset($this->assessments['likeness']) ? (int) $this->assessments['likeness'] : null;
+        $otherLike = isset($other->assessments['likeness']) ? (int) $other->assessments['likeness'] : null;
+        if ($thisLike !== null && $otherLike !== null && $otherLike > $thisLike) {
+            return 'More '.$this->category.'-like';
+        }
+
+        if ($other->brandSlug() === $this->brandSlug()) {
+            return 'Same producer';
+        }
+
+        if ($other->styleSlug() === $this->styleSlug() && $this->hasComparableStyle()) {
+            return 'Same style';
+        }
+
+        if ($other->category === $this->category) {
+            return 'Same category';
+        }
+
+        return 'From the cellar';
     }
 
     public function cardTitle(): string

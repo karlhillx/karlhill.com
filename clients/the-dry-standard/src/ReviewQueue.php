@@ -6,6 +6,23 @@ use Symfony\Component\Yaml\Yaml;
 
 final class ReviewQueue
 {
+    public const STATUSES = [
+        'discovered',
+        'researching',
+        'product_verified',
+        'sample_received',
+        'tasted',
+        'drafted',
+        'editor_review',
+        'ready_to_publish',
+        'queued',
+        'validated',
+        'scheduled',
+        'published',
+        'needs-review',
+        'needs_reverification',
+    ];
+
     public function __construct(private readonly Paths $paths) {}
 
     /**
@@ -31,7 +48,11 @@ final class ReviewQueue
     {
         return array_values(array_filter(
             $this->all(),
-            fn (array $item): bool => in_array((string) ($item['status'] ?? ''), ['queued', 'validated', 'scheduled'], true),
+            fn (array $item): bool => in_array(
+                (string) ($item['status'] ?? ''),
+                ['discovered', 'researching', 'product_verified', 'sample_received', 'tasted', 'drafted', 'editor_review', 'ready_to_publish', 'queued', 'validated', 'scheduled', 'needs-review', 'needs_reverification'],
+                true,
+            ),
         ));
     }
 

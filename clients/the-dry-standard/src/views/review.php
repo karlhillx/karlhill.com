@@ -13,6 +13,12 @@
               <?php } ?>
               <p class="lede"><?= $view->e($summary) ?></p>
               <?= $identity ?? '' ?>
+              <?php if (! empty($verdict)) { ?>
+              <section class="verdict verdict--glance" id="verdict">
+                <h2 class="visually-hidden">Verdict</h2>
+                <p><?= $view->e($verdict) ?></p>
+              </section>
+              <?php } ?>
               <p class="review-jump">
                 <a href="<?= $view->e($pageUrl) ?>#tasting">At a glance</a>
                 <a href="<?= $view->e($pageUrl) ?>#review-essay">Review</a>
@@ -20,13 +26,16 @@
                 <a href="<?= $view->e($pageUrl) ?>#how-to-drink">Serve</a>
                 <?php } ?>
                 <a href="<?= $view->e($pageUrl) ?>#how-it-was-made">How it was made</a>
+                <a href="<?= $view->e($pageUrl) ?>#provenance">Sources</a>
                 <a href="<?= $view->e($pageUrl) ?>#facts">Facts</a>
                 <?php if (! empty($compareHref)) { ?>
                 <a href="<?= $view->e($compareHref) ?>">Compare</a>
                 <?php } ?>
               </p>
             </div>
-            <?= $score ?>
+            <div class="review-score-col" data-review-score>
+              <?= $score ?>
+            </div>
           </div>
         </div>
       </header>
@@ -44,10 +53,6 @@
               <?= $bestForBlock ?>
             </section>
             <?php } ?>
-            <section class="verdict">
-              <h2>Verdict</h2>
-              <p><?= $view->e($verdict) ?></p>
-            </section>
             <section class="callout" id="how-it-was-made">
               <h2>How was it made?</h2>
               <p class="callout-status"><?= $view->e($statusLabel) ?></p>
@@ -63,6 +68,9 @@
             <?= $links ?>
             <?= $disclosure ?? '' ?>
             <p class="fine-print">Editorial tasting notes are opinion. Production facts are printed only when a source is attached.</p>
+            <?php if (! empty($methodologyUrl)) { ?>
+            <p class="fine-print"><a href="<?= $view->e($methodologyUrl) ?>">How we score and verify</a></p>
+            <?php } ?>
             <p class="fine-print"><a href="<?= $view->e($industryUrl ?? 'industry/') ?>">Brands may submit products for editorial consideration.</a></p>
           </aside>
         </div>
@@ -80,4 +88,16 @@
         </div>
       </section>
       <?php } ?>
+      <div class="review-sticky" data-review-sticky hidden>
+        <div class="shell review-sticky-inner">
+          <?= $score ?>
+          <div class="review-sticky-actions">
+            <a href="#provenance">Sources</a>
+            <a href="#facts">Buy</a>
+            <?php if (! empty($compareHref)) { ?>
+            <a href="<?= $view->e($compareHref) ?>">Compare</a>
+            <?php } ?>
+          </div>
+        </div>
+      </div>
     </article>

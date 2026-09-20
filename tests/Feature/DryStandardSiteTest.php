@@ -14,7 +14,7 @@ it('lists The Dry Standard on the clients index', function () {
 it('serves the Dry Standard homepage and primary sections', function () {
     $this->get('/clients/the-dry-standard/')
         ->assertOk()
-        ->assertSee('The standard for what remains after the alcohol is gone.', escape: false)
+        ->assertSee('Independent reviews with production provenance.', escape: false)
         ->assertSee('0.5% ABV', escape: false)
         ->assertSee('<base href="/clients/the-dry-standard/">', escape: false);
 
@@ -30,6 +30,8 @@ it('serves the Dry Standard homepage and primary sections', function () {
         '/clients/the-dry-standard/brands/',
         '/clients/the-dry-standard/methods/',
         '/clients/the-dry-standard/about/',
+        '/clients/the-dry-standard/methodology/',
+        '/clients/the-dry-standard/collections/',
         '/clients/the-dry-standard/privacy/',
         '/clients/the-dry-standard/styles/',
         '/clients/the-dry-standard/industry/',
@@ -79,7 +81,7 @@ it('serves sourced sample reviews with production-type badges', function () {
         ->assertSee('How wine-like is it?', escape: false)
         ->assertSee('balsamic', escape: false)
         ->assertSee('id="provenance"', escape: false)
-        ->assertSee('Evidence', escape: false)
+        ->assertSee('Sources &amp; verification', escape: false)
         ->assertSee('provenance-summary-meta', escape: false)
         ->assertDontSee('Product overview', escape: false);
 });
@@ -346,15 +348,15 @@ it('serves bottle compare for two to four slugs', function () {
         ->assertSee('compare-table', escape: false);
 });
 
-it('labels Evidence sources without Unspecified source', function () {
+it('labels Sources & verification without Unspecified source', function () {
     $this->get('/clients/the-dry-standard/reviews/wine/ohla-rose/')
         ->assertOk()
-        ->assertSee('Evidence', escape: false)
+        ->assertSee('Sources &amp; verification', escape: false)
         ->assertSee('Retail listing', escape: false)
         ->assertSee('morewines.com', escape: false)
         ->assertDontSee('Unspecified source', escape: false)
-        ->assertSee('score-band', escape: false)
-        ->assertSee('Recommended', escape: false);
+        ->assertSee('How we score', escape: false)
+        ->assertSee('verdict--glance', escape: false);
 });
 
 it('publishes the NA beer buying guide', function () {

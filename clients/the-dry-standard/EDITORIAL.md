@@ -32,7 +32,19 @@ Taste can be tart. Facts cannot be.
 
 ## Scoring
 
-100-point quality scale. See `/about/` for the rubric. Do not score "how close is this to booze?" as the primary axis. Likeness and `structure` (whether alcohol's usual body, acid, tannin, bitterness, heat, dryness, or finish is recreated) are separate from the number. A drink can be enjoyable and not wine-like, or wine-like and flawed.
+100-point quality scale. See `/methodology/` for the rubric and editorial bands. Do not score "how close is this to booze?" as the primary axis. Likeness and `structure` (whether alcohol's usual body, acid, tannin, bitterness, heat, dryness, or finish is recreated) are separate from the number. A drink can be enjoyable and not wine-like, or wine-like and flawed.
+
+Do not print marketing stickers on the score badge (Excellent, Outstanding, World Class). The number is public; bands are internal guidance:
+
+| Band | Guidance |
+| --- | --- |
+| 70–74 | Drinkable with caveats |
+| 75–79 | Solid everyday bottle |
+| 80–84 | Clearly good |
+| 85–89 | Standout / shortlist |
+| 90+ | Rare; reorder |
+
+AI-assisted prose must not invent a band narrative that structure and tasting notes do not support.
 
 ## Names
 

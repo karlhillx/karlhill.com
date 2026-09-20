@@ -29,6 +29,7 @@ final class ArchiveQuery
      * @param  array<int, string>  $descriptors
      * @param  array<int, string>  $score
      * @param  array<int, string>  $wineColor
+     * @param  array<int, string>  $price
      */
     public function __construct(
         public readonly string $q = '',
@@ -45,6 +46,7 @@ final class ArchiveQuery
         public readonly array $descriptors = [],
         public readonly array $score = [],
         public readonly array $wineColor = [],
+        public readonly array $price = [],
         public readonly string $sort = 'newest',
         public readonly int $page = 1,
         public readonly ?string $lockedCategory = null,
@@ -86,6 +88,7 @@ final class ArchiveQuery
             descriptors: self::list($query, 'descriptor'),
             score: self::list($query, 'score'),
             wineColor: $lockedWineColor !== null ? [] : self::list($query, 'color'),
+            price: self::priceList($query),
             sort: $sort,
             page: $page,
             lockedCategory: $lockedCategory,
@@ -134,7 +137,8 @@ final class ArchiveQuery
             && $this->matchesFacet($skip, 'acidity', $this->acidity, (string) ($review->structureScaleInt('acidity') ?? ''))
             && $this->matchesDescriptors($skip, $review)
             && $this->matchesFacet($skip, 'score', $this->score, $review->scoreBand())
-            && $this->matchesFacet($skip, 'color', $this->wineColor, (string) ($review->wineColor() ?? ''));
+            && $this->matchesFacet($skip, 'color', $this->wineColor, (string) ($review->wineColor() ?? ''))
+            && $this->matchesFacet($skip, 'price', $this->price, $review->priceBucket());
     }
 
     /**
@@ -199,6 +203,7 @@ final class ArchiveQuery
             || $this->descriptors !== []
             || $this->score !== []
             || $this->wineColor !== []
+            || $this->price !== []
             || $this->sort !== 'newest';
     }
 
@@ -230,6 +235,7 @@ final class ArchiveQuery
             'descriptor' => $this->descriptors,
             'score' => $this->score,
             'color' => $this->wineColor,
+            'price' => $this->price,
         ] as $key => $values) {
             if (array_key_exists($key, $overrides)) {
                 $value = (string) $overrides[$key];
@@ -309,6 +315,20 @@ final class ArchiveQuery
         return array_values(array_map(
             fn (string $value): string => $legacy[$value] ?? $value,
             self::list($query, 'method'),
+        ));
+    }
+
+    /**
+     * @param  array<string, mixed>  $query
+     * @return array<int, string>
+     */
+    private static function priceList(array $query): array
+    {
+        $allowed = array_keys(Review::PRICE_BUCKETS);
+
+        return array_values(array_filter(
+            self::list($query, 'price'),
+            fn (string $value): bool => in_array($value, $allowed, true),
         ));
     }
 

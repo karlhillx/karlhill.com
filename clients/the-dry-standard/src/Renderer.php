@@ -157,6 +157,27 @@ HTML;
             ];
         }
 
+        $collectionItems = [];
+        foreach (Collections::definitions() as $def) {
+            $query = Collections::queryFor($def['query']);
+            $matched = $reviews->filter(fn (Review $review): bool => $query->matches($review));
+            if (isset($def['min_score'])) {
+                $matched = $matched->filter(fn (Review $review): bool => ($review->rating ?? 0) >= (int) $def['min_score']);
+            }
+            $count = $matched->count();
+            if ($count < Collections::MIN_COUNT) {
+                continue;
+            }
+            $collectionItems[] = [
+                'href' => $this->config->publicUrl('collections/'.$def['slug'].'/'),
+                'label' => $def['title'],
+                'count' => $count,
+            ];
+            if (count($collectionItems) >= 6) {
+                break;
+            }
+        }
+
         $methodCards = $methods->take(2)->map(function (PageDocument $method) use ($reviews): string {
             $count = $reviews->filter(fn (Review $review): bool => $review->methodKey() === $method->slug)->count();
 
@@ -194,14 +215,23 @@ HTML;
             'tagline' => $this->config->tagline(),
             'reviewsUrl' => $this->config->publicUrl('reviews/'),
             'aboutUrl' => $this->config->publicUrl('about/'),
+            'methodologyUrl' => $this->config->publicUrl('methodology/'),
+            'dealcoholizedUrl' => $this->config->publicUrl('guides/dealcoholized-vs-formulated/'),
             'methodsUrl' => $this->config->publicUrl('methods/'),
             'guidesUrl' => $this->config->publicUrl('guides/'),
             'bestUrl' => $this->config->publicUrl('best/'),
+            'collectionsUrl' => $this->config->publicUrl('collections/'),
+            'submitUrl' => $this->config->publicUrl('industry/submit/'),
             'featured' => $featuredReview instanceof Review ? $this->featuredReview($featuredReview) : '',
             'processRail' => $this->view->render('partials/category-rail', [
                 'label' => 'Browse by production type',
                 'variant' => 'chips',
                 'items' => $processItems,
+            ]),
+            'collectionRail' => $collectionItems === [] ? '' : $this->view->render('partials/category-rail', [
+                'label' => 'Editorial collections',
+                'variant' => 'chips',
+                'items' => $collectionItems,
             ]),
             'categoryRail' => $this->view->render('partials/category-rail', [
                 'label' => 'Browse by drink',
@@ -234,6 +264,36 @@ HTML;
                     ],
                 ]),
             ],
+        );
+    }
+
+    /**
+     * @param  array<int, array{slug: string, title: string, lede: string, count: int, href: string}>  $collections
+     */
+    public function collectionsIndex(array $collections): string
+    {
+        $listing = '<div class="directory-list">';
+        foreach ($collections as $item) {
+            $listing .= $this->view->render('partials/directory-row', [
+                'href' => $item['href'],
+                'title' => $item['title'],
+                'meta' => $item['count'].($item['count'] === 1 ? ' bottle' : ' bottles'),
+                'summary' => $item['lede'],
+                'search' => mb_strtolower($item['title'].' '.$item['lede']),
+            ]);
+        }
+        $listing .= '</div>';
+
+        return $this->directoryPage(
+            'Collections',
+            'Facet-backed sets from the cellar — dealcoholized wines, true 0.0%, spinning cone, price bands, and more. Each page is a real filter with a short editorial lede.',
+            'collections/',
+            'collections',
+            $this->crumbs(['Collections' => 'collections/']),
+            'The cellar',
+            $listing,
+            searchable: true,
+            searchPlaceholder: 'Find a collection',
         );
     }
 
@@ -634,7 +694,7 @@ HTML;
         $hasServe = ($review->serve !== null && $review->serve !== '')
             || (! $hasGlance && $review->bestFor !== null && $review->bestFor !== '');
         $related = $relatedReviews?->isNotEmpty()
-            ? $this->reviewCards($relatedReviews, compact: true)
+            ? $this->reviewCards($relatedReviews, compact: true, relationBase: $review)
             : '';
         $relatedHeading = 'More from the cellar';
         $relatedHref = $this->config->publicUrl('reviews/');
@@ -664,6 +724,7 @@ HTML;
             'label' => $review->productionTypeShortLabel(),
         ]);
 
+        $methodologyUrl = $this->config->publicUrl('methodology/');
         $body = $this->view->render('review', [
             'title' => $review->title,
             'summary' => $review->summary,
@@ -679,7 +740,8 @@ HTML;
             ]),
             'score' => $this->view->render('partials/score-badge', [
                 'rating' => $review->rating,
-                'band' => $review->scoreBandLabel(),
+                'band' => null,
+                'methodologyUrl' => $methodologyUrl,
             ]),
             'statusLabel' => $review->productionTypeLabel(),
             'methodBlock' => $this->methodBlock($review),
@@ -705,6 +767,7 @@ HTML;
             'compareHref' => $compareHref,
             'disclosure' => $this->disclosure($review),
             'industryUrl' => $this->config->publicUrl('industry/'),
+            'methodologyUrl' => $methodologyUrl,
         ]);
 
         return $this->document(
@@ -742,6 +805,8 @@ HTML;
             $this->sitemapUrl('methods/', 'monthly', '0.6'),
             $this->sitemapUrl('styles/', 'weekly', '0.6'),
             $this->sitemapUrl('about/', 'monthly', '0.5'),
+            $this->sitemapUrl('methodology/', 'monthly', '0.6'),
+            $this->sitemapUrl('collections/', 'weekly', '0.7'),
             $this->sitemapUrl('privacy/', 'yearly', '0.2'),
             $this->sitemapUrl('best/', 'weekly', '0.7'),
             $this->sitemapUrl('compare/', 'weekly', '0.6'),
@@ -774,6 +839,10 @@ HTML;
 
         foreach ($styles as $style) {
             $urls[] = $this->sitemapUrl('styles/'.$style['slug'].'/', 'weekly', '0.6');
+        }
+
+        foreach (Collections::definitions() as $def) {
+            $urls[] = $this->sitemapUrl('collections/'.$def['slug'].'/', 'weekly', '0.6');
         }
 
         $body = implode("\n", $urls);
@@ -902,6 +971,7 @@ XML;
             'guides' => ['Learn', 'guides/'],
         ];
         $cellar = [
+            'collections' => ['Collections', 'collections/'],
             'methods' => ['How it’s made', 'methods/'],
             'styles' => ['Styles', 'styles/'],
         ];
@@ -942,6 +1012,8 @@ XML;
             'methodsUrl' => $this->config->publicUrl('methods/'),
             'brandsUrl' => $this->config->publicUrl('brands/'),
             'aboutUrl' => $this->config->publicUrl('about/'),
+            'methodologyUrl' => $this->config->publicUrl('methodology/'),
+            'collectionsUrl' => $this->config->publicUrl('collections/'),
             'privacyUrl' => $this->config->publicUrl('privacy/'),
             'feedUrl' => $this->config->publicUrl('feed.xml'),
             'bestUrl' => $this->config->publicUrl('best/'),
@@ -994,10 +1066,17 @@ XML;
                     'country' => $review->countrySlug(),
                     'sweetness' => (string) ($review->structureScaleInt('sweetness') ?? ''),
                     'body' => (string) ($review->structureScaleInt('body') ?? ''),
+                    'acidity' => (string) ($review->structureScaleInt('acidity') ?? ''),
                     'score' => $review->scoreBand(),
                     'color' => (string) ($review->wineColor() ?? ''),
+                    'price' => $review->priceBucket(),
+                    'descriptor' => '',
                     default => '',
                 };
+
+                if ($name === 'descriptor') {
+                    return in_array($value, $review->descriptorIds(), true);
+                }
 
                 return $actual === $value;
             })->count();
@@ -1014,8 +1093,11 @@ XML;
                 'country' => $query->countries,
                 'sweetness' => $query->sweetness,
                 'body' => $query->body,
+                'acidity' => $query->acidity,
+                'descriptor' => $query->descriptors,
                 'score' => $query->score,
                 'color' => $query->wineColor,
+                'price' => $query->price,
                 default => [],
             };
 
@@ -1155,6 +1237,16 @@ XML;
             }
         }
 
+        $priceOptions = [];
+        foreach (Review::PRICE_BUCKETS as $value => $label) {
+            if ($value === 'unpublished') {
+                continue;
+            }
+            if ($reviews->contains(fn (Review $review): bool => $review->priceBucket() === $value)) {
+                $priceOptions[] = ['value' => $value, 'label' => $label];
+            }
+        }
+
         $colorOptions = [];
         if ($lockedCategory === 'wine' || $reviews->contains(fn (Review $review): bool => $review->category === 'wine')) {
             foreach (Sensory::wineColorLabels() as $value => $label) {
@@ -1198,6 +1290,7 @@ XML;
                 collapsed: count($descriptorOptions) > 8,
             ))
             .$this->facetGroup('Score', 'score', $withMeta($scoreOptions, 'score'))
+            .($priceOptions === [] ? '' : $this->facetGroup('Price', 'price', $withMeta($priceOptions, 'price')))
             .$this->facetGroup('Country', 'country', $withMeta($countryOptions, 'country'));
 
         $chips = $this->filterChips($query, $reviews, $path);
@@ -1277,9 +1370,9 @@ XML;
         ]);
     }
 
-    private function reviewCards(Collection $reviews, bool $compact = false): string
+    private function reviewCards(Collection $reviews, bool $compact = false, ?Review $relationBase = null): string
     {
-        return $reviews->map(function (Review $review) use ($compact): string {
+        return $reviews->map(function (Review $review) use ($compact, $relationBase): string {
             $score = $review->rating !== null ? '<span class="card-score">'.$review->rating.'</span>' : '';
             $meta = $review->cardMetaLine($this->config->categoryLabel($review->category));
             $badge = $this->view->render('partials/production-badge', [
@@ -1296,9 +1389,12 @@ XML;
                 'data-rating="'.Str::e((string) ($review->rating ?? 0)).'"',
                 'data-date="'.Str::e($review->reviewDate->toDateString()).'"',
                 'data-search="'.Str::e($review->searchText()).'"',
+                'data-save-slug="'.Str::e($review->slug).'"',
             ]);
             $thumb = $this->productFigure($review, 'product-figure product-figure--thumb');
             $brand = '<a href="'.$this->url('brands/'.$review->brandSlug().'/').'">'.$this->e($review->brandDisplayName()).'</a>';
+            $descriptors = array_slice($review->flavorProfileLabels(), 0, 3);
+            $relation = $relationBase instanceof Review ? $relationBase->relationTo($review) : null;
 
             return $this->view->render('partials/review-card', [
                 'compact' => $compact,
@@ -1312,6 +1408,10 @@ XML;
                 'badge' => $badge,
                 'score' => $score,
                 'compareSlug' => $review->slug,
+                'descriptors' => $descriptors,
+                'price' => $review->price,
+                'relation' => $relation,
+                'saveSlug' => $review->slug,
             ]);
         })->implode('');
     }
@@ -1385,14 +1485,27 @@ XML;
     {
         $peek = [];
         if ($review->abv !== null && $review->abv !== '') {
-            $peek[] = ['label' => 'ABV', 'value' => $review->abv];
+            $peek[] = [
+                'label' => 'ABV',
+                'value' => $review->abv,
+                'confidence' => $review->fieldConfidenceLabel('abv'),
+            ];
         }
+
+        $peek[] = [
+            'label' => 'Classification',
+            'value' => $review->productionTypeShortLabel(),
+            'confidence' => $review->fieldConfidenceLabel('production_type')
+                ?? ($review->verified === 'yes' ? 'Producer verified' : null),
+        ];
+
         $country = $review->countryLabel();
         if ($country !== null && $country !== '') {
             $peek[] = [
                 'label' => 'Origin',
                 'value' => $country,
                 'href' => $this->config->publicUrl('reviews/').'?country='.$review->countrySlug(),
+                'confidence' => $review->fieldConfidenceLabel('country'),
             ];
         }
         if ($review->hasComparableStyle()) {
@@ -1407,12 +1520,17 @@ XML;
 
         $methodKey = $review->methodKey();
         if ($review->methodFacetKey() === 'not-applicable') {
-            $peek[] = ['label' => 'Method', 'value' => 'Formulated'];
+            $peek[] = [
+                'label' => 'Method',
+                'value' => 'Formulated',
+                'confidence' => $review->fieldConfidenceLabel('dealcoholization_method'),
+            ];
         } elseif ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)) {
             $peek[] = [
                 'label' => 'Method',
                 'value' => $this->peekMethodLabel($review),
                 'href' => $this->config->publicUrl('methods/'.$methodKey.'/'),
+                'confidence' => $review->fieldConfidenceLabel('dealcoholization_method'),
             ];
         }
 
@@ -1589,6 +1707,7 @@ XML;
         return $this->view->render('partials/provenance', [
             'groups' => $groups,
             'summary' => $summary,
+            'title' => 'Sources & verification',
         ]);
     }
 
@@ -1638,7 +1757,22 @@ XML;
             if (! empty($link['region'])) {
                 $label .= ' ('.$link['region'].')';
             }
-            $items .= '<li><a href="'.Str::e($link['url']).'" rel="'.$rel.'" data-analytics-event="outbound_buy">'.Str::e($label).'</a></li>';
+            $meta = [];
+            if (! empty($link['price'])) {
+                $meta[] = (string) $link['price'];
+            }
+            if ($relationship === 'affiliate') {
+                $meta[] = 'Affiliate';
+            } elseif ($relationship === 'paid') {
+                $meta[] = 'Paid placement';
+            } elseif ($relationship === 'citation') {
+                $meta[] = 'Citation';
+            }
+            if (! empty($link['last_verified'])) {
+                $meta[] = 'Checked '.$link['last_verified'];
+            }
+            $metaHtml = $meta === [] ? '' : '<span class="buy-meta">'.Str::e(implode(' · ', $meta)).'</span>';
+            $items .= '<li><a href="'.Str::e($link['url']).'" rel="'.$rel.'" data-analytics-event="outbound_buy">'.Str::e($label).'</a>'.$metaHtml.'</li>';
         }
 
         return $this->view->render('partials/purchase-links', [
@@ -1918,7 +2052,7 @@ XML;
                 'href' => $this->config->publicUrl($snap->path),
                 'figure' => $this->productFigure($review, 'product-figure product-figure--compare'),
                 'score' => $snap->score,
-                'band' => $review->scoreBandLabel(),
+                'band' => $review->scoreGuidanceBand(),
                 'abv' => $snap->abv ?? '—',
                 'category' => $this->config->categoryLabel($snap->category),
                 'style' => $snap->style ?? '—',
@@ -2183,6 +2317,7 @@ XML;
             'descriptor' => 'Flavor',
             'score' => 'Score',
             'color' => 'Color',
+            'price' => 'Price',
         ];
 
         if ($query->q !== '') {
@@ -2204,6 +2339,7 @@ XML;
             'descriptor' => $query->descriptors,
             'score' => $query->score,
             'color' => $query->wineColor,
+            'price' => $query->price,
         ] as $key => $values) {
             foreach ($values as $value) {
                 $remaining = array_values(array_filter($values, fn (string $item): bool => $item !== $value));
@@ -2247,6 +2383,8 @@ XML;
                     $label = ArchiveQuery::SCORE_BANDS[$value] ?? $value;
                 } elseif ($key === 'color') {
                     $label = Sensory::wineColorLabels()[$value] ?? $value;
+                } elseif ($key === 'price') {
+                    $label = Review::PRICE_BUCKETS[$value] ?? $value;
                 }
                 $items .= '<a class="filter-chip" href="'.$this->e($href).'">'.$this->e($labels[$key].': '.$label).'<span aria-hidden="true">×</span></a>';
             }
@@ -2419,6 +2557,13 @@ XML;
                     'label' => $this->config->categoryLabel($category),
                 ],
                 $this->config->categories(),
+            ),
+            'productionTypes' => array_map(
+                fn (string $value): array => [
+                    'value' => $value,
+                    'label' => Review::PRODUCTION_TYPES[$value],
+                ],
+                array_keys(Review::PRODUCTION_TYPES),
             ),
             ...$this->editorViewData(),
         ]);

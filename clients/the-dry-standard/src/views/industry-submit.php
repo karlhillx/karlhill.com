@@ -58,8 +58,18 @@ $selected = static fn (string $key, string $want): bool => $value($key) === $wan
           <fieldset>
             <legend>Helpful if you have it</legend>
             <?= $view->render('partials/form-field', ['name' => 'abv', 'label' => 'ABV', 'value' => $value('abv'), 'error' => $errors['abv'] ?? '', 'hint' => 'Must be 0.5% or less to be reviewed.']) ?>
+            <div class="field">
+              <label for="submit-production">Production type</label>
+              <select id="submit-production" name="production_type">
+                <option value="">Select if known</option>
+                <?php foreach (($productionTypes ?? []) as $type) { ?>
+                <option value="<?= $view->e($type['value']) ?>"<?= $selected('production_type', $type['value']) ? ' selected' : '' ?>><?= $view->e($type['label']) ?></option>
+                <?php } ?>
+              </select>
+            </div>
             <?= $view->render('partials/form-field', ['name' => 'website', 'label' => 'Company website', 'type' => 'url', 'value' => $value('website'), 'error' => $errors['website'] ?? '']) ?>
             <?= $view->render('partials/form-field', ['name' => 'product_url', 'label' => 'Product URL', 'type' => 'url', 'value' => $value('product_url'), 'error' => $errors['product_url'] ?? '']) ?>
+            <?= $view->render('partials/form-field', ['name' => 'technical_sheet_url', 'label' => 'Technical sheet URL', 'type' => 'url', 'value' => $value('technical_sheet_url'), 'error' => $errors['technical_sheet_url'] ?? '', 'hint' => 'Producer or importer tech sheet preferred.']) ?>
             <?= $view->render('partials/form-field', ['name' => 'ean', 'label' => 'UPC / EAN / GTIN', 'value' => $value('ean'), 'error' => $errors['ean'] ?? '']) ?>
             <?= $view->render('partials/form-field', ['name' => 'country', 'label' => 'Country of origin', 'value' => $value('country'), 'error' => $errors['country'] ?? '']) ?>
             <?= $view->render('partials/form-field', ['name' => 'producer', 'label' => 'Manufacturer / producer', 'value' => $value('producer'), 'error' => $errors['producer'] ?? '']) ?>
@@ -68,7 +78,15 @@ $selected = static fn (string $key, string $want): bool => $value($key) === $wan
               <textarea id="submit-method" name="method" rows="3"><?= $view->e($value('method')) ?></textarea>
             </div>
             <div class="field">
-              <label for="submit-notes">Distribution, ingredients, or other notes</label>
+              <label for="submit-ingredients">Ingredients</label>
+              <textarea id="submit-ingredients" name="ingredients" rows="3"><?= $view->e($value('ingredients')) ?></textarea>
+            </div>
+            <div class="field">
+              <label for="submit-availability">Retail availability</label>
+              <textarea id="submit-availability" name="retail_availability" rows="2" placeholder="Where it is sold, regions, distributors"><?= $view->e($value('retail_availability')) ?></textarea>
+            </div>
+            <div class="field">
+              <label for="submit-notes">Other notes</label>
               <textarea id="submit-notes" name="notes" rows="4"><?= $view->e($value('notes')) ?></textarea>
             </div>
             <div class="field">

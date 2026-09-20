@@ -272,15 +272,32 @@ final class Sensory
     }
 
     /**
+     * Structure keys shown on the glance panel, by drink category.
+     *
+     * @return array<int, string>
+     */
+    public static function structureKeysForCategory(string $category): array
+    {
+        return match ($category) {
+            'beer' => ['sweetness', 'bitterness', 'carbonation', 'body', 'finish_length', 'texture'],
+            'spirits' => ['aromatic_intensity', 'flavor_intensity', 'bitterness', 'alcohol_heat', 'body', 'texture', 'finish_length'],
+            'cocktails' => ['sweetness', 'acidity', 'bitterness', 'carbonation', 'body', 'finish_length', 'texture'],
+            'cider' => ['sweetness', 'acidity', 'carbonation', 'body', 'finish_length', 'texture'],
+            default => ['sweetness', 'acidity', 'tannin', 'body', 'finish_length', 'texture', 'carbonation'],
+        };
+    }
+
+    /**
      * Display labels for the Structure glance line.
      *
      * @param  array<string, int|string>  $scales
+     * @param  array<int, string>|null  $order
      * @return array<int, string>
      */
-    public static function structureLabels(array $scales): array
+    public static function structureLabels(array $scales, ?array $order = null): array
     {
         $labels = [];
-        $order = [
+        $order ??= [
             'sweetness', 'acidity', 'body', 'tannin', 'bitterness',
             'carbonation', 'alcohol_heat', 'finish_length', 'texture',
             'flavor_intensity', 'aromatic_intensity',

@@ -184,7 +184,8 @@ it('labels score bands for the public 100-point scale', function () {
         'sources' => [['title' => 'P', 'url' => 'https://example.com', 'claims' => ['abv', 'dealcoholized']]],
     ], '', '/tmp/banded.md');
 
-    expect($review->scoreBandLabel())->toBe('Recommended');
+    expect($review->scoreBandLabel())->toBeNull()
+        ->and($review->scoreGuidanceBand())->toBe('70–74');
 });
 
 it('emits classification and length warnings without blocking', function () {

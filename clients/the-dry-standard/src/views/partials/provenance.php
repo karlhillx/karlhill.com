@@ -1,7 +1,7 @@
 <?php if (! empty($groups)) { ?>
 <details class="provenance" id="provenance">
   <summary>
-    <span class="provenance-summary-title">Evidence</span>
+    <span class="provenance-summary-title"><?= $view->e($title ?? 'Sources & verification') ?></span>
     <span class="provenance-summary-meta"><?= $view->e($summary) ?></span>
   </summary>
   <div class="provenance-body">

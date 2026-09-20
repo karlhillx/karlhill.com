@@ -13,9 +13,24 @@
       return;
     }
 
+    const payload = { name, t: Date.now(), ...detail };
     window.dispatchEvent(new CustomEvent("dry-standard:event", {
-      detail: { name, ...detail },
+      detail: payload,
     }));
+
+    try {
+      const key = "dry-standard-analytics";
+      const raw = JSON.parse(localStorage.getItem(key) || "[]");
+      const next = Array.isArray(raw) ? raw : [];
+      next.push(payload);
+      localStorage.setItem(key, JSON.stringify(next.slice(-200)));
+    } catch {
+      /* ignore quota / private mode */
+    }
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", name, detail);
+    }
   };
 
   const trapFocus = (root, event) => {
@@ -553,6 +568,76 @@
     render();
   };
 
+  const saveTray = () => {
+    const storageKey = "dry-standard-saved";
+    const max = 40;
+
+    const read = () => {
+      try {
+        const raw = JSON.parse(localStorage.getItem(storageKey) || "[]");
+        if (!Array.isArray(raw)) {
+          return [];
+        }
+        return raw
+          .filter((item) => item && typeof item.slug === "string" && item.slug)
+          .slice(0, max);
+      } catch {
+        return [];
+      }
+    };
+
+    const write = (items) => {
+      localStorage.setItem(storageKey, JSON.stringify(items.slice(0, max)));
+    };
+
+    const sync = () => {
+      const saved = new Set(read().map((item) => item.slug));
+      document.querySelectorAll("[data-save-toggle]").forEach((button) => {
+        const on = saved.has(button.value);
+        button.setAttribute("aria-pressed", String(on));
+        button.textContent = on ? "Saved" : "Save";
+      });
+    };
+
+    document.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-save-toggle]");
+      if (!button) {
+        return;
+      }
+      event.preventDefault();
+      let items = read().filter((item) => item.slug !== button.value);
+      const wasSaved = button.getAttribute("aria-pressed") === "true";
+      if (!wasSaved) {
+        items.unshift({
+          slug: button.value,
+          title: button.getAttribute("data-save-title") || button.value,
+        });
+      }
+      write(items);
+      sync();
+      track("save_toggle", { slug: button.value, saved: !wasSaved, count: items.length });
+    });
+
+    sync();
+  };
+
+  const reviewSticky = () => {
+    const bar = document.querySelector("[data-review-sticky]");
+    const score = document.querySelector("[data-review-score]");
+    if (!bar || !score || window.matchMedia("(min-width: 721px)").matches) {
+      return;
+    }
+
+    const update = () => {
+      const rect = score.getBoundingClientRect();
+      bar.hidden = rect.bottom >= 0;
+    };
+
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  };
+
   const scrollToId = (id) => {
     const target = id ? document.getElementById(id) : null;
     if (!target) {
@@ -680,6 +765,8 @@
   directory();
   archive();
   compareTray();
+  saveTray();
+  reviewSticky();
   analytics();
   inPageJump();
   reveal();

@@ -1595,3 +1595,83 @@
   first_seen: 1789603200
   last_seen: 1789603200
   notes: 'Already published at reviews/wine/st-regis-non-alcoholic-rose/.'
+-
+  product: Rosé
+  id: TDS-0111
+  brand: "Plaisir d'Anaïs"
+  category: wine
+  priority: high
+  status: queued
+  notes: "Purchased 2026-09-20. Receipt: Plaisir d'Anaïs Rosé Wine Alcohol Free 0%, $18.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research."
+  production_type: not-verified
+  verified: 'no'
+-
+  product: White
+  id: TDS-0112
+  brand: "Plaisir d'Anaïs"
+  category: wine
+  priority: high
+  status: queued
+  notes: "Purchased 2026-09-20. Receipt: Plaisir d'Anaïs White Wine Alcohol Free 0%, $18.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research."
+  production_type: not-verified
+  verified: 'no'
+-
+  product: White
+  id: TDS-0113
+  brand: 'Tip Top'
+  category: wine
+  priority: high
+  status: queued
+  notes: 'Purchased 2026-09-20. Receipt: Tip Top Alcohol Free White Wine, $21.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
+  production_type: not-verified
+  verified: 'no'
+-
+  product: 'Organic White'
+  id: TDS-0114
+  brand: Cypher
+  category: wine
+  priority: high
+  status: queued
+  notes: 'Purchased 2026-09-20. Receipt: Cypher Organic Alcohol Free White Wine, $23.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
+  production_type: not-verified
+  verified: 'no'
+-
+  product: Blanc
+  id: TDS-0115
+  brand: Nooh
+  category: wine
+  priority: high
+  status: queued
+  notes: 'Purchased 2026-09-20. Receipt: Nooh Blanc 0%, $21.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
+  production_type: not-verified
+  verified: 'no'
+-
+  product: Baezza
+  id: TDS-0116
+  brand: Elivo
+  category: wine
+  priority: high
+  status: queued
+  notes: 'Purchased 2026-09-20. Receipt: Elivo Adegga Baezza Premium Alcohol Free White Wine, $16.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
+  production_type: not-verified
+  verified: 'no'
+-
+  product: 'Riesling nr.420'
+  id: TDS-0117
+  brand: Weinkönig
+  category: wine
+  priority: high
+  status: queued
+  notes: 'Purchased 2026-09-20. Receipt: Weinkönig Riesling nr.420 Organic 0% White Wine, $21.00, 1 bottle. Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
+  production_type: not-verified
+  verified: 'no'
+-
+  product: 'Zéro Degré'
+  id: TDS-0118
+  brand: Claouset
+  category: wine
+  priority: high
+  status: queued
+  notes: 'Purchased 2026-09-20. Receipt: Claouset Zéro Degré Non Alcoholic White Wine, 1 bottle (price not listed on cart line). Retailer titles match Dis&Dis catalog. Production method and verification pending research.'
+  production_type: not-verified
+  verified: 'no'

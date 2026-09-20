@@ -18,10 +18,13 @@ Public base: `/clients/the-dry-standard/`
 | `/methods/` | Dealcoholization-method reference |
 | `/styles/` | Closed style vocabulary (Riesling, IPA, stout, and others with two or more bottles) |
 | `/styles/{slug}/` | Style cellar generated from the catalog |
+| `/collections/` | Facet-backed editorial collections |
+| `/collections/{slug}/` | Collection cellar (0.0%, dealcoholized wine, spinning cone, …) |
 | `/best/` | Highest-rated bottles, generated from the catalog |
-| `/best/{category}/` | Category best-of, scores 80+ |
+| `/best/{category}/` | Category best-of, scores 85+ |
 | `/compare/` | Side-by-side bottle compare (2–4 slugs via `?slugs=`) |
-| `/about/` | Mission and scoring |
+| `/about/` | Mission |
+| `/methodology/` | Scoring, tasting, provenance, samples |
 | `/privacy/` | Privacy policy |
 | `/industry/` | For Brands & Industry; named editor and three-business-day reply SLA |
 | `/industry/submit/` | Product submission (editorial queue, not auto-published) |
