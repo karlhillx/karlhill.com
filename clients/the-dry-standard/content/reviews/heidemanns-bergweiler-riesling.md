@@ -10,20 +10,20 @@ category: wine
 subcategory: riesling
 country: Germany
 region: Mosel
-style: 'Non-alcoholic Mosel Riesling'
-production_type: not-verified
-verified: 'no'
-production_note: 'Sold as a non-alcoholic Riesling. No estate method page was found.'
+style: 'Dealcoholized Mosel Riesling'
+production_type: dealcoholized
+verified: 'yes'
+production_note: 'Retail catalog copy describes a dealcoholized German Riesling. The named removal technology is not published for this SKU; do not transfer the Noble House thermal-evaporation fact sheet to this bottle.'
 image: media/reviews/heidemanns-bergweiler-riesling.jpg
 image_alt: 'Dr. Heidemanns-Bergweiler Non-Alcoholic Riesling'
 image_credit: 'Product photo via Dr. Heidemanns-Bergweiler'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 79
 verdict: 'A Mosel name on an NA Riesling. Citrus and a little residual sweetness, thinner than Leitz, better documented origin than most Total Wine whites.'
-summary: 'Dr. Heidemanns-Bergweiler is a Mosel estate. This non-alcoholic Riesling arrived via Total Wine Instacart. Method and ABV are unpublished.'
+summary: 'Dr. Heidemanns-Bergweiler is a Mosel estate. This dealcoholized Riesling arrived via Total Wine Instacart. Named removal technology and ABV are unpublished.'
 tastes:
   - lime
   - 'green apple'
@@ -47,6 +47,12 @@ sources:
       - origin
       - region
       - country
+  -
+    title: 'Dr Heidemanns German Riesling Non-Alcoholic Wine — RoomBox / Total Wine catalog'
+    url: 'https://www.orderroombox.com/product/dr-heidemanns-german-riesling-non-alcoholic-wine/'
+    claims:
+      - dealcoholized
+      - production_type
 status: published
 product_id: TDS-0017
 identifiers:
@@ -88,16 +94,20 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://www.heidemanns-bergweiler.de/'
+  production_type:
+    kind: retailer
+    confidence: secondary
+    url: 'https://www.orderroombox.com/product/dr-heidemanns-german-riesling-non-alcoholic-wine/'
   ean:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Dr. Heidemanns-Bergweiler Riesling is non-alcoholic with an unpublished production process from Mosel, Germany. No cited producer page names a removal technique, so the badge stays not-verified. The glass is a light, off-dry Riesling. Not Eins-Zwei-Zero. A Mosel-shaped supermarket white.
+Dr. Heidemanns-Bergweiler Riesling is dealcoholized from Mosel, Germany. Catalog copy calls it a dealcoholized German Riesling; the estate site does not name the removal machine, so the method stays unpublished. The glass is a light, off-dry Riesling. Not Eins-Zwei-Zero. A Mosel-shaped supermarket white.
 
 The nose is lime and green apple, a faint slate note.
 
-On the palate, off-dry, light, Mosel-shaped acidity without ethanol weight. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the palate, off-dry, light, Mosel-shaped acidity without ethanol weight.
 
-The finish is short citrus. The sugar shows as it warms. A Mosel name on an NA Riesling. Citrus and a little residual sweetness, thinner than Leitz, better documented origin than most Total Wine whites. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+The finish is short citrus. The sugar shows as it warms. A Mosel name on an NA Riesling — citrus and a little residual sweetness, thinner than Leitz, better documented origin than most Total Wine whites.

@@ -9,19 +9,19 @@ abv: 'Not published'
 category: wine
 subcategory: 'sparkling rosé'
 country: Spain
-style: 'Non-alcoholic sparkling rosé'
-production_type: not-verified
-verified: 'no'
-production_note: 'Sold as Rondel Zero. No producer method page was found.'
+style: 'Dealcoholized sparkling rosé'
+production_type: dealcoholized
+verified: 'yes'
+production_note: 'Retail and press copy describe Rondel Zero as de-alcoholized sparkling wine (alcohol removed after fermentation). The named removal technology is not published for this SKU; do not ascribe Codorníu Zero vacuum distillation without a Rondel-specific source.'
 availability: 'Total Wine & More'
 image_alt: 'Rondel Zero Cava Rosé'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 80
-verdict: 'Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Method unpublished.'
-summary: 'Rondel Zero is a Spanish non-alcoholic sparkling rosé sold at Total Wine. Fine bubbles, red fruit, no cited removal process.'
+verdict: 'Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Named method unpublished.'
+summary: 'Rondel Zero is a Spanish dealcoholized sparkling rosé sold at Total Wine. Fine bubbles, red fruit; named removal technology unpublished.'
 tastes:
   - strawberry
   - cherry
@@ -44,6 +44,19 @@ sources:
       - origin
       - country
       - availability
+  -
+    title: 'Rondel Zero Cava Sparkling Nonalcoholic Wine — Total Wine'
+    url: 'https://www.totalwine.com/wine/champagne-sparkling-wine/cava/rondel-zero-cava-sparkling-nonalcoholic-wine/p/224667750'
+    claims:
+      - dealcoholized
+      - production_type
+      - availability
+  -
+    title: 'Best Nonalcoholic Sparkling Wines — Consumer Reports'
+    url: 'https://www.consumerreports.org/health/wine/best-non-alcoholic-sparkling-wines-a2986524981/'
+    claims:
+      - dealcoholized
+      - production_type
 status: published
 product_id: TDS-0024
 identifiers:
@@ -78,19 +91,23 @@ provenance:
     confidence: secondary
     url: 'https://www.soberishmom.com/post/rondelrosereview'
   availability:
-    kind: unknown
+    kind: retailer
     confidence: secondary
-    url: 'https://www.soberishmom.com/post/rondelrosereview'
+    url: 'https://www.totalwine.com/wine/champagne-sparkling-wine/cava/rondel-zero-cava-sparkling-nonalcoholic-wine/p/224667750'
+  production_type:
+    kind: retailer
+    confidence: secondary
+    url: 'https://www.totalwine.com/wine/champagne-sparkling-wine/cava/rondel-zero-cava-sparkling-nonalcoholic-wine/p/224667750'
   ean:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Rondel Zero Cava Rosé is non-alcoholic with an unpublished production process from Spain. No cited producer page names a removal technique, so the badge stays not-verified.
+Rondel Zero Cava Rosé is dealcoholized from Spain. Total Wine calls it a de-alcoholized selection; Consumer Reports files it with sparkling wines made like wine, then stripped of alcohol. No Rondel-specific page names the machine, so the method stays unpublished.
 
 The nose is strawberry and cherry, a hint of green apple.
 
-On the palate, fine bead, balanced sweetness, more cava-shaped than canned soda. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the palate, fine bead, balanced sweetness, more cava-shaped than canned soda.
 
-The finish is crisp, a little sweet, short. Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Method unpublished. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.
+The finish is crisp, a little sweet, short. Spanish pink fizz at about ten dollars — strawberry, cherry, a finer bead than most NA soda-wines.
