@@ -25,7 +25,6 @@ it('serves the Dry Standard homepage and primary sections', function () {
         '/clients/the-dry-standard/reviews/spirits/',
         '/clients/the-dry-standard/reviews/cocktails/',
         '/clients/the-dry-standard/reviews/cider/',
-        '/clients/the-dry-standard/guides/',
         '/clients/the-dry-standard/learn/',
         '/clients/the-dry-standard/brands/',
         '/clients/the-dry-standard/methods/',
@@ -41,6 +40,8 @@ it('serves the Dry Standard homepage and primary sections', function () {
     ] as $url) {
         $this->get($url)->assertOk();
     }
+
+    $this->get('/clients/the-dry-standard/guides/')->assertRedirect('/clients/the-dry-standard/learn/');
 });
 
 it('serves sourced sample reviews with production-type badges', function () {
@@ -270,7 +271,7 @@ it('hides source claim tokens and ships search + share metadata', function () {
         ->assertSee('What holds up in the glass', escape: false)
         ->assertSee('Guinness 0.0', escape: false);
 
-    $this->get('/clients/the-dry-standard/guides/buying-na-spirits/')
+    $this->get('/clients/the-dry-standard/learn/buying-na-spirits/')
         ->assertOk()
         ->assertSee('How to buy a non-alcoholic spirit', escape: false);
 });
@@ -309,26 +310,43 @@ it('serves a Dry Standard 404 instead of the parent chrome', function () {
         ->assertDontSee('Book a conversation', escape: false);
 });
 
-it('disallows crawlers while staged and puts Best in the primary nav', function () {
+it('disallows crawlers while staged and keeps a four-link primary nav', function () {
     $this->get('/clients/the-dry-standard/robots.txt')
         ->assertOk()
         ->assertSee('Disallow: /', escape: false);
 
-    $this->get('/clients/the-dry-standard/')
-        ->assertOk()
-        ->assertSee('>Best</a>', escape: false)
-        ->assertSee('>Compare</a>', escape: false)
-        ->assertSee('>Brands</a>', escape: false)
-        ->assertSee('>How it’s made</a>', escape: false)
-        ->assertSee('>Styles</a>', escape: false)
+    $home = $this->get('/clients/the-dry-standard/')->assertOk();
+    $home->assertSee('>Best</a>', escape: false)
+        ->assertSee('>Learn</a>', escape: false)
+        ->assertSee('>About</a>', escape: false)
         ->assertSee('Find a bottle by how it was made', escape: false)
-        ->assertSee('Browse by drink', escape: false)
+        ->assertSee('Recently reviewed', escape: false)
         ->assertSee('page-home', escape: false)
         ->assertSee('card-grid--rail', escape: false)
         ->assertSee('category-rail--chips', escape: false)
+        ->assertDontSee('Browse by drink', escape: false)
+        ->assertDontSee('Useful starting sets', escape: false)
         ->assertDontSee('stats-grid', escape: false)
         ->assertSee('fonts/fraunces.woff2', escape: false)
-        ->assertDontSee('fonts.googleapis.com', escape: false);
+        ->assertDontSee('fonts.googleapis.com', escape: false)
+        ->assertDontSee('>Compare</a>', escape: false)
+        ->assertDontSee('nav-cellar', escape: false);
+});
+
+it('serves the Learn hub and collapses advanced cellar facets', function () {
+    $this->get('/clients/the-dry-standard/learn/')
+        ->assertOk()
+        ->assertSee('Buying guides', escape: false)
+        ->assertSee('Dealcoholization methods', escape: false)
+        ->assertSee('How it’s made', escape: false);
+
+    $this->get('/clients/the-dry-standard/guides/')
+        ->assertRedirect('/clients/the-dry-standard/learn/');
+
+    $this->get('/clients/the-dry-standard/reviews/')
+        ->assertOk()
+        ->assertSee('archive-advanced', escape: false)
+        ->assertSee('More filters', escape: false);
 });
 
 it('serves bottle compare for two to four slugs', function () {
@@ -360,10 +378,13 @@ it('labels Sources & verification without Unspecified source', function () {
 });
 
 it('publishes the NA beer buying guide', function () {
-    $this->get('/clients/the-dry-standard/guides/buying-na-beer/')
+    $this->get('/clients/the-dry-standard/learn/buying-na-beer/')
         ->assertOk()
         ->assertSee('How to buy non-alcoholic beer', escape: false)
         ->assertSee('named process', escape: false);
+
+    $this->get('/clients/the-dry-standard/guides/buying-na-beer/')
+        ->assertRedirect('/clients/the-dry-standard/learn/buying-na-beer/');
 });
 
 it('emits responsive stills and archive fragments', function () {

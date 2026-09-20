@@ -1,0 +1,3 @@
+/* Dry Standard Vite CSS entry. Keep styles.css as the single stylesheet source;
+   layer files were tried and abandoned (Tailwind/Vite choked on the split). */
+@import "../../styles.css";

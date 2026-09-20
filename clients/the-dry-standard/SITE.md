@@ -12,8 +12,9 @@ Public base: `/clients/the-dry-standard/`
 | `/reviews/cocktails/` | RTDs, spritzes, aperitifs used as cocktail ingredients |
 | `/reviews/cider/` | Cider |
 | `/reviews/{category}/{slug}/` | Permanent review URL — no dates |
-| `/guides/` | Learn — buying guides, ABV labeling, dealcoholized vs alternative |
-| `/learn/` | Alias of `/guides/` |
+| `/learn/` | Learn hub — buying guides + methods shelves |
+| `/learn/{slug}/` | Buying guide (canonical; `/guides/{slug}/` 301s here) |
+| `/guides/` | 301 → `/learn/` |
 | `/brands/` | Brand index generated from reviews; aliases 301 to the canonical slug |
 | `/methods/` | Dealcoholization-method reference |
 | `/styles/` | Closed style vocabulary (Riesling, IPA, stout, and others with two or more bottles) |
@@ -55,10 +56,10 @@ Internal data (not a public page):
 
 ## Design
 
-Warm paper, espresso masthead, Fraunces / Figtree. The homepage opens with a featured bottle beside the masthead line, then the production-type rail, then latest and highly rated reviews. Reviews render as a visual catalog with product stills, scores, and process badges. Header search goes to `/reviews/?q=`. Primary nav is Reviews, Best, Compare, Brands, Learn. How it’s made and Styles sit as cellar links in the same header. Filters stay in the URL (including sweetness, body, score, wine color). On small screens, archive filters open as a drawer and header search expands from an icon. Brand, guide, and method indexes are searchable directories (`?q=`). Review pages lead with an identity block (ABV, origin, style, method), an Evidence panel when provenance is known, and jump to How it was made. Compare uses `ComparableSnapshot` at `/compare/?slugs=a,b,c` (max four). Product stills live in `media/reviews/{slug}.jpg` and appear on cards, the review hero, and Open Graph tags. `php artisan dry-standard:build` emits a 3:4 WebP beside each JPEG when GD is available; pages prefer WebP and fall back to JPEG. `php artisan dry-standard:audit-stills` is the gate for provenance, duplicates, and background. Sourced EANs are omitted from the page and added to Product JSON-LD as `gtin` when present. Internal TDS ids are never rendered.
+Warm paper, espresso masthead, Fraunces / Figtree. The homepage opens with a featured bottle beside the masthead line, then the production-type rail, then latest and highly rated reviews. Reviews render as a visual catalog with product stills, scores, and process badges. Header search goes to `/reviews/?q=`. Primary nav is Reviews, Best, Learn, About. Compare is tray/URL only. Brands, Styles, Methods, and Collections live in the footer and cellar surfaces. Filters stay in the URL (including sweetness, body, score, wine color). On small screens, archive filters open as a drawer and header search expands from an icon. Primary facets are ABV / category / production / score; the rest sit under “More filters”. Brand, guide, and method indexes are searchable directories (`?q=`). Review pages lead with an identity block (ABV, origin, style, method), an Evidence panel when provenance is known, and jump to How it was made. Compare uses `ComparableSnapshot` at `/compare/?slugs=a,b,c` (max four). Product stills live in `media/reviews/{slug}.jpg` and appear on cards, the review hero, and Open Graph tags. `php artisan dry-standard:build` emits a 3:4 WebP beside each JPEG when GD is available; pages prefer WebP and fall back to JPEG. `php artisan dry-standard:audit-stills` is the gate for provenance, duplicates, and background. Sourced EANs are omitted from the page and added to Product JSON-LD as `gtin` when present. Internal TDS ids are never rendered.
 
-HTML is assembled from reusable PHP views in `src/views/` and rendered live by Laravel. Edit those templates; do not add static `index.html` pages.
+HTML is assembled from reusable PHP views in `src/views/` and rendered live by Laravel via `Renderer` (facade) + `Rendering/Concerns/*`. Edit those templates and concerns; do not add static `index.html` pages.
 
 ## Parent platform
 
-Served by `DryStandardSiteController` at `/clients/the-dry-standard/`. CSS, JS, and media still go through the client file server. Preview is noindex at the Laravel header. Do not add Dry Standard URLs to the main karlhill.com sitemap.
+Served by `DryStandardSiteController` at `/clients/the-dry-standard/`. CSS/JS ship via Vite (`assets/css/site.css` → `styles.css`, `assets/js/site.js` modules) with hashed `/build` URLs when `public/build/manifest.json` exists; otherwise client-folder `styles.css` / `script.js` fallbacks. Media still goes through the client file server. Preview is noindex at the Laravel header. Do not add Dry Standard URLs to the main karlhill.com sitemap. See `CUTOVER.md` for own-domain steps.

@@ -2,9 +2,12 @@
 
 use DryStandard\ArchiveQuery;
 use DryStandard\ComparableSnapshot;
+use DryStandard\Paths;
 use DryStandard\Registry;
 use DryStandard\Review;
+use DryStandard\ReviewRepository;
 use DryStandard\ReviewValidator;
+use DryStandard\Routing\RouteTable;
 use DryStandard\Sensory;
 use DryStandard\SiteConfig;
 
@@ -224,6 +227,45 @@ it('emits classification and length warnings without blocking', function () {
 
     expect($warnings)->toContain('classification warning: production_type is alternative but dealcoholization_method is set')
         ->and($validator->errors($review, $config))->not->toContain('classification warning: production_type is alternative but dealcoholization_method is set');
+});
+
+it('keeps a four-item primary nav contract', function () {
+    $nav = RouteTable::primaryNav();
+
+    expect($nav)->toHaveCount(4)
+        ->and(collect($nav)->pluck('key')->all())->toBe(['reviews', 'best', 'guides', 'about']);
+});
+
+it('counts archive facets in SQLite', function () {
+    $this->artisan('dry-standard:build')->assertSuccessful();
+
+    $repo = new ReviewRepository(Paths::default());
+    $query = ArchiveQuery::from([]);
+    $production = $repo->facetCounts($query, 'production');
+    $score = $repo->facetCounts($query, 'score');
+    $unsupported = $repo->facetCounts($query, 'descriptor');
+
+    expect($production)->not->toBeEmpty()
+        ->and(array_sum($production))->toBeGreaterThan(50)
+        ->and($score)->not->toBeEmpty()
+        ->and(array_sum($score))->toBe(array_sum($production))
+        ->and($unsupported)->toBe([]);
+});
+
+it('dual-writes tastings rows for retaste-ready product_id keys', function () {
+    $this->artisan('dry-standard:build')->assertSuccessful();
+
+    $db = new PDO('sqlite:'.base_path('clients/the-dry-standard/data/catalog.sqlite'));
+    $tastings = (int) $db->query('SELECT COUNT(*) FROM tastings')->fetchColumn();
+    $products = (int) $db->query("SELECT COUNT(*) FROM products WHERE slug IS NOT NULL AND slug != ''")->fetchColumn();
+
+    expect($tastings)->toBeGreaterThan(0)
+        ->and($tastings)->toBe($products);
+
+    $row = $db->query("SELECT product_id, review_slug FROM tastings WHERE review_slug = 'guinness-0-0'")->fetch(PDO::FETCH_ASSOC);
+    expect($row)->not->toBeFalse()
+        ->and($row['review_slug'])->toBe('guinness-0-0')
+        ->and($row['product_id'])->not->toBe('');
 });
 
 it('suppresses highlight when it duplicates verdict', function () {

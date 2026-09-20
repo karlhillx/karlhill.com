@@ -34,6 +34,6 @@
     <?= $body ?>
   </main>
   <?= $footer ?>
-  <script src="<?= $view->e($script) ?>" defer></script>
+  <script src="<?= $view->e($script) ?>"<?= ! empty($scriptModule) ? ' type="module"' : ' defer' ?>></script>
 </body>
 </html>

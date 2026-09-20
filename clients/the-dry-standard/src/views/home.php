@@ -22,30 +22,6 @@
         <?= $processRail ?>
       </div>
     </section>
-    <?php if (! empty($collectionRail)) { ?>
-    <section class="section section--paper" data-reveal>
-      <div class="shell stack">
-        <?= $view->render('partials/section-head', [
-            'kicker' => 'Collections',
-            'title' => 'Useful starting sets',
-            'href' => $collectionsUrl,
-            'linkLabel' => 'All collections',
-        ]) ?>
-        <?= $collectionRail ?>
-      </div>
-    </section>
-    <?php } ?>
-    <section class="section" data-reveal>
-      <div class="shell stack">
-        <?= $view->render('partials/section-head', [
-            'kicker' => 'Categories',
-            'title' => 'Browse by drink',
-            'href' => $reviewsUrl,
-            'linkLabel' => 'All reviews',
-        ]) ?>
-        <?= $categoryRail ?>
-      </div>
-    </section>
     <section class="section section--paper" data-reveal>
       <div class="shell stack">
         <?= $view->render('partials/section-head', [
@@ -75,10 +51,10 @@
     <section class="section section--ink" data-reveal>
       <div class="shell stack">
         <?= $view->render('partials/section-head', [
-            'kicker' => 'Read',
+            'kicker' => 'Learn',
             'title' => 'Methods and buying notes',
-            'href' => $guidesUrl,
-            'linkLabel' => 'All guides',
+            'href' => $learnUrl,
+            'linkLabel' => 'All of Learn',
         ]) ?>
         <div class="card-grid card-grid--read"><?= $readCards ?></div>
       </div>

@@ -20,7 +20,7 @@ final class Site
         $published = $this->reviews->listing();
         $guides = PageDocument::loadDirectory($this->paths->content('guides'));
         $methods = PageDocument::loadDirectory($this->paths->content('methods'));
-        $renderer = new Renderer($this->config);
+        $renderer = $this->renderer();
         $publishOrder = $this->reviews->publishOrder();
 
         if ($path === '') {
@@ -107,14 +107,12 @@ final class Site
         }
 
         if ($path === 'guides' || $path === 'learn') {
-            return $renderer->documentIndex(
-                'Learn',
-                'ABV labeling, dealcoholized vs alcohol alternative, buying guides, and the editorial distinctions that keep this site from becoming another generic NA roundup.',
-                'guides/',
-                'guides',
-                $guides,
-                query: (string) ($query['q'] ?? ''),
-            );
+            $methodCounts = [];
+            foreach ($methods as $method) {
+                $methodCounts[$method->slug] = $this->reviews->byMethod($method->slug)->count();
+            }
+
+            return $renderer->learnHub($guides, $methods, $methodCounts);
         }
 
         if (preg_match('#^(?:guides|learn)/([^/]+)$#', $path, $matches) === 1) {
@@ -126,10 +124,10 @@ final class Site
 
             return $renderer->articlePage(
                 $guide,
-                'guides/'.$guide->slug.'/',
+                'learn/'.$guide->slug.'/',
                 $renderer->crumbs([
-                    'Learn' => 'guides/',
-                    $guide->title => 'guides/'.$guide->slug.'/',
+                    'Learn' => 'learn/',
+                    $guide->title => 'learn/'.$guide->slug.'/',
                 ]),
                 'Guide',
                 'guides',
@@ -338,6 +336,14 @@ final class Site
     {
         $path = trim($path, '/');
 
+        if ($path === 'guides') {
+            return 'learn/';
+        }
+
+        if (preg_match('#^guides/([^/]+)$#', $path, $matches) === 1) {
+            return 'learn/'.$matches[1].'/';
+        }
+
         if (preg_match('#^brands/([^/]+)$#', $path, $matches) !== 1) {
             return null;
         }
@@ -356,7 +362,7 @@ final class Site
 
     public function notFound(): string
     {
-        return (new Renderer($this->config))->notFound();
+        return $this->renderer()->notFound();
     }
 
     public function robots(): string
@@ -370,12 +376,12 @@ final class Site
 
     public function feed(): string
     {
-        return (new Renderer($this->config))->feed($this->reviews->published());
+        return $this->renderer()->feed($this->reviews->published());
     }
 
     public function sitemap(): string
     {
-        $renderer = new Renderer($this->config);
+        $renderer = $this->renderer();
 
         return $renderer->sitemap(
             $this->reviews->published(),
@@ -384,6 +390,11 @@ final class Site
             $this->reviews->brands(),
             $this->reviews->styles(),
         );
+    }
+
+    private function renderer(): Renderer
+    {
+        return new Renderer($this->config, reviews: $this->reviews);
     }
 
     public function catalogJson(): string

@@ -91,6 +91,54 @@ final class Catalog
     }
 
     /**
+     * Facet value → count using SQLite GROUP BY (skip = facet being counted).
+     * Returns [] when the facet needs PHP-side evaluation (caller falls back).
+     *
+     * @return array<string, int>
+     */
+    public function facetCounts(ArchiveQuery $query, string $facet): array
+    {
+        $expression = match ($facet) {
+            'brand' => 'brand_slug',
+            'abv' => 'abv_bucket',
+            'category' => 'category',
+            'production' => 'production_type',
+            'method' => 'method_facet',
+            'style' => 'style_slug',
+            'country' => 'country_slug',
+            'sweetness' => 'CAST(sweetness AS TEXT)',
+            'body' => 'CAST(body_level AS TEXT)',
+            'acidity' => 'CAST(acidity_level AS TEXT)',
+            'color' => 'wine_color',
+            'score' => "CASE WHEN rating >= 90 THEN '90' WHEN rating >= 80 THEN '80' WHEN rating >= 70 THEN '70' ELSE 'under70' END",
+            default => null,
+        };
+
+        if ($expression === null) {
+            return [];
+        }
+
+        [$where, $params] = $query->sqlWhere($facet);
+        $sql = 'SELECT value, COUNT(*) AS c FROM ('
+            .'SELECT '.$expression.' AS value FROM products WHERE '.$where
+            .') AS facet_rows WHERE value IS NOT NULL AND TRIM(CAST(value AS TEXT)) != \'\''
+            .' GROUP BY value';
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute($params);
+        $counts = [];
+        foreach ($statement->fetchAll() as $row) {
+            $value = (string) ($row['value'] ?? '');
+            if ($value === '') {
+                continue;
+            }
+            $counts[$value] = (int) $row['c'];
+        }
+
+        return $counts;
+    }
+
+    /**
      * @param  array<string, int>  $publishOrder
      * @return Collection<int, Review>
      */
@@ -632,9 +680,89 @@ SQL);
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_sweetness_idx ON products(sweetness)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_body_level_idx ON products(body_level)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_acidity_level_idx ON products(acidity_level)');
+        $this->pdo->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS tastings (
+    review_slug TEXT PRIMARY KEY,
+    product_id TEXT NOT NULL,
+    rating INTEGER,
+    review_date TEXT,
+    status TEXT NOT NULL DEFAULT 'queued',
+    verdict TEXT NOT NULL DEFAULT '',
+    summary TEXT NOT NULL DEFAULT '',
+    nose TEXT,
+    palate TEXT,
+    finish TEXT,
+    best_for TEXT,
+    serve TEXT,
+    body_markdown TEXT NOT NULL DEFAULT '',
+    sensory TEXT NOT NULL DEFAULT '[]',
+    structure_scales TEXT NOT NULL DEFAULT '{}',
+    assessments TEXT NOT NULL DEFAULT '{}',
+    descriptor_ids TEXT NOT NULL DEFAULT '',
+    comparable TEXT NOT NULL DEFAULT '{}'
+);
+CREATE INDEX IF NOT EXISTS tastings_product_id_idx ON tastings(product_id);
+CREATE INDEX IF NOT EXISTS tastings_status_idx ON tastings(status);
+CREATE INDEX IF NOT EXISTS tastings_rating_idx ON tastings(rating);
+SQL);
+        $this->syncTastingsFromProducts();
         $this->dropColumn('times_purchased');
         $this->dropColumn('first_purchase');
         $this->dropColumn('most_recent_purchase');
+    }
+
+    /**
+     * Dual-write review observations into tastings so product_id can host retastes later.
+     * Runtime listings still read products until presenters switch over.
+     */
+    private function syncTastingsFromProducts(): void
+    {
+        $this->pdo->exec(<<<'SQL'
+INSERT INTO tastings (
+    review_slug, product_id, rating, review_date, status, verdict, summary,
+    nose, palate, finish, best_for, serve, body_markdown,
+    sensory, structure_scales, assessments, descriptor_ids, comparable
+)
+SELECT
+    slug,
+    COALESCE(NULLIF(product_id, ''), slug),
+    rating,
+    review_date,
+    status,
+    COALESCE(verdict, ''),
+    COALESCE(summary, ''),
+    nose,
+    palate,
+    finish,
+    best_for,
+    serve,
+    COALESCE(body_markdown, ''),
+    COALESCE(sensory, '[]'),
+    COALESCE(structure_scales, '{}'),
+    COALESCE(assessments, '{}'),
+    COALESCE(descriptor_ids, ''),
+    COALESCE(comparable, '{}')
+FROM products
+WHERE slug IS NOT NULL AND slug != ''
+ON CONFLICT(review_slug) DO UPDATE SET
+    product_id = excluded.product_id,
+    rating = excluded.rating,
+    review_date = excluded.review_date,
+    status = excluded.status,
+    verdict = excluded.verdict,
+    summary = excluded.summary,
+    nose = excluded.nose,
+    palate = excluded.palate,
+    finish = excluded.finish,
+    best_for = excluded.best_for,
+    serve = excluded.serve,
+    body_markdown = excluded.body_markdown,
+    sensory = excluded.sensory,
+    structure_scales = excluded.structure_scales,
+    assessments = excluded.assessments,
+    descriptor_ids = excluded.descriptor_ids,
+    comparable = excluded.comparable
+SQL);
     }
 
     private function ensureColumn(string $name, string $definition): void

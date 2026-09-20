@@ -73,11 +73,16 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 - Style vocabulary: `clients/the-dry-standard/data/schema/styles.yaml`
 - Industry inbox: `storage/app/private/dry-standard/inbox/` (submissions and inquiries; not public)
 - Public site: Laravel renders `/clients/the-dry-standard/` live from the catalog
+- Rendering: `src/Renderer.php` facade + `src/Rendering/Concerns/*`; IA contract in `src/Routing/RouteTable.php`
+- Front-end: Vite entries `assets/css/site.css` and `assets/js/site.js` (source CSS remains `styles.css`; `script.js` is non-Vite fallback)
+- Domain cutover: `CUTOVER.md`
 - Commands: `php artisan dry-standard:*`
 
 ## Site structure
 
-`/`, `/reviews/`, `/reviews/{wine|beer|spirits|cocktails|cider}/`, `/reviews/{category}/{slug}/`, `/guides/`, `/brands/`, `/methods/`, `/styles/`, `/styles/{slug}/`, `/collections/`, `/collections/{slug}/`, `/best/`, `/best/{category}/`, `/compare/`, `/about/`, `/methodology/`, `/privacy/`, `/industry/`, `/industry/submit/`, `/industry/samples/`, `/industry/partnerships/`.
+`/`, `/reviews/`, `/reviews/{wine|beer|spirits|cocktails|cider}/`, `/reviews/{category}/{slug}/`, `/learn/` (guides hub; `/guides/` 301s here), `/learn/{slug}/`, `/brands/`, `/methods/`, `/styles/`, `/styles/{slug}/`, `/collections/`, `/collections/{slug}/`, `/best/`, `/best/{category}/`, `/compare/`, `/about/`, `/methodology/`, `/privacy/`, `/industry/`, `/industry/submit/`, `/industry/samples/`, `/industry/partnerships/`.
+
+Primary nav: Reviews · Best · Learn · About.
 
 No dates in review URLs.
 
@@ -91,7 +96,7 @@ This is a Laravel client preview. Product data lives in one SQLite catalog (`dat
 
 Optional structured fields (do not require them to publish; do not invent them): `product_id`, `identifiers` (`gtin|ean|upc|mfr|asin|tds` — never a retailer SKU), offer-shaped `purchase_links` (`relationship: citation|affiliate|paid|unknown`; public href stays `url`), `acquisition` / `sample_source`, disclosure flags, `provenance` per fact (with `kind`, `confidence`, optional `url` / `verified_date`), `producer_slug`, `sensory` (canonical descriptors + locations), `structure_scales` (numeric structure), `assessments` (editorial likeness/authenticity/etc.). Prefer filling `product_id`, `identifiers`, and `provenance` whenever a sourced fact exists — do not leave barcode or method claims looking equally true without evidence metadata.
 
-Product facts and review observations are separate concerns. A Product owns brand, ABV, method, sugar, GTIN. A Review owns score, sensory, structure scales, assessments, and prose. Today one markdown file still carries both; `product_id` is the durable product key for future retastes.
+Product facts and review observations are separate concerns. A Product owns brand, ABV, method, sugar, GTIN. A Review owns score, sensory, structure scales, assessments, and prose. Today one markdown file still carries both; `product_id` is the durable product key for future retastes. `catalog.sqlite` dual-writes a `tastings` table keyed by `review_slug` + `product_id` so retastes can land without inventing a second markdown file yet. Runtime HTML still reads `products` until presenters switch.
 
 Brand pages collapse aliases from `data/schema/brands.yaml`. Style filters and `/styles/{slug}/` use the closed vocabulary in `data/schema/styles.yaml`; editorial `style` text can stay free. Alternatives use method facet `not-applicable`, not unpublished. Completeness lives in `php artisan dry-standard:status`, not on the public product page.
 

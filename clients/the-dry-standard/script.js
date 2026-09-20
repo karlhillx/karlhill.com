@@ -480,7 +480,7 @@
     if (!tray) {
       tray = document.createElement("div");
       tray.className = "compare-tray";
-      tray.setAttribute("data-compare-tray");
+      tray.dataset.compareTray = "";
       tray.hidden = true;
       tray.innerHTML = `
         <div class="compare-tray-inner">
@@ -730,9 +730,10 @@
   const reveal = () => {
     const nodes = [...document.querySelectorAll("[data-reveal]")];
     const mark = (node) => node.classList.add("is-inview");
+    // Include just-below-fold sections so a tall hero does not leave the next block blank.
     const nearViewport = (node) => {
       const rect = node.getBoundingClientRect();
-      return rect.top < window.innerHeight * 0.94 && rect.bottom > 0;
+      return rect.top < window.innerHeight * 1.35 && rect.bottom > -80;
     };
 
     if (!nodes.length) {
@@ -764,7 +765,7 @@
           observer.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -6% 0px", threshold: 0.08 },
+      { rootMargin: "20% 0px", threshold: 0.01 },
     );
 
     pending.forEach((node) => observer.observe(node));

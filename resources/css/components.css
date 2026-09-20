@@ -2025,40 +2025,6 @@ a.series-chapters__card:hover .series-chapters__title,
     color: var(--muted-2);
 }
 
-@supports (scroll-marker-group: after) {
-    .shot-carousel--multi .shot-carousel__scroller {
-        scroll-marker-group: after;
-    }
-
-    .shot-carousel__slide::scroll-marker {
-        content: '';
-        width: 0.45rem;
-        height: 0.45rem;
-        border-radius: 50%;
-        background: color-mix(in oklab, var(--muted-2) 70%, var(--border-strong));
-        border: 0;
-    }
-
-    .shot-carousel__slide::scroll-marker:target-current {
-        background: var(--accent);
-    }
-
-    .shot-carousel--multi .shot-carousel__scroller::scroll-button(inline-start),
-    .shot-carousel--multi .shot-carousel__scroller::scroll-button(inline-end) {
-        width: 2.75rem;
-        height: 2.75rem;
-        border: 1px solid var(--border-strong);
-        background: color-mix(in oklab, var(--panel) 86%, transparent);
-        color: var(--text);
-        cursor: pointer;
-    }
-
-    .shot-carousel--multi .shot-carousel__scroller::scroll-button(inline-start):disabled,
-    .shot-carousel--multi .shot-carousel__scroller::scroll-button(inline-end):disabled {
-        opacity: 0.35;
-    }
-}
-
 .case-study-logo-plate,
 .case-study-flow {
     position: relative;

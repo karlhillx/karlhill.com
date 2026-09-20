@@ -1,7 +1,42 @@
 /* Progressive CSS kept off the Vite/Tailwind Lightning CSS pipeline.
-   Lightning CSS does not parse ::highlight() yet. */
+   Lightning CSS does not parse ::highlight(), ::scroll-marker, or ::scroll-button yet. */
 
 ::highlight(search) {
     background-color: color-mix(in oklab, var(--accent) 42%, transparent);
     color: var(--text);
+}
+
+/* CSS Overflow 5 carousels (Chrome 135+). Scroll-snap in components.css is the baseline. */
+@supports (scroll-marker-group: after) {
+    .shot-carousel--multi .shot-carousel__scroller {
+        scroll-marker-group: after;
+    }
+
+    .shot-carousel__slide::scroll-marker {
+        content: '';
+        width: 0.45rem;
+        height: 0.45rem;
+        border-radius: 50%;
+        background: color-mix(in oklab, var(--muted-2) 70%, var(--border-strong));
+        border: 0;
+    }
+
+    .shot-carousel__slide::scroll-marker:target-current {
+        background: var(--accent);
+    }
+
+    .shot-carousel--multi .shot-carousel__scroller::scroll-button(inline-start),
+    .shot-carousel--multi .shot-carousel__scroller::scroll-button(inline-end) {
+        width: 2.75rem;
+        height: 2.75rem;
+        border: 1px solid var(--border-strong);
+        background: color-mix(in oklab, var(--panel) 86%, transparent);
+        color: var(--text);
+        cursor: pointer;
+    }
+
+    .shot-carousel--multi .shot-carousel__scroller::scroll-button(inline-start):disabled,
+    .shot-carousel--multi .shot-carousel__scroller::scroll-button(inline-end):disabled {
+        opacity: 0.35;
+    }
 }

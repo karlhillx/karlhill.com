@@ -81,6 +81,14 @@ final class ReviewRepository
     /**
      * @return array<string, int>
      */
+    public function facetCounts(ArchiveQuery $query, string $facet): array
+    {
+        return $this->catalog()->facetCounts($query, $facet);
+    }
+
+    /**
+     * @return array<string, int>
+     */
     public function publishOrder(): array
     {
         $order = [];

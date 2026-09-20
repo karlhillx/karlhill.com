@@ -2,8 +2,11 @@
               <div class="product-facts identity-block">
                 <?php if (! empty($factsPeek)) { ?>
                 <ul class="identity" aria-label="Product identity">
-                  <?php foreach ($factsPeek as $item) { ?>
-                  <li>
+                  <?php foreach ($factsPeek as $item) {
+                      $key = (string) ($item['key'] ?? '');
+                      $itemClass = 'identity-item'.($key !== '' ? ' identity-item--'.$view->e($key) : '');
+                      ?>
+                  <li class="<?= $itemClass ?>">
                     <span class="identity-label"><?= $view->e($item['label']) ?></span>
                     <span class="identity-value-wrap">
                       <?php if (! empty($item['href'])) { ?>
@@ -22,7 +25,7 @@
                 <?php if (! empty($badge) || ! empty($verifiedLabel) || ! empty($factsPeek)) { ?>
                 <div class="identity-foot">
                   <?= $badge ?? '' ?>
-                  <?php if (! empty($verifiedLabel) && empty($badge)) { ?>
+                  <?php if (! empty($verifiedLabel)) { ?>
                   <p class="identity-verified"><?= $view->e($verifiedLabel) ?></p>
                   <?php } ?>
                   <p class="identity-sources"><a href="#provenance">Sources &amp; verification</a></p>
