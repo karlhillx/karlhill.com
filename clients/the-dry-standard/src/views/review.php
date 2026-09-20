@@ -29,14 +29,11 @@
               </section>
               <?php } ?>
             </div>
-            <?php
-              $sectionNav = $view->render('partials/review-section-nav', [
-                  'pageUrl' => $pageUrl,
-                  'hasServe' => $hasServe ?? false,
-                  'compareHref' => $compareHref ?? '',
-              ]);
-echo $sectionNav;
-?>
+            <?= $sectionNav = $view->render('partials/review-section-nav', [
+                'pageUrl' => $pageUrl,
+                'hasServe' => $hasServe ?? false,
+                'compareHref' => $compareHref ?? '',
+            ]) ?>
           </div>
         </div>
       </header>
@@ -85,10 +82,10 @@ echo $sectionNav;
       <section class="section section--paper">
         <div class="shell stack">
           <?= $view->render('partials/section-head', [
-  'kicker' => 'Keep tasting',
-  'title' => $relatedHeading ?? 'More from the cellar',
-  'href' => $relatedHref ?? $reviewsUrl,
-  'linkLabel' => $relatedLinkLabel ?? 'All reviews',
+              'kicker' => 'Keep tasting',
+              'title' => $relatedHeading ?? 'More from the cellar',
+              'href' => $relatedHref ?? $reviewsUrl,
+              'linkLabel' => $relatedLinkLabel ?? 'All reviews',
           ]) ?>
           <div class="card-grid"><?= $related ?></div>
         </div>
