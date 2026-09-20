@@ -9,8 +9,8 @@ subcategory: 'sparkling apple juice'
 country: France
 region: "Normandy (Pays d'Auge)"
 style: 'Non-alcoholic sparkling apple juice from cider apples'
-abv: 0.0%
-abv_numeric: 0.0
+abv: '0.0%'
+abv_numeric: 0
 production_type: alternative
 verified: 'yes'
 production_note: "Pressed apple juice from cider varieties with carbon dioxide added — never fermented, so there is no alcohol to remove. Distinct from Bordelet's alcoholic ciders."
@@ -45,6 +45,11 @@ finish: 'long and clean, the apple skin bitterness lingering pleasantly. Twelve 
 best_for: 'Cheese, charcuterie, Norman terrines — or simply as the best thing in the fridge on a hot day.'
 serve: 'Well chilled, in a wine glass.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0055 (Resolved)"
+    url: "https://eaux-vins-mille-saveurs.fr/catalog.pdf"
+    claims:
+      - abv
   -
     title: 'Perlant | Non-Alcoholic Cider — Delmosa'
     url: 'https://delmosa.com/products/eric-bordelet-perlant'

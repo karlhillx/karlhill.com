@@ -12,6 +12,7 @@ region: Mosel
 style: 'Dealcoholized Mosel Riesling'
 abv: '<0.5%'
 abv_numeric: 0.5
+production_note: 'Low-temperature evaporation is documented; vacuum evaporation/distillation not confirmed. Technique detail remains thin.'
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Low-temperature evaporation — likely vacuum distillation (gently heated to a maximum of 27°C so the alcohol evaporates; equipment not named)'

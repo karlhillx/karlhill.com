@@ -9,11 +9,11 @@ subcategory: white
 country: 'United States'
 region: California
 style: 'Dealcoholized California white wine'
-abv: '<0.5%'
+abv: '0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
-verified: 'yes'
-dealcoholization_method: "Very low-temperature spinning cone column vacuum distillation (retailer quotes the producer's method)"
+verified: yes
+dealcoholization_method: 'Very-low-temperature spinning-cone-column vacuum distillation (producer tech sheet)'
 base_beverage: 'Traditionally made California white wine blend, dealcoholized after fermentation'
 producer: 'Sea Monster (California)'
 volume: '750 ml'
@@ -40,6 +40,13 @@ finish: 'crisp and citric. A spinning-cone California white at a Binny''s-friend
 best_for: 'Everyday white-wine occasions, the value pick in the dealcoholized category.'
 serve: 'Well chilled.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0076 (Resolved)"
+    url: "https://winehooligans.com/wp-content/uploads/brand-assets/2025/01/Sea-Monster_Tidal-Wave-White_Tech-Sheet_R-4.pdf"
+    claims:
+      - abv
+      - method
+      - production_type
   -
     title: 'Sea Monster Tidal Wave White — InternetWines.com'
     url: 'https://internetwines.com/products/sea-monster-white-wine-non-alcoholic'
@@ -120,6 +127,8 @@ provenance:
     kind: retailer
     confidence: secondary
     url: 'https://www.plummarket.com/store/sea-monster-tidal-wave-white-alcohol-removed-white-wine-0.html'
+production_note: 'Wine Hooligans / Sea Monster tech sheet: spinning-cone-column vacuum distillation at very low temperature. ABV 0.5%.'
+
 ---
 
 Sea Monster Tidal Wave White is dealcoholized from California, United States. The base is Traditionally made California white wine blend, dealcoholized after fermentation. Very low-temperature spinning cone column vacuum distillation (retailer quotes the producer's method).

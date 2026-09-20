@@ -27,6 +27,6 @@
                   <?php } ?>
                 </ul>
                 <?php } ?>
-                <p class="identity-sources"><a href="#provenance">Sources</a></p>
+                <p class="identity-sources"><a href="<?= $view->e(($pageUrl ?? '').'#provenance') ?>">Sources</a></p>
               </div>
               <?php } ?>

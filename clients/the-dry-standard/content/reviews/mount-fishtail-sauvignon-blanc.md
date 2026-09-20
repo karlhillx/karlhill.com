@@ -44,6 +44,11 @@ best_for: 'Seafood, salads, and the Sauvignon Blanc drinker who wants Marlboroug
 serve: 'Well chilled.'
 sources:
   -
+    title: "Outreach research note \u2014 TDS-0078 (Partially resolved)"
+    url: "https://www.totalwine.com/theme/non-sp-45-sp-alcoholic-sauvignon-blanc"
+    claims:
+      - abv
+  -
     title: 'Mount Fishtail Wines — Marlborough, New Zealand'
     url: 'https://mountfishtailwines.co.nz/'
     claims:

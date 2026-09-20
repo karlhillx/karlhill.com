@@ -4,8 +4,7 @@ slug: savyll-moscow-mule
 id: TDS-0013
 brand: Savyll
 product: 'Non-Alcoholic Moscow Mule'
-abv: Undeclared
-abv_qualifier: unpublished
+abv: '<0.3%'
 category: cocktails
 subcategory: RTD
 style: 'Formulated Moscow Mule'
@@ -38,6 +37,11 @@ finish: 'Short ginger heat. More soda than cocktail.'
 best_for: 'The can you open instead of mixing.'
 serve: 'Iced, copper mug if you must.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0013 (Partially resolved)"
+    url: "https://savyll.com/en-gb/pages/for-business-category-hotels-and-clubs"
+    claims:
+      - abv
   -
     title: 'Total Wine & More'
     url: 'https://www.totalwine.com/'
@@ -78,6 +82,8 @@ provenance:
     kind: retailer
     confidence: secondary
     url: 'https://www.totalwine.com/'
+abv_numeric: 0.3
+
 ---
 
 Savyll Moscow Mule is a formulated RTD — ginger, lime, and fizz — not a vodka that was later dealcoholized. Total Wine’s product page lists no ABV, so strength stays not published.

@@ -9,7 +9,7 @@ category: wine
 subcategory: 'sparkling white'
 country: Germany
 style: 'De-alcoholised German sparkling white'
-abv: '<0.5%'
+abv: '0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
 method_facet: unpublished

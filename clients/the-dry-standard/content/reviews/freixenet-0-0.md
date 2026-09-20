@@ -10,7 +10,7 @@ subcategory: sparkling
 country: Spain
 region: Penedès
 style: 'Alcohol-removed sparkling white'
-abv: '<0.5%'
+abv: '<0.05%'
 abv_numeric: 0.05
 production_type: dealcoholized
 verified: 'yes'
@@ -49,6 +49,11 @@ image_credit: Editorial still
 image_source: editorial
 image_sku_confirmed: 'yes'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0072 (Partially resolved)"
+    url: "https://freixenet.com/uk/product/alcohol-free-sparkling-white"
+    claims:
+      - abv
   -
     title: 'Freixenet Global — 0,0 Sparkling White product page'
     url: 'https://freixenet.com/product/alcohol-free-sparkling-white'

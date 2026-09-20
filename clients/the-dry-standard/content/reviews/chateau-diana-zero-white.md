@@ -10,8 +10,8 @@ subcategory: 'white blend'
 country: 'United States'
 region: California
 style: 'Alcohol-removed California white blend'
-abv: 0.0%
-abv_numeric: 0.0
+abv: '0.5%'
+abv_numeric: 0.5
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Alcohol removed from conventionally vinified California white blend'
@@ -44,6 +44,11 @@ finish: 'clean and gentle. A 0.0% California white blend at 80 calories from a f
 best_for: 'The everyday California white drinker at zero proof, the widely-available bottle.'
 serve: 'Well chilled.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0083 (Partially resolved)"
+    url: "https://www.walmart.com/ip/9382754147"
+    claims:
+      - abv
   -
     title: 'Chateau Diana White Blend Non-Alcoholic Wine — NonAlcoholicWines.com'
     url: 'https://nonalcoholicwines.com/products/chateau-diana-white-blend-non-alcoholic-wine'

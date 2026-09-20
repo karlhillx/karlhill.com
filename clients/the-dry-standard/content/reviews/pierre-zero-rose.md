@@ -11,8 +11,8 @@ style: 'Dealcoholized French rosé'
 abv: '<0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
-verified: 'yes'
-dealcoholization_method: 'Alcohol removed from a traditionally vinified French rosé (producer markets the range as dealcoholized wine since 2010; the specific technique is not detailed publicly)'
+verified: yes
+dealcoholization_method: 'Low-temperature vacuum distillation (producer)'
 base_beverage: 'Traditionally vinified French rosé (Chavin estate range), dealcoholized after fermentation'
 producer: 'Maison Chavin (France)'
 volume: '3 litres (bag-in-box)'
@@ -42,6 +42,13 @@ image_credit: 'Product photo via Maison Chavin'
 image_source: editorial
 image_sku_confirmed: 'yes'
 sources:
+  -
+    title: 'Outreach research note — TDS-0049 (Resolved)'
+    url: 'https://shop.pierre-chavin.com/fr/roses-sans-alcool/126-pierre-zero-bib-rose-sans-alcool.html'
+    claims:
+      - abv
+      - method
+      - production_type
   -
     title: 'Pierre Zéro non-alcoholic collection — Maison Chavin'
     url: 'https://www.pierre-chavin.com/en/the-non-alcoholic-collection/pierre-zero/'
@@ -122,6 +129,8 @@ sensory:
     descriptor: blossom
     locations:
       - palate
+production_note: 'Pierre Zéro Rosé: low-temperature vacuum distillation (producer shop).'
+
 ---
 
 Pierre Zéro Rosé (Bag-in-Box) is dealcoholized from France. The base is Traditionally vinified French rosé (Chavin estate range), dealcoholized after fermentation. Alcohol removed from a traditionally vinified French rosé (producer markets the range as dealcoholized wine since 2010; the specific technique is not detailed publicly).

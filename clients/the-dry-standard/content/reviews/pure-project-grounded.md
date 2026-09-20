@@ -45,6 +45,11 @@ best_for: 'The West Coast IPA drinker who wants the hop profile without the proo
 serve: 'Cold, from the can.'
 sources:
   -
+    title: "Outreach research note \u2014 TDS-0090 (Partially resolved)"
+    url: "https://www.vons.com/shop/pd/pure-project-grounded-n-ipa-cns-4-16-fz/971427254"
+    claims:
+      - abv
+  -
     title: 'Grounded — Pure Brewing'
     url: 'https://www.purebrewing.org/product/grounded/'
     claims:

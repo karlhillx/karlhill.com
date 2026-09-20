@@ -12,8 +12,8 @@ abv: '<0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
 method_facet: unpublished
-verified: 'yes'
-production_note: "Paste Magazine's brewery-briefed review describes Best Day's beers as 'traditionally produced non-alcoholic beers, with alcohol \"gently removed\" post fermentation, leaving less than .5% ABV in the final product'; the specific named removal technology is not published."
+verified: yes
+production_note: 'Best Day: full-strength brew then proprietary low-temperature alcohol removal; reporting says not vacuum distillation. Exact technology undisclosed.'
 producer: 'Best Day Brewing (US craft brewery, founded 2019)'
 price: '$10.99 per 6-pack of 12 fl oz cans (Target)'
 availability: 'US retail including Target, and direct from bestdaybrewing.com'
@@ -41,6 +41,13 @@ finish: 'Long and clean for an NA craft beer — the dryness carries the close.'
 best_for: "The bottle-of-something that should be in every US craft shop's NA door, especially for Kölsch drinkers."
 serve: 'Cold, in a Kölsch stange (the 0.2L glass) if you have one; a pint glass works too.'
 sources:
+  -
+    title: 'Outreach research note — TDS-0035 (Partially resolved)'
+    url: 'https://bestdaybrewing.com/'
+    claims:
+      - abv
+      - method
+      - production_type
   -
     title: 'Kölsch 6-pack — Best Day Brewing'
     url: 'https://bestdaybrewing.com/products/kolsch-6-pack'
@@ -112,6 +119,8 @@ sensory:
     descriptor: green_apple
     locations:
       - palate
+dealcoholization_method: 'Proprietary low-temperature alcohol removal after full-strength brewing (not vacuum; exact tech undisclosed)'
+
 ---
 
 Best Day Brewing Kölsch is dealcoholized from United States. Paste Magazine's brewery-briefed review describes Best Day's beers as 'traditionally produced non-alcoholic beers, with alcohol "gently removed" post fermentation, leaving less than .5% ABV in the final product'; the specific named removal technology is not published.

@@ -6,7 +6,6 @@ brand: 'Band of Vintners'
 product: 'Freestyle NA California'
 abv: '<0.5%'
 abv_numeric: 0.5
-abv_qualifier: less_than
 category: wine
 subcategory: skin-contact
 country: 'United States'

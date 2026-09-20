@@ -10,8 +10,8 @@ subcategory: 'sauvignon blanc'
 country: Chile
 region: 'Central Valley'
 style: 'Dealcoholized Sauvignon Blanc'
-abv: 0.0%
-abv_numeric: 0.0
+abv: '0.0%'
+abv_numeric: 0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Fermented 16 days, then the finished wine undergoes a dealcoholization process (technique not named)'

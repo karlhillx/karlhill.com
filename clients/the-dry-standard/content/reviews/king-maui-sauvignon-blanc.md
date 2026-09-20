@@ -43,6 +43,11 @@ image_source: editorial
 image_sku_confirmed: 'yes'
 sources:
   -
+    title: "Outreach research note \u2014 TDS-0056 (Partially resolved)"
+    url: "https://www.totalwine.com/discover/non-alcoholic"
+    claims:
+      - abv
+  -
     title: 'King Maui 0% Non-Alcoholic Marlborough Sauvignon Blanc — RoomBox'
     url: 'https://www.orderroombox.com/product/king-maui-0-non-alcoholic-marlborough-sauvignon-blanc/'
     claims:

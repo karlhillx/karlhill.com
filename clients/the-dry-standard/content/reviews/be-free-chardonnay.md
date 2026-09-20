@@ -9,7 +9,7 @@ category: wine
 subcategory: chardonnay
 country: Germany
 style: 'De-alcoholised German Chardonnay'
-abv: '<0.5%'
+abv: '0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
 method_facet: unpublished
@@ -40,6 +40,11 @@ finish: 'easy and short, sweetness carrying the close. The quiet workhorse of th
 best_for: "The first glass of the evening, mild cheeses, people who don't want their NA wine to taste like a dare."
 serve: 'Chilled, in an everyday white-wine glass.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0006 (Partially resolved)"
+    url: "https://www.schuttelaarwijnen.nl/be-free-chardonnay-alcohol-vrij"
+    claims:
+      - abv
   -
     title: 'Be Free Dealcoholized Chardonnay — Vivino'
     url: 'https://www.vivino.com/en/be-free-dealcoholized-chardonnay/w/6454591'

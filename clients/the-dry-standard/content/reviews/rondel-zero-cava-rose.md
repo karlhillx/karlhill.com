@@ -21,7 +21,7 @@ image_alt: 'Rondel Zero Cava Rosé'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 80
 verdict: 'Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Named technique undeclared.'
 summary: 'Rondel Zero is a Spanish dealcoholized sparkling rosé at 0.0% ABV per specialist product data. Fine bubbles, red fruit; named removal technology undeclared.'
@@ -40,6 +40,11 @@ finish: 'Crisp, a little sweet, short.'
 best_for: 'A cheap toast. The bottle people actually finish.'
 serve: 'Well chilled, flute.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0024 (Partially resolved)"
+    url: "https://www.totalwine.com/theme/rose-non-sp-45-sp-alcoholic-wine"
+    claims:
+      - abv
   -
     title: 'Zero Sparkling Cava Rosé — NeoVina'
     url: 'https://www.neovina.com/en/wines/rondel-zero-sparkling-cava-rose'

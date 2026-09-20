@@ -10,8 +10,8 @@ subcategory: rosé
 country: 'United States'
 region: California
 style: 'Alcohol-removed California rosé'
-abv: 0.0%
-abv_numeric: 0.0
+abv: '0.5%'
+abv_numeric: 0.5
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Alcohol removed from conventionally vinified California rosé'
@@ -41,6 +41,11 @@ finish: 'clean and brief. The rosé sibling of the Zero White — ripe strawberr
 best_for: 'Everyday rosé at zero proof, the bottle that goes in the cooler.'
 serve: 'Well chilled.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0084 (Partially resolved)"
+    url: "https://business.walmart.com/ip/Chateau-Diana-Zero-Alcohol-Rose-6-Pack/9397402473"
+    claims:
+      - abv
   -
     title: 'Chateau Diana Rosé Non-Alcoholic Wine — NonAlcoholicWines.com'
     url: 'https://nonalcoholicwines.com/products/chateau-diana-rose-non-alcoholic-wine'

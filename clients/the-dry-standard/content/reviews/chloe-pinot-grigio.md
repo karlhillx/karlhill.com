@@ -4,7 +4,7 @@ slug: chloe-pinot-grigio
 id: TDS-0082
 brand: 'Chloe Wine Collection'
 product: 'Alcohol-Removed Pinot Grigio'
-abv: 0.5%
+abv: '<0.5%'
 abv_numeric: 0.5
 category: wine
 subcategory: 'pinot grigio'
@@ -22,7 +22,7 @@ calories: '25 kcal per 5 fl oz (producer average analysis)'
 sugar: '2 g sugars per 5 fl oz (producer average analysis)'
 availability: 'US retail including Total Wine, Meijer, and Publix'
 review_date: '2026-09-18'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 75
 verdict: "The zero-proof version of Chloe's approachable Pinot Grigio — light, citrusy, and priced for the everyday shelf."
 summary: "Chloe's Alcohol-Removed Pinot Grigio is a dealcoholized California white: light citrus and green apple. Commercial listings put ABV at 0.5%; Chloe's page confirms alcohol-removed without a number."

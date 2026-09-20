@@ -61,6 +61,7 @@ trait RendersReview
             'identity' => $this->view->render('partials/identity', [
                 'factsPeek' => $this->factsPeek($review),
                 'badge' => $badge,
+                'pageUrl' => $this->config->publicUrl($review->path()),
             ]),
             'score' => $this->view->render('partials/score-badge', [
                 'rating' => $review->rating,
@@ -69,6 +70,7 @@ trait RendersReview
                 'methodologyUrl' => $methodologyUrl,
             ]),
             'statusLabel' => $review->productionTypeLabel(),
+            'verifiedLabel' => $review->verifiedLabel(),
             'disclosureStanceLabel' => $review->disclosureLabel(),
             'methodBlock' => $this->methodBlock($review),
             'discrepancies' => $this->discrepancies($review),
@@ -196,7 +198,8 @@ trait RendersReview
     }
 
     /**
-     * Consumer scan strip: ABV, then Method. Style/origin/disclosure live elsewhere.
+     * Consumer scan strip, ranked by importance:
+     * ABV → Method → Disclosure → Style → Origin.
      *
      * @return array<int, array{key: string, label: string, value: string, href?: string, pill?: bool, tone?: string}>
      */
@@ -213,6 +216,43 @@ trait RendersReview
         }
 
         $peek[] = $this->methodPeekItem($review);
+
+        $peek[] = [
+            'key' => 'disclosure',
+            'label' => 'Disclosure',
+            'value' => $review->disclosureLabel(),
+            'pill' => true,
+            'tone' => match ($review->disclosureStance()) {
+                'documented' => 'dealcoholized',
+                'withheld' => 'no',
+                default => 'not-verified',
+            },
+        ];
+
+        if ($review->hasComparableStyle()) {
+            $peek[] = [
+                'key' => 'style',
+                'label' => 'Style',
+                'value' => $review->styleLabel(),
+                'href' => $this->config->publicUrl('styles/'.$review->styleSlug().'/'),
+            ];
+        } elseif ($review->style) {
+            $peek[] = [
+                'key' => 'style',
+                'label' => 'Style',
+                'value' => $review->style,
+            ];
+        }
+
+        $country = $review->countryLabel();
+        if ($country !== null && $country !== '') {
+            $peek[] = [
+                'key' => 'origin',
+                'label' => 'Origin',
+                'value' => $country,
+                'href' => $this->config->publicUrl('reviews/').'?country='.$review->countrySlug(),
+            ];
+        }
 
         return $peek;
     }

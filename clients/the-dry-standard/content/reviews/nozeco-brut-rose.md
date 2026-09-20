@@ -9,8 +9,8 @@ category: wine
 subcategory: 'sparkling rosé'
 country: France
 style: 'Dealcoholized sparkling rosé'
-abv: '<0.5%'
-abv_numeric: 0.5
+abv: '0.0%'
+abv_numeric: 0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Made from alcohol-removed wine using a state-of-the-art process (producer product sheet)'
@@ -45,6 +45,11 @@ image_credit: 'Product photo via RoomBox'
 image_source: editorial
 image_sku_confirmed: 'yes'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0059 (Partially resolved)"
+    url: "https://www.vinazowines.com/products/nozeco-alcohol-free-brut-rose"
+    claims:
+      - abv
   -
     title: 'PRODUCT SHEET ROSÉ — Nozeco'
     url: 'https://www.nozeco.buzz/page3.html'

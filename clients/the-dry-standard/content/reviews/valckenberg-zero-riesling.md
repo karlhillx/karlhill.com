@@ -10,12 +10,12 @@ subcategory: riesling
 country: Germany
 region: Mosel
 style: 'Dealcoholized German Riesling'
-abv: 0.0%
-abv_numeric: 0.0
+abv: '0.0%'
+abv_numeric: 0
 production_type: dealcoholized
-verified: 'yes'
+verified: yes
 method_facet: unpublished
-dealcoholization_method: 'Alcohol removed from conventionally vinified Riesling (producer describes the Zero line as non-alcoholic without specifying the technique)'
+dealcoholization_method: 'Vacuum distillation (producer)'
 base_beverage: 'Riesling from Mosel steep-slope vineyards, vinified conventionally before alcohol removal'
 producer: 'P.J. Valckenberg (Germany)'
 volume: '750 ml'
@@ -45,6 +45,13 @@ likeness: 'More convincing on aroma and acid than on mid-palate weight — class
 best_for: 'Sushi, light fish, Mediterranean vegetables — the Riesling pairings.'
 serve: 'Well chilled.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0064 (Resolved)"
+    url: "https://www.valckenberg.com/en/portfolio/wein/2890-zero-riesling-v17/pdf"
+    claims:
+      - abv
+      - method
+      - production_type
   -
     title: 'Zero Riesling 0.0 — P.J. Valckenberg | VINELLO'
     url: 'https://www.vinello.de/en/zero-riesling-00-pj-valckenberg'
@@ -139,6 +146,8 @@ provenance:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+production_note: 'Producer PDF: vacuum distillation; ABV 0.0%.'
+
 ---
 
 Valckenberg Zero Riesling is Mosel fruit put through a conventional vinification, then dealcoholized to 0.0%. The base is steep-slope Riesling; the Zero line confirms removal without naming the industrial kit. That keeps the method facet honest: technique undeclared technology, sourced production type.

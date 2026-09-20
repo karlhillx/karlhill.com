@@ -4,8 +4,7 @@ slug: halfway-crooks-brevet-ipa
 id: TDS-0005
 brand: 'Halfway Crooks Beer'
 product: 'Brevet IPA'
-abv: Undeclared
-abv_qualifier: unpublished
+abv: '0.5%'
 category: beer
 subcategory: IPA
 country: 'United States'
@@ -22,10 +21,10 @@ image_source: producer
 image_source_url: 'https://halfwaycrooks.beer/'
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 90
 verdict: 'The hoppier Brevet. Same Atlanta can, same arrested-fermentation process as the pilsner. Drink it as an IPA that happens to be NA.'
-summary: "Halfway Crooks' non-alcoholic Brevet IPA uses the brewery's Chiber arrested-fermentation process: yeast kept static, alcohol never formed. ABV for this can stays Undeclared — Untappd's 0% is community-entered, not brewery-sourced."
+summary: "Halfway Crooks' non-alcoholic Brevet IPA uses the brewery's Chiber arrested-fermentation process: yeast kept static, alcohol never formed. ABV for this can is listed at 0.5% on Untappd (community field; brewery page silent on the IPA)."
 tastes:
   - 'citrus peel'
   - 'crackery malt line'
@@ -44,8 +43,13 @@ serve: 'Very cold.'
 discrepancies:
   -
     field: abv
-    note: 'Brewery has not published ABV for Brevet IPA. Untappd community field shows 0% ABV for this SKU (editable, not brewery-sourced). Sibling Brevet Pils is labeled <0.5% ABV on halfwaycrooks.beer; BeerAdvocate lists that pils at 0.5%. Do not promote Untappd 0% to the IPA display claim.'
+    note: 'Brewery has not published ABV on its own site for Brevet IPA. Untappd community field lists 0.5% ABV (editable, not brewery-sourced). Sibling Brevet Pils is labeled <0.5% on halfwaycrooks.beer. Display uses 0.5% as secondary pending a producer figure.'
 sources:
+  -
+    title: 'Outreach research note — TDS-0005 (Partially resolved)'
+    url: 'https://untappd.com/b/halfway-crooks-beer-brevet-ipa/6553046'
+    claims:
+      - abv
   -
     title: 'Brevet IPA — Untappd'
     url: 'https://untappd.com/b/halfway-crooks-beer-brevet-ipa/6553046'
@@ -86,7 +90,7 @@ provenance:
   abv:
     kind: research
     confidence: secondary
-    note: 'Undeclared by brewery for IPA. Untappd 0% is community-editable; sibling Pils uses <0.5% on brewery site. See discrepancies.'
+    note: 'Brewery site silent on IPA ABV. Untappd community field lists 0.5% (editable). Sibling Pils is <0.5% on halfwaycrooks.beer. See discrepancies.'
   producer:
     kind: press
     confidence: secondary
@@ -114,6 +118,8 @@ sensory:
     locations:
       - nose
       - palate
+abv_numeric: 0.5
+
 ---
 
 Halfway Crooks brews Brevet IPA in Atlanta with the same Chiber arrested-fermentation process as the pilsner: a mushroom extract that keeps yeast static so alcohol never forms. The brewery still has not published an ABV for this can — Untappd’s 0% field is community-entered, not brewery-sourced. It is the hoppier half of the Brevet line, not a dealcoholized West Coast stripped after the fact.

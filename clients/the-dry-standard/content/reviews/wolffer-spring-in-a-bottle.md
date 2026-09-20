@@ -10,12 +10,12 @@ subcategory: 'sparkling rosé'
 country: Germany
 region: Rheinhessen
 style: 'Alcohol-removed sparkling rosé'
-abv: 0.0%
-abv_numeric: 0.0
+abv: '<0.5%'
+abv_numeric: 0.5
 production_type: dealcoholized
 method_facet: unpublished
-verified: 'yes'
-production_note: "Made from a real fermented wine base — a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — produced in partnership with a winery in Rheinhessen, Germany, then dealcoholized; the specific named removal technology is not published."
+verified: yes
+production_note: 'Wölffer tech sheet: vacuum rectification at 77°F; aromatics blended back; CO₂ sparging. ABV <0.5%.'
 base_beverage: 'Organic Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder blend'
 producer: 'Wölffer Estate (Sagaponack, NY); produced in partnership with a winery in Rheinhessen, Germany'
 price: '$20.99 (Total Wine)'
@@ -49,6 +49,13 @@ discrepancies:
     field: origin
     note: "Total Wine's highlight copy says Germany; the brand is Wölffer Estate of New York. Resolved: Wölffer Estate is the Sagaponack, NY brand, which partnered with a winery in Rheinhessen, Germany to produce this wine — both are accurate, describing brand versus production origin."
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0025 (Resolved)"
+    url: "https://store.wolffer.com/assets/images/products/media/SpringinaBottleNonAlcoholicSparklingWineNV2021.pdf"
+    claims:
+      - abv
+      - method
+      - production_type
   -
     title: 'Wölffer Spring in a Bottle Alcohol Removed Rosé Sparkling — Total Wine'
     url: 'https://www.totalwine.com/wine/champagne-sparkling-wine/sparkling-wine/wolffer-spring-in-a-bottle-alcohol-removed-rose-sparkling/p/340565750'
@@ -137,6 +144,8 @@ provenance:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+dealcoholization_method: 'Vacuum rectification at 77°F with aromatics returned, then CO₂ sparging (producer tech sheet)'
+
 ---
 
 Wölffer Spring in a Bottle is dealcoholized from Rheinhessen, Germany. The base is Organic Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder blend. Made from a real fermented wine base — a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — produced in partnership with a winery in Rheinhessen, Germany, then dealcoholized; the specific named removal technology is not…

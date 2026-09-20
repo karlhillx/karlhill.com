@@ -9,8 +9,8 @@ category: wine
 subcategory: sparkling
 country: Germany
 style: 'Dealcoholized organic sparkling wine with meadow fruit infusion'
-abv: 0.0%
-abv_numeric: 0.0
+abv: '0.0%'
+abv_numeric: 0
 production_type: dealcoholized
 verified: 'yes'
 dealcoholization_method: 'Vacuum distillation of organic Sauvignon Blanc and Pinot Meunier base wines, then refined with meadow fruits, herbs and blossoms (producer)'
@@ -44,6 +44,11 @@ finish: 'Dry and long, the herbs and blossom notes lingering.'
 best_for: 'Anyone tired of NA sparkling that tastes like sweet apple juice — this reads as a serious aperitif.'
 serve: 'Well chilled, in a flute or wine glass.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0057 (Partially resolved)"
+    url: "https://handel.manufaktur-joerg-geiger.de/Gruppierung-Handel/Neulistung/"
+    claims:
+      - abv
   -
     title: 'ViSecco Pinot Meunier alcohol free — Manufaktur Jörg Geiger'
     url: 'https://handel.manufaktur-joerg-geiger.de/en/ViSecco-Pinot-Meunier-alcohol-free/A022343'

@@ -10,7 +10,7 @@ subcategory: rosé
 country: Germany
 region: Mosel
 style: 'De-alcoholised German rosé'
-abv: '<0.5%'
+abv: '0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
 method_facet: unpublished
@@ -43,6 +43,11 @@ finish: 'Short and clean; more refreshment than structure.'
 best_for: "Day drinking, picnics, the glass you pour at 4pm because it's 0.5%."
 serve: 'Well chilled.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0001 (Partially resolved)"
+    url: "https://www.deonlinedrogist.nl/drogist/be-free-rose-alcoholvrij-75ml.htm"
+    claims:
+      - abv
   -
     title: 'Be Free Rose — 0.5% Alkoholfri, Supervin (SE)'
     url: 'https://www.supervin.se/be-free-rose-0-5-alkoholfri'

@@ -12,8 +12,8 @@ style: 'Dealcoholized organic sparkling wine, Chardonnay/Colombard, two years on
 abv: '<0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
-verified: 'yes'
-dealcoholization_method: 'Organic Chardonnay and Colombard wine, bottle-fermented and matured on the lees for two years, then vacuum distilled (producer)'
+verified: yes
+dealcoholization_method: 'In-house vacuum distillation after bottle fermentation and lees aging (producer)'
 base_beverage: 'Organic Chardonnay and Colombard, conventionally vinified with secondary bottle fermentation and lees ageing before dealcoholization'
 producer: 'Manufaktur Jörg Geiger (Germany)'
 volume: '750 ml'
@@ -41,6 +41,12 @@ finish: 'long and toasty, the brioche note extending the finish. Two years on th
 best_for: "The dinner-party bottle, and the answer to anyone who says NA sparkling can't be serious."
 serve: 'Chilled, in a flute or white-wine glass.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0058 (Resolved)"
+    url: "https://gastro.manufaktur-joerg-geiger.de/en/worlds-of-taste/Blanc-de-Blancs/"
+    claims:
+      - method
+      - production_type
   -
     title: 'Blanc de Blanc — Delmosa'
     url: 'https://delmosa.com/products/blanc-de-blanc'
@@ -120,6 +126,8 @@ sensory:
     descriptor: bready
     locations:
       - palate
+production_note: 'Jörg Geiger: bottle fermentation and lees aging, then in-house vacuum distillation.'
+
 ---
 
 Blanc de Blanc Non-Alcoholic Sparkling Wine (Jörg Geiger) is dealcoholized from Germany. The base is Organic Chardonnay and Colombard, conventionally vinified with secondary bottle fermentation and lees ageing before dealcoholization. Organic Chardonnay and Colombard wine, bottle-fermented and matured on the lees for two years, then vacuum distilled (producer).

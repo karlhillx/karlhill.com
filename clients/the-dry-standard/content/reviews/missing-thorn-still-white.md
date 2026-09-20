@@ -45,6 +45,11 @@ best_for: 'Seafood, spicy food, and the Albariño drinker who wants the zero-pro
 serve: 'Well chilled.'
 sources:
   -
+    title: "Outreach research note \u2014 TDS-0067 (Partially resolved)"
+    url: "https://missingthorn.com/pages/faqs"
+    claims:
+      - abv
+  -
     title: 'Missing Thorn Non-Alcoholic Still White — The Zero Proof'
     url: 'https://thezeroproof.com/products/missing-thorn-alcohol-removed-still-white-wine'
     claims:

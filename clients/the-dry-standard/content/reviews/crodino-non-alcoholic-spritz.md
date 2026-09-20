@@ -8,8 +8,8 @@ category: cocktails
 subcategory: 'non-alcoholic aperitivo'
 country: Italy
 style: 'Non-alcoholic Italian bitter aperitivo'
-abv: 0.0%
-abv_numeric: 0.0
+abv: '0.0%'
+abv_numeric: 0
 production_type: alternative
 verified: 'yes'
 production_note: 'Crodino is formulated alcohol-free from the start (blends of botanical infusions and a non-alcoholic base), not made by removing alcohol from a once-alcoholic aperitivo.'
@@ -41,6 +41,11 @@ image_source: producer
 image_source_url: 'https://www.crodino.com/en-us/the-original/'
 image_sku_confirmed: 'yes'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0032 (Resolved)"
+    url: "https://www.ocado.com/products/crodino-non-alcoholic-spritz/656879011"
+    claims:
+      - abv
   -
     title: 'Crodino — the original non-alcoholic spritz (Crodino)'
     url: 'https://www.crodino.com/the-original/'

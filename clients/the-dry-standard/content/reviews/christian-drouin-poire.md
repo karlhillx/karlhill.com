@@ -9,8 +9,8 @@ subcategory: 'sparkling pear juice'
 country: France
 region: 'Normandy (Coudray-Rabut)'
 style: 'Non-alcoholic sparkling pear juice'
-abv: 0.0%
-abv_numeric: 0.0
+abv: '0.0%'
+abv_numeric: 0
 production_type: alternative
 verified: 'yes'
 production_note: 'This is pressed pear juice with carbonation, not a fermented pear cider with the alcohol removed — the producer markets it as non-alcoholic pear juice.'

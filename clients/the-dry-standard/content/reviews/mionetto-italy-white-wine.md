@@ -9,11 +9,11 @@ subcategory: 'sparkling white'
 country: Italy
 region: Veneto
 style: 'Alcohol-removed Italian sparkling white (Prosecco-based)'
-abv: '<0.5%'
+abv: '0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
-verified: 'yes'
-dealcoholization_method: 'Alcohol expertly extracted after traditional Prosecco-method winemaking (Freixenet Mionetto USA)'
+verified: yes
+dealcoholization_method: 'Vacuum technology (trade reporting)'
 base_beverage: 'Glera and a blend of other indigenous Italian grapes, made by traditional Prosecco methods'
 producer: 'Mionetto (founded 1887 in Valdobbiadene, Veneto); distributed in the US via Freixenet Mionetto USA'
 price: '$16.99 per 750 ml bottle (Mionetto USA shopmionetto.com)'
@@ -42,6 +42,13 @@ finish: 'Crisp and quick, a low-sugar finish that works as an aperitif.'
 best_for: 'Brunch-toast spritzes, the prosecco-glass ritual without the glass of prosecco.'
 serve: 'Chilled in a flute, no garnish needed.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0031 (Resolved)"
+    url: "https://www.gopuff.com/p/mionetto-alcohol-removed-sparkling-wine-750ml/p197395"
+    claims:
+      - abv
+      - method
+      - production_type
   -
     title: 'Mionetto 0.0% Alcohol Free — Mionetto (Italy)'
     url: 'https://it.mionetto.com/en/products/prestige-collection/0-0-alcohol-free'
@@ -116,6 +123,8 @@ provenance:
     kind: unknown
     confidence: secondary
     url: 'https://www.freixenetmionettousa.com/wines/mionetto-alcohol-removed-sparkling-wine/'
+production_note: 'Alcohol-removed Prosecco; vacuum technology per trade reporting. ABV 0.5%.'
+
 ---
 
 Mionetto Alcohol-Removed Sparkling Wine is dealcoholized from Veneto, Italy. The base is Glera and a blend of other indigenous Italian grapes, made by traditional Prosecco methods. Alcohol expertly extracted after traditional Prosecco-method winemaking (Freixenet Mionetto USA).

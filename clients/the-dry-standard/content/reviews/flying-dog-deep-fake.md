@@ -9,7 +9,7 @@ subcategory: IPA
 country: 'United States'
 region: 'Brand Frederick, MD; COLA plants Philadelphia PA (Yards, 2020) then Utica NY (F.X. Matt, 2023)'
 style: 'Non-alcoholic IPA'
-abv: '<0.5%'
+abv: '0.5%'
 abv_numeric: 0.5
 production_type: not-verified
 verified: 'no'
@@ -45,6 +45,11 @@ discrepancies:
     field: producer
     note: 'Brand is Flying Dog (Frederick, MD). TTB COLAs list applicants Yards Brewing Co., Philadelphia (2020) and F.X. Matt Brewing Co., Utica NY (2023). Contract arrangement inferred from applicant ≠ brand and 2020 “special agreement” label line. Method still Unclassified.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0088 (Partially resolved)"
+    url: "https://www.totalwine.com/theme/flying-dog-beer"
+    claims:
+      - abv
   -
     title: 'Deep Fake Non-Alcoholic IPA — Flying Dog Brewery'
     url: 'https://flyingdog.com/beers/deep-fake-non-alcoholic-ipa/'

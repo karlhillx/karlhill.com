@@ -5,9 +5,8 @@ id: TDS-0012
 ean: '0600226900407'
 brand: 'Almost Zero'
 product: 'Ravishing Rosé'
-abv: 0.33%
+abv: '0.33%'
 abv_numeric: 0.33
-abv_qualifier: exact
 category: wine
 subcategory: rosé
 country: 'South Africa'

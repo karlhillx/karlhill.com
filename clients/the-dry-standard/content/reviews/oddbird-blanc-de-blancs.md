@@ -10,11 +10,11 @@ subcategory: sparkling
 country: France
 region: Languedoc-Roussillon
 style: 'Dealcoholized sparkling white (oak-aged)'
-abv: '<0.5%'
-abv_numeric: 0.5
+abv: '0.0%'
+abv_numeric: 0
 production_type: dealcoholized
-verified: 'yes'
-dealcoholization_method: 'Vacuum distillation'
+verified: yes
+dealcoholization_method: 'Vacuum distillation after aging (producer)'
 base_beverage: 'Chardonnay and Colombard, fermented and aged as regular wine, then oak-aged 12 months before alcohol removal'
 producer: 'Oddbird International AB (Swedish company; wine made in Languedoc-Roussillon, France)'
 volume: '750 ml'
@@ -49,6 +49,13 @@ image_source: producer
 image_source_url: 'https://oddbird.com/products/blanc-de-blancs'
 image_sku_confirmed: 'yes'
 sources:
+  -
+    title: 'Outreach research note — TDS-0100 (Resolved)'
+    url: 'https://oddbird.com/'
+    claims:
+      - abv
+      - method
+      - production_type
   -
     title: "The Zero Proof — Oddbird's Blanc de Blancs Non-Alcoholic Sparkling Wine"
     url: 'https://thezeroproof.com/products/oddbird-blanc-de-blancs-sparkling-white-wine'
@@ -145,6 +152,8 @@ provenance:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
+production_note: 'Oddbird: vacuum distillation after up to 12 months aging. ABV 0.0%.'
+
 ---
 
 Oddbird Blanc de Blancs is dealcoholized from Languedoc-Roussillon, France. The base is Chardonnay and Colombard, fermented and aged as regular wine, then oak-aged 12 months before alcohol removal. Vacuum distillation.

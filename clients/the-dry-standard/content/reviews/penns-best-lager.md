@@ -9,7 +9,7 @@ subcategory: 'American lager'
 country: 'United States'
 region: 'Rochester, New York'
 style: 'Non-alcoholic American lager'
-abv: '<0.5%'
+abv: '0.5%'
 abv_numeric: 0.5
 production_type: not-verified
 verified: 'no'
@@ -47,6 +47,11 @@ discrepancies:
     field: producer
     note: 'TTB COLA 13218001000038 (2013) names High Falls / Fred Koch, Rochester NY. Aggregators often say Genesee; plausible as successor/operator but not established from that COLA alone. Pint Please / some Untappd paths list Pittsburgh Brewing — conflicts with COLA; treat as database error unless corroborated.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0085 (Partially resolved)"
+    url: "https://www.nonalcoholicbeerandwine.com/non-alcoholic-beers/products/genesee-brewing-penns-best"
+    claims:
+      - abv
   -
     title: 'TTB Public COLA Registry — Penn''s Best NA (13218001000038)'
     url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'

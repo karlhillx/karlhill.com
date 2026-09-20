@@ -10,7 +10,7 @@ subcategory: 'whiskey alternative'
 country: 'United States'
 region: Kentucky
 style: 'Reverse-distilled oak spirit'
-abv: '<0.5%'
+abv: '0.5%'
 abv_numeric: 0.5
 image: media/reviews/spiritless-kentucky-74.jpg
 image_alt: 'Spiritless Kentucky 74 bottle'
@@ -60,6 +60,11 @@ discrepancies:
     field: abv
     note: 'Spiritless and most US retail listings describe Kentucky 74 as 0.5% ABV or below. The brand has also published language that the bottled spirit is under 0.05% ABV.'
 sources:
+  -
+    title: 'Outreach research note — TDS-0092 (Resolved)'
+    url: 'https://wholesale.spiritless.com/pages/faq'
+    claims:
+      - abv
   -
     title: 'Spiritless — Distillation process'
     url: 'https://spiritless.com/pages/spiritless-distillation-process'

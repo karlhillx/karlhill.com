@@ -59,6 +59,9 @@
             <section class="callout" id="how-it-was-made">
               <h2>How was it made?</h2>
               <p class="callout-status"><?= $view->e($statusLabel) ?></p>
+              <?php if (! empty($verifiedLabel)) { ?>
+              <p class="callout-verified"><?= $view->e($verifiedLabel) ?></p>
+              <?php } ?>
               <?php if (! empty($disclosureStanceLabel)) { ?>
               <p class="callout-disclosure">Disclosure: <?= $view->e($disclosureStanceLabel) ?></p>
               <?php } ?>
@@ -98,8 +101,8 @@
         <div class="shell review-sticky-inner">
           <?= $score ?>
           <div class="review-sticky-actions">
-            <a href="#provenance">Sources</a>
-            <a href="#facts">Buy</a>
+            <a href="<?= $view->e(($pageUrl ?? '').'#provenance') ?>">Sources</a>
+            <a href="<?= $view->e(($pageUrl ?? '').'#facts') ?>">Buy</a>
             <?php if (! empty($compareHref)) { ?>
             <a href="<?= $view->e($compareHref) ?>">Compare</a>
             <?php } ?>

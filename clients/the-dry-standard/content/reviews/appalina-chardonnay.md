@@ -45,6 +45,11 @@ best_for: "Aperitif hour, seafood, the white you pour guests who ask what's actu
 serve: 'Well chilled, standard white-wine glass.'
 sources:
   -
+    title: "Outreach research note \u2014 TDS-0003 (Partially resolved)"
+    url: "https://www.rewe.de/shop/p/appalina-chardonnay-schaumwein-alkoholfrei-0-75l/7067029"
+    claims:
+      - abv
+  -
     title: 'Appalina — Weinkellerei Hechtsheim'
     url: 'https://weinkellerei-hxm.com/appalina/'
     claims:

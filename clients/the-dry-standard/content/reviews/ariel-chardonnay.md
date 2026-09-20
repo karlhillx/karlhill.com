@@ -7,7 +7,6 @@ brand: Ariel
 product: Chardonnay
 abv: '<0.5%'
 abv_numeric: 0.5
-abv_qualifier: less_than
 category: wine
 subcategory: chardonnay
 country: 'United States'
@@ -46,6 +45,11 @@ image_credit: 'Product photo via arielvineyards.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0086 (Partially resolved)"
+    url: "https://www.jlohr.com/arielvineyards"
+    claims:
+      - abv
   -
     title: 'Ariel Vineyards — producer'
     url: 'https://www.arielvineyards.com/'

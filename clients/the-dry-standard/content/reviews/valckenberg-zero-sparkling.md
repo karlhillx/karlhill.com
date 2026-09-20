@@ -9,8 +9,8 @@ category: wine
 subcategory: 'sparkling white'
 country: Germany
 style: 'Dealcoholized German sparkling wine'
-abv: 0.0%
-abv_numeric: 0.0
+abv: '0.0%'
+abv_numeric: 0
 production_type: dealcoholized
 verified: 'yes'
 method_facet: unpublished
@@ -23,7 +23,7 @@ image_alt: 'Valckenberg Cuvée Zero Sparkling bottle'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 78
 verdict: 'The sparkling sibling of the Zero Riesling — fine mousseux, elderberry and lemon, honest about being the casual sparkling option rather than the fine one.'
 summary: "Valckenberg's Cuvée Sparkling Zero is a dealcoholized German sparkling wine: elderberry and lemon, fine bubbles, 0.0% ABV."
@@ -44,6 +44,11 @@ likeness: 'Casual Zero-line sparkling, not a traditional-method argument — hon
 best_for: 'Casual sparkling occasions where the bottle matters more than the vintage.'
 serve: 'Well chilled.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0065 (Partially resolved)"
+    url: "https://www.valckenberg.com/en/portfolio/wein/1342-cuvee-sparkling-zero-va18/pdf"
+    claims:
+      - abv
   -
     title: 'Cuvée Zero alkoholfrei — P.J. Valckenberg | VINELLO'
     url: 'https://www.vinello.de/en/cuvee-zero-alkoholfrei-pj-valckenberg'

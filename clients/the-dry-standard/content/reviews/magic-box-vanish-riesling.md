@@ -9,8 +9,8 @@ category: wine
 subcategory: riesling
 country: Germany
 style: 'Dealcoholized German Riesling'
-abv: '<0.5%'
-abv_numeric: 0.5
+abv: '0.0%'
+abv_numeric: 0
 production_type: dealcoholized
 method_facet: unpublished
 verified: 'yes'
@@ -39,6 +39,11 @@ finish: 'clean and citric, the mineral note carrying the close. A Riesling-shape
 best_for: 'Weeknight drinking, Thai food, the Riesling drinker on a budget.'
 serve: Chilled.
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0002 (Partially resolved)"
+    url: "https://www.ubereats.com/product/b/18d17516-b655-532b-8465-c83cee24d009"
+    claims:
+      - abv
   -
     title: 'Magic Box Vanish Non-Alcoholic Riesling — RoomBox'
     url: 'https://www.orderroombox.com/product/magic-box-vanish-non-alcoholic-riesling/'

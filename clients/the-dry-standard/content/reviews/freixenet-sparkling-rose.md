@@ -9,7 +9,7 @@ category: wine
 subcategory: 'sparkling rosé'
 country: Spain
 style: 'Alcohol-removed sparkling rosé'
-abv: '<0.5%'
+abv: '<0.05%'
 abv_numeric: 0.05
 production_type: dealcoholized
 verified: 'yes'
@@ -45,6 +45,11 @@ finish: Short and candy-adjacent if it warms.
 best_for: 'A cheap toast, salad, the bottle you do not overthink.'
 serve: '6–8°C, flute.'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0011 (Partially resolved)"
+    url: "https://freixenet.com/uk/product/alcohol-free-sparkling-rose"
+    claims:
+      - abv
   -
     title: '0,0 Sparkling Rosé — Freixenet USA'
     url: 'https://freixenet.com/us/product/alcohol-removed-sparkling-rose'

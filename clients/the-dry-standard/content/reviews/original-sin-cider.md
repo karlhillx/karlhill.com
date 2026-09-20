@@ -8,8 +8,8 @@ category: cider
 subcategory: 'non-fermented NA cider'
 country: 'United States'
 style: 'Sparkling non-alcoholic apple-cider-vinegar-based cider'
-abv: 0.0%
-abv_numeric: 0.0
+abv: '0.0%'
+abv_numeric: 0
 production_type: alternative
 verified: 'yes'
 production_note: "Original Sin's NA ciders are made with apple cider vinegar and fruit juice, not from a dealcoholized alcoholic cider."
@@ -58,6 +58,11 @@ image_credit: 'Product photo via Original Sin Cider'
 image_source: editorial
 image_sku_confirmed: 'yes'
 sources:
+  -
+    title: "Outreach research note \u2014 TDS-0037 (Resolved)"
+    url: "https://shop.theopenbottle.com/products/original-sin-white-widow"
+    claims:
+      - abv
   -
     title: 'Widow Family 12-Pack — Original Sin Cider'
     url: 'https://www.originalsincider.com/na-ciders/widow-family-12-pack'
