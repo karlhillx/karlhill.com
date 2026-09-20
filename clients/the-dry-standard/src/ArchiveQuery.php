@@ -25,6 +25,8 @@ final class ArchiveQuery
      * @param  array<int, string>  $countries
      * @param  array<int, string>  $sweetness
      * @param  array<int, string>  $body
+     * @param  array<int, string>  $acidity
+     * @param  array<int, string>  $descriptors
      * @param  array<int, string>  $score
      * @param  array<int, string>  $wineColor
      */
@@ -39,6 +41,8 @@ final class ArchiveQuery
         public readonly array $countries = [],
         public readonly array $sweetness = [],
         public readonly array $body = [],
+        public readonly array $acidity = [],
+        public readonly array $descriptors = [],
         public readonly array $score = [],
         public readonly array $wineColor = [],
         public readonly string $sort = 'newest',
@@ -78,6 +82,8 @@ final class ArchiveQuery
             countries: self::list($query, 'country'),
             sweetness: self::list($query, 'sweetness'),
             body: self::list($query, 'body'),
+            acidity: self::list($query, 'acidity'),
+            descriptors: self::list($query, 'descriptor'),
             score: self::list($query, 'score'),
             wineColor: $lockedWineColor !== null ? [] : self::list($query, 'color'),
             sort: $sort,
@@ -125,6 +131,8 @@ final class ArchiveQuery
             && $this->matchesFacet($skip, 'country', $this->countries, $review->countrySlug())
             && $this->matchesFacet($skip, 'sweetness', $this->sweetness, (string) ($review->structureScaleInt('sweetness') ?? ''))
             && $this->matchesFacet($skip, 'body', $this->body, (string) ($review->structureScaleInt('body') ?? ''))
+            && $this->matchesFacet($skip, 'acidity', $this->acidity, (string) ($review->structureScaleInt('acidity') ?? ''))
+            && $this->matchesDescriptors($skip, $review)
             && $this->matchesFacet($skip, 'score', $this->score, $review->scoreBand())
             && $this->matchesFacet($skip, 'color', $this->wineColor, (string) ($review->wineColor() ?? ''));
     }
@@ -187,6 +195,8 @@ final class ArchiveQuery
             || $this->countries !== []
             || $this->sweetness !== []
             || $this->body !== []
+            || $this->acidity !== []
+            || $this->descriptors !== []
             || $this->score !== []
             || $this->wineColor !== []
             || $this->sort !== 'newest';
@@ -216,6 +226,8 @@ final class ArchiveQuery
             'country' => $this->countries,
             'sweetness' => $this->sweetness,
             'body' => $this->body,
+            'acidity' => $this->acidity,
+            'descriptor' => $this->descriptors,
             'score' => $this->score,
             'color' => $this->wineColor,
         ] as $key => $values) {
@@ -291,12 +303,29 @@ final class ArchiveQuery
         $legacy = [
             'cold-filtration' => 'membrane-filtration',
             'reverse-distillation' => 'other',
+            'unknown' => 'unpublished',
         ];
 
         return array_values(array_map(
             fn (string $value): string => $legacy[$value] ?? $value,
             self::list($query, 'method'),
         ));
+    }
+
+    private function matchesDescriptors(string $skip, Review $review): bool
+    {
+        if ($skip === 'descriptor' || $this->descriptors === []) {
+            return true;
+        }
+
+        $ids = $review->descriptorIds();
+        foreach ($this->descriptors as $wanted) {
+            if (in_array($wanted, $ids, true)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -382,6 +411,24 @@ final class ArchiveQuery
                 $key = 'body'.$index;
                 $ors[] = 'body_level = :'.$key;
                 $params[$key] = (string) (int) $value;
+            }
+            $clauses[] = '('.implode(' OR ', $ors).')';
+        }
+        if ($skip !== 'acidity' && $this->acidity !== []) {
+            $ors = [];
+            foreach (array_values($this->acidity) as $index => $value) {
+                $key = 'acid'.$index;
+                $ors[] = 'acidity_level = :'.$key;
+                $params[$key] = (string) (int) $value;
+            }
+            $clauses[] = '('.implode(' OR ', $ors).')';
+        }
+        if ($skip !== 'descriptor' && $this->descriptors !== []) {
+            $ors = [];
+            foreach (array_values($this->descriptors) as $index => $value) {
+                $key = 'desc'.$index;
+                $ors[] = "(',' || coalesce(descriptor_ids, '') || ',') LIKE '%,' || :{$key} || ',%'";
+                $params[$key] = $value;
             }
             $clauses[] = '('.implode(' OR ', $ors).')';
         }

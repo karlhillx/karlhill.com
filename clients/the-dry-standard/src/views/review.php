@@ -1,4 +1,4 @@
-    <article class="review" data-review>
+    <article class="review" data-review data-analytics-view="review_view" data-slug="<?= $view->e($pageUrl ?? '') ?>">
       <header class="page-header page-header--review">
         <div class="shell">
           <?= $breadcrumbs ?>

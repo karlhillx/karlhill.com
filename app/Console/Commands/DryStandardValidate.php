@@ -43,9 +43,13 @@ class DryStandardValidate extends Command
             $errors = $this->option('publish')
                 ? $workspace->validator()->errorsForPublish($candidate, $workspace->config(), $hashes)
                 : $workspace->validator()->errors($review, $workspace->config());
+            $warnings = $workspace->validator()->warnings($candidate);
 
             if ($errors === []) {
                 $this->info("OK  {$review->slug}");
+                foreach ($warnings as $warning) {
+                    $this->warn('  ~ '.$warning);
+                }
 
                 continue;
             }
@@ -54,6 +58,9 @@ class DryStandardValidate extends Command
             $this->error("FAIL  {$review->slug}");
             foreach ($errors as $error) {
                 $this->line('  - '.$error);
+            }
+            foreach ($warnings as $warning) {
+                $this->warn('  ~ '.$warning);
             }
         }
 

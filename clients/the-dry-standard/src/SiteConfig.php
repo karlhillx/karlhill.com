@@ -196,14 +196,6 @@ final class SiteConfig
      */
     public function allowedStatuses(): array
     {
-        return [
-            'queued',
-            'researching',
-            'draft',
-            'validated',
-            'scheduled',
-            'published',
-            'needs-review',
-        ];
+        return Registry::WORKFLOW_STATUSES;
     }
 }

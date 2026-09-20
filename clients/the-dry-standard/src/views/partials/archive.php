@@ -1,6 +1,6 @@
       <div class="shell archive-layout<?= $compact ?? '' ?>" data-archive<?= $locked ?>>
         <div class="filter-backdrop" data-filter-backdrop hidden inert></div>
-        <form class="archive-sidebar" id="archive-filters" role="search" method="get" data-archive-filters>
+        <form class="archive-sidebar" id="archive-filters" role="search" method="get" data-archive-filters data-analytics-filters>
           <div class="archive-sidebar-head">
             <p class="facet-legend">Filters</p>
             <button class="filter-close" type="button" data-filter-close>Close</button>

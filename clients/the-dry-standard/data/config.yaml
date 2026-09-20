@@ -44,6 +44,9 @@ methods:
   membrane-filtration: Membrane / cold filtration
   osmotic-distillation: Osmotic distillation
   arrested-fermentation: Arrested fermentation
+  unpublished: Method unpublished
+  other: Other documented method
+  not-applicable: Formulated (no removal)
 
 rating:
   scale: 100

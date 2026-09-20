@@ -61,6 +61,22 @@ Retailers, shelf prices, store SKUs, and unrelated businesses stay out of the es
 
 The essay is a **Quick review: 1,200–2,000 characters** (markdown body only, excluding frontmatter). More detail than a 50-word wine note; shorter than a feature. Short paragraphs. No filler.
 
+Soft length targets (characters; validator warns, does not block):
+
+| Field | Range |
+| --- | --- |
+| Verdict | 150–300 |
+| Nose | 100–250 |
+| Palate | 200–400 |
+| Finish | 100–250 |
+| Full review (prose sections + essay) | ~2,500–3,500 |
+
+Do not invent ABV, method, ingredients, or tasting notes. Do not upgrade inferred provenance to verified. Do not overwrite human tasting notes with model guesses. Leave `assessments` empty unless the editor scored them.
+
+Workflow statuses (aliases normalize at runtime): `draft` → `researched` / `tasted` / `reviewed` → `approved` / `validated` → `published`. Publish only after `php artisan dry-standard:validate {slug} --publish`.
+
+ABV display labels are only `0.0%`, `<0.5%`, or `Not published`. Keep precise values in `abv_numeric`. Descriptor chips use ids from `descriptors.yaml` / aliases in `descriptor-aliases.yaml` — prose stays free.
+
 Cover aroma, palate, mouthfeel, finish, balance, structural authenticity, and production provenance in prose. Do not rehash UPC, ABV disputes, g/L sugar, method temperatures, or ingredient lists already covered by identity, How it was made, At a glance, Product facts, or `discrepancies`. Do not paste `nose` / `palate` / `finish` line for line.
 
 Shape: provenance beat → glass (aroma → palate / mouthfeel / balance → finish) → likeness / structure argument.

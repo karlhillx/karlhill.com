@@ -115,7 +115,7 @@ it('keeps naturally low alcohol separate from alternative', function () {
         ->and($review->productionTypeShortLabel())->toBe('Naturally low alcohol');
 });
 
-it('classifies named dealcoholization methods and leaves generic removal unknown', function () {
+it('classifies named dealcoholization methods and leaves generic removal unpublished', function () {
     expect(dryStandardReview([
         'dealcoholization_method' => 'Three-stage vacuum dealcoholization at low temperature',
     ])->methodFacetKey())->toBe('vacuum-distillation');
@@ -134,11 +134,11 @@ it('classifies named dealcoholization methods and leaves generic removal unknown
 
     expect(dryStandardReview([
         'dealcoholization_method' => 'Alcohol removed from conventionally vinified Chardonnay',
-    ])->methodFacetKey())->toBe('unknown');
+    ])->methodFacetKey())->toBe('unpublished');
 
     expect(dryStandardReview([
         'dealcoholization_method' => null,
-    ])->methodFacetKey())->toBe('unknown');
+    ])->methodFacetKey())->toBe('unpublished');
 });
 
 it('keeps offer-shaped purchase links and identifiers without requiring them to publish', function () {

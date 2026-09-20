@@ -17,6 +17,7 @@ fruit:
         grapefruit_pith: { label: Grapefruit pith }
         orange: { label: Orange }
         orange_peel: { label: Orange peel }
+        blood_orange: { label: Blood orange }
         mandarin: { label: Mandarin }
         citrus_blossom: { label: Citrus blossom }
     orchard:
@@ -27,6 +28,8 @@ fruit:
         baked_apple: { label: Baked apple }
         pear: { label: Pear }
         quince: { label: Quince }
+        melon: { label: Melon }
+        watermelon: { label: Watermelon }
     stone:
       label: Stone fruit
       children:
@@ -71,6 +74,7 @@ floral:
     elderflower: { label: Elderflower }
     honeysuckle: { label: Honeysuckle }
     jasmine: { label: Jasmine }
+    lavender: { label: Lavender }
 
 herbal:
   label: Herbal / botanical

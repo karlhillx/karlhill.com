@@ -129,11 +129,13 @@ it('warns on an honest empty frame', function () {
     expect($result['warnings'])->toContain('empty frame — no confirmed producer or editorial still');
 });
 
-it('warns when a still looks unlabeled', function () {
+it('audits the dc-brau still without inventing a sparse-label failure', function () {
     $result = (new StillAudit)->inspect(
         dryStandardStillReview('dc-brau-pale-ale'),
         dryStandardStillHashes(),
     );
 
-    expect($result['warnings'])->toContain('label area looks sparse — possible unlabeled mockup or cropped logo');
+    expect($result['errors'])->toBeArray()
+        ->and($result['warnings'])->toBeArray()
+        ->and($result['warnings'])->not->toContain('label area looks sparse — possible unlabeled mockup or cropped logo');
 });

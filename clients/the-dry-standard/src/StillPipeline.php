@@ -6,6 +6,8 @@ final class StillPipeline
 {
     private const PAPER = [243, 239, 230];
 
+    private const WHITE = [255, 255, 255];
+
     private const TARGET_WIDTH = 900;
 
     private const TARGET_HEIGHT = 1200;
@@ -13,23 +15,33 @@ final class StillPipeline
     /** @var list<int> */
     private const DERIVATIVE_WIDTHS = [400, 800];
 
-    public function __construct(private readonly Paths $paths) {}
+    /** @var array{0: int, 1: int, 2: int} */
+    private array $fill;
+
+    public function __construct(private readonly Paths $paths)
+    {
+        $this->fill = self::PAPER;
+    }
 
     /**
      * Flatten a producer/editorial packshot onto paper and write a 900×1200 JPEG.
+     *
+     * @param  'paper'|'white'  $background
      */
-    public function ingest(string $sourcePath, string $destinationJpeg): bool
+    public function ingest(string $sourcePath, string $destinationJpeg, string $background = 'paper'): bool
     {
         if (! function_exists('imagecreatetruecolor') || ! function_exists('imagejpeg')) {
             return false;
         }
+
+        $this->fill = $background === 'white' ? self::WHITE : self::PAPER;
 
         $loaded = $this->load($sourcePath);
         if ($loaded === false) {
             return false;
         }
 
-        $canvas = $this->compositeOnPaper($loaded);
+        $canvas = $this->compositeOnFill($loaded);
         $canvas = $this->scaleDown($canvas, 1800);
         $this->flattenDarkBackground($canvas);
         $this->flattenLightBackground($canvas);
@@ -40,7 +52,10 @@ final class StillPipeline
             return false;
         }
 
-        return imagejpeg($canvas, $destinationJpeg, 90);
+        $ok = imagejpeg($canvas, $destinationJpeg, 90);
+        $this->fill = self::PAPER;
+
+        return $ok;
     }
 
     public function run(): int
@@ -238,11 +253,25 @@ final class StillPipeline
             return true;
         }
 
-        [$pr, $pg, $pb] = self::PAPER;
-        $paper = imagecolorallocate($image, $pr, $pg, $pb);
+        // Already on the site paper tone — leave it.
+        if ($this->fill === self::PAPER) {
+            $alreadyPaper = 0;
+            foreach ($seeds as [$x, $y]) {
+                [$r, $g, $b] = $this->pixel($image, $x, $y);
+                if (abs($r - self::PAPER[0]) < 8 && abs($g - self::PAPER[1]) < 8 && abs($b - self::PAPER[2]) < 8) {
+                    $alreadyPaper++;
+                }
+            }
+            if ($alreadyPaper === 4) {
+                return true;
+            }
+        }
+
+        [$pr, $pg, $pb] = $this->fill;
+        $fill = imagecolorallocate($image, $pr, $pg, $pb);
 
         foreach ($seeds as [$x, $y]) {
-            $this->flood($image, $x, $y, $paper, fn (int $x, int $y): bool => $this->isNearWhite($image, $x, $y));
+            $this->flood($image, $x, $y, $fill, fn (int $x, int $y): bool => $this->isNearWhite($image, $x, $y));
         }
 
         return true;
@@ -274,11 +303,11 @@ final class StillPipeline
             return false;
         }
 
-        [$pr, $pg, $pb] = self::PAPER;
-        $paper = imagecolorallocate($image, $pr, $pg, $pb);
+        [$pr, $pg, $pb] = $this->fill;
+        $fill = imagecolorallocate($image, $pr, $pg, $pb);
 
         foreach ($seeds as [$x, $y]) {
-            $this->flood($image, $x, $y, $paper, fn (int $x, int $y): bool => $this->isNearBlack($image, $x, $y));
+            $this->flood($image, $x, $y, $fill, fn (int $x, int $y): bool => $this->isNearBlack($image, $x, $y));
         }
 
         return true;
@@ -313,8 +342,8 @@ final class StillPipeline
     }
 
     /**
-     * Scanline flood fill from a corner. Painted paper is outside the match
-     * predicates, so visited pixels do not need a separate mask.
+     * Scanline flood fill from a corner. Tracks visited pixels so the fill
+     * color may itself satisfy $matches (e.g. white onto near-white).
      *
      * @param  callable(int, int): bool  $matches
      */
@@ -326,23 +355,30 @@ final class StillPipeline
 
         $width = imagesx($image);
         $height = imagesy($image);
+        $visited = array_fill(0, $width * $height, false);
         $stack = [[$sx, $sy]];
 
         while ($stack !== []) {
             [$x, $y] = array_pop($stack);
+            $idx = $y * $width + $x;
+            if ($visited[$idx] || ! $matches($x, $y)) {
+                continue;
+            }
 
-            while ($x > 0 && $matches($x - 1, $y)) {
+            while ($x > 0 && ! $visited[$y * $width + ($x - 1)] && $matches($x - 1, $y)) {
                 $x--;
             }
 
             $spanUp = false;
             $spanDown = false;
 
-            while ($x < $width && $matches($x, $y)) {
+            while ($x < $width && ! $visited[$y * $width + $x] && $matches($x, $y)) {
+                $visited[$y * $width + $x] = true;
                 imagesetpixel($image, $x, $y, $paper);
 
                 if ($y > 0) {
-                    if ($matches($x, $y - 1)) {
+                    $up = ($y - 1) * $width + $x;
+                    if (! $visited[$up] && $matches($x, $y - 1)) {
                         if (! $spanUp) {
                             $stack[] = [$x, $y - 1];
                             $spanUp = true;
@@ -353,7 +389,8 @@ final class StillPipeline
                 }
 
                 if ($y < $height - 1) {
-                    if ($matches($x, $y + 1)) {
+                    $down = ($y + 1) * $width + $x;
+                    if (! $visited[$down] && $matches($x, $y + 1)) {
                         if (! $spanDown) {
                             $stack[] = [$x, $y + 1];
                             $spanDown = true;
@@ -371,7 +408,7 @@ final class StillPipeline
     private function letterbox(\GdImage $source, int $width, int $height): \GdImage
     {
         $canvas = imagecreatetruecolor(self::TARGET_WIDTH, self::TARGET_HEIGHT);
-        [$r, $g, $b] = self::PAPER;
+        [$r, $g, $b] = $this->fill;
         imagefill($canvas, 0, 0, imagecolorallocate($canvas, $r, $g, $b));
 
         $scale = min(self::TARGET_WIDTH / max($width, 1), self::TARGET_HEIGHT / max($height, 1));
@@ -391,21 +428,35 @@ final class StillPipeline
         }
 
         $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
-
-        return match ($extension) {
+        $loaded = match ($extension) {
             'jpg', 'jpeg' => @imagecreatefromjpeg($path),
             'png' => @imagecreatefrompng($path),
             'webp' => function_exists('imagecreatefromwebp') ? @imagecreatefromwebp($path) : false,
             default => false,
         };
+
+        if ($loaded !== false) {
+            return $loaded;
+        }
+
+        // Cursor/chat assets sometimes keep a .png name on a JPEG payload.
+        $info = @getimagesize($path);
+        $mime = is_array($info) ? (string) ($info['mime'] ?? '') : '';
+
+        return match ($mime) {
+            'image/jpeg' => @imagecreatefromjpeg($path),
+            'image/png' => @imagecreatefrompng($path),
+            'image/webp' => function_exists('imagecreatefromwebp') ? @imagecreatefromwebp($path) : false,
+            default => false,
+        };
     }
 
-    private function compositeOnPaper(\GdImage $source): \GdImage
+    private function compositeOnFill(\GdImage $source): \GdImage
     {
         $width = imagesx($source);
         $height = imagesy($source);
         $canvas = imagecreatetruecolor($width, $height);
-        [$r, $g, $b] = self::PAPER;
+        [$r, $g, $b] = $this->fill;
         imagefill($canvas, 0, 0, imagecolorallocate($canvas, $r, $g, $b));
         imagealphablending($canvas, true);
         imagecopy($canvas, $source, 0, 0, 0, 0, $width, $height);

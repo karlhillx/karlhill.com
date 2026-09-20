@@ -9,7 +9,7 @@ subcategory: 'non-alcoholic ale'
 country: Japan
 region: 'Naka, Ibaraki Prefecture'
 style: 'Non-alcoholic Japanese ale'
-abv: 0.3%
+abv: <0.5%
 abv_numeric: 0.3
 production_type: naturally-low-alcohol
 verified: 'yes'

@@ -125,6 +125,8 @@ final class Product
             'wine_color',
             'sweetness',
             'body_level',
+            'acidity_level',
+            'descriptor_ids',
         ];
     }
 }

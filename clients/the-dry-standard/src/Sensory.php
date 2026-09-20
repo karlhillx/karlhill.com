@@ -21,6 +21,22 @@ final class Sensory
         'secondary',
         'inferred',
         'unverified',
+        // Display / editorial aliases (normalize to the rows above)
+        'bottle_verified',
+        'producer_verified',
+        'distributor_verified',
+        'retailer_verified',
+        'independently_corroborated',
+    ];
+
+    /** @var array<string, string> */
+    public const PROVENANCE_CONFIDENCE_ALIASES = [
+        'bottle_verified' => 'label_verified',
+        'producer_verified' => 'manufacturer_verified',
+        'distributor_verified' => 'secondary',
+        'retailer_verified' => 'secondary',
+        'independently_corroborated' => 'verified',
+        'independently_corrobated' => 'verified',
     ];
 
     /** @var array<string, array{id: string, label: string, path: array<int, string>}>|null */
@@ -515,39 +531,10 @@ final class Sensory
             $aliases[self::normalizeKey(str_replace('_', ' ', $id))] = $id;
         }
 
-        // Common tasting phrasings → canonical ids
-        $extra = [
-            'coffee grounds' => 'coffee',
-            'fresh coffee' => 'coffee',
-            'roasted coffee' => 'coffee',
-            'coffee bean' => 'coffee',
-            'cocoa nibs' => 'cocoa_nib',
-            'green apple skin' => 'green_apple',
-            'apple skin' => 'apple',
-            'snap of rhubarb' => 'rhubarb',
-            'cool mineral line' => 'mineral',
-            'mineral line' => 'mineral',
-            'bright citrus' => 'citrus',
-            'citrus fruit' => 'citrus',
-            'white peach' => 'white_peach',
-            'tropical fruit' => 'passionfruit',
-            'red berries' => 'red_berry',
-            'berry' => 'red_berry',
-            'kombucha-like' => 'kombucha',
-            'kombucha like' => 'kombucha',
-            'toasted malt' => 'malt',
-            'roasted malt' => 'malt',
-            'dark chocolate' => 'dark_chocolate',
-            'orange citrus' => 'orange',
-            'bitter orange' => 'orange',
-            'lime and mandarin' => 'lime',
-            'slate salt' => 'slate',
-            'salty slate' => 'slate',
-            'blanc de blancs profile' => 'green_apple',
-            'american lager profile' => 'malt',
-        ];
-
-        foreach ($extra as $alias => $id) {
+        foreach (self::yaml('schema/descriptor-aliases.yaml') as $alias => $id) {
+            if (! is_string($alias) || ! is_string($id)) {
+                continue;
+            }
             if (self::hasDescriptor($id)) {
                 $aliases[self::normalizeKey($alias)] = $id;
             }
@@ -556,6 +543,46 @@ final class Sensory
         self::$descriptorAliases = $aliases;
 
         return self::$descriptorAliases;
+    }
+
+    public static function normalizeConfidence(string $confidence): string
+    {
+        $confidence = strtolower(trim($confidence));
+        if ($confidence === '') {
+            return '';
+        }
+
+        return self::PROVENANCE_CONFIDENCE_ALIASES[$confidence] ?? $confidence;
+    }
+
+    public static function isAllowedConfidence(string $confidence): bool
+    {
+        $normalized = self::normalizeConfidence($confidence);
+
+        return in_array($normalized, [
+            'verified',
+            'manufacturer_verified',
+            'label_verified',
+            'secondary',
+            'inferred',
+            'unverified',
+        ], true);
+    }
+
+    /**
+     * Editorial length bands (characters). Soft guidance for validate warnings.
+     *
+     * @return array<string, array{min: int, max: int}>
+     */
+    public static function editorialLengthBands(): array
+    {
+        return [
+            'verdict' => ['min' => 150, 'max' => 300],
+            'nose' => ['min' => 100, 'max' => 250],
+            'palate' => ['min' => 200, 'max' => 400],
+            'finish' => ['min' => 100, 'max' => 250],
+            'summary' => ['min' => 80, 'max' => 280],
+        ];
     }
 
     private static function normalizeKey(string $value): string

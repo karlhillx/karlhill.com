@@ -5,13 +5,13 @@
     <?php if (! empty($tastes)) { ?>
     <div>
       <dt>Flavor profile</dt>
-      <dd><ul class="tasting-chips"><?php foreach ($tastes as $taste) { ?><li><?= $view->e($taste) ?></li><?php } ?></ul></dd>
+      <dd><ul class="tasting-chips" role="list"><?php foreach ($tastes as $taste) { ?><li><?= $view->e($taste) ?></li><?php } ?></ul></dd>
     </div>
     <?php } ?>
     <?php if (! empty($profile)) { ?>
     <div>
       <dt>Structure</dt>
-      <dd><ul class="tasting-chips"><?php foreach ($profile as $item) { ?><li><?= $view->e($item) ?></li><?php } ?></ul></dd>
+      <dd><ul class="tasting-chips" role="list"><?php foreach ($profile as $item) { ?><li><?= $view->e($item) ?></li><?php } ?></ul></dd>
     </div>
     <?php } ?>
     <?php if (! empty($mouthfeel)) { ?>

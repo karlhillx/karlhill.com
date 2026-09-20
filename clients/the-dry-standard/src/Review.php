@@ -134,6 +134,7 @@ final class Review
         public readonly array $structureScales = [],
         /** @var array<string, int> */
         public readonly array $assessments = [],
+        public readonly ?string $methodFacetOverride = null,
     ) {}
 
     /**
@@ -158,10 +159,13 @@ final class Review
             country: self::normalizeCountry(self::nullableString($matter['country'] ?? null)),
             region: self::nullableString($matter['region'] ?? null),
             style: self::nullableString($matter['style'] ?? null),
-            abv: self::nullableString($matter['abv'] ?? null),
-            abvNumeric: isset($matter['abv_numeric']) && is_numeric($matter['abv_numeric'])
-                ? (float) $matter['abv_numeric']
-                : null,
+            abv: ($abv = Registry::normalizeAbv(
+                self::nullableString($matter['abv'] ?? null),
+                isset($matter['abv_numeric']) && is_numeric($matter['abv_numeric'])
+                    ? (float) $matter['abv_numeric']
+                    : null,
+            ))['label'],
+            abvNumeric: $abv['numeric'],
             dealcoholized: ($production = self::resolveProduction($matter))['dealcoholized'],
             dealcoholizedNote: self::nullableString($matter['production_note'] ?? $matter['dealcoholized_note'] ?? null),
             productionType: $production['type'],
@@ -187,7 +191,7 @@ final class Review
             serve: self::nullableString($matter['serve'] ?? null),
             sources: self::sources($matter['sources'] ?? []),
             discrepancies: self::discrepancies($matter['discrepancies'] ?? []),
-            status: self::string($matter['status'] ?? null) ?: 'draft',
+            status: Registry::normalizeStatus(self::string($matter['status'] ?? null) ?: 'draft'),
             bodyMarkdown: trim($body),
             sourcePath: $sourcePath,
             availability: self::nullableString($matter['availability'] ?? null),
@@ -223,6 +227,7 @@ final class Review
                 self::stringList($matter['profile'] ?? []),
             ),
             assessments: Sensory::normalizeAssessments($matter['assessments'] ?? []),
+            methodFacetOverride: self::normalizeMethodFacetOverride($matter['method_facet'] ?? null),
         );
     }
 
@@ -390,11 +395,43 @@ final class Review
         return $this->flavorProfileLabels() !== []
             || $this->structureProfileLabels() !== []
             || $this->mouthfeel !== null
-            || $this->highlight !== null
+            || $this->distinctHighlight() !== null
             || $this->likenessText() !== null
             || $this->drinkIfYouLike !== []
             || ($this->bestFor !== null && $this->bestFor !== '')
             || $this->assessments !== [];
+    }
+
+    /**
+     * Highlight only when it adds information beyond the verdict.
+     */
+    public function distinctHighlight(): ?string
+    {
+        if ($this->highlight === null || trim($this->highlight) === '') {
+            return null;
+        }
+
+        if ($this->verdict !== '' && trim($this->highlight) === trim($this->verdict)) {
+            return null;
+        }
+
+        return $this->highlight;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function descriptorIds(): array
+    {
+        $ids = [];
+        foreach ($this->resolvedSensory() as $row) {
+            $id = (string) ($row['descriptor'] ?? '');
+            if ($id !== '' && ! in_array($id, $ids, true)) {
+                $ids[] = $id;
+            }
+        }
+
+        return $ids;
     }
 
     private static function provenanceFieldForClaim(string $claim): ?string
@@ -544,7 +581,10 @@ final class Review
             'wine_color' => $this->wineColor(),
             'sweetness' => $this->structureScaleInt('sweetness'),
             'body_level' => $this->structureScaleInt('body'),
+            'acidity_level' => $this->structureScaleInt('acidity'),
+            'descriptor_ids' => implode(',', $this->descriptorIds()),
             'search_text' => $this->searchText(),
+            'comparable' => json_encode(ComparableSnapshot::fromReview($this)->toArray(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
             'product_id' => $this->productIdValue(),
             'identifiers' => json_encode($this->identifiersRecord(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
             'producer_slug' => $this->resolvedProducerSlug(),
@@ -640,7 +680,7 @@ final class Review
             $parts[] = $country;
         }
 
-        if (! in_array($this->methodFacetKey(), ['unknown', 'not-applicable'], true)) {
+        if (! in_array($this->methodFacetKey(), ['unpublished', 'unknown', 'not-applicable'], true)) {
             $parts[] = $this->methodCardLabel();
         }
 
@@ -939,6 +979,9 @@ final class Review
         'membrane-filtration',
         'osmotic-distillation',
         'arrested-fermentation',
+        'other',
+        'unpublished',
+        'not-applicable',
     ];
 
     private const METHOD_NEEDLES = [
@@ -1004,6 +1047,10 @@ final class Review
 
     public function methodFacetKey(): string
     {
+        if ($this->methodFacetOverride !== null) {
+            return $this->methodFacetOverride;
+        }
+
         if ($this->productionType === 'alternative') {
             return 'not-applicable';
         }
@@ -1017,7 +1064,7 @@ final class Review
         $text = strtolower($this->dealcoholizationMethod ?? '');
 
         if ($text === '') {
-            return 'unknown';
+            return 'unpublished';
         }
 
         foreach (self::NAMED_OTHER_NEEDLES as $needle) {
@@ -1026,7 +1073,8 @@ final class Review
             }
         }
 
-        return 'unknown';
+        // Removal asserted in prose without a named industrial method.
+        return 'unpublished';
     }
 
     public function methodCardLabel(): string
@@ -1041,6 +1089,7 @@ final class Review
             'osmotic-distillation' => 'Osmotic distillation',
             'arrested-fermentation' => 'Arrested fermentation',
             'other' => 'Other documented method',
+            'unpublished' => 'Method unpublished',
             'not-applicable' => 'Formulated alternative',
         ];
 
@@ -1105,20 +1154,43 @@ final class Review
 
     public function searchText(): string
     {
-        return strtolower(implode(' ', array_filter([
+        $parts = [
             $this->title,
             Taxonomy::brandSearchTokens($this->brand),
             $this->product,
             $this->category,
             $this->subcategory,
             $this->originLabel(),
+            $this->country,
+            $this->region,
             $this->dealcoholizationMethod,
             $this->style,
             $this->styleLabel(),
             $this->structure,
             $this->productionTypeShortLabel(),
+            $this->productionType,
             $this->summary,
-        ])));
+            $this->abv,
+            $this->abvNumeric !== null ? (string) $this->abvNumeric : null,
+            $this->abvBucket(),
+            $this->methodCardLabel(),
+            $this->methodFacetKey(),
+            $this->baseBeverage,
+            $this->producer,
+        ];
+
+        foreach ($this->flavorProfileLabels() as $label) {
+            $parts[] = $label;
+        }
+        foreach ($this->structureProfileLabels() as $label) {
+            $parts[] = $label;
+        }
+        foreach ($this->descriptorIds() as $id) {
+            $parts[] = str_replace('_', ' ', $id);
+            $parts[] = $id;
+        }
+
+        return strtolower(implode(' ', array_filter($parts, fn (?string $v): bool => $v !== null && $v !== '')));
     }
 
     public function fact(string $field): ?string
@@ -1434,8 +1506,8 @@ final class Review
                 $item['note'] = $note;
             }
             $confidence = self::nullableLower($entry['confidence'] ?? null);
-            if ($confidence !== null && in_array($confidence, Sensory::PROVENANCE_CONFIDENCE, true)) {
-                $item['confidence'] = $confidence;
+            if ($confidence !== null && Sensory::isAllowedConfidence($confidence)) {
+                $item['confidence'] = Sensory::normalizeConfidence($confidence);
             }
             $verifiedDate = self::nullableString($entry['verified_date'] ?? $entry['verified'] ?? null);
             if ($verifiedDate !== null) {
@@ -1445,6 +1517,20 @@ final class Review
         }
 
         return $rows;
+    }
+
+    private static function normalizeMethodFacetOverride(mixed $value): ?string
+    {
+        $normalized = strtolower(trim((string) $value));
+        if ($normalized === '') {
+            return null;
+        }
+
+        if ($normalized === 'unknown') {
+            return 'unpublished';
+        }
+
+        return in_array($normalized, self::METHOD_FACETS, true) ? $normalized : null;
     }
 
     private static function normalizeAcquisition(mixed $value): ?string

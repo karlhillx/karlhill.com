@@ -39,7 +39,7 @@ final class ReviewValidator
             $errors[] = 'verified must be yes or no';
         }
 
-        if (! in_array($review->status, $config->allowedStatuses(), true)) {
+        if (! Registry::isAllowedStatus($review->status)) {
             $errors[] = 'status is not a recognized review state';
         }
 
@@ -111,6 +111,12 @@ final class ReviewValidator
             if (! in_array($identifier['type'], Review::IDENTIFIER_TYPES, true)) {
                 $errors[] = 'identifier type is not recognized: '.$identifier['type'];
             }
+            if (in_array($identifier['type'], ['gtin', 'ean', 'upc'], true)) {
+                $digits = preg_replace('/\D+/', '', $identifier['value']) ?: '';
+                if (! in_array(strlen($digits), [8, 12, 13, 14], true)) {
+                    $errors[] = 'identifier '.$identifier['type'].' must be 8, 12, 13, or 14 digits';
+                }
+            }
         }
 
         foreach ($review->provenanceRecord() as $field => $entry) {
@@ -119,7 +125,7 @@ final class ReviewValidator
                 $errors[] = "provenance.{$field} has an unrecognized source kind";
             }
             $confidence = is_array($entry) ? (string) ($entry['confidence'] ?? '') : '';
-            if ($confidence !== '' && ! in_array($confidence, Sensory::PROVENANCE_CONFIDENCE, true)) {
+            if ($confidence !== '' && ! Sensory::isAllowedConfidence($confidence)) {
                 $errors[] = "provenance.{$field} has an unrecognized confidence";
             }
         }
@@ -165,8 +171,10 @@ final class ReviewValidator
                 $errors[] = 'published reviews require nose, palate, and finish tasting notes';
             }
 
-            if ($review->status !== 'published' && $review->status !== 'validated' && $review->status !== 'scheduled') {
-                $errors[] = 'only validated, scheduled, or published reviews may be released';
+            $publishable = ['published', 'validated', 'scheduled', 'approved'];
+            if (! in_array($review->status, $publishable, true)
+                && ! in_array(Registry::normalizeStatus($review->status), ['published', 'validated', 'scheduled'], true)) {
+                $errors[] = 'only validated, approved, scheduled, or published reviews may be released';
             }
 
             if ($review->likeness !== null && $review->verdict !== '' && $review->likeness === $review->verdict) {
@@ -179,6 +187,77 @@ final class ReviewValidator
         }
 
         return $errors;
+    }
+
+    /**
+     * Soft warnings — do not block publish by default.
+     *
+     * @return array<int, string>
+     */
+    public function warnings(Review $review): array
+    {
+        $warnings = [];
+
+        if ($review->productionType === 'alternative' && $review->dealcoholizationMethod) {
+            $warnings[] = 'classification warning: production_type is alternative but dealcoholization_method is set';
+        }
+
+        if ($review->productionType === 'dealcoholized'
+            && ($review->dealcoholizationMethod === null || trim($review->dealcoholizationMethod) === '')) {
+            $warnings[] = 'classification warning: dealcoholized without a named method (method facet unpublished)';
+        }
+
+        if ($review->abv === '0.0%' && $review->abvNumeric !== null && $review->abvNumeric > 0.05) {
+            $warnings[] = 'ABV warning: label is 0.0% but abv_numeric is '.$review->abvNumeric;
+        }
+
+        if ($review->abvNumeric !== null && $review->abvNumeric > 0.0 && $review->abv === '0.0%') {
+            $warnings[] = 'ABV warning: non-zero abv_numeric with a 0.0% display label';
+        }
+
+        if (! Registry::isCanonicalAbvLabel($review->abv)) {
+            $warnings[] = 'ABV warning: non-canonical display label "'.$review->abv.'"; prefer 0.0%, <0.5%, or Not published';
+        }
+
+        if ($review->highlight !== null && $review->verdict !== '' && trim($review->highlight) === trim($review->verdict)) {
+            $warnings[] = 'editorial warning: highlight duplicates verdict';
+        }
+
+        foreach (Sensory::editorialLengthBands() as $field => $band) {
+            $text = match ($field) {
+                'verdict' => $review->verdict,
+                'nose' => (string) ($review->nose ?? ''),
+                'palate' => (string) ($review->palate ?? ''),
+                'finish' => (string) ($review->finish ?? ''),
+                'summary' => $review->summary,
+                default => '',
+            };
+            if ($text === '') {
+                continue;
+            }
+            $len = mb_strlen($text);
+            if ($len < $band['min']) {
+                $warnings[] = "editorial length: {$field} is {$len} characters (recommended {$band['min']}–{$band['max']})";
+            } elseif ($len > $band['max']) {
+                $warnings[] = "editorial length: {$field} is {$len} characters (recommended {$band['min']}–{$band['max']})";
+            }
+        }
+
+        $essay = trim($review->bodyMarkdown);
+        if ($essay !== '') {
+            $total = mb_strlen($review->verdict)
+                + mb_strlen((string) $review->nose)
+                + mb_strlen((string) $review->palate)
+                + mb_strlen((string) $review->finish)
+                + mb_strlen($essay);
+            if ($total < 2500) {
+                $warnings[] = "editorial length: review body total is {$total} characters (recommended 2500–3500 excluding metadata)";
+            } elseif ($total > 4500) {
+                $warnings[] = "editorial length: review body total is {$total} characters (recommended 2500–3500 excluding metadata)";
+            }
+        }
+
+        return $warnings;
     }
 
     /**

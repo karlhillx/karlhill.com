@@ -104,12 +104,18 @@ image_credit: Editorial still | Product photo via {producer-or-importer}
 image_source: editorial | producer | importer
 image_source_url: url to the original asset page; required unless image_source is editorial
 image_sku_confirmed: yes | no; yes only after a human confirms the label matches this SKU
-status: queued | researching | draft | validated | scheduled | published | needs-review
+status: queued | researching | researched | draft | tasted | reviewed | validated | approved | scheduled | published | needs-review
+# researched/tasted/reviewed/approved are workflow aliases; runtime normalizes to researching|draft|validated.
 
 # Domain notes
 # Product facts (brand, ABV, method, sugar, GTIN, …) live on the product identity.
 # Review observations (score, sensory, structure_scales, assessments, nose/palate/finish) live on the review.
 # Public glance labels: Flavor profile (sensory) · Structure (structure_scales) · Nose/Palate/Finish (prose).
 # Prefer structure_scales + sensory over free-text tastes/profile; legacy chips still render as fallback.
+# ABV display labels: 0.0% | <0.5% | Not published — keep abv_numeric for precise values.
+# method_facet override: vacuum-distillation | spinning-cone | reverse-osmosis | membrane-filtration | osmotic-distillation | arrested-fermentation | other | unpublished | not-applicable
 # provenance confidence: verified | manufacturer_verified | label_verified | secondary | inferred | unverified
-# See also: descriptors.yaml, structure.yaml, assessments.yaml
+#   aliases: bottle_verified→label_verified, producer_verified→manufacturer_verified, independently_corroborated→verified
+# Descriptor aliases: data/schema/descriptor-aliases.yaml (do not invent tasting notes)
+# Editorial length (soft warnings): verdict 150–300 · nose 100–250 · palate 200–400 · finish 100–250 · total ~2500–3500
+# See also: descriptors.yaml, structure.yaml, assessments.yaml, Registry.php

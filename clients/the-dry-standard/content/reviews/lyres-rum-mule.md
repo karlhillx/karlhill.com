@@ -7,7 +7,7 @@ product: 'Rum Mule'
 category: cocktails
 subcategory: 'canned cocktail / ready-to-drink mule'
 style: 'Formulated rum mule in a can'
-abv: '<0.1%'
+abv: <0.5%
 abv_numeric: 0.1
 production_type: alternative
 verified: 'yes'

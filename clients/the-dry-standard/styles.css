@@ -2342,3 +2342,55 @@ a.stat:hover strong {
     color: #111;
   }
 }
+
+/* Touch targets + overflow safety (audit P3) */
+.filter-toggle,
+.filter-close,
+.filter-apply,
+.search-toggle,
+.nav-toggle,
+.filter-chip,
+.archive-sort select,
+.header-search input,
+.tasting-chips li {
+  min-height: 44px;
+}
+
+.filter-chip,
+.tasting-chips li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.review-hero h1,
+.card-title,
+.identity-value {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.archive-layout,
+.review-layout,
+.shell {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.provenance-confidence {
+  font-family: var(--font-sans);
+}
+
+.provenance-confidence--label_verified,
+.provenance-confidence--bottle_verified {
+  color: var(--ink, #1a1410);
+}
+
+.provenance-confidence--inferred,
+.provenance-confidence--unverified {
+  opacity: 0.85;
+}
+

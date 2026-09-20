@@ -95,4 +95,10 @@ Product facts and review observations are separate concerns. A Product owns bran
 
 Brand pages collapse aliases from `data/schema/brands.yaml`. Style filters and `/styles/{slug}/` use the closed vocabulary in `data/schema/styles.yaml`; editorial `style` text can stay free. Alternatives use method facet `not-applicable`, not unpublished. Completeness lives in `php artisan dry-standard:status`, not on the public product page.
 
-Public glance vocabulary: **Flavor profile** (not “Taste”) · **Structure** · Nose / Palate / Finish prose. Descriptor vocab: `data/schema/descriptors.yaml`. Structure scales: `data/schema/structure.yaml`. Assessments: `data/schema/assessments.yaml`.
+Public glance vocabulary: **Flavor profile** (not “Taste”) · **Structure** · Nose / Palate / Finish prose. Descriptor vocab: `data/schema/descriptors.yaml`. Aliases: `data/schema/descriptor-aliases.yaml`. Structure scales: `data/schema/structure.yaml`. Assessments: `data/schema/assessments.yaml`. Closed enums and filters resolve through `Registry` / `Sensory` — do not hard-code duplicate lists in UI copy.
+
+Spreadsheet exports: `data/products.csv` (product facts) and `data/reviews.csv` (review observations). Runtime catalog remains `data/catalog.sqlite`.
+
+Comparison-ready projection: `ComparableSnapshot::fromReview()` — no public compare UI yet.
+
+Product pages (`/products/…`) are deferred until a SKU has multiple tastings; keep `product_id` filled.

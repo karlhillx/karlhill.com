@@ -2,6 +2,7 @@
 
 namespace DryStandard\Rendering;
 
+use DryStandard\Product;
 use DryStandard\Review;
 use DryStandard\Sensory;
 use DryStandard\SiteConfig;
@@ -128,25 +129,86 @@ final class StructuredData
     /**
      * @return array<string, mixed>
      */
-    public function product(Review $review, string $categoryLabel): array
+    public function organization(): array
     {
-        $url = $this->config->canonicalUrl($review->path());
-        $properties = [];
+        return [
+            '@type' => 'Organization',
+            '@id' => $this->config->canonicalUrl().'#organization',
+            'name' => $this->config->name(),
+            'url' => $this->config->canonicalUrl(),
+            'description' => $this->config->string('site.description'),
+            'email' => $this->config->editorEmail() !== '' ? $this->config->editorEmail() : null,
+        ];
+    }
 
-        if ($review->abv !== null && $review->abv !== '') {
-            $properties[] = [
-                '@type' => 'PropertyValue',
-                'name' => 'ABV',
-                'value' => $review->abv,
+    /**
+     * @param  array<int, Review>  $reviews
+     * @return array<string, mixed>|null
+     */
+    public function itemList(string $name, string $url, array $reviews): ?array
+    {
+        if ($reviews === []) {
+            return null;
+        }
+
+        $elements = [];
+        foreach (array_values($reviews) as $index => $review) {
+            $elements[] = [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'url' => $this->config->canonicalUrl($review->path()),
+                'name' => $review->title,
             ];
         }
 
-        if ($review->abvNumeric !== null) {
+        return [
+            '@type' => 'ItemList',
+            'name' => $name,
+            'url' => $url,
+            'numberOfItems' => count($elements),
+            'itemListElement' => $elements,
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function product(Review $review, string $categoryLabel): array
+    {
+        $url = $this->config->canonicalUrl($review->path());
+        $product = Product::fromReview($review);
+        $properties = [];
+
+        if ($product->abv !== null && $product->abv !== '') {
+            $properties[] = [
+                '@type' => 'PropertyValue',
+                'name' => 'ABV',
+                'value' => $product->abv,
+            ];
+        }
+
+        if ($product->abvNumeric !== null) {
             $properties[] = [
                 '@type' => 'PropertyValue',
                 'name' => 'alcoholContent',
-                'value' => $review->abvNumeric,
+                'value' => $product->abvNumeric,
                 'unitText' => '% alcohol by volume',
+            ];
+        }
+
+        if ($product->productionType !== '') {
+            $properties[] = [
+                '@type' => 'PropertyValue',
+                'name' => 'productionType',
+                'value' => $product->productionType,
+            ];
+        }
+
+        if ($review->methodFacetKey() !== '') {
+            $properties[] = [
+                '@type' => 'PropertyValue',
+                'name' => 'productionMethod',
+                'value' => $review->methodCardLabel(),
             ];
         }
 
@@ -171,17 +233,25 @@ final class StructuredData
             }
         }
 
-        $ean = preg_replace('/\D+/', '', (string) $review->ean) ?: '';
-        foreach ($review->identifiersRecord() as $identifier) {
+        $ean = preg_replace('/\D+/', '', (string) $product->ean) ?: '';
+        foreach ($product->identifiers as $identifier) {
             if (($identifier['type'] ?? '') === 'gtin' || ($identifier['type'] ?? '') === 'ean') {
                 $ean = preg_replace('/\D+/', '', (string) $identifier['value']) ?: $ean;
             }
         }
 
+        $aggregate = $review->rating === null ? null : [
+            '@type' => 'AggregateRating',
+            'ratingValue' => $review->rating,
+            'bestRating' => 100,
+            'worstRating' => 0,
+            'ratingCount' => 1,
+        ];
+
         return array_filter([
             '@type' => 'Product',
             '@id' => $url.'#product',
-            'name' => $review->product !== '' ? $review->product : $review->title,
+            'name' => $product->product !== '' ? $product->product : $product->title,
             'brand' => [
                 '@type' => 'Brand',
                 'name' => $review->brandDisplayName(),
@@ -191,6 +261,7 @@ final class StructuredData
             'image' => $review->imageSrc() ? $this->config->canonicalUrl($review->imageSrc()) : null,
             'gtin' => $ean !== '' ? $ean : null,
             'additionalProperty' => $properties === [] ? null : $properties,
+            'aggregateRating' => $aggregate,
             'review' => ['@id' => $url.'#review'],
         ], fn (mixed $value): bool => $value !== null && $value !== '');
     }

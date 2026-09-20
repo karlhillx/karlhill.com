@@ -405,7 +405,7 @@ it('serves the purchased Ohla, Hitachino, Dr. Lo, Pierre sparkling, and Lyre\'s 
     $this->get('/clients/the-dry-standard/reviews/beer/hitachino-nest-non-ale/')
         ->assertOk()
         ->assertSee('Production type: Naturally low alcohol', escape: false)
-        ->assertSee('0.3%', escape: false)
+        ->assertSee('<0.5%', escape: false)
         ->assertSee('media/reviews/hitachino-nest-non-ale.jpg', escape: false);
 
     $this->get('/clients/the-dry-standard/reviews/wine/dr-lo-alcohol-removed-riesling/')

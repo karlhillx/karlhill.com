@@ -514,6 +514,9 @@ final class Catalog
             'wine_color',
             'sweetness',
             'body_level',
+            'acidity_level',
+            'descriptor_ids',
+            'comparable',
         ];
     }
 
@@ -610,6 +613,9 @@ SQL);
         $this->ensureColumn('wine_color', 'wine_color TEXT');
         $this->ensureColumn('sweetness', 'sweetness INTEGER');
         $this->ensureColumn('body_level', 'body_level INTEGER');
+        $this->ensureColumn('acidity_level', 'acidity_level INTEGER');
+        $this->ensureColumn('descriptor_ids', "descriptor_ids TEXT NOT NULL DEFAULT ''");
+        $this->ensureColumn('comparable', "comparable TEXT NOT NULL DEFAULT '{}'");
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_production_type_idx ON products(production_type)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_style_idx ON products(style)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_brand_slug_idx ON products(brand_slug)');
@@ -621,6 +627,7 @@ SQL);
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_wine_color_idx ON products(wine_color)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_sweetness_idx ON products(sweetness)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_body_level_idx ON products(body_level)');
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_acidity_level_idx ON products(acidity_level)');
         $this->dropColumn('times_purchased');
         $this->dropColumn('first_purchase');
         $this->dropColumn('most_recent_purchase');

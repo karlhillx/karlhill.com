@@ -1,0 +1,83 @@
+# Free-text tasting language → canonical descriptor ids.
+# Prose may still say "freshly ground coffee"; chips store `coffee`.
+# Do not invent tasting notes — only map language that already appears.
+
+coffee grounds: coffee
+fresh coffee: coffee
+roasted coffee: coffee
+coffee bean: coffee
+espresso shot: espresso
+cocoa nibs: cocoa_nib
+cacao: cocoa
+cacao nib: cocoa_nib
+cacao nibs: cocoa_nib
+dark chocolate: dark_chocolate
+milk chocolate: chocolate
+green apple skin: green_apple
+granny smith: green_apple
+tart apple: green_apple
+green-apple note: green_apple
+green-apple edge: green_apple
+touch of green apple: green_apple
+apple skin: apple
+complex apple: apple
+white pear: pear
+ripe pear skin: pear
+snap of rhubarb: rhubarb
+cool mineral line: mineral
+mineral line: mineral
+faintly mineral: mineral
+slate note: slate
+cool slate line: slate
+slate salt: slate
+salty slate: slate
+bright citrus: citrus
+citrus fruit: citrus
+citrus peel: orange_peel
+citrusy lilt: citrus
+lime peel: lime_zest
+lime zest: lime_zest
+orange peel: orange_peel
+bitter-orange peel: orange_peel
+bitter orange: orange
+blood orange: blood_orange
+ruby grapefruit: grapefruit
+grapefruit pith: grapefruit_pith
+white peach: white_peach
+white nectarine: nectarine
+tropical fruit: passionfruit
+tart passionfruit: passionfruit
+red berries: red_berry
+red-berry lift: red_berry
+generic red berry: red_berry
+berry: red_berry
+bright cherry: cherry
+cassis: blackcurrant
+kombucha-like: kombucha
+kombucha like: kombucha
+toasted malt: malt
+roasted malt: malt
+caramel malt: malt
+biscuit malt: biscuit
+bread crust: bread
+light grain: toasted_grain
+pilsner-malt light toast: malt
+crackery malt: biscuit
+crackery malt line: biscuit
+pine hops: hops
+grassy hop lift: hops
+gentle english hop note: hops
+botanicals: botanical
+gentian root: gentian
+almond note: almond
+orange citrus: orange
+lime and mandarin: lime
+blanc de blancs profile: green_apple
+american lager profile: malt
+brioche: bready
+watermelon: watermelon
+melon: melon
+lavender: lavender
+baking spice first: cinnamon
+floral lift: blossom
+gently floral: blossom

@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use DryStandard\Paths;
+use DryStandard\Registry;
 use DryStandard\Review;
 use DryStandard\ReviewRepository;
 use DryStandard\Sensory;
@@ -35,7 +36,12 @@ foreach ($repo->fromDisk() as $review) {
         continue;
     }
 
-    $matter = Yaml::parse($parts[1]);
+    try {
+        $matter = Yaml::parse($parts[1]);
+    } catch (\Throwable $e) {
+        echo 'skip '.$review->slug.': '.$e->getMessage().PHP_EOL;
+        continue;
+    }
     if (! is_array($matter)) {
         continue;
     }
@@ -47,7 +53,15 @@ foreach ($repo->fromDisk() as $review) {
         continue;
     }
 
-    $yaml = Yaml::dump($matter, 6, 2, Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK | Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE);
+    try {
+        $yaml = Yaml::dump($matter, 6, 2, Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK | Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE);
+        // Round-trip check before writing — refuse dumps that won't re-parse.
+        Yaml::parse($yaml);
+    } catch (\Throwable $e) {
+        echo 'skip write '.$review->slug.': '.$e->getMessage().PHP_EOL;
+        continue;
+    }
+
     $body = $parts[2];
     if (! str_starts_with($body, "\n")) {
         $body = "\n".$body;
@@ -113,11 +127,28 @@ function enrichMatter(array $matter, Review $review): array
     $matter['tastes'] = $tastes;
 
     $sensory = Sensory::normalizeSensoryList($matter['sensory'] ?? []);
-    if ($sensory === []) {
-        $sensory = Sensory::normalizeSensoryList($tastes);
+    $fromTastes = Sensory::normalizeSensoryList($tastes);
+    $seen = [];
+    foreach ($sensory as $row) {
+        $seen[$row['descriptor']] = true;
+    }
+    foreach ($fromTastes as $row) {
+        if (! isset($seen[$row['descriptor']])) {
+            $sensory[] = $row;
+            $seen[$row['descriptor']] = true;
+        }
     }
     if ($sensory !== []) {
         $matter['sensory'] = $sensory;
+    }
+
+    $abv = Registry::normalizeAbv(
+        isset($matter['abv']) ? (string) $matter['abv'] : null,
+        isset($matter['abv_numeric']) && is_numeric($matter['abv_numeric']) ? (float) $matter['abv_numeric'] : null,
+    );
+    $matter['abv'] = $abv['label'];
+    if ($abv['numeric'] !== null) {
+        $matter['abv_numeric'] = $abv['numeric'];
     }
 
     $profile = [];
@@ -137,6 +168,10 @@ function enrichMatter(array $matter, Review $review): array
     $likeness = trim((string) ($matter['likeness'] ?? ''));
     if ($likeness !== '' && $verdict !== '' && $likeness === $verdict) {
         unset($matter['likeness']);
+    }
+    $highlight = trim((string) ($matter['highlight'] ?? ''));
+    if ($highlight !== '' && $verdict !== '' && $highlight === $verdict) {
+        unset($matter['highlight']);
     }
     $mouthfeel = trim((string) ($matter['mouthfeel'] ?? ''));
     $palate = trim((string) ($matter['palate'] ?? ''));

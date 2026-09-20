@@ -190,15 +190,19 @@ final class CatalogSync
 
     private function exportProductsCsv(): void
     {
-        $file = $this->paths->data('products.csv');
-        $handle = fopen($file, 'w');
+        $productFile = $this->paths->data('products.csv');
+        $reviewFile = $this->paths->data('reviews.csv');
 
-        if ($handle === false) {
-            throw new \RuntimeException('Unable to write '.$file);
+        $productHandle = fopen($productFile, 'w');
+        $reviewHandle = fopen($reviewFile, 'w');
+
+        if ($productHandle === false || $reviewHandle === false) {
+            throw new \RuntimeException('Unable to write catalog CSV exports');
         }
 
-        $columns = [
+        $productColumns = [
             'id',
+            'product_id',
             'ean',
             'slug',
             'title',
@@ -211,19 +215,40 @@ final class CatalogSync
             'production_type',
             'verified',
             'dealcoholization_method',
+            'method_facet',
+            'country',
+            'region',
+            'style',
             'status',
-            'rating',
-            'review_date',
             'retailers',
         ];
 
-        fputcsv($handle, $columns);
+        $reviewColumns = [
+            'slug',
+            'product_id',
+            'rating',
+            'review_date',
+            'updated_date',
+            'status',
+            'sweetness',
+            'body_level',
+            'acidity_level',
+            'descriptor_ids',
+            'method_facet',
+            'abv_bucket',
+            'wine_color',
+        ];
+
+        fputcsv($productHandle, $productColumns);
+        fputcsv($reviewHandle, $reviewColumns);
 
         foreach ($this->catalog->rows() as $row) {
-            fputcsv($handle, array_map(fn (string $column): mixed => $row[$column] ?? '', $columns));
+            fputcsv($productHandle, array_map(fn (string $column): mixed => $row[$column] ?? '', $productColumns));
+            fputcsv($reviewHandle, array_map(fn (string $column): mixed => $row[$column] ?? '', $reviewColumns));
         }
 
-        fclose($handle);
+        fclose($productHandle);
+        fclose($reviewHandle);
     }
 
     private function mapCategory(string $value): string

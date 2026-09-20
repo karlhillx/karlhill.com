@@ -700,6 +700,8 @@ HTML;
                 'og_type' => 'article',
                 'image' => $review->imageSrc() ?? '',
                 'json_ld' => $this->jsonLd([
+                    $this->websiteGraph(),
+                    (new StructuredData($this->config))->organization(),
                     $this->breadcrumbGraph($crumbs),
                     $this->articleGraph($review),
                     $this->productGraph($review),
@@ -1048,11 +1050,15 @@ XML;
 
         $methodLabels = $this->config->methods() + [
             'other' => 'Other documented method',
-            'unknown' => 'Unpublished',
+            'unpublished' => 'Method unpublished',
+            'unknown' => 'Method unpublished',
             'not-applicable' => 'Formulated (no removal)',
         ];
         $methodOptions = [];
         foreach (array_keys($methodLabels) as $method) {
+            if ($method === 'unknown') {
+                continue;
+            }
             if ($reviews->contains(fn (Review $review): bool => $review->methodFacetKey() === $method)) {
                 $methodOptions[] = ['value' => $method, 'label' => $methodLabels[$method]];
             }
@@ -1096,6 +1102,32 @@ XML;
             }
         }
 
+        $acidityOptions = [];
+        foreach (Sensory::structure()['acidity']['levels'] ?? [] as $level => $meta) {
+            $value = (string) $level;
+            if ($reviews->contains(fn (Review $review): bool => $review->structureScaleInt('acidity') === (int) $level)) {
+                $acidityOptions[] = ['value' => $value, 'label' => (string) ($meta['label'] ?? $value)];
+            }
+        }
+
+        $descriptorOptions = [];
+        $descriptorCounts = [];
+        foreach ($reviews as $review) {
+            foreach ($review->descriptorIds() as $id) {
+                $descriptorCounts[$id] = ($descriptorCounts[$id] ?? 0) + 1;
+            }
+        }
+        arsort($descriptorCounts);
+        foreach (array_slice($descriptorCounts, 0, 24, true) as $id => $count) {
+            if ($count < 1) {
+                continue;
+            }
+            $descriptorOptions[] = [
+                'value' => $id,
+                'label' => Sensory::descriptorLabel($id).($count > 1 ? ' ('.$count.')' : ''),
+            ];
+        }
+
         $scoreOptions = [];
         foreach (ArchiveQuery::SCORE_BANDS as $value => $label) {
             if ($reviews->contains(fn (Review $review): bool => $review->scoreBand() === $value)) {
@@ -1136,6 +1168,15 @@ XML;
             ))
             .$this->facetGroup('Sweetness', 'sweetness', $withMeta($sweetnessOptions, 'sweetness'))
             .$this->facetGroup('Body', 'body', $withMeta($bodyOptions, 'body'))
+            .$this->facetGroup('Acidity', 'acidity', $withMeta($acidityOptions, 'acidity'))
+            .($descriptorOptions === [] ? '' : $this->facetGroup(
+                'Flavor',
+                'descriptor',
+                $withMeta($descriptorOptions, 'descriptor'),
+                searchable: count($descriptorOptions) > 10,
+                collapsible: count($descriptorOptions) > 8,
+                collapsed: count($descriptorOptions) > 8,
+            ))
             .$this->facetGroup('Score', 'score', $withMeta($scoreOptions, 'score'))
             .$this->facetGroup('Country', 'country', $withMeta($countryOptions, 'country'));
 
@@ -1397,17 +1438,6 @@ XML;
             return '';
         }
 
-        $method = $review->methodCardLabel();
-        $productionLine = $review->productionTypeShortLabel();
-        if ($review->verified === 'yes') {
-            $productionLine .= ' · Verified';
-        }
-        if ($method !== '' && $review->methodFacetKey() !== 'unknown') {
-            $productionLine .= ' · '.$method;
-        } elseif ($review->methodFacetKey() === 'unknown' && $review->productionType === 'dealcoholized') {
-            $productionLine .= ' · Method unpublished';
-        }
-
         return $this->view->render('partials/tasting', [
             'heading' => $hasGlance ? 'At a glance' : 'Tasting notes',
             'showGlance' => $hasGlance,
@@ -1415,12 +1445,12 @@ XML;
             'profile' => $review->structureProfileLabels(),
             'mouthfeel' => $review->mouthfeel,
             'assessments' => $this->assessmentChips($review),
-            'highlight' => $review->highlight,
+            'highlight' => $review->distinctHighlight(),
             'likeness' => $review->likenessText(),
             'likenessHeading' => $review->likenessHeading(),
             'perfectFor' => $hasGlance ? $review->bestFor : null,
             'drinkIfYouLike' => $review->drinkIfYouLike,
-            'productionLine' => $hasGlance ? $productionLine : null,
+            'productionLine' => null,
             'notes' => $notes,
             'detailTitle' => $hasGlance && $notes !== [] ? 'Tasting notes' : null,
         ]);
@@ -1480,20 +1510,28 @@ XML;
         ];
 
         $confidenceLabels = [
-            'verified' => 'Verified',
-            'manufacturer_verified' => 'Manufacturer verified',
-            'label_verified' => 'Label verified',
+            'verified' => 'Independently corroborated',
+            'manufacturer_verified' => 'Producer verified',
+            'label_verified' => 'Bottle verified',
             'secondary' => 'Secondary source',
             'inferred' => 'Inferred',
             'unverified' => 'Unverified',
+            'bottle_verified' => 'Bottle verified',
+            'producer_verified' => 'Producer verified',
+            'distributor_verified' => 'Distributor verified',
+            'retailer_verified' => 'Retailer verified',
+            'independently_corroborated' => 'Independently corroborated',
         ];
 
         $grouped = [];
         foreach ($provenance as $field => $entry) {
             $kind = (string) ($entry['kind'] ?? 'unknown');
-            $confidence = (string) ($entry['confidence'] ?? (
+            $confidence = Sensory::normalizeConfidence((string) ($entry['confidence'] ?? (
                 in_array($kind, ['manufacturer', 'label'], true) ? 'manufacturer_verified' : 'secondary'
-            ));
+            )));
+            if ($confidence === '') {
+                $confidence = 'secondary';
+            }
             $url = (string) ($entry['url'] ?? '');
             $key = $confidence.'|'.$kind.'|'.$url;
             if (! isset($grouped[$key])) {
@@ -1890,6 +1928,8 @@ XML;
             'country' => 'Country',
             'sweetness' => 'Sweetness',
             'body' => 'Body',
+            'acidity' => 'Acidity',
+            'descriptor' => 'Flavor',
             'score' => 'Score',
             'color' => 'Color',
         ];
@@ -1909,6 +1949,8 @@ XML;
             'country' => $query->countries,
             'sweetness' => $query->sweetness,
             'body' => $query->body,
+            'acidity' => $query->acidity,
+            'descriptor' => $query->descriptors,
             'score' => $query->score,
             'color' => $query->wineColor,
         ] as $key => $values) {
@@ -1927,8 +1969,8 @@ XML;
                     $label = Review::PRODUCTION_TYPES[$value] ?? $value;
                 } elseif ($key === 'method') {
                     $label = $this->config->methodLabel($value);
-                    if ($value === 'unknown') {
-                        $label = 'Unpublished';
+                    if ($value === 'unpublished' || $value === 'unknown') {
+                        $label = 'Method unpublished';
                     }
                     if ($value === 'other') {
                         $label = 'Other documented method';
@@ -1946,6 +1988,10 @@ XML;
                     $label = Sensory::structure()['sweetness']['levels'][(int) $value]['label'] ?? $value;
                 } elseif ($key === 'body') {
                     $label = Sensory::structure()['body']['levels'][(int) $value]['label'] ?? $value;
+                } elseif ($key === 'acidity') {
+                    $label = Sensory::structure()['acidity']['levels'][(int) $value]['label'] ?? $value;
+                } elseif ($key === 'descriptor') {
+                    $label = Sensory::descriptorLabel($value);
                 } elseif ($key === 'score') {
                     $label = ArchiveQuery::SCORE_BANDS[$value] ?? $value;
                 } elseif ($key === 'color') {
