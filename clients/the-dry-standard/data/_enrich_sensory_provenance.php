@@ -38,8 +38,9 @@ foreach ($repo->fromDisk() as $review) {
 
     try {
         $matter = Yaml::parse($parts[1]);
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         echo 'skip '.$review->slug.': '.$e->getMessage().PHP_EOL;
+
         continue;
     }
     if (! is_array($matter)) {
@@ -57,8 +58,9 @@ foreach ($repo->fromDisk() as $review) {
         $yaml = Yaml::dump($matter, 6, 2, Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK | Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE);
         // Round-trip check before writing — refuse dumps that won't re-parse.
         Yaml::parse($yaml);
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         echo 'skip write '.$review->slug.': '.$e->getMessage().PHP_EOL;
+
         continue;
     }
 
@@ -66,7 +68,7 @@ foreach ($repo->fromDisk() as $review) {
     if (! str_starts_with($body, "\n")) {
         $body = "\n".$body;
     }
-    file_put_contents($path, "---\n".$yaml."---".$body);
+    file_put_contents($path, "---\n".$yaml.'---'.$body);
     $changed++;
     echo 'updated '.$review->slug.PHP_EOL;
 }
