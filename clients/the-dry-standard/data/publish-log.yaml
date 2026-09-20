@@ -352,3 +352,57 @@
   brand: SITE
   published_at: '2026-09-20T01:02:07+00:00'
   path: reviews/wine/site-riesling-dealcoholized/
+-
+  slug: site-riesling-dealcoholized
+  product: 'Riesling Dealcoholized'
+  brand: SITE
+  published_at: '2026-09-20T01:07:29+00:00'
+  path: reviews/wine/site-riesling-dealcoholized/
+-
+  slug: site-riesling-dealcoholized
+  product: 'Riesling Dealcoholized'
+  brand: SITE
+  published_at: '2026-09-20T01:11:58+00:00'
+  path: reviews/wine/site-riesling-dealcoholized/
+-
+  slug: st-regis-non-alcoholic-rose
+  product: 'Non-Alcoholic Rosé'
+  brand: 'St. Regis'
+  published_at: '2026-09-20T01:11:58+00:00'
+  path: reviews/wine/st-regis-non-alcoholic-rose/
+-
+  slug: ohla-rose
+  product: Rosé
+  brand: Ohla
+  published_at: '2026-09-20T01:11:58+00:00'
+  path: reviews/wine/ohla-rose/
+-
+  slug: ohla-rose
+  product: Rosé
+  brand: Ohla
+  published_at: '2026-09-20T01:12:10+00:00'
+  path: reviews/wine/ohla-rose/
+-
+  slug: ohla-rose
+  product: Rosé
+  brand: Ohla
+  published_at: '2026-09-20T01:12:44+00:00'
+  path: reviews/wine/ohla-rose/
+-
+  slug: ohla-rose
+  product: Rosé
+  brand: Ohla
+  published_at: '2026-09-20T01:12:50+00:00'
+  path: reviews/wine/ohla-rose/
+-
+  slug: ohla-rose
+  product: Rosé
+  brand: Ohla
+  published_at: '2026-09-20T01:12:56+00:00'
+  path: reviews/wine/ohla-rose/
+-
+  slug: ohla-rose
+  product: Rosé
+  brand: Ohla
+  published_at: '2026-09-20T01:13:00+00:00'
+  path: reviews/wine/ohla-rose/

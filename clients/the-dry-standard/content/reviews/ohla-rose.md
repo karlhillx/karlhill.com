@@ -64,10 +64,10 @@ discrepancies:
 status: published
 ---
 
-Spanish Syrah and Cabernet Sauvignon, fermented as wine, then dealcoholized. The still is unpublished.
+Spanish Syrah and Cabernet Sauvignon under the Ohla mark (Miguel Torres), fermented as wine, then dealcoholized. The still is unpublished. The bottle in this cellar is labeled Ohla! De-Alcoholized Wine — pale salmon, still. It is not the Spanish 12.5% Garnacha Ohla Rosado, and it is not Natureo with a different front label.
 
-The bottle in this cellar is labeled Ohla! De-Alcoholized Wine. Pale salmon, still. It is not the Spanish 12.5% Garnacha Ohla Rosado, and it is not Natureo with a different front label.
+The nose is quiet: strawberry hull and a little watermelon candy. Confectionery more than savoury rosé — fruit is there, but the savoury pink-wine edge is not.
 
-The glass is light and slightly sweet: strawberry hull, a little watermelon candy, red fruit on a thin frame. The finish is short berry. It drinks like a picnic rosé that lost its weight.
+The palate is light and slightly sweet. Red fruit sits on a thin frame. Mouthfeel is the weak point: it starts like a picnic rosé, then goes hollow in the middle. Sweetness remains; the body and warmth alcohol would have given do not. Balance tips toward easy fruit rather than acid-driven structure. Structural authenticity is weak — briefly wine-shaped, then thin, without the mid-palate weight dealcoholized pinks need to hold.
 
-Wine-likeness splits. The nose is quiet and a bit confectionery — candy watermelon more than savoury rosé. The sip still reads as pink wine until the middle goes hollow. Sweetness is there; the body and warmth alcohol would have given are not. More successful as an easy aperitif than as a convincing rosé.
+The finish is short berry. Keep it cold. Wine-likeness splits: the nose leans candy, the sip reads as pink wine until the middle collapses. Serve well chilled as an aperitif if you want pink in the glass without expecting a serious rosé. That is its lane — useful, not ambitious at all.

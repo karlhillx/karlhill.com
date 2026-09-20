@@ -94,11 +94,17 @@ Retailer copy is weaker than a producer technical page. Use it for price and ava
 
 The markdown body is the review. The page labels it **The wine** (or beer, spirit, cider, drink). Never call it a product overview.
 
+### Length
+
+**Quick reviews: 1,200–2,000 characters** in the markdown body, excluding frontmatter/metadata. More informative than a conventional 50-word wine note; substantially shorter than a feature. Use short paragraphs. Avoid filler.
+
+Cover aroma, palate, mouthfeel, finish, balance, structural authenticity, and production provenance in prose — not as a checklist, and not by pasting `nose` / `palate` / `finish` word for word.
+
 ### What belongs in the essay
 
 Origin and how it was made, in one tight beat. Then the glass. Then the argument — usually where dealcoholized drinks succeed or fail (aroma vs palate, structure vs juice, sweetness vs acid).
 
-Do not restate `nose` / `palate` / `finish` word for word in the body. The tasting fields do the fruit-by-fruit work. The essay makes the case.
+Do not restate `nose` / `palate` / `finish` line for line in the body. The tasting fields stay concise and scannable. The essay makes the case.
 
 ### What belongs outside the essay
 
@@ -107,6 +113,7 @@ Do not restate `nose` / `palate` / `finish` word for word in the body. The tasti
 | `price`, `availability`, `purchase_links` | Retailer names, shelf prices, store SKUs |
 | `producer` | Unrelated businesses (hotel chains, conglomerates that did not make the drink) |
 | `sources` | Citation titles and URLs |
+| `discrepancies`, Product facts, How it was made | UPC disputes, ABV sheet splits, g/L tables, method temperatures already printed elsewhere |
 | `nose` / `palate` / `finish` | A second pasted copy of the tasting note |
 
 A dollar figure is a fact. Write `$12.99 (Total Wine, 750 ml)` in `price`. Do not write "under $13" or "sold at Total Wine" in the body.
@@ -127,8 +134,8 @@ Once the bottle has been tasted, retailer tasting copy is not our note. Drop `di
 
 ### Shape
 
-1. Method in two or three short sentences. Do not say "fermented and aged" twice.
-2. The glass: structure and the tell.
-3. The argument.
+1. Production provenance in a short opening paragraph (who, where, dealcoholized vs alternative, rebuild if relevant). Do not dump sidebar facts.
+2. The glass across short paragraphs: aroma → palate / mouthfeel / balance → finish.
+3. The argument: structural authenticity and wine/beer/spirit-likeness.
 
-Current model for the essay/facts split: `content/reviews/st-regis-non-alcoholic-rose.md`. For a fully sourced, method-forward wine, also read `noughty-sparkling-chardonnay.md` and `leitz-eins-zwei-zero-riesling.md`.
+Current model: `content/reviews/site-riesling-dealcoholized.md`. Also `st-regis-non-alcoholic-rose.md`.

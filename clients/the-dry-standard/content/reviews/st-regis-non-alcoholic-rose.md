@@ -71,6 +71,10 @@ status: published
 
 A German Syrah/Shiraz, fermented and aged as wine, then vacuum-distilled. That is dealcoholized. Formulated pinks never had alcohol to take out.
 
-The glass is berry-forward, tart, and off-dry: light-bodied, high-acid, slightly spritzy, with only a flicker of tannin. Residual sweetness is there; the acid keeps it from reading as juice. A faint drying grip does more structural work than the fruit alone would suggest. The back of the sip is the tell: bright berry gives way to something slightly oxidative and balsamic — dark cherry, molasses, a fermented tang.
+The nose is the wine-like half: berry-pink, still recognizably rosé rather than cordial.
 
-Wine-likeness splits in two, and that split is the useful number. The aroma is fairly wine-like. The palate is less so — tart up front, then balsamic, a little fermented, close enough to kombucha that some drinkers will name it, and without the warmth or mid-palate weight of an alcoholic rosé. Dealcoholized pinks often keep the nose and lose the mouth. This bottle is a clear case of that gap, not an average of the two.
+The palate is berry-forward, tart, and off-dry. Raspberry and strawberry lead, with cassis and a shy melon note behind them. Light-bodied and lean, almost no tannin, with a faint spritz. Residual sweetness sits under high acid, so the middle tastes tart and a little fermented — kombucha is not a stretch for some drinkers. Mouthfeel starts crisp; a faint drying grip does more structural work than the fruit alone would suggest. Then the back of the sip turns: bright berry gives way to something slightly oxidative and balsamic — dark cherry, molasses, a fermented tang.
+
+Balance is acid over sugar, then that darker mid-palate takes the handoff. Structural authenticity is partial — acidity and a drying flick supply wine shape; ethanol's weight and warmth are gone.
+
+The finish is soft, balsamic, and short. Wine-likeness splits: aroma fairly wine-like, palate less so. Dealcoholized pinks often keep the nose and lose the mouth. This bottle is a clear case of that gap, not an average of the two.

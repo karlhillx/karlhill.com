@@ -676,5 +676,6 @@ Before publishing, verify:
 * Did we identify weaknesses as well as strengths?
 * Did we avoid pretending an alcohol alternative is dealcoholized?
 * Would a consumer know what this actually tastes like after reading the review?
+* Is the essay body 1,200–2,000 characters, short paragraphs, no filler or sidebar rehash?
 
 If not, revise.

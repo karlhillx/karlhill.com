@@ -43,7 +43,7 @@ review_date: "2026-09-19"
 updated_date: "2026-09-19"
 rating: 81
 verdict: "A solid, wine-like dealcoholized Riesling — bright acid, clear fruit, with the must and concentrate showing as extra sweetness and a softer mid-palate. More convincing than most NA whites; not as dry or structured as a traditional Mosel."
-summary: "Mosel Riesling, dealcoholized by low-temperature evaporation. Green apple and pear, bright acid, and a must-backed sweetness that softens the middle."
+summary: "Mosel Riesling from Dr. Pauly-Bergweiler, dealcoholized and rebuilt with grape must. Green apple and pear, bright acid, a softer sweet middle."
 tastes:
   - green apple
   - pear
@@ -91,12 +91,10 @@ discrepancies:
 status: published
 ---
 
-SITE is the front label. The barcode is the useful fact.
+SITE is Mosel Riesling from Dr. Pauly-Bergweiler — fermented as wine, then dealcoholized at low temperature, with grape must and juice concentrate worked back in. That rebuild is on the bottle and in the glass. The front label is modern and spare; the wine behind it still reads as Riesling first.
 
-UPC 883122700115 on this bottle is the same code Winesellers Ltd. prints for Dr. Pauly-Bergweiler Noble House Riesling Alcohol Free. The importer sheet puts the estate on the Middle Mosel, 100% Riesling, and a low-temperature removal step: gently heated to a maximum of 27°C so the alcohol evaporates. That is dealcoholized wine. The sheet does not name the still. Reduced pressure is the honest inference; spinning cone and reverse osmosis are not.
+The nose is fruit-led: green apple and pear, lemon, white peach, a light floral lift, and a faint slate line underneath. It smells like Mosel fruit more than cordial.
 
-The SITE label is unusually clear about rebuild. Ingredients: dealcoholized wine, grape must, grape juice concentrate. So the base is fermented Riesling with ethanol taken out, then grape-derived material put back for sweetness, body, or flavor. Must-back after removal stays dealcoholized in this taxonomy; it is still worth printing, because many dealcoholized whites never say what returned to the bottle.
+On the palate the wine is light-bodied and crisp. Apple, pear, citrus, and peach arrive early, and the acidity keeps the sip lively rather than flat. Balance is the fight: acid does the Mosel work, but the must and concentrate push sweetness and a softer, slightly juice-like roundness through the mid-palate. Mouthfeel starts precise and light, then turns a little plush where the rebuild lands. Structural authenticity is mixed — acid and a mild mineral dryness give wine shape, while the missing ethanol weight and the added sweetness keep it from drinking like a dry Mosel.
 
-ABV and sugar both split between the bottle and the matching sheet. The bottle prints under 0.5% ABV and 3.3 g sugar per 100 ml — about 33 g/L. The Noble House sheet prints under 0.03% by volume and 35.6 g/L residual sugar. Close enough on sugar to support the shared-spec reading; not close enough to collapse the two labels into one confirmed SKU without a producer statement.
-
-The glass is fruit-first: green apple and pear, lemon, white peach, a light floral lift, and a faint slate line underneath. Light-bodied and crisp. Acidity does the Mosel work and keeps it from reading as juice alone — but the must and concentrate are not subtle. They add sweetness and a rounded, softer middle, and a concentrate note hangs on the finish after the tart apple and lemon fade. More wine-like than most NA whites. Not as dry or structured as a traditional Mosel Riesling, and that gap is the useful number.
+The finish is medium-short. Tart apple and lemon, peach sweetness hanging on, a mineral flick that almost cleans the end, and a soft concentrate note that stays. More wine-like than most NA whites; not as dry or structured as traditional Mosel. That gap is the review.

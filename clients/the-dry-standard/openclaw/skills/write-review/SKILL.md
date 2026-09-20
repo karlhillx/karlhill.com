@@ -51,6 +51,12 @@ Never title the essay "Product overview."
 
 Retailers, shelf prices, store SKUs, and unrelated businesses stay out of the essay, summary, and lede. They belong in `price`, `availability`, `purchase_links`, `producer`, or `sources`.
 
+The essay is a **Quick review: 1,200–2,000 characters** (markdown body only, excluding frontmatter). More detail than a 50-word wine note; shorter than a feature. Short paragraphs. No filler.
+
+Cover aroma, palate, mouthfeel, finish, balance, structural authenticity, and production provenance in prose. Do not rehash UPC, ABV disputes, g/L sugar, method temperatures, or ingredient lists already covered by identity, How it was made, At a glance, Product facts, or `discrepancies`. Do not paste `nose` / `palate` / `finish` line for line.
+
+Shape: provenance beat → glass (aroma → palate / mouthfeel / balance → finish) → likeness / structure argument.
+
 ## Classification enum
 
 The guide's categories map to frontmatter as follows. Never guess.
@@ -108,21 +114,23 @@ Likeness can split (nose vs palate). Quality can be high while structure is weak
 2. Classify `production_type` and set `verified` separately.
 3. Fill sourced facts only. If a fact cannot be sourced, omit the field.
 4. If sources disagree on a **fact**, add `discrepancies`. Flavor impressions are not a fact dispute.
-5. Write the essay: method once; then the glass; then the argument (likeness split, structure, balance, faults).
+5. Write the essay (1,200–2,000 characters): provenance once; then aroma, palate, mouthfeel, balance, finish; then likeness / structure. Short paragraphs. No filler. No sidebar rehash.
 6. Fill the glance panel: `tastes`, `profile`, `mouthfeel`, `highlight`, `likeness` (and `drink_if_you_like` when useful).
-7. Write `nose`, `palate`, `finish`, and optionally `structure`.
+7. Write concise `nose`, `palate`, `finish`, and optionally `structure` — scannable, not a second essay.
 8. `summary` is the lede: process + what the glass does. No retailer. No price.
 9. Disclose free samples (`acquisition`, `disclosure_note`). Never change score or wording for a commercial relationship.
 10. Run the Final Review Test in [reference.md](reference.md). Then stop. Validate via `publish-review`.
 
 ## Model shape
 
-Glance panel + essay: `content/reviews/st-regis-non-alcoholic-rose.md`
+Glance panel + essay: `content/reviews/site-riesling-dealcoholized.md`
 
 ## Checklist
 
 - [ ] Read [reference.md](reference.md)
 - [ ] Production type correct; alternative not called dealcoholized
+- [ ] Essay is 1,200–2,000 characters (body only); short paragraphs; no filler
+- [ ] Essay covers aroma, palate, mouthfeel, finish, balance, structure, provenance without sidebar dump
 - [ ] Essay has no retailer, price, or store SKU
 - [ ] No invented sensory notes
 - [ ] Glance fields filled after a tasting (`tastes`, `profile`, `mouthfeel`, `highlight`, `likeness`)
