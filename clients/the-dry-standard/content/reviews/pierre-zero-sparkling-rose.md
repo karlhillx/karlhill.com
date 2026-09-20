@@ -31,6 +31,18 @@ updated_date: "2026-09-19"
 rating: 78
 verdict: "The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a foil capsule."
 summary: "Pierre Zéro Sparkling Rosé is dealcoholized Chardonnay and Merlot from Maison Chavin, 0.0% ABV in a 75 cl bottle, carbonated after the spinning-cone step."
+
+tastes:
+  - red berry
+  - musky floral lift
+profile:
+  - Off-dry
+  - Soft bead
+  - Short finish
+  - Clean finish
+mouthfeel: "Delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not."
+highlight: "Soft red berry and a musky floral lift — fruit-forward rather than yeasty."
+likeness: "The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a…"
 nose: "Soft red berry and a musky floral lift — fruit-forward rather than yeasty."
 palate: "Delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not."
 finish: "Short, clean, a little candied strawberry."
@@ -49,6 +61,10 @@ sources:
 status: published
 ---
 
-This is not the three-litre bag-in-box already reviewed under the same brand. It is the 75 cl sparkling: Chardonnay and Merlot, vinified as wine, then put through the spinning cone that Maison Chavin has used for Pierre Zéro since the range launched. The house is unusually direct about the machine. A 2014 process note names spinning cone column, says it is the method used for the range, and claims it is how they reach 0.0%. The shop fiche for this SKU lists 0% alcohol, 75 cl, and 4.5 g of sugar per 100 ml.
+Pierre Zéro Sparkling Rosé is dealcoholized from France. The base is Traditionally vinified Chardonnay and Merlot, dealcoholized after fermentation. Spinning cone column (the method Maison Chavin says it uses for the Pierre Zéro range).
 
-Chardonnay plus Merlot is an odd sparkling pair, and it explains the shape: acid and a fine bead from the white, colour and red fruit from the red. The mousse is delicate. The sugar is not shy — 45 g/L if you do the conversion — so this drinks as a festive pink, not as a dry crémant. That is the brief. Pour it cold for a toast. Do not file it next to the box in the fridge door; that is a different product, a different format, and a different night.
+The nose is soft red berry and a musky floral lift — fruit-forward rather than yeasty.
+
+On the palate, delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is short, clean, a little candied strawberry. The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a foil capsule. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

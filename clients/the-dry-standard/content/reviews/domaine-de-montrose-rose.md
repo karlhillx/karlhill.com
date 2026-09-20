@@ -20,10 +20,19 @@ volume: "750 ml"
 price: "€12.50 (French retail)"
 availability: "French retail; US via specialty importers including Boisson and Schatzi Wines"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 80
 verdict: "An estate-grown Languedoc rosé in the zero-proof register: Grenache and Cinsault from volcanic soils, dry, round and built for hot weather."
 summary: "Domaine Montrose's Rosé Zéro is a dealcoholized 80% Grenache / 20% Cinsault rosé from Hérault: round and fresh, priced near €12.50 in French retail."
+
+tastes:
+  - red berries
+profile:
+  - Off-dry
+  - Clean finish
+mouthfeel: "Round and fresh at once; berry fruit over gentle structure, dry rather than sweet, with more body than most dealcoholized rosés."
+highlight: "An estate-grown Languedoc rosé in the zero-proof register: Grenache and Cinsault from volcanic soils, dry, round and built for hot weather."
+likeness: "An estate-grown Languedoc rosé in the zero-proof register: Grenache and Cinsault from volcanic soils, dry, round and built for hot weather."
 nose: "Red berries and a soft floral note with a faint savoury edge from the volcanic terroir."
 palate: "Round and fresh at once; berry fruit over gentle structure, dry rather than sweet, with more body than most dealcoholized rosés."
 finish: "Clean and rounded, the fruit trailing gently."
@@ -32,6 +41,8 @@ serve: "Well chilled."
 image: media/reviews/domaine-de-montrose-rose.jpg
 image_alt: "Domaine Montrose Rosé bottle"
 image_credit: "Product photo via Domaine de Montrose"
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "Rose Mont Rose, Rosé Zéro — Domaine de Montrose"
     url: https://domaine-montrose.com/shop/fr/rose-mont-rose/61-rose-mont-rose-rose-.html
@@ -45,6 +56,10 @@ sources:
 status: published
 ---
 
-Domaine Montrose is a real Languedoc estate — Côtes de Thongue, working volcanic soils and villafranchian gravels — and the Rosé Zéro is the family's alcohol-free version of their rosé: 80% Grenache Noir, 20% Cinsault, fermented conventionally and then dealcoholized. The producer's own line about the wine is that it sits "between roundness and freshness, to survive the big heats," which is a fair description of a Languedoc rosé's job in general.
+Domaine de Montrose Rosé Zéro is dealcoholized from Languedoc-Roussillon (Hérault, Pays d'Oc IGP), France. The base is 80% Grenache Noir, 20% Cinsault, from volcanic soils and villafranchian gravels. Vin désalcoolisé — Grenache and Cinsault rosé fermented conventionally then dealcoholized (producer and retail listings).
 
-In the glass it has more body than most dealcoholized rosés, which is the Grenache showing through — red berries and a soft floral note over a faint savoury edge from the volcanic ground. It's dry rather than sweet, and the roundness persists into the finish. At €12.50 in French retail it's priced as what it is: an everyday rosé from a real estate. For an afternoon in the heat, ideally with something grilled and Mediterranean, it does the job better than most of the category's flavoured entrants.
+The nose is red berries and a soft floral note with a faint savoury edge from the volcanic terroir.
+
+On the palate, round and fresh at once; berry fruit over gentle structure, dry rather than sweet, with more body than most dealcoholized rosés. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and rounded, the fruit trailing gently. An estate-grown Languedoc rosé in the zero-proof register: Grenache and Cinsault from volcanic soils, dry, round and built for hot weather. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

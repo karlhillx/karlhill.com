@@ -26,10 +26,22 @@ image_source: importer
 image_source_url: https://delmosa.com/products/jorg-geiger-grad36
 image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 84
 verdict: "A dealcoholized red that admits it is also fruit and herbs. Cassis, plum, tannin, and a structure most NA reds fake with juice alone."
 summary: "Grad 36° is 75% dealcoholized red wine with damson, currant, and blackberry juice. Under 0.5% ABV, still, 750 ml."
+
+tastes:
+  - cassis
+  - plum
+  - lavender
+  - spice
+profile:
+  - Off-dry
+  - Bright acidity
+mouthfeel: "Grip and acidity, dark cherry, cocoa, pepper. The tannin is the reason to open it with food."
+highlight: "A dealcoholized red that admits it is also fruit and herbs. Cassis, plum, tannin, and a structure most NA reds fake with juice alone."
+likeness: "A dealcoholized red that admits it is also fruit and herbs. Cassis, plum, tannin, and a structure most NA reds fake with juice alone."
 nose: "Cassis, plum, a little lavender and spice — darker than the cider rosé."
 palate: "Grip and acidity, dark cherry, cocoa, pepper. The tannin is the reason to open it with food."
 finish: "Spice and dry fruit. Not a sweet red."
@@ -42,6 +54,10 @@ sources:
 status: published
 ---
 
-The user of this cellar already knows Geiger made this. Delmosa prints the recipe: 75% dealcoholized red wine, damson plum, currant, blackberry, herb and wildflower extracts, sulfites, still, 750 ml, under 0.5% ABV. The grape variety of that red is not on the product page, so it is not invented here.
+Grad 36° is a hybrid of dealcoholized material and other defining ingredients from Schlat, Germany. 75% dealcoholized red wine blended with damson plum, currant, and blackberry juice plus herb and wildflower extracts. This is not a 100% wine and does not need to be. The dealcoholized fraction is the badge. The rest is why it has tannin and spice when most NA reds have only juice.
 
-This is not a 100% wine and does not need to be. The dealcoholized fraction is the badge. The rest is why it has tannin and spice when most NA reds have only juice.
+The nose is cassis, plum, a little lavender and spice — darker than the cider rosé.
+
+On the palate, grip and acidity, dark cherry, cocoa, pepper. The tannin is the reason to open it with food. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is spice and dry fruit. Not a sweet red. A dealcoholized red that admits it is also fruit and herbs. Cassis, plum, tannin, and a structure most NA reds fake with juice alone. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

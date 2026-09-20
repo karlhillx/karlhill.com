@@ -20,16 +20,31 @@ producer: Weingut Josef Leitz (Rheingau, Germany)
 volume: "750 ml"
 availability: "US retail including specialty NA shops"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 84
 verdict: "The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range."
 summary: "Leitz's Eins-Zwei-Zero Sparkling Blanc de Blancs applies the spinning cone process to a white Burgundy-family base: 0.0% ABV, crisp and fine-bubbled."
+
+tastes:
+  - green apple
+  - blanc de blancs profile
+  - lean
+  - precise
+profile:
+  - Bright acidity
+  - Soft bead
+  - Clean finish
+mouthfeel: "Fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty."
+highlight: "Green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise."
+likeness: "The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range."
 nose: "Green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise."
 palate: "Fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty."
 finish: "Clean and precise, the citrus carrying."
 best_for: "The Champagne-shape occasion, zero-proof."
 serve: "Well chilled, in a flute."
 image_alt: "Leitz Eins-Zwei-Zero Sparkling Blanc de Blancs bottle"
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "Leitz Eins-Zwei-Zero Riesling (published review — same process)"
     url: https://karlhill.com/clients/the-dry-standard/reviews/wine/leitz-eins-zwei-zero-riesling/
@@ -40,6 +55,10 @@ sources:
 status: published
 ---
 
-The Sparkling Blanc de Blancs is the third Leitz Eins-Zwei-Zero entry on this desk (after the Riesling and the Sparkling Riesling), and it's the most Champagne-adjacent of the three: a white Burgundy-family base wine, conventionally vinified in the Rheingau, then dealcoholized by the same spinning cone process documented in the Riesling review. The Leitz process is the most transparent in the German NA category — the winery is a real producer with a real vineyard, and the Eins-Zwei-Zero line is a serious project rather than a cash-in.
+Leitz Eins-Zwei-Zero Sparkling Blanc de Blancs is dealcoholized from Rheingau, Germany. The base is Rheingau white wine, vinified conventionally before dealcoholization. Spinning cone technology applied to conventionally vinified Rheingau sparkling wine (same process as the published Leitz Riesling).
 
-The glass shows green apple and citrus with a fine, persistent bubble, lean and precise in the way Blanc de Blancs should be. The body is lighter than a real Champagne's — the usual dealcoholization tradeoff — but the bready note from the lees and the crisp finish make it the closest thing to a zero-proof Champagne on this shelf. For the toast at the dinner where nobody's drinking, this is the answer.
+The nose is green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise.
+
+On the palate, fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

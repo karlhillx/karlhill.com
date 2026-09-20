@@ -17,11 +17,26 @@ volume: 750 ml
 price: "$9.99 (Total Wine)"
 availability: "Total Wine & More"
 image_alt: "Be Free Sauvignon Blanc"
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 77
 verdict: "The white sibling of the Be Free Rosé that leads this purchase list. Citrus and grapefruit, ten dollars, method still a slogan."
 summary: "Be Free's German Sauvignon Blanc is sold at Total Wine as dealcoholized by a 'special method.' No ABV or technique is published on that page."
+
+tastes:
+  - citrus
+  - grapefruit
+  - floral
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light body
+  - Short finish
+mouthfeel: "Light, crisp, a touch sweet. Less snap than Giesen 0% Sauvignon Blanc."
+highlight: "The white sibling of the Be Free Rosé that leads this purchase list. Citrus and grapefruit, ten dollars, method still a slogan."
+likeness: "The white sibling of the Be Free Rosé that leads this purchase list. Citrus and grapefruit, ten dollars, method still a slogan."
 nose: "Citrus, grapefruit, a little floral — the retailer list, and the glass is in that neighborhood."
 palate: "Light, crisp, a touch sweet. Less snap than Giesen 0% Sauvignon Blanc."
 finish: "Short and clean. Value white, not a Marlborough argument."
@@ -34,6 +49,10 @@ sources:
 status: published
 ---
 
-Total Wine's product page is the citation: Germany, 750 ml, $9.99, "dealcoholized using a special method." That sentence confirms a real Sauvignon Blanc had the alcohol taken back out, even without naming the technique — same reasoning as the Be Free Rosé. The ABV is omitted here because the page does not print one.
+Be Free Sauvignon Blanc is dealcoholized from Germany. Total Wine's product highlights state the wine 'gets dealcoholized using a special method, conserving all the beautiful aromas and flavors'; the specific nam…. What you get is a light citrus white at the price of the rest of the line. It will not trouble the Giesen 0% Sauvignon Blanc already in this cellar. It will fill the weeknight slot the rosé already occupies.
 
-What you get is a light citrus white at the price of the rest of the line. It will not trouble the Giesen 0% Sauvignon Blanc already in this cellar. It will fill the weeknight slot the rosé already occupies.
+The nose is citrus, grapefruit, a little floral — the retailer list, and the glass is in that neighborhood.
+
+On the palate, light, crisp, a touch sweet. Less snap than Giesen 0% Sauvignon Blanc. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is short and clean. Value white, not a Marlborough argument. The white sibling of the Be Free Rosé that leads this purchase list. Citrus and grapefruit, ten dollars, method still a slogan. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

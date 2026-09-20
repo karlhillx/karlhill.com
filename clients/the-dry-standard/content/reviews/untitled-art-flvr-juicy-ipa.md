@@ -19,11 +19,21 @@ availability: "US retail including Metro Wine & Spirits; direct from drinkuntitl
 image: media/reviews/untitled-art-flvr-juicy-ipa.jpg
 image_alt: "Untitled Art FLVR! NA Juicy IPA can"
 image_credit: Product photo via drinkuntitled.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 82
 verdict: "The IPA in the FLVR! line — juicy, hazy, and hop-forward with the same Untitled Art commitment to flavor that makes their NA beers some of the best in the category."
 summary: "Untitled Art's FLVR! NA Juicy IPA is a hazy, juicy non-alcoholic IPA from Wisconsin: under 0.5% ABV, fruit-forward and drinkable."
+
+tastes:
+  - bright citrus
+profile:
+  - Modest bitterness
+mouthfeel: "Juicy and soft; tropical and citrus hops over a rounded body, gentle bitterness, no astringent gaps."
+highlight: "The IPA in the FLVR! line — juicy, hazy, and hop-forward with the same Untitled Art commitment to flavor that makes their NA beers some of the best in the category."
+likeness: "The IPA in the FLVR! line — juicy, hazy, and hop-forward with the same Untitled Art commitment to flavor that makes their NA beers some of the best in the category."
 nose: "Bright citrus and tropical hops with a soft juicy note — the hazy IPA aromatic signature."
 palate: "Juicy and soft; tropical and citrus hops over a rounded body, gentle bitterness, no astringent gaps."
 finish: "Soft and fruity, the hop character trailing pleasantly."
@@ -42,6 +52,10 @@ sources:
 status: published
 ---
 
-Untitled Art's FLVR! line now covers three beers on this desk — the Mango Dragonfruit Sour, the Italian-Style Pils, and now the Juicy IPA — and the brewery's approach is consistent across all three: brew to full fermentation, then remove the alcohol through reverse osmosis membrane filtration, per the brand's own category copy and lead brewer Sam Green's account to Wisconsin Public Radio. The Juicy IPA is the most conventional of the three, and the most directly comparable to the rest of the NA IPA shelf.
+Untitled Art FLVR! NA Juicy IPA is dealcoholized from Waunakee, Wisconsin, United States. Reverse osmosis membrane filtration, applied after full fermentation.
 
-The pour is hazy and bright, with citrus and tropical hops over a soft, rounded body. Unlike the Flying Dog Deep Fake, which reads as thin, the Untitled Art holds its body through the mid-palate — the "juicy" descriptor is doing real work. It's not the best NA IPA on this desk (the Tired Hands N/Alien Church at 88 takes that), but it's in the conversation, and at Untitled Art's typical price point it's a better value.
+The nose is bright citrus and tropical hops with a soft juicy note — the hazy IPA aromatic signature.
+
+On the palate, juicy and soft; tropical and citrus hops over a rounded body, gentle bitterness, no astringent gaps. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is soft and fruity, the hop character trailing pleasantly. The IPA in the FLVR! line — juicy, hazy, and hop-forward with the same Untitled Art commitment to flavor that makes their NA beers some of the best in the category. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

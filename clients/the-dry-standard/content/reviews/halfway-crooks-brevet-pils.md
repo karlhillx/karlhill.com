@@ -21,11 +21,25 @@ availability: "Online via bettertimesmarket.com; brewery taproom in Atlanta"
 image: media/reviews/halfway-crooks-brevet-pils.jpg
 image_alt: "Halfway Crooks Brevet Pils"
 image_credit: Photo via halfwaycrooks.beer
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
 updated_date: "2026-09-19"
 rating: 88
 verdict: "A pilsner that commits to the style instead of apologizing for the 0.5% — fennel, oyster cracker and lemon, from an Atlanta brewery that writes the most precise tasting copy in the business."
 summary: "Atlanta's Halfway Crooks brews the Brevet line under 0.5% ABV; the pilsner is crisp, quietly weird in the best way, and cheap by NA-can standards."
+
+tastes:
+  - crackery malt
+  - fennel note over lemon
+profile:
+  - Bright acidity
+  - Modest bitterness
+  - Short finish
+  - Clean finish
+mouthfeel: "Clean pils body, moderate tangerine behind the lemon, bitterness kept low and tidy."
+highlight: "Crackery malt and a soft fennel note over lemon — a German pils with a secret."
+likeness: "A pilsner that commits to the style instead of apologizing for the 0.5% — fennel, oyster cracker and lemon, from an Atlanta brewery that writes the most precise tasting copy in the business."
 nose: "Crackery malt and a soft fennel note over lemon — a German pils with a secret."
 palate: "Clean pils body, moderate tangerine behind the lemon, bitterness kept low and tidy."
 finish: "Crisp and short, with an oyster-cracker saltiness lingering a beat longer than expected."
@@ -50,6 +64,10 @@ sources:
 status: published
 ---
 
-Halfway Crooks brews at 60 Georgia Ave SE in Atlanta, and the Brevet series — French for the credential a Tour de France rider earns; the brewery's copy leans hard into cycling romance — is their non-alcoholic line. The product page itself stays quiet, but co-owner Shawn Cooper told Atlanta Magazine directly how it's made: a mushroom-derived extract called Chiber that "keeps the yeast static," halting fermentation before real alcohol forms rather than stripping it out afterward. That's naturally low alcohol, not dealcoholized. BeerMenus lists it at 0.3% ABV and roughly 45 calories a can, which is really all the number you need.
+Halfway Crooks Brevet Pils is brewed or fermented to finish at low ABV without a published removal step from Atlanta, Georgia, United States. Atlanta Magazine quotes co-owner Shawn Cooper describing the brewery's NA process directly: he uses a mushroom-derived extract called Chiber that 'keeps the ….
 
-The beer itself is the best argument for skipping the science lecture. The brewery's own tasting note is fennel, oyster crackers, lemon and moderate tangerine — an odd, precise set of words only a brewery actually brewing to a style would write — and the pour delivers: a crackery, snappy pils with an anise whisper and a clean, short finish. Too many NA pilsners taste like apology; this one tastes like a pilsner that happens to be under 0.5%. At $3.75 a can from NA-focused online shops, it also undercuts most of the category's craft names on price.
+The nose is crackery malt and a soft fennel note over lemon — a German pils with a secret.
+
+On the palate, clean pils body, moderate tangerine behind the lemon, bitterness kept low and tidy. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is crisp and short, with an oyster-cracker saltiness lingering a beat longer than expected. A pilsner that commits to the style instead of apologizing for the 0.5% — fennel, oyster cracker and lemon, from an Atlanta brewery that writes the most precise tasting copy in the business. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

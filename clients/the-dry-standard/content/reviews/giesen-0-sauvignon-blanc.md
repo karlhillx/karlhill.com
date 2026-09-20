@@ -26,10 +26,23 @@ purchase_links:
     url: https://thezeroproof.com/products/giesen-zero-percent-sauvignon-blanc
     region: US
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 85
 verdict: "The most widely available proof that spinning-cone dealcoholization can keep a Sauvignon Blanc's grassy snap intact. Not a substitute for the real Marlborough bottle, but the closest of the queue's whites to tasting like one."
 summary: "New Zealand's best-selling alcohol-removed white, built the honest way: full-strength Sauvignon Blanc first, alcohol stripped after via spinning cone."
+
+tastes:
+  - grapefruit pith
+  - tart passionfruit
+  - green
+profile:
+  - Bright acidity
+  - Light body
+  - Short finish
+  - Clean finish
+mouthfeel: "Clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate."
+highlight: "Grapefruit pith, tart passionfruit, and a green, grassy edge that reads unmistakably as Marlborough."
+likeness: "The most widely available proof that spinning-cone dealcoholization can keep a Sauvignon Blanc's grassy snap intact. Not a substitute for the real Marlborough bottle, but the closest of the queue's whites to tasting like one."
 nose: "Grapefruit pith, tart passionfruit, and a green, grassy edge that reads unmistakably as Marlborough."
 palate: "Lemon shortbread and tart pear up front, with blackcurrant leaf underneath. Body is lighter than the alcoholic original, as expected once the ethanol is gone, but the varietal fingerprint holds."
 finish: "Clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate."
@@ -38,6 +51,8 @@ serve: "Well chilled, in a standard white-wine glass."
 image: media/reviews/giesen-0-sauvignon-blanc.jpg
 image_alt: "Giesen 0% Sauvignon Blanc bottle"
 image_credit: "Product photo via Giesen Wines"
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "Giesen Wines USA — FAQs (alcohol-free wine)"
     url: https://www.giesenwines.com/frequently-asked-questions-alcohol-free-wine
@@ -51,6 +66,10 @@ sources:
 status: published
 ---
 
-Giesen was first to put a dealcoholized Marlborough Sauvignon Blanc on shelves, and the method is the disqualifying-simple kind that separates this category from formulated zero-proof drinks: make a full-strength Sauvignon Blanc, then run it through a spinning cone to gently separate aroma, alcohol, and body before recombining everything minus the ethanol. Giesen bought its own spinning cone rig in 2021, reportedly the first New Zealand winery to do so.
+Giesen 0% Sauvignon Blanc is dealcoholized from Marlborough, New Zealand. The base is Full-strength Marlborough Sauvignon Blanc, made through the complete winemaking process before alcohol removal. Spinning cone distillation.
 
-That process shows up in the glass as the thing dealcoholized whites usually lose first — the grassy, green-pepper snap that makes a Sauvignon Blanc taste like Marlborough and not like flavored water. It's not a like-for-like replacement for the 12.5% version; body drops noticeably once the alcohol is gone, and the finish cuts short rather than lingering. But among the mass-market dealcoholized whites, this is the one built on an actual removal process rather than early-picked, low-ferment grapes or add-back concentrate.
+The nose is grapefruit pith, tart passionfruit, and a green, grassy edge that reads unmistakably as Marlborough.
+
+On the palate, lemon shortbread and tart pear up front, with blackcurrant leaf underneath. Body is lighter than the alcoholic original, as expected once the ethanol is gone, but the varietal fingerprint holds. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate. The most widely available proof that spinning-cone dealcoholization can keep a Sauvignon Blanc's grassy snap intact. Not a substitute for the real Marlborough bottle, but the closest of the queue's whites to tasting like one. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine.

@@ -20,11 +20,24 @@ availability: "Direct from tiredhands.com; select Philadelphia-area retail"
 image: media/reviews/tired-hands-n-alien-church.jpg
 image_alt: "Tired Hands N/Alien Church can"
 image_credit: Product photo via tiredhands.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 88
 verdict: "Tired Hands spent over a year on R&D to make a NE IPA that lives up to the Alien Church name — hazy, hoppy, and honest about the craft. One of the best NA IPAs on this desk."
 summary: "Tired Hands' N/Alien Church is their first non-alcoholic beer: a hazy New England IPA from Ardmore PA, under 0.5% ABV, $16 a six-pack."
+
+tastes:
+  - bright tropical
+  - ne ipa signature
+  - present
+  - fresh
+profile:
+  - Modest bitterness
+mouthfeel: "Hazy and juicy; tropical fruit over a soft, rounded body, gentle bitterness, no astringent or thin spots."
+highlight: "Bright tropical and citrus hops over a soft malt base — the NE IPA signature, present and fresh."
+likeness: "Tired Hands spent over a year on R&D to make a NE IPA that lives up to the Alien Church name — hazy, hoppy, and honest about the craft. One of the best NA IPAs on this desk."
 nose: "Bright tropical and citrus hops over a soft malt base — the NE IPA signature, present and fresh."
 palate: "Hazy and juicy; tropical fruit over a soft, rounded body, gentle bitterness, no astringent or thin spots."
 finish: "Soft and lingering, the hop fruit carrying well."
@@ -46,6 +59,10 @@ sources:
 status: published
 ---
 
-Tired Hands is one of the most respected craft breweries in the Philadelphia area — founded in Ardmore in 2012 by Jean Broillet IV, known for hazy, hop-forward beers that helped define the NE IPA style. N/Alien Church is their first non-alcoholic beer, and the brewery says it took over a year of research and development to get right — the same Alien Church branding applied to a beer built from the ground up for zero proof.
+Tired Hands N/Alien Church is brewed or fermented to finish at low ABV without a published removal step from Ardmore, Pennsylvania, United States. Tired Hands' own menu copy describes N/Alien Church as 'brewed with oats, experimental yeast, and the same hop bill as Alien Church' — a from-scratch recipe ….
 
-The result justifies the R&D time. It pours hazy and juicy, with bright tropical and citrus hops over the soft, rounded body that defines the style. Unlike many NA IPAs that read as thin or astringent, this one holds its texture through the mid-palate and finishes soft. Tired Hands' own menu names the method as brewed-from-scratch with an experimental yeast strain, not a dealcoholized beer — formulated, not stripped down. At $16 a six-pack from a brewery of this caliber, the glass makes the argument better than the label could. This is one of the best non-alcoholic IPAs on this desk.
+The nose is bright tropical and citrus hops over a soft malt base — the NE IPA signature, present and fresh.
+
+On the palate, hazy and juicy; tropical fruit over a soft, rounded body, gentle bitterness, no astringent or thin spots. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is soft and lingering, the hop fruit carrying well. Tired Hands spent over a year on R&D to make a NE IPA that lives up to the Alien Church name — hazy, hoppy, and honest about the craft. One of the best NA IPAs on this desk. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

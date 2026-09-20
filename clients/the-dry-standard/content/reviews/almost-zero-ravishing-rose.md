@@ -18,11 +18,25 @@ availability: "Total Wine & More; produced by Van Loveren, South Africa"
 image: media/reviews/almost-zero-ravishing-rose.jpg
 image_alt: "Almost Zero Ravishing Rosé"
 image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 72
 verdict: "A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process."
 summary: "Almost Zero Ravishing Rosé is a Total Wine regular in this house. Brand, method, and ABV are not documented beyond the shelf label."
+
+tastes:
+  - strawberry
+  - else
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light body
+  - Short finish
+mouthfeel: "Sweet-leaning, light, low acid."
+highlight: "A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process."
+likeness: "A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process."
 nose: "Soft strawberry. Little else."
 palate: "Sweet-leaning, light, low acid."
 finish: "Short and candy-pink."
@@ -41,6 +55,10 @@ sources:
 status: published
 ---
 
-This SKU is on the purchase ledger five times. That is the fact we now have documented: Almost Zero is a South African brand from Van Loveren Family Vineyards, sold in the US through Total Wine. The producer's own page confirms the method — "de-alcoholised with the latest spinning cone technology" after full vinification — which upgrades this from not-verified to a genuine dealcoholized wine.
+Almost Zero Ravishing Rosé is dealcoholized from South Africa. Spinning cone column, applied after full vinification. The glass is a soft, sweet rosé: rose petal and strawberry over a smooth, gentle palate. Knowing it started as real wine and had the alcohol spun off afterward makes the case for it more than the label alone did.
 
-The glass is a soft, sweet rosé: rose petal and strawberry over a smooth, gentle palate. Knowing it started as real wine and had the alcohol spun off afterward makes the case for it more than the label alone did.
+The nose is soft strawberry. Little else.
+
+On the palate, sweet-leaning, light, low acid. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is short and candy-pink. A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.

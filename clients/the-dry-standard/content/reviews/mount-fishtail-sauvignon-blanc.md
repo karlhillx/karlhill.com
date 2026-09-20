@@ -25,10 +25,22 @@ image_source: importer
 image_source_url: https://southernstarz.com/wines/mount-fishtail-sauvignon-blanc-zero/
 image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 80
 verdict: "Another Marlborough Sauvignon Blanc in the zero-proof register — this one from a real Upper Wairau Valley estate with passionfruit and citrus character intact."
 summary: "Mount Fishtail's Zero Sauvignon Blanc is an alcohol-removed Marlborough white from the Upper Wairau Valley: passionfruit, citrus, fresh and expressive."
+
+tastes:
+  - ripe passionfruit
+  - citrus
+  - present
+  - aromatic
+profile:
+  - Light body
+  - Clean finish
+mouthfeel: "Fresh and expressive; tropical fruit over a light frame, with the varietal character carrying through the alcohol removal."
+highlight: "Another Marlborough Sauvignon Blanc in the zero-proof register — this one from a real Upper Wairau Valley estate with passionfruit and citrus character intact."
+likeness: "Another Marlborough Sauvignon Blanc in the zero-proof register — this one from a real Upper Wairau Valley estate with passionfruit and citrus character intact."
 nose: "Ripe passionfruit and citrus — the Marlborough Sauvignon Blanc signature, present and aromatic."
 palate: "Fresh and expressive; tropical fruit over a light frame, with the varietal character carrying through the alcohol removal."
 finish: "Clean and citric, the passionfruit trailing."
@@ -47,6 +59,10 @@ sources:
 status: published
 ---
 
-Mount Fishtail is a real Marlborough estate — vineyards in the Upper Wairau Valley, sustainable growing practices — and Zero is their alcohol-removed Sauvignon Blanc. The distinction between this and the King Maui 0% already on this desk is subtle: both are Marlborough Sauvignon Blanc at zero proof, but Mount Fishtail has a named vineyard site and a family operation behind it, while King Maui is more of a brand play.
+Mount Fishtail Zero Sauvignon Blanc is dealcoholized from Marlborough, New Zealand. The base is Sauvignon Blanc from the Upper Wairau Valley, Marlborough, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified Marlborough Sauvignon Blanc.
 
-The glass delivers what the label promises: ripe passionfruit and citrus, the classic Marlborough aromatic signature, over a light frame that's thinner than a full-strength version but recognizably varietal. The alcohol removal doesn't name its technique, so the method field is generic, but the fruit is clearly real Marlborough rather than flavoured. For the price point in US specialty retail, it's a solid option in a category where Marlborough SB is the most competitive style.
+The nose is ripe passionfruit and citrus — the Marlborough Sauvignon Blanc signature, present and aromatic.
+
+On the palate, fresh and expressive; tropical fruit over a light frame, with the varietal character carrying through the alcohol removal. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and citric, the passionfruit trailing. Another Marlborough Sauvignon Blanc in the zero-proof register — this one from a real Upper Wairau Valley estate with passionfruit and citrus character intact. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.

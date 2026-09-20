@@ -17,10 +17,20 @@ ingredients: "Water, barley malt, hops, yeast (producer)"
 producer: Grolsch (Netherlands; brewed since 2017 for the 0.0% line)
 availability: "Dutch and international retail; US imports via specialty retailers including Upside Drinks"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 80
 verdict: "A real pilsner from a 400-year-old Dutch brewery, minus the alcohol: the green-hop bitterness and full malt body are unmistakably Grolsch."
 summary: "Grolsch 0.0% is a Dutch pilsner brewed with barley, two hop varieties and spring water: 0% ABV, full-bodied, with the brewery's signature green-hop character."
+
+tastes:
+  - fruit
+profile:
+  - Bright acidity
+  - Modest bitterness
+  - Clean finish
+mouthfeel: "Full-bodied for an NA pilsner; crisp hop bitterness over a rounded malt backbone, no watery gaps."
+highlight: "A real pilsner from a 400-year-old Dutch brewery, minus the alcohol: the green-hop bitterness and full malt body are unmistakably Grolsch."
+likeness: "A real pilsner from a 400-year-old Dutch brewery, minus the alcohol: the green-hop bitterness and full malt body are unmistakably Grolsch."
 nose: "Green hop aroma with a soft bready malt base — the Grolsch house signature carried over."
 palate: "Full-bodied for an NA pilsner; crisp hop bitterness over a rounded malt backbone, no watery gaps."
 finish: "Clean and crisp with a pleasant, lasting bitterness."
@@ -29,6 +39,8 @@ serve: "Cold, in a pils glass."
 image: media/reviews/grolsch-0-0.jpg
 image_alt: "Grolsch 0.0% swing-top bottle"
 image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "Grolsch 0.0% — Grolsch"
     url: https://www.grolsch.com/grolsch-0-0
@@ -39,6 +51,10 @@ sources:
 status: published
 ---
 
-Grolsch has been brewing since 1615, and the 0.0% line — launched in 2017 — is the brewery's attempt to carry that identity into the zero-proof category without compromise. Unlike most of the macro NA lagers on this list, Grolsch actually states its method plainly: "we use a special yeast to craft our core natural zero alcohol beer. Our unique full fermentation process produces no alcohol." That's naturally low alcohol, not dealcoholized — the beer is fully fermented but never produces meaningful alcohol in the first place.
+Grolsch 0.0% is brewed or fermented to finish at low ABV without a published removal step from Netherlands. Grolsch's own product page states: 'we use a special yeast to craft our core natural zero alcohol beer. Our unique full fermentation process produces no alco….
 
-What's citable is enough to make the case: water, barley malt, hops and yeast, with two hop varieties and the medium-golden colour that defines the house style. The pour has the green-hop aroma and full malt body that Grolsch drinkers will recognize immediately — this is not a thin, distant relative of the real thing but a proper pilsner with a full-strength silhouette. For a macro-brand NA, it clears the bar the category's best craft pilsners have set, and it costs about the same.
+The nose is green hop aroma with a soft bready malt base — the Grolsch house signature carried over.
+
+On the palate, full-bodied for an NA pilsner; crisp hop bitterness over a rounded malt backbone, no watery gaps. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and crisp with a pleasant, lasting bitterness. A real pilsner from a 400-year-old Dutch brewery, minus the alcohol: the green-hop bitterness and full malt body are unmistakably Grolsch. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.

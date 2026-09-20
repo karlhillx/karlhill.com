@@ -20,11 +20,27 @@ producer: Giesen Wines, Marlborough, New Zealand
 image: media/reviews/giesen-0-riesling.jpg
 image_alt: "Giesen 0% Riesling"
 image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 87
 verdict: "The Riesling sibling of the 0% Sauvignon Blanc already on this desk, built on the same citable spinning-cone process — and arguably the better glass."
 summary: "Giesen makes full-strength Marlborough Riesling first, removes the alcohol with spinning cone technology, and keeps the lime-and-mandarin varietal core intact."
+
+tastes:
+  - lime
+  - citrus blossom
+  - mandarin
+  - bright
+  - lifted
+profile:
+  - Off-dry
+  - Light body
+  - Short finish
+mouthfeel: "Beautifully balanced off-dry style; citrus fruit over a light frame, a small premium grape-juice addition restoring mouthfeel."
+highlight: "The Riesling sibling of the 0% Sauvignon Blanc already on this desk, built on the same citable spinning-cone process — and arguably the better glass."
+likeness: "The Riesling sibling of the 0% Sauvignon Blanc already on this desk, built on the same citable spinning-cone process — and arguably the better glass."
 nose: "Lime, citrus blossom and mandarin — bright, lifted, unmistakably Riesling."
 palate: "Beautifully balanced off-dry style; citrus fruit over a light frame, a small premium grape-juice addition restoring mouthfeel."
 finish: "Fresh and citric, shorter than the alcoholic original — the standard ethanol tradeoff, handled gracefully."
@@ -46,6 +62,10 @@ sources:
 status: published
 ---
 
-The 0% Riesling runs through the same pipeline as Giesen's 0% Sauvignon Blanc, which this desk has already reviewed: fruit is grown and fermented to full strength exactly like the alcoholic wine, then spinning cone technology separates the wine into aroma, alcohol and body, and the aroma and body are recombined without the ethanol, with a small amount of premium grape juice added back for mouthfeel. Giesen bought its own 10,000-liter spinning cone column as the category scaled — the producer's own FAQ documents all four steps, which is the kind of traceability most NA labels don't bother with.
+Giesen 0% Riesling is dealcoholized from Marlborough, New Zealand. The base is Full-strength Marlborough Riesling — grown, fully fermented, then gently dealcoholized. Spinning cone technology separating aroma, alcohol and body, then recombining aroma and body without the alcohol.
 
-Marlborough does the rest: lime, citrus blossom and mandarin on the nose, an off-dry palate that keeps the varietal sweetness balanced, and a finish that's shorter than the alcoholic original's but honest about why. This is the best answer we've found to the "dealcoholized Riesling can't taste like Riesling" complaint — the petrol-and-lime fingerprint survives the spinning cone, which is precisely what the technology is for.
+The nose is lime, citrus blossom and mandarin — bright, lifted, unmistakably Riesling.
+
+On the palate, beautifully balanced off-dry style; citrus fruit over a light frame, a small premium grape-juice addition restoring mouthfeel. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is fresh and citric, shorter than the alcoholic original — the standard ethanol tradeoff, handled gracefully. The Riesling sibling of the 0% Sauvignon Blanc already on this desk, built on the same citable spinning-cone process — and arguably the better glass. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

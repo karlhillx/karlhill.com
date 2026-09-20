@@ -34,6 +34,18 @@ updated_date: "2026-09-19"
 rating: 86
 verdict: "Mosel Riesling put through a vacuum still by the same brothers who make Dr. L. Citrus, slate, and more residual sugar than the word dry implies — with a US label that refuses to print 0.0%."
 summary: "Loosen Bros. ferments Mosel Riesling, then removes the alcohol by vacuum distillation. The US bottle reads under 0.5% ABV; the importer sheet prints 0.0% vol."
+
+tastes:
+  - lime zest
+  - green apple
+  - cool slate line
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light body
+mouthfeel: "Crisp citrus pith. The sugar shows if you let it warm."
+highlight: "Lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first."
+likeness: "Mosel Riesling put through a vacuum still by the same brothers who make Dr. L. Citrus, slate, and more residual sugar than the word dry implies — with a US label that refuses to print 0.0%."
 nose: "Lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first."
 palate: "Off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity."
 finish: "Crisp citrus pith. The sugar shows if you let it warm."
@@ -57,8 +69,10 @@ discrepancies:
 status: published
 ---
 
-Ernst and Thomas Loosen already sell America its supermarket Mosel. Dr. Lo is the same fruit, put through a vacuum still. The importer sheet is unusually complete: 100% Riesling, Mosel, stainless steel, fermentation stopped by chilling so the residual sugar is the grape's, then vacuum distillation. No added grape juice. Residual sweetness 47.1 g/L; acidity 9.6 g/L. Packed by Gebrüder Loosen in Bernkastel; imported by Loosen Bros. USA in Salem, Oregon.
+Dr. Lo Alcohol-Removed Riesling is dealcoholized from Mosel, Germany. The base is Mosel Riesling, fermented in stainless steel; fermentation stopped by chilling to keep natural residual sugar, then dealcoholized. Vacuum distillation.
 
-The ABV line is where the paperwork splits. The technical sheet prints 0.0% vol. The US back label — and the front label on the bottle in this still — prints less than 0.5% by volume. We are not picking a winner. Under 0.5% is what the bottle in an American fridge is allowed to say; 0.0% is what the brothers put on the spec sheet.
+The nose is lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first.
 
-The glass is Mosel-shaped: lime, green apple, a slate edge, and enough leftover sugar that the wine drinks off-dry rather than austere. Acidity does the adult work. It will not fool a Bernkastel regular on body. It will satisfy someone who wants Riesling at the table without a full pour of ethanol, from a house that already knows how to grow the grape.
+On the palate, off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is crisp citrus pith. The sugar shows if you let it warm. Mosel Riesling put through a vacuum still by the same brothers who make Dr. L. Citrus, slate, and more residual sugar than the word dry implies — with a US label that refuses to print 0.0%. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.

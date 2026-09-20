@@ -25,10 +25,22 @@ purchase_links:
     url: https://freixenet.com/product/alcohol-free-sparkling-white
     region: Global
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 79
 verdict: "A reliable, inexpensive entry point into genuinely dealcoholized sparkling wine — vacuum-evaporated from full-strength wine, competent and widely available."
 summary: "Freixenet's dealcoholized sparkling white, made from Airén grapes in Penedès, the same DO as the brand's Cava. Sub-0.05% ABV, vacuum-evaporated at low temperature, sold nationwide at a Cava-adjacent price point."
+
+tastes:
+  - tropical fruit
+  - citrus
+  - straightforward
+profile:
+  - Off-dry
+  - Soft bead
+  - Short finish
+mouthfeel: "Fresh and fruity with balanced bubbles; residual sugar (38 g/L) is noticeable but not cloying."
+highlight: "A reliable, inexpensive entry point into genuinely dealcoholized sparkling wine — vacuum-evaporated from full-strength wine, competent and widely available."
+likeness: "A reliable, inexpensive entry point into genuinely dealcoholized sparkling wine — vacuum-evaporated from full-strength wine, competent and widely available."
 nose: "Tropical fruit and citrus, straightforward and fruit-forward rather than yeasty or toasty."
 palate: "Fresh and fruity with balanced bubbles; residual sugar (38 g/L) is noticeable but not cloying."
 finish: "Soft and short. Pleasant, uncomplicated, easy to drink on its own."
@@ -53,8 +65,10 @@ sources:
 status: published
 ---
 
-Freixenet built this in the same Penedès DO that produces its flagship Cava, using a blend of classic Spanish grapes — mainly Airén — reduced to under 0.05% alcohol by volume. That's a stricter number than the FDA's 0.5% non-alcoholic threshold, and Freixenet's press materials lean on it: this was pitched at nationwide US launch for $12, positioned as a mainstream, wallet-friendly entry rather than a boutique dealcoholized bottling.
+Freixenet 0,0 Sparkling White is dealcoholized from Penedès, Spain. The base is Blend of classic Spanish grapes, mainly Airén. Low-temperature vacuum evaporation, applied after making the wine to full strength.
 
-Henkell Freixenet's own launch press release names the method: the wine is "made with the same expertise as our full strength wines before being de-alcoholised at low temperature with vacuum evaporation to help retain its original characteristics." That's a real, cited production step — full-strength wine first, vacuum evaporation second — not a marketing gesture.
+The nose is tropical fruit and citrus, straightforward and fruit-forward rather than yeasty or toasty.
 
-What's in the glass is straightforward: tropical fruit and citrus on the nose, balanced bubbles, and 38 g/L residual sugar doing a lot of the flavor work in the absence of alcohol's body. It won't out-structure the Leitz Riesling or Oddbird's oak-aged Blanc de Blancs, but at this price and this distribution footprint, it's doing exactly the job Freixenet built it for — an accessible bubbly pour, not a connoisseur's dealcoholized wine.
+On the palate, fresh and fruity with balanced bubbles; residual sugar (38 g/L) is noticeable but not cloying. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is soft and short. Pleasant, uncomplicated, easy to drink on its own. A reliable, inexpensive entry point into genuinely dealcoholized sparkling wine — vacuum-evaporated from full-strength wine, competent and widely available. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

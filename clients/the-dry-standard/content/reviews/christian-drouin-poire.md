@@ -26,10 +26,24 @@ image_source: producer
 image_source_url: https://calvados-drouin-boutique.com/products/6-x-jus-de-poire-petillant-tree-of-love
 image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 84
 verdict: "Not a dealcoholized anything — pressed Normandy pear juice from a Calvados house, lightly sparkling, and better for it. The purest expression of pear on this desk."
 summary: "Christian Drouin's Jus de Poire Pétillant is pressed juice from Normandy heritage pears, lightly sparkling: never fermented, never stripped, just fruit."
+
+tastes:
+  - ripe pear skin
+  - floral lift
+  - fresh
+  - clean
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light body
+  - Soft bead
+mouthfeel: "Lightly sparkling and gently sweet; the pear's own acidity gives it structure instead of syrup."
+highlight: "Not a dealcoholized anything — pressed Normandy pear juice from a Calvados house, lightly sparkling, and better for it. The purest expression of pear on this desk."
+likeness: "Not a dealcoholized anything — pressed Normandy pear juice from a Calvados house, lightly sparkling, and better for it. The purest expression of pear on this desk."
 nose: "Ripe pear skin and a floral lift — fresh, clean, unmistakably real pear rather than pear flavoring."
 palate: "Lightly sparkling and gently sweet; the pear's own acidity gives it structure instead of syrup."
 finish: "Clean and short, the fruit fading naturally."
@@ -48,6 +62,10 @@ sources:
 status: published
 ---
 
-Domaine Christian Drouin is a Normandy Calvados house — they make apple and pear brandy — and the Jus de Poire Pétillant is what happens when the same family that distills pears for a living presses juice instead. It's not a fermented cider with the alcohol removed, and it isn't pretending to be: it's the juice of heritage Normandy pear varieties (Plant de Blanc, Muscadet, Avenelle, Poire de Grise), lightly carbonated, and nothing else. The absence of alcohol isn't a feature engineered into it; it's simply what pear juice is.
+Christian Drouin Jus de Poire Pétillant is formulated as an alcohol alternative from Normandy (Coudray-Rabut), France. The base is Pressed juice of local Normandy pear varieties (Plant de Blanc, Muscadet, Avenelle, Poire de Grise). It was built without a dealcoholization step.
 
-That makes it one of the very few drinks on this shelf that can't be accused of compromise, because there's no compromise happening. Ripe pear skin, a floral top note, gentle natural sweetness balanced by the fruit's own acidity, and a clean short finish. At $15 a bottle it's priced like a good juice rather than a wine, which is exactly right. For a cheese course, an afternoon, or anyone who's tired of NA products that imitate something else — this is the real thing being itself.
+The nose is ripe pear skin and a floral lift — fresh, clean, unmistakably real pear rather than pear flavoring.
+
+On the palate, lightly sparkling and gently sweet; the pear's own acidity gives it structure instead of syrup. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and short, the fruit fading naturally. Not a dealcoholized anything — pressed Normandy pear juice from a Calvados house, lightly sparkling, and better for it. The purest expression of pear on this desk. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cider. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.

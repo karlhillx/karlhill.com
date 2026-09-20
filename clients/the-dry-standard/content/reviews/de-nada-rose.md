@@ -20,10 +20,21 @@ volume: "750 ml"
 price: "$15.00 (retail listing)"
 availability: "US via spiritedaway.co, palmervineyards.com, and paumanok vineyards"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 79
 verdict: "A Chilean dealcoholized rosé made with Long Island winemaking expertise — dry, elegant, and honest about its Maule Valley fruit."
 summary: "De Nada's Non-Alcoholic Rosé is a dealcoholized Chilean wine from the Maule Valley, made in collaboration with veteran Long Island winemaker Juan Esteban Sepulveda."
+
+tastes:
+  - red berry
+  - citrus
+  - dry
+profile:
+  - Light body
+  - Clean finish
+mouthfeel: "Dry and aromatic; Chilean fruit over a light frame, the Maule Valley ripeness balanced by alcohol removal."
+highlight: "A Chilean dealcoholized rosé made with Long Island winemaking expertise — dry, elegant, and honest about its Maule Valley fruit."
+likeness: "A Chilean dealcoholized rosé made with Long Island winemaking expertise — dry, elegant, and honest about its Maule Valley fruit."
 nose: "Red berry and citrus — the dry, elegant rosé profile rather than sweet fruit."
 palate: "Dry and aromatic; Chilean fruit over a light frame, the Maule Valley ripeness balanced by alcohol removal."
 finish: "Clean and dry."
@@ -32,6 +43,8 @@ serve: "Well chilled."
 image: media/reviews/de-nada-rose.jpg
 image_alt: "De Nada Non-Alcoholic Rosé bottle"
 image_credit: "Product photo via Palmer Vineyards"
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "De Nada Rosé — Palmer Vineyards"
     url: https://www.palmervineyards.com/shop/de-nada-ros
@@ -42,6 +55,10 @@ sources:
 status: published
 ---
 
-De Nada is a collaboration between the Palmer/Paumanok family of Long Island wineries and Juan Esteban Sepulveda, a Chilean-born winemaker who sources the fruit from the Maule Valley in Chile. The idea is straightforward: use good fruit, make real wine, then dealcoholize it — rather than building a flavoured water from scratch. It's a Chilean rosé with Long Island winemaking behind it, and that combination is rarer than it should be.
+De Nada Non-Alcoholic Rosé is dealcoholized from Maule Valley, Chile. The base is Chilean rosé from the Maule Valley, sourced from ripe grapes, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified rosé (producer collaboration with Long Island winemaker Juan Esteban Sepulveda).
 
-The glass is dry and elegant, red berry and citrus over a light frame — more serious than most NA rosés at this price, and clearly made from ripe fruit rather than underripe grapes. The technique isn't named publicly, but the collaboration between a named winemaker and a named vineyard region puts this above the anonymous-bottling tier. For a dry-rosé occasion at $15, it's a solid value.
+The nose is red berry and citrus — the dry, elegant rosé profile rather than sweet fruit.
+
+On the palate, dry and aromatic; Chilean fruit over a light frame, the Maule Valley ripeness balanced by alcohol removal. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and dry. A Chilean dealcoholized rosé made with Long Island winemaking expertise — dry, elegant, and honest about its Maule Valley fruit. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.

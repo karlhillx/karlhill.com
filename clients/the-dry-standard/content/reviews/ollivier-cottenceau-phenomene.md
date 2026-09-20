@@ -19,10 +19,23 @@ producer: Ollivier Cottenceau (Domaine de la Grenaudière, 8th generation)
 volume: "750 ml"
 availability: "US via The Zero Proof and Schatzi Wines; French retail via sans-alcool-du-vigneron.fr"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 84
 verdict: "The first dealcoholized Melon de Bourgogne in the world, from an 8th-generation Muscadet grower — lean, saline, food-friendly, and the most interesting white wine on this desk."
 summary: "Ollivier Cottenceau's Phénomène is the world's first dealcoholized Melon de Bourgogne: lean, saline and food-friendly, from a Clisson and Château-Thébaud grower."
+
+tastes:
+  - green apple
+  - citrus with a saline
+  - iodine edge
+  - muscadet signature
+  - unmistakable
+profile:
+  - Off-dry
+  - Bright acidity
+mouthfeel: "Lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet."
+highlight: "Green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable."
+likeness: "The first dealcoholized Melon de Bourgogne in the world, from an 8th-generation Muscadet grower — lean, saline, food-friendly, and the most interesting white wine on this desk."
 nose: "Green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable."
 palate: "Lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet."
 finish: "Long and mineral — the saltiness carries well beyond what most dealcoholized whites manage."
@@ -47,6 +60,10 @@ sources:
 status: published
 ---
 
-Muscadet is a wine that lives on salinity — that faint iodine-and-citrus character that makes it the classic oyster pairing — and it is a genuinely difficult style to dealcoholize because the salt is what makes it work. Ollivier Cottenceau, an eighth-generation grower working the Clisson and Château-Thébaud Crus Communaux, is the first to attempt it in the non-alcoholic register, and the result is the most interesting white on this desk: green apple and citrus over a saline, mineral spine, dry and precise, with a finish that carries the saltiness further than dealcoholized whites usually manage.
+Ollivier Cottenceau Phénomène is dealcoholized from Loire Valley (Clisson and Château-Thébaud), France. The base is Melon de Bourgogne from the Clisson and Château-Thébaud Crus Communaux — the first dealcoholized wine made from the variety. Melon de Bourgogne wine vinified conventionally then dealcoholized (producer range described as vin désalcoolisé).
 
-It's also a reminder of how much of the NA category has been built on the same handful of varieties — Sauvignon Blanc, Chardonnay, Riesling — while the rest of the wine world waits. A grower of this pedigree choosing Muscadet for his dealcoholized wine is a signal that the category is maturing. Lean and food-friendly, it will be wasted on anyone drinking it without oysters, cheese or something from the sea in front of them.
+The nose is green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable.
+
+On the palate, lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is long and mineral — the saltiness carries well beyond what most dealcoholized whites manage. The first dealcoholized Melon de Bourgogne in the world, from an 8th-generation Muscadet grower — lean, saline, food-friendly, and the most interesting white wine on this desk. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass.

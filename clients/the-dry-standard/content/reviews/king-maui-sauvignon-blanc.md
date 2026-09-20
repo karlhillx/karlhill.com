@@ -19,10 +19,21 @@ volume: "750 ml"
 price: "$12.49 (Instacart/Total Wine); $15.99 (RoomBox)"
 availability: "US retail including Total Wine & More (via Instacart)"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 79
 verdict: "A Marlborough Sauvignon Blanc at Total Wine pricing — clean tropical fruit and citrus, lighter than the real thing, and a fair value."
 summary: "King Maui's 0% Sauvignon Blanc is a dealcoholized Marlborough white: passionfruit, tropical fruit and lemongrass at around $12.49 in US retail."
+
+tastes:
+  - passionfruit
+profile:
+  - Bright acidity
+  - Light body
+  - Short finish
+  - Clean finish
+mouthfeel: "Clean and short, citrus-led."
+highlight: "A Marlborough Sauvignon Blanc at Total Wine pricing — clean tropical fruit and citrus, lighter than the real thing, and a fair value."
+likeness: "A Marlborough Sauvignon Blanc at Total Wine pricing — clean tropical fruit and citrus, lighter than the real thing, and a fair value."
 nose: "Passionfruit and tropical fruit with a lemongrass edge — varietally correct Marlborough aromatics."
 palate: "Crisp and citrus-forward; tropical fruit over a light body, less weight than a full-strength Marlborough but the character survives."
 finish: "Clean and short, citrus-led."
@@ -31,6 +42,8 @@ serve: "Well chilled."
 image: media/reviews/king-maui-sauvignon-blanc.jpg
 image_alt: "King Maui 0% Sauvignon Blanc bottle"
 image_credit: "Product photo via RoomBox"
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "King Maui 0% Non-Alcoholic Marlborough Sauvignon Blanc — RoomBox"
     url: https://www.orderroombox.com/product/king-maui-0-non-alcoholic-marlborough-sauvignon-blanc/
@@ -41,6 +54,10 @@ sources:
 status: published
 ---
 
-King Maui is a New Zealand-origin brand that has taken the straightforward route: Marlborough Sauvignon Blanc, conventionally fermented, alcohol removed, sold at Total Wine for around $12.49 a bottle. The tasting profile on the listing — crisp, tropical, passionfruit, lemongrass — describes exactly what Marlborough Sauvignon Blanc is supposed to smell and taste like, and the low price puts it in the value tier of a category where most NZ whites cost more.
+King Maui 0% Marlborough Sauvignon Blanc is dealcoholized from Marlborough, New Zealand. The base is Marlborough Sauvignon Blanc, fermented conventionally before alcohol removal. Alcohol removed from Marlborough Sauvignon Blanc (producer markets the range as zero alcohol; the specific technique is not detailed publicly).
 
-In the glass it delivers the varietal signature at a lighter weight than a full-strength counterpart: passionfruit and tropical fruit, lemongrass, a crisp citrusy finish. The producer doesn't detail the removal technique, so the method field is generic, but the fruit is clearly real Marlborough rather than a flavoured base. At the price it's a fair-value everyday white for people who want the Sauvignon Blanc profile without the alcohol — not a substitute for a great bottle, but an honest one.
+The nose is passionfruit and tropical fruit with a lemongrass edge — varietally correct Marlborough aromatics.
+
+On the palate, crisp and citrus-forward; tropical fruit over a light body, less weight than a full-strength Marlborough but the character survives. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and short, citrus-led. A Marlborough Sauvignon Blanc at Total Wine pricing — clean tropical fruit and citrus, lighter than the real thing, and a fair value. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

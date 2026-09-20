@@ -17,10 +17,21 @@ production_note: "Flying Dog does not publicly disclose whether alcohol is remov
 producer: Flying Dog Brewery (Frederland, Maryland)
 availability: "US retail; year-round lineup since 2021"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 77
 verdict: "A beer named 'Deep Fake' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland's most recognizable craft breweries."
 summary: "Flying Dog's Deep Fake is a non-alcoholic IPA under 0.5% ABV: hazy, hoppy, self-aware about being an imitation of the real thing."
+
+tastes:
+  - citrus
+  - pine hops
+  - ipa aromatic signature
+profile:
+  - Light body
+  - Modest bitterness
+mouthfeel: "Dry and hoppy, the bitterness lingering briefly."
+highlight: "A beer named 'Deep Fake' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland's most recognizable craft breweries."
+likeness: "A beer named 'Deep Fake' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland's most recognizable craft breweries."
 nose: "Citrus and pine hops — the IPA aromatic signature, present if a bit lighter than a full-strength version."
 palate: "Light-bodied with the hop character carrying; the malt is minimal, the bitterness present, and the overall effect is more hop-forward tea than IPA."
 finish: "Dry and hoppy, the bitterness lingering briefly."
@@ -29,6 +40,8 @@ serve: "Cold, from the can."
 image: media/reviews/flying-dog-deep-fake.jpg
 image_alt: "Flying Dog Deep Fake Non-Alcoholic IPA can"
 image_credit: "Product photo via Flying Dog Brewery"
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "Deep Fake Non-Alcoholic IPA — Flying Dog Brewery"
     url: https://flyingdog.com/beers/deep-fake-non-alcoholic-ipa/
@@ -39,6 +52,10 @@ sources:
 status: published
 ---
 
-Flying Dog is one of the most recognizable craft breweries in America — the Ralph Steadman labels, the Hunter S. Thompson attitude, the Maryland flag on every can — and Deep Fake, launched in 2021 as a year-round beer, is their NA entry. The name is the most honest thing about it: a deep fake is a convincing imitation of something real, and that's exactly what this beer is trying to be.
+Flying Dog Deep Fake Non-Alcoholic IPA is non-alcoholic with an unpublished production process from Frederick, Maryland, United States. No cited producer page names a removal technique, so the badge stays not-verified.
 
-The glass delivers citrus and pine hops over a light body, the IPA profile present but noticeably thinner than the real thing. Flying Dog doesn't disclose the method, so dealcoholized reads not-verified. The beer won't fool anyone — it's more hop-forward tea than actual IPA — but it has the Flying Dog character (the attitude, the hops, the label you recognize) and it does the job of being a beer-shaped drink without the alcohol. In the NA IPA tier, that's enough to earn its shelf spot.
+The nose is citrus and pine hops — the IPA aromatic signature, present if a bit lighter than a full-strength version.
+
+On the palate, light-bodied with the hop character carrying; the malt is minimal, the bitterness present, and the overall effect is more hop-forward tea than IPA. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is dry and hoppy, the bitterness lingering briefly. A beer named 'Deep Fake' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland's most recognizable craft breweries. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.

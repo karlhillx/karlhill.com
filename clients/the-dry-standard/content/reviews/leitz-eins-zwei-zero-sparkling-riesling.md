@@ -19,11 +19,27 @@ producer: Weingut Leitz
 image: media/reviews/leitz-eins-zwei-zero-sparkling-riesling.jpg
 image_alt: "Leitz Eins-Zwei-Zero Sparkling Riesling"
 image_credit: Product photo via Weingut Leitz
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 88
 verdict: "The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, same citrus-and-rhubarb argument."
 summary: "Johannes Leitz dealcoholizes the Eins-Zwei-Zero family — still and sparkling — by vacuum distillation at about 29°C. The sparkling Riesling is that process with bubbles."
+
+tastes:
+  - green apple
+  - citrus
+  - cool mineral line
+  - mousse lifts the zest
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light body
+  - Soft bead
+mouthfeel: "Citrus pith and a fine bead. Drink it colder than the still bottle."
+highlight: "The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, same citrus-and-rhubarb argument."
+likeness: "The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, same citrus-and-rhubarb argument."
 nose: "Green apple, citrus, and a cool mineral line. The mousse lifts the zest."
 palate: "Brisk and a little sweet, then acidity pulls it taut. Lighter than a Rheingau Sekt with ethanol, but the grape is still the point."
 finish: "Citrus pith and a fine bead. Drink it colder than the still bottle."
@@ -39,6 +55,10 @@ sources:
 status: published
 ---
 
-The still Eins-Zwei-Zero Riesling is already in this cellar. The sparkling bottle is the same family, not a different science. Leitz's explainer covers still and sparkling together: vacuum distillation, ethanol boiling near 29°C, aromas kept as far as the still allows. The wines page repeats vacuum distillation for the alcohol-free range.
+Leitz Eins-Zwei-Zero Sparkling Riesling is dealcoholized from Rheingau, Germany. The base is Riesling, then dealcoholized; sparkling bottling in the Eins-Zwei-Zero family. Vacuum distillation; under vacuum, alcohol boils at about 29°C.
 
-Do not confuse this with a bottle-fermented Rheingau Sekt that later lost its alcohol in a way Leitz has not separately specified for the sparkling SKU alone. The house method is the citation. The glass is apple, citrus, and bead — the still wine with lift. If you already trust the nephew, this is the one you open standing up.
+The nose is green apple, citrus, and a cool mineral line. The mousse lifts the zest.
+
+On the palate, brisk and a little sweet, then acidity pulls it taut. Lighter than a Rheingau Sekt with ethanol, but the grape is still the point. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is citrus pith and a fine bead. Drink it colder than the still bottle. The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, same citrus-and-rhubarb argument. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.

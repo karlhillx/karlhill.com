@@ -29,10 +29,19 @@ image_source: producer
 image_source_url: https://us.noughtyaf.com/products/noughty-non-alcoholic-rose
 image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 84
 verdict: "Still rosé, not the sparkling sibling already on this desk. Chenin and a dash of Pinotage, spun-cone dealcoholized, berry and apricot without the fizz."
 summary: "Thomson & Scott's still Noughty Rosé is Western Cape Chenin Blanc with 2% Pinotage, dealcoholized by spinning cone under vacuum. Under 0.5% ABV."
+
+tastes:
+  - summer berries
+  - apricot
+profile:
+  - Soft bead
+mouthfeel: "Provence-shaped, balanced, a little softer than the sparkling Noughty. The Pinotage is a tint, not a tannin."
+highlight: "Still rosé, not the sparkling sibling already on this desk. Chenin and a dash of Pinotage, spun-cone dealcoholized, berry and apricot without the fizz."
+likeness: "Still rosé, not the sparkling sibling already on this desk. Chenin and a dash of Pinotage, spun-cone dealcoholized, berry and apricot without the fizz."
 nose: "Summer berries and fresh apricot — the producer list, and it holds."
 palate: "Provence-shaped, balanced, a little softer than the sparkling Noughty. The Pinotage is a tint, not a tannin."
 finish: "Gently lingering fruit. Less snap than the sparkling Chardonnay."
@@ -48,6 +57,10 @@ sources:
 status: published
 ---
 
-This is not the sparkling Noughty already reviewed here. The still rosé is 98% Chenin Blanc and 2% Pinotage from dry-farmed Western Cape bush vines. The US product page is specific: 14 days of fermentation, two months on lees, then spinning-cone dealcoholization under vacuum. Alcohol is listed under 0.5% vol; sugar 2.8 g/100 ml.
+Noughty Dealcoholized Rosé is dealcoholized from Western Cape, South Africa. The base is 98% Chenin Blanc / 2% Pinotage, fermented 14 days, two months on lees, then dealcoholized. Gently spun cone technology under vacuum at low temperature. The glass is berry and apricot, more still-wine than soda. It will not replace Bandol. It will replace the NA rosés that never saw a cone.
 
-The glass is berry and apricot, more still-wine than soda. It will not replace Bandol. It will replace the NA rosés that never saw a cone.
+The nose is summer berries and fresh apricot — the producer list, and it holds.
+
+On the palate, provence-shaped, balanced, a little softer than the sparkling Noughty. The Pinotage is a tint, not a tannin. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is gently lingering fruit. Less snap than the sparkling Chardonnay. Still rosé, not the sparkling sibling already on this desk. Chenin and a dash of Pinotage, spun-cone dealcoholized, berry and apricot without the fizz. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

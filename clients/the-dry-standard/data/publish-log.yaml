@@ -412,3 +412,165 @@
   brand: 'Hitachino Nest'
   published_at: '2026-09-20T01:14:36+00:00'
   path: reviews/beer/hitachino-nest-non-ale/
+-
+  slug: savyll-moscow-mule
+  product: 'Non-Alcoholic Moscow Mule'
+  brand: Savyll
+  published_at: '2026-09-20T01:17:54+00:00'
+  path: reviews/cocktails/savyll-moscow-mule/
+-
+  slug: clearscape-chardonnay
+  product: Chardonnay
+  brand: Clearscape
+  published_at: '2026-09-20T01:17:55+00:00'
+  path: reviews/wine/clearscape-chardonnay/
+-
+  slug: clearscape-rose
+  product: Rosé
+  brand: Clearscape
+  published_at: '2026-09-20T01:17:56+00:00'
+  path: reviews/wine/clearscape-rose/
+-
+  slug: rondel-zero-cava-rose
+  product: 'Zero Cava Rosé'
+  brand: Rondel
+  published_at: '2026-09-20T01:17:56+00:00'
+  path: reviews/wine/rondel-zero-cava-rose/
+-
+  slug: biagio-cru-rose-all-day
+  product: 'Non-Alcoholic Rosé All Day'
+  brand: 'Biagio Cru'
+  published_at: '2026-09-20T01:17:57+00:00'
+  path: reviews/wine/biagio-cru-rose-all-day/
+-
+  slug: freixenet-sparkling-rose
+  product: '0,0 Sparkling Rosé'
+  brand: Freixenet
+  published_at: '2026-09-20T01:17:58+00:00'
+  path: reviews/wine/freixenet-sparkling-rose/
+-
+  slug: grad-36
+  product: 'Grad 36°'
+  brand: 'Jörg Geiger'
+  published_at: '2026-09-20T01:17:58+00:00'
+  path: reviews/wine/grad-36/
+-
+  slug: savyll-moscow-mule
+  product: 'Non-Alcoholic Moscow Mule'
+  brand: Savyll
+  published_at: '2026-09-20T01:18:32+00:00'
+  path: reviews/cocktails/savyll-moscow-mule/
+-
+  slug: clearscape-chardonnay
+  product: Chardonnay
+  brand: Clearscape
+  published_at: '2026-09-20T01:18:33+00:00'
+  path: reviews/wine/clearscape-chardonnay/
+-
+  slug: clearscape-rose
+  product: Rosé
+  brand: Clearscape
+  published_at: '2026-09-20T01:18:34+00:00'
+  path: reviews/wine/clearscape-rose/
+-
+  slug: rondel-zero-cava-rose
+  product: 'Zero Cava Rosé'
+  brand: Rondel
+  published_at: '2026-09-20T01:18:34+00:00'
+  path: reviews/wine/rondel-zero-cava-rose/
+-
+  slug: biagio-cru-rose-all-day
+  product: 'Non-Alcoholic Rosé All Day'
+  brand: 'Biagio Cru'
+  published_at: '2026-09-20T01:18:35+00:00'
+  path: reviews/wine/biagio-cru-rose-all-day/
+-
+  slug: freixenet-sparkling-rose
+  product: '0,0 Sparkling Rosé'
+  brand: Freixenet
+  published_at: '2026-09-20T01:18:36+00:00'
+  path: reviews/wine/freixenet-sparkling-rose/
+-
+  slug: grad-36
+  product: 'Grad 36°'
+  brand: 'Jörg Geiger'
+  published_at: '2026-09-20T01:18:36+00:00'
+  path: reviews/wine/grad-36/
+-
+  slug: savyll-moscow-mule
+  product: 'Non-Alcoholic Moscow Mule'
+  brand: Savyll
+  published_at: '2026-09-20T01:19:00+00:00'
+  path: reviews/cocktails/savyll-moscow-mule/
+-
+  slug: clearscape-chardonnay
+  product: Chardonnay
+  brand: Clearscape
+  published_at: '2026-09-20T01:19:00+00:00'
+  path: reviews/wine/clearscape-chardonnay/
+-
+  slug: heidemanns-bergweiler-riesling
+  product: 'Non-Alcoholic Riesling'
+  brand: 'Dr. Heidemanns Bergweiler'
+  published_at: '2026-09-20T01:19:01+00:00'
+  path: reviews/wine/heidemanns-bergweiler-riesling/
+-
+  slug: clearscape-rose
+  product: Rosé
+  brand: Clearscape
+  published_at: '2026-09-20T01:19:01+00:00'
+  path: reviews/wine/clearscape-rose/
+-
+  slug: rondel-zero-cava-rose
+  product: 'Zero Cava Rosé'
+  brand: Rondel
+  published_at: '2026-09-20T01:19:02+00:00'
+  path: reviews/wine/rondel-zero-cava-rose/
+-
+  slug: biagio-cru-rose-all-day
+  product: 'Non-Alcoholic Rosé All Day'
+  brand: 'Biagio Cru'
+  published_at: '2026-09-20T01:19:03+00:00'
+  path: reviews/wine/biagio-cru-rose-all-day/
+-
+  slug: freixenet-sparkling-rose
+  product: '0,0 Sparkling Rosé'
+  brand: Freixenet
+  published_at: '2026-09-20T01:19:03+00:00'
+  path: reviews/wine/freixenet-sparkling-rose/
+-
+  slug: grad-36
+  product: 'Grad 36°'
+  brand: 'Jörg Geiger'
+  published_at: '2026-09-20T01:19:04+00:00'
+  path: reviews/wine/grad-36/
+-
+  slug: noughty-dealcoholized-rose
+  product: 'Noughty Non-Alcoholic Rosé'
+  brand: 'Thomson & Scott'
+  published_at: '2026-09-20T01:19:35+00:00'
+  path: reviews/wine/noughty-dealcoholized-rose/
+-
+  slug: be-free-sauvignon-blanc
+  product: 'Sauvignon Blanc'
+  brand: 'Be Free'
+  published_at: '2026-09-20T01:19:36+00:00'
+  path: reviews/wine/be-free-sauvignon-blanc/
+-
+  slug: giesen-0-rose
+  product: '0% Rosé'
+  brand: Giesen
+  published_at: '2026-09-20T01:19:37+00:00'
+  path: reviews/wine/giesen-0-rose/
+-
+  slug: kolonne-null-riesling
+  product: 'Alcohol-Free Riesling'
+  brand: 'Kolonne Null'
+  published_at: '2026-09-20T01:19:37+00:00'
+  path: reviews/wine/kolonne-null-riesling/
+-
+  slug: 90-cellars-lot-229
+  product: 'Alcohol-Removed Sparkling Rosé Lot 229'
+  brand: '90+ Cellars'
+  published_at: '2026-09-20T01:19:40+00:00'
+  path: reviews/wine/90-cellars-lot-229/

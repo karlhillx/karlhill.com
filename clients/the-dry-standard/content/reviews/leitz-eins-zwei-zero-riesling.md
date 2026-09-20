@@ -33,10 +33,24 @@ image_source: producer
 image_source_url: https://www.leitz-wein.shop/products/eins-zwei-zero-riesling-alkoholfrei-0-75-l
 image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 88
 verdict: "The dealcoholized Riesling most often worth opening. Acidity keeps the residual sugar honest; what is missing is ethanol weight, not varietal character."
 summary: "A Rheingau Riesling put through vacuum distillation. Citrus, rhubarb, and a dry-seeming finish — with more residual sugar than the word dry implies."
+
+tastes:
+  - lime zest
+  - green apple skin
+  - snap of rhubarb
+  - cool mineral line
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light body
+  - Clean finish
+mouthfeel: "Clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold."
+highlight: "The dealcoholized Riesling most often worth opening. Acidity keeps the residual sugar honest; what is missing is ethanol weight, not varietal character."
+likeness: "The dealcoholized Riesling most often worth opening. Acidity keeps the residual sugar honest; what is missing is ethanol weight, not varietal character."
 nose: "Lime zest, green apple skin, a snap of rhubarb, and a cool mineral line. It smells like Riesling first and like a reduced wine second."
 palate: "Bright and a little sweet, then pulled taut by acidity. Citrus and red apple sit over a lighter body than a full-strength Eins-Zwei-Dry, but the grape is still the point."
 finish: "Clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold."
@@ -61,8 +75,10 @@ sources:
 status: published
 ---
 
-Johannes Leitz makes this from Riesling, not from a flavor brief. The estate is explicit: the base wine is pressed and fermented like wine, then the alcohol is taken off under vacuum so the spirit boils at roughly 29°C. That is dealcoholization in the strict sense.
+Leitz Eins-Zwei-Zero Riesling is dealcoholized from Rheingau, Germany. The base is Estate Riesling, gently pressed and cool-fermented in stainless steel. Vacuum distillation. Johannes Leitz makes this from Riesling, not from a flavor brief. The estate is explicit: the base wine is pressed and fermented like wine, then the alcohol is taken off under vacuum so the spirit boils at roughly 29°C. That is dealcoholization in the strict sense.
 
-The name is a joke with a point. Eins-Zwei-Dry is the estate's everyday Rheingau Riesling; Eins-Zwei-Zero is the nephew that went through the still. It is not a "Riesling-style beverage." It is Riesling with the ethanol removed.
+The nose is lime zest, green apple skin, a snap of rhubarb, and a cool mineral line. It smells like Riesling first and like a reduced wine second.
 
-Two numbers matter more than the marketing zero. Leitz says the wine sits below 0.1% alcohol by volume, with a bottling tolerance up to 0.38%. A retailer technical sheet lists 38.9 g/L residual sugar. Those are not contradictory if you taste it: the wine drinks drier than the sugar implies because the acidity is still Riesling acidity. It will not fool a Rheingau regular on body. It will satisfy someone who wants citrus, stone, and a glass that behaves like wine at the table.
+On the palate, bright and a little sweet, then pulled taut by acidity. Citrus and red apple sit over a lighter body than a full-strength Eins-Zwei-Dry, but the grape is still the point. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold. The dealcoholized Riesling most often worth opening. Acidity keeps the residual sugar honest; what is missing is ethanol weight, not varietal character. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine.

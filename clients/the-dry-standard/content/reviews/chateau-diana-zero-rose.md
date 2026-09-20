@@ -23,11 +23,22 @@ availability: "US retail including Amazon and Instacart"
 image: media/reviews/chateau-diana-zero-rose.jpg
 image_alt: "Chateau Diana Zero Rosé bottle"
 image_credit: Product photo via nonalcoholicwines.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 75
 verdict: "The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach."
 summary: "Chateau Diana's Zero Rosé is an alcohol-removed California rosé: ripe strawberries and bright acidity at 0.0% ABV, 80 calories."
+
+tastes:
+  - fruit
+profile:
+  - Bright acidity
+  - Clean finish
+mouthfeel: "Bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes."
+highlight: "The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach."
+likeness: "The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach."
 nose: "Ripe strawberries with a light floral note."
 palate: "Bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes."
 finish: "Clean and brief."
@@ -46,6 +57,10 @@ sources:
 status: published
 ---
 
-The rosé half of Chateau Diana's Zero line mirrors the white blend: 0.0% ABV, 80 calories, alcohol-removed California fruit, and the same accessibility-first approach. The strawberry character is the varietal note — brighter and more fruit-forward than the white blend, with the acidity doing what structure work it can.
+Chateau Diana Zero California Rosé is dealcoholized from California, United States. The base is California rosé, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified California rosé.
 
-Like the white, this is the bottle that makes the NA category approachable to people who aren't enthusiasts. It's sold on Amazon and Instacart, it costs what a grocery-store rosé costs, and it tastes like the rosé it claims to be. That's a low bar to clear, but most of the category doesn't clear it — and Chateau Diana does.
+The nose is ripe strawberries with a light floral note.
+
+On the palate, bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and brief. The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.

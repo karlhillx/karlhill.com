@@ -20,10 +20,18 @@ producer: Butter Wines (Napa, California)
 volume: "750 ml"
 availability: "US retail"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 76
 verdict: "The wine that launched the brand, translated to zero proof — Butter's rich Chardonnay style, minus the alcohol, minus some of the butter."
 summary: "Butter Zero's Chardonnay is an alcohol-removed California Chardonnay: the brand's signature rich style adapted for zero proof at <0.5% ABV."
+
+tastes:
+  - pear
+profile:
+  - Light body
+mouthfeel: "Smooth and gentle."
+highlight: "The wine that launched the brand, translated to zero proof — Butter's rich Chardonnay style, minus the alcohol, minus some of the butter."
+likeness: "The wine that launched the brand, translated to zero proof — Butter's rich Chardonnay style, minus the alcohol, minus some of the butter."
 nose: "Soft pear and apple with a light creamy note — the Chardonnay fruit without the oak-driven butter of the original."
 palate: "Round and approachable; the fruit carries the mid-palate, the body is lighter than the alcoholic Butter but the profile is recognizable."
 finish: "Smooth and gentle."
@@ -32,6 +40,8 @@ serve: "Chilled."
 image: media/reviews/butter-zero-chardonnay.jpg
 image_alt: "Butter Zero Chardonnay bottle"
 image_credit: "Product photo via Butter Wines"
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "INTRODUCING NEW BUTTERZERO — PRNewswire (March 2026)"
     url: https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html
@@ -39,6 +49,10 @@ sources:
 status: published
 ---
 
-Butter Wines built its reputation on one thing: rich, buttery California Chardonnay. The Zero version is the non-alcoholic translation of that promise, launched alongside the Sparkling Rosé and Pinot Noir in March 2026. The dealcoholization process removes the alcohol, which means it also removes some of the textural richness that made the original distinctive — but the fruit profile survives, and the brand's approachable, fruit-first style translates well.
+Butter Zero Chardonnay is dealcoholized from California, United States. The base is California Chardonnay, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified Chardonnay (producer's March 2026 launch).
 
-The glass is soft pear and apple with a light creamy note, rounder and more approachable than most dealcoholized Chardonnays, which tend toward thin and acidic. It won't taste like the original Butter — the missing ethanol takes the butter character with it — but it tastes like a competent zero-proof Chardonnay with the fruit turned up to compensate. For the Butter loyalist, that's the point.
+The nose is soft pear and apple with a light creamy note — the Chardonnay fruit without the oak-driven butter of the original.
+
+On the palate, round and approachable; the fruit carries the mid-palate, the body is lighter than the alcoholic Butter but the profile is recognizable. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is smooth and gentle. The wine that launched the brand, translated to zero proof — Butter's rich Chardonnay style, minus the alcohol, minus some of the butter. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.

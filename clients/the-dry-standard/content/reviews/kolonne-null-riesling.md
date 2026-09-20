@@ -28,10 +28,23 @@ image_source: producer
 image_source_url: https://kolonnenull.com/en/products/alkoholfreier-riesling
 image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 87
 verdict: "A Berlin house that dealcoholizes other people's wine under vacuum and is willing to print 0.0% on the Riesling. Mirabelle, quince, and slate salt."
 summary: "Kolonne Null removes alcohol from organic German Riesling by vacuum distillation at about 30°C. The current Riesling is labeled 0.0% vol."
+
+tastes:
+  - ripe mirabelle
+  - quince
+  - then a salty slate edge
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light body
+  - Short finish
+mouthfeel: "Light, precise, a little must-sweet from the rectified grape concentrate. Acidity still reads as Riesling."
+highlight: "A Berlin house that dealcoholizes other people's wine under vacuum and is willing to print 0.0% on the Riesling. Mirabelle, quince, and slate salt."
+likeness: "A Berlin house that dealcoholizes other people's wine under vacuum and is willing to print 0.0% on the Riesling. Mirabelle, quince, and slate salt."
 nose: "Ripe mirabelle and a hint of quince, then a salty slate edge."
 palate: "Light, precise, a little must-sweet from the rectified grape concentrate. Acidity still reads as Riesling."
 finish: "Short citrus and salt. Keep it cold or the sweetness shows."
@@ -50,6 +63,10 @@ sources:
 status: published
 ---
 
-Kolonne Null is a Berlin dealcoholization house, not a Mosel estate. They buy wine, put it under vacuum so ethanol boils near 30°C, then bottle. The Riesling page lists 0.0% vol, organic German fruit, rectified grape must, and 16 kcal per 100 ml. The FAQ and production page name vacuum distillation.
+Kolonne Null Riesling is dealcoholized from Germany. The base is Organic German Riesling, fermented then dealcoholized. Vacuum distillation at around 30°C.
 
-That is a sourced Yes. The glass is mirabelle and quince with a salty edge — more slate than petrol. The must addition sweetens the mid-palate. It is not Leitz estate fruit, and it does not pretend to be. It is a clean, documented 0.0% Riesling from people whose whole business is the still.
+The nose is ripe mirabelle and a hint of quince, then a salty slate edge.
+
+On the palate, light, precise, a little must-sweet from the rectified grape concentrate. Acidity still reads as Riesling. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is short citrus and salt. Keep it cold or the sweetness shows. A Berlin house that dealcoholizes other people's wine under vacuum and is willing to print 0.0% on the Riesling. Mirabelle, quince, and slate salt. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.

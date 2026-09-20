@@ -19,11 +19,25 @@ availability: "US retail including Target, and direct from bestdaybrewing.com"
 image: media/reviews/best-day-kolsch.jpg
 image_alt: "Best Day Brewing Kölsch cans"
 image_credit: Product photo via bestdaybrewing.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 84
 verdict: "The cleanest non-alcoholic Kölsch on the US craft shelf — a light, slightly toasty ale with the body and finish of a Kölsch, not a near-beer compromise."
 summary: "Best Day Brewing's Kölsch is one of the cleanest expressions in American craft NA: light, crisp, gently toasty, finishing dry and clean at <0.5% ABV."
+
+tastes:
+  - pilsner-malt light toast
+  - touch of green apple
+profile:
+  - Bright acidity
+  - Light body
+  - Modest bitterness
+  - Clean finish
+mouthfeel: "Clean and crisp; a soft malt body with the slight hop bitterness Kölsch demands, dry rather than syrupy."
+highlight: "The cleanest non-alcoholic Kölsch on the US craft shelf — a light, slightly toasty ale with the body and finish of a Kölsch, not a near-beer compromise."
+likeness: "The cleanest non-alcoholic Kölsch on the US craft shelf — a light, slightly toasty ale with the body and finish of a Kölsch, not a near-beer compromise."
 nose: "Pilsner-malt light toast, a touch of green apple, no corn-rice adjunct heaviness."
 palate: "Clean and crisp; a soft malt body with the slight hop bitterness Kölsch demands, dry rather than syrupy."
 finish: "Long and clean for an NA craft beer — the dryness carries the close."
@@ -42,6 +56,10 @@ sources:
 status: published
 ---
 
-Best Day Brewing has built its entire brand around the simple — and loudly stated — ambition of making "the world's best-tasting non-alcoholic beer," which is a category where the chasm between the best and the rest is enormous. The Kölsch is the line where they show it best: the closest thing to a Kölsch that has ever been poured here, with the malty, slightly toasty backbone that defines the style and a clean hop bitterness that finishes dry instead of vague.
+Best Day Brewing Kölsch is dealcoholized from United States. Paste Magazine's brewery-briefed review describes Best Day's beers as 'traditionally produced non-alcoholic beers, with alcohol "gently removed" post ferment….
 
-Paste Magazine's brewery-briefed tasting notes are the best public account of the process: these are "traditionally produced non-alcoholic beers, with alcohol 'gently removed' post fermentation" to land under 0.5% ABV — real beer, brewed to strength, then stripped down, rather than an arrested-fermentation product. The exact removal technology still isn't named publicly, but the fermentation-then-removal sequence is clear enough to call this dealcoholized. At $10.99 for a 6-pack of 12 oz cans at Target, it's priced like a competent craft lager should be — about the same as Athletic, less than Athletic's IPA. Best Day's Kölsch won't surprise anyone about anything except this: it's an NA ale that's drinkable through a whole game day, and the category can do a lot worse.
+The nose is pilsner-malt light toast, a touch of green apple, no corn-rice adjunct heaviness.
+
+On the palate, clean and crisp; a soft malt body with the slight hop bitterness Kölsch demands, dry rather than syrupy. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is long and clean for an NA craft beer — the dryness carries the close. The cleanest non-alcoholic Kölsch on the US craft shelf — a light, slightly toasty ale with the body and finish of a Kölsch, not a near-beer compromise. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

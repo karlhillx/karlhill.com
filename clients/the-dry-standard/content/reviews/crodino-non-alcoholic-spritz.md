@@ -18,10 +18,20 @@ producer: Crodino (Campari Group, launched 1965 in Italy)
 volume: "Single-serve 175 ml glass bottles (producer)"
 availability: "US launch via Campari America (May 2025); Italian and European retail long-established"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 78
 verdict: "Campari's original non-alcoholic bitter from 1965 — formulated, never dealcoholized, and the only proper Campari bitter out there without the alcohol."
 summary: "Crodino is a 1965 Italian non-alcoholic bitter that arrived in the US in May 2025: 0.0% ABV, bittersweet and golden, designed to be poured over ice the same way you pour an Aperol Spritz."
+
+tastes:
+  - bitter-orange peel
+  - gentian root
+profile:
+  - Off-dry
+  - Modest bitterness
+mouthfeel: "Refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol war…"
+highlight: "Campari's original non-alcoholic bitter from 1965 — formulated, never dealcoholized, and the only proper Campari bitter out there without the alcohol."
+likeness: "Campari's original non-alcoholic bitter from 1965 — formulated, never dealcoholized, and the only proper Campari bitter out there without the alcohol."
 nose: "Bitter-orange peel and gentian root, with a softer floral note than Campari proper."
 palate: "Bittersweet and a touch syrupy, bright orange-citrus with the gentian bitterness Campari is known for, moderated for an alcohol-free serve."
 finish: "Refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol warmth."
@@ -46,6 +56,10 @@ sources:
 status: published
 ---
 
-Crodino is the closest thing the Campari Group has to a non-alcoholic flagship that's actually always been non-alcoholic. Born in Italy in 1965 and long sold in Europe as a pre-dinner bitter, it crossed the Atlantic only in May 2025 via Campari America's US launch, with the original 175 ml single-serve glass bottle, the bittersweet orange-and-gentian flavor, and the same orange-slice-and-ice ritual that defines the Italian aperitivo hour. It's not a dealcoholized Campari or Aperol — it's its own recipe, in the bitter-aromatic family, formulated alcohol-free from the start.
+Crodino Non-Alcoholic Spritz is formulated as an alcohol alternative from Italy. The base is Non-alcoholic aromatic base blended with botanicals (no underlying spirit before alcohol removal). It was built without a dealcoholization step.
 
-It pours bittersweet, a touch syrupy in texture, brightened by the gentian and bitter-orange botanicals that ground all three Campari brands. The "spritz" of the name is the build: pour over ice, add sparkling water or lemon soda, garnish with orange. On its own it's a heavy aperitivo; built as a spritz it's the right shape for the late afternoon. If you want a Campari bitter without the campari hour drinking, Crodino is the only proper option.
+The nose is bitter-orange peel and gentian root, with a softer floral note than Campari proper.
+
+On the palate, bittersweet and a touch syrupy, bright orange-citrus with the gentian bitterness Campari is known for, moderated for an alcohol-free serve. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol warmth. Campari's original non-alcoholic bitter from 1965 — formulated, never dealcoholized, and the only proper Campari bitter out there without the alcohol. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

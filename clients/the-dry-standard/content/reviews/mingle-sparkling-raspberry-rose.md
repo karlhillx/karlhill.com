@@ -24,10 +24,23 @@ image_source: producer
 image_source_url: https://www.minglemocktails.com/products/sparkling-raspberry-rose
 image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 79
 verdict: "A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink."
 summary: "Mingle's Sparkling Raspberry Rosé is a real-juice sparkling mocktail at 0.00% ABV: crisp raspberry, light bubbles, sold by the can and the case."
+
+tastes:
+  - bright raspberry
+  - floral top note
+  - lightly sparkling
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light body
+  - Soft bead
+mouthfeel: "Crisp and refreshing, real raspberry juice over a clean sparkling base — a touch of sweetness without syrup weight."
+highlight: "A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink."
+likeness: "A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink."
 nose: "Bright raspberry and a soft floral top note; lightly sparkling."
 palate: "Crisp and refreshing, real raspberry juice over a clean sparkling base — a touch of sweetness without syrup weight."
 finish: "Clean and short, the fruit trailing off gently."
@@ -46,6 +59,10 @@ sources:
 status: published
 ---
 
-Mingle is a women-founded US mocktail brand that does the one thing most of this shelf doesn't: it sells canned, sparkling, real-juice drinks at soft-drink prices rather than wine prices. The Sparkling Raspberry Rosé is the flagship flavor, and at 0.00% ABV it's never been alcoholic — this is a formulated mocktail in the cocktail category, not a dealcoholized wine. The ingredient list is short: sparkling water, cane sugar, raspberry juice, lemon.
+Mingle Sparkling Raspberry Rosé is formulated as an alcohol alternative from United States. The base is Sparkling water with real raspberry juice and natural flavorings; no underlying alcoholic drink. It was built without a dealcoholization step.
 
-At $3.75 a can by the case (and $2.95 single at some retailers), it undercuts basically everything else in the NA cocktail aisle — including the canned spritzes that position themselves as alternatives to Aperol. In the glass it's a light raspberry spritz: crisp, gently sweet, with real fruit and a clean sparkling finish. It won't convince anyone it's a negroni, and it isn't trying to. It's the drink for the third hour of the party, when the first two were something better and this one is just supposed to be good company.
+The nose is bright raspberry and a soft floral top note; lightly sparkling.
+
+On the palate, crisp and refreshing, real raspberry juice over a clean sparkling base — a touch of sweetness without syrup weight. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and short, the fruit trailing off gently. A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.

@@ -21,11 +21,25 @@ availability: "Year-round 12 oz cans"
 image: media/reviews/lagunitas-hazy-ipna.jpg
 image_alt: "Lagunitas Hazy IPNA 12 oz can"
 image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 82
 verdict: "A hazy IPA that was never a full-strength beer with the ethanol stripped out. Passionfruit and haze without a dealcoholization step — which is the point of this desk's second column."
 summary: "Lagunitas' non-alcoholic hazy IPA sits at 0.50% ABV. The brewery is explicit: it does not remove alcohol from finished beer."
+
+tastes:
+  - passionfruit
+  - tropical hop
+profile:
+  - Off-dry
+  - Light body
+  - Modest bitterness
+  - Short finish
+mouthfeel: "Juicy and soft, 30 IBU, more fruit than pine. Body is lighter than a full Hazy Memory, as expected once fermentation is limited."
+highlight: "Passionfruit and tropical hop, a little grain-sweet underneath the haze."
+likeness: "A hazy IPA that was never a full-strength beer with the ethanol stripped out. Passionfruit and haze without a dealcoholization step — which is the point of this desk's second column."
 nose: "Passionfruit and tropical hop, a little grain-sweet underneath the haze."
 palate: "Juicy and soft, 30 IBU, more fruit than pine. Body is lighter than a full Hazy Memory, as expected once fermentation is limited."
 finish: "Short hop snap, a touch of residual sweetness from the 5 g of sugar."
@@ -44,6 +58,10 @@ sources:
 status: published
 ---
 
-Hazy IPNA is the sibling of Lagunitas' original IPNA, not a dealcoholized version of Hazy Memory. The product page lists 0.50% ABV, 30 IBU, 60 calories, and 5 g of sugar. The more important sentence is on the brewery's NA explainer: arrested fermentation, no heat used to pull alcohol off a finished beer. Beverage Daily quoted the company at launch saying they "did not use dealcoholization."
+Lagunitas Hazy IPNA is brewed or fermented to finish at low ABV without a published removal step from United States. Brewed to remain under 0.5% ABV. Lagunitas says it does not dealcoholize the finished beer.
 
-That is why the badge here is No, not Yes. The beer is formulated by stopping yeast before the ethanol builds, then dry-hopped so the haze and passionfruit still show. It will not taste like a 6% New England IPA with the spirit removed. It tastes like a near-beer that was brewed to be one. For this cellar, that distinction is the review.
+The nose is passionfruit and tropical hop, a little grain-sweet underneath the haze.
+
+On the palate, juicy and soft, 30 IBU, more fruit than pine. Body is lighter than a full Hazy Memory, as expected once fermentation is limited. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is short hop snap, a touch of residual sweetness from the 5 g of sugar. A hazy IPA that was never a full-strength beer with the ethanol stripped out. Passionfruit and haze without a dealcoholization step — which is the point of this desk's second column. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.

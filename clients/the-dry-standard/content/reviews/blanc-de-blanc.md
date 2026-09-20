@@ -26,10 +26,18 @@ image_source: producer
 image_source_url: https://joerg-geiger.co.uk/products/blanc-de-blanc-with-chardonnay-0-75l
 image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 87
 verdict: "Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk."
 summary: "Jörg Geiger's Blanc de Blanc is organic Chardonnay and Colombard, bottle-fermented and aged two years on the lees before vacuum distillation: brioche, apple, gooseberry and blossom."
+
+tastes:
+  - brioche
+profile:
+  - Soft bead
+mouthfeel: "Long and toasty, the brioche note extending the finish."
+highlight: "Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk."
+likeness: "Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk."
 nose: "Brioche and baked apple with a floral lift — the lees ageing leaves a genuine Champagne-adjacent aromatic signature."
 palate: "Structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve."
 finish: "Long and toasty, the brioche note extending the finish."
@@ -48,6 +56,10 @@ sources:
 status: published
 ---
 
-This is the most technically serious non-alcoholic sparkling on the desk, and the method explains why: organic Chardonnay and Colombard are bottle-fermented and then matured on the lees for two years — the same process that gives Champagne its brioche character — before the alcohol is removed by vacuum distillation. Lees ageing before dealcoholization is unusual because the process is expensive and the payoff invisible to anyone reading a label; the payoff, though, is in the glass.
+Blanc de Blanc Non-Alcoholic Sparkling Wine (Jörg Geiger) is dealcoholized from Germany. The base is Organic Chardonnay and Colombard, conventionally vinified with secondary bottle fermentation and lees ageing before dealcoholization. Organic Chardonnay and Colombard wine, bottle-fermented and matured on the lees for two years, then vacuum distilled (producer).
 
-It shows up as a mousse with genuine structure and a nose of brioche and baked apple that no shortcut method produces. The palate brings gooseberry, tangerine and orchard fruit over more mid-palate weight than dealcoholized sparklings normally manage, and the finish is toasty and long. At $34 in US retail and £32 in the UK it's priced in the upper tier of the category, and it earns the position: this is the bottle to open for someone who thinks non-alcoholic sparkling is a compromise.
+The nose is brioche and baked apple with a floral lift — the lees ageing leaves a genuine Champagne-adjacent aromatic signature.
+
+On the palate, structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine.

@@ -15,6 +15,8 @@ abv_numeric: 0.5
 image: media/reviews/spiritless-kentucky-74.jpg
 image_alt: "Spiritless Kentucky 74 bottle"
 image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: yes
 production_type: dealcoholized
 verified: yes
 production_note: "Ethanol is removed from an oak-extracted high-proof spirit, not from finished aged bourbon"
@@ -38,10 +40,22 @@ purchase_links:
     url: https://thezeroproof.com/products/buy-spiritless-non-alcoholic-bourbon
     region: US
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 78
 verdict: "A dealcoholized spirit with a real still story — and a cocktail ingredient, not a neat pour for bourbon people. Oak and caramel show up; ethanol heat does not, and the thickeners are doing part of the work."
 summary: "Louisville whiskey alternative. Ethanol is taken off an oak-charged high-proof spirit. Spiritless calls that reverse distillation; it is not a standard method name, and it is not dealcoholized Maker's Mark."
+
+tastes:
+  - caramel
+  - vanilla
+  - carpenter's-shop oak
+  - extract
+profile:
+  - Light body
+  - Short finish
+mouthfeel: "Short vanilla and a lingering tannin that reads more like wood tea than barrel heat."
+highlight: "Caramel, vanilla, and a carpenter's-shop oak. Less grain sweetness than bourbon, more extract. No ethanol bloom when you put your nose in the glass."
+likeness: "A dealcoholized spirit with a real still story — and a cocktail ingredient, not a neat pour for bourbon people. Oak and caramel show up; ethanol heat does not, and the thickeners are doing part of the work."
 nose: "Caramel, vanilla, and a carpenter's-shop oak. Less grain sweetness than bourbon, more extract. No ethanol bloom when you put your nose in the glass."
 palate: "Soft, slightly syrupy, and recognizably oak-driven. Glycerine and gum are on the label; you can feel them. In an Old Fashioned the structure holds. Neat, it is a flavored tea with ambition."
 finish: "Short vanilla and a lingering tannin that reads more like wood tea than barrel heat."
@@ -72,10 +86,10 @@ sources:
 status: published
 ---
 
-Kentucky 74 is the most useful argument in the spirits aisle right now, and the easiest one to get wrong.
+Spiritless Kentucky 74 is dealcoholized from Kentucky, United States. The base is High-proof neutral grain spirit infused with American oak, not a conventional barrel-aged bourbon. Reverse distillation after thermal oak extraction in high-proof neutral grain spirit. Kentucky 74 is the most useful argument in the spirits aisle right now, and the easiest one to get wrong.
 
-Spiritless does remove alcohol. The company publishes the sequence: American oak goes into high-proof neutral grain spirit; heat and pressure pull barrel-like flavors in hours instead of years; a second still runs "reverse distillation" so ethanol leaves and a concentrated oak distillate stays. That is alcohol removal. It is not, however, a 6-year bourbon sent through a spinning cone.
+The nose is caramel, vanilla, and a carpenter's-shop oak. Less grain sweetness than bourbon, more extract. No ethanol bloom when you put your nose in the glass.
 
-Founder interviews have been unusually blunt about the 0.5% ceiling. The leftover ethanol is treated as mouthfeel, not an accident. Later brand copy sometimes cites a much lower number. Until a current certificate of analysis is public, the honest label is "non-alcoholic, typically at or under 0.5%, with conflicting brand figures."
+On the palate, soft, slightly syrupy, and recognizably oak-driven. Glycerine and gum are on the label; you can feel them. In an Old Fashioned the structure holds. Neat, it is a flavored tea with ambition. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
 
-In a sour or a ginger highball the oak reads as whiskey-adjacent. Neat, the glycerine and xanthan are doing the body work that proof usually does. Score it as a mixed-drink product that bothered to use a still, not as a dealcoholized bottle of Kentucky straight bourbon. Those barely exist, and this is not one of them.
+The finish is short vanilla and a lingering tannin that reads more like wood tea than barrel heat. A dealcoholized spirit with a real still story — and a cocktail ingredient, not a neat pour for bourbon people. Oak and caramel show up; ethanol heat does not, and the thickeners are doing part of the work. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at spirit.

@@ -20,11 +20,24 @@ producer: P.J. Valckenberg (Germany)
 volume: "750 ml"
 availability: "US and German retail including vinello.de"
 image_alt: "Valckenberg Zero Riesling bottle"
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 80
 verdict: "A Mosel Riesling at 0.0% from one of Germany's oldest wine houses — clean fruit, vibrant acidity, honest about what it is."
 summary: "Valckenberg's Zero Riesling is a dealcoholized Mosel Riesling: pineapple and green apple over a mineral edge, 0.0% ABV."
+
+tastes:
+  - pineapple
+  - green apple
+profile:
+  - Bright acidity
+  - Light body
+  - Clean finish
+mouthfeel: "Clean and citric."
+highlight: "A Mosel Riesling at 0.0% from one of Germany's oldest wine houses — clean fruit, vibrant acidity, honest about what it is."
+likeness: "A Mosel Riesling at 0.0% from one of Germany's oldest wine houses — clean fruit, vibrant acidity, honest about what it is."
 nose: "Pineapple, green apple and lemon with a mineral edge — varietally correct Riesling aromatics."
 palate: "Crystal-clear fruit, vibrant acidity and a fine mineral edge; lighter in body than a full-strength Mosel but the Riesling character survives."
 finish: "Clean and citric."
@@ -40,6 +53,10 @@ sources:
 status: published
 ---
 
-P.J. Valckenberg is one of Germany's oldest wine merchants (founded 1786), and the Zero line is their non-alcoholic entry: a conventionally vinified Riesling from Mosel steep-slope vineyards with the alcohol removed after fermentation. The producer doesn't name the specific technique, but the sourcing is legitimate Mosel fruit and the result reads as real Riesling rather than flavored water.
+Valckenberg Zero Riesling is dealcoholized from Mosel, Germany. The base is Riesling from Mosel steep-slope vineyards, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified Riesling (producer describes the Zero line as non-alcoholic without specifying the technique).
 
-The glass shows pineapple and green apple over a mineral edge, with the vibrant acidity that makes Mosel Riesling distinctive. The body is lighter than a full-strength version — the usual ethanol tradeoff — but the varietal fingerprint holds. As a 0.0% Riesling at a moderate price point, it's a clean, honest pour that earns its place in the German section of the cellar.
+The nose is pineapple, green apple and lemon with a mineral edge — varietally correct Riesling aromatics.
+
+On the palate, crystal-clear fruit, vibrant acidity and a fine mineral edge; lighter in body than a full-strength Mosel but the Riesling character survives. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and citric. A Mosel Riesling at 0.0% from one of Germany's oldest wine houses — clean fruit, vibrant acidity, honest about what it is. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.

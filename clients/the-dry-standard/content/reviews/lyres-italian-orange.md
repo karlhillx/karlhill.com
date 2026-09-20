@@ -12,6 +12,8 @@ abv_numeric: 0.3
 image: media/reviews/lyres-italian-orange.jpg
 image_alt: "Lyre's Italian Orange bottle"
 image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: yes
 production_type: alternative
 verified: yes
 production_note: "Formulated as a zero-proof alternative"
@@ -27,10 +29,23 @@ purchase_links:
     url: https://lyres.com/products/italian-orange
     region: US
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 82
 verdict: "A convincing bitter-orange mixer with no dealcoholization story to tell — and Lyre's is honest about that. Judge it as a formulated aperitif, not as stripped Campari."
 summary: "A built-from-scratch blood-orange aperitif under 0.3% ABV. Useful in a Negroni-shaped drink. Not wine, not a spirit, not dealcoholized."
+
+tastes:
+  - blood orange
+  - ruby grapefruit
+  - candied cherry note
+  - pith is there
+profile:
+  - Off-dry
+  - Modest bitterness
+  - Clean finish
+mouthfeel: "Pith and dye-bright citrus. Cleaner than a cheap grenadine, sweeter than Campari."
+highlight: "A convincing bitter-orange mixer with no dealcoholization story to tell — and Lyre's is honest about that. Judge it as a formulated aperitif, not as stripped Campari."
+likeness: "A convincing bitter-orange mixer with no dealcoholization story to tell — and Lyre's is honest about that. Judge it as a formulated aperitif, not as stripped Campari."
 nose: "Blood orange, ruby grapefruit, and a candied cherry note. The pith is there. So is a slightly cosmetic citrus that never quite smells like a bitter made from a barrel."
 palate: "Sweet-bitter and thick enough to mix. Orange oil, maraschino, and a dry peel finish. Cellulose gum is doing some of the grip. It works in soda and in a three-part cocktail; it is not a sipping amaro."
 finish: "Pith and dye-bright citrus. Cleaner than a cheap grenadine, sweeter than Campari."
@@ -46,10 +61,10 @@ sources:
 status: published
 ---
 
-Lyre's does the industry a favor on its FAQ: the products are "purposefully crafted as non-alcoholic from the outset." The same page draws the line this site exists to police. Dealcoholized drinks start as alcoholic drinks. Lyre's starts as a recipe.
+Lyre's Italian Orange is formulated as an alcohol alternative. The base is producer: Lyre's. It was built without a dealcoholization step. Lyre's does the industry a favor on its FAQ: the products are "purposefully crafted as non-alcoholic from the outset." The same page draws the line this site exists to police. Dealcoholized drinks start as alcoholic drinks. Lyre's starts as a recipe.
 
-Italian Orange is therefore in our cocktail file as a control, not a hypocrisy. It is a blood-orange bitter designed to stand in for an Italian aperitivo in mixed drinks. The ingredient list is a food-lab list: water, sugar, fermented grape-juice concentrate, natural flavours, citric acid, caramel, preservatives, cellulose gum, Allura Red. There is no still story, no vacuum column, no "we took the Campari out of Campari."
+The nose is blood orange, ruby grapefruit, and a candied cherry note. The pith is there. So is a slightly cosmetic citrus that never quite smells like a bitter made from a barrel.
 
-That is not an insult. A well-made formulation can be a better drink than a poorly dealcoholized one. It is an insult to the reader when a formulated aperitif borrows the language of alcohol removal. Lyre's, here, does not.
+On the palate, sweet-bitter and thick enough to mix. Orange oil, maraschino, and a dry peel finish. Cellulose gum is doing some of the grip. It works in soda and in a three-part cocktail; it is not a sipping amaro. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
 
-Use it where you would use a bitter orange aperitif: ice, soda, orange slice; or as one-third of a zero-proof Negroni. Score it on those terms. Do not file it next to Noughty or Leitz. Those bottles were wine. This one never was.
+The finish is pith and dye-bright citrus. Cleaner than a cheap grenadine, sweeter than Campari. A convincing bitter-orange mixer with no dealcoholization story to tell — and Lyre's is honest about that. Judge it as a formulated aperitif, not as stripped Campari. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail.

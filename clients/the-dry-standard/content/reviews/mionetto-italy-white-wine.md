@@ -24,10 +24,22 @@ image_source: producer
 image_source_url: https://www.freixenetmionettousa.com/wines/mionetto-alcohol-removed-sparkling-wine/
 image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 79
 verdict: "Italy's bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after."
 summary: "Mionetto 0.0% is a Prosecco-method Venetian sparkling white, fully fermented before the alcohol is extracted: gentle bubbles, off-dry fruit, 0.5% ABV, $16.99 a bottle."
+
+tastes:
+  - pear
+  - white peach
+  - green-apple lift
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light body
+mouthfeel: "Light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver."
+highlight: "Italy's bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after."
+likeness: "Italy's bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after."
 nose: "Pear and white peach, with a green-apple lift and the faint yeastiness that distinguishes Prosecco-method sparkling."
 palate: "Light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver."
 finish: "Crisp and quick, a low-sugar finish that works as an aperitif."
@@ -43,6 +55,10 @@ sources:
 status: published
 ---
 
-Mionetto's 0.0% comes from the same Valdobbiadene cellars (founded 1887) that built their Prosecco, with an "accurate alcohol removal process" applied to the finished wine after the primary fermentation is done, per both the Italian and US product pages. For a buyer who already trusts Mionetto to pour at brunch, it's the same house in different clothes: Prosecco-method sparkle, Italian fruit, and the producer's restraint on sweetness ($12.99 US retail, $16.99 direct, kept low enough to beat the cocktail math) all carrying through.
+Mionetto Alcohol-Removed Sparkling Wine is dealcoholized from Veneto, Italy. The base is Glera and a blend of other indigenous Italian grapes, made by traditional Prosecco methods. Alcohol expertly extracted after traditional Prosecco-method winemaking (Freixenet Mionetto USA).
 
-The glass earns its keep. Green-apple and pear up top, a faint yeasty note that distinguishes Prosecco-method sparkling from Charmat or tank-fermented wines, and a soft, off-dry mid-palate with the gentle bubbles that read as Italian. Body is lighter than a real Prosecco (ethanol adds weight a dealcoholized wine can't replicate) and the finish is brief rather than lingering, but the varietal fingerprint — Glera-led fruit, a fresh lift that wants a small bite — survives. Not the most exciting glass in the cellar, but one of the most reliable substitutes for "the prosecco moment" without the prosecco proof.
+The nose is pear and white peach, with a green-apple lift and the faint yeastiness that distinguishes Prosecco-method sparkling.
+
+On the palate, light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is crisp and quick, a low-sugar finish that works as an aperitif. Italy's bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

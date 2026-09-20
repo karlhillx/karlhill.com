@@ -25,6 +25,19 @@ updated_date: "2026-09-19"
 rating: 90
 verdict: "The hoppier Brevet. Same Atlanta can, same arrested-fermentation process as the pilsner. Drink it as an IPA that happens to be NA."
 summary: "Halfway Crooks' non-alcoholic Brevet IPA uses the brewery's Chiber arrested-fermentation process: yeast kept static, alcohol never formed. Untappd lists the SKU; the brewery still has not published an ABV for this can."
+
+tastes:
+  - citrus peel
+  - crackery malt line
+  - hoppier than the pils
+  - tidy
+profile:
+  - Light body
+  - Modest bitterness
+  - Short finish
+mouthfeel: "Light IPA bitterness, lemon and a little pine, body closer to a session beer than a 7% West Coast."
+highlight: "The hoppier Brevet. Same Atlanta can, same arrested-fermentation process as the pilsner. Drink it as an IPA that happens to be NA."
+likeness: "The hoppier Brevet. Same Atlanta can, same arrested-fermentation process as the pilsner. Drink it as an IPA that happens to be NA."
 nose: "Citrus peel and a crackery malt line — hoppier than the pils, still tidy."
 palate: "Light IPA bitterness, lemon and a little pine, body closer to a session beer than a 7% West Coast."
 finish: "Dry and short. No worty leftover."
@@ -46,6 +59,10 @@ sources:
 status: published
 ---
 
-The Brevet Pils already has a review. This is the IPA, purchased more often in this house. Untappd files it as a non-alcoholic IPA from Halfway Crooks. The brewery site still leads with the pilsner, and there is still no producer ABV for this SKU. The process is no longer a blank: Atlanta Magazine quotes Shawn Cooper on Chiber, a mushroom extract that keeps yeast static and stops alcohol from forming, and Craft Beer & Brewing describes the Brevet line as lager and IPA iterations of that same NA work. That is arrested fermentation, not a removal step.
+Halfway Crooks Brevet IPA is brewed or fermented to finish at low ABV without a published removal step from Atlanta, Georgia, United States. Atlanta Magazine quotes co-owner Shawn Cooper describing Halfway Crooks' NA process as Chiber, a mushroom extract that keeps yeast static and halts alcohol p…. The can drinks like an IPA that was never asked to be 6%. Citrus, a little pine, a clean finish. Same Atlanta discipline as the pils.
 
-The can drinks like an IPA that was never asked to be 6%. Citrus, a little pine, a clean finish. Same Atlanta discipline as the pils.
+The nose is citrus peel and a crackery malt line — hoppier than the pils, still tidy.
+
+On the palate, light IPA bitterness, lemon and a little pine, body closer to a session beer than a 7% West Coast. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is dry and short. No worty leftover. The hoppier Brevet. Same Atlanta can, same arrested-fermentation process as the pilsner. Drink it as an IPA that happens to be NA. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

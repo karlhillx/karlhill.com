@@ -22,11 +22,25 @@ availability: "US retail including InternetWines.com and Old Town Tequila"
 image: media/reviews/butter-zero-sparkling-rose.jpg
 image_alt: "Butter Zero Sparkling Rosé bottle"
 image_credit: Product photo via internetwines.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 76
 verdict: "Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity."
 summary: "Butter Zero's Sparkling Rosé is an alcohol-removed California sparkling rosé launched in March 2026: light, fresh, and fruity at <0.5% ABV."
+
+tastes:
+  - strawberry
+  - red berry with a light
+  - bright lift
+profile:
+  - Light body
+  - Soft bead
+  - Clean finish
+mouthfeel: "Light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile."
+highlight: "Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity."
+likeness: "Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity."
 nose: "Soft strawberry and red berry with a light, bright lift."
 palate: "Light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile."
 finish: "Clean and brief."
@@ -42,6 +56,10 @@ sources:
 status: published
 ---
 
-Butter Wines is the California Chardonnay brand best known for a very specific style — rich, buttery, widely distributed — and Butter Zero, launched in March 2026, is their entry into the non-alcoholic category. The Sparkling Rosé is alcohol-removed California sparkling wine, positioned as a premium NA option with the same great-taste-first philosophy that made the original Butter Chardonnay successful.
+Butter Zero Sparkling Rosé is dealcoholized from California, United States. The base is California sparkling rosé, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified California sparkling rosé (producer's March 2026 launch announcement).
 
-The glass is light, fresh and fruity — strawberry and red berry over gentle bubbles, clean and easy-drinking without any syrup weight. It's not trying to be complex; it's trying to be the approachable bottle that the Butter brand promise implies. At $12.99 it's priced in the value tier, and for the casual sparkling occasion it does the job. The brand recognition will sell it; the wine inside is honest enough to earn a reorder.
+The nose is soft strawberry and red berry with a light, bright lift.
+
+On the palate, light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and brief. Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

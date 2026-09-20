@@ -27,10 +27,22 @@ purchase_links:
     url: https://thezeroproof.com/products/oddbird-blanc-de-blancs-sparkling-white-wine
     region: US
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 84
 verdict: "The oak aging is doing real work here — a rare dealcoholized sparkling wine with actual structure instead of just sweetness and bubbles."
 summary: "A Swedish brand's French-made sparkling Blanc de Blancs, aged 12 months in oak before the alcohol is vacuum-distilled out. Reads closer to Champagne-style than most dealcoholized proseccos."
+
+tastes:
+  - honeyed
+  - toasty
+  - green apple
+  - meyer lemon underneath
+profile:
+  - Off-dry
+  - Soft bead
+mouthfeel: "Creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler."
+highlight: "The oak aging is doing real work here — a rare dealcoholized sparkling wine with actual structure instead of just sweetness and bubbles."
+likeness: "The oak aging is doing real work here — a rare dealcoholized sparkling wine with actual structure instead of just sweetness and bubbles."
 nose: "Honeyed and a little toasty, with green apple and Meyer lemon underneath — the oak aging is audible before you even taste it."
 palate: "Rich, velvety bubbles carry ripe pear and mango alongside the citrus. Fuller-bodied than most dealcoholized sparkling wines in this queue."
 finish: "Creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler."
@@ -55,6 +67,10 @@ sources:
 status: published
 ---
 
-Oddbird is a Swedish brand — founded by former family therapist Moa Gürbüzer, with her husband Mehmet Gürbüzer as CEO — but the wine itself is French, sourced from Chardonnay and Colombard grapes grown in the Languedoc-Roussillon. That's worth stating plainly: this isn't a Swedish winery, it's a Swedish company working with French winemakers, then removing the alcohol via vacuum distillation after the wine has already spent 12 months in oak.
+Oddbird Blanc de Blancs is dealcoholized from Languedoc-Roussillon, France. The base is Chardonnay and Colombard, fermented and aged as regular wine, then oak-aged 12 months before alcohol removal. Vacuum distillation.
 
-That oak aging is the differentiator. Most dealcoholized sparkling wines taste thin once the ethanol is gone; this one keeps a honeyed, faintly toasty character that reads as genuine barrel time rather than an additive shortcut. The ingredient label is honest about the rest of the construction — de-alcoholized wine, sugar, carbon dioxide, sulphites — so the sweetness on the palate isn't a surprise, but it's balanced by real fruit and bubble texture rather than propping up an otherwise flat wine.
+The nose is honeyed and a little toasty, with green apple and Meyer lemon underneath — the oak aging is audible before you even taste it.
+
+On the palate, rich, velvety bubbles carry ripe pear and mango alongside the citrus. Fuller-bodied than most dealcoholized sparkling wines in this queue. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler. The oak aging is doing real work here — a rare dealcoholized sparkling wine with actual structure instead of just sweetness and bubbles. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

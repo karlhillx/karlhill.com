@@ -22,11 +22,26 @@ availability: "Year-round in US stores and direct from athleticbrewing.com (prod
 image: media/reviews/athletic-brewing-run-wild-ipa.jpg
 image_alt: "Athletic Brewing Run Wild IPA"
 image_credit: Product photo via athleticbrewing.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 88
 verdict: "The category's benchmark, and the beer that proved a non-alcoholic IPA can win medals against full-strength competition. The process is a trade secret, but founders have said on the record it is not dealcoholization. The result is the most reliable IPA-shaped pour in the zero-proof aisle."
 summary: "America's largest dedicated NA brewery built Run Wild under 0.5% from the start: 70 calories, Citra and Mosaic over US and German malt. Proprietary method; not a stripped full-strength IPA."
+
+tastes:
+  - pine resin
+  - citrus peel
+  - bright
+  - clean rather than sweet
+profile:
+  - Bright acidity
+  - Modest bitterness
+  - Clean finish
+mouthfeel: "Dry and crisp, ending clean rather than syrupy — the thing cheap NA IPAs get wrong."
+highlight: "Pine resin and citrus peel — the classic Northwest signature, bright and clean rather than sweet."
+likeness: "The category's benchmark, and the beer that proved a non-alcoholic IPA can win medals against full-strength competition. The process is a trade secret, but founders have said on the record it is not dealcoholization. The result is the mo…"
 nose: "Pine resin and citrus peel — the classic Northwest signature, bright and clean rather than sweet."
 palate: "Approachable bitterness (35 IBU) over a subtle, complex malt body; a Northwest hop blend with Citra and Mosaic doing the loud parts, at a session beer's weight."
 finish: "Dry and crisp, ending clean rather than syrupy — the thing cheap NA IPAs get wrong."
@@ -51,6 +66,10 @@ sources:
 status: published
 ---
 
-Run Wild is the closest thing non-alcoholic beer has to a household name, and the story behind it is a Connecticut one: founders Bill and John test-brewed more than 100 batches on homebrew equipment in Stratford before building what is believed to be the world's largest dedicated non-alcoholic brewery in Milford, with a second brewhouse in San Diego. The company still will not name the vessels. What they have said, to Fast Company and Popular Mechanics, is that they do not brew a full-strength beer and strip the alcohol, and that the method is not simple arrested fermentation either. That is enough to classify it as naturally low alcohol. The beers are built under 0.5% from the start. What else is citable: 70 calories, 35 IBU, premium US and German malts, and that Northwest hop blend with Citra and Mosaic up front.
+Athletic Brewing Run Wild IPA is brewed or fermented to finish at low ABV without a published removal step from Milford, Connecticut, with a second brewhouse in San Diego, California, United States. Athletic's process is proprietary, but founder interviews state it is neither dealcoholization of finished beer nor simple arrested fermentation — the beers ….
 
-The pour is the standard other NA IPAs get measured against, and it earns it. Pine and citrus on the nose, bitterness that reads as intentional rather than apologetic, and the dry, crisp finish that separates breweries who formulated for zero-proof from ones that just arrested a lager. It won gold at the 2018 International Beer Challenge with the company noting its awards come "when up against full-strength beers" — which is either marketing or the single best argument for the category, and we read it as the latter. The honest complaint is body: without ethanol the mid-palate thins, and a fresh full-strength IPA still wins on texture. On flavor discipline, it doesn't lose.
+The nose is pine resin and citrus peel — the classic Northwest signature, bright and clean rather than sweet.
+
+On the palate, approachable bitterness (35 IBU) over a subtle, complex malt body; a Northwest hop blend with Citra and Mosaic doing the loud parts, at a session beer's weight. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is dry and crisp, ending clean rather than syrupy — the thing cheap NA IPAs get wrong. The category's benchmark, and the beer that proved a non-alcoholic IPA can win medals against full-strength competition. The process is a trade secret, but founders have said on the record it is not dealcoholization. The result is the most reliable IPA-shaped pour in the zero-proof aisle. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer.

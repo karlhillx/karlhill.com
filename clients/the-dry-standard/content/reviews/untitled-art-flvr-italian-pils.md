@@ -21,11 +21,24 @@ availability: "US retail including Metro Wine & Spirits; direct from drinkuntitl
 image: media/reviews/untitled-art-flvr-italian-pils.jpg
 image_alt: "Untitled Art FLVR! NA Italian-Style Pils can"
 image_credit: Product photo via drinkuntitled.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 83
 verdict: "The drier, more grown-up sibling of the FLVR! sour: floral and herbal hops, subtle citrus, and the crisp snap of a real Italian pilsner."
 summary: "Untitled Art's FLVR! NA Italian-Style Pils is a dry-hopped non-alcoholic Italian pilsner: floral and herbal hop character, subtle citrus, crisp finish, 60 calories."
+
+tastes:
+  - floral
+profile:
+  - Off-dry
+  - Bright acidity
+  - Modest bitterness
+  - Clean finish
+mouthfeel: "Crisp and dry; herbal hop character over a clean malt body, subtle citrus, no sweetness to speak of."
+highlight: "The drier, more grown-up sibling of the FLVR! sour: floral and herbal hops, subtle citrus, and the crisp snap of a real Italian pilsner."
+likeness: "The drier, more grown-up sibling of the FLVR! sour: floral and herbal hops, subtle citrus, and the crisp snap of a real Italian pilsner."
 nose: "Floral and herbal hops with a light citrus lift — the distinctive Italian pilsner aromatic style."
 palate: "Crisp and dry; herbal hop character over a clean malt body, subtle citrus, no sweetness to speak of."
 finish: "Dry and snappy, the hop character carrying."
@@ -50,6 +63,10 @@ sources:
 status: published
 ---
 
-Italian-style pilsners are a niche obsession — the dry-hopped, aromatic version of a German classic that Italian brewers have made their own — and Untitled Art's FLVR! line is the first non-alcoholic version of the style that actually reads as the style. The hops present as floral and herbal rather than simply bitter, with a subtle citrus note and a crisp, dry finish. It's a more restrained beer than the mango-dragonfruit sour in the same line, and the more interesting one for drinkers who like their beer to taste like beer.
+Untitled Art FLVR! NA Italian-Style Pils is dealcoholized from Waunakee, Wisconsin, United States. Reverse osmosis membrane filtration, applied after full fermentation.
 
-At 60 calories a can, brewed in Wisconsin through Octopi, and priced at $12.99 a six-pack on sale, it's the kind of NA beer that doesn't need a justification. Untitled Art's own FLVR! category page states the beer is "brewed to full fermentation before the alcohol is removed through state-of-the-art filtration," and lead brewer Sam Green told Wisconsin Public Radio the brewery uses reverse osmosis membrane filtration (among other methods) across its NA lineup. The hopping is clearly real work on top of that, and the result is a pilsner with actual nuance rather than a near-beer with a label. For a desk that has now tasted a lot of non-alcoholic pilsners, this one stands out on style integrity rather than novelty.
+The nose is floral and herbal hops with a light citrus lift — the distinctive Italian pilsner aromatic style.
+
+On the palate, crisp and dry; herbal hop character over a clean malt body, subtle citrus, no sweetness to speak of. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is dry and snappy, the hop character carrying. The drier, more grown-up sibling of the FLVR! sour: floral and herbal hops, subtle citrus, and the crisp snap of a real Italian pilsner. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

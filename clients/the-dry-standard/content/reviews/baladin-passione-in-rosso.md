@@ -20,10 +20,23 @@ volume: "200 ml bottle"
 price: "$4.99-$5.00 (US retail)"
 availability: "US via ProofNoMore, Minus Moonshine; Italian retail"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 80
 verdict: "An Italian aperitivo from one of Italy's most respected craft breweries — bittersweet, 0.0%, and the right shape for the spritz hour."
 summary: "Baladin's Passione in Rosso is a formulated non-alcoholic Italian aperitivo: 0.0% ABV, bittersweet and botanical, from Piozzo."
+
+tastes:
+  - bitter orange
+  - botanicals
+  - lighter
+  - softer than campari
+profile:
+  - Off-dry
+  - Modest bitterness
+  - Clean finish
+mouthfeel: "Bittersweet and gently spiced; cane sugar provides the body, natural botanicals carry the bitterness."
+highlight: "An Italian aperitivo from one of Italy's most respected craft breweries — bittersweet, 0.0%, and the right shape for the spritz hour."
+likeness: "An Italian aperitivo from one of Italy's most respected craft breweries — bittersweet, 0.0%, and the right shape for the spritz hour."
 nose: "Bitter orange and botanicals — the aperitivo aromatic signature, lighter and softer than Campari."
 palate: "Bittersweet and gently spiced; cane sugar provides the body, natural botanicals carry the bitterness."
 finish: "Clean and pleasantly bitter."
@@ -32,6 +45,8 @@ serve: "Over ice with sparkling water and an orange slice."
 image: media/reviews/baladin-passione-in-rosso.jpg
 image_alt: "Baladin Passione in Rosso bottle"
 image_credit: "Product photo via B. United International"
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "Baladin 'Passione in Rosso' — B. United International"
     url: https://www.bunitedint.com/information/brands/description/1002/
@@ -45,6 +60,10 @@ sources:
 status: published
 ---
 
-Baladin is one of Italy's most respected craft breweries — founded by Teo Musso in Piozzo, in the Piedmont region, known for experimental beers and Italian craft brewing culture. Passione in Rosso is their non-alcoholic aperitivo, a formulated drink (water, cane sugar, natural flavors) designed to fill the Campari/Aperol slot in the zero-proof bar. The Daily Pour scored it 90, which is high for the category.
+Baladin Passione in Rosso is formulated as an alcohol alternative from Piozzo, Italy, Italy. The base is Water, cane sugar, natural flavors (botanical formulation). It was built without a dealcoholization step.
 
-The pour is bittersweet and gently spiced — bitter orange and botanicals, lighter and softer than Campari proper, with the cane sugar providing body. It's designed to be served over ice with sparkling water, the same build as a spritz, and the 200 ml bottle is sized for exactly that. In the growing NA aperitivo category — alongside Crodino, Lyre's Amalfi, and the Phony Negroni — this is the Italian craft option, and the Baladin name carries real weight.
+The nose is bitter orange and botanicals — the aperitivo aromatic signature, lighter and softer than Campari.
+
+On the palate, bittersweet and gently spiced; cane sugar provides the body, natural botanicals carry the bitterness. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and pleasantly bitter. An Italian aperitivo from one of Italy's most respected craft breweries — bittersweet, 0.0%, and the right shape for the spritz hour. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

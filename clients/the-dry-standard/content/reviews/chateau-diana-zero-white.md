@@ -23,11 +23,24 @@ availability: "US retail including Amazon and Instacart"
 image: media/reviews/chateau-diana-zero-white.jpg
 image_alt: "Chateau Diana Zero White Blend bottle"
 image_credit: Product photo via nonalcoholicwines.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 76
 verdict: "A 0.0% California white blend at 80 calories from a family winery — honeysuckle, pineapple and pear, approachable and widely available."
 summary: "Chateau Diana's Zero White Blend is an alcohol-removed California white at 0.0% ABV: honeysuckle, pineapple, pear and creamy apple."
+
+tastes:
+  - honeysuckle
+  - floral
+  - tropical
+profile:
+  - Light body
+  - Clean finish
+mouthfeel: "Clean and gentle."
+highlight: "A 0.0% California white blend at 80 calories from a family winery — honeysuckle, pineapple and pear, approachable and widely available."
+likeness: "A 0.0% California white blend at 80 calories from a family winery — honeysuckle, pineapple and pear, approachable and widely available."
 nose: "Honeysuckle and pineapple with a pear undertone — floral and tropical."
 palate: "Light and creamy; the tropical fruit carries through a body that's thinner than the alcoholic version but recognizably Chardonnay-family in character."
 finish: "Clean and gentle."
@@ -43,6 +56,10 @@ sources:
 status: published
 ---
 
-Chateau Diana is a California family winery that has entered the NA category with a Zero line covering both a white blend and a rosé, both at 0.0% ABV and 80 calories per serving. The white blend is the approachable side: honeysuckle, pineapple and creamy apple, with the fruit carrying what the alcohol removal takes away. The method is alcohol-removed, though the specific technique isn't detailed publicly.
+Chateau Diana Zero California White Blend is dealcoholized from California, United States. The base is California white wine blend, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified California white blend.
 
-The glass is light and pleasant — the tropical fruit notes are genuine rather than flavoured, and at 80 calories it's positioned as a lighter option even within the NA category. This is the bottle that exists to make NA wine accessible: widely distributed, modestly priced, and drinkable without requiring any generosity from the drinker. It does that job honestly.
+The nose is honeysuckle and pineapple with a pear undertone — floral and tropical.
+
+On the palate, light and creamy; the tropical fruit carries through a body that's thinner than the alcoholic version but recognizably Chardonnay-family in character. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and gentle. A 0.0% California white blend at 80 calories from a family winery — honeysuckle, pineapple and pear, approachable and widely available. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

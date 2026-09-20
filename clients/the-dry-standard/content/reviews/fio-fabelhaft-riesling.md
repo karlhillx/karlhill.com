@@ -22,11 +22,26 @@ availability: "US via Skurnik Wines import, perrineswine.com, everyday-wines.com
 image: media/reviews/fio-fabelhaft-riesling.jpg
 image_alt: "Fio Fabelhaft Non-Alcoholic Riesling bottle"
 image_credit: Product photo via skurnik.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 81
 verdict: "A Mosel Riesling imported by Skurnik — the same importer that handles serious German wine — with steep-slope fruit and honest acidity at zero proof."
 summary: "Fio's Fabelhaft is a dealcoholized Mosel Riesling from steep-slope vineyards: light, elegant, fresh, with the acidity and sweetness in Riesling balance."
+
+tastes:
+  - white nectarine
+  - pear
+  - citrus blossom
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light body
+  - Clean finish
+mouthfeel: "Light, elegant and fresh; a light sweetness balanced by vibrant Riesling acidity, clean and mineral."
+highlight: "A Mosel Riesling imported by Skurnik — the same importer that handles serious German wine — with steep-slope fruit and honest acidity at zero proof."
+likeness: "A Mosel Riesling imported by Skurnik — the same importer that handles serious German wine — with steep-slope fruit and honest acidity at zero proof."
 nose: "White nectarine, pear and citrus blossom — the Mosel Riesling aromatic signature."
 palate: "Light, elegant and fresh; a light sweetness balanced by vibrant Riesling acidity, clean and mineral."
 finish: "Clean and citric, the acidity carrying the close."
@@ -45,6 +60,10 @@ sources:
 status: published
 ---
 
-Fio's 'Fabelhaft' (German for "fabulous") is a Mosel Riesling from a blend of steep-slope vineyards, stainless steel fermented, then dealcoholized. What makes it interesting on paper is the importer: Skurnik Wines & Spirits, one of the most respected German wine importers in the US, whose portfolio represents serious producers. That they're importing an NA Riesling alongside their regular Mosel portfolio says something about where the category is going.
+Fio 'Fabelhaft' Non-Alcoholic Riesling is dealcoholized from Mosel, Germany. The base is Riesling from a blend of Mosel steep-slope vineyards, stainless steel fermented, dealcoholized. Alcohol removed from conventionally vinified Mosel Riesling; stainless steel fermentation before dealcoholization (importer).
 
-The glass is light, elegant and fresh — white nectarine and pear over a citrus-blossom lift, with a light sweetness that the Riesling acidity keeps from becoming cloying. The Mosel character (steep-slope minerality, delicate fruit) survives the dealcoholization better than in most examples, and at $22 retail it's priced between the Valckenberg Zero Riesling and the Leitz entries. A credible Mosel Riesling in the zero-proof register.
+The nose is white nectarine, pear and citrus blossom — the Mosel Riesling aromatic signature.
+
+On the palate, light, elegant and fresh; a light sweetness balanced by vibrant Riesling acidity, clean and mineral. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and citric, the acidity carrying the close. A Mosel Riesling imported by Skurnik — the same importer that handles serious German wine — with steep-slope fruit and honest acidity at zero proof. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.

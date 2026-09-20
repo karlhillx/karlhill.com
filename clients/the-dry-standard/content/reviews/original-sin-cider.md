@@ -19,10 +19,22 @@ volume: "12 fl oz cans, sold as the Widow Family 12-pack across four flavors"
 price: "$29.99 per 12-pack (Proofnomore or direct)"
 availability: "US retail including Proofnomore.com and Amazon"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 78
 verdict: "The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet."
 summary: "Original Sin's Widow Family 12-pack is their NA lineup: apple-cider-vinegar and fruit-juice based, monk-fruit sweetened, never alcohol-fermented; four flavors from White Widow blackberry to Dragon's blood."
+
+tastes:
+  - bright
+  - tart
+  - no sticky-sweet aroma
+profile:
+  - Off-dry
+  - Bright acidity
+  - Clean finish
+mouthfeel: "Long and clean, a vinegar-tight close that begs to drink the next one."
+highlight: "The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet."
+likeness: "The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet."
 nose: "Bright and tart — natural apple cider vinegar carries the lift, fruit juice gives the fruit side, no sticky-sweet aroma."
 palate: "Crisp and sharp, closer to a shrub than a cider; the vinegar is the structural element, the fruit (depending on flavor) is the top note."
 finish: "Long and clean, a vinegar-tight close that begs to drink the next one."
@@ -31,6 +43,8 @@ serve: "Best slightly colder than the ice I'd put in a cocktail; pair with rich 
 image: media/reviews/original-sin-cider.jpg
 image_alt: "Original Sin Cider Widow Family 12-pack"
 image_credit: "Product photo via Original Sin Cider"
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "Widow Family 12-Pack — Original Sin Cider"
     url: https://www.originalsincider.com/na-ciders/widow-family-12-pack
@@ -47,6 +61,10 @@ sources:
 status: published
 ---
 
-Original Sin's launch thesis — Brooklyn, NY, 2024 — is that the best non-alcoholic cider should not be made by de-alcoholizing apple cider that was never going to please an adult palate anyway, but by treating apple cider vinegar as the structural element and pairing it with real fruit juice. The Widow Family pack is the lineup that proves the thesis: White Widow is a blackberry number, Black Widow a darker fruit, Golden a clear apple, Dragon's Blood a pomegranate-curious blend. Monk fruit keeps the calorie count where the brand wants it (around 35 per can) and the pulp-free base means no beer-equivalent for sugar.
+Original Sin Cider (Widow Family) is formulated as an alcohol alternative from United States. The base is Apple cider vinegar + fruit juice + monk fruit sweetener; no underlying alcoholic apple cider before dealcoholization. It was built without a dealcoholization step.
 
-This is not a sweet cider, and that's the point. If you've been drinking Woodchuck and Bassett's in the past, Original Sin is going to taste like a chemistry set. If you're a cocktail-literate drinker who has been building NA shrub-style drinks at home, this is the can you reach for instead. At $29.99 for a 12-pack it sits below the wine NA tier and gets you the most acetic structure in the category. Not for everyone, but for the people it's for, there's nothing else.
+The nose is bright and tart — natural apple cider vinegar carries the lift, fruit juice gives the fruit side, no sticky-sweet aroma.
+
+On the palate, crisp and sharp, closer to a shrub than a cider; the vinegar is the structural element, the fruit (depending on flavor) is the top note. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is long and clean, a vinegar-tight close that begs to drink the next one. The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cider. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

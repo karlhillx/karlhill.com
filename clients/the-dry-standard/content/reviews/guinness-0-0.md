@@ -32,10 +32,24 @@ purchase_links:
     url: https://www.guinness.com/en/our-beers/guinness-zero
     region: US
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 91
 verdict: "The rare dealcoholized beer that still pours, looks, and drinks like itself. Cold filtration keeps the roast; the fructose is the compromise you can taste if you hunt for it."
 summary: "A St James's Gate stout with the alcohol filtered out cold. Cream, coffee, and that familiar surge — then a slightly sweeter, lighter finish."
+
+tastes:
+  - roasted barley
+  - cocoa nib
+  - coffee grounds
+  - which is the compliment
+profile:
+  - Off-dry
+  - Light body
+  - Modest bitterness
+  - Short finish
+mouthfeel: "Dry cocoa and a clean, slightly thin close. The head lasts. The beer does not."
+highlight: "Roasted barley, cocoa nib, and a little coffee grounds. Nitrogen does the usual theater. It smells like Guinness poured too early in the day, which is the compliment."
+likeness: "The rare dealcoholized beer that still pours, looks, and drinks like itself. Cold filtration keeps the roast; the fructose is the compromise you can taste if you hunt for it."
 nose: "Roasted barley, cocoa nib, and a little coffee grounds. Nitrogen does the usual theater. It smells like Guinness poured too early in the day, which is the compliment."
 palate: "Silky, bitter-sweet, and shorter than Draught. The roast is genuine. A faint confectionery edge — fructose is on the label — keeps it from being a perfect carbon copy."
 finish: "Dry cocoa and a clean, slightly thin close. The head lasts. The beer does not."
@@ -62,10 +76,10 @@ sources:
 status: published
 ---
 
-Guinness had a choice, and the brewery said so. Innovation brewer Aisling Ryan told *The Irish Times* they could brew a beer that never made much alcohol, or they could brew Guinness and take the alcohol out. They chose the second path. That is the entire editorial reason this can sits in our beer pile instead of the "NA-style" pile.
+Guinness 0.0 is dealcoholized from Dublin, Ireland. The base is Stout brewed from water, barley, hops, and yeast at St James's Gate. Cold filtration after a conventional Guinness brew. The removal step is cold filtration, not a heated strip. Guinness's own language is careful: the process avoids thermal stress, then the beer is blended back into balance. The widget still rattles. The pour still surges. The liquid is still that particular ruby-black.
 
-The removal step is cold filtration, not a heated strip. Guinness's own language is careful: the process avoids thermal stress, then the beer is blended back into balance. The widget still rattles. The pour still surges. The liquid is still that particular ruby-black.
+The nose is roasted barley, cocoa nib, and a little coffee grounds. Nitrogen does the usual theater. It smells like Guinness poured too early in the day, which is the compliment.
 
-Read the ingredients. Fructose and "natural flavourings" are in the can. That does not make the beer formulated from scratch. It does mean the glass is not a chemically untouched Draught with ethanol subtracted and nothing added. Taste with that in mind and the slight confectionery mid-palate makes sense.
+On the palate, silky, bitter-sweet, and shorter than Draught. The roast is genuine. A faint confectionery edge — fructose is on the label — keeps it from being a perfect carbon copy. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
 
-Calories are low either way — mid-60s to mid-70s per can, depending on which producer sheet you trust. We are not going to invent a single number when Diageo and Guinness.com are one calorie apart.
+The finish is dry cocoa and a clean, slightly thin close. The head lasts. The beer does not. The rare dealcoholized beer that still pours, looks, and drinks like itself. Cold filtration keeps the roast; the fructose is the compromise you can taste if you hunt for it. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer.

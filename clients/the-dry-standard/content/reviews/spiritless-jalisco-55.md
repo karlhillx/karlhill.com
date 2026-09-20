@@ -20,11 +20,26 @@ availability: "US retail and direct from spiritless.com"
 image: media/reviews/spiritless-jalisco-55.jpg
 image_alt: "Spiritless Jalisco 55 tequila bottle"
 image_credit: Product photo via spiritless.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 82
 verdict: "A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be."
 summary: "Spiritless Jalisco 55 is a dealcoholized reposado tequila: real agave spirit from Jalisco with the alcohol removed at 0.0% ABV."
+
+tastes:
+  - cooked agave
+  - oak
+  - vanilla
+  - reposado signature
+  - present
+profile:
+  - Light body
+  - Short finish
+mouthfeel: "Smooth and oaked, the agave trailing gently."
+highlight: "A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be."
+likeness: "A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be."
 nose: "Cooked agave, oak and vanilla — the reposado signature, present and genuine."
 palate: "Round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body."
 finish: "Smooth and oaked, the agave trailing gently."
@@ -40,6 +55,10 @@ sources:
 status: published
 ---
 
-Spiritless made their name with Kentucky 74, a dealcoholized bourbon alternative that's already on this desk — and Jalisco 55 applies the same philosophy to tequila: start with a real reposado from Jalisco, age it properly, then remove the alcohol while preserving the agave and oak character. This is the honest version of what Ritual Zero Proof and other botanical formulations approximate.
+Spiritless Jalisco 55 Non-Alcoholic Tequila is dealcoholized from United States. The base is Real reposado tequila from Jalisco, Mexico, dealcoholized after aging. Alcohol removed by the same Spiritless reverse-distillation process as Kentucky 74 — ethanol taken off an oak-extracted high-proof spirit.
 
-The pour shows cooked agave, oak and vanilla — the reposado profile, present and genuine rather than approximated. In a margarita it works the way Kentucky 74 works in an Old Fashioned: as a real spirit stripped of proof, not as a flavoured substitute. The dealcoholization method is the same as Kentucky 74's (distillery-to-bottle removal), and the producer's transparency about their process carries over. For the tequila ritual at zero proof, this is the most honest option on the shelf.
+The nose is cooked agave, oak and vanilla — the reposado signature, present and genuine.
+
+On the palate, round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at spirit. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

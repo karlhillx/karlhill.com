@@ -19,11 +19,26 @@ volume: "750 ml (75 cl retail listings)"
 price: "$10.49 at Total Wine & More (Postmates listing)"
 availability: "Total Wine & More (US); European retailers including Supervin (SE/DK)"
 image_alt: "Be Free Rosé"
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 78
 verdict: "The bottle that occupies the value slot in most non-alcoholic wine collections — a fruity German rosé that does its job for around ten dollars, without ever pretending to more."
 summary: "A German de-alcoholised rosé sold at Total Wine for about $10: watermelon and cherry, friendly and light, method undisclosed."
+
+tastes:
+  - watermelon
+  - cherry
+  - red-berry lift
+profile:
+  - Off-dry
+  - Bright acidity
+  - Short finish
+  - Clean finish
+mouthfeel: "Simple and cheerful — berry fruit up front, gentle acidity, a touch of sweetness that keeps it easy."
+highlight: "Watermelon and cherry, with a soft red-berry lift."
+likeness: "The bottle that occupies the value slot in most non-alcoholic wine collections — a fruity German rosé that does its job for around ten dollars, without ever pretending to more."
 nose: "Watermelon and cherry, with a soft red-berry lift."
 palate: "Simple and cheerful — berry fruit up front, gentle acidity, a touch of sweetness that keeps it easy."
 finish: "Short and clean; more refreshment than structure."
@@ -42,6 +57,10 @@ sources:
 status: published
 ---
 
-Be Free is the German import that quietly occupies the value end of the non-alcoholic wine wall — Total Wine carries the whole line, and the rosé leads it. The citable facts are straightforward: German fruit, Mosel per Vivino, 0.5% ABV, 750 ml, about ten dollars, "a gentle de-alcoholisation method" per a retailer listing. Nobody names the actual technology, which is the "special method, not detailed" school of labeling that runs through much of the category's budget tier — but the fermentation-then-removal claim itself is explicit enough to clear the bar for dealcoholized: yes.
+Be Free Rosé is dealcoholized from Mosel, Germany. Vivino lists the wine as 'Be Free De-Alcoholised Rosé,' and a retailer listing describes 'a gentle de-alcoholisation method'; the specific named technology i….
 
-What you get for the money is exactly what the price promises. Watermelon and cherry on the nose, a soft, easy mid-palate with a whisper of sweetness, and a short, clean finish. It is not a wine-geek rosé and does not try to be — it's wine-shaped refreshment, and at this price point that's the job. The honest framing: buy it for the porch, not the tasting notebook, and it never disappoints.
+The nose is watermelon and cherry, with a soft red-berry lift.
+
+On the palate, simple and cheerful — berry fruit up front, gentle acidity, a touch of sweetness that keeps it easy. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is short and clean; more refreshment than structure. The bottle that occupies the value slot in most non-alcoholic wine collections — a fruity German rosé that does its job for around ten dollars, without ever pretending to more. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

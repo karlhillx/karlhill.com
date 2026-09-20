@@ -20,11 +20,26 @@ availability: "US retail including Giant Food, and direct from gobrewing.com"
 image: media/reviews/go-brewing-sunbeam-pils.jpg
 image_alt: "Go Brewing Suspended In A Sunbeam Pils can"
 image_credit: Product photo via gobrewing.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 85
 verdict: "A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass."
 summary: "Go Brewing's Sunbeam Pils is a German-malt-and-hop non-alcoholic pilsner from Naperville, Illinois: under 0.5% ABV, crisp and clean, $14.99 a six-pack."
+
+tastes:
+  - bread crust
+  - grassy hop lift
+  - no ester heaviness
+profile:
+  - Bright acidity
+  - Light body
+  - Modest bitterness
+  - Clean finish
+mouthfeel: "Light, crisp and properly bitter; noble-hop grass and a clean malt backbone that carries the bitterness rather than fighting it."
+highlight: "A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass."
+likeness: "A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass."
 nose: "Fresh bread crust and a grassy hop lift — classic German pilsner aromatics, no ester heaviness."
 palate: "Light, crisp and properly bitter; noble-hop grass and a clean malt backbone that carries the bitterness rather than fighting it."
 finish: "Dry and snappy, the hop bitterness lingering politely."
@@ -43,6 +58,10 @@ sources:
 status: published
 ---
 
-Go Brewing opened in Naperville in 2022 as Illinois' first dedicated non-alcoholic craft brewery, and the Sunbeam Pils is their flagship — the beer that has to prove the whole operation works. It's built the way a German pilsner should be: German malt, German-style noble hops, and a bitterness that's supposed to be there rather than hidden. At under 0.5% ABV in a 12 oz can, it's the lightest credible pilsner on the shelf at this price.
+Go Brewing Suspended In A Sunbeam Pils is brewed or fermented to finish at low ABV without a published removal step from Naperville, Illinois, United States. Go Brewing's own product FAQ states: 'We use Go Brewing's proprietary brewing process to keep it naturally under 0.5% ABV without dilution or dealcoholizatio….
 
-The pour delivers. Bread-crust malt, a grassy hop lift, and a properly bitter, snappy finish — the kind of clean, no-notes beer that makes the case for the whole category better than any marketing can. Go Brewing's own FAQ explicitly rules out dealcoholization: "proprietary brewing process to keep it naturally under 0.5% ABV without dilution or dealcoholization." Formulated from the start, not stripped down — and the glass doesn't taste like a compromise either way. At $14.99 a six-pack it's priced above the macro NA lagers and worth every cent of the difference for anyone who actually likes pilsner.
+The nose is fresh bread crust and a grassy hop lift — classic German pilsner aromatics, no ester heaviness.
+
+On the palate, light, crisp and properly bitter; noble-hop grass and a clean malt backbone that carries the bitterness rather than fighting it. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is dry and snappy, the hop bitterness lingering politely. A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

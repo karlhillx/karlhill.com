@@ -21,11 +21,24 @@ availability: "US retail including Metro Wine & Spirits; direct from drinkuntitl
 image: media/reviews/untitled-art-flvr-mango-dragonfruit.jpg
 image_alt: "Untitled Art FLVR! Mango Dragonfruit Sour can"
 image_credit: Product photo via drinkuntitled.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 84
 verdict: "The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer."
 summary: "Untitled Art's FLVR! Mango Dragonfruit Sour is a tart, tropical NA fruit sour from Wisconsin: under 0.5% ABV, 90 calories, vivid mango and dragonfruit character."
+
+tastes:
+  - ripe mango
+  - tart tropical lift
+profile:
+  - Bright acidity
+  - Light body
+  - Clean finish
+mouthfeel: "Tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap."
+highlight: "The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer."
+likeness: "The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer."
 nose: "Ripe mango and a tart tropical lift — unmistakably fruit-forward, with sour-beer sharpness underneath."
 palate: "Tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap."
 finish: "Tart and clean, the tropical fruit lingering."
@@ -50,6 +63,10 @@ sources:
 status: published
 ---
 
-Untitled Art built its reputation on boundary-pushing fruited sours at full strength, and FLVR! is that same instinct translated into the NA aisle: mango and dragonfruit in a tart, genuinely sour beer that doesn't taste like it's compensating for anything. Brewed to full strength in Wisconsin, then run through reverse osmosis membrane filtration per the brand's own copy and lead brewer Sam Green's account to Wisconsin Public Radio — and, a rarity in a category of careful, restrained NA beers, actually fun.
+Untitled Art FLVR! NA Mango Dragonfruit Sour is dealcoholized from Waunakee, Wisconsin, United States. Reverse osmosis membrane filtration, applied after full fermentation.
 
-The pour is bright orange-pink and the nose is pure ripe mango with a sour edge behind it. The palate delivers real acidity rather than the citric-acid shortcut a lot of fruited NA beers take; mango and dragonfruit lead over a clean, lightly funky base, and the finish is tart and long. At 90 calories a can it's the lightest dessert on the shelf. It won't be for the pilsner purist, but for the person who's been looking for an NA drink that's genuinely enjoyable rather than merely acceptable, this is it.
+The nose is ripe mango and a tart tropical lift — unmistakably fruit-forward, with sour-beer sharpness underneath.
+
+On the palate, tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

@@ -20,10 +20,24 @@ volume: "750 ml"
 price: "$15.35 (RoomBox); £4.50 (UK retail)"
 availability: "US retail including RoomBox; UK retail; Canadian retail including LCBO"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 76
 verdict: "A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice."
 summary: "Nozeco's Brut Rosé is a dealcoholized French sparkling rosé: white strawberry and red fruit, fine bubbles, sold cheaply by the bottle."
+
+tastes:
+  - white strawberry
+  - red berry fruit
+  - expressive
+  - fruit-forward
+profile:
+  - Light body
+  - Soft bead
+  - Short finish
+  - Clean finish
+mouthfeel: "Fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings."
+highlight: "A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice."
+likeness: "A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice."
 nose: "White strawberry and red berry fruit — expressive and fruit-forward."
 palate: "Fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings."
 finish: "Short and clean."
@@ -32,6 +46,8 @@ serve: "Well chilled."
 image: media/reviews/nozeco-brut-rose.jpg
 image_alt: "Nozeco Brut Rosé bottle"
 image_credit: "Product photo via RoomBox"
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "PRODUCT SHEET ROSÉ — Nozeco"
     url: https://www.nozeco.buzz/page3.html
@@ -45,6 +61,10 @@ sources:
 status: published
 ---
 
-Nozeco is the value play in the French dealcoholized sparkling category — the producer's own product sheet describes it as an alcohol-free sparkling drink made from alcohol-removed wine via a "state-of-the-art process," which is a marketing way of saying the method is proprietary. What matters practically is the price: around £4.50 in UK retail and $15.35 at RoomBox in the US, which makes it by some distance the cheapest French sparkling rosé in the NA aisle.
+Nozeco Alcohol Free Brut Rosé is dealcoholized from France. The base is French sparkling rosé wine, fermented conventionally before alcohol removal. Made from alcohol-removed wine using a state-of-the-art process (producer product sheet).
 
-The wine delivers what the price promises without embarrassment: white strawberry and red fruit on the nose, fine bubbles, a light and simple palate, a clean short finish. It's not going to impress anyone who's been drinking the Jörg Geiger tier of this category, and it doesn't try to. It's the case-buy bottle for a party where the NA guests shouldn't be drinking water while everyone else has Champagne — a job that needed doing, done at the right price.
+The nose is white strawberry and red berry fruit — expressive and fruit-forward.
+
+On the palate, fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is short and clean. A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

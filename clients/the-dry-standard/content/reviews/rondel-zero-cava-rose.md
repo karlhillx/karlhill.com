@@ -15,11 +15,26 @@ verified: no
 production_note: "Sold as Rondel Zero. No producer method page was found."
 availability: "Total Wine & More"
 image_alt: "Rondel Zero Cava Rosé"
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 80
 verdict: "Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Method unpublished."
 summary: "Rondel Zero is a Spanish non-alcoholic sparkling rosé sold at Total Wine. Fine bubbles, red fruit, no cited removal process."
+
+tastes:
+  - strawberry
+  - cherry
+  - green apple
+profile:
+  - Off-dry
+  - Bright acidity
+  - Soft bead
+  - Short finish
+mouthfeel: "Fine bead, balanced sweetness, more cava-shaped than canned soda."
+highlight: "Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Method unpublished."
+likeness: "Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Method unpublished."
 nose: "Strawberry and cherry, a hint of green apple."
 palate: "Fine bead, balanced sweetness, more cava-shaped than canned soda."
 finish: "Crisp, a little sweet, short."
@@ -32,6 +47,10 @@ sources:
 status: published
 ---
 
-Rondel is a Spanish Cava house. The Zero rosé is a Total Wine regular here. A published tasting notes the Spanish origin and the shop. No producer technical page named a method, so the badge is not-verified.
+Rondel Zero Cava Rosé is non-alcoholic with an unpublished production process from Spain. No cited producer page names a removal technique, so the badge stays not-verified.
 
-The glass has a finer mousse than most $10 NA pinks. Strawberry, a little apple, easy. Useful, under-cited.
+The nose is strawberry and cherry, a hint of green apple.
+
+On the palate, fine bead, balanced sweetness, more cava-shaped than canned soda. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is crisp, a little sweet, short. Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Method unpublished. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

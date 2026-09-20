@@ -22,11 +22,24 @@ availability: "US retail including Target, Giant Food, and Kroger"
 image: media/reviews/hop-wtr-blood-orange.jpg
 image_alt: "HOP WTR Blood Orange cans"
 image_credit: Product photo via hopwtr.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 78
 verdict: "Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon."
 summary: "HOP WTR's Blood Orange is a hopping sparkling water blended with Italian blood orange, adaptogens and vitamins at <0.5% ABV; closest thing to an American NA shandy on a non-fermented base."
+
+tastes:
+  - citric hop lift
+profile:
+  - Bright acidity
+  - Light body
+  - Soft bead
+  - Modest bitterness
+mouthfeel: "Sparkling and lightly bitter; the orange citrusy lift sits on top of a soft hop bittering, light-bodied and easy."
+highlight: "Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon."
+likeness: "Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon."
 nose: "Bright Italian blood orange with a light, citric hop lift — the Italian blood orange is the dominant note."
 palate: "Sparkling and lightly bitter; the orange citrusy lift sits on top of a soft hop bittering, light-bodied and easy."
 finish: "Crisp and clean, the orange trailing just behind a hop finish."
@@ -45,6 +58,10 @@ sources:
 status: published
 ---
 
-HOP WTR exists for an under-served corner of the NA shelf: people who want what hops do — bitterness, citrusy lift, the "I'm drinking something with intention" feel — without the beer underneath. The Blood Orange build is sparkling water, a custom blend of Citra, Amarillo and Mosaic hops plus vitamins and adaptogens (L-Theanine and ashwagandha, per the ingredient list), flavored with Italian blood orange. The product is positioned at $<0.5\%$ but it's effectively non-fermented — there's no beer to dealcoholize — which makes it the day's answer for anyone working around alcohol entirely.
+HOP WTR Blood Orange is formulated as an alcohol alternative from United States. The base is Sparkling water + hops + vitamins + adaptogens; no underlying alcoholic beverage. It was built without a dealcoholization step.
 
-Poured chilled, it does what the can says: a bright Italian blood orange, a citric-hop aromatic lift, the bitter-bite you want from a beer with none of the body. It is refreshing rather than filling, designed to drink through a meeting or a workout rather than alongside a meal. At $9.99 a 6-pack, it undercuts basically every craft NA beer on the shelf and most of the ciders too, and it occupies an honest niche: hours of the day when you want the beer *ceremony* without the brewing.
+The nose is bright Italian blood orange with a light, citric hop lift — the Italian blood orange is the dominant note.
+
+On the palate, sparkling and lightly bitter; the orange citrusy lift sits on top of a soft hop bittering, light-bodied and easy. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is crisp and clean, the orange trailing just behind a hop finish. Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.

@@ -27,10 +27,21 @@ image_source: producer
 image_source_url: https://missingthorn.com/pages/white-wines
 image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 81
 verdict: "A Napa dealcoholized Albariño — lychee and passionfruit, zesty and crisp — from a producer focused exclusively on NA wine."
 summary: "Missing Thorn's Still White is a dealcoholized Napa Albariño: lychee, passionfruit and citrus over a crisp, light frame, <0.5% ABV."
+
+tastes:
+  - lychee
+  - aromatic lift
+profile:
+  - Bright acidity
+  - Light body
+  - Clean finish
+mouthfeel: "Zesty and crisp; tropical aromatics over a warm, light palate with the acidity doing the structural work."
+highlight: "A Napa dealcoholized Albariño — lychee and passionfruit, zesty and crisp — from a producer focused exclusively on NA wine."
+likeness: "A Napa dealcoholized Albariño — lychee and passionfruit, zesty and crisp — from a producer focused exclusively on NA wine."
 nose: "Lychee and passionfruit with a citrusy, aromatic lift — Albariño's varietal signature."
 palate: "Zesty and crisp; tropical aromatics over a warm, light palate with the acidity doing the structural work."
 finish: "Clean and citric, the Albariño character carrying through."
@@ -49,6 +60,10 @@ sources:
 status: published
 ---
 
-Missing Thorn is a Napa Valley producer that makes only non-alcoholic wine, and the Still White is their Albariño — a grape that rarely appears in the NA category. The result is one of the more distinctive whites on this desk: lychee and passionfruit aromatics, a zesty-crisp palate with the Albariño's characteristic tropical profile, and the acidity doing the work that the missing ethanol can't.
+Missing Thorn Non-Alcoholic Still White is dealcoholized from Napa Valley, United States. The base is Albariño from Napa Valley, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified wine (producer's range description).
 
-At $25-29 retail it's priced in the premium NA tier, and the quality justifies it — the fruit is recognizably Albariño rather than generic white, and the producer's focus on NA as the primary product (rather than a sideline) shows in the attention to varietal character. For seafood or spicy food, it's one of the best matches in the category.
+The nose is lychee and passionfruit with a citrusy, aromatic lift — Albariño's varietal signature.
+
+On the palate, zesty and crisp; tropical aromatics over a warm, light palate with the acidity doing the structural work. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and citric, the Albariño character carrying through. A Napa dealcoholized Albariño — lychee and passionfruit, zesty and crisp — from a producer focused exclusively on NA wine. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.

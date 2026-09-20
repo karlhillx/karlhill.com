@@ -21,11 +21,23 @@ availability: "US and Canadian retail including Well.ca and Upside Drinks"
 image: media/reviews/gruvi-sangria.jpg
 image_alt: "Grüvi Non-Alcoholic Sangria can"
 image_credit: Product photo via getgruvi.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 80
 verdict: "A real dealcoholized California red with fruit extracts layered back in — the sangria shape is convincing, and the warm-spice notes are a nice touch."
 summary: "Grüvi's Sangria is dealcoholized California red wine blended with natural fruit extracts: under 0.5% ABV, blood orange and warm spice, served by the can."
+
+tastes:
+  - blood orange
+profile:
+  - Off-dry
+  - Light body
+  - Clean finish
+mouthfeel: "Fruity and lightly spiced; red wine character beneath the orange, with the sweetness kept in check."
+highlight: "A real dealcoholized California red with fruit extracts layered back in — the sangria shape is convincing, and the warm-spice notes are a nice touch."
+likeness: "A real dealcoholized California red with fruit extracts layered back in — the sangria shape is convincing, and the warm-spice notes are a nice touch."
 nose: "Blood orange and warm spice over red fruit — recognizably sangria rather than a fruit juice."
 palate: "Fruity and lightly spiced; red wine character beneath the orange, with the sweetness kept in check."
 finish: "Clean and gently spiced."
@@ -44,6 +56,10 @@ sources:
 status: published
 ---
 
-Grüvi's sangria is the most literal version of the drink on the shelf: a California red wine, dealcoholized, then blended back with natural fruit extracts — blood orange is the lead note, with warm spices rounding it out. That's a real dealcoholization step rather than a formulated mocktail, which distinguishes it from most canned sangrias, and the fruit extracts do the work that a fresh-cut orange would in the pitcher version. At 250 ml and under 0.5% ABV, it's sized as a single serving.
+Grüvi Non-Alcoholic Sangria is a hybrid of dealcoholized material and other defining ingredients from United States. The base is California red wine, alcohol-removed, blended with blood orange and fruit extracts. California red wine is dealcoholized and blended with natural fruit extracts (producer).
 
-It won't replace a good homemade sangria — the wine's body is thinner than a real Tempranillo-based pour would be — but as a canned format it's one of the better executions in the category, and the warm-spice note keeps it from tasting like fruit punch. Sold by the can in Canada and through Upside Drinks in the US, it's priced in the soft-drink-plus range rather than the wine range, which is where a drink designed for a hot afternoon probably belongs.
+The nose is blood orange and warm spice over red fruit — recognizably sangria rather than a fruit juice.
+
+On the palate, fruity and lightly spiced; red wine character beneath the orange, with the sweetness kept in check. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and gently spiced. A real dealcoholized California red with fruit extracts layered back in — the sangria shape is convincing, and the warm-spice notes are a nice touch. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.

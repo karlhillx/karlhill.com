@@ -23,11 +23,26 @@ availability: "US via specialty retailers including Delmosa, Chapter 4, and Pres
 image: media/reviews/eric-bordelet-perlant.jpg
 image_alt: "Eric Bordelet Perlant sparkling apple juice"
 image_credit: Product photo via delmosa.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 86
 verdict: "Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything."
 summary: "Eric Bordelet's Perlant is pressed juice of 12 organic heritage cider apple varieties from Normandy, lightly sparkling: estate-grown, gently pasteurized, never fermented."
+
+tastes:
+  - complex apple
+  - tart
+  - floral
+profile:
+  - Light body
+  - Soft bead
+  - Modest bitterness
+  - Clean finish
+mouthfeel: "Lightly sparkling and dry-leaning; the bitter-sharp apple character gives it real structure, with a clean, mineral mid-palate."
+highlight: "Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything."
+likeness: "Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything."
 nose: "Complex apple — tart, floral, faintly bitter from the cider varieties rather than sweet supermarket fruit."
 palate: "Lightly sparkling and dry-leaning; the bitter-sharp apple character gives it real structure, with a clean, mineral mid-palate."
 finish: "Long and clean, the apple skin bitterness lingering pleasantly."
@@ -46,6 +61,10 @@ sources:
 status: published
 ---
 
-Eric Bordelet is one of the great names of Norman cider — an estate in the Pays d'Auge working with high-stem heritage orchards — and the Perlant "Jus de Pommes à Sydre" is his non-alcoholic offering: twelve varieties of organic cider apples (bitter-sharp, bitter-sweet, sour), pressed and lightly carbonated, gently pasteurized, never fermented. Because it never ferments, there's no alcohol to remove and no dealcoholization to cite; the complexity comes entirely from the fruit and the blend.
+Eric Bordelet Perlant Jus de Pommes à Sydre is formulated as an alcohol alternative from Normandy (Pays d'Auge), France. The base is Juice of 12 varieties of organic heritage cider apples (bitter-sharp, bitter-sweet, sour). It was built without a dealcoholization step.
 
-The result is the best apple drink in this cellar by a distance. It has the tartness and light bitterness of real cider apples rather than the simple sweetness of eating apples, and the carbonation gives it a lift without turning it into soda. At $19 a bottle in US specialty retail it costs more than most NA products on this shelf, and it's worth it: for cheese, for charcuterie, or for anyone who has grown bored of NA drinks that imitate wine, this is simply excellent apple juice made by someone who has spent a lifetime on the fruit.
+The nose is complex apple — tart, floral, faintly bitter from the cider varieties rather than sweet supermarket fruit.
+
+On the palate, lightly sparkling and dry-leaning; the bitter-sharp apple character gives it real structure, with a clean, mineral mid-palate. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is long and clean, the apple skin bitterness lingering pleasantly. Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cider. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.

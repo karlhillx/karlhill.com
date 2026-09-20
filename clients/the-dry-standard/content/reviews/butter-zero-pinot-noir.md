@@ -23,11 +23,22 @@ availability: "US retail"
 image: media/reviews/butter-zero-pinot-noir.jpg
 image_alt: "Butter Zero Pinot Noir bottle"
 image_credit: Product photo via beclink.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 75
 verdict: "The red entry in the Butter Zero lineup — bright cherry and red berry in a light Pinot Noir frame, honest about being the easy-drinking choice."
 summary: "Butter Zero's Pinot Noir is an alcohol-removed California red: bright cherry and red berry with a smooth finish at <0.5% ABV."
+
+tastes:
+  - bright cherry
+  - red berry
+profile:
+  - Light body
+mouthfeel: "Light and smooth; the red fruit carries over a thin body, the usual dealcoholized red tradeoff handled without off-notes."
+highlight: "The red entry in the Butter Zero lineup — bright cherry and red berry in a light Pinot Noir frame, honest about being the easy-drinking choice."
+likeness: "The red entry in the Butter Zero lineup — bright cherry and red berry in a light Pinot Noir frame, honest about being the easy-drinking choice."
 nose: "Bright cherry and red berry — approachable fruit rather than complexity."
 palate: "Light and smooth; the red fruit carries over a thin body, the usual dealcoholized red tradeoff handled without off-notes."
 finish: "Smooth and brief."
@@ -43,6 +54,10 @@ sources:
 status: published
 ---
 
-Butter Zero's Pinot Noir is the red entry in the Napa brand's March 2026 non-alcoholic launch — the same alcohol-removed process as their sparkling rosé and Chardonnay, applied to a lighter red variety. The choice of Pinot Noir is smart for the category: it's the red wine most likely to survive dealcoholization with its fruit character intact, because the varietal's appeal is in the bright cherry and red berry profile rather than in tannic structure.
+Butter Zero Pinot Noir is dealcoholized from California, United States. The base is California Pinot Noir, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified Pinot Noir (producer's March 2026 launch).
 
-The glass is exactly what you'd expect from the label: bright cherry and red berry, light-bodied, smooth and easy-drinking. It won't satisfy a Burgundy drinker — nothing in this category will — but for someone who wants a glass of red wine without the alcohol, the fruit is honest and the finish is clean. The Pinot is the most successful of the Butter Zero reds because the grape's natural profile is closest to what dealcoholization can preserve.
+The nose is bright cherry and red berry — approachable fruit rather than complexity.
+
+On the palate, light and smooth; the red fruit carries over a thin body, the usual dealcoholized red tradeoff handled without off-notes. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is smooth and brief. The red entry in the Butter Zero lineup — bright cherry and red berry in a light Pinot Noir frame, honest about being the easy-drinking choice. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

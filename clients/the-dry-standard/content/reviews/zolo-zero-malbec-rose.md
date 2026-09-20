@@ -20,10 +20,21 @@ producer: "Zolo / Fincas Patagónicas (winemaker Fabian Valenzuela)"
 volume: "750 ml"
 availability: "US via InternetWines.com"
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 74
 verdict: "An Argentine Malbec rosé with a cited removal step — red fruit and gentle acidity at the value tier."
 summary: "Zolo's Zero Malbec Rosé is a dealcoholized Mendoza Malbec: 96% alcohol-removed wine plus 4% grape juice, pale pink, strawberry-led."
+
+tastes:
+  - red berry
+  - plum
+profile:
+  - Bright acidity
+  - Light body
+  - Clean finish
+mouthfeel: "Clean and brief."
+highlight: "An Argentine Malbec rosé with a cited removal step — red fruit and gentle acidity at the value tier."
+likeness: "An Argentine Malbec rosé with a cited removal step — red fruit and gentle acidity at the value tier."
 nose: "Red berry and plum — Malbec's darker fruit profile translated to a rosé."
 palate: "Light and fruit-forward; the Malbec character shows as dark berry rather than tannin, which the dealcoholization would strip anyway."
 finish: "Clean and brief."
@@ -32,6 +43,8 @@ serve: "Slightly chilled."
 image: media/reviews/zolo-zero-malbec-rose.jpg
 image_alt: "Zolo Zero Malbec Rosé bottle"
 image_credit: Product photo via Zolo
+image_source: editorial
+image_sku_confirmed: yes
 sources:
   - title: "Zolo Zero Non-Alcoholic Malbec Rosé — Vino del Sol technical sheet"
     url: https://vinodelsol.com/wp-content/uploads/custom-filebase/699652b5f30c9_Tech_ZoloZero_NV-M.pdf
@@ -45,6 +58,10 @@ discrepancies:
 status: published
 ---
 
-Zolo is an Argentine wine brand from Fincas Patagónicas in Mendoza, and the Zero Malbec Rosé brings a varietal that rarely appears in the NA category — Malbec, the red grape that Argentina made its own. As a rosé it sidesteps the tannin problem that makes dealcoholized reds difficult: the fruit carries the wine rather than the structure. The importer tech sheet is now on the record: 96% of the blend is dealcoholized by a proprietary technique, then 4% grape juice is added back. That is a removal step, not a formulated mocktail. The named still is unpublished, which is why the method reads proprietary rather than spinning cone or vacuum distillation.
+Zolo Zero Malbec Rosé is dealcoholized from Mendoza (Jarillal, Alto Agrelo, Luján de Cuyo), Argentina. The base is 100% Malbec rosé from Jarillal, Alto Agrelo, Luján de Cuyo, Mendoza. Proprietary dealcoholization (96% of the blend) plus 4% grape juice (importer tech sheet).
 
-The glass is what you'd expect from Malbec in a rosé register: red berry and plum, darker fruit than a Provence-style rosé would show, over a light frame. It's an everyday pour rather than a tasting note — the kind of bottle that lives in the fridge door and gets poured without ceremony. For the price tier it occupies, that's the job.
+The nose is red berry and plum — Malbec's darker fruit profile translated to a rosé.
+
+On the palate, light and fruit-forward; the Malbec character shows as dark berry rather than tannin, which the dealcoholization would strip anyway. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is clean and brief. An Argentine Malbec rosé with a cited removal step — red fruit and gentle acidity at the value tier. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

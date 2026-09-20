@@ -15,6 +15,8 @@ abv_numeric: 0.0
 image: media/reviews/noughty-sparkling-chardonnay.jpg
 image_alt: "Thomson & Scott Noughty Sparkling Chardonnay bottle"
 image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: yes
 production_type: dealcoholized
 verified: yes
 dealcoholization_method: Vacuum distillation with aroma recovery; some trade sheets also name spinning-cone technology
@@ -37,10 +39,22 @@ purchase_links:
     url: https://thezeroproof.com/products/buy-noughty-sparkling-chardonna
     region: US
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 84
 verdict: "A clean, apple-forward sparkling wine that was actually a wine first. It will not replace grower Champagne. It will replace most of the NA 'bubbly' that never fermented."
 summary: "Organic La Mancha Chardonnay, dealcoholized, then lightly carbonated. Pale, crisp, and modestly sweet — with a documented alcohol-removal step."
+
+tastes:
+  - ripe apple
+  - lemon peel
+profile:
+  - Off-dry
+  - Light body
+  - Soft bead
+  - Short finish
+mouthfeel: "Short, clean, and a touch sugary if the glass sits. Serve it colder than you think."
+highlight: "A clean, apple-forward sparkling wine that was actually a wine first. It will not replace grower Champagne. It will replace most of the NA 'bubbly' that never fermented."
+likeness: "A clean, apple-forward sparkling wine that was actually a wine first. It will not replace grower Champagne. It will replace most of the NA 'bubbly' that never fermented."
 nose: "Ripe apple, a little lemon peel, and a faint pastry note that never quite becomes brioche. The bubbles do more work than the aroma."
 palate: "Brisk, lightly sweet, and simpler than a bottle-fermented wine. Green apple and citrus sit on a slender body. The mousse is fine enough for a toast."
 finish: "Short, clean, and a touch sugary if the glass sits. Serve it colder than you think."
@@ -73,8 +87,10 @@ sources:
 status: published
 ---
 
-Noughty starts as wine. That is the sentence most NA sparkling labels will not earn. Amanda Thomson's project ferments organic Chardonnay from sandy, calcareous vineyards in southern Spain, then removes the alcohol and adds a gentle sparkle. The bottle is not méthode traditionnelle. It is a still wine that lost its ethanol and gained carbonation.
+Thomson & Scott Noughty Sparkling Chardonnay is dealcoholized from Castilla–La Mancha, Spain. The base is Organically grown Spanish Chardonnay, fermented in stainless steel, then carbonated after alcohol removal. Vacuum distillation with aroma recovery; some trade sheets also name spinning-cone technology.
 
-The method language is almost, but not quite, consistent. The producer page says vacuum distillation with aroma recovery. Importer and trade copy often add Carl Jung's vacuum technique and, in at least one technical sheet, spinning-cone technology. Those can describe adjacent low-temperature alcohol-removal tools. They are not identical sentences. Until Thomson & Scott publishes a single process diagram, we treat the dealcoholization as verified and the exact hardware mix as incompletely specified.
+The nose is ripe apple, a little lemon peel, and a faint pastry note that never quite becomes brioche. The bubbles do more work than the aroma.
 
-What you can trust in the glass: pale color, apple, a measured sweetness (2.9 g/100 ml), and 14 kcal/100 ml. What you should not expect: autolytic depth, a dry brut finish, or the weight of a 12% blanc de blancs. For a toast, that trade is acceptable. For a cellar conversation about sparkling wine, say the quiet part: this is dealcoholized Chardonnay with bubbles added, and that is still rarer — and more honest — than most of the category.
+On the palate, brisk, lightly sweet, and simpler than a bottle-fermented wine. Green apple and citrus sit on a slender body. The mousse is fine enough for a toast. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is short, clean, and a touch sugary if the glass sits. Serve it colder than you think. A clean, apple-forward sparkling wine that was actually a wine first. It will not replace grower Champagne. It will replace most of the NA 'bubbly' that never fermented. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass.

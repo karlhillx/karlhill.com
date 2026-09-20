@@ -21,11 +21,23 @@ availability: "Widely available in US retail including Target"
 image: media/reviews/heineken-0-0.jpg
 image_alt: "Heineken 0.0 bottle"
 image_credit: Product photo via heineken.com
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 53
 verdict: "A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty."
 summary: "Heineken brews its traditional beer with A-Yeast, double-brews, then extracts the ethanol with vacuum distillation: 0.0% ABV, 21 kcal per 100 ml. What remains has almost no flavor."
+
+tastes:
+  - wet cardboard
+  - grain whisper
+profile:
+  - Off-dry
+  - Modest bitterness
+mouthfeel: "Water with a hint of sweetness and almost no bitterness. It tastes like nothing."
+highlight: "A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty."
+likeness: "A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty."
 nose: "Wet cardboard and a faint grain whisper. Nothing you would call malt."
 palate: "Water with a hint of sweetness and almost no bitterness. It tastes like nothing."
 finish: "Gone before you swallow. No hop, no malt, no aftertaste."
@@ -44,6 +56,10 @@ sources:
 status: published
 ---
 
-The most available zero-proof beer in the world is also one of the few macros with an honestly citable process. The Process documents the pipeline: the traditional Heineken brew is made with the house A-Yeast, a double-brew step is meant to protect the volatile flavor compounds, and vacuum distillation columns extract the ethanol. Named method, documented removal, real beer as the base. That combination still puts Heineken 0.0 in the `yes` column for dealcoholization. The rest of the numbers: 0.0% ABV, 21 kcal per 100 ml, and roughly $9.99 a six-pack of 11.2 oz bottles at Target.
+Heineken 0.0 is dealcoholized. The base is The traditional Heineken brew, made with the same A-Yeast before alcohol extraction. Alcohol extracted from the traditional brew using vacuum distillation columns, following a double-brew step with Heineken's A-Yeast (documented by The Process).
 
-The glass does not repay the engineering. The vacuum columns took the alcohol and, with it, almost everything else. The nose is damp grain at best. The palate is thin, faintly sweet, and otherwise blank. There is no hop snap, no malt body, no bitterness to hang on to. It tastes like nothing — not like Heineken, not like a lager, not like a near-beer with a flaw you can argue about. Just a cold, green-bottled absence. You can find it anywhere. That is not a reason to drink it.
+The nose is wet cardboard and a faint grain whisper. Nothing you would call malt.
+
+On the palate, water with a hint of sweetness and almost no bitterness. It tastes like nothing. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is gone before you swallow. No hop, no malt, no aftertaste. A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.

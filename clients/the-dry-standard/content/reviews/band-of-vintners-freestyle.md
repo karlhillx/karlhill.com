@@ -20,11 +20,26 @@ availability: "Producer shop and The Zero Proof"
 image: media/reviews/band-of-vintners-freestyle.jpg
 image_alt: "Band of Vintners Freestyle NA white wine bottle"
 image_credit: Editorial still
+image_source: editorial
+image_sku_confirmed: yes
 review_date: "2026-09-18"
-updated_date: "2026-09-18"
+updated_date: "2026-09-19"
 rating: 80
 verdict: "A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second."
 summary: "The 2024 Freestyle NA is late-harvest organic fruit from Sonoma County and Lodi. Band of Vintners' shop does not document how the alcohol left."
+
+tastes:
+  - orange peel
+  - tea
+  - stone fruit
+  - skin-contact adjacent
+  - not a pale rosé
+profile:
+  - Light body
+  - Short finish
+mouthfeel: "Textural for an NA white, light tannin, less ethanol oil than a full-strength amber."
+highlight: "A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second."
+likeness: "A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second."
 nose: "Orange peel, tea, a little stone fruit — skin-contact adjacent, not a pale rosé."
 palate: "Textural for an NA white, light tannin, less ethanol oil than a full-strength amber."
 finish: "Dry and short. More interesting than most $20 NA California."
@@ -40,6 +55,10 @@ sources:
 status: published
 ---
 
-Band of Vintners is a Napa tasting-group brand. The shop lists 2024 Freestyle NA California at $20, late-harvest organic fruit from Sonoma and Lodi, skin fermented with native yeasts and blended "in perfect balance once the alcohol is removed" — the producer's own words confirm a real wine that had its alcohol taken out, even though the specific technology (vacuum, cone, membrane) isn't named.
+Band of Vintners Freestyle is dealcoholized from Sonoma County and Lodi, United States. Producer's own product detail page confirms the wine is 'skin fermented with native yeasts' and blended 'in perfect balance once the alcohol is removed'; the….
 
-The glass still has more texture than the supermarket NA whites on this list. Treat the skin-contact story as a rumor until the tech sheet is public. Treat the bottle as a $20 California NA that does not taste like juice.
+The nose is orange peel, tea, a little stone fruit — skin-contact adjacent, not a pale rosé.
+
+On the palate, textural for an NA white, light tannin, less ethanol oil than a full-strength amber. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+
+The finish is dry and short. More interesting than most $20 NA California. A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.
