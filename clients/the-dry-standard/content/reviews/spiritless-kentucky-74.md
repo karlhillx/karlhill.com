@@ -28,7 +28,7 @@ volume: '700 ml'
 ingredients: 'Spiritless non-alcoholic oak distillate, water, natural flavors, glycerine, sugar, citric acid, xanthan gum, sodium benzoate, potassium sorbate'
 calories: '15 kcal per 2 fl oz (59 ml) serving'
 sugar: '1 g per 2 fl oz serving'
-availability: 'Producer site, Amazon, Total Wine, and NA specialists such as The Zero Proof'
+availability: 'Producer site, Amazon, Total Wine, and NA specialists such as The Zero Proof; Metro Wine & Spirits'
 purchase_links:
   -
     label: Spiritless

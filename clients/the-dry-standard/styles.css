@@ -203,6 +203,38 @@ body.is-locked {
   border-radius: 6px;
 }
 
+.site-beta {
+  display: inline-block;
+  margin-left: 0.15rem;
+  padding: 0.12rem 0.42rem;
+  border: 1px solid rgba(250, 247, 241, 0.28);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 241, 0.78);
+  line-height: 1.2;
+}
+
+.site-beta--footer {
+  margin-left: 0.45rem;
+  vertical-align: middle;
+  border-color: rgba(250, 247, 241, 0.22);
+  color: rgba(250, 247, 241, 0.62);
+  font-size: 0.55rem;
+}
+
+.footer-beta {
+  margin: 0.75rem 0 0;
+  max-width: 28rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(250, 247, 241, 0.55);
+}
+
 .header-search {
   position: relative;
   flex: 1 1 14rem;
@@ -2685,7 +2717,7 @@ a.stat:hover strong {
 .site-footer {
   padding: 3.25rem 0 calc(2rem + var(--safe-bottom));
   background: var(--header);
-  color: rgba(250, 247, 241, 0.7);
+  color: rgba(250, 247, 241, 0.78);
 }
 
 .footer-grid {
@@ -2700,6 +2732,11 @@ a.stat:hover strong {
   font-size: 1.85rem;
   font-weight: 500;
   color: var(--cream);
+}
+
+.site-footer .footer-label {
+  margin: 0 0 0.35rem;
+  color: rgba(250, 247, 241, 0.88);
 }
 
 .site-footer a {

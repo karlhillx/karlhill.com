@@ -17,7 +17,7 @@ verified: 'no'
 disclosure: withheld
 production_note: 'Method Unclassified. On-record secrecy (Westermeier / WELT 2010). AP (2011) reports Alkoholfrei is made in the same Erding brewery as Erdinger’s conventional wheat beers — site only, not a process. Producer materials keep residual alcohol under 0.5% for flavor; they do not name dealcoholization vs limited fermentation. Do not cite industry-general vacuum/RO pieces as Erdinger’s method.'
 producer: 'Erdinger Weissbräu (Erding, Bavaria)'
-availability: 'International retail; widely available in Germany and exported'
+availability: 'International retail; widely available in Germany and exported; Metro Wine & Spirits'
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 82

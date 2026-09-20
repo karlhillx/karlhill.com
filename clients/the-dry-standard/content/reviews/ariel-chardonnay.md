@@ -18,7 +18,7 @@ dealcoholization_method: "Spinning cone column distillation at low temperature (
 base_beverage: "California Chardonnay from J. Lohr's vineyards, vinified conventionally before dealcoholization"
 producer: 'Ariel Vineyards (J. Lohr family, California)'
 volume: '750 ml'
-availability: 'US retail and direct from arielvineyards.com'
+availability: 'US retail and direct from arielvineyards.com; Metro Wine & Spirits'
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 79

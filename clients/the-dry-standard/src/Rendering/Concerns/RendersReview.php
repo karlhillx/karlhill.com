@@ -3,7 +3,9 @@
 namespace DryStandard\Rendering\Concerns;
 
 use DryStandard\Markdown;
+use DryStandard\Referral;
 use DryStandard\Rendering\StructuredData;
+use DryStandard\RetailPartners;
 use DryStandard\Review;
 use DryStandard\Sensory;
 use DryStandard\Str;
@@ -414,7 +416,7 @@ trait RendersReview
                     'kind' => $kindLabels[$kind] ?? $kind,
                     'confidence' => $confidenceLabels[$confidence] ?? $confidence,
                     'confidenceClass' => preg_replace('/[^a-z0-9-]+/', '-', $confidence) ?: 'secondary',
-                    'href' => $url !== '' ? $url : null,
+                    'href' => $url !== '' ? Referral::append($url) : null,
                     'source' => $host ?? ($note ?? 'Recorded claim'),
                     'note' => $url === '' ? $note : null,
                     'fields' => [],
@@ -485,7 +487,7 @@ trait RendersReview
             }
             $items[] = [
                 'title' => (string) ($source['title'] ?? $url),
-                'url' => $url,
+                'url' => Referral::append($url),
             ];
         }
 
@@ -510,7 +512,7 @@ trait RendersReview
     {
         if ($review->purchaseLinks === []) {
             return $review->availability
-                ? '<p><strong>Where to buy:</strong> '.Str::e($review->availability).'</p>'
+                ? '<p><strong>Where to buy:</strong> '.RetailPartners::linkifyAvailability($review->availability).'</p>'
                 : '';
         }
 
@@ -539,11 +541,13 @@ trait RendersReview
                 $meta[] = 'Checked '.$link['last_verified'];
             }
             $metaHtml = $meta === [] ? '' : '<span class="buy-meta">'.Str::e(implode(' · ', $meta)).'</span>';
-            $items .= '<li><a href="'.Str::e($link['url']).'" rel="'.$rel.'" data-analytics-event="outbound_buy">'.Str::e($label).'</a>'.$metaHtml.'</li>';
+            $items .= '<li><a href="'.Str::e(Referral::append($link['url'])).'" rel="'.$rel.'" data-analytics-event="outbound_buy">'.Str::e($label).'</a>'.$metaHtml.'</li>';
         }
 
         return $this->view->render('partials/purchase-links', [
-            'availability' => $review->availability ? '<p>'.Str::e($review->availability).'</p>' : '',
+            'availability' => $review->availability
+                ? '<p>'.RetailPartners::linkifyAvailability($review->availability).'</p>'
+                : '',
             'items' => $items,
         ]);
     }

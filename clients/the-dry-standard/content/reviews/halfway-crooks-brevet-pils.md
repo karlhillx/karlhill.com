@@ -17,7 +17,7 @@ production_note: "Atlanta Magazine quotes co-owner Shawn Cooper describing the b
 calories: '~45 calories per can (BeerMenus listing)'
 producer: 'Halfway Crooks Beer, 60 Georgia Ave SE, Atlanta'
 price: '$3.75 per single can (Better Times Market); typically sold in 6-packs of 12 oz cans'
-availability: 'Online via bettertimesmarket.com; brewery taproom in Atlanta; 12 oz cans'
+availability: 'Online via bettertimesmarket.com; brewery taproom in Atlanta; 12 oz cans; Metro Wine & Spirits'
 image: media/reviews/halfway-crooks-brevet-pils.jpg
 image_alt: 'Halfway Crooks Brevet Pils'
 image_credit: 'Photo via halfwaycrooks.beer'

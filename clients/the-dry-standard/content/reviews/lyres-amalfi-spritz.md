@@ -17,7 +17,7 @@ base_beverage: "Lyre's Italian Orange spirit replica base (no underlying alcohol
 producer: "Lyre's (Australian-founded, ship-to-the-US)"
 volume: '8.4 fl oz (250 ml) can, sold in 4-packs, 8-packs, and 12-packs (producer)'
 price: '$50.99 per 12-pack direct from lyres.com (~$4.25/can); case pricing varies by retailer'
-availability: 'Direct from lyres.com (US) and US retail including Harris Teeter (Instacart)'
+availability: 'Direct from lyres.com (US) and US retail including Harris Teeter (Instacart); Metro Wine & Spirits'
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 83

@@ -16,7 +16,10 @@ it('serves the Dry Standard homepage and primary sections', function () {
         ->assertOk()
         ->assertSee('Independent reviews with production provenance.', escape: false)
         ->assertSee('0.5% ABV', escape: false)
-        ->assertSee('<base href="/clients/the-dry-standard/">', escape: false);
+        ->assertSee('<base href="/clients/the-dry-standard/">', escape: false)
+        ->assertSee('class="site-beta"', escape: false)
+        ->assertSee('>Beta</span>', escape: false)
+        ->assertSee('Public beta — classifications and product data are continuously being verified.', escape: false);
 
     foreach ([
         '/clients/the-dry-standard/reviews/',

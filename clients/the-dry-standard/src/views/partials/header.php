@@ -3,6 +3,9 @@
       <a class="logo" href="<?= $view->e($homeUrl) ?>"<?= $homeCurrent ? ' aria-current="page"' : '' ?>>
         <img src="<?= $view->e($markUrl) ?>" alt="" width="22" height="22">
         <span>The Dry Standard</span>
+        <?php if (! empty($isBeta)) { ?>
+        <span class="site-beta" title="<?= $view->e($betaNote ?? 'Public beta') ?>">Beta</span>
+        <?php } ?>
       </a>
       <button class="search-toggle" type="button" aria-expanded="false" aria-controls="header-search" data-search-toggle>
         <span class="visually-hidden">Search</span>

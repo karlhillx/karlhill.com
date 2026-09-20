@@ -87,6 +87,19 @@ final class SiteConfig
         return $this->string('site.name', 'The Dry Standard');
     }
 
+    public function isBeta(): bool
+    {
+        return $this->bool('site.beta', false);
+    }
+
+    public function betaNote(): string
+    {
+        return $this->string(
+            'site.beta_note',
+            'Public beta — classifications and product data are continuously being verified.',
+        );
+    }
+
     public function tagline(): string
     {
         return $this->string('site.tagline');

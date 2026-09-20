@@ -151,6 +151,8 @@ HTML;
             'markUrl' => $this->config->publicUrl('mark.svg'),
             'searchUrl' => $this->config->publicUrl('reviews/'),
             'items' => $items,
+            'isBeta' => $this->config->isBeta(),
+            'betaNote' => $this->config->betaNote(),
         ]);
     }
 
@@ -184,6 +186,8 @@ HTML;
             'categories' => $categories,
             'editorEmail' => $this->config->editorEmail(),
             'editorMailto' => $this->config->editorMailto(),
+            'isBeta' => $this->config->isBeta(),
+            'betaNote' => $this->config->betaNote(),
         ]);
     }
 

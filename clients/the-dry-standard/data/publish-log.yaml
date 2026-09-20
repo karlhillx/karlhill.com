@@ -658,3 +658,15 @@
   brand: 'P.J. Valckenberg'
   published_at: '2026-09-20T08:02:36+00:00'
   path: reviews/wine/valckenberg-not-a-sin/
+-
+  slug: trabanco-sidra-sin-alcohol
+  product: 'Sidra Sin Alcohol'
+  brand: Trabanco
+  published_at: '2026-09-20T17:52:25+00:00'
+  path: reviews/cider/trabanco-sidra-sin-alcohol/
+-
+  slug: other-half-all-in
+  product: 'All In'
+  brand: 'Other Half'
+  published_at: '2026-09-20T18:03:20+00:00'
+  path: reviews/beer/other-half-all-in/

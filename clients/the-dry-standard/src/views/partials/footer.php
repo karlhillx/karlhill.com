@@ -1,8 +1,11 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div>
-        <p class="logo-text">The Dry Standard</p>
+        <p class="logo-text">The Dry Standard<?php if (! empty($isBeta)) { ?> <span class="site-beta site-beta--footer">Beta</span><?php } ?></p>
         <p>Independent reviews of dealcoholized beer, wine, spirits, and cocktails at 0.5% ABV or less. We score what remains in the glass — not the lifestyle around it.</p>
+        <?php if (! empty($isBeta) && ! empty($betaNote)) { ?>
+        <p class="footer-beta"><?= $view->e($betaNote) ?></p>
+        <?php } ?>
         <?php if (! empty($editorMailto)) { ?>
         <p class="footer-editor"><a href="<?= $view->e($editorMailto) ?>"><?= $view->e($editorEmail) ?></a></p>
         <?php } ?>

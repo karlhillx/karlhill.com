@@ -18,7 +18,7 @@ base_beverage: 'Pressed juice of local Normandy pear varieties (Plant de Blanc, 
 producer: 'Domaine Christian Drouin (Coudray-Rabut, Normandy)'
 volume: '750 ml'
 price: '$15 (US retail listing)'
-availability: 'US via specialty retailers including Minus Moonshine (NYC) and Hop, Cask & Barrel (DC)'
+availability: 'US via specialty retailers including Minus Moonshine (NYC) and Hop, Cask & Barrel (DC); Metro Wine & Spirits'
 image: media/reviews/christian-drouin-poire.jpg
 image_alt: 'Christian Drouin Jus de Poire Pétillant bottle'
 image_credit: 'Product photo via calvados-drouin-boutique.com'

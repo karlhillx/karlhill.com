@@ -16,7 +16,7 @@ verified: 'no'
 disclosure: undeclared
 production_note: 'Method Unclassified — no producer or COLA wording names dealcoholization vs limited fermentation. TTB class-907 COLAs show contract brewing: Yards Brewing Co., Philadelphia (2020 filings, “special agreement”); F.X. Matt Brewing Co., Utica NY (2023 filings). Not Frederick. 2021 launch press (“tweaked” each stage) fits either route.'
 producer: 'Flying Dog Brewery (brand, Frederick MD); COLA applicants Yards then F.X. Matt'
-availability: 'US retail; year-round lineup since 2021'
+availability: 'US retail; year-round lineup since 2021; Metro Wine & Spirits'
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 77

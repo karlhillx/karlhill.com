@@ -16,7 +16,7 @@ production_note: 'Crodino is formulated alcohol-free from the start (blends of b
 base_beverage: 'Non-alcoholic aromatic base blended with botanicals (no underlying spirit before alcohol removal)'
 producer: 'Crodino (Campari Group, launched 1965 in Italy)'
 volume: 'Single-serve 175 ml glass bottles (producer)'
-availability: 'US launch via Campari America (May 2025); Italian and European retail long-established'
+availability: 'US launch via Campari America (May 2025); Italian and European retail long-established; Metro Wine & Spirits'
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 78

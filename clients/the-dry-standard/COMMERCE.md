@@ -12,6 +12,14 @@
 
 **Retailers, marketplaces, and NA specialists may be named in plain text** (`availability` and similar) **but must not carry an `href` yet** — no Total Wine, Amazon, The Zero Proof, Boisson, etc. as clickable purchase links until a commercial relationship exists.
 
+## Outbound referral
+
+Every external `http(s)` link rendered by The Dry Standard appends `?ref=the-dry-standard` (or `&ref=`) at render time via `Referral::SLUG`. Markdown links, source citations, producer buy links, and partnered retailers all share that one slug.
+
+Do not hardcode the slug in markdown or templates. Partner destinations stay in `RetailPartners.php`; that class calls `Referral::append()`.
+
+**Exception — collaboration trial:** Partnered retailers in `RetailPartners.php` (currently Metro Wine & Spirits and Brightwood Pizza & Bottle / ANXO at [store.anxodc.com](https://store.anxodc.com/)) are linkified from availability prose with the shared referral slug. Do not hand-author those hrefs in markdown; keep the plain name and let `RetailPartners` attach it.
+
 Producer / brand links stay fine. They are provenance and utility, not our monetization surface.
 
 ## Why (this phase)
@@ -26,7 +34,7 @@ Producer / brand links stay fine. They are provenance and utility, not our monet
 | Intent | Field | Linked? |
 | --- | --- | --- |
 | Brand / producer official product or shop URL | `purchase_links[]` with `relationship: citation` | **Yes** |
-| “Sold at Total Wine, Amazon, The Zero Proof…” | `availability` (prose) | **No** |
+| “Sold at Total Wine, Amazon, The Zero Proof…” | `availability` (prose) | **No** (except `RetailPartners` trial names) |
 | Future tracked retailer / affiliate URL | `purchase_links[]` + `relationship: affiliate` or `paid`; store partner URL in `affiliate_url` if the public href must stay clean | **Only after agreement** |
 | Evidence that a fact came from a retailer sheet | `sources[]` (claims), not “Where to buy” | Yes, as a **source** citation — different job |
 

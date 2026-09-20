@@ -19,7 +19,7 @@ base_beverage: 'Blend of classic Spanish grapes, mainly Airén'
 producer: 'Freixenet (Henkell Freixenet)'
 price: '$12 (US launch SRP)'
 sugar: '38 g/L residual sugar (producer)'
-availability: 'US: nationwide since December launch; widely stocked at Total Wine'
+availability: 'US: nationwide since December launch; widely stocked at Total Wine; Metro Wine & Spirits'
 purchase_links:
   -
     label: 'Freixenet Global — 0,0 Sparkling White'

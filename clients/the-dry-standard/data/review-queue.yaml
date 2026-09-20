@@ -1553,7 +1553,7 @@
   category: wine
   priority: normal
   status: published
-  notes: 'Already published at reviews/wine/oddbird-blanc-de-blancs/.'
+  notes: 'Already published at reviews/wine/oddbird-blanc-de-blancs/. Brightwood Pizza & Bottle / ANXO stock noted 2026-09-20.'
 -
   product: '0,0 Sparkling White'
   id: TDS-0072
@@ -1675,3 +1675,24 @@
   notes: 'Purchased 2026-09-20. Validated claouset-zero-degre.md. Research score 84. Sémillon. Still attached.'
   production_type: hybrid
   verified: 'yes'
+-
+  product: 'Sidra Sin Alcohol'
+  id: TDS-0119
+  brand: Trabanco
+  category: cider
+  priority: high
+  status: published
+  production_type: dealcoholized
+  verified: 'yes'
+  notes: 'Published 2026-09-20 (--force). Brightwood Pizza & Bottle / ANXO $14 / 700 ml. Bottle label <0.5% vol, 42 kcal. Editorial still. Cellar tasting score 83.'
+-
+  product: 'All In'
+  id: TDS-0120
+  brand: 'Other Half'
+  category: beer
+  priority: high
+  status: published
+  production_type: naturally-low-alcohol
+  verified: 'yes'
+  seen_at: 'Brightwood Pizza & Bottle / ANXO'
+  notes: 'Published 2026-09-20 (--force). Arrested fermentation NA hazy IPA; label <0.5% ABV. Editorial still. Score 86. Brightwood / ANXO availability.'

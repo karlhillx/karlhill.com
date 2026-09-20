@@ -16,7 +16,7 @@ production_note: 'St. Agrestis cocktails are formulated from a base of 30 organi
 base_beverage: '30 organic, non-GMO botanicals designed to replicate negroni aromatics without any underlying spirit.'
 producer: 'St. Agrestis (Greenpoint, Brooklyn, NY)'
 volume: '200 ml (US) / 100 ml available in markets where the larger size is restricted'
-availability: "US launch via the brand's DTC site stagrestis.com and select NA-focused retailers; rollout ongoing"
+availability: "US launch via the brand's DTC site stagrestis.com and select NA-focused retailers; rollout ongoing; Metro Wine & Spirits"
 image: media/reviews/stagrestis-phony-negroni.jpg
 image_alt: 'St. Agrestis Phony Negroni'
 image_credit: 'Product photo via stagrestis.com'

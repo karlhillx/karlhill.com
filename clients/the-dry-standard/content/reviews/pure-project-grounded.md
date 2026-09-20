@@ -16,7 +16,7 @@ verified: 'no'
 disclosure: undeclared
 production_note: 'Method Unclassified. Producer pages and Apr 2026 press name hops and “same care” as craft beers — no dealcoholization vs limited fermentation. TTB COLAs 26027001001014, 26205001000004, 26251001000217 (class 907) under Prost Brewing / Prost Northglenn LLC; label “Produced and canned in Northglenn, CO by Pure Project”. Ownership/lease of the plant not stated on the forms.'
 producer: 'Pure Project (brand, San Diego); COLA applicant Prost Brewing / Prost Northglenn LLC (Northglenn, CO)'
-availability: 'US retail; direct from purebrewing.org'
+availability: 'US retail; direct from purebrewing.org; Metro Wine & Spirits'
 image: media/reviews/pure-project-grounded.jpg
 image_alt: 'Pure Project Grounded IPA can'
 image_credit: 'Product photo via purebrewing.org'

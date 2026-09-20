@@ -18,7 +18,7 @@ base_beverage: 'Botanical formulation with agave, lime, and other natural flavor
 producer: 'Ritual Zero Proof (USA)'
 volume: '750 ml'
 price: '$29.99-$35.99 (US retail)'
-availability: 'Widely available in US retail including Total Wine, Target, and direct from ritualzeroproof.com'
+availability: 'Widely available in US retail including Total Wine, Target, and direct from ritualzeroproof.com; Metro Wine & Spirits'
 image: media/reviews/ritual-zero-proof-tequila.jpg
 image_alt: 'Ritual Zero Proof Tequila Alternative bottle'
 image_credit: 'Product photo via ritualzeroproof.com'

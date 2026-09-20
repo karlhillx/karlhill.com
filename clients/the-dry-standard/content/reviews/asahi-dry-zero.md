@@ -15,7 +15,7 @@ verified: 'yes'
 production_note: "Asahi's own R&D documentation describes Dry Zero as a non-alcohol beer-like beverage built from wort-free formulation rather than made by removing alcohol from a finished beer."
 base_beverage: 'Formulated beverage from unfermented ingredients and flavor compounds; no full-strength beer is produced and then stripped'
 producer: 'Asahi Breweries (Japan)'
-availability: 'Widely available in Japan; international markets including US specialty retailers'
+availability: 'Widely available in Japan; international markets including US specialty retailers; Metro Wine & Spirits'
 image: media/reviews/asahi-dry-zero.jpg
 image_alt: 'Asahi Super Dry 0.0% bottle'
 image_credit: 'Editorial still'

@@ -21,7 +21,7 @@ volume: '750 ml'
 ingredients: 'De-alcoholized wine (grapes), sugar, carbon dioxide, preservatives (sulphites)'
 calories: '70 calories per 12 fl oz serving (approx. 2 servings per 750 ml bottle)'
 sugar: '3.8 g per 100 g (retailer nutrition panel)'
-availability: 'US: Target and specialty retailers including The Zero Proof and Wallace Dry Goods'
+availability: 'US: Target and specialty retailers including The Zero Proof and Wallace Dry Goods; Brightwood Pizza & Bottle / ANXO'
 purchase_links: []
 review_date: '2026-09-18'
 updated_date: 2026-09-20

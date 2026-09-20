@@ -26,7 +26,7 @@ volume: '440 ml can (secondary listing; US cans also appear as 14.9 fl oz)'
 ingredients: 'Water, malted barley, barley, roasted barley, fructose, natural flavourings, hops, yeast'
 calories: '16–17 kcal per 100 ml (producer communications differ by a calorie)'
 sugar: 'About 3.1 g per 440 ml can (secondary nutrition write-up)'
-availability: 'US grocery, liquor, and Total Wine; also on draught in some bars'
+availability: 'US grocery, liquor, and Total Wine; also on draught in some bars; Brightwood Pizza & Bottle / ANXO'
 purchase_links:
   -
     label: 'Guinness — Guinness 0.0'

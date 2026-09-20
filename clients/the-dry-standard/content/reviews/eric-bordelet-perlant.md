@@ -19,7 +19,7 @@ producer: "Domaine Eric Bordelet (Pays d'Auge, Normandy; estate-grown, certified
 volume: '750 ml (also 330 ml)'
 price: '$19.00 per 750 ml (US retail)'
 ingredients: 'Juice of 12 varieties of organic heritage cider apples, carbon dioxide; contains sulfites'
-availability: 'US via specialty retailers including Delmosa, Chapter 4, and Press Then Press'
+availability: 'US via specialty retailers including Delmosa, Chapter 4, and Press Then Press; Metro Wine & Spirits'
 image: media/reviews/eric-bordelet-perlant.jpg
 image_alt: 'Eric Bordelet Perlant sparkling apple juice'
 image_credit: 'Product photo via delmosa.com'

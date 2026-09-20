@@ -18,7 +18,7 @@ dealcoholization_method: 'Spinning cone technology applied to conventionally vin
 base_beverage: 'Rheingau white wine, vinified conventionally before dealcoholization'
 producer: 'Weingut Josef Leitz (Rheingau, Germany)'
 volume: '750 ml'
-availability: 'US retail including specialty NA shops'
+availability: 'US retail including specialty NA shops; Metro Wine & Spirits'
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 84

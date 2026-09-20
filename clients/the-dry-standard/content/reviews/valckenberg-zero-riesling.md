@@ -19,7 +19,7 @@ dealcoholization_method: 'Vacuum distillation (producer)'
 base_beverage: 'Riesling from Mosel steep-slope vineyards, vinified conventionally before alcohol removal'
 producer: 'P.J. Valckenberg (Germany)'
 volume: '750 ml'
-availability: 'US and German retail including vinello.de'
+availability: 'US and German retail including vinello.de; Metro Wine & Spirits'
 image_alt: 'Valckenberg Zero Riesling bottle'
 image_source: editorial
 image_sku_confirmed: 'yes'

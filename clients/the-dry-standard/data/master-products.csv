@@ -92,10 +92,10 @@ TDS-0093,0076317661906,Non-Alcoholic Fresh Squeezed IPA,Deschutes Brewery,Non-al
 TDS-0094,,Jalisco 55 Non-Alcoholic Reposado Tequila,Spiritless,Non-alcoholic spirits,0.0%,Dealcoholized,Yes,Reverse distillation (same documented method as Spiritless Kentucky 74),InternetWines.com
 TDS-0095,0021296975001,Non-Alcoholic Rosé,St. Regis,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Vacuum distillation of fermented and aged Syrah/Shiraz rosé (producer about page),Total Wine
 TDS-0096,4260196280136,Eins-Zwei-Zero Riesling,Leitz,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Vacuum distillation,
-TDS-0097,0794712956594,Guinness 0.0,Guinness,Non-alcoholic beer,0.0%,Dealcoholized,Yes,Cold filtration after a conventional Guinness brew,
+TDS-0097,0794712956594,Guinness 0.0,Guinness,Non-alcoholic beer,0.0%,Dealcoholized,Yes,Cold filtration after a conventional Guinness brew,Brightwood Pizza & Bottle / ANXO
 TDS-0098,4009427083906,Noughty Sparkling Chardonnay,Thomson & Scott,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation with aroma recovery,
 TDS-0099,,Italian Orange,Lyre's,Non-alcoholic aperitifs,<0.5%,Alternative,Yes,Formulated as a zero-proof alternative,
-TDS-0100,7350067732226,Blanc de Blancs,Oddbird,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation after aging (producer),
+TDS-0100,7350067732226,Blanc de Blancs,Oddbird,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation after aging (producer),Brightwood Pizza & Bottle / ANXO
 TDS-0104,0716819559539,Rosé,Ohla,Non-alcoholic wine,0.0%,Dealcoholized,Yes,"Fermented as wine, then the alcohol is removed (technique not named in the manufacturer notes)",
 TDS-0105,,Non Ale,Hitachino Nest,Non-alcoholic beer,0.3%,Naturally low alcohol,Yes,Brewed from malt and hops; no removal step published,
 TDS-0106,0810404021415,Alcohol-Removed Riesling,Dr. Lo,Non-alcoholic wine,<0.5%,Dealcoholized,Yes,Vacuum distillation,
@@ -111,3 +111,5 @@ TDS-0115,,Sparkling Blanc,NOOH by La Coste,Non-alcoholic sparkling wine,0.0%,Hyb
 TDS-0116,,Blanco,Adegga Baezza,Non-alcoholic wine,0.0%,Dealcoholized,Yes,Cold evaporation with aroma reintroduction (Grupo Élivo),Dis&Dis
 TDS-0117,,Riesling Nr. 420,Weinkönig,Non-alcoholic wine,0.3%,Dealcoholized,Yes,Vacuum dealcoholization ~28°C with aroma return (producer); ABV 0.3% secondary (WirWinzer); Nr. 420 on front label,Dis&Dis
 TDS-0118,,Zéro Degré Blanc,Claouset,Non-alcoholic wine,0.0%,Hybrid,Yes,Low-temperature vacuum dealcoholization; 100% Sémillon; wine-based beverage (producer). Bottle confirmed Blanc.,Dis&Dis
+TDS-0119,,Sidra Sin Alcohol,Trabanco,Non-alcoholic cider,0.5%,Dealcoholized,Yes,"Physical evaporation dealcoholization of fermented Asturian sidra natural (producer); 700 ml","Brightwood Pizza & Bottle / ANXO, Metro Wine & Spirits"
+TDS-0120,,All In,Other Half,Non-alcoholic beer,<0.5%,Naturally low alcohol,Yes,Arrested fermentation (producer),Brightwood Pizza & Bottle / ANXO

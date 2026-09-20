@@ -18,7 +18,7 @@ base_beverage: 'Riesling from a blend of Mosel steep-slope vineyards, stainless 
 producer: 'Fio (Mosel, Germany)'
 volume: '750 ml'
 price: '$22.00 (retail listing)'
-availability: 'US via Skurnik Wines import, perrineswine.com, everyday-wines.com, harvestwinemarket.com'
+availability: 'US via Skurnik Wines import, perrineswine.com, everyday-wines.com, harvestwinemarket.com; Metro Wine & Spirits'
 image: media/reviews/fio-fabelhaft-riesling.jpg
 image_alt: 'Fio Fabelhaft Non-Alcoholic Riesling bottle'
 image_credit: 'Product photo via skurnik.com'

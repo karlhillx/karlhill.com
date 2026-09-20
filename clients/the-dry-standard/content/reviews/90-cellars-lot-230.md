@@ -18,7 +18,7 @@ base_beverage: 'Souvignier Gris (a German-bred Piwi hybrid grape resistant to do
 producer: '90+ Cellars'
 price: "$12.99 at Binny's; $14.99 direct from 90+ Cellars"
 calories: "25 calories per serving (producer); low per the product line's positioning"
-availability: "US retail including Binny's Beverage Depot and Total Wine"
+availability: "US retail including Binny's Beverage Depot and Total Wine; Metro Wine & Spirits"
 image: media/reviews/90-cellars-lot-230.jpg
 image_alt: '90+ Cellars Lot 230 Brut Non-Alcoholic Sparkling'
 image_credit: 'Product photo via ninetypluscellars.com'

@@ -18,7 +18,7 @@ dealcoholization_method: "Alcohol removed from conventionally vinified sparkling
 base_beverage: 'Cuvée from high-quality grape varieties, vinified conventionally before alcohol removal'
 producer: 'P.J. Valckenberg (Germany)'
 volume: '750 ml'
-availability: 'US and German retail including vinello.de'
+availability: 'US and German retail including vinello.de; Metro Wine & Spirits'
 image_alt: 'Valckenberg Cuvée Zero Sparkling bottle'
 image_source: editorial
 image_sku_confirmed: 'yes'

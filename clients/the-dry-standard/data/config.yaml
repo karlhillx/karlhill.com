@@ -6,6 +6,9 @@ site:
   base_path: /clients/the-dry-standard
   canonical_host: https://karlhill.com
   index: false
+  # Drop when taxonomy, review template, provenance, and the first stable cellar feel settled.
+  beta: true
+  beta_note: 'Public beta — classifications and product data are continuously being verified.'
 
 editor:
   name: Karl Hill

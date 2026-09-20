@@ -18,7 +18,7 @@ base_beverage: 'Water, cane sugar, natural flavors (botanical formulation)'
 producer: 'Selezione Baladin Srl (Piozzo, Italy)'
 volume: '200 ml bottle'
 price: '$4.99-$5.00 (US retail)'
-availability: 'US via ProofNoMore, Minus Moonshine; Italian retail'
+availability: 'US via ProofNoMore, Minus Moonshine; Italian retail; Metro Wine & Spirits'
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 80

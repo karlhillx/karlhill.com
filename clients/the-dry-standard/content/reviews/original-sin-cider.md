@@ -17,7 +17,7 @@ base_beverage: 'Apple cider vinegar + fruit juice + monk fruit sweetener; no und
 producer: 'Original Sin Cider (New York, NY)'
 volume: '12 fl oz cans, sold as the Widow Family 12-pack across four flavors'
 price: '$29.99 per 12-pack (Proofnomore or direct)'
-availability: 'US retail including Proofnomore.com and Amazon'
+availability: 'US retail including Proofnomore.com and Amazon; Metro Wine & Spirits'
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 78
