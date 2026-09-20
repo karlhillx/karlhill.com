@@ -88,7 +88,7 @@ sources:
 discrepancies:
   -
     field: abv
-    note: 'Loosen Bros. USA technical sheet lists Alcohol: 0.0% vol. The US back label on the importer sell sheet reads CONTAINS LESS THAN 0.5 % ALCOHOL BY VOLUME. The front label on the packshot used here repeats that under-0.5% line. This review prints <0.5% and records the 0.0% sheet rather than choosing a winner.'
+    note: 'Loosen Bros. USA technical sheet lists Alcohol: 0.0% vol. The US back label on the importer sell sheet reads CONTAINS LESS THAN 0.5 % ALCOHOL BY VOLUME. The front label on the packshot used here repeats that under-0.5% line. This review prints <0.5% and records the 0.0% sheet.'
   -
     field: calories
     note: 'The technical sheet lists 32 calories per 5 oz serving. The US Nutrition Facts panel on the same importer sell sheet lists 80 calories per 12 fl oz (355 ml) serving, two servings per 750 ml bottle. Those numbers are consistent on a per-ml basis; the serving sizes differ.'

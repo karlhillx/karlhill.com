@@ -151,12 +151,6 @@ purchase_links:
     url: 'https://shop.grupoelivo.com/es/inicio/4-adegga-baezza-blanco.html'
     relationship: citation
     last_verified: '2026-09-20'
-  -
-    label: Dis&Dis
-    url: 'https://disndis.com/products/elivo-adegga-baezza-premium-alcohol-free-white-wine'
-    relationship: citation
-    price: '$16.00'
-    last_verified: '2026-09-20'
 ---
 
 Adegga Baezza Blanco is dealcoholized from Galicia, Spain. The base is Chardonnay from Galicia, fermented then dealcoholized. Cold evaporation with reintroduction of the wine’s own aromas (producer Adegga Baezza range page).

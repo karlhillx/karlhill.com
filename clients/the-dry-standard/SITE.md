@@ -62,4 +62,4 @@ HTML is assembled from reusable PHP views in `src/views/` and rendered live by L
 
 ## Parent platform
 
-Served by `DryStandardSiteController` at `/clients/the-dry-standard/`. CSS/JS ship via Vite (`assets/css/site.css` → `styles.css`, `assets/js/site.js` modules) with hashed `/build` URLs when `public/build/manifest.json` exists; otherwise client-folder `styles.css` / `script.js` fallbacks. Media still goes through the client file server. Preview is noindex at the Laravel header. Do not add Dry Standard URLs to the main karlhill.com sitemap. See `CUTOVER.md` for own-domain steps.
+Served by `DryStandardSiteController` at `/clients/the-dry-standard/`. CSS/JS ship via Vite (`assets/css/site.css` → `styles.css`, `assets/js/site.js` modules) with hashed `/build` URLs when `public/build/manifest.json` exists; otherwise client-folder `styles.css` / `script.js` fallbacks. Media still goes through the client file server. Preview is noindex at the Laravel header. Do not add Dry Standard URLs to the main karlhill.com sitemap. See `CUTOVER.md` for own-domain steps. Outbound buy links: `COMMERCE.md` (producer-only hrefs this phase; retailers named in text only).

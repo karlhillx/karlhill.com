@@ -33,14 +33,6 @@ purchase_links:
     label: 'Noughty Wine US'
     url: 'https://us.noughtyaf.com/products/noughty-alcohol-free-sparkling-wine'
     region: US
-  -
-    label: Boisson
-    url: 'https://boisson.co/products/thomson-scott-noughty-alcohol-free-sparkling-chardonnay'
-    region: US
-  -
-    label: 'The Zero Proof'
-    url: 'https://thezeroproof.com/products/buy-noughty-sparkling-chardonna'
-    region: US
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 84

@@ -174,12 +174,6 @@ purchase_links:
     url: 'https://www.weinkoenig.de/alkoholfrei-wein-und-mehr-kaufen/7/riesling-alkoholfreier-weisswein-0-75-ltr.'
     relationship: citation
     last_verified: '2026-09-20'
-  -
-    label: Dis&Dis
-    url: 'https://disndis.com/products/riesling-nr-420-0alcohol'
-    relationship: citation
-    price: '$21.00'
-    last_verified: '2026-09-20'
 ---
 
 Weinkönig Riesling Nr. 420 is dealcoholized from Rheinhessen, Germany. The base is 100% Riesling, fermented then dealcoholized. Vacuum dealcoholization after full vinification at about 28°C, with volatile aroma compounds collected and returned (producer FAQ / product page).

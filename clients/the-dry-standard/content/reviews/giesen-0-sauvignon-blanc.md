@@ -21,11 +21,7 @@ volume: '750 ml'
 ingredients: 'Sauvignon Blanc grapes (Marlborough, New Zealand)'
 calories: '16 calories per 125 ml serving (producer)'
 availability: "US: online retailers including The Zero Proof; New Zealand and Australia via Giesen's own store locator"
-purchase_links:
-  -
-    label: 'The Zero Proof'
-    url: 'https://thezeroproof.com/products/giesen-zero-percent-sauvignon-blanc'
-    region: US
+purchase_links: []
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 85

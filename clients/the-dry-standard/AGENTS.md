@@ -32,9 +32,11 @@ Tasting notes are opinion. Production facts are sourced or omitted.
 
 ABV, manufacturing process, alcohol-removal technique, origin, ingredients, nutrition, producer, price, or availability.
 
-If sources disagree, record a `discrepancies` entry. Do not pick a winner.
+If sources disagree, record a `discrepancies` entry with both claims. Do not invent a resolved value.
 
 If a fact cannot be sourced, delete the field.
+
+**Research tools:** Do not trust auto-generated answer summaries (Tavily and similar) when they name a brand-specific method. Those summaries often invent vacuum distillation, reverse osmosis, or arrested fermentation from generic industry pages. Open the cited URL and record only what it says about that brand. See `data/research/na-beer-method-gap-2026-09.md`.
 
 ## Workflow
 
@@ -76,6 +78,7 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 - Rendering: `src/Renderer.php` facade + `src/Rendering/Concerns/*`; IA contract in `src/Routing/RouteTable.php`
 - Front-end: Vite entries `assets/css/site.css` and `assets/js/site.js` (source CSS remains `styles.css`; `script.js` is non-Vite fallback)
 - Domain cutover: `CUTOVER.md`
+- Commerce / buy links: `COMMERCE.md` (producer-only outbound links this phase)
 - Commands: `php artisan dry-standard:*`
 
 ## Site structure
@@ -94,7 +97,7 @@ Default: Monday, Wednesday, Friday, three reviews a week. Change it in config. I
 
 This is a Laravel client preview. Product data lives in one SQLite catalog (`data/catalog.sqlite`), with `data/products.csv` as the spreadsheet export. Markdown reviews are the editorial draft/import format. Do not introduce a second framework or ecommerce. Do not generate or check in HTML pages. GET requests must not write the catalog. Product submissions and partnership inquiries write `storage/app/private/dry-standard/inbox/` only and never publish. The validator remains the publish gate.
 
-Optional structured fields (do not require them to publish; do not invent them): `product_id`, `identifiers` (`gtin|ean|upc|mfr|asin|tds` — never a retailer SKU), offer-shaped `purchase_links` (`relationship: citation|affiliate|paid|unknown`; public href stays `url`), `acquisition` / `sample_source`, disclosure flags, `provenance` per fact (with `kind`, `confidence`, optional `url` / `verified_date`), `producer_slug`, `sensory` (canonical descriptors + locations), `structure_scales` (numeric structure), `assessments` (editorial likeness/authenticity/etc.). Prefer filling `product_id`, `identifiers`, and `provenance` whenever a sourced fact exists — do not leave barcode or method claims looking equally true without evidence metadata.
+Optional structured fields (do not require them to publish; do not invent them): `product_id`, `identifiers` (`gtin|ean|upc|mfr|asin|tds` — never a retailer SKU), offer-shaped `purchase_links` (`relationship: citation|affiliate|paid|unknown`; public href stays `url`), `acquisition` / `sample_source`, disclosure flags, `provenance` per fact (with `kind`, `confidence`, optional `url` / `verified_date`), `producer_slug`, `sensory` (canonical descriptors + locations), `structure_scales` (numeric structure), `assessments` (editorial likeness/authenticity/etc.). Prefer filling `product_id`, `identifiers`, and `provenance` whenever a sourced fact exists — do not leave barcode or method claims looking equally true without evidence metadata. **Buy links:** this phase only put producer/brand official URLs in `purchase_links`. Name retailers in `availability` without hrefs until a partner agreement exists — see `COMMERCE.md`.
 
 Product facts and review observations are separate concerns. A Product owns brand, ABV, method, sugar, GTIN. A Review owns score, sensory, structure scales, assessments, and prose. Today one markdown file still carries both; `product_id` is the durable product key for future retastes. `catalog.sqlite` dual-writes a `tastings` table keyed by `review_slug` + `product_id` so retastes can land without inventing a second markdown file yet. Runtime HTML still reads `products` until presenters switch.
 

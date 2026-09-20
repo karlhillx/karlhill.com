@@ -22,11 +22,7 @@ ingredients: 'De-alcoholized wine (grapes), sugar, carbon dioxide, preservatives
 calories: '70 calories per 12 fl oz serving (approx. 2 servings per 750 ml bottle)'
 sugar: '3.8 g per 100 g (retailer nutrition panel)'
 availability: 'US: Target and specialty retailers including The Zero Proof and Wallace Dry Goods'
-purchase_links:
-  -
-    label: 'The Zero Proof'
-    url: 'https://thezeroproof.com/products/oddbird-blanc-de-blancs-sparkling-white-wine'
-    region: US
+purchase_links: []
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 84

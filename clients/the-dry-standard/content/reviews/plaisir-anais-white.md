@@ -138,13 +138,7 @@ provenance:
     kind: research
     confidence: inferred
     note: 'Provisional editorial research score — not a Dry Standard cellar tasting. Low tasting-note confidence for this exact SKU.'
-purchase_links:
-  -
-    label: Dis&Dis
-    url: 'https://disndis.com/products/plaisir-d-anais-white-wine-alcohol-free-0'
-    relationship: citation
-    price: '$18.00'
-    last_verified: '2026-09-20'
+purchase_links: []
 ---
 
 Plaisir d'Anaïs Blanc is dealcoholized from Bordeaux, France. The base is Sauvignon Blanc, fermented then dealcoholized. Vacuum distillation (specialist retailer; not confirmed on a current producer technical sheet).

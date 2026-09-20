@@ -34,14 +34,7 @@ purchase_links:
     label: Spiritless
     url: 'https://spiritless.com/products/kentucky-74-non-alcoholic-bourbon'
     region: US
-  -
-    label: 'Total Wine'
-    url: 'https://www.totalwine.com/spirits/nonalcoholic/spiritless-kentucky-74-nonalcoholic-bourbon/p/271589750'
-    region: US
-  -
-    label: 'The Zero Proof'
-    url: 'https://thezeroproof.com/products/buy-spiritless-non-alcoholic-bourbon'
-    region: US
+    relationship: citation
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 78
@@ -65,7 +58,7 @@ serve: 'In a cocktail, over ice, or split 1:1 with bourbon. Chill it. Do not exp
 discrepancies:
   -
     field: abv
-    note: 'Spiritless and most US retail listings describe Kentucky 74 as 0.5% ABV or below. The brand has also published language that the bottled spirit is under 0.05% ABV. We record the discrepancy rather than picking a single figure.'
+    note: 'Spiritless and most US retail listings describe Kentucky 74 as 0.5% ABV or below. The brand has also published language that the bottled spirit is under 0.05% ABV.'
 sources:
   -
     title: 'Spiritless — Distillation process'

@@ -57,7 +57,7 @@ Never invent descriptors. Never promote AI inference to `provenance.confidence: 
 
 Never title the essay "Product overview."
 
-Retailers, shelf prices, store SKUs, and unrelated businesses stay out of the essay, summary, and lede. They belong in `price`, `availability`, `purchase_links`, `producer`, or `sources`.
+Retailers, shelf prices, store SKUs, and unrelated businesses stay out of the essay, summary, and lede. They belong in `price`, `availability`, `purchase_links`, `producer`, or `sources`. Buy-link policy: producer/brand official URLs only in `purchase_links` this phase; name retailers in `availability` without hrefs until a partner agreement — see `COMMERCE.md`.
 
 The essay is a **Quick review: 1,200–2,000 characters** (markdown body only, excluding frontmatter). More detail than a 50-word wine note; shorter than a feature. Short paragraphs. No filler.
 

@@ -148,12 +148,6 @@ purchase_links:
     url: 'https://cypher-drinks.com/en/'
     relationship: citation
     last_verified: '2026-09-20'
-  -
-    label: Dis&Dis
-    url: 'https://disndis.com/products/cypher-alcohol-free-white-wine'
-    relationship: citation
-    price: '$23.00'
-    last_verified: '2026-09-20'
 ---
 
 Current Cypher Blanc is organic Roussanne and Colombard from the Gard, traditionally vinified, then dealcoholized. Label: alcohol-removed white, 0%, 750 ml. Ingredients begin with dealcoholized wine and include rectified concentrated grape must and CO₂.

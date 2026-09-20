@@ -1,1 +1,1 @@
-<div class="discrepancies"><p>Sources disagree on the following points. We do not pick a winner.</p><ul><?= $items ?></ul></div>
+<div class="discrepancies"><p>Sources disagree on the following points.</p><ul><?= $items ?></ul></div>

@@ -154,7 +154,7 @@ discrepancies:
     note: 'SITE Riesling Dealcoholized carries UPC 883122700115, which matches Dr. Pauly-Bergweiler Noble House Riesling Alcohol Free on the Winesellers Ltd. listing and fact sheet. Matching technical specs (Mosel Riesling, low-temperature alcohol removal, residual sugar in the mid-30s g/L) strongly suggest SITE is an alternate or private-label presentation of the same wine. The producer has not published an explicit statement tying the SITE label to Noble House, so the relationship is not treated as confirmed.'
   -
     field: abv
-    note: 'The SITE bottle prints <0.5% ABV. The Winesellers fact sheet for the matching UPC prints <0.03% by vol. This review prints <0.5% from the bottle and records the sheet figure rather than choosing a winner.'
+    note: 'The SITE bottle prints <0.5% ABV. The Winesellers fact sheet for the matching UPC prints <0.03% by vol. This review prints <0.5% from the bottle and records the sheet figure.'
   -
     field: sugar
     note: 'SITE bottle nutrition: 18 kcal / 100 ml, 3.4 g carbohydrate / 100 ml, 3.3 g sugar / 100 ml (~33 g/L; ~135 kcal per 750 ml). Noble House sheet: 35.6 g/L residual sugar. Extremely close on sugar; bottle nutrition is from the SITE label in this cellar, not reprinted on the sheet.'

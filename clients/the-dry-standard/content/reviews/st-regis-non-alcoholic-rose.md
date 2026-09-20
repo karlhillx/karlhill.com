@@ -20,11 +20,7 @@ price: '$12.99 (Total Wine, 750 ml)'
 volume: '750 ml'
 availability: 'US: Total Wine & More (in stock as of 2026-09-17 sighting)'
 acquisition: purchased
-purchase_links:
-  -
-    label: 'Total Wine & More'
-    url: 'https://www.totalwine.com/wine/rose-blush-wine/syrahshiraz/st-regis-nonalcoholic-rose/p/81590750'
-    region: US
+purchase_links: []
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 76

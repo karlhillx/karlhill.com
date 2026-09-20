@@ -128,7 +128,7 @@ Do not restate `nose` / `palate` / `finish` line for line in the body. The tasti
 
 | Put it here | Keep it out of the essay, summary, and lede |
 | --- | --- |
-| `price`, `availability`, `purchase_links` | Retailer names, shelf prices, store SKUs |
+| `price`, `availability`, `purchase_links` | Retailer names, shelf prices, store SKUs. This phase: producer-only hrefs in `purchase_links`; retailers named in `availability` without links — see `COMMERCE.md` |
 | `producer` | Unrelated businesses (hotel chains, conglomerates that did not make the drink) |
 | `sources` | Citation titles and URLs |
 | `discrepancies`, Product facts, How it was made | UPC disputes, ABV sheet splits, g/L tables, method temperatures already printed elsewhere |

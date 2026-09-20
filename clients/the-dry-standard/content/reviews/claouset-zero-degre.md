@@ -139,11 +139,6 @@ purchase_links:
     url: 'https://www.vignobles-siozard.com/produit/claouset-blanc-zero-degre/'
     relationship: citation
     last_verified: '2026-09-20'
-  -
-    label: Dis&Dis
-    url: 'https://disndis.com/products/zero-degre-non-alcoholic-white-wine'
-    relationship: citation
-    last_verified: '2026-09-20'
 ---
 
 Claouset Zéro Degré Blanc is a hybrid of dealcoholized material and other defining ingredients from Bordeaux, France. The base is 100% Sémillon, fermented then dealcoholized. Low-temperature vacuum dealcoholization (producer).

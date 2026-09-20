@@ -14,14 +14,14 @@ abv: '<0.5%'
 abv_numeric: 0.5
 production_type: not-verified
 verified: 'no'
-production_note: 'Erdinger does not publish whether the alcohol is removed from finished beer or fermentation is stopped early; the beer is marketed as naturally isotonic.'
+production_note: 'On-record refusal: Erdinger’s Josef Westermeier told WELT (2010) the recipe and brewing process stay secret. Producer FAQ confirms intentional residual alcohol under 0.5% for flavor and vitamins; it does not name the house technique. Do not attribute generic Weissbier NA process reviews.'
 producer: 'Erdinger Weissbräu (Erding, Bavaria)'
 availability: 'International retail; widely available in Germany and exported'
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 82
 verdict: 'The most widely available non-alcoholic wheat beer in the world, and the one that set the standard: spicy malt, caramel sweetness, isotonic positioning, and honest Bavarian brewing.'
-summary: 'Erdinger Alkoholfrei is a Bavarian non-alcoholic wheat beer under the Reinheitsgebot, marketed as a naturally isotonic sports recovery drink.'
+summary: 'Erdinger Alkoholfrei is a Bavarian non-alcoholic wheat beer under the Reinheitsgebot, marketed as a naturally isotonic sports recovery drink. Method is deliberate secrecy, not a missing FAQ.'
 tastes:
   - fruit
 profile:
@@ -42,6 +42,19 @@ image_source: editorial
 image_sku_confirmed: 'yes'
 sources:
   -
+    title: 'Alkoholfreies Bier: Bei alkoholfreiem Bier ist die Herstellung entscheidend — WELT'
+    url: 'https://www.welt.de/wissenschaft/article10444678/Alkoholfreies-Bier-Bei-alkoholfreiem-Bier-ist-die-Herstellung-entscheidend.html'
+    claims:
+      - production_type
+      - method
+  -
+    title: 'Unbedenklicher, minimaler Alkoholgehalt — ERDINGER FAQ PDF'
+    url: 'https://erdinger.de/downloads/Unbedenklicher_minimaler_Alkoholgehalt.pdf'
+    claims:
+      - abv
+      - production_type
+      - method
+  -
     title: 'Non Alcoholic Beer — ERDINGER'
     url: 'https://erdinger.de/en-INT/beers/non-alcoholic-wheatbeer'
     claims:
@@ -49,7 +62,7 @@ sources:
       - producer
       - country
       - style
-      - dealcoholized
+      - production_type
   -
     title: 'Alkoholfrei international — ERDINGER'
     url: 'https://erdinger.de/en-INT/erdinger-alkoholfrei'
@@ -87,23 +100,24 @@ structure_scales:
   finish_length: 0
 provenance:
   abv:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://erdinger.de/en-INT/beers/non-alcoholic-wheatbeer'
   producer:
-    kind: unknown
-    confidence: secondary
+    kind: manufacturer
+    confidence: manufacturer_verified
     url: 'https://erdinger.de/en-INT/beers/non-alcoholic-wheatbeer'
   country:
-    kind: unknown
-    confidence: secondary
+    kind: manufacturer
+    confidence: manufacturer_verified
     url: 'https://erdinger.de/en-INT/beers/non-alcoholic-wheatbeer'
   production_type:
-    kind: unknown
+    kind: research
     confidence: secondary
-    url: 'https://erdinger.de/en-INT/beers/non-alcoholic-wheatbeer'
+    url: 'https://www.welt.de/wissenschaft/article10444678/Alkoholfreies-Bier-Bei-alkoholfreiem-Bier-ist-die-Herstellung-entscheidend.html'
+    note: 'On-record refusal (Westermeier / WELT 2010). FAQ confirms intentional <0.5% residual ABV; house technique unnamed. Not verified.'
   availability:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://erdinger.de/en-INT/erdinger-alkoholfrei'
   ean:
@@ -112,8 +126,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Erdinger Alkoholfrei is classified as Production type: Not verified — Erdinger does not publish whether the alcohol is removed from finished beer or fermentation is stopped early; the beer is marketed as naturally isotonic. from Bavaria, Germany. Erdinger does not publish whether the alcohol is removed from finished beer or fermentation is stopped early; the beer is marketed as naturally isotonic.
+Erdinger Weissbräu’s Alkoholfrei is Bavarian wheat beer at non-alcoholic strength, sold as a naturally isotonic recovery pour. The factory floor is not a documentation gap — in 2010 marketing director Josef Westermeier told WELT the recipe and brewing process stay secret. A producer FAQ adds that they keep a non-zero residual under 0.5% on purpose for flavor and vitamins, without naming the technique.
 
-On the nose, spicy malt notes with caramel-sweet nuances and the distinctive banana-clove wheat beer signature. On the palate, round and spicy; the wheat body gives it more substance than most NA lagers, with the hop bitterness balanced by malt sweetness. The finish is clean and lightly fruity — the wheat beer finish that reads as authentic. The most widely available non-alcoholic wheat beer in the world, and the one that set the standard: spicy malt, caramel sweetness, isotonic positioning, and honest Bavarian brewing.
+On the nose, spicy malt with caramel-sweet edges and the banana-clove wheat signature. On the palate, rounder than most NA lagers: wheat body, hop bitterness balanced by malt sweetness. The finish is clean and lightly fruity.
 
-The most widely available non-alcoholic wheat beer in the world, and the one that set the standard: spicy malt, caramel sweetness, isotonic positioning, and honest Bavarian brewing. Serve cold, in a wheat beer glass with a proper head.
+It is the category’s default Weissbier for a reason — widely available, Reinheitsgebot-framed, and still recognizably wheat beer in the glass. Serve cold in a wheat beer glass with a proper head.

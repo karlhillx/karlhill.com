@@ -131,13 +131,7 @@ provenance:
     kind: research
     confidence: secondary
     note: 'Editorial research score (not a Dry Standard cellar tasting).'
-purchase_links:
-  -
-    label: Dis&Dis
-    url: 'https://disndis.com/products/plaisir-d-anais-rose-wine-alcohol-free-0'
-    relationship: citation
-    price: '$18.00'
-    last_verified: '2026-09-20'
+purchase_links: []
 ---
 
 Plaisir d'Anaïs Rosé is dealcoholized from Bordeaux, France. The base is Cabernet Sauvignon, fermented then dealcoholized. Vacuum distillation (specialist retailer; not confirmed on a current producer technical sheet).

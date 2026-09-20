@@ -156,12 +156,6 @@ purchase_links:
     url: 'https://www.vignoblesraguenot.fr/fr/sans-alcool/49-tip-top-blanc-desalcoolise-onirique-audacieux.html'
     relationship: citation
     last_verified: '2026-09-20'
-  -
-    label: Dis&Dis
-    url: 'https://disndis.com/products/tip-top-alcohol-free-white-wine'
-    relationship: citation
-    price: '$21.00'
-    last_verified: '2026-09-20'
 ---
 
 Tip Top Blanc is dealcoholized from Bordeaux, France. The base is Bordeaux blanc — Sauvignon Blanc and Sémillon (producer). Low-temperature cold distillation by Zénothèque (producer); Zénothèque describes vacuum distillation at ~28–32°C with aroma recovery.

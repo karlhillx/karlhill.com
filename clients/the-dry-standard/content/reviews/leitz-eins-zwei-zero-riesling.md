@@ -22,11 +22,7 @@ volume: '750 ml'
 ingredients: '100% Riesling'
 sugar: '38.9 g/L residual sugar (retailer technical sheet)'
 availability: 'US wine shops and online retailers; widely listed as a 750 ml NV bottling'
-purchase_links:
-  -
-    label: 'Empire Wine'
-    url: 'https://www.empirewine.com/grocery/leitz-eins-zwei-zero-non-alcoholic-riesling-750ml-h50738/'
-    region: US
+purchase_links: []
 image: media/reviews/leitz-eins-zwei-zero-riesling.jpg
 image_alt: 'Leitz Eins-Zwei-Zero Riesling bottle'
 image_credit: 'Product photo via leitz-wein.shop'
