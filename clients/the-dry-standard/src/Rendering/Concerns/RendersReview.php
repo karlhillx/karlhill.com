@@ -223,9 +223,9 @@ trait RendersReview
             'value' => $review->disclosureLabel(),
             'pill' => true,
             'tone' => match ($review->disclosureStance()) {
-                'documented' => 'dealcoholized',
-                'withheld' => 'no',
-                default => 'not-verified',
+                'documented' => 'documented',
+                'withheld' => 'withheld',
+                default => 'undeclared',
             },
         ];
 
