@@ -14,12 +14,13 @@
               <p class="lede"><?= $view->e($summary) ?></p>
               <?= $identity ?? '' ?>
               <p class="review-jump">
-                <a href="<?= $view->e($pageUrl) ?>#how-it-was-made">How it was made</a>
-                <a href="<?= $view->e($pageUrl) ?>#tasting">Tasting</a>
-                <a href="<?= $view->e($pageUrl) ?>#facts">Facts</a>
+                <a href="<?= $view->e($pageUrl) ?>#tasting">At a glance</a>
+                <a href="<?= $view->e($pageUrl) ?>#review-essay">Review</a>
                 <?php if (! empty($hasServe)) { ?>
                 <a href="<?= $view->e($pageUrl) ?>#how-to-drink">Serve</a>
                 <?php } ?>
+                <a href="<?= $view->e($pageUrl) ?>#how-it-was-made">How it was made</a>
+                <a href="<?= $view->e($pageUrl) ?>#facts">Facts</a>
               </p>
             </div>
             <?= $score ?>
@@ -29,14 +30,10 @@
       <div class="section">
         <div class="shell review-layout">
           <div class="stack-lg">
-            <section class="callout" id="how-it-was-made">
-              <h2>How was it made?</h2>
-              <p class="callout-status"><?= $view->e($statusLabel) ?></p>
-              <?= $methodBlock ?>
-              <?= $discrepancies ?>
-            </section>
             <?= $tasting ?>
-            <?= $overview ?>
+            <div id="review-essay">
+              <?= $overview ?>
+            </div>
             <?php if (! empty($hasServe)) { ?>
             <section class="prose" id="how-to-drink">
               <h2>How to drink it</h2>
@@ -48,6 +45,13 @@
               <h2>Verdict</h2>
               <p><?= $view->e($verdict) ?></p>
             </section>
+            <section class="callout" id="how-it-was-made">
+              <h2>How was it made?</h2>
+              <p class="callout-status"><?= $view->e($statusLabel) ?></p>
+              <?= $methodBlock ?>
+              <?= $discrepancies ?>
+            </section>
+            <?= $provenance ?? '' ?>
             <?= $sources ?>
           </div>
           <aside class="facts" id="facts" aria-label="Product facts">

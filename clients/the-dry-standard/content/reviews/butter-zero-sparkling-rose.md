@@ -1,59 +1,118 @@
 ---
-title: "Butter Zero Sparkling Rosé"
+title: 'Butter Zero Sparkling Rosé'
 slug: butter-zero-sparkling-rose
 id: TDS-0077
-brand: Butter Zero
-product: Sparkling Rosé
+brand: 'Butter Zero'
+product: 'Sparkling Rosé'
 category: wine
-subcategory: sparkling rosé
-country: United States
+subcategory: 'sparkling rosé'
+country: 'United States'
 region: California
-style: Alcohol-removed sparkling rosé
-abv: "<0.5%"
+style: 'Alcohol-removed sparkling rosé'
+abv: '<0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
-verified: yes
+verified: 'yes'
 dealcoholization_method: "Alcohol removed from conventionally vinified California sparkling rosé (producer's March 2026 launch announcement)"
-base_beverage: "California sparkling rosé, vinified conventionally before alcohol removal"
-producer: Butter Wines (Napa, California)
-volume: "750 ml"
-price: "$12.99 (US retail)"
-availability: "US retail including InternetWines.com and Old Town Tequila"
+base_beverage: 'California sparkling rosé, vinified conventionally before alcohol removal'
+producer: 'Butter Wines (Napa, California)'
+volume: '750 ml'
+price: '$12.99 (US retail)'
+availability: 'US retail including InternetWines.com and Old Town Tequila'
 image: media/reviews/butter-zero-sparkling-rose.jpg
-image_alt: "Butter Zero Sparkling Rosé bottle"
-image_credit: Product photo via internetwines.com
+image_alt: 'Butter Zero Sparkling Rosé bottle'
+image_credit: 'Product photo via internetwines.com'
 image_source: editorial
-image_sku_confirmed: yes
-review_date: "2026-09-18"
-updated_date: "2026-09-19"
+image_sku_confirmed: 'yes'
+review_date: '2026-09-18'
+updated_date: '2026-09-19'
 rating: 76
-verdict: "Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity."
+verdict: 'Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity.'
 summary: "Butter Zero's Sparkling Rosé is an alcohol-removed California sparkling rosé launched in March 2026: light, fresh, and fruity at <0.5% ABV."
-
 tastes:
   - strawberry
-  - red berry with a light
-  - bright lift
+  - 'bright lift'
 profile:
-  - Light body
-  - Soft bead
-  - Clean finish
-mouthfeel: "Light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile."
-highlight: "Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity."
-likeness: "Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity."
-nose: "Soft strawberry and red berry with a light, bright lift."
-palate: "Light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile."
-finish: "Clean and brief."
-best_for: "Casual sparkling occasions, the price-sensitive toast."
-serve: "Well chilled."
+  - 'Light body'
+  - 'Soft bead'
+  - 'Clean finish'
+highlight: 'Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity.'
+nose: 'Soft strawberry and red berry with a light, bright lift.'
+palate: 'Light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile.'
+finish: 'Clean and brief.'
+best_for: 'Casual sparkling occasions, the price-sensitive toast.'
+serve: 'Well chilled.'
 sources:
-  - title: "INTRODUCING NEW BUTTERZERO — PRNewswire (March 2026)"
-    url: https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html
-    claims: [dealcoholized, producer, country, style, dealcoholization_method, base_beverage]
-  - title: "Butter Zero Sparkling Rosé — InternetWines.com"
-    url: https://internetwines.com/products/butter-zero-rose-non-alocholic
-    claims: [price, volume, availability, abv]
+  -
+    title: 'INTRODUCING NEW BUTTERZERO — PRNewswire (March 2026)'
+    url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
+    claims:
+      - dealcoholized
+      - producer
+      - country
+      - style
+      - dealcoholization_method
+      - base_beverage
+  -
+    title: 'Butter Zero Sparkling Rosé — InternetWines.com'
+    url: 'https://internetwines.com/products/butter-zero-rose-non-alocholic'
+    claims:
+      - price
+      - volume
+      - availability
+      - abv
 status: published
+product_id: TDS-0077
+identifiers:
+  -
+    type: tds
+    value: TDS-0077
+sensory:
+  -
+    descriptor: strawberry
+    locations:
+      - palate
+structure_scales:
+  body: 1
+  carbonation: 2
+  finish_length: 0
+provenance:
+  production_type:
+    kind: unknown
+    confidence: secondary
+    url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
+  producer:
+    kind: unknown
+    confidence: secondary
+    url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
+  country:
+    kind: unknown
+    confidence: secondary
+    url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
+  dealcoholization_method:
+    kind: unknown
+    confidence: secondary
+    url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
+  base_beverage:
+    kind: unknown
+    confidence: secondary
+    url: 'https://www.prnewswire.com/news-releases/introducing-new-butterzero-non-alcoholic-wines-by-butter-302701698.html'
+  price:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://internetwines.com/products/butter-zero-rose-non-alocholic'
+  volume:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://internetwines.com/products/butter-zero-rose-non-alocholic'
+  availability:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://internetwines.com/products/butter-zero-rose-non-alocholic'
+  abv:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://internetwines.com/products/butter-zero-rose-non-alocholic'
 ---
 
 Butter Zero Sparkling Rosé is dealcoholized from California, United States. The base is California sparkling rosé, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified California sparkling rosé (producer's March 2026 launch announcement).

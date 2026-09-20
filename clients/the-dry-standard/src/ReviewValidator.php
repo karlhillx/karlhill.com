@@ -113,10 +113,27 @@ final class ReviewValidator
             }
         }
 
-        foreach ($review->provenance as $field => $entry) {
+        foreach ($review->provenanceRecord() as $field => $entry) {
             $kind = is_array($entry) ? (string) ($entry['kind'] ?? '') : '';
             if ($kind !== '' && ! in_array($kind, Review::PROVENANCE_KINDS, true)) {
                 $errors[] = "provenance.{$field} has an unrecognized source kind";
+            }
+            $confidence = is_array($entry) ? (string) ($entry['confidence'] ?? '') : '';
+            if ($confidence !== '' && ! in_array($confidence, Sensory::PROVENANCE_CONFIDENCE, true)) {
+                $errors[] = "provenance.{$field} has an unrecognized confidence";
+            }
+        }
+
+        foreach ($review->resolvedSensory() as $index => $row) {
+            $id = (string) ($row['descriptor'] ?? '');
+            if ($id !== '' && ! Sensory::hasDescriptor($id)) {
+                $errors[] = 'sensory '.($index + 1).' uses an unknown descriptor: '.$id;
+            }
+        }
+
+        foreach ($review->tastes as $taste) {
+            if (Sensory::isNoiseTaste($taste)) {
+                $errors[] = 'tastes contains prose or noise rather than a flavor chip: '.$taste;
             }
         }
 
@@ -150,6 +167,14 @@ final class ReviewValidator
 
             if ($review->status !== 'published' && $review->status !== 'validated' && $review->status !== 'scheduled') {
                 $errors[] = 'only validated, scheduled, or published reviews may be released';
+            }
+
+            if ($review->likeness !== null && $review->verdict !== '' && $review->likeness === $review->verdict) {
+                $errors[] = 'likeness must not be a copy of verdict; write a likeness note or leave likeness empty';
+            }
+
+            if ($review->mouthfeel !== null && $review->palate !== null && $review->mouthfeel === $review->palate) {
+                $errors[] = 'mouthfeel must not be a copy of palate';
             }
         }
 

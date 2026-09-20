@@ -1446,6 +1446,123 @@ a.stat:hover strong {
   color: var(--muted);
 }
 
+.provenance {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.provenance > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.85rem;
+  padding: 0.85rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.provenance > summary::-webkit-details-marker {
+  display: none;
+}
+
+.provenance > summary::after {
+  content: "Show";
+  margin-left: auto;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.provenance[open] > summary::after {
+  content: "Hide";
+}
+
+.provenance-summary-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.provenance-summary-meta {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.provenance-body {
+  padding: 0 0 1rem;
+}
+
+.provenance-lede {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 40rem;
+}
+
+.provenance-groups {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.provenance-group-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+  align-items: baseline;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.provenance-fields {
+  margin: 0.3rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.provenance-confidence {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+.provenance-confidence--verified,
+.provenance-confidence--manufacturer-verified,
+.provenance-confidence--label-verified {
+  border-color: color-mix(in srgb, var(--ink) 35%, transparent);
+}
+
+.provenance-confidence--secondary,
+.provenance-confidence--inferred,
+.provenance-confidence--unverified {
+  color: var(--muted);
+}
+
+.provenance-kind {
+  color: var(--muted);
+}
+
+.provenance-note {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.category-rail--secondary {
+  margin-top: 0.75rem;
+}
+
 .tasting-detail-title {
   margin: 0.4rem 0 0.85rem;
   font-family: var(--font-sans);

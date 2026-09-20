@@ -17,8 +17,8 @@
       </div>
       <div>
         <p class="footer-label">Read</p>
-        <a href="<?= $view->e($guidesUrl) ?>">Guides</a>
-        <a href="<?= $view->e($methodsUrl) ?>">Methods</a>
+        <a href="<?= $view->e($guidesUrl) ?>">Learn</a>
+        <a href="<?= $view->e($methodsUrl) ?>">How it’s made</a>
         <a href="<?= $view->e($brandsUrl) ?>">Brands</a>
         <a href="<?= $view->e($aboutUrl) ?>">About &amp; methodology</a>
         <a href="<?= $view->e($bestUrl) ?>">Best of the cellar</a>

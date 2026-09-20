@@ -290,6 +290,36 @@ HTML;
             ];
         }
 
+        $wineColorRail = '';
+        if ($lockedCategory === 'wine') {
+            $colorItems = [
+                [
+                    'href' => $this->config->publicUrl('reviews/wine/'),
+                    'label' => 'All wine',
+                    'current' => $query->wineColor === [] && $query->lockedWineColor === null,
+                ],
+            ];
+            foreach (Sensory::wineColorLabels() as $color => $label) {
+                $count = $railSource->filter(
+                    fn (Review $review): bool => $review->category === 'wine' && $review->wineColor() === $color,
+                )->count();
+                if ($count === 0) {
+                    continue;
+                }
+                $colorItems[] = [
+                    'href' => $this->config->publicUrl('reviews/wine/').'?color='.$color,
+                    'label' => $label,
+                    'count' => $count,
+                    'current' => in_array($color, $query->wineColor, true) || $query->lockedWineColor === $color,
+                ];
+            }
+            $wineColorRail = $this->view->render('partials/category-rail', [
+                'label' => 'Wine style',
+                'variant' => 'secondary',
+                'items' => $colorItems,
+            ]);
+        }
+
         $itemList = $visible->values()->map(function (Review $review, int $index): array {
             return [
                 '@type' => 'ListItem',
@@ -307,7 +337,7 @@ HTML;
             'categoryRail' => $this->view->render('partials/category-rail', [
                 'label' => 'Review categories',
                 'items' => $categoryItems,
-            ]),
+            ]).$wineColorRail,
         ]);
 
         if ($fragment) {
@@ -632,9 +662,9 @@ HTML;
                 'badge' => $badge,
                 'verifiedLabel' => $review->verifiedLabel(),
             ]),
-            'score' => $review->rating !== null
-                ? '<p class="score" aria-label="Score '.$review->rating.' out of 100"><span>'.$review->rating.'</span><small>/100</small></p>'
-                : '',
+            'score' => $this->view->render('partials/score-badge', [
+                'rating' => $review->rating,
+            ]),
             'statusLabel' => $review->productionTypeLabel(),
             'methodBlock' => $this->methodBlock($review),
             'discrepancies' => $this->discrepancies($review),
@@ -642,6 +672,7 @@ HTML;
                 ? '<section class="prose"><h2>'.$this->e($review->essayHeading()).'</h2>'.$bodyHtml.'</section>'
                 : '',
             'tasting' => $this->tasting($review),
+            'provenance' => $this->provenancePanel($review),
             'hasServe' => $hasServe,
             'serveBlock' => $this->optionalBlock($review->serve),
             'bestForBlock' => $hasGlance ? '' : $this->optionalBlock($review->bestFor, 'Best for: '),
@@ -847,10 +878,10 @@ XML;
             'reviews' => ['Reviews', 'reviews/'],
             'best' => ['Best', 'best/'],
             'brands' => ['Brands', 'brands/'],
-            'guides' => ['Guides', 'guides/'],
+            'guides' => ['Learn', 'guides/'],
         ];
         $cellar = [
-            'methods' => ['Methods', 'methods/'],
+            'methods' => ['How it’s made', 'methods/'],
             'styles' => ['Styles', 'styles/'],
         ];
 
@@ -939,6 +970,10 @@ XML;
                     'method' => $review->methodFacetKey(),
                     'style' => $review->styleSlug(),
                     'country' => $review->countrySlug(),
+                    'sweetness' => (string) ($review->structureScaleInt('sweetness') ?? ''),
+                    'body' => (string) ($review->structureScaleInt('body') ?? ''),
+                    'score' => $review->scoreBand(),
+                    'color' => (string) ($review->wineColor() ?? ''),
                     default => '',
                 };
 
@@ -955,6 +990,10 @@ XML;
                 'method' => $query->methods,
                 'style' => $query->styles,
                 'country' => $query->countries,
+                'sweetness' => $query->sweetness,
+                'body' => $query->body,
+                'score' => $query->score,
+                'color' => $query->wineColor,
                 default => [],
             };
 
@@ -1041,6 +1080,38 @@ XML;
             ->values()
             ->all();
 
+        $sweetnessOptions = [];
+        foreach (Sensory::structure()['sweetness']['levels'] ?? [] as $level => $meta) {
+            $value = (string) $level;
+            if ($reviews->contains(fn (Review $review): bool => $review->structureScaleInt('sweetness') === (int) $level)) {
+                $sweetnessOptions[] = ['value' => $value, 'label' => (string) ($meta['label'] ?? $value)];
+            }
+        }
+
+        $bodyOptions = [];
+        foreach (Sensory::structure()['body']['levels'] ?? [] as $level => $meta) {
+            $value = (string) $level;
+            if ($reviews->contains(fn (Review $review): bool => $review->structureScaleInt('body') === (int) $level)) {
+                $bodyOptions[] = ['value' => $value, 'label' => (string) ($meta['label'] ?? $value)];
+            }
+        }
+
+        $scoreOptions = [];
+        foreach (ArchiveQuery::SCORE_BANDS as $value => $label) {
+            if ($reviews->contains(fn (Review $review): bool => $review->scoreBand() === $value)) {
+                $scoreOptions[] = ['value' => $value, 'label' => $label];
+            }
+        }
+
+        $colorOptions = [];
+        if ($lockedCategory === 'wine' || $reviews->contains(fn (Review $review): bool => $review->category === 'wine')) {
+            foreach (Sensory::wineColorLabels() as $value => $label) {
+                if ($reviews->contains(fn (Review $review): bool => $review->wineColor() === $value)) {
+                    $colorOptions[] = ['value' => $value, 'label' => $label];
+                }
+            }
+        }
+
         $brandMeta = $withMeta($brandOptions, 'brand');
         $facets = $this->facetGroup('ABV', 'abv', $withMeta($abvOptions, 'abv'))
             .$this->facetGroup(
@@ -1052,6 +1123,7 @@ XML;
                 collapsed: count($brandMeta) > 8,
             )
             .($categoryOptions === [] ? '' : $this->facetGroup('Category', 'category', $withMeta($categoryOptions, 'category')))
+            .($colorOptions === [] ? '' : $this->facetGroup('Wine color', 'color', $withMeta($colorOptions, 'color')))
             .$this->facetGroup('Production type', 'production', $withMeta($processOptions, 'production'))
             .$this->facetGroup('Method', 'method', $withMeta($methodOptions, 'method'))
             .($query->lockedStyle ? '' : $this->facetGroup(
@@ -1062,6 +1134,9 @@ XML;
                 collapsible: count($styleOptions) > 8,
                 collapsed: count($styleOptions) > 8,
             ))
+            .$this->facetGroup('Sweetness', 'sweetness', $withMeta($sweetnessOptions, 'sweetness'))
+            .$this->facetGroup('Body', 'body', $withMeta($bodyOptions, 'body'))
+            .$this->facetGroup('Score', 'score', $withMeta($scoreOptions, 'score'))
             .$this->facetGroup('Country', 'country', $withMeta($countryOptions, 'country'));
 
         $chips = $this->filterChips($query, $reviews, $path);
@@ -1336,9 +1411,10 @@ XML;
         return $this->view->render('partials/tasting', [
             'heading' => $hasGlance ? 'At a glance' : 'Tasting notes',
             'showGlance' => $hasGlance,
-            'tastes' => $review->tastes,
-            'profile' => $review->profile,
+            'tastes' => $review->flavorProfileLabels(),
+            'profile' => $review->structureProfileLabels(),
             'mouthfeel' => $review->mouthfeel,
+            'assessments' => $this->assessmentChips($review),
             'highlight' => $review->highlight,
             'likeness' => $review->likenessText(),
             'likenessHeading' => $review->likenessHeading(),
@@ -1347,6 +1423,107 @@ XML;
             'productionLine' => $hasGlance ? $productionLine : null,
             'notes' => $notes,
             'detailTitle' => $hasGlance && $notes !== [] ? 'Tasting notes' : null,
+        ]);
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function assessmentChips(Review $review): array
+    {
+        $chips = [];
+        foreach ($review->assessments as $dimension => $level) {
+            $label = Sensory::assessmentLabel($dimension, (int) $level);
+            $heading = Sensory::assessments()[$dimension]['label'] ?? $dimension;
+            if ($label !== null) {
+                $chips[] = $heading.': '.$label;
+            }
+        }
+
+        return $chips;
+    }
+
+    private function provenancePanel(Review $review): string
+    {
+        $provenance = $review->provenanceRecord();
+        if ($provenance === []) {
+            return '';
+        }
+
+        $labels = [
+            'abv' => 'ABV',
+            'dealcoholization_method' => 'Production method',
+            'production_type' => 'Production type',
+            'country' => 'Origin / country',
+            'region' => 'Region',
+            'producer' => 'Producer',
+            'ingredients' => 'Ingredients',
+            'calories' => 'Calories',
+            'sugar' => 'Sugar',
+            'price' => 'Price',
+            'availability' => 'Availability',
+            'volume' => 'Volume',
+            'base_beverage' => 'Base beverage',
+            'ean' => 'Barcode (EAN/GTIN)',
+        ];
+
+        $kindLabels = [
+            'manufacturer' => 'Manufacturer',
+            'label' => 'Bottle / can label',
+            'retailer' => 'Retailer',
+            'distributor' => 'Distributor / importer',
+            'government' => 'Government',
+            'research' => 'Research',
+            'press' => 'Press',
+            'inference' => 'Inference',
+            'unknown' => 'Unspecified source',
+        ];
+
+        $confidenceLabels = [
+            'verified' => 'Verified',
+            'manufacturer_verified' => 'Manufacturer verified',
+            'label_verified' => 'Label verified',
+            'secondary' => 'Secondary source',
+            'inferred' => 'Inferred',
+            'unverified' => 'Unverified',
+        ];
+
+        $grouped = [];
+        foreach ($provenance as $field => $entry) {
+            $kind = (string) ($entry['kind'] ?? 'unknown');
+            $confidence = (string) ($entry['confidence'] ?? (
+                in_array($kind, ['manufacturer', 'label'], true) ? 'manufacturer_verified' : 'secondary'
+            ));
+            $url = (string) ($entry['url'] ?? '');
+            $key = $confidence.'|'.$kind.'|'.$url;
+            if (! isset($grouped[$key])) {
+                $note = isset($entry['note']) && ! str_starts_with((string) $entry['note'], 'Derived from')
+                    ? (string) $entry['note']
+                    : null;
+                $grouped[$key] = [
+                    'kind' => $kindLabels[$kind] ?? $kind,
+                    'confidence' => $confidenceLabels[$confidence] ?? $confidence,
+                    'confidenceClass' => preg_replace('/[^a-z0-9-]+/', '-', $confidence) ?: 'secondary',
+                    'href' => $url !== '' ? $url : null,
+                    'source' => $url !== ''
+                        ? (parse_url($url, PHP_URL_HOST) ?: 'Source')
+                        : ($note ?? 'Recorded claim'),
+                    'note' => $url === '' ? $note : null,
+                    'fields' => [],
+                ];
+            }
+            $grouped[$key]['fields'][] = $labels[$field] ?? ucfirst(str_replace('_', ' ', $field));
+        }
+
+        $groups = array_values($grouped);
+        $fieldCount = array_sum(array_map(fn (array $group): int => count($group['fields']), $groups));
+        $sourceCount = count($groups);
+        $summary = $fieldCount.' '.($fieldCount === 1 ? 'fact' : 'facts')
+            .' · '.$sourceCount.' '.($sourceCount === 1 ? 'source' : 'sources');
+
+        return $this->view->render('partials/provenance', [
+            'groups' => $groups,
+            'summary' => $summary,
         ]);
     }
 
@@ -1711,6 +1888,10 @@ XML;
             'method' => 'Method',
             'style' => 'Style',
             'country' => 'Country',
+            'sweetness' => 'Sweetness',
+            'body' => 'Body',
+            'score' => 'Score',
+            'color' => 'Color',
         ];
 
         if ($query->q !== '') {
@@ -1718,7 +1899,19 @@ XML;
             $items .= '<a class="filter-chip" href="'.$this->e($href).'">Search: '.$this->e($query->q).'<span aria-hidden="true">×</span></a>';
         }
 
-        foreach (['brand' => $query->brands, 'abv' => $query->abv, 'category' => $query->categories, 'production' => $query->production, 'method' => $query->methods, 'style' => $query->styles, 'country' => $query->countries] as $key => $values) {
+        foreach ([
+            'brand' => $query->brands,
+            'abv' => $query->abv,
+            'category' => $query->categories,
+            'production' => $query->production,
+            'method' => $query->methods,
+            'style' => $query->styles,
+            'country' => $query->countries,
+            'sweetness' => $query->sweetness,
+            'body' => $query->body,
+            'score' => $query->score,
+            'color' => $query->wineColor,
+        ] as $key => $values) {
             foreach ($values as $value) {
                 $remaining = array_values(array_filter($values, fn (string $item): bool => $item !== $value));
                 $href = $this->listingHref($path, $query, 1, [$key => implode(',', $remaining)]);
@@ -1749,6 +1942,14 @@ XML;
                 } elseif ($key === 'country') {
                     $match = $reviews->first(fn (Review $review): bool => $review->countrySlug() === $value);
                     $label = $match?->countryLabel() ?? $value;
+                } elseif ($key === 'sweetness') {
+                    $label = Sensory::structure()['sweetness']['levels'][(int) $value]['label'] ?? $value;
+                } elseif ($key === 'body') {
+                    $label = Sensory::structure()['body']['levels'][(int) $value]['label'] ?? $value;
+                } elseif ($key === 'score') {
+                    $label = ArchiveQuery::SCORE_BANDS[$value] ?? $value;
+                } elseif ($key === 'color') {
+                    $label = Sensory::wineColorLabels()[$value] ?? $value;
                 }
                 $items .= '<a class="filter-chip" href="'.$this->e($href).'">'.$this->e($labels[$key].': '.$label).'<span aria-hidden="true">×</span></a>';
             }

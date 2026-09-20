@@ -106,10 +106,10 @@ final class Site
             );
         }
 
-        if ($path === 'guides') {
+        if ($path === 'guides' || $path === 'learn') {
             return $renderer->documentIndex(
-                'Guides',
-                'Buying guides and the editorial distinctions that keep this site from becoming another generic NA roundup.',
+                'Learn',
+                'ABV labeling, dealcoholized vs alcohol alternative, buying guides, and the editorial distinctions that keep this site from becoming another generic NA roundup.',
                 'guides/',
                 'guides',
                 $guides,
@@ -117,7 +117,7 @@ final class Site
             );
         }
 
-        if (preg_match('#^guides/([^/]+)$#', $path, $matches) === 1) {
+        if (preg_match('#^(?:guides|learn)/([^/]+)$#', $path, $matches) === 1) {
             $guide = $guides->first(fn (PageDocument $document): bool => $document->slug === $matches[1]);
 
             if ($guide === null) {
@@ -128,7 +128,7 @@ final class Site
                 $guide,
                 'guides/'.$guide->slug.'/',
                 $renderer->crumbs([
-                    'Guides' => 'guides/',
+                    'Learn' => 'guides/',
                     $guide->title => 'guides/'.$guide->slug.'/',
                 ]),
                 'Guide',
@@ -355,6 +355,10 @@ final class Site
                 'verified' => $published->pluck('verified')->unique()->values(),
                 'methods' => $published->map(fn (Review $review): string => $review->methodFacetKey())->unique()->values(),
                 'styles' => $published->map(fn (Review $review): string => $review->styleSlug())->unique()->values(),
+                'wine_color' => $published->map(fn (Review $review): ?string => $review->wineColor())->filter()->unique()->values(),
+                'sweetness' => $published->map(fn (Review $review): ?int => $review->structureScaleInt('sweetness'))->filter(fn ($v) => $v !== null)->unique()->values(),
+                'body' => $published->map(fn (Review $review): ?int => $review->structureScaleInt('body'))->filter(fn ($v) => $v !== null)->unique()->values(),
+                'score' => $published->map(fn (Review $review): string => $review->scoreBand())->filter()->unique()->values(),
             ],
         ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n";
     }

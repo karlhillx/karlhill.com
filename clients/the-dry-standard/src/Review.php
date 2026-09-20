@@ -128,6 +128,12 @@ final class Review
         public readonly ?string $highlight = null,
         public readonly ?string $likeness = null,
         public readonly array $drinkIfYouLike = [],
+        /** @var array<int, array{descriptor: string, locations: array<int, string>, intensity?: string}> */
+        public readonly array $sensory = [],
+        /** @var array<string, int|string> */
+        public readonly array $structureScales = [],
+        /** @var array<string, int> */
+        public readonly array $assessments = [],
     ) {}
 
     /**
@@ -211,6 +217,12 @@ final class Review
             highlight: self::nullableString($matter['highlight'] ?? $matter['what_stands_out'] ?? null),
             likeness: self::nullableString($matter['likeness'] ?? $matter['wine_likeness'] ?? null),
             drinkIfYouLike: self::stringList($matter['drink_if_you_like'] ?? []),
+            sensory: Sensory::normalizeSensoryList($matter['sensory'] ?? $matter['descriptors'] ?? []),
+            structureScales: Sensory::normalizeStructureScales(
+                $matter['structure_scales'] ?? $matter['structure_profile'] ?? [],
+                self::stringList($matter['profile'] ?? []),
+            ),
+            assessments: Sensory::normalizeAssessments($matter['assessments'] ?? []),
         );
     }
 
@@ -231,15 +243,209 @@ final class Review
         };
     }
 
+    public function product(): Product
+    {
+        return Product::fromReview($this);
+    }
+
+    /**
+     * @return array<int, array{descriptor: string, locations: array<int, string>, intensity?: string}>
+     */
+    public function resolvedSensory(): array
+    {
+        if ($this->sensory !== []) {
+            return $this->sensory;
+        }
+
+        return Sensory::normalizeSensoryList($this->tastes);
+    }
+
+    /**
+     * @return array<string, int|string>
+     */
+    public function resolvedStructureScales(): array
+    {
+        if ($this->structureScales !== []) {
+            return $this->structureScales;
+        }
+
+        return Sensory::normalizeStructureScales([], $this->profile);
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function flavorProfileLabels(): array
+    {
+        return Sensory::flavorLabels($this->resolvedSensory(), $this->tastes);
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function structureProfileLabels(): array
+    {
+        $fromScales = Sensory::structureLabels($this->resolvedStructureScales());
+        if ($fromScales !== []) {
+            return $fromScales;
+        }
+
+        return array_values(array_filter(
+            $this->profile,
+            fn (string $chip): bool => ! Sensory::isNoiseTaste($chip),
+        ));
+    }
+
+    public function structureScaleInt(string $key): ?int
+    {
+        $scales = $this->resolvedStructureScales();
+        if (! isset($scales[$key]) || ! is_numeric($scales[$key])) {
+            return null;
+        }
+
+        return (int) $scales[$key];
+    }
+
+    public function wineColor(): ?string
+    {
+        if ($this->category !== 'wine') {
+            return null;
+        }
+
+        return Sensory::wineColor($this->styleSlug(), $this->style, $this->subcategory, $this->product);
+    }
+
+    public function scoreBand(): string
+    {
+        $rating = $this->rating;
+        if ($rating === null) {
+            return '';
+        }
+        if ($rating >= 90) {
+            return '90';
+        }
+        if ($rating >= 80) {
+            return '80';
+        }
+        if ($rating >= 70) {
+            return '70';
+        }
+
+        return 'under70';
+    }
+
+    /**
+     * Explicit provenance merged with claim-derived evidence from sources.
+     * Explicit entries always win; derived rows never invent unsourced facts.
+     *
+     * @return array<string, array{kind: string, url?: string, note?: string, confidence?: string, verified_date?: string}>
+     */
+    public function provenanceRecord(): array
+    {
+        $rows = $this->provenance;
+
+        foreach ($this->sources as $source) {
+            $url = (string) ($source['url'] ?? '');
+            $kind = self::inferProvenanceKind($url, (string) ($source['title'] ?? ''));
+            $confidence = $kind === 'manufacturer' || $kind === 'label'
+                ? 'manufacturer_verified'
+                : ($kind === 'retailer' || $kind === 'distributor' ? 'secondary' : 'secondary');
+
+            foreach ($source['claims'] ?? [] as $claim) {
+                $field = self::provenanceFieldForClaim((string) $claim);
+                if ($field === null || isset($rows[$field])) {
+                    continue;
+                }
+
+                $rows[$field] = array_filter([
+                    'kind' => $kind,
+                    'url' => $url !== '' ? $url : null,
+                    'confidence' => $confidence,
+                    'note' => 'Derived from sourced claim: '.$claim,
+                ], fn (mixed $value): bool => $value !== null && $value !== '');
+            }
+        }
+
+        if ($this->ean !== null && $this->ean !== '' && ! isset($rows['ean'])) {
+            $rows['ean'] = [
+                'kind' => 'label',
+                'confidence' => 'label_verified',
+                'note' => 'Barcode recorded from packaging or producer listing',
+            ];
+        }
+
+        if ($this->verified === 'yes' && ! isset($rows['production_type'])) {
+            $rows['production_type'] = [
+                'kind' => 'manufacturer',
+                'confidence' => 'verified',
+                'note' => 'production_type marked verified in frontmatter',
+            ];
+        }
+
+        return $rows;
+    }
+
     public function hasGlancePanel(): bool
     {
-        return $this->tastes !== []
-            || $this->profile !== []
+        return $this->flavorProfileLabels() !== []
+            || $this->structureProfileLabels() !== []
             || $this->mouthfeel !== null
             || $this->highlight !== null
             || $this->likenessText() !== null
             || $this->drinkIfYouLike !== []
-            || ($this->bestFor !== null && $this->bestFor !== '');
+            || ($this->bestFor !== null && $this->bestFor !== '')
+            || $this->assessments !== [];
+    }
+
+    private static function provenanceFieldForClaim(string $claim): ?string
+    {
+        $claim = strtolower(trim($claim));
+
+        return match ($claim) {
+            'abv' => 'abv',
+            'method', 'dealcoholization_method' => 'dealcoholization_method',
+            'dealcoholized', 'production_type' => 'production_type',
+            'origin', 'country' => 'country',
+            'region' => 'region',
+            'producer' => 'producer',
+            'ingredients' => 'ingredients',
+            'calories' => 'calories',
+            'sugar' => 'sugar',
+            'price' => 'price',
+            'availability' => 'availability',
+            'volume' => 'volume',
+            'base_beverage' => 'base_beverage',
+            default => null,
+        };
+    }
+
+    private static function inferProvenanceKind(string $url, string $title): string
+    {
+        $hay = strtolower($url.' '.$title);
+
+        if (str_contains($hay, 'label') || str_contains($hay, 'nutrition')) {
+            return 'label';
+        }
+        if (preg_match('/\b(gov|fda|usda|efsa|ttb)\b/', $hay) === 1) {
+            return 'government';
+        }
+        if (str_contains($hay, 'press') || str_contains($hay, 'prweb') || str_contains($hay, 'newsroom')) {
+            return 'press';
+        }
+        if (preg_match('/\b(total wine|wine\.com|amazon|instacart|wegmans|retail|shop|store|cellar)\b/', $hay) === 1) {
+            return 'retailer';
+        }
+        if (preg_match('/\b(importer|distributor|wholesale)\b/', $hay) === 1) {
+            return 'distributor';
+        }
+        if (preg_match('/\b(weingut|winery|brewery|distill|producer|official|\.com\/products)\b/', $hay) === 1
+            || str_contains($hay, 'guinness.com')
+            || str_contains($hay, 'leitz-wein')
+            || str_contains($hay, 'giesen')) {
+            return 'manufacturer';
+        }
+
+        return 'unknown';
     }
 
     /**
@@ -256,6 +462,9 @@ final class Review
         $matter['tastes'] = self::decodeJsonList($row['tastes'] ?? '[]');
         $matter['profile'] = self::decodeJsonList($row['profile'] ?? '[]');
         $matter['drink_if_you_like'] = self::decodeJsonList($row['drink_if_you_like'] ?? '[]');
+        $matter['sensory'] = self::decodeJsonList($row['sensory'] ?? '[]');
+        $matter['structure_scales'] = self::decodeJsonMap($row['structure_scales'] ?? '{}');
+        $matter['assessments'] = self::decodeJsonMap($row['assessments'] ?? '{}');
 
         return self::fromMatter(
             $matter,
@@ -312,6 +521,9 @@ final class Review
             'highlight' => $this->highlight,
             'likeness' => $this->likeness,
             'drink_if_you_like' => json_encode($this->drinkIfYouLike, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+            'sensory' => json_encode($this->resolvedSensory(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+            'structure_scales' => json_encode($this->resolvedStructureScales(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+            'assessments' => json_encode($this->assessments, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
             'best_for' => $this->bestFor,
             'serve' => $this->serve,
             'sources' => json_encode($this->sources, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
@@ -329,6 +541,9 @@ final class Review
             'method_facet' => $this->methodFacetKey(),
             'abv_bucket' => $this->abvBucket(),
             'country_slug' => $this->countrySlug(),
+            'wine_color' => $this->wineColor(),
+            'sweetness' => $this->structureScaleInt('sweetness'),
+            'body_level' => $this->structureScaleInt('body'),
             'search_text' => $this->searchText(),
             'product_id' => $this->productIdValue(),
             'identifiers' => json_encode($this->identifiersRecord(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
@@ -339,7 +554,7 @@ final class Review
             'advertising_relationship' => $this->advertisingRelationship,
             'commercial_relationship' => $this->commercialRelationship,
             'disclosure_note' => $this->disclosureNote,
-            'provenance' => json_encode($this->provenance, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+            'provenance' => json_encode($this->provenanceRecord(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
         ];
     }
 
@@ -670,6 +885,17 @@ final class Review
             'style_slug' => $this->styleSlug(),
             'country_slug' => $this->countrySlug(),
             'method_facet' => $this->methodFacetKey(),
+            'product_id' => $this->productIdValue(),
+            'identifiers' => $this->identifiersRecord(),
+            'wine_color' => $this->wineColor(),
+            'sensory' => $this->resolvedSensory(),
+            'structure_scales' => $this->resolvedStructureScales(),
+            'assessments' => $this->assessments,
+            'flavor_profile' => $this->flavorProfileLabels(),
+            'structure_profile' => $this->structureProfileLabels(),
+            'sweetness' => $this->structureScaleInt('sweetness'),
+            'body' => $this->structureScaleInt('body'),
+            'score_band' => $this->scoreBand(),
         ];
     }
 
@@ -1206,6 +1432,14 @@ final class Review
             $note = self::nullableString($entry['note'] ?? null);
             if ($note !== null) {
                 $item['note'] = $note;
+            }
+            $confidence = self::nullableLower($entry['confidence'] ?? null);
+            if ($confidence !== null && in_array($confidence, Sensory::PROVENANCE_CONFIDENCE, true)) {
+                $item['confidence'] = $confidence;
+            }
+            $verifiedDate = self::nullableString($entry['verified_date'] ?? $entry['verified'] ?? null);
+            if ($verifiedDate !== null) {
+                $item['verified_date'] = $verifiedDate;
             }
             $rows[$field] = $item;
         }

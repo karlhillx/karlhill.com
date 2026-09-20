@@ -26,6 +26,7 @@ it('serves the Dry Standard homepage and primary sections', function () {
         '/clients/the-dry-standard/reviews/cocktails/',
         '/clients/the-dry-standard/reviews/cider/',
         '/clients/the-dry-standard/guides/',
+        '/clients/the-dry-standard/learn/',
         '/clients/the-dry-standard/brands/',
         '/clients/the-dry-standard/methods/',
         '/clients/the-dry-standard/about/',
@@ -73,10 +74,13 @@ it('serves sourced sample reviews with production-type badges', function () {
         ->assertOk()
         ->assertSee('<h2>The wine</h2>', escape: false)
         ->assertSee('At a glance', escape: false)
-        ->assertSee('<dt>Taste</dt>', escape: false)
+        ->assertSee('<dt>Flavor profile</dt>', escape: false)
         ->assertSee('<dt>Structure</dt>', escape: false)
         ->assertSee('How wine-like is it?', escape: false)
         ->assertSee('balsamic', escape: false)
+        ->assertSee('id="provenance"', escape: false)
+        ->assertSee('Evidence', escape: false)
+        ->assertSee('provenance-summary-meta', escape: false)
         ->assertDontSee('Product overview', escape: false);
 });
 
@@ -312,7 +316,7 @@ it('disallows crawlers while staged and puts Best in the primary nav', function 
         ->assertOk()
         ->assertSee('>Best</a>', escape: false)
         ->assertSee('>Brands</a>', escape: false)
-        ->assertSee('>Methods</a>', escape: false)
+        ->assertSee('>How it’s made</a>', escape: false)
         ->assertSee('>Styles</a>', escape: false)
         ->assertSee('fonts/fraunces.woff2', escape: false)
         ->assertDontSee('fonts.googleapis.com', escape: false);
@@ -390,7 +394,7 @@ it('serves the purchased Ohla, Hitachino, Dr. Lo, Pierre sparkling, and Lyre\'s 
         ->assertSee('media/reviews/ohla-rose.jpg', escape: false)
         ->assertSee('Ohla! Rosé', escape: false)
         ->assertSee('At a glance', escape: false)
-        ->assertSee('<dt>Taste</dt>', escape: false)
+        ->assertSee('<dt>Flavor profile</dt>', escape: false)
         ->assertSee('How wine-like is it?', escape: false)
         ->assertSee('watermelon candy', escape: false)
         ->assertDontSee('TDS-0104', escape: false);

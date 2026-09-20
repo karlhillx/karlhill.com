@@ -2,49 +2,87 @@
 title: "P.J. Valckenberg 'It's Not a Sin' NA Ginger/Bitter Orange"
 slug: valckenberg-not-a-sin
 id: TDS-0075
-brand: P.J. Valckenberg
+brand: 'P.J. Valckenberg'
 product: "It's Not a Sin Ginger/Bitter Orange"
-abv: "Not published"
+abv: 'Not published'
 category: cocktails
-subcategory: non-alcoholic aperitivo
+subcategory: 'non-alcoholic aperitivo'
 country: Germany
-style: Formulated non-alcoholic ginger and bitter-orange aperitivo
+style: 'Formulated non-alcoholic ginger and bitter-orange aperitivo'
 production_type: alternative
-verified: yes
+verified: 'yes'
 production_note: "Formulated beverage — no underlying alcoholic drink before removal; part of Valckenberg's Zero non-alcoholic line."
-base_beverage: "Botanical formulation with ginger and bitter orange"
-producer: P.J. Valckenberg (Germany)
-availability: "US retail; German retail"
-review_date: "2026-09-18"
-updated_date: "2026-09-19"
+base_beverage: 'Botanical formulation with ginger and bitter orange'
+producer: 'P.J. Valckenberg (Germany)'
+availability: 'US retail; German retail'
+review_date: '2026-09-18'
+updated_date: '2026-09-19'
 rating: 77
 verdict: "Valckenberg's contribution to the NA aperitivo shelf — ginger and bitter orange, built as a spritz base rather than a wine substitute."
 summary: "P.J. Valckenberg's 'It's Not a Sin' is a formulated NA aperitivo with ginger and bitter orange: 0.0% ABV, built for spritzes."
-
 tastes:
   - fruit
 profile:
   - Off-dry
-  - Modest bitterness
-  - Clean finish
-mouthfeel: "Bittersweet and gently spiced; the ginger does the work that gentian does in an Aperol, the orange carries the fruit side."
+  - 'Modest bitterness'
+  - 'Clean finish'
 highlight: "Valckenberg's contribution to the NA aperitivo shelf — ginger and bitter orange, built as a spritz base rather than a wine substitute."
-likeness: "Valckenberg's contribution to the NA aperitivo shelf — ginger and bitter orange, built as a spritz base rather than a wine substitute."
-nose: "Bright bitter orange with a ginger warmth underneath."
-palate: "Bittersweet and gently spiced; the ginger does the work that gentian does in an Aperol, the orange carries the fruit side."
-finish: "Clean and gently bitter."
-best_for: "The aperitivo hour, spritzed over ice with sparkling water."
-serve: "Over ice with sparkling water and an orange slice."
+nose: 'Bright bitter orange with a ginger warmth underneath.'
+palate: 'Bittersweet and gently spiced; the ginger does the work that gentian does in an Aperol, the orange carries the fruit side.'
+finish: 'Clean and gently bitter.'
+best_for: 'The aperitivo hour, spritzed over ice with sparkling water.'
+serve: 'Over ice with sparkling water and an orange slice.'
 image: media/reviews/valckenberg-not-a-sin.jpg
 image_alt: "P.J. Valckenberg It's Not a Sin bottle"
-image_credit: Product photo via P.J. Valckenberg
+image_credit: 'Product photo via P.J. Valckenberg'
 image_source: editorial
-image_sku_confirmed: yes
+image_sku_confirmed: 'yes'
 sources:
-  - title: "Valckenberg Zero line — P.J. Valckenberg"
-    url: https://www.valckenberg.com/en/wineries/winery/77-valckenberg-zero
-    claims: [producer, country, dealcoholized, availability, base_beverage]
+  -
+    title: 'Valckenberg Zero line — P.J. Valckenberg'
+    url: 'https://www.valckenberg.com/en/wineries/winery/77-valckenberg-zero'
+    claims:
+      - producer
+      - country
+      - dealcoholized
+      - availability
+      - base_beverage
 status: published
+product_id: TDS-0075
+identifiers:
+  -
+    type: tds
+    value: TDS-0075
+sensory:
+  -
+    descriptor: fruit
+    locations:
+      - palate
+structure_scales:
+  sweetness: 2
+  bitterness: 1
+  finish_length: 0
+provenance:
+  producer:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.valckenberg.com/en/wineries/winery/77-valckenberg-zero'
+  country:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.valckenberg.com/en/wineries/winery/77-valckenberg-zero'
+  production_type:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.valckenberg.com/en/wineries/winery/77-valckenberg-zero'
+  availability:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.valckenberg.com/en/wineries/winery/77-valckenberg-zero'
+  base_beverage:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.valckenberg.com/en/wineries/winery/77-valckenberg-zero'
 ---
 
 P.J. Valckenberg 'It's Not a Sin' NA Ginger/Bitter Orange is formulated as an alcohol alternative from Germany. The base is Botanical formulation with ginger and bitter orange. It was built without a dealcoholization step.

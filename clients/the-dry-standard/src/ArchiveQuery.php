@@ -8,6 +8,13 @@ final class ArchiveQuery
 {
     public const PER_PAGE = 24;
 
+    public const SCORE_BANDS = [
+        '90' => '90+',
+        '80' => '80–89',
+        '70' => '70–79',
+        'under70' => 'Under 70',
+    ];
+
     /**
      * @param  array<int, string>  $brands
      * @param  array<int, string>  $abv
@@ -16,6 +23,10 @@ final class ArchiveQuery
      * @param  array<int, string>  $methods
      * @param  array<int, string>  $styles
      * @param  array<int, string>  $countries
+     * @param  array<int, string>  $sweetness
+     * @param  array<int, string>  $body
+     * @param  array<int, string>  $score
+     * @param  array<int, string>  $wineColor
      */
     public function __construct(
         public readonly string $q = '',
@@ -26,17 +37,26 @@ final class ArchiveQuery
         public readonly array $methods = [],
         public readonly array $styles = [],
         public readonly array $countries = [],
+        public readonly array $sweetness = [],
+        public readonly array $body = [],
+        public readonly array $score = [],
+        public readonly array $wineColor = [],
         public readonly string $sort = 'newest',
         public readonly int $page = 1,
         public readonly ?string $lockedCategory = null,
         public readonly ?string $lockedStyle = null,
+        public readonly ?string $lockedWineColor = null,
     ) {}
 
     /**
      * @param  array<string, mixed>  $query
      */
-    public static function from(array $query, ?string $lockedCategory = null, ?string $lockedStyle = null): self
-    {
+    public static function from(
+        array $query,
+        ?string $lockedCategory = null,
+        ?string $lockedStyle = null,
+        ?string $lockedWineColor = null,
+    ): self {
         $sort = (string) ($query['sort'] ?? 'newest');
         if (! in_array($sort, ['newest', 'rating', 'title'], true)) {
             $sort = 'newest';
@@ -56,10 +76,15 @@ final class ArchiveQuery
             methods: self::methodList($query),
             styles: self::list($query, 'style'),
             countries: self::list($query, 'country'),
+            sweetness: self::list($query, 'sweetness'),
+            body: self::list($query, 'body'),
+            score: self::list($query, 'score'),
+            wineColor: $lockedWineColor !== null ? [] : self::list($query, 'color'),
             sort: $sort,
             page: $page,
             lockedCategory: $lockedCategory,
             lockedStyle: $lockedStyle,
+            lockedWineColor: $lockedWineColor,
         );
     }
 
@@ -87,12 +112,21 @@ final class ArchiveQuery
             return false;
         }
 
+        $color = $this->lockedWineColor;
+        if (is_string($color) && $color !== '' && $review->wineColor() !== $color) {
+            return false;
+        }
+
         return $this->matchesFacet($skip, 'brand', $this->brands, $review->brandSlug())
             && $this->matchesFacet($skip, 'abv', $this->abv, $review->abvBucket())
             && $this->matchesFacet($skip, 'production', $this->production, $review->productionType)
             && $this->matchesFacet($skip, 'method', $this->methods, $review->methodFacetKey())
             && $this->matchesFacet($skip, 'style', $this->styles, $review->styleSlug())
-            && $this->matchesFacet($skip, 'country', $this->countries, $review->countrySlug());
+            && $this->matchesFacet($skip, 'country', $this->countries, $review->countrySlug())
+            && $this->matchesFacet($skip, 'sweetness', $this->sweetness, (string) ($review->structureScaleInt('sweetness') ?? ''))
+            && $this->matchesFacet($skip, 'body', $this->body, (string) ($review->structureScaleInt('body') ?? ''))
+            && $this->matchesFacet($skip, 'score', $this->score, $review->scoreBand())
+            && $this->matchesFacet($skip, 'color', $this->wineColor, (string) ($review->wineColor() ?? ''));
     }
 
     /**
@@ -151,6 +185,10 @@ final class ArchiveQuery
             || $this->methods !== []
             || $this->styles !== []
             || $this->countries !== []
+            || $this->sweetness !== []
+            || $this->body !== []
+            || $this->score !== []
+            || $this->wineColor !== []
             || $this->sort !== 'newest';
     }
 
@@ -168,7 +206,19 @@ final class ArchiveQuery
             $parts['q'] = $q;
         }
 
-        foreach (['brand' => $this->brands, 'abv' => $this->abv, 'category' => $this->categories, 'production' => $this->production, 'method' => $this->methods, 'style' => $this->styles, 'country' => $this->countries] as $key => $values) {
+        foreach ([
+            'brand' => $this->brands,
+            'abv' => $this->abv,
+            'category' => $this->categories,
+            'production' => $this->production,
+            'method' => $this->methods,
+            'style' => $this->styles,
+            'country' => $this->countries,
+            'sweetness' => $this->sweetness,
+            'body' => $this->body,
+            'score' => $this->score,
+            'color' => $this->wineColor,
+        ] as $key => $values) {
             if (array_key_exists($key, $overrides)) {
                 $value = (string) $overrides[$key];
                 if ($value !== '') {
@@ -201,20 +251,17 @@ final class ArchiveQuery
      */
     private static function list(array $query, string $key): array
     {
-        $value = $query[$key] ?? $query[$key.'[]'] ?? null;
-
-        if (is_array($value)) {
-            return array_values(array_filter(array_map(
-                fn (mixed $item): string => trim((string) $item),
-                $value,
-            )));
+        $raw = $query[$key] ?? '';
+        if (is_array($raw)) {
+            $parts = $raw;
+        } else {
+            $parts = preg_split('/\s*,\s*/', (string) $raw) ?: [];
         }
 
-        if (! is_string($value) || trim($value) === '') {
-            return [];
-        }
-
-        return array_values(array_filter(array_map('trim', explode(',', $value))));
+        return array_values(array_filter(array_map(
+            fn (mixed $value): string => trim((string) $value),
+            $parts,
+        ), fn (string $value): bool => $value !== ''));
     }
 
     /**
@@ -226,16 +273,12 @@ final class ArchiveQuery
         $legacy = [
             'yes' => 'dealcoholized',
             'no' => 'alternative',
-            'not-verified' => 'not-verified',
+            'unknown' => 'not-verified',
         ];
-        $values = self::list($query, 'production');
-        if ($values === []) {
-            $values = self::list($query, 'dealcoholized');
-        }
 
         return array_values(array_map(
             fn (string $value): string => $legacy[$value] ?? $value,
-            $values,
+            self::list($query, 'production'),
         ));
     }
 
@@ -246,7 +289,7 @@ final class ArchiveQuery
     private static function methodList(array $query): array
     {
         $legacy = [
-            'unpublished' => 'unknown',
+            'cold-filtration' => 'membrane-filtration',
             'reverse-distillation' => 'other',
         ];
 
@@ -300,6 +343,12 @@ final class ArchiveQuery
             $params['locked_style'] = $styleLock;
         }
 
+        $colorLock = $this->lockedWineColor;
+        if (is_string($colorLock) && $colorLock !== '') {
+            $clauses[] = 'wine_color = :locked_color';
+            $params['locked_color'] = $colorLock;
+        }
+
         if ($skip !== 'brand') {
             $clauses[] = $this->inClause('brand_slug', $this->brands, $params, 'brand');
         }
@@ -317,6 +366,45 @@ final class ArchiveQuery
         }
         if ($skip !== 'country') {
             $clauses[] = $this->inClause('country_slug', $this->countries, $params, 'country');
+        }
+        if ($skip !== 'sweetness' && $this->sweetness !== []) {
+            $ors = [];
+            foreach (array_values($this->sweetness) as $index => $value) {
+                $key = 'sweet'.$index;
+                $ors[] = 'sweetness = :'.$key;
+                $params[$key] = (string) (int) $value;
+            }
+            $clauses[] = '('.implode(' OR ', $ors).')';
+        }
+        if ($skip !== 'body' && $this->body !== []) {
+            $ors = [];
+            foreach (array_values($this->body) as $index => $value) {
+                $key = 'body'.$index;
+                $ors[] = 'body_level = :'.$key;
+                $params[$key] = (string) (int) $value;
+            }
+            $clauses[] = '('.implode(' OR ', $ors).')';
+        }
+        if ($skip !== 'score' && $this->score !== []) {
+            $scoreClauses = [];
+            foreach (array_values($this->score) as $index => $band) {
+                $key = 'score'.$index;
+                $scoreClauses[] = match ($band) {
+                    '90' => 'rating >= 90',
+                    '80' => '(rating >= 80 AND rating < 90)',
+                    '70' => '(rating >= 70 AND rating < 80)',
+                    'under70' => 'rating < 70',
+                    default => '0',
+                };
+                unset($key);
+            }
+            $scoreClauses = array_values(array_filter($scoreClauses, fn (string $c): bool => $c !== '0'));
+            if ($scoreClauses !== []) {
+                $clauses[] = '('.implode(' OR ', $scoreClauses).')';
+            }
+        }
+        if ($skip !== 'color' && ($colorLock === null || $colorLock === '')) {
+            $clauses[] = $this->inClause('wine_color', $this->wineColor, $params, 'color');
         }
 
         $clauses = array_values(array_filter($clauses, fn (string $clause): bool => $clause !== ''));
@@ -347,12 +435,12 @@ final class ArchiveQuery
     /**
      * @param  array<int, string>  $selected
      */
-    private function matchesFacet(string $skip, string $name, array $selected, string $value): bool
+    private function matchesFacet(string $skip, string $name, array $selected, string $actual): bool
     {
         if ($skip === $name || $selected === []) {
             return true;
         }
 
-        return in_array($value, $selected, true);
+        return $actual !== '' && in_array($actual, $selected, true);
     }
 }

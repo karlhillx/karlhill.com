@@ -44,15 +44,18 @@ Keep the house in `product` only when it is the official SKU (Guinness 0.0) or w
 
 ## Review skeleton
 
-1. At a glance (taste · structure · mouthfeel · what stands out · likeness · production)
-2. The wine (or beer, spirit, cider, drink — by category)
-3. How was it made?
-4. Product facts
-5. Tasting notes (nose, palate, finish)
-6. How to drink it
-7. Verdict
-8. Sources
+Public page order (hero already carries title, score, lede, ABV / origin / style / method):
 
+1. At a glance (flavor profile · structure · mouthfeel · what stands out · likeness · production) + Nose / Palate / Finish
+2. The wine (or beer, spirit, cider, drink — by category) — the essay
+3. How to drink it
+4. Verdict
+5. How was it made? (production deep dive; discrepancies live here)
+6. Evidence (collapsed provenance)
+7. Sources
+8. Product facts (sidebar on desktop; follows the main column on small screens)
+
+Prefer structured `sensory` + `structure_scales` over free-text `tastes` / `profile`. Public labels are **Flavor profile** and **Structure**, never “Taste.” Fill `product_id`, `identifiers`, and `provenance` whenever facts are sourced. Do not restate the glance fields line-for-line in the essay.
 ## Product images
 
 Save one still per review at `media/reviews/{slug}.jpg` (JPEG source) plus a generated 3:4 WebP.

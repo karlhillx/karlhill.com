@@ -3,6 +3,7 @@
 namespace DryStandard\Rendering;
 
 use DryStandard\Review;
+use DryStandard\Sensory;
 use DryStandard\SiteConfig;
 
 final class StructuredData
@@ -149,7 +150,33 @@ final class StructuredData
             ];
         }
 
+        foreach ($review->resolvedStructureScales() as $key => $level) {
+            if ($key === 'texture') {
+                $properties[] = [
+                    '@type' => 'PropertyValue',
+                    'name' => 'texture',
+                    'value' => (string) $level,
+                ];
+
+                continue;
+            }
+
+            $label = Sensory::structure()[$key]['levels'][(int) $level]['label'] ?? null;
+            if (is_string($label)) {
+                $properties[] = [
+                    '@type' => 'PropertyValue',
+                    'name' => $key,
+                    'value' => $label,
+                ];
+            }
+        }
+
         $ean = preg_replace('/\D+/', '', (string) $review->ean) ?: '';
+        foreach ($review->identifiersRecord() as $identifier) {
+            if (($identifier['type'] ?? '') === 'gtin' || ($identifier['type'] ?? '') === 'ean') {
+                $ean = preg_replace('/\D+/', '', (string) $identifier['value']) ?: $ean;
+            }
+        }
 
         return array_filter([
             '@type' => 'Product',

@@ -1,56 +1,98 @@
 ---
-title: "DC Brau Non-Alcoholic Pale Ale"
+title: 'DC Brau Non-Alcoholic Pale Ale'
 slug: dc-brau-pale-ale
 id: TDS-0009
-brand: DC Brau Brewing Co.
-product: Pale Ale
+brand: 'DC Brau Brewing Co.'
+product: 'Pale Ale'
 category: beer
-subcategory: pale ale
-country: United States
-region: "Washington, DC"
-style: Non-alcoholic pale ale
-abv: "<0.5%"
+subcategory: 'pale ale'
+country: 'United States'
+region: 'Washington, DC'
+style: 'Non-alcoholic pale ale'
+abv: '<0.5%'
 abv_numeric: 0.3
 production_type: dealcoholized
-verified: yes
-dealcoholization_method: "Mechanical separator removing alcohol from finished beer, combined with a hybrid low-alcohol Lallemand yeast strain during fermentation"
-producer: DC Brau Brewing Co.
+verified: 'yes'
+dealcoholization_method: 'Mechanical separator removing alcohol from finished beer, combined with a hybrid low-alcohol Lallemand yeast strain during fermentation'
+producer: 'DC Brau Brewing Co.'
 image: media/reviews/dc-brau-pale-ale.jpg
-image_alt: "DC Brau Non-Alcoholic Pale Ale"
-image_credit: Editorial still
+image_alt: 'DC Brau Non-Alcoholic Pale Ale'
+image_credit: 'Editorial still'
 image_source: editorial
-image_sku_confirmed: yes
-review_date: "2026-09-18"
-updated_date: "2026-09-19"
+image_sku_confirmed: 'yes'
+review_date: '2026-09-18'
+updated_date: '2026-09-19'
 rating: 76
-verdict: "A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation."
+verdict: 'A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation.'
 summary: "DC Brau's non-alcoholic pale ale is a Washington, DC brewery product sold at Total Wine and Metro. Method and ABV are not published on a page we can cite."
-
 tastes:
-  - pale-ale citrus
-  - biscuit malt
+  - 'pale-ale citrus'
+  - 'biscuit malt'
   - modest
 profile:
   - Off-dry
-  - Light body
-  - Modest bitterness
-  - Short finish
-mouthfeel: "Light body, gentle bitterness, a little grain-sweet in the middle."
-highlight: "A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation."
-likeness: "A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation."
-nose: "Pale-ale citrus and biscuit malt, modest."
-palate: "Light body, gentle bitterness, a little grain-sweet in the middle."
-finish: "Short. Clean enough to have a second."
-best_for: "The local six-pack when you do not want to mail-order Athletic."
-serve: "Cold."
+  - 'Light body'
+  - 'Modest bitterness'
+  - 'Short finish'
+highlight: 'A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation.'
+nose: 'Pale-ale citrus and biscuit malt, modest.'
+palate: 'Light body, gentle bitterness, a little grain-sweet in the middle.'
+finish: 'Short. Clean enough to have a second.'
+best_for: 'The local six-pack when you do not want to mail-order Athletic.'
+serve: Cold.
 sources:
-  - title: "DC Brau Brewing Co."
-    url: https://dcbrau.com/
-    claims: [producer, origin, region, country]
-  - title: "Non-Alcoholic DC Brau Pale Ale: NA Brau — DC Beer"
-    url: https://dcbeer.com/2024/04/03/non-alcoholic-dc-brau-pale-ale-na-brau/
-    claims: [dealcoholized, abv, producer, method]
+  -
+    title: 'DC Brau Brewing Co.'
+    url: 'https://dcbrau.com/'
+    claims:
+      - producer
+      - origin
+      - region
+      - country
+  -
+    title: 'Non-Alcoholic DC Brau Pale Ale: NA Brau — DC Beer'
+    url: 'https://dcbeer.com/2024/04/03/non-alcoholic-dc-brau-pale-ale-na-brau/'
+    claims:
+      - dealcoholized
+      - abv
+      - producer
+      - method
 status: published
+product_id: TDS-0009
+identifiers:
+  -
+    type: tds
+    value: TDS-0009
+structure_scales:
+  sweetness: 2
+  body: 1
+  bitterness: 1
+  finish_length: 0
+provenance:
+  producer:
+    kind: unknown
+    confidence: secondary
+    url: 'https://dcbrau.com/'
+  country:
+    kind: unknown
+    confidence: secondary
+    url: 'https://dcbrau.com/'
+  region:
+    kind: unknown
+    confidence: secondary
+    url: 'https://dcbrau.com/'
+  production_type:
+    kind: unknown
+    confidence: secondary
+    url: 'https://dcbeer.com/2024/04/03/non-alcoholic-dc-brau-pale-ale-na-brau/'
+  abv:
+    kind: unknown
+    confidence: secondary
+    url: 'https://dcbeer.com/2024/04/03/non-alcoholic-dc-brau-pale-ale-na-brau/'
+  dealcoholization_method:
+    kind: unknown
+    confidence: secondary
+    url: 'https://dcbeer.com/2024/04/03/non-alcoholic-dc-brau-pale-ale-na-brau/'
 ---
 
 DC Brau Non-Alcoholic Pale Ale is dealcoholized from Washington, DC, United States. Mechanical separator removing alcohol from finished beer, combined with a hybrid low-alcohol Lallemand yeast strain during fermentation. The can is a pale ale, not a hop-water. Biscuit, light citrus, a short finish. A local bottle, not a national argument.

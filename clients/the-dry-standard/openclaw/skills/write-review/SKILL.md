@@ -37,15 +37,23 @@ Scannable decision fields, rendered above the essay. Plain English. Middot chips
 
 | Field | Purpose |
 | --- | --- |
-| `tastes` | Short flavor tags (strawberry, balsamic). 3–6 max. |
-| `profile` | Structure chips: sweetness, acidity, body, tannin, carbonation. |
-| `mouthfeel` | One short line. |
+| `sensory` | Canonical flavor descriptors with locations (nose/palate/finish). Prefer over free-text. |
+| `tastes` | Legacy short flavor tags (strawberry, balsamic). 3–6 max. Mapped to `sensory` when possible. |
+| `structure_scales` | Normalized structure (sweetness, body, acidity, …). Prefer over free-text. |
+| `profile` | Legacy structure chips. Mapped to `structure_scales` when possible. |
+| `mouthfeel` | One short line. Must not copy `palate`. |
 | `highlight` | What stands out — one sentence. |
-| `likeness` | How wine/beer/spirit-like. Separate from `rating`. Prefer this over legacy `structure` for the likeness question. |
+| `likeness` | How wine/beer/spirit-like. Separate from `rating`. Must not copy `verdict`. |
+| `assessments` | Optional qualitative scores (likeness/authenticity/balance/…). |
 | `drink_if_you_like` | Comparable styles, optional. |
 | `best_for` | Perfect for / occasion. |
+| `product_id` / `identifiers` / `provenance` | Product identity and evidence — fill whenever sourced. |
 
-`structure` remains valid as a short authenticity note and as a fallback for `likeness` when `likeness` is empty. Do not treat the three as interchangeable: `rating` = quality, `likeness` = resemblance, `profile`/`structure` = structural authenticity.
+Public glance labels: **Flavor profile** (sensory) · **Structure** (scales) · Nose / Palate / Finish (prose).
+
+`structure` remains valid as a short authenticity note and as a fallback for `likeness` when `likeness` is empty. Do not treat the three as interchangeable: `rating` = quality, `likeness` = resemblance, `profile`/`structure_scales` = structural authenticity.
+
+Never invent descriptors. Never promote AI inference to `provenance.confidence: verified`.
 
 Never title the essay "Product overview."
 

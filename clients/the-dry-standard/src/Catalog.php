@@ -508,6 +508,12 @@ final class Catalog
             'commercial_relationship',
             'disclosure_note',
             'provenance',
+            'sensory',
+            'structure_scales',
+            'assessments',
+            'wine_color',
+            'sweetness',
+            'body_level',
         ];
     }
 
@@ -598,6 +604,12 @@ SQL);
         $this->ensureColumn('highlight', 'highlight TEXT');
         $this->ensureColumn('likeness', 'likeness TEXT');
         $this->ensureColumn('drink_if_you_like', "drink_if_you_like TEXT NOT NULL DEFAULT '[]'");
+        $this->ensureColumn('sensory', "sensory TEXT NOT NULL DEFAULT '[]'");
+        $this->ensureColumn('structure_scales', "structure_scales TEXT NOT NULL DEFAULT '{}'");
+        $this->ensureColumn('assessments', "assessments TEXT NOT NULL DEFAULT '{}'");
+        $this->ensureColumn('wine_color', 'wine_color TEXT');
+        $this->ensureColumn('sweetness', 'sweetness INTEGER');
+        $this->ensureColumn('body_level', 'body_level INTEGER');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_production_type_idx ON products(production_type)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_style_idx ON products(style)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_brand_slug_idx ON products(brand_slug)');
@@ -606,6 +618,9 @@ SQL);
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_country_slug_idx ON products(country_slug)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_abv_bucket_idx ON products(abv_bucket)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_product_id_idx ON products(product_id)');
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_wine_color_idx ON products(wine_color)');
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_sweetness_idx ON products(sweetness)');
+        $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_body_level_idx ON products(body_level)');
         $this->dropColumn('times_purchased');
         $this->dropColumn('first_purchase');
         $this->dropColumn('most_recent_purchase');

@@ -60,11 +60,35 @@ palate: editorial
 finish: editorial
 structure: editorial, optional; structural authenticity (legacy alias for likeness when likeness is empty)
 tastes: list of short flavor tags for the glance panel
-profile: list of structure chips (sweetness, acidity, body, tannin, carbonation, etc.)
+profile: list of structure chips (legacy; prefer structure_scales)
 mouthfeel: editorial short line for the glance panel
 highlight: editorial; what stands out
-likeness: editorial; how wine/beer/spirit-like — separate from the quality score
+likeness: editorial; how wine/beer/spirit-like — separate from the quality score; must not copy verdict
 drink_if_you_like: list of comparable styles or bottles, optional
+sensory:
+  - descriptor: canonical id from descriptors.yaml (e.g. roasted_barley, coffee, green_apple)
+    locations: [nose | palate | finish]
+    intensity: low | moderate | high, optional
+structure_scales:
+  sweetness: 0-4  # bone dry → sweet
+  acidity: 0-4
+  body: 0-3
+  tannin: 0-3
+  bitterness: 0-3
+  carbonation: 0-3
+  alcohol_heat: 0-3
+  finish_length: 0-2
+  flavor_intensity: 0-2
+  aromatic_intensity: 0-2
+  texture: thin | lean | crisp | rounded | creamy | viscous | syrupy
+assessments:
+  likeness: 0-2
+  structural_authenticity: 0-2
+  balance: 0-2
+  complexity: 0-2
+  finish_quality: 0-2
+  value: 0-2
+  standalone_appeal: 0-2
 best_for: editorial; Perfect for / occasions
 serve: editorial
 sources:
@@ -81,3 +105,11 @@ image_source: editorial | producer | importer
 image_source_url: url to the original asset page; required unless image_source is editorial
 image_sku_confirmed: yes | no; yes only after a human confirms the label matches this SKU
 status: queued | researching | draft | validated | scheduled | published | needs-review
+
+# Domain notes
+# Product facts (brand, ABV, method, sugar, GTIN, …) live on the product identity.
+# Review observations (score, sensory, structure_scales, assessments, nose/palate/finish) live on the review.
+# Public glance labels: Flavor profile (sensory) · Structure (structure_scales) · Nose/Palate/Finish (prose).
+# Prefer structure_scales + sensory over free-text tastes/profile; legacy chips still render as fallback.
+# provenance confidence: verified | manufacturer_verified | label_verified | secondary | inferred | unverified
+# See also: descriptors.yaml, structure.yaml, assessments.yaml

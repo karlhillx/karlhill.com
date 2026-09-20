@@ -4,7 +4,7 @@
   <dl class="tasting-glance">
     <?php if (! empty($tastes)) { ?>
     <div>
-      <dt>Taste</dt>
+      <dt>Flavor profile</dt>
       <dd><ul class="tasting-chips"><?php foreach ($tastes as $taste) { ?><li><?= $view->e($taste) ?></li><?php } ?></ul></dd>
     </div>
     <?php } ?>
@@ -18,6 +18,12 @@
     <div>
       <dt>Mouthfeel</dt>
       <dd><?= $view->e($mouthfeel) ?></dd>
+    </div>
+    <?php } ?>
+    <?php if (! empty($assessments)) { ?>
+    <div>
+      <dt>Assessment</dt>
+      <dd><ul class="tasting-chips"><?php foreach ($assessments as $item) { ?><li><?= $view->e($item) ?></li><?php } ?></ul></dd>
     </div>
     <?php } ?>
     <?php if (! empty($highlight)) { ?>

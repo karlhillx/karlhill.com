@@ -1,52 +1,94 @@
 ---
-title: "Clearscape Non-Alcoholic Chardonnay"
+title: 'Clearscape Non-Alcoholic Chardonnay'
 slug: clearscape-chardonnay
 id: TDS-0021
-ean: "0935843208064"
+ean: '0935843208064'
 brand: Clearscape
 product: Chardonnay
-abv: "Not published"
+abv: 'Not published'
 category: wine
 subcategory: chardonnay
 country: Australia
-style: Non-alcoholic Australian Chardonnay
+style: 'Non-alcoholic Australian Chardonnay'
 production_type: not-verified
-verified: no
-production_note: "Retailer copy describes a Chardonnay experience without alcohol. No method is named."
-volume: 750 ml
-price: "$11.51 (RoomBox / Total Wine listing)"
-availability: "Total Wine & More"
-image_alt: "Clearscape Non-Alcoholic Chardonnay"
+verified: 'no'
+production_note: 'Retailer copy describes a Chardonnay experience without alcohol. No method is named.'
+volume: '750 ml'
+price: '$11.51 (RoomBox / Total Wine listing)'
+availability: 'Total Wine & More'
+image_alt: 'Clearscape Non-Alcoholic Chardonnay'
 image_source: editorial
-image_sku_confirmed: yes
-review_date: "2026-09-18"
-updated_date: "2026-09-19"
+image_sku_confirmed: 'yes'
+review_date: '2026-09-18'
+updated_date: '2026-09-19'
 rating: 75
-verdict: "Stone fruit and a hint of almond at a supermarket price. Australian, unlabeled as to process."
-summary: "Clearscape Chardonnay is a 750 ml Australian NA white sold through Total Wine. Melon, white peach, almond — method unpublished."
-
+verdict: 'Stone fruit and a hint of almond at a supermarket price. Australian, unlabeled as to process.'
+summary: 'Clearscape Chardonnay is a 750 ml Australian NA white sold through Total Wine. Melon, white peach, almond — method unpublished.'
 tastes:
   - melon
-  - white peach
-  - almond note
+  - 'white peach'
+  - 'almond note'
 profile:
-  - Bright acidity
-  - Light body
-  - Medium body
-  - Short finish
-mouthfeel: "Medium-light, pear fruit, crisp enough acidity to keep it from juice."
-highlight: "Stone fruit and a hint of almond at a supermarket price. Australian, unlabeled as to process."
-likeness: "Stone fruit and a hint of almond at a supermarket price. Australian, unlabeled as to process."
-nose: "Melon, white peach, a faint almond note."
-palate: "Medium-light, pear fruit, crisp enough acidity to keep it from juice."
-finish: "Short stone fruit."
-best_for: "A ten-dollar white when Appalina is gone."
-serve: "Chilled."
+  - 'Bright acidity'
+  - 'Light body'
+  - 'Medium body'
+  - 'Short finish'
+highlight: 'Stone fruit and a hint of almond at a supermarket price. Australian, unlabeled as to process.'
+nose: 'Melon, white peach, a faint almond note.'
+palate: 'Medium-light, pear fruit, crisp enough acidity to keep it from juice.'
+finish: 'Short stone fruit.'
+best_for: 'A ten-dollar white when Appalina is gone.'
+serve: Chilled.
 sources:
-  - title: "Clearscape Non-Alcoholic Chardonnay — RoomBox"
-    url: https://www.orderroombox.com/product/clearscape-non-alcoholic-chardonnay/
-    claims: [origin, country, volume, price, availability]
+  -
+    title: 'Clearscape Non-Alcoholic Chardonnay — RoomBox'
+    url: 'https://www.orderroombox.com/product/clearscape-non-alcoholic-chardonnay/'
+    claims:
+      - origin
+      - country
+      - volume
+      - price
+      - availability
 status: published
+product_id: TDS-0021
+identifiers:
+  -
+    type: ean
+    value: '0935843208064'
+    source: 'packaging or producer listing'
+  -
+    type: tds
+    value: TDS-0021
+sensory:
+  -
+    descriptor: white_peach
+    locations:
+      - palate
+structure_scales:
+  acidity: 3
+  body: 1
+  finish_length: 0
+provenance:
+  country:
+    kind: unknown
+    confidence: secondary
+    url: 'https://www.orderroombox.com/product/clearscape-non-alcoholic-chardonnay/'
+  volume:
+    kind: unknown
+    confidence: secondary
+    url: 'https://www.orderroombox.com/product/clearscape-non-alcoholic-chardonnay/'
+  price:
+    kind: unknown
+    confidence: secondary
+    url: 'https://www.orderroombox.com/product/clearscape-non-alcoholic-chardonnay/'
+  availability:
+    kind: unknown
+    confidence: secondary
+    url: 'https://www.orderroombox.com/product/clearscape-non-alcoholic-chardonnay/'
+  ean:
+    kind: label
+    confidence: label_verified
+    note: 'Barcode recorded from packaging or producer listing'
 ---
 
 Clearscape Non-Alcoholic Chardonnay is non-alcoholic with an unpublished production process from Australia. No cited producer page names a removal technique, so the badge stays not-verified. The glass is a textured supermarket Chardonnay without oak weight. Fine. Not Giesen.

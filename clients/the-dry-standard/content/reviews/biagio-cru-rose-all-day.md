@@ -1,50 +1,92 @@
 ---
-title: "Biagio Cru Rosé All Day"
+title: 'Biagio Cru Rosé All Day'
 slug: biagio-cru-rose-all-day
 id: TDS-0026
-ean: "0833202003339"
-brand: Biagio Cru
-product: Non-Alcoholic Rosé All Day
-abv: "Not published"
+ean: '0833202003339'
+brand: 'Biagio Cru'
+product: 'Non-Alcoholic Rosé All Day'
+abv: 'Not published'
 category: wine
 subcategory: rosé
 country: France
 region: Languedoc
-style: Dealcoholized Côtes du Roussillon rosé (Grenache)
-base_beverage: "Grenache rosé, Côtes du Roussillon"
+style: 'Dealcoholized Côtes du Roussillon rosé (Grenache)'
+base_beverage: 'Grenache rosé, Côtes du Roussillon'
 production_type: dealcoholized
-verified: yes
+verified: 'yes'
 production_note: "Total Wine's product highlights describe 'early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal—preserving the wine's natural balance, flavor, and elegance'; the specific named removal technology is not published."
-availability: "Total Wine & More"
-image_alt: "Biagio Cru Non-Alcoholic Rosé All Day"
+availability: 'Total Wine & More'
+image_alt: 'Biagio Cru Non-Alcoholic Rosé All Day'
 image_source: editorial
-image_sku_confirmed: yes
-review_date: "2026-09-18"
-updated_date: "2026-09-19"
+image_sku_confirmed: 'yes'
+review_date: '2026-09-18'
+updated_date: '2026-09-19'
 rating: 71
-verdict: "A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf."
-summary: "Biagio Cru Rosé All Day is a Total Wine NA rosé bought twice in this house. Process and ABV are unpublished."
-
+verdict: 'A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf.'
+summary: 'Biagio Cru Rosé All Day is a Total Wine NA rosé bought twice in this house. Process and ABV are unpublished.'
 tastes:
-  - generic red berry
+  - 'generic red berry'
 profile:
   - Off-dry
-  - Bright acidity
-  - Light body
-  - Short finish
-mouthfeel: "Sweet, light, low acid."
-highlight: "A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf."
-likeness: "A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf."
-nose: "Generic red berry."
-palate: "Sweet, light, low acid."
-finish: "Short."
-best_for: "The name, if that is why you picked it up."
-serve: "Very cold."
+  - 'Bright acidity'
+  - 'Light body'
+  - 'Short finish'
+highlight: 'A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf.'
+nose: 'Generic red berry.'
+palate: 'Sweet, light, low acid.'
+finish: Short.
+best_for: 'The name, if that is why you picked it up.'
+serve: 'Very cold.'
 sources:
-  - title: "Biagio Cru Non-Alcoholic Rose All Day — Total Wine & More"
-    url: https://www.totalwine.com/wine/rose-blush-wine/grenache/biagio-cru-nonalcoholic-rose-all-day/p/2126275660
-    claims: [availability, country, region, dealcoholized, base_beverage]
+  -
+    title: 'Biagio Cru Non-Alcoholic Rose All Day — Total Wine & More'
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/grenache/biagio-cru-nonalcoholic-rose-all-day/p/2126275660'
+    claims:
+      - availability
+      - country
+      - region
+      - dealcoholized
+      - base_beverage
 status: published
+product_id: TDS-0026
+identifiers:
+  -
+    type: ean
+    value: '0833202003339'
+    source: 'packaging or producer listing'
+  -
+    type: tds
+    value: TDS-0026
+structure_scales:
+  sweetness: 2
+  acidity: 3
+  body: 1
+  finish_length: 0
+provenance:
+  availability:
+    kind: retailer
+    confidence: secondary
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/grenache/biagio-cru-nonalcoholic-rose-all-day/p/2126275660'
+  country:
+    kind: retailer
+    confidence: secondary
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/grenache/biagio-cru-nonalcoholic-rose-all-day/p/2126275660'
+  region:
+    kind: retailer
+    confidence: secondary
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/grenache/biagio-cru-nonalcoholic-rose-all-day/p/2126275660'
+  production_type:
+    kind: retailer
+    confidence: secondary
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/grenache/biagio-cru-nonalcoholic-rose-all-day/p/2126275660'
+  base_beverage:
+    kind: retailer
+    confidence: secondary
+    url: 'https://www.totalwine.com/wine/rose-blush-wine/grenache/biagio-cru-nonalcoholic-rose-all-day/p/2126275660'
+  ean:
+    kind: label
+    confidence: label_verified
+    note: 'Barcode recorded from packaging or producer listing'
 ---
 
 Biagio Cru Rosé All Day is dealcoholized from Languedoc, France. The base is Grenache rosé, Côtes du Roussillon. Total Wine's product highlights describe 'early-harvested grapes, innovative low-sugar yeasts, and delicate alcohol removal—preserving the wine's natural bal….
