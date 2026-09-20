@@ -15,7 +15,7 @@ abv_numeric: 0.5
 production_type: not-verified
 verified: 'no'
 disclosure: withheld
-production_note: 'On-record refusal: Erdinger’s Josef Westermeier told WELT (2010) the recipe and brewing process stay secret. Producer FAQ confirms intentional residual alcohol under 0.5% for flavor and vitamins; it does not name the house technique. Do not attribute generic Weissbier NA process reviews.'
+production_note: 'Method Unclassified. On-record secrecy (Westermeier / WELT 2010). AP (2011) reports Alkoholfrei is made in the same Erding brewery as Erdinger’s conventional wheat beers — site only, not a process. Producer materials keep residual alcohol under 0.5% for flavor; they do not name dealcoholization vs limited fermentation. Do not cite industry-general vacuum/RO pieces as Erdinger’s method.'
 producer: 'Erdinger Weissbräu (Erding, Bavaria)'
 availability: 'International retail; widely available in Germany and exported'
 review_date: '2026-09-18'
@@ -72,6 +72,13 @@ sources:
       - style
       - availability
   -
+    title: 'AP via NBC — Brewer pushes buzz-free beer as a sports drink (21 Feb 2011)'
+    url: 'https://www.nbcnews.com/id/wbna41704887'
+    claims:
+      - producer
+      - region
+      - origin
+  -
     title: 'Erdinger Alkoholfrei — NA Bar Finder'
     url: 'https://nabarfinder.com/brand/erdinger-alkoholfrei/'
     claims:
@@ -116,7 +123,12 @@ provenance:
     kind: research
     confidence: secondary
     url: 'https://www.welt.de/wissenschaft/article10444678/Alkoholfreies-Bier-Bei-alkoholfreiem-Bier-ist-die-Herstellung-entscheidend.html'
-    note: 'On-record refusal (Westermeier / WELT 2010). FAQ confirms intentional <0.5% residual ABV; house technique unnamed. Disclosure: Withheld.'
+    note: 'Withheld: Westermeier/WELT 2010 secrecy. AP 2011 same Erding brewery as conventional wheat beers (site only). FAQ intentional <0.5% residual; technique unnamed.'
+  origin:
+    kind: press
+    confidence: secondary
+    url: 'https://www.nbcnews.com/id/wbna41704887'
+    note: 'AP via NBC: Alkoholfrei made in same brewery as Erdinger conventional wheat beers.'
   availability:
     kind: manufacturer
     confidence: secondary
@@ -127,7 +139,7 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Erdinger Weissbräu’s Alkoholfrei is Bavarian wheat beer at non-alcoholic strength, sold as a naturally isotonic recovery pour. The factory floor is not a documentation gap — in 2010 marketing director Josef Westermeier told WELT the recipe and brewing process stay secret. A producer FAQ adds that they keep a non-zero residual under 0.5% on purpose for flavor and vitamins, without naming the technique.
+Erdinger Weissbräu’s Alkoholfrei is Bavarian wheat beer at non-alcoholic strength, sold as a naturally isotonic recovery pour. AP reported in 2011 that it is made in the same Erding brewery as Erdinger’s conventional wheat beers — that is a site fact, not a process. The factory floor stays secret: in 2010 marketing director Josef Westermeier told WELT the recipe and brewing process stay private. Residual alcohol under 0.5% is intentional for flavor; the technique is Unclassified / Withheld.
 
 On the nose, spicy malt with caramel-sweet edges and the banana-clove wheat signature. On the palate, rounder than most NA lagers: wheat body, hop bitterness balanced by malt sweetness. The finish is clean and lightly fruity.
 

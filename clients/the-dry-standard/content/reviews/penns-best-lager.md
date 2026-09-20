@@ -14,15 +14,15 @@ abv_numeric: 0.5
 production_type: not-verified
 verified: 'no'
 disclosure: undeclared
-production_note: "Marketing calls it naturally brewed and aged without saying whether alcohol is removed or fermentation is limited. Producer is the Fred Koch Brewery label, operated by Genesee Brewing Co. in Rochester, NY — not an independent Pittsburgh brewery."
-calories: '70 calories (retail listing)'
-producer: 'Fred Koch Brewery label; Genesee Brewing Co. (Rochester, NY)'
+production_note: 'Method Unclassified. Marketing (“naturally brewed and aged”) fits either route. TTB COLA 13218001000038 (2013) lists applicant High Falls Brewing Co. / Fred Koch label, Rochester NY — blank formula, class 907. No post-2013 COLA found; current plant operator not established from the registry alone. Pittsburgh Brewing attributions conflict with the COLA.'
+calories: '70 calories (retail / COLA-era listings)'
+producer: 'Fred Koch Brewing Co. label; COLA applicant High Falls Brewing Co., Rochester NY'
 availability: 'US retail including Total Wine and specialty NA listings'
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 72
 verdict: 'A budget American NA lager — smooth, light, and honest about being the cheap option rather than the craft one.'
-summary: "Penn's Best NA is a non-alcoholic American lager under the Fred Koch / Genesee umbrella: 70 calories, <0.5% ABV, value shelf. Technique undeclared."
+summary: "Penn's Best NA is a non-alcoholic American lager under the Fred Koch / High Falls Rochester COLA: 70 calories, <0.5% ABV, value shelf. Technique Undeclared."
 tastes:
   - 'light malt'
   - 'grain note'
@@ -45,8 +45,17 @@ image_sku_confirmed: 'yes'
 discrepancies:
   -
     field: producer
-    note: 'Most sources and a Sept 2026 can-label read place production under Genesee / Fred Koch in Rochester, NY. An outlier listing (pintplease.com) attributes Pittsburgh Brewing Co. — uncorroborated elsewhere; treated as likely database error.'
+    note: 'TTB COLA 13218001000038 (2013) names High Falls / Fred Koch, Rochester NY. Aggregators often say Genesee; plausible as successor/operator but not established from that COLA alone. Pint Please / some Untappd paths list Pittsburgh Brewing — conflicts with COLA; treat as database error unless corroborated.'
 sources:
+  -
+    title: 'TTB Public COLA Registry — Penn''s Best NA (13218001000038)'
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
+    claims:
+      - producer
+      - country
+      - region
+      - production_type
+      - calories
   -
     title: "Saturday Sip No. 13 — Penn's Best NA — Clangoring"
     url: 'https://clangoring.substack.com/p/saturday-sip-no-13-penns-best-na'
@@ -55,12 +64,6 @@ sources:
       - country
       - region
       - production_type
-  -
-    title: 'Fred Koch Brewery / corporate registration — OpenCorpData'
-    url: 'https://opencorpdata.com/us-wv/131998'
-    claims:
-      - producer
-      - region
   -
     title: "Penn's Best N.A. — beerfordriving"
     url: 'https://beerfordriving.com/beer/fred-koch-brewery/penn-s-best-n-a/'
@@ -92,26 +95,27 @@ provenance:
     confidence: secondary
     url: 'https://beerfordriving.com/beer/fred-koch-brewery/penn-s-best-n-a/'
   calories:
-    kind: retailer
+    kind: government
     confidence: secondary
-    url: 'https://beerfordriving.com/beer/fred-koch-brewery/penn-s-best-n-a/'
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
+    note: '70 kcal / 15 g carbs per 12 fl oz on 2013 COLA-era listings.'
   producer:
-    kind: research
+    kind: government
     confidence: secondary
-    url: 'https://clangoring.substack.com/p/saturday-sip-no-13-penns-best-na'
-    note: 'Fred Koch label; Genesee Brewing Co., Rochester NY. Corporate registration address matches Genesee HQ.'
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
+    note: 'COLA 13218001000038 — High Falls / Fred Koch, Rochester NY.'
   country:
-    kind: research
+    kind: government
     confidence: secondary
-    url: 'https://clangoring.substack.com/p/saturday-sip-no-13-penns-best-na'
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
   region:
-    kind: research
+    kind: government
     confidence: secondary
-    url: 'https://opencorpdata.com/us-wv/131998'
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
   production_type:
     kind: research
     confidence: secondary
-    note: 'Naturally brewed and aged is marketing copy only — method not confirmed.'
+    note: 'Class-907 COLA blank on formula; “naturally brewed” is marketing only. Disclosure: Undeclared.'
   availability:
     kind: retailer
     confidence: secondary
@@ -127,7 +131,7 @@ sensory:
       - palate
 ---
 
-Penn’s Best is a dormant Fred Koch Brewery brand name now produced under Genesee Brewing Co. in Rochester, New York — not a craft Pittsburgh house. Marketing says naturally brewed and aged; that does not confirm dealcoholization or limited fermentation, so the method stays not verified.
+Penn’s Best is a Fred Koch label whose 2013 TTB COLA was filed by High Falls in Rochester, New York — not a Pittsburgh house. Marketing says naturally brewed and aged; that does not confirm dealcoholization or limited fermentation. No post-2013 COLA was found, so the current plant operator is not proven from the registry. Method stays Unclassified / Undeclared.
 
 Light malt and faint grain on the nose. Smooth, subdued lager palate with little hop character — macro-lager weight at NA strength. Finish is clean and brief.
 

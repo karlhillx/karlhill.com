@@ -7,21 +7,21 @@ product: 'Deep Fake Non-Alcoholic IPA'
 category: beer
 subcategory: IPA
 country: 'United States'
-region: 'Frederick, Maryland'
+region: 'Brand Frederick, MD; COLA plants Philadelphia PA (Yards, 2020) then Utica NY (F.X. Matt, 2023)'
 style: 'Non-alcoholic IPA'
 abv: '<0.5%'
 abv_numeric: 0.5
 production_type: not-verified
 verified: 'no'
 disclosure: undeclared
-production_note: "Flying Dog’s product page and 2021 Brewbound launch coverage do not disclose whether alcohol is removed or fermentation is limited. The name Deep Fake is branding, not a process claim."
-producer: 'Flying Dog Brewery (Frederick, Maryland)'
+production_note: 'Method Unclassified — no producer or COLA wording names dealcoholization vs limited fermentation. TTB class-907 COLAs show contract brewing: Yards Brewing Co., Philadelphia (2020 filings, “special agreement”); F.X. Matt Brewing Co., Utica NY (2023 filings). Not Frederick. 2021 launch press (“tweaked” each stage) fits either route.'
+producer: 'Flying Dog Brewery (brand, Frederick MD); COLA applicants Yards then F.X. Matt'
 availability: 'US retail; year-round lineup since 2021'
 review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 77
 verdict: "A beer named 'Deep Fake' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland's most recognizable craft breweries."
-summary: "Flying Dog's Deep Fake is a non-alcoholic IPA under 0.5% ABV: hazy, hoppy, self-aware about being an imitation of the real thing. Technique undeclared."
+summary: "Flying Dog's Deep Fake is a non-alcoholic IPA under 0.5% ABV: hazy, hoppy, self-aware about being an imitation. Technique Undeclared. COLAs show contract brewing at Yards (Philly, 2020) then F.X. Matt (Utica, 2023) — not Frederick."
 tastes:
   - citrus
   - 'pine hops'
@@ -40,6 +40,10 @@ image_alt: 'Flying Dog Deep Fake Non-Alcoholic IPA can'
 image_credit: 'Product photo via Flying Dog Brewery'
 image_source: editorial
 image_sku_confirmed: 'yes'
+discrepancies:
+  -
+    field: producer
+    note: 'Brand is Flying Dog (Frederick, MD). TTB COLAs list applicants Yards Brewing Co., Philadelphia (2020) and F.X. Matt Brewing Co., Utica NY (2023). Contract arrangement inferred from applicant ≠ brand and 2020 “special agreement” label line. Method still Unclassified.'
 sources:
   -
     title: 'Deep Fake Non-Alcoholic IPA — Flying Dog Brewery'
@@ -49,7 +53,6 @@ sources:
       - producer
       - style
       - country
-      - region
       - availability
       - production_type
   -
@@ -57,6 +60,14 @@ sources:
     url: 'https://www.brewbound.com/news/flying-dog-brewery-releases-deepfake-non-alcoholic-ipa/'
     claims:
       - availability
+      - production_type
+  -
+    title: 'TTB Public COLA Registry — Deep Fake (e.g. 20287001000541, 23177001000415)'
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
+    claims:
+      - producer
+      - region
+      - origin
       - production_type
   -
     title: 'Deepfake — Flying Dog Brewery — Untappd'
@@ -85,32 +96,34 @@ structure_scales:
 provenance:
   abv:
     kind: manufacturer
-    confidence: manufacturer_verified
+    confidence: secondary
     url: 'https://flyingdog.com/beers/deep-fake-non-alcoholic-ipa/'
   producer:
-    kind: manufacturer
-    confidence: manufacturer_verified
-    url: 'https://flyingdog.com/beers/deep-fake-non-alcoholic-ipa/'
+    kind: government
+    confidence: secondary
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
+    note: 'Brand Flying Dog; COLA applicants Yards (2020) then F.X. Matt (2023).'
   country:
-    kind: manufacturer
-    confidence: manufacturer_verified
-    url: 'https://flyingdog.com/beers/deep-fake-non-alcoholic-ipa/'
+    kind: government
+    confidence: secondary
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
   region:
-    kind: manufacturer
-    confidence: manufacturer_verified
-    url: 'https://flyingdog.com/beers/deep-fake-non-alcoholic-ipa/'
+    kind: government
+    confidence: secondary
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
+    note: 'Philadelphia (Yards) then Utica NY (F.X. Matt). Brand HQ Frederick MD.'
   availability:
     kind: manufacturer
-    confidence: manufacturer_verified
+    confidence: secondary
     url: 'https://flyingdog.com/beers/deep-fake-non-alcoholic-ipa/'
   production_type:
     kind: research
     confidence: secondary
-    url: 'https://flyingdog.com/beers/deep-fake-non-alcoholic-ipa/'
-    note: 'Producer and Brewbound launch coverage silent on dealcoholization vs limited fermentation.'
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
+    note: 'Class-907 COLAs blank on formula; launch press silent on dealcoholization vs limited fermentation. Disclosure: Undeclared.'
 ---
 
-Flying Dog’s Deep Fake is an IPA-shaped non-alcoholic beer from Frederick, Maryland. The brewery and the 2021 launch press never say whether alcohol was removed or fermentation was limited — process stays not verified.
+Flying Dog’s Deep Fake is an IPA-shaped non-alcoholic beer under the Frederick brand. TTB COLAs show it was filed by Yards in Philadelphia (2020, “special agreement”) and later by F.X. Matt in Utica (2023) — not Frederick. Neither the COLA forms nor the 2021 launch press name dealcoholization or limited fermentation; technique stays Undeclared / Unclassified.
 
 Citrus and pine on the nose, lighter than a full-strength IPA but clearly hop-led. The palate is light: bitterness present, malt minimal, closer to hop-forward tea than a heavy IPA. Finish dries out with a short bitter linger.
 

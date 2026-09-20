@@ -61,7 +61,7 @@ TDS-0061,,Rosé Zéro (Rose Mont Rose),Domaine de Montrose,Non-alcoholic wine,<0
 TDS-0063,,N/Alien Church,Tired Hands,Non-alcoholic beer,<0.5%,Naturally low alcohol,Yes,Brewed with experimental yeast and the Alien Church hop bill; brewery menu describes no post-brew alcohol-removal step,Total Wine
 TDS-0064,4004068000046,Zero Riesling,P.J. Valckenberg,Non-alcoholic wine,Undeclared,Dealcoholized,Yes,Unclassified,Metro Wine & Spirits
 TDS-0065,4004068000053,Cuvée Sparkling Zero,P.J. Valckenberg,Non-alcoholic sparkling wine,Undeclared,Dealcoholized,Yes,Unclassified,Metro Wine & Spirits
-TDS-0066,4002103283270,Alkoholfrei,Erdinger Weißbräu,Non-alcoholic beer,<0.5%,Unclassified,No,On-record process secrecy (Westermeier/WELT 2010); FAQ intentional <0.5% residual; technique unnamed,Metro Wine & Spirits
+TDS-0066,4002103283270,Alkoholfrei,Erdinger Weißbräu,Non-alcoholic beer,<0.5%,Unclassified,No,"Withheld secrecy (WELT 2010); AP 2011 same Erding brewery as conventional wheat — site only; technique unnamed",Metro Wine & Spirits
 TDS-0067,850061516114,Non-Alcoholic Still White,Missing Thorn,Non-alcoholic wine,Undeclared,Dealcoholized,Yes,Not independently verified; brand markets wines as alcohol-removed by winemaker Aaron Pott,The Zero Proof
 TDS-0068,4260196280198,Eins-Zwei-Zero Sparkling Rosé,Weingut Leitz,Non-alcoholic sparkling wine,0.0%,Dealcoholized,Yes,Vacuum distillation at low temperature,The Zero Proof
 TDS-0069,,ESB (Extra Special Bitter),Athletic Brewing Company,Non-alcoholic beer,<0.5%,Naturally low alcohol,Yes,Proprietary process built for NA from the start; Fast Company (2025) and Popular Mechanics quote founders saying it is neither dealcoholization of finished beer nor simple arrested fermentation,Minus Moonshine
@@ -80,12 +80,12 @@ TDS-0081,0853706002911,Chardonnay,Butter Zero,Non-alcoholic wine,<0.5%,Dealcohol
 TDS-0082,,Alcohol-Removed Pinot Grigio,Chloe Wine Collection,Non-alcoholic wine,Undeclared,Dealcoholized,Yes,Alcohol-removed (branded); method not detailed,Total Wine
 TDS-0083,0019988504158,Zero California White Blend,Chateau Diana,Non-alcoholic wine,Undeclared,Dealcoholized,Yes,"Branded ""Alcohol Removed""; specific method not detailed",Walmart
 TDS-0084,0019988504530,Zero California Rosé,Chateau Diana,Non-alcoholic wine,Undeclared,Dealcoholized,Yes,"Branded ""Alcohol Removed""; specific method not detailed",Walmart
-TDS-0085,,Non-Alcoholic Lager,Penn's Best,Non-alcoholic beer,<0.5%,Unclassified,No,Fred Koch label / Genesee Rochester NY; method unpublished,Total Wine
+TDS-0085,,Non-Alcoholic Lager,Penn's Best,Non-alcoholic beer,<0.5%,Unclassified,No,"COLA 13218001000038 High Falls/Fred Koch Rochester NY (2013); method unpublished",Total Wine
 TDS-0086,0089121830024,Chardonnay,Ariel (Ariel Vineyards / J. Lohr),Non-alcoholic wine,Undeclared,Dealcoholized,Yes,"Marketed as ""Dealcoholized Wine""; specific method not detailed",Metro Wine & Spirits
 TDS-0087,855675002565,UNRum + Cola,Greenbar,Non-alcoholic cocktails/RTDs,<0.5%,Hybrid,Yes,Alcohol boiled off after distillation and infusion (producer spec sheet),Metro Wine & Spirits
-TDS-0088,,Deep Fake Non-Alcoholic IPA,Flying Dog Brewery,Non-alcoholic beer,<0.5%,Unclassified,No,Producer and Brewbound launch silent on method,Metro Wine & Spirits
+TDS-0088,,Deep Fake Non-Alcoholic IPA,Flying Dog Brewery,Non-alcoholic beer,<0.5%,Unclassified,No,"COLA plants Yards Philly (2020) then F.X. Matt Utica (2023); method unpublished",Metro Wine & Spirits
 TDS-0089,,FLVR! NA Juicy IPA,Untitled Art Brewing,Non-alcoholic beer,<0.5%,Dealcoholized,Yes,Reverse osmosis membrane filtration after full fermentation,Metro Wine & Spirits
-TDS-0090,199284297067,Grounded Non-Alcoholic IPA,Pure Project,Non-alcoholic beer,<0.5%,Unclassified,No,COLA plant of record Prost Brewing Northglenn CO; method unpublished,Metro Wine & Spirits
+TDS-0090,199284297067,Grounded Non-Alcoholic IPA,Pure Project,Non-alcoholic beer,<0.5%,Unclassified,No,"COLA under Prost Northglenn (e.g. 26205001000004); method unpublished",Metro Wine & Spirits
 TDS-0091,,Passione in Rosso,Birrificio Baladin,Non-alcoholic aperitifs,0.0%,Alternative,Yes,"Formulated aperitivo — water, cane sugar, and natural flavors; no underlying alcoholic drink",Metro Wine & Spirits
 TDS-0092,850018886024,Kentucky 74,Spiritless,Non-alcoholic spirits,Undeclared,Dealcoholized,Yes,"Proprietary ""reverse distillation"" — real bourbon-derived distillate with ethanol removed",Metro Wine & Spirits
 TDS-0093,0076317661906,Non-Alcoholic Fresh Squeezed IPA,Deschutes Brewery,Non-alcoholic beer,<0.5%,Dealcoholized,Yes,"Reverse osmosis (BrewVo process via Sustainable Beverage Technologies), then secondary cold fermentation and dry-hopping",Deschutes Brewery

@@ -14,8 +14,8 @@ abv_numeric: 0.5
 production_type: not-verified
 verified: 'no'
 disclosure: undeclared
-production_note: 'Technique undeclared. Federal TTB COLA (via HopGrail) lists plant of record as Prost Brewing Company, Northglenn, CO — not Pure Project’s San Diego taprooms. Prost materials describe general contract brewing, not an NA-specific process. Hops: Citra, Citra Cryo, Mosaic Abstrax (producer).'
-producer: 'Pure Project Brewing (brand, San Diego); contract plant of record: Prost Brewing Co. (Northglenn, CO)'
+production_note: 'Method Unclassified. Producer pages and Apr 2026 press name hops and “same care” as craft beers — no dealcoholization vs limited fermentation. TTB COLAs 26027001001014, 26205001000004, 26251001000217 (class 907) under Prost Brewing / Prost Northglenn LLC; label “Produced and canned in Northglenn, CO by Pure Project”. Ownership/lease of the plant not stated on the forms.'
+producer: 'Pure Project (brand, San Diego); COLA applicant Prost Brewing / Prost Northglenn LLC (Northglenn, CO)'
 availability: 'US retail; direct from purebrewing.org'
 image: media/reviews/pure-project-grounded.jpg
 image_alt: 'Pure Project Grounded IPA can'
@@ -26,7 +26,7 @@ review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 83
 verdict: "A San Diego craft brewery's serious NA IPA — Citra, Citra Cryo and Mosaic Abstrax hops, medium body, lemongrass and grapefruit. The West Coast take on zero proof."
-summary: "Pure Project's Grounded is a non-alcoholic IPA under the San Diego brand, contract-brewed at Prost in Northglenn, CO: <0.5% ABV, Citra and Mosaic, citrus and resin. Technique undeclared."
+summary: "Pure Project's Grounded is a non-alcoholic IPA under the San Diego brand, filed on Prost Northglenn COLAs: <0.5% ABV, Citra and Mosaic, citrus and resin. Technique Undeclared."
 tastes:
   - lemongrass
   - 'ruby grapefruit'
@@ -56,12 +56,13 @@ sources:
       - production_type
       - ingredients
   -
-    title: 'hopgrail — TTB COLA register (Grounded / Pure Project; plant of record Prost Brewing)'
-    url: 'https://hopgrail.com/'
+    title: 'TTB Public COLA Registry — Grounded (26027001001014, 26205001000004, 26251001000217)'
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
     claims:
       - producer
       - region
       - origin
+      - production_type
   -
     title: "Inside Prost's New, Huge Northglenn Brewhouse — 5280"
     url: 'https://5280.com/inside-prosts-new-huge-northglenn-brewhouse/'
@@ -76,26 +77,15 @@ sources:
       - production_type
       - availability
   -
-    title: 'San Diego non-alcoholic beer breweries — San Diego Beer News'
-    url: 'https://sandiegobeer.news/san-diego-non-alcoholic-beer-breweries/'
-    claims:
-      - production_type
-  -
     title: 'Grounded — Pure Project Brewing — Untappd'
     url: 'https://untappd.com/b/pure-project-brewing-grounded/6687569'
-    claims:
-      - abv
-      - style
-  -
-    title: 'Pure Project Grounded — beerfordriving'
-    url: 'https://beerfordriving.com/beer/pure-project/grounded-ipa/'
     claims:
       - abv
       - style
 discrepancies:
   -
     field: producer
-    note: 'Brand and marketing are Pure Project (San Diego). Federal TTB COLA via HopGrail lists plant of record as Prost Brewing Company, Northglenn, CO. Plant ≠ method disclosure.'
+    note: 'Brand Pure Project (San Diego). COLAs list applicant Prost Brewing / Prost Northglenn LLC; label “Produced and canned in Northglenn, CO by Pure Project”. Ownership or lease not stated. Method still Unclassified.'
 status: published
 product_id: TDS-0090
 identifiers:
@@ -115,24 +105,24 @@ provenance:
     confidence: secondary
     url: 'https://www.purebrewing.org/product/grounded/'
   producer:
-    kind: research
+    kind: government
     confidence: secondary
-    url: 'https://hopgrail.com/'
-    note: 'Brand Pure Project (San Diego); COLA plant of record Prost Brewing Co., Northglenn, CO.'
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
+    note: 'COLA applicants Prost Northglenn; label credits Pure Project in Colorado.'
   country:
     kind: manufacturer
-    confidence: manufacturer_verified
+    confidence: secondary
     url: 'https://www.purebrewing.org/product/grounded/'
   region:
-    kind: research
+    kind: government
     confidence: secondary
-    url: 'https://hopgrail.com/'
-    note: 'Brand region San Diego; production plant Northglenn, CO per TTB COLA / HopGrail.'
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
+    note: 'Northglenn, CO (Prost permits). Brand HQ San Diego.'
   production_type:
     kind: research
     confidence: secondary
-    url: 'https://www.purebrewing.org/product/grounded/'
-    note: 'Technique undeclared. Plant of record identified; Prost materials do not name an NA process.'
+    url: 'https://www.ttbonline.gov/colasonline/publicSearchColasBasic.do'
+    note: 'Class-907 COLAs blank on formula; producer/press silent on method. Disclosure: Undeclared.'
   availability:
     kind: manufacturer
     confidence: secondary
@@ -160,7 +150,7 @@ sensory:
       - palate
 ---
 
-Pure Project’s Grounded is a San Diego–branded NA IPA hopped with Citra, Citra Cryo, and Mosaic Abstrax. The federal COLA plant of record is Prost Brewing in Northglenn, Colorado — contract capacity, not a Pure Project taproom pour. Neither Pure Project nor Prost publishes the NA method.
+Pure Project’s Grounded is a San Diego–branded NA IPA hopped with Citra, Citra Cryo, and Mosaic Abstrax. TTB COLAs under Prost Brewing in Northglenn, Colorado list the plant of record and the line “Produced and canned in Northglenn, CO by Pure Project” — they do not say whether Pure owns, leases, or contracts the site, and they name no NA method. Technique stays Undeclared / Unclassified.
 
 Lemongrass, ruby grapefruit, and navel orange on the nose — Citra-forward and specific. Medium body on the palate: hop lead over light bready malt, citrus carrying through the mid. Finish dries with a light bitter linger.
 
