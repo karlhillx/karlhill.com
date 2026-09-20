@@ -59,12 +59,28 @@ it('rejects byte-identical stills reused across SKUs', function () {
 });
 
 it('rejects dark studio packshots', function () {
-    $result = (new StillAudit)->inspect(
-        dryStandardStillReview('magic-box-vanish-riesling'),
-        dryStandardStillHashes(),
-    );
+    $relative = 'media/reviews/__dark-studio-audit.jpg';
+    $path = Paths::default()->path($relative);
+    $image = imagecreatetruecolor(600, 800);
+    imagefill($image, 0, 0, imagecolorallocate($image, 8, 8, 8));
+    imagefilledrectangle($image, 220, 80, 380, 720, imagecolorallocate($image, 40, 140, 60));
+    imagejpeg($image, $path, 90);
 
-    expect($result['errors'])->toContain('studio black (or other dark void) behind the bottle; flatten onto paper');
+    $file = Paths::default()->content('reviews'.DIRECTORY_SEPARATOR.'chloe-pinot-grigio.md');
+    $document = YamlFrontMatter::parseFile($file);
+    $matter = $document->matter();
+    $matter['slug'] = '__dark-studio-audit';
+    $matter['image'] = $relative;
+    $matter['image_source'] = 'editorial';
+    $matter['image_sku_confirmed'] = 'yes';
+    $review = Review::fromMatter($matter, $document->body(), $file);
+
+    try {
+        $result = (new StillAudit)->inspect($review);
+        expect($result['errors'])->toContain('studio black (or other dark void) behind the bottle; flatten onto paper');
+    } finally {
+        @unlink($path);
+    }
 });
 
 it('rejects lifestyle tablescapes', function () {
@@ -120,10 +136,14 @@ it('rejects a close-up of part of the bottle', function () {
 });
 
 it('warns on an honest empty frame', function () {
-    $result = (new StillAudit)->inspect(
-        dryStandardStillReview('leitz-sparkling-blanc-de-blancs'),
-        dryStandardStillHashes(),
-    );
+    $file = Paths::default()->content('reviews'.DIRECTORY_SEPARATOR.'chloe-pinot-grigio.md');
+    $document = YamlFrontMatter::parseFile($file);
+    $matter = $document->matter();
+    $matter['slug'] = '__empty-frame-audit';
+    unset($matter['image'], $matter['image_credit'], $matter['image_source'], $matter['image_source_url'], $matter['image_sku_confirmed']);
+    $review = Review::fromMatter($matter, $document->body(), $file);
+
+    $result = (new StillAudit)->inspect($review);
 
     expect($result['errors'])->toBe([]);
     expect($result['warnings'])->toContain('empty frame — no confirmed producer or editorial still');
