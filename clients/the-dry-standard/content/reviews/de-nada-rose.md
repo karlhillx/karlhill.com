@@ -31,7 +31,7 @@ tastes:
 profile:
   - 'Light body'
   - 'Clean finish'
-nose: 'red berry and citrus — the dry, elegant rosé profile rather than sweet fruit. On the palate, dry and aromatic; Chilean fruit over a light frame, the Maule Valley ripeness balanced by alcohol removal. The finish is clean and dry. A Chilean dealcoholized rosé made with Long Island winemaking expertise — dry, elegant, and honest about its Maule Valley fruit.'
+nose: 'red berry and citrus — the dry, elegant rosé profile rather than sweet fruit.'
 palate: 'Dry and aromatic; Chilean fruit over a light frame, the Maule Valley ripeness balanced by alcohol removal.'
 finish: 'clean and dry. A Chilean dealcoholized rosé made with Long Island winemaking expertise — dry, elegant, and honest about its Maule Valley fruit.'
 best_for: 'The dry-rosé drinker who wants Chilean fruit without the alcohol.'
@@ -121,10 +121,8 @@ provenance:
     url: 'https://www.spiritedaway.co/products/de-nada-rose'
 ---
 
-## The wine
-
 De Nada Non-Alcoholic Rosé is dealcoholized from Maule Valley, Chile. The base is Chilean rosé from the Maule Valley, sourced from ripe grapes, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified rosé (producer collaboration with Long Island winemaker Juan Esteban Sepulveda).
 
-On the nose, red berry and citrus — the dry, elegant rosé profile rather than sweet fruit. On the palate, dry and aromatic; Chilean fruit over a light frame, the Maule Valley ripeness balanced by alcohol removal. The finish is clean and dry. A Chilean dealcoholized rosé made with Long Island winemaking expertise — dry, elegant, and honest about its Maule Valley fruit. On the palate, Dry and aromatic; Chilean fruit over a light frame, the Maule Valley ripeness balanced by alcohol removal. The finish is clean and dry. A Chilean dealcoholized rosé made with Long Island winemaking expertise — dry, elegant, and honest about its Maule Valley fruit.
+On the nose, red berry and citrus — the dry, elegant rosé profile rather than sweet fruit. On the palate, Dry and aromatic; Chilean fruit over a light frame, the Maule Valley ripeness balanced by alcohol removal. The finish is clean and dry. A Chilean dealcoholized rosé made with Long Island winemaking expertise — dry, elegant, and honest about its Maule Valley fruit.
 
 Serve well chilled.

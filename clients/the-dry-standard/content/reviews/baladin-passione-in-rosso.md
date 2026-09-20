@@ -126,8 +126,6 @@ provenance:
     url: 'https://proofnomore.com/products/baladin-non-alcoholic-italian-rosso-aperitif-200ml'
 ---
 
-## The drink
-
 Baladin Passione in Rosso is formulated as an alcohol alternative from Piozzo, Italy, Italy. The base is Water, cane sugar, natural flavors (botanical formulation). Passione in Rosso is a formulated aperitivo made with water, cane sugar, and natural flavors — no underlying alcoholic drink.
 
 On the nose, bitter orange and botanicals — the aperitivo aromatic signature, lighter and softer than Campari. On the palate, bittersweet and gently spiced; cane sugar provides the body, natural botanicals carry the bitterness. The finish is clean and pleasantly bitter. An Italian aperitivo from one of Italy's most respected craft breweries — bittersweet, 0.0%, and the right shape for the spritz hour.

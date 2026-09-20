@@ -34,7 +34,7 @@ profile:
   - Off-dry
   - 'Light body'
   - 'Clean finish'
-nose: 'blood orange and warm spice over red fruit — recognizably sangria rather than a fruit juice. On the palate, fruity and lightly spiced; red wine character beneath the orange, with the sweetness kept in check. The finish is clean and gently spiced. A real dealcoholized California red with fruit extracts layered back in — the sangria shape is convincing, and the warm-spice notes are a nice touch.'
+nose: blood orange and warm spice over red fruit — recognizably sangria rather than a fruit juice.
 palate: 'Fruity and lightly spiced; red wine character beneath the orange, with the sweetness kept in check.'
 finish: 'clean and gently spiced. A real dealcoholized California red with fruit extracts layered back in — the sangria shape is convincing, and the warm-spice notes are a nice touch.'
 best_for: 'Summer afternoons, parties, anyone who wants sangria but not the pitcher math.'
@@ -119,10 +119,8 @@ sensory:
       - palate
 ---
 
-## The drink
-
 Grüvi Non-Alcoholic Sangria is a hybrid of dealcoholized material and other defining ingredients from United States. The base is California red wine, alcohol-removed, blended with blood orange and fruit extracts. California red wine is dealcoholized and blended with natural fruit extracts (producer).
 
-On the nose, blood orange and warm spice over red fruit — recognizably sangria rather than a fruit juice. On the palate, fruity and lightly spiced; red wine character beneath the orange, with the sweetness kept in check. The finish is clean and gently spiced. A real dealcoholized California red with fruit extracts layered back in — the sangria shape is convincing, and the warm-spice notes are a nice touch. On the palate, Fruity and lightly spiced; red wine character beneath the orange, with the sweetness kept in check. The finish is clean and gently spiced. A real dealcoholized California red with fruit extracts layered back in — the sangria shape is convincing, and the warm-spice notes are a nice touch.
+On the nose, blood orange and warm spice over red fruit — recognizably sangria rather than a fruit juice. On the palate, Fruity and lightly spiced; red wine character beneath the orange, with the sweetness kept in check. The finish is clean and gently spiced. A real dealcoholized California red with fruit extracts layered back in — the sangria shape is convincing, and the warm-spice notes are a nice touch.
 
 Serve over ice with an orange slice.

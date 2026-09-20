@@ -34,7 +34,7 @@ tastes:
 profile:
   - Off-dry
   - 'Modest bitterness'
-nose: 'wet cardboard and a faint grain whisper. Nothing you would call malt. On the palate, water with a hint of sweetness and almost no bitterness. It tastes like nothing. The finish is gone before you swallow. No hop, no malt, no aftertaste. A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty.'
+nose: wet cardboard and a faint grain whisper. Nothing you would call malt.
 palate: Water with a hint of sweetness and almost no bitterness. It tastes like nothing.
 finish: 'gone before you swallow. No hop, no malt, no aftertaste. A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty.'
 best_for: 'When the only other option is tap water, and you still might pick the water.'
@@ -118,10 +118,8 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Heineken 0.0 is dealcoholized. The base is The traditional Heineken brew, made with the same A-Yeast before alcohol extraction. Alcohol extracted from the traditional brew using vacuum distillation columns, following a double-brew step with Heineken's A-Yeast (documented by The Process).
 
-On the nose, wet cardboard and a faint grain whisper. Nothing you would call malt. On the palate, water with a hint of sweetness and almost no bitterness. It tastes like nothing. The finish is gone before you swallow. No hop, no malt, no aftertaste. A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty. On the palate, Water with a hint of sweetness and almost no bitterness. It tastes like nothing. The finish is gone before you swallow. No hop, no malt, no aftertaste. A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty.
+On the nose, wet cardboard and a faint grain whisper. Nothing you would call malt. On the palate, Water with a hint of sweetness and almost no bitterness. It tastes like nothing. The finish is gone before you swallow. No hop, no malt, no aftertaste. A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty.
 
 Serve ice cold, if you drink it at all. Warmth makes the emptiness louder.

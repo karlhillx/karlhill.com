@@ -35,7 +35,7 @@ tastes:
   - 'red berry'
 profile:
   - 'Light body'
-nose: 'bright cherry and red berry — approachable fruit rather than complexity. On the palate, light and smooth; the red fruit carries over a thin body, the usual dealcoholized red tradeoff handled without off-notes. The finish is smooth and brief. The red entry in the Butter Zero lineup — bright cherry and red berry in a light Pinot Noir frame, honest about being the easy-drinking choice.'
+nose: bright cherry and red berry — approachable fruit rather than complexity.
 palate: 'Light and smooth; the red fruit carries over a thin body, the usual dealcoholized red tradeoff handled without off-notes.'
 finish: 'smooth and brief. The red entry in the Butter Zero lineup — bright cherry and red berry in a light Pinot Noir frame, honest about being the easy-drinking choice.'
 best_for: 'The red-wine drinker who wants something easy at zero proof.'
@@ -123,10 +123,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Butter Zero Pinot Noir is dealcoholized from California, United States. The base is California Pinot Noir, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified Pinot Noir (producer's March 2026 launch).
 
-On the nose, bright cherry and red berry — approachable fruit rather than complexity. On the palate, light and smooth; the red fruit carries over a thin body, the usual dealcoholized red tradeoff handled without off-notes. The finish is smooth and brief. The red entry in the Butter Zero lineup — bright cherry and red berry in a light Pinot Noir frame, honest about being the easy-drinking choice. On the palate, Light and smooth; the red fruit carries over a thin body, the usual dealcoholized red tradeoff handled without off-notes. The finish is smooth and brief. The red entry in the Butter Zero lineup — bright cherry and red berry in a light Pinot Noir frame, honest about being the easy-drinking choice.
+On the nose, bright cherry and red berry — approachable fruit rather than complexity. On the palate, Light and smooth; the red fruit carries over a thin body, the usual dealcoholized red tradeoff handled without off-notes. The finish is smooth and brief. The red entry in the Butter Zero lineup — bright cherry and red berry in a light Pinot Noir frame, honest about being the easy-drinking choice.
 
 Serve slightly chilled.

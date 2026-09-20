@@ -160,8 +160,6 @@ provenance:
     url: 'https://brewvo.com/deschutes-brewery-partners-sustainable-beverage-technologies/'
 ---
 
-## The beer
-
 Deschutes Black Butte Non-Alcoholic is dealcoholized from Bend, Oregon, United States. The base is Black Butte Porter — same specialty malts and hops as the full-strength porter (producer). SBT BrewVo process with Deschutes proprietary brewing — alcohol gently removed while preserving flavor (producer / GlobeNewswire documentation).
 
 On the nose, Dark chocolate and fresh coffee over a clean malt line — the Black Butte signature, present and roasted rather than sweet cocoa dust. On the palate, Malt-led and medium-bodied: chocolate and a little roast coffee through the center, bitterness modest at 25 IBU, carbonation soft enough to keep the porter shape. Less oil than the full-strength can, more substance than most NA darks that collapse into thin roast tea. Mouthfeel: Soft carbonation over a malt cushion — denser than most NA darks, still short of the oily weight the 5.5% sibling carries. The finish is Roasted and dry-leaning, with chocolate hanging a beat before the body drops away. Clean enough to pour another.

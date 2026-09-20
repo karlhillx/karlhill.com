@@ -145,8 +145,6 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Halfway Crooks brews Brevet Pils in Atlanta as a non-alcoholic German-style pilsner. It stays under 0.5% ABV by arrested fermentation: Atlanta Magazine quotes co-owner Shawn Cooper on Chiber, a mushroom extract that keeps yeast static so alcohol never forms, rather than stripping it out later. BeerMenus lists about 0.3% ABV for the can; the brewery page publishes the familiar under-0.5% line. You usually find it as 12 oz cans in a six-pack — the same format as most craft NA pilsners on the shelf.
 
 The brewery’s aroma brief is the map worth keeping: subtle fennel, oyster crackers, lemon, and moderate tangerine. In the glass that reads as herbal-cracker lift over citrus — fennel and cracker on the nose first, lemon on the palate, tangerine a half-step behind. Bitterness is crisp and tidy, not soft-pedaled into “gentle.” Body stays light without going watery; there is no worty leftover in the middle.

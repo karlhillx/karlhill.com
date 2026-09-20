@@ -104,8 +104,6 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Asahi Dry Zero is formulated as an alcohol alternative from Japan. The base is a wort-free formulation — no full-strength beer is produced and then stripped. Asahi's own R&D documentation describes it as a non-alcohol beer-like beverage built from unfermented ingredients and flavor compounds.
 
 On the nose, light grain and a faint malt sweetness; very restrained, almost neutral. On the palate, clean and dry with a slight cereal sweetness — closer to a malt beverage than to beer, deliberately. The finish is short and clean, very neutral.

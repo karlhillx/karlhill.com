@@ -689,7 +689,8 @@ HTML;
      */
     public function review(Review $review, array $crumbs, ?Collection $relatedReviews = null): string
     {
-        $bodyHtml = Markdown::toHtml($review->bodyMarkdown);
+        $essayMarkdown = $this->essayBodyMarkdown($review);
+        $bodyHtml = Markdown::toHtml($essayMarkdown);
         $hasGlance = $review->hasGlancePanel();
         $hasServe = ($review->serve !== null && $review->serve !== '')
             || (! $hasGlance && $review->bestFor !== null && $review->bestFor !== '');
@@ -789,6 +790,18 @@ HTML;
                 ]),
             ],
         );
+    }
+
+    /**
+     * Essay markdown without a leading category H2 — the review template prints essayHeading().
+     */
+    private function essayBodyMarkdown(Review $review): string
+    {
+        $body = trim($review->bodyMarkdown);
+        $heading = preg_quote($review->essayHeading(), '/');
+        $body = preg_replace('/^##\s+'.$heading.'\s*$/mi', '', $body) ?? $body;
+
+        return trim($body);
     }
 
     /**

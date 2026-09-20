@@ -35,7 +35,7 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-nose: 'soft strawberry. Little else. On the palate, sweet-leaning, light, low acid. The finish is short and candy-pink. A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process.'
+nose: soft strawberry. Little else.
 palate: 'Sweet-leaning, light, low acid.'
 finish: 'short and candy-pink. A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process.'
 best_for: 'The bottle you already keep buying. This review will not talk you out of it, or into it.'
@@ -115,10 +115,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Almost Zero Ravishing Rosé is dealcoholized from South Africa. Spinning cone column, applied after full vinification.
 
-On the nose, soft strawberry. Little else. On the palate, sweet-leaning, light, low acid. The finish is short and candy-pink. A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process. On the palate, Sweet-leaning, light, low acid. The finish is short and candy-pink. A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process.
+On the nose, soft strawberry. Little else. On the palate, Sweet-leaning, light, low acid. The finish is short and candy-pink. A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process.
 
 Serve very cold.

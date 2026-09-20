@@ -115,8 +115,6 @@ provenance:
     url: 'https://drinklapos.com/products/negroni'
 ---
 
-## The drink
-
 Lapo's Non-Alcoholic Negroni is formulated as an alcohol alternative from Italy. The base is Italian-sourced ingredients with bitter liqueur analogues (likely sourced and built from a spirit replica or aperitivo-style formulation), no underlying Gin/Campari before dealcoholization. Lapo's brand copy frames the product as an 'Italian-inspired cocktail' built for the NA shelf; there is no claim that the drink was ever alcoholic and then dealcoholized — the formula is built fresh.
 
 On the nose, orange peel and bitter herbs with a citric lift; the Italian aperitivo family is in the room. On the palate, bittersweet, with a Campari-style bitter-orange lift balanced by a sweeter vermouth-style edge; can be too sweet if poured flat without ice. Mouthfeel: bitter and a touch warm, the gentian-like lift carrying the close. The finish is bitter and a touch warm, the gentian-like lift carrying the close. Florentine bartender's homage to the Negroni that drinks closer to the real thing than the Aperol-leaning cousins — but the can format asks the drinker to do a little work for it.

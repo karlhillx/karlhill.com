@@ -34,7 +34,7 @@ profile:
   - 'Soft bead'
   - 'Short finish'
   - 'Clean finish'
-nose: 'white strawberry and red berry fruit — expressive and fruit-forward. On the palate, fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings. The finish is short and clean. A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice.'
+nose: white strawberry and red berry fruit — expressive and fruit-forward.
 palate: 'Fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings.'
 finish: 'short and clean. A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice.'
 best_for: 'Large gatherings where buying by the case matters more than nuance.'
@@ -131,10 +131,8 @@ sensory:
       - palate
 ---
 
-## The wine
-
 Nozeco Alcohol Free Brut Rosé is dealcoholized from France. The base is French sparkling rosé wine, fermented conventionally before alcohol removal. Made from alcohol-removed wine using a state-of-the-art process (producer product sheet).
 
-On the nose, white strawberry and red berry fruit — expressive and fruit-forward. On the palate, fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings. The finish is short and clean. A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice. On the palate, Fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings. The finish is short and clean. A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice.
+On the nose, white strawberry and red berry fruit — expressive and fruit-forward. On the palate, Fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings. The finish is short and clean. A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice.
 
 Serve well chilled.

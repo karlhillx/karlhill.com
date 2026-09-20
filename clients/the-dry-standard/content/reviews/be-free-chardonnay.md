@@ -36,7 +36,7 @@ profile:
 highlight: 'The quiet workhorse of the Be Free line — an off-dry, easy German Chardonnay that succeeds by keeping expectations modest and the price lower.'
 nose: 'Soft pear and green apple, gently floral.'
 palate: Off-dry and round; orchard fruit with a lightly sweet edge — the Polish listing that calls it semi-sweet is accurate.
-finish: 'easy and short, sweetness carrying the close. The quiet workhorse of the Be Free line — an off-dry, easy German Chardonnay that succeeds by keeping expectations modest and the price lower.'
+finish: 'easy and short, sweetness carrying the close. The quiet workhorse of the Be Free line — an off-dry, easy German Chardonnay that succeeds by keeping expectations modest and the pri….'
 best_for: "The first glass of the evening, mild cheeses, people who don't want their NA wine to taste like a dare."
 serve: 'Chilled, in an everyday white-wine glass.'
 sources:
@@ -91,10 +91,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Be Free Chardonnay is dealcoholized from Germany. Vivino lists the wine as 'Be Free Dealcoholized Chardonnay' with an alcohol content of 0.01%, confirming the wine was fermented and then had alcohol removed; the specific named technology is not published.
 
-On the nose, soft pear and green apple, gently floral. On the palate, off-dry and round; orchard fruit with a lightly sweet edge — the Polish listing that calls it semi-sweet is accurate. The finish is easy and short, sweetness carrying the close. The quiet workhorse of the Be Free line — an off-dry, easy German Chardonnay that succeeds by keeping expectations modest and the price lower.
+On the nose, Soft pear and green apple, gently floral. On the palate, Off-dry and round; orchard fruit with a lightly sweet edge — the Polish listing that calls it semi-sweet is accurate. The finish is easy and short, sweetness carrying the close. The quiet workhorse of the Be Free line — an off-dry, easy German Chardonnay that succeeds by keeping expectations modest and the pri….
 
-The quiet workhorse of the Be Free line — an off-dry, easy German Chardonnay that succeeds by keeping expectations modest and the price lower. Serve chilled, in an everyday white-wine glass.
+Serve chilled, in an everyday white-wine glass.

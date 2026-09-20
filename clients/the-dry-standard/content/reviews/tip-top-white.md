@@ -164,8 +164,6 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-## The wine
-
 Tip Top Blanc is dealcoholized from Bordeaux, France. The base is Bordeaux blanc — Sauvignon Blanc and Sémillon (producer). Low-temperature cold distillation by Zénothèque (producer); Zénothèque describes vacuum distillation at ~28–32°C with aroma recovery.
 
 On the nose, Banana, candied pineapple and yellow fruit lead, with beeswax and a faint savory note underneath. On the palate, Fresh and tangy on entry, with tropical fruit, citrus acidity, white flowers and a subtle nutmeg-like spice. Light-bodied and crisp rather than syrupy. Mouthfeel: Light-bodied and reasonably crisp rather than syrupy. The finish is Short-to-medium, floral and lightly spicy, with acidity lingering longer than the fruit.

@@ -37,9 +37,9 @@ tastes:
 profile:
   - 'Light body'
   - 'Clean finish'
-nose: 'ripe passionfruit and citrus — the Marlborough Sauvignon Blanc signature, present and aromatic. On the palate, fresh and expressive; tropical fruit over a light frame, with the varietal character carrying through the alcohol removal. The finish is clean and citric, the passionfruit trailing. Another Marlborough Sauvignon Blanc in the zero-proof register — this one from a real Upper Wairau Valley estate with passionfruit and citrus character intact.'
+nose: 'ripe passionfruit and citrus — the Marlborough Sauvignon Blanc signature, present and aromatic.'
 palate: 'Fresh and expressive; tropical fruit over a light frame, with the varietal character carrying through the alcohol removal.'
-finish: 'clean and citric, the passionfruit trailing. Another Marlborough Sauvignon Blanc in the zero-proof register — this one from a real Upper Wairau Valley estate with passionfruit and citrus character intact.'
+finish: 'clean and citric, the passionfruit trailing. Another Marlborough Sauvignon Blanc in the zero-proof register — this one from a real Upper Wairau Valley estate with passionfruit and….'
 best_for: 'Seafood, salads, and the Sauvignon Blanc drinker who wants Marlborough character.'
 serve: 'Well chilled.'
 sources:
@@ -120,10 +120,8 @@ provenance:
     url: 'https://internetwines.com/products/mount-fishtail-zero-sauvignon-blanc'
 ---
 
-## The wine
-
 Mount Fishtail Zero Sauvignon Blanc is dealcoholized from Marlborough, New Zealand. The base is Sauvignon Blanc from the Upper Wairau Valley, Marlborough, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified Marlborough Sauvignon Blanc.
 
-On the nose, ripe passionfruit and citrus — the Marlborough Sauvignon Blanc signature, present and aromatic. On the palate, fresh and expressive; tropical fruit over a light frame, with the varietal character carrying through the alcohol removal. The finish is clean and citric, the passionfruit trailing. Another Marlborough Sauvignon Blanc in the zero-proof register — this one from a real Upper Wairau Valley estate with passionfruit and citrus character intact. On the palate, Fresh and expressive; tropical fruit over a light frame, with the varietal character carrying through the alcohol removal. The finish is clean and citric, the passionfruit trailing. Another Marlborough Sauvignon Blanc in the zero-proof register — this one from a real Upper Wairau Valley estate with passionfruit and citrus character intact.
+On the nose, ripe passionfruit and citrus — the Marlborough Sauvignon Blanc signature, present and aromatic. On the palate, Fresh and expressive; tropical fruit over a light frame, with the varietal character carrying through the alcohol removal. The finish is clean and citric, the passionfruit trailing. Another Marlborough Sauvignon Blanc in the zero-proof register — this one from a real Upper Wairau Valley estate with passionfruit and….
 
 Serve well chilled.

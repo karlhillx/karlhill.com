@@ -41,7 +41,7 @@ profile:
   - 'Short finish'
 nose: 'Orange peel, tea, a little stone fruit — skin-contact adjacent, not a pale rosé.'
 palate: 'Textural for an NA white, light tannin, less ethanol oil than a full-strength amber.'
-finish: 'dry and short. More interesting than most  NA California. A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second.'
+finish: 'dry and short. More interesting than most  NA California. A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first,….'
 best_for: 'A table that wants orange-wine shape without the hangover.'
 serve: 'Cool, not iced.'
 sources:
@@ -132,10 +132,8 @@ provenance:
     url: 'https://www.bandofvintners.com/product/detail/BOV-NA-24/'
 ---
 
-## The wine
-
 Band of Vintners Freestyle is dealcoholized from Sonoma County and Lodi, United States. Producer's own product detail page confirms the wine is 'skin fermented with native yeasts' and blended 'in perfect balance once the alcohol is removed'; the specific named removal technology is not published. Residual ABV is not on the producer page; The Zero Proof lists <0.5…
 
-On the nose, orange peel, tea, a little stone fruit — skin-contact adjacent, not a pale rosé. On the palate, textural for an NA white, light tannin, less ethanol oil than a full-strength amber. The finish is dry and short. More interesting than most $20 NA California. A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second.
+On the nose, Orange peel, tea, a little stone fruit — skin-contact adjacent, not a pale rosé. On the palate, Textural for an NA white, light tannin, less ethanol oil than a full-strength amber. The finish is dry and short. More interesting than most  NA California. A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first,….
 
-A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second. Serve cool, not iced.
+Serve cool, not iced.

@@ -38,7 +38,7 @@ profile:
   - 'Soft bead'
 mouthfeel: 'Dry and long, the herbs and blossom notes lingering.'
 highlight: 'Pinot Meunier fruit and herbal notes from the botanical infusion — floral, slightly grassy, distinctive.'
-nose: 'pinot Meunier fruit and herbal notes from the botanical infusion — floral, slightly grassy, distinctive. On the palate, dry and elegant; the wine base gives it structure while the meadow-fruit infusion adds a herbal complexity that no straight dealcoholized sparkling has. Mouthfeel: dry and long, the herbs and blossom notes lingering. The finish is dry and long, the herbs and blossom notes lingering. Not content to just strip alcohol — Jörg Geiger dealcoholizes organic Pinot Meunier by vacuum distillation, then adds back meadow fruits, herbs and blossoms. The result is a genuinely original drink.'
+nose: 'pinot Meunier fruit and herbal notes from the botanical infusion — floral, slightly grassy, distinctive.'
 palate: Dry and elegant; the wine base gives it structure while the meadow-fruit infusion adds a herbal complexity that no straight dealcoholized sparkling has.
 finish: 'Dry and long, the herbs and blossom notes lingering.'
 best_for: 'Anyone tired of NA sparkling that tastes like sweet apple juice — this reads as a serious aperitif.'
@@ -124,10 +124,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 ViSecco Pinot Meunier is dealcoholized from Germany. The base is Organic Pinot Meunier and Sauvignon Blanc wines, vinified conventionally before dealcoholization. Vacuum distillation of organic Sauvignon Blanc and Pinot Meunier base wines, then refined with meadow fruits, herbs and blossoms (producer).
 
-On the nose, pinot Meunier fruit and herbal notes from the botanical infusion — floral, slightly grassy, distinctive. On the palate, dry and elegant; the wine base gives it structure while the meadow-fruit infusion adds a herbal complexity that no straight dealcoholized sparkling has. Mouthfeel: dry and long, the herbs and blossom notes lingering. The finish is dry and long, the herbs and blossom notes lingering. Not content to just strip alcohol — Jörg Geiger dealcoholizes organic Pinot Meunier by vacuum distillation, then adds back meadow fruits, herbs and blossoms. The result is a genuinely original drink. On the palate, Dry and elegant; the wine base gives it structure while the meadow-fruit infusion adds a herbal complexity that no straight dealcoholized sparkling has. Mouthfeel: Dry and long, the herbs and blossom notes lingering. The finish is Dry and long, the herbs and blossom notes lingering.
+On the nose, pinot Meunier fruit and herbal notes from the botanical infusion — floral, slightly grassy, distinctive. On the palate, Dry and elegant; the wine base gives it structure while the meadow-fruit infusion adds a herbal complexity that no straight dealcoholized sparkling has. Mouthfeel: Dry and long, the herbs and blossom notes lingering. The finish is Dry and long, the herbs and blossom notes lingering.
 
 Not content to just strip alcohol — Jörg Geiger dealcoholizes organic Pinot Meunier by vacuum distillation, then adds back meadow fruits, herbs and blossoms. The result is a genuinely original drink. Serve well chilled, in a flute or wine glass.

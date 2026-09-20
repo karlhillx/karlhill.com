@@ -38,7 +38,7 @@ profile:
   - 'Clean finish'
 nose: 'Fresh bread crust and a grassy hop lift — classic German pilsner aromatics, no ester heaviness.'
 palate: 'Light, crisp and properly bitter; noble-hop grass and a clean malt backbone that carries the bitterness rather than fighting it.'
-finish: 'dry and snappy, the hop bitterness lingering politely. A flagship pils from Illinois'' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass.'
+finish: 'dry and snappy, the hop bitterness lingering politely. A flagship pils from Illinois'' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp….'
 best_for: 'The fridge staple, the weekday dinner beer, the one you hand a pilsner drinker to prove NA works.'
 serve: 'Cold, in a tall pils glass.'
 sources:
@@ -116,10 +116,8 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Go Brewing Suspended In A Sunbeam Pils is brewed or fermented to finish at low ABV without a published removal step from Naperville, Illinois, United States. Go Brewing's own product FAQ states: 'We use Go Brewing's proprietary brewing process to keep it naturally under 0.5% ABV without dilution or dealcoholization, allowing for full pilsner character' — an explicit statement ruling out dealcoholization.
 
-On the nose, fresh bread crust and a grassy hop lift — classic German pilsner aromatics, no ester heaviness. On the palate, light, crisp and properly bitter; noble-hop grass and a clean malt backbone that carries the bitterness rather than fighting it. The finish is dry and snappy, the hop bitterness lingering politely. A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass.
+On the nose, Fresh bread crust and a grassy hop lift — classic German pilsner aromatics, no ester heaviness. On the palate, Light, crisp and properly bitter; noble-hop grass and a clean malt backbone that carries the bitterness rather than fighting it. The finish is dry and snappy, the hop bitterness lingering politely. A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp….
 
-A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass. Serve cold, in a tall pils glass.
+Serve cold, in a tall pils glass.

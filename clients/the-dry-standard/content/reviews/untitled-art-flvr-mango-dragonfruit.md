@@ -35,9 +35,9 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Clean finish'
-nose: 'ripe mango and a tart tropical lift — unmistakably fruit-forward, with sour-beer sharpness underneath. On the palate, tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap. The finish is tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer.'
+nose: 'ripe mango and a tart tropical lift — unmistakably fruit-forward, with sour-beer sharpness underneath.'
 palate: 'Tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap.'
-finish: 'tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer.'
+finish: 'tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit dri….'
 best_for: "Summer afternoons, people who don't like beer, and anyone who wants NA to be fun rather than serious."
 serve: 'Very cold, straight from the can.'
 sources:
@@ -133,10 +133,8 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Untitled Art FLVR! NA Mango Dragonfruit Sour is dealcoholized from Waunakee, Wisconsin, United States. Reverse osmosis membrane filtration, applied after full fermentation.
 
-On the nose, ripe mango and a tart tropical lift — unmistakably fruit-forward, with sour-beer sharpness underneath. On the palate, tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap. The finish is tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer. On the palate, Tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap. The finish is tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer.
+On the nose, ripe mango and a tart tropical lift — unmistakably fruit-forward, with sour-beer sharpness underneath. On the palate, Tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap. The finish is tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit dri….
 
 Serve very cold, straight from the can.

@@ -38,7 +38,7 @@ profile:
   - 'Light body'
   - 'Clean finish'
 mouthfeel: 'Clean and gentle.'
-nose: 'honeysuckle and pineapple with a pear undertone — floral and tropical. On the palate, light and creamy; the tropical fruit carries through a body that''s thinner than the alcoholic version but recognizably Chardonnay-family in character. Mouthfeel: clean and gentle. The finish is clean and gentle. A 0.0% California white blend at 80 calories from a family winery — honeysuckle, pineapple and pear, approachable and widely available.'
+nose: honeysuckle and pineapple with a pear undertone — floral and tropical.
 palate: 'Light and creamy; the tropical fruit carries through a body that''s thinner than the alcoholic version but recognizably Chardonnay-family in character.'
 finish: 'clean and gentle. A 0.0% California white blend at 80 calories from a family winery — honeysuckle, pineapple and pear, approachable and widely available.'
 best_for: 'The everyday California white drinker at zero proof, the widely-available bottle.'
@@ -133,10 +133,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Chateau Diana Zero California White Blend is dealcoholized from California, United States. The base is California white wine blend, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified California white blend.
 
-On the nose, honeysuckle and pineapple with a pear undertone — floral and tropical. On the palate, light and creamy; the tropical fruit carries through a body that's thinner than the alcoholic version but recognizably Chardonnay-family in character. Mouthfeel: clean and gentle. The finish is clean and gentle. A 0.0% California white blend at 80 calories from a family winery — honeysuckle, pineapple and pear, approachable and widely available. On the palate, Light and creamy; the tropical fruit carries through a body that's thinner than the alcoholic version but recognizably Chardonnay-family in character. Mouthfeel: Clean and gentle. The finish is clean and gentle. A 0.0% California white blend at 80 calories from a family winery — honeysuckle, pineapple and pear, approachable and widely available.
+On the nose, honeysuckle and pineapple with a pear undertone — floral and tropical. On the palate, Light and creamy; the tropical fruit carries through a body that's thinner than the alcoholic version but recognizably Chardonnay-family in character. Mouthfeel: Clean and gentle. The finish is clean and gentle. A 0.0% California white blend at 80 calories from a family winery — honeysuckle, pineapple and pear, approachable and widely available.
 
 Serve well chilled.

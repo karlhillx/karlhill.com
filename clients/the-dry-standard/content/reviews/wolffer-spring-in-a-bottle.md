@@ -139,8 +139,6 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Wölffer Spring in a Bottle is dealcoholized from Rheinhessen, Germany. The base is Organic Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder blend. Made from a real fermented wine base — a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — produced in partnership with a winery in Rheinhessen, Germany, then dealcoholized; the specific named removal technology is not…
 
 On the nose, red berry, ripe peach, fresh pear. On the palate, vibrant acidity, elegant fruit, a finer mouthfeel than the $10 NA pinks. The finish is clean, a little earthy. More wine than soda. A Long Island estate name on a German-made alcohol-removed sparkling rosé. Red berry, peach, real acidity. Method still a label phrase.

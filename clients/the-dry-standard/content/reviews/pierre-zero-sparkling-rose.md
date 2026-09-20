@@ -41,7 +41,7 @@ profile:
   - 'Clean finish'
 highlight: 'Soft red berry and a musky floral lift — fruit-forward rather than yeasty.'
 likeness: 'The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a…'
-nose: 'soft red berry and a musky floral lift — fruit-forward rather than yeasty. On the palate, delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not. The finish is short, clean, a little candied strawberry. The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a foil capsule.'
+nose: soft red berry and a musky floral lift — fruit-forward rather than yeasty.
 palate: 'Delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not.'
 finish: 'Short, clean, a little candied strawberry.'
 best_for: 'Toasts, brunch, and the occasion that wants a foil capsule without the ethanol.'
@@ -136,10 +136,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Pierre Zéro Sparkling Rosé is dealcoholized from France. The base is Traditionally vinified Chardonnay and Merlot, dealcoholized after fermentation. Spinning cone column (the method Maison Chavin says it uses for the Pierre Zéro range).
 
-On the nose, soft red berry and a musky floral lift — fruit-forward rather than yeasty. On the palate, delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not. The finish is short, clean, a little candied strawberry. The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a foil capsule. On the palate, Delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not. The finish is Short, clean, a little candied strawberry.
+On the nose, soft red berry and a musky floral lift — fruit-forward rather than yeasty. On the palate, Delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not. The finish is Short, clean, a little candied strawberry.
 
 The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a…. Serve 6–8°C, in a flute.

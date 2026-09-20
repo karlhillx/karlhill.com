@@ -126,8 +126,6 @@ provenance:
     url: 'https://www.diffordsguide.com/beer-wine-spirits/11580/phony-negroni'
 ---
 
-## The drink
-
 St. Agrestis Phony Negroni is formulated as an alcohol alternative from United States. The base is 30 organic, non-GMO botanicals designed to replicate negroni aromatics without any underlying spirit. St. Agrestis cocktails are formulated from a base of 30 organic, non-GMO botanicals — not dealcoholized from a once-alcoholic Negroni.
 
 On the nose, piney and bitter, gentian and wormwood, layered with a citrusy high note that's unmistakably Negroni-adjacent without borrowing. On the palate, bitter and botanical, the gentian carrying the middle, the citrus and herbal notes framing it; bone-dry, no sugar overlay. The finish is long and bitter — closer to a Cocchi Americano rinse than to a juice mocktail. VinePair's 2025 Rising Drinks Brand of the Year is, by a sensible margin, the closest NA pour to an actual Negroni. Built from scratch with 30 botanicals — and built right.

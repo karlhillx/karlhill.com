@@ -117,8 +117,6 @@ sensory:
       - palate
 ---
 
-## The wine
-
 Biagio Cru Rosé All Day is dealcoholized from Languedoc, France. The base is Grenache rosé, Côtes du Roussillon. Rosé All Day Zero is the alcohol-removed extension of Biagio Cru's Rosé All Day. Trade press and Target manufacturer-supplied product data list 0% / Alcohol Percentage: 0. Named removal technology remains unpublished.
 
 On the nose, generic red berry. On the palate, sweet, light, low acid. The finish is short. A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf.

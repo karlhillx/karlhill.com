@@ -139,8 +139,6 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Athletic Brewing Run Wild IPA is brewed or fermented to finish at low ABV without a published removal step from Milford, Connecticut, with a second brewhouse in San Diego, California, United States. Athletic's process is proprietary, but founder interviews state it is neither dealcoholization of finished beer nor simple arrested fermentation — the beers are built as NA from the start.
 
 On the nose, pine resin and citrus peel — the classic Northwest signature, bright and clean rather than sweet. On the palate, approachable bitterness (35 IBU) over a subtle, complex malt body; a Northwest hop blend with Citra and Mosaic doing the loud parts, at a session beer's weight. Mouthfeel: dry and crisp, ending clean rather than syrupy — the thing cheap NA IPAs get wrong. The finish is dry and crisp, ending clean rather than syrupy — the thing cheap NA IPAs get wrong. The category's benchmark, and the beer that proved a non-alcoholic IPA can win medals against full-strength competition. The process is a trade secret, but founders have said on the record it is not dealcoholization. The result is the most reliable IPA-shaped pour in the zero-proof aisle.

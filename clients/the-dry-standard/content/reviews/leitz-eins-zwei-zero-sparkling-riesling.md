@@ -41,9 +41,9 @@ profile:
   - 'Light body'
   - 'Soft bead'
 mouthfeel: 'Citrus pith and a fine bead. Drink it colder than the still bottle.'
-nose: 'green apple, citrus, and a cool mineral line. The mousse lifts the zest. On the palate, brisk and a little sweet, then acidity pulls it taut. Lighter than a Rheingau Sekt with ethanol, but the grape is still the point. Mouthfeel: citrus pith and a fine bead. Drink it colder than the still bottle. The finish is citrus pith and a fine bead. Drink it colder than the still bottle. The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, same citrus-and-rhubarb argument.'
+nose: 'green apple, citrus, and a cool mineral line. The mousse lifts the zest.'
 palate: 'Brisk and a little sweet, then acidity pulls it taut. Lighter than a Rheingau Sekt with ethanol, but the grape is still the point.'
-finish: 'citrus pith and a fine bead. Drink it colder than the still bottle. The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, same citrus-and-rhubarb argument.'
+finish: 'citrus pith and a fine bead. Drink it colder than the still bottle. The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, s….'
 best_for: 'A toast that still wants Riesling, not generic NA bubbly.'
 serve: 'Well chilled, flute or white-wine stem.'
 sources:
@@ -129,10 +129,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Leitz Eins-Zwei-Zero Sparkling Riesling is dealcoholized from Rheingau, Germany. The base is Riesling, then dealcoholized; sparkling bottling in the Eins-Zwei-Zero family. Vacuum distillation; under vacuum, alcohol boils at about 29°C.
 
-On the nose, green apple, citrus, and a cool mineral line. The mousse lifts the zest. On the palate, brisk and a little sweet, then acidity pulls it taut. Lighter than a Rheingau Sekt with ethanol, but the grape is still the point. Mouthfeel: citrus pith and a fine bead. Drink it colder than the still bottle. The finish is citrus pith and a fine bead. Drink it colder than the still bottle. The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, same citrus-and-rhubarb argument. On the palate, Brisk and a little sweet, then acidity pulls it taut. Lighter than a Rheingau Sekt with ethanol, but the grape is still the point. Mouthfeel: Citrus pith and a fine bead. Drink it colder than the still bottle. The finish is citrus pith and a fine bead. Drink it colder than the still bottle. The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, same citrus-and-rhubarb argument.
+On the nose, green apple, citrus, and a cool mineral line. The mousse lifts the zest. On the palate, Brisk and a little sweet, then acidity pulls it taut. Lighter than a Rheingau Sekt with ethanol, but the grape is still the point. Mouthfeel: Citrus pith and a fine bead. Drink it colder than the still bottle. The finish is citrus pith and a fine bead. Drink it colder than the still bottle. The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, s….
 
 Serve well chilled, flute or white-wine stem.

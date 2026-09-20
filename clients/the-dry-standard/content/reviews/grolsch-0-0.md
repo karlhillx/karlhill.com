@@ -29,7 +29,7 @@ profile:
   - 'Clean finish'
 nose: Green hop aroma with a soft bready malt base — the Grolsch house signature carried over.
 palate: 'Full-bodied for an NA pilsner; crisp hop bitterness over a rounded malt backbone, no watery gaps.'
-finish: 'clean and crisp with a pleasant, lasting bitterness. A real pilsner from a 400-year-old Dutch brewery, minus the alcohol: the green-hop bitterness and full malt body are unmistakably Grolsch.'
+finish: 'clean and crisp with a pleasant, lasting bitterness. A real pilsner from a 400-year-old Dutch brewery, minus the alcohol: the green-hop bitterness and full malt body are unmistaka….'
 best_for: 'Anyone who knows Grolsch and wants the zero-proof version to actually taste like Grolsch.'
 serve: 'Cold, in a pils glass.'
 image: media/reviews/grolsch-0-0.jpg
@@ -98,10 +98,8 @@ provenance:
     url: 'https://www.grolsch.com/grolsch-0-0'
 ---
 
-## The beer
-
 Grolsch 0.0% is brewed or fermented to finish at low ABV without a published removal step from Netherlands. Grolsch's own product page states: 'we use a special yeast to craft our core natural zero alcohol beer. Our unique full fermentation process produces no alcohol to create a 0.0% beer without compromise' — explicit formulated-from-the-start language, not a removal process.
 
-On the nose, green hop aroma with a soft bready malt base — the Grolsch house signature carried over. On the palate, full-bodied for an NA pilsner; crisp hop bitterness over a rounded malt backbone, no watery gaps. The finish is clean and crisp with a pleasant, lasting bitterness. A real pilsner from a 400-year-old Dutch brewery, minus the alcohol: the green-hop bitterness and full malt body are unmistakably Grolsch.
+On the nose, Green hop aroma with a soft bready malt base — the Grolsch house signature carried over. On the palate, Full-bodied for an NA pilsner; crisp hop bitterness over a rounded malt backbone, no watery gaps. The finish is clean and crisp with a pleasant, lasting bitterness. A real pilsner from a 400-year-old Dutch brewery, minus the alcohol: the green-hop bitterness and full malt body are unmistaka….
 
-A real pilsner from a 400-year-old Dutch brewery, minus the alcohol: the green-hop bitterness and full malt body are unmistakably Grolsch. Serve cold, in a pils glass.
+Serve cold, in a pils glass.

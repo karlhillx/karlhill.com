@@ -38,7 +38,7 @@ profile:
   - 'Short finish'
 nose: 'Citrus, grapefruit, a little floral — the retailer list, and the glass is in that neighborhood.'
 palate: 'Light, crisp, a touch sweet. Less snap than Giesen 0% Sauvignon Blanc.'
-finish: 'short and clean. Value white, not a Marlborough argument. The white sibling of the Be Free Rosé that leads this purchase list. Citrus and grapefruit, ten dollars, method still a slogan.'
+finish: 'short and clean. Value white, not a Marlborough argument. The white sibling of the Be Free Rosé that leads this purchase list. Citrus and grapefruit, ten dollars, method still a s….'
 best_for: 'Fish and cheese, or the third Be Free on the shelf when the rosé is gone.'
 serve: 'Well chilled.'
 sources:
@@ -115,10 +115,8 @@ provenance:
     url: 'https://www.totalwine.com/wine/white-wine/sauvignon-blanc/be-free-sauvignon-blanc-nonalcoholic-wine/p/242864750'
 ---
 
-## The wine
-
 Be Free Sauvignon Blanc is dealcoholized from Germany. Total Wine's product highlights state the wine 'gets dealcoholized using a special method, conserving all the beautiful aromas and flavors'; the specific named technology is not published. Exact residual ABV is not on that page; Be Free / Eisberg-line trade listings use a not-…
 
-On the nose, citrus, grapefruit, a little floral — the retailer list, and the glass is in that neighborhood. On the palate, light, crisp, a touch sweet. Less snap than Giesen 0% Sauvignon Blanc. The finish is short and clean. Value white, not a Marlborough argument. The white sibling of the Be Free Rosé that leads this purchase list. Citrus and grapefruit, ten dollars, method still a slogan.
+On the nose, Citrus, grapefruit, a little floral — the retailer list, and the glass is in that neighborhood. On the palate, Light, crisp, a touch sweet. Less snap than Giesen 0% Sauvignon Blanc. The finish is short and clean. Value white, not a Marlborough argument. The white sibling of the Be Free Rosé that leads this purchase list. Citrus and grapefruit, ten dollars, method still a s….
 
-The white sibling of the Be Free Rosé that leads this purchase list. Citrus and grapefruit, ten dollars, method still a slogan. Serve well chilled.
+Serve well chilled.

@@ -30,7 +30,7 @@ profile:
   - 'Modest bitterness'
 mouthfeel: 'Refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol war…'
 nose: 'Bitter-orange peel and gentian root, with a softer floral note than Campari proper.'
-palate: 'Bittersweet and a touch syrupy, bright orange-citrus with the gentian bitterness Campari is known for, moderated for an alcohol-free serve.'
+palate: 'Bittersweet and a touch syrupy, bright orange-citrus with the gentian bitterness Campari is known for, moderated for an alcohol-free.'
 finish: 'Refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol warmth.'
 best_for: 'The aperitivo hour, Italian-style; a Campari spritz without the prosecco or the proof.'
 serve: 'Build over ice with an orange slice; finish with sparkling water for a true Spritz.'
@@ -114,10 +114,8 @@ sensory:
       - palate
 ---
 
-## The drink
-
 Crodino Non-Alcoholic Spritz is formulated as an alcohol alternative from Italy. The base is Non-alcoholic aromatic base blended with botanicals (no underlying spirit before alcohol removal). Crodino is formulated alcohol-free from the start (blends of botanical infusions and a non-alcoholic base), not made by removing alcohol from a once-alcoholic aperitivo.
 
-On the nose, bitter-orange peel and gentian root, with a softer floral note than Campari proper. On the palate, bittersweet and a touch syrupy, bright orange-citrus with the gentian bitterness Campari is known for, moderated for an alcohol-free serve. Mouthfeel: refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol war…. The finish is refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol warmth. Campari's original non-alcoholic bitter from 1965 — formulated, never dealcoholized, and the only proper Campari bitter out there without the alcohol.
+On the nose, Bitter-orange peel and gentian root, with a softer floral note than Campari proper. On the palate, Bittersweet and a touch syrupy, bright orange-citrus with the gentian bitterness Campari is known for, moderated for an alcohol-free. Mouthfeel: Refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol war…. The finish is Refreshingly bitter — the botanicals carry the close, gentian and quinine holding firm where Campari proper would hand off to ethanol warmth.
 
 Campari's original non-alcoholic bitter from 1965 — formulated, never dealcoholized, and the only proper Campari bitter out there without the alcohol. Serve build over ice with an orange slice; finish with sparkling water for a true Spritz.

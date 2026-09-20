@@ -31,7 +31,7 @@ profile:
 mouthfeel: 'Dry and hoppy, the bitterness lingering briefly.'
 nose: 'Citrus and pine hops — the IPA aromatic signature, present if a bit lighter than a full-strength version.'
 palate: 'Light-bodied with the hop character carrying; the malt is minimal, the bitterness present, and the overall effect is more hop-forward tea than IPA.'
-finish: 'dry and hoppy, the bitterness lingering briefly. A beer named ''Deep Fake'' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland''s most recognizable craft breweries.'
+finish: 'dry and hoppy, the bitterness lingering briefly. A beer named ''Deep Fake'' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland''s most recogniz….'
 best_for: "The Flying Dog fan who wants the brewery's attitude at zero proof."
 serve: 'Cold, from the can.'
 image: media/reviews/flying-dog-deep-fake.jpg
@@ -102,10 +102,8 @@ provenance:
     url: 'https://flyingdog.com/beers/deep-fake-non-alcoholic-ipa/'
 ---
 
-## The beer
-
 Flying Dog Deep Fake Non-Alcoholic IPA is classified as Production type: Not verified — Flying Dog does not publicly disclose whether alcohol is removed or fermentation is limited; the name 'Deep Fake' acknowledges the beer's imitation of a real IPA. from Frederick, Maryland, United States. Flying Dog does not publicly disclose whether alcohol is removed or fermentation is limited; the name 'Deep Fake' acknowledges the beer's imitation of a real IPA.
 
-On the nose, citrus and pine hops — the IPA aromatic signature, present if a bit lighter than a full-strength version. On the palate, light-bodied with the hop character carrying; the malt is minimal, the bitterness present, and the overall effect is more hop-forward tea than IPA. Mouthfeel: dry and hoppy, the bitterness lingering briefly. The finish is dry and hoppy, the bitterness lingering briefly. A beer named 'Deep Fake' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland's most recognizable craft breweries.
+On the nose, Citrus and pine hops — the IPA aromatic signature, present if a bit lighter than a full-strength version. On the palate, Light-bodied with the hop character carrying; the malt is minimal, the bitterness present, and the overall effect is more hop-forward tea than IPA. Mouthfeel: Dry and hoppy, the bitterness lingering briefly. The finish is dry and hoppy, the bitterness lingering briefly. A beer named 'Deep Fake' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland's most recogniz….
 
-A beer named 'Deep Fake' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland's most recognizable craft breweries. Serve cold, from the can.
+Serve cold, from the can.

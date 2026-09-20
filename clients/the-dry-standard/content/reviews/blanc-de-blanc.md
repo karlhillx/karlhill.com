@@ -35,9 +35,9 @@ tastes:
 profile:
   - 'Soft bead'
 mouthfeel: 'Long and toasty, the brioche note extending the finish.'
-nose: 'brioche and baked apple with a floral lift — the lees ageing leaves a genuine Champagne-adjacent aromatic signature. On the palate, structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve. Mouthfeel: long and toasty, the brioche note extending the finish. The finish is long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that''s how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk.'
+nose: brioche and baked apple with a floral lift — the lees ageing leaves a genuine Champagne-adjacent aromatic signature.
 palate: 'Structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve.'
-finish: 'long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that''s how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk.'
+finish: 'long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that''s how you keep brioche character in a zero-proof sparkling. The mos….'
 best_for: "The dinner-party bottle, and the answer to anyone who says NA sparkling can't be serious."
 serve: 'Chilled, in a flute or white-wine glass.'
 sources:
@@ -122,10 +122,8 @@ sensory:
       - palate
 ---
 
-## The wine
-
 Blanc de Blanc Non-Alcoholic Sparkling Wine (Jörg Geiger) is dealcoholized from Germany. The base is Organic Chardonnay and Colombard, conventionally vinified with secondary bottle fermentation and lees ageing before dealcoholization. Organic Chardonnay and Colombard wine, bottle-fermented and matured on the lees for two years, then vacuum distilled (producer).
 
-On the nose, brioche and baked apple with a floral lift — the lees ageing leaves a genuine Champagne-adjacent aromatic signature. On the palate, structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve. Mouthfeel: long and toasty, the brioche note extending the finish. The finish is long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk. On the palate, Structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve. Mouthfeel: Long and toasty, the brioche note extending the finish. The finish is long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk.
+On the nose, brioche and baked apple with a floral lift — the lees ageing leaves a genuine Champagne-adjacent aromatic signature. On the palate, Structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve. Mouthfeel: Long and toasty, the brioche note extending the finish. The finish is long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The mos….
 
 Serve chilled, in a flute or white-wine glass.

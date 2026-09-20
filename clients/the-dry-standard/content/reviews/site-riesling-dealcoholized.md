@@ -107,7 +107,7 @@ drink_if_you_like:
   - 'Off-dry Mosel Riesling'
   - 'Fruit-forward NA whites'
 nose: 'fruit-led: green apple and pear, lemon, white peach, a light floral lift, and a faint slate line underneath. It smells like Mosel fruit more than cordial.'
-palate: 'the wine is light-bodied and crisp. Apple, pear, citrus, and peach arrive early, and the acidity keeps the sip lively rather than flat. Balance is the fight: acid does the Mosel work, but the must and concentrate push sweetness and a softer, slightly juice-like roundness through the mid-palate. Mouthfeel starts precise and light, then turns a little plush where the rebuild lands. Structural authenticity is mixed — acid and a mild mineral dryness give wine shape, while the missing ethanol weight and the added sweetness keep it from drinking like a dry Mosel.'
+palate: 'the wine is light-bodied and crisp. Apple, pear, citrus, and peach arrive early, and the acidity keeps the sip lively rather than flat. Balance is the fight: acid does the Mosel work, but the must and concentrate push sweetness and a softer, slightly juice-like roundness through the mid-palate. Mouthfeel starts precis….'
 finish: 'Medium-short. Tart apple and lemon, with peach sweetness hanging on. A mild mineral dryness cleans the end; a soft concentrate note stays on the back.'
 best_for: 'Weeknight fish, spicy takeout, or the Mosel drinker who will accept off-dry for a wine-shaped glass without ethanol.'
 serve: 'Well chilled, in a white-wine glass.'
@@ -190,10 +190,8 @@ structure_scales:
   texture: rounded
 ---
 
-## The wine
-
 SITE Riesling Dealcoholized is dealcoholized from Mosel, Germany. The base is 100% Riesling wine, fermented then dealcoholized. Low-temperature evaporation — likely vacuum distillation (gently heated to a maximum of 27°C so the alcohol evaporates; equipment not named).
 
-On the nose, fruit-led: green apple and pear, lemon, white peach, a light floral lift, and a faint slate line underneath. It smells like Mosel fruit more than cordial. On the palate, the wine is light-bodied and crisp. Apple, pear, citrus, and peach arrive early, and the acidity keeps the sip lively rather than flat. Balance is the fight: acid does the Mosel work, but the must and concentrate push sweetness and a softer, slightly juice-like roundness through the mid-palate. Mouthfeel starts precise and light, then turns a little plush where the rebuild lands. Structural authenticity is mixed — acid and a mild mineral dryness give wine shape, while the missing ethanol weight and the added sweetness keep it from drinking like a dry Mosel. Mouthfeel: Crisp and light, with a rounded, slightly juice-like middle from the must and concentrate. The finish is Medium-short. Tart apple and lemon, with peach sweetness hanging on. A mild mineral dryness cleans the end; a soft concentrate note stays on the back.
+On the nose, fruit-led: green apple and pear, lemon, white peach, a light floral lift, and a faint slate line underneath. It smells like Mosel fruit more than cordial. On the palate, the wine is light-bodied and crisp. Apple, pear, citrus, and peach arrive early, and the acidity keeps the sip lively rather than flat. Balance is the fight: acid does the Mosel work, but the must and concentrate push sweetness and a softer, slightly juice-like roundness through the mid-palate. Mouthfeel starts precis…. Mouthfeel: Crisp and light, with a rounded, slightly juice-like middle from the must and concentrate. The finish is Medium-short. Tart apple and lemon, with peach sweetness hanging on. A mild mineral dryness cleans the end; a soft concentrate note stays on the back.
 
 More wine than juice — Riesling fruit and acid carry the glass. The must and concentrate still show as sweetness and softness, so it is less dry and less structured than a traditional Mosel. Serve well chilled, in a white-wine glass.

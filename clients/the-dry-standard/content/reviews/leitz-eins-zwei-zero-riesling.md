@@ -49,7 +49,7 @@ profile:
   - 'Light body'
   - 'Clean finish'
 mouthfeel: 'Clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold.'
-nose: 'lime zest, green apple skin, a snap of rhubarb, and a cool mineral line. It smells like Riesling first and like a reduced wine second. On the palate, bright and a little sweet, then pulled taut by acidity. Citrus and red apple sit over a lighter body than a full-strength Eins-Zwei-Dry, but the grape is still the point. Mouthfeel: clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold. The finish is clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold. The dealcoholized Riesling most often worth opening. Acidity keeps the residual sugar honest; what is missing is ethanol weight, not varietal character.'
+nose: 'lime zest, green apple skin, a snap of rhubarb, and a cool mineral line. It smells like Riesling first and like a reduced wine second.'
 palate: 'Bright and a little sweet, then pulled taut by acidity. Citrus and red apple sit over a lighter body than a full-strength Eins-Zwei-Dry, but the grape is still the point.'
 finish: 'Clean, lingering citrus pith.'
 best_for: 'Weeknight fish, spicy takeout, or anyone who wants Riesling acidity without a full pour of ethanol.'
@@ -182,10 +182,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Leitz Eins-Zwei-Zero Riesling is dealcoholized from Rheingau, Germany. The base is Estate Riesling, gently pressed and cool-fermented in stainless steel. Vacuum distillation.
 
-On the nose, lime zest, green apple skin, a snap of rhubarb, and a cool mineral line. It smells like Riesling first and like a reduced wine second. On the palate, bright and a little sweet, then pulled taut by acidity. Citrus and red apple sit over a lighter body than a full-strength Eins-Zwei-Dry, but the grape is still the point. Mouthfeel: clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold. The finish is clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold. The dealcoholized Riesling most often worth opening. Acidity keeps the residual sugar honest; what is missing is ethanol weight, not varietal character. On the palate, Bright and a little sweet, then pulled taut by acidity. Citrus and red apple sit over a lighter body than a full-strength Eins-Zwei-Dry, but the grape is still the point. Mouthfeel: Clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold. The finish is Clean, lingering citrus pith.
+On the nose, lime zest, green apple skin, a snap of rhubarb, and a cool mineral line. It smells like Riesling first and like a reduced wine second. On the palate, Bright and a little sweet, then pulled taut by acidity. Citrus and red apple sit over a lighter body than a full-strength Eins-Zwei-Dry, but the grape is still the point. Mouthfeel: Clean, lingering citrus pith. The sugar shows more as the glass warms; keep it cold. The finish is Clean, lingering citrus pith.
 
 The dealcoholized Riesling most often worth opening. Acidity keeps the residual sugar honest; what is missing is ethanol weight, not varietal character. Serve well chilled, 6–8°C, in a white-wine glass. Not a cocktail base.

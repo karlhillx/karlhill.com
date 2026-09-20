@@ -146,8 +146,6 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-## The wine
-
 Claouset Zéro Degré Blanc is a hybrid of dealcoholized material and other defining ingredients from Bordeaux, France. The base is 100% Sémillon, fermented then dealcoholized. Low-temperature vacuum dealcoholization (producer).
 
 On the nose, Lemon and citrus peel with tropical fruit and white blossom. On the palate, Bright and fresh, with citrus, pineapple-like tropical fruit and soft floral notes. Light-bodied with a pleasant sweet-acid balance. The finish is Medium-to-long for the category, fresh and citrus-driven, with lingering floral fruit.

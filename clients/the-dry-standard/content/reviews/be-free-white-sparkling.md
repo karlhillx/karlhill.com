@@ -36,7 +36,7 @@ profile:
   - 'Short finish'
 nose: Soft citrus with a creamy edge and a nutty hint behind the bubbles.
 palate: 'Gentle fizz over light apple-citrus fruit; easy, slightly sweet, no sharp edges.'
-finish: 'soft and short, with the bubbles doing most of the closing work. A fizzy, low-calorie German sparkling that plays the celebration without the substance — pleasant, gentle, and better than most NA fizz at the price.'
+finish: 'soft and short, with the bubbles doing most of the closing work. A fizzy, low-calorie German sparkling that plays the celebration without the substance — pleasant, gentle, and bet….'
 best_for: 'Brunch toasts, designated-driver celebrations, bottles you open at noon.'
 serve: 'Chilled, in a flute or straight from the bottle.'
 sources:
@@ -116,10 +116,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Be Free White Sparkling is dealcoholized from Germany. Supervin's retail listing describes the Free Feather line (which includes this bottle) as 'gently dealcoholized products'; the specific named technology for this SKU is not published.
 
-On the nose, soft citrus with a creamy edge and a nutty hint behind the bubbles. On the palate, gentle fizz over light apple-citrus fruit; easy, slightly sweet, no sharp edges. The finish is soft and short, with the bubbles doing most of the closing work. A fizzy, low-calorie German sparkling that plays the celebration without the substance — pleasant, gentle, and better than most NA fizz at the price.
+On the nose, Soft citrus with a creamy edge and a nutty hint behind the bubbles. On the palate, Gentle fizz over light apple-citrus fruit; easy, slightly sweet, no sharp edges. The finish is soft and short, with the bubbles doing most of the closing work. A fizzy, low-calorie German sparkling that plays the celebration without the substance — pleasant, gentle, and bet….
 
-A fizzy, low-calorie German sparkling that plays the celebration without the substance — pleasant, gentle, and better than most NA fizz at the price. Serve chilled, in a flute or straight from the bottle.
+Serve chilled, in a flute or straight from the bottle.

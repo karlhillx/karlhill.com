@@ -113,8 +113,6 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Tired Hands N/Alien Church is brewed or fermented to finish at low ABV without a published removal step from Ardmore, Pennsylvania, United States. Tired Hands' own menu copy describes N/Alien Church as 'brewed with oats, experimental yeast, and the same hop bill as Alien Church' — a from-scratch recipe built around a special yeast strain, with no mention of a post-brew alcohol-removal step.
 
 On the nose, bright tropical and citrus hops over a soft malt base — the NE IPA signature, present and fresh. On the palate, hazy and juicy; tropical fruit over a soft, rounded body, gentle bitterness, no astringent or thin spots. The finish is soft and lingering, the hop fruit carrying well. Tired Hands spent over a year on R&D to make a NE IPA that lives up to the Alien Church name — hazy, hoppy, and honest about the craft. One of the best NA IPAs on this desk.

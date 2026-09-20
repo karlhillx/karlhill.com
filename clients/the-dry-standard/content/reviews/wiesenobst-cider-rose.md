@@ -37,9 +37,9 @@ profile:
   - Off-dry
   - 'Bright acidity'
   - 'Modest bitterness'
-nose: 'red berries and a tart hop edge — more orchard than cellar. On the palate, sweet-sour, bitter at the edges, the red-wine cut giving tannin the cider would not have alone. The finish is dry-tart, lingering hop. A food cider, not a picnic soda. Not a wine trying to be cider or a cider trying to be wine. Apple, perry, a splash of dealcoholized red, hops. Tart in the way Geiger usually is.'
+nose: red berries and a tart hop edge — more orchard than cellar.
 palate: 'Sweet-sour, bitter at the edges, the red-wine cut giving tannin the cider would not have alone.'
-finish: 'dry-tart, lingering hop. A food cider, not a picnic soda. Not a wine trying to be cider or a cider trying to be wine. Apple, perry, a splash of dealcoholized red, hops. Tart in the way Geiger usually is.'
+finish: 'dry-tart, lingering hop. A food cider, not a picnic soda. Not a wine trying to be cider or a cider trying to be wine. Apple, perry, a splash of dealcoholized red, hops. Tart in th….'
 best_for: "Grill, a solo tart pour, anyone bored of NA wine's mid-palate."
 serve: 'Cold, 45–50°F, in a tumbler.'
 sources:
@@ -114,10 +114,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The cider
-
 WiesenObst Cider Rosé is a hybrid of dealcoholized material and other defining ingredients from Schlat, Germany. Dealcoholized cider from cider apples, perry pears, and dealcoholized red wine, plus hops, herbs, and flowers.
 
-On the nose, red berries and a tart hop edge — more orchard than cellar. On the palate, sweet-sour, bitter at the edges, the red-wine cut giving tannin the cider would not have alone. The finish is dry-tart, lingering hop. A food cider, not a picnic soda. Not a wine trying to be cider or a cider trying to be wine. Apple, perry, a splash of dealcoholized red, hops. Tart in the way Geiger usually is. On the palate, Sweet-sour, bitter at the edges, the red-wine cut giving tannin the cider would not have alone. The finish is dry-tart, lingering hop. A food cider, not a picnic soda. Not a wine trying to be cider or a cider trying to be wine. Apple, perry, a splash of dealcoholized red, hops. Tart in the way Geiger usually is.
+On the nose, red berries and a tart hop edge — more orchard than cellar. On the palate, Sweet-sour, bitter at the edges, the red-wine cut giving tannin the cider would not have alone. The finish is dry-tart, lingering hop. A food cider, not a picnic soda. Not a wine trying to be cider or a cider trying to be wine. Apple, perry, a splash of dealcoholized red, hops. Tart in th….
 
 Serve cold, 45–50°F, in a tumbler.

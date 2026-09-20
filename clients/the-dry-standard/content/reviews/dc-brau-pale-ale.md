@@ -34,7 +34,7 @@ profile:
   - 'Light body'
   - 'Modest bitterness'
   - 'Short finish'
-nose: 'pale-ale citrus and biscuit malt, modest. On the palate, light body, gentle bitterness, a little grain-sweet in the middle. The finish is short. Clean enough to have a second. A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation.'
+nose: 'pale-ale citrus and biscuit malt, modest.'
 palate: 'Light body, gentle bitterness, a little grain-sweet in the middle.'
 finish: 'short. Clean enough to have a second. A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation.'
 best_for: 'The local six-pack when you do not want to mail-order Athletic.'
@@ -103,10 +103,8 @@ sensory:
       - palate
 ---
 
-## The beer
-
 DC Brau Non-Alcoholic Pale Ale is dealcoholized from Washington, DC, United States. Mechanical separator removing alcohol from finished beer, combined with a hybrid low-alcohol Lallemand yeast strain during fermentation.
 
-On the nose, pale-ale citrus and biscuit malt, modest. On the palate, light body, gentle bitterness, a little grain-sweet in the middle. The finish is short. Clean enough to have a second. A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation. On the palate, Light body, gentle bitterness, a little grain-sweet in the middle. The finish is short. Clean enough to have a second. A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation.
+On the nose, pale-ale citrus and biscuit malt, modest. On the palate, Light body, gentle bitterness, a little grain-sweet in the middle. The finish is short. Clean enough to have a second. A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation.
 
 Serve cold.

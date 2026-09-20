@@ -38,9 +38,9 @@ tastes:
   - apricot
 profile:
   - 'Soft bead'
-nose: 'summer berries and fresh apricot — the producer list, and it holds. On the palate, provence-shaped, balanced, a little softer than the sparkling Noughty. The Pinotage is a tint, not a tannin. The finish is gently lingering fruit. Less snap than the sparkling Chardonnay. Still rosé, not the sparkling sibling already on this desk. Chenin and a dash of Pinotage, spun-cone dealcoholized, berry and apricot without the fizz.'
+nose: 'summer berries and fresh apricot — the producer list, and it holds.'
 palate: 'Provence-shaped, balanced, a little softer than the sparkling Noughty. The Pinotage is a tint, not a tannin.'
-finish: 'gently lingering fruit. Less snap than the sparkling Chardonnay. Still rosé, not the sparkling sibling already on this desk. Chenin and a dash of Pinotage, spun-cone dealcoholized, berry and apricot without the fizz.'
+finish: 'gently lingering fruit. Less snap than the sparkling Chardonnay. Still rosé, not the sparkling sibling already on this desk. Chenin and a dash of Pinotage, spun-cone dealcoholized….'
 best_for: 'A still pink at the table, not a toast.'
 serve: 'Chilled, white-wine glass.'
 sources:
@@ -140,10 +140,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Noughty Dealcoholized Rosé is dealcoholized from Western Cape, South Africa. The base is 98% Chenin Blanc / 2% Pinotage, fermented 14 days, two months on lees, then dealcoholized. Gently spun cone technology under vacuum at low temperature.
 
-On the nose, summer berries and fresh apricot — the producer list, and it holds. On the palate, provence-shaped, balanced, a little softer than the sparkling Noughty. The Pinotage is a tint, not a tannin. The finish is gently lingering fruit. Less snap than the sparkling Chardonnay. Still rosé, not the sparkling sibling already on this desk. Chenin and a dash of Pinotage, spun-cone dealcoholized, berry and apricot without the fizz. On the palate, Provence-shaped, balanced, a little softer than the sparkling Noughty. The Pinotage is a tint, not a tannin. The finish is gently lingering fruit. Less snap than the sparkling Chardonnay. Still rosé, not the sparkling sibling already on this desk. Chenin and a dash of Pinotage, spun-cone dealcoholized, berry and apricot without the fizz.
+On the nose, summer berries and fresh apricot — the producer list, and it holds. On the palate, Provence-shaped, balanced, a little softer than the sparkling Noughty. The Pinotage is a tint, not a tannin. The finish is gently lingering fruit. Less snap than the sparkling Chardonnay. Still rosé, not the sparkling sibling already on this desk. Chenin and a dash of Pinotage, spun-cone dealcoholized….
 
 Serve chilled, white-wine glass.

@@ -149,8 +149,6 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-## The wine
-
 NOOH by La Coste Sparkling Blanc is a hybrid of dealcoholized material and other defining ingredients from Provence, France. The base is 100% estate Sauvignon Blanc from Château La Coste, fermented then dealcoholized; sparkling finish with natural flavors after removal. Vacuum distillation; evaporation at a maximum of approximately 35–40°C (producer).
 
 On the nose, Granny Smith apple, white peach and citrus, followed by white flowers and a distinctive jasmine note. On the palate, A lively initial attack with lime, crisp apple and white peach. Fine carbonation adds lift and keeps the relatively generous residual sugar from feeling heavy. The finish is Clean and moderately persistent, moving from lime and orchard fruit toward jasmine and floral freshness.

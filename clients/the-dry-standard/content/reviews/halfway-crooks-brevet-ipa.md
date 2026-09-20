@@ -106,8 +106,6 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Halfway Crooks brews Brevet IPA in Atlanta with the same Chiber arrested-fermentation process as the pilsner: a mushroom extract that keeps yeast static so alcohol never forms. The brewery has not published an ABV for this can; Untappd lists the SKU. It is the hoppier half of the Brevet line, not a dealcoholized West Coast stripped after the fact.
 
 On the nose, citrus peel and a crackery malt line — hoppier than the pils, still tidy. The palate carries light IPA bitterness with lemon and a little pine. Body sits closer to a session beer than a 7% IPA, and the bitterness stays clean rather than sticky. Mouthfeel is snappy without going watery; there is no worty leftover in the middle. The finish is dry and short.

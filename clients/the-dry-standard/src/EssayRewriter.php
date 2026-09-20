@@ -5,6 +5,8 @@ namespace DryStandard;
 /**
  * Rebuild review essays from sourced frontmatter — strip known AI filler,
  * never invent sensory notes. Used by dry-standard:rewrite-essays.
+ *
+ * Essay bodies must NOT include the category H2 — Renderer prints essayHeading().
  */
 final class EssayRewriter
 {
@@ -21,6 +23,9 @@ final class EssayRewriter
         'without a sidebar lecture',
     ];
 
+    /** @var list<string> */
+    private const HEADING_PATTERN = '/^##\s+The (wine|beer|spirit|cider|drink|bottle)\s*$/mi';
+
     public function needsRewrite(string $body): bool
     {
         foreach (self::FILLER_NEEDLES as $needle) {
@@ -32,45 +37,74 @@ final class EssayRewriter
         return false;
     }
 
+    public function needsRepair(Review $review): bool
+    {
+        if ($this->needsRewrite($review->bodyMarkdown)) {
+            return true;
+        }
+
+        if (preg_match(self::HEADING_PATTERN, $review->bodyMarkdown) === 1) {
+            return true;
+        }
+
+        if ($this->isContaminated($review->nose, 'nose')
+            || $this->isContaminated($review->palate, 'palate')
+            || $this->isContaminated($review->finish, 'finish')) {
+            return true;
+        }
+
+        $body = strtolower($review->bodyMarkdown);
+        if (substr_count($body, 'on the palate') > 1 || substr_count($body, 'the finish is') > 1) {
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * @return array{body: string, nose: ?string, palate: ?string, finish: ?string, changed: bool}
      */
     public function rewrite(Review $review): array
     {
         $salvage = $this->salvageGlassNotes($review->bodyMarkdown);
-        $nose = $this->preferLonger($review->nose, $salvage['nose']);
-        $palate = $this->preferLonger($review->palate, $salvage['palate']);
-        $finish = $this->preferLonger($review->finish, $salvage['finish']);
-
-        $body = $this->compose(
-            $review,
-            $nose,
-            $palate,
-            $finish,
+        $nose = $this->preferLonger(
+            $this->sanitizeNote($review->nose, 'nose'),
+            $this->sanitizeNote($salvage['nose'], 'nose'),
+        );
+        $palate = $this->preferLonger(
+            $this->sanitizeNote($review->palate, 'palate'),
+            $this->sanitizeNote($salvage['palate'], 'palate'),
+        );
+        $finish = $this->preferLonger(
+            $this->sanitizeNote($review->finish, 'finish'),
+            $this->sanitizeNote($salvage['finish'], 'finish'),
         );
 
-        $frontmatterChanged = $nose !== $review->nose
-            || $palate !== $review->palate
-            || $finish !== $review->finish;
+        // Prefer short highlight when nose is still empty after sanitizing.
+        if (($nose === null || $nose === '') && is_string($review->highlight) && trim($review->highlight) !== '') {
+            $nose = $this->sanitizeNote($review->highlight, 'nose');
+        }
+
+        $body = $this->compose($review, $nose, $palate, $finish);
+
+        $frontmatterChanged = $nose !== $this->normalizeNullable($review->nose)
+            || $palate !== $this->normalizeNullable($review->palate)
+            || $finish !== $this->normalizeNullable($review->finish);
+
+        $bodyChanged = trim($body) !== trim($this->stripEssayHeading($review->bodyMarkdown));
 
         return [
             'body' => $body,
             'nose' => $nose,
             'palate' => $palate,
             'finish' => $finish,
-            'changed' => $frontmatterChanged || trim($body) !== trim($review->bodyMarkdown),
+            'changed' => $frontmatterChanged || $bodyChanged,
         ];
     }
 
-    public function applyToFile(string $path, Review $review): bool
+    public function applyToFile(string $path, Review $review, bool $force = false): bool
     {
-        // Never overwrite a clean editorial essay just to re-inject metadata.
-        if (! $this->needsRewrite($review->bodyMarkdown)) {
-            return false;
-        }
-
-        $result = $this->rewrite($review);
-        if (! $result['changed']) {
+        if (! $force && ! $this->needsRepair($review)) {
             return false;
         }
 
@@ -84,6 +118,40 @@ final class EssayRewriter
         }
 
         $front = $matches[1];
+        $originalBody = $matches[2];
+
+        // Intact editorial prose: strip duplicate H2 and clean frontmatter only.
+        if (! $force && $this->bodyLooksIntact($review)) {
+            $nose = $this->sanitizeNote($review->nose, 'nose');
+            $palate = $this->sanitizeNote($review->palate, 'palate');
+            $finish = $this->sanitizeNote($review->finish, 'finish');
+            $body = $this->stripEssayHeading($originalBody);
+            $frontChanged = ($nose !== $this->normalizeNullable($review->nose))
+                || ($palate !== $this->normalizeNullable($review->palate))
+                || ($finish !== $this->normalizeNullable($review->finish));
+            $bodyChanged = trim($body) !== trim($originalBody);
+
+            if (! $frontChanged && ! $bodyChanged) {
+                return false;
+            }
+
+            if ($frontChanged) {
+                $front = $this->replaceScalar($front, 'nose', $nose);
+                $front = $this->replaceScalar($front, 'palate', $palate);
+                $front = $this->replaceScalar($front, 'finish', $finish);
+                $front = $this->replaceScalar($front, 'updated_date', date('Y-m-d'));
+            }
+
+            file_put_contents($path, "---\n{$front}\n---\n\n".trim($body)."\n");
+
+            return true;
+        }
+
+        $result = $this->rewrite($review);
+        if (! $result['changed'] && ! $force) {
+            return false;
+        }
+
         $front = $this->replaceScalar($front, 'nose', $result['nose']);
         $front = $this->replaceScalar($front, 'palate', $result['palate']);
         $front = $this->replaceScalar($front, 'finish', $result['finish']);
@@ -95,9 +163,35 @@ final class EssayRewriter
         return true;
     }
 
+    /**
+     * True when the markdown essay is editorial prose (not a failed machine rewrite).
+     */
+    private function bodyLooksIntact(Review $review): bool
+    {
+        if ($this->needsRewrite($review->bodyMarkdown)) {
+            return false;
+        }
+
+        $body = strtolower($review->bodyMarkdown);
+        if (substr_count($body, 'on the palate') > 1) {
+            return false;
+        }
+        if (substr_count($body, 'the finish is') > 1) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function stripEssayHeading(string $body): string
+    {
+        $body = preg_replace(self::HEADING_PATTERN, '', $body) ?? $body;
+
+        return trim($body)."\n";
+    }
+
     private function compose(Review $review, ?string $nose, ?string $palate, ?string $finish): string
     {
-        $heading = $review->essayHeading();
         $paras = [];
 
         $paras[] = $this->provenanceBeat($review);
@@ -112,7 +206,7 @@ final class EssayRewriter
 
         $paras = array_values(array_filter($paras, fn (string $p): bool => trim($p) !== ''));
 
-        return '## '.$heading."\n\n".implode("\n\n", $paras);
+        return implode("\n\n", $paras);
     }
 
     private function provenanceBeat(Review $review): string
@@ -158,27 +252,31 @@ final class EssayRewriter
     {
         $parts = [];
         if ($nose) {
-            $parts[] = 'On the nose, '.$this->clause($nose);
+            $parts[] = 'On the nose, '.$this->clause($nose, lcfirst: true);
         }
         if ($palate) {
-            $line = 'On the palate, '.$this->clause($palate);
-            if ($mouthfeel && ! str_contains(strtolower($palate), strtolower(mb_substr($mouthfeel, 0, 24)))) {
-                $line .= ' Mouthfeel: '.$this->clause($mouthfeel);
+            $line = 'On the palate, '.$this->clause($palate, lcfirst: true);
+            $mouthfeel = $mouthfeel !== null ? trim($mouthfeel) : '';
+            if ($mouthfeel !== '' && ! str_contains(strtolower($palate), strtolower(mb_substr($mouthfeel, 0, 24)))) {
+                $line .= ' Mouthfeel: '.$this->clause($mouthfeel, lcfirst: true);
             }
             $parts[] = $line;
         } elseif ($mouthfeel) {
-            $parts[] = 'Mouthfeel: '.$this->clause($mouthfeel);
+            $parts[] = 'Mouthfeel: '.$this->clause($mouthfeel, lcfirst: true);
         }
         if ($finish) {
-            $parts[] = 'The finish is '.$this->clause($finish);
+            $parts[] = 'The finish is '.$this->clause($finish, lcfirst: true);
         }
 
         return implode(' ', $parts);
     }
 
-    private function clause(string $text): string
+    private function clause(string $text, bool $lcfirst = false): string
     {
         $text = trim($text);
+        if ($lcfirst) {
+            $text = lcfirst($text);
+        }
         $text = rtrim($text, '.').'.';
 
         return $text;
@@ -208,15 +306,6 @@ final class EssayRewriter
      */
     private function salvageGlassNotes(string $body): array
     {
-        $clean = $body;
-        foreach (self::FILLER_NEEDLES as $needle) {
-            $pos = stripos($clean, $needle);
-            if ($pos !== false) {
-                // Cut from the filler sentence onward within each paragraph later.
-                break;
-            }
-        }
-
         $lines = preg_split('/\R+/', $body) ?: [];
         $nose = $palate = $finish = null;
 
@@ -226,7 +315,6 @@ final class EssayRewriter
                 continue;
             }
             if ($this->lineHasFiller($line)) {
-                // Keep the clause before the first filler needle.
                 $line = $this->beforeFiller($line);
                 if ($line === '') {
                     continue;
@@ -234,12 +322,11 @@ final class EssayRewriter
             }
 
             if (preg_match('/^(?:The nose is|On the nose[,:]?)\s+(.+)$/i', $line, $m)) {
-                $nose = $this->cleanSalvage($m[1]);
+                $nose = $this->sanitizeNote($this->cleanSalvage($m[1]), 'nose');
             } elseif (preg_match('/^On the palate[,:]?\s+(.+)$/i', $line, $m)) {
-                $palate = $this->cleanSalvage($m[1]);
+                $palate = $this->sanitizeNote($this->cleanSalvage($m[1]), 'palate');
             } elseif (preg_match('/^The finish is\s+(.+)$/i', $line, $m)) {
-                $candidate = $this->cleanSalvage($m[1]);
-                // Finishes should stay short — reject salvage that swallowed the verdict.
+                $candidate = $this->sanitizeNote($this->cleanSalvage($m[1]), 'finish');
                 if ($candidate !== null && mb_strlen($candidate) <= 220) {
                     $finish = $candidate;
                 }
@@ -247,6 +334,78 @@ final class EssayRewriter
         }
 
         return ['nose' => $nose, 'palate' => $palate, 'finish' => $finish];
+    }
+
+    private function isContaminated(?string $text, string $role): bool
+    {
+        if ($text === null || trim($text) === '') {
+            return false;
+        }
+
+        return $this->sanitizeNote($text, $role) !== $this->normalizeNullable($text);
+    }
+
+    private function sanitizeNote(?string $text, string $role): ?string
+    {
+        if ($text === null) {
+            return null;
+        }
+
+        $text = trim($text);
+        if ($text === '') {
+            return null;
+        }
+
+        $text = $this->beforeFiller($text);
+
+        $cutters = match ($role) {
+            'nose' => [
+                '/\bOn the palate\b/i',
+                '/\bThe palate is\b/i',
+                '/\bThe finish is\b/i',
+                '/\bMouthfeel:\s*/i',
+                '/\bMouthfeel stays\b/i',
+                '/\bServe\b/i',
+            ],
+            'palate' => [
+                '/\bOn the nose\b/i',
+                '/\bThe finish is\b/i',
+                '/\bOn the palate\b/i',
+                '/\bServe\b/i',
+            ],
+            'finish' => [
+                '/\bOn the nose\b/i',
+                '/\bOn the palate\b/i',
+                '/\bThe palate is\b/i',
+                '/\bThe finish is\b/i',
+                '/\bMouthfeel:\s*/i',
+                '/\bServe\b/i',
+            ],
+            default => [],
+        };
+
+        foreach ($cutters as $pattern) {
+            if (preg_match($pattern, $text, $m, PREG_OFFSET_CAPTURE)) {
+                $text = substr($text, 0, $m[0][1]);
+            }
+        }
+
+        $text = trim(rtrim($text, " \t.,;—–-"));
+        if ($text === '' || mb_strlen($text) < 8) {
+            return null;
+        }
+
+        $max = match ($role) {
+            'nose' => 280,
+            'palate' => 320,
+            'finish' => 180,
+            default => 280,
+        };
+        if (mb_strlen($text) > $max) {
+            $text = rtrim(mb_substr($text, 0, $max - 1)).'…';
+        }
+
+        return rtrim($text, '.').'.';
     }
 
     private function lineHasFiller(string $line): bool
@@ -273,8 +432,12 @@ final class EssayRewriter
         return trim(rtrim(mb_substr($line, 0, $cut), " \t.,;—–-"));
     }
 
-    private function cleanSalvage(string $text): ?string
+    private function cleanSalvage(?string $text): ?string
     {
+        if ($text === null) {
+            return null;
+        }
+
         $text = $this->beforeFiller($text);
         $text = trim($text);
         if ($text === '' || mb_strlen($text) < 12) {
@@ -286,8 +449,8 @@ final class EssayRewriter
 
     private function preferLonger(?string $current, ?string $candidate): ?string
     {
-        $current = $current !== null ? trim($current) : null;
-        $candidate = $candidate !== null ? trim($candidate) : null;
+        $current = $this->normalizeNullable($current);
+        $candidate = $this->normalizeNullable($candidate);
 
         if ($candidate === null || $candidate === '') {
             return $current;
@@ -302,6 +465,17 @@ final class EssayRewriter
         return $current;
     }
 
+    private function normalizeNullable(?string $value): ?string
+    {
+        if ($value === null) {
+            return null;
+        }
+
+        $value = trim($value);
+
+        return $value === '' ? null : $value;
+    }
+
     private function replaceScalar(string $front, string $key, ?string $value): string
     {
         if ($value === null) {
@@ -314,7 +488,6 @@ final class EssayRewriter
             return preg_replace($pattern, $key.': '.$quoted, $front, 1) ?? $front;
         }
 
-        // Insert after summary if missing.
         if (preg_match('/^(summary:\s*.+)$/m', $front, $m, PREG_OFFSET_CAPTURE)) {
             $at = $m[0][1] + strlen($m[0][0]);
 

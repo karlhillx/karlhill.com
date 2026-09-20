@@ -49,7 +49,7 @@ profile:
 mouthfeel: 'Long and clean, a vinegar-tight close that begs to drink the next one.'
 nose: 'Bright and tart — natural apple cider vinegar carries the lift, fruit juice gives the fruit side, no sticky-sweet aroma.'
 palate: 'Crisp and sharp, closer to a shrub than a cider; the vinegar is the structural element, the fruit (depending on flavor) is the top note.'
-finish: 'long and clean, a vinegar-tight close that begs to drink the next one. The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet.'
+finish: 'long and clean, a vinegar-tight close that begs to drink the next one. The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their….'
 best_for: 'Anyone who liked dry cider before; the cocktail-likeness of a shrub, in cans.'
 serve: "Best slightly colder than the ice I'd put in a cocktail; pair with rich food, or use as a mixing component."
 image: media/reviews/original-sin-cider.jpg
@@ -134,10 +134,8 @@ provenance:
     url: 'https://proofnomore.com/products/original-sin-non-alcoholic-cider-variety-pack'
 ---
 
-## The cider
-
 Original Sin Cider (Widow Family) is formulated as an alcohol alternative from United States. The base is Apple cider vinegar + fruit juice + monk fruit sweetener; no underlying alcoholic apple cider before dealcoholization. Original Sin's NA ciders are made with apple cider vinegar and fruit juice, not from a dealcoholized alcoholic cider.
 
-On the nose, bright and tart — natural apple cider vinegar carries the lift, fruit juice gives the fruit side, no sticky-sweet aroma. On the palate, crisp and sharp, closer to a shrub than a cider; the vinegar is the structural element, the fruit (depending on flavor) is the top note. Mouthfeel: long and clean, a vinegar-tight close that begs to drink the next one. The finish is long and clean, a vinegar-tight close that begs to drink the next one. The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet.
+On the nose, Bright and tart — natural apple cider vinegar carries the lift, fruit juice gives the fruit side, no sticky-sweet aroma. On the palate, Crisp and sharp, closer to a shrub than a cider; the vinegar is the structural element, the fruit (depending on flavor) is the top note. Mouthfeel: Long and clean, a vinegar-tight close that begs to drink the next one. The finish is long and clean, a vinegar-tight close that begs to drink the next one. The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their….
 
-The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet. Serve best slightly colder than the ice I'd put in a cocktail; pair with rich food, or use as a mixing component.
+Serve best slightly colder than the ice I'd put in a cocktail; pair with rich food, or use as a mixing component.

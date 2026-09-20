@@ -36,7 +36,7 @@ profile:
   - Off-dry
   - 'Bright acidity'
   - 'Light body'
-nose: 'pear and white peach, with a green-apple lift and the faint yeastiness that distinguishes Prosecco-method sparkling. On the palate, light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver. The finish is crisp and quick, a low-sugar finish that works as an aperitif. Italy''s bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after.'
+nose: 'pear and white peach, with a green-apple lift and the faint yeastiness that distinguishes Prosecco-method sparkling.'
 palate: 'Light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver.'
 finish: 'Crisp and quick, a low-sugar finish that works as an aperitif.'
 best_for: 'Brunch-toast spritzes, the prosecco-glass ritual without the glass of prosecco.'
@@ -118,10 +118,8 @@ provenance:
     url: 'https://www.freixenetmionettousa.com/wines/mionetto-alcohol-removed-sparkling-wine/'
 ---
 
-## The wine
-
 Mionetto Alcohol-Removed Sparkling Wine is dealcoholized from Veneto, Italy. The base is Glera and a blend of other indigenous Italian grapes, made by traditional Prosecco methods. Alcohol expertly extracted after traditional Prosecco-method winemaking (Freixenet Mionetto USA).
 
-On the nose, pear and white peach, with a green-apple lift and the faint yeastiness that distinguishes Prosecco-method sparkling. On the palate, light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver. The finish is crisp and quick, a low-sugar finish that works as an aperitif. Italy's bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after. On the palate, Light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver. The finish is Crisp and quick, a low-sugar finish that works as an aperitif.
+On the nose, pear and white peach, with a green-apple lift and the faint yeastiness that distinguishes Prosecco-method sparkling. On the palate, Light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver. The finish is Crisp and quick, a low-sugar finish that works as an aperitif.
 
 Italy's bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after. Serve chilled in a flute, no garnish needed.

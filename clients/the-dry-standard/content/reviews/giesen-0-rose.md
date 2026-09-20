@@ -42,7 +42,7 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-nose: 'white peach, apple, and fresh strawberry — lifted, not candied. On the palate, cranberry and stone fruit over a light frame. 18 g/L residual sugar reads off-dry, not soda. The finish is crisp and short. The acidity does the work the ethanol used to. The same spinning-cone pipeline as the 0% Sauvignon Blanc and Riesling, applied to a pale New Zealand rosé. White peach and strawberry, dry enough for lunch.'
+nose: 'white peach, apple, and fresh strawberry — lifted, not candied.'
 palate: 'Cranberry and stone fruit over a light frame. 18 g/L residual sugar reads off-dry, not soda.'
 finish: Crisp and short.
 best_for: 'Charcuterie, a warm afternoon, anyone who already likes the Giesen 0% whites.'
@@ -146,10 +146,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Giesen 0% Rosé is dealcoholized from Marlborough and Waipara, New Zealand. The base is Full-strength New Zealand rosé from aromatic and red varietals, then dealcoholized. Spinning cone technology — aroma, alcohol, and body separated, then aroma and body recombined.
 
-On the nose, white peach, apple, and fresh strawberry — lifted, not candied. On the palate, cranberry and stone fruit over a light frame. 18 g/L residual sugar reads off-dry, not soda. The finish is crisp and short. The acidity does the work the ethanol used to. The same spinning-cone pipeline as the 0% Sauvignon Blanc and Riesling, applied to a pale New Zealand rosé. White peach and strawberry, dry enough for lunch. On the palate, Cranberry and stone fruit over a light frame. 18 g/L residual sugar reads off-dry, not soda. The finish is Crisp and short.
+On the nose, white peach, apple, and fresh strawberry — lifted, not candied. On the palate, Cranberry and stone fruit over a light frame. 18 g/L residual sugar reads off-dry, not soda. The finish is Crisp and short.
 
 The same spinning-cone pipeline as the 0% Sauvignon Blanc and Riesling, applied to a pale New Zealand rosé. White peach and strawberry, dry enough for lunch. Serve well chilled, white-wine glass.

@@ -44,7 +44,7 @@ profile:
   - 'Light body'
 mouthfeel: 'Crisp citrus pith. The sugar shows if you let it warm.'
 highlight: 'Lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first.'
-nose: 'lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first. On the palate, off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity. Mouthfeel: crisp citrus pith. The sugar shows if you let it warm. The finish is crisp citrus pith. The sugar shows if you let it warm. Mosel Riesling put through a vacuum still by the same brothers who make Dr. L. Citrus, slate, and more residual sugar than the word dry implies — with a US label that refuses to print 0.0%.'
+nose: 'lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first.'
 palate: 'Off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity.'
 finish: Crisp citrus pith.
 best_for: 'Spicy takeout, weeknight fish, or anyone who already drinks Dr. L and wants the ethanol gone.'
@@ -174,10 +174,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Dr. Lo Alcohol-Removed Riesling is dealcoholized from Mosel, Germany. The base is Mosel Riesling, fermented in stainless steel; fermentation stopped by chilling to keep natural residual sugar, then dealcoholized. Vacuum distillation.
 
-On the nose, lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first. On the palate, off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity. Mouthfeel: crisp citrus pith. The sugar shows if you let it warm. The finish is crisp citrus pith. The sugar shows if you let it warm. Mosel Riesling put through a vacuum still by the same brothers who make Dr. L. Citrus, slate, and more residual sugar than the word dry implies — with a US label that refuses to print 0.0%. On the palate, Off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity. Mouthfeel: Crisp citrus pith. The sugar shows if you let it warm. The finish is Crisp citrus pith.
+On the nose, lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first. On the palate, off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity. Mouthfeel: crisp citrus pith. The sugar shows if you let it warm. The finish is crisp citrus pith.
 
 Mosel Riesling put through a vacuum still by the same brothers who make Dr. L. Citrus, slate, and more residual sugar than the word dry implies — with a US label that refuses to print 0.0%. Serve well chilled, in a white-wine glass.

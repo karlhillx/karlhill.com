@@ -38,7 +38,7 @@ profile:
   - 'Modest bitterness'
 nose: 'Bright Italian blood orange with a light, citric hop lift — the Italian blood orange is the dominant note.'
 palate: 'Sparkling and lightly bitter; the orange citrusy lift sits on top of a soft hop bittering, light-bodied and easy.'
-finish: 'crisp and clean, the orange trailing just behind a hop finish. Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon.'
+finish: 'crisp and clean, the orange trailing just behind a hop finish. Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the a….'
 best_for: 'Daylight drinking, between beers, alongside food that wants a citrus-bitter lift.'
 serve: 'Cold, straight from the can.'
 sources:
@@ -128,10 +128,8 @@ sensory:
       - palate
 ---
 
-## The beer
-
 HOP WTR Blood Orange is formulated as an alcohol alternative from United States. The base is Sparkling water + hops + vitamins + adaptogens; no underlying alcoholic beverage. HOP WTR is a hopped, sparkling, fortified water rather than a de-alcoholized beer; the brand is roughly 85% sparkling water with hops, vitamins and adaptogens and no alcohol ever present.
 
-On the nose, bright Italian blood orange with a light, citric hop lift — the Italian blood orange is the dominant note. On the palate, sparkling and lightly bitter; the orange citrusy lift sits on top of a soft hop bittering, light-bodied and easy. The finish is crisp and clean, the orange trailing just behind a hop finish. Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon.
+On the nose, Bright Italian blood orange with a light, citric hop lift — the Italian blood orange is the dominant note. On the palate, Sparkling and lightly bitter; the orange citrusy lift sits on top of a soft hop bittering, light-bodied and easy. The finish is crisp and clean, the orange trailing just behind a hop finish. Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the a….
 
-Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon. Serve cold, straight from the can.
+Serve cold, straight from the can.

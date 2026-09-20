@@ -35,7 +35,7 @@ profile:
 mouthfeel: 'Crisp and lightly bitter, the rhubarb trailing just a beat behind the orange.'
 nose: Bitter orange peel and rhubarb sweetness; light floral top notes.
 palate: 'Bittersweet and well-balanced; the orange citrusy lift grounds a rhubarb-laced finish, no syrupy weight, no bitter liquorice hangover from the botanicals.'
-finish: 'crisp and lightly bitter, the rhubarb trailing just a beat behind the orange. The most Mediterranean thing Lyre''s has ever canned: bitter orange, rhubarb, fine bubbles, and the right amount of bittersweet for the hour.'
+finish: 'crisp and lightly bitter, the rhubarb trailing just a beat behind the orange. The most Mediterranean thing Lyre''s has ever canned: bitter orange, rhubarb, fine bubbles, and the ri….'
 best_for: "Late-afternoon spritzes when you want Aperol vibes without Aperol's proof."
 serve: 'Build over ice with a large orange peel; the canned format is ready-to-drink but the build is better.'
 image: media/reviews/lyres-amalfi-spritz.jpg
@@ -116,10 +116,8 @@ sensory:
       - palate
 ---
 
-## The drink
-
 Lyre's Amalfi Spritz is formulated as an alcohol alternative from Australia. The base is Lyre's Italian Orange spirit replica base (no underlying alcohol-containing spirit). Lyre's range is formulated from scratch using natural flavors and distillates — none of the brand's products are made by removing alcohol from a finished alcoholic version.
 
-On the nose, bitter orange peel and rhubarb sweetness; light floral top notes. On the palate, bittersweet and well-balanced; the orange citrusy lift grounds a rhubarb-laced finish, no syrupy weight, no bitter liquorice hangover from the botanicals. Mouthfeel: crisp and lightly bitter, the rhubarb trailing just a beat behind the orange. The finish is crisp and lightly bitter, the rhubarb trailing just a beat behind the orange. The most Mediterranean thing Lyre's has ever canned: bitter orange, rhubarb, fine bubbles, and the right amount of bittersweet for the hour.
+On the nose, Bitter orange peel and rhubarb sweetness; light floral top notes. On the palate, Bittersweet and well-balanced; the orange citrusy lift grounds a rhubarb-laced finish, no syrupy weight, no bitter liquorice hangover from the botanicals. Mouthfeel: Crisp and lightly bitter, the rhubarb trailing just a beat behind the orange. The finish is crisp and lightly bitter, the rhubarb trailing just a beat behind the orange. The most Mediterranean thing Lyre's has ever canned: bitter orange, rhubarb, fine bubbles, and the ri….
 
-The most Mediterranean thing Lyre's has ever canned: bitter orange, rhubarb, fine bubbles, and the right amount of bittersweet for the hour. Serve build over ice with a large orange peel; the canned format is ready-to-drink but the build is better.
+Serve build over ice with a large orange peel; the canned format is ready-to-drink but the build is better.

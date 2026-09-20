@@ -37,9 +37,9 @@ profile:
   - 'Light body'
   - 'Short finish'
 mouthfeel: 'Smooth and oaked, the agave trailing gently.'
-nose: 'cooked agave, oak and vanilla — the reposado signature, present and genuine. On the palate, round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body. Mouthfeel: smooth and oaked, the agave trailing gently. The finish is smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be.'
+nose: 'cooked agave, oak and vanilla — the reposado signature, present and genuine.'
 palate: 'Round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body.'
-finish: 'smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be.'
+finish: 'smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila….'
 best_for: 'The tequila drinker who wants real agave character — in a margarita, a paloma, or neat as a ritual.'
 serve: 'In cocktails 1:1 for tequila, or over ice with lime.'
 sources:
@@ -113,10 +113,8 @@ provenance:
     url: 'https://karlhill.com/clients/the-dry-standard/reviews/spirits/spiritless-kentucky-74/'
 ---
 
-## The spirit
-
 Spiritless Jalisco 55 Non-Alcoholic Tequila is dealcoholized from United States. The base is Real reposado tequila from Jalisco, Mexico, dealcoholized after aging. Alcohol removed by the same Spiritless reverse-distillation process as Kentucky 74 — ethanol taken off an oak-extracted high-proof spirit.
 
-On the nose, cooked agave, oak and vanilla — the reposado signature, present and genuine. On the palate, round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body. Mouthfeel: smooth and oaked, the agave trailing gently. The finish is smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be. On the palate, Round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body. Mouthfeel: Smooth and oaked, the agave trailing gently. The finish is smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be.
+On the nose, cooked agave, oak and vanilla — the reposado signature, present and genuine. On the palate, Round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body. Mouthfeel: Smooth and oaked, the agave trailing gently. The finish is smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila….
 
 Serve in cocktails 1:1 for tequila, or over ice with lime.

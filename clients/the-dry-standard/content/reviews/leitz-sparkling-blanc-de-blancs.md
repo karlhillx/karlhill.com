@@ -33,9 +33,9 @@ profile:
   - 'Soft bead'
   - 'Clean finish'
 highlight: 'Green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise.'
-nose: 'green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise. On the palate, fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty. The finish is clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range.'
+nose: 'green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise.'
 palate: 'Fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty.'
-finish: 'clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range.'
+finish: 'clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent….'
 best_for: 'The Champagne-shape occasion, zero-proof.'
 serve: 'Well chilled, in a flute.'
 image_alt: 'Leitz Eins-Zwei-Zero Sparkling Blanc de Blancs bottle'
@@ -122,10 +122,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Leitz Eins-Zwei-Zero Sparkling Blanc de Blancs is dealcoholized from Rheingau, Germany. The base is Rheingau white wine, vinified conventionally before dealcoholization. Spinning cone technology applied to conventionally vinified Rheingau sparkling wine (same process as the published Leitz Riesling).
 
-On the nose, green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise. On the palate, fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty. The finish is clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range. On the palate, Fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty. The finish is clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range.
+On the nose, green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise. On the palate, Fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty. The finish is clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent….
 
 Serve well chilled, in a flute.

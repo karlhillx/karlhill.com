@@ -29,7 +29,7 @@ tastes:
 profile:
   - 'Light body'
 mouthfeel: 'Smooth and gentle.'
-nose: 'soft pear and apple with a light creamy note — the Chardonnay fruit without the oak-driven butter of the original. On the palate, round and approachable; the fruit carries the mid-palate, the body is lighter than the alcoholic Butter but the profile is recognizable. Mouthfeel: smooth and gentle. The finish is smooth and gentle. The wine that launched the brand, translated to zero proof — Butter''s rich Chardonnay style, minus the alcohol, minus some of the butter.'
+nose: soft pear and apple with a light creamy note — the Chardonnay fruit without the oak-driven butter of the original.
 palate: 'Round and approachable; the fruit carries the mid-palate, the body is lighter than the alcoholic Butter but the profile is recognizable.'
 finish: 'smooth and gentle. The wine that launched the brand, translated to zero proof — Butter''s rich Chardonnay style, minus the alcohol, minus some of the butter.'
 best_for: 'The Butter Chardonnay drinker who wants the same style at zero proof.'
@@ -109,10 +109,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Butter Zero Chardonnay is dealcoholized from California, United States. The base is California Chardonnay, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified Chardonnay (producer's March 2026 launch).
 
-On the nose, soft pear and apple with a light creamy note — the Chardonnay fruit without the oak-driven butter of the original. On the palate, round and approachable; the fruit carries the mid-palate, the body is lighter than the alcoholic Butter but the profile is recognizable. Mouthfeel: smooth and gentle. The finish is smooth and gentle. The wine that launched the brand, translated to zero proof — Butter's rich Chardonnay style, minus the alcohol, minus some of the butter. On the palate, Round and approachable; the fruit carries the mid-palate, the body is lighter than the alcoholic Butter but the profile is recognizable. Mouthfeel: Smooth and gentle. The finish is smooth and gentle. The wine that launched the brand, translated to zero proof — Butter's rich Chardonnay style, minus the alcohol, minus some of the butter.
+On the nose, soft pear and apple with a light creamy note — the Chardonnay fruit without the oak-driven butter of the original. On the palate, Round and approachable; the fruit carries the mid-palate, the body is lighter than the alcoholic Butter but the profile is recognizable. Mouthfeel: Smooth and gentle. The finish is smooth and gentle. The wine that launched the brand, translated to zero proof — Butter's rich Chardonnay style, minus the alcohol, minus some of the butter.
 
 Serve chilled.

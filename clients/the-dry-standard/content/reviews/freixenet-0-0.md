@@ -38,7 +38,7 @@ profile:
   - Off-dry
   - 'Soft bead'
   - 'Short finish'
-nose: 'tropical fruit and citrus, straightforward and fruit-forward rather than yeasty or toasty. On the palate, fresh and fruity with balanced bubbles; residual sugar (38 g/L) is noticeable but not cloying. The finish is soft and short. Pleasant, uncomplicated, easy to drink on its own. A reliable, inexpensive entry point into genuinely dealcoholized sparkling wine — vacuum-evaporated from full-strength wine, competent and widely available.'
+nose: 'tropical fruit and citrus, straightforward and fruit-forward rather than yeasty or toasty.'
 palate: Fresh and fruity with balanced bubbles; residual sugar (38 g/L) is noticeable but not cloying.
 finish: Soft and short.
 best_for: 'Goat cheese salad, poultry, sushi — or any occasion that wants a bubbly pour without ceremony.'
@@ -146,10 +146,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Freixenet 0,0 Sparkling White is dealcoholized from Penedès, Spain. The base is Blend of classic Spanish grapes, mainly Airén. Low-temperature vacuum evaporation, applied after making the wine to full strength.
 
-On the nose, tropical fruit and citrus, straightforward and fruit-forward rather than yeasty or toasty. On the palate, fresh and fruity with balanced bubbles; residual sugar (38 g/L) is noticeable but not cloying. The finish is soft and short. Pleasant, uncomplicated, easy to drink on its own. A reliable, inexpensive entry point into genuinely dealcoholized sparkling wine — vacuum-evaporated from full-strength wine, competent and widely available. On the palate, Fresh and fruity with balanced bubbles; residual sugar (38 g/L) is noticeable but not cloying. The finish is Soft and short.
+On the nose, tropical fruit and citrus, straightforward and fruit-forward rather than yeasty or toasty. On the palate, Fresh and fruity with balanced bubbles; residual sugar (38 g/L) is noticeable but not cloying. The finish is Soft and short.
 
 A reliable, inexpensive entry point into genuinely dealcoholized sparkling wine — vacuum-evaporated from full-strength wine, competent and widely available. Serve chilled, 5–7°C, in a flute.

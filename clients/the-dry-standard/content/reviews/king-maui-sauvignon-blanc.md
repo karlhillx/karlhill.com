@@ -31,7 +31,7 @@ profile:
   - 'Short finish'
   - 'Clean finish'
 mouthfeel: 'Clean and short, citrus-led.'
-nose: 'passionfruit and tropical fruit with a lemongrass edge — varietally correct Marlborough aromatics. On the palate, crisp and citrus-forward; tropical fruit over a light body, less weight than a full-strength Marlborough but the character survives. Mouthfeel: clean and short, citrus-led. The finish is clean and short, citrus-led. A Marlborough Sauvignon Blanc at Total Wine pricing — clean tropical fruit and citrus, lighter than the real thing, and a fair value.'
+nose: passionfruit and tropical fruit with a lemongrass edge — varietally correct Marlborough aromatics.
 palate: 'Crisp and citrus-forward; tropical fruit over a light body, less weight than a full-strength Marlborough but the character survives.'
 finish: 'clean and short, citrus-led. A Marlborough Sauvignon Blanc at Total Wine pricing — clean tropical fruit and citrus, lighter than the real thing, and a fair value.'
 best_for: 'Everyday white-wine occasions, seafood, and anyone who wants Sauvignon Blanc character at a low price.'
@@ -115,10 +115,8 @@ provenance:
     url: 'https://www.instacart.com/products/61756207-king-maui-0-nonalcoholic-marlborough-sauvignon-blanc'
 ---
 
-## The wine
-
 King Maui 0% Marlborough Sauvignon Blanc is dealcoholized from Marlborough, New Zealand. The base is Marlborough Sauvignon Blanc, fermented conventionally before alcohol removal. Alcohol removed from Marlborough Sauvignon Blanc (producer markets the range as zero alcohol; the specific technique is not detailed publicly).
 
-On the nose, passionfruit and tropical fruit with a lemongrass edge — varietally correct Marlborough aromatics. On the palate, crisp and citrus-forward; tropical fruit over a light body, less weight than a full-strength Marlborough but the character survives. Mouthfeel: clean and short, citrus-led. The finish is clean and short, citrus-led. A Marlborough Sauvignon Blanc at Total Wine pricing — clean tropical fruit and citrus, lighter than the real thing, and a fair value. On the palate, Crisp and citrus-forward; tropical fruit over a light body, less weight than a full-strength Marlborough but the character survives. Mouthfeel: Clean and short, citrus-led. The finish is clean and short, citrus-led. A Marlborough Sauvignon Blanc at Total Wine pricing — clean tropical fruit and citrus, lighter than the real thing, and a fair value.
+On the nose, passionfruit and tropical fruit with a lemongrass edge — varietally correct Marlborough aromatics. On the palate, Crisp and citrus-forward; tropical fruit over a light body, less weight than a full-strength Marlborough but the character survives. Mouthfeel: Clean and short, citrus-led. The finish is clean and short, citrus-led. A Marlborough Sauvignon Blanc at Total Wine pricing — clean tropical fruit and citrus, lighter than the real thing, and a fair value.
 
 Serve well chilled.

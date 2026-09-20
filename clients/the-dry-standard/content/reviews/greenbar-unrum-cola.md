@@ -50,7 +50,7 @@ profile:
   - 'Modest bitterness'
 mouthfeel: 'Nutmeg and a dry kola close. Short. The can is the pour.'
 highlight: 'Molasses and baking spice first, then kola and lime peel. It smells like a rum-and-cola that was mixed in a kitchen, not a soda fountain.'
-nose: 'molasses and baking spice first, then kola and lime peel. It smells like a rum-and-cola that was mixed in a kitchen, not a soda fountain. On the palate, warm spice over a light cola bitterness. The rum is there as caramel and clove, not as heat. Sweet, but the gentian and chili keep it from reading as cola syrup. Mouthfeel: nutmeg and a dry kola close. Short. The can is the pour. The finish is nutmeg and a dry kola close. Short. The can is the pour. A canned rum-and-cola that starts as rum. Greenbar names the still work — dealcoholized molasses rum, then cola botanicals — so the badge is Yes, not a formulated highball in a rum costume.'
+nose: 'molasses and baking spice first, then kola and lime peel. It smells like a rum-and-cola that was mixed in a kitchen, not a soda fountain.'
 palate: 'Warm spice over a light cola bitterness. The rum is there as caramel and clove, not as heat. Sweet, but the gentian and chili keep it from reading as cola syrup.'
 finish: Nutmeg and a dry kola close.
 best_for: 'The rum-and-cola ritual when the rest of the table is drinking the 80-proof version.'
@@ -165,10 +165,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The drink
-
 Greenbar UNRum + Cola is a hybrid of dealcoholized material and other defining ingredients from Los Angeles, California, United States. The base is Organic dealcoholized molasses rum mixed with cola botanicals. Alcohol boiled off after distillation and infusion (producer spec sheet).
 
-On the nose, molasses and baking spice first, then kola and lime peel. It smells like a rum-and-cola that was mixed in a kitchen, not a soda fountain. On the palate, warm spice over a light cola bitterness. The rum is there as caramel and clove, not as heat. Sweet, but the gentian and chili keep it from reading as cola syrup. Mouthfeel: nutmeg and a dry kola close. Short. The can is the pour. The finish is nutmeg and a dry kola close. Short. The can is the pour. A canned rum-and-cola that starts as rum. Greenbar names the still work — dealcoholized molasses rum, then cola botanicals — so the badge is Yes, not a formulated highball in a rum costume. On the palate, Warm spice over a light cola bitterness. The rum is there as caramel and clove, not as heat. Sweet, but the gentian and chili keep it from reading as cola syrup. Mouthfeel: Nutmeg and a dry kola close. Short. The can is the pour. The finish is Nutmeg and a dry kola close.
+On the nose, molasses and baking spice first, then kola and lime peel. It smells like a rum-and-cola that was mixed in a kitchen, not a soda fountain. On the palate, Warm spice over a light cola bitterness. The rum is there as caramel and clove, not as heat. Sweet, but the gentian and chili keep it from reading as cola syrup. Mouthfeel: Nutmeg and a dry kola close. Short. The can is the pour. The finish is Nutmeg and a dry kola close.
 
 A canned rum-and-cola that starts as rum. Greenbar names the still work — dealcoholized molasses rum, then cola botanicals — so the badge is Yes, not a formulated highball in a rum costume. Serve cold, over ice. Greenbar says cold or over ice; the ice helps.

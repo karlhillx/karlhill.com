@@ -104,8 +104,6 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Penn's Best Non-Alcoholic Lager is classified as Production type: Not verified — Described as 'naturally brewed' without specification of whether alcohol is removed or fermentation is limited. from United States. Described as 'naturally brewed' without specification of whether alcohol is removed or fermentation is limited.
 
 On the nose, light malt and a faint grain note — the American lager profile, clean and unassertive. On the palate, smooth and light; the malt is present but subdued, no hop character to speak of, the mouthfeel of a standard macro lager. The finish is clean and brief. A budget American NA lager — smooth, light, and honest about being the cheap option rather than the craft one.

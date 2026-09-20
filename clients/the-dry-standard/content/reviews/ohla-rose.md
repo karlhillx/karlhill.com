@@ -137,8 +137,6 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Ohla! Rosé is dealcoholized from Spain. The base is Syrah and Cabernet Sauvignon, fermented then dealcoholized. Fermented as wine, then the alcohol is removed (technique not named in the manufacturer notes).
 
 On the nose, quiet: strawberry hull and a little watermelon candy. Confectionery more than savoury rosé — fruit is there, but the savoury pink-wine edge is not. On the palate, Light and slightly sweet. Red fruit over a thin frame — a picnic rosé that lost its weight. The mid-palate is the weak point. Mouthfeel: Light and thin — a picnic pink that lost its weight. The finish is Short berry. Keep it cold.

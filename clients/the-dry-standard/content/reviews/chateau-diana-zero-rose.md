@@ -35,7 +35,7 @@ tastes:
 profile:
   - 'Bright acidity'
   - 'Clean finish'
-nose: 'ripe strawberries with a light floral note. On the palate, bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes. The finish is clean and brief. The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach.'
+nose: ripe strawberries with a light floral note.
 palate: 'Bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes.'
 finish: 'clean and brief. The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach.'
 best_for: 'Everyday rosé at zero proof, the bottle that goes in the cooler.'
@@ -127,10 +127,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Chateau Diana Zero California Rosé is dealcoholized from California, United States. The base is California rosé, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified California rosé.
 
-On the nose, ripe strawberries with a light floral note. On the palate, bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes. The finish is clean and brief. The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach. On the palate, Bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes. The finish is clean and brief. The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach.
+On the nose, ripe strawberries with a light floral note. On the palate, Bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes. The finish is clean and brief. The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach.
 
 Serve well chilled.

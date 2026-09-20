@@ -38,7 +38,7 @@ profile:
   - 'Clean finish'
 nose: 'Caramel malt and a gentle English hop note — the ESB signature, subdued rather than loud.'
 palate: 'Smooth and balanced; the malt sweetness and hop bitterness in proper ESB proportion, with a clean body.'
-finish: 'malty and clean, the bitterness lingering politely. Athletic''s limited-release take on the English bitter — smooth, balanced, and the style''s caramel-malt character carried honestly into zero proof.'
+finish: 'malty and clean, the bitterness lingering politely. Athletic''s limited-release take on the English bitter — smooth, balanced, and the style''s caramel-malt character carried honest….'
 best_for: 'The beer drinker who wants something English, sessionable, and serious about style.'
 serve: 'Cold, in a pint glass.'
 sources:
@@ -124,10 +124,8 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Athletic ESB is brewed or fermented to finish at low ABV without a published removal step from Milford, Connecticut, United States. Athletic's process is proprietary, but founder interviews state it is neither dealcoholization of finished beer nor simple arrested fermentation — the beers are built as NA from the start.
 
-On the nose, caramel malt and a gentle English hop note — the ESB signature, subdued rather than loud. On the palate, smooth and balanced; the malt sweetness and hop bitterness in proper ESB proportion, with a clean body. The finish is malty and clean, the bitterness lingering politely. Athletic's limited-release take on the English bitter — smooth, balanced, and the style's caramel-malt character carried honestly into zero proof.
+On the nose, Caramel malt and a gentle English hop note — the ESB signature, subdued rather than loud. On the palate, Smooth and balanced; the malt sweetness and hop bitterness in proper ESB proportion, with a clean body. The finish is malty and clean, the bitterness lingering politely. Athletic's limited-release take on the English bitter — smooth, balanced, and the style's caramel-malt character carried honest….
 
-Athletic's limited-release take on the English bitter — smooth, balanced, and the style's caramel-malt character carried honestly into zero proof. Serve cold, in a pint glass.
+Serve cold, in a pint glass.

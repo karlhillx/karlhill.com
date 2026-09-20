@@ -38,7 +38,7 @@ profile:
   - 'Light body'
   - 'Clean finish'
 mouthfeel: 'Clean and citric — lighter mid-palate than full-strength Mosel, acidity still doing the work.'
-nose: 'pineapple, green apple and lemon sit over a mineral edge — varietally correct Riesling aromatics, not juice perfume. The palate is crystal-clear fruit with vibrant acidity and a fine mineral line. Body is lighter than a full-strength Mosel once ethanol is gone, but the fingerprint survives. Mouthfeel stays clean and citric. The finish is clean and short once the fruit drops away.'
+nose: 'pineapple, green apple and lemon sit over a mineral edge — varietally correct Riesling aromatics, not juice perfume.'
 palate: 'Crystal-clear fruit, vibrant acidity and a fine mineral edge. Lighter in body than a full-strength Mosel, but the Riesling fingerprint survives the removal.'
 finish: 'Clean and citric, a touch short once the fruit drops away.'
 likeness: 'More convincing on aroma and acid than on mid-palate weight — classic dealcoholized Riesling tradeoff, executed cleanly.'
@@ -140,8 +140,6 @@ provenance:
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
 ---
-
-## The wine
 
 Valckenberg Zero Riesling is Mosel fruit put through a conventional vinification, then dealcoholized to 0.0%. The base is steep-slope Riesling; the Zero line confirms removal without naming the industrial kit. That keeps the method facet honest: unpublished technology, sourced production type.
 

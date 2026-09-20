@@ -36,7 +36,7 @@ profile:
   - 'Light body'
   - 'Soft bead'
   - 'Clean finish'
-nose: 'soft strawberry and red berry with a light, bright lift. On the palate, light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile. The finish is clean and brief. Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity.'
+nose: 'soft strawberry and red berry with a light, bright lift.'
 palate: 'Light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile.'
 finish: 'clean and brief. Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity.'
 best_for: 'Casual sparkling occasions, the price-sensitive toast.'
@@ -114,10 +114,8 @@ provenance:
     url: 'https://internetwines.com/products/butter-zero-rose-non-alocholic'
 ---
 
-## The wine
-
 Butter Zero Sparkling Rosé is dealcoholized from California, United States. The base is California sparkling rosé, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified California sparkling rosé (producer's March 2026 launch announcement).
 
-On the nose, soft strawberry and red berry with a light, bright lift. On the palate, light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile. The finish is clean and brief. Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity. On the palate, Light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile. The finish is clean and brief. Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity.
+On the nose, soft strawberry and red berry with a light, bright lift. On the palate, Light and fresh; fruity without syrup weight, gentle bubbles, an easy-drinking profile. The finish is clean and brief. Butter Wines — the Chardonnay brand — brought their great-taste-first approach to the zero-proof aisle in March 2026. The Sparkling Rosé is light, fresh and fruity.
 
 Serve well chilled.

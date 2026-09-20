@@ -38,7 +38,7 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Clean finish'
-nose: 'lychee and passionfruit with a citrusy, aromatic lift — Albariño''s varietal signature. On the palate, zesty and crisp; tropical aromatics over a warm, light palate with the acidity doing the structural work. The finish is clean and citric, the Albariño character carrying through. A Napa dealcoholized Albariño — lychee and passionfruit, zesty and crisp — from a producer focused exclusively on NA wine.'
+nose: 'lychee and passionfruit with a citrusy, aromatic lift — Albariño''s varietal signature.'
 palate: 'Zesty and crisp; tropical aromatics over a warm, light palate with the acidity doing the structural work.'
 finish: 'clean and citric, the Albariño character carrying through. A Napa dealcoholized Albariño — lychee and passionfruit, zesty and crisp — from a producer focused exclusively on NA wine.'
 best_for: 'Seafood, spicy food, and the Albariño drinker who wants the zero-proof version.'
@@ -135,10 +135,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Missing Thorn Non-Alcoholic Still White is dealcoholized from Napa Valley, United States. The base is Albariño from Napa Valley, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified wine (producer's range description).
 
-On the nose, lychee and passionfruit with a citrusy, aromatic lift — Albariño's varietal signature. On the palate, zesty and crisp; tropical aromatics over a warm, light palate with the acidity doing the structural work. The finish is clean and citric, the Albariño character carrying through. A Napa dealcoholized Albariño — lychee and passionfruit, zesty and crisp — from a producer focused exclusively on NA wine. On the palate, Zesty and crisp; tropical aromatics over a warm, light palate with the acidity doing the structural work. The finish is clean and citric, the Albariño character carrying through. A Napa dealcoholized Albariño — lychee and passionfruit, zesty and crisp — from a producer focused exclusively on NA wine.
+On the nose, lychee and passionfruit with a citrusy, aromatic lift — Albariño's varietal signature. On the palate, Zesty and crisp; tropical aromatics over a warm, light palate with the acidity doing the structural work. The finish is clean and citric, the Albariño character carrying through. A Napa dealcoholized Albariño — lychee and passionfruit, zesty and crisp — from a producer focused exclusively on NA wine.
 
 Serve well chilled.

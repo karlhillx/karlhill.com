@@ -37,9 +37,9 @@ profile:
   - 'Soft bead'
   - 'Clean finish'
 highlight: 'Strawberry and cherry with a delicate floral note — varietally correct Pinot Noir character.'
-nose: 'strawberry and cherry with a delicate floral note — varietally correct Pinot Noir character. On the palate, pale pink and finely bubbled; bright strawberry-cherry fruit, light body, clean sparkle. The finish is crisp and brief, fruit-forward. The world''s most-sold French wine brand enters the zero-proof aisle with a real Bordeaux Pinot Noir rosé — pale pink, fine bubbles, strawberries and cherries, honestly made.'
+nose: strawberry and cherry with a delicate floral note — varietally correct Pinot Noir character.
 palate: 'Pale pink and finely bubbled; bright strawberry-cherry fruit, light body, clean sparkle.'
-finish: 'crisp and brief, fruit-forward. The world''s most-sold French wine brand enters the zero-proof aisle with a real Bordeaux Pinot Noir rosé — pale pink, fine bubbles, strawberries and cherries, honestly made.'
+finish: 'crisp and brief, fruit-forward. The world''s most-sold French wine brand enters the zero-proof aisle with a real Bordeaux Pinot Noir rosé — pale pink, fine bubbles, strawberries an….'
 best_for: 'Brunch, the toasting glass, the entry point for people trying NA sparkling for the first time.'
 serve: 'Well chilled, in a flute.'
 sources:
@@ -128,10 +128,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 JP. Chenet So Free Sparkling Rosé is dealcoholized from Bordeaux, France. The base is Pinot Noir based Bordeaux rosé, fermented conventionally before alcohol removal. Made as a full-strength wine and then dealcoholized (producer).
 
-On the nose, strawberry and cherry with a delicate floral note — varietally correct Pinot Noir character. On the palate, pale pink and finely bubbled; bright strawberry-cherry fruit, light body, clean sparkle. The finish is crisp and brief, fruit-forward. The world's most-sold French wine brand enters the zero-proof aisle with a real Bordeaux Pinot Noir rosé — pale pink, fine bubbles, strawberries and cherries, honestly made. On the palate, Pale pink and finely bubbled; bright strawberry-cherry fruit, light body, clean sparkle. The finish is crisp and brief, fruit-forward. The world's most-sold French wine brand enters the zero-proof aisle with a real Bordeaux Pinot Noir rosé — pale pink, fine bubbles, strawberries and cherries, honestly made.
+On the nose, strawberry and cherry with a delicate floral note — varietally correct Pinot Noir character. On the palate, Pale pink and finely bubbled; bright strawberry-cherry fruit, light body, clean sparkle. The finish is crisp and brief, fruit-forward. The world's most-sold French wine brand enters the zero-proof aisle with a real Bordeaux Pinot Noir rosé — pale pink, fine bubbles, strawberries an….
 
 Serve well chilled, in a flute.

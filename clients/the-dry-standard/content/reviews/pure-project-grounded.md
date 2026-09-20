@@ -39,7 +39,7 @@ profile:
 mouthfeel: 'Dry and hoppy, light bitterness lingering.'
 nose: 'Lemongrass, ruby grapefruit and navel orange — the Citra hop signature, bright and specific.'
 palate: 'Medium-bodied and balanced; the hop character leads over a light bready malt base, with the tropical-citrus profile carrying through the mid-palate.'
-finish: 'dry and hoppy, light bitterness lingering. A San Diego craft brewery''s serious NA IPA — Citra, Citra Cryo and Mosaic Abstrax hops, medium body, lemongrass and grapefruit. The West Coast take on zero proof.'
+finish: 'dry and hoppy, light bitterness lingering. A San Diego craft brewery''s serious NA IPA — Citra, Citra Cryo and Mosaic Abstrax hops, medium body, lemongrass and grapefruit. The West….'
 best_for: 'The West Coast IPA drinker who wants the hop profile without the proof.'
 serve: 'Cold, from the can.'
 sources:
@@ -119,10 +119,8 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Pure Project Grounded Non-Alcoholic IPA is classified as Production type: Not verified — Pure Project does not publicly disclose the production method; the beer is brewed with Citra, Citra Cryo and Mosaic Abstrax hops. from San Diego, California, United States. Pure Project does not publicly disclose the production method; the beer is brewed with Citra, Citra Cryo and Mosaic Abstrax hops.
 
-On the nose, lemongrass, ruby grapefruit and navel orange — the Citra hop signature, bright and specific. On the palate, medium-bodied and balanced; the hop character leads over a light bready malt base, with the tropical-citrus profile carrying through the mid-palate. Mouthfeel: dry and hoppy, light bitterness lingering. The finish is dry and hoppy, light bitterness lingering. A San Diego craft brewery's serious NA IPA — Citra, Citra Cryo and Mosaic Abstrax hops, medium body, lemongrass and grapefruit. The West Coast take on zero proof.
+On the nose, Lemongrass, ruby grapefruit and navel orange — the Citra hop signature, bright and specific. On the palate, Medium-bodied and balanced; the hop character leads over a light bready malt base, with the tropical-citrus profile carrying through the mid-palate. Mouthfeel: Dry and hoppy, light bitterness lingering. The finish is dry and hoppy, light bitterness lingering. A San Diego craft brewery's serious NA IPA — Citra, Citra Cryo and Mosaic Abstrax hops, medium body, lemongrass and grapefruit. The West….
 
-A San Diego craft brewery's serious NA IPA — Citra, Citra Cryo and Mosaic Abstrax hops, medium body, lemongrass and grapefruit. The West Coast take on zero proof. Serve cold, from the can.
+Serve cold, from the can.

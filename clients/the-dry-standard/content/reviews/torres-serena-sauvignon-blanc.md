@@ -35,9 +35,9 @@ profile:
   - Off-dry
   - 'Light body'
   - 'Short finish'
-nose: 'citrus and a grassy edge, quieter than a 13% Casablanca bottle. On the palate, 36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body. The finish is short citrus. The residual sugar lingers more than the herb. A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and ''dealcoholization process'' without naming the machine. The grape still shows.'
+nose: 'citrus and a grassy edge, quieter than a 13% Casablanca bottle.'
 palate: 36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body.
-finish: 'short citrus. The residual sugar lingers more than the herb. A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and ''dealcoholization process'' without naming the machine. The grape still shows.'
+finish: 'short citrus. The residual sugar lingers more than the herb. A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and ''dealcoholization process'' without naming the ma….'
 best_for: 'Shellfish and grilled fish, as Torres suggests, or a weekday white.'
 serve: 8–10°C.
 sources:
@@ -118,10 +118,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Torres Serena Sauvignon Blanc is dealcoholized from Central Valley, Chile. The base is 100% Sauvignon Blanc, destemmed, fermented 16 days at 12–16°C. Fermented 16 days, then the finished wine undergoes a dealcoholization process (technique not named).
 
-On the nose, citrus and a grassy edge, quieter than a 13% Casablanca bottle. On the palate, 36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body. The finish is short citrus. The residual sugar lingers more than the herb. A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and 'dealcoholization process' without naming the machine. The grape still shows. On the palate, 36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body. The finish is short citrus. The residual sugar lingers more than the herb. A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and 'dealcoholization process' without naming the machine. The grape still shows.
+On the nose, citrus and a grassy edge, quieter than a 13% Casablanca bottle. On the palate, 36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body. The finish is short citrus. The residual sugar lingers more than the herb. A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and 'dealcoholization process' without naming the ma….
 
 Serve 8–10°C.

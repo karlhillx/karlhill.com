@@ -112,8 +112,6 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The beer
-
 Erdinger Alkoholfrei is classified as Production type: Not verified — Erdinger does not publish whether the alcohol is removed from finished beer or fermentation is stopped early; the beer is marketed as naturally isotonic. from Bavaria, Germany. Erdinger does not publish whether the alcohol is removed from finished beer or fermentation is stopped early; the beer is marketed as naturally isotonic.
 
 On the nose, spicy malt notes with caramel-sweet nuances and the distinctive banana-clove wheat beer signature. On the palate, round and spicy; the wheat body gives it more substance than most NA lagers, with the hop bitterness balanced by malt sweetness. The finish is clean and lightly fruity — the wheat beer finish that reads as authentic. The most widely available non-alcoholic wheat beer in the world, and the one that set the standard: spicy malt, caramel sweetness, isotonic positioning, and honest Bavarian brewing.

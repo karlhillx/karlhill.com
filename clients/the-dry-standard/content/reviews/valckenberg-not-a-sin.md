@@ -194,8 +194,6 @@ sensory:
       - finish
 ---
 
-## The wine
-
 It's not a SIN is not a formulated aperitivo. P.J. Valckenberg starts with German Riesling, removes alcohol by vacuum rectification at about 30°C, then finishes the bottle with natural ginger flavor, bitter-orange-peel distillate, and added carbonic acid. The label math is blunt: dealcoholized wine makes up 99% of the bottle; the rest is CO₂, sulfur dioxide, and those citrus-spice additions. ABV stays under 0.5%. Sugar sits around 3.6 g per 100 ml — enough to cushion the acid without turning the glass into soda.
 
 In the glass it shows light straw with a golden flicker at the rim. The nose opens on juicy orange and zesty lemon, then ginger heat, a hint of lime leaf, white blossom, and a cool mineral edge. On the palate the wine is taut and fresh: clear acidity carries orange, grapefruit, and lime across a slender, soft-beaded texture. Delicate residual sweetness keeps drinkability high; ginger adds a light piquant kick. The finish is lime zest and ginger — bright, short-to-medium, no heaviness.

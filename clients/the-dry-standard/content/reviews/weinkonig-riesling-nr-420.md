@@ -182,8 +182,6 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-## The wine
-
 Weinkönig Riesling Nr. 420 is dealcoholized from Rheinhessen, Germany. The base is 100% Riesling, fermented then dealcoholized. Vacuum dealcoholization after full vinification at about 28°C, with volatile aroma compounds collected and returned (producer FAQ / product page).
 
 On the nose, Citrus and green orchard fruit with a clean mineral edge. Aromatically restrained rather than tropical or perfumed. On the palate, Lean and crisp, driven by tart apple, lemon and Riesling-like acidity. Enough fruit to stay approachable without losing the drier profile. Mouthfeel: Lean and crisp, with a slight drying sensation on the finish. The finish is Medium, tart and mineral, with citrus peel and a slight drying sensation.

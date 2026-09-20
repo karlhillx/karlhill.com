@@ -147,8 +147,6 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-## The wine
-
 Plaisir d'Anaïs Blanc is dealcoholized from Bordeaux, France. The base is Sauvignon Blanc, fermented then dealcoholized. Vacuum distillation (specialist retailer; not confirmed on a current producer technical sheet).
 
 On the nose, Citrus, white fruit and subtle floral/herbal notes. On the palate, Light and crisp, with lemon, green fruit and moderate acidity. Clean rather than particularly concentrated. Mouthfeel: Light and crisp; clean rather than concentrated. The finish is Short-to-medium, citrus-led and refreshing.

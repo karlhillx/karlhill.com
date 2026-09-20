@@ -122,8 +122,6 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Cuvée Sparkling Zero is the bubbly sibling of Valckenberg's Zero Riesling: a German cuvée vinified conventionally, then dealcoholized to 0.0%. The Zero line confirms removal; the named industrial technology stays unpublished. Soft bead, not traditional-method prestige.
 
 On the nose, elderberry and lemon — fruit-forward and fresh without confectionery noise. The palate is fine mousseux, semi-dry, and lighter than alcoholic Sekt, but the bubbles are real and keep the fruit from collapsing into soda. Mouthfeel is all soft lift. The finish is clean and gently citric.

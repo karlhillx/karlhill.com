@@ -48,7 +48,7 @@ profile:
   - 'Short finish'
 mouthfeel: 'Dry cocoa and a clean, slightly thin close. The head lasts. The beer does not.'
 highlight: 'Roasted barley, cocoa nib, and a little coffee grounds. Nitrogen does the usual theater. It smells like Guinness poured too early in the day, which is the compliment.'
-nose: 'roasted barley, cocoa nib, and a little coffee grounds. Nitrogen does the usual theater. It smells like Guinness poured too early in the day, which is the compliment. On the palate, silky, bitter-sweet, and shorter than Draught. The roast is genuine. A faint confectionery edge — fructose is on the label — keeps it from being a perfect carbon copy. Mouthfeel: dry cocoa and a clean, slightly thin close. The head lasts. The beer does not. The finish is dry cocoa and a clean, slightly thin close. The head lasts. The beer does not. The rare dealcoholized beer that still pours, looks, and drinks like itself. Cold filtration keeps the roast; the fructose is the compromise you can taste if you hunt for it.'
+nose: 'roasted barley, cocoa nib, and a little coffee grounds. Nitrogen does the usual theater. It smells like Guinness poured too early in the day, which is the compliment.'
 palate: 'Silky, bitter-sweet, and shorter than Draught. The roast is genuine. A faint confectionery edge — fructose is on the label — keeps it from being a perfect carbon copy.'
 finish: 'Dry cocoa and a clean, slightly thin close.'
 best_for: 'A pub pint when the rest of the table is drinking the 4.2%. Also the best case for dealcoholized beer as a category.'
@@ -169,10 +169,8 @@ provenance:
     url: 'https://steadydrinker.com/reviews/dark-ale/guinness-0-0/'
 ---
 
-## The beer
-
 Guinness 0.0 is dealcoholized from Dublin, Ireland. The base is Stout brewed from water, barley, hops, and yeast at St James's Gate. Cold filtration after a conventional Guinness brew.
 
-On the nose, roasted barley, cocoa nib, and a little coffee grounds. Nitrogen does the usual theater. It smells like Guinness poured too early in the day, which is the compliment. On the palate, silky, bitter-sweet, and shorter than Draught. The roast is genuine. A faint confectionery edge — fructose is on the label — keeps it from being a perfect carbon copy. Mouthfeel: dry cocoa and a clean, slightly thin close. The head lasts. The beer does not. The finish is dry cocoa and a clean, slightly thin close. The head lasts. The beer does not. The rare dealcoholized beer that still pours, looks, and drinks like itself. Cold filtration keeps the roast; the fructose is the compromise you can taste if you hunt for it. On the palate, Silky, bitter-sweet, and shorter than Draught. The roast is genuine. A faint confectionery edge — fructose is on the label — keeps it from being a perfect carbon copy. Mouthfeel: Dry cocoa and a clean, slightly thin close. The head lasts. The beer does not. The finish is Dry cocoa and a clean, slightly thin close.
+On the nose, roasted barley, cocoa nib, and a little coffee grounds. Nitrogen does the usual theater. It smells like Guinness poured too early in the day, which is the compliment. On the palate, Silky, bitter-sweet, and shorter than Draught. The roast is genuine. A faint confectionery edge — fructose is on the label — keeps it from being a perfect carbon copy. Mouthfeel: Dry cocoa and a clean, slightly thin close. The head lasts. The beer does not. The finish is Dry cocoa and a clean, slightly thin close.
 
 The rare dealcoholized beer that still pours, looks, and drinks like itself. Cold filtration keeps the roast; the fructose is the compromise you can taste if you hunt for it. Serve cold, in a pint glass, poured to let the surge settle. Do not serve it like a lager.

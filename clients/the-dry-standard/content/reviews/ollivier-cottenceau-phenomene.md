@@ -32,7 +32,7 @@ profile:
   - Off-dry
   - 'Bright acidity'
 highlight: 'Green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable.'
-nose: 'green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable. On the palate, lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet. The finish is long and mineral — the saltiness carries well beyond what most dealcoholized whites manage. The first dealcoholized Melon de Bourgogne in the world, from an 8th-generation Muscadet grower — lean, saline, food-friendly, and the most interesting white wine on this desk.'
+nose: 'green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable.'
 palate: 'Lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet.'
 finish: Long and mineral — the saltiness carries well beyond what most dealcoholized whites manage.
 best_for: 'Oysters, seafood, goat cheese — anything that wants a crisp Muscadet-style white.'
@@ -123,10 +123,8 @@ provenance:
     url: 'https://thezeroproof.com/products/ollivier-cottenceau-phenomene'
 ---
 
-## The wine
-
 Ollivier Cottenceau Phénomène is dealcoholized from Loire Valley (Clisson and Château-Thébaud), France. The base is Melon de Bourgogne from the Clisson and Château-Thébaud Crus Communaux — the first dealcoholized wine made from the variety. Melon de Bourgogne wine vinified conventionally then dealcoholized (producer range described as vin désalcoolisé).
 
-On the nose, green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable. On the palate, lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet. The finish is long and mineral — the saltiness carries well beyond what most dealcoholized whites manage. The first dealcoholized Melon de Bourgogne in the world, from an 8th-generation Muscadet grower — lean, saline, food-friendly, and the most interesting white wine on this desk. On the palate, Lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet. The finish is Long and mineral — the saltiness carries well beyond what most dealcoholized whites manage.
+On the nose, green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable. On the palate, Lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet. The finish is Long and mineral — the saltiness carries well beyond what most dealcoholized whites manage.
 
 The first dealcoholized Melon de Bourgogne in the world, from an 8th-generation Muscadet grower — lean, saline, food-friendly, and the most interesting white wine on this desk. Serve well chilled.

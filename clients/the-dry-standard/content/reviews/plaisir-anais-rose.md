@@ -140,8 +140,6 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-## The wine
-
 Plaisir d'Anaïs Rosé is dealcoholized from Bordeaux, France. The base is Cabernet Sauvignon, fermented then dealcoholized. Vacuum distillation (specialist retailer; not confirmed on a current producer technical sheet).
 
 On the nose, Fresh fruit with lychee and exotic Cabernet Sauvignon rosé aromatics, plus a light floral lift. On the palate, Light and vibrant on entry — delicate exotic notes, red fruit, and crisp freshness on a pale pink frame. Off-dry and easy rather than concentrated. Mouthfeel: Light and vibrant; crisp rather than weighty. The finish is Short-to-medium, clean and refreshing, with fruit fading before the acid does.

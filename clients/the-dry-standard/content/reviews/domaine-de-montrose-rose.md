@@ -29,9 +29,9 @@ tastes:
 profile:
   - Off-dry
   - 'Clean finish'
-nose: 'red berries and a soft floral note with a faint savoury edge from the volcanic terroir. On the palate, round and fresh at once; berry fruit over gentle structure, dry rather than sweet, with more body than most dealcoholized rosés. The finish is clean and rounded, the fruit trailing gently. An estate-grown Languedoc rosé in the zero-proof register: Grenache and Cinsault from volcanic soils, dry, round and built for hot weather.'
+nose: red berries and a soft floral note with a faint savoury edge from the volcanic terroir.
 palate: 'Round and fresh at once; berry fruit over gentle structure, dry rather than sweet, with more body than most dealcoholized rosés.'
-finish: 'clean and rounded, the fruit trailing gently. An estate-grown Languedoc rosé in the zero-proof register: Grenache and Cinsault from volcanic soils, dry, round and built for hot weather.'
+finish: 'clean and rounded, the fruit trailing gently. An estate-grown Languedoc rosé in the zero-proof register: Grenache and Cinsault from volcanic soils, dry, round and built for hot we….'
 best_for: 'Hot afternoons, Mediterranean food, and anyone who wants a rosé with actual shape.'
 serve: 'Well chilled.'
 image: media/reviews/domaine-de-montrose-rose.jpg
@@ -118,10 +118,8 @@ provenance:
     url: 'https://www.cashvin.com/produit/domaine-montrose-rose-mont-rose-0/'
 ---
 
-## The wine
-
 Domaine de Montrose Rosé Zéro is dealcoholized from Languedoc-Roussillon (Hérault, Pays d'Oc IGP), France. The base is 80% Grenache Noir, 20% Cinsault, from volcanic soils and villafranchian gravels. Vin désalcoolisé — Grenache and Cinsault rosé fermented conventionally then dealcoholized (producer and retail listings).
 
-On the nose, red berries and a soft floral note with a faint savoury edge from the volcanic terroir. On the palate, round and fresh at once; berry fruit over gentle structure, dry rather than sweet, with more body than most dealcoholized rosés. The finish is clean and rounded, the fruit trailing gently. An estate-grown Languedoc rosé in the zero-proof register: Grenache and Cinsault from volcanic soils, dry, round and built for hot weather. On the palate, Round and fresh at once; berry fruit over gentle structure, dry rather than sweet, with more body than most dealcoholized rosés. The finish is clean and rounded, the fruit trailing gently. An estate-grown Languedoc rosé in the zero-proof register: Grenache and Cinsault from volcanic soils, dry, round and built for hot weather.
+On the nose, red berries and a soft floral note with a faint savoury edge from the volcanic terroir. On the palate, Round and fresh at once; berry fruit over gentle structure, dry rather than sweet, with more body than most dealcoholized rosés. The finish is clean and rounded, the fruit trailing gently. An estate-grown Languedoc rosé in the zero-proof register: Grenache and Cinsault from volcanic soils, dry, round and built for hot we….
 
 Serve well chilled.

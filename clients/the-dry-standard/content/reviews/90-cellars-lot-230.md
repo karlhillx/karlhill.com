@@ -39,9 +39,9 @@ profile:
   - 'Clean finish'
 mouthfeel: 'Clean and brief, citrus-forward.'
 highlight: 'Light and bready, with a green-apple note and the faint citrus that Souvignier Gris tends toward.'
-nose: 'light and bready, with a green-apple note and the faint citrus that Souvignier Gris tends toward. On the palate, bright and dry; green-apple and lemon with a crisp finish, lower body than a dealcoholized traditional brut but well-cut for the format. Mouthfeel: clean and brief, citrus-forward. The finish is clean and brief, citrus-forward. The most interesting NA sparkling of the low-cost tier — a Souvignier Gris from South West France at .99, which makes it the cheapest dealcoholized sparkling wine on this shelf.'
+nose: 'light and bready, with a green-apple note and the faint citrus that Souvignier Gris tends toward.'
 palate: 'Bright and dry; green-apple and lemon with a crisp finish, lower body than a dealcoholized traditional brut but well-cut for the format.'
-finish: 'clean and brief, citrus-forward. The most interesting NA sparkling of the low-cost tier — a Souvignier Gris from South West France at .99, which makes it the cheapest dealcoholized sparkling wine on this shelf.'
+finish: 'clean and brief, citrus-forward. The most interesting NA sparkling of the low-cost tier — a Souvignier Gris from South West France at .99, which makes it the cheapest dealcoholize….'
 best_for: 'Bottom-shelf NA spritzes — the cheapest credible pour in the dealcoholized sparkling category.'
 serve: 'Chilled in a flute.'
 sources:
@@ -139,10 +139,8 @@ provenance:
     url: 'https://express.binnys.com/store/binnys/products/63670506-90-cellars-wine-brut-sparkling-alcohol-removed-lot-230-france-25-4-fl-oz'
 ---
 
-## The wine
-
 90+ Cellars Lot 230 Non-Alcoholic Sparkling Brut is dealcoholized from South West France, France. The base is Souvignier Gris (a German-bred Piwi hybrid grape resistant to downy mildew). Reverse osmosis (applied after traditional winemaking).
 
-On the nose, light and bready, with a green-apple note and the faint citrus that Souvignier Gris tends toward. On the palate, bright and dry; green-apple and lemon with a crisp finish, lower body than a dealcoholized traditional brut but well-cut for the format. Mouthfeel: clean and brief, citrus-forward. The finish is clean and brief, citrus-forward. The most interesting NA sparkling of the low-cost tier — a Souvignier Gris from South West France at $12.99, which makes it the cheapest dealcoholized sparkling wine on this shelf. On the palate, Bright and dry; green-apple and lemon with a crisp finish, lower body than a dealcoholized traditional brut but well-cut for the format. Mouthfeel: Clean and brief, citrus-forward. The finish is clean and brief, citrus-forward. The most interesting NA sparkling of the low-cost tier — a Souvignier Gris from South West France at .99, which makes it the cheapest dealcoholized sparkling wine on this shelf.
+On the nose, light and bready, with a green-apple note and the faint citrus that Souvignier Gris tends toward. On the palate, Bright and dry; green-apple and lemon with a crisp finish, lower body than a dealcoholized traditional brut but well-cut for the format. Mouthfeel: Clean and brief, citrus-forward. The finish is clean and brief, citrus-forward. The most interesting NA sparkling of the low-cost tier — a Souvignier Gris from South West France at .99, which makes it the cheapest dealcoholize….
 
 Serve chilled in a flute.

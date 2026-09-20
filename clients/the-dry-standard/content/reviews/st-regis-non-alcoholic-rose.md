@@ -49,8 +49,8 @@ drink_if_you_like:
   - 'Off-dry rosé'
   - 'Light Syrah pinks'
 nose: 'The sniff is the wine-like half: berry-pink, still recognizably rosé rather than cordial.'
-palate: 'Raspberry and strawberry take the sip, with cassis and a shy melon note behind them. Off-dry sugar sits under high acid, so the middle tastes tart and a little fermented — kombucha is not a stretch. Light-bodied and lean, almost no tannin, with a drying flick juice never has and a faint spritz. Then the fruit turns: a slightly oxidative, balsamic mid-palate, dark cherry and a hint of molasses.'
-finish: 'soft, balsamic, and short. Wine-likeness splits: aroma fairly wine-like, palate less so. Dealcoholized pinks often keep the nose and lose the mouth. This bottle is a clear case of that gap, not an average of the two.'
+palate: 'Raspberry and strawberry take the sip, with cassis and a shy melon note behind them. Off-dry sugar sits under high acid, so the middle tastes tart and a little fermented — kombucha is not a stretch. Light-bodied and lean, almost no tannin, with a drying flick juice never has and a faint spritz. Then the fruit turns: a….'
+finish: 'soft, balsamic, and short. Wine-likeness splits: aroma fairly wine-like, palate less so. Dealcoholized pinks often keep the nose and lose the mouth. This bottle is a clear case of….'
 structure: "Aroma fairly wine-like. Palate less so — tart, balsamic, lean, without alcohol's weight or warmth."
 best_for: 'A chilled picnic pour, mild cheese, or a salad that wants tart fruit more than alcohol heat.'
 serve: 'Chilled, in a white-wine or rosé glass.'
@@ -154,10 +154,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 St. Regis Non-Alcoholic Rosé is dealcoholized from Germany. The base is Fermented and aged Syrah/Shiraz rosé wine, dealcoholized after full winemaking process. Vacuum distillation.
 
-On the nose, The sniff is the wine-like half: berry-pink, still recognizably rosé rather than cordial. On the palate, Raspberry and strawberry take the sip, with cassis and a shy melon note behind them. Off-dry sugar sits under high acid, so the middle tastes tart and a little fermented — kombucha is not a stretch. Light-bodied and lean, almost no tannin, with a drying flick juice never has and a faint spritz. Then the fruit turns: a slightly oxidative, balsamic mid-palate, dark cherry and a hint of molasses. Mouthfeel: Lean and crisp at first, with a slight drying grip on the finish. The finish is soft, balsamic, and short. Wine-likeness splits: aroma fairly wine-like, palate less so. Dealcoholized pinks often keep the nose and lose the mouth. This bottle is a clear case of that gap, not an average of the two.
+On the nose, The sniff is the wine-like half: berry-pink, still recognizably rosé rather than cordial. On the palate, Raspberry and strawberry take the sip, with cassis and a shy melon note behind them. Off-dry sugar sits under high acid, so the middle tastes tart and a little fermented — kombucha is not a stretch. Light-bodied and lean, almost no tannin, with a drying flick juice never has and a faint spritz. Then the fruit turns: a…. Mouthfeel: Lean and crisp at first, with a slight drying grip on the finish. The finish is soft, balsamic, and short. Wine-likeness splits: aroma fairly wine-like, palate less so. Dealcoholized pinks often keep the nose and lose the mouth. This bottle is a clear case of….
 
 The aroma is more convincing than the palate. Acidity and a faint drying character supply some wine structure, though the fermented finish may read as kombucha-like to some drinkers. Serve chilled, in a white-wine or rosé glass.

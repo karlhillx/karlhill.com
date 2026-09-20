@@ -35,7 +35,7 @@ profile:
   - 'Clean finish'
 nose: Delicate citrus with a mineral edge and a faint petrol note — the classic Riesling tell.
 palate: 'Light and fresh; citrus fruit with lingering acidity, less body than a full-strength Riesling but the shape holds.'
-finish: 'clean and citric, the mineral note carrying the close. A Riesling-shaped Riesling at a value price — citrus, mineral and a petrol whisper, which is more varietal honesty than most budget NA whites manage.'
+finish: 'clean and citric, the mineral note carrying the close. A Riesling-shaped Riesling at a value price — citrus, mineral and a petrol whisper, which is more varietal honesty than most….'
 best_for: 'Weeknight drinking, Thai food, the Riesling drinker on a budget.'
 serve: Chilled.
 sources:
@@ -95,10 +95,8 @@ sensory:
       - palate
 ---
 
-## The wine
-
 Magic Box Vanish Riesling is dealcoholized from Germany. The base is German Riesling, sourced from Germany and dealcoholized in Europe (supplier and directory copy). beerfordriving.com's directory listing describes the wine as 'a German dealcoholized white wine made in the classic Riesling style... with the alcohol removed'; the specific named removal technology is not published.
 
-On the nose, delicate citrus with a mineral edge and a faint petrol note — the classic Riesling tell. On the palate, light and fresh; citrus fruit with lingering acidity, less body than a full-strength Riesling but the shape holds. The finish is clean and citric, the mineral note carrying the close. A Riesling-shaped Riesling at a value price — citrus, mineral and a petrol whisper, which is more varietal honesty than most budget NA whites manage.
+On the nose, Delicate citrus with a mineral edge and a faint petrol note — the classic Riesling tell. On the palate, Light and fresh; citrus fruit with lingering acidity, less body than a full-strength Riesling but the shape holds. The finish is clean and citric, the mineral note carrying the close. A Riesling-shaped Riesling at a value price — citrus, mineral and a petrol whisper, which is more varietal honesty than most….
 
-A Riesling-shaped Riesling at a value price — citrus, mineral and a petrol whisper, which is more varietal honesty than most budget NA whites manage. Serve chilled.
+Serve chilled.

@@ -38,9 +38,9 @@ tastes:
 profile:
   - 'Light body'
   - 'Clean finish'
-nose: 'lemon and pear, a green-apple edge, faintly mineral. On the palate, fresh, dry-leaning and aromatic — orchard fruit with a clean, slightly mineral spine. The finish is clean and light, the mineral note carrying through. One of the few NA wines with an actual German winery behind the label — a clean, slightly mineral Chardonnay that tastes like somebody made it on purpose.'
+nose: 'lemon and pear, a green-apple edge, faintly mineral.'
 palate: 'Fresh, dry-leaning and aromatic — orchard fruit with a clean, slightly mineral spine.'
-finish: 'clean and light, the mineral note carrying through. One of the few NA wines with an actual German winery behind the label — a clean, slightly mineral Chardonnay that tastes like somebody made it on purpose.'
+finish: 'clean and light, the mineral note carrying through. One of the few NA wines with an actual German winery behind the label — a clean, slightly mineral Chardonnay that tastes like s….'
 best_for: "Aperitif hour, seafood, the white you pour guests who ask what's actually good in NA."
 serve: 'Well chilled, standard white-wine glass.'
 sources:
@@ -134,10 +134,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Appalina Chardonnay is dealcoholized from Rheinhessen, Germany. Cold vacuum distillation, with aromas extracted before removal and reintegrated afterward.
 
-On the nose, lemon and pear, a green-apple edge, faintly mineral. On the palate, fresh, dry-leaning and aromatic — orchard fruit with a clean, slightly mineral spine. The finish is clean and light, the mineral note carrying through. One of the few NA wines with an actual German winery behind the label — a clean, slightly mineral Chardonnay that tastes like somebody made it on purpose. On the palate, Fresh, dry-leaning and aromatic — orchard fruit with a clean, slightly mineral spine. The finish is clean and light, the mineral note carrying through. One of the few NA wines with an actual German winery behind the label — a clean, slightly mineral Chardonnay that tastes like somebody made it on purpose.
+On the nose, lemon and pear, a green-apple edge, faintly mineral. On the palate, Fresh, dry-leaning and aromatic — orchard fruit with a clean, slightly mineral spine. The finish is clean and light, the mineral note carrying through. One of the few NA wines with an actual German winery behind the label — a clean, slightly mineral Chardonnay that tastes like s….
 
 Serve well chilled, standard white-wine glass.

@@ -39,7 +39,7 @@ profile:
   - 'Soft bead'
 nose: Bright raspberry and a soft floral top note; lightly sparkling.
 palate: 'Crisp and refreshing, real raspberry juice over a clean sparkling base — a touch of sweetness without syrup weight.'
-finish: 'clean and short, the fruit trailing off gently. A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink.'
+finish: 'clean and short, the fruit trailing off gently. A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the cate….'
 best_for: "Brunch, the patio, spritzing up a glass when the rosé bottle isn't the point."
 serve: 'Straight from the can, or over ice with a raspberry or a mint leaf.'
 sources:
@@ -126,10 +126,8 @@ sensory:
       - palate
 ---
 
-## The drink
-
 Mingle Sparkling Raspberry Rosé is formulated as an alcohol alternative from United States. The base is Sparkling water with real raspberry juice and natural flavorings; no underlying alcoholic drink. Mingle is formulated as an alcohol-free mocktail — real juice, sparkling water and botanicals — rather than made by removing alcohol from an alcoholic cocktail.
 
-On the nose, bright raspberry and a soft floral top note; lightly sparkling. On the palate, crisp and refreshing, real raspberry juice over a clean sparkling base — a touch of sweetness without syrup weight. The finish is clean and short, the fruit trailing off gently. A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink.
+On the nose, Bright raspberry and a soft floral top note; lightly sparkling. On the palate, Crisp and refreshing, real raspberry juice over a clean sparkling base — a touch of sweetness without syrup weight. The finish is clean and short, the fruit trailing off gently. A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the cate….
 
-A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink. Serve straight from the can, or over ice with a raspberry or a mint leaf.
+Serve straight from the can, or over ice with a raspberry or a mint leaf.

@@ -38,9 +38,9 @@ profile:
   - 'Light body'
   - 'Soft bead'
   - 'Clean finish'
-nose: 'wild strawberry and raspberry with a floral lift — recognizably rosé, recognizably Rheingau. On the palate, light and fresh; red berry fruit over fine bubbles, drier than expected for the category. The finish is clean and crisp, the red fruit trailing. The rosé sibling of the Eins-Zwei-Zero Riesling already on this desk — same spinning cone process, same Rheingau sourcing, delicate red fruit and bubbles.'
+nose: 'wild strawberry and raspberry with a floral lift — recognizably rosé, recognizably Rheingau.'
 palate: 'Light and fresh; red berry fruit over fine bubbles, drier than expected for the category.'
-finish: 'clean and crisp, the red fruit trailing. The rosé sibling of the Eins-Zwei-Zero Riesling already on this desk — same spinning cone process, same Rheingau sourcing, delicate red fruit and bubbles.'
+finish: 'clean and crisp, the red fruit trailing. The rosé sibling of the Eins-Zwei-Zero Riesling already on this desk — same spinning cone process, same Rheingau sourcing, delicate red fr….'
 best_for: 'Brunch, toasting, and the rosé sparkling occasion without the alcohol.'
 serve: 'Well chilled, in a flute.'
 sources:
@@ -128,10 +128,8 @@ sensory:
       - palate
 ---
 
-## The wine
-
 Leitz Eins-Zwei-Zero Sparkling Rosé is dealcoholized from Rheingau, Germany. The base is Rheingau rosé, vinified conventionally before dealcoholization. Spinning cone technology applied to conventionally vinified Rheingau rosé (same process as the published Leitz Riesling).
 
-On the nose, wild strawberry and raspberry with a floral lift — recognizably rosé, recognizably Rheingau. On the palate, light and fresh; red berry fruit over fine bubbles, drier than expected for the category. The finish is clean and crisp, the red fruit trailing. The rosé sibling of the Eins-Zwei-Zero Riesling already on this desk — same spinning cone process, same Rheingau sourcing, delicate red fruit and bubbles. On the palate, Light and fresh; red berry fruit over fine bubbles, drier than expected for the category. The finish is clean and crisp, the red fruit trailing. The rosé sibling of the Eins-Zwei-Zero Riesling already on this desk — same spinning cone process, same Rheingau sourcing, delicate red fruit and bubbles.
+On the nose, wild strawberry and raspberry with a floral lift — recognizably rosé, recognizably Rheingau. On the palate, Light and fresh; red berry fruit over fine bubbles, drier than expected for the category. The finish is clean and crisp, the red fruit trailing. The rosé sibling of the Eins-Zwei-Zero Riesling already on this desk — same spinning cone process, same Rheingau sourcing, delicate red fr….
 
 Serve well chilled, in a flute.

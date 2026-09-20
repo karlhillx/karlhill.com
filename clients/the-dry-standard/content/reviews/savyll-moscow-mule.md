@@ -73,8 +73,6 @@ provenance:
     url: 'https://www.totalwine.com/'
 ---
 
-## The drink
-
 Savyll Moscow Mule is formulated as an alcohol alternative. An RTD mule. No source describes a spirit that was later dealcoholized.
 
 On the nose, ginger and lime peel, bright and candy-adjacent. On the palate, spicy ginger, sweet lime, carbonation doing the work a spirit would. The finish is short ginger heat. More soda than cocktail. Ginger, lime, and fizz in a can. Not a dealcoholized vodka. A formulated mule, which is the honest category.

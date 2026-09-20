@@ -125,8 +125,6 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Be Free Rosé is dealcoholized from Mosel, Germany. Vivino lists the wine as 'Be Free De-Alcoholised Rosé,' and a retailer listing describes 'a gentle de-alcoholisation method'; the specific named technology is not published.
 
 On the nose, watermelon and cherry, with a soft red-berry lift. On the palate, simple and cheerful — berry fruit up front, gentle acidity, a touch of sweetness that keeps it easy. The finish is short and clean; more refreshment than structure. The bottle that occupies the value slot in most non-alcoholic wine collections — a fruity German rosé that does its job for around ten dollars, without ever pretending to more.

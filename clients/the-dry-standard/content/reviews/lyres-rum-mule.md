@@ -109,8 +109,6 @@ provenance:
     url: 'https://lyres.com/pages/faqs'
 ---
 
-## The drink
-
 Lyre's Rum Mule is formulated as an alcohol alternative. The base is No underlying alcohol-containing rum; built around Lyre's Dark Cane Spirit replica flavours. Lyre's range is formulated from scratch. This RTD is not a dealcoholized Dark 'n' Stormy or Moscow Mule.
 
 On the nose, ginger snap and lime zest, with a soft caramel note from the dark-cane replica underneath. On the palate, bright citrus, then ginger heat, then a toffee sweetness that is more soda than spirit. Carbonation does the work ethanol would. The finish is short ginger and lime. The sugar hangs a beat longer than a proper mule. Ginger, lime, and a toffee hint in a 250 ml can. Honest about being a recipe, not a stripped rum cocktail. Better over ice than straight from the tin.

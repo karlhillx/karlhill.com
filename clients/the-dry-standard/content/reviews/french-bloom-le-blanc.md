@@ -35,7 +35,7 @@ profile:
   - 'Soft bead'
 mouthfeel: 'Crisp and bone-dry, the mineral close matching what a fine Champagne would give you.'
 highlight: 'White pear and a soft citrusy lilt, with a clear Chablis-adjacent mineral edge under the citrus (the lemon flavor note).'
-nose: 'white pear and a soft citrusy lilt, with a clear Chablis-adjacent mineral edge under the citrus (the lemon flavor note). On the palate, substantial for an NA sparkling — the grape juice blend gives it real mid-palate body, citrus and orchard fruit on top of the wine''s natural steely weight. Mouthfeel: crisp and bone-dry, the mineral close matching what a fine Champagne would give you. The finish is crisp and bone-dry, the mineral close matching what a fine Champagne would give you. A French Blanc-de-Blancs (sort of) — organic Chardonnay dealcoholized, blended with grape juice for a more substantial glass than most ''alcohol-removed'' sparkling whites manage. Closest the NA aisle gets to a Taittinger-style pour.'
+nose: 'white pear and a soft citrusy lilt, with a clear Chablis-adjacent mineral edge under the citrus (the lemon flavor note).'
 palate: 'Substantial for an NA sparkling — the grape juice blend gives it real mid-palate body, citrus and orchard fruit on top of the wine''s natural steely weight.'
 finish: 'Crisp and bone-dry, the mineral close matching what a fine Champagne would give you.'
 best_for: 'Dinner-party bottles where the goal is to outdo the by-the-glass list, not just be present at it.'
@@ -132,10 +132,8 @@ sensory:
       - palate
 ---
 
-## The wine
-
 French Bloom Le Blanc is a hybrid of dealcoholized material and other defining ingredients from France. The base is Organic French Chardonnay (classic method sparkling base), with organic grape juice and natural lemon flavor blended in after alcohol removal. Three-stage vacuum dealcoholization at low temperature, with aroma recovery and reintegration (producer's own site).
 
-On the nose, white pear and a soft citrusy lilt, with a clear Chablis-adjacent mineral edge under the citrus (the lemon flavor note). On the palate, substantial for an NA sparkling — the grape juice blend gives it real mid-palate body, citrus and orchard fruit on top of the wine's natural steely weight. Mouthfeel: crisp and bone-dry, the mineral close matching what a fine Champagne would give you. The finish is crisp and bone-dry, the mineral close matching what a fine Champagne would give you. A French Blanc-de-Blancs (sort of) — organic Chardonnay dealcoholized, blended with grape juice for a more substantial glass than most 'alcohol-removed' sparkling whites manage. Closest the NA aisle gets to a Taittinger-style pour. On the palate, Substantial for an NA sparkling — the grape juice blend gives it real mid-palate body, citrus and orchard fruit on top of the wine's natural steely weight. Mouthfeel: Crisp and bone-dry, the mineral close matching what a fine Champagne would give you. The finish is Crisp and bone-dry, the mineral close matching what a fine Champagne would give you.
+On the nose, white pear and a soft citrusy lilt, with a clear Chablis-adjacent mineral edge under the citrus (the lemon flavor note). On the palate, Substantial for an NA sparkling — the grape juice blend gives it real mid-palate body, citrus and orchard fruit on top of the wine's natural steely weight. Mouthfeel: Crisp and bone-dry, the mineral close matching what a fine Champagne would give you. The finish is Crisp and bone-dry, the mineral close matching what a fine Champagne would give you.
 
 A French Blanc-de-Blancs (sort of) — organic Chardonnay dealcoholized, blended with grape juice for a more substantial glass than most 'alcohol-removed' sparkling whites manage. Closest the NA aisle gets to a Taittinger-style pour. Serve flute, slightly cooler than service temperature for Champagne; a careful first pour.

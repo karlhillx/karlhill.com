@@ -38,7 +38,7 @@ profile:
   - 'Modest bitterness'
   - 'Clean finish'
 highlight: 'Bright citrus — tangerine and grapefruit, the Fresh Squeezed signature, present and aromatic.'
-nose: 'bright citrus — tangerine and grapefruit, the Fresh Squeezed signature, present and aromatic. On the palate, citrus-forward and medium-bodied; the hop character leads over a clean malt base, with the bitterness properly present at 50 IBU. The finish is clean and citric, the hop bitterness carrying well. One of the best NA IPAs on the market — Deschutes translated their flagship Fresh Squeezed into zero proof using proprietary brewing tech, and the citrus-forward character survived intact.'
+nose: 'bright citrus — tangerine and grapefruit, the Fresh Squeezed signature, present and aromatic.'
 palate: 'Citrus-forward and medium-bodied; the hop character leads over a clean malt base, with the bitterness properly present at 50 IBU.'
 finish: 'Clean and citric, the hop bitterness carrying well.'
 best_for: 'The Fresh Squeezed fan who wants the same beer without the alcohol — and the best argument that NA craft can match the original.'
@@ -129,10 +129,8 @@ provenance:
     url: 'https://www.brewbound.com/news/deschutes-to-move-non-alcoholic-beer-production-in-house-eyes-adding-na-fresh-squeezed-ipa-to-portfolio/'
 ---
 
-## The beer
-
 Deschutes Non-Alcoholic Fresh Squeezed IPA is dealcoholized from Bend, Oregon, United States. Reverse osmosis (BrewVo process via Sustainable Beverage Technologies), followed by secondary cold fermentation and dry-hopping.
 
-On the nose, bright citrus — tangerine and grapefruit, the Fresh Squeezed signature, present and aromatic. On the palate, citrus-forward and medium-bodied; the hop character leads over a clean malt base, with the bitterness properly present at 50 IBU. The finish is clean and citric, the hop bitterness carrying well. One of the best NA IPAs on the market — Deschutes translated their flagship Fresh Squeezed into zero proof using proprietary brewing tech, and the citrus-forward character survived intact. On the palate, Citrus-forward and medium-bodied; the hop character leads over a clean malt base, with the bitterness properly present at 50 IBU. The finish is Clean and citric, the hop bitterness carrying well.
+On the nose, bright citrus — tangerine and grapefruit, the Fresh Squeezed signature, present and aromatic. On the palate, Citrus-forward and medium-bodied; the hop character leads over a clean malt base, with the bitterness properly present at 50 IBU. The finish is Clean and citric, the hop bitterness carrying well.
 
 One of the best NA IPAs on the market — Deschutes translated their flagship Fresh Squeezed into zero proof using proprietary brewing tech, and the citrus-forward character survived intact. Serve cold, from the can or in a pint glass.

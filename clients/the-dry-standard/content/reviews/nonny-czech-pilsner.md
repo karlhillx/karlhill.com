@@ -105,8 +105,6 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Nonny Czech Pilsner is brewed or fermented to finish at low ABV without a published removal step from Canada. Nonny's own site describes the beer as 'always below 0.5% alcohol' with no removal-process language anywhere across its product or brand pages, consistent with formulated-from-the-start production. 'Czech Pilsner' names the beer style Nonny is brewed to replicate, not its coun…
 
 On the nose, fresh Saaz-style hop grassiness and clean pilsner malt — the classic Czech aromatic signature. On the palate, crisp and properly bitter; grassy hops over a light, clean malt body with genuine pilsner bite. The finish is dry, bitter and refreshing — the hop character carries a long way for a 42-calorie can. A Czech pilsner made by people who clearly care about Czech pilsner: the hop bitterness is right, the malt is clean, and at 42 calories a can it's the leanest credible pils on this desk.

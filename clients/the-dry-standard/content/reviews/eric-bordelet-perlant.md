@@ -41,7 +41,7 @@ profile:
   - 'Clean finish'
 nose: 'Complex apple — tart, floral, faintly bitter from the cider varieties rather than sweet supermarket fruit.'
 palate: 'Lightly sparkling and dry-leaning; the bitter-sharp apple character gives it real structure, with a clean, mineral mid-palate.'
-finish: 'long and clean, the apple skin bitterness lingering pleasantly. Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything.'
+finish: 'long and clean, the apple skin bitterness lingering pleasantly. Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this des….'
 best_for: 'Cheese, charcuterie, Norman terrines — or simply as the best thing in the fridge on a hot day.'
 serve: 'Well chilled, in a wine glass.'
 sources:
@@ -130,10 +130,8 @@ provenance:
     url: 'https://creamwine.com/product.php?id=21334'
 ---
 
-## The cider
-
 Eric Bordelet Perlant Jus de Pommes à Sydre is formulated as an alcohol alternative from Normandy (Pays d'Auge), France. The base is Juice of 12 varieties of organic heritage cider apples (bitter-sharp, bitter-sweet, sour). Pressed apple juice from cider varieties with carbon dioxide added — never fermented, so there is no alcohol to remove. Distinct from Bordelet's alcoholic ciders.
 
-On the nose, complex apple — tart, floral, faintly bitter from the cider varieties rather than sweet supermarket fruit. On the palate, lightly sparkling and dry-leaning; the bitter-sharp apple character gives it real structure, with a clean, mineral mid-palate. The finish is long and clean, the apple skin bitterness lingering pleasantly. Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything.
+On the nose, Complex apple — tart, floral, faintly bitter from the cider varieties rather than sweet supermarket fruit. On the palate, Lightly sparkling and dry-leaning; the bitter-sharp apple character gives it real structure, with a clean, mineral mid-palate. The finish is long and clean, the apple skin bitterness lingering pleasantly. Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this des….
 
-Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything. Serve well chilled, in a wine glass.
+Serve well chilled, in a wine glass.

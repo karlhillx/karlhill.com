@@ -109,10 +109,8 @@ sensory:
       - palate
 ---
 
-## The spirit
-
 Ritual Zero Proof Tequila Alternative is formulated as an alcohol alternative from United States. The base is Botanical formulation with agave, lime, and other natural flavors; no underlying tequila. Ritual Zero Proof spirits are formulated from botanicals and natural flavors — not made by removing alcohol from a once-alcoholic spirit.
 
-On the nose, agave sweetness with a bright lime lift and a faint jalapeño warmth. On the palate, agave-forward with a citrusy heat — the tequila silhouette drawn in botanicals rather than ethanol. The finish is clean and warming, the spice trailing without alcohol burn. The most widely available tequila alternative, and one of the few that works in a margarita — the agave heat is there, the finish is clean, and the honesty about being formulated (not dealcoholized) is refreshing.
+On the nose, Agave sweetness with a bright lime lift and a faint jalapeño warmth. On the palate, Agave-forward with a citrusy heat — the tequila silhouette drawn in botanicals rather than ethanol. The finish is Clean and warming, the spice trailing without alcohol burn.
 
 The most widely available tequila alternative, and one of the few that works in a margarita — the agave heat is there, the finish is clean, and the honesty about being formulated (not dealcoholized) is refreshing. Serve in a cocktail, 1:1 replacement for tequila; not a sipping spirit.

@@ -159,8 +159,6 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-## The wine
-
 Adegga Baezza Blanco is dealcoholized from Galicia, Spain. The base is Chardonnay from Galicia, fermented then dealcoholized. Cold evaporation with reintroduction of the wine’s own aromas (producer Adegga Baezza range page).
 
 On the nose, Tropical and exotic fruit with floral notes and a faint herbal quality. On the palate, Sweet-leaning and fruity on entry, with ripe tropical fruit and a soft, silky texture. Acidity provides some freshness but remains gentle. Mouthfeel: Soft and silky; sweetness lingers more strongly than acidity. The finish is Medium, smooth and fruity, with sweetness lingering more strongly than acidity.

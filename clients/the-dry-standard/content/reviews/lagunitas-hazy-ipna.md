@@ -125,8 +125,6 @@ provenance:
     url: 'https://www.beveragedaily.com/Article/2020/12/01/Lagunitas-launches-non-alcoholic-IPNA-in-the-US/'
 ---
 
-## The beer
-
 Lagunitas Hazy IPNA is brewed or fermented to finish at low ABV without a published removal step from United States. Brewed to remain under 0.5% ABV. Lagunitas says it does not dealcoholize the finished beer.
 
 On the nose, passionfruit and tropical hop, a little grain-sweet underneath the haze. On the palate, juicy and soft, 30 IBU, more fruit than pine. Body is lighter than a full Hazy Memory, as expected once fermentation is limited. The finish is short hop snap, a touch of residual sweetness from the 5 g of sugar. A hazy IPA that was never a full-strength beer with the ethanol stripped out. Passionfruit and haze without a dealcoholization step — which is the point of this desk's second column.

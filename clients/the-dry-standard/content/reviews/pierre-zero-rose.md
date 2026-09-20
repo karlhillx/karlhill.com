@@ -31,7 +31,7 @@ profile:
   - 'Light body'
   - 'Short finish'
   - 'Clean finish'
-nose: 'redcurrant and bilberry, with a soft floral lift — fruit-forward rather than savoury. On the palate, light and fresh; berry fruit over gentle acidity, designed to be poured generously rather than studied. The finish is clean and short, gently fruity. The category''s great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions.'
+nose: 'redcurrant and bilberry, with a soft floral lift — fruit-forward rather than savoury.'
 palate: 'Light and fresh; berry fruit over gentle acidity, designed to be poured generously rather than studied.'
 finish: 'clean and short, gently fruity. The category''s great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions.'
 best_for: 'Weeknight pours, big tables, the box that lives in the fridge door.'
@@ -124,10 +124,8 @@ sensory:
       - palate
 ---
 
-## The wine
-
 Pierre Zéro Rosé (Bag-in-Box) is dealcoholized from France. The base is Traditionally vinified French rosé (Chavin estate range), dealcoholized after fermentation. Alcohol removed from a traditionally vinified French rosé (producer markets the range as dealcoholized wine since 2010; the specific technique is not detailed publicly).
 
-On the nose, redcurrant and bilberry, with a soft floral lift — fruit-forward rather than savoury. On the palate, light and fresh; berry fruit over gentle acidity, designed to be poured generously rather than studied. The finish is clean and short, gently fruity. The category's great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions. On the palate, Light and fresh; berry fruit over gentle acidity, designed to be poured generously rather than studied. The finish is clean and short, gently fruity. The category's great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions.
+On the nose, redcurrant and bilberry, with a soft floral lift — fruit-forward rather than savoury. On the palate, Light and fresh; berry fruit over gentle acidity, designed to be poured generously rather than studied. The finish is clean and short, gently fruity. The category's great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions.
 
 Serve chilled; the bag-in-box format keeps it fresh for weeks after opening.

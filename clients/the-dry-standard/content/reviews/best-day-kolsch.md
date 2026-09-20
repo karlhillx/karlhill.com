@@ -114,8 +114,6 @@ sensory:
       - palate
 ---
 
-## The beer
-
 Best Day Brewing Kölsch is dealcoholized from United States. Paste Magazine's brewery-briefed review describes Best Day's beers as 'traditionally produced non-alcoholic beers, with alcohol "gently removed" post fermentation, leaving less than .5% ABV in the final product'; the specific named removal technology is not published.
 
 On the nose, pilsner-malt light toast, a touch of green apple, no corn-rice adjunct heaviness. On the palate, clean and crisp; a soft malt body with the slight hop bitterness Kölsch demands, dry rather than syrupy. The finish is long and clean for an NA craft beer — the dryness carries the close. The cleanest non-alcoholic Kölsch on the US craft shelf — a light, slightly toasty ale with the body and finish of a Kölsch, not a near-beer compromise.

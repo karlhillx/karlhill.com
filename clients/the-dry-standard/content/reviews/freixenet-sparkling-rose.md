@@ -39,7 +39,7 @@ profile:
   - 'Soft bead'
   - 'Short finish'
 highlight: 'Red berry and a little citrus. Fruit-forward, not yeasty.'
-nose: 'red berry and a little citrus. Fruit-forward, not yeasty. On the palate, soft bead, noticeable sweetness, easy red fruit. The sugar does more work than the acidity. The finish is short and candy-adjacent if it warms. Keep it iced. The pink twin of the 0,0 Sparkling White already here. Same vacuum-evaporation method, same 38 g/L sugar, more berry. Competent supermarket fizz, and genuinely dealcoholized.'
+nose: 'red berry and a little citrus. Fruit-forward, not yeasty.'
 palate: 'Soft bead, noticeable sweetness, easy red fruit. The sugar does more work than the acidity.'
 finish: Short and candy-adjacent if it warms.
 best_for: 'A cheap toast, salad, the bottle you do not overthink.'
@@ -129,10 +129,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Freixenet 0,0 Sparkling Rosé is dealcoholized from Spain. The base is Blend of classic Spanish grapes, Airén dominant. Low-temperature vacuum evaporation, applied after making the wine to full strength.
 
-On the nose, red berry and a little citrus. Fruit-forward, not yeasty. On the palate, soft bead, noticeable sweetness, easy red fruit. The sugar does more work than the acidity. The finish is short and candy-adjacent if it warms. Keep it iced. The pink twin of the 0,0 Sparkling White already here. Same vacuum-evaporation method, same 38 g/L sugar, more berry. Competent supermarket fizz, and genuinely dealcoholized. On the palate, Soft bead, noticeable sweetness, easy red fruit. The sugar does more work than the acidity. The finish is Short and candy-adjacent if it warms.
+On the nose, red berry and a little citrus. Fruit-forward, not yeasty. On the palate, Soft bead, noticeable sweetness, easy red fruit. The sugar does more work than the acidity. The finish is Short and candy-adjacent if it warms.
 
 The pink twin of the 0,0 Sparkling White already here. Same vacuum-evaporation method, same 38 g/L sugar, more berry. Competent supermarket fizz, and genuinely dealcoholized. Serve 6–8°C, flute.

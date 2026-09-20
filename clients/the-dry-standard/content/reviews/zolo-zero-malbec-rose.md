@@ -32,7 +32,7 @@ profile:
   - 'Light body'
   - 'Clean finish'
 mouthfeel: 'Clean and brief.'
-nose: 'red berry and plum — Malbec''s darker fruit profile translated to a rosé. On the palate, light and fruit-forward; the Malbec character shows as dark berry rather than tannin, which the dealcoholization would strip anyway. Mouthfeel: clean and brief. The finish is clean and brief. An Argentine Malbec rosé with a cited removal step — red fruit and gentle acidity at the value tier.'
+nose: 'red berry and plum — Malbec''s darker fruit profile translated to a rosé.'
 palate: 'Light and fruit-forward; the Malbec character shows as dark berry rather than tannin, which the dealcoholization would strip anyway.'
 finish: clean and brief. An Argentine Malbec rosé with a cited removal step — red fruit and gentle acidity at the value tier.
 best_for: 'The value-tier NA red drinker, an everyday pour.'
@@ -140,10 +140,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Zolo Zero Malbec Rosé is dealcoholized from Mendoza (Jarillal, Alto Agrelo, Luján de Cuyo), Argentina. The base is 100% Malbec rosé from Jarillal, Alto Agrelo, Luján de Cuyo, Mendoza. Proprietary dealcoholization (96% of the blend) plus 4% grape juice (importer tech sheet).
 
-On the nose, red berry and plum — Malbec's darker fruit profile translated to a rosé. On the palate, light and fruit-forward; the Malbec character shows as dark berry rather than tannin, which the dealcoholization would strip anyway. Mouthfeel: clean and brief. The finish is clean and brief. An Argentine Malbec rosé with a cited removal step — red fruit and gentle acidity at the value tier. On the palate, Light and fruit-forward; the Malbec character shows as dark berry rather than tannin, which the dealcoholization would strip anyway. Mouthfeel: Clean and brief. The finish is clean and brief. An Argentine Malbec rosé with a cited removal step — red fruit and gentle acidity at the value tier.
+On the nose, red berry and plum — Malbec's darker fruit profile translated to a rosé. On the palate, Light and fruit-forward; the Malbec character shows as dark berry rather than tannin, which the dealcoholization would strip anyway. Mouthfeel: Clean and brief. The finish is clean and brief. An Argentine Malbec rosé with a cited removal step — red fruit and gentle acidity at the value tier.
 
 Serve slightly chilled.

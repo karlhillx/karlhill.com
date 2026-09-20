@@ -40,9 +40,9 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-nose: 'ripe mirabelle and a hint of quince, then a salty slate edge. On the palate, light, precise, a little must-sweet from the rectified grape concentrate. Acidity still reads as Riesling. The finish is short citrus and salt. Keep it cold or the sweetness shows. A Berlin house that dealcoholizes other people''s wine under vacuum and is willing to print 0.0% on the Riesling. Mirabelle, quince, and slate salt.'
+nose: 'ripe mirabelle and a hint of quince, then a salty slate edge.'
 palate: 'Light, precise, a little must-sweet from the rectified grape concentrate. Acidity still reads as Riesling.'
-finish: 'short citrus and salt. Keep it cold or the sweetness shows. A Berlin house that dealcoholizes other people''s wine under vacuum and is willing to print 0.0% on the Riesling. Mirabelle, quince, and slate salt.'
+finish: 'short citrus and salt. Keep it cold or the sweetness shows. A Berlin house that dealcoholizes other people''s wine under vacuum and is willing to print 0.0% on the Riesling. Mirabe….'
 best_for: 'Fish, spicy noodles, or a Riesling drinker who wants a documented 0.0%.'
 serve: 'Well chilled.'
 sources:
@@ -145,10 +145,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Kolonne Null Riesling is dealcoholized from Germany. The base is Organic German Riesling, fermented then dealcoholized. Vacuum distillation at around 30°C.
 
-On the nose, ripe mirabelle and a hint of quince, then a salty slate edge. On the palate, light, precise, a little must-sweet from the rectified grape concentrate. Acidity still reads as Riesling. The finish is short citrus and salt. Keep it cold or the sweetness shows. A Berlin house that dealcoholizes other people's wine under vacuum and is willing to print 0.0% on the Riesling. Mirabelle, quince, and slate salt. On the palate, Light, precise, a little must-sweet from the rectified grape concentrate. Acidity still reads as Riesling. The finish is short citrus and salt. Keep it cold or the sweetness shows. A Berlin house that dealcoholizes other people's wine under vacuum and is willing to print 0.0% on the Riesling. Mirabelle, quince, and slate salt.
+On the nose, ripe mirabelle and a hint of quince, then a salty slate edge. On the palate, Light, precise, a little must-sweet from the rectified grape concentrate. Acidity still reads as Riesling. The finish is short citrus and salt. Keep it cold or the sweetness shows. A Berlin house that dealcoholizes other people's wine under vacuum and is willing to print 0.0% on the Riesling. Mirabe….
 
 Serve well chilled.

@@ -35,9 +35,9 @@ profile:
   - 'Light body'
   - 'Clean finish'
 mouthfeel: 'Clean and lightly oaked.'
-nose: 'tropical fruit and pear over a light oak note — Chardonnay character preserved by the cold process. On the palate, round and fruity; the oak shows as a soft spice rather than butter, and the body holds better than most dealcoholized Chardonnays. Mouthfeel: clean and lightly oaked. The finish is clean and lightly oaked. One of the oldest names in NA wine — Ariel has been dealcoholizing J. Lohr fruit with a spinning cone since the 1980s, and the Chardonnay shows that experience.'
+nose: tropical fruit and pear over a light oak note — Chardonnay character preserved by the cold process.
 palate: 'Round and fruity; the oak shows as a soft spice rather than butter, and the body holds better than most dealcoholized Chardonnays.'
-finish: 'clean and lightly oaked. One of the oldest names in NA wine — Ariel has been dealcoholizing J. Lohr fruit with a spinning cone since the 1980s, and the Chardonnay shows that experience.'
+finish: 'clean and lightly oaked. One of the oldest names in NA wine — Ariel has been dealcoholizing J. Lohr fruit with a spinning cone since the 1980s, and the Chardonnay shows that exper….'
 best_for: 'The Chardonnay drinker who wants a zero-proof version from a producer with decades of NA winemaking experience.'
 serve: Chilled.
 image: media/reviews/ariel-chardonnay.jpg
@@ -121,10 +121,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Ariel Non-Alcoholic Chardonnay is dealcoholized from California, United States. The base is California Chardonnay from J. Lohr's vineyards, vinified conventionally before dealcoholization. Spinning cone column distillation at low temperature (Ariel's documented process, shared with the J. Lohr family of wines).
 
-On the nose, tropical fruit and pear over a light oak note — Chardonnay character preserved by the cold process. On the palate, round and fruity; the oak shows as a soft spice rather than butter, and the body holds better than most dealcoholized Chardonnays. Mouthfeel: clean and lightly oaked. The finish is clean and lightly oaked. One of the oldest names in NA wine — Ariel has been dealcoholizing J. Lohr fruit with a spinning cone since the 1980s, and the Chardonnay shows that experience. On the palate, Round and fruity; the oak shows as a soft spice rather than butter, and the body holds better than most dealcoholized Chardonnays. Mouthfeel: Clean and lightly oaked. The finish is clean and lightly oaked. One of the oldest names in NA wine — Ariel has been dealcoholizing J. Lohr fruit with a spinning cone since the 1980s, and the Chardonnay shows that experience.
+On the nose, tropical fruit and pear over a light oak note — Chardonnay character preserved by the cold process. On the palate, Round and fruity; the oak shows as a soft spice rather than butter, and the body holds better than most dealcoholized Chardonnays. Mouthfeel: Clean and lightly oaked. The finish is clean and lightly oaked. One of the oldest names in NA wine — Ariel has been dealcoholizing J. Lohr fruit with a spinning cone since the 1980s, and the Chardonnay shows that exper….
 
 Serve chilled.

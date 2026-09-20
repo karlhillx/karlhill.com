@@ -38,7 +38,7 @@ tastes:
 profile:
   - Off-dry
   - 'Bright acidity'
-nose: 'cassis, plum, a little lavender and spice — darker than the cider rosé. On the palate, grip and acidity, dark cherry, cocoa, pepper. The tannin is the reason to open it with food. The finish is spice and dry fruit. Not a sweet red. A dealcoholized red that admits it is also fruit and herbs. Cassis, plum, tannin, and a structure most NA reds fake with juice alone.'
+nose: 'cassis, plum, a little lavender and spice — darker than the cider rosé.'
 palate: 'Grip and acidity, dark cherry, cocoa, pepper. The tannin is the reason to open it with food.'
 finish: 'spice and dry fruit. Not a sweet red. A dealcoholized red that admits it is also fruit and herbs. Cassis, plum, tannin, and a structure most NA reds fake with juice alone.'
 best_for: 'Braise, grill, anything that wants a still red without ethanol weight.'
@@ -126,10 +126,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The wine
-
 Grad 36° is a hybrid of dealcoholized material and other defining ingredients from Schlat, Germany. 75% dealcoholized red wine blended with damson plum, currant, and blackberry juice plus herb and wildflower extracts.
 
-On the nose, cassis, plum, a little lavender and spice — darker than the cider rosé. On the palate, grip and acidity, dark cherry, cocoa, pepper. The tannin is the reason to open it with food. The finish is spice and dry fruit. Not a sweet red. A dealcoholized red that admits it is also fruit and herbs. Cassis, plum, tannin, and a structure most NA reds fake with juice alone. On the palate, Grip and acidity, dark cherry, cocoa, pepper. The tannin is the reason to open it with food. The finish is spice and dry fruit. Not a sweet red. A dealcoholized red that admits it is also fruit and herbs. Cassis, plum, tannin, and a structure most NA reds fake with juice alone.
+On the nose, cassis, plum, a little lavender and spice — darker than the cider rosé. On the palate, Grip and acidity, dark cherry, cocoa, pepper. The tannin is the reason to open it with food. The finish is spice and dry fruit. Not a sweet red. A dealcoholized red that admits it is also fruit and herbs. Cassis, plum, tannin, and a structure most NA reds fake with juice alone.
 
 Serve cool, 55–60°F. Not cellar-cold.

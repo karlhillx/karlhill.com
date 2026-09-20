@@ -115,8 +115,6 @@ sensory:
       - palate
 ---
 
-## The drink
-
 Lyre's Italian Orange is formulated as an alcohol alternative. Formulated as a zero-proof alternative
 
 On the nose, blood orange, ruby grapefruit, and a candied cherry note. The pith is there. So is a slightly cosmetic citrus that never quite smells like a bitter made from a barrel. On the palate, sweet-bitter and thick enough to mix. Orange oil, maraschino, and a dry peel finish. Cellulose gum is doing some of the grip. It works in soda and in a three-part cocktail; it is not a sipping amaro. Mouthfeel: pith and dye-bright citrus. Cleaner than a cheap grenadine, sweeter than Campari. The finish is pith and dye-bright citrus. Cleaner than a cheap grenadine, sweeter than Campari. A convincing bitter-orange mixer with no dealcoholization story to tell — and Lyre's is honest about that. Judge it as a formulated aperitif, not as stripped Campari.

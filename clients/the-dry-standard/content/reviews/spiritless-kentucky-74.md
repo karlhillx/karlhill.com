@@ -57,7 +57,7 @@ profile:
   - 'Short finish'
 mouthfeel: 'Short vanilla and a lingering tannin that reads more like wood tea than barrel heat.'
 highlight: "Caramel, vanilla, and a carpenter's-shop oak. Less grain sweetness than bourbon, more extract. No ethanol bloom when you put your nose in the glass."
-nose: 'caramel, vanilla, and a carpenter''s-shop oak. Less grain sweetness than bourbon, more extract. No ethanol bloom when you put your nose in the glass. On the palate, soft, slightly syrupy, and recognizably oak-driven. Glycerine and gum are on the label; you can feel them. In an Old Fashioned the structure holds. Neat, it is a flavored tea with ambition. Mouthfeel: short vanilla and a lingering tannin that reads more like wood tea than barrel heat. The finish is short vanilla and a lingering tannin that reads more like wood tea than barrel heat. A dealcoholized spirit with a real still story — and a cocktail ingredient, not a neat pour for bourbon people. Oak and caramel show up; ethanol heat does not, and the thickeners are doing part of the work.'
+nose: 'caramel, vanilla, and a carpenter''s-shop oak. Less grain sweetness than bourbon, more extract. No ethanol bloom when you put your nose in the glass.'
 palate: 'Soft, slightly syrupy, and recognizably oak-driven. Glycerine and gum are on the label; you can feel them. In an Old Fashioned the structure holds. Neat, it is a flavored tea with ambition.'
 finish: Short vanilla and a lingering tannin that reads more like wood tea than barrel heat.
 best_for: 'Whiskey sours, ginger highballs, and halfsies pours. Not a fireside neat bottle.'
@@ -201,10 +201,8 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-## The spirit
-
 Spiritless Kentucky 74 is dealcoholized from Kentucky, United States. The base is High-proof neutral grain spirit infused with American oak, not a conventional barrel-aged bourbon. Reverse distillation after thermal oak extraction in high-proof neutral grain spirit.
 
-On the nose, caramel, vanilla, and a carpenter's-shop oak. Less grain sweetness than bourbon, more extract. No ethanol bloom when you put your nose in the glass. On the palate, soft, slightly syrupy, and recognizably oak-driven. Glycerine and gum are on the label; you can feel them. In an Old Fashioned the structure holds. Neat, it is a flavored tea with ambition. Mouthfeel: short vanilla and a lingering tannin that reads more like wood tea than barrel heat. The finish is short vanilla and a lingering tannin that reads more like wood tea than barrel heat. A dealcoholized spirit with a real still story — and a cocktail ingredient, not a neat pour for bourbon people. Oak and caramel show up; ethanol heat does not, and the thickeners are doing part of the work. On the palate, Soft, slightly syrupy, and recognizably oak-driven. Glycerine and gum are on the label; you can feel them. In an Old Fashioned the structure holds. Neat, it is a flavored tea with ambition. Mouthfeel: Short vanilla and a lingering tannin that reads more like wood tea than barrel heat. The finish is Short vanilla and a lingering tannin that reads more like wood tea than barrel heat.
+On the nose, caramel, vanilla, and a carpenter's-shop oak. Less grain sweetness than bourbon, more extract. No ethanol bloom when you put your nose in the glass. On the palate, Soft, slightly syrupy, and recognizably oak-driven. Glycerine and gum are on the label; you can feel them. In an Old Fashioned the structure holds. Neat, it is a flavored tea with ambition. Mouthfeel: Short vanilla and a lingering tannin that reads more like wood tea than barrel heat. The finish is Short vanilla and a lingering tannin that reads more like wood tea than barrel heat.
 
 A dealcoholized spirit with a real still story — and a cocktail ingredient, not a neat pour for bourbon people. Oak and caramel show up; ethanol heat does not, and the thickeners are doing part of the work. Serve in a cocktail, over ice, or split 1:1 with bourbon. Chill it. Do not expect proof.

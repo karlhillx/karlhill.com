@@ -55,7 +55,7 @@ profile:
   - 'Soft bead'
   - 'Short finish'
 mouthfeel: 'Short, clean, and a touch sugary if the glass sits. Serve it colder than you think.'
-nose: 'ripe apple, a little lemon peel, and a faint pastry note that never quite becomes brioche. The bubbles do more work than the aroma. On the palate, brisk, lightly sweet, and simpler than a bottle-fermented wine. Green apple and citrus sit on a slender body. The mousse is fine enough for a toast. Mouthfeel: short, clean, and a touch sugary if the glass sits. Serve it colder than you think. The finish is short, clean, and a touch sugary if the glass sits. Serve it colder than you think. A clean, apple-forward sparkling wine that was actually a wine first. It will not replace grower Champagne. It will replace most of the NA ''bubbly'' that never fermented.'
+nose: 'ripe apple, a little lemon peel, and a faint pastry note that never quite becomes brioche. The bubbles do more work than the aroma.'
 palate: 'Brisk, lightly sweet, and simpler than a bottle-fermented wine. Green apple and citrus sit on a slender body. The mousse is fine enough for a toast.'
 finish: 'Short, clean, and a touch sugary if the glass sits.'
 best_for: 'Aperitif service, a toast, or a spritz base when you want wine rather than soda.'
@@ -202,10 +202,8 @@ sensory:
       - palate
 ---
 
-## The wine
-
 Thomson & Scott Noughty Sparkling Chardonnay is dealcoholized from Castilla–La Mancha, Spain. The base is Organically grown Spanish Chardonnay, fermented in stainless steel, then carbonated after alcohol removal. Vacuum distillation with aroma recovery; some trade sheets also name spinning-cone technology.
 
-On the nose, ripe apple, a little lemon peel, and a faint pastry note that never quite becomes brioche. The bubbles do more work than the aroma. On the palate, brisk, lightly sweet, and simpler than a bottle-fermented wine. Green apple and citrus sit on a slender body. The mousse is fine enough for a toast. Mouthfeel: short, clean, and a touch sugary if the glass sits. Serve it colder than you think. The finish is short, clean, and a touch sugary if the glass sits. Serve it colder than you think. A clean, apple-forward sparkling wine that was actually a wine first. It will not replace grower Champagne. It will replace most of the NA 'bubbly' that never fermented. On the palate, Brisk, lightly sweet, and simpler than a bottle-fermented wine. Green apple and citrus sit on a slender body. The mousse is fine enough for a toast. Mouthfeel: Short, clean, and a touch sugary if the glass sits. Serve it colder than you think. The finish is Short, clean, and a touch sugary if the glass sits.
+On the nose, ripe apple, a little lemon peel, and a faint pastry note that never quite becomes brioche. The bubbles do more work than the aroma. On the palate, Brisk, lightly sweet, and simpler than a bottle-fermented wine. Green apple and citrus sit on a slender body. The mousse is fine enough for a toast. Mouthfeel: Short, clean, and a touch sugary if the glass sits. Serve it colder than you think. The finish is Short, clean, and a touch sugary if the glass sits.
 
 A clean, apple-forward sparkling wine that was actually a wine first. It will not replace grower Champagne. It will replace most of the NA 'bubbly' that never fermented. Serve well chilled, flutes or white-wine stems. Fine with salty snacks; less happy next to richly sauced food.
