@@ -58,10 +58,10 @@
   brand: SITE
   category: wine
   priority: high
-  status: draft
+  status: published
   production_type: dealcoholized
   verified: 'yes'
-  notes: 'Purchased 2026-09-19. Receipt: SITE RIESLING DEALCOHOLIZED, $14.99, 1 bottle. UPC 883122700115 matches Dr. Pauly-Bergweiler Noble House Riesling Alcohol Free (Winesellers). Draft product record ready; awaiting editorial tasting notes and bottle still. Not the same SKU as Dr. Lo (TDS-0106) or Heidemanns-Bergweiler (TDS-0017).'
+  notes: 'Purchased 2026-09-19. Receipt: SITE RIESLING DEALCOHOLIZED, $14.99, 1 bottle. UPC 883122700115 matches Dr. Pauly-Bergweiler Noble House Riesling Alcohol Free (Winesellers). Published 2026-09-19. Not the same SKU as Dr. Lo (TDS-0106) or Heidemanns-Bergweiler (TDS-0017).'
 -
   product: 'Run Wild IPA'
   id: TDS-0101

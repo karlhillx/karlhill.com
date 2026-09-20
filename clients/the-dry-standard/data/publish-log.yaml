@@ -346,3 +346,9 @@
   brand: Ohla
   published_at: '2026-09-20T00:52:52+00:00'
   path: reviews/wine/ohla-rose/
+-
+  slug: site-riesling-dealcoholized
+  product: 'Riesling Dealcoholized'
+  brand: SITE
+  published_at: '2026-09-20T01:02:07+00:00'
+  path: reviews/wine/site-riesling-dealcoholized/
