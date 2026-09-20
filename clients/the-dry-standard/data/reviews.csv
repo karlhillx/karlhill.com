@@ -10,7 +10,7 @@ grolsch-0-0,TDS-0048,80,2026-09-18,2026-09-19,published,,,3,fruit,unpublished,ze
 mionetto-italy-white-wine,TDS-0031,79,2026-09-18,2026-09-19,published,2,1,3,"pear,white_peach",unpublished,half,sparkling-rose
 nozeco-brut-rose,TDS-0059,76,2026-09-18,2026-09-19,published,,1,,"strawberry,red_berry",unpublished,half,sparkling-rose
 kolonne-null-riesling,TDS-0020,87,2026-09-18,2026-09-19,published,2,1,3,quince,vacuum-distillation,zero,white
-chloe-pinot-grigio,TDS-0082,75,2026-09-18,2026-09-19,published,,1,3,"citrus,green_apple",unpublished,unpublished,white
+chloe-pinot-grigio,TDS-0082,75,2026-09-18,2026-09-20,published,,1,3,"citrus,lemon,lime,green_apple",unpublished,half,white
 dr-lo-alcohol-removed-riesling,TDS-0106,86,2026-09-19,2026-09-19,published,2,1,3,"lime_zest,green_apple,slate",vacuum-distillation,half,white
 90-cellars-lot-229,TDS-0014,83,2026-09-18,2026-09-19,published,2,,,"strawberry,cranberry,raspberry",reverse-osmosis,half,sparkling-rose
 erdinger-alkoholfrei,TDS-0066,82,2026-09-18,2026-09-19,published,2,1,,fruit,unpublished,half,
@@ -33,7 +33,7 @@ asahi-dry-zero,TDS-0045,76,2026-09-18,2026-09-19,published,2,1,,"toasted_grain,m
 athletic-esb,TDS-0069,82,2026-09-18,2026-09-19,published,2,,,"malt,hops",unpublished,half,
 leitz-eins-zwei-zero-riesling,TDS-0096,88,2026-09-18,2026-09-19,published,2,1,3,"lime_zest,green_apple,rhubarb,mineral",vacuum-distillation,half,white
 leitz-sparkling-blanc-de-blancs,TDS-0071,84,2026-09-18,2026-09-19,published,,,3,green_apple,spinning-cone,zero,sparkling
-leitz-eins-zwei-zero-sparkling-riesling,TDS-0016,88,2026-09-18,2026-09-19,published,2,1,3,"green_apple,citrus,mineral",vacuum-distillation,unpublished,sparkling
+leitz-eins-zwei-zero-sparkling-riesling,TDS-0016,88,2026-09-18,2026-09-20,published,2,1,3,"green_apple,citrus,mineral",vacuum-distillation,half,sparkling
 leitz-sparkling-rose,TDS-0068,83,2026-09-18,2026-09-19,published,,1,3,"strawberry,red_fruit",spinning-cone,zero,sparkling-rose
 untitled-art-flvr-italian-pils,TDS-0052,83,2026-09-18,2026-09-19,published,2,,3,floral,reverse-osmosis,half,
 untitled-art-flvr-juicy-ipa,TDS-0089,82,2026-09-18,2026-09-19,published,,,,citrus,reverse-osmosis,half,

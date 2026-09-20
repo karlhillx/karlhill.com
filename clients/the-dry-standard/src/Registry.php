@@ -10,7 +10,9 @@ final class Registry
 {
     public const ABV_LABELS = [
         '0.0%',
+        '<0.1%',
         '<0.5%',
+        '0.5%',
         'Not published',
     ];
 
@@ -178,12 +180,16 @@ final class Registry
             return ['label' => '0.0%', 'numeric' => $num ?? 0.0];
         }
 
+        if (preg_match('/<\s*0\.1%?/i', $label) === 1 || preg_match('/≤\s*0\.1%?/u', $label) === 1) {
+            return ['label' => '<0.1%', 'numeric' => $num ?? 0.1];
+        }
+
         if (preg_match('/<\s*0\.5%?/i', $label) === 1 || preg_match('/≤\s*0\.5%?/u', $label) === 1) {
             return ['label' => '<0.5%', 'numeric' => $num];
         }
 
-        if (preg_match('/<\s*0\.1%?/i', $label) === 1) {
-            return ['label' => '<0.5%', 'numeric' => $num ?? 0.1];
+        if (preg_match('/^0\.5\s*%?$/i', $label) === 1) {
+            return ['label' => '0.5%', 'numeric' => $num ?? 0.5];
         }
 
         if (preg_match('/^0?\.?(\d+(?:\.\d+)?)\s*%?$/', $label, $m) === 1) {
@@ -195,6 +201,9 @@ final class Registry
             if ($parsed <= 0.0) {
                 return ['label' => '0.0%', 'numeric' => $num];
             }
+            if (abs($parsed - 0.5) < 0.00001) {
+                return ['label' => '0.5%', 'numeric' => $num];
+            }
 
             return ['label' => '<0.5%', 'numeric' => $num];
         }
@@ -203,8 +212,14 @@ final class Registry
             if ($num <= 0.0) {
                 return ['label' => '0.0%', 'numeric' => $num];
             }
-            if ($num <= 0.5) {
+            if (abs($num - 0.5) < 0.00001) {
+                return ['label' => '0.5%', 'numeric' => $num];
+            }
+            if ($num < 0.5) {
                 return ['label' => '<0.5%', 'numeric' => $num];
+            }
+            if ($num <= 0.5) {
+                return ['label' => '0.5%', 'numeric' => $num];
             }
         }
 

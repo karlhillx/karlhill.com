@@ -216,7 +216,7 @@ final class ReviewValidator
         }
 
         if (! Registry::isCanonicalAbvLabel($review->abv)) {
-            $warnings[] = 'ABV warning: non-canonical display label "'.$review->abv.'"; prefer 0.0%, <0.5%, or Not published';
+            $warnings[] = 'ABV warning: non-canonical display label "'.$review->abv.'"; prefer 0.0%, <0.1%, <0.5%, 0.5%, or Not published';
         }
 
         if ($review->highlight !== null && $review->verdict !== '' && trim($review->highlight) === trim($review->verdict)) {

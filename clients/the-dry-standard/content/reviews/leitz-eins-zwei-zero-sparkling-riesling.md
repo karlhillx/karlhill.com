@@ -5,7 +5,8 @@ id: TDS-0016
 ean: '4260196280174'
 brand: 'Weingut Leitz'
 product: 'Eins-Zwei-Zero Sparkling Riesling'
-abv: 'Not published'
+abv: '<0.1%'
+abv_numeric: 0.1
 category: wine
 subcategory: 'sparkling riesling'
 country: Germany
@@ -22,10 +23,14 @@ image_credit: 'Product photo via Weingut Leitz'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 88
 verdict: 'The sparkling nephew of the still Eins-Zwei-Zero Riesling already on this desk. Same vacuum still, more bead, same citrus-and-rhubarb argument.'
-summary: 'Johannes Leitz dealcoholizes the Eins-Zwei-Zero family — still and sparkling — by vacuum distillation at about 29°C. The sparkling Riesling is that process with bubbles.'
+summary: 'Johannes Leitz dealcoholizes the Eins-Zwei-Zero family — still and sparkling — by vacuum distillation at about 29°C. Current producer FAQ puts residual alcohol below 0.1% vol.'
+discrepancies:
+  -
+    field: abv
+    note: 'Older Leitz technical sheet (August 2022) lists this Sparkling Riesling as 0% vol. / alcohol-free. Current producer FAQ for the Eins-Zwei-Zero range says products can contain minimal residual alcohol but remain below 0.1% vol. We print <0.1% from the current FAQ and do not collapse the older 0% sheet into a 0.0% label.'
 tastes:
   - 'green apple'
   - citrus
@@ -46,6 +51,7 @@ sources:
     title: 'What is Eins-Zwei-Zero — Weingut Leitz'
     url: 'https://www.leitz-wein.de/en/was-ist-eins-zwei-zero'
     claims:
+      - abv
       - method
       - dealcoholized
       - producer
@@ -88,6 +94,11 @@ structure_scales:
   body: 1
   carbonation: 2
 provenance:
+  abv:
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.leitz-wein.de/en/was-ist-eins-zwei-zero'
+    note: 'Current Eins-Zwei-Zero FAQ: residual alcohol below 0.1% vol. Older August 2022 technical sheet for this Sparkling Riesling stated 0% vol.; see discrepancies.'
   dealcoholization_method:
     kind: manufacturer
     confidence: manufacturer_verified
@@ -118,7 +129,7 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Leitz Eins-Zwei-Zero Sparkling Riesling is dealcoholized from Rheingau, Germany. The base is Riesling, then dealcoholized; sparkling bottling in the Eins-Zwei-Zero family. Vacuum distillation; under vacuum, alcohol boils at about 29°C.
+Leitz Eins-Zwei-Zero Sparkling Riesling is dealcoholized from Rheingau, Germany. The base is Riesling, then dealcoholized; sparkling bottling in the Eins-Zwei-Zero family. Vacuum distillation under vacuum brings the alcohol boil point to about 29°C. Current producer FAQ places residual alcohol below 0.1% vol.; an older August 2022 technical sheet called this bottling 0% vol.
 
 The nose is green apple, citrus, and a cool mineral line. The mousse lifts the zest.
 

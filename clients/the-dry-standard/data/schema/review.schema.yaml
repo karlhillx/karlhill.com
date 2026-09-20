@@ -10,7 +10,7 @@ country: string, sourced
 region: string, sourced
 style: string, editorial
 style_slug: optional closed-vocab override (see styles.yaml)
-abv: 0.0% | <0.5% | Not published
+abv: 0.0% | <0.1% | <0.5% | 0.5% | Not published
 abv_numeric: number <= 0.5, optional
 production_type: dealcoholized | alternative | naturally-low-alcohol | hybrid | not-verified
 verified: yes | no
@@ -112,7 +112,7 @@ status: queued | researching | researched | draft | tasted | reviewed | validate
 # Review observations (score, sensory, structure_scales, assessments, nose/palate/finish) live on the review.
 # Public glance labels: Flavor profile (sensory) · Structure (structure_scales) · Nose/Palate/Finish (prose).
 # Prefer structure_scales + sensory over free-text tastes/profile; legacy chips still render as fallback.
-# ABV display labels: 0.0% | <0.5% | Not published — keep abv_numeric for precise values.
+# ABV display labels: 0.0% | <0.1% | <0.5% | 0.5% | Not published — keep abv_numeric for precise values.
 # method_facet override: vacuum-distillation | spinning-cone | reverse-osmosis | membrane-filtration | osmotic-distillation | arrested-fermentation | other | unpublished | not-applicable
 # provenance confidence: verified | manufacturer_verified | label_verified | secondary | inferred | unverified
 #   aliases: bottle_verified→label_verified, producer_verified→manufacturer_verified, independently_corroborated→verified
