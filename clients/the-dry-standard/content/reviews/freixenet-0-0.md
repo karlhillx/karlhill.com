@@ -26,7 +26,7 @@ purchase_links:
     url: 'https://freixenet.com/product/alcohol-free-sparkling-white'
     region: Global
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 79
 verdict: 'A reliable, inexpensive entry point into genuinely dealcoholized sparkling wine — vacuum-evaporated from full-strength wine, competent and widely available.'
 summary: "Freixenet's dealcoholized sparkling white, made from Airén grapes in Penedès, the same DO as the brand's Cava. Sub-0.05% ABV, vacuum-evaporated at low temperature, sold nationwide at a Cava-adjacent price point."
@@ -45,9 +45,8 @@ best_for: 'Goat cheese salad, poultry, sushi — or any occasion that wants a bu
 serve: 'Chilled, 5–7°C, in a flute.'
 image: media/reviews/freixenet-0-0.jpg
 image_alt: 'Freixenet 0,0 Sparkling White bottle'
-image_credit: 'Product photo via freixenet.com'
-image_source: producer
-image_source_url: 'https://freixenet.com/us/product/alcohol-removed-sparkling-white'
+image_credit: Editorial still
+image_source: editorial
 image_sku_confirmed: 'yes'
 sources:
   -
