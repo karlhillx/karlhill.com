@@ -32,7 +32,7 @@ Taste can be tart. Facts cannot be.
 
 ## Scoring
 
-100-point quality scale. See `/about/` for the rubric. Do not score "how close is this to booze?" as the primary axis.
+100-point quality scale. See `/about/` for the rubric. Do not score "how close is this to booze?" as the primary axis. Likeness and `structure` (whether alcohol's usual body, acid, tannin, bitterness, heat, dryness, or finish is recreated) are separate from the number. A drink can be enjoyable and not wine-like, or wine-like and flawed.
 
 ## Names
 
@@ -44,10 +44,10 @@ Keep the house in `product` only when it is the official SKU (Guinness 0.0) or w
 
 ## Review skeleton
 
-1. Product overview
+1. The wine (or beer, spirit, cider, drink — by category)
 2. How was it made?
 3. Product facts
-4. Tasting notes (nose, palate, finish)
+4. Tasting notes (nose, palate, finish, structure)
 5. How to drink it
 6. Verdict
 7. Sources
@@ -88,3 +88,46 @@ If the file is missing, the page still builds; the cellar shows an empty frame. 
 Every factual field in frontmatter must be listed under a source `claims` array. Allowed claim tokens include `abv`, `method`, `origin`, `producer`, `ingredients`, `calories`, `sugar`, `price`, `availability`, `volume`, `production_type`, `dealcoholized`, `base_beverage`, `country`, `region`.
 
 Retailer copy is weaker than a producer technical page. Use it for price and availability; do not let it invent a still.
+
+## Writing the essay
+
+The markdown body is the review. The page labels it **The wine** (or beer, spirit, cider, drink). Never call it a product overview.
+
+### What belongs in the essay
+
+Origin and how it was made, in one tight beat. Then the glass. Then the argument — usually where dealcoholized drinks succeed or fail (aroma vs palate, structure vs juice, sweetness vs acid).
+
+Do not restate `nose` / `palate` / `finish` word for word in the body. The tasting fields do the fruit-by-fruit work. The essay makes the case.
+
+### What belongs outside the essay
+
+| Put it here | Keep it out of the essay, summary, and lede |
+| --- | --- |
+| `price`, `availability`, `purchase_links` | Retailer names, shelf prices, store SKUs |
+| `producer` | Unrelated businesses (hotel chains, conglomerates that did not make the drink) |
+| `sources` | Citation titles and URLs |
+| `nose` / `palate` / `finish` | A second pasted copy of the tasting note |
+
+A dollar figure is a fact. Write `$12.99 (Total Wine, 750 ml)` in `price`. Do not write "under $13" or "sold at Total Wine" in the body.
+
+### After a tasting
+
+Paraphrase the editor's notes. Do not paste them. Do not invent fruit, faults, or texture the notes did not give.
+
+If aroma and palate diverge on wine-likeness (or beer-likeness, etc.), print the split as two data points. Do not average them into one "wine-like" score. That gap is the useful number.
+
+Sensory shorthand (berry-forward, tart, off-dry) can sit in the prose. After a tasting, fill `structure`: whether the drink recreates the body, acidity, tannin, bitterness, heat, dryness, or finish alcohol normally supplies. That is separate from the quality score and from "does it taste like wine?"
+
+Do not invent sensory notes. Ground them in the editor's tasting, sourced producer facts, recurring third-party impressions, or a clearly labeled inference. Plain language first. Do not force a long aroma list. Do not hide faults. Do not punish the absence of ethanol by itself. Do not over-praise.
+
+Full style guide, scoring guardrails, and sensory vocabulary: `openclaw/skills/write-review/reference.md`.
+
+Once the bottle has been tasted, retailer tasting copy is not our note. Drop `discrepancies` that are only competing impressions of flavor.
+
+### Shape
+
+1. Method in two or three short sentences. Do not say "fermented and aged" twice.
+2. The glass: structure and the tell.
+3. The argument.
+
+Current model for the essay/facts split: `content/reviews/st-regis-non-alcoholic-rose.md`. For a fully sourced, method-forward wine, also read `noughty-sparkling-chardonnay.md` and `leitz-eins-zwei-zero-riesling.md`.

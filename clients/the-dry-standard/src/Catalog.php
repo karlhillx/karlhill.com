@@ -470,6 +470,7 @@ final class Catalog
             'nose',
             'palate',
             'finish',
+            'structure',
             'best_for',
             'serve',
             'sources',
@@ -584,6 +585,7 @@ SQL);
         $this->ensureColumn('commercial_relationship', "commercial_relationship TEXT NOT NULL DEFAULT 'none'");
         $this->ensureColumn('disclosure_note', 'disclosure_note TEXT');
         $this->ensureColumn('provenance', "provenance TEXT NOT NULL DEFAULT '{}'");
+        $this->ensureColumn('structure', 'structure TEXT');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_production_type_idx ON products(production_type)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_style_idx ON products(style)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_brand_slug_idx ON products(brand_slug)');

@@ -58,6 +58,7 @@ summary: editorial
 nose: editorial
 palate: editorial
 finish: editorial
+structure: editorial, optional; after a tasting, whether alcohol's usual structure (body, acid, tannin, bitterness, heat, dryness, finish) is recreated — separate from the quality score
 best_for: editorial
 serve: editorial
 sources:

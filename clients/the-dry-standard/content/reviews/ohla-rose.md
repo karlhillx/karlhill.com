@@ -28,11 +28,12 @@ image_sku_confirmed: yes
 review_date: "2026-09-19"
 updated_date: "2026-09-19"
 rating: 74
-verdict: "A Torres pink that was wine first: Syrah and Cabernet Sauvignon, fermented, then stripped of ethanol. The US label says de-alcoholized wine, not Rosado. The machine is unpublished. The glass is a light, easy pink."
-summary: "Ohla! Rosé is a Spanish Syrah–Cabernet Sauvignon, fermented then dealcoholized to 0.0% ABV. The front label reads Ohla! De-Alcoholized Wine."
+verdict: "Wine first, still unpublished. A light, slightly sweet pink that goes thin in the middle. More picnic drink than convincing rosé."
+summary: "Spanish Syrah and Cabernet Sauvignon, fermented then dealcoholized. The US label says De-Alcoholized Wine. Light, slightly sweet, short."
 nose: "Strawberry hull and a little watermelon candy. Quiet, not savoury."
-palate: "Light and slightly sweet; red fruit over a thin frame. It drinks like a picnic rosé that lost its weight."
+palate: "Light and slightly sweet. Red fruit over a thin frame — a picnic rosé that lost its weight. The mid-palate is the weak point."
 finish: "Short berry. Keep it cold."
+structure: "Thin and short. Sweetness without alcohol's weight or warmth. The nose leans candy more than wine."
 best_for: "Aperitif pours, rice dishes, and the weeknight pink that does not need a speech."
 serve: "Well chilled, in a white-wine glass."
 sources:
@@ -48,8 +49,10 @@ discrepancies:
 status: published
 ---
 
-The bottle in this cellar is not called Rosado. The capsule is leaf-printed white, the wine is pink, and the front label says Ohla! De-Alcoholized Wine, 750 ml. The OHLA word mark for non-alcoholised wines is registered to Miguel Torres, S.A. Manufacturer notes on the matching US listing say Syrah and Cabernet Sauvignon, fermented as wine, then the alcohol carefully removed. That is dealcoholization in the strict sense. The still is not named. Spain and 0.0% ABV are on the same sheet.
+Spanish Syrah and Cabernet Sauvignon, fermented as wine, then dealcoholized. The still is unpublished.
 
-Spain also sells a 12.5% Garnacha Ohla Rosado. That is a different SKU. Do not assume this is Natureo with a different front label either.
+The bottle in this cellar is labeled Ohla! De-Alcoholized Wine. Pale salmon, still. It is not the Spanish 12.5% Garnacha Ohla Rosado, and it is not Natureo with a different front label.
 
-What the notes do not give you is texture. In the glass this is a light, slightly sweet pink: strawberry hull, a little candy watermelon, a short berry finish. It is built for the aperitif and for fish and rice, which is exactly the use the notes suggest. It will not replace a Provençal rosé, and it is not trying to. Score it as a documented dealcoholized pink with an unpublished machine.
+The glass is light and slightly sweet: strawberry hull, a little watermelon candy, red fruit on a thin frame. The finish is short berry. It drinks like a picnic rosé that lost its weight.
+
+Wine-likeness splits. The nose is quiet and a bit confectionery — candy watermelon more than savoury rosé. The sip still reads as pink wine until the middle goes hollow. Sweetness is there; the body and warmth alcohol would have given are not. More successful as an easy aperitif than as a convincing rosé.

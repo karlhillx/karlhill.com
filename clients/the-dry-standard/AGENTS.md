@@ -44,7 +44,7 @@ If a fact cannot be sourced, delete the field.
 4. Verify ABV ≤ 0.5%.
 5. Decide production_type and verified.
 6. Collect only sourced metadata.
-7. Draft the review markdown in `content/reviews/{slug}.md`.
+7. Draft the review markdown in `content/reviews/{slug}.md` using `openclaw/skills/write-review`. The essay is the review, not a product overview. Retailers and prices stay in facts.
 8. Photograph or obtain a still: editorial photo of the tasted bottle, or producer/importer press art with `image_source_url`. Confirm the label. Show the whole bottle and the full front label. An empty frame is better than a wrong-SKU bottle. Run `php artisan dry-standard:audit-stills {slug}`.
 9. Run `php artisan dry-standard:validate {slug} --publish`.
 10. If it fails, set `status: needs-review` and stop. Do not publish to satisfy the calendar.
@@ -61,6 +61,7 @@ Duplicate slugs and duplicate queue product+brand pairs are rejected.
 ## File map
 
 - Reviews (editorial draft/import): `clients/the-dry-standard/content/reviews/`
+- Writing skill: `clients/the-dry-standard/openclaw/skills/write-review/`
 - Product stills: `clients/the-dry-standard/media/reviews/{slug}.jpg` (audit with `php artisan dry-standard:audit-stills`)
 - Product database: `clients/the-dry-standard/data/catalog.sqlite` (runtime source of truth; generated)
 - Spreadsheet export: `clients/the-dry-standard/data/products.csv`

@@ -49,6 +49,8 @@ it('serves sourced sample reviews with production-type badges', function () {
         ->assertSee('Vacuum distillation', escape: false)
         ->assertSee('Weingut Leitz', escape: false)
         ->assertSee('id="how-it-was-made"', escape: false)
+        ->assertSee('<h2>The wine</h2>', escape: false)
+        ->assertDontSee('Product overview', escape: false)
         ->assertSee('application/ld+json', escape: false)
         ->assertSee('"gtin":"4260196280136"', escape: false)
         ->assertSee('alcoholContent', escape: false)
@@ -62,8 +64,17 @@ it('serves sourced sample reviews with production-type badges', function () {
         ->assertSee('Formulated as a zero-proof alternative', escape: false)
         ->assertSee('class="identity-value">Formulated</span>', escape: false)
         ->assertSee('lyres.com/pages/faqs', escape: false)
+        ->assertSee('<h2>The drink</h2>', escape: false)
+        ->assertDontSee('Product overview', escape: false)
         ->assertDontSee('abv, method', escape: false)
         ->assertDontSee('class="source-claims"', escape: false);
+
+    $this->get('/clients/the-dry-standard/reviews/wine/st-regis-non-alcoholic-rose/')
+        ->assertOk()
+        ->assertSee('<h2>The wine</h2>', escape: false)
+        ->assertSee('<h3>Structure</h3>', escape: false)
+        ->assertSee('Aroma fairly wine-like', escape: false)
+        ->assertDontSee('Product overview', escape: false);
 });
 
 it('exposes a feed, sitemap, and catalog for the client site', function () {
@@ -375,6 +386,8 @@ it('serves the purchased Ohla, Hitachino, Dr. Lo, Pierre sparkling, and Lyre\'s 
         ->assertSee('Syrah and Cabernet Sauvignon', escape: false)
         ->assertSee('media/reviews/ohla-rose.jpg', escape: false)
         ->assertSee('Ohla! Rosé', escape: false)
+        ->assertSee('<h3>Structure</h3>', escape: false)
+        ->assertSee('watermelon candy', escape: false)
         ->assertDontSee('TDS-0104', escape: false);
 
     $this->get('/clients/the-dry-standard/reviews/wine/ohla-rosado/')

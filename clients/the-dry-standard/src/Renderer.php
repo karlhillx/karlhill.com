@@ -637,7 +637,9 @@ HTML;
             'statusLabel' => $review->productionTypeLabel(),
             'methodBlock' => $this->methodBlock($review),
             'discrepancies' => $this->discrepancies($review),
-            'overview' => $bodyHtml !== '' ? '<section class="prose"><h2>Product overview</h2>'.$bodyHtml.'</section>' : '',
+            'overview' => $bodyHtml !== ''
+                ? '<section class="prose"><h2>'.$this->e($review->essayHeading()).'</h2>'.$bodyHtml.'</section>'
+                : '',
             'tasting' => $this->tasting($review),
             'hasServe' => $hasServe,
             'serveBlock' => $this->optionalBlock($review->serve),
@@ -1300,6 +1302,7 @@ XML;
             'Nose' => $review->nose,
             'Palate' => $review->palate,
             'Finish' => $review->finish,
+            'Structure' => $review->structure,
         ];
 
         $notes = [];

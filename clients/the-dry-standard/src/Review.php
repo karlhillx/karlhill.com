@@ -121,6 +121,7 @@ final class Review
         public readonly string $commercialRelationship = 'none',
         public readonly ?string $disclosureNote = null,
         public readonly array $provenance = [],
+        public readonly ?string $structure = null,
     ) {}
 
     /**
@@ -197,6 +198,7 @@ final class Review
             commercialRelationship: self::normalizeCommercial($matter['commercial_relationship'] ?? null),
             disclosureNote: self::nullableString($matter['disclosure_note'] ?? null),
             provenance: self::provenance($matter['provenance'] ?? []),
+            structure: self::nullableString($matter['structure'] ?? $matter['structural_authenticity'] ?? null),
         );
     }
 
@@ -260,6 +262,7 @@ final class Review
             'nose' => $this->nose,
             'palate' => $this->palate,
             'finish' => $this->finish,
+            'structure' => $this->structure,
             'best_for' => $this->bestFor,
             'serve' => $this->serve,
             'sources' => json_encode($this->sources, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
@@ -425,6 +428,18 @@ final class Review
     public function productionTypeShortLabel(): string
     {
         return self::PRODUCTION_TYPES[$this->productionType] ?? 'Not verified';
+    }
+
+    public function essayHeading(): string
+    {
+        return match ($this->category) {
+            'wine' => 'The wine',
+            'beer' => 'The beer',
+            'spirits' => 'The spirit',
+            'cocktails' => 'The drink',
+            'cider' => 'The cider',
+            default => 'The bottle',
+        };
     }
 
     public function verifiedLabel(): string
@@ -825,6 +840,7 @@ final class Review
             $this->dealcoholizationMethod,
             $this->style,
             $this->styleLabel(),
+            $this->structure,
             $this->productionTypeShortLabel(),
             $this->summary,
         ])));

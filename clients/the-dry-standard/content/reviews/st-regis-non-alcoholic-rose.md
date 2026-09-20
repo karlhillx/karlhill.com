@@ -32,6 +32,7 @@ summary: "German Syrah/Shiraz rosé, vacuum-distilled to under 0.5% ABV. Berry-f
 nose: "The sniff is the wine-like half: berry-pink, still recognizably rosé rather than cordial."
 palate: "Raspberry and strawberry take the sip, with cassis and a shy melon note behind them. Off-dry sugar sits under high acid, so the middle tastes tart and a little fermented — kombucha is not a stretch. Light-bodied and lean, almost no tannin, with a drying flick juice never has and a faint spritz. Then the fruit turns: a slightly oxidative, balsamic mid-palate, dark cherry and a hint of molasses."
 finish: "Balsamic and a little oxidative — dark cherry, molasses, a quiet fermented tang. Soft, then gone. No ethanol warmth."
+structure: "Aroma fairly wine-like. Palate less so — tart, balsamic, lean, without alcohol's weight or warmth."
 best_for: "A chilled picnic pour, mild cheese, or a salad that wants tart fruit more than alcohol heat."
 serve: "Chilled, in a white-wine or rosé glass."
 image: media/reviews/st-regis-non-alcoholic-rose.jpg
