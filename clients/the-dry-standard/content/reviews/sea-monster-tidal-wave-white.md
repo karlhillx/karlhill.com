@@ -25,7 +25,7 @@ image_credit: 'Product photo via internetwines.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 78
 verdict: "A spinning-cone California white at a Binny's-friendly price — the method is documented, the fruit is real, and the bottle costs less than most NA whites."
 summary: "Sea Monster's Tidal Wave White is a dealcoholized California white blend using low-temperature spinning cone vacuum distillation: $13-15 retail."
@@ -34,9 +34,9 @@ tastes:
 profile:
   - 'Bright acidity'
   - 'Clean finish'
-nose: 'Bright citrus and green apple with a light floral note.'
-palate: 'Clean and fruit-forward; the spinning cone process preserves the aromatic character better than most budget NA whites manage.'
-finish: 'Crisp and citric.'
+nose: 'bright citrus and green apple with a light floral note. On the palate, clean and fruit-forward; the spinning cone process preserves the aromatic character better than most budget NA whites manage. The finish is crisp and citric. A spinning-cone California white at a Binny''s-friendly price — the method is documented, the fruit is real, and the bottle costs less than most NA whites.'
+palate: Clean and fruit-forward; the spinning cone process preserves the aromatic character better than most budget NA whites manage.
+finish: 'crisp and citric. A spinning-cone California white at a Binny''s-friendly price — the method is documented, the fruit is real, and the bottle costs less than most NA whites.'
 best_for: 'Everyday white-wine occasions, the value pick in the dealcoholized category.'
 serve: 'Well chilled.'
 sources:
@@ -122,10 +122,10 @@ provenance:
     url: 'https://www.plummarket.com/store/sea-monster-tidal-wave-white-alcohol-removed-white-wine-0.html'
 ---
 
+## The wine
+
 Sea Monster Tidal Wave White is dealcoholized from California, United States. The base is Traditionally made California white wine blend, dealcoholized after fermentation. Very low-temperature spinning cone column vacuum distillation (retailer quotes the producer's method).
 
-The nose is bright citrus and green apple with a light floral note.
+On the nose, bright citrus and green apple with a light floral note. On the palate, clean and fruit-forward; the spinning cone process preserves the aromatic character better than most budget NA whites manage. The finish is crisp and citric. A spinning-cone California white at a Binny's-friendly price — the method is documented, the fruit is real, and the bottle costs less than most NA whites. On the palate, Clean and fruit-forward; the spinning cone process preserves the aromatic character better than most budget NA whites manage. The finish is crisp and citric. A spinning-cone California white at a Binny's-friendly price — the method is documented, the fruit is real, and the bottle costs less than most NA whites.
 
-On the palate, clean and fruit-forward; the spinning cone process preserves the aromatic character better than most budget NA whites manage. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is crisp and citric. A spinning-cone California white at a Binny's-friendly price — the method is documented, the fruit is real, and the bottle costs less than most NA whites. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.
+Serve well chilled.

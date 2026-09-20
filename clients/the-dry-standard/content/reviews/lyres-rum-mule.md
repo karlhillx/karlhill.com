@@ -26,7 +26,7 @@ image_source: producer
 image_source_url: 'https://lyres.com/products/rum-mule-8-pack'
 image_sku_confirmed: 'yes'
 review_date: '2026-09-19'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 76
 verdict: 'Ginger, lime, and a toffee hint in a 250 ml can. Honest about being a recipe, not a stripped rum cocktail. Better over ice than straight from the tin.'
 summary: "Lyre's Rum Mule is a non-alcoholic RTD: spiced ginger, tart lime, and toffee at under 0.1% ABV, formulated rather than dealcoholized."
@@ -38,7 +38,7 @@ profile:
   - 'Short finish'
 nose: 'Ginger snap and lime zest, with a soft caramel note from the dark-cane replica underneath.'
 palate: 'Bright citrus, then ginger heat, then a toffee sweetness that is more soda than spirit. Carbonation does the work ethanol would.'
-finish: 'Short ginger and lime. The sugar hangs a beat longer than a proper mule.'
+finish: 'Short ginger and lime.'
 best_for: 'The porch can when you want mule flavours and do not want to build one.'
 serve: 'Chilled over ice in a highball, mint and a lime wheel if you have them. The producer also says straight from the can; the build is better.'
 sources:
@@ -109,10 +109,10 @@ provenance:
     url: 'https://lyres.com/pages/faqs'
 ---
 
-Lyre's Rum Mule is formulated as an alcohol alternative. The base is No underlying alcohol-containing rum; built around Lyre's Dark Cane Spirit replica flavours. It was built without a dealcoholization step. Pour it over ice. The can is fine from the fridge. Do not file it next to Savyll on process — both are recipes — and do not file it next to a dealcoholized rum. There isn't one in this tin.
+## The drink
 
-The nose is ginger snap and lime zest, with a soft caramel note from the dark-cane replica underneath.
+Lyre's Rum Mule is formulated as an alcohol alternative. The base is No underlying alcohol-containing rum; built around Lyre's Dark Cane Spirit replica flavours. Lyre's range is formulated from scratch. This RTD is not a dealcoholized Dark 'n' Stormy or Moscow Mule.
 
-On the palate, bright citrus, then ginger heat, then a toffee sweetness that is more soda than spirit. Carbonation does the work ethanol would. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, ginger snap and lime zest, with a soft caramel note from the dark-cane replica underneath. On the palate, bright citrus, then ginger heat, then a toffee sweetness that is more soda than spirit. Carbonation does the work ethanol would. The finish is short ginger and lime. The sugar hangs a beat longer than a proper mule. Ginger, lime, and a toffee hint in a 250 ml can. Honest about being a recipe, not a stripped rum cocktail. Better over ice than straight from the tin.
 
-The finish is short ginger and lime. The sugar hangs a beat longer than a proper mule. Ginger, lime, and a toffee hint in a 250 ml can. Honest about being a recipe, not a stripped rum cocktail. Better over ice than straight from the tin. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail.
+Ginger, lime, and a toffee hint in a 250 ml can. Honest about being a recipe, not a stripped rum cocktail. Better over ice than straight from the tin. Serve chilled over ice in a highball, mint and a lime wheel if you have them. The producer also says straight from the can; the build is better.

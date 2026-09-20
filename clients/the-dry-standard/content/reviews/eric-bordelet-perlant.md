@@ -26,7 +26,7 @@ image_credit: 'Product photo via delmosa.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 86
 verdict: 'Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything.'
 summary: "Eric Bordelet's Perlant is pressed juice of 12 organic heritage cider apple varieties from Normandy, lightly sparkling: estate-grown, gently pasteurized, never fermented."
@@ -41,7 +41,7 @@ profile:
   - 'Clean finish'
 nose: 'Complex apple — tart, floral, faintly bitter from the cider varieties rather than sweet supermarket fruit.'
 palate: 'Lightly sparkling and dry-leaning; the bitter-sharp apple character gives it real structure, with a clean, mineral mid-palate.'
-finish: 'Long and clean, the apple skin bitterness lingering pleasantly.'
+finish: 'long and clean, the apple skin bitterness lingering pleasantly. Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything.'
 best_for: 'Cheese, charcuterie, Norman terrines — or simply as the best thing in the fridge on a hot day.'
 serve: 'Well chilled, in a wine glass.'
 sources:
@@ -130,10 +130,10 @@ provenance:
     url: 'https://creamwine.com/product.php?id=21334'
 ---
 
-Eric Bordelet Perlant Jus de Pommes à Sydre is formulated as an alcohol alternative from Normandy (Pays d'Auge), France. The base is Juice of 12 varieties of organic heritage cider apples (bitter-sharp, bitter-sweet, sour). It was built without a dealcoholization step.
+## The cider
 
-The nose is complex apple — tart, floral, faintly bitter from the cider varieties rather than sweet supermarket fruit.
+Eric Bordelet Perlant Jus de Pommes à Sydre is formulated as an alcohol alternative from Normandy (Pays d'Auge), France. The base is Juice of 12 varieties of organic heritage cider apples (bitter-sharp, bitter-sweet, sour). Pressed apple juice from cider varieties with carbon dioxide added — never fermented, so there is no alcohol to remove. Distinct from Bordelet's alcoholic ciders.
 
-On the palate, lightly sparkling and dry-leaning; the bitter-sharp apple character gives it real structure, with a clean, mineral mid-palate. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, complex apple — tart, floral, faintly bitter from the cider varieties rather than sweet supermarket fruit. On the palate, lightly sparkling and dry-leaning; the bitter-sharp apple character gives it real structure, with a clean, mineral mid-palate. The finish is long and clean, the apple skin bitterness lingering pleasantly. Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything.
 
-The finish is long and clean, the apple skin bitterness lingering pleasantly. Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cider. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+Twelve varieties of organic heritage cider apples, pressed and lightly sparkling — the best apple drink on this desk, and not a compromise of anything. Serve well chilled, in a wine glass.

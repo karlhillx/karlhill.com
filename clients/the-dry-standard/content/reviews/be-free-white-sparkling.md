@@ -12,6 +12,7 @@ style: 'De-alcoholised German sparkling white'
 abv: '<0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
+method_facet: unpublished
 verified: 'yes'
 production_note: "Supervin's retail listing describes the Free Feather line (which includes this bottle) as 'gently dealcoholized products'; the specific named technology for this SKU is not published."
 volume: '750 ml'
@@ -22,7 +23,7 @@ image_alt: 'Be Free White Sparkling'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 77
 verdict: 'A fizzy, low-calorie German sparkling that plays the celebration without the substance — pleasant, gentle, and better than most NA fizz at the price.'
 summary: "Be Free's sparkling white: 0.5% ABV, 29 kcal per 100 ml, citrus and cream notes — the brand's toast-friendly bottle."
@@ -33,9 +34,9 @@ profile:
   - 'Light body'
   - 'Soft bead'
   - 'Short finish'
-nose: 'Soft citrus with a creamy edge and a nutty hint behind the bubbles.'
+nose: Soft citrus with a creamy edge and a nutty hint behind the bubbles.
 palate: 'Gentle fizz over light apple-citrus fruit; easy, slightly sweet, no sharp edges.'
-finish: 'Soft and short, with the bubbles doing most of the closing work.'
+finish: 'soft and short, with the bubbles doing most of the closing work. A fizzy, low-calorie German sparkling that plays the celebration without the substance — pleasant, gentle, and better than most NA fizz at the price.'
 best_for: 'Brunch toasts, designated-driver celebrations, bottles you open at noon.'
 serve: 'Chilled, in a flute or straight from the bottle.'
 sources:
@@ -115,10 +116,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Be Free White Sparkling is dealcoholized from Germany. Supervin's retail listing describes the Free Feather line (which includes this bottle) as 'gently dealcoholized products'; the specific named technology for ….
+## The wine
 
-The nose is soft citrus with a creamy edge and a nutty hint behind the bubbles.
+Be Free White Sparkling is dealcoholized from Germany. Supervin's retail listing describes the Free Feather line (which includes this bottle) as 'gently dealcoholized products'; the specific named technology for this SKU is not published.
 
-On the palate, gentle fizz over light apple-citrus fruit; easy, slightly sweet, no sharp edges. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, soft citrus with a creamy edge and a nutty hint behind the bubbles. On the palate, gentle fizz over light apple-citrus fruit; easy, slightly sweet, no sharp edges. The finish is soft and short, with the bubbles doing most of the closing work. A fizzy, low-calorie German sparkling that plays the celebration without the substance — pleasant, gentle, and better than most NA fizz at the price.
 
-The finish is soft and short, with the bubbles doing most of the closing work. A fizzy, low-calorie German sparkling that plays the celebration without the substance — pleasant, gentle, and better than most NA fizz at the price. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+A fizzy, low-calorie German sparkling that plays the celebration without the substance — pleasant, gentle, and better than most NA fizz at the price. Serve chilled, in a flute or straight from the bottle.

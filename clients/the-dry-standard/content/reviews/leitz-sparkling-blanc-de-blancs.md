@@ -20,7 +20,7 @@ producer: 'Weingut Josef Leitz (Rheingau, Germany)'
 volume: '750 ml'
 availability: 'US retail including specialty NA shops'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 84
 verdict: 'The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range.'
 summary: "Leitz's Eins-Zwei-Zero Sparkling Blanc de Blancs applies the spinning cone process to a white Burgundy-family base: 0.0% ABV, crisp and fine-bubbled."
@@ -33,9 +33,9 @@ profile:
   - 'Soft bead'
   - 'Clean finish'
 highlight: 'Green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise.'
-nose: 'Green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise.'
+nose: 'green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise. On the palate, fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty. The finish is clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range.'
 palate: 'Fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty.'
-finish: 'Clean and precise, the citrus carrying.'
+finish: 'clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range.'
 best_for: 'The Champagne-shape occasion, zero-proof.'
 serve: 'Well chilled, in a flute.'
 image_alt: 'Leitz Eins-Zwei-Zero Sparkling Blanc de Blancs bottle'
@@ -122,10 +122,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
+## The wine
+
 Leitz Eins-Zwei-Zero Sparkling Blanc de Blancs is dealcoholized from Rheingau, Germany. The base is Rheingau white wine, vinified conventionally before dealcoholization. Spinning cone technology applied to conventionally vinified Rheingau sparkling wine (same process as the published Leitz Riesling).
 
-The nose is green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise.
+On the nose, green apple and citrus with a bready top note — the Blanc de Blancs profile, lean and precise. On the palate, fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty. The finish is clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range. On the palate, Fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty. The finish is clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range.
 
-On the palate, fine and persistent bubbles over a crisp, green-fruit body; leaner than the Riesling version but with the same varietal honesty. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is clean and precise, the citrus carrying. The Blanc de Blancs of the Eins-Zwei-Zero line — same Leitz spinning cone process, Chardonnay-family fruit, and the most Champagne-adjacent of the Leitz zero-proof range. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+Serve well chilled, in a flute.

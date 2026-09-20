@@ -1051,7 +1051,32 @@ final class Review
             || $this->affiliateRelationship === 'present'
             || $this->advertisingRelationship === 'present'
             || ($this->commercialRelationship !== 'none')
-            || ($this->disclosureNote !== null && $this->disclosureNote !== '');
+            || ($this->disclosureNote !== null && $this->disclosureNote !== '')
+            || $this->isResearchScore();
+    }
+
+    /**
+     * Score provenance kind from explicit provenance.rating (e.g. research).
+     */
+    public function ratingProvenanceKind(): ?string
+    {
+        $entry = $this->provenance['rating'] ?? null;
+        if (! is_array($entry)) {
+            return null;
+        }
+        $kind = isset($entry['kind']) ? strtolower(trim((string) $entry['kind'])) : '';
+
+        return $kind !== '' ? $kind : null;
+    }
+
+    public function isResearchScore(): bool
+    {
+        return $this->ratingProvenanceKind() === 'research';
+    }
+
+    public function scoreKindLabel(): ?string
+    {
+        return $this->isResearchScore() ? 'Research score' : null;
     }
 
     /**
@@ -1060,6 +1085,15 @@ final class Review
     public function disclosureLines(): array
     {
         $lines = [];
+
+        if ($this->isResearchScore()) {
+            $note = null;
+            $entry = $this->provenance['rating'] ?? null;
+            if (is_array($entry) && isset($entry['note']) && is_string($entry['note']) && trim($entry['note']) !== '') {
+                $note = trim($entry['note']);
+            }
+            $lines[] = $note ?? 'Score is an editorial research score, not a Dry Standard cellar tasting.';
+        }
 
         if ($this->acquisition !== null && isset(self::ACQUISITIONS[$this->acquisition]) && $this->acquisition !== 'unknown') {
             $lines[] = self::ACQUISITIONS[$this->acquisition];

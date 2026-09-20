@@ -19,7 +19,7 @@ volume: '12 fl oz cans, sold as the Widow Family 12-pack across four flavors'
 price: '$29.99 per 12-pack (Proofnomore or direct)'
 availability: 'US retail including Proofnomore.com and Amazon'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 78
 verdict: 'The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet.'
 summary: "Original Sin's Widow Family 12-pack is their NA lineup: apple-cider-vinegar and fruit-juice based, monk-fruit sweetened, never alcohol-fermented; four flavors from White Widow blackberry to Dragon's blood."
@@ -49,7 +49,7 @@ profile:
 mouthfeel: 'Long and clean, a vinegar-tight close that begs to drink the next one.'
 nose: 'Bright and tart — natural apple cider vinegar carries the lift, fruit juice gives the fruit side, no sticky-sweet aroma.'
 palate: 'Crisp and sharp, closer to a shrub than a cider; the vinegar is the structural element, the fruit (depending on flavor) is the top note.'
-finish: 'Long and clean, a vinegar-tight close that begs to drink the next one.'
+finish: 'long and clean, a vinegar-tight close that begs to drink the next one. The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet.'
 best_for: 'Anyone who liked dry cider before; the cocktail-likeness of a shrub, in cans.'
 serve: "Best slightly colder than the ice I'd put in a cocktail; pair with rich food, or use as a mixing component."
 image: media/reviews/original-sin-cider.jpg
@@ -134,10 +134,10 @@ provenance:
     url: 'https://proofnomore.com/products/original-sin-non-alcoholic-cider-variety-pack'
 ---
 
-Original Sin Cider (Widow Family) is formulated as an alcohol alternative from United States. The base is Apple cider vinegar + fruit juice + monk fruit sweetener; no underlying alcoholic apple cider before dealcoholization. It was built without a dealcoholization step.
+## The cider
 
-The nose is bright and tart — natural apple cider vinegar carries the lift, fruit juice gives the fruit side, no sticky-sweet aroma.
+Original Sin Cider (Widow Family) is formulated as an alcohol alternative from United States. The base is Apple cider vinegar + fruit juice + monk fruit sweetener; no underlying alcoholic apple cider before dealcoholization. Original Sin's NA ciders are made with apple cider vinegar and fruit juice, not from a dealcoholized alcoholic cider.
 
-On the palate, crisp and sharp, closer to a shrub than a cider; the vinegar is the structural element, the fruit (depending on flavor) is the top note. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, bright and tart — natural apple cider vinegar carries the lift, fruit juice gives the fruit side, no sticky-sweet aroma. On the palate, crisp and sharp, closer to a shrub than a cider; the vinegar is the structural element, the fruit (depending on flavor) is the top note. Mouthfeel: long and clean, a vinegar-tight close that begs to drink the next one. The finish is long and clean, a vinegar-tight close that begs to drink the next one. The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet.
 
-The finish is long and clean, a vinegar-tight close that begs to drink the next one. The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cider. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+The most cider-vinegar-forward NA cider on the US shelf — bright, tart, and aimed at drinkers who want their cider sharp, not sweet. Serve best slightly colder than the ice I'd put in a cocktail; pair with rich food, or use as a mixing component.

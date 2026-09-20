@@ -24,7 +24,7 @@ image_source: producer
 image_source_url: 'https://www.freixenetmionettousa.com/wines/mionetto-alcohol-removed-sparkling-wine/'
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 79
 verdict: "Italy's bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after."
 summary: 'Mionetto 0.0% is a Prosecco-method Venetian sparkling white, fully fermented before the alcohol is extracted: gentle bubbles, off-dry fruit, 0.5% ABV, $16.99 a bottle.'
@@ -36,7 +36,7 @@ profile:
   - Off-dry
   - 'Bright acidity'
   - 'Light body'
-nose: 'Pear and white peach, with a green-apple lift and the faint yeastiness that distinguishes Prosecco-method sparkling.'
+nose: 'pear and white peach, with a green-apple lift and the faint yeastiness that distinguishes Prosecco-method sparkling. On the palate, light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver. The finish is crisp and quick, a low-sugar finish that works as an aperitif. Italy''s bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after.'
 palate: 'Light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver.'
 finish: 'Crisp and quick, a low-sugar finish that works as an aperitif.'
 best_for: 'Brunch-toast spritzes, the prosecco-glass ritual without the glass of prosecco.'
@@ -118,10 +118,10 @@ provenance:
     url: 'https://www.freixenetmionettousa.com/wines/mionetto-alcohol-removed-sparkling-wine/'
 ---
 
+## The wine
+
 Mionetto Alcohol-Removed Sparkling Wine is dealcoholized from Veneto, Italy. The base is Glera and a blend of other indigenous Italian grapes, made by traditional Prosecco methods. Alcohol expertly extracted after traditional Prosecco-method winemaking (Freixenet Mionetto USA).
 
-The nose is pear and white peach, with a green-apple lift and the faint yeastiness that distinguishes Prosecco-method sparkling.
+On the nose, pear and white peach, with a green-apple lift and the faint yeastiness that distinguishes Prosecco-method sparkling. On the palate, light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver. The finish is crisp and quick, a low-sugar finish that works as an aperitif. Italy's bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after. On the palate, Light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver. The finish is Crisp and quick, a low-sugar finish that works as an aperitif.
 
-On the palate, light and lively, a touch off-dry; gentle citrus and orchard fruit with the soft sparkle Prosecco methods deliver. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is crisp and quick, a low-sugar finish that works as an aperitif. Italy's bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+Italy's bestselling Prosecco house brings its prestige line into the zero-proof aisle, made the honest way: full-strength wine first, alcohol extracted after. Serve chilled in a flute, no garnish needed.

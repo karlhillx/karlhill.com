@@ -33,7 +33,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 76
 verdict: 'A canned rum-and-cola that starts as rum. Greenbar names the still work — dealcoholized molasses rum, then cola botanicals — so the badge is Yes, not a formulated highball in a rum costume.'
 summary: 'Los Angeles distillery Greenbar boils the alcohol off a molasses rum, then cans it with kola nut, baking spice, and citrus. Less than 0.5% ABV, 62 calories, one slim can.'
@@ -50,9 +50,9 @@ profile:
   - 'Modest bitterness'
 mouthfeel: 'Nutmeg and a dry kola close. Short. The can is the pour.'
 highlight: 'Molasses and baking spice first, then kola and lime peel. It smells like a rum-and-cola that was mixed in a kitchen, not a soda fountain.'
-nose: 'Molasses and baking spice first, then kola and lime peel. It smells like a rum-and-cola that was mixed in a kitchen, not a soda fountain.'
+nose: 'molasses and baking spice first, then kola and lime peel. It smells like a rum-and-cola that was mixed in a kitchen, not a soda fountain. On the palate, warm spice over a light cola bitterness. The rum is there as caramel and clove, not as heat. Sweet, but the gentian and chili keep it from reading as cola syrup. Mouthfeel: nutmeg and a dry kola close. Short. The can is the pour. The finish is nutmeg and a dry kola close. Short. The can is the pour. A canned rum-and-cola that starts as rum. Greenbar names the still work — dealcoholized molasses rum, then cola botanicals — so the badge is Yes, not a formulated highball in a rum costume.'
 palate: 'Warm spice over a light cola bitterness. The rum is there as caramel and clove, not as heat. Sweet, but the gentian and chili keep it from reading as cola syrup.'
-finish: 'Nutmeg and a dry kola close. Short. The can is the pour.'
+finish: Nutmeg and a dry kola close.
 best_for: 'The rum-and-cola ritual when the rest of the table is drinking the 80-proof version.'
 serve: 'Cold, over ice. Greenbar says cold or over ice; the ice helps.'
 discrepancies:
@@ -165,10 +165,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
+## The drink
+
 Greenbar UNRum + Cola is a hybrid of dealcoholized material and other defining ingredients from Los Angeles, California, United States. The base is Organic dealcoholized molasses rum mixed with cola botanicals. Alcohol boiled off after distillation and infusion (producer spec sheet).
 
-The nose is molasses and baking spice first, then kola and lime peel. It smells like a rum-and-cola that was mixed in a kitchen, not a soda fountain.
+On the nose, molasses and baking spice first, then kola and lime peel. It smells like a rum-and-cola that was mixed in a kitchen, not a soda fountain. On the palate, warm spice over a light cola bitterness. The rum is there as caramel and clove, not as heat. Sweet, but the gentian and chili keep it from reading as cola syrup. Mouthfeel: nutmeg and a dry kola close. Short. The can is the pour. The finish is nutmeg and a dry kola close. Short. The can is the pour. A canned rum-and-cola that starts as rum. Greenbar names the still work — dealcoholized molasses rum, then cola botanicals — so the badge is Yes, not a formulated highball in a rum costume. On the palate, Warm spice over a light cola bitterness. The rum is there as caramel and clove, not as heat. Sweet, but the gentian and chili keep it from reading as cola syrup. Mouthfeel: Nutmeg and a dry kola close. Short. The can is the pour. The finish is Nutmeg and a dry kola close.
 
-On the palate, warm spice over a light cola bitterness. The rum is there as caramel and clove, not as heat. Sweet, but the gentian and chili keep it from reading as cola syrup. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is nutmeg and a dry kola close. Short. The can is the pour. A canned rum-and-cola that starts as rum. Greenbar names the still work — dealcoholized molasses rum, then cola botanicals — so the badge is Yes, not a formulated highball in a rum costume. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail. Serve it cold and judge the glass.
+A canned rum-and-cola that starts as rum. Greenbar names the still work — dealcoholized molasses rum, then cola botanicals — so the badge is Yes, not a formulated highball in a rum costume. Serve cold, over ice. Greenbar says cold or over ice; the ice helps.

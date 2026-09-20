@@ -19,7 +19,7 @@ producer: 'Ollivier Cottenceau (Domaine de la Grenaudière, 8th generation)'
 volume: '750 ml'
 availability: 'US via The Zero Proof and Schatzi Wines; French retail via sans-alcool-du-vigneron.fr'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 84
 verdict: 'The first dealcoholized Melon de Bourgogne in the world, from an 8th-generation Muscadet grower — lean, saline, food-friendly, and the most interesting white wine on this desk.'
 summary: "Ollivier Cottenceau's Phénomène is the world's first dealcoholized Melon de Bourgogne: lean, saline and food-friendly, from a Clisson and Château-Thébaud grower."
@@ -32,9 +32,9 @@ profile:
   - Off-dry
   - 'Bright acidity'
 highlight: 'Green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable.'
-nose: 'Green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable.'
+nose: 'green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable. On the palate, lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet. The finish is long and mineral — the saltiness carries well beyond what most dealcoholized whites manage. The first dealcoholized Melon de Bourgogne in the world, from an 8th-generation Muscadet grower — lean, saline, food-friendly, and the most interesting white wine on this desk.'
 palate: 'Lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet.'
-finish: 'Long and mineral — the saltiness carries well beyond what most dealcoholized whites manage.'
+finish: Long and mineral — the saltiness carries well beyond what most dealcoholized whites manage.
 best_for: 'Oysters, seafood, goat cheese — anything that wants a crisp Muscadet-style white.'
 serve: 'Well chilled.'
 image: media/reviews/ollivier-cottenceau-phenomene.jpg
@@ -123,10 +123,10 @@ provenance:
     url: 'https://thezeroproof.com/products/ollivier-cottenceau-phenomene'
 ---
 
+## The wine
+
 Ollivier Cottenceau Phénomène is dealcoholized from Loire Valley (Clisson and Château-Thébaud), France. The base is Melon de Bourgogne from the Clisson and Château-Thébaud Crus Communaux — the first dealcoholized wine made from the variety. Melon de Bourgogne wine vinified conventionally then dealcoholized (producer range described as vin désalcoolisé).
 
-The nose is green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable.
+On the nose, green apple and citrus with a saline, iodine edge — the Muscadet signature, unmistakable. On the palate, lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet. The finish is long and mineral — the saltiness carries well beyond what most dealcoholized whites manage. The first dealcoholized Melon de Bourgogne in the world, from an 8th-generation Muscadet grower — lean, saline, food-friendly, and the most interesting white wine on this desk. On the palate, Lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet. The finish is Long and mineral — the saltiness carries well beyond what most dealcoholized whites manage.
 
-On the palate, lean and precise; crisp orchard fruit over a mineral, saline backbone, dry and structured rather than sweet. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is long and mineral — the saltiness carries well beyond what most dealcoholized whites manage. The first dealcoholized Melon de Bourgogne in the world, from an 8th-generation Muscadet grower — lean, saline, food-friendly, and the most interesting white wine on this desk. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass.
+The first dealcoholized Melon de Bourgogne in the world, from an 8th-generation Muscadet grower — lean, saline, food-friendly, and the most interesting white wine on this desk. Serve well chilled.

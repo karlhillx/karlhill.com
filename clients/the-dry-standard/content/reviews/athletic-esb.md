@@ -23,7 +23,7 @@ image_credit: 'Product photo via athleticbrewing.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 82
 verdict: "Athletic's limited-release take on the English bitter — smooth, balanced, and the style's caramel-malt character carried honestly into zero proof."
 summary: 'Athletic ESB is a limited-release non-alcoholic English-style bitter: smooth and balanced at under 0.5% ABV, sold online only.'
@@ -38,7 +38,7 @@ profile:
   - 'Clean finish'
 nose: 'Caramel malt and a gentle English hop note — the ESB signature, subdued rather than loud.'
 palate: 'Smooth and balanced; the malt sweetness and hop bitterness in proper ESB proportion, with a clean body.'
-finish: 'Malty and clean, the bitterness lingering politely.'
+finish: 'malty and clean, the bitterness lingering politely. Athletic''s limited-release take on the English bitter — smooth, balanced, and the style''s caramel-malt character carried honestly into zero proof.'
 best_for: 'The beer drinker who wants something English, sessionable, and serious about style.'
 serve: 'Cold, in a pint glass.'
 sources:
@@ -124,10 +124,10 @@ sensory:
       - palate
 ---
 
-Athletic ESB is brewed or fermented to finish at low ABV without a published removal step from Milford, Connecticut, United States. Athletic's process is proprietary, but founder interviews state it is neither dealcoholization of finished beer nor simple arrested fermentation — the beers ….
+## The beer
 
-The nose is caramel malt and a gentle English hop note — the ESB signature, subdued rather than loud.
+Athletic ESB is brewed or fermented to finish at low ABV without a published removal step from Milford, Connecticut, United States. Athletic's process is proprietary, but founder interviews state it is neither dealcoholization of finished beer nor simple arrested fermentation — the beers are built as NA from the start.
 
-On the palate, smooth and balanced; the malt sweetness and hop bitterness in proper ESB proportion, with a clean body. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, caramel malt and a gentle English hop note — the ESB signature, subdued rather than loud. On the palate, smooth and balanced; the malt sweetness and hop bitterness in proper ESB proportion, with a clean body. The finish is malty and clean, the bitterness lingering politely. Athletic's limited-release take on the English bitter — smooth, balanced, and the style's caramel-malt character carried honestly into zero proof.
 
-The finish is malty and clean, the bitterness lingering politely. Athletic's limited-release take on the English bitter — smooth, balanced, and the style's caramel-malt character carried honestly into zero proof. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+Athletic's limited-release take on the English bitter — smooth, balanced, and the style's caramel-malt character carried honestly into zero proof. Serve cold, in a pint glass.

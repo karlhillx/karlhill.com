@@ -26,7 +26,7 @@ purchase_links:
     url: 'https://www.totalwine.com/wine/rose-blush-wine/syrahshiraz/st-regis-nonalcoholic-rose/p/81590750'
     region: US
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 76
 verdict: 'A cheap, widely stocked German Syrah/Shiraz that was wine first. The nose still reads as rosé. The sip starts on bright berry, then turns balsamic and a little oxidative — the usual dealcoholized gap, at a supermarket price.'
 summary: 'German Syrah/Shiraz rosé, vacuum-distilled to under 0.5% ABV. Berry-forward, then a balsamic back; the aroma is more wine-like than the sip.'
@@ -50,7 +50,7 @@ drink_if_you_like:
   - 'Light Syrah pinks'
 nose: 'The sniff is the wine-like half: berry-pink, still recognizably rosé rather than cordial.'
 palate: 'Raspberry and strawberry take the sip, with cassis and a shy melon note behind them. Off-dry sugar sits under high acid, so the middle tastes tart and a little fermented — kombucha is not a stretch. Light-bodied and lean, almost no tannin, with a drying flick juice never has and a faint spritz. Then the fruit turns: a slightly oxidative, balsamic mid-palate, dark cherry and a hint of molasses.'
-finish: 'Balsamic and a little oxidative — dark cherry, molasses, a quiet fermented tang. Soft, then gone. No ethanol warmth.'
+finish: 'soft, balsamic, and short. Wine-likeness splits: aroma fairly wine-like, palate less so. Dealcoholized pinks often keep the nose and lose the mouth. This bottle is a clear case of that gap, not an average of the two.'
 structure: "Aroma fairly wine-like. Palate less so — tart, balsamic, lean, without alcohol's weight or warmth."
 best_for: 'A chilled picnic pour, mild cheese, or a salad that wants tart fruit more than alcohol heat.'
 serve: 'Chilled, in a white-wine or rosé glass.'
@@ -154,12 +154,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-A German Syrah/Shiraz, fermented and aged as wine, then vacuum-distilled. That is dealcoholized. Formulated pinks never had alcohol to take out.
+## The wine
 
-The nose is the wine-like half: berry-pink, still recognizably rosé rather than cordial.
+St. Regis Non-Alcoholic Rosé is dealcoholized from Germany. The base is Fermented and aged Syrah/Shiraz rosé wine, dealcoholized after full winemaking process. Vacuum distillation.
 
-The palate is berry-forward, tart, and off-dry. Raspberry and strawberry lead, with cassis and a shy melon note behind them. Light-bodied and lean, almost no tannin, with a faint spritz. Residual sweetness sits under high acid, so the middle tastes tart and a little fermented — kombucha is not a stretch for some drinkers. Mouthfeel starts crisp; a faint drying grip does more structural work than the fruit alone would suggest. Then the back of the sip turns: bright berry gives way to something slightly oxidative and balsamic — dark cherry, molasses, a fermented tang.
+On the nose, The sniff is the wine-like half: berry-pink, still recognizably rosé rather than cordial. On the palate, Raspberry and strawberry take the sip, with cassis and a shy melon note behind them. Off-dry sugar sits under high acid, so the middle tastes tart and a little fermented — kombucha is not a stretch. Light-bodied and lean, almost no tannin, with a drying flick juice never has and a faint spritz. Then the fruit turns: a slightly oxidative, balsamic mid-palate, dark cherry and a hint of molasses. Mouthfeel: Lean and crisp at first, with a slight drying grip on the finish. The finish is soft, balsamic, and short. Wine-likeness splits: aroma fairly wine-like, palate less so. Dealcoholized pinks often keep the nose and lose the mouth. This bottle is a clear case of that gap, not an average of the two.
 
-Balance is acid over sugar, then that darker mid-palate takes the handoff. Structural authenticity is partial — acidity and a drying flick supply wine shape; ethanol's weight and warmth are gone.
-
-The finish is soft, balsamic, and short. Wine-likeness splits: aroma fairly wine-like, palate less so. Dealcoholized pinks often keep the nose and lose the mouth. This bottle is a clear case of that gap, not an average of the two.
+The aroma is more convincing than the palate. Acidity and a faint drying character supply some wine structure, though the fermented finish may read as kombucha-like to some drinkers. Serve chilled, in a white-wine or rosé glass.

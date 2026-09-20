@@ -20,7 +20,7 @@ volume: '200 ml bottle'
 price: '$4.99-$5.00 (US retail)'
 availability: 'US via ProofNoMore, Minus Moonshine; Italian retail'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 80
 verdict: "An Italian aperitivo from one of Italy's most respected craft breweries — bittersweet, 0.0%, and the right shape for the spritz hour."
 summary: "Baladin's Passione in Rosso is a formulated non-alcoholic Italian aperitivo: 0.0% ABV, bittersweet and botanical, from Piozzo."
@@ -35,7 +35,7 @@ profile:
   - 'Clean finish'
 nose: 'Bitter orange and botanicals — the aperitivo aromatic signature, lighter and softer than Campari.'
 palate: 'Bittersweet and gently spiced; cane sugar provides the body, natural botanicals carry the bitterness.'
-finish: 'Clean and pleasantly bitter.'
+finish: 'clean and pleasantly bitter. An Italian aperitivo from one of Italy''s most respected craft breweries — bittersweet, 0.0%, and the right shape for the spritz hour.'
 best_for: 'The Italian aperitivo ritual — over ice with sparkling water, or straight as a pre-dinner pour.'
 serve: 'Over ice with sparkling water and an orange slice.'
 image: media/reviews/baladin-passione-in-rosso.jpg
@@ -126,10 +126,10 @@ provenance:
     url: 'https://proofnomore.com/products/baladin-non-alcoholic-italian-rosso-aperitif-200ml'
 ---
 
-Baladin Passione in Rosso is formulated as an alcohol alternative from Piozzo, Italy, Italy. The base is Water, cane sugar, natural flavors (botanical formulation). It was built without a dealcoholization step.
+## The drink
 
-The nose is bitter orange and botanicals — the aperitivo aromatic signature, lighter and softer than Campari.
+Baladin Passione in Rosso is formulated as an alcohol alternative from Piozzo, Italy, Italy. The base is Water, cane sugar, natural flavors (botanical formulation). Passione in Rosso is a formulated aperitivo made with water, cane sugar, and natural flavors — no underlying alcoholic drink.
 
-On the palate, bittersweet and gently spiced; cane sugar provides the body, natural botanicals carry the bitterness. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, bitter orange and botanicals — the aperitivo aromatic signature, lighter and softer than Campari. On the palate, bittersweet and gently spiced; cane sugar provides the body, natural botanicals carry the bitterness. The finish is clean and pleasantly bitter. An Italian aperitivo from one of Italy's most respected craft breweries — bittersweet, 0.0%, and the right shape for the spritz hour.
 
-The finish is clean and pleasantly bitter. An Italian aperitivo from one of Italy's most respected craft breweries — bittersweet, 0.0%, and the right shape for the spritz hour. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+An Italian aperitivo from one of Italy's most respected craft breweries — bittersweet, 0.0%, and the right shape for the spritz hour. Serve over ice with sparkling water and an orange slice.

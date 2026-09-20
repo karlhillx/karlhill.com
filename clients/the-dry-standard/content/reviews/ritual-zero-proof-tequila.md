@@ -26,7 +26,7 @@ image_source: producer
 image_source_url: 'https://www.ritualzeroproof.com/products/ritual-agave-spirit-alternative'
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 78
 verdict: 'The most widely available tequila alternative, and one of the few that works in a margarita — the agave heat is there, the finish is clean, and the honesty about being formulated (not dealcoholized) is refreshing.'
 summary: "Ritual Zero Proof's Tequila Alternative is a botanical formulation with agave, lime and spice at 0.0% ABV: built for margaritas, not for sipping."
@@ -35,8 +35,8 @@ tastes:
 profile:
   - 'Clean finish'
 highlight: 'Agave sweetness with a bright lime lift and a faint jalapeño warmth.'
-nose: 'Agave sweetness with a bright lime lift and a faint jalapeño warmth.'
-palate: 'Agave-forward with a citrusy heat — the tequila silhouette drawn in botanicals rather than ethanol.'
+nose: Agave sweetness with a bright lime lift and a faint jalapeño warmth.
+palate: Agave-forward with a citrusy heat — the tequila silhouette drawn in botanicals rather than ethanol.
 finish: 'Clean and warming, the spice trailing without alcohol burn.'
 best_for: 'Margaritas, palomas, and the cocktails where tequila is the base but not the point.'
 serve: 'In a cocktail, 1:1 replacement for tequila; not a sipping spirit.'
@@ -109,10 +109,10 @@ sensory:
       - palate
 ---
 
-Ritual Zero Proof Tequila Alternative is formulated as an alcohol alternative from United States. The base is Botanical formulation with agave, lime, and other natural flavors; no underlying tequila. It was built without a dealcoholization step.
+## The spirit
 
-The nose is agave sweetness with a bright lime lift and a faint jalapeño warmth.
+Ritual Zero Proof Tequila Alternative is formulated as an alcohol alternative from United States. The base is Botanical formulation with agave, lime, and other natural flavors; no underlying tequila. Ritual Zero Proof spirits are formulated from botanicals and natural flavors — not made by removing alcohol from a once-alcoholic spirit.
 
-On the palate, agave-forward with a citrusy heat — the tequila silhouette drawn in botanicals rather than ethanol. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, agave sweetness with a bright lime lift and a faint jalapeño warmth. On the palate, agave-forward with a citrusy heat — the tequila silhouette drawn in botanicals rather than ethanol. The finish is clean and warming, the spice trailing without alcohol burn. The most widely available tequila alternative, and one of the few that works in a margarita — the agave heat is there, the finish is clean, and the honesty about being formulated (not dealcoholized) is refreshing.
 
-The finish is clean and warming, the spice trailing without alcohol burn. The most widely available tequila alternative, and one of the few that works in a margarita — the agave heat is there, the finish is clean, and the honesty about being formulated (not dealcoholized) is refreshing. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at spirit. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+The most widely available tequila alternative, and one of the few that works in a margarita — the agave heat is there, the finish is clean, and the honesty about being formulated (not dealcoholized) is refreshing. Serve in a cocktail, 1:1 replacement for tequila; not a sipping spirit.

@@ -13,6 +13,7 @@ country: 'United States'
 region: 'Sonoma County and Lodi'
 style: 'Non-alcoholic California wine'
 production_type: dealcoholized
+method_facet: unpublished
 verified: 'yes'
 production_note: "Producer's own product detail page confirms the wine is 'skin fermented with native yeasts' and blended 'in perfect balance once the alcohol is removed'; the specific named removal technology is not published. Residual ABV is not on the producer page; The Zero Proof lists <0.5% ABV."
 producer: 'Band of Vintners'
@@ -25,7 +26,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 80
 verdict: 'A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second.'
 summary: "The 2024 Freestyle NA is late-harvest organic fruit from Sonoma County and Lodi. Residual ABV is unpublished by the producer; specialist retail lists <0.5%."
@@ -40,7 +41,7 @@ profile:
   - 'Short finish'
 nose: 'Orange peel, tea, a little stone fruit — skin-contact adjacent, not a pale rosé.'
 palate: 'Textural for an NA white, light tannin, less ethanol oil than a full-strength amber.'
-finish: 'Dry and short. More interesting than most $20 NA California.'
+finish: 'dry and short. More interesting than most  NA California. A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second.'
 best_for: 'A table that wants orange-wine shape without the hangover.'
 serve: 'Cool, not iced.'
 sources:
@@ -131,10 +132,10 @@ provenance:
     url: 'https://www.bandofvintners.com/product/detail/BOV-NA-24/'
 ---
 
-Band of Vintners Freestyle is dealcoholized from Sonoma County and Lodi, United States. Producer's own product detail page confirms the wine is 'skin fermented with native yeasts' and blended 'in perfect balance once the alcohol is removed'; the….
+## The wine
 
-The nose is orange peel, tea, a little stone fruit — skin-contact adjacent, not a pale rosé.
+Band of Vintners Freestyle is dealcoholized from Sonoma County and Lodi, United States. Producer's own product detail page confirms the wine is 'skin fermented with native yeasts' and blended 'in perfect balance once the alcohol is removed'; the specific named removal technology is not published. Residual ABV is not on the producer page; The Zero Proof lists <0.5…
 
-On the palate, textural for an NA white, light tannin, less ethanol oil than a full-strength amber. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, orange peel, tea, a little stone fruit — skin-contact adjacent, not a pale rosé. On the palate, textural for an NA white, light tannin, less ethanol oil than a full-strength amber. The finish is dry and short. More interesting than most $20 NA California. A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second.
 
-The finish is dry and short. More interesting than most $20 NA California. A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.
+A California NA wine from a Napa collective, sourced in Sonoma and Lodi. Serious people, thin public method. Taste first, citation second. Serve cool, not iced.

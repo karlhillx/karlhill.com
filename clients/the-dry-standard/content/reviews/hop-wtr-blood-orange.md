@@ -25,7 +25,7 @@ image_credit: 'Product photo via hopwtr.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 78
 verdict: 'Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon.'
 summary: "HOP WTR's Blood Orange is a hopping sparkling water blended with Italian blood orange, adaptogens and vitamins at <0.5% ABV; closest thing to an American NA shandy on a non-fermented base."
@@ -38,7 +38,7 @@ profile:
   - 'Modest bitterness'
 nose: 'Bright Italian blood orange with a light, citric hop lift — the Italian blood orange is the dominant note.'
 palate: 'Sparkling and lightly bitter; the orange citrusy lift sits on top of a soft hop bittering, light-bodied and easy.'
-finish: 'Crisp and clean, the orange trailing just behind a hop finish.'
+finish: 'crisp and clean, the orange trailing just behind a hop finish. Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon.'
 best_for: 'Daylight drinking, between beers, alongside food that wants a citrus-bitter lift.'
 serve: 'Cold, straight from the can.'
 sources:
@@ -128,10 +128,10 @@ sensory:
       - palate
 ---
 
-HOP WTR Blood Orange is formulated as an alcohol alternative from United States. The base is Sparkling water + hops + vitamins + adaptogens; no underlying alcoholic beverage. It was built without a dealcoholization step.
+## The beer
 
-The nose is bright Italian blood orange with a light, citric hop lift — the Italian blood orange is the dominant note.
+HOP WTR Blood Orange is formulated as an alcohol alternative from United States. The base is Sparkling water + hops + vitamins + adaptogens; no underlying alcoholic beverage. HOP WTR is a hopped, sparkling, fortified water rather than a de-alcoholized beer; the brand is roughly 85% sparkling water with hops, vitamins and adaptogens and no alcohol ever present.
 
-On the palate, sparkling and lightly bitter; the orange citrusy lift sits on top of a soft hop bittering, light-bodied and easy. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, bright Italian blood orange with a light, citric hop lift — the Italian blood orange is the dominant note. On the palate, sparkling and lightly bitter; the orange citrusy lift sits on top of a soft hop bittering, light-bodied and easy. The finish is crisp and clean, the orange trailing just behind a hop finish. Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon.
 
-The finish is crisp and clean, the orange trailing just behind a hop finish. Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.
+Not a beer, but a sparkling hop water that fills the gap for anyone who wants the bitter-citrus ritual without the alcohol. Good for days that start at noon. Serve cold, straight from the can.

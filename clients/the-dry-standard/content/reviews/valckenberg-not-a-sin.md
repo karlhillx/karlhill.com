@@ -28,7 +28,7 @@ image_credit: 'Product photo via P.J. Valckenberg'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 77
 verdict: 'A lightly sparkling dealcoholized Riesling dressed with ginger and bitter orange — citrus-bright, gently sweet, and built for the aperitif hour rather than a still-wine substitute.'
 summary: "Valckenberg's It's not a SIN is German Riesling dealcoholized by vacuum rectification at 30°C, then finished with ginger, bitter-orange peel, and CO₂ under 0.5% ABV."

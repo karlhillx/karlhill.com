@@ -26,7 +26,7 @@ image_credit: Editorial still
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 84
 verdict: 'An uncomplicated but successful dealcoholized white: fruity, floral and fresh, with enough acidity to keep it from collapsing into juice.'
 summary: 'Claouset Zéro Degré Blanc — Sémillon dealcoholized under vacuum. Fresh, floral, citrus-driven, and convincingly wine-like.'
@@ -45,7 +45,7 @@ likeness: 'Reads as dealcoholized white wine more than soft drink. Simpler aroma
 drink_if_you_like:
   - 'Citrus aperitif whites'
   - 'Sémillon-led Bordeaux blanc'
-nose: 'Lemon and citrus peel with tropical fruit and white blossom.'
+nose: Lemon and citrus peel with tropical fruit and white blossom.
 palate: 'Bright and fresh, with citrus, pineapple-like tropical fruit and soft floral notes. Light-bodied with a pleasant sweet-acid balance.'
 finish: 'Medium-to-long for the category, fresh and citrus-driven, with lingering floral fruit.'
 structure: 'Moderate-high acid keeps the off-dry fruit from reading as juice. Not the most complex bottle here; coherent and food-friendly.'
@@ -146,8 +146,10 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Bottle matched: Claouset Zéro Degré Blanc — SANS ALCOOL • ALCOHOL FREE, Vignobles Siozard. Low-temperature vacuum dealcoholization; finished as a beverage based on dealcoholized wine. Grape is Sémillon.
+## The wine
 
-Lemon, citrus peel, tropical fruit and white blossom on the nose. Palate is bright and fresh — citrus, pineapple-like tropical fruit, soft florals — light with a pleasant sweet-acid balance. Finish is medium-to-long for the category, citrus-driven with lingering floral fruit.
+Claouset Zéro Degré Blanc is a hybrid of dealcoholized material and other defining ingredients from Bordeaux, France. The base is 100% Sémillon, fermented then dealcoholized. Low-temperature vacuum dealcoholization (producer).
 
-Score 84: coherent and wine-like, less complex than Tip Top. Straightforward done well.
+On the nose, Lemon and citrus peel with tropical fruit and white blossom. On the palate, Bright and fresh, with citrus, pineapple-like tropical fruit and soft floral notes. Light-bodied with a pleasant sweet-acid balance. The finish is Medium-to-long for the category, fresh and citrus-driven, with lingering floral fruit.
+
+Reads as dealcoholized white wine more than soft drink. Simpler aromatic map than Tip Top or NOOH; finish holds up well for the category. Serve well chilled.

@@ -27,7 +27,7 @@ image_credit: Editorial still
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 86
 verdict: 'A lively, genuinely wine-like dealcoholized Bordeaux white. Savory-tropical aroma and tangy acidity create more complexity than many NA whites, though the palate loses momentum fairly quickly.'
 summary: 'Tip Top Blanc — estate Bordeaux Sauvignon Blanc and Sémillon, cold-distilled by Zénothèque. Bright, tangy, and varietally convincing, with a short finish.'
@@ -164,8 +164,10 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Tip Top Blanc is Vignobles Raguenot’s dealcoholized winemaker’s wine: Bordeaux-grown Sauvignon Blanc and Sémillon, vinified as wine, then dealcoholized at low temperature by Zénothèque. No artificial flavours, liquid tannins, sweeteners, or added sugar — high-confidence dealcoholized classification with a named mechanism.
+## The wine
 
-In the glass it is bright and tangy. Banana, candied pineapple and yellow fruit lead the nose, with beeswax and a faint savory undertone. The palate opens fresh — tropical fruit, citrus acidity, white flowers, a nutmeg-like spice — light-bodied and crisp rather than syrupy. The finish is the weak spot: short-to-medium, floral and lightly spicy, with acid outlasting the fruit.
+Tip Top Blanc is dealcoholized from Bordeaux, France. The base is Bordeaux blanc — Sauvignon Blanc and Sémillon (producer). Low-temperature cold distillation by Zénothèque (producer); Zénothèque describes vacuum distillation at ~28–32°C with aroma recovery.
 
-Falstaff scored it 88 in 2025. This cellar’s research score is 86 — strong aromatic complexity for the category, tempered by how quickly the mid-palate fades. Process language stays cold / low-temperature distillation (Raguenot) with Zénothèque’s vacuum path at ~28–32°C as the partner detail.
+On the nose, Banana, candied pineapple and yellow fruit lead, with beeswax and a faint savory note underneath. On the palate, Fresh and tangy on entry, with tropical fruit, citrus acidity, white flowers and a subtle nutmeg-like spice. Light-bodied and crisp rather than syrupy. Mouthfeel: Light-bodied and reasonably crisp rather than syrupy. The finish is Short-to-medium, floral and lightly spicy, with acidity lingering longer than the fruit.
+
+Reads as dealcoholized Bordeaux blanc — varietal fruit and acid first, ethanol weight absent. More aromatic than structurally deep. Serve well chilled.

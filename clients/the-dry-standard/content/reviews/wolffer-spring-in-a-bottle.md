@@ -13,6 +13,7 @@ style: 'Alcohol-removed sparkling rosé'
 abv: 0.0%
 abv_numeric: 0.0
 production_type: dealcoholized
+method_facet: unpublished
 verified: 'yes'
 production_note: "Made from a real fermented wine base — a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — produced in partnership with a winery in Rheinhessen, Germany, then dealcoholized; the specific named removal technology is not published."
 base_beverage: 'Organic Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder blend'
@@ -26,7 +27,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 82
 verdict: 'A Long Island estate name on a German-made alcohol-removed sparkling rosé. Red berry, peach, real acidity. Method still a label phrase.'
 summary: 'Spring in a Bottle is sold at Total Wine as 0.0% ABV alcohol-removed sparkling rosé, organically grown, $20.99. The process is not named.'
@@ -39,8 +40,8 @@ profile:
   - 'Soft bead'
   - 'Clean finish'
 nose: 'Red berry, ripe peach, fresh pear.'
-palate: 'Vibrant acidity, elegant fruit, a finer mouthfeel than the $10 NA pinks.'
-finish: 'Clean, a little earthy. More wine than soda.'
+palate: 'Vibrant acidity, elegant fruit, a finer mouthfeel than the  NA pinks.'
+finish: 'clean, a little earthy. More wine than soda. A Long Island estate name on a German-made alcohol-removed sparkling rosé. Red berry, peach, real acidity. Method still a label phrase.'
 best_for: 'The nicer toast on this list.'
 serve: 'Well chilled.'
 discrepancies:
@@ -138,10 +139,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Wölffer Spring in a Bottle is dealcoholized from Rheinhessen, Germany. The base is Organic Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder blend. Made from a real fermented wine base — a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — produce…. The glass is the best cheap-adjacent sparkling rosé on this list: berry, peach, acidity. Pay the extra ten dollars over Rondel if you want mouthfeel.
+## The wine
 
-The nose is red berry, ripe peach, fresh pear.
+Wölffer Spring in a Bottle is dealcoholized from Rheinhessen, Germany. The base is Organic Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder blend. Made from a real fermented wine base — a blend of organically grown Pinot Noir, Pinot Meunier, Saint Laurent, and Dornfelder per Wölffer's own site — produced in partnership with a winery in Rheinhessen, Germany, then dealcoholized; the specific named removal technology is not…
 
-On the palate, vibrant acidity, elegant fruit, a finer mouthfeel than the $10 NA pinks. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, red berry, ripe peach, fresh pear. On the palate, vibrant acidity, elegant fruit, a finer mouthfeel than the $10 NA pinks. The finish is clean, a little earthy. More wine than soda. A Long Island estate name on a German-made alcohol-removed sparkling rosé. Red berry, peach, real acidity. Method still a label phrase.
 
-The finish is clean, a little earthy. More wine than soda. A Long Island estate name on a German-made alcohol-removed sparkling rosé. Red berry, peach, real acidity. Method still a label phrase. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+A Long Island estate name on a German-made alcohol-removed sparkling rosé. Red berry, peach, real acidity. Method still a label phrase. Serve well chilled.

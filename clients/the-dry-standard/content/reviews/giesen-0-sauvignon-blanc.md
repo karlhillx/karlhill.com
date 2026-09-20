@@ -27,7 +27,7 @@ purchase_links:
     url: 'https://thezeroproof.com/products/giesen-zero-percent-sauvignon-blanc'
     region: US
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 85
 verdict: "The most widely available proof that spinning-cone dealcoholization can keep a Sauvignon Blanc's grassy snap intact. Not a substitute for the real Marlborough bottle, but the closest of the queue's whites to tasting like one."
 summary: "New Zealand's best-selling alcohol-removed white, built the honest way: full-strength Sauvignon Blanc first, alcohol stripped after via spinning cone."
@@ -42,7 +42,7 @@ profile:
   - 'Clean finish'
 mouthfeel: 'Clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate.'
 highlight: 'Grapefruit pith, tart passionfruit, and a green, grassy edge that reads unmistakably as Marlborough.'
-nose: 'Grapefruit pith, tart passionfruit, and a green, grassy edge that reads unmistakably as Marlborough.'
+nose: 'grapefruit pith, tart passionfruit, and a green, grassy edge that reads unmistakably as Marlborough. On the palate, lemon shortbread and tart pear up front, with blackcurrant leaf underneath. Body is lighter than the alcoholic original, as expected once the ethanol is gone, but the varietal fingerprint holds. Mouthfeel: clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate. The finish is clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate. The most widely available proof that spinning-cone dealcoholization can keep a Sauvignon Blanc''s grassy snap intact. Not a substitute for the real Marlborough bottle, but the closest of the queue''s whites to tasting like one.'
 palate: 'Lemon shortbread and tart pear up front, with blackcurrant leaf underneath. Body is lighter than the alcoholic original, as expected once the ethanol is gone, but the varietal fingerprint holds.'
 finish: 'Clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate.'
 best_for: 'Fresh salads, hard cheese, tuna, or anyone who wants a Marlborough Sauvignon Blanc pour without the alcohol.'
@@ -149,10 +149,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
+## The wine
+
 Giesen 0% Sauvignon Blanc is dealcoholized from Marlborough, New Zealand. The base is Full-strength Marlborough Sauvignon Blanc, made through the complete winemaking process before alcohol removal. Spinning cone distillation.
 
-The nose is grapefruit pith, tart passionfruit, and a green, grassy edge that reads unmistakably as Marlborough.
+On the nose, grapefruit pith, tart passionfruit, and a green, grassy edge that reads unmistakably as Marlborough. On the palate, lemon shortbread and tart pear up front, with blackcurrant leaf underneath. Body is lighter than the alcoholic original, as expected once the ethanol is gone, but the varietal fingerprint holds. Mouthfeel: clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate. The finish is clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate. The most widely available proof that spinning-cone dealcoholization can keep a Sauvignon Blanc's grassy snap intact. Not a substitute for the real Marlborough bottle, but the closest of the queue's whites to tasting like one. On the palate, Lemon shortbread and tart pear up front, with blackcurrant leaf underneath. Body is lighter than the alcoholic original, as expected once the ethanol is gone, but the varietal fingerprint holds. Mouthfeel: Clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate. The finish is Clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate.
 
-On the palate, lemon shortbread and tart pear up front, with blackcurrant leaf underneath. Body is lighter than the alcoholic original, as expected once the ethanol is gone, but the varietal fingerprint holds. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is clean and citrus-forward, a touch short — the predictable tradeoff of pulling weight out of the mid-palate. The most widely available proof that spinning-cone dealcoholization can keep a Sauvignon Blanc's grassy snap intact. Not a substitute for the real Marlborough bottle, but the closest of the queue's whites to tasting like one. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine.
+The most widely available proof that spinning-cone dealcoholization can keep a Sauvignon Blanc's grassy snap intact. Not a substitute for the real Marlborough bottle, but the closest of the queue's whites to tasting like one. Serve well chilled, in a standard white-wine glass.

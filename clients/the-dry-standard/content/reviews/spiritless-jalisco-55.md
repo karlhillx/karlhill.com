@@ -23,7 +23,7 @@ image_credit: 'Product photo via spiritless.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 82
 verdict: 'A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be.'
 summary: 'Spiritless Jalisco 55 is a dealcoholized reposado tequila: real agave spirit from Jalisco with the alcohol removed at 0.0% ABV.'
@@ -37,9 +37,9 @@ profile:
   - 'Light body'
   - 'Short finish'
 mouthfeel: 'Smooth and oaked, the agave trailing gently.'
-nose: 'Cooked agave, oak and vanilla — the reposado signature, present and genuine.'
+nose: 'cooked agave, oak and vanilla — the reposado signature, present and genuine. On the palate, round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body. Mouthfeel: smooth and oaked, the agave trailing gently. The finish is smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be.'
 palate: 'Round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body.'
-finish: 'Smooth and oaked, the agave trailing gently.'
+finish: 'smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be.'
 best_for: 'The tequila drinker who wants real agave character — in a margarita, a paloma, or neat as a ritual.'
 serve: 'In cocktails 1:1 for tequila, or over ice with lime.'
 sources:
@@ -113,10 +113,10 @@ provenance:
     url: 'https://karlhill.com/clients/the-dry-standard/reviews/spirits/spiritless-kentucky-74/'
 ---
 
+## The spirit
+
 Spiritless Jalisco 55 Non-Alcoholic Tequila is dealcoholized from United States. The base is Real reposado tequila from Jalisco, Mexico, dealcoholized after aging. Alcohol removed by the same Spiritless reverse-distillation process as Kentucky 74 — ethanol taken off an oak-extracted high-proof spirit.
 
-The nose is cooked agave, oak and vanilla — the reposado signature, present and genuine.
+On the nose, cooked agave, oak and vanilla — the reposado signature, present and genuine. On the palate, round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body. Mouthfeel: smooth and oaked, the agave trailing gently. The finish is smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be. On the palate, Round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body. Mouthfeel: Smooth and oaked, the agave trailing gently. The finish is smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be.
 
-On the palate, round and oaked; the agave character carries through the dealcoholization, with the vanilla and caramel from the oak aging providing the body. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is smooth and oaked, the agave trailing gently. A real reposado tequila from Jalisco, dealcoholized by the same people who made Kentucky 74 — the honest version of what most tequila alternatives pretend to be. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at spirit. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+Serve in cocktails 1:1 for tequila, or over ice with lime.

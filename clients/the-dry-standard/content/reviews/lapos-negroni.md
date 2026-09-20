@@ -19,7 +19,7 @@ volume: '8.4 fl oz (250 ml) can, sold in 4-packs (US launch); also 100 ml format
 price: '$21.99 per 4-pack on Instacart (US); $6.00 per 250 ml at direct from drinklapos.com'
 availability: 'Whole Foods Market, Target (US); direct from drinklapos.com'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 81
 verdict: "Florentine bartender's homage to the Negroni that drinks closer to the real thing than the Aperol-leaning cousins — but the can format asks the drinker to do a little work for it."
 summary: "Lapo's Non-Alcoholic Negroni is a Florence-born canned NA cocktail: <0.5% ABV, made from Italian ingredients to be built rather than poured straight."
@@ -30,7 +30,7 @@ profile:
   - 'Modest bitterness'
 mouthfeel: 'Bitter and a touch warm, the gentian-like lift carrying the close.'
 highlight: 'Orange peel and bitter herbs with a citric lift; the Italian aperitivo family is in the room.'
-nose: 'Orange peel and bitter herbs with a citric lift; the Italian aperitivo family is in the room.'
+nose: Orange peel and bitter herbs with a citric lift; the Italian aperitivo family is in the room.
 palate: 'Bittersweet, with a Campari-style bitter-orange lift balanced by a sweeter vermouth-style edge; can be too sweet if poured flat without ice.'
 finish: 'Bitter and a touch warm, the gentian-like lift carrying the close.'
 best_for: "A 6 PM pour when Aperol doesn't suit and you want something closer to the bitter Italian side of the Negroni family."
@@ -115,10 +115,10 @@ provenance:
     url: 'https://drinklapos.com/products/negroni'
 ---
 
-Lapo's Non-Alcoholic Negroni is formulated as an alcohol alternative from Italy. The base is Italian-sourced ingredients with bitter liqueur analogues (likely sourced and built from a spirit replica or aperitivo-style formulation), no underlying Gin/Campari before dealcoholization. It was built without a dealcoholization step.
+## The drink
 
-The nose is orange peel and bitter herbs with a citric lift; the Italian aperitivo family is in the room.
+Lapo's Non-Alcoholic Negroni is formulated as an alcohol alternative from Italy. The base is Italian-sourced ingredients with bitter liqueur analogues (likely sourced and built from a spirit replica or aperitivo-style formulation), no underlying Gin/Campari before dealcoholization. Lapo's brand copy frames the product as an 'Italian-inspired cocktail' built for the NA shelf; there is no claim that the drink was ever alcoholic and then dealcoholized — the formula is built fresh.
 
-On the palate, bittersweet, with a Campari-style bitter-orange lift balanced by a sweeter vermouth-style edge; can be too sweet if poured flat without ice. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, orange peel and bitter herbs with a citric lift; the Italian aperitivo family is in the room. On the palate, bittersweet, with a Campari-style bitter-orange lift balanced by a sweeter vermouth-style edge; can be too sweet if poured flat without ice. Mouthfeel: bitter and a touch warm, the gentian-like lift carrying the close. The finish is bitter and a touch warm, the gentian-like lift carrying the close. Florentine bartender's homage to the Negroni that drinks closer to the real thing than the Aperol-leaning cousins — but the can format asks the drinker to do a little work for it.
 
-The finish is bitter and a touch warm, the gentian-like lift carrying the close. Florentine bartender's homage to the Negroni that drinks closer to the real thing than the Aperol-leaning cousins — but the can format asks the drinker to do a little work for it. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail. Serve it cold and judge the glass.
+Florentine bartender's homage to the Negroni that drinks closer to the real thing than the Aperol-leaning cousins — but the can format asks the drinker to do a little work for it. Serve always over a large ice cube; the can benefits from the dilution and from the chilling.

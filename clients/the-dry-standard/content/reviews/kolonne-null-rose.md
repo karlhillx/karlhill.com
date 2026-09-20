@@ -26,7 +26,7 @@ image_credit: 'Product photo via kolonnenull.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 82
 verdict: 'The most transparent dealcoholization operation in the category: a Berlin lab, documented process, Provence fruit. The rosé is crisp, dry and honest about what it is.'
 summary: "Kolonne Null's rosé is traditionally vinified Provence fruit dealcoholized by vacuum distillation in the producer's own Berlin laboratory: 0.0% vol, €10.70 a bottle."
@@ -36,7 +36,7 @@ tastes:
   - dry
 profile:
   - 'Bright acidity'
-nose: 'Fresh strawberry and white peach, with a dry, stony edge rather than candy sweetness.'
+nose: 'fresh strawberry and white peach, with a dry, stony edge rather than candy sweetness. On the palate, crisp and lean; red berry fruit over a mineral spine, less weight than a full-strength Provence rosé but the shape holds. The finish is dry and brief, citrus-tinged. The most transparent dealcoholization operation in the category: a Berlin lab, documented process, Provence fruit. The rosé is crisp, dry and honest about what it is.'
 palate: 'Crisp and lean; red berry fruit over a mineral spine, less weight than a full-strength Provence rosé but the shape holds.'
 finish: 'Dry and brief, citrus-tinged.'
 best_for: 'Aperitif hour, seafood, anyone who wants rosé with dinner and a clear head after.'
@@ -130,10 +130,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
+## The wine
+
 Kolonne Null Rosé is dealcoholized from Provence (fruit), dealcoholized in Berlin, Germany. The base is Traditionally vinified Provence rosé, fully fermented before alcohol removal. Vacuum distillation at approximately 30°C, run from the producer's in-house Berlin laboratory.
 
-The nose is fresh strawberry and white peach, with a dry, stony edge rather than candy sweetness.
+On the nose, fresh strawberry and white peach, with a dry, stony edge rather than candy sweetness. On the palate, crisp and lean; red berry fruit over a mineral spine, less weight than a full-strength Provence rosé but the shape holds. The finish is dry and brief, citrus-tinged. The most transparent dealcoholization operation in the category: a Berlin lab, documented process, Provence fruit. The rosé is crisp, dry and honest about what it is. On the palate, Crisp and lean; red berry fruit over a mineral spine, less weight than a full-strength Provence rosé but the shape holds. The finish is Dry and brief, citrus-tinged.
 
-On the palate, crisp and lean; red berry fruit over a mineral spine, less weight than a full-strength Provence rosé but the shape holds. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is dry and brief, citrus-tinged. The most transparent dealcoholization operation in the category: a Berlin lab, documented process, Provence fruit. The rosé is crisp, dry and honest about what it is. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+The most transparent dealcoholization operation in the category: a Berlin lab, documented process, Provence fruit. The rosé is crisp, dry and honest about what it is. Serve well chilled, in a standard white-wine glass.

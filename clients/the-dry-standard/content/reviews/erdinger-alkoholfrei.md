@@ -18,7 +18,7 @@ production_note: 'Erdinger does not publish whether the alcohol is removed from 
 producer: 'Erdinger Weissbräu (Erding, Bavaria)'
 availability: 'International retail; widely available in Germany and exported'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 82
 verdict: 'The most widely available non-alcoholic wheat beer in the world, and the one that set the standard: spicy malt, caramel sweetness, isotonic positioning, and honest Bavarian brewing.'
 summary: 'Erdinger Alkoholfrei is a Bavarian non-alcoholic wheat beer under the Reinheitsgebot, marketed as a naturally isotonic sports recovery drink.'
@@ -30,7 +30,7 @@ profile:
   - 'Modest bitterness'
   - 'Clean finish'
 highlight: 'Spicy malt notes with caramel-sweet nuances and the distinctive banana-clove wheat beer signature.'
-nose: 'Spicy malt notes with caramel-sweet nuances and the distinctive banana-clove wheat beer signature.'
+nose: Spicy malt notes with caramel-sweet nuances and the distinctive banana-clove wheat beer signature.
 palate: 'Round and spicy; the wheat body gives it more substance than most NA lagers, with the hop bitterness balanced by malt sweetness.'
 finish: 'Clean and lightly fruity — the wheat beer finish that reads as authentic.'
 best_for: 'Post-sports recovery (the isotonic pitch), Bavarian food, and the wheat beer drinker who wants the real thing.'
@@ -112,10 +112,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Erdinger Alkoholfrei is non-alcoholic with an unpublished production process from Bavaria, Germany. No cited producer page names a removal technique, so the badge stays not-verified.
+## The beer
 
-The nose is spicy malt notes with caramel-sweet nuances and the distinctive banana-clove wheat beer signature.
+Erdinger Alkoholfrei is classified as Production type: Not verified — Erdinger does not publish whether the alcohol is removed from finished beer or fermentation is stopped early; the beer is marketed as naturally isotonic. from Bavaria, Germany. Erdinger does not publish whether the alcohol is removed from finished beer or fermentation is stopped early; the beer is marketed as naturally isotonic.
 
-On the palate, round and spicy; the wheat body gives it more substance than most NA lagers, with the hop bitterness balanced by malt sweetness. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, spicy malt notes with caramel-sweet nuances and the distinctive banana-clove wheat beer signature. On the palate, round and spicy; the wheat body gives it more substance than most NA lagers, with the hop bitterness balanced by malt sweetness. The finish is clean and lightly fruity — the wheat beer finish that reads as authentic. The most widely available non-alcoholic wheat beer in the world, and the one that set the standard: spicy malt, caramel sweetness, isotonic positioning, and honest Bavarian brewing.
 
-The finish is clean and lightly fruity — the wheat beer finish that reads as authentic. The most widely available non-alcoholic wheat beer in the world, and the one that set the standard: spicy malt, caramel sweetness, isotonic positioning, and honest Bavarian brewing. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+The most widely available non-alcoholic wheat beer in the world, and the one that set the standard: spicy malt, caramel sweetness, isotonic positioning, and honest Bavarian brewing. Serve cold, in a wheat beer glass with a proper head.

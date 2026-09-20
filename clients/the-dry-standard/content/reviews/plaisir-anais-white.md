@@ -26,7 +26,7 @@ image_credit: Editorial still
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 82
 verdict: 'A straightforward 0.0% Sauvignon Blanc built around freshness and citrus rather than complexity. Pleasant and easy, though depth and finish trail the strongest wines in this set.'
 summary: 'Plaisir d’Anaïs Blanc — Bordeaux Sauvignon Blanc, dealcoholized and labeled 0%. Provisional research score — least documented tasting profile in the group.'
@@ -147,8 +147,10 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Bottle confirms Sauvignon Blanc and 0% on the front label. Maison Lamartine’s Plaisir d’Anaïs line is dealcoholized wine; vacuum distillation remains a secondary retailer claim.
+## The wine
 
-Sensory notes for this SKU are deliberately conservative — independent product-page tasting language is thin, and conventional wines named Plaisir Blanc must not contaminate the record. Nose: citrus, white fruit, subtle floral/herbal. Palate: light and crisp — lemon, green fruit, moderate acid. Finish: short-to-medium, citrus-led.
+Plaisir d'Anaïs Blanc is dealcoholized from Bordeaux, France. The base is Sauvignon Blanc, fermented then dealcoholized. Vacuum distillation (specialist retailer; not confirmed on a current producer technical sheet).
 
-Provisional research score 82 until a Dry Standard cellar tasting. Method provenance stays secondary.
+On the nose, Citrus, white fruit and subtle floral/herbal notes. On the palate, Light and crisp, with lemon, green fruit and moderate acidity. Clean rather than particularly concentrated. Mouthfeel: Light and crisp; clean rather than concentrated. The finish is Short-to-medium, citrus-led and refreshing.
+
+Reads as a simple dealcoholized Sauvignon Blanc. Less documented than Tip Top or NOOH; do not borrow notes from unrelated conventional “Plaisir Blanc” wines. Serve well chilled.

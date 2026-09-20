@@ -15,6 +15,7 @@ region: Languedoc
 style: 'Dealcoholized Côtes du Roussillon rosé (Grenache)'
 base_beverage: 'Grenache rosé, Côtes du Roussillon'
 production_type: dealcoholized
+method_facet: unpublished
 verified: 'yes'
 production_note: "Rosé All Day Zero is the alcohol-removed extension of Biagio Cru's Rosé All Day. Trade press and Target manufacturer-supplied product data list 0% / Alcohol Percentage: 0. Named removal technology remains unpublished."
 availability: 'Total Wine & More; Target'
@@ -22,7 +23,7 @@ image_alt: 'Biagio Cru Non-Alcoholic Rosé All Day'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 71
 verdict: 'A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf.'
 summary: 'Biagio Cru Rosé All Day Zero is an alcohol-removed French rosé at 0.0% ABV per brand launch copy and Target product data.'
@@ -33,9 +34,9 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-nose: 'Generic red berry.'
+nose: Generic red berry.
 palate: 'Sweet, light, low acid.'
-finish: Short.
+finish: 'short. A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf.'
 best_for: 'The name, if that is why you picked it up.'
 serve: 'Very cold.'
 sources:
@@ -116,10 +117,10 @@ sensory:
       - palate
 ---
 
-Biagio Cru Rosé All Day Zero is dealcoholized Grenache rosé from Languedoc, France. Brand and Target product data list 0.0% ABV; the named removal machine stays unpublished.
+## The wine
 
-The nose is generic red berry.
+Biagio Cru Rosé All Day is dealcoholized from Languedoc, France. The base is Grenache rosé, Côtes du Roussillon. Rosé All Day Zero is the alcohol-removed extension of Biagio Cru's Rosé All Day. Trade press and Target manufacturer-supplied product data list 0% / Alcohol Percentage: 0. Named removal technology remains unpublished.
 
-On the palate, sweet, light, low acid. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, generic red berry. On the palate, sweet, light, low acid. The finish is short. A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf.
 
-The finish is short. A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.
+A pun and a pink bottle. Soft fruit, short finish, nothing we can cite but the shelf. Serve very cold.

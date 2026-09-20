@@ -24,7 +24,7 @@ image_credit: 'Product photo via heineken.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 53
 verdict: 'A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty.'
 summary: 'Heineken brews its traditional beer with A-Yeast, double-brews, then extracts the ethanol with vacuum distillation: 0.0% ABV, 21 kcal per 100 ml. What remains has almost no flavor.'
@@ -34,9 +34,9 @@ tastes:
 profile:
   - Off-dry
   - 'Modest bitterness'
-nose: 'Wet cardboard and a faint grain whisper. Nothing you would call malt.'
-palate: 'Water with a hint of sweetness and almost no bitterness. It tastes like nothing.'
-finish: 'Gone before you swallow. No hop, no malt, no aftertaste.'
+nose: 'wet cardboard and a faint grain whisper. Nothing you would call malt. On the palate, water with a hint of sweetness and almost no bitterness. It tastes like nothing. The finish is gone before you swallow. No hop, no malt, no aftertaste. A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty.'
+palate: Water with a hint of sweetness and almost no bitterness. It tastes like nothing.
+finish: 'gone before you swallow. No hop, no malt, no aftertaste. A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty.'
 best_for: 'When the only other option is tap water, and you still might pick the water.'
 serve: 'Ice cold, if you drink it at all. Warmth makes the emptiness louder.'
 sources:
@@ -118,10 +118,10 @@ sensory:
       - palate
 ---
 
+## The beer
+
 Heineken 0.0 is dealcoholized. The base is The traditional Heineken brew, made with the same A-Yeast before alcohol extraction. Alcohol extracted from the traditional brew using vacuum distillation columns, following a double-brew step with Heineken's A-Yeast (documented by The Process).
 
-The nose is wet cardboard and a faint grain whisper. Nothing you would call malt.
+On the nose, wet cardboard and a faint grain whisper. Nothing you would call malt. On the palate, water with a hint of sweetness and almost no bitterness. It tastes like nothing. The finish is gone before you swallow. No hop, no malt, no aftertaste. A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty. On the palate, Water with a hint of sweetness and almost no bitterness. It tastes like nothing. The finish is gone before you swallow. No hop, no malt, no aftertaste. A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty.
 
-On the palate, water with a hint of sweetness and almost no bitterness. It tastes like nothing. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is gone before you swallow. No hop, no malt, no aftertaste. A documented dealcoholized lager that tastes like nothing. The process is real. The glass is empty. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.
+Serve ice cold, if you drink it at all. Warmth makes the emptiness louder.

@@ -18,7 +18,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 73
 verdict: 'Ginger, lime, and fizz in a can. Not a dealcoholized vodka. A formulated mule, which is the honest category.'
 summary: "Savyll's Moscow Mule is a Total Wine RTD. It is treated as formulated, not dealcoholized, because no source describes alcohol removal."
@@ -33,7 +33,7 @@ profile:
   - 'Short finish'
 nose: 'Ginger and lime peel, bright and candy-adjacent.'
 palate: 'Spicy ginger, sweet lime, carbonation doing the work a spirit would.'
-finish: 'Short ginger heat. More soda than cocktail.'
+finish: 'short ginger heat. More soda than cocktail. Ginger, lime, and fizz in a can. Not a dealcoholized vodka. A formulated mule, which is the honest category.'
 best_for: 'The can you open instead of mixing.'
 serve: 'Iced, copper mug if you must.'
 sources:
@@ -73,10 +73,10 @@ provenance:
     url: 'https://www.totalwine.com/'
 ---
 
-Savyll Moscow Mule is formulated as an alcohol alternative. It was built without a dealcoholization step. A Moscow Mule that never started as vodka is not a failure. It is a different product. No producer page naming a dealcoholized distillate was found, so Production Type is Alternative.
+## The drink
 
-The nose is ginger and lime peel, bright and candy-adjacent.
+Savyll Moscow Mule is formulated as an alcohol alternative. An RTD mule. No source describes a spirit that was later dealcoholized.
 
-On the palate, spicy ginger, sweet lime, carbonation doing the work a spirit would. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, ginger and lime peel, bright and candy-adjacent. On the palate, spicy ginger, sweet lime, carbonation doing the work a spirit would. The finish is short ginger heat. More soda than cocktail. Ginger, lime, and fizz in a can. Not a dealcoholized vodka. A formulated mule, which is the honest category.
 
-The finish is short ginger heat. More soda than cocktail. Ginger, lime, and fizz in a can. Not a dealcoholized vodka. A formulated mule, which is the honest category. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+Ginger, lime, and fizz in a can. Not a dealcoholized vodka. A formulated mule, which is the honest category. Serve iced, copper mug if you must.

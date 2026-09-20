@@ -204,7 +204,7 @@ final class ReviewValidator
 
         if ($review->productionType === 'dealcoholized'
             && ($review->dealcoholizationMethod === null || trim($review->dealcoholizationMethod) === '')) {
-            $warnings[] = 'classification warning: dealcoholized without a named method (method facet unpublished)';
+            $warnings[] = 'classification note: dealcoholized with method unpublished — keep until a named technology is sourced';
         }
 
         if ($review->abv === '0.0%' && $review->abvNumeric !== null && $review->abvNumeric > 0.05) {

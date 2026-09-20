@@ -14,6 +14,7 @@ abv: 0.0%
 abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
+method_facet: unpublished
 dealcoholization_method: 'Alcohol removed from conventionally vinified Riesling (producer describes the Zero line as non-alcoholic without specifying the technique)'
 base_beverage: 'Riesling from Mosel steep-slope vineyards, vinified conventionally before alcohol removal'
 producer: 'P.J. Valckenberg (Germany)'
@@ -23,21 +24,24 @@ image_alt: 'Valckenberg Zero Riesling bottle'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 80
 verdict: "A Mosel Riesling at 0.0% from one of Germany's oldest wine houses — clean fruit, vibrant acidity, honest about what it is."
 summary: "Valckenberg's Zero Riesling is a dealcoholized Mosel Riesling: pineapple and green apple over a mineral edge, 0.0% ABV."
 tastes:
   - pineapple
   - 'green apple'
+  - lemon
+  - mineral
 profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Clean finish'
-mouthfeel: 'Clean and citric.'
-nose: 'Pineapple, green apple and lemon with a mineral edge — varietally correct Riesling aromatics.'
-palate: 'Crystal-clear fruit, vibrant acidity and a fine mineral edge; lighter in body than a full-strength Mosel but the Riesling character survives.'
-finish: 'Clean and citric.'
+mouthfeel: 'Clean and citric — lighter mid-palate than full-strength Mosel, acidity still doing the work.'
+nose: 'pineapple, green apple and lemon sit over a mineral edge — varietally correct Riesling aromatics, not juice perfume. The palate is crystal-clear fruit with vibrant acidity and a fine mineral line. Body is lighter than a full-strength Mosel once ethanol is gone, but the fingerprint survives. Mouthfeel stays clean and citric. The finish is clean and short once the fruit drops away.'
+palate: 'Crystal-clear fruit, vibrant acidity and a fine mineral edge. Lighter in body than a full-strength Mosel, but the Riesling fingerprint survives the removal.'
+finish: 'Clean and citric, a touch short once the fruit drops away.'
+likeness: 'More convincing on aroma and acid than on mid-palate weight — classic dealcoholized Riesling tradeoff, executed cleanly.'
 best_for: 'Sushi, light fish, Mediterranean vegetables — the Riesling pairings.'
 serve: 'Well chilled.'
 sources:
@@ -73,10 +77,21 @@ sensory:
   -
     descriptor: pineapple
     locations:
+      - nose
       - palate
   -
     descriptor: green_apple
     locations:
+      - nose
+      - palate
+  -
+    descriptor: lemon
+    locations:
+      - nose
+  -
+    descriptor: mineral
+    locations:
+      - nose
       - palate
 structure_scales:
   acidity: 3
@@ -84,33 +99,34 @@ structure_scales:
   finish_length: 0
 provenance:
   abv:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.vinello.de/en/zero-riesling-00-pj-valckenberg'
   production_type:
-    kind: unknown
-    confidence: secondary
-    url: 'https://www.vinello.de/en/zero-riesling-00-pj-valckenberg'
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.valckenberg.com/en/wineries/winery/77-valckenberg-zero'
   country:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.vinello.de/en/zero-riesling-00-pj-valckenberg'
   region:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.vinello.de/en/zero-riesling-00-pj-valckenberg'
   volume:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.vinello.de/en/zero-riesling-00-pj-valckenberg'
   availability:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.vinello.de/en/zero-riesling-00-pj-valckenberg'
   dealcoholization_method:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://www.vinello.de/en/zero-riesling-00-pj-valckenberg'
+    note: 'Removal confirmed; named industrial technology unpublished on the Zero line page.'
   producer:
     kind: manufacturer
     confidence: manufacturer_verified
@@ -125,10 +141,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Valckenberg Zero Riesling is dealcoholized from Mosel, Germany. The base is Riesling from Mosel steep-slope vineyards, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified Riesling (producer describes the Zero line as non-alcoholic without specifying the technique).
+## The wine
 
-The nose is pineapple, green apple and lemon with a mineral edge — varietally correct Riesling aromatics.
+Valckenberg Zero Riesling is Mosel fruit put through a conventional vinification, then dealcoholized to 0.0%. The base is steep-slope Riesling; the Zero line confirms removal without naming the industrial kit. That keeps the method facet honest: unpublished technology, sourced production type.
 
-On the palate, crystal-clear fruit, vibrant acidity and a fine mineral edge; lighter in body than a full-strength Mosel but the Riesling character survives. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, pineapple, green apple and lemon sit over a mineral edge — varietally correct Riesling aromatics, not juice perfume. The palate is crystal-clear fruit with vibrant acidity and a fine mineral line. Body is lighter than a full-strength Mosel once ethanol is gone, but the fingerprint survives. Mouthfeel stays clean and citric. The finish is clean and short once the fruit drops away.
 
-The finish is clean and citric. A Mosel Riesling at 0.0% from one of Germany's oldest wine houses — clean fruit, vibrant acidity, honest about what it is. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+Likeness is stronger on aroma and acid than on mid-palate weight — the standard dealcoholized Riesling tradeoff, executed without candy or off-notes. Serve well chilled with sushi, light fish, or Mediterranean vegetables. For the ginger-and-orange flavored sibling, see It's not a SIN.

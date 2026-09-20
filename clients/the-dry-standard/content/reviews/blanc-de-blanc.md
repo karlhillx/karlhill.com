@@ -26,7 +26,7 @@ image_source: producer
 image_source_url: 'https://joerg-geiger.co.uk/products/blanc-de-blanc-with-chardonnay-0-75l'
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 87
 verdict: "Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk."
 summary: "Jörg Geiger's Blanc de Blanc is organic Chardonnay and Colombard, bottle-fermented and aged two years on the lees before vacuum distillation: brioche, apple, gooseberry and blossom."
@@ -35,9 +35,9 @@ tastes:
 profile:
   - 'Soft bead'
 mouthfeel: 'Long and toasty, the brioche note extending the finish.'
-nose: 'Brioche and baked apple with a floral lift — the lees ageing leaves a genuine Champagne-adjacent aromatic signature.'
+nose: 'brioche and baked apple with a floral lift — the lees ageing leaves a genuine Champagne-adjacent aromatic signature. On the palate, structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve. Mouthfeel: long and toasty, the brioche note extending the finish. The finish is long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that''s how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk.'
 palate: 'Structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve.'
-finish: 'Long and toasty, the brioche note extending the finish.'
+finish: 'long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that''s how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk.'
 best_for: "The dinner-party bottle, and the answer to anyone who says NA sparkling can't be serious."
 serve: 'Chilled, in a flute or white-wine glass.'
 sources:
@@ -122,10 +122,10 @@ sensory:
       - palate
 ---
 
+## The wine
+
 Blanc de Blanc Non-Alcoholic Sparkling Wine (Jörg Geiger) is dealcoholized from Germany. The base is Organic Chardonnay and Colombard, conventionally vinified with secondary bottle fermentation and lees ageing before dealcoholization. Organic Chardonnay and Colombard wine, bottle-fermented and matured on the lees for two years, then vacuum distilled (producer).
 
-The nose is brioche and baked apple with a floral lift — the lees ageing leaves a genuine Champagne-adjacent aromatic signature.
+On the nose, brioche and baked apple with a floral lift — the lees ageing leaves a genuine Champagne-adjacent aromatic signature. On the palate, structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve. Mouthfeel: long and toasty, the brioche note extending the finish. The finish is long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk. On the palate, Structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve. Mouthfeel: Long and toasty, the brioche note extending the finish. The finish is long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk.
 
-On the palate, structured and dry; orchard fruit, gooseberry and tangerine over a fine mousse, with more mid-palate weight than most dealcoholized sparklings achieve. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is long and toasty, the brioche note extending the finish. Two years on the lees before vacuum distillation — that's how you keep brioche character in a zero-proof sparkling. The most serious NA sparkling on this desk. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine.
+Serve chilled, in a flute or white-wine glass.

@@ -29,7 +29,7 @@ image_credit: Editorial still
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 86
 verdict: 'A restrained, dry-leaning take on alcohol-free Riesling that prioritizes acidity and minerality over overt fruitiness. More serious than juicy.'
 summary: 'Weinkönig Riesling Nr. 420 — vacuum-dealcoholized after full vinification. Dry-leaning, mineral, and high-acid.'
@@ -49,7 +49,7 @@ likeness: 'Closer to dry German Riesling structure than to tropical NA white jui
 drink_if_you_like:
   - 'Dry German Riesling'
   - 'High-acid seafood whites'
-nose: 'Citrus and green orchard fruit with a clean mineral edge. Aromatically restrained rather than tropical or perfumed.'
+nose: Citrus and green orchard fruit with a clean mineral edge. Aromatically restrained rather than tropical or perfumed.
 palate: 'Lean and crisp, driven by tart apple, lemon and Riesling-like acidity. Enough fruit to stay approachable without losing the drier profile.'
 finish: 'Medium, tart and mineral, with citrus peel and a slight drying sensation.'
 structure: 'High acid and lean body do the authenticity work. Dry-leaning; not a sweet residual-sugar showpiece despite added sugar on the ingredients list.'
@@ -182,8 +182,10 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Weinkönig Riesling Nr. 420 is fully vinified Riesling, then dealcoholized under vacuum around 28°C with aroma return. The front label leads with Nr. 420 and prints DE-ALCOHOLISED / ALKOHOLFREI. Ingredients include dealcoholized wine, sugar, CO₂, and SO₂.
+## The wine
 
-In the glass it is restrained: citrus and green orchard fruit with a clean mineral edge — not tropical, not perfumed. The palate is lean and crisp — tart apple, lemon, Riesling-like acidity — with enough fruit to stay approachable. Finish is medium, tart and mineral, citrus peel and a slight dry grip.
+Weinkönig Riesling Nr. 420 is dealcoholized from Rheinhessen, Germany. The base is 100% Riesling, fermented then dealcoholized. Vacuum dealcoholization after full vinification at about 28°C, with volatile aroma compounds collected and returned (producer FAQ / product page).
 
-Score 86 for structural discipline more than aromatic fireworks. Tip Top edges it on complexity; Nr. 420 edges many peers on dry-leaning authenticity. Numeric ABV stays 0.3% from WirWinzer, not collapsed into marketing 0%.
+On the nose, Citrus and green orchard fruit with a clean mineral edge. Aromatically restrained rather than tropical or perfumed. On the palate, Lean and crisp, driven by tart apple, lemon and Riesling-like acidity. Enough fruit to stay approachable without losing the drier profile. Mouthfeel: Lean and crisp, with a slight drying sensation on the finish. The finish is Medium, tart and mineral, with citrus peel and a slight drying sensation.
+
+Closer to dry German Riesling structure than to tropical NA white juice. Tip Top has more aroma; Nr. 420 has tighter bones. Serve 6–8°C (producer).

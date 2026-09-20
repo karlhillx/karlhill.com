@@ -24,7 +24,7 @@ image_source: producer
 image_source_url: 'https://www.minglemocktails.com/products/sparkling-raspberry-rose'
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 79
 verdict: 'A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink.'
 summary: "Mingle's Sparkling Raspberry Rosé is a real-juice sparkling mocktail at 0.00% ABV: crisp raspberry, light bubbles, sold by the can and the case."
@@ -37,9 +37,9 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Soft bead'
-nose: 'Bright raspberry and a soft floral top note; lightly sparkling.'
+nose: Bright raspberry and a soft floral top note; lightly sparkling.
 palate: 'Crisp and refreshing, real raspberry juice over a clean sparkling base — a touch of sweetness without syrup weight.'
-finish: 'Clean and short, the fruit trailing off gently.'
+finish: 'clean and short, the fruit trailing off gently. A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink.'
 best_for: "Brunch, the patio, spritzing up a glass when the rosé bottle isn't the point."
 serve: 'Straight from the can, or over ice with a raspberry or a mint leaf.'
 sources:
@@ -126,10 +126,10 @@ sensory:
       - palate
 ---
 
-Mingle Sparkling Raspberry Rosé is formulated as an alcohol alternative from United States. The base is Sparkling water with real raspberry juice and natural flavorings; no underlying alcoholic drink. It was built without a dealcoholization step.
+## The drink
 
-The nose is bright raspberry and a soft floral top note; lightly sparkling.
+Mingle Sparkling Raspberry Rosé is formulated as an alcohol alternative from United States. The base is Sparkling water with real raspberry juice and natural flavorings; no underlying alcoholic drink. Mingle is formulated as an alcohol-free mocktail — real juice, sparkling water and botanicals — rather than made by removing alcohol from an alcoholic cocktail.
 
-On the palate, crisp and refreshing, real raspberry juice over a clean sparkling base — a touch of sweetness without syrup weight. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, bright raspberry and a soft floral top note; lightly sparkling. On the palate, crisp and refreshing, real raspberry juice over a clean sparkling base — a touch of sweetness without syrup weight. The finish is clean and short, the fruit trailing off gently. A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink.
 
-The finish is clean and short, the fruit trailing off gently. A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.
+A light, genuinely bubbly canned mocktail that reads as a raspberry spritz rather than a juice box — and one of the few in the category priced like a soft drink. Serve straight from the can, or over ice with a raspberry or a mint leaf.

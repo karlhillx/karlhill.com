@@ -27,7 +27,7 @@ image_source: producer
 image_source_url: 'https://giesen.co.nz/products/0-rose'
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 86
 verdict: 'The same spinning-cone pipeline as the 0% Sauvignon Blanc and Riesling, applied to a pale New Zealand rosé. White peach and strawberry, dry enough for lunch.'
 summary: 'Giesen ferments a full-strength Marlborough and Waipara rosé, then removes the alcohol with spinning cone technology. Less than 0.5% ABV.'
@@ -42,9 +42,9 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-nose: 'White peach, apple, and fresh strawberry — lifted, not candied.'
+nose: 'white peach, apple, and fresh strawberry — lifted, not candied. On the palate, cranberry and stone fruit over a light frame. 18 g/L residual sugar reads off-dry, not soda. The finish is crisp and short. The acidity does the work the ethanol used to. The same spinning-cone pipeline as the 0% Sauvignon Blanc and Riesling, applied to a pale New Zealand rosé. White peach and strawberry, dry enough for lunch.'
 palate: 'Cranberry and stone fruit over a light frame. 18 g/L residual sugar reads off-dry, not soda.'
-finish: 'Crisp and short. The acidity does the work the ethanol used to.'
+finish: Crisp and short.
 best_for: 'Charcuterie, a warm afternoon, anyone who already likes the Giesen 0% whites.'
 serve: 'Well chilled, white-wine glass.'
 sources:
@@ -146,10 +146,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Giesen 0% Rosé is dealcoholized from Marlborough and Waipara, New Zealand. The base is Full-strength New Zealand rosé from aromatic and red varietals, then dealcoholized. Spinning cone technology — aroma, alcohol, and body separated, then aroma and body recombined. The glass is the same argument as the 0% Riesling: varietal fruit survives the cone. Peach and strawberry, a dry-seeming finish, less weight than a 12% Waipara rosé. If you already trust this pipeline, this is the pink bottle in the set.
+## The wine
 
-The nose is white peach, apple, and fresh strawberry — lifted, not candied.
+Giesen 0% Rosé is dealcoholized from Marlborough and Waipara, New Zealand. The base is Full-strength New Zealand rosé from aromatic and red varietals, then dealcoholized. Spinning cone technology — aroma, alcohol, and body separated, then aroma and body recombined.
 
-On the palate, cranberry and stone fruit over a light frame. 18 g/L residual sugar reads off-dry, not soda. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, white peach, apple, and fresh strawberry — lifted, not candied. On the palate, cranberry and stone fruit over a light frame. 18 g/L residual sugar reads off-dry, not soda. The finish is crisp and short. The acidity does the work the ethanol used to. The same spinning-cone pipeline as the 0% Sauvignon Blanc and Riesling, applied to a pale New Zealand rosé. White peach and strawberry, dry enough for lunch. On the palate, Cranberry and stone fruit over a light frame. 18 g/L residual sugar reads off-dry, not soda. The finish is Crisp and short.
 
-The finish is crisp and short. The acidity does the work the ethanol used to. The same spinning-cone pipeline as the 0% Sauvignon Blanc and Riesling, applied to a pale New Zealand rosé. White peach and strawberry, dry enough for lunch. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine.
+The same spinning-cone pipeline as the 0% Sauvignon Blanc and Riesling, applied to a pale New Zealand rosé. White peach and strawberry, dry enough for lunch. Serve well chilled, white-wine glass.

@@ -18,7 +18,7 @@ ingredients: 'Water, barley, hops, yeast (producer)'
 producer: 'Nonny Beer (Vancouver, BC, Canada)'
 availability: 'US via us.nonny.beer and specialty NA retailers including Upside Drinks'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 83
 verdict: "A Czech pilsner made by people who clearly care about Czech pilsner: the hop bitterness is right, the malt is clean, and at 42 calories a can it's the leanest credible pils on this desk."
 summary: "Nonny's Czech Pilsner is a traditional-ingredient NA lager from the Czech Republic: water, barley, hops, yeast, 42 calories a can, real bitterness."
@@ -30,7 +30,7 @@ profile:
   - 'Modest bitterness'
   - 'Clean finish'
 highlight: 'Fresh Saaz-style hop grassiness and clean pilsner malt — the classic Czech aromatic signature.'
-nose: 'Fresh Saaz-style hop grassiness and clean pilsner malt — the classic Czech aromatic signature.'
+nose: Fresh Saaz-style hop grassiness and clean pilsner malt — the classic Czech aromatic signature.
 palate: 'Crisp and properly bitter; grassy hops over a light, clean malt body with genuine pilsner bite.'
 finish: 'Dry, bitter and refreshing — the hop character carries a long way for a 42-calorie can.'
 best_for: 'Anyone who drinks Czech lager and wants the zero-proof version to taste like Czech lager.'
@@ -105,10 +105,10 @@ sensory:
       - palate
 ---
 
-Nonny Czech Pilsner is brewed or fermented to finish at low ABV without a published removal step from Canada. Nonny's own site describes the beer as 'always below 0.5% alcohol' with no removal-process language anywhere across its product or brand pages, consistent wi….
+## The beer
 
-The nose is fresh Saaz-style hop grassiness and clean pilsner malt — the classic Czech aromatic signature.
+Nonny Czech Pilsner is brewed or fermented to finish at low ABV without a published removal step from Canada. Nonny's own site describes the beer as 'always below 0.5% alcohol' with no removal-process language anywhere across its product or brand pages, consistent with formulated-from-the-start production. 'Czech Pilsner' names the beer style Nonny is brewed to replicate, not its coun…
 
-On the palate, crisp and properly bitter; grassy hops over a light, clean malt body with genuine pilsner bite. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, fresh Saaz-style hop grassiness and clean pilsner malt — the classic Czech aromatic signature. On the palate, crisp and properly bitter; grassy hops over a light, clean malt body with genuine pilsner bite. The finish is dry, bitter and refreshing — the hop character carries a long way for a 42-calorie can. A Czech pilsner made by people who clearly care about Czech pilsner: the hop bitterness is right, the malt is clean, and at 42 calories a can it's the leanest credible pils on this desk.
 
-The finish is dry, bitter and refreshing — the hop character carries a long way for a 42-calorie can. A Czech pilsner made by people who clearly care about Czech pilsner: the hop bitterness is right, the malt is clean, and at 42 calories a can it's the leanest credible pils on this desk. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+A Czech pilsner made by people who clearly care about Czech pilsner: the hop bitterness is right, the malt is clean, and at 42 calories a can it's the leanest credible pils on this desk. Serve cold, in a pils glass.

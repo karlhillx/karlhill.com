@@ -21,7 +21,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 76
 verdict: 'A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation.'
 summary: "DC Brau's non-alcoholic pale ale is a Washington, DC brewery product sold at Total Wine and Metro. Method and ABV are not published on a page we can cite."
@@ -34,9 +34,9 @@ profile:
   - 'Light body'
   - 'Modest bitterness'
   - 'Short finish'
-nose: 'Pale-ale citrus and biscuit malt, modest.'
+nose: 'pale-ale citrus and biscuit malt, modest. On the palate, light body, gentle bitterness, a little grain-sweet in the middle. The finish is short. Clean enough to have a second. A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation.'
 palate: 'Light body, gentle bitterness, a little grain-sweet in the middle.'
-finish: 'Short. Clean enough to have a second.'
+finish: 'short. Clean enough to have a second. A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation.'
 best_for: 'The local six-pack when you do not want to mail-order Athletic.'
 serve: Cold.
 sources:
@@ -103,10 +103,10 @@ sensory:
       - palate
 ---
 
-DC Brau Non-Alcoholic Pale Ale is dealcoholized from Washington, DC, United States. Mechanical separator removing alcohol from finished beer, combined with a hybrid low-alcohol Lallemand yeast strain during fermentation. The can is a pale ale, not a hop-water. Biscuit, light citrus, a short finish. A local bottle, not a national argument.
+## The beer
 
-The nose is pale-ale citrus and biscuit malt, modest.
+DC Brau Non-Alcoholic Pale Ale is dealcoholized from Washington, DC, United States. Mechanical separator removing alcohol from finished beer, combined with a hybrid low-alcohol Lallemand yeast strain during fermentation.
 
-On the palate, light body, gentle bitterness, a little grain-sweet in the middle. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, pale-ale citrus and biscuit malt, modest. On the palate, light body, gentle bitterness, a little grain-sweet in the middle. The finish is short. Clean enough to have a second. A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation. On the palate, Light body, gentle bitterness, a little grain-sweet in the middle. The finish is short. Clean enough to have a second. A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation.
 
-The finish is short. Clean enough to have a second. A local NA pale ale that shows up in DC-area shops. Honest malt and hop, thin public facts. The can is better than the citation. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.
+Serve cold.

@@ -19,7 +19,7 @@ volume: '8.4 fl oz (250 ml) can, sold in 4-packs, 8-packs, and 12-packs (produce
 price: '$50.99 per 12-pack direct from lyres.com (~$4.25/can); case pricing varies by retailer'
 availability: 'Direct from lyres.com (US) and US retail including Harris Teeter (Instacart)'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 83
 verdict: "The most Mediterranean thing Lyre's has ever canned: bitter orange, rhubarb, fine bubbles, and the right amount of bittersweet for the hour."
 summary: "Lyre's Amalfi Spritz is an Australian-made non-alcoholic canned spritz inspired by Mediterranean aperitivo culture: bitter orange, rhubarb, and a fine persistent bubble at <0.5% ABV."
@@ -33,9 +33,9 @@ profile:
   - 'Light body'
   - 'Soft bead'
 mouthfeel: 'Crisp and lightly bitter, the rhubarb trailing just a beat behind the orange.'
-nose: 'Bitter orange peel and rhubarb sweetness; light floral top notes.'
+nose: Bitter orange peel and rhubarb sweetness; light floral top notes.
 palate: 'Bittersweet and well-balanced; the orange citrusy lift grounds a rhubarb-laced finish, no syrupy weight, no bitter liquorice hangover from the botanicals.'
-finish: 'Crisp and lightly bitter, the rhubarb trailing just a beat behind the orange.'
+finish: 'crisp and lightly bitter, the rhubarb trailing just a beat behind the orange. The most Mediterranean thing Lyre''s has ever canned: bitter orange, rhubarb, fine bubbles, and the right amount of bittersweet for the hour.'
 best_for: "Late-afternoon spritzes when you want Aperol vibes without Aperol's proof."
 serve: 'Build over ice with a large orange peel; the canned format is ready-to-drink but the build is better.'
 image: media/reviews/lyres-amalfi-spritz.jpg
@@ -116,10 +116,10 @@ sensory:
       - palate
 ---
 
-Lyre's Amalfi Spritz is formulated as an alcohol alternative from Australia. The base is Lyre's Italian Orange spirit replica base (no underlying alcohol-containing spirit). It was built without a dealcoholization step.
+## The drink
 
-The nose is bitter orange peel and rhubarb sweetness; light floral top notes.
+Lyre's Amalfi Spritz is formulated as an alcohol alternative from Australia. The base is Lyre's Italian Orange spirit replica base (no underlying alcohol-containing spirit). Lyre's range is formulated from scratch using natural flavors and distillates — none of the brand's products are made by removing alcohol from a finished alcoholic version.
 
-On the palate, bittersweet and well-balanced; the orange citrusy lift grounds a rhubarb-laced finish, no syrupy weight, no bitter liquorice hangover from the botanicals. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, bitter orange peel and rhubarb sweetness; light floral top notes. On the palate, bittersweet and well-balanced; the orange citrusy lift grounds a rhubarb-laced finish, no syrupy weight, no bitter liquorice hangover from the botanicals. Mouthfeel: crisp and lightly bitter, the rhubarb trailing just a beat behind the orange. The finish is crisp and lightly bitter, the rhubarb trailing just a beat behind the orange. The most Mediterranean thing Lyre's has ever canned: bitter orange, rhubarb, fine bubbles, and the right amount of bittersweet for the hour.
 
-The finish is crisp and lightly bitter, the rhubarb trailing just a beat behind the orange. The most Mediterranean thing Lyre's has ever canned: bitter orange, rhubarb, fine bubbles, and the right amount of bittersweet for the hour. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.
+The most Mediterranean thing Lyre's has ever canned: bitter orange, rhubarb, fine bubbles, and the right amount of bittersweet for the hour. Serve build over ice with a large orange peel; the canned format is ready-to-drink but the build is better.

@@ -23,7 +23,7 @@ image_credit: 'Product photo via gobrewing.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 85
 verdict: "A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass."
 summary: "Go Brewing's Sunbeam Pils is a German-malt-and-hop non-alcoholic pilsner from Naperville, Illinois: under 0.5% ABV, crisp and clean, $14.99 a six-pack."
@@ -38,7 +38,7 @@ profile:
   - 'Clean finish'
 nose: 'Fresh bread crust and a grassy hop lift — classic German pilsner aromatics, no ester heaviness.'
 palate: 'Light, crisp and properly bitter; noble-hop grass and a clean malt backbone that carries the bitterness rather than fighting it.'
-finish: 'Dry and snappy, the hop bitterness lingering politely.'
+finish: 'dry and snappy, the hop bitterness lingering politely. A flagship pils from Illinois'' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass.'
 best_for: 'The fridge staple, the weekday dinner beer, the one you hand a pilsner drinker to prove NA works.'
 serve: 'Cold, in a tall pils glass.'
 sources:
@@ -116,10 +116,10 @@ sensory:
       - palate
 ---
 
-Go Brewing Suspended In A Sunbeam Pils is brewed or fermented to finish at low ABV without a published removal step from Naperville, Illinois, United States. Go Brewing's own product FAQ states: 'We use Go Brewing's proprietary brewing process to keep it naturally under 0.5% ABV without dilution or dealcoholizatio….
+## The beer
 
-The nose is fresh bread crust and a grassy hop lift — classic German pilsner aromatics, no ester heaviness.
+Go Brewing Suspended In A Sunbeam Pils is brewed or fermented to finish at low ABV without a published removal step from Naperville, Illinois, United States. Go Brewing's own product FAQ states: 'We use Go Brewing's proprietary brewing process to keep it naturally under 0.5% ABV without dilution or dealcoholization, allowing for full pilsner character' — an explicit statement ruling out dealcoholization.
 
-On the palate, light, crisp and properly bitter; noble-hop grass and a clean malt backbone that carries the bitterness rather than fighting it. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, fresh bread crust and a grassy hop lift — classic German pilsner aromatics, no ester heaviness. On the palate, light, crisp and properly bitter; noble-hop grass and a clean malt backbone that carries the bitterness rather than fighting it. The finish is dry and snappy, the hop bitterness lingering politely. A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass.
 
-The finish is dry and snappy, the hop bitterness lingering politely. A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+A flagship pils from Illinois' first NA craft brewery that drinks like the real thing: German malt and hops, light and crisp, no apology anywhere in the glass. Serve cold, in a tall pils glass.

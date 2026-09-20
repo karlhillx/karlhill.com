@@ -23,7 +23,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 87
 verdict: 'The Riesling sibling of the 0% Sauvignon Blanc already on this desk, built on the same citable spinning-cone process — and arguably the better glass.'
 summary: 'Giesen makes full-strength Marlborough Riesling first, removes the alcohol with spinning cone technology, and keeps the lime-and-mandarin varietal core intact.'
@@ -37,7 +37,7 @@ profile:
   - Off-dry
   - 'Light body'
   - 'Short finish'
-nose: 'Lime, citrus blossom and mandarin — bright, lifted, unmistakably Riesling.'
+nose: 'lime, citrus blossom and mandarin — bright, lifted, unmistakably Riesling. On the palate, beautifully balanced off-dry style; citrus fruit over a light frame, a small premium grape-juice addition restoring mouthfeel. The finish is fresh and citric, shorter than the alcoholic original — the standard ethanol tradeoff, handled gracefully. The Riesling sibling of the 0% Sauvignon Blanc already on this desk, built on the same citable spinning-cone process — and arguably the better glass.'
 palate: 'Beautifully balanced off-dry style; citrus fruit over a light frame, a small premium grape-juice addition restoring mouthfeel.'
 finish: 'Fresh and citric, shorter than the alcoholic original — the standard ethanol tradeoff, handled gracefully.'
 best_for: 'Spicy food, long dinners, anyone who wants Marlborough Riesling in the week.'
@@ -131,10 +131,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
+## The wine
+
 Giesen 0% Riesling is dealcoholized from Marlborough, New Zealand. The base is Full-strength Marlborough Riesling — grown, fully fermented, then gently dealcoholized. Spinning cone technology separating aroma, alcohol and body, then recombining aroma and body without the alcohol.
 
-The nose is lime, citrus blossom and mandarin — bright, lifted, unmistakably Riesling.
+On the nose, lime, citrus blossom and mandarin — bright, lifted, unmistakably Riesling. On the palate, beautifully balanced off-dry style; citrus fruit over a light frame, a small premium grape-juice addition restoring mouthfeel. The finish is fresh and citric, shorter than the alcoholic original — the standard ethanol tradeoff, handled gracefully. The Riesling sibling of the 0% Sauvignon Blanc already on this desk, built on the same citable spinning-cone process — and arguably the better glass. On the palate, Beautifully balanced off-dry style; citrus fruit over a light frame, a small premium grape-juice addition restoring mouthfeel. The finish is Fresh and citric, shorter than the alcoholic original — the standard ethanol tradeoff, handled gracefully.
 
-On the palate, beautifully balanced off-dry style; citrus fruit over a light frame, a small premium grape-juice addition restoring mouthfeel. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is fresh and citric, shorter than the alcoholic original — the standard ethanol tradeoff, handled gracefully. The Riesling sibling of the 0% Sauvignon Blanc already on this desk, built on the same citable spinning-cone process — and arguably the better glass. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+The Riesling sibling of the 0% Sauvignon Blanc already on this desk, built on the same citable spinning-cone process — and arguably the better glass. Serve well chilled.

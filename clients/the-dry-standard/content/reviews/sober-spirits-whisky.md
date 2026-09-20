@@ -24,7 +24,7 @@ image_credit: 'Product photo via soberspirits.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 84
 verdict: 'The rare zero-proof whisky that starts from actual whisky: a three-year-old Scotch, dealcoholized in Grasse and redistilled in copper with toasted oak. Toffee and cocoa where the burn used to be — the honest version of a category that usually runs on flavor compounds.'
 summary: 'A real dealcoholized Scottish whisky, rebuilt in France: 0.0% ABV, 0% sugar, the closest thing to an honest zero-proof whisky pour.'
@@ -38,8 +38,8 @@ profile:
 mouthfeel: 'Medium and dessert-like; the length a real whisky loses, softened but not gone.'
 highlight: 'Toffee and toasted oak first, then cocoa and a whisper of caramelized sugar.'
 likeness: 'The rare zero-proof whisky that starts from actual whisky: a three-year-old Scotch, dealcoholized in Grasse and redistilled in copper with toasted oak. Toffee and cocoa where the burn used to be — the honest version of a category that us…'
-nose: 'Toffee and toasted oak first, then cocoa and a whisper of caramelized sugar.'
-palate: "Round and oaked without ethanol's heat — toffee, caramel, and a cocoa-dusted note the producer rebuilds with toasted oak bark in the still."
+nose: 'toffee and toasted oak first, then cocoa and a whisper of caramelized sugar. On the palate, round and oaked without ethanol''s heat — toffee, caramel, and a cocoa-dusted note the producer rebuilds with toasted oak bark in the still. Mouthfeel: medium and dessert-like; the length a real whisky loses, softened but not gone. The finish is medium and dessert-like; the length a real whisky loses, softened but not gone. The rare zero-proof whisky that starts from actual whisky: a three-year-old Scotch, dealcoholized in Grasse and redistilled in copper with toasted oak. Toffee and cocoa where the burn used to be — the honest version of a category that usually runs on flavor compounds.'
+palate: 'Round and oaked without ethanol''s heat — toffee, caramel, and a cocoa-dusted note the producer rebuilds with toasted oak bark in the still.'
 finish: 'Medium and dessert-like; the length a real whisky loses, softened but not gone.'
 best_for: 'An alcohol-free Old Fashioned, or the nightcap ritual for people who miss the pour, not the buzz.'
 serve: 'Neat in a whisky glass, or over a large cube with a strip of orange peel for the full theater.'
@@ -119,10 +119,10 @@ provenance:
     url: 'https://www.soberspirits.com/pages/how-non-alcoholic-spirits-are-made'
 ---
 
-Sober Spirits W 0.0% Whisky is dealcoholized from France. The base is Real Scottish whisky, aged three years in oak casks. Alcohol extracted in Grasse using heat, pressure and thermal shocks; the aromatic fraction is redistilled in century-old copper pot stills at a French distil….
+## The spirit
 
-The nose is toffee and toasted oak first, then cocoa and a whisper of caramelized sugar.
+Sober Spirits W 0.0% Whisky is dealcoholized from France. The base is Real Scottish whisky, aged three years in oak casks. Alcohol extracted in Grasse using heat, pressure and thermal shocks; the aromatic fraction is redistilled in century-old copper pot stills at a French distillery founded in 1875.
 
-On the palate, round and oaked without ethanol's heat — toffee, caramel, and a cocoa-dusted note the producer rebuilds with toasted oak bark in the still. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, toffee and toasted oak first, then cocoa and a whisper of caramelized sugar. On the palate, round and oaked without ethanol's heat — toffee, caramel, and a cocoa-dusted note the producer rebuilds with toasted oak bark in the still. Mouthfeel: medium and dessert-like; the length a real whisky loses, softened but not gone. The finish is medium and dessert-like; the length a real whisky loses, softened but not gone. The rare zero-proof whisky that starts from actual whisky: a three-year-old Scotch, dealcoholized in Grasse and redistilled in copper with toasted oak. Toffee and cocoa where the burn used to be — the honest version of a category that usually runs on flavor compounds. On the palate, Round and oaked without ethanol's heat — toffee, caramel, and a cocoa-dusted note the producer rebuilds with toasted oak bark in the still. Mouthfeel: Medium and dessert-like; the length a real whisky loses, softened but not gone. The finish is Medium and dessert-like; the length a real whisky loses, softened but not gone.
 
-The finish is medium and dessert-like; the length a real whisky loses, softened but not gone. The rare zero-proof whisky that starts from actual whisky: a three-year-old Scotch, dealcoholized in Grasse and redistilled in copper with toasted oak. Toffee and cocoa where the burn used to be — the honest version of a category that usually runs on flavor compounds. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at spirit.
+The rare zero-proof whisky that starts from actual whisky: a three-year-old Scotch, dealcoholized in Grasse and redistilled in copper with toasted oak. Toffee and cocoa where the burn used to be — the honest version of a category that us…. Serve neat in a whisky glass, or over a large cube with a strip of orange peel for the full theater.

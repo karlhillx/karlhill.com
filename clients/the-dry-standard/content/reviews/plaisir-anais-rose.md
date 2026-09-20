@@ -26,7 +26,7 @@ image_credit: Editorial still
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 80
 verdict: 'A pale, easy Cabernet Sauvignon rosé at 0.0% — light, exotic-fruit leaning, and pleasantly fresh without much mid-palate depth. Solid everyday pink; trails the stronger whites in this set.'
 summary: 'Plaisir d’Anaïs Rosé — Bordeaux Cabernet Sauvignon, dealcoholized and labeled 0%. Light, lychee-led, and approachable.'
@@ -140,8 +140,10 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Plaisir d’Anaïs Rosé is dealcoholized Cabernet Sauvignon from Maison Lamartine — Bordeaux, 0% on the oval front label, magenta capsule, pale pink pour. Vacuum distillation remains a secondary retailer claim.
+## The wine
 
-Nose leans lychee and exotic fruit with a light floral lift. Palate is light and vibrant — delicate exotic notes, red fruit, crisp freshness — off-dry and easy rather than concentrated. Finish is short-to-medium and clean; fruit fades before the acid.
+Plaisir d'Anaïs Rosé is dealcoholized from Bordeaux, France. The base is Cabernet Sauvignon, fermented then dealcoholized. Vacuum distillation (specialist retailer; not confirmed on a current producer technical sheet).
 
-Score 80: solid everyday pale pink, trailing the stronger whites in this Dis&Dis set. Same research-score provenance as the Plaisir Blanc sibling.
+On the nose, Fresh fruit with lychee and exotic Cabernet Sauvignon rosé aromatics, plus a light floral lift. On the palate, Light and vibrant on entry — delicate exotic notes, red fruit, and crisp freshness on a pale pink frame. Off-dry and easy rather than concentrated. Mouthfeel: Light and vibrant; crisp rather than weighty. The finish is Short-to-medium, clean and refreshing, with fruit fading before the acid does.
+
+Reads as dealcoholized pale Bordeaux rosé more than a botanical pink. Simpler and shorter than Tip Top or NOOH; in line with the Plaisir Blanc sibling. Serve well chilled.

@@ -741,6 +741,7 @@ HTML;
             'score' => $this->view->render('partials/score-badge', [
                 'rating' => $review->rating,
                 'band' => null,
+                'scoreKind' => $review->scoreKindLabel(),
                 'methodologyUrl' => $methodologyUrl,
             ]),
             'statusLabel' => $review->productionTypeLabel(),
@@ -1373,7 +1374,13 @@ XML;
     private function reviewCards(Collection $reviews, bool $compact = false, ?Review $relationBase = null): string
     {
         return $reviews->map(function (Review $review) use ($compact, $relationBase): string {
-            $score = $review->rating !== null ? '<span class="card-score">'.$review->rating.'</span>' : '';
+            $score = $review->rating !== null
+                ? '<span class="card-score'.($review->isResearchScore() ? ' card-score--research' : '').'"'
+                    .($review->isResearchScore() ? ' title="Research score"' : '')
+                    .'>'.$review->rating
+                    .($review->isResearchScore() ? '<small>R</small>' : '')
+                    .'</span>'
+                : '';
             $meta = $review->cardMetaLine($this->config->categoryLabel($review->category));
             $badge = $this->view->render('partials/production-badge', [
                 'type' => $review->productionType,
@@ -1523,6 +1530,13 @@ XML;
             $peek[] = [
                 'label' => 'Method',
                 'value' => 'Formulated',
+                'confidence' => $review->fieldConfidenceLabel('dealcoholization_method'),
+            ];
+        } elseif ($review->methodFacetKey() === 'unpublished'
+            && in_array($review->productionType, ['dealcoholized', 'hybrid'], true)) {
+            $peek[] = [
+                'label' => 'Method',
+                'value' => 'Unpublished',
                 'confidence' => $review->fieldConfidenceLabel('dealcoholization_method'),
             ];
         } elseif ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)) {

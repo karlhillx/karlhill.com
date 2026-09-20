@@ -13,6 +13,7 @@ subcategory: 'sparkling rosé'
 country: Spain
 style: 'Dealcoholized sparkling rosé'
 production_type: dealcoholized
+method_facet: unpublished
 verified: 'yes'
 production_note: 'Retail and press copy describe Rondel Zero as de-alcoholized sparkling wine (alcohol removed after fermentation). Named removal technology is unpublished. NeoVina product data lists 0% ABV; Total Wine confirms the SKU without printing a residual number.'
 availability: 'Total Wine & More'

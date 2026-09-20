@@ -14,6 +14,7 @@ country: Germany
 region: Mosel
 style: 'Dealcoholized Mosel Riesling'
 production_type: dealcoholized
+method_facet: unpublished
 verified: 'yes'
 production_note: 'Retail catalog copy describes a dealcoholized German Riesling. Named removal technology is unpublished — the estate factsheets do not cover this alcohol-free SKU. Do not transfer the Noble House thermal-evaporation sheet to this bottle. ABV 0.0% is retailer-sourced (Gedonist), not producer-verified.'
 image: media/reviews/heidemanns-bergweiler-riesling.jpg

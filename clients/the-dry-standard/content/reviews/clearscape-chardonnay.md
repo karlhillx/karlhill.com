@@ -13,6 +13,7 @@ subcategory: chardonnay
 country: Australia
 style: 'Non-alcoholic Australian Chardonnay'
 production_type: dealcoholized
+method_facet: unpublished
 verified: 'yes'
 production_note: 'Total Wine Winery Direct listing is Non-alcoholic: Yes and sells an Australian Chardonnay experience without alcohol. Commercial / US TTB dealcoholized-wine practice treats the residual ceiling as <0.5% ABV; Total Wine does not print a numeric residual on the product page. Named removal technology is unpublished.'
 volume: '750 ml'

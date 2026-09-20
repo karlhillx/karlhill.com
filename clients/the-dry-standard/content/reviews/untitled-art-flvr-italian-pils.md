@@ -24,7 +24,7 @@ image_credit: 'Product photo via drinkuntitled.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 83
 verdict: 'The drier, more grown-up sibling of the FLVR! sour: floral and herbal hops, subtle citrus, and the crisp snap of a real Italian pilsner.'
 summary: "Untitled Art's FLVR! NA Italian-Style Pils is a dry-hopped non-alcoholic Italian pilsner: floral and herbal hop character, subtle citrus, crisp finish, 60 calories."
@@ -35,9 +35,9 @@ profile:
   - 'Bright acidity'
   - 'Modest bitterness'
   - 'Clean finish'
-nose: 'Floral and herbal hops with a light citrus lift — the distinctive Italian pilsner aromatic style.'
+nose: 'floral and herbal hops with a light citrus lift — the distinctive Italian pilsner aromatic style. On the palate, crisp and dry; herbal hop character over a clean malt body, subtle citrus, no sweetness to speak of. The finish is dry and snappy, the hop character carrying. The drier, more grown-up sibling of the FLVR! sour: floral and herbal hops, subtle citrus, and the crisp snap of a real Italian pilsner.'
 palate: 'Crisp and dry; herbal hop character over a clean malt body, subtle citrus, no sweetness to speak of.'
-finish: 'Dry and snappy, the hop character carrying.'
+finish: 'dry and snappy, the hop character carrying. The drier, more grown-up sibling of the FLVR! sour: floral and herbal hops, subtle citrus, and the crisp snap of a real Italian pilsner.'
 best_for: 'Anyone who wants a proper Italian pilsner profile without alcohol, especially with food.'
 serve: 'Cold, in a pils glass.'
 sources:
@@ -124,10 +124,10 @@ provenance:
     url: 'https://www.wpr.org/news/wisconsin-untitled-art-nonalcoholic-beer-industry'
 ---
 
+## The beer
+
 Untitled Art FLVR! NA Italian-Style Pils is dealcoholized from Waunakee, Wisconsin, United States. Reverse osmosis membrane filtration, applied after full fermentation.
 
-The nose is floral and herbal hops with a light citrus lift — the distinctive Italian pilsner aromatic style.
+On the nose, floral and herbal hops with a light citrus lift — the distinctive Italian pilsner aromatic style. On the palate, crisp and dry; herbal hop character over a clean malt body, subtle citrus, no sweetness to speak of. The finish is dry and snappy, the hop character carrying. The drier, more grown-up sibling of the FLVR! sour: floral and herbal hops, subtle citrus, and the crisp snap of a real Italian pilsner. On the palate, Crisp and dry; herbal hop character over a clean malt body, subtle citrus, no sweetness to speak of. The finish is dry and snappy, the hop character carrying. The drier, more grown-up sibling of the FLVR! sour: floral and herbal hops, subtle citrus, and the crisp snap of a real Italian pilsner.
 
-On the palate, crisp and dry; herbal hop character over a clean malt body, subtle citrus, no sweetness to speak of. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is dry and snappy, the hop character carrying. The drier, more grown-up sibling of the FLVR! sour: floral and herbal hops, subtle citrus, and the crisp snap of a real Italian pilsner. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+Serve cold, in a pils glass.

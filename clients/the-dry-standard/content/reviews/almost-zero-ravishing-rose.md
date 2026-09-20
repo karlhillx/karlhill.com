@@ -23,7 +23,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 72
 verdict: 'A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process.'
 summary: 'Almost Zero Ravishing Rosé is a Van Loveren dealcoholised rosé at 0.33% ABV — soft berry, short finish, spinning-cone after full vinification.'
@@ -35,9 +35,9 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Short finish'
-nose: 'Soft strawberry. Little else.'
+nose: 'soft strawberry. Little else. On the palate, sweet-leaning, light, low acid. The finish is short and candy-pink. A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process.'
 palate: 'Sweet-leaning, light, low acid.'
-finish: 'Short and candy-pink.'
+finish: 'short and candy-pink. A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process.'
 best_for: 'The bottle you already keep buying. This review will not talk you out of it, or into it.'
 serve: 'Very cold.'
 sources:
@@ -115,10 +115,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Almost Zero Ravishing Rosé is dealcoholized from South Africa. Spinning cone column, applied after full vinification. The glass is a soft, sweet rosé: rose petal and strawberry over a smooth, gentle palate. Knowing it started as real wine and had the alcohol spun off afterward makes the case for it more than the label alone did.
+## The wine
 
-The nose is soft strawberry. Little else.
+Almost Zero Ravishing Rosé is dealcoholized from South Africa. Spinning cone column, applied after full vinification.
 
-On the palate, sweet-leaning, light, low acid. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, soft strawberry. Little else. On the palate, sweet-leaning, light, low acid. The finish is short and candy-pink. A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process. On the palate, Sweet-leaning, light, low acid. The finish is short and candy-pink. A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process.
 
-The finish is short and candy-pink. A Total Wine pink with a name that does the marketing. Soft berry, short finish, no citable process. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+Serve very cold.

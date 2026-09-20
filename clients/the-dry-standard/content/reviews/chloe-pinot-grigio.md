@@ -12,6 +12,7 @@ country: 'United States'
 region: California
 style: 'Alcohol-removed Pinot Grigio'
 production_type: dealcoholized
+method_facet: unpublished
 verified: 'yes'
 production_note: 'Chloe brands this as alcohol-removed California Pinot Grigio. Named removal technology is unpublished. Exact ABV is not on the current Chloe product page; commercial product data lists 0.5% ABV.'
 base_beverage: 'Award-winning Chloe Pinot Grigio, now alcohol-removed'

@@ -29,7 +29,7 @@ image_credit: Editorial still
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 81
 verdict: 'Soft and approachable, but less structurally convincing than the strongest wines here. Fruit and sweetness dominate over acidity — pleasant, somewhat removed from classic dry Chardonnay.'
 summary: 'Adegga Baezza Blanco — Galician Chardonnay dealcoholized by cold evaporation. Fruity, soft, and noticeably sweet.'
@@ -49,7 +49,7 @@ likeness: 'Further from dry white-wine structure than Tip Top, NOOH, or Weinkön
 drink_if_you_like:
   - 'Soft Chardonnay'
   - 'Easy sweet-leaning aperitif whites'
-nose: 'Tropical and exotic fruit with floral notes and a faint herbal quality.'
+nose: Tropical and exotic fruit with floral notes and a faint herbal quality.
 palate: 'Sweet-leaning and fruity on entry, with ripe tropical fruit and a soft, silky texture. Acidity provides some freshness but remains gentle.'
 finish: 'Medium, smooth and fruity, with sweetness lingering more strongly than acidity.'
 structure: 'Producer analysis: pH 3.25, total acidity 3.22 g/L — soft acid frame. Off-dry to medium sweetness dominates structural authenticity.'
@@ -159,8 +159,10 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-Adegga Baezza is the brand; Grupo Élivo the company. Blanco is dealcoholized Galician Chardonnay via cold evaporation with aroma return — 0.0% vol, 14 kcal/100 ml. Composition after removal includes tannins and preservatives.
+## The wine
 
-Nose: tropical/exotic fruit, florals, faint herbal note. Palate is sweet-leaning and fruity — ripe tropical fruit, soft silky texture, gentle acid. Finish is medium and smooth; sweetness outlasts acidity.
+Adegga Baezza Blanco is dealcoholized from Galicia, Spain. The base is Chardonnay from Galicia, fermented then dealcoholized. Cold evaporation with reintroduction of the wine’s own aromas (producer Adegga Baezza range page).
 
-Score 81 is deliberate: not poor, but lowish acidity (TA 3.22 g/L) and a soft sweet entry put it further from classic dry Chardonnay than the stronger bottles in this set.
+On the nose, Tropical and exotic fruit with floral notes and a faint herbal quality. On the palate, Sweet-leaning and fruity on entry, with ripe tropical fruit and a soft, silky texture. Acidity provides some freshness but remains gentle. Mouthfeel: Soft and silky; sweetness lingers more strongly than acidity. The finish is Medium, smooth and fruity, with sweetness lingering more strongly than acidity.
+
+Further from dry white-wine structure than Tip Top, NOOH, or Weinkönig. Soft entry and lowish acid (producer TA 3.22 g/L) read more dessert-adjacent. Serve about 10°C; finish within three days refrigerated once opened (producer).

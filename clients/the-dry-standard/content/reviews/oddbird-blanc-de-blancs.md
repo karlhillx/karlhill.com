@@ -28,7 +28,7 @@ purchase_links:
     url: 'https://thezeroproof.com/products/oddbird-blanc-de-blancs-sparkling-white-wine'
     region: US
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 84
 verdict: 'The oak aging is doing real work here — a rare dealcoholized sparkling wine with actual structure instead of just sweetness and bubbles.'
 summary: "A Swedish brand's French-made sparkling Blanc de Blancs, aged 12 months in oak before the alcohol is vacuum-distilled out. Reads closer to Champagne-style than most dealcoholized proseccos."
@@ -41,9 +41,9 @@ profile:
   - Off-dry
   - 'Soft bead'
 mouthfeel: "Creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler."
-nose: 'Honeyed and a little toasty, with green apple and Meyer lemon underneath — the oak aging is audible before you even taste it.'
+nose: 'honeyed and a little toasty, with green apple and Meyer lemon underneath — the oak aging is audible before you even taste it. On the palate, rich, velvety bubbles carry ripe pear and mango alongside the citrus. Fuller-bodied than most dealcoholized sparkling wines in this queue. Mouthfeel: creamy, faintly brioche-like — the closest thing to a traditional-method finish we''ve found in a sub-0.5% ABV sparkler. The finish is creamy, faintly brioche-like — the closest thing to a traditional-method finish we''ve found in a sub-0.5% ABV sparkler. The oak aging is doing real work here — a rare dealcoholized sparkling wine with actual structure instead of just sweetness and bubbles.'
 palate: 'Rich, velvety bubbles carry ripe pear and mango alongside the citrus. Fuller-bodied than most dealcoholized sparkling wines in this queue.'
-finish: "Creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler."
+finish: 'Creamy, faintly brioche-like — the closest thing to a traditional-method finish we''ve found in a sub-0.5% ABV sparkler.'
 best_for: 'Brunch, a celebratory toast, or as the base of a spritz — treat it like a Prosecco stand-in, not a Champagne substitute.'
 serve: 'Well chilled, in a flute or white-wine glass.'
 image: media/reviews/oddbird-blanc-de-blancs.jpg
@@ -151,10 +151,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
+## The wine
+
 Oddbird Blanc de Blancs is dealcoholized from Languedoc-Roussillon, France. The base is Chardonnay and Colombard, fermented and aged as regular wine, then oak-aged 12 months before alcohol removal. Vacuum distillation.
 
-The nose is honeyed and a little toasty, with green apple and Meyer lemon underneath — the oak aging is audible before you even taste it.
+On the nose, honeyed and a little toasty, with green apple and Meyer lemon underneath — the oak aging is audible before you even taste it. On the palate, rich, velvety bubbles carry ripe pear and mango alongside the citrus. Fuller-bodied than most dealcoholized sparkling wines in this queue. Mouthfeel: creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler. The finish is creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler. The oak aging is doing real work here — a rare dealcoholized sparkling wine with actual structure instead of just sweetness and bubbles. On the palate, Rich, velvety bubbles carry ripe pear and mango alongside the citrus. Fuller-bodied than most dealcoholized sparkling wines in this queue. Mouthfeel: Creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler. The finish is Creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler.
 
-On the palate, rich, velvety bubbles carry ripe pear and mango alongside the citrus. Fuller-bodied than most dealcoholized sparkling wines in this queue. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is creamy, faintly brioche-like — the closest thing to a traditional-method finish we've found in a sub-0.5% ABV sparkler. The oak aging is doing real work here — a rare dealcoholized sparkling wine with actual structure instead of just sweetness and bubbles. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+The oak aging is doing real work here — a rare dealcoholized sparkling wine with actual structure instead of just sweetness and bubbles. Serve well chilled, in a flute or white-wine glass.

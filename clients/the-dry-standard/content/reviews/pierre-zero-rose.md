@@ -18,7 +18,7 @@ producer: 'Maison Chavin (France)'
 volume: '3 litres (bag-in-box)'
 availability: 'EU retail and direct via shop.pierre-chavin.com; US via Upside Drinks and specialty NA retailers'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 77
 verdict: "The category's great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions."
 summary: "Pierre Zéro's Bag-in-Box rosé is three litres of dealcoholized French rosé from Maison Chavin, the range's pioneer since 2010: redcurrant and bilberry fruit, <0.5% ABV."
@@ -31,9 +31,9 @@ profile:
   - 'Light body'
   - 'Short finish'
   - 'Clean finish'
-nose: 'Redcurrant and bilberry, with a soft floral lift — fruit-forward rather than savoury.'
+nose: 'redcurrant and bilberry, with a soft floral lift — fruit-forward rather than savoury. On the palate, light and fresh; berry fruit over gentle acidity, designed to be poured generously rather than studied. The finish is clean and short, gently fruity. The category''s great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions.'
 palate: 'Light and fresh; berry fruit over gentle acidity, designed to be poured generously rather than studied.'
-finish: 'Clean and short, gently fruity.'
+finish: 'clean and short, gently fruity. The category''s great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions.'
 best_for: 'Weeknight pours, big tables, the box that lives in the fridge door.'
 serve: 'Chilled; the bag-in-box format keeps it fresh for weeks after opening.'
 image: media/reviews/pierre-zero-rose.jpg
@@ -124,10 +124,10 @@ sensory:
       - palate
 ---
 
-Pierre Zéro Rosé (Bag-in-Box) is dealcoholized from France. The base is Traditionally vinified French rosé (Chavin estate range), dealcoholized after fermentation. Alcohol removed from a traditionally vinified French rosé (producer markets the range as dealcoholized wine since 2010; the specific technique is not detaile….
+## The wine
 
-The nose is redcurrant and bilberry, with a soft floral lift — fruit-forward rather than savoury.
+Pierre Zéro Rosé (Bag-in-Box) is dealcoholized from France. The base is Traditionally vinified French rosé (Chavin estate range), dealcoholized after fermentation. Alcohol removed from a traditionally vinified French rosé (producer markets the range as dealcoholized wine since 2010; the specific technique is not detailed publicly).
 
-On the palate, light and fresh; berry fruit over gentle acidity, designed to be poured generously rather than studied. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, redcurrant and bilberry, with a soft floral lift — fruit-forward rather than savoury. On the palate, light and fresh; berry fruit over gentle acidity, designed to be poured generously rather than studied. The finish is clean and short, gently fruity. The category's great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions. On the palate, Light and fresh; berry fruit over gentle acidity, designed to be poured generously rather than studied. The finish is clean and short, gently fruity. The category's great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions.
 
-The finish is clean and short, gently fruity. The category's great bulk buy: three litres of dealcoholized French rosé in a box, priced for everyday drinking rather than occasions. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+Serve chilled; the bag-in-box format keeps it fresh for weeks after opening.

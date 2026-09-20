@@ -24,7 +24,7 @@ image_source: producer
 image_source_url: 'https://freixenet.com/us/product/alcohol-removed-sparkling-rose'
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 78
 verdict: 'The pink twin of the 0,0 Sparkling White already here. Same vacuum-evaporation method, same 38 g/L sugar, more berry. Competent supermarket fizz, and genuinely dealcoholized.'
 summary: "Freixenet's dealcoholized sparkling rosé is Airén-led, under 0.05% ABV, vacuum-evaporated at low temperature, and 38 g/L residual sugar."
@@ -39,9 +39,9 @@ profile:
   - 'Soft bead'
   - 'Short finish'
 highlight: 'Red berry and a little citrus. Fruit-forward, not yeasty.'
-nose: 'Red berry and a little citrus. Fruit-forward, not yeasty.'
+nose: 'red berry and a little citrus. Fruit-forward, not yeasty. On the palate, soft bead, noticeable sweetness, easy red fruit. The sugar does more work than the acidity. The finish is short and candy-adjacent if it warms. Keep it iced. The pink twin of the 0,0 Sparkling White already here. Same vacuum-evaporation method, same 38 g/L sugar, more berry. Competent supermarket fizz, and genuinely dealcoholized.'
 palate: 'Soft bead, noticeable sweetness, easy red fruit. The sugar does more work than the acidity.'
-finish: 'Short and candy-adjacent if it warms. Keep it iced.'
+finish: Short and candy-adjacent if it warms.
 best_for: 'A cheap toast, salad, the bottle you do not overthink.'
 serve: '6–8°C, flute.'
 sources:
@@ -129,10 +129,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Freixenet 0,0 Sparkling Rosé is dealcoholized from Spain. The base is Blend of classic Spanish grapes, Airén dominant. Low-temperature vacuum evaporation, applied after making the wine to full strength. The glass is sweeter pink fizz: berry, soft bead, a short finish. Useful. Not a method lesson.
+## The wine
 
-The nose is red berry and a little citrus. Fruit-forward, not yeasty.
+Freixenet 0,0 Sparkling Rosé is dealcoholized from Spain. The base is Blend of classic Spanish grapes, Airén dominant. Low-temperature vacuum evaporation, applied after making the wine to full strength.
 
-On the palate, soft bead, noticeable sweetness, easy red fruit. The sugar does more work than the acidity. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, red berry and a little citrus. Fruit-forward, not yeasty. On the palate, soft bead, noticeable sweetness, easy red fruit. The sugar does more work than the acidity. The finish is short and candy-adjacent if it warms. Keep it iced. The pink twin of the 0,0 Sparkling White already here. Same vacuum-evaporation method, same 38 g/L sugar, more berry. Competent supermarket fizz, and genuinely dealcoholized. On the palate, Soft bead, noticeable sweetness, easy red fruit. The sugar does more work than the acidity. The finish is Short and candy-adjacent if it warms.
 
-The finish is short and candy-adjacent if it warms. Keep it iced. The pink twin of the 0,0 Sparkling White already here. Same vacuum-evaporation method, same 38 g/L sugar, more berry. Competent supermarket fizz, and genuinely dealcoholized. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+The pink twin of the 0,0 Sparkling White already here. Same vacuum-evaporation method, same 38 g/L sugar, more berry. Competent supermarket fizz, and genuinely dealcoholized. Serve 6–8°C, flute.

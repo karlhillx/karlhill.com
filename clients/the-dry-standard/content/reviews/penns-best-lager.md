@@ -17,7 +17,7 @@ calories: '70 calories (retail listing)'
 producer: 'Fred Koch Brewery (Pittsburgh, PA; also listed under Genesee Brewing Company)'
 availability: 'US retail including beerfordriving.com listings'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 72
 verdict: 'A budget American NA lager — smooth, light, and honest about being the cheap option rather than the craft one.'
 summary: "Penn's Best NA is a naturally brewed non-alcoholic American lager from Fred Koch Brewery: 70 calories, <0.5% ABV, the value shelf."
@@ -32,7 +32,7 @@ profile:
   - 'Clean finish'
 nose: 'Light malt and a faint grain note — the American lager profile, clean and unassertive.'
 palate: 'Smooth and light; the malt is present but subdued, no hop character to speak of, the mouthfeel of a standard macro lager.'
-finish: 'Clean and brief.'
+finish: 'clean and brief. A budget American NA lager — smooth, light, and honest about being the cheap option rather than the craft one.'
 best_for: 'The budget NA option, the beer you buy by the case.'
 serve: 'Very cold.'
 image: media/reviews/penns-best-lager.jpg
@@ -104,10 +104,10 @@ sensory:
       - palate
 ---
 
-Penn's Best Non-Alcoholic Lager is non-alcoholic with an unpublished production process from United States. No cited producer page names a removal technique, so the badge stays not-verified.
+## The beer
 
-The nose is light malt and a faint grain note — the American lager profile, clean and unassertive.
+Penn's Best Non-Alcoholic Lager is classified as Production type: Not verified — Described as 'naturally brewed' without specification of whether alcohol is removed or fermentation is limited. from United States. Described as 'naturally brewed' without specification of whether alcohol is removed or fermentation is limited.
 
-On the palate, smooth and light; the malt is present but subdued, no hop character to speak of, the mouthfeel of a standard macro lager. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, light malt and a faint grain note — the American lager profile, clean and unassertive. On the palate, smooth and light; the malt is present but subdued, no hop character to speak of, the mouthfeel of a standard macro lager. The finish is clean and brief. A budget American NA lager — smooth, light, and honest about being the cheap option rather than the craft one.
 
-The finish is clean and brief. A budget American NA lager — smooth, light, and honest about being the cheap option rather than the craft one. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+A budget American NA lager — smooth, light, and honest about being the cheap option rather than the craft one. Serve very cold.

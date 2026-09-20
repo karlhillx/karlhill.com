@@ -84,7 +84,7 @@ provenance:
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
 review_date: '2026-09-19'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 81
 verdict: 'A solid, wine-like dealcoholized Riesling — bright acid, clear fruit, with the must and concentrate showing as extra sweetness and a softer mid-palate. More convincing than most NA whites; not as dry or structured as a traditional Mosel.'
 summary: 'Mosel Riesling from Dr. Pauly-Bergweiler, dealcoholized and rebuilt with grape must. Green apple and pear, bright acid, a softer sweet middle.'
@@ -106,8 +106,8 @@ structure: 'Bright acid does the structural work. Must and concentrate add sweet
 drink_if_you_like:
   - 'Off-dry Mosel Riesling'
   - 'Fruit-forward NA whites'
-nose: 'Green apple and pear lead, with lemon, white peach, and a light floral lift. A faint slate line sits under the fruit.'
-palate: 'Light and crisp: apple, pear, citrus, and peach. Acidity keeps it lively, but the grape must and juice concentrate add noticeable sweetness and a rounded, juice-like middle. Still more Riesling than cordial.'
+nose: 'fruit-led: green apple and pear, lemon, white peach, a light floral lift, and a faint slate line underneath. It smells like Mosel fruit more than cordial.'
+palate: 'the wine is light-bodied and crisp. Apple, pear, citrus, and peach arrive early, and the acidity keeps the sip lively rather than flat. Balance is the fight: acid does the Mosel work, but the must and concentrate push sweetness and a softer, slightly juice-like roundness through the mid-palate. Mouthfeel starts precise and light, then turns a little plush where the rebuild lands. Structural authenticity is mixed — acid and a mild mineral dryness give wine shape, while the missing ethanol weight and the added sweetness keep it from drinking like a dry Mosel.'
 finish: 'Medium-short. Tart apple and lemon, with peach sweetness hanging on. A mild mineral dryness cleans the end; a soft concentrate note stays on the back.'
 best_for: 'Weeknight fish, spicy takeout, or the Mosel drinker who will accept off-dry for a wine-shaped glass without ethanol.'
 serve: 'Well chilled, in a white-wine glass.'
@@ -190,10 +190,10 @@ structure_scales:
   texture: rounded
 ---
 
-SITE is Mosel Riesling from Dr. Pauly-Bergweiler — fermented as wine, then dealcoholized at low temperature, with grape must and juice concentrate worked back in. That rebuild is on the bottle and in the glass. The front label is modern and spare; the wine behind it still reads as Riesling first.
+## The wine
 
-The nose is fruit-led: green apple and pear, lemon, white peach, a light floral lift, and a faint slate line underneath. It smells like Mosel fruit more than cordial.
+SITE Riesling Dealcoholized is dealcoholized from Mosel, Germany. The base is 100% Riesling wine, fermented then dealcoholized. Low-temperature evaporation — likely vacuum distillation (gently heated to a maximum of 27°C so the alcohol evaporates; equipment not named).
 
-On the palate the wine is light-bodied and crisp. Apple, pear, citrus, and peach arrive early, and the acidity keeps the sip lively rather than flat. Balance is the fight: acid does the Mosel work, but the must and concentrate push sweetness and a softer, slightly juice-like roundness through the mid-palate. Mouthfeel starts precise and light, then turns a little plush where the rebuild lands. Structural authenticity is mixed — acid and a mild mineral dryness give wine shape, while the missing ethanol weight and the added sweetness keep it from drinking like a dry Mosel.
+On the nose, fruit-led: green apple and pear, lemon, white peach, a light floral lift, and a faint slate line underneath. It smells like Mosel fruit more than cordial. On the palate, the wine is light-bodied and crisp. Apple, pear, citrus, and peach arrive early, and the acidity keeps the sip lively rather than flat. Balance is the fight: acid does the Mosel work, but the must and concentrate push sweetness and a softer, slightly juice-like roundness through the mid-palate. Mouthfeel starts precise and light, then turns a little plush where the rebuild lands. Structural authenticity is mixed — acid and a mild mineral dryness give wine shape, while the missing ethanol weight and the added sweetness keep it from drinking like a dry Mosel. Mouthfeel: Crisp and light, with a rounded, slightly juice-like middle from the must and concentrate. The finish is Medium-short. Tart apple and lemon, with peach sweetness hanging on. A mild mineral dryness cleans the end; a soft concentrate note stays on the back.
 
-The finish is medium-short. Tart apple and lemon, peach sweetness hanging on, a mineral flick that almost cleans the end, and a soft concentrate note that stays. More wine-like than most NA whites; not as dry or structured as traditional Mosel. That gap is the review.
+More wine than juice — Riesling fruit and acid carry the glass. The must and concentrate still show as sweetness and softness, so it is less dry and less structured than a traditional Mosel. Serve well chilled, in a white-wine glass.

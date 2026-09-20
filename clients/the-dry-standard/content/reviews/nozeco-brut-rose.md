@@ -20,7 +20,7 @@ volume: '750 ml'
 price: '$15.35 (RoomBox); £4.50 (UK retail)'
 availability: 'US retail including RoomBox; UK retail; Canadian retail including LCBO'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 76
 verdict: 'A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice.'
 summary: "Nozeco's Brut Rosé is a dealcoholized French sparkling rosé: white strawberry and red fruit, fine bubbles, sold cheaply by the bottle."
@@ -34,9 +34,9 @@ profile:
   - 'Soft bead'
   - 'Short finish'
   - 'Clean finish'
-nose: 'White strawberry and red berry fruit — expressive and fruit-forward.'
+nose: 'white strawberry and red berry fruit — expressive and fruit-forward. On the palate, fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings. The finish is short and clean. A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice.'
 palate: 'Fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings.'
-finish: 'Short and clean.'
+finish: 'short and clean. A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice.'
 best_for: 'Large gatherings where buying by the case matters more than nuance.'
 serve: 'Well chilled.'
 image: media/reviews/nozeco-brut-rose.jpg
@@ -131,10 +131,10 @@ sensory:
       - palate
 ---
 
+## The wine
+
 Nozeco Alcohol Free Brut Rosé is dealcoholized from France. The base is French sparkling rosé wine, fermented conventionally before alcohol removal. Made from alcohol-removed wine using a state-of-the-art process (producer product sheet).
 
-The nose is white strawberry and red berry fruit — expressive and fruit-forward.
+On the nose, white strawberry and red berry fruit — expressive and fruit-forward. On the palate, fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings. The finish is short and clean. A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice. On the palate, Fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings. The finish is short and clean. A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice.
 
-On the palate, fine bubbles over light red-fruit flavours; simple but clean, without the syrup heaviness of many cheap NA sparklings. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is short and clean. A French dealcoholized sparkling rosé at an unusually low price — strawberry and red fruit, fine bubbles, honest about being the budget choice. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.
+Serve well chilled.

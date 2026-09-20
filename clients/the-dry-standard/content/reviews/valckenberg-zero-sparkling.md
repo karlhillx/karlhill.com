@@ -13,7 +13,8 @@ abv: 0.0%
 abv_numeric: 0.0
 production_type: dealcoholized
 verified: 'yes'
-dealcoholization_method: "Alcohol removed from conventionally vinified sparkling cuvée (producer's Zero line)"
+method_facet: unpublished
+dealcoholization_method: "Alcohol removed from conventionally vinified sparkling cuvée (producer's Zero line; named technology unpublished)"
 base_beverage: 'Cuvée from high-quality grape varieties, vinified conventionally before alcohol removal'
 producer: 'P.J. Valckenberg (Germany)'
 volume: '750 ml'
@@ -22,7 +23,7 @@ image_alt: 'Valckenberg Cuvée Zero Sparkling bottle'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 78
 verdict: 'The sparkling sibling of the Zero Riesling — fine mousseux, elderberry and lemon, honest about being the casual sparkling option rather than the fine one.'
 summary: "Valckenberg's Cuvée Sparkling Zero is a dealcoholized German sparkling wine: elderberry and lemon, fine bubbles, 0.0% ABV."
@@ -35,9 +36,11 @@ profile:
   - 'Light body'
   - 'Soft bead'
   - 'Clean finish'
-nose: 'Elderberry and lemon — fruit-forward and fresh.'
-palate: 'Fine mousseux, semi-dry and fruit-forward; lighter body than alcoholic sparkling but the bubbles are real.'
+mouthfeel: 'Fine mousseux — soft bead, lighter frame than alcoholic Sekt, bubbles doing real lift.'
+nose: 'Elderberry and lemon — fruit-forward and fresh, without confectionery noise.'
+palate: 'Fine mousseux, semi-dry and fruit-forward. Lighter body than alcoholic sparkling, but the bubbles are real and keep the fruit from reading as soda.'
 finish: 'Clean and gently citric.'
+likeness: 'Casual Zero-line sparkling, not a traditional-method argument — honest about the role and cleaner than most supermarket NA fizz.'
 best_for: 'Casual sparkling occasions where the bottle matters more than the vintage.'
 serve: 'Well chilled.'
 sources:
@@ -73,6 +76,7 @@ sensory:
   -
     descriptor: lemon
     locations:
+      - nose
       - palate
 structure_scales:
   body: 1
@@ -80,36 +84,37 @@ structure_scales:
   finish_length: 0
 provenance:
   abv:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.vinello.de/en/cuvee-zero-alkoholfrei-pj-valckenberg'
   production_type:
-    kind: unknown
-    confidence: secondary
-    url: 'https://www.vinello.de/en/cuvee-zero-alkoholfrei-pj-valckenberg'
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.valckenberg.com/en/portfolio/wein/1342-cuvee-sparkling-zero-va18'
   volume:
-    kind: unknown
-    confidence: secondary
-    url: 'https://www.vinello.de/en/cuvee-zero-alkoholfrei-pj-valckenberg'
+    kind: manufacturer
+    confidence: manufacturer_verified
+    url: 'https://www.valckenberg.com/en/portfolio/wein/1342-cuvee-sparkling-zero-va18'
   availability:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.vinello.de/en/cuvee-zero-alkoholfrei-pj-valckenberg'
   dealcoholization_method:
-    kind: unknown
+    kind: manufacturer
     confidence: secondary
     url: 'https://www.vinello.de/en/cuvee-zero-alkoholfrei-pj-valckenberg'
+    note: 'Removal confirmed on the Zero line; named industrial technology unpublished.'
   country:
-    kind: unknown
+    kind: retailer
     confidence: secondary
     url: 'https://www.vinello.de/en/cuvee-zero-alkoholfrei-pj-valckenberg'
   producer:
-    kind: unknown
-    confidence: secondary
+    kind: manufacturer
+    confidence: manufacturer_verified
     url: 'https://www.valckenberg.com/en/portfolio/wein/1342-cuvee-sparkling-zero-va18'
   base_beverage:
-    kind: unknown
-    confidence: secondary
+    kind: manufacturer
+    confidence: manufacturer_verified
     url: 'https://www.valckenberg.com/en/portfolio/wein/1342-cuvee-sparkling-zero-va18'
   ean:
     kind: label
@@ -117,10 +122,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Valckenberg Cuvée Zero Sparkling is dealcoholized from Germany. The base is Cuvée from high-quality grape varieties, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified sparkling cuvée (producer's Zero line).
+## The wine
 
-The nose is elderberry and lemon — fruit-forward and fresh.
+Cuvée Sparkling Zero is the bubbly sibling of Valckenberg's Zero Riesling: a German cuvée vinified conventionally, then dealcoholized to 0.0%. The Zero line confirms removal; the named industrial technology stays unpublished. Soft bead, not traditional-method prestige.
 
-On the palate, fine mousseux, semi-dry and fruit-forward; lighter body than alcoholic sparkling but the bubbles are real. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, elderberry and lemon — fruit-forward and fresh without confectionery noise. The palate is fine mousseux, semi-dry, and lighter than alcoholic Sekt, but the bubbles are real and keep the fruit from collapsing into soda. Mouthfeel is all soft lift. The finish is clean and gently citric.
 
-The finish is clean and gently citric. The sparkling sibling of the Zero Riesling — fine mousseux, elderberry and lemon, honest about being the casual sparkling option rather than the fine one. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.
+This is the casual Zero-line sparkling option, not a brioche argument — cleaner than most supermarket NA fizz, and clear about the tier. Serve well chilled. For Mosel still Riesling in the same house, see Zero Riesling; for ginger and bitter orange on a dealcoholized Riesling chassis, see It's not a SIN.

@@ -22,7 +22,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: '2026-09-20'
 rating: 76
 verdict: "The Japanese approach to 0.0%: a clean, dry, slightly sweet grain beverage that's engineered rather than brewed. Refreshing, precise, and unmistakably not-beer to a beer drinker."
 summary: "Asahi Dry Zero is Japan's flagship non-alcohol beer-style drink: 0.00% ABV, formulated from the ground up rather than dealcoholized, dry and clean."
@@ -47,7 +47,7 @@ sources:
     title: 'Development of Non-alcohol Beer-like Beverages — Asahi Group Holdings R&D'
     url: 'https://www.asahigroup-holdings.com/en/rd/product/dryzero.html'
     claims:
-      - dealcoholized
+      - production_type
       - base_beverage
       - abv
       - producer
@@ -104,10 +104,10 @@ sensory:
       - palate
 ---
 
-Asahi Dry Zero is formulated as an alcohol alternative from Japan. The base is Formulated beverage from unfermented ingredients and flavor compounds; no full-strength beer is produced and then stripped. It was built without a dealcoholization step.
+## The beer
 
-The nose is light grain and a faint malt sweetness; very restrained, almost neutral.
+Asahi Dry Zero is formulated as an alcohol alternative from Japan. The base is a wort-free formulation — no full-strength beer is produced and then stripped. Asahi's own R&D documentation describes it as a non-alcohol beer-like beverage built from unfermented ingredients and flavor compounds.
 
-On the palate, clean and dry with a slight cereal sweetness — closer to a malt beverage than to beer, deliberately. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, light grain and a faint malt sweetness; very restrained, almost neutral. On the palate, clean and dry with a slight cereal sweetness — closer to a malt beverage than to beer, deliberately. The finish is short and clean, very neutral.
 
-The finish is short and clean, very neutral. The Japanese approach to 0.0%: a clean, dry, slightly sweet grain beverage that's engineered rather than brewed. Refreshing, precise, and unmistakably not-beer to a beer drinker. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.
+The Japanese approach to 0.0%: engineered rather than brewed — refreshing, precise, and unmistakably not-beer to a beer drinker. Serve very cold, from the can.

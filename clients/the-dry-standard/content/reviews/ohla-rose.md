@@ -26,7 +26,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-19'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 74
 verdict: 'Wine first, still unpublished. A light, slightly sweet pink that goes thin in the middle. More picnic drink than convincing rosé.'
 summary: 'Spanish Syrah and Cabernet Sauvignon, fermented then dealcoholized. The US label says De-Alcoholized Wine. Light, slightly sweet, short.'
@@ -45,9 +45,9 @@ likeness: "The nose leans candy more than savoury rosé. The sip still reads as 
 drink_if_you_like:
   - 'Easy picnic rosés'
   - 'Light Spanish pinks'
-nose: 'Strawberry hull and a little watermelon candy. Quiet, not savoury.'
-palate: 'Light and slightly sweet. Red fruit over a thin frame — a picnic rosé that lost its weight. The mid-palate is the weak point.'
-finish: 'Short berry. Keep it cold.'
+nose: 'quiet: strawberry hull and a little watermelon candy. Confectionery more than savoury rosé — fruit is there, but the savoury pink-wine edge is not.'
+palate: Light and slightly sweet. Red fruit over a thin frame — a picnic rosé that lost its weight. The mid-palate is the weak point.
+finish: Short berry. Keep it cold.
 structure: "Thin and short. Sweetness without alcohol's weight or warmth. The nose leans candy more than wine."
 best_for: 'Aperitif pours, rice dishes, and the weeknight pink that does not need a speech.'
 serve: 'Well chilled, in a white-wine glass.'
@@ -137,10 +137,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Spanish Syrah and Cabernet Sauvignon under the Ohla mark (Miguel Torres), fermented as wine, then dealcoholized. The still is unpublished. The bottle in this cellar is labeled Ohla! De-Alcoholized Wine — pale salmon, still. It is not the Spanish 12.5% Garnacha Ohla Rosado, and it is not Natureo with a different front label.
+## The wine
 
-The nose is quiet: strawberry hull and a little watermelon candy. Confectionery more than savoury rosé — fruit is there, but the savoury pink-wine edge is not.
+Ohla! Rosé is dealcoholized from Spain. The base is Syrah and Cabernet Sauvignon, fermented then dealcoholized. Fermented as wine, then the alcohol is removed (technique not named in the manufacturer notes).
 
-The palate is light and slightly sweet. Red fruit sits on a thin frame. Mouthfeel is the weak point: it starts like a picnic rosé, then goes hollow in the middle. Sweetness remains; the body and warmth alcohol would have given do not. Balance tips toward easy fruit rather than acid-driven structure. Structural authenticity is weak — briefly wine-shaped, then thin, without the mid-palate weight dealcoholized pinks need to hold.
+On the nose, quiet: strawberry hull and a little watermelon candy. Confectionery more than savoury rosé — fruit is there, but the savoury pink-wine edge is not. On the palate, Light and slightly sweet. Red fruit over a thin frame — a picnic rosé that lost its weight. The mid-palate is the weak point. Mouthfeel: Light and thin — a picnic pink that lost its weight. The finish is Short berry. Keep it cold.
 
-The finish is short berry. Keep it cold. Wine-likeness splits: the nose leans candy, the sip reads as pink wine until the middle collapses. Serve well chilled as an aperitif if you want pink in the glass without expecting a serious rosé. That is its lane — useful, not ambitious at all.
+The nose leans candy more than savoury rosé. The sip still reads as pink wine until the middle goes hollow — sweetness without alcohol's body or warmth. Serve well chilled, in a white-wine glass.

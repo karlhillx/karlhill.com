@@ -28,7 +28,7 @@ image_credit: Editorial still
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 88
 verdict: 'Fresh, energetic and polished, with carbonation doing useful structural work where ethanol normally would. Sweetness is noticeable but well supported by acidity and bubbles.'
 summary: 'NOOH Sparkling Blanc — Provençal Sauvignon Blanc vacuum-distilled to 0.0% and finished sparkling. One of the more structurally convincing whites in this set.'
@@ -149,8 +149,10 @@ purchase_links:
     last_verified: '2026-09-20'
 ---
 
-The bottle is NOOH Sparkling Blanc — champagne-format glass, gold foil — not the still Blanc. Château La Coste starts with estate Sauvignon Blanc, removes alcohol by vacuum distillation at no more than 35–40°C, and finishes a sparkling flavored beverage based on dealcoholized wine at 0.0% ABV. Producer sugar is about 4 g per 100 ml.
+## The wine
 
-Nose: Granny Smith, white peach, citrus, then white flowers and jasmine. Palate opens lively — lime, crisp apple, white peach — with fine carbonation keeping the residual sugar from turning heavy. Finish is clean and moderately persistent, lime and orchard fruit toward jasmine.
+NOOH by La Coste Sparkling Blanc is a hybrid of dealcoholized material and other defining ingredients from Provence, France. The base is 100% estate Sauvignon Blanc from Château La Coste, fermented then dealcoholized; sparkling finish with natural flavors after removal. Vacuum distillation; evaporation at a maximum of approximately 35–40°C (producer).
 
-At 88 this is the strongest research score in the set: bubbles and acid do real structural work where ethanol usually would. Hybrid classification still applies — wine base, then flavored sparkling finish.
+On the nose, Granny Smith apple, white peach and citrus, followed by white flowers and a distinctive jasmine note. On the palate, A lively initial attack with lime, crisp apple and white peach. Fine carbonation adds lift and keeps the relatively generous residual sugar from feeling heavy. The finish is Clean and moderately persistent, moving from lime and orchard fruit toward jasmine and floral freshness.
+
+More structurally convincing than most NA whites here. Sparkling lift and acid do real work; finished type is still a flavored dealcoholized-wine beverage. Serve 8–9°C (producer).

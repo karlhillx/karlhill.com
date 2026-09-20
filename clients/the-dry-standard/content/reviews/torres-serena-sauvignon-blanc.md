@@ -24,7 +24,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 81
 verdict: "A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and 'dealcoholization process' without naming the machine. The grape still shows."
 summary: 'Serena Mode is Central Valley Sauvignon Blanc, fermented then dealcoholized to 0.0% ABV per the 2024 technical sheet.'
@@ -35,9 +35,9 @@ profile:
   - Off-dry
   - 'Light body'
   - 'Short finish'
-nose: 'Citrus and a grassy edge, quieter than a 13% Casablanca bottle.'
-palate: '36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body.'
-finish: 'Short citrus. The residual sugar lingers more than the herb.'
+nose: 'citrus and a grassy edge, quieter than a 13% Casablanca bottle. On the palate, 36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body. The finish is short citrus. The residual sugar lingers more than the herb. A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and ''dealcoholization process'' without naming the machine. The grape still shows.'
+palate: 36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body.
+finish: 'short citrus. The residual sugar lingers more than the herb. A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and ''dealcoholization process'' without naming the machine. The grape still shows.'
 best_for: 'Shellfish and grilled fish, as Torres suggests, or a weekday white.'
 serve: 8–10°C.
 sources:
@@ -118,10 +118,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Torres Serena Sauvignon Blanc is dealcoholized from Central Valley, Chile. The base is 100% Sauvignon Blanc, destemmed, fermented 16 days at 12–16°C. Fermented 16 days, then the finished wine undergoes a dealcoholization process (technique not named). The glass is citrus and grass with more sweetness than a dry Casablanca SB. Useful, documented, not a spinning-cone essay.
+## The wine
 
-The nose is citrus and a grassy edge, quieter than a 13% Casablanca bottle.
+Torres Serena Sauvignon Blanc is dealcoholized from Central Valley, Chile. The base is 100% Sauvignon Blanc, destemmed, fermented 16 days at 12–16°C. Fermented 16 days, then the finished wine undergoes a dealcoholization process (technique not named).
 
-On the palate, 36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, citrus and a grassy edge, quieter than a 13% Casablanca bottle. On the palate, 36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body. The finish is short citrus. The residual sugar lingers more than the herb. A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and 'dealcoholization process' without naming the machine. The grape still shows. On the palate, 36 g/L sugar makes it plumper than the nose suggests. Lime and green fruit over a light body. The finish is short citrus. The residual sugar lingers more than the herb. A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and 'dealcoholization process' without naming the machine. The grape still shows.
 
-The finish is short citrus. The residual sugar lingers more than the herb. A Chilean Sauvignon Blanc that was wine first. Torres prints 0.0% and 'dealcoholization process' without naming the machine. The grape still shows. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+Serve 8–10°C.

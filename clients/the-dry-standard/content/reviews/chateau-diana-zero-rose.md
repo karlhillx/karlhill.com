@@ -26,7 +26,7 @@ image_credit: 'Product photo via nonalcoholicwines.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 75
 verdict: 'The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach.'
 summary: "Chateau Diana's Zero Rosé is an alcohol-removed California rosé: ripe strawberries and bright acidity at 0.0% ABV, 80 calories."
@@ -35,9 +35,9 @@ tastes:
 profile:
   - 'Bright acidity'
   - 'Clean finish'
-nose: 'Ripe strawberries with a light floral note.'
+nose: 'ripe strawberries with a light floral note. On the palate, bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes. The finish is clean and brief. The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach.'
 palate: 'Bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes.'
-finish: 'Clean and brief.'
+finish: 'clean and brief. The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach.'
 best_for: 'Everyday rosé at zero proof, the bottle that goes in the cooler.'
 serve: 'Well chilled.'
 sources:
@@ -127,10 +127,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
+## The wine
+
 Chateau Diana Zero California Rosé is dealcoholized from California, United States. The base is California rosé, vinified conventionally before alcohol removal. Alcohol removed from conventionally vinified California rosé.
 
-The nose is ripe strawberries with a light floral note.
+On the nose, ripe strawberries with a light floral note. On the palate, bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes. The finish is clean and brief. The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach. On the palate, Bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes. The finish is clean and brief. The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach.
 
-On the palate, bright and fruit-forward; the strawberry character carries the mid-palate, gentle acidity, no off-notes. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is clean and brief. The rosé sibling of the Zero White — ripe strawberries and bright acidity at 0.0% ABV, 80 calories, the same accessible approach. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+Serve well chilled.

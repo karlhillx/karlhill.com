@@ -27,7 +27,7 @@ image_source: producer
 image_source_url: 'https://shop.pierre-chavin.com/fr/effervescents-sans-alcool/14-pierre-zero-effervescent-rose-sans-alcool.html'
 image_sku_confirmed: 'yes'
 review_date: '2026-09-19'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 78
 verdict: 'The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a foil capsule.'
 summary: 'Pierre Zéro Sparkling Rosé is dealcoholized Chardonnay and Merlot from Maison Chavin, 0.0% ABV in a 75 cl bottle, carbonated after the spinning-cone step.'
@@ -41,7 +41,7 @@ profile:
   - 'Clean finish'
 highlight: 'Soft red berry and a musky floral lift — fruit-forward rather than yeasty.'
 likeness: 'The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a…'
-nose: 'Soft red berry and a musky floral lift — fruit-forward rather than yeasty.'
+nose: 'soft red berry and a musky floral lift — fruit-forward rather than yeasty. On the palate, delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not. The finish is short, clean, a little candied strawberry. The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a foil capsule.'
 palate: 'Delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not.'
 finish: 'Short, clean, a little candied strawberry.'
 best_for: 'Toasts, brunch, and the occasion that wants a foil capsule without the ethanol.'
@@ -136,10 +136,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
+## The wine
+
 Pierre Zéro Sparkling Rosé is dealcoholized from France. The base is Traditionally vinified Chardonnay and Merlot, dealcoholized after fermentation. Spinning cone column (the method Maison Chavin says it uses for the Pierre Zéro range).
 
-The nose is soft red berry and a musky floral lift — fruit-forward rather than yeasty.
+On the nose, soft red berry and a musky floral lift — fruit-forward rather than yeasty. On the palate, delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not. The finish is short, clean, a little candied strawberry. The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a foil capsule. On the palate, Delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not. The finish is Short, clean, a little candied strawberry.
 
-On the palate, delicate mousse, salmon-pink fruit, and 4.5 g of sugar per 100 ml. The bubble is finer than most NA fizz. The sweetness is not. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is short, clean, a little candied strawberry. The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a foil capsule. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+The festive sibling of the bag-in-box rosé already on this desk: Chardonnay and Merlot through a spinning cone, then bubbles. Salmon pink, floral, and sweeter than a toast needs — but it is a real dealcoholized sparkling, not a soda in a…. Serve 6–8°C, in a flute.

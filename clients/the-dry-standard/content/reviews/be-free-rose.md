@@ -13,6 +13,7 @@ style: 'De-alcoholised German rosé'
 abv: '<0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
+method_facet: unpublished
 verified: 'yes'
 production_note: "Vivino lists the wine as 'Be Free De-Alcoholised Rosé,' and a retailer listing describes 'a gentle de-alcoholisation method'; the specific named technology is not published."
 volume: '750 ml (75 cl retail listings)'
@@ -22,7 +23,7 @@ image_alt: 'Be Free Rosé'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 78
 verdict: 'The bottle that occupies the value slot in most non-alcoholic wine collections — a fruity German rosé that does its job for around ten dollars, without ever pretending to more.'
 summary: 'A German de-alcoholised rosé sold at Total Wine for about $10: watermelon and cherry, friendly and light, method undisclosed.'
@@ -124,10 +125,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Be Free Rosé is dealcoholized from Mosel, Germany. Vivino lists the wine as 'Be Free De-Alcoholised Rosé,' and a retailer listing describes 'a gentle de-alcoholisation method'; the specific named technology i….
+## The wine
 
-The nose is watermelon and cherry, with a soft red-berry lift.
+Be Free Rosé is dealcoholized from Mosel, Germany. Vivino lists the wine as 'Be Free De-Alcoholised Rosé,' and a retailer listing describes 'a gentle de-alcoholisation method'; the specific named technology is not published.
 
-On the palate, simple and cheerful — berry fruit up front, gentle acidity, a touch of sweetness that keeps it easy. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, watermelon and cherry, with a soft red-berry lift. On the palate, simple and cheerful — berry fruit up front, gentle acidity, a touch of sweetness that keeps it easy. The finish is short and clean; more refreshment than structure. The bottle that occupies the value slot in most non-alcoholic wine collections — a fruity German rosé that does its job for around ten dollars, without ever pretending to more.
 
-The finish is short and clean; more refreshment than structure. The bottle that occupies the value slot in most non-alcoholic wine collections — a fruity German rosé that does its job for around ten dollars, without ever pretending to more. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.
+The bottle that occupies the value slot in most non-alcoholic wine collections — a fruity German rosé that does its job for around ten dollars, without ever pretending to more. Serve well chilled.

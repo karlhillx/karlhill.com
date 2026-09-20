@@ -30,7 +30,7 @@ image_source: importer
 image_source_url: 'https://loosenbrosusa.com/wp-content/uploads/2023/03/Loosen-Bros-Dr-Lo-Alc-Riesling-Info.pdf'
 image_sku_confirmed: 'yes'
 review_date: '2026-09-19'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 86
 verdict: 'Mosel Riesling put through a vacuum still by the same brothers who make Dr. L. Citrus, slate, and more residual sugar than the word dry implies — with a US label that refuses to print 0.0%.'
 summary: 'Loosen Bros. ferments Mosel Riesling, then removes the alcohol by vacuum distillation. The US bottle reads under 0.5% ABV; the importer sheet prints 0.0% vol.'
@@ -44,9 +44,9 @@ profile:
   - 'Light body'
 mouthfeel: 'Crisp citrus pith. The sugar shows if you let it warm.'
 highlight: 'Lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first.'
-nose: 'Lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first.'
+nose: 'lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first. On the palate, off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity. Mouthfeel: crisp citrus pith. The sugar shows if you let it warm. The finish is crisp citrus pith. The sugar shows if you let it warm. Mosel Riesling put through a vacuum still by the same brothers who make Dr. L. Citrus, slate, and more residual sugar than the word dry implies — with a US label that refuses to print 0.0%.'
 palate: 'Off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity.'
-finish: 'Crisp citrus pith. The sugar shows if you let it warm.'
+finish: Crisp citrus pith.
 best_for: 'Spicy takeout, weeknight fish, or anyone who already drinks Dr. L and wants the ethanol gone.'
 serve: 'Well chilled, in a white-wine glass.'
 sources:
@@ -174,10 +174,10 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
+## The wine
+
 Dr. Lo Alcohol-Removed Riesling is dealcoholized from Mosel, Germany. The base is Mosel Riesling, fermented in stainless steel; fermentation stopped by chilling to keep natural residual sugar, then dealcoholized. Vacuum distillation.
 
-The nose is lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first.
+On the nose, lime zest, green apple, and a cool slate line. It smells like Mosel Riesling first. On the palate, off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity. Mouthfeel: crisp citrus pith. The sugar shows if you let it warm. The finish is crisp citrus pith. The sugar shows if you let it warm. Mosel Riesling put through a vacuum still by the same brothers who make Dr. L. Citrus, slate, and more residual sugar than the word dry implies — with a US label that refuses to print 0.0%. On the palate, Off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity. Mouthfeel: Crisp citrus pith. The sugar shows if you let it warm. The finish is Crisp citrus pith.
 
-On the palate, off-dry and bright. Citrus and stone fruit over a lighter body than Dr. L, with 47 g/L of residual sugar held up by Mosel acidity. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is crisp citrus pith. The sugar shows if you let it warm. Mosel Riesling put through a vacuum still by the same brothers who make Dr. L. Citrus, slate, and more residual sugar than the word dry implies — with a US label that refuses to print 0.0%. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+Mosel Riesling put through a vacuum still by the same brothers who make Dr. L. Citrus, slate, and more residual sugar than the word dry implies — with a US label that refuses to print 0.0%. Serve well chilled, in a white-wine glass.

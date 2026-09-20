@@ -634,3 +634,27 @@
   brand: 'P.J. Valckenberg'
   published_at: '2026-09-20T06:35:21+00:00'
   path: reviews/wine/valckenberg-not-a-sin/
+-
+  slug: halfway-crooks-brevet-ipa
+  product: 'Brevet IPA'
+  brand: 'Halfway Crooks Beer'
+  published_at: '2026-09-20T08:02:35+00:00'
+  path: reviews/beer/halfway-crooks-brevet-ipa/
+-
+  slug: valckenberg-zero-riesling
+  product: 'Zero Riesling'
+  brand: Valckenberg
+  published_at: '2026-09-20T08:02:35+00:00'
+  path: reviews/wine/valckenberg-zero-riesling/
+-
+  slug: valckenberg-zero-sparkling
+  product: 'Cuvée Sparkling Zero'
+  brand: Valckenberg
+  published_at: '2026-09-20T08:02:36+00:00'
+  path: reviews/wine/valckenberg-zero-sparkling/
+-
+  slug: valckenberg-not-a-sin
+  product: "It's not a SIN Ginger / Bitter Orange Peel"
+  brand: 'P.J. Valckenberg'
+  published_at: '2026-09-20T08:02:36+00:00'
+  path: reviews/wine/valckenberg-not-a-sin/

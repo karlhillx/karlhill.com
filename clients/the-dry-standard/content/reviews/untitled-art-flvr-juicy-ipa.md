@@ -22,7 +22,7 @@ image_credit: 'Product photo via drinkuntitled.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 82
 verdict: 'The IPA in the FLVR! line — juicy, hazy, and hop-forward with the same Untitled Art commitment to flavor that makes their NA beers some of the best in the category.'
 summary: "Untitled Art's FLVR! NA Juicy IPA is a hazy, juicy non-alcoholic IPA from Wisconsin: under 0.5% ABV, fruit-forward and drinkable."
@@ -30,9 +30,9 @@ tastes:
   - 'bright citrus'
 profile:
   - 'Modest bitterness'
-nose: 'Bright citrus and tropical hops with a soft juicy note — the hazy IPA aromatic signature.'
+nose: 'bright citrus and tropical hops with a soft juicy note — the hazy IPA aromatic signature. On the palate, juicy and soft; tropical and citrus hops over a rounded body, gentle bitterness, no astringent gaps. The finish is soft and fruity, the hop character trailing pleasantly. The IPA in the FLVR! line — juicy, hazy, and hop-forward with the same Untitled Art commitment to flavor that makes their NA beers some of the best in the category.'
 palate: 'Juicy and soft; tropical and citrus hops over a rounded body, gentle bitterness, no astringent gaps.'
-finish: 'Soft and fruity, the hop character trailing pleasantly.'
+finish: 'soft and fruity, the hop character trailing pleasantly. The IPA in the FLVR! line — juicy, hazy, and hop-forward with the same Untitled Art commitment to flavor that makes their NA beers some of the best in the category.'
 best_for: 'The hazy IPA drinker, the same person who drinks the FLVR! Sour and Pils from this brewery.'
 serve: 'Cold, from the can.'
 sources:
@@ -101,10 +101,10 @@ provenance:
     url: 'https://www.wpr.org/news/wisconsin-untitled-art-nonalcoholic-beer-industry'
 ---
 
+## The beer
+
 Untitled Art FLVR! NA Juicy IPA is dealcoholized from Waunakee, Wisconsin, United States. Reverse osmosis membrane filtration, applied after full fermentation.
 
-The nose is bright citrus and tropical hops with a soft juicy note — the hazy IPA aromatic signature.
+On the nose, bright citrus and tropical hops with a soft juicy note — the hazy IPA aromatic signature. On the palate, juicy and soft; tropical and citrus hops over a rounded body, gentle bitterness, no astringent gaps. The finish is soft and fruity, the hop character trailing pleasantly. The IPA in the FLVR! line — juicy, hazy, and hop-forward with the same Untitled Art commitment to flavor that makes their NA beers some of the best in the category. On the palate, Juicy and soft; tropical and citrus hops over a rounded body, gentle bitterness, no astringent gaps. The finish is soft and fruity, the hop character trailing pleasantly. The IPA in the FLVR! line — juicy, hazy, and hop-forward with the same Untitled Art commitment to flavor that makes their NA beers some of the best in the category.
 
-On the palate, juicy and soft; tropical and citrus hops over a rounded body, gentle bitterness, no astringent gaps. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is soft and fruity, the hop character trailing pleasantly. The IPA in the FLVR! line — juicy, hazy, and hop-forward with the same Untitled Art commitment to flavor that makes their NA beers some of the best in the category. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+Serve cold, from the can.

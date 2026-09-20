@@ -12,6 +12,7 @@ subcategory: rosé
 country: Australia
 style: 'Non-alcoholic Australian rosé'
 production_type: dealcoholized
+method_facet: unpublished
 verified: 'yes'
 production_note: 'Total Wine Winery Direct listing is Non-alcoholic: Yes for an Australian rosé blend. Fitatu indexes the same line as Zero Alcohol De-Alcoholized Rosé Wine. Commercial / US TTB dealcoholized-wine practice treats the residual ceiling as <0.5% ABV; Total Wine does not print a numeric residual. Named removal technology is unpublished.'
 volume: '750 ml'

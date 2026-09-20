@@ -25,7 +25,7 @@ image_credit: 'Product photo via athleticbrewing.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 88
 verdict: "The category's benchmark, and the beer that proved a non-alcoholic IPA can win medals against full-strength competition. The process is a trade secret, but founders have said on the record it is not dealcoholization. The result is the most reliable IPA-shaped pour in the zero-proof aisle."
 summary: "America's largest dedicated NA brewery built Run Wild under 0.5% from the start: 70 calories, Citra and Mosaic over US and German malt. Proprietary method; not a stripped full-strength IPA."
@@ -42,7 +42,7 @@ mouthfeel: 'Dry and crisp, ending clean rather than syrupy — the thing cheap N
 highlight: 'Pine resin and citrus peel — the classic Northwest signature, bright and clean rather than sweet.'
 likeness: "The category's benchmark, and the beer that proved a non-alcoholic IPA can win medals against full-strength competition. The process is a trade secret, but founders have said on the record it is not dealcoholization. The result is the mo…"
 nose: 'Pine resin and citrus peel — the classic Northwest signature, bright and clean rather than sweet.'
-palate: "Approachable bitterness (35 IBU) over a subtle, complex malt body; a Northwest hop blend with Citra and Mosaic doing the loud parts, at a session beer's weight."
+palate: 'Approachable bitterness (35 IBU) over a subtle, complex malt body; a Northwest hop blend with Citra and Mosaic doing the loud parts, at a session beer''s weight.'
 finish: 'Dry and crisp, ending clean rather than syrupy — the thing cheap NA IPAs get wrong.'
 best_for: 'Post-run, game day, anywhere you want beer rhythm without the alcohol.'
 serve: 'Cold, straight from the can.'
@@ -139,10 +139,10 @@ sensory:
       - palate
 ---
 
-Athletic Brewing Run Wild IPA is brewed or fermented to finish at low ABV without a published removal step from Milford, Connecticut, with a second brewhouse in San Diego, California, United States. Athletic's process is proprietary, but founder interviews state it is neither dealcoholization of finished beer nor simple arrested fermentation — the beers ….
+## The beer
 
-The nose is pine resin and citrus peel — the classic Northwest signature, bright and clean rather than sweet.
+Athletic Brewing Run Wild IPA is brewed or fermented to finish at low ABV without a published removal step from Milford, Connecticut, with a second brewhouse in San Diego, California, United States. Athletic's process is proprietary, but founder interviews state it is neither dealcoholization of finished beer nor simple arrested fermentation — the beers are built as NA from the start.
 
-On the palate, approachable bitterness (35 IBU) over a subtle, complex malt body; a Northwest hop blend with Citra and Mosaic doing the loud parts, at a session beer's weight. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, pine resin and citrus peel — the classic Northwest signature, bright and clean rather than sweet. On the palate, approachable bitterness (35 IBU) over a subtle, complex malt body; a Northwest hop blend with Citra and Mosaic doing the loud parts, at a session beer's weight. Mouthfeel: dry and crisp, ending clean rather than syrupy — the thing cheap NA IPAs get wrong. The finish is dry and crisp, ending clean rather than syrupy — the thing cheap NA IPAs get wrong. The category's benchmark, and the beer that proved a non-alcoholic IPA can win medals against full-strength competition. The process is a trade secret, but founders have said on the record it is not dealcoholization. The result is the most reliable IPA-shaped pour in the zero-proof aisle.
 
-The finish is dry and crisp, ending clean rather than syrupy — the thing cheap NA IPAs get wrong. The category's benchmark, and the beer that proved a non-alcoholic IPA can win medals against full-strength competition. The process is a trade secret, but founders have said on the record it is not dealcoholization. The result is the most reliable IPA-shaped pour in the zero-proof aisle. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer.
+The category's benchmark, and the beer that proved a non-alcoholic IPA can win medals against full-strength competition. The process is a trade secret, but founders have said on the record it is not dealcoholization. The result is the mo…. Serve cold, straight from the can.

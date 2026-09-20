@@ -24,7 +24,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 82
 verdict: "A hazy IPA that was never a full-strength beer with the ethanol stripped out. Passionfruit and haze without a dealcoholization step — which is the point of this desk's second column."
 summary: "Lagunitas' non-alcoholic hazy IPA sits at 0.50% ABV. The brewery is explicit: it does not remove alcohol from finished beer."
@@ -125,10 +125,10 @@ provenance:
     url: 'https://www.beveragedaily.com/Article/2020/12/01/Lagunitas-launches-non-alcoholic-IPNA-in-the-US/'
 ---
 
+## The beer
+
 Lagunitas Hazy IPNA is brewed or fermented to finish at low ABV without a published removal step from United States. Brewed to remain under 0.5% ABV. Lagunitas says it does not dealcoholize the finished beer.
 
-The nose is passionfruit and tropical hop, a little grain-sweet underneath the haze.
+On the nose, passionfruit and tropical hop, a little grain-sweet underneath the haze. On the palate, juicy and soft, 30 IBU, more fruit than pine. Body is lighter than a full Hazy Memory, as expected once fermentation is limited. The finish is short hop snap, a touch of residual sweetness from the 5 g of sugar. A hazy IPA that was never a full-strength beer with the ethanol stripped out. Passionfruit and haze without a dealcoholization step — which is the point of this desk's second column.
 
-On the palate, juicy and soft, 30 IBU, more fruit than pine. Body is lighter than a full Hazy Memory, as expected once fermentation is limited. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is short hop snap, a touch of residual sweetness from the 5 g of sugar. A hazy IPA that was never a full-strength beer with the ethanol stripped out. Passionfruit and haze without a dealcoholization step — which is the point of this desk's second column. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.
+A hazy IPA that was never a full-strength beer with the ethanol stripped out. Passionfruit and haze without a dealcoholization step — which is the point of this desk's second column. Serve cold, in a tumbler. Do not warm it.

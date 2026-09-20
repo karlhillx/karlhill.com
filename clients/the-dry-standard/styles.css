@@ -364,6 +364,17 @@ body.is-locked {
   margin: 0.35rem 0 1rem;
 }
 
+.review-hero h1 {
+  margin: 0.2rem 0 0.65rem;
+  max-width: 28ch;
+  font-size: clamp(1.85rem, 3vw, 2.65rem);
+  line-height: 1.15;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  white-space: normal;
+}
+
 .lede {
   margin: 0;
   max-width: 40rem;
@@ -880,6 +891,21 @@ a.stat:hover strong {
   text-transform: none;
 }
 
+.card-score small {
+  margin-left: 0.12rem;
+  font-size: 0.55em;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  vertical-align: super;
+}
+
+.card-score--research {
+  opacity: 0.95;
+}
+
 .badge {
   display: inline-flex;
   align-self: flex-start;
@@ -1305,7 +1331,7 @@ a.stat:hover strong {
 }
 
 .product-figure--hero {
-  width: min(14rem, 36vw);
+  width: min(10rem, 42vw);
 }
 
 .product-figure--feature,
@@ -1320,10 +1346,11 @@ a.stat:hover strong {
 
 .review-hero {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 1.75rem;
+  /* Fixed bottle + score tracks so the title column never collapses. */
+  grid-template-columns: 10rem minmax(0, 1fr) 7.5rem;
+  gap: 1.35rem 1.5rem;
   align-items: start;
-  padding: 1.5rem;
+  padding: 1.35rem 1.5rem 1.5rem;
   border: 1px solid var(--rule);
   border-radius: calc(var(--radius) + 0.15rem);
   background: var(--surface);
@@ -1335,16 +1362,25 @@ a.stat:hover strong {
   container-type: inline-size;
 }
 
-.review-hero .product-figure--hero {
-  padding: 0.75rem;
+.review-hero .product-figure--hero,
+.review-hero .product-figure--empty {
+  width: 100%;
+  max-width: 10rem;
+  padding: 0.65rem;
   border-radius: var(--radius-sm);
   background:
     radial-gradient(circle at 50% 20%, #fff, var(--paper-deep) 72%);
 }
 
+.review-score-col {
+  justify-self: end;
+}
+
 .score {
   margin: 0;
+  width: 7.5rem;
   min-width: 6.5rem;
+  max-width: 100%;
   padding: 0.85rem 0.9rem 1rem;
   border-radius: var(--radius-sm);
   background: var(--header);
@@ -1352,9 +1388,10 @@ a.stat:hover strong {
   text-align: center;
   font-family: var(--font-display);
   line-height: 0.85;
+  box-sizing: border-box;
 }
 
-.score span {
+.score > span:first-of-type {
   font-size: 4.2rem;
 }
 
@@ -2319,11 +2356,21 @@ a.stat:hover strong {
   }
 
   .review-hero {
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+  }
+
+  .review-hero .product-figure--hero,
+  .review-hero .product-figure--empty {
+    width: 100%;
+    max-width: 8.5rem;
+  }
+
+  .review-score-col {
+    grid-column: 1 / -1;
+    justify-self: start;
   }
 
   .review-hero .score {
-    grid-column: 1 / -1;
     text-align: left;
     display: flex;
     align-items: baseline;
@@ -2331,7 +2378,7 @@ a.stat:hover strong {
     width: fit-content;
   }
 
-  .review-hero .score span {
+  .review-hero .score > span:first-of-type {
     font-size: 3rem;
   }
 
@@ -2459,8 +2506,9 @@ a.stat:hover strong {
     justify-items: start;
   }
 
-  .product-figure--hero {
-    width: min(9rem, 46vw);
+  .review-hero .product-figure--hero,
+  .review-hero .product-figure--empty {
+    max-width: min(9rem, 46vw);
   }
 
   .review-jump {
@@ -2918,11 +2966,18 @@ a.stat:hover strong {
   align-items: center;
 }
 
-.review-hero h1,
 .card-title,
 .identity-value {
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: manual;
+}
+
+.review-hero h1 {
+  /* Titles wrap at spaces only — never letter-split. */
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: none !important;
 }
 
 .archive-layout,
@@ -3014,15 +3069,31 @@ img {
   text-underline-offset: 0.12em;
 }
 
-.score-method {
+.score-kind {
   display: block;
   margin-top: 0.35rem;
   font-family: var(--font-sans);
   font-size: 0.68rem;
   font-style: normal;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(250, 247, 241, 0.78);
+}
+
+.score-method {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 241, 0.62);
+}
+
+.score--research > span:first-of-type {
+  opacity: 0.92;
 }
 
 .card-relation {
@@ -3122,7 +3193,7 @@ img {
   margin: 0;
 }
 
-.review-sticky .score span {
+.review-sticky .score > span:first-of-type {
   font-size: 1.5rem;
 }
 

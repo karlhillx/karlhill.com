@@ -23,7 +23,7 @@ image_credit: 'Product photo via stagrestis.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 86
 verdict: "VinePair's 2025 Rising Drinks Brand of the Year is, by a sensible margin, the closest NA pour to an actual Negroni. Built from scratch with 30 botanicals — and built right."
 summary: "St. Agrestis' Phony Negroni is the brand's flagship NA cocktail: 30 organic, non-GMO botanicals, 0.0% ABV, and the closest any formulated NA negroni gets to the bitter-piney Italian original."
@@ -36,7 +36,7 @@ profile:
   - Off-dry
   - 'Modest bitterness'
 highlight: "Piney and bitter, gentian and wormwood, layered with a citrusy high note that's unmistakably Negroni-adjacent without borrowing."
-nose: "Piney and bitter, gentian and wormwood, layered with a citrusy high note that's unmistakably Negroni-adjacent without borrowing."
+nose: 'Piney and bitter, gentian and wormwood, layered with a citrusy high note that''s unmistakably Negroni-adjacent without borrowing.'
 palate: 'Bitter and botanical, the gentian carrying the middle, the citrus and herbal notes framing it; bone-dry, no sugar overlay.'
 finish: 'Long and bitter — closer to a Cocchi Americano rinse than to a juice mocktail.'
 best_for: 'The 6 PM hour when nothing else on the NA shelf gets close to an Italian aperitivo.'
@@ -126,10 +126,10 @@ provenance:
     url: 'https://www.diffordsguide.com/beer-wine-spirits/11580/phony-negroni'
 ---
 
-St. Agrestis Phony Negroni is formulated as an alcohol alternative from United States. The base is 30 organic, non-GMO botanicals designed to replicate negroni aromatics without any underlying spirit. It was built without a dealcoholization step.
+## The drink
 
-The nose is piney and bitter, gentian and wormwood, layered with a citrusy high note that's unmistakably Negroni-adjacent without borrowing.
+St. Agrestis Phony Negroni is formulated as an alcohol alternative from United States. The base is 30 organic, non-GMO botanicals designed to replicate negroni aromatics without any underlying spirit. St. Agrestis cocktails are formulated from a base of 30 organic, non-GMO botanicals — not dealcoholized from a once-alcoholic Negroni.
 
-On the palate, bitter and botanical, the gentian carrying the middle, the citrus and herbal notes framing it; bone-dry, no sugar overlay. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, piney and bitter, gentian and wormwood, layered with a citrusy high note that's unmistakably Negroni-adjacent without borrowing. On the palate, bitter and botanical, the gentian carrying the middle, the citrus and herbal notes framing it; bone-dry, no sugar overlay. The finish is long and bitter — closer to a Cocchi Americano rinse than to a juice mocktail. VinePair's 2025 Rising Drinks Brand of the Year is, by a sensible margin, the closest NA pour to an actual Negroni. Built from scratch with 30 botanicals — and built right.
 
-The finish is long and bitter — closer to a Cocchi Americano rinse than to a juice mocktail. VinePair's 2025 Rising Drinks Brand of the Year is, by a sensible margin, the closest NA pour to an actual Negroni. Built from scratch with 30 botanicals — and built right. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at cocktail. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+VinePair's 2025 Rising Drinks Brand of the Year is, by a sensible margin, the closest NA pour to an actual Negroni. Built from scratch with 30 botanicals — and built right. Serve build like a real Negroni — pour over a large ice cube, a curl of orange peel. The canned format needs less help than expected.

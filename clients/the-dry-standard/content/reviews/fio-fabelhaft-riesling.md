@@ -25,7 +25,7 @@ image_credit: 'Product photo via skurnik.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 81
 verdict: 'A Mosel Riesling imported by Skurnik — the same importer that handles serious German wine — with steep-slope fruit and honest acidity at zero proof.'
 summary: "Fio's Fabelhaft is a dealcoholized Mosel Riesling from steep-slope vineyards: light, elegant, fresh, with the acidity and sweetness in Riesling balance."
@@ -38,9 +38,9 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Clean finish'
-nose: 'White nectarine, pear and citrus blossom — the Mosel Riesling aromatic signature.'
+nose: 'white nectarine, pear and citrus blossom — the Mosel Riesling aromatic signature. On the palate, light, elegant and fresh; a light sweetness balanced by vibrant Riesling acidity, clean and mineral. The finish is clean and citric, the acidity carrying the close. A Mosel Riesling imported by Skurnik — the same importer that handles serious German wine — with steep-slope fruit and honest acidity at zero proof.'
 palate: 'Light, elegant and fresh; a light sweetness balanced by vibrant Riesling acidity, clean and mineral.'
-finish: 'Clean and citric, the acidity carrying the close.'
+finish: 'clean and citric, the acidity carrying the close. A Mosel Riesling imported by Skurnik — the same importer that handles serious German wine — with steep-slope fruit and honest acidity at zero proof.'
 best_for: 'The Riesling drinker who wants Mosel character without the alcohol, and the importer-credential matters.'
 serve: 'Well chilled.'
 sources:
@@ -134,10 +134,10 @@ provenance:
     url: 'https://harvestwinemarket.com/products/fio-fabelhaft-alkoholfrei-mosel-germany-non-alcoholic-riesling-nv'
 ---
 
+## The wine
+
 Fio 'Fabelhaft' Non-Alcoholic Riesling is dealcoholized from Mosel, Germany. The base is Riesling from a blend of Mosel steep-slope vineyards, stainless steel fermented, dealcoholized. Alcohol removed from conventionally vinified Mosel Riesling; stainless steel fermentation before dealcoholization (importer).
 
-The nose is white nectarine, pear and citrus blossom — the Mosel Riesling aromatic signature.
+On the nose, white nectarine, pear and citrus blossom — the Mosel Riesling aromatic signature. On the palate, light, elegant and fresh; a light sweetness balanced by vibrant Riesling acidity, clean and mineral. The finish is clean and citric, the acidity carrying the close. A Mosel Riesling imported by Skurnik — the same importer that handles serious German wine — with steep-slope fruit and honest acidity at zero proof. On the palate, Light, elegant and fresh; a light sweetness balanced by vibrant Riesling acidity, clean and mineral. The finish is clean and citric, the acidity carrying the close. A Mosel Riesling imported by Skurnik — the same importer that handles serious German wine — with steep-slope fruit and honest acidity at zero proof.
 
-On the palate, light, elegant and fresh; a light sweetness balanced by vibrant Riesling acidity, clean and mineral. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is clean and citric, the acidity carrying the close. A Mosel Riesling imported by Skurnik — the same importer that handles serious German wine — with steep-slope fruit and honest acidity at zero proof. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else.
+Serve well chilled.

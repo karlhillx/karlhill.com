@@ -24,7 +24,7 @@ image_credit: 'Product photo via drinkuntitled.com'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 84
 verdict: 'The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer.'
 summary: "Untitled Art's FLVR! Mango Dragonfruit Sour is a tart, tropical NA fruit sour from Wisconsin: under 0.5% ABV, 90 calories, vivid mango and dragonfruit character."
@@ -35,9 +35,9 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Clean finish'
-nose: 'Ripe mango and a tart tropical lift — unmistakably fruit-forward, with sour-beer sharpness underneath.'
+nose: 'ripe mango and a tart tropical lift — unmistakably fruit-forward, with sour-beer sharpness underneath. On the palate, tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap. The finish is tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer.'
 palate: 'Tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap.'
-finish: 'Tart and clean, the tropical fruit lingering.'
+finish: 'tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer.'
 best_for: "Summer afternoons, people who don't like beer, and anyone who wants NA to be fun rather than serious."
 serve: 'Very cold, straight from the can.'
 sources:
@@ -133,10 +133,10 @@ sensory:
       - palate
 ---
 
+## The beer
+
 Untitled Art FLVR! NA Mango Dragonfruit Sour is dealcoholized from Waunakee, Wisconsin, United States. Reverse osmosis membrane filtration, applied after full fermentation.
 
-The nose is ripe mango and a tart tropical lift — unmistakably fruit-forward, with sour-beer sharpness underneath.
+On the nose, ripe mango and a tart tropical lift — unmistakably fruit-forward, with sour-beer sharpness underneath. On the palate, tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap. The finish is tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer. On the palate, Tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap. The finish is tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer.
 
-On the palate, tart and vibrant; mango and dragonfruit over a clean, lightly funky sour base, real acidity rather than citric acid snap. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is tart and clean, the tropical fruit lingering. The most fun NA beer on the market: a genuinely tart, tropical sour that tastes like a beer brewed with fruit rather than a fruit drink pretending to be beer. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at beer. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass. Keep the pour cold and the expectations honest.
+Serve very cold, straight from the can.

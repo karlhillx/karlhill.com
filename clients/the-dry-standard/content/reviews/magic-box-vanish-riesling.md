@@ -12,6 +12,7 @@ style: 'Dealcoholized German Riesling'
 abv: '<0.5%'
 abv_numeric: 0.5
 production_type: dealcoholized
+method_facet: unpublished
 verified: 'yes'
 production_note: "beerfordriving.com's directory listing describes the wine as 'a German dealcoholized white wine made in the classic Riesling style... with the alcohol removed'; the specific named removal technology is not published."
 base_beverage: 'German Riesling, sourced from Germany and dealcoholized in Europe (supplier and directory copy)'
@@ -21,7 +22,7 @@ image_credit: 'Editorial still'
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 80
 verdict: 'A Riesling-shaped Riesling at a value price — citrus, mineral and a petrol whisper, which is more varietal honesty than most budget NA whites manage.'
 summary: "Magic Box's Vanish line sources its dealcoholized Riesling from Germany: delicate citrus, mineral and petrol notes at 0.5% ABV."
@@ -32,9 +33,9 @@ profile:
   - 'Bright acidity'
   - 'Light body'
   - 'Clean finish'
-nose: 'Delicate citrus with a mineral edge and a faint petrol note — the classic Riesling tell.'
+nose: Delicate citrus with a mineral edge and a faint petrol note — the classic Riesling tell.
 palate: 'Light and fresh; citrus fruit with lingering acidity, less body than a full-strength Riesling but the shape holds.'
-finish: 'Clean and citric, the mineral note carrying the close.'
+finish: 'clean and citric, the mineral note carrying the close. A Riesling-shaped Riesling at a value price — citrus, mineral and a petrol whisper, which is more varietal honesty than most budget NA whites manage.'
 best_for: 'Weeknight drinking, Thai food, the Riesling drinker on a budget.'
 serve: Chilled.
 sources:
@@ -94,10 +95,10 @@ sensory:
       - palate
 ---
 
-Magic Box Vanish Riesling is dealcoholized from Germany. The base is German Riesling, sourced from Germany and dealcoholized in Europe (supplier and directory copy). beerfordriving.com's directory listing describes the wine as 'a German dealcoholized white wine made in the classic Riesling style... with the alcohol remove….
+## The wine
 
-The nose is delicate citrus with a mineral edge and a faint petrol note — the classic Riesling tell.
+Magic Box Vanish Riesling is dealcoholized from Germany. The base is German Riesling, sourced from Germany and dealcoholized in Europe (supplier and directory copy). beerfordriving.com's directory listing describes the wine as 'a German dealcoholized white wine made in the classic Riesling style... with the alcohol removed'; the specific named removal technology is not published.
 
-On the palate, light and fresh; citrus fruit with lingering acidity, less body than a full-strength Riesling but the shape holds. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
+On the nose, delicate citrus with a mineral edge and a faint petrol note — the classic Riesling tell. On the palate, light and fresh; citrus fruit with lingering acidity, less body than a full-strength Riesling but the shape holds. The finish is clean and citric, the mineral note carrying the close. A Riesling-shaped Riesling at a value price — citrus, mineral and a petrol whisper, which is more varietal honesty than most budget NA whites manage.
 
-The finish is clean and citric, the mineral note carrying the close. A Riesling-shaped Riesling at a value price — citrus, mineral and a petrol whisper, which is more varietal honesty than most budget NA whites manage. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift.
+A Riesling-shaped Riesling at a value price — citrus, mineral and a petrol whisper, which is more varietal honesty than most budget NA whites manage. Serve chilled.

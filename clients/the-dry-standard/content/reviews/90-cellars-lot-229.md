@@ -26,7 +26,7 @@ image_source: producer
 image_source_url: 'https://www.ninetypluscellars.com/products/lot-229-non-alcoholic-sparkling-rose-france'
 image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
-updated_date: '2026-09-19'
+updated_date: 2026-09-20
 rating: 83
 verdict: 'A French sparkling rosé that was wine first, then put through reverse osmosis. Strawberry and cranberry, dry enough to toast with, priced like supermarket Cava.'
 summary: 'Lot 229 is Grenache from the South of France, fermented as sparkling wine, then dealcoholized by reverse osmosis to under 0.5% ABV.'
@@ -39,9 +39,9 @@ profile:
   - Off-dry
   - 'Soft bead'
   - 'Clean finish'
-nose: "Strawberry, cranberry, and raspberry — the producer's own list, and the glass agrees."
+nose: 'strawberry, cranberry, and raspberry — the producer''s own list, and the glass agrees. On the palate, dry, fine bead, red fruit without soda sweetness. Body is thinner than a full-strength crémant, which is the osmosis tax. The finish is clean berry and a little pith. Serve it colder than a still rosé. A French sparkling rosé that was wine first, then put through reverse osmosis. Strawberry and cranberry, dry enough to toast with, priced like supermarket Cava.'
 palate: 'Dry, fine bead, red fruit without soda sweetness. Body is thinner than a full-strength crémant, which is the osmosis tax.'
-finish: 'Clean berry and a little pith. Serve it colder than a still rosé.'
+finish: Clean berry and a little pith.
 best_for: 'A toast, oysters, or the bottle you open when the table is mixed.'
 serve: 'Well chilled, flute or white-wine stem.'
 sources:
@@ -128,10 +128,10 @@ provenance:
     url: 'https://www.ninetypluscellars.com/products/lot-229-non-alcoholic-sparkling-rose-france'
 ---
 
+## The wine
+
 90+ Cellars Lot 229 Sparkling Rosé is dealcoholized from France. The base is Grenache sparkling rosé from a fourth-generation family winery in the South of France. Traditionally made, then alcohol removed by reverse osmosis.
 
-The nose is strawberry, cranberry, and raspberry — the producer's own list, and the glass agrees.
+On the nose, strawberry, cranberry, and raspberry — the producer's own list, and the glass agrees. On the palate, dry, fine bead, red fruit without soda sweetness. Body is thinner than a full-strength crémant, which is the osmosis tax. The finish is clean berry and a little pith. Serve it colder than a still rosé. A French sparkling rosé that was wine first, then put through reverse osmosis. Strawberry and cranberry, dry enough to toast with, priced like supermarket Cava. On the palate, Dry, fine bead, red fruit without soda sweetness. Body is thinner than a full-strength crémant, which is the osmosis tax. The finish is Clean berry and a little pith.
 
-On the palate, dry, fine bead, red fruit without soda sweetness. Body is thinner than a full-strength crémant, which is the osmosis tax. That is the mouthfeel story as well: whatever body, fizz, grip, or softness the sip already has. Balance follows the same notes — sweetness, acid, bitterness, or bubbles — without a sidebar lecture.
-
-The finish is clean berry and a little pith. Serve it colder than a still rosé. A French sparkling rosé that was wine first, then put through reverse osmosis. Strawberry and cranberry, dry enough to toast with, priced like supermarket Cava. Structural authenticity is the open question: body, bitterness, dryness, or heat versus a thin gesture at wine. Serve it cold and judge the glass. Keep the pour cold and the expectations honest. Chill hard; drink it while it still has lift. Pour cold and do not ask it to be something else. Serve it cold and judge the glass.
+A French sparkling rosé that was wine first, then put through reverse osmosis. Strawberry and cranberry, dry enough to toast with, priced like supermarket Cava. Serve well chilled, flute or white-wine stem.

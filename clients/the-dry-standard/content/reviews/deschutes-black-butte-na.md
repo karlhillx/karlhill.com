@@ -27,7 +27,7 @@ image_credit: Editorial still
 image_source: editorial
 image_sku_confirmed: 'yes'
 review_date: '2026-09-20'
-updated_date: '2026-09-20'
+updated_date: 2026-09-20
 rating: 87
 summary: "Deschutes' Black Butte Non-Alcoholic is the Bend porter at <0.5% ABV: chocolate, coffee, and malt, dealcoholized on BrewVo in-house."
 verdict: 'The Dark NA that finally behaves like a porter. Roast and chocolate land; the middle is a touch lighter than the full-strength Black Butte, and that is the honest trade.'
@@ -160,8 +160,10 @@ provenance:
     url: 'https://brewvo.com/deschutes-brewery-partners-sustainable-beverage-technologies/'
 ---
 
-Deschutes Black Butte Non-Alcoholic is dealcoholized from Bend, Oregon on the brewery’s in-house BrewVo line. Residual strength sits under half a percent on the can and the product page. Same specialty malt bill and hop pair as the full-strength porter — dark chocolate malt, crystal, Cascade, Tettnang — then the alcohol comes out.
+## The beer
 
-In the glass it still reads Black Butte. The nose is chocolate and coffee over clean malt, roasted rather than candy-sweet. The palate keeps a medium body and soft carbonation; bitterness is modest, which suits a porter more than an IPA flex. What you lose versus the 5.5% original is some of the oily mid-palate weight. What you keep is the roast line and enough substance that the beer does not collapse into thin dark tea.
+Deschutes Black Butte Non-Alcoholic is dealcoholized from Bend, Oregon, United States. The base is Black Butte Porter — same specialty malts and hops as the full-strength porter (producer). SBT BrewVo process with Deschutes proprietary brewing — alcohol gently removed while preserving flavor (producer / GlobeNewswire documentation).
 
-The finish is dry-leaning roast with chocolate hanging briefly, then a clean stop. Guinness 0.0 still owns the nitro theater. This owns the American craft-porter argument in the NA aisle — and it sits a step above the Fresh Squeezed Non-Alcoholic sibling on authenticity to style, even if that IPA wins on hop perfume. Serve it cold. Judge it against the Black Butte you already know.
+On the nose, Dark chocolate and fresh coffee over a clean malt line — the Black Butte signature, present and roasted rather than sweet cocoa dust. On the palate, Malt-led and medium-bodied: chocolate and a little roast coffee through the center, bitterness modest at 25 IBU, carbonation soft enough to keep the porter shape. Less oil than the full-strength can, more substance than most NA darks that collapse into thin roast tea. Mouthfeel: Soft carbonation over a malt cushion — denser than most NA darks, still short of the oily weight the 5.5% sibling carries. The finish is Roasted and dry-leaning, with chocolate hanging a beat before the body drops away. Clean enough to pour another.
+
+Reads as porter first, NA second. Body and roast are convincing; the finish thins a notch sooner than the alcoholic original. Serve cold, from the can or in a pint glass.
