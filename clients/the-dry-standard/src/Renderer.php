@@ -1454,7 +1454,7 @@ XML;
             $parts[] = $this->e($review->methodCardLabel());
         }
 
-        return '<p class="review-meta">'.implode('<span aria-hidden="true"> · </span>', $parts).'</p>';
+        return '<p class="review-meta review-taxonomy">'.implode('<span class="review-meta-sep" aria-hidden="true"> · </span>', $parts).'</p>';
     }
 
     private function methodBlock(Review $review): string
@@ -1932,7 +1932,7 @@ XML;
             'srcset' => $this->srcsetUrls($assets['srcset'] ?? ''),
             'sizes' => match (true) {
                 str_contains($class, 'product-figure--feature') => '(max-width: 640px) 78vw, (max-width: 1024px) 42vw, 420px',
-                $hero => '(max-width: 640px) 42vw, 224px',
+                $hero => '(max-width: 640px) 56vw, (max-width: 980px) 200px, 240px',
                 default => '(max-width: 640px) 78vw, (max-width: 980px) 45vw, 274px',
             },
             'width' => $assets['width'] ?? 720,

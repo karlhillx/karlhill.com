@@ -105,6 +105,6 @@ it('keeps intact editorial essays when only the heading or nose field is dirty',
     $written = file_get_contents($path);
     expect($written)->toContain('Hand-written essay stays.');
     expect($written)->not->toContain('## The wine');
-    expect($written)->toContain("nose: pineapple and lemon.");
+    expect($written)->toContain('nose: pineapple and lemon.');
     @unlink($path);
 });

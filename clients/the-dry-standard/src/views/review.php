@@ -2,15 +2,24 @@
       <header class="page-header page-header--review">
         <div class="shell">
           <?= $breadcrumbs ?>
-          <p class="kicker"><?= $view->e($categoryLabel) ?></p>
           <div class="review-hero">
-            <?= $figure ?>
-            <div class="review-hero-copy">
-              <h1><?= $view->e($title) ?></h1>
-              <?= $metaLine ?>
-              <?php if (! empty($byline)) { ?>
-              <p class="review-byline"><?= $byline ?></p>
-              <?php } ?>
+            <div class="review-hero__media">
+              <?= $figure ?>
+            </div>
+            <div class="review-hero__body">
+              <div class="review-hero__topline">
+                <div class="review-hero__intro">
+                  <p class="kicker"><?= $view->e($categoryLabel) ?></p>
+                  <h1><?= $view->e($title) ?></h1>
+                  <?= $metaLine ?>
+                  <?php if (! empty($byline)) { ?>
+                  <p class="review-byline"><?= $byline ?></p>
+                  <?php } ?>
+                </div>
+                <div class="review-score-col" data-review-score>
+                  <?= $score ?>
+                </div>
+              </div>
               <p class="lede"><?= $view->e($summary) ?></p>
               <?= $identity ?? '' ?>
               <?php if (! empty($verdict)) { ?>
@@ -19,26 +28,23 @@
                 <p><?= $view->e($verdict) ?></p>
               </section>
               <?php } ?>
-              <p class="review-jump">
-                <a href="<?= $view->e($pageUrl) ?>#tasting">At a glance</a>
-                <a href="<?= $view->e($pageUrl) ?>#review-essay">Review</a>
-                <?php if (! empty($hasServe)) { ?>
-                <a href="<?= $view->e($pageUrl) ?>#how-to-drink">Serve</a>
-                <?php } ?>
-                <a href="<?= $view->e($pageUrl) ?>#how-it-was-made">How it was made</a>
-                <a href="<?= $view->e($pageUrl) ?>#provenance">Sources</a>
-                <a href="<?= $view->e($pageUrl) ?>#facts">Facts</a>
-                <?php if (! empty($compareHref)) { ?>
-                <a href="<?= $view->e($compareHref) ?>">Compare</a>
-                <?php } ?>
-              </p>
             </div>
-            <div class="review-score-col" data-review-score>
-              <?= $score ?>
-            </div>
+            <?php
+              $sectionNav = $view->render('partials/review-section-nav', [
+                  'pageUrl' => $pageUrl,
+                  'hasServe' => $hasServe ?? false,
+                  'compareHref' => $compareHref ?? '',
+              ]);
+              echo $sectionNav;
+            ?>
           </div>
         </div>
       </header>
+      <nav class="review-subnav" data-review-subnav hidden aria-label="On this page">
+        <div class="shell">
+          <?= $sectionNav ?>
+        </div>
+      </nav>
       <div class="section">
         <div class="shell review-layout">
           <div class="stack-lg">
