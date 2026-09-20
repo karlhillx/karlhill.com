@@ -122,6 +122,12 @@ final class Review
         public readonly ?string $disclosureNote = null,
         public readonly array $provenance = [],
         public readonly ?string $structure = null,
+        public readonly array $tastes = [],
+        public readonly array $profile = [],
+        public readonly ?string $mouthfeel = null,
+        public readonly ?string $highlight = null,
+        public readonly ?string $likeness = null,
+        public readonly array $drinkIfYouLike = [],
     ) {}
 
     /**
@@ -199,7 +205,41 @@ final class Review
             disclosureNote: self::nullableString($matter['disclosure_note'] ?? null),
             provenance: self::provenance($matter['provenance'] ?? []),
             structure: self::nullableString($matter['structure'] ?? $matter['structural_authenticity'] ?? null),
+            tastes: self::stringList($matter['tastes'] ?? $matter['taste'] ?? []),
+            profile: self::stringList($matter['profile'] ?? []),
+            mouthfeel: self::nullableString($matter['mouthfeel'] ?? null),
+            highlight: self::nullableString($matter['highlight'] ?? $matter['what_stands_out'] ?? null),
+            likeness: self::nullableString($matter['likeness'] ?? $matter['wine_likeness'] ?? null),
+            drinkIfYouLike: self::stringList($matter['drink_if_you_like'] ?? []),
         );
+    }
+
+    public function likenessText(): ?string
+    {
+        return $this->likeness ?? $this->structure;
+    }
+
+    public function likenessHeading(): string
+    {
+        return match ($this->category) {
+            'wine' => 'How wine-like is it?',
+            'beer' => 'How beer-like is it?',
+            'spirits' => 'How spirit-like is it?',
+            'cider' => 'How cider-like is it?',
+            'cocktails' => 'Does it behave like the cocktail?',
+            default => 'How authentic is it?',
+        };
+    }
+
+    public function hasGlancePanel(): bool
+    {
+        return $this->tastes !== []
+            || $this->profile !== []
+            || $this->mouthfeel !== null
+            || $this->highlight !== null
+            || $this->likenessText() !== null
+            || $this->drinkIfYouLike !== []
+            || ($this->bestFor !== null && $this->bestFor !== '');
     }
 
     /**
@@ -213,6 +253,9 @@ final class Review
         $matter['discrepancies'] = self::decodeJsonList($row['discrepancies'] ?? '[]');
         $matter['identifiers'] = self::decodeJsonList($row['identifiers'] ?? '[]');
         $matter['provenance'] = self::decodeJsonMap($row['provenance'] ?? '{}');
+        $matter['tastes'] = self::decodeJsonList($row['tastes'] ?? '[]');
+        $matter['profile'] = self::decodeJsonList($row['profile'] ?? '[]');
+        $matter['drink_if_you_like'] = self::decodeJsonList($row['drink_if_you_like'] ?? '[]');
 
         return self::fromMatter(
             $matter,
@@ -263,6 +306,12 @@ final class Review
             'palate' => $this->palate,
             'finish' => $this->finish,
             'structure' => $this->structure,
+            'tastes' => json_encode($this->tastes, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+            'profile' => json_encode($this->profile, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+            'mouthfeel' => $this->mouthfeel,
+            'highlight' => $this->highlight,
+            'likeness' => $this->likeness,
+            'drink_if_you_like' => json_encode($this->drinkIfYouLike, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
             'best_for' => $this->bestFor,
             'serve' => $this->serve,
             'sources' => json_encode($this->sources, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
@@ -983,6 +1032,30 @@ final class Review
         $string = self::string($value);
 
         return $string === '' ? null : $string;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private static function stringList(mixed $value): array
+    {
+        if (is_string($value)) {
+            $value = preg_split('/\s*[·,|;]\s*/u', $value) ?: [];
+        }
+
+        if (! is_array($value)) {
+            return [];
+        }
+
+        $items = [];
+        foreach ($value as $item) {
+            $string = self::string($item);
+            if ($string !== '') {
+                $items[] = $string;
+            }
+        }
+
+        return array_values(array_unique($items));
     }
 
     private static function nullableLower(mixed $value): ?string

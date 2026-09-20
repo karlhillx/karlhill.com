@@ -30,6 +30,21 @@ updated_date: "2026-09-19"
 rating: 74
 verdict: "Wine first, still unpublished. A light, slightly sweet pink that goes thin in the middle. More picnic drink than convincing rosé."
 summary: "Spanish Syrah and Cabernet Sauvignon, fermented then dealcoholized. The US label says De-Alcoholized Wine. Light, slightly sweet, short."
+tastes:
+  - strawberry hull
+  - watermelon candy
+  - red fruit
+profile:
+  - Slightly sweet
+  - Light body
+  - Thin mid-palate
+  - Short finish
+mouthfeel: "Light and thin — a picnic pink that lost its weight."
+highlight: "Quiet strawberry and candy watermelon on a frame that goes hollow in the middle."
+likeness: "The nose leans candy more than savoury rosé. The sip still reads as pink wine until the middle goes hollow — sweetness without alcohol's body or warmth."
+drink_if_you_like:
+  - Easy picnic rosés
+  - Light Spanish pinks
 nose: "Strawberry hull and a little watermelon candy. Quiet, not savoury."
 palate: "Light and slightly sweet. Red fruit over a thin frame — a picnic rosé that lost its weight. The mid-palate is the weak point."
 finish: "Short berry. Keep it cold."

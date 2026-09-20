@@ -29,6 +29,24 @@ updated_date: "2026-09-19"
 rating: 76
 verdict: "A cheap, widely stocked German Syrah/Shiraz that was wine first. The nose still reads as rosé. The sip starts on bright berry, then turns balsamic and a little oxidative — the usual dealcoholized gap, at a supermarket price."
 summary: "German Syrah/Shiraz rosé, vacuum-distilled to under 0.5% ABV. Berry-forward, then a balsamic back; the aroma is more wine-like than the sip."
+tastes:
+  - strawberry
+  - raspberry
+  - dark cherry
+  - balsamic
+  - molasses
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light-medium body
+  - Low tannin
+  - Faint spritz
+mouthfeel: "Lean and crisp at first, with a slight drying grip on the finish."
+highlight: "Bright red fruit gives way to a darker balsamic note, with stewed cherry and a faint molasses character on the back end."
+likeness: "The aroma is more convincing than the palate. Acidity and a faint drying character supply some wine structure, though the fermented finish may read as kombucha-like to some drinkers."
+drink_if_you_like:
+  - Off-dry rosé
+  - Light Syrah pinks
 nose: "The sniff is the wine-like half: berry-pink, still recognizably rosé rather than cordial."
 palate: "Raspberry and strawberry take the sip, with cassis and a shy melon note behind them. Off-dry sugar sits under high acid, so the middle tastes tart and a little fermented — kombucha is not a stretch. Light-bodied and lean, almost no tannin, with a drying flick juice never has and a faint spritz. Then the fruit turns: a slightly oxidative, balsamic mid-palate, dark cherry and a hint of molasses."
 finish: "Balsamic and a little oxidative — dark cherry, molasses, a quiet fermented tang. Soft, then gone. No ethanol warmth."

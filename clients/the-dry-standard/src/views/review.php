@@ -35,8 +35,8 @@
               <?= $methodBlock ?>
               <?= $discrepancies ?>
             </section>
-            <?= $overview ?>
             <?= $tasting ?>
+            <?= $overview ?>
             <?php if (! empty($hasServe)) { ?>
             <section class="prose" id="how-to-drink">
               <h2>How to drink it</h2>

@@ -13,7 +13,7 @@ A product in `data/review-queue.yaml` should move to a public review page.
 5. Add a still at `media/reviews/{slug}.jpg`. Prefer an editorial photo of the tasted bottle on paper. Producer or importer press art is allowed with `image_source_url`. Never use a retailer store photo.
 6. Set `image`, `image_alt`, `image_credit`, `image_source` (`editorial`, `producer`, or `importer`), and `image_sku_confirmed: yes` only after looking at the label.
 7. Attach `sources` with `claims` for every factual field you filled.
-8. Leave tasting notes in `nose` / `palate` / `finish` / `structure` — those are editorial, not sourced facts. After a tasting, `structure` is required by the write-review skill.
+8. Leave tasting notes in `nose` / `palate` / `finish`, plus glance fields (`tastes`, `profile`, `mouthfeel`, `highlight`, `likeness`) after a tasting. Those are editorial, not sourced facts. `structure` is optional legacy prose.
 9. `php artisan dry-standard:audit-stills {slug}` then `php artisan dry-standard:validate {slug} --publish`
 10. On failure: set `status: needs-review`, write what is missing, stop.
 11. On success: `php artisan dry-standard:publish {slug}` (add `--force` only when an editor overrides the calendar; add `--commit` only when a git snapshot is requested).

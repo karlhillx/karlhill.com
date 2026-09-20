@@ -44,13 +44,14 @@ Keep the house in `product` only when it is the official SKU (Guinness 0.0) or w
 
 ## Review skeleton
 
-1. The wine (or beer, spirit, cider, drink — by category)
-2. How was it made?
-3. Product facts
-4. Tasting notes (nose, palate, finish, structure)
-5. How to drink it
-6. Verdict
-7. Sources
+1. At a glance (taste · structure · mouthfeel · what stands out · likeness · production)
+2. The wine (or beer, spirit, cider, drink — by category)
+3. How was it made?
+4. Product facts
+5. Tasting notes (nose, palate, finish)
+6. How to drink it
+7. Verdict
+8. Sources
 
 ## Product images
 
@@ -116,7 +117,7 @@ Paraphrase the editor's notes. Do not paste them. Do not invent fruit, faults, o
 
 If aroma and palate diverge on wine-likeness (or beer-likeness, etc.), print the split as two data points. Do not average them into one "wine-like" score. That gap is the useful number.
 
-Sensory shorthand (berry-forward, tart, off-dry) can sit in the prose. After a tasting, fill `structure`: whether the drink recreates the body, acidity, tannin, bitterness, heat, dryness, or finish alcohol normally supplies. That is separate from the quality score and from "does it taste like wine?"
+Sensory shorthand (berry-forward, tart, off-dry) can sit in the prose. After a tasting, fill the glance panel: `tastes`, `profile` (sweetness/acid/body chips), `mouthfeel`, `highlight`, and `likeness`. Use `structure` for a short authenticity note or as a legacy likeness fallback. Quality score, likeness, and structural authenticity stay separate.
 
 Do not invent sensory notes. Ground them in the editor's tasting, sourced producer facts, recurring third-party impressions, or a clearly labeled inference. Plain language first. Do not force a long aroma list. Do not hide faults. Do not punish the absence of ethanol by itself. Do not over-praise.
 

@@ -334,3 +334,15 @@
   brand: Ohla
   published_at: '2026-09-20T00:37:48+00:00'
   path: reviews/wine/ohla-rose/
+-
+  slug: st-regis-non-alcoholic-rose
+  product: 'Non-Alcoholic Rosé'
+  brand: 'St. Regis'
+  published_at: '2026-09-20T00:52:52+00:00'
+  path: reviews/wine/st-regis-non-alcoholic-rose/
+-
+  slug: ohla-rose
+  product: Rosé
+  brand: Ohla
+  published_at: '2026-09-20T00:52:52+00:00'
+  path: reviews/wine/ohla-rose/

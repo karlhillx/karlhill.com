@@ -591,8 +591,9 @@ HTML;
     public function review(Review $review, array $crumbs, ?Collection $relatedReviews = null): string
     {
         $bodyHtml = Markdown::toHtml($review->bodyMarkdown);
+        $hasGlance = $review->hasGlancePanel();
         $hasServe = ($review->serve !== null && $review->serve !== '')
-            || ($review->bestFor !== null && $review->bestFor !== '');
+            || (! $hasGlance && $review->bestFor !== null && $review->bestFor !== '');
         $related = $relatedReviews?->isNotEmpty()
             ? $this->reviewCards($relatedReviews, compact: true)
             : '';
@@ -643,7 +644,7 @@ HTML;
             'tasting' => $this->tasting($review),
             'hasServe' => $hasServe,
             'serveBlock' => $this->optionalBlock($review->serve),
-            'bestForBlock' => $this->optionalBlock($review->bestFor, 'Best for: '),
+            'bestForBlock' => $hasGlance ? '' : $this->optionalBlock($review->bestFor, 'Best for: '),
             'verdict' => $review->verdict,
             'sources' => $this->sources($review),
             'facts' => $this->facts($review),
@@ -1302,7 +1303,6 @@ XML;
             'Nose' => $review->nose,
             'Palate' => $review->palate,
             'Finish' => $review->finish,
-            'Structure' => $review->structure,
         ];
 
         $notes = [];
@@ -1317,11 +1317,37 @@ XML;
             ];
         }
 
-        if ($notes === []) {
+        $hasGlance = $review->hasGlancePanel();
+        if (! $hasGlance && $notes === []) {
             return '';
         }
 
-        return $this->view->render('partials/tasting', ['notes' => $notes]);
+        $method = $review->methodCardLabel();
+        $productionLine = $review->productionTypeShortLabel();
+        if ($review->verified === 'yes') {
+            $productionLine .= ' · Verified';
+        }
+        if ($method !== '' && $review->methodFacetKey() !== 'unknown') {
+            $productionLine .= ' · '.$method;
+        } elseif ($review->methodFacetKey() === 'unknown' && $review->productionType === 'dealcoholized') {
+            $productionLine .= ' · Method unpublished';
+        }
+
+        return $this->view->render('partials/tasting', [
+            'heading' => $hasGlance ? 'At a glance' : 'Tasting notes',
+            'showGlance' => $hasGlance,
+            'tastes' => $review->tastes,
+            'profile' => $review->profile,
+            'mouthfeel' => $review->mouthfeel,
+            'highlight' => $review->highlight,
+            'likeness' => $review->likenessText(),
+            'likenessHeading' => $review->likenessHeading(),
+            'perfectFor' => $hasGlance ? $review->bestFor : null,
+            'drinkIfYouLike' => $review->drinkIfYouLike,
+            'productionLine' => $hasGlance ? $productionLine : null,
+            'notes' => $notes,
+            'detailTitle' => $hasGlance && $notes !== [] ? 'Tasting notes' : null,
+        ]);
     }
 
     private function sources(Review $review): string

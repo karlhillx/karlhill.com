@@ -58,8 +58,14 @@ summary: editorial
 nose: editorial
 palate: editorial
 finish: editorial
-structure: editorial, optional; after a tasting, whether alcohol's usual structure (body, acid, tannin, bitterness, heat, dryness, finish) is recreated — separate from the quality score
-best_for: editorial
+structure: editorial, optional; structural authenticity (legacy alias for likeness when likeness is empty)
+tastes: list of short flavor tags for the glance panel
+profile: list of structure chips (sweetness, acidity, body, tannin, carbonation, etc.)
+mouthfeel: editorial short line for the glance panel
+highlight: editorial; what stands out
+likeness: editorial; how wine/beer/spirit-like — separate from the quality score
+drink_if_you_like: list of comparable styles or bottles, optional
+best_for: editorial; Perfect for / occasions
 serve: editorial
 sources:
   - title: string

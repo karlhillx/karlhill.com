@@ -1392,6 +1392,69 @@ a.stat:hover strong {
   list-style: none;
 }
 
+.tasting-glance {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0 0 1.1rem;
+}
+
+.tasting-glance > div {
+  padding: 0.75rem 0 0;
+  border-top: 1px solid var(--rule);
+}
+
+.tasting-glance > div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.tasting-glance dt {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tasting-glance dd {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  max-width: 40rem;
+}
+
+.tasting-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tasting-chips li {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.tasting-chips li:not(:last-child)::after {
+  content: "·";
+  margin-left: 0.55rem;
+  color: var(--muted);
+}
+
+.tasting-detail-title {
+  margin: 0.4rem 0 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .tasting-flight li {
   padding: 1rem 1rem 1.05rem;
   border-radius: var(--radius-sm);

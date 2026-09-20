@@ -27,9 +27,25 @@ The public page does not have Overview / Appearance / Taste headings. Fold the g
 | Aroma | `nose` |
 | Taste + Mouthfeel | `palate` — mouthfeel is required here or in the essay |
 | Finish | `finish` |
-| Structural authenticity | `structure` (see below) and the essay argument |
+| Structural authenticity | `profile` chips + `structure` (legacy) + the essay argument |
 | Classification | `production_type` + `verified` |
 | Score | `rating` (quality). Likeness and structure are not the score. |
+
+### At-a-glance panel (required after a tasting)
+
+Scannable decision fields, rendered above the essay. Plain English. Middot chips, not critic shorthand.
+
+| Field | Purpose |
+| --- | --- |
+| `tastes` | Short flavor tags (strawberry, balsamic). 3–6 max. |
+| `profile` | Structure chips: sweetness, acidity, body, tannin, carbonation. |
+| `mouthfeel` | One short line. |
+| `highlight` | What stands out — one sentence. |
+| `likeness` | How wine/beer/spirit-like. Separate from `rating`. Prefer this over legacy `structure` for the likeness question. |
+| `drink_if_you_like` | Comparable styles, optional. |
+| `best_for` | Perfect for / occasion. |
+
+`structure` remains valid as a short authenticity note and as a fallback for `likeness` when `likeness` is empty. Do not treat the three as interchangeable: `rating` = quality, `likeness` = resemblance, `profile`/`structure` = structural authenticity.
 
 Never title the essay "Product overview."
 
@@ -53,13 +69,24 @@ RTD cocktails still need a production type for the base. `category` is `cocktail
 
 ## Structural authenticity
 
-`structure` is a short editorial field, separate from the quality score and separate from "does it taste like wine?"
+Separate from the quality score and from likeness.
+
+- `profile` — chips for sweetness, acid, body, tannin, etc. (glance panel **Structure**).
+- `structure` — optional short prose note; also legacy fallback for `likeness`.
+- `likeness` — how wine/beer/spirit-like (glance panel heading is category-specific).
 
 It measures whether the drink recreates the **body, acidity, tannin, bitterness, heat, dryness, or finish** that alcohol normally contributes.
 
-Write it when the bottle has been tasted. Example:
+Example after a tasting:
 
 ```yaml
+profile:
+  - Off-dry
+  - Bright acidity
+  - Light-medium body
+  - Low tannin
+mouthfeel: "Lean and crisp at first, with a slight drying grip on the finish."
+likeness: "The aroma is more convincing than the palate. Acidity supplies some wine structure; the finish may read as kombucha-like."
 structure: "Aroma fairly wine-like. Palate less so — tart, balsamic, lean, without alcohol's weight or warmth."
 ```
 
@@ -82,14 +109,15 @@ Likeness can split (nose vs palate). Quality can be high while structure is weak
 3. Fill sourced facts only. If a fact cannot be sourced, omit the field.
 4. If sources disagree on a **fact**, add `discrepancies`. Flavor impressions are not a fact dispute.
 5. Write the essay: method once; then the glass; then the argument (likeness split, structure, balance, faults).
-6. Write `nose`, `palate`, `finish`, and after a tasting `structure`.
-7. `summary` is the lede: process + what the glass does. No retailer. No price.
-8. Disclose free samples (`acquisition`, `disclosure_note`). Never change score or wording for a commercial relationship.
-9. Run the Final Review Test in [reference.md](reference.md). Then stop. Validate via `publish-review`.
+6. Fill the glance panel: `tastes`, `profile`, `mouthfeel`, `highlight`, `likeness` (and `drink_if_you_like` when useful).
+7. Write `nose`, `palate`, `finish`, and optionally `structure`.
+8. `summary` is the lede: process + what the glass does. No retailer. No price.
+9. Disclose free samples (`acquisition`, `disclosure_note`). Never change score or wording for a commercial relationship.
+10. Run the Final Review Test in [reference.md](reference.md). Then stop. Validate via `publish-review`.
 
 ## Model shape
 
-Essay vs facts: `content/reviews/st-regis-non-alcoholic-rose.md`
+Glance panel + essay: `content/reviews/st-regis-non-alcoholic-rose.md`
 
 ## Checklist
 
@@ -97,8 +125,8 @@ Essay vs facts: `content/reviews/st-regis-non-alcoholic-rose.md`
 - [ ] Production type correct; alternative not called dealcoholized
 - [ ] Essay has no retailer, price, or store SKU
 - [ ] No invented sensory notes
+- [ ] Glance fields filled after a tasting (`tastes`, `profile`, `mouthfeel`, `highlight`, `likeness`)
 - [ ] Mouthfeel, balance, and finish discussed
-- [ ] `structure` filled after a tasting
 - [ ] Likeness split printed if aroma and palate disagree
 - [ ] Flaws named when present
 - [ ] Every filled fact has a source `claims` token

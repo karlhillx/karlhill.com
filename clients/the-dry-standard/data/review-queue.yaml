@@ -29,7 +29,7 @@
   status: published
   production_type: dealcoholized
   verified: 'yes'
-  notes: 'Purchased 2026-09-19. Receipt: SITE RIESLING DEALCOHOLIZED, $14.99, 1 bottle. Identified as Dr. Lo Alcohol-Removed Riesling (Loosen Bros., Mosel).'
+  notes: 'Published from Loosen Bros. USA sources (EAN 0810404021415). An earlier queue note wrongly tied a SITE Riesling Dealcoholized receipt ($14.99, 2026-09-19) to this SKU; that bottle’s UPC 883122700115 matches Dr. Pauly-Bergweiler Noble House — see TDS-0109.'
 -
   product: 'Sparkling Rosé'
   id: TDS-0107
@@ -51,6 +51,17 @@
   production_type: alternative
   verified: 'yes'
   notes: "Purchased 2026-09-19. Receipt: LYRE'S NON- ALCOHOLIC RUM MULE, $15.99, 1 can."
+-
+  product: 'Riesling Dealcoholized'
+  id: TDS-0109
+  ean: '883122700115'
+  brand: SITE
+  category: wine
+  priority: high
+  status: draft
+  production_type: dealcoholized
+  verified: 'yes'
+  notes: 'Purchased 2026-09-19. Receipt: SITE RIESLING DEALCOHOLIZED, $14.99, 1 bottle. UPC 883122700115 matches Dr. Pauly-Bergweiler Noble House Riesling Alcohol Free (Winesellers). Draft product record ready; awaiting editorial tasting notes and bottle still. Not the same SKU as Dr. Lo (TDS-0106) or Heidemanns-Bergweiler (TDS-0017).'
 -
   product: 'Run Wild IPA'
   id: TDS-0101

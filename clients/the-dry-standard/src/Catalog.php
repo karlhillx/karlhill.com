@@ -471,6 +471,12 @@ final class Catalog
             'palate',
             'finish',
             'structure',
+            'tastes',
+            'profile',
+            'mouthfeel',
+            'highlight',
+            'likeness',
+            'drink_if_you_like',
             'best_for',
             'serve',
             'sources',
@@ -586,6 +592,12 @@ SQL);
         $this->ensureColumn('disclosure_note', 'disclosure_note TEXT');
         $this->ensureColumn('provenance', "provenance TEXT NOT NULL DEFAULT '{}'");
         $this->ensureColumn('structure', 'structure TEXT');
+        $this->ensureColumn('tastes', "tastes TEXT NOT NULL DEFAULT '[]'");
+        $this->ensureColumn('profile', "profile TEXT NOT NULL DEFAULT '[]'");
+        $this->ensureColumn('mouthfeel', 'mouthfeel TEXT');
+        $this->ensureColumn('highlight', 'highlight TEXT');
+        $this->ensureColumn('likeness', 'likeness TEXT');
+        $this->ensureColumn('drink_if_you_like', "drink_if_you_like TEXT NOT NULL DEFAULT '[]'");
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_production_type_idx ON products(production_type)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_style_idx ON products(style)');
         $this->pdo->exec('CREATE INDEX IF NOT EXISTS products_brand_slug_idx ON products(brand_slug)');

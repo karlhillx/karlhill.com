@@ -72,8 +72,11 @@ it('serves sourced sample reviews with production-type badges', function () {
     $this->get('/clients/the-dry-standard/reviews/wine/st-regis-non-alcoholic-rose/')
         ->assertOk()
         ->assertSee('<h2>The wine</h2>', escape: false)
-        ->assertSee('<h3>Structure</h3>', escape: false)
-        ->assertSee('Aroma fairly wine-like', escape: false)
+        ->assertSee('At a glance', escape: false)
+        ->assertSee('<dt>Taste</dt>', escape: false)
+        ->assertSee('<dt>Structure</dt>', escape: false)
+        ->assertSee('How wine-like is it?', escape: false)
+        ->assertSee('balsamic', escape: false)
         ->assertDontSee('Product overview', escape: false);
 });
 
@@ -386,7 +389,9 @@ it('serves the purchased Ohla, Hitachino, Dr. Lo, Pierre sparkling, and Lyre\'s 
         ->assertSee('Syrah and Cabernet Sauvignon', escape: false)
         ->assertSee('media/reviews/ohla-rose.jpg', escape: false)
         ->assertSee('Ohla! Rosé', escape: false)
-        ->assertSee('<h3>Structure</h3>', escape: false)
+        ->assertSee('At a glance', escape: false)
+        ->assertSee('<dt>Taste</dt>', escape: false)
+        ->assertSee('How wine-like is it?', escape: false)
         ->assertSee('watermelon candy', escape: false)
         ->assertDontSee('TDS-0104', escape: false);
 
