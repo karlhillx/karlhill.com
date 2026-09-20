@@ -585,7 +585,7 @@ When researching a product:
 6. If sources disagree, say so.
 
 7. If production method cannot be verified, mark it:
-   **Not verified**
+   **Unclassified** (`production_type: not-verified`). Set `disclosure: withheld` only for on-record refusal; otherwise leave Undeclared.
 
 8. Never infer dealcoholization solely because the product says:
 

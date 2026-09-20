@@ -281,8 +281,8 @@ trait RendersArchive
 
         $methodLabels = $this->config->methods() + [
             'other' => 'Other documented method',
-            'unpublished' => 'Method unpublished',
-            'unknown' => 'Method unpublished',
+            'unpublished' => 'Technique undeclared',
+            'unknown' => 'Technique undeclared',
             'not-applicable' => 'Formulated (no removal)',
         ];
         $methodOptions = [];
@@ -558,7 +558,7 @@ trait RendersArchive
                 } elseif ($key === 'method') {
                     $label = $this->config->methodLabel($value);
                     if ($value === 'unpublished' || $value === 'unknown') {
-                        $label = 'Method unpublished';
+                        $label = 'Technique undeclared';
                     }
                     if ($value === 'other') {
                         $label = 'Other documented method';

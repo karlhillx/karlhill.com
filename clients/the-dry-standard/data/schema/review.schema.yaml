@@ -10,17 +10,21 @@ country: string, sourced
 region: string, sourced
 style: string, editorial
 style_slug: optional closed-vocab override (see styles.yaml)
-abv: display claim — 0.0% | <0.1% | <0.5% | 0.5% | exact residual (e.g. 0.33%) | Not published
+abv: display claim — 0.0% | <0.1% | <0.5% | 0.5% | exact residual (e.g. 0.33%) | Undeclared
 abv_numeric: number <= 0.5 when known (exact residual OR the stated ceiling for less_than claims)
 abv_qualifier: exact | less_than | unpublished — optional; derived from abv when omitted.
   # exact = stated residual (0.0%, 0.33%, 0.5%)
   # less_than = ceiling claim (<0.1%, <0.5%)
-  # unpublished = Not published
+  # unpublished = Undeclared (legacy alias: Not published)
   # These are materially different; never collapse 0.33% into <0.5%, or <0.5% into 0.5%.
 production_type: dealcoholized | alternative | naturally-low-alcohol | hybrid | not-verified
+  # Public labels: Dealcoholized | Alternative | Naturally low alcohol | Hybrid | Unclassified
 verified: yes | no
+disclosure: documented | undeclared | withheld — optional; derived when omitted
+  # Documented = sourced type/technique; Undeclared = silence; Withheld = on-record refusal
 production_note: optional display override
 dealcoholization_method: string, sourced when production_type=dealcoholized
+method_facet: optional closed facet; unpublished → public "Technique undeclared"
 base_beverage: string, sourced
 producer: string, sourced
 price: approximate retail, sourced
@@ -118,7 +122,7 @@ status: queued | researching | researched | draft | tasted | reviewed | validate
 # Public glance labels: Flavor profile (sensory) · Structure (structure_scales) · Nose/Palate/Finish (prose).
 # Prefer structure_scales + sensory over free-text tastes/profile; legacy chips still render as fallback.
 # ABV is value + qualifier + provenance — not a bare float.
-# Display (abv): 0.0% | <0.1% | <0.5% | 0.5% | exact residual like 0.33% | Not published.
+# Display (abv): 0.0% | <0.1% | <0.5% | 0.5% | exact residual like 0.33% | Undeclared.
 # Qualifier (abv_qualifier, optional / derived): exact | less_than | unpublished.
 # Numeric (abv_numeric): exact residual or the ceiling figure for less_than claims.
 # Provenance (provenance.abv): manufacturer | retailer | distributor | … with confidence.

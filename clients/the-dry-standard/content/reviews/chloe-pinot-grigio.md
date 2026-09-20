@@ -111,7 +111,7 @@ provenance:
     kind: manufacturer
     confidence: manufacturer_verified
     url: 'https://www.chloewinecollection.com/wines/alcohol-removed-pinot-grigio/'
-    note: 'Producer page brands the wine Alcohol-Removed; named removal technology unpublished.'
+    note: 'Producer page brands the wine Alcohol-Removed; named removal technology undeclared.'
   base_beverage:
     kind: manufacturer
     confidence: manufacturer_verified

@@ -53,7 +53,12 @@ it('normalizes abv labels without inventing facts', function () {
             'qualifier' => 'exact',
         ])
         ->and(Registry::normalizeAbv('Not published', null))->toBe([
-            'label' => 'Not published',
+            'label' => 'Undeclared',
+            'numeric' => null,
+            'qualifier' => 'unpublished',
+        ])
+        ->and(Registry::normalizeAbv('Undeclared', null))->toBe([
+            'label' => 'Undeclared',
             'numeric' => null,
             'qualifier' => 'unpublished',
         ])

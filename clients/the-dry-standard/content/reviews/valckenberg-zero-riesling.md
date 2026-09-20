@@ -141,7 +141,7 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Valckenberg Zero Riesling is Mosel fruit put through a conventional vinification, then dealcoholized to 0.0%. The base is steep-slope Riesling; the Zero line confirms removal without naming the industrial kit. That keeps the method facet honest: unpublished technology, sourced production type.
+Valckenberg Zero Riesling is Mosel fruit put through a conventional vinification, then dealcoholized to 0.0%. The base is steep-slope Riesling; the Zero line confirms removal without naming the industrial kit. That keeps the method facet honest: technique undeclared technology, sourced production type.
 
 On the nose, pineapple, green apple and lemon sit over a mineral edge — varietally correct Riesling aromatics, not juice perfume. The palate is crystal-clear fruit with vibrant acidity and a fine mineral line. Body is lighter than a full-strength Mosel once ethanol is gone, but the fingerprint survives. Mouthfeel stays clean and citric. The finish is clean and short once the fruit drops away.
 

@@ -3,7 +3,7 @@
         <div class="hero-copy">
           <p class="kicker">Independent reviews</p>
           <h1>Independent reviews with production provenance.</h1>
-          <p class="lede">We taste beverages at 0.5% ABV or less, classify how they were made — dealcoholized, alternative, or naturally low alcohol — and show where ABV and method claims come from.</p>
+          <p class="lede">We taste beverages at 0.5% ABV or less, classify how they were made — dealcoholized, alternative, or naturally low alcohol — and mark ABV or method as Undeclared, Unclassified, or Withheld when makers won’t say.</p>
           <p class="hero-promise"><span>ABV</span><span>Classification</span><span>Method</span><span>Source confidence</span></p>
           <div class="hero-actions">
             <a class="btn" href="<?= $view->e($reviewsUrl) ?>">Find a bottle</a>

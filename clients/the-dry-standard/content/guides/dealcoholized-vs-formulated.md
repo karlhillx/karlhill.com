@@ -32,6 +32,6 @@ Formulated products skip the hole. They design sweetness, bitterness, and mouthf
 
 **Production type: Hybrid** — dealcoholized material plus other defining non-alcoholic ingredients, or more than one production approach.
 
-**Production type: Not verified** — the marketing is NA; the factory floor is unpublished.
+**Production type: Unclassified** — the marketing is NA; the factory floor cannot be placed in the taxonomy.
 
 Verification sits on its own line. We would rather under-claim than decorate a bottle with a spinning cone we have not seen.

@@ -4,7 +4,7 @@ slug: halfway-crooks-brevet-ipa
 id: TDS-0005
 brand: 'Halfway Crooks Beer'
 product: 'Brevet IPA'
-abv: 'Not published'
+abv: Undeclared
 abv_qualifier: unpublished
 category: beer
 subcategory: IPA
@@ -25,7 +25,7 @@ review_date: '2026-09-18'
 updated_date: '2026-09-20'
 rating: 90
 verdict: 'The hoppier Brevet. Same Atlanta can, same arrested-fermentation process as the pilsner. Drink it as an IPA that happens to be NA.'
-summary: "Halfway Crooks' non-alcoholic Brevet IPA uses the brewery's Chiber arrested-fermentation process: yeast kept static, alcohol never formed. ABV for this can stays Not published — Untappd's 0% is community-entered, not brewery-sourced."
+summary: "Halfway Crooks' non-alcoholic Brevet IPA uses the brewery's Chiber arrested-fermentation process: yeast kept static, alcohol never formed. ABV for this can stays Undeclared — Untappd's 0% is community-entered, not brewery-sourced."
 tastes:
   - 'citrus peel'
   - 'crackery malt line'
@@ -86,7 +86,7 @@ provenance:
   abv:
     kind: research
     confidence: secondary
-    note: 'Not published by brewery for IPA. Untappd 0% is community-editable; sibling Pils uses <0.5% on brewery site. See discrepancies.'
+    note: 'Undeclared by brewery for IPA. Untappd 0% is community-editable; sibling Pils uses <0.5% on brewery site. See discrepancies.'
   producer:
     kind: press
     confidence: secondary

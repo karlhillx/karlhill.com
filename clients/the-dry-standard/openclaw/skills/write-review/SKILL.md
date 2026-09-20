@@ -75,7 +75,7 @@ Do not invent ABV, method, ingredients, or tasting notes. Do not upgrade inferre
 
 Workflow statuses (aliases normalize at runtime): `draft` → `researched` / `tasted` / `reviewed` → `approved` / `validated` → `published`. Publish only after `php artisan dry-standard:validate {slug} --publish`.
 
-ABV display labels are only `0.0%`, `<0.5%`, or `Not published`. Keep precise values in `abv_numeric`. Descriptor chips use ids from `descriptors.yaml` / aliases in `descriptor-aliases.yaml` — prose stays free.
+ABV display labels are only `0.0%`, `<0.5%`, exact residual, or `Undeclared` (legacy `Not published` still accepted). Keep precise values in `abv_numeric`. Descriptor chips use ids from `descriptors.yaml` / aliases in `descriptor-aliases.yaml` — prose stays free.
 
 Cover aroma, palate, mouthfeel, finish, balance, structural authenticity, and production provenance in prose. Do not rehash UPC, ABV disputes, g/L sugar, method temperatures, or ingredient lists already covered by identity, How it was made, At a glance, Product facts, or `discrepancies`. Do not paste `nose` / `palate` / `finish` line for line.
 
@@ -91,7 +91,7 @@ The guide's categories map to frontmatter as follows. Never guess.
 | Fermented / controlled fermentation | `naturally-low-alcohol` |
 | Alcohol alternative | `alternative` |
 | Mix of removal plus other defining ingredients | `hybrid` |
-| Unknown / not verified | `not-verified` |
+| Unknown / unclassified | `not-verified` (public: Unclassified) |
 
 RTD cocktails still need a production type for the base. `category` is `cocktails`. Do not label an alternative as dealcoholized. Never infer dealcoholization from "alcohol-free," "non-alcoholic," "zero proof," or "zero alcohol."
 

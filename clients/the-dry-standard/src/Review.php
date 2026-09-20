@@ -28,7 +28,13 @@ final class Review
         'alternative' => 'Alternative',
         'naturally-low-alcohol' => 'Naturally low alcohol',
         'hybrid' => 'Hybrid',
-        'not-verified' => 'Not verified',
+        'not-verified' => 'Unclassified',
+    ];
+
+    public const DISCLOSURE_STANCES = [
+        'documented' => 'Documented',
+        'undeclared' => 'Undeclared',
+        'withheld' => 'Withheld',
     ];
 
     public const ACQUISITIONS = [
@@ -136,6 +142,7 @@ final class Review
         /** @var array<string, int> */
         public readonly array $assessments = [],
         public readonly ?string $methodFacetOverride = null,
+        public readonly ?string $disclosure = null,
     ) {}
 
     /**
@@ -230,6 +237,7 @@ final class Review
             ),
             assessments: Sensory::normalizeAssessments($matter['assessments'] ?? []),
             methodFacetOverride: self::normalizeMethodFacetOverride($matter['method_facet'] ?? null),
+            disclosure: self::normalizeDisclosure($matter['disclosure'] ?? $matter['disclosure_stance'] ?? null),
         );
     }
 
@@ -766,6 +774,7 @@ final class Review
             'advertising_relationship' => $this->advertisingRelationship,
             'commercial_relationship' => $this->commercialRelationship,
             'disclosure_note' => $this->disclosureNote,
+            'disclosure' => $this->disclosureStance(),
             'provenance' => json_encode($this->provenanceRecord(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
         ];
     }
@@ -940,7 +949,7 @@ final class Review
 
     public function productionTypeLabel(): string
     {
-        $label = self::PRODUCTION_TYPES[$this->productionType] ?? 'Not verified';
+        $label = self::PRODUCTION_TYPES[$this->productionType] ?? 'Unclassified';
 
         if ($this->dealcoholizedNote) {
             return 'Production type: '.$label.' — '.$this->dealcoholizedNote;
@@ -951,7 +960,33 @@ final class Review
 
     public function productionTypeShortLabel(): string
     {
-        return self::PRODUCTION_TYPES[$this->productionType] ?? 'Not verified';
+        return self::PRODUCTION_TYPES[$this->productionType] ?? 'Unclassified';
+    }
+
+    /**
+     * Evidence stance: Documented | Undeclared | Withheld.
+     * Explicit frontmatter wins; otherwise derived from production type + verification.
+     */
+    public function disclosureStance(): string
+    {
+        if ($this->disclosure !== null) {
+            return $this->disclosure;
+        }
+
+        if ($this->productionType === 'not-verified') {
+            return 'undeclared';
+        }
+
+        if ($this->verified === 'yes') {
+            return 'documented';
+        }
+
+        return 'undeclared';
+    }
+
+    public function disclosureLabel(): string
+    {
+        return self::DISCLOSURE_STANCES[$this->disclosureStance()] ?? 'Undeclared';
     }
 
     public function essayHeading(): string
@@ -1234,7 +1269,7 @@ final class Review
     public const ABV_BUCKETS = [
         'zero' => '0.0%',
         'half' => '<0.5%',
-        'unpublished' => 'Not published',
+        'unpublished' => 'Undeclared',
     ];
 
     public const METHOD_FACETS = [
@@ -1838,6 +1873,23 @@ final class Review
         }
 
         return in_array($normalized, self::METHOD_FACETS, true) ? $normalized : null;
+    }
+
+    private static function normalizeDisclosure(mixed $value): ?string
+    {
+        $normalized = strtolower(trim((string) $value));
+        if ($normalized === '') {
+            return null;
+        }
+
+        $normalized = str_replace('_', '-', $normalized);
+
+        return match ($normalized) {
+            'documented' => 'documented',
+            'undeclared', 'unpublished', 'not-published', 'not published' => 'undeclared',
+            'withheld', 'secret', 'refused', 'on-record-refusal', 'on-record refusal' => 'withheld',
+            default => isset(self::DISCLOSURE_STANCES[$normalized]) ? $normalized : null,
+        };
     }
 
     private static function normalizeAcquisition(mixed $value): ?string

@@ -13,6 +13,7 @@ abv: '<0.5%'
 abv_numeric: 0.5
 production_type: not-verified
 verified: 'no'
+disclosure: undeclared
 production_note: "Flying Dog’s product page and 2021 Brewbound launch coverage do not disclose whether alcohol is removed or fermentation is limited. The name Deep Fake is branding, not a process claim."
 producer: 'Flying Dog Brewery (Frederick, Maryland)'
 availability: 'US retail; year-round lineup since 2021'
@@ -20,7 +21,7 @@ review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 77
 verdict: "A beer named 'Deep Fake' that knows exactly what it is — a hoppy IPA silhouette at zero proof from one of Maryland's most recognizable craft breweries."
-summary: "Flying Dog's Deep Fake is a non-alcoholic IPA under 0.5% ABV: hazy, hoppy, self-aware about being an imitation of the real thing. Method unpublished."
+summary: "Flying Dog's Deep Fake is a non-alcoholic IPA under 0.5% ABV: hazy, hoppy, self-aware about being an imitation of the real thing. Technique undeclared."
 tastes:
   - citrus
   - 'pine hops'

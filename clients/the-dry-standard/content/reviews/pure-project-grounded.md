@@ -13,7 +13,8 @@ abv: '<0.5%'
 abv_numeric: 0.5
 production_type: not-verified
 verified: 'no'
-production_note: 'Method unpublished. Federal TTB COLA (via HopGrail) lists plant of record as Prost Brewing Company, Northglenn, CO — not Pure Project’s San Diego taprooms. Prost materials describe general contract brewing, not an NA-specific process. Hops: Citra, Citra Cryo, Mosaic Abstrax (producer).'
+disclosure: undeclared
+production_note: 'Technique undeclared. Federal TTB COLA (via HopGrail) lists plant of record as Prost Brewing Company, Northglenn, CO — not Pure Project’s San Diego taprooms. Prost materials describe general contract brewing, not an NA-specific process. Hops: Citra, Citra Cryo, Mosaic Abstrax (producer).'
 producer: 'Pure Project Brewing (brand, San Diego); contract plant of record: Prost Brewing Co. (Northglenn, CO)'
 availability: 'US retail; direct from purebrewing.org'
 image: media/reviews/pure-project-grounded.jpg
@@ -25,7 +26,7 @@ review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 83
 verdict: "A San Diego craft brewery's serious NA IPA — Citra, Citra Cryo and Mosaic Abstrax hops, medium body, lemongrass and grapefruit. The West Coast take on zero proof."
-summary: "Pure Project's Grounded is a non-alcoholic IPA under the San Diego brand, contract-brewed at Prost in Northglenn, CO: <0.5% ABV, Citra and Mosaic, citrus and resin. Method unpublished."
+summary: "Pure Project's Grounded is a non-alcoholic IPA under the San Diego brand, contract-brewed at Prost in Northglenn, CO: <0.5% ABV, Citra and Mosaic, citrus and resin. Technique undeclared."
 tastes:
   - lemongrass
   - 'ruby grapefruit'
@@ -131,7 +132,7 @@ provenance:
     kind: research
     confidence: secondary
     url: 'https://www.purebrewing.org/product/grounded/'
-    note: 'Method unpublished. Plant of record identified; Prost materials do not name an NA process.'
+    note: 'Technique undeclared. Plant of record identified; Prost materials do not name an NA process.'
   availability:
     kind: manufacturer
     confidence: secondary

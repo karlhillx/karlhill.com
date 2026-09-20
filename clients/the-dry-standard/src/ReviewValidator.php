@@ -58,7 +58,7 @@ final class ReviewValidator
         foreach (Review::FACT_FIELDS as $field) {
             $value = $review->fact($field);
 
-            if ($value === null || $value === '' || ($field === 'abv' && $value === 'Not published')) {
+            if ($value === null || $value === '' || ($field === 'abv' && Registry::isUndeclaredAbv($value))) {
                 continue;
             }
 
@@ -75,7 +75,7 @@ final class ReviewValidator
             }
         }
 
-        if ($review->abv !== null && $review->abv !== 'Not published' && ! in_array('abv', $claims, true)) {
+        if ($review->abv !== null && ! Registry::isUndeclaredAbv($review->abv) && ! in_array('abv', $claims, true)) {
             $errors[] = 'ABV is set but no source claims abv';
         }
 
@@ -204,7 +204,7 @@ final class ReviewValidator
 
         if ($review->productionType === 'dealcoholized'
             && ($review->dealcoholizationMethod === null || trim($review->dealcoholizationMethod) === '')) {
-            $warnings[] = 'classification note: dealcoholized with method unpublished — keep until a named technology is sourced';
+            $warnings[] = 'classification note: dealcoholized with technique undeclared — keep until a named technology is sourced';
         }
 
         if ($review->abv === '0.0%' && $review->abvNumeric !== null && $review->abvNumeric > 0.05) {
@@ -216,7 +216,7 @@ final class ReviewValidator
         }
 
         if (! Registry::isCanonicalAbvLabel($review->abv)) {
-            $warnings[] = 'ABV warning: non-canonical display label "'.$review->abv.'"; prefer 0.0%, <0.1%, <0.5%, 0.5%, an exact residual ≤0.5% (e.g. 0.33%), or Not published';
+            $warnings[] = 'ABV warning: non-canonical display label "'.$review->abv.'"; prefer 0.0%, <0.1%, <0.5%, 0.5%, an exact residual ≤0.5% (e.g. 0.33%), or Undeclared';
         }
 
         if ($review->highlight !== null && $review->verdict !== '' && trim($review->highlight) === trim($review->verdict)) {

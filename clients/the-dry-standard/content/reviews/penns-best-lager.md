@@ -13,6 +13,7 @@ abv: '<0.5%'
 abv_numeric: 0.5
 production_type: not-verified
 verified: 'no'
+disclosure: undeclared
 production_note: "Marketing calls it naturally brewed and aged without saying whether alcohol is removed or fermentation is limited. Producer is the Fred Koch Brewery label, operated by Genesee Brewing Co. in Rochester, NY — not an independent Pittsburgh brewery."
 calories: '70 calories (retail listing)'
 producer: 'Fred Koch Brewery label; Genesee Brewing Co. (Rochester, NY)'
@@ -21,7 +22,7 @@ review_date: '2026-09-18'
 updated_date: 2026-09-20
 rating: 72
 verdict: 'A budget American NA lager — smooth, light, and honest about being the cheap option rather than the craft one.'
-summary: "Penn's Best NA is a non-alcoholic American lager under the Fred Koch / Genesee umbrella: 70 calories, <0.5% ABV, value shelf. Method unpublished."
+summary: "Penn's Best NA is a non-alcoholic American lager under the Fred Koch / Genesee umbrella: 70 calories, <0.5% ABV, value shelf. Technique undeclared."
 tastes:
   - 'light malt'
   - 'grain note'

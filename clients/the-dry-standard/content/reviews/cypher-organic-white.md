@@ -66,7 +66,7 @@ assessments:
 discrepancies:
   -
     field: method
-    note: 'Earlier press describes vacuum evaporation below ~40°C. Current producer page confirms dealcoholization after traditional vinification without naming equipment. Method facet unpublished.'
+    note: 'Earlier press describes vacuum evaporation below ~40°C. Current producer page confirms dealcoholization after traditional vinification without naming equipment. Technique undeclared.'
   -
     field: sugar
     note: 'Dis&Dis “23mg/L residual sugar” unit is almost certainly wrong. Omit sugar until a technical sheet confirms g/L.'
@@ -154,4 +154,4 @@ Current Cypher Blanc is organic Roussanne and Colombard from the Gard, tradition
 
 Nose is exuberant — pineapple, passion fruit, lychee, lighter citrus and white florals. Palate is juicy and relatively broad; pineapple and passion fruit lead, lychee and citrus acid follow. Sweetness shows, but tension keeps it from cloying. Finish is medium, tropical and lightly tart.
 
-Score 85: Tropical · Juicy · Soft · Fresh. Exact still technology stays unpublished on the producer page; dealcoholization itself is solid.
+Score 85: Tropical · Juicy · Soft · Fresh. Exact still technology stays undeclared on the producer page; dealcoholization itself is solid.

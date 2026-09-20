@@ -116,14 +116,14 @@ provenance:
     kind: retailer
     confidence: secondary
     url: 'https://www.orderroombox.com/product/dr-heidemanns-german-riesling-non-alcoholic-wine/'
-    note: 'Total Wine / RoomBox catalog: dealcoholized German Riesling. Method unpublished.'
+    note: 'Total Wine / RoomBox catalog: dealcoholized German Riesling. Technique undeclared.'
   ean:
     kind: label
     confidence: label_verified
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Dr. Heidemanns-Bergweiler Alcohol-Free Riesling is dealcoholized from Mosel, Germany. Total Wine / RoomBox call it dealcoholized; Gedonist lists strength 0.0%. The estate site publishes vineyard factsheets but not this alcohol-free SKU’s residual ABV or removal machine, so the method stays unpublished. The glass is a light, off-dry Riesling. Not Eins-Zwei-Zero. A Mosel-shaped supermarket white.
+Dr. Heidemanns-Bergweiler Alcohol-Free Riesling is dealcoholized from Mosel, Germany. Total Wine / RoomBox call it dealcoholized; Gedonist lists strength 0.0%. The estate site publishes vineyard factsheets but not this alcohol-free SKU’s residual ABV or removal machine, so the technique stays undeclared. The glass is a light, off-dry Riesling. Not Eins-Zwei-Zero. A Mosel-shaped supermarket white.
 
 The nose is lime and green apple, a faint slate note.
 

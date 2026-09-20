@@ -8,7 +8,7 @@ Alternate deck: independent reviews of dealcoholized beer, wine, spirits, and co
 
 ## Production type
 
-Classify by how the drink was made. Keep verification separate.
+Classify by how the drink was made. Keep verification and disclosure stance separate.
 
 | Production type | Meaning |
 | --- | --- |
@@ -16,9 +16,27 @@ Classify by how the drink was made. Keep verification separate.
 | Alternative | Created from the outset as a non-alcoholic analogue using flavors, botanicals, extracts, distillates, or juice. |
 | Naturally low alcohol | Fermented or otherwise traditionally produced, but finishes at ≤0.5% ABV without a separate dealcoholization step. |
 | Hybrid | Combines dealcoholized material with other defining non-alcoholic ingredients, or uses more than one production approach. Standard grape-must back-addition after removal stays Dealcoholized. |
-| Not verified | Production method cannot be reliably established. |
+| Unclassified | Production method cannot be placed in the taxonomy from citable sources. Schema key remains `not-verified`. |
 
-`verified: yes` only when a cited source supports the type. `verified: no` belongs with Not verified, or with a classified type that still needs a stronger source.
+`verified: yes` only when a cited source supports the type. `verified: no` belongs with Unclassified, or with a classified type that still needs a stronger source.
+
+### Disclosure stance
+
+Evidence about the claim — not a substitute for production type.
+
+| Stance | Meaning | Schema |
+| --- | --- | --- |
+| Documented | Cited source supports the type and/or named technique | `disclosure: documented` (or derived when `verified: yes`) |
+| Undeclared | Silence after a real search; no on-record refusal | `disclosure: undeclared` (default for Unclassified) |
+| Withheld | On-record refusal or deliberate secrecy | `disclosure: withheld` |
+
+### ABV display
+
+Canonical labels: `0.0%`, `<0.1%`, `<0.5%`, `0.5%`, exact residual (e.g. `0.33%`), or **Undeclared**. Legacy frontmatter `Not published` normalizes to Undeclared.
+
+### Technique facet
+
+When the production type is known but equipment is unnamed: public label **Technique undeclared** (schema facet `unpublished`).
 
 Do not print "Dealcoholized: No." A botanical whiskey analogue is Alternative. A real whiskey that had ethanol removed is Dealcoholized.
 

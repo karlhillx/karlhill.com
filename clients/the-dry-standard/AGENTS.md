@@ -18,9 +18,17 @@ Set `production_type` to one of:
 - **alternative** — built as a non-alcoholic analogue from the start (flavors, botanicals, extracts, distillates, juice). A botanical "whiskey alternative" is Alternative, not "Dealcoholized: No."
 - **naturally-low-alcohol** — fermented or otherwise traditionally produced, but finishes at ≤0.5% ABV without a separate removal step (arrested fermentation, specialized yeasts, limited fermentation).
 - **hybrid** — dealcoholized material plus other defining non-alcoholic ingredients, or more than one production approach. Standard must-back-addition after removal stays dealcoholized.
-- **not-verified** — the factory floor is unpublished. Never upgrade a marketing zero to a method.
+- **not-verified** — public label **Unclassified**. The factory floor cannot be placed in the taxonomy. Never upgrade a marketing zero to a method.
 
 Set `verified: yes` only when a cited source supports that type. Otherwise `verified: no`.
+
+Set optional `disclosure` (public stance — separate from production type):
+
+- **documented** — sourced type and/or technique (often derived when `verified: yes`)
+- **undeclared** — silence after research (default for Unclassified)
+- **withheld** — on-record refusal or deliberate secrecy (e.g. Erdinger / Westermeier)
+
+ABV display: `0.0%` | `<0.5%` | exact residual | **Undeclared** (legacy `Not published` still accepted). Technique without a named machine: facet `unpublished` → public **Technique undeclared**.
 
 ## Voice
 

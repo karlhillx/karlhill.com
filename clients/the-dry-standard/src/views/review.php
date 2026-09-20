@@ -50,7 +50,7 @@
               <?= $overview ?>
             </div>
             <?php if (! empty($hasServe)) { ?>
-            <section class="prose" id="how-to-drink">
+            <section class="serve" id="how-to-drink">
               <h2>How to drink it</h2>
               <?= $serveBlock ?>
               <?= $bestForBlock ?>
@@ -59,6 +59,9 @@
             <section class="callout" id="how-it-was-made">
               <h2>How was it made?</h2>
               <p class="callout-status"><?= $view->e($statusLabel) ?></p>
+              <?php if (! empty($disclosureStanceLabel)) { ?>
+              <p class="callout-disclosure">Disclosure: <?= $view->e($disclosureStanceLabel) ?></p>
+              <?php } ?>
               <?= $methodBlock ?>
               <?= $discrepancies ?>
             </section>

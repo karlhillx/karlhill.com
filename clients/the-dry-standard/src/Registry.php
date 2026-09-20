@@ -13,7 +13,15 @@ final class Registry
         '<0.1%',
         '<0.5%',
         '0.5%',
+        'Undeclared',
+    ];
+
+    /** Accepted as Undeclared on input (legacy + canonical). */
+    public const ABV_UNDECLARED_ALIASES = [
+        'Undeclared',
         'Not published',
+        'unpublished',
+        'not published',
     ];
 
     public const ABV_QUALIFIERS = [
@@ -80,6 +88,14 @@ final class Registry
     /**
      * @return array<string, string>
      */
+    public static function disclosureStances(): array
+    {
+        return Review::DISCLOSURE_STANCES;
+    }
+
+    /**
+     * @return array<string, string>
+     */
     public static function methodFacets(SiteConfig $config): array
     {
         $labels = [];
@@ -88,7 +104,7 @@ final class Registry
         }
 
         $labels['other'] = 'Other documented method';
-        $labels['unpublished'] = 'Method unpublished';
+        $labels['unpublished'] = 'Technique undeclared';
         $labels['not-applicable'] = 'Formulated (no removal)';
 
         return $labels;
@@ -179,16 +195,32 @@ final class Registry
         return false;
     }
 
+    public static function isUndeclaredAbv(?string $abv): bool
+    {
+        $label = trim((string) $abv);
+        if ($label === '') {
+            return true;
+        }
+
+        foreach (self::ABV_UNDECLARED_ALIASES as $alias) {
+            if (strcasecmp($label, $alias) === 0) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
-     * How the display label should be read: exact value, less-than ceiling, or unpublished.
+     * How the display label should be read: exact value, less-than ceiling, or undeclared (qualifier key: unpublished).
      * 0.5%, <0.5%, and 0.33% are materially different claims.
      */
     public static function abvQualifier(?string $abv): string
     {
-        $label = trim((string) $abv);
-        if ($label === '' || strcasecmp($label, 'Not published') === 0) {
+        if (self::isUndeclaredAbv($abv)) {
             return 'unpublished';
         }
+        $label = trim((string) $abv);
         if (str_starts_with($label, '<') || str_starts_with($label, '≤')) {
             return 'less_than';
         }
@@ -206,8 +238,8 @@ final class Registry
         $label = trim((string) $abv);
         $num = $numeric;
 
-        if ($label === '' || strcasecmp($label, 'Not published') === 0) {
-            return ['label' => 'Not published', 'numeric' => $num, 'qualifier' => 'unpublished'];
+        if (self::isUndeclaredAbv($label)) {
+            return ['label' => 'Undeclared', 'numeric' => $num, 'qualifier' => 'unpublished'];
         }
 
         if (preg_match('/^0(?:\.0+)?%?$/i', $label) === 1 || $label === '0.0%' || $label === '0.00%') {
@@ -281,7 +313,7 @@ final class Registry
             }
         }
 
-        $fallback = $label !== '' ? $label : 'Not published';
+        $fallback = $label !== '' ? $label : 'Undeclared';
 
         return [
             'label' => $fallback,

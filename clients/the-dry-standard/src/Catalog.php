@@ -557,6 +557,7 @@ final class Catalog
             'advertising_relationship',
             'commercial_relationship',
             'disclosure_note',
+            'disclosure',
             'provenance',
             'sensory',
             'structure_scales',
@@ -651,6 +652,7 @@ SQL);
         $this->ensureColumn('advertising_relationship', "advertising_relationship TEXT NOT NULL DEFAULT 'none'");
         $this->ensureColumn('commercial_relationship', "commercial_relationship TEXT NOT NULL DEFAULT 'none'");
         $this->ensureColumn('disclosure_note', 'disclosure_note TEXT');
+        $this->ensureColumn('disclosure', "disclosure TEXT NOT NULL DEFAULT 'undeclared'");
         $this->ensureColumn('provenance', "provenance TEXT NOT NULL DEFAULT '{}'");
         $this->ensureColumn('structure', 'structure TEXT');
         $this->ensureColumn('tastes', "tastes TEXT NOT NULL DEFAULT '[]'");

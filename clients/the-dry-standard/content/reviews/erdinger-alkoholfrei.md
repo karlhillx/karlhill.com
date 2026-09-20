@@ -14,6 +14,7 @@ abv: '<0.5%'
 abv_numeric: 0.5
 production_type: not-verified
 verified: 'no'
+disclosure: withheld
 production_note: 'On-record refusal: Erdinger’s Josef Westermeier told WELT (2010) the recipe and brewing process stay secret. Producer FAQ confirms intentional residual alcohol under 0.5% for flavor and vitamins; it does not name the house technique. Do not attribute generic Weissbier NA process reviews.'
 producer: 'Erdinger Weissbräu (Erding, Bavaria)'
 availability: 'International retail; widely available in Germany and exported'
@@ -115,7 +116,7 @@ provenance:
     kind: research
     confidence: secondary
     url: 'https://www.welt.de/wissenschaft/article10444678/Alkoholfreies-Bier-Bei-alkoholfreiem-Bier-ist-die-Herstellung-entscheidend.html'
-    note: 'On-record refusal (Westermeier / WELT 2010). FAQ confirms intentional <0.5% residual ABV; house technique unnamed. Not verified.'
+    note: 'On-record refusal (Westermeier / WELT 2010). FAQ confirms intentional <0.5% residual ABV; house technique unnamed. Disclosure: Withheld.'
   availability:
     kind: manufacturer
     confidence: secondary

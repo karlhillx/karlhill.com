@@ -70,6 +70,7 @@ trait RendersReview
                 'methodologyUrl' => $methodologyUrl,
             ]),
             'statusLabel' => $review->productionTypeLabel(),
+            'disclosureStanceLabel' => $review->disclosureLabel(),
             'methodBlock' => $this->methodBlock($review),
             'discrepancies' => $this->discrepancies($review),
             'overview' => $bodyHtml !== ''
@@ -218,6 +219,12 @@ trait RendersReview
                 ?? ($review->verified === 'yes' ? 'Producer verified' : null),
         ];
 
+        $peek[] = [
+            'key' => 'disclosure',
+            'label' => 'Disclosure',
+            'value' => $review->disclosureLabel(),
+        ];
+
         if ($review->hasComparableStyle()) {
             $peek[] = [
                 'key' => 'style',
@@ -242,7 +249,7 @@ trait RendersReview
             $peek[] = [
                 'key' => 'method',
                 'label' => 'Method',
-                'value' => 'Unpublished',
+                'value' => 'Technique undeclared',
                 'confidence' => $review->fieldConfidenceLabel('dealcoholization_method'),
             ];
         } elseif ($methodKey !== null && in_array($methodKey, Review::METHOD_FACETS, true)) {

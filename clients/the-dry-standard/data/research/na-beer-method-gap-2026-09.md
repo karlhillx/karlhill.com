@@ -1,12 +1,10 @@
 # Method disclosure gap — four NA beers (Sep 2026)
 
-**Status:** research updated (pass 2); reviews keep `production_type: not-verified`.
+**Status:** research updated; vocabulary = Unclassified / Undeclared / Withheld.
 **Scope:** Erdinger Alkoholfrei, Flying Dog Deep Fake NA IPA, Penn's Best NA Lager, Pure Project Grounded NA IPA.
 **Editor note:** Do not contact breweries from this file alone — outreach is a separate editorial decision.
 
-## Bottom line
-
-Exact dealcoholization / brewed-low technique remains undisclosed for all four. Erdinger’s secrecy is now **on-record policy**, not a missing webpage. Pure Project’s **plant of record** for Grounded is identified (Prost Brewing, Northglenn, CO); that does not disclose the NA method.
+**Bottom line:** Exact technique remains undisclosed for all four. Public labels: production type **Unclassified** (`not-verified`); disclosure **Undeclared** by default, **Withheld** for Erdinger. Pure Project’s plant of record (Prost / Northglenn) is identified without disclosing the NA method.
 
 ## Tool reliability caveat
 

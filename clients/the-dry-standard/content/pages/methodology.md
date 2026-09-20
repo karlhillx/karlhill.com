@@ -42,9 +42,9 @@ Category likeness asks whether the drink behaves like its claimed category. Stru
 
 ## Production classification
 
-**Dealcoholized** means a documented alcohol-removal step. **Alternative** means built as a non-alcoholic analogue from the start. **Naturally low alcohol** finishes ≤0.5% without a separate removal step. **Hybrid** combines approaches. **Not verified** means we cannot cite a method.
+**Dealcoholized** means a documented alcohol-removal step. **Alternative** means built as a non-alcoholic analogue from the start. **Naturally low alcohol** finishes ≤0.5% without a separate removal step. **Hybrid** combines approaches. **Unclassified** means we cannot place the drink in that taxonomy from citable sources.
 
-Verification is separate from type. We do not upgrade marketing zeros into methods.
+Verification is separate from type. Disclosure stance is separate again: **Documented** when sources support the claim, **Undeclared** when makers stay silent, **Withheld** when secrecy is on the record. ABV without a number prints as **Undeclared**. A known type with unnamed equipment prints **Technique undeclared**. We do not upgrade marketing zeros into methods.
 
 ## Provenance confidence
 

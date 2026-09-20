@@ -26,7 +26,7 @@ review_date: '2026-09-18'
 updated_date: '2026-09-20'
 rating: 75
 verdict: 'Stone fruit and a hint of almond at a supermarket price. Australian Winery Direct white; residual ABV is a commercial ceiling, not a producer sheet.'
-summary: 'Clearscape Chardonnay is a 750 ml Australian NA white sold through Total Wine Winery Direct. Melon, white peach, almond — method unpublished; ABV printed as <0.5% from commercial dealcoholized-wine practice.'
+summary: 'Clearscape Chardonnay is a 750 ml Australian NA white sold through Total Wine Winery Direct. Melon, white peach, almond — technique undeclared; ABV printed as <0.5% from commercial dealcoholized-wine practice.'
 discrepancies:
   -
     field: abv

@@ -4,14 +4,14 @@ slug: savyll-moscow-mule
 id: TDS-0013
 brand: Savyll
 product: 'Non-Alcoholic Moscow Mule'
-abv: 'Not published'
+abv: Undeclared
 abv_qualifier: unpublished
 category: cocktails
 subcategory: RTD
 style: 'Formulated Moscow Mule'
 production_type: alternative
 verified: 'yes'
-production_note: 'An RTD mule. No source describes a spirit that was later dealcoholized. Total Wine product details carry no ABV figure — leave Not published.'
+production_note: 'An RTD mule. No source describes a spirit that was later dealcoholized. Total Wine product details carry no ABV figure — leave Undeclared.'
 availability: 'Total Wine & More'
 image: media/reviews/savyll-moscow-mule.jpg
 image_alt: 'Savyll Non-Alcoholic Moscow Mule'

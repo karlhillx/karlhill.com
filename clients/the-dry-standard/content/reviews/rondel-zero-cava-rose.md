@@ -23,8 +23,8 @@ image_sku_confirmed: 'yes'
 review_date: '2026-09-18'
 updated_date: '2026-09-20'
 rating: 80
-verdict: 'Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Named method unpublished.'
-summary: 'Rondel Zero is a Spanish dealcoholized sparkling rosé at 0.0% ABV per specialist product data. Fine bubbles, red fruit; named removal technology unpublished.'
+verdict: 'Spanish pink fizz at about ten dollars. Strawberry, cherry, a finer bead than most NA soda-wines. Named technique undeclared.'
+summary: 'Rondel Zero is a Spanish dealcoholized sparkling rosé at 0.0% ABV per specialist product data. Fine bubbles, red fruit; named removal technology undeclared.'
 tastes:
   - strawberry
   - cherry
@@ -120,7 +120,7 @@ provenance:
     note: 'Barcode recorded from packaging or producer listing'
 ---
 
-Rondel Zero Cava Rosé is dealcoholized from Spain. NeoVina lists 0% ABV; Total Wine confirms the bottle. No Rondel-specific page names the removal machine, so the method stays unpublished.
+Rondel Zero Cava Rosé is dealcoholized from Spain. NeoVina lists 0% ABV; Total Wine confirms the bottle. No Rondel-specific page names the removal machine, so the technique stays undeclared.
 
 The nose is strawberry and cherry, a hint of green apple.
 
