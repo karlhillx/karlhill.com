@@ -292,3 +292,33 @@
   brand: Ohla
   published_at: '2026-09-20T00:05:07+00:00'
   path: reviews/wine/ohla-rose/
+-
+  slug: st-regis-non-alcoholic-rose
+  product: 'Non-Alcoholic Rosé'
+  brand: 'St. Regis'
+  published_at: '2026-09-20T00:17:34+00:00'
+  path: reviews/wine/st-regis-non-alcoholic-rose/
+-
+  slug: st-regis-non-alcoholic-rose
+  product: 'Non-Alcoholic Rosé'
+  brand: 'St. Regis'
+  published_at: '2026-09-20T00:18:00+00:00'
+  path: reviews/wine/st-regis-non-alcoholic-rose/
+-
+  slug: st-regis-non-alcoholic-rose
+  product: 'Non-Alcoholic Rosé'
+  brand: 'St. Regis'
+  published_at: '2026-09-20T00:19:21+00:00'
+  path: reviews/wine/st-regis-non-alcoholic-rose/
+-
+  slug: st-regis-non-alcoholic-rose
+  product: 'Non-Alcoholic Rosé'
+  brand: 'St. Regis'
+  published_at: '2026-09-20T00:21:35+00:00'
+  path: reviews/wine/st-regis-non-alcoholic-rose/
+-
+  slug: st-regis-non-alcoholic-rose
+  product: 'Non-Alcoholic Rosé'
+  brand: 'St. Regis'
+  published_at: '2026-09-20T00:22:50+00:00'
+  path: reviews/wine/st-regis-non-alcoholic-rose/
