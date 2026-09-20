@@ -13,13 +13,16 @@ final class StillPipeline
     private const TARGET_HEIGHT = 1200;
 
     /** Bottle/can height as a fraction of the 3:4 frame. */
-    private const SUBJECT_HEIGHT_RATIO = 0.86;
+    private const SUBJECT_HEIGHT_RATIO = 0.94;
 
     /** Max bottle/can width as a fraction of the frame. */
-    private const SUBJECT_WIDTH_RATIO = 0.62;
+    private const SUBJECT_WIDTH_RATIO = 0.72;
 
     /** Padding around the detected subject before scaling. */
-    private const SUBJECT_PAD_RATIO = 0.05;
+    private const SUBJECT_PAD_RATIO = 0.02;
+
+    /** Dilate non-backdrop seeds so white labels/foil stay protected. */
+    private const SUBJECT_PROTECT_RATIO = 0.05;
 
     /** @var list<int> */
     private const DERIVATIVE_WIDTHS = [400, 800];
@@ -387,74 +390,163 @@ final class StillPipeline
     }
 
     /**
-     * Replace light backdrop outside the bottle silhouette. Dilates the
-     * non-backdrop mask so white labels stay with the glass.
+     * Clear studio backdrop that touches the frame edge. Interior light pixels
+     * (white labels, foil) stay when they sit inside a dilated subject mask.
      */
     private function wipeExteriorBackdrop(\GdImage $image): void
     {
         $width = imagesx($image);
         $height = imagesy($image);
         $size = $width * $height;
-        $distance = array_fill(0, $size, PHP_INT_MAX);
+        $protected = $this->dilatedSubjectMask($image);
+        $visited = array_fill(0, $size, false);
         $queue = [];
 
-        for ($y = 0; $y < $height; $y++) {
-            $row = $y * $width;
-            for ($x = 0; $x < $width; $x++) {
-                if ($this->isBackdropPixel($image, $x, $y)) {
-                    continue;
+        for ($x = 0; $x < $width; $x++) {
+            foreach ([0, $height - 1] as $y) {
+                $idx = $y * $width + $x;
+                if (! $protected[$idx] && $this->isBackdropPixel($image, $x, $y)) {
+                    $queue[] = $idx;
+                    $visited[$idx] = true;
                 }
-                $distance[$row + $x] = 0;
-                $queue[] = [$x, $y];
+            }
+        }
+        for ($y = 1; $y < $height - 1; $y++) {
+            foreach ([0, $width - 1] as $x) {
+                $idx = $y * $width + $x;
+                if (! $protected[$idx] && $this->isBackdropPixel($image, $x, $y)) {
+                    $queue[] = $idx;
+                    $visited[$idx] = true;
+                }
             }
         }
 
-        if ($queue === []) {
-            return;
-        }
-
-        $radius = max(6, (int) round(min($width, $height) * 0.018));
         $head = 0;
         while ($head < count($queue)) {
-            [$x, $y] = $queue[$head++];
-            $d = $distance[$y * $width + $x];
-            if ($d >= $radius) {
-                continue;
-            }
+            $idx = $queue[$head++];
+            $x = $idx % $width;
+            $y = intdiv($idx, $width);
             foreach ([[1, 0], [-1, 0], [0, 1], [0, -1]] as [$dx, $dy]) {
                 $nx = $x + $dx;
                 $ny = $y + $dy;
                 if ($nx < 0 || $ny < 0 || $nx >= $width || $ny >= $height) {
                     continue;
                 }
-                $idx = $ny * $width + $nx;
-                $nd = $d + 1;
-                if ($nd < $distance[$idx] && $nd <= $radius) {
-                    $distance[$idx] = $nd;
-                    $queue[] = [$nx, $ny];
+                $nIdx = $ny * $width + $nx;
+                if ($visited[$nIdx] || $protected[$nIdx] || ! $this->isBackdropPixel($image, $nx, $ny)) {
+                    continue;
                 }
+                $visited[$nIdx] = true;
+                $queue[] = $nIdx;
             }
         }
 
         [$fr, $fg, $fb] = $this->fill;
         $fill = imagecolorallocate($image, $fr, $fg, $fb);
-        for ($y = 0; $y < $height; $y++) {
-            $row = $y * $width;
-            for ($x = 0; $x < $width; $x++) {
-                if ($distance[$row + $x] <= $radius) {
-                    continue;
-                }
-                if ($this->isBackdropPixel($image, $x, $y)) {
-                    imagesetpixel($image, $x, $y, $fill);
-                }
-            }
+        foreach ($queue as $idx) {
+            imagesetpixel($image, $idx % $width, intdiv($idx, $width), $fill);
         }
     }
 
     /**
-     * Tight box around non-backdrop pixels (bottle glass, liquid, label ink).
-     * Light neutrals — paper, pure white, gray studio stripes — are ignored so
-     * patterned packshots still crop to the SKU.
+     * Closed subject silhouette: dilate then erode so white label interiors
+     * become walls for the backdrop flood, without swallowing nearby stripes.
+     *
+     * @return array<int, bool>
+     */
+    private function dilatedSubjectMask(\GdImage $image): array
+    {
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $size = $width * $height;
+        $radius = max(10, (int) round(min($width, $height) * 0.012));
+        $seed = array_fill(0, $size, false);
+
+        for ($y = 0; $y < $height; $y++) {
+            $row = $y * $width;
+            for ($x = 0; $x < $width; $x++) {
+                if (! $this->isBackdropPixel($image, $x, $y)) {
+                    $seed[$row + $x] = true;
+                }
+            }
+        }
+
+        $dilated = $this->boxDilate($seed, $width, $height, $radius);
+
+        return $this->boxErode($dilated, $width, $height, $radius);
+    }
+
+    /**
+     * @param  array<int, bool>  $mask
+     * @return array<int, bool>
+     */
+    private function boxDilate(array $mask, int $width, int $height, int $radius): array
+    {
+        $size = $width * $height;
+        $horiz = array_fill(0, $size, false);
+        for ($y = 0; $y < $height; $y++) {
+            $row = $y * $width;
+            $runStart = null;
+            for ($x = 0; $x <= $width; $x++) {
+                $on = $x < $width && $mask[$row + $x];
+                if ($on && $runStart === null) {
+                    $runStart = $x;
+                } elseif (! $on && $runStart !== null) {
+                    $x0 = max(0, $runStart - $radius);
+                    $x1 = min($width - 1, $x - 1 + $radius);
+                    for ($xx = $x0; $xx <= $x1; $xx++) {
+                        $horiz[$row + $xx] = true;
+                    }
+                    $runStart = null;
+                }
+            }
+        }
+
+        $out = array_fill(0, $size, false);
+        for ($x = 0; $x < $width; $x++) {
+            $runStart = null;
+            for ($y = 0; $y <= $height; $y++) {
+                $on = $y < $height && $horiz[$y * $width + $x];
+                if ($on && $runStart === null) {
+                    $runStart = $y;
+                } elseif (! $on && $runStart !== null) {
+                    $y0 = max(0, $runStart - $radius);
+                    $y1 = min($height - 1, $y - 1 + $radius);
+                    for ($yy = $y0; $yy <= $y1; $yy++) {
+                        $out[$yy * $width + $x] = true;
+                    }
+                    $runStart = null;
+                }
+            }
+        }
+
+        return $out;
+    }
+
+    /**
+     * @param  array<int, bool>  $mask
+     * @return array<int, bool>
+     */
+    private function boxErode(array $mask, int $width, int $height, int $radius): array
+    {
+        // Erode = complement of dilate of complement.
+        $size = $width * $height;
+        $complement = array_fill(0, $size, false);
+        for ($i = 0; $i < $size; $i++) {
+            $complement[$i] = ! $mask[$i];
+        }
+
+        $dilatedComplement = $this->boxDilate($complement, $width, $height, $radius);
+        $out = array_fill(0, $size, false);
+        for ($i = 0; $i < $size; $i++) {
+            $out[$i] = ! $dilatedComplement[$i];
+        }
+
+        return $out;
+    }
+
+    /**
+     * Box around the bottle/can, expanding through white labels via padding.
      *
      * @return array{0: int, 1: int, 2: int, 3: int}|null
      */
@@ -485,7 +577,6 @@ final class StillPipeline
             return null;
         }
 
-        // Refine edges at full resolution inside the coarse box.
         $pad = $step * 2;
         $rx0 = max(0, $minX - $pad);
         $ry0 = max(0, $minY - $pad);
@@ -518,7 +609,16 @@ final class StillPipeline
             return null;
         }
 
-        return [$minX, $minY, $maxX, $maxY];
+        // Small grow so white foil/labels near the silhouette stay in-crop
+        // without pulling in a large stripe/paper margin that shrinks the bottle.
+        $grow = max(10, (int) round(min($width, $height) * 0.015));
+
+        return [
+            max(0, $minX - $grow),
+            max(0, $minY - $grow),
+            min($width - 1, $maxX + $grow),
+            min($height - 1, $maxY + $grow),
+        ];
     }
 
     private function isBackdropPixel(\GdImage $image, int $x, int $y): bool

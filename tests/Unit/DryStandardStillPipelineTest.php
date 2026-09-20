@@ -107,8 +107,8 @@ it('normalizes a small bottle on a striped packshot to a consistent height', fun
         }
 
         $subjectShare = ($maxY - $minY + 1) / 1200;
-        expect($subjectShare)->toBeGreaterThan(0.78)
-            ->and($subjectShare)->toBeLessThan(0.94);
+        expect($subjectShare)->toBeGreaterThan(0.80)
+            ->and($subjectShare)->toBeLessThan(0.98);
     } finally {
         @unlink($source);
         @unlink($destination);
