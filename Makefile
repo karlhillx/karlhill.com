@@ -11,7 +11,7 @@ HOST ?= $(PRODUCTION)
 SSH ?= ssh
 SSH_ARGS ?=
 
-.PHONY: ssh publish resume-pdf dry-standard
+.PHONY: ssh publish resume-pdf
 
 ssh:
 	@if [ -z "$(HOST)" ]; then \
@@ -36,6 +36,3 @@ publish:
 
 resume-pdf:
 	php artisan resume:pdf
-
-dry-standard:
-	php artisan dry-standard:build

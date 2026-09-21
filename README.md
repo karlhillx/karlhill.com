@@ -227,11 +227,9 @@ Laravel-rendered catalog with `data/config.yaml`) and are served at:
 - `/clients/{domain}/` — the client site
 
 Not linked from the main nav or sitemap. Add a new folder under `clients/` to
-stage the next preview.
-
-The Dry Standard (`/clients/the-dry-standard/`) is an editorial review site
-rendered live from `data/catalog.sqlite`. Markdown reviews import into that
-catalog via `php artisan dry-standard:*`. See `clients/the-dry-standard/README.md`.
+stage the next preview. The Dry Standard now lives at
+https://drinkdrystandard.com/; `/clients/the-dry-standard/*` permanently
+redirects there.
 
 ## Project Layout
 

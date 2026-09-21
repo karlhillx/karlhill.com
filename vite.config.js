@@ -11,8 +11,6 @@ export default defineConfig({
                 'resources/css/print.css',
                 'resources/js/app.js',
                 'resources/fonts/bebas-neue-latin-400-normal.woff2',
-                'clients/the-dry-standard/assets/css/site.css',
-                'clients/the-dry-standard/assets/js/site.js',
             ],
             refresh: true,
         }),

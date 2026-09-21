@@ -28,12 +28,6 @@
     "http://127.0.0.1:8000/blog/release-governance",
     "http://127.0.0.1:8000/blog/staff-to-em-first-90-days",
     "http://127.0.0.1:8000/this-path-does-not-exist",
-    "http://127.0.0.1:8000/__a11y/contact-errors",
-    "http://127.0.0.1:8000/clients/the-dry-standard/",
-    "http://127.0.0.1:8000/clients/the-dry-standard/reviews/",
-    "http://127.0.0.1:8000/clients/the-dry-standard/reviews/beer/guinness-0-0/",
-    "http://127.0.0.1:8000/clients/the-dry-standard/compare/?slugs=guinness-0-0,athletic-brewing-run-wild-ipa",
-    "http://127.0.0.1:8000/clients/the-dry-standard/learn/",
-    "http://127.0.0.1:8000/clients/the-dry-standard/industry/submit/"
+    "http://127.0.0.1:8000/__a11y/contact-errors"
   ]
 }

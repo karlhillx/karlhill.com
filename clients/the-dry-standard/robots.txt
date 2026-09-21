@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /
-
-# Preview is noindex via X-Robots-Tag. The live robots.txt is rendered from
-# site.index in data/config.yaml so a domain move can Allow and emit Sitemap.

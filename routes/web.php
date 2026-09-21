@@ -5,8 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientSiteController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DeliveryController;
-use App\Http\Controllers\DryStandardIndustryController;
-use App\Http\Controllers\DryStandardSiteController;
+use App\Http\Controllers\DryStandardRedirectController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
 use App\Http\Controllers\LeadController;
@@ -54,20 +53,10 @@ if (config('site.a11y_fixtures')) {
     })->name('a11y.contact-errors');
 }
 
-Route::get('/clients/the-dry-standard/industry/submit/{slash?}', [DryStandardIndustryController::class, 'showSubmit'])
-    ->where('slash', '/')
-    ->name('dry-standard.industry.submit');
-Route::post('/clients/the-dry-standard/industry/submit/{slash?}', [DryStandardIndustryController::class, 'storeSubmit'])
-    ->where('slash', '/')
-    ->middleware('throttle:5,1')
-    ->name('dry-standard.industry.submit.store');
-Route::get('/clients/the-dry-standard/industry/partnerships/{slash?}', [DryStandardIndustryController::class, 'showPartnerships'])
-    ->where('slash', '/')
-    ->name('dry-standard.industry.partnerships');
-Route::post('/clients/the-dry-standard/industry/partnerships/{slash?}', [DryStandardIndustryController::class, 'storePartnerships'])
-    ->where('slash', '/')
-    ->middleware('throttle:5,1')
-    ->name('dry-standard.industry.partnerships.store');
+// Dry Standard moved to drinkdrystandard.com — permanent redirects.
+Route::any('/clients/the-dry-standard/{path?}', DryStandardRedirectController::class)
+    ->where('path', '.*')
+    ->name('dry-standard.show');
 
 // HTML pages: the site is effectively static (flat-file blog, cached GitHub
 // data) so a short public TTL plus an ETag lets browsers and any future CDN
@@ -93,17 +82,6 @@ Route::middleware('cache.headers:public;max_age=300;s_maxage=600;stale_while_rev
 
     // Client staging — static sites under /clients/{slug}/ (noindex, not in nav/sitemap).
     Route::get('/clients', [ClientSiteController::class, 'index'])->name('clients.index');
-    Route::get('/clients/the-dry-standard/{path?}', [DryStandardSiteController::class, 'show'])
-        ->where('path', '.*')
-        ->withoutMiddleware([
-            EncryptCookies::class,
-            AddQueuedCookiesToResponse::class,
-            StartSession::class,
-            ShareErrorsFromSession::class,
-            ValidateCsrfToken::class,
-            PreventRequestForgery::class,
-        ])
-        ->name('dry-standard.show');
     Route::get('/clients/{client}/{path?}', [ClientSiteController::class, 'show'])
         ->where([
             'client' => '[A-Za-z0-9][A-Za-z0-9.-]*',
