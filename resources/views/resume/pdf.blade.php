@@ -709,7 +709,7 @@
                     <h2 id="open-source-heading" class="section-title">Open Source</h2>
                     <ul class="edu-list">
                         @foreach($resume['tooling'] as $item)
-                            <li><strong>{{ $item['name'] }}</strong> — {{ $item['note'] }}</li>
+                            <li>@if(! empty($item['url']))<a href="{{ $item['url'] }}"><strong>{{ $item['name'] }}</strong></a>@else<strong>{{ $item['name'] }}</strong>@endif — {{ $item['note'] }}</li>
                         @endforeach
                     </ul>
                 </section>

@@ -1,11 +1,15 @@
-@props(['repo'])
+@props(['repo', 'headingLevel' => 3])
+
+@php
+    $headingTag = $headingLevel === 4 ? 'h4' : 'h3';
+@endphp
 
 <a href="{{ $repo->url }}" target="_blank" rel="noopener noreferrer" data-no-ext
    class="surface-card bg-bg group flex flex-col justify-between p-6 transition-all duration-300"
    data-reveal>
     <div>
         <div class="flex items-start justify-between gap-4 mb-2">
-            <h3 class="font-mono text-base font-semibold text-neutral-100 group-hover:text-accent transition-colors leading-snug break-all">{{ $repo->name }}</h3>
+            <{{ $headingTag }} class="font-mono text-base font-semibold text-neutral-100 group-hover:text-accent group-focus-visible:text-accent transition-colors leading-snug break-all">{{ $repo->name }}</{{ $headingTag }}>
             @if($repo->stars > 0)
                 <span class="font-mono text-caption text-neutral-500 whitespace-nowrap shrink-0">★ {{ number_format($repo->stars) }}</span>
             @endif

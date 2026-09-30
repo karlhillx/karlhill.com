@@ -46,8 +46,8 @@
     <div class="mb-14 sm:mb-16">
         <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-6" data-reveal>
             <div>
-                <p class="font-mono text-caption text-accent uppercase tracking-widest font-semibold">01 · Mission &amp; Professional Software</p>
-                <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mt-1">Aerospace &amp; Defense Systems</h3>
+                <p class="font-mono text-caption text-accent uppercase tracking-widest font-semibold">01 · Aerospace &amp; Defense</p>
+                <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mt-1">Mission Software</h3>
             </div>
             <a href="/work#work" class="font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
                 View mission case studies →
@@ -58,6 +58,7 @@
             @foreach($missionProjects as $project)
                 @php($cardUrl = \App\Support\ProjectCatalog::cardUrl($project))
                 <x-site.work-card
+                    :heading-level="4"
                     :title="$project['card_title'] ?? $project['title']"
                     :meta="$project['meta']"
                     :description="$project['description']"
@@ -81,29 +82,31 @@
         <div class="mb-14 sm:mb-16 pt-10 border-t border-neutral-800/60">
             <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-6" data-reveal>
                 <div>
-                    <p class="font-mono text-caption text-accent uppercase tracking-widest font-semibold">02 · Independent Products</p>
-                    <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mt-1">Production Web Products</h3>
+                    <p class="font-mono text-caption text-accent uppercase tracking-widest font-semibold">02 · Product Engineering</p>
+                    <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mt-1">Independent Products</h3>
                 </div>
                 <a href="/work#products" class="font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
                     Explore products →
                 </a>
             </div>
 
-            <article class="surface-card bg-bg group relative overflow-hidden p-6 sm:p-8 lg:p-10 transition-all duration-300" data-reveal>
+            <article class="surface-card-static bg-bg relative overflow-hidden p-6 sm:p-8 lg:p-10" data-reveal>
                 <div class="grid lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-12 items-center">
                     <div>
                         <div class="flex items-center gap-3 mb-3">
                             <img src="{{ $dryStandard['logo']['path'] }}" alt="" class="h-6 w-auto object-contain" aria-hidden="true">
                             <span class="font-mono text-caption text-accent uppercase tracking-widest">{{ $dryStandard['meta'] }}</span>
                         </div>
-                        <h4 class="font-sans font-semibold text-2xl sm:text-3xl text-neutral-100 group-hover:text-accent transition-colors leading-tight mb-3">
-                            {{ $dryStandard['title'] }}
+                        <h4 class="font-sans font-semibold text-2xl sm:text-3xl text-neutral-100 leading-tight mb-3">
+                            <a href="{{ route('work.show', ['slug' => 'the-dry-standard']) }}" class="inline-flex items-center min-h-11 hover:text-accent focus-visible:text-accent hover:underline focus-visible:underline underline-offset-4 transition-colors">
+                                {{ $dryStandard['title'] }}
+                            </a>
                         </h4>
                         <p class="text-neutral-300 text-base leading-relaxed mb-4">
                             {{ $dryStandard['description'] }}
                         </p>
                         <p class="text-neutral-400 text-sm leading-relaxed mb-6 border-l-2 border-accent/40 pl-3">
-                            Designed and built the product architecture, structured data model, editorial workflow, search/discovery experience, evidence model, validation tooling, and publishing system.
+                            Built the structured product database, editorial workflow, and search experience.
                         </p>
                         <div class="flex flex-wrap items-center gap-2 mb-8">
                             @foreach($dryStandard['tags'] as $tag)
@@ -125,7 +128,7 @@
                     </div>
                     <div class="relative rounded-lg overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-950">
                         <img src="{{ $dryStandard['image'] }}" alt="{{ $dryStandard['image_alt'] }}"
-                             class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500 ease-out"
+                             class="w-full h-auto object-cover"
                              width="1200" height="630" loading="lazy">
                     </div>
                 </div>
@@ -137,8 +140,8 @@
     <div class="pt-10 border-t border-neutral-800/60">
         <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-6" data-reveal>
             <div>
-                <p class="font-mono text-caption text-accent uppercase tracking-widest font-semibold">03 · Open Source &amp; Engineering Tools</p>
-                <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mt-1">Developer Tooling &amp; Simulation</h3>
+                <p class="font-mono text-caption text-accent uppercase tracking-widest font-semibold">03 · Developer Tooling &amp; Simulation</p>
+                <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mt-1">Open Source &amp; Tools</h3>
             </div>
             <a href="/work#open-source" class="font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
                 View all tools →
@@ -147,7 +150,7 @@
 
         <div class="site-card-grid">
             @foreach($tools as $repo)
-                <x-site.repo-card :repo="$repo" />
+                <x-site.repo-card :repo="$repo" :heading-level="4" />
             @endforeach
         </div>
     </div>

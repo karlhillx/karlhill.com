@@ -15,28 +15,33 @@
             {{ config('site.work.lede') }}
         </p>
 
-        <nav class="flex flex-wrap items-center gap-2 mt-6" aria-label="Portfolio sections">
-            <a href="#work" class="surface-chip font-mono text-caption px-3 py-1 text-neutral-300 hover:text-accent hover:border-accent transition-colors">
+    </x-site.page-hero>
+
+    <nav class="portfolio-nav site-gutter" aria-label="Portfolio sections">
+        <div class="portfolio-nav__links site-shell">
+            <a href="#work" data-toc-link data-toc-sections="work chapters" aria-current="location">
                 Mission Software
             </a>
-            <a href="#products" class="surface-chip font-mono text-caption px-3 py-1 text-neutral-300 hover:text-accent hover:border-accent transition-colors">
+            <a href="#products" data-toc-link>
                 Independent Products
             </a>
-            <a href="#open-source" class="surface-chip font-mono text-caption px-3 py-1 text-neutral-300 hover:text-accent hover:border-accent transition-colors">
+            <a href="#open-source" data-toc-link>
                 Open Source &amp; Tools
             </a>
-            <a href="#earlier" class="surface-chip font-mono text-caption px-3 py-1 text-neutral-300 hover:text-accent hover:border-accent transition-colors">
-                Earlier Work
-            </a>
-        </nav>
-    </x-site.page-hero>
+            @if(($earlierProjects ?? collect())->isNotEmpty())
+                <a href="#earlier" data-toc-link>
+                    Earlier Work
+                </a>
+            @endif
+        </div>
+    </nav>
 
     {{-- Section 01: Mission & Professional Software --}}
     <div data-soft-nav-target>
         @include('partials.work', [
             'projects' => $missionProjects ?? $projects->take(3),
             'hideHeading' => false,
-            'heading' => 'Selected Work',
+            'heading' => 'Mission Software',
             'sectionNumber' => '01',
             'proof' => config('site.work.mission_intro'),
         ])
@@ -83,15 +88,17 @@
                 </p>
             </div>
 
-            <article class="surface-card bg-bg group relative overflow-hidden p-6 sm:p-8 lg:p-10 transition-all duration-300" data-reveal>
+            <article class="surface-card-static bg-bg relative overflow-hidden p-6 sm:p-8 lg:p-10" data-reveal>
                 <div class="grid lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-12 items-center">
                     <div>
                         <div class="flex items-center gap-3 mb-3">
                             <img src="{{ $dryStandard['logo']['path'] }}" alt="" class="h-6 w-auto object-contain" aria-hidden="true">
                             <span class="font-mono text-caption text-accent uppercase tracking-widest">{{ $dryStandard['meta'] }}</span>
                         </div>
-                        <h3 class="font-sans font-semibold text-2xl sm:text-3xl text-neutral-100 group-hover:text-accent transition-colors leading-tight mb-3">
-                            {{ $dryStandard['title'] }}
+                        <h3 class="font-sans font-semibold text-2xl sm:text-3xl text-neutral-100 leading-tight mb-3">
+                            <a href="{{ route('work.show', ['slug' => 'the-dry-standard']) }}" class="inline-flex items-center min-h-11 hover:text-accent focus-visible:text-accent hover:underline focus-visible:underline underline-offset-4 transition-colors">
+                                {{ $dryStandard['title'] }}
+                            </a>
                         </h3>
                         <p class="text-neutral-300 text-base leading-relaxed mb-4">
                             {{ $dryStandard['description'] }}
@@ -119,7 +126,7 @@
                     </div>
                     <div class="relative rounded-lg overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-950">
                         <img src="{{ $dryStandard['image'] }}" alt="{{ $dryStandard['image_alt'] }}"
-                             class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500 ease-out"
+                             class="w-full h-auto object-cover"
                              width="1200" height="630" loading="lazy">
                     </div>
                 </div>
@@ -128,7 +135,7 @@
     @endif
 
     {{-- Section 03: Open Source & Engineering Tools --}}
-    <x-site.section id="open-source" section-label="Open Source" border="soft" number="03" label="Open Source &amp; Tools">
+    <x-site.section id="open-source" :section-label="'Open Source & Tools'" border="soft" number="03" :label="'Open Source & Tools'">
         <x-slot:actions>
             <a href="https://github.com/karlhillx" target="_blank" rel="noopener noreferrer" data-no-ext
                class="font-mono text-xs text-neutral-500 hover:text-accent transition-colors">
@@ -156,7 +163,7 @@
 
     {{-- Section 04: Earlier Work --}}
     @if(($earlierProjects ?? collect())->isNotEmpty())
-        <x-site.section id="earlier" class="scroll-mt-32" section-label="Earlier Work" border="soft" number="04" label="Earlier Engineering Systems">
+        <x-site.section id="earlier" class="scroll-mt-32" section-label="Earlier Work" border="soft" number="04" label="Earlier Work">
             <p class="text-neutral-400 text-sm leading-relaxed max-w-2xl mb-6" data-reveal>
                 {{ config('site.work.earlier_intro') }}
             </p>

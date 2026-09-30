@@ -60,6 +60,9 @@
                 </ul>
             @endif
             <div class="hero-cta flex flex-wrap items-center gap-x-5 gap-y-3 hero-enter" style="animation-delay:300ms">
+                <a href="/work" class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-300 hover:text-accent focus-visible:text-accent uppercase tracking-widest underline underline-offset-4">
+                    View work <span aria-hidden="true">→</span>
+                </a>
                 @if(filled($bookingUrl))
                     <a href="/now#book"
                        data-idle-cta

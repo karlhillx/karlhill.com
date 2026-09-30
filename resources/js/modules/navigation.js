@@ -35,16 +35,18 @@ export function initNavigation() {
     const tocLinks = document.querySelectorAll('[data-toc-link]');
 
     if (tocLinks.length > 0) {
+        const sectionIds = (link) =>
+            (link.dataset.tocSections || link.getAttribute('href')?.slice(1) || '')
+                .split(' ')
+                .filter(Boolean);
         const tocTargets = Array.from(tocLinks)
-            .map((link) => {
-                const id = link.getAttribute('href')?.slice(1);
-                return id ? document.getElementById(id) : null;
-            })
+            .flatMap(sectionIds)
+            .map((id) => document.getElementById(id))
             .filter(Boolean);
 
         const setActiveToc = (id) => {
             tocLinks.forEach((link) => {
-                const active = link.getAttribute('href') === `#${id}`;
+                const active = sectionIds(link).includes(id);
                 link.classList.toggle('is-active', active);
                 if (active) {
                     link.setAttribute('aria-current', 'location');
@@ -72,6 +74,7 @@ export function initNavigation() {
 
         tocLinks.forEach((link) => {
             link.addEventListener('click', () => {
+                setActiveToc(link.getAttribute('href').slice(1));
                 mobileArticleToc?.removeAttribute('open');
             });
         });
@@ -106,6 +109,10 @@ export function initNavigation() {
     const navToggle = document.getElementById('nav-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
 
+    window.matchMedia('(min-width: 80rem)').addEventListener('change', (event) => {
+        if (event.matches && mobileMenu?.matches(':popover-open')) mobileMenu.hidePopover();
+    });
+
     mobileMenu?.addEventListener('toggle', (e) => {
         const open = e.newState === 'open';
         navToggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -119,6 +126,19 @@ export function initNavigation() {
     const backTopBtn = document.getElementById('quick-back-top');
     const root = document.documentElement;
     const primaryNav = document.querySelector('nav[aria-label="Primary"]');
+    const portfolioNav = document.querySelector('.portfolio-nav');
+
+    if (portfolioNav && primaryNav) {
+        const navSizes = new ResizeObserver((entries) => {
+            entries.forEach((entry) => {
+                const property =
+                    entry.target === primaryNav ? '--primary-nav-height' : '--portfolio-nav-height';
+                root.style.setProperty(property, `${entry.borderBoxSize[0].blockSize}px`);
+            });
+        });
+        navSizes.observe(primaryNav);
+        navSizes.observe(portfolioNav);
+    }
 
     // Scroll-driven CSS handles the progress bar + back-to-top reveal where
     // supported. Under reduced motion those animations are switched off, so

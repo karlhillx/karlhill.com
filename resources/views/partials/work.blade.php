@@ -1,6 +1,6 @@
 <x-site.section
     id="work"
-    section-label="Selected Work"
+    :section-label="$heading ?? 'Selected Work'"
     :number="($hideHeading ?? false) ? null : ($sectionNumber ?? '03')"
     :label="($hideHeading ?? false) ? null : ($heading ?? 'Selected Work')"
 >

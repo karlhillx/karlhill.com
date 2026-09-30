@@ -113,7 +113,6 @@
                 </div>
                 <x-site.footer-explore
                     class="min-w-0"
-                    list-class="flex flex-wrap gap-x-5 gap-y-1 font-mono text-sm"
                     item-class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors"
                 />
             </div>

@@ -28,6 +28,7 @@
     .case-study-flow .case-study-logo-plate__grid,
     .case-study-flow .case-study-logo-plate__glow,
     .site-toolbar--sticky,
+    .portfolio-nav,
     .on-device-summary,
     .on-device-ask {
         display: none !important;

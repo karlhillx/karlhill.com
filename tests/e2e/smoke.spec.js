@@ -22,6 +22,121 @@ async function assertA11y(page, { exclude = [] } = {}) {
 }
 
 test.describe('smoke + a11y', () => {
+    test('navigation stays complete across desktop, tablet, and mobile', async ({ page }) => {
+        await page.goto('/work');
+        const primary = page.getByRole('navigation', { name: 'Primary', exact: true });
+        for (const width of [390, 820, 1280, 1440]) {
+            await page.setViewportSize({ width, height: 900 });
+            if (width < 1280) {
+                await primary.getByRole('button', { name: 'Open menu', exact: true }).click();
+            }
+            for (const name of ['Work', 'Recruiter Kit', 'Writing', 'About', 'Resume']) {
+                await expect(primary.getByRole('link', { name, exact: true })).toBeVisible();
+            }
+            if (width < 1280) {
+                await page.keyboard.press('Escape');
+                await expect(page.locator('#nav-toggle')).toHaveAttribute('aria-expanded', 'false');
+            }
+            expect(
+                await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)
+            ).toBe(true);
+        }
+        await page.setViewportSize({ width: 820, height: 900 });
+        await primary.getByRole('button', { name: 'Open menu', exact: true }).click();
+        await page.setViewportSize({ width: 1440, height: 900 });
+        await expect(page.locator('#mobile-menu')).toBeHidden();
+        await expect(page.locator('#nav-toggle')).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    test('portfolio navigation tracks visible sections without hiding content', async ({
+        page,
+    }) => {
+        await page.goto('/work');
+        const navigation = page.getByRole('navigation', { name: 'Portfolio sections' });
+        for (const [label, target] of [
+            ['Independent Products', 'products'],
+            ['Open Source & Tools', 'open-source'],
+            ['Earlier Work', 'earlier'],
+            ['Mission Software', 'work'],
+        ]) {
+            const link = navigation.getByRole('link', { name: label, exact: true });
+            expect((await link.boundingBox()).height).toBeGreaterThanOrEqual(44);
+            await link.focus();
+            await page.keyboard.press('Enter');
+            await expect(page).toHaveURL(new RegExp(`#${target}$`));
+            await expect(link).toHaveAttribute('aria-current', 'location');
+            await expect
+                .poll(() =>
+                    page.evaluate(() =>
+                        Math.abs(
+                            document.querySelector('.portfolio-nav').getBoundingClientRect().top -
+                                document
+                                    .querySelector('nav[aria-label="Primary"]')
+                                    .getBoundingClientRect().bottom
+                        )
+                    )
+                )
+                .toBeLessThanOrEqual(2);
+            const bounds = await page.evaluate(
+                (target) => ({
+                    section: document
+                        .getElementById(target)
+                        .querySelector('h2')
+                        .getBoundingClientRect().top,
+                    nav: document.querySelector('.portfolio-nav').getBoundingClientRect().bottom,
+                    header: document
+                        .querySelector('nav[aria-label="Primary"]')
+                        .getBoundingClientRect().bottom,
+                    bar: document.querySelector('.portfolio-nav').getBoundingClientRect().top,
+                }),
+                target
+            );
+            expect(bounds.section).toBeGreaterThanOrEqual(bounds.nav - 2);
+            expect(Math.abs(bounds.bar - bounds.header)).toBeLessThanOrEqual(2);
+        }
+        await page.locator('#chapters').scrollIntoViewIfNeeded();
+        await expect(
+            navigation.getByRole('link', { name: 'Mission Software', exact: true })
+        ).toHaveAttribute('aria-current', 'location');
+        for (const id of ['work', 'chapters', 'products', 'open-source', 'earlier']) {
+            await expect(page.locator(`#${id}`)).toBeVisible();
+        }
+        await expect(page.locator('#open-source h2')).toHaveText('Open Source & Tools');
+        await assertA11y(page);
+    });
+
+    test('portfolio hierarchy exposes project links and a grouped footer', async ({ page }) => {
+        await page.goto('/');
+        await expect(page.locator('.hero-cta a[href="/work"]')).toBeVisible();
+        await expect(page.locator('#work h3')).toHaveText([
+            'Mission Software',
+            'Independent Products',
+            'Open Source & Tools',
+        ]);
+        await expect(page.locator('h4#work-card-title-jacobs-mission-software')).toBeVisible();
+        const title = page
+            .getByRole('heading', { name: 'The Dry Standard', level: 4 })
+            .getByRole('link');
+        await expect(title).toHaveAttribute('href', /\/work\/the-dry-standard$/);
+        await title.focus();
+        await expect(title).toBeFocused();
+        const footer = page
+            .locator('footer')
+            .getByRole('navigation', { name: 'Site', exact: true });
+        await expect(footer.getByRole('heading', { level: 3 })).toHaveText([
+            'Work',
+            'Background',
+            'Connect',
+        ]);
+        for (const name of ['Research', 'How I Deliver', 'Resume', 'Recruiter Kit', 'Contact']) {
+            await expect(footer.getByRole('link', { name, exact: true })).toBeVisible();
+        }
+        await page.emulateMedia({ media: 'print' });
+        await page.goto('/work');
+        await expect(page.locator('.portfolio-nav')).toBeHidden();
+        await expect(page.locator('#products')).toBeVisible();
+    });
+
     test('home loads and exposes hire CTAs', async ({ page }) => {
         await page.goto('/');
         await expect(page.getByRole('heading', { level: 1 })).toBeVisible();

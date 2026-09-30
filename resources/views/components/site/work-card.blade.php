@@ -12,10 +12,12 @@
     'imageAlt' => null,
     'variant' => 'media',
     'parallax' => true,
+    'headingLevel' => 3,
 ])
 
 @php
     $titleId = $slug ? 'work-card-title-'.$slug : null;
+    $headingTag = $headingLevel === 4 ? 'h4' : 'h3';
     $isShot = $variant === 'shot';
     $showCornerLogo = filled($logo['path'] ?? null);
     $cardClass = 'surface-card surface-card-media pointer-lit bg-bg group relative h-[22rem] sm:h-80 lg:h-96 block work-card--compact'
@@ -98,7 +100,7 @@
 
     <div class="work-card-panel absolute inset-x-0 bottom-0 border-t border-hairline px-5 pt-5 pb-6">
         <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
-        <h3 @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-xl tracking-tight text-neutral-100 group-hover:text-accent transition-colors leading-snug">{{ $title }}</h3>
+        <{{ $headingTag }} @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-xl tracking-tight text-neutral-100 group-hover:text-accent group-focus-within:text-accent transition-colors leading-snug">{{ $title }}</{{ $headingTag }}>
         @if($tags !== [])
             <div class="work-card-tags" aria-hidden="true">
                 @foreach($tags as $tag)

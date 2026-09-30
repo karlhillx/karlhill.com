@@ -21,12 +21,12 @@
                 <x-site.mark :size="28" class="brand-lockup__mark" />
                 <span>KARL HILL</span>
             </a>
-            {{-- Hire path: Work → Kit → Writing. About from lg. Book is the CTA. --}}
-            <div class="hidden md:flex items-center gap-5 lg:gap-7 font-mono text-xs text-neutral-500 uppercase tracking-widest">
+            <div class="hidden xl:flex items-center gap-5 font-mono text-xs text-neutral-400 uppercase tracking-widest">
                 <a href="/work" class="{{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
-                <a href="/kit" class="{{ $navLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Kit</a>
+                <a href="/kit" class="{{ $navLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Recruiter Kit</a>
                 <a href="/blog" class="{{ $navLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
-                <a href="/about" class="max-lg:hidden {{ $navLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
+                <a href="/about" class="{{ $navLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
+                <a href="/resume" class="{{ $navLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
             </div>
         </div>
         <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
@@ -67,14 +67,14 @@
                     commandfor="mobile-menu"
                     popovertarget="mobile-menu"
                     aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu"
-                    class="md:hidden flex flex-col justify-center items-center min-h-11 min-w-11 gap-1.5 border border-[color:var(--border-strong)] hover:border-accent transition-colors shrink-0">
+                    class="xl:hidden flex flex-col justify-center items-center min-h-11 min-w-11 gap-1.5 border border-[color:var(--border-strong)] hover:border-accent transition-colors shrink-0">
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
             </button>
         </div>
     </div>
-    <div id="mobile-menu" popover="auto" class="md:hidden border-t border-neutral-800 bg-bg">
+    <div id="mobile-menu" popover="auto" class="xl:hidden border-t border-neutral-800 bg-bg">
         <div class="site-shell site-gutter py-4 pb-[max(2rem,env(safe-area-inset-bottom))] flex flex-col font-mono text-xs text-neutral-400 uppercase tracking-widest">
             <button type="button"
                     command="show-popover"
@@ -89,7 +89,7 @@
 
             <div class="flex flex-col divide-y divide-neutral-800/80">
                 <a href="/work" class="{{ $mobileLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
-                <a href="/kit" class="{{ $mobileLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Kit</a>
+                <a href="/kit" class="{{ $mobileLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Recruiter Kit</a>
                 <a href="/blog" class="{{ $mobileLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/about" class="{{ $mobileLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
                 <a href="/resume" class="{{ $mobileLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>

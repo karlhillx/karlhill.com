@@ -10,7 +10,9 @@ it('work page renders projects and open source', function () {
     $response = $this->get('/work');
 
     $response->assertStatus(200);
-    $response->assertSee('Selected Work', escape: false);
+    $response->assertSee('Mission Software', escape: false);
+    $response->assertSee('Open Source &amp; Tools', escape: false);
+    $response->assertDontSee('Open Source &amp;amp; Tools', escape: false);
     $response->assertSee('LAADS DAAC', escape: false);
     $response->assertSee('jacobs-mission-software', escape: false);
     $response->assertSee('id="open-source"', escape: false);
@@ -49,7 +51,7 @@ it('about page renders career, research, and music', function () {
     $response->assertDontSee('How I run delivery', escape: false);
     $response->assertDontSee('The operating principles are straightforward', escape: false);
     $response->assertDontSee('Define scope, ownership, dependencies, and interface assumptions early', escape: false);
-    $response->assertDontSee('href="/delivery"', escape: false);
+    $response->assertSee('href="/delivery"', escape: false);
     $response->assertSee('Sorry About Your Daughter', escape: false);
     $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
     $response->assertSee('GeoHorizons', escape: false);
@@ -105,7 +107,7 @@ it('about page renders career, research, and music', function () {
     $response->assertSee('The full history, technologies, education, and certifications are available on the resume', escape: false);
     $response->assertDontSee('Verify credential', escape: false);
     $response->assertSee('href="/kit"', escape: false);
-    $response->assertSee('>Kit</a>', escape: false);
+    $response->assertSee('>Recruiter Kit</a>', escape: false);
     $response->assertDontSee('Definition of Done', escape: false);
     $response->assertDontSee('Pull request rubric', escape: false);
     $response->assertDontSee('href="/lead"', escape: false);
@@ -511,6 +513,27 @@ it('service worker and offline page are available', function () {
     $this->assertStringNotContainsString("'/lead'", $sw);
 });
 
+it('resume project names link to their configured urls on web and pdf', function () {
+    $web = $this->get('/resume')->assertOk();
+    $social = collect(config('site.social'));
+    $pdf = view('resume.pdf', [
+        'person' => config('site.person'),
+        'resume' => config('site.resume'),
+        'experience' => config('site.experience'),
+        'education' => config('site.education', []),
+        'certifications' => config('site.certifications', []),
+        'stack' => config('site.stack', []),
+        'research' => config('site.research', []),
+        'linkedin' => $social->first(fn (array $link) => ($link['icon'] ?? '') === 'linkedin'),
+        'github' => $social->first(fn (array $link) => ($link['icon'] ?? '') === 'github'),
+    ])->render();
+
+    foreach (config('site.resume.tooling') as $item) {
+        $web->assertSee('href="'.e($item['url']).'"', escape: false);
+        expect($pdf)->toContain('<a href="'.e($item['url']).'"><strong>'.e($item['name']).'</strong></a>');
+    }
+});
+
 it('footer includes site explore links', function () {
     $response = $this->get('/work');
 
@@ -519,6 +542,11 @@ it('footer includes site explore links', function () {
     $response->assertSee('href="/kit"', escape: false);
     $response->assertSee('href="/blog"', escape: false);
     $response->assertSee('href="/privacy"', escape: false);
+    $response->assertSee('href="/resume"', escape: false);
+    $response->assertSee('href="/research/global-flood-mapping"', escape: false);
+    $response->assertSee('How I Deliver', escape: false);
+    $response->assertSee('Background', escape: false);
+    $response->assertSee('Connect', escape: false);
     $response->assertDontSee('How I run delivery', escape: false);
 });
 
@@ -561,7 +589,7 @@ it('homepage hero links to em funnel', function () {
 
     preg_match('/<div class="hero-cta flex.*?<\/div>/s', $html, $heroCta);
     expect($heroCta[0] ?? '')->toContain('href="/kit"')
-        ->and($heroCta[0] ?? '')->not->toContain('href="/work"')
+        ->and($heroCta[0] ?? '')->toContain('href="/work"')
         ->and($heroCta[0] ?? '')->toContain('Recruiter kit');
 
     foreach (config('site.hero.proof') as $chip) {
@@ -574,13 +602,15 @@ it('nav includes kit, writing, about, and one filled booking CTA', function () {
 
     expect($html)
         ->toContain('href="/kit"')
-        ->toContain('>Kit</a>')
+        ->toContain('>Recruiter Kit</a>')
         ->toContain('href="/blog"')
         ->toContain('>Writing</a>')
         ->toContain('href="/about"')
         ->toContain('>About</a>')
         ->toContain('href="/resume"')
-        ->toContain('max-lg:hidden')
+        ->toContain('hidden xl:flex')
+        ->toContain('xl:hidden')
+        ->not->toContain('max-lg:hidden')
         ->toContain('data-mod-shortcut')
         ->toContain('⌘K')
         ->not->toContain('Get in Touch')
@@ -775,13 +805,13 @@ it('footer explore includes kit on the hire path', function () {
         ->toContain('href="/now"')
         ->toContain('>Now</a>')
         ->toContain('>Writing</a>')
-        ->toContain('>Kit</a>')
+        ->toContain('>Recruiter Kit</a>')
         ->not->toContain('>Delivery</a>');
 
     $this->get('/resume')
         ->assertOk()
         ->assertSee('href="/kit"', escape: false)
-        ->assertSee('>Kit</a>', escape: false);
+        ->assertSee('>Recruiter Kit</a>', escape: false);
 
     $kit = $this->get('/kit')->assertOk()->getContent();
     expect($kit)->toContain('href="/resume"')
