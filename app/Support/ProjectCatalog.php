@@ -33,7 +33,40 @@ final class ProjectCatalog
      */
     public static function featured(int $limit = 3): Collection
     {
-        return self::listed()->where('featured', true)->take($limit)->values();
+        return self::listed()->where('featured', true)->sortBy('featured_order')->take($limit)->values();
+    }
+
+    /**
+     * @return Collection<string, array<string, mixed>>
+     */
+    public static function collections(): Collection
+    {
+        $projects = self::all();
+
+        return collect(config('site.work.collections'))->map(
+            fn (array $collection, string $group): array => [
+                ...$collection,
+                'projects' => $projects->where('portfolio_group', $group)->values(),
+            ],
+        );
+    }
+
+    /**
+     * @param  Collection<int, array<string, mixed>>  $projects
+     * @return array<string, mixed>
+     */
+    public static function itemList(Collection $projects): array
+    {
+        return [
+            '@type' => 'ItemList',
+            'name' => 'Engineering portfolio',
+            'itemListElement' => $projects->values()->map(fn (array $project, int $index): array => [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'name' => $project['title'],
+                'url' => PageMeta::siteUrl().'/work/'.$project['slug'],
+            ])->all(),
+        ];
     }
 
     /**
@@ -77,7 +110,7 @@ final class ProjectCatalog
     }
 
     /**
-     * Mission and professional software projects (Jacobs and NASA Goddard).
+     * Current aerospace mission software.
      *
      * @return Collection<int, array<string, mixed>>
      */
@@ -365,7 +398,10 @@ final class ProjectCatalog
      */
     public static function adjacent(string $slug): array
     {
-        $projects = self::listedWithCaseStudies();
+        $projects = self::collections()->pluck('projects')->flatten(1)
+            ->concat(self::earlier())
+            ->filter(fn (array $project) => self::hasCaseStudy($project))
+            ->values();
         $index = $projects->search(fn (array $project) => $project['slug'] === $slug);
 
         if ($index === false) {

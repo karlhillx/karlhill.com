@@ -2,30 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Support\GitHubRepository;
 use App\Support\PageMeta;
 use App\Support\ProjectCatalog;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 class WorkController extends Controller
 {
-    public function __construct(
-        protected readonly GitHubRepository $github,
-    ) {}
-
     public function index(): View|RedirectResponse
     {
         if (request()->query('tag')) {
             return redirect()->route('work', status: 301);
         }
 
-        return $this->renderIndex(
-            meta: PageMeta::work(),
-            projects: ProjectCatalog::listed(),
-            supporting: ProjectCatalog::supporting(),
-        );
+        return view('work.index', [
+            'meta' => PageMeta::work(),
+            'collections' => ProjectCatalog::collections(),
+            'earlierProjects' => ProjectCatalog::earlier(),
+        ]);
     }
 
     /**
@@ -48,19 +42,7 @@ class WorkController extends Controller
             'previousProject' => $adjacent['previous'],
             'nextProject' => $adjacent['next'],
             'relatedProjects' => ProjectCatalog::related($project),
-        ]);
-    }
-
-    protected function renderIndex(PageMeta $meta, Collection $projects, Collection $supporting): View
-    {
-        return view('work.index', [
-            'meta' => $meta,
-            'projects' => $projects,
-            'missionProjects' => ProjectCatalog::mission(),
-            'productProjects' => ProjectCatalog::products(),
-            'supporting' => $supporting,
-            'earlierProjects' => ProjectCatalog::earlier(),
-            'githubRepos' => $this->github->topRepos(6),
+            'collection' => config('site.work.collections.'.$project['portfolio_group']),
         ]);
     }
 }

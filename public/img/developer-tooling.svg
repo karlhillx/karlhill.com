@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Engineering the feedback loop</title>
+  <desc id="desc">bb-run, testrisk, and pipeguard: independent tools for local pipelines, test priorities, and policy checks.</desc>
+  <rect width="1200" height="630" fill="#141414"/>
+  <g fill="none" stroke="#494239" stroke-width="2">
+    <rect x="70" y="140" width="310" height="160"/>
+    <rect x="445" y="140" width="310" height="160"/>
+    <rect x="820" y="140" width="310" height="160"/>
+  </g>
+  <g font-family="monospace" fill="#d4923a" font-size="19">
+    <text x="100" y="182">LOCAL FEEDBACK</text>
+    <text x="475" y="182">TEST PRIORITIES</text>
+    <text x="850" y="182">EXECUTABLE POLICY</text>
+  </g>
+  <g font-family="monospace" fill="#f5f5f5" font-size="34">
+    <text x="100" y="249">bb-run</text>
+    <text x="475" y="249">testrisk</text>
+    <text x="850" y="249">pipeguard</text>
+  </g>
+  <g font-family="monospace" fill="#c4c0b9" font-size="25">
+    <text x="100" y="350">Python</text>
+    <text x="475" y="350">Python</text>
+    <text x="850" y="350">Go</text>
+    <text x="70" y="560" font-size="18">INDEPENDENT OPEN SOURCE / PYTHON + GO</text>
+  </g>
+</svg>

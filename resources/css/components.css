@@ -160,9 +160,7 @@
 }
 
 html:has(.portfolio-nav) {
-    scroll-padding-top: calc(
-        var(--primary-nav-height, 6rem) + var(--portfolio-nav-height, 7rem) + 0.75rem
-    );
+    scroll-padding-top: calc(var(--primary-nav-height, 6rem) + var(--portfolio-nav-height, 7rem));
 }
 
 main:has(> .portfolio-nav) section[id] {

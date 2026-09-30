@@ -32,7 +32,9 @@ final class PageFeatures
         if (in_array($name, ['work', 'work.tag', 'blog.index', 'blog.tag'], true)) {
             $features[] = 'reveal';
             $features[] = 'media';
-            $features[] = 'soft-nav';
+            if (str_starts_with((string) $name, 'blog')) {
+                $features[] = 'soft-nav';
+            }
 
             if (str_starts_with((string) $name, 'blog') && self::pushEnabled()) {
                 $features[] = 'push';

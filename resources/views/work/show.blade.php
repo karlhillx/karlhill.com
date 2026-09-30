@@ -25,7 +25,7 @@
         ! empty($study['problem']) ? ['id' => 'problem', 'text' => 'Problem'] : null,
         ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions'] : null,
         ! empty($study['outcome']) ? ['id' => 'outcome', 'text' => 'Outcome'] : null,
-        $hasDiagram ? ['id' => 'delivery-system', 'text' => 'Delivery system'] : null,
+        $hasDiagram ? ['id' => 'delivery-system', 'text' => $study['diagram']['title'] ?? 'Delivery system'] : null,
         $hasScope ? ['id' => 'scope', 'text' => 'Scope'] : null,
         ! empty($study['leadership']) ? ['id' => 'leadership', 'text' => 'Team & contribution'] : null,
         ...$bodyH2s,
@@ -79,6 +79,12 @@
         'url' => \App\Support\PageMeta::siteUrl(),
     ],
     'keywords' => implode(', ', $project['tags'] ?? []),
+    'dateModified' => $study['updated'] ?? null,
+    'isPartOf' => [
+        '@type' => 'CollectionPage',
+        'name' => 'Engineering portfolio',
+        'url' => \App\Support\PageMeta::siteUrl().'/work',
+    ],
 ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
 <x-site.speculation-rules :rules="\App\Support\SpeculationRules::forCaseStudy($project, $previousProject, $nextProject)" />
@@ -101,6 +107,14 @@
 
                 <div class="min-w-0 max-w-3xl">
                     <header class="case-study-masthead">
+                        <nav class="case-study-breadcrumbs" aria-label="Breadcrumb">
+                            <a href="/work">Work</a><span aria-hidden="true">/</span>
+                            @if($collection)
+                                <a href="/work#{{ $collection['id'] }}">{{ $collection['title'] }}</a>
+                            @else
+                                <a href="/work#earlier">Earlier Work</a>
+                            @endif
+                        </nav>
                         <p class="case-study-masthead__meta font-mono text-accent text-xs tracking-widest uppercase">{{ $project['meta'] }}</p>
                         <h1 class="case-study-masthead__title font-sans font-semibold text-[clamp(1.75rem,3.8vw,2.55rem)] leading-[1.15] tracking-tight text-neutral-100 text-balance"
                             data-article-title
@@ -108,6 +122,13 @@
                             {{ $project['title'] }}
                         </h1>
                         <p class="case-study-lede text-neutral-400">{{ $study['lede'] }}</p>
+                        @if(! empty($project['summary']))
+                            <div class="case-study-evidence">
+                                <p class="portfolio-eyebrow">Impact &amp; evidence</p>
+                                <p>{{ $project['summary']['impact'] }}</p>
+                                <p class="portfolio-caption">{{ $project['summary']['note'] }}</p>
+                            </div>
+                        @endif
                         @if(! empty($study['role']) || ! empty($project['tags']))
                             <div class="case-study-masthead__meta-row">
                                 @if(! empty($study['role']))
@@ -143,6 +164,10 @@
                             </div>
                         @endif
                     </header>
+
+                    @if($project['portfolio_group'] === 'tooling')
+                        <x-site.tooling-list />
+                    @endif
 
                     @if(count($toc) >= 2)
                         <details class="article-toc-mobile lg:hidden mb-6 surface-card-static p-4">

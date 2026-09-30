@@ -70,7 +70,20 @@ npm run test:e2e
 
 Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, kit, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
 
-Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared scale and affiliation facts live in `config/site/facts.php`. The recruiter kit glance is that bio (`config/site/kit.php`). Homepage spoken line is `hero.lede`. Next-role copy is **not** on the homepage — Kit “Open to”, `llms.txt` (after the identity block), and the hire packet use `person.availability` (Principal-level technical leadership first, then Engineering Manager). The longer ask is `person.availability_long`. Do not restate the ask on About or `/now`. Proof chips live in `hero.proof`. Music stays a short coda on `/about`; do not add `/music`.
+Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared scale and affiliation facts live in `config/site/facts.php`. The recruiter kit glance is that bio (`config/site/kit.php`). Homepage spoken line is `hero.lede`. Next-role copy is **not** on the homepage — Kit “Open to”, `llms.txt` (after the identity block), and the hire packet use `person.availability` (Principal-level technical leadership first, then Engineering Manager). The longer ask is `person.availability_long`. Do not restate the ask on About or `/now`. Music stays a short coda on `/about`; do not add `/music`.
+
+### Portfolio architecture
+
+- `/` introduces Karl, then immediately presents six featured entries. Work is the primary CTA; writing, career, and hiring documents follow the evidence.
+- `/work` is a server-rendered collection hub: Mission Software, NASA Platforms, Developer Tooling / Open Source, and Independent Products. Anchor navigation does not hide content or require JavaScript. Existing `/work#work`, `#chapters`, `#open-source`, and `#products` links remain valid; legacy tag URLs still redirect.
+- `config/site/work.php` defines collection labels and anchors. `config/site/projects.php` assigns `portfolio_group`, `featured_order`, and concise `summary` fields (problem, contribution, impact, qualification). Full narratives and roles remain in `resources/work/{slug}.md`.
+- `ProjectCatalog::collections()` powers the hub and homepage index; `featured(6)` powers both visible home cards and their JSON-LD list. `work-card` is shared rather than duplicating product markup.
+- `/work/developer-tooling` features only **bb-run, testrisk, and pipeguard**, in that order, from `config/site/github.php`. `/work/the-dry-standard` documents product ownership, the generated SQLite catalog, evidence rules, discovery, editorial operations, and production delivery. Both flow through the existing sitemap, command search, and machine-readable catalog. The resume keeps Independent Products separate from Open Source.
+- Keep metrics attributable: Jacobs figures describe scope and adopted standards; the flood-map evaluation is collaborative research; Earth Observatory traffic describes historical platform scale. Do not invent product revenue, adoption, or speed claims.
+- Portfolio styling lives in `resources/css/portfolio.css`, using shared tokens. Cards expose their content without hover; screenshots use the responsive-image component, explicit dimensions, and lazy loading. Only four first-paint font faces are preloaded.
+- About supplies context, Resume owns chronology/credentials/PDF, and Kit is the forwarding document. Do not turn each into another homepage.
+
+For new raster images, run `php artisan assets:webp`, then `php artisan og:generate <slug>` for a 1200×630 social card. The developer-tooling diagram source is `public/img/developer-tooling.svg`; its PNG is the raster input to the same asset pipeline.
 
 ### Name disambiguation
 
@@ -84,7 +97,7 @@ Off-site: Wikidata item exists (`Q139902938`). Next: mark it **different from** 
 
 `app/Support/SiteCatalog.php` is the shared read model for posts, case studies, series, person, and sitemap/feed URLs. Machine surfaces (`/api/site.json`, `/llms.txt`, `/api/commands.json`, the sitemap) project from it — do not duplicate lists in those formatters.
 
-GitHub repos on the homepage are fetched server-side and cached for one hour. To raise the API rate limit:
+The portfolio renders the curated repository descriptions in `config/site/github.php` without a request to GitHub, so availability and ordering do not depend on its API. The existing `GitHubRepository` client remains available for live metadata consumers and caches responses for one hour. To raise its API rate limit:
 
 ```env
 GITHUB_TOKEN=ghp_xxx

@@ -17,7 +17,7 @@
         <x-slot:title>Resume</x-slot:title>
 
         <p class="site-page-hero__lede text-neutral-300">
-            Mission software, engineering systems, and technical delivery.
+            The complete chronology, technical background, and credentials. For problems, decisions, and shipped outcomes, <a href="/work" class="portfolio-text-link">explore the portfolio</a>.
         </p>
 
         {{-- The PDF is this page's purpose, so it takes the fill; booking is the secondary. --}}
@@ -67,6 +67,9 @@
                             <li><a href="#resume-impact">Impact</a></li>
                         @endif
                         <li><a href="#resume-experience">Experience</a></li>
+                        @if(! empty($resume['products']))
+                            <li><a href="#resume-products">Independent Products</a></li>
+                        @endif
                         @if(! empty($resume['tooling']))
                             <li><a href="#resume-open-source">Open Source</a></li>
                         @endif
@@ -225,11 +228,12 @@
                     </div>
                 </section>
 
-                @if(! empty($resume['tooling']))
-                    <section class="resume-section" aria-labelledby="resume-open-source" data-reveal>
-                        <h2 id="resume-open-source" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Open Source</h2>
+                @foreach(['products' => ['resume-products', 'Independent Products'], 'tooling' => ['resume-open-source', 'Open Source']] as $key => [$sectionId, $sectionTitle])
+                @if(! empty($resume[$key]))
+                    <section class="resume-section" aria-labelledby="{{ $sectionId }}" data-reveal>
+                        <h2 id="{{ $sectionId }}" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">{{ $sectionTitle }}</h2>
                         <ul class="resume-bullets list-disc pl-5 text-neutral-300">
-                            @foreach($resume['tooling'] as $item)
+                            @foreach($resume[$key] as $item)
                                 <li>
                                     @if(! empty($item['url']))
                                         <a href="{{ $item['url'] }}" target="_blank" rel="me noopener noreferrer" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">{{ $item['name'] }}</a>
@@ -242,6 +246,7 @@
                         </ul>
                     </section>
                 @endif
+                @endforeach
 
                 @php
                     $research = $research ?? config('site.research', []);

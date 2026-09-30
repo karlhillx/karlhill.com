@@ -6,14 +6,11 @@
 
 @section('content')
     @php
-        $bookingUrl = config('site.booking.url');
-        $bookingLabel = config('site.booking.label');
         $lede = config('site.about.lede');
         $ledeParagraphs = is_array($lede) ? $lede : array_filter([$lede]);
         $beyond = config('site.about.beyond');
         $beyondParagraphs = is_array($beyond) ? $beyond : array_filter([$beyond]);
         $discogs = collect(config('site.social'))->first(fn ($link) => ($link['icon'] ?? '') === 'discogs');
-        $research = config('site.research');
     @endphp
 
     <x-site.page-hero :breadcrumbs="[
@@ -30,24 +27,8 @@
             </div>
         @endif
 
-        @if(! empty($research['identity']))
-            <div class="max-w-2xl mt-6 sm:mt-8">
-                <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">{{ $research['identity_label'] ?? 'Research' }}</p>
-                <p class="text-neutral-300 text-base sm:text-lg leading-relaxed">
-                    {{ $research['identity'] }}
-                    <a href="{{ $research['path'] ?? '/research/global-flood-mapping' }}" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">Publication page</a>
-                </p>
-            </div>
-        @endif
-
         <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
-            @if(filled($bookingUrl))
-                <x-site.button variant="primary" href="/now#book"
-                    data-analytics-event="booking_cta_clicked"
-                    data-analytics-location="about-hero">
-                    {{ $bookingLabel }}
-                </x-site.button>
-            @endif
+            <x-site.button variant="primary" href="/work">Explore the portfolio</x-site.button>
             <x-site.button variant="secondary" href="/resume">Resume</x-site.button>
         </div>
     </x-site.page-hero>

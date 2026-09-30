@@ -98,7 +98,10 @@ class LlmsTxtBuilder
             $this->fileItem('LLM full text', $feeds['llms_full'], 'Full essay corpus'),
             $this->fileItem('Hire packet JSON', $base.'/api/site.json', 'Person, experience, skills, writing, case studies'),
             $this->fileItem('MCP discovery', $feeds['mcp'], 'Agent resource map, including the A2A agent card'),
-            $this->fileItem('bb-run', 'https://github.com/karlhillx/bb-run', 'Python — run Bitbucket Pipelines locally'),
+            ...array_map(
+                fn (array $repo) => $this->fileItem($repo['name'], $repo['url'], $repo['description']),
+                config('site.github.fallback_repos', []),
+            ),
             $this->fileItem('Wikidata', 'https://www.wikidata.org/wiki/Q139902938', 'Person item'),
         ]);
 

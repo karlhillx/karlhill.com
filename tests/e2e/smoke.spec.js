@@ -25,17 +25,29 @@ test.describe('smoke + a11y', () => {
     test('navigation stays complete across desktop, tablet, and mobile', async ({ page }) => {
         await page.goto('/work');
         const primary = page.getByRole('navigation', { name: 'Primary', exact: true });
-        for (const width of [390, 820, 1280, 1440]) {
+        for (const width of [320, 390, 820, 1280, 1440]) {
             await page.setViewportSize({ width, height: 900 });
             if (width < 1280) {
                 await primary.getByRole('button', { name: 'Open menu', exact: true }).click();
             }
-            for (const name of ['Work', 'Recruiter Kit', 'Writing', 'About', 'Resume']) {
-                await expect(primary.getByRole('link', { name, exact: true })).toBeVisible();
+            for (const name of ['Work', 'Writing', 'About']) {
+                await expect(
+                    primary.getByRole('link', { name, exact: true }).filter({ visible: true })
+                ).toBeVisible();
+            }
+            for (const name of ['Recruiter Kit', 'Resume', 'Certifications']) {
+                if (width < 1280) {
+                    await expect(primary.getByRole('link', { name, exact: true })).toBeVisible();
+                } else {
+                    await expect(
+                        page.locator('footer').getByRole('link', { name, exact: true })
+                    ).toBeVisible();
+                }
             }
             if (width < 1280) {
                 await page.keyboard.press('Escape');
                 await expect(page.locator('#nav-toggle')).toHaveAttribute('aria-expanded', 'false');
+                await expect(page.locator('#nav-toggle')).toBeFocused();
             }
             expect(
                 await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)
@@ -55,7 +67,8 @@ test.describe('smoke + a11y', () => {
         const navigation = page.getByRole('navigation', { name: 'Portfolio sections' });
         for (const [label, target] of [
             ['Independent Products', 'products'],
-            ['Open Source & Tools', 'open-source'],
+            ['Developer Tooling / Open Source', 'open-source'],
+            ['NASA Platforms', 'nasa'],
             ['Earlier Work', 'earlier'],
             ['Mission Software', 'work'],
         ]) {
@@ -96,27 +109,30 @@ test.describe('smoke + a11y', () => {
         }
         await page.locator('#chapters').scrollIntoViewIfNeeded();
         await expect(
-            navigation.getByRole('link', { name: 'Mission Software', exact: true })
+            navigation.getByRole('link', { name: 'NASA Platforms', exact: true })
         ).toHaveAttribute('aria-current', 'location');
-        for (const id of ['work', 'chapters', 'products', 'open-source', 'earlier']) {
+        for (const id of ['work', 'nasa', 'chapters', 'products', 'open-source', 'earlier']) {
             await expect(page.locator(`#${id}`)).toBeVisible();
         }
-        await expect(page.locator('#open-source h2')).toHaveText('Open Source & Tools');
+        await expect(page.locator('#open-source h2')).toHaveText('Developer Tooling / Open Source');
         await assertA11y(page);
     });
 
     test('portfolio hierarchy exposes project links and a grouped footer', async ({ page }) => {
         await page.goto('/');
-        await expect(page.locator('.hero-cta a[href="/work"]')).toBeVisible();
+        await expect(page.locator('[data-home-actions] a[href="/work"]')).toBeVisible();
         await expect(page.locator('#work h3')).toHaveText([
-            'Mission Software',
-            'Independent Products',
-            'Open Source & Tools',
+            'Mission software at scale',
+            'Flood Mapping System',
+            'LAADS DAAC',
+            'Engineering the feedback loop',
+            'The Dry Standard',
+            'NASA Earth Observatory',
         ]);
-        await expect(page.locator('h4#work-card-title-jacobs-mission-software')).toBeVisible();
+        await expect(page.locator('h3#work-card-title-jacobs-mission-software')).toBeVisible();
         const title = page
-            .getByRole('heading', { name: 'The Dry Standard', level: 4 })
-            .getByRole('link');
+            .locator('#the-dry-standard')
+            .getByRole('link', { name: /Read case study/ });
         await expect(title).toHaveAttribute('href', /\/work\/the-dry-standard$/);
         await title.focus();
         await expect(title).toBeFocused();
@@ -140,8 +156,9 @@ test.describe('smoke + a11y', () => {
     test('home loads and exposes hire CTAs', async ({ page }) => {
         await page.goto('/');
         await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-        await expect(page.locator('.hero-cta a[href="/now#book"]')).toBeVisible();
-        await expect(page.locator('.hero-cta a[href="/kit"]')).toBeVisible();
+        await expect(page.locator('[data-home-actions] a[href="/now#book"]')).toBeVisible();
+        await expect(page.locator('[data-home-actions] a[href="/kit"]')).toHaveCount(0);
+        await expect(page.locator('#background a[href="/kit"]')).toBeVisible();
         await expect(page.locator('#system')).toBeVisible();
         await expect(page.locator('#ds-verify')).toBeChecked();
         await expect(page.locator('[data-panel="verify"]')).toBeVisible();
@@ -167,7 +184,9 @@ test.describe('smoke + a11y', () => {
         await page.goto('/work');
         await expect(page.locator('.site-toolbar')).toHaveCount(0);
         await expect(page.locator('#chapters')).toBeVisible();
-        await expect(page.getByRole('link', { name: /earth observatory/i })).toBeVisible();
+        await expect(
+            page.locator('#nasa-earth-observatory').getByRole('link', { name: /Read case study/ })
+        ).toBeVisible();
 
         await page.goto('/work/laads-daac');
         await expect(page.locator('[data-lightbox-open]').first()).toBeVisible();
@@ -226,7 +245,7 @@ test.describe('smoke + a11y', () => {
         await expect(page.getByRole('link', { name: /download resume pdf/i })).toBeVisible();
         await expect(page.locator('.kit-doc')).toBeVisible();
 
-        await expect(page.locator('.kit-highlights--flush > .kit-highlights__item')).toHaveCount(6);
+        await expect(page.locator('.kit-highlights--flush > .kit-highlights__item')).toHaveCount(8);
         await expect(page.locator('.max-w-2xl > ul.kit-links > li')).toHaveCount(4);
         await expect(page.locator('[data-ask-prompt]')).toHaveCount(3);
 

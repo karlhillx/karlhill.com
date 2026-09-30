@@ -1,49 +1,74 @@
 ---
 updated: '2026-09-30'
-lede: Independent non-alcoholic drinks publication and structured product database built around transparent classification, production methods, provenance, tasting data, and product discovery.
-role: Founder, Architect, and Lead Engineer — product architecture, data modeling, automated validation, and web engineering.
+lede: An independently designed and engineered publication and product database. The work spans the domain model, evidence and classification rules, search, editorial tooling, SEO, and production operation.
+role: Founder, designer, and engineer — end-to-end product ownership.
 leadership:
-  mode: End-to-end product architecture and software engineering
-  team: Independent product operation with automated editorial pipelines
-  unblocked: Fragmented category data, ambiguous dealcoholization terminology, and unverified retail claims.
-  decision: Build a rigorous schema-first taxonomy, automated validation tooling, and instant search rather than a generic blog.
+  mode: Independent product ownership
+  team: Independently built and operated
+  unblocked: Inconsistent product claims and a category that is difficult to search or compare.
+  decision: Model products, evidence, and tasting state separately rather than make a review blog carry the entire domain.
 problem:
-- The non-alcoholic beverage space suffers from unclear category definitions, mixing dealcoholized wines and beers with formulated botanical alternatives.
-- Factual claims around dealcoholization methods, residual sugar, and actual ABV are frequently unverified or inconsistent across retailers.
+- Production method, alcohol level, and sensory judgment are different kinds of information, but are often conflated.
+- A publication needs an editorial workflow; a useful database also needs consistent records, queryable attributes, and explainable discovery.
 decisions:
-- Design a structured taxonomy classifying beverages by precise production method (vacuum distillation, spinning cone, reverse osmosis, formulation).
-- Build automated quality gates that validate schema completeness, factual source citations, and asset budgets before publication.
-- Implement sub-second multi-facet search and product discovery with rich Schema.org JSON-LD for search engine indexing.
+- Separate human-authored editorial source from a generated SQLite runtime catalog.
+- Keep producer facts, their sources, and firsthand tasting scores distinct; researched records do not automatically qualify for scored rankings.
+- Build discovery and comparison on the domain model, with curated indexable landing pages rather than treating every faceted URL as an SEO page.
+- Own publishing validation, frontend assets, deployment, and release verification as part of the product.
 outcome:
-- The live publication is operating at [drinkdrystandard.com](https://drinkdrystandard.com/) with structured product reviews, style guides, and instant comparison tools.
-- Production evidence modeling separating sensory evaluation from technical producer facts.
-- Full-stack web engineering demonstrating product design, data modeling, automated validation, and independent operations.
+- A live Laravel product at drinkdrystandard.com, combining editorial publishing with structured search and comparison.
+- One maintained model supports discovery, product pages, editorial operations, and public data surfaces.
+- Public architecture documentation and the running product demonstrate ownership from domain research to production. No traffic, revenue, or search-latency figures are claimed.
 metrics: []
+diagram:
+  title: From editorial source to product discovery
+  caption: Simplified content architecture. Publication builds the catalog; public GET requests read it rather than mutate it.
+  zones:
+  - label: Editorial source
+    steps:
+    - Product identity and classification
+    - Evidence and producer claims
+    - Firsthand tasting state
+  - label: Publish and build
+    steps:
+    - Validate publication readiness
+    - Build SQLite catalog
+    - Generate public data
+  - label: Public product
+    steps:
+    - Search and intent finder
+    - Reviews and comparisons
+    - Curated discovery pages
 ---
 
-The Dry Standard is an independent publication and structured beverage database covering dealcoholized wines, non-alcoholic beers, and formulated spirits at 0.5% ABV or less. The live application runs at [drinkdrystandard.com](https://drinkdrystandard.com/).
+The Dry Standard is a publication and structured database for drinks at 0.5% ABV or less. It is also a full-stack product-engineering project: deciding what the domain means, designing how people explore it, and building the systems that keep publication and operation consistent.
 
-Rather than a generic review blog, the product is built around a structured domain model that enforces transparent classification, verified production methods, and repeatable sensory scoring.
+## A model that preserves meaning
 
-## Information architecture and domain modeling
+Alcohol level does not explain how a beverage was made. A dealcoholized wine and a formulated alternative can occupy the same retail category while representing different production histories. The model treats product identity, production type, method, evidence, tasting state, and scores as distinct concerns.
 
-The fundamental challenge in the non-alcoholic category is taxonomic ambiguity. Traditional wine, brewing, and distillation terminology breaks down when applied to dealcoholized products.
+That separation matters in the interface. A researched fact should not look like a firsthand tasting result. Scored rankings require tasted or retasted records; research-only records can still contribute useful factual information without implying a sensory judgment.
 
-The Dry Standard solves this through an explicit data model:
-- Separating true dealcoholized beverages (wine or beer brewed traditionally and dealcoholized via vacuum distillation, spinning cone column, or reverse osmosis) from formulated alternatives.
-- Structured tracking of base ingredients, regional origin, organic certification, residual sugar, and caloric content.
-- Strict separation between firsthand sensory tasting notes and third-party technical claims.
+## Editorial source, generated catalog
 
-## Automated validation and quality gates
+Editors work with authored review and guide content. Publication validation and a build step turn that source into a SQLite runtime catalog, exports, and public payloads. The Laravel application reads the catalog for public requests.
 
-Content integrity is guaranteed through automated CLI validation tools:
-- Automated schema validation ensures every published review has verified ABV certifications, dealcoholization methodology citations, and producer provenance.
-- Publishing pipelines block releases if factual sources are missing or if unverified retailer links are detected.
-- Automated responsive asset processing ensures high-performance WebP/AVIF generation with strict bundle budgets.
+This separates editorial work from serving traffic. The catalog is a generated read model, not an alternative source of truth that public page requests silently update.
 
-## Search, discovery, and performance
+The application includes a private operations dashboard, publishing commands, and explicit release checks. These are product features for the operator, not just deployment chores.
 
-The web application is engineered for instant exploration:
-- Multi-facet client-side filtering by style, production technique, country of origin, and ABV floor.
-- Comprehensive Schema.org `Review`, `Product`, `WebSite`, and `Organization` structured data graph for rich search results.
-- Resilient, fast-loading architecture with strict Content Security Policy, zero external trackers, and offline-ready caching.
+## Search and discovery
+
+Search spans product and brand names, styles, methods, classifications, and tasted flavor terms. An intent finder and side-by-side comparisons offer different ways into the same catalog.
+
+The information architecture distinguishes temporary exploration from durable editorial destinations. Faceted query URLs support browsing; curated collections and substantive category pages provide indexable landings. Structured metadata and canonical URL decisions belong to the model and publishing workflow rather than being added after launch.
+
+## Production ownership
+
+The stack is Laravel, SQLite, PHP templates, and Vite-built CSS and JavaScript. Blade serves mail, errors, and the operations dashboard. The product runs on its own domain, not as a portfolio preview.
+
+Release verification checks the application build, asset manifest, and catalog against the deployed release. It is a practical example of taking responsibility for the whole product: domain decisions, editorial operations, public UX, build artifacts, and what is actually running.
+
+## Technical proof
+
+Explore the [live product](https://drinkdrystandard.com/), then inspect the [public architecture documentation](https://github.com/karlhillx/drinkdrystandard.com/blob/main/docs/architecture.md) and [publishing workflow](https://github.com/karlhillx/drinkdrystandard.com/blob/main/docs/publishing.md). These describe the implementation behind the interface. Audience, revenue, and performance benchmarks are not published here.

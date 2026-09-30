@@ -26,12 +26,14 @@ return [
         'Engineer Development & Coaching',
         'Agile & Cross-Team Delivery',
     ],
-    'tooling' => [
+    'products' => [
         [
             'name' => 'The Dry Standard',
             'url' => 'https://drinkdrystandard.com',
-            'note' => 'Production non-alcoholic drink catalog & comparison engine; open-source codebase.',
+            'note' => 'Production non-alcoholic drink catalog & comparison engine.',
         ],
+    ],
+    'tooling' => [
         [
             'name' => 'bb-run',
             'url' => 'https://github.com/karlhillx/bb-run',
@@ -41,6 +43,11 @@ return [
             'name' => 'testrisk',
             'url' => 'https://github.com/karlhillx/testrisk',
             'note' => 'Rank the highest-value Python test gaps from coverage, AST, and git.',
+        ],
+        [
+            'name' => 'pipeguard',
+            'url' => 'https://github.com/karlhillx/pipeguard',
+            'note' => 'Policy-as-code validation for Bitbucket Pipelines.',
         ],
     ],
 ];

@@ -22,11 +22,9 @@
                 <span>KARL HILL</span>
             </a>
             <div class="hidden xl:flex items-center gap-5 font-mono text-xs text-neutral-400 uppercase tracking-widest">
-                <a href="/work" class="{{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
-                <a href="/kit" class="{{ $navLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Recruiter Kit</a>
+                <a href="/work" class="nav-work {{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
                 <a href="/blog" class="{{ $navLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/about" class="{{ $navLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
-                <a href="/resume" class="{{ $navLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
             </div>
         </div>
         <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
@@ -49,7 +47,7 @@
                 <a href="/now#book"
                    data-analytics-event="booking_cta_clicked"
                    data-analytics-location="nav"
-                   class="btn-accent-fill inline-flex items-center min-h-11 font-mono text-caption lg:text-xs px-3.5 lg:px-5 uppercase tracking-widest shrink-0"
+                   class="inline-flex items-center min-h-11 border border-neutral-700 text-neutral-300 hover:text-accent font-mono text-caption lg:text-xs px-3.5 lg:px-5 uppercase tracking-widest shrink-0"
                    aria-label="{{ $bookingLabel }}">
                     <span class="lg:hidden">Book</span>
                     <span class="hidden lg:inline">{{ $bookingLabel }}</span>
@@ -88,11 +86,16 @@
             </button>
 
             <div class="flex flex-col divide-y divide-neutral-800/80">
-                <a href="/work" class="{{ $mobileLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
-                <a href="/kit" class="{{ $mobileLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Recruiter Kit</a>
+                <a href="/work" class="nav-work {{ $mobileLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
                 <a href="/blog" class="{{ $mobileLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/about" class="{{ $mobileLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
+            </div>
+
+            <div class="mobile-background">
+                <p class="portfolio-eyebrow">Background &amp; hiring</p>
                 <a href="/resume" class="{{ $mobileLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
+                <a href="/kit" class="{{ $mobileLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Recruiter Kit</a>
+                <a href="/resume#credentials" class="{{ $mobileLinkClass('credentials') }}">Certifications</a>
             </div>
 
             <div class="pt-4 mt-2 border-t border-neutral-800/80 flex flex-wrap items-center gap-x-6 gap-y-2">

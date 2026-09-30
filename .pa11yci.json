@@ -14,6 +14,10 @@
   "urls": [
     "http://127.0.0.1:8000/",
     "http://127.0.0.1:8000/work",
+    "http://127.0.0.1:8000/work/laads-daac",
+    "http://127.0.0.1:8000/work/the-dry-standard",
+    "http://127.0.0.1:8000/work/developer-tooling",
+    "http://127.0.0.1:8000/resume",
     "http://127.0.0.1:8000/work/flood-mapping-system",
     "http://127.0.0.1:8000/work/jacobs-mission-software",
     "http://127.0.0.1:8000/work/nasa-earth-observatory",

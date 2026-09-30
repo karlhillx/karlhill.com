@@ -6,8 +6,8 @@ return [
     // in the description and JSON-LD, not in interior titles.
     'home' => [
         'title' => 'Karl Hill · Staff Aerospace Software Engineer',
-        'description' => 'Karl Hill is a Staff Aerospace Software Engineer at Jacobs. NASA Goddard Earth science (2017–2025) and GeoHorizons flood-mapping co-author.',
-        'og_description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs. NASA flood mapping (GeoHorizons 2026), LAADS, and Earth Observatory.',
+        'description' => 'Karl Hill: 30 years building reliable software. Aerospace leadership at Jacobs, NASA public systems, open-source tools, and The Dry Standard.',
+        'og_description' => 'Explore the work: Jacobs mission software, NASA platforms, developer tools, and The Dry Standard. Engineering by Karl Hill.',
     ],
     'blog_index' => [
         'title' => 'Writing — Karl Hill',
@@ -16,8 +16,8 @@ return [
     ],
     'work' => [
         'title' => 'Work — Karl Hill',
-        'description' => 'Karl Hill — mission software, Earth science systems, and engineering infrastructure. Jacobs, NASA Goddard, and independent tooling.',
-        'og_description' => 'Karl Hill: aerospace mission software, operational NASA Earth science systems, and developer tooling built for real use.',
+        'description' => 'Karl Hill’s engineering portfolio: Jacobs mission software, NASA Earth science platforms, open-source developer tools, and The Dry Standard.',
+        'og_description' => 'Case studies, public systems, source code, and research. Mission software to independently built products.',
     ],
     'about' => [
         'title' => 'About — Karl Hill',

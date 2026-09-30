@@ -11,8 +11,7 @@ it('work page renders projects and open source', function () {
 
     $response->assertStatus(200);
     $response->assertSee('Mission Software', escape: false);
-    $response->assertSee('Open Source &amp; Tools', escape: false);
-    $response->assertDontSee('Open Source &amp;amp; Tools', escape: false);
+    $response->assertSee('Developer Tooling / Open Source', escape: false);
     $response->assertSee('LAADS DAAC', escape: false);
     $response->assertSee('jacobs-mission-software', escape: false);
     $response->assertSee('id="open-source"', escape: false);
@@ -55,8 +54,8 @@ it('about page renders career, research, and music', function () {
     $response->assertSee('Sorry About Your Daughter', escape: false);
     $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
     $response->assertSee('GeoHorizons', escape: false);
-    $response->assertSee('Peer-reviewed research', escape: false);
-    $response->assertSee('Software engineering for a NASA-supported system', escape: false);
+    $response->assertSee('Publication page', escape: false);
+    $response->assertSee('Software (Equal)', escape: false);
     $response->assertSee('id="experience"', escape: false);
     $response->assertSee('Career', escape: false);
     $response->assertSee('Jacobs National Security · 2025–present', escape: false);
@@ -147,35 +146,35 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('All work', escape: false);
     $response->assertDontSee('View all work', escape: false);
     $response->assertDontSee('Also at Goddard', escape: false);
-    $response->assertSee('Jacobs is current. Public NASA systems:', escape: false);
+    $response->assertSee('Featured Work', escape: false);
     $response->assertSee('https://floodmapping.gsfc.nasa.gov/', escape: false);
     $response->assertSee('https://ladsweb.modaps.eosdis.nasa.gov/search/', escape: false);
-    $response->assertSee('Flood map', escape: false);
+    $response->assertSee('Flood Mapping System', escape: false);
     $response->assertSee('Find Data', escape: false);
-    $response->assertSee('Paper', escape: false);
+    $response->assertSee('GeoHorizons 2026', escape: false);
     $response->assertSee('href="/research/global-flood-mapping"', escape: false);
     $response->assertDontSee('NASA Earth science systems from Goddard are still public.', escape: false);
     $response->assertDontSee('logo-jacobs-mark', escape: false);
-    $response->assertSee('logo-jacobs.webp', escape: false);
-    $response->assertSee('work-card-brand__ink', escape: false);
-    $response->assertSee('work-card-brand', escape: false);
+    $response->assertSee('mission-proof', escape: false);
+    $response->assertSee('portfolio-card__impact', escape: false);
+    $response->assertSee('portfolio-card__brief', escape: false);
     $response->assertDontSee('work-card--logo', escape: false);
     $response->assertDontSee('work-card--constraint', escape: false);
     $response->assertDontSee('work-card--scope', escape: false);
-    $response->assertSee('work-card--shot', escape: false);
-    $response->assertSee('work-card--compact', escape: false);
+    $response->assertSee('portfolio-card--mission', escape: false);
+    $response->assertSee('portfolio-card--tooling', escape: false);
     $response->assertSee('Mission software at scale', escape: false);
     $response->assertDontSee('>DevSecOps</span>', escape: false);
     $response->assertDontSee('>Repositories</dt>', escape: false);
     $response->assertDontSee('surface-chip-overlay', escape: false);
-    $response->assertSee('work-card-tags', escape: false);
-    $response->assertSee('hero-mesh', escape: false);
-    $response->assertSee('hero-dot-grid', escape: false);
+    $response->assertSee('portfolio-card__stack', escape: false);
+    $response->assertDontSee('hero-mesh', escape: false);
+    $response->assertDontSee('hero-dot-grid', escape: false);
     $response->assertDontSee('hero-visual__scrim', escape: false);
     $response->assertDontSee('hero--visual', escape: false);
     $response->assertDontSee('page-spotlight', escape: false);
     $response->assertDontSee('hero-arc', escape: false);
-    $response->assertSee('data-idle-cta', escape: false);
+    $response->assertDontSee('data-idle-cta', escape: false);
     $response->assertSee('data-features="contact reveal media"', escape: false);
     $response->assertSee('id="contact-form"', escape: false);
     $response->assertSee('OG cards in Python', escape: false);
@@ -492,7 +491,7 @@ it('booking cta appears when configured', function () {
 
     $home = $this->get('/');
     $home->assertSee('data-booking-url="https://cal.com/example"', escape: false);
-    $home->assertSee('data-idle-cta', escape: false);
+    $home->assertDontSee('data-idle-cta', escape: false);
 });
 
 it('service worker and offline page are available', function () {
@@ -559,7 +558,7 @@ it('keeps scholarly indexes on sameAs and off the footer', function () {
         ->and($html)->not->toContain('aria-label="SciProfiles');
 });
 
-it('homepage hero links to em funnel', function () {
+it('homepage hero prioritizes work and contact over hiring documents', function () {
     $response = $this->get('/');
     $html = $response->assertOk()->getContent();
 
@@ -577,27 +576,21 @@ it('homepage hero links to em funnel', function () {
     $response->assertDontSee('Local checks that match CI', escape: false);
     $response->assertDontSee('Principal Software Engineer or Engineering Manager', escape: false);
     $response->assertDontSee('>Open to</', escape: false);
-    $response->assertSee('hero-portrait', escape: false);
-    $response->assertSee('aria-label="At a glance"', escape: false);
+    $response->assertSee('portfolio-portrait', escape: false);
+    $response->assertSee('aria-label="Explore the portfolio"', escape: false);
     $response->assertDontSee('Seeking Engineering Manager', escape: false);
     $response->assertDontSee('hero-availability', escape: false);
     $response->assertDontSee('hero-arc', escape: false);
     $response->assertDontSee('aria-label="Career arc"', escape: false);
-    $response->assertSee('hero-mesh', escape: false);
+    $response->assertDontSee('hero-mesh', escape: false);
 
-    expect($html)->toMatch('/<div class="hero-cta flex[\s\S]*?href="\/kit"[\s\S]*?<\/div>/');
-
-    preg_match('/<div class="hero-cta flex.*?<\/div>/s', $html, $heroCta);
-    expect($heroCta[0] ?? '')->toContain('href="/kit"')
+    preg_match('/<div data-home-actions.*?<\/div>/s', $html, $heroCta);
+    expect($heroCta[0] ?? '')->not->toContain('href="/kit"')
         ->and($heroCta[0] ?? '')->toContain('href="/work"')
-        ->and($heroCta[0] ?? '')->toContain('Recruiter kit');
-
-    foreach (config('site.hero.proof') as $chip) {
-        $response->assertSee($chip, escape: false);
-    }
+        ->and($heroCta[0] ?? '')->toContain('href="/#contact"');
 });
 
-it('nav includes kit, writing, about, and one filled booking CTA', function () {
+it('nav keeps work primary and hiring documents in supporting navigation', function () {
     $html = $this->get('/')->assertOk()->getContent();
 
     expect($html)
@@ -617,10 +610,10 @@ it('nav includes kit, writing, about, and one filled booking CTA', function () {
         ->not->toContain('href="mailto:'.config('site.person.email').'" class="btn-sweep hidden md:inline-flex')
         ->not->toContain('href="/#contact" class="min-h-11 flex items-center');
 
-    // One nav CTA, filled, not split into a desktop "Contact" and a mobile "Book".
+    // Booking stays available without competing with the primary Work destination.
     expect(substr_count($html, 'data-analytics-location="nav"'))->toBe(1);
     expect($html)->not->toContain('data-analytics-location="nav-mobile"');
-    expect($html)->toMatch('/data-analytics-location="nav"\s+class="btn-accent-fill/');
+    expect($html)->toMatch('/data-analytics-location="nav"\s+class="inline-flex/');
 });
 
 it('now page embeds the booking scheduler', function () {
@@ -821,7 +814,7 @@ it('footer explore includes kit on the hire path', function () {
 it('keeps the hire path free of ambient pointer chrome', function () {
     $this->get('/')->assertSee('data-features="contact reveal media"', escape: false);
     $this->get('/now')->assertSee('data-features="reveal"', escape: false);
-    $this->get('/work')->assertSee('data-features="reveal media soft-nav"', escape: false);
+    $this->get('/work')->assertSee('data-features="reveal media"', escape: false);
     $this->get('/about')->assertSee('data-features="reveal"', escape: false);
     $this->get('/')->assertDontSee('page-spotlight', escape: false);
 });

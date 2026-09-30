@@ -68,9 +68,11 @@ it('html preloads bebas barlow and jetbrains fonts', function () {
         ->toContain('rel="preload" as="font" type="font/woff2"')
         ->toContain('bebas-neue-latin-400-normal')
         ->toContain('barlow-semi-condensed-latin-400-normal')
-        ->toContain('barlow-semi-condensed-latin-700-normal')
+        ->toContain('barlow-semi-condensed-latin-600-normal')
         ->toContain('jetbrains-mono-latin-400-normal')
-        ->toContain('jetbrains-mono-latin-500-normal');
+        ->not->toContain('jetbrains-mono-latin-500-normal');
+
+    expect(substr_count($html, 'rel="preload" as="font"'))->toBe(4);
 
     $link = $response->headers->get('Link');
     if ($link !== null) {

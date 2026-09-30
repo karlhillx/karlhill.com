@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Support\BlogPostRepository;
 use App\Support\HomeStructuredData;
 use App\Support\PageMeta;
+use App\Support\ProjectCatalog;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -20,6 +21,8 @@ class HomeController extends Controller
         return view('home.index', [
             'meta' => PageMeta::home(),
             'latestPosts' => $posts->take(3),
+            'featuredProjects' => ProjectCatalog::featured(6),
+            'collections' => ProjectCatalog::collections(),
             'structuredData' => HomeStructuredData::build($posts->take(12)),
         ]);
     }

@@ -18,7 +18,9 @@ outcome:
 - A public Earth science publishing platform. The live site is the artifact.
 - Work covered editorial workflows, imagery, and the public pages. This page does not publish performance or traffic-change metrics.
 - About 1.5 million monthly visitors during that work describes the scale of the platform in that period, not a current figure and not a result attributed to this project.
-metrics: []
+metrics:
+- value: '~1.5M'
+  label: Monthly visitors during this work (historical platform scale)
 ---
 
 NASA Earth Observatory is a public Earth science publishing site. The work sat between editorial needs and web engineering: reusable publishing capabilities, content and imagery presentation, and a platform that could be maintained as those needs changed.

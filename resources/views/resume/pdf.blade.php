@@ -704,16 +704,18 @@
                 </ul>
             </section>
 
-            @if(! empty($resume['tooling']))
-                <section class="section" aria-labelledby="open-source-heading">
-                    <h2 id="open-source-heading" class="section-title">Open Source</h2>
+            @foreach(['products' => 'Independent Products', 'tooling' => 'Open Source'] as $key => $sectionTitle)
+            @if(! empty($resume[$key]))
+                <section class="section" aria-labelledby="{{ $key }}-heading">
+                    <h2 id="{{ $key }}-heading" class="section-title">{{ $sectionTitle }}</h2>
                     <ul class="edu-list">
-                        @foreach($resume['tooling'] as $item)
+                        @foreach($resume[$key] as $item)
                             <li>@if(! empty($item['url']))<a href="{{ $item['url'] }}"><strong>{{ $item['name'] }}</strong></a>@else<strong>{{ $item['name'] }}</strong>@endif — {{ $item['note'] }}</li>
                         @endforeach
                     </ul>
                 </section>
             @endif
+            @endforeach
 
             <section class="stack-block" aria-labelledby="stack-heading">
                 <h2 id="stack-heading" class="section-title">Technical Expertise</h2>

@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-16'
+updated: '2026-09-30'
 lede: Python and Docker software that processes and distributes satellite-derived flood maps on AWS. The live map is the shipped artifact. A GeoHorizons paper describes the system and its scientific evaluation.
 role: Lead Software Engineer — design, processing, and delivery on AWS.
 leadership:
@@ -18,7 +18,11 @@ outcome:
 - The public map is the shipped system — satellite-derived flood products through a repeatable AWS workflow. Program-level before/after metrics are not published here.
 - Python, Docker, and AWS carry processing and delivery so the team is not depending on a one-off script.
 - Co-author of the GeoHorizons paper that describes the Global Water and Flood Mapping System and evaluates it scientifically.
-metrics: []
+metrics:
+- value: '90.9%'
+  label: Overall accuracy in the collaborative paper evaluation
+- value: '3.5%'
+  label: False-positive rate against Global Surface Water
 ---
 
 Lead software engineering on an AWS-based flood-mapping system at NASA Goddard. The work connected satellite imagery, processing, and distribution so Earth science partners could obtain satellite-derived flood products through one maintained service instead of a chain of manual runs.
@@ -34,6 +38,8 @@ The practical problem was larger than getting a script to finish. Inputs, depend
 This page does not publish latency, coverage, or agency-adoption figures. The public map and the paper are the evidence.
 
 ## Related research
+
+The published evaluation reports 90.9% overall accuracy and a 3.5% false-positive rate against the Global Surface Water dataset. Recall is 74.1%; the conservative approach can miss water in difficult terrain, cloud shadows, and turbid conditions. These are scientific results for the collaborative system, not an individual engineering performance claim.
 
 Co-author of [*A web-based high-resolution global water and flood mapping platform*](/research/global-flood-mapping), published in GeoHorizons (7 July 2026). CRediT: Software (Equal); Writing – review & editing (Equal). The paper describes the Global Water and Flood Mapping System, a NASA-supported experimental portal, and its scientific evaluation. It is not a claim of sole authorship.
 

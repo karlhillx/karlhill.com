@@ -48,7 +48,7 @@ it('experience fragment powers resume and facts stay consistent', function () {
         ->and(config('site.experience.current.company'))->toBe(config('site.facts.employer'))
         ->and(config('site.facts.repos'))->toBe('roughly 20')
         ->and(config('site.facts.team'))->toBe('about 10')
-        ->and(config('site.hero.proof'))->toContain(config('site.facts.repos_chip'))
+        ->and(config('site.hero.lede'))->toContain('Thirty years')
         ->and(config('site.kit.glance.0'))->toBe(config('site.person.bio'))
         ->and(config('site.now.body'))->not->toContain(config('site.facts.repos'))
         ->and(config('site.now.focus'))->toStartWith('This month:');
@@ -75,12 +75,14 @@ it('keeps the recruiter kit skim to a short primary row and evidence list', func
     expect($primary)->toHaveCount(4)
         ->and($primary->pluck('meta')->all())->toBe(['Download', 'Profile', 'Book', 'Current'])
         ->and($more->count())->toBe(7)
-        ->and($evidence)->toHaveCount(6)
+        ->and($evidence)->toHaveCount(8)
         ->and($evidence->pluck('path')->filter()->values()->all())->toBe([
             '/work/jacobs-mission-software',
             '/work/flood-mapping-system',
             '/work/laads-daac',
             '/work/nasa-earth-observatory',
+            '/work/developer-tooling',
+            '/work/the-dry-standard',
             '/research/global-flood-mapping',
             '/blog/release-governance',
         ])

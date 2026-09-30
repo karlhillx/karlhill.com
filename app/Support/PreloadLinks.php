@@ -22,12 +22,8 @@ final class PreloadLinks
         return [
             'resources/fonts/bebas-neue-latin-400-normal.woff2',
             'node_modules/@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-400-normal.woff2',
-            'node_modules/@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-400-italic.woff2',
-            'node_modules/@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-500-normal.woff2',
             'node_modules/@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-600-normal.woff2',
-            'node_modules/@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-700-normal.woff2',
             'node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2',
-            'node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-500-normal.woff2',
         ];
     }
 

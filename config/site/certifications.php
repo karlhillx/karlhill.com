@@ -5,7 +5,7 @@ return [
         'abbr' => 'SAFe',
         'name' => 'SAFe® Agilist',
         'issuer' => 'Scaled Agile',
-        'url' => 'https://www.credly.com/earner/earned/share/55c2cb68-b3d6-4da6-8f76-dd6ff2fa37b4',
+        'url' => 'https://www.credly.com/badges/55c2cb68-b3d6-4da6-8f76-dd6ff2fa37b4/public_url',
     ],
     [
         'abbr' => 'PSM II',

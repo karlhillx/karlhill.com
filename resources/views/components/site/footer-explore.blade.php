@@ -7,13 +7,15 @@
     $groups = [
         'Work' => [
             ['href' => '/work', 'label' => 'Portfolio'],
-            ['href' => '/blog', 'label' => 'Writing'],
+            ['href' => '/work#open-source', 'label' => 'Open Source'],
             ['href' => '/research/global-flood-mapping', 'label' => 'Research'],
             ['href' => '/delivery', 'label' => 'How I Deliver'],
         ],
         'Background' => [
             ['href' => '/about', 'label' => 'About'],
+            ['href' => '/blog', 'label' => 'Writing'],
             ['href' => '/resume', 'label' => 'Resume'],
+            ['href' => '/resume#credentials', 'label' => 'Certifications'],
             ['href' => '/kit', 'label' => 'Recruiter Kit'],
         ],
         'Connect' => [

@@ -153,8 +153,8 @@ it('nav uses invoker commands and blog cards use interest invokers', function ()
     $this->get('/work')
         ->assertOk()
         ->assertDontSee('interestfor="work-preview-', escape: false)
-        ->assertSee('data-soft-nav', escape: false)
-        ->assertSee('data-soft-nav-target', escape: false);
+        ->assertDontSee('data-soft-nav', escape: false)
+        ->assertSee('aria-label="Portfolio sections"', escape: false);
 
     $this->get('/blog')
         ->assertOk()

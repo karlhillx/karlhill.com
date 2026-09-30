@@ -1,124 +1,92 @@
-@props([
-    'title',
-    'meta',
-    'description',
-    'image',
-    'tags' => [],
-    'logo' => null,
-    'imagePosition' => 'object-top',
-    'href' => null,
-    'slug' => null,
-    'external' => false,
-    'imageAlt' => null,
-    'variant' => 'media',
-    'parallax' => true,
-    'headingLevel' => 3,
-])
+@props(['project', 'featured' => false])
 
 @php
-    $titleId = $slug ? 'work-card-title-'.$slug : null;
-    $headingTag = $headingLevel === 4 ? 'h4' : 'h3';
-    $isShot = $variant === 'shot';
-    $showCornerLogo = filled($logo['path'] ?? null);
-    $cardClass = 'surface-card surface-card-media pointer-lit bg-bg group relative h-[22rem] sm:h-80 lg:h-96 block work-card--compact'
-        .($isShot ? ' work-card--shot' : '');
-    $cta = $external
-        ? 'Visit project'
-        : (is_string($href) && str_contains($href, '/work/') ? 'Read case study' : 'View details');
-    $imageAlt = $imageAlt ?: 'Screenshot of '.$title;
+    $group = $project['portfolio_group'];
+    $summary = $project['summary'] ?? null;
+    $study = $project['case_study'];
+    $href = \App\Support\ProjectCatalog::cardUrl($project);
+    $liveUrl = \App\Support\ProjectCatalog::liveUrl($project);
+    $isMission = $group === 'mission';
+    $isTooling = $group === 'tooling';
+    $wide = $isMission || $isTooling || (! $featured && $group === 'product');
 @endphp
 
-<article
-    @if($slug) id="{{ $slug }}" @endif
-    {{ $attributes->merge(['class' => $cardClass]) }}
-    data-reveal
->
-    @if($href)
-        <a href="{{ $href }}"
-           @if($external) target="_blank" rel="noopener noreferrer" @endif
-           @if(! $external && is_string($href) && str_contains($href, '/work/')) data-analytics-event="case_study_opened" @if($slug) data-analytics-project="{{ $slug }}" @endif @endif
-           class="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-none after:content-['']"
-           @if($titleId) aria-labelledby="{{ $titleId }}" @else aria-label="{{ $title }}" @endif>
-            <span class="sr-only">
-                {{ $cta }}: {{ $title }}@if($external) (opens in a new tab)@endif
-            </span>
-        </a>
-    @endif
-
-    @if($isShot)
-        <div class="work-card-shot" aria-hidden="true">
-            <div class="work-card-shot__rail">
-                <span></span><span></span><span></span><span></span>
-            </div>
-            <div class="work-card-shot__stage">
-                <div class="work-card-shot__chrome">
-                    <span class="work-card-shot__dots"><i></i><i></i><i></i></span>
-                    <span class="work-card-shot__file">gates.py</span>
+<article id="{{ $project['slug'] }}" @class([
+    'portfolio-card',
+    'portfolio-card--'.$group,
+    'portfolio-card--wide' => $wide,
+]) aria-labelledby="work-card-title-{{ $project['slug'] }}">
+    <div class="portfolio-card__visual">
+        @if($isMission)
+            <div class="mission-proof">
+                <p class="portfolio-eyebrow">Engineering delivery / Jacobs</p>
+                <p class="mission-proof__headline">Many repositories.<br>One delivery standard.</p>
+                <ol class="mission-proof__flow" aria-label="Simplified delivery workflow">
+                    <li>Local checks</li><li>Review + CI</li><li>Integration</li><li>Release</li>
+                </ol>
+                <div class="mission-proof__facts">
+                    <p><strong>~20</strong><span>repositories</span></p>
+                    <p><strong>≥80%</strong><span>test coverage baseline</span></p>
+                    <p><strong>2</strong><span>review approvals</span></p>
                 </div>
-                <pre class="work-card-shot__code"><span><b>1</b><em>"""Shared quality gates."""</em></span>
-<span><b>2</b></span>
-<span><b>3</b>COVERAGE_FLOOR = <i>0.80</i></span>
-<span><b>4</b>APPROVALS = <i>2</i></span>
-<span><b>5</b></span>
-<span><b>6</b><em>def</em> verify(change):</span>
-<span><b>7</b>    lint(change)</span>
-<span><b>8</b>    test(change, cover=COVERAGE_FLOOR)</span>
-<span><b>9</b>    sast(change)</span></pre>
-                <div class="work-card-shot__status">
-                    <span class="work-card-shot__pass">passing</span>
-                    <span>coverage ≥ 80%</span>
-                    <span>2 approvals</span>
-                </div>
+                <p class="portfolio-caption">Simplified delivery view. Not program architecture.</p>
             </div>
-        </div>
-    @else
-        <x-site.responsive-image
-            :src="$image"
-            :alt="$imageAlt"
-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            width="960"
-            height="720"
-            loading="lazy"
-            :lqip="false"
-            :img-style="$slug ? 'view-transition-name: work-img-'.$slug.'; view-transition-class: card-media' : null"
-            img-class="work-card-media absolute inset-0 w-full h-full object-cover {{ $imagePosition }}{{ $parallax ? ' work-parallax' : '' }}"
-            class="contents"
-        />
-    @endif
-
-    @if($showCornerLogo)
-        <div class="work-card-brand absolute top-4 right-4 z-[2]">
-            <img src="{{ $logo['path'] }}" alt="" loading="lazy" decoding="async" aria-hidden="true"
-                 @if($logo['filter']) style="filter: {{ $logo['filter'] }};" @endif
-                 @class([
-                     $logo['class'] ?? 'h-8',
-                     'w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300',
-                     'work-card-brand__ink' => ! empty($logo['ink']),
-                 ])>
-        </div>
-    @endif
-
-    <div class="work-card-panel absolute inset-x-0 bottom-0 border-t border-hairline px-5 pt-5 pb-6">
-        <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2">{{ $meta }}</p>
-        <{{ $headingTag }} @if($titleId) id="{{ $titleId }}" @endif class="font-sans font-semibold text-xl tracking-tight text-neutral-100 group-hover:text-accent group-focus-within:text-accent transition-colors leading-snug">{{ $title }}</{{ $headingTag }}>
-        @if($tags !== [])
-            <div class="work-card-tags" aria-hidden="true">
-                @foreach($tags as $tag)
-                    <span class="surface-chip font-mono text-caption px-2 py-0.5 text-neutral-400">{{ $tag }}</span>
-                @endforeach
+        @elseif($isTooling)
+            <div class="tooling-proof">
+                <p class="portfolio-eyebrow">Source available / Independent tools</p>
+                <p class="mission-proof__headline">Make the feedback<br>loop inspectable.</p>
+                <ul class="tooling-proof__index" aria-label="Featured repositories">
+                    @foreach(config('site.github.fallback_repos') as $repo)
+                        <li><a href="{{ $repo['url'] }}" target="_blank" rel="noopener noreferrer" data-no-ext>{{ $repo['name'] }} <span aria-hidden="true">↗</span></a><span>{{ $repo['language'] }}</span></li>
+                    @endforeach
+                </ul>
             </div>
+        @else
+            <div class="portfolio-card__chrome" aria-hidden="true">
+                <span>{{ $project['sector'] }}</span><span>Public system ↗</span>
+            </div>
+            <x-site.responsive-image
+                :src="$project['image']"
+                :alt="$project['image_alt'] ?? 'Screenshot of '.$project['title']"
+                sizes="(min-width: 1280px) 590px, (min-width: 768px) 46vw, 92vw"
+                width="1200" height="675" loading="lazy" :lqip="false"
+                img-class="portfolio-card__image {{ $project['imagePosition'] ?? 'object-top' }}"
+            />
         @endif
-        <div class="work-card-details overflow-hidden">
-            <div class="work-card-details__copy">
-                <div>
-                    <p class="text-neutral-400 text-sm leading-relaxed mt-2.5 line-clamp-3">{{ $description }}</p>
-                </div>
+    </div>
+    <div class="portfolio-card__body">
+        <p class="portfolio-eyebrow">{{ $project['meta'] }}</p>
+        <h3 id="work-card-title-{{ $project['slug'] }}">{{ $project['card_title'] ?? $project['title'] }}</h3>
+        <p class="portfolio-card__role">{{ $study['role'] }}</p>
+        @if($summary)
+            <dl class="portfolio-card__brief">
+                <div><dt>Problem</dt><dd>{{ $summary['problem'] }}</dd></div>
+                <div><dt>Contribution</dt><dd>{{ $summary['contribution'] }}</dd></div>
+            </dl>
+            <div class="portfolio-card__impact">
+                <p>{{ $summary['impact'] }}</p>
+                <p class="portfolio-caption">{{ $summary['note'] }}</p>
             </div>
-            @if($href)
-                <p class="font-mono text-caption text-accent uppercase tracking-widest mt-4" aria-hidden="true">
-                    {{ $cta }}
-                    <span class="arrow-nudge inline-block">→</span>
-                </p>
+        @else
+            <p class="portfolio-card__description">{{ $project['description'] }}</p>
+        @endif
+        <ul class="portfolio-card__stack" aria-label="Stack">
+            @foreach($project['card_tags'] ?? $project['tags'] as $tag)
+                <li>{{ $tag }}</li>
+            @endforeach
+        </ul>
+        <div class="portfolio-card__actions">
+            <a href="{{ $href }}" class="portfolio-text-link"
+               data-analytics-event="case_study_opened" data-analytics-project="{{ $project['slug'] }}">
+                Read case study <span class="sr-only">: {{ $project['title'] }}</span><span aria-hidden="true">→</span>
+            </a>
+            @if($liveUrl)
+                <a href="{{ $liveUrl }}" class="portfolio-card__external" target="_blank" rel="noopener noreferrer" data-no-ext>
+                    {{ \App\Support\ProjectCatalog::artifactLabel($project) }} <span aria-hidden="true">↗</span>
+                    <span class="sr-only">(opens in a new tab)</span>
+                </a>
+            @else
+                <span class="portfolio-caption">Public scope &amp; delivery practices</span>
             @endif
         </div>
     </div>

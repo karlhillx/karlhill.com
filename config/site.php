@@ -8,9 +8,9 @@ use App\Support\Booking;
  * Domain content lives in config/site/*.php. Environment-sensitive flags and
  * derived values (sameAs, analytics primary) stay here so fragments stay pure.
  *
- * Page roles (hire path first — one job per URL, no parallel pitches):
- * - /         identity, proof chips, selected work, delivery snapshot, contact
- * - /work     evidence (Jacobs chapter + public NASA/older proof)
+ * Page roles (portfolio first — one job per URL):
+ * - /         identity, six featured projects, delivery snapshot, background, contact
+ * - /work     mission, NASA, developer tooling, independent products, earlier work
  * - /kit      recruiter leave-behind: bio, open-to, evidence links, PDF
  * - /now      this-month status + booking (#book). Not a bio. Not the ask.
  * - /blog     writing

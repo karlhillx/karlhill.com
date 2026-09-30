@@ -9,6 +9,7 @@
     @include('home.partials.hero')
     @include('home.partials.featured-work')
     @include('home.partials.system')
+    @include('home.partials.background')
 @endsection
 
 @section('page_footer')

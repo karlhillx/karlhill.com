@@ -13,6 +13,10 @@ final class Images
      */
     public static function webp(string $path): string
     {
+        if (! preg_match('/\.(png|jpe?g|webp)$/i', $path)) {
+            return $path;
+        }
+
         if (str_ends_with(strtolower($path), '.webp')) {
             return $path;
         }

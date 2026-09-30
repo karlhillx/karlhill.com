@@ -1,18 +1,8 @@
 <?php
 
-$facts = require __DIR__.'/facts.php';
-
 return [
     'headline' => 'Karl Hill',
-    // Keywords stay in meta / JSON-LD — not a second headline on the first screen.
-    'subtitle' => 'Software engineering, technical leadership, and delivery',
     // Positioning line under the name. Kit “Open to” uses person.availability.
-    'statement' => 'Mission software, engineering tools, and independent products.',
-    'lede' => 'Hands-on engineering leadership across aerospace mission software, developer tooling, and independent products — structured data, automation, and operational delivery.',
-    // No first-screen ask. Next-role copy lives on Kit.
-    'proof' => [
-        $facts['repos_chip'],
-        $facts['team_chip'],
-        'NASA Goddard 2017–2025',
-    ],
+    'statement' => 'Complex systems. Reliable software.',
+    'lede' => 'I build mission software, public data platforms, and the engineering tools that help teams deliver. Thirty years in the work; hands-on technical leadership at Jacobs today.',
 ];

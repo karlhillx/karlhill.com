@@ -1,91 +1,39 @@
 @php($person = config('site.person'))
 @php($hero = config('site.hero'))
-@php($bookingUrl = config('site.booking.url'))
-@php($bookingLabel = config('site.booking.label'))
-@php($proof = $hero['proof'] ?? [])
 
-<section id="hero" data-section-label="Top" class="hero relative min-h-0 lg:min-h-[72svh] flex flex-col justify-end overflow-hidden site-gutter">
-    {{-- Atmosphere + portrait. No product/screenshot photography in the hero. --}}
-    <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
-    <div class="hero-mesh pointer-events-none absolute inset-0" aria-hidden="true">
-        <span class="hero-mesh__blob hero-mesh__blob--a"></span>
-        <span class="hero-mesh__blob hero-mesh__blob--b"></span>
-    </div>
-
-    <div class="relative z-10 site-shell w-full">
-        <div class="hero-copy">
-            <div class="hero-eyebrow hero-enter" style="animation-delay:80ms">
-                {{-- The <picture> is the flex item, so it carries the fixed size and
-                     shrink-0; otherwise it collapses when the label wraps and
-                     preflight's img { max-width: 100% } squeezes the portrait thin. --}}
-                <x-site.responsive-image
-                    class="hero-portrait-frame shrink-0"
-                    src="/img/webp/profile.webp"
-                    :alt="$person['name']"
-                    sizes="48px"
-                    width="48"
-                    height="48"
-                    loading="eager"
-                    fetchpriority="high"
-                    :lqip="false"
-                    img-style="view-transition-name: portrait"
-                    img-class="hero-portrait rounded-full object-cover ring-2 ring-accent/30"
-                />
-                <p class="hero-kicker font-mono text-accent uppercase tracking-widest">
-                    <span>{{ $person['job_title'] }}</span>
-                    <span class="hero-kicker__sep" aria-hidden="true">·</span>
-                    <span>{{ $person['employer_display'] ?? $person['employer'] }}</span>
-                    <span class="hero-kicker__sep" aria-hidden="true">·</span>
-                    <span>{{ $person['location'] }}</span>
-                </p>
+<section id="hero" class="portfolio-hero site-gutter" aria-labelledby="hero-title">
+    <div class="site-shell portfolio-hero__layout">
+        <div>
+            <div class="portfolio-hero__identity">
+                <x-site.responsive-image src="/img/webp/profile.webp" :alt="$person['name']"
+                    width="48" height="48" sizes="48px" loading="eager" :lqip="false"
+                    img-class="portfolio-portrait rounded-full object-cover" />
+                <p class="portfolio-eyebrow">{{ $person['job_title'] }} <span>/ Jacobs</span></p>
             </div>
-            <h1 class="hero-title font-display tracking-wide text-white hero-enter" style="animation-delay:160ms">
-                <span class="hero-mask"><span class="hero-shine">{{ $hero['headline'] }}</span></span>
-            </h1>
-            @if(! empty($hero['statement']))
-                <p class="hero-statement text-white hero-enter" style="animation-delay:220ms">
-                    {{ $hero['statement'] }}
-                </p>
-            @endif
-            @if(! empty($hero['lede']))
-                <p class="hero-lede opsz-scroll text-neutral-200 leading-relaxed hero-enter" style="animation-delay:240ms">
-                    {{ $hero['lede'] }}
-                </p>
-            @endif
-            @if($proof !== [])
-                <ul class="hero-proof hero-enter" aria-label="At a glance" style="animation-delay:280ms">
-                    @foreach($proof as $chip)
-                        <li>{{ $chip }}</li>
-                    @endforeach
-                </ul>
-            @endif
-            <div class="hero-cta flex flex-wrap items-center gap-x-5 gap-y-3 hero-enter" style="animation-delay:300ms">
-                <a href="/work" class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-300 hover:text-accent focus-visible:text-accent uppercase tracking-widest underline underline-offset-4">
-                    View work <span aria-hidden="true">→</span>
-                </a>
-                @if(filled($bookingUrl))
-                    <a href="/now#book"
-                       data-idle-cta
-                       data-analytics-event="booking_cta_clicked"
-                       data-analytics-location="hero"
-                       class="hero-cta-btn btn-accent-fill inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200">
-                        {{ $bookingLabel }}
-                    </a>
-                @else
-                    <a href="/#contact"
-                       data-idle-cta
-                       class="hero-cta-btn btn-accent-fill inline-flex items-center justify-center font-semibold uppercase tracking-widest transition-colors duration-200">
-                        Contact
+            <h1 id="hero-title" class="portfolio-hero__name">{{ $hero['headline'] }}</h1>
+            <p class="portfolio-hero__statement">{{ $hero['statement'] }}</p>
+            <p class="portfolio-hero__lede">{{ $hero['lede'] }}</p>
+            <div data-home-actions class="portfolio-hero__actions flex flex-wrap items-center gap-5">
+                <x-site.button variant="primary" href="/work">Explore the work <span aria-hidden="true">→</span></x-site.button>
+                <a href="/#contact" class="portfolio-text-link">Contact Karl</a>
+                @if(filled(config('site.booking.url')))
+                    <a href="/now#book" class="portfolio-text-link"
+                       data-analytics-event="booking_cta_clicked" data-analytics-location="hero">
+                        {{ config('site.booking.label') }}
                     </a>
                 @endif
-                <a href="/kit"
-                   data-analytics-event="recruiter_link_opened"
-                   data-analytics-location="hero"
-                   data-analytics-target="kit"
-                   class="inline-flex items-center min-h-11 font-mono text-xs text-neutral-300 hover:text-accent uppercase tracking-widest transition-colors underline-offset-4 hover:underline">
-                    Recruiter kit →
-                </a>
             </div>
         </div>
+        <nav class="portfolio-hero__index" aria-label="Explore the portfolio">
+            <p class="portfolio-eyebrow">A body of work / 1996–today</p>
+            @foreach($collections as $collection)
+                <a href="/work#{{ $collection['id'] }}">
+                    <span class="portfolio-hero__index-number" aria-hidden="true">0{{ $loop->iteration }}</span>
+                    <span>{{ $collection['title'] }}</span>
+                    <span aria-hidden="true">↗</span>
+                </a>
+            @endforeach
+            <p class="portfolio-hero__location">{{ $person['location'] }} · Code, systems, and technical leadership.</p>
+        </nav>
     </div>
 </section>

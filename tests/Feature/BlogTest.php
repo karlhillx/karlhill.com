@@ -247,7 +247,7 @@ it('homepage hero is a tight first viewport', function () {
     $response->assertSee(config('site.hero.statement'), escape: false);
     $response->assertSee(config('site.hero.lede'), escape: false);
     $response->assertDontSee('hero-open', escape: false);
-    $response->assertSee('hero-portrait', escape: false);
+    $response->assertSee('portfolio-portrait', escape: false);
     $response->assertDontSee('Platforms · Delivery · Engineering Leadership', escape: false);
     $response->assertDontSee('hero-availability', escape: false);
 });

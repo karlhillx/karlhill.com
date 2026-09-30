@@ -19,10 +19,11 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         'flood-mapping-system',
         'laads-daac',
         'the-dry-standard',
+        'nasa-earth-observatory',
+        'developer-tooling',
     ]);
 
     expect(ProjectCatalog::supporting()->pluck('slug')->all())->toBe([
-        'nasa-earth-observatory',
         'direct-readout-laboratory',
         'esscor',
     ]);
@@ -37,16 +38,16 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         ->assertSee('finium', escape: false)
         ->assertSee('informeddna-platform', escape: false)
         ->assertDontSee('$105M', escape: false)
-        ->assertSee('near-real-time Earth observation products', escape: false)
-        ->assertSee('NASA MODIS and VIIRS satellite data', escape: false)
+        ->assertSee('90.9% overall accuracy', escape: false)
+        ->assertSee('MODIS and VIIRS access', escape: false)
         ->assertSee('<title>Work — Karl Hill</title>', escape: false)
-        ->assertSee('Karl Hill — mission software, Earth science systems, and engineering infrastructure', escape: false)
+        ->assertSee('NASA Platforms', escape: false)
         ->assertSee('id="chapters"', escape: false)
         ->assertSee('Also at Goddard', escape: false)
-        ->assertSee('Additional Earth science systems developed and supported during eight years at NASA Goddard', escape: false)
-        ->assertSee('Independent tools for software delivery', escape: false)
-        ->assertSee('Six engineers onboarded and coached', escape: false)
-        ->assertSee('A portable messaging layer is in use', escape: false)
+        ->assertSee('Eight years connecting satellite data', escape: false)
+        ->assertSee('Developer Tooling / Open Source', escape: false)
+        ->assertSee('6 engineers onboarded', escape: false)
+        ->assertSee('portable messaging', escape: false)
         ->assertDontSee('at least 80% repository test coverage', escape: false)
         ->assertDontSee('releases are safer and more predictable', escape: false)
         ->assertDontSee('Supporting chapters, not a second flagship set', escape: false)
@@ -75,11 +76,11 @@ it('portfolio pages preserve mission anchors and product presentation', function
 
     $html = $response->getContent();
     $this->assertMatchesRegularExpression(
-        '~<img\b[^>]*src="/img/webp/ss-dry-standard\.webp"[^>]*width="1200" height="630"[^>]*loading="lazy"~',
+        '~<img\b[^>]*src="/img/webp/ss-dry-standard\.webp"[^>]*width="1200"[^>]*height="675"[^>]*loading="lazy"~',
         $html,
     );
     $this->assertMatchesRegularExpression(
-        '~<a\b[^>]*href="https://github\.com/karlhillx/drinkdrystandard\.com"[^>]*data-no-ext~',
+        '~<a\b[^>]*href="https://drinkdrystandard\.com/"[^>]*data-no-ext~',
         $html,
     );
 })->with([

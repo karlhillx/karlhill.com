@@ -84,7 +84,7 @@ it('every h2 section is a markdown file list with unique urls', function () {
     expect($urls)->not->toBeEmpty()
         ->and($urls)->toHaveCount(count($unique))
         ->and(count($unique))->toBeGreaterThanOrEqual(25)
-        ->and(count($unique))->toBeLessThanOrEqual(41);
+        ->and(count($unique))->toBeLessThanOrEqual(42);
 
     $withoutUrls = preg_replace('~https?://\S+~', '', $body) ?? $body;
     $words = str_word_count($withoutUrls);
