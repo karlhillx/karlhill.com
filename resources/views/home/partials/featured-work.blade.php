@@ -49,7 +49,7 @@
                 <p class="font-mono text-caption text-accent uppercase tracking-widest font-semibold">01 · Mission &amp; Professional Software</p>
                 <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mt-1">Aerospace &amp; Defense Systems</h3>
             </div>
-            <a href="/work#mission-software" class="font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
+            <a href="/work#work" class="font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
                 View mission case studies →
             </a>
         </div>
@@ -85,7 +85,7 @@
                     <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mt-1">Production Web Products</h3>
                 </div>
                 <a href="/work#products" class="font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                    Explore products on /work →
+                    Explore products →
                 </a>
             </div>
 
@@ -117,7 +117,7 @@
                             <x-site.button variant="secondary" :href="route('work.show', ['slug' => 'the-dry-standard'])">
                                 Read case study →
                             </x-site.button>
-                            <a href="https://github.com/karlhillx/drinkdrystandard.com" target="_blank" rel="noopener noreferrer"
+                            <a href="https://github.com/karlhillx/drinkdrystandard.com" target="_blank" rel="noopener noreferrer" data-no-ext
                                class="font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors inline-flex items-center gap-1">
                                 GitHub repo <span aria-hidden="true">↗</span>
                             </a>
@@ -126,7 +126,7 @@
                     <div class="relative rounded-lg overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-950">
                         <img src="{{ $dryStandard['image'] }}" alt="{{ $dryStandard['image_alt'] }}"
                              class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-                             loading="lazy">
+                             width="1200" height="630" loading="lazy">
                     </div>
                 </div>
             </article>
@@ -141,7 +141,7 @@
                 <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mt-1">Developer Tooling &amp; Simulation</h3>
             </div>
             <a href="/work#open-source" class="font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors">
-                View all tools on /work →
+                View all tools →
             </a>
         </div>
 

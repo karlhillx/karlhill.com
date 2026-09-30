@@ -1,6 +1,6 @@
 @props(['repo'])
 
-<a href="{{ $repo->url }}" target="_blank" rel="noopener noreferrer"
+<a href="{{ $repo->url }}" target="_blank" rel="noopener noreferrer" data-no-ext
    class="surface-card bg-bg group flex flex-col justify-between p-6 transition-all duration-300"
    data-reveal>
     <div>
@@ -14,10 +14,10 @@
             <p class="font-mono text-caption text-accent uppercase tracking-widest mb-2.5">{{ $repo->category }}</p>
         @endif
         @if($repo->description)
-            <p class="text-neutral-300 text-xs leading-relaxed mb-3">{{ $repo->description }}</p>
+            <p class="text-neutral-300 text-sm leading-relaxed mb-3">{{ $repo->description }}</p>
         @endif
         @if(! empty($repo->problem))
-            <p class="text-neutral-400 text-xs leading-relaxed mb-4 border-l border-neutral-800 pl-2.5 italic">
+            <p class="text-neutral-400 text-sm leading-relaxed mb-4 border-l border-neutral-800 pl-2.5 italic">
                 {{ $repo->problem }}
             </p>
         @endif

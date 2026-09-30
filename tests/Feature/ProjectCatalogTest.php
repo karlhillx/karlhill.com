@@ -64,6 +64,29 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
     $this->get('/work/tag/laravel')->assertRedirect('/work')->assertStatus(301);
 });
 
+it('portfolio pages preserve mission anchors and product presentation', function (string $path, string $missionHref) {
+    $response = $this->get($path)
+        ->assertOk()
+        ->assertSee('href="'.$missionHref.'"', escape: false)
+        ->assertSee('id="work"', escape: false)
+        ->assertDontSee('#mission-software', escape: false)
+        ->assertDontSee('Explore products on /work', escape: false)
+        ->assertDontSee('View all tools on /work', escape: false);
+
+    $html = $response->getContent();
+    $this->assertMatchesRegularExpression(
+        '~<img\b[^>]*src="/img/webp/ss-dry-standard\.webp"[^>]*width="1200" height="630"[^>]*loading="lazy"~',
+        $html,
+    );
+    $this->assertMatchesRegularExpression(
+        '~<a\b[^>]*href="https://github\.com/karlhillx/drinkdrystandard\.com"[^>]*data-no-ext~',
+        $html,
+    );
+})->with([
+    'home' => ['/', '/work#work'],
+    'work' => ['/work', '#work'],
+]);
+
 it('public projects expose a live artifact url', function () {
     expect(ProjectCatalog::liveUrl(ProjectCatalog::find('jacobs-mission-software')))->toBeNull()
         ->and(ProjectCatalog::liveUrl(ProjectCatalog::find('flood-mapping-system')))->toBe('https://floodmapping.gsfc.nasa.gov/')

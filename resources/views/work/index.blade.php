@@ -16,7 +16,7 @@
         </p>
 
         <nav class="flex flex-wrap items-center gap-2 mt-6" aria-label="Portfolio sections">
-            <a href="#mission-software" class="surface-chip font-mono text-caption px-3 py-1 text-neutral-300 hover:text-accent hover:border-accent transition-colors">
+            <a href="#work" class="surface-chip font-mono text-caption px-3 py-1 text-neutral-300 hover:text-accent hover:border-accent transition-colors">
                 Mission Software
             </a>
             <a href="#products" class="surface-chip font-mono text-caption px-3 py-1 text-neutral-300 hover:text-accent hover:border-accent transition-colors">
@@ -111,7 +111,7 @@
                             <x-site.button variant="secondary" :href="route('work.show', ['slug' => 'the-dry-standard'])">
                                 Read case study →
                             </x-site.button>
-                            <a href="https://github.com/karlhillx/drinkdrystandard.com" target="_blank" rel="noopener noreferrer"
+                            <a href="https://github.com/karlhillx/drinkdrystandard.com" target="_blank" rel="noopener noreferrer" data-no-ext
                                class="font-mono text-caption text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors inline-flex items-center gap-1">
                                 GitHub repo <span aria-hidden="true">↗</span>
                             </a>
@@ -120,7 +120,7 @@
                     <div class="relative rounded-lg overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-950">
                         <img src="{{ $dryStandard['image'] }}" alt="{{ $dryStandard['image_alt'] }}"
                              class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-                             loading="lazy">
+                             width="1200" height="630" loading="lazy">
                     </div>
                 </div>
             </article>
