@@ -11,7 +11,7 @@ return [
     'default' => 'verify',
     'continue' => [
         'label' => 'Written bar for reviews →',
-        'href' => '/delivery',
+        'href' => '/work/jacobs-mission-software#delivery-practices',
     ],
     'stages' => [
         [

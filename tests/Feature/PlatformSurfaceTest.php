@@ -133,7 +133,7 @@ it('generates content credential sidecars', function () {
         ->assertOk()
         ->assertJsonPath('claim_generator', 'karlhill.com/credentials');
 
-    $this->get('/kit')->assertSee('Content credentials', escape: false);
+    $this->get('/resume')->assertSee('Content credentials', escape: false);
 
     File::delete($path);
     $sidecar = public_path(ltrim((string) config('site.footer.resume'), '/').'.c2pa.json');
@@ -198,26 +198,18 @@ it('contact error fixture is uncached and exposes invalid fields', function () {
     expect($cache)->toContain('no-store');
 });
 
-it('keeps summarizer on essays and on-device ask on kit and resume', function () {
+it('keeps summarizer on essays and on-device ask on resume', function () {
     $this->get('/about')
         ->assertOk()
         ->assertDontSee('data-on-device-summary', escape: false)
         ->assertDontSee('data-on-device-ask', escape: false);
 
-    $this->get('/kit')
+    $this->get('/resume')
         ->assertOk()
         ->assertSee('data-on-device-ask', escape: false)
         ->assertSee('data-ask-from="[data-ask-source]"', escape: false)
         ->assertSee('data-ask-brief', escape: false)
-        ->assertSee('What is Karl open to?', escape: false)
-        ->assertSee('What is the current work?', escape: false)
-        ->assertSee('What public evidence is there?', escape: false)
         ->assertSee('Ask a hiring question', escape: false)
-        ->assertSee('hidden="until-found"', escape: false);
-
-    $this->get('/resume')
-        ->assertOk()
-        ->assertSee('data-on-device-ask', escape: false)
         ->assertSee('What is the current role?', escape: false);
 
     $html = $this->get('/blog/release-governance')->assertOk()->getContent();

@@ -41,11 +41,16 @@ it('features six evidence-rich projects in editorial order', function () {
 it('renders the complete portfolio without a GitHub dependency', function (string $path) {
     Http::preventStrayRequests();
     $response = $this->get($path)->assertOk();
-    foreach (['bb-run', 'pipeguard', 'sim-rs', 'driftlens', 'drift-rs', 'testrisk'] as $name) {
+    foreach (['bb-run', 'testrisk', 'pipeguard'] as $name) {
         $response->assertSee('https://github.com/karlhillx/'.$name, false);
     }
+    $response->assertSeeInOrder([
+        'https://github.com/karlhillx/bb-run',
+        'https://github.com/karlhillx/testrisk',
+        'https://github.com/karlhillx/pipeguard',
+    ], false)->assertDontSee('sim-rs')->assertDontSee('driftlens')->assertDontSee('drift-rs');
     Http::assertNothingSent();
-})->with(['/', '/work']);
+})->with(['/', '/work', '/work/developer-tooling', '/resume', '/llms.txt']);
 
 it('publishes consistent tooling and product proof on every discovery surface', function (string $slug) {
     $project = ProjectCatalog::findOrFail($slug);
@@ -65,7 +70,8 @@ it('publishes consistent tooling and product proof on every discovery surface', 
 })->with(['developer-tooling', 'the-dry-standard']);
 
 it('keeps tool names searchable and qualifies quantitative claims', function () {
-    $this->get('/api/commands.json')->assertSee('bb-run, pipeguard, sim-rs, driftlens, drift-rs, and testrisk');
+    $this->get('/api/commands.json')->assertSee('bb-run, testrisk, and pipeguard')
+        ->assertDontSee('sim-rs')->assertDontSee('driftlens')->assertDontSee('drift-rs');
     $this->get('/')->assertSee('Collaborative scientific result', false)
         ->assertSee('Historical platform scale', false)
         ->assertSee('Shared ownership', false);
@@ -96,4 +102,31 @@ it('case study navigation follows collection order including supporting work', f
         ->and(ProjectCatalog::adjacent('esscor')['next']['slug'])->toBe('developer-tooling')
         ->and(ProjectCatalog::adjacent('developer-tooling')['next']['slug'])->toBe('the-dry-standard')
         ->and(ProjectCatalog::adjacent('direct-readout-laboratory')['previous']['slug'])->toBe('nasa-earth-observatory');
+});
+
+it('keeps global links and repository choices deliberately small', function (string $path) {
+    $html = $this->get($path)->assertOk()->getContent();
+    preg_match('~<nav[^>]*aria-label="Site"[^>]*>(.*?)</nav>~s', $html, $footer);
+    preg_match_all('~href="([^"]+)"~', $footer[1], $links);
+    expect($links[1])->toBe([
+        '/blog', '/resume', 'https://github.com/karlhillx',
+        'https://www.linkedin.com/in/khill/', '/privacy',
+    ]);
+    foreach (['/kit', '/now', '/delivery', '/lead'] as $retired) {
+        expect($html)->not->toContain('href="'.$retired.'"')
+            ->not->toContain('href="'.$retired.'#');
+    }
+    preg_match('~<main\b[^>]*>(.*?)</main>~s', $html, $main);
+    foreach (['bb-run', 'testrisk', 'pipeguard'] as $repo) {
+        expect(substr_count($main[1], 'href="https://github.com/karlhillx/'.$repo.'"'))->toBe(1);
+    }
+})->with(['/', '/work']);
+
+it('keeps contact available when scheduling is disabled', function () {
+    config(['site.booking.url' => null, 'site.booking.embed_src' => null]);
+    $this->get('/')->assertOk()
+        ->assertSee('href="/#contact"', false)
+        ->assertSee('id="contact-form"', false)
+        ->assertSee('id="book"', false)
+        ->assertDontSee('booking-embed__frame', false);
 });

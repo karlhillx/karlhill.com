@@ -144,11 +144,6 @@ export function initCommandPalette() {
             action: () => window.location.assign('/work'),
         }),
         withGroup({
-            label: 'Recruiter kit',
-            keywords: 'recruiter kit hire pdf bio resume one-pager packet',
-            action: () => window.location.assign('/kit'),
-        }),
-        withGroup({
             label: 'Writing',
             keywords: 'writing blog posts articles essays notes governance leadership',
             action: () => window.location.assign('/blog'),
@@ -156,17 +151,18 @@ export function initCommandPalette() {
         withGroup({
             label: 'Book a conversation',
             keywords: 'book calendly cal.com schedule call conversation hiring recruiter #book',
-            action: () => window.location.assign('/now#book'),
+            action: () => window.location.assign('/#book'),
         }),
         withGroup({
             label: 'About',
-            keywords: 'about experience career background research music',
+            keywords: 'about experience career background music now focus recruiter kit hiring',
             action: () => window.location.assign('/about'),
         }),
         withGroup({
             label: 'Engineering delivery',
             keywords: 'delivery definition of done pr rubric risk coaching lead packet',
-            action: () => window.location.assign('/delivery'),
+            action: () =>
+                window.location.assign('/work/jacobs-mission-software#delivery-practices'),
         }),
         withGroup({
             label: 'How software gets delivered',
@@ -179,19 +175,9 @@ export function initCommandPalette() {
             action: () => window.location.assign('/resume'),
         }),
         withGroup({
-            label: 'Now',
-            keywords: 'now booking calendly schedule current status',
-            action: () => window.location.assign('/now'),
-        }),
-        withGroup({
             label: 'Experience',
             keywords: 'experience career nasa jacobs',
             action: () => gotoSection('experience'),
-        }),
-        withGroup({
-            label: 'Selected work',
-            keywords: 'work portfolio projects',
-            action: () => gotoSection('work'),
         }),
         withGroup({
             label: 'Research',

@@ -32,8 +32,8 @@ it('llms txt returns a v2 file-list map', function () {
     $this->assertStringContainsString('/work/nasa-earth-observatory', $body);
     $this->assertStringContainsString('/work/laads-daac', $body);
     $this->assertStringContainsString('/research/global-flood-mapping', $body);
-    $this->assertStringContainsString('/kit', $body);
-    $this->assertStringContainsString('/delivery', $body);
+    $this->assertStringNotContainsString('](https://karlhill.com/kit)', $body);
+    $this->assertStringNotContainsString('](https://karlhill.com/delivery)', $body);
     $this->assertStringContainsString('/#system', $body);
     $this->assertStringNotContainsString('](https://karlhill.com/lead)', $body);
     $this->assertStringContainsString('/blog/release-governance', $body);
@@ -84,7 +84,7 @@ it('every h2 section is a markdown file list with unique urls', function () {
     expect($urls)->not->toBeEmpty()
         ->and($urls)->toHaveCount(count($unique))
         ->and(count($unique))->toBeGreaterThanOrEqual(25)
-        ->and(count($unique))->toBeLessThanOrEqual(42);
+        ->and(count($unique))->toBeLessThanOrEqual(44);
 
     $withoutUrls = preg_replace('~https?://\S+~', '', $body) ?? $body;
     $words = str_word_count($withoutUrls);
@@ -105,9 +105,9 @@ it('llms txt builder lists professional profiles and resume once', function () {
     $this->assertStringContainsString('[SciProfiles](https://sciprofiles.com/profile/author/MlNoK0RnM3hZUE9BRXNSUnhhclJJZz09)', $body);
     $this->assertStringContainsString('[bb-run](https://github.com/karlhillx/bb-run)', $body);
     $this->assertSame(1, substr_count($body, '/resume'));
-    $this->assertSame(1, substr_count($body, '/kit'));
-    $this->assertSame(1, substr_count($body, '/now'));
-    $this->assertSame(1, substr_count($body, '](https://karlhill.com/delivery)'));
+    $this->assertSame(0, substr_count($body, '/kit'));
+    $this->assertSame(0, substr_count($body, '/now'));
+    $this->assertSame(0, substr_count($body, '](https://karlhill.com/delivery)'));
     $this->assertStringNotContainsString('](https://karlhill.com/lead)', $body);
     $this->assertStringContainsString('GeoHorizons', $body);
     $this->assertStringContainsString(app(SiteCatalog::class)->lastUpdated()->format('F j, Y'), $body);
@@ -148,7 +148,7 @@ it('homepage includes speculation rules for blog prefetch', function () {
     $response->assertStatus(200);
     $response->assertSee('<script type="speculationrules"', escape: false);
     $response->assertSee('"/blog"', escape: false);
-    $response->assertSee('"/now"', escape: false);
+    $response->assertDontSee('"/now"', escape: false);
     $response->assertSee('"prerender"', escape: false);
     $response->assertSee('"href_matches":"/blog*"', escape: false);
     $response->assertSee('expects_no_vary_search', escape: false);

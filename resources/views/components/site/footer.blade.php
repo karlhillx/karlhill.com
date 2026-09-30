@@ -8,7 +8,7 @@
     $isHome = $variant === 'home';
     $bookingUrl = config('site.booking.url');
     $bookingLabel = config('site.booking.label');
-    $bookingHref = request()->routeIs('now') ? '#book' : '/now#book';
+    $bookingEmbed = config('site.booking.embed_src');
 @endphp
 
 <footer id="contact" @if($isHome) data-section-label="Contact" @endif @class([
@@ -18,7 +18,6 @@
 ])>
     <div class="site-shell">
         @if($isHome)
-            {{-- Two columns: form is the job; aside is reachability + site map. --}}
             <div class="site-footer-home grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(14rem,18rem)] lg:gap-16 xl:gap-20 lg:items-start">
                 <div class="min-w-0" data-reveal>
                     <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-5 sm:mb-6">Contact</h2>
@@ -34,7 +33,7 @@
 
                 <aside class="site-footer-aside flex flex-col gap-10 lg:gap-12 lg:pt-1" data-reveal aria-label="Direct contact and site links">
                     <div>
-                        <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-5">Email and booking</p>
+                        <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-5">Email directly</p>
                         <div class="flex flex-col gap-4">
                             <div class="flex items-center gap-2 min-w-0">
                                 <a href="mailto:{{ $person['email'] }}"
@@ -58,21 +57,37 @@
                                     </span>
                                 </button>
                             </div>
-                            @if(filled($bookingUrl))
-                                <x-site.button variant="secondary" :href="$bookingHref" class="w-fit"
-                                    data-analytics-event="booking_cta_clicked"
-                                    data-analytics-location="footer-home">
-                                    {{ $bookingLabel }}
-                                    <span aria-hidden="true">→</span>
-                                </x-site.button>
-                            @endif
-                            <x-site.social-links />
                         </div>
                     </div>
 
-                    <x-site.footer-explore />
                 </aside>
             </div>
+            @if(filled($bookingUrl))
+                <details class="contact-booking mt-8 max-w-4xl">
+                    <summary class="portfolio-text-link min-h-11 cursor-pointer py-3"
+                             data-analytics-event="booking_cta_clicked"
+                             data-analytics-location="footer-home">{{ $bookingLabel }}</summary>
+                    <div id="book">
+                        @if(filled($bookingEmbed))
+                            <div class="booking-embed">
+                                <iframe class="booking-embed__frame"
+                                        src="{{ $bookingEmbed }}"
+                                        title="{{ $bookingLabel }}"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allow="payment *"></iframe>
+                            </div>
+                        @endif
+                        <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer"
+                           data-analytics-event="scheduler_opened" data-analytics-location="contact"
+                           class="portfolio-text-link inline-flex min-h-11 items-center">
+                            Open scheduler in a new tab
+                        </a>
+                    </div>
+                </details>
+            @else
+                <span id="book"></span>
+            @endif
         @else
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10 lg:gap-16">
                 <div class="max-w-xl">
@@ -82,7 +97,7 @@
                     </p>
                     <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-12">
                         @if(filled($bookingUrl))
-                            <x-site.button variant="primary" :href="$bookingHref"
+                            <x-site.button variant="primary" href="/#book"
                                 data-analytics-event="booking_cta_clicked"
                                 data-analytics-location="footer">
                                 {{ $bookingLabel }}
@@ -111,10 +126,6 @@
                         </div>
                     </div>
                 </div>
-                <x-site.footer-explore
-                    class="min-w-0"
-                    item-class="inline-flex items-center min-h-11 text-neutral-400 hover:text-accent transition-colors"
-                />
             </div>
         @endif
         <div @class([
@@ -125,28 +136,14 @@
             <p class="font-display {{ $isHome ? 'text-3xl' : 'text-2xl' }} tracking-widest text-neutral-500">{{ $person['name'] }}</p>
             <p class="font-mono text-xs text-neutral-400">
                 {{ $person['location'] }} · {{ $person['job_title'] }}
-                <span aria-hidden="true"> · </span>
-                @unless(request()->routeIs('privacy'))
-                    <a href="/privacy" class="text-neutral-400 hover:text-accent transition-colors">Privacy</a>
-                @else
-                    <span>Privacy</span>
-                @endunless
             </p>
         </div>
-        <div class="mt-8 flex sm:justify-end">
+        <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <x-site.footer-explore />
             <p class="site-build-credit font-mono uppercase text-neutral-500">
                 <span>Built with Laravel {{ \App\Support\Stack::laravelVersion() }}</span>
                 <span class="site-build-credit__sep" aria-hidden="true">&middot;</span>
                 <span>Tailwind CSS {{ \App\Support\Stack::tailwindVersion() ?? '4' }}</span>
-                <span class="site-build-credit__sep" aria-hidden="true">&middot;</span>
-                <a href="https://github.com/karlhillx/karlhill.com/blob/main/scripts/generate-og-images.py"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   data-no-ext
-                   class="text-neutral-500 hover:text-neutral-300 transition-colors">
-                    OG cards in Python
-                    <span class="sr-only"> (opens in a new tab)</span>
-                </a>
             </p>
         </div>
     </div>

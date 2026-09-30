@@ -39,24 +39,24 @@
     ],
     "shortcuts": [
         {
-            "name": "Kit",
-            "short_name": "Kit",
-            "description": "Recruiter kit — evidence, resume, and booking.",
-            "url": "/kit",
-            "icons": [{ "src": "/img/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" }]
-        },
-        {
-            "name": "Now",
-            "short_name": "Now",
-            "description": "Current focus and booking.",
-            "url": "/now",
-            "icons": [{ "src": "/img/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" }]
-        },
-        {
             "name": "Work",
             "short_name": "Work",
             "description": "Selected case studies.",
             "url": "/work",
+            "icons": [{ "src": "/img/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" }]
+        },
+        {
+            "name": "About",
+            "short_name": "About",
+            "description": "Career, current focus, and opportunities.",
+            "url": "/about",
+            "icons": [{ "src": "/img/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" }]
+        },
+        {
+            "name": "Contact",
+            "short_name": "Contact",
+            "description": "Send a message or book a conversation.",
+            "url": "/#contact",
             "icons": [{ "src": "/img/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" }]
         }
     ],

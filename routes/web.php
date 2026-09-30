@@ -4,12 +4,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientSiteController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\DryStandardRedirectController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\KitController;
-use App\Http\Controllers\LeadController;
-use App\Http\Controllers\NowController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\PushController;
 use App\Http\Controllers\ReportingController;
@@ -67,12 +63,12 @@ Route::middleware('cache.headers:public;max_age=300;s_maxage=600;stale_while_rev
     Route::get('/about', AboutController::class)->name('about');
     Route::redirect('/research', '/research/global-flood-mapping', 301)->name('research.index');
     Route::get('/research/global-flood-mapping', ResearchController::class)->name('research.show');
-    Route::get('/delivery', DeliveryController::class)->name('delivery');
-    Route::get('/lead', LeadController::class)->name('lead');
-    Route::get('/now', NowController::class)->name('now');
+    Route::redirect('/delivery', '/work/jacobs-mission-software#delivery-practices', 301)->name('delivery');
+    Route::redirect('/lead', '/work/jacobs-mission-software#delivery-practices', 301)->name('lead');
+    Route::redirect('/now', '/#book', 301)->name('now');
     Route::get('/privacy', PrivacyController::class)->name('privacy');
     Route::get('/resume', ResumeController::class)->name('resume');
-    Route::get('/kit', KitController::class)->name('kit');
+    Route::redirect('/kit', '/about', 301)->name('kit');
 
     // Client staging — static sites under /clients/{slug}/ (noindex, not in nav/sitemap).
     Route::get('/clients', [ClientSiteController::class, 'index'])->name('clients.index');

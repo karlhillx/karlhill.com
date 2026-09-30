@@ -48,10 +48,10 @@ it('unknown web route renders custom 404', function () {
     $response->assertSee('Page not found', escape: false);
     $response->assertSee('site-mark--page', escape: false);
     $response->assertSee('name="robots" content="noindex"', escape: false);
-    $response->assertSee('href="/kit"', escape: false);
+    $response->assertDontSee('href="/kit"', escape: false);
     $response->assertDontSee('href="/lead"', escape: false);
     $response->assertSee('href="/work"', escape: false);
-    $response->assertSee('href="/now#book"', escape: false);
+    $response->assertSee('href="/#contact"', escape: false);
 });
 
 it('blog post repository parses frontmatter', function () {
@@ -117,7 +117,7 @@ it('sitemap lastmod reflects editorial dates rather than today', function () {
     $base = rtrim(config('app.url'), '/');
 
     $this->assertSame('2026-09-17', $lastmod[$base.'/blog/release-governance']);
-    $this->assertSame('2026-09-16', $lastmod[$base.'/now']);
+    $this->assertArrayNotHasKey($base.'/now', $lastmod->all());
     $this->assertSame('2026-09-16', $lastmod[$base.'/work/finium']);
     $this->assertNotContains('2030-01-01', $lastmod->all(), 'No URL should claim it changed today');
 

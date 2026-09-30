@@ -68,12 +68,16 @@ npm run test:e2e
 
 ## Configuration
 
-Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, kit, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
+Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
 
-Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared scale and affiliation facts live in `config/site/facts.php`. The recruiter kit glance is that bio (`config/site/kit.php`). Homepage spoken line is `hero.lede`. Next-role copy is **not** on the homepage — Kit “Open to”, `llms.txt` (after the identity block), and the hire packet use `person.availability` (Principal-level technical leadership first, then Engineering Manager). The longer ask is `person.availability_long`. Do not restate the ask on About or `/now`. Music stays a short coda on `/about`; do not add `/music`.
+Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared scale and affiliation facts live in `config/site/facts.php`. Homepage spoken line is `hero.lede`. Next-role copy is **not** on the homepage — About, `llms.txt` (after the identity block), and the hire packet use `person.availability` (Principal-level technical leadership first, then Engineering Manager). The longer ask is `person.availability_long`. Current-focus data remains in `config/site/now.php` and renders on About. Music stays a short coda on `/about`; do not add `/music`.
 
 ### Portfolio architecture
 
+- Primary navigation is Work, About, Contact. The footer has five utility links: Writing, Resume, GitHub, LinkedIn, Privacy.
+- `/kit` redirects permanently to `/about`; `/now` to `/#book`; `/delivery` and `/lead` directly to `/work/jacobs-mission-software#delivery-practices`. No redirect chains. Retired pages are absent from the sitemap, prefetch targets, and search destinations. Existing `now` and `kit` JSON keys remain compatible but point to the consolidated destinations.
+- About combines career, current focus, working approach, and hiring information. Delivery practices live in the Jacobs narrative. Publication details remain linked from the Flood Mapping case study, not global navigation.
+- Cards have one case-study CTA; live systems and papers are linked within case studies. Each portfolio tooling section lists bb-run, testrisk, and pipeguard once, in that order.
 - `/` introduces Karl, then immediately presents six featured entries. Work is the primary CTA; writing, career, and hiring documents follow the evidence.
 - `/work` is a server-rendered collection hub: Mission Software, NASA Platforms, Developer Tooling / Open Source, and Independent Products. Anchor navigation does not hide content or require JavaScript. Existing `/work#work`, `#chapters`, `#open-source`, and `#products` links remain valid; legacy tag URLs still redirect.
 - `config/site/work.php` defines collection labels and anchors. `config/site/projects.php` assigns `portfolio_group`, `featured_order`, and concise `summary` fields (problem, contribution, impact, qualification). Full narratives and roles remain in `resources/work/{slug}.md`.
@@ -117,8 +121,10 @@ PLAUSIBLE_DOMAIN=karlhill.com
 # GOOGLE_ANALYTICS_MEASUREMENT_ID=G-EZZNL8KY8P
 ```
 
-Booking (Calendly or Cal.com). Shown as an **inline embed on `/now#book`**,
-plus CTAs on the homepage, footer, and mobile menu:
+Booking (Calendly or Cal.com) lives beside Contact on the homepage. A native
+disclosure keeps the inline scheduler collapsed until requested; `/#book`
+opens it directly, including without JavaScript. Footer and resume booking
+links use that anchor. The primary navigation always says Contact:
 
 ```env
 BOOKING_URL=https://calendly.com/karlhill
@@ -228,8 +234,8 @@ spot-check `/resume` + `/about`):
 2. `config/site/education.php` / `certifications.php` / `stack.php`
 3. `config/site/resume.php` — phone, ZIP, tagline, impact, expertise
 4. `config/site/person.php` — title, location, availability (short form is
-   kit “Open to”, `llms.txt`, and the hire packet — not the homepage, About,
-   `/now`, or the CV body). Music stays on `/about`; do not add `/music`.
+   About, `llms.txt`, and the hire packet — not the homepage or the CV body).
+   Music stays on `/about`; do not add `/music`.
 
 ### Client staging
 
@@ -250,7 +256,7 @@ redirects there.
 app/Http/Controllers/HomeController.php       # homepage
 app/Http/Controllers/BlogController.php       # /blog index + /blog/{slug}
 app/Http/Controllers/ClientSiteController.php # /clients staging previews
-app/Http/Controllers/NowController.php        # /now (current focus)
+app/Http/Controllers/AboutController.php      # /about (career, focus, opportunities)
 app/Http/Controllers/ResumeController.php     # /resume (live HTML CV)
 app/Http/Controllers/FeedController.php       # /feed.xml (Atom) + /feed.json
 app/Http/Controllers/SitemapController.php    # /sitemap.xml
@@ -278,7 +284,7 @@ resources/js/modules/*                        # view transitions, palette, conta
 resources/posts/*.md                          # blog posts (YAML frontmatter)
 resources/views/home/index.blade.php          # homepage shell
 resources/views/home/partials/*               # homepage sections
-resources/views/now/index.blade.php           # /now page
+resources/views/about/index.blade.php         # consolidated professional background
 resources/views/components/site/*             # nav, footer, cards, series, images
 resources/views/layouts/site.blade.php        # shared layout
 resources/css/app.css                         # CSS entry (imports tokens/base/layout/…)
@@ -362,11 +368,11 @@ When you change the HTML shell, offline fallback, or the precache list in
 
 With those set, every green CI run on `main` deploys automatically; you can also trigger it manually from the Actions tab (`workflow_dispatch`).
 
-> **Don't use `scripts/deploy.sh` unless the Actions workflow itself is down.** It runs `git pull` on the *host*, which requires the host user to own every tracked file. The app container writes some paths as its own runtime user, so a host-side `git pull` can start failing with `Permission denied` on unlink/create — and recovering requires root on the box, which you may not have. This has already caused a real production incident (a stale deploy left `/lead` 404ing — that path now 301s to `/delivery`) that had to be fixed by reaching into the container as root. If the Actions workflow is genuinely unavailable, fix ownership from *inside* the container (`docker exec -u root ... chown`) before falling back to this script — don't `sudo chown` the host tree.
+> **Don't use `scripts/deploy.sh` unless the Actions workflow itself is down.** It runs `git pull` on the *host*, which requires the host user to own every tracked file. The app container writes some paths as its own runtime user, so a host-side `git pull` can start failing with `Permission denied` on unlink/create — and recovering requires root on the box, which you may not have. This has already caused a real production incident (a stale deploy left `/lead` 404ing — that path now redirects to the Jacobs case study) that had to be fixed by reaching into the container as root. If the Actions workflow is genuinely unavailable, fix ownership from *inside* the container (`docker exec -u root ... chown`) before falling back to this script — don't `sudo chown` the host tree.
 
 ### Monitoring
 
-- **Uptime** — `.github/workflows/uptime.yml` probes `/up`, `/`, `/work`, a sample case study, `/about`, `/research/global-flood-mapping`, `/delivery`, `/blog`, `/now`, `/kit`, `/resume`, `/lead` (expects redirect to `/delivery`), `/feed.xml`, `/sitemap.xml`, and `/api/site.json` every 30 minutes (override the target with a `SITE_URL` repository variable). A failing run emails the workflow owner and opens an issue labelled `uptime`; the next green run closes it.
+- **Uptime** — `.github/workflows/uptime.yml` probes core pages, case studies, research, feeds, sitemap, and machine metadata every 30 minutes. `/kit`, `/now`, `/delivery`, and `/lead` are checked as permanent redirects to their consolidated destinations (override the host with a `SITE_URL` repository variable). A failing run emails the workflow owner and opens an issue labelled `uptime`; the next green run closes it.
 - **Errors** — set `LOG_STACK=daily,slack` and `LOG_SLACK_WEBHOOK_URL` in production. The `slack` channel has its own `LOG_SLACK_LEVEL` (default `error`) so the file log can stay verbose. A Discord webhook works when suffixed with `/slack`.
 - **Browser reports** — with `REPORTING_ENABLED=true`, CSP/NEL/integrity reports posted to `/report` are retained in `storage/app/reports/latest.json` and mirrored to the log at `REPORTING_LOG_LEVEL` (default `warning`; `none` to silence), so they flow to the same sink as exceptions. `INTEGRITY_POLICY=auto` promotes to an enforcing `Integrity-Policy` header once Vite SRI hashes exist and no integrity violations remain in that window.
 

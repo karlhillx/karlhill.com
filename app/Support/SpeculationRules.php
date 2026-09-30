@@ -15,8 +15,8 @@ class SpeculationRules
         $postUrls = $latestPosts->map(fn (BlogPost $post) => '/blog/'.$post->slug);
 
         return self::document(
-            prerender: collect(['/work', '/now'])->merge($postUrls->take(2))->all(),
-            prefetch: collect(['/blog', '/work', '/about', '/now'])->merge($postUrls)->all(),
+            prerender: collect(['/work'])->merge($postUrls->take(2))->all(),
+            prefetch: collect(['/blog', '/work', '/about'])->merge($postUrls)->all(),
             hrefMatches: '/blog*',
         );
     }

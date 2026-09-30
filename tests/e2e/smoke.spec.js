@@ -30,20 +30,20 @@ test.describe('smoke + a11y', () => {
             if (width < 1280) {
                 await primary.getByRole('button', { name: 'Open menu', exact: true }).click();
             }
-            for (const name of ['Work', 'Writing', 'About']) {
+            for (const name of ['Work', 'About', 'Contact']) {
                 await expect(
                     primary.getByRole('link', { name, exact: true }).filter({ visible: true })
                 ).toBeVisible();
             }
-            for (const name of ['Recruiter Kit', 'Resume', 'Certifications']) {
-                if (width < 1280) {
-                    await expect(primary.getByRole('link', { name, exact: true })).toBeVisible();
-                } else {
-                    await expect(
-                        page.locator('footer').getByRole('link', { name, exact: true })
-                    ).toBeVisible();
-                }
+            for (const name of ['Writing', 'Resume']) {
+                await expect(primary.getByRole('link', { name, exact: true })).toHaveCount(0);
+                await expect(
+                    page.locator('footer').getByRole('link', { name, exact: true })
+                ).toBeVisible();
             }
+            await expect(
+                primary.getByRole('link', { name: /Recruiter|Certifications/ })
+            ).toHaveCount(0);
             if (width < 1280) {
                 await page.keyboard.press('Escape');
                 await expect(page.locator('#nav-toggle')).toHaveAttribute('aria-expanded', 'false');
@@ -118,7 +118,9 @@ test.describe('smoke + a11y', () => {
         await assertA11y(page);
     });
 
-    test('portfolio hierarchy exposes project links and a grouped footer', async ({ page }) => {
+    test('portfolio hierarchy exposes project links and five footer utilities', async ({
+        page,
+    }) => {
         await page.goto('/');
         await expect(page.locator('[data-home-actions] a[href="/work"]')).toBeVisible();
         await expect(page.locator('#work h3')).toHaveText([
@@ -139,13 +141,9 @@ test.describe('smoke + a11y', () => {
         const footer = page
             .locator('footer')
             .getByRole('navigation', { name: 'Site', exact: true });
-        await expect(footer.getByRole('heading', { level: 3 })).toHaveText([
-            'Work',
-            'Background',
-            'Connect',
-        ]);
-        for (const name of ['Research', 'How I Deliver', 'Resume', 'Recruiter Kit', 'Contact']) {
-            await expect(footer.getByRole('link', { name, exact: true })).toBeVisible();
+        await expect(footer.getByRole('link')).toHaveCount(5);
+        for (const name of ['Writing', 'Resume', 'GitHub', 'LinkedIn', 'Privacy']) {
+            await expect(footer.getByRole('link', { name: new RegExp(`^${name}`) })).toBeVisible();
         }
         await page.emulateMedia({ media: 'print' });
         await page.goto('/work');
@@ -156,9 +154,9 @@ test.describe('smoke + a11y', () => {
     test('home loads and exposes hire CTAs', async ({ page }) => {
         await page.goto('/');
         await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-        await expect(page.locator('[data-home-actions] a[href="/now#book"]')).toBeVisible();
-        await expect(page.locator('[data-home-actions] a[href="/kit"]')).toHaveCount(0);
-        await expect(page.locator('#background a[href="/kit"]')).toBeVisible();
+        await expect(page.locator('[data-home-actions] a')).toHaveCount(2);
+        await expect(page.locator('[data-home-actions] a[href="/#contact"]')).toBeVisible();
+        await expect(page.locator('a[href="/kit"]')).toHaveCount(0);
         await expect(page.locator('#system')).toBeVisible();
         await expect(page.locator('#ds-verify')).toBeChecked();
         await expect(page.locator('[data-panel="verify"]')).toBeVisible();
@@ -170,8 +168,10 @@ test.describe('smoke + a11y', () => {
         await assertA11y(page);
     });
 
-    test('now booking embed anchors and iframe', async ({ page }) => {
+    test('legacy now bookmark opens booking alongside contact', async ({ page }) => {
         await page.goto('/now#book');
+        await expect(page).toHaveURL(/\/#book$/);
+        await expect(page.locator('.contact-booking')).toHaveAttribute('open');
         await expect(page.locator('#book')).toBeVisible();
         await expect(page.locator('.booking-embed__frame')).toHaveAttribute(
             'src',
@@ -227,7 +227,7 @@ test.describe('smoke + a11y', () => {
             options: { props: { page: '/about', location: 'footer' } },
         });
 
-        await page.goto('/now');
+        await page.goto('/#book');
         const scheduled = await page.evaluate(() => {
             window.__events = [];
             window.postMessage({ event: 'calendly.event_scheduled' }, window.location.origin);
@@ -239,28 +239,16 @@ test.describe('smoke + a11y', () => {
         expect(scheduled).not.toContain('booking_completed');
     });
 
-    test('recruiter kit one-pager', async ({ page }) => {
+    test('legacy kit resolves to background and hiring information', async ({ page }) => {
         await page.goto('/kit');
-        await expect(page.getByRole('heading', { name: /recruiter kit/i })).toBeVisible();
-        await expect(page.getByRole('link', { name: /download resume pdf/i })).toBeVisible();
-        await expect(page.locator('.kit-doc')).toBeVisible();
-
-        await expect(page.locator('.kit-highlights--flush > .kit-highlights__item')).toHaveCount(8);
-        await expect(page.locator('.max-w-2xl > ul.kit-links > li')).toHaveCount(4);
-        await expect(page.locator('[data-ask-prompt]')).toHaveCount(3);
-
-        const more = page.locator('.kit-links-more');
-        await expect(more).toBeVisible();
-        await expect(more).not.toHaveAttribute('open');
-
-        await more.locator('summary').click();
-        await expect(more).toHaveAttribute('open');
-        await expect(more.getByRole('link', { name: /github/i })).toBeVisible();
-
+        await expect(page).toHaveURL(/\/about$/);
+        await expect(page.getByRole('heading', { name: 'About', exact: true })).toBeVisible();
+        await expect(page.locator('#focus')).toContainText('simpler developer workflows');
+        await expect(page.locator('#approach')).toContainText('Principal Software Engineer');
+        await expect(
+            page.locator('main').getByRole('link', { name: 'Resume', exact: true })
+        ).toBeVisible();
         await assertA11y(page);
-
-        await page.emulateMedia({ media: 'print' });
-        await expect(more).toBeHidden();
     });
 
     test('command palette marks off-site results', async ({ page }) => {

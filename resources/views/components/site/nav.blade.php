@@ -9,9 +9,6 @@
         return 'min-h-11 flex items-center py-3.5 border-b border-neutral-800/50 transition-colors '
             .($isActive($key) ? 'text-accent' : 'hover:text-accent');
     };
-    $bookingUrl = config('site.booking.url');
-    $bookingLabel = config('site.booking.label');
-    $linkedin = collect(config('site.social'))->first(fn ($link) => ($link['icon'] ?? '') === 'linkedin');
 @endphp
 
 <nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-bg/90 backdrop-blur-sm nav-enter">
@@ -23,7 +20,6 @@
             </a>
             <div class="hidden xl:flex items-center gap-5 font-mono text-xs text-neutral-400 uppercase tracking-widest">
                 <a href="/work" class="nav-work {{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
-                <a href="/blog" class="{{ $navLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/about" class="{{ $navLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
             </div>
         </div>
@@ -43,22 +39,11 @@
 
             <x-site.theme-toggle />
 
-            @if(filled($bookingUrl))
-                <a href="/now#book"
-                   data-analytics-event="booking_cta_clicked"
-                   data-analytics-location="nav"
-                   class="inline-flex items-center min-h-11 border border-neutral-700 text-neutral-300 hover:text-accent font-mono text-caption lg:text-xs px-3.5 lg:px-5 uppercase tracking-widest shrink-0"
-                   aria-label="{{ $bookingLabel }}">
-                    <span class="lg:hidden">Book</span>
-                    <span class="hidden lg:inline">{{ $bookingLabel }}</span>
-                </a>
-            @else
-                <a href="/#contact"
-                   data-nav-section="contact"
-                   class="btn-sweep inline-flex items-center min-h-11 font-mono text-caption md:text-xs text-neutral-300 border border-neutral-700 px-3.5 md:px-5 uppercase tracking-widest shrink-0">
-                    Contact
-                </a>
-            @endif
+            <a href="/#contact"
+               data-nav-section="contact"
+               class="btn-sweep inline-flex items-center min-h-11 font-mono text-caption md:text-xs text-neutral-300 border border-neutral-700 px-3.5 md:px-5 uppercase tracking-widest shrink-0">
+                Contact
+            </a>
 
             <button id="nav-toggle" type="button"
                     command="toggle-popover"
@@ -87,29 +72,9 @@
 
             <div class="flex flex-col divide-y divide-neutral-800/80">
                 <a href="/work" class="nav-work {{ $mobileLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
-                <a href="/blog" class="{{ $mobileLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/about" class="{{ $mobileLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
             </div>
 
-            <div class="mobile-background">
-                <p class="portfolio-eyebrow">Background &amp; hiring</p>
-                <a href="/resume" class="{{ $mobileLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
-                <a href="/kit" class="{{ $mobileLinkClass('kit') }}" @if($isActive('kit')) aria-current="page" @endif>Recruiter Kit</a>
-                <a href="/resume#credentials" class="{{ $mobileLinkClass('credentials') }}">Certifications</a>
-            </div>
-
-            <div class="pt-4 mt-2 border-t border-neutral-800/80 flex flex-wrap items-center gap-x-6 gap-y-2">
-                @if($linkedin)
-                    <a href="{{ $linkedin['url'] }}" target="_blank" rel="me noopener noreferrer" data-no-ext
-                       class="min-h-11 inline-flex items-center text-neutral-400 hover:text-accent transition-colors">
-                        LinkedIn ↗
-                    </a>
-                @endif
-                <a href="mailto:{{ config('site.person.email') }}"
-                   class="min-h-11 inline-flex items-center text-neutral-400 hover:text-accent transition-colors normal-case">
-                    {{ config('site.person.email') }}
-                </a>
-            </div>
         </div>
     </div>
 </nav>

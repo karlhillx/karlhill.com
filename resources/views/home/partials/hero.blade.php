@@ -16,12 +16,6 @@
             <div data-home-actions class="portfolio-hero__actions flex flex-wrap items-center gap-5">
                 <x-site.button variant="primary" href="/work">Explore the work <span aria-hidden="true">→</span></x-site.button>
                 <a href="/#contact" class="portfolio-text-link">Contact Karl</a>
-                @if(filled(config('site.booking.url')))
-                    <a href="/now#book" class="portfolio-text-link"
-                       data-analytics-event="booking_cta_clicked" data-analytics-location="hero">
-                        {{ config('site.booking.label') }}
-                    </a>
-                @endif
             </div>
         </div>
         <nav class="portfolio-hero__index" aria-label="Explore the portfolio">

@@ -15,7 +15,7 @@
         ? $errors
         : new \Illuminate\Support\ViewErrorBag;
     $sent = session('status') === 'contact-sent';
-    $bookingUrl = filled(config('site.booking.url')) ? url('/now').'#book' : null;
+    $bookingUrl = filled(config('site.booking.url')) ? url('/').'#book' : null;
     $bookingLabel = (string) config('site.booking.label', 'Book a conversation');
 @endphp
 

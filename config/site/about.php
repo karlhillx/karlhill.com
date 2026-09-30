@@ -54,6 +54,10 @@ return [
         'cta_label' => 'Full resume',
         'cta_href' => '/resume',
     ],
+    'approach' => [
+        'Implementation, reviews, and coaching belong in the same week. I work on Python services, shared interfaces, messaging, and CI/CD while helping teams turn program priorities into executable software.',
+        'My technical leadership spans integration, engineering standards, and delivery across teams. Mentoring and onboarding are part of that work; formal people-management responsibility remains with management.',
+    ],
     'beyond' => [
         'When not writing software, solving engineering problems, or working with a team, the other work is music: songwriter and musician across post-punk, indie rock, hardcore, and alternative. Independent label work has also supported underground and alternative artists in Washington, DC and beyond.',
         'Recording and performance credits are available on Discogs.',

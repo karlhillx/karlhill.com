@@ -2,24 +2,6 @@
 
 use App\Support\OnDeviceAsk;
 
-it('builds a kit brief that includes what Karl is open to', function () {
-    $brief = OnDeviceAsk::kitBrief(config('site.person'), config('site.kit'));
-
-    expect($brief)
-        ->toContain('Karl Hill')
-        ->toContain('Staff Aerospace Software Engineer')
-        ->toContain('Open to:')
-        ->toContain('Principal Software Engineer')
-        ->toContain('Engineering Manager')
-        ->toContain('At a glance:')
-        ->toContain('Current scope:')
-        ->toContain('Selected evidence:')
-        ->toContain('Engineering mission software at scale')
-        ->not->toContain('Staff IC to Engineering Manager: first 90 days')
-        ->toContain('Release governance')
-        ->toContain('Peer-reviewed NASA flood mapping');
-});
-
 it('builds a resume brief with the current role and next-step copy', function () {
     $brief = OnDeviceAsk::resumeBrief(
         config('site.person'),

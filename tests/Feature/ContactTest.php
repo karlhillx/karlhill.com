@@ -36,7 +36,7 @@ it('valid submission sends mail and redirects', function () {
         ->assertSee('Thanks — message sent', false)
         ->assertSee('data-contact-complete', false)
         ->assertSee('You can also book a conversation', false)
-        ->assertSee(url('/now').'#book', false);
+        ->assertSee(url('/').'#book', false);
 });
 
 it('invalid submission fails validation and sends nothing', function () {
@@ -134,7 +134,7 @@ it('turnstile failure blocks send when configured', function () {
     Mail::assertNothingSent();
 });
 
-it('submission from now returns to now contact', function () {
+it('submission from a retired page returns directly to the home contact form', function () {
     Mail::fake();
 
     $response = $this->post('/contact', [
@@ -144,7 +144,7 @@ it('submission from now returns to now contact', function () {
         'return_to' => url('/now'),
     ]);
 
-    $response->assertRedirect(url('/now').'#contact');
+    $response->assertRedirect(url('/').'#contact');
     $response->assertSessionHas('status', 'contact-sent');
     Mail::assertSent(ContactMessage::class);
 });
@@ -163,7 +163,7 @@ it('ajax submission returns json success without redirect', function () {
     $response->assertOk()
         ->assertJsonPath('status', 'contact-sent')
         ->assertJsonStructure(['status', 'message', 'email', 'booking_url', 'booking_label'])
-        ->assertJsonPath('booking_url', url('/now').'#book');
+        ->assertJsonPath('booking_url', url('/').'#book');
 
     Mail::assertSent(ContactMessage::class);
 });

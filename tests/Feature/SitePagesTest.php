@@ -21,7 +21,7 @@ it('work page renders projects and open source', function () {
     $response->assertDontSee('section-rail', escape: false);
 });
 
-it('about page renders career, research, and music', function () {
+it('about page renders career, current focus, opportunities, and music', function () {
     $response = $this->get('/about');
 
     $response->assertStatus(200);
@@ -50,12 +50,13 @@ it('about page renders career, research, and music', function () {
     $response->assertDontSee('How I run delivery', escape: false);
     $response->assertDontSee('The operating principles are straightforward', escape: false);
     $response->assertDontSee('Define scope, ownership, dependencies, and interface assumptions early', escape: false);
-    $response->assertSee('href="/delivery"', escape: false);
+    $response->assertDontSee('href="/delivery"', escape: false);
     $response->assertSee('Sorry About Your Daughter', escape: false);
     $response->assertSee('SSAI / NASA Goddard Space Flight Center', escape: false);
-    $response->assertSee('GeoHorizons', escape: false);
-    $response->assertSee('Publication page', escape: false);
-    $response->assertSee('Software (Equal)', escape: false);
+    $response->assertSee('id="focus"', escape: false);
+    $response->assertSee('id="approach"', escape: false);
+    $response->assertSee(config('site.person.availability'), escape: false);
+    $response->assertSee(config('site.now.focus'), escape: false);
     $response->assertSee('id="experience"', escape: false);
     $response->assertSee('Career', escape: false);
     $response->assertSee('Jacobs National Security · 2025–present', escape: false);
@@ -74,12 +75,9 @@ it('about page renders career, research, and music', function () {
     $response->assertDontSee('The scope widened', escape: false);
     $response->assertDontSee('InformedDNA', escape: false);
     $response->assertDontSee('Ticomix', escape: false);
-    $response->assertSee('href="/research/global-flood-mapping"', escape: false);
+    $response->assertDontSee('href="/research/global-flood-mapping"', escape: false);
     $response->assertSee('href="/resume"', escape: false);
-    $response->assertSee('ss-geohorizons', escape: false);
-    $response->assertSee('Karl M. Hill', escape: false);
-    $response->assertSee('Published 7 July 2026', escape: false);
-    $response->assertSee('Global Water and Flood Mapping System', escape: false);
+    $response->assertDontSee('id="research"', escape: false);
     $response->assertSee('Beyond the work', escape: false);
     $response->assertSee('When not writing software, solving engineering problems, or working with a team', escape: false);
     $response->assertSee('songwriter and musician', escape: false);
@@ -105,8 +103,8 @@ it('about page renders career, research, and music', function () {
     $response->assertDontSee('NASA Earth science software supporting disaster response', escape: false);
     $response->assertSee('The full history, technologies, education, and certifications are available on the resume', escape: false);
     $response->assertDontSee('Verify credential', escape: false);
-    $response->assertSee('href="/kit"', escape: false);
-    $response->assertSee('>Recruiter Kit</a>', escape: false);
+    $response->assertDontSee('href="/kit"', escape: false);
+    $response->assertDontSee('>Recruiter Kit</a>', escape: false);
     $response->assertDontSee('Definition of Done', escape: false);
     $response->assertDontSee('Pull request rubric', escape: false);
     $response->assertDontSee('href="/lead"', escape: false);
@@ -141,18 +139,18 @@ it('homepage is a focused landing page', function () {
     $response->assertDontSee('mutation testing', escape: false);
     $response->assertSee('distributed services', escape: false);
     $response->assertSee('environment promotion', escape: false);
-    $response->assertSee('href="/delivery"', escape: false);
+    $response->assertDontSee('href="/delivery"', escape: false);
     $response->assertDontSee('Cloud &amp; Containers', escape: false);
     $response->assertSee('All work', escape: false);
     $response->assertDontSee('View all work', escape: false);
     $response->assertDontSee('Also at Goddard', escape: false);
     $response->assertSee('Featured Work', escape: false);
-    $response->assertSee('https://floodmapping.gsfc.nasa.gov/', escape: false);
-    $response->assertSee('https://ladsweb.modaps.eosdis.nasa.gov/search/', escape: false);
+    $response->assertSee('href="'.url('/work/flood-mapping-system').'"', escape: false);
+    $response->assertSee('href="'.url('/work/laads-daac').'"', escape: false);
     $response->assertSee('Flood Mapping System', escape: false);
     $response->assertSee('Find Data', escape: false);
     $response->assertSee('GeoHorizons 2026', escape: false);
-    $response->assertSee('href="/research/global-flood-mapping"', escape: false);
+    $response->assertDontSee('href="/research/global-flood-mapping"', escape: false);
     $response->assertDontSee('NASA Earth science systems from Goddard are still public.', escape: false);
     $response->assertDontSee('logo-jacobs-mark', escape: false);
     $response->assertSee('mission-proof', escape: false);
@@ -177,13 +175,13 @@ it('homepage is a focused landing page', function () {
     $response->assertDontSee('data-idle-cta', escape: false);
     $response->assertSee('data-features="contact reveal media"', escape: false);
     $response->assertSee('id="contact-form"', escape: false);
-    $response->assertSee('OG cards in Python', escape: false);
-    $response->assertSee('scripts/generate-og-images.py', escape: false);
+    $response->assertDontSee('OG cards in Python', escape: false);
+    $response->assertDontSee('scripts/generate-og-images.py', escape: false);
     $response->assertDontSee('id="experience"', escape: false);
     $response->assertDontSee('id="open-source"', escape: false);
 });
 
-it('work cards link to case studies and live projects', function () {
+it('work cards lead to case studies rather than competing live project exits', function () {
     $response = $this->get('/work');
 
     $response->assertSee('laads-daac', escape: false);
@@ -278,18 +276,18 @@ it('sitemap includes work and about pages', function () {
     $response->assertSee('/work', escape: false);
     $response->assertSee('/about', escape: false);
     $response->assertSee('/research/global-flood-mapping', escape: false);
-    $response->assertSee('/kit', escape: false);
+    $response->assertDontSee('/kit</loc>', escape: false);
     $response->assertDontSee('>https://karlhill.com/lead</loc>', escape: false);
     $response->assertDontSee('/lead</loc>', escape: false);
 });
 
-it('nav links to primary hire path', function () {
+it('nav links to work about and contact', function () {
     $response = $this->get('/');
 
     $response->assertSee('href="/work"', escape: false);
-    $response->assertSee('href="/kit"', escape: false);
-    $response->assertSee('href="/blog"', escape: false);
-    $response->assertSee('href="/now#book"', escape: false);
+    $response->assertSee('href="/about"', escape: false);
+    $response->assertSee('href="/#contact"', escape: false);
+    $response->assertDontSee('href="/now#book"', escape: false);
 });
 
 it('legacy work tag routes redirect to the work index', function () {
@@ -350,36 +348,12 @@ it('resume page shows the phone number when opted in', function () {
         ->assertSee('href="tel:+12025991442"', escape: false);
 });
 
-it('now page is hero plus scheduler', function () {
-    $response = $this->get('/now');
-
-    $response->assertStatus(200);
-    $response->assertDontSee('Engineering Manager', escape: false);
-    $response->assertSee('Jacobs', escape: false);
-    $response->assertSee('September 16, 2026', escape: false);
-    $response->assertSee('Building mission software and the engineering systems around it at Jacobs.', escape: false);
-    $response->assertSee('Review and coaching sit in the same week as implementation.', escape: false);
-    $response->assertDontSee('Hands-on Python work, shared delivery gates, and integration across', escape: false);
-    $response->assertSee('This month:', escape: false);
-    $response->assertSee('simpler developer workflows', escape: false);
-    $response->assertDontSee('architecture ownership', escape: false);
-    $response->assertSee('href="/kit"', escape: false);
-    $response->assertSee('Recruiter kit', escape: false);
-    $response->assertSee('href="#book"', escape: false);
-    $response->assertSee('id="book"', escape: false);
-    $response->assertSee('now-hero', escape: false);
-    $response->assertSee('now-status', escape: false);
-    $response->assertSee('now-book', escape: false);
-    $response->assertSee('id="now-book-heading"', escape: false);
-    $response->assertSee('booking-embed', escape: false);
-    $response->assertDontSee('id="focus"', escape: false);
-    $response->assertDontSee('id="recruiters"', escape: false);
-    $response->assertDontSee('Current engineering system, public NASA software', escape: false);
-    $response->assertDontSee('SAFe Agilist', escape: false);
-    $response->assertDontSee('id="contact-form"', escape: false);
-    $response->assertSee('id="contact"', escape: false);
-    $response->assertDontSee('section-rail', escape: false);
-    $response->assertSee('Schedule a conversation or send email', escape: false);
+it('now redirects directly to booking beside contact', function () {
+    $this->get('/now')->assertStatus(301)->assertRedirect('/#book');
+    $this->get('/')->assertOk()
+        ->assertSee('id="book"', false)
+        ->assertSee('booking-embed__frame', false)
+        ->assertSee('id="contact-form"', false);
 });
 
 it('about and resume pages include contact and live cv', function () {
@@ -423,7 +397,7 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('CI/CD', escape: false);
     $resume->assertSee('bb-run', escape: false);
     $resume->assertSee('testrisk', escape: false);
-    $resume->assertDontSee('pipeguard', escape: false);
+    $resume->assertSee('pipeguard', escape: false);
     $resume->assertSee('Lead engineering delivery', escape: false);
     $resume->assertSee('portable messaging layer', escape: false);
     $resume->assertDontSee('≥80% repository test coverage', escape: false);
@@ -481,7 +455,7 @@ it('booking cta appears when configured', function () {
         'site.booking.embed_src' => 'https://cal.com/example?embed=true',
     ]);
 
-    $now = $this->get('/now');
+    $now = $this->get('/');
     $now->assertStatus(200);
     $now->assertSee('https://cal.com/example', escape: false);
     $now->assertSee('Book a conversation', escape: false);
@@ -499,16 +473,16 @@ it('service worker and offline page are available', function () {
     $this->assertFileExists(public_path('offline.html'));
     $this->assertStringContainsString("You're offline", (string) file_get_contents(public_path('offline.html')));
     $sw = (string) file_get_contents(public_path('sw.js'));
-    $this->assertStringContainsString('karlhill-offline-v13', $sw);
+    $this->assertStringContainsString('karlhill-offline-v14', $sw);
     // Readable pages are cached on visit, not precached on install.
     $this->assertStringContainsString("const PRECACHE = ['/offline.html', '/site.webmanifest'];", $sw);
-    $this->assertStringContainsString("'/now'", $sw);
+    $this->assertStringNotContainsString("'/now'", $sw);
     $this->assertStringContainsString("'/about'", $sw);
-    $this->assertStringContainsString("'/delivery'", $sw);
+    $this->assertStringNotContainsString("'/delivery'", $sw);
     $this->assertStringContainsString("'/privacy'", $sw);
     $this->assertStringContainsString("'/work'", $sw);
     $this->assertStringContainsString("'/resume'", $sw);
-    $this->assertStringContainsString("'/kit'", $sw);
+    $this->assertStringNotContainsString("'/kit'", $sw);
     $this->assertStringNotContainsString("'/lead'", $sw);
 });
 
@@ -527,25 +501,29 @@ it('resume project names link to their configured urls on web and pdf', function
         'github' => $social->first(fn (array $link) => ($link['icon'] ?? '') === 'github'),
     ])->render();
 
-    foreach (config('site.resume.tooling') as $item) {
+    foreach (array_merge(config('site.resume.products'), config('site.resume.tooling')) as $item) {
         $web->assertSee('href="'.e($item['url']).'"', escape: false);
         expect($pdf)->toContain('<a href="'.e($item['url']).'"><strong>'.e($item['name']).'</strong></a>');
     }
+
+    $safeUrl = 'https://www.credly.com/badges/55c2cb68-b3d6-4da6-8f76-dd6ff2fa37b4/public_url';
+    $web->assertSee('href="'.$safeUrl.'"', false)
+        ->assertDontSee('https://www.credly.com/earner/earned/share/');
+    expect($pdf)->toContain('href="'.$safeUrl.'"')
+        ->not->toContain('https://www.credly.com/earner/earned/share/');
+    $this->get('/api/site.json')->assertJsonFragment(['url' => $safeUrl]);
 });
 
-it('footer includes site explore links', function () {
+it('footer exposes secondary utilities without a second sitemap', function () {
     $response = $this->get('/work');
 
     $response->assertSee('aria-label="Site"', escape: false);
-    $response->assertSee('Explore', escape: false);
-    $response->assertSee('href="/kit"', escape: false);
+    $response->assertDontSee('href="/kit"', escape: false);
     $response->assertSee('href="/blog"', escape: false);
     $response->assertSee('href="/privacy"', escape: false);
     $response->assertSee('href="/resume"', escape: false);
-    $response->assertSee('href="/research/global-flood-mapping"', escape: false);
-    $response->assertSee('How I Deliver', escape: false);
-    $response->assertSee('Background', escape: false);
-    $response->assertSee('Connect', escape: false);
+    $response->assertDontSee('href="/research/global-flood-mapping"', escape: false);
+    $response->assertDontSee('How I Deliver', escape: false);
     $response->assertDontSee('How I run delivery', escape: false);
 });
 
@@ -563,8 +541,8 @@ it('homepage hero prioritizes work and contact over hiring documents', function 
     $html = $response->assertOk()->getContent();
 
     $response->assertSee('Book a conversation', escape: false);
-    $response->assertSee('href="/now#book"', escape: false);
-    $response->assertSee('Recruiter kit', escape: false);
+    $response->assertDontSee('href="/now#book"', escape: false);
+    $response->assertDontSee('Recruiter kit', escape: false);
     $response->assertSee('id="contact-form"', escape: false);
     $response->assertDontSee('Resume PDF', escape: false);
     $response->assertSee('Jacobs', escape: false);
@@ -590,17 +568,19 @@ it('homepage hero prioritizes work and contact over hiring documents', function 
         ->and($heroCta[0] ?? '')->toContain('href="/#contact"');
 });
 
-it('nav keeps work primary and hiring documents in supporting navigation', function () {
+it('primary navigation contains only work about and contact on both layouts', function () {
     $html = $this->get('/')->assertOk()->getContent();
 
-    expect($html)
-        ->toContain('href="/kit"')
-        ->toContain('>Recruiter Kit</a>')
-        ->toContain('href="/blog"')
-        ->toContain('>Writing</a>')
+    preg_match('~<nav aria-label="Primary".*?</nav>~s', $html, $matches);
+    $nav = $matches[0];
+    expect($nav)
+        ->not->toContain('href="/kit"')
+        ->not->toContain('href="/blog"')
+        ->not->toContain('href="/resume"')
         ->toContain('href="/about"')
         ->toContain('>About</a>')
-        ->toContain('href="/resume"')
+        ->toContain('href="/work"')
+        ->toContain('href="/#contact"')
         ->toContain('hidden xl:flex')
         ->toContain('xl:hidden')
         ->not->toContain('max-lg:hidden')
@@ -610,14 +590,11 @@ it('nav keeps work primary and hiring documents in supporting navigation', funct
         ->not->toContain('href="mailto:'.config('site.person.email').'" class="btn-sweep hidden md:inline-flex')
         ->not->toContain('href="/#contact" class="min-h-11 flex items-center');
 
-    // Booking stays available without competing with the primary Work destination.
-    expect(substr_count($html, 'data-analytics-location="nav"'))->toBe(1);
-    expect($html)->not->toContain('data-analytics-location="nav-mobile"');
-    expect($html)->toMatch('/data-analytics-location="nav"\s+class="inline-flex/');
+    expect($nav)->not->toContain('booking_cta_clicked');
 });
 
-it('now page embeds the booking scheduler', function () {
-    $response = $this->get('/now');
+it('home contact embeds the booking scheduler', function () {
+    $response = $this->get('/');
 
     $response->assertOk();
     $response->assertSee('id="book"', escape: false);
@@ -645,14 +622,14 @@ it('homepage sections follow the hire-me funnel order', function () {
         ->and($system)->toBeLessThan($contact);
 });
 
-it('sitemap includes now and resume pages', function () {
+it('sitemap includes canonical pages but excludes retired destinations', function () {
     $response = $this->get('/sitemap.xml');
 
     $response->assertStatus(200);
-    $response->assertSee('/now', escape: false);
+    $response->assertDontSee('/now</loc>', escape: false);
     $response->assertSee('/resume', escape: false);
-    $response->assertSee('/kit', escape: false);
-    $response->assertSee('/delivery', escape: false);
+    $response->assertDontSee('/kit</loc>', escape: false);
+    $response->assertDontSee('/delivery</loc>', escape: false);
     $response->assertSee('/privacy', escape: false);
     $response->assertDontSee('/lead</loc>', escape: false);
     $response->assertSee('<priority>0.9</priority>', escape: false);
@@ -662,8 +639,6 @@ it('sitemap includes now and resume pages', function () {
 
     expect($freq[config('app.url').'/'])->toBe('weekly')
         ->and($freq[config('app.url').'/work'])->toBe('weekly')
-        ->and($freq[config('app.url').'/kit'])->toBe('weekly')
-        ->and($freq[config('app.url').'/now'])->toBe('weekly')
         ->and($freq[config('app.url').'/about'])->toBe('monthly');
 });
 
@@ -681,70 +656,14 @@ it('privacy page covers contact booking and analytics', function () {
     $this->get('/')->assertSee('href="/privacy"', escape: false);
 });
 
-it('recruiter kit one-pager links resume pdf bio and booking', function () {
-    $response = $this->get('/kit');
-
-    $response->assertOk();
-    $response->assertSee('Recruiter kit', escape: false);
-    $response->assertSee(config('site.footer.resume'), escape: false);
-    $response->assertSee('Download resume PDF', escape: false);
-    $response->assertSee('download="Karl-Hill-Resume.pdf"', escape: false);
-    $response->assertSee('/now#book', escape: false);
-    $response->assertSee('/work/jacobs-mission-software', escape: false);
-    $response->assertSee('/work/laads-daac', escape: false);
-    $response->assertSee('/work/flood-mapping-system', escape: false);
-    $response->assertSee('/work/nasa-earth-observatory', escape: false);
-    $response->assertSee('/research/global-flood-mapping', escape: false);
-    $response->assertSee('Peer-reviewed NASA flood mapping', escape: false);
-    $response->assertSee('GeoHorizons, 2026', escape: false);
-    $response->assertSee('https://doi.org/10.1144/gh2025-7', escape: false);
-    $response->assertDontSee('/blog/staff-to-em-first-90-days', escape: false);
-    $response->assertSee('/blog/release-governance', escape: false);
-    $response->assertDontSee('Staff IC to Engineering Manager: first 90 days', escape: false);
-    $response->assertSee('Release governance', escape: false);
-    $response->assertSee('kit-highlights__meta', escape: false);
-    $response->assertSee('/delivery', escape: false);
-    $response->assertSee('Engineering delivery', escape: false);
-    $response->assertDontSee('/#system', escape: false);
-    $response->assertDontSee('How software gets delivered', escape: false);
-    $response->assertDontSee('https://floodmapping.gsfc.nasa.gov/', escape: false);
-    $response->assertDontSee('https://ladsweb.modaps.eosdis.nasa.gov/search/', escape: false);
-    $response->assertDontSee('https://earthobservatory.nasa.gov/', escape: false);
-    $response->assertDontSee('https://github.com/karlhillx/bb-run', escape: false);
-    $response->assertSee(config('site.person.email'), escape: false);
-    $response->assertSee('kit-doc', escape: false);
-    $response->assertSee('Print kit', escape: false);
-    $response->assertSee('id="kit-glance-heading"', escape: false);
-    $response->assertSee('id="kit-links-heading"', escape: false);
-    $response->assertSee('kit-links-more', escape: false);
-    $response->assertSee('More links', escape: false);
-    $response->assertSee('data-print', escape: false);
-    $response->assertSee(config('site.person.availability'), escape: false);
-    $response->assertSee('id="kit-scope-heading"', escape: false);
-    $response->assertSee('Current scope', escape: false);
-    $response->assertSee('Engineering', escape: false);
-    $response->assertSee('Technical leadership', escape: false);
-    $response->assertSee('Team development', escape: false);
-    $response->assertSee('Operating model', escape: false);
-    $response->assertSee('Selected evidence', escape: false);
-    $response->assertDontSee('Open-source developer tooling', escape: false);
-    $response->assertDontSee('Engineering delivery and software process work', escape: false);
-    $response->assertDontSee('Career direction', escape: false);
-    $response->assertDontSee('Engineering management is a natural next step', escape: false);
-    $response->assertDontSee('Owns', escape: false);
-    $response->assertDontSee('Influences', escape: false);
-    $response->assertDontSee('Reserved', escape: false);
-    $response->assertDontSee('Engineering Manager is the next container for this scope', escape: false);
-    $response->assertSee('kit-bio', escape: false);
-    $response->assertSee('Staff Aerospace Software Engineer at Jacobs. Python mission software', escape: false);
-    $response->assertDontSee('at least 80% repository test coverage', escape: false);
-    $response->assertDontSee('two-approval pull-request governance', escape: false);
-    $response->assertDontSee('releases are safer and more predictable', escape: false);
-    $response->assertSee('Lead Software Engineer at SSAI supporting NASA Goddard', escape: false);
-    $response->assertDontSee('Day to day that means', escape: false);
-    $response->assertDontSee('I\'m a Staff Aerospace Software Engineer', escape: false);
-    $response->assertDontSee('Also open to Staff/Principal IC', escape: false);
-    $response->assertDontSee('Primary ask:', escape: false);
+it('retired recruiter kit redirects to the consolidated about page', function () {
+    $this->get('/kit')->assertStatus(301)->assertRedirect('/about');
+    $this->get('/about')->assertOk()
+        ->assertSee(config('site.person.availability'), false)
+        ->assertSee('How I work', false)
+        ->assertSee('href="/resume"', false);
+    $this->get('/resume')->assertOk()
+        ->assertSee('download="Karl-Hill-Resume.pdf"', false);
 });
 
 it('homepage hire exits live in the hero and nav, not a path strip', function () {
@@ -752,68 +671,64 @@ it('homepage hire exits live in the hero and nav, not a path strip', function ()
 
     expect($html)
         ->toContain('id="system"')
-        ->toContain('href="/kit"')
+        ->not->toContain('href="/kit"')
         ->toContain('href="/work"')
-        ->toContain('href="/now#book"')
-        ->toContain('Recruiter kit')
+        ->toContain('href="/#contact"')
+        ->not->toContain('Recruiter kit')
         ->toContain('Book a conversation')
         ->not->toContain('id="path"')
         ->not->toContain('id="why"')
         ->not->toContain('I Set the Bar');
 });
 
-it('legacy delivery url redirects to the delivery page', function () {
-    $this->get('/lead')
-        ->assertRedirect('/delivery');
+it('both legacy delivery urls redirect directly to the Jacobs practices', function () {
+    foreach (['/lead', '/delivery'] as $path) {
+        $this->get($path)->assertStatus(301)
+            ->assertRedirect('/work/jacobs-mission-software#delivery-practices');
+    }
 
-    $this->get('/delivery')
+    $this->get('/work/jacobs-mission-software')
         ->assertOk()
         ->assertSee('Engineering delivery', escape: false)
         ->assertSee('Definition of Done', escape: false)
         ->assertSee('Pull request rubric', escape: false)
-        ->assertSee('Correctness', escape: false)
-        ->assertSee('Evidence', escape: false)
+        ->assertSee('<strong>correctness</strong>', escape: false)
+        ->assertSee('<strong>evidence</strong>', escape: false)
         ->assertSee('Make integration risk visible', escape: false)
         ->assertSee('Make the practices shared', escape: false)
-        ->assertSee('id="done"', escape: false)
-        ->assertSee('id="reviews"', escape: false)
-        ->assertSee('id="risk"', escape: false)
-        ->assertSee('id="coaching"', escape: false)
-        ->assertSee('href="/kit"', escape: false)
-        ->assertSee('karlhill.com/delivery', escape: false)
+        ->assertSee('id="delivery-practices"', escape: false)
+        ->assertSee('id="definition-of-done"', escape: false)
+        ->assertSee('id="pull-request-rubric"', escape: false)
+        ->assertSee('id="make-integration-risk-visible"', escape: false)
+        ->assertSee('id="make-the-practices-shared"', escape: false)
+        ->assertDontSee('href="/kit"', escape: false)
         ->assertDontSee('Kubernetes Mission Mesh', escape: false);
 });
 
-it('now page shows a fresh updated date and kit link', function () {
-    $this->get('/now')
+it('about preserves the current focus date without advertising retired pages', function () {
+    $this->get('/about')
         ->assertOk()
         ->assertSee('Updated September 16, 2026', escape: false)
-        ->assertSee('href="/kit"', escape: false)
-        ->assertSee('Recruiter kit', escape: false);
+        ->assertDontSee('href="/kit"', escape: false)
+        ->assertDontSee('href="/now"', escape: false);
 });
 
-it('footer explore includes kit on the hire path', function () {
+it('footer utilities are consistent across home and resume', function () {
     $home = $this->get('/')->assertOk()->getContent();
     expect($home)
-        ->toContain('href="/now"')
-        ->toContain('>Now</a>')
-        ->toContain('>Writing</a>')
-        ->toContain('>Recruiter Kit</a>')
+        ->not->toContain('href="/now"')
+        ->toContain('href="/blog"')
+        ->not->toContain('Recruiter Kit')
         ->not->toContain('>Delivery</a>');
 
     $this->get('/resume')
         ->assertOk()
-        ->assertSee('href="/kit"', escape: false)
-        ->assertSee('>Recruiter Kit</a>', escape: false);
-
-    $kit = $this->get('/kit')->assertOk()->getContent();
-    expect($kit)->toContain('href="/resume"')
-        ->and($kit)->not->toContain('btn-sweep inline-flex items-center gap-3 border border-neutral-700 text-neutral-300 font-semibold px-6 py-3 text-xs uppercase tracking-widest w-fit">');
+        ->assertDontSee('href="/kit"', escape: false)
+        ->assertSee('href="/blog"', escape: false);
 });
 
 it('keeps the hire path free of ambient pointer chrome', function () {
     $this->get('/')->assertSee('data-features="contact reveal media"', escape: false);
-    $this->get('/now')->assertSee('data-features="reveal"', escape: false);
     $this->get('/work')->assertSee('data-features="reveal media"', escape: false);
     $this->get('/about')->assertSee('data-features="reveal"', escape: false);
     $this->get('/')->assertDontSee('page-spotlight', escape: false);
@@ -822,7 +737,7 @@ it('keeps the hire path free of ambient pointer chrome', function () {
 it('only flags the contact chunk where the form renders', function () {
     $this->get('/')->assertSee('data-contact-form', escape: false);
 
-    foreach (['/now', '/work', '/about', '/resume', '/kit', '/blog', '/privacy'] as $path) {
+    foreach (['/work', '/about', '/resume', '/blog', '/privacy'] as $path) {
         $html = $this->get($path)->assertOk()->getContent();
         expect($html)->not->toContain('data-contact-form')
             ->and($html)->not->toMatch('/data-features="[^"]*\bcontact\b/');

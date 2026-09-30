@@ -705,7 +705,7 @@
             </section>
 
             @foreach(['products' => 'Independent Products', 'tooling' => 'Open Source'] as $key => $sectionTitle)
-            @if(! empty($resume[$key]))
+                @continue(empty($resume[$key]))
                 <section class="section" aria-labelledby="{{ $key }}-heading">
                     <h2 id="{{ $key }}-heading" class="section-title">{{ $sectionTitle }}</h2>
                     <ul class="edu-list">
@@ -714,7 +714,6 @@
                         @endforeach
                     </ul>
                 </section>
-            @endif
             @endforeach
 
             <section class="stack-block" aria-labelledby="stack-heading">

@@ -18,10 +18,7 @@ it('tags booking and email CTAs in the footer with their placement', function ()
     $home = $this->get('/')->assertOk()->getContent();
 
     expect($home)->toContain('data-analytics-location="footer-home"')
-        ->and($home)->toContain('data-analytics-location="hero"')
-        ->and($home)->toContain('data-analytics-location="nav"')
-        ->and($home)->toContain('data-analytics-event="recruiter_link_opened"')
-        ->and($home)->toContain('data-analytics-target="kit"');
+        ->and($home)->not->toContain('data-analytics-target="kit"');
 });
 
 it('tags case study cards with the project slug', function () {
@@ -31,19 +28,18 @@ it('tags case study cards with the project slug', function () {
         ->and($work)->toContain('data-analytics-project="laads-daac"');
 });
 
-it('tags recruiter kit links with placement and target', function () {
-    $kit = $this->get('/kit')->assertOk()->getContent();
+it('tags resume downloads with placement', function () {
+    $resume = $this->get('/resume')->assertOk()->getContent();
 
-    expect($kit)->toContain('data-analytics-location="kit-actions"')
-        ->and($kit)->toContain('data-analytics-location="kit-links"')
-        ->and($kit)->toMatch('/data-analytics-target="[a-z0-9-]+"/');
+    expect($resume)->toContain('data-analytics-location="resume-hero"')
+        ->and($resume)->toContain('data-analytics-event="resume_downloaded"');
 });
 
 it('renders the booking embed the completion listener hooks into', function () {
-    $now = $this->get('/now')->assertOk()->getContent();
+    $now = $this->get('/')->assertOk()->getContent();
 
     expect($now)->toContain('class="booking-embed__frame"')
         ->and($now)->toContain('data-analytics-event="booking_cta_clicked"')
-        ->and($now)->toContain('data-analytics-location="now-hero"')
-        ->and($now)->toContain('data-analytics-location="now-embed-fallback"');
+        ->and($now)->toContain('data-analytics-location="footer-home"')
+        ->and($now)->toContain('data-analytics-location="contact"');
 });

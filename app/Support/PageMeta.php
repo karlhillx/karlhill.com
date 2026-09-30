@@ -77,11 +77,6 @@ final class PageMeta
         return self::fromSeo('about', '/about', 'about');
     }
 
-    public static function now(): self
-    {
-        return self::fromSeo('now', '/now', 'now');
-    }
-
     public static function privacy(): self
     {
         return self::fromSeo('privacy', '/privacy', null);
@@ -90,16 +85,6 @@ final class PageMeta
     public static function resume(): self
     {
         return self::fromSeo('resume', '/resume', 'resume');
-    }
-
-    public static function kit(): self
-    {
-        return self::fromSeo('kit', '/kit', 'kit');
-    }
-
-    public static function delivery(): self
-    {
-        return self::fromSeo('delivery', '/delivery', null);
     }
 
     public static function research(): self

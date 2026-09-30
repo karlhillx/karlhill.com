@@ -7,9 +7,6 @@
             <p>The common problem: turning complex domains into software people can use, teams can maintain, and organizations can trust.</p>
             <div class="flex flex-wrap gap-5 mt-5">
                 <a href="/about" class="portfolio-text-link">About Karl</a>
-                <a href="/resume" class="portfolio-text-link">Career &amp; credentials</a>
-                <a href="/kit" class="portfolio-text-link" data-analytics-event="recruiter_link_opened"
-                   data-analytics-location="home-background" data-analytics-target="kit">Recruiter kit</a>
             </div>
         </div>
         <div>

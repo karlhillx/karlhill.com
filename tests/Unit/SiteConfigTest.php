@@ -49,7 +49,6 @@ it('experience fragment powers resume and facts stay consistent', function () {
         ->and(config('site.facts.repos'))->toBe('roughly 20')
         ->and(config('site.facts.team'))->toBe('about 10')
         ->and(config('site.hero.lede'))->toContain('Thirty years')
-        ->and(config('site.kit.glance.0'))->toBe(config('site.person.bio'))
         ->and(config('site.now.body'))->not->toContain(config('site.facts.repos'))
         ->and(config('site.now.focus'))->toStartWith('This month:');
 
@@ -59,40 +58,15 @@ it('experience fragment powers resume and facts stay consistent', function () {
         ->and(config_path('site/work.php'))->toBeFile()
         ->and(config_path('site/projects.php'))->toBeFile()
         ->and(config_path('site/resume.php'))->toBeFile()
-        ->and(config_path('site/delivery.php'))->toBeFile();
+        ->and(config_path('site/about.php'))->toBeFile();
 
     expect(config('site.resume.phone'))->not->toBeEmpty()
         ->and(config('site.resume.impact'))->toBeEmpty()
         ->and(config('site.resume.expertise'))->not->toBeEmpty();
 });
 
-it('keeps the recruiter kit skim to a short primary row and evidence list', function () {
-    $links = collect(config('site.kit.links'));
-    $primary = $links->where('group', 'primary')->values();
-    $more = $links->where('group', 'more')->values();
-    $evidence = collect(config('site.kit.evidence'));
-
-    expect($primary)->toHaveCount(4)
-        ->and($primary->pluck('meta')->all())->toBe(['Download', 'Profile', 'Book', 'Current'])
-        ->and($more->count())->toBe(7)
-        ->and($evidence)->toHaveCount(8)
-        ->and($evidence->pluck('path')->filter()->values()->all())->toBe([
-            '/work/jacobs-mission-software',
-            '/work/flood-mapping-system',
-            '/work/laads-daac',
-            '/work/nasa-earth-observatory',
-            '/work/developer-tooling',
-            '/work/the-dry-standard',
-            '/research/global-flood-mapping',
-            '/blog/release-governance',
-        ])
-        ->and($evidence->where('meta', 'Writing')->pluck('path')->values()->all())->toBe([
-            '/blog/release-governance',
-        ])
-        ->and($evidence->firstWhere('path', '/research/global-flood-mapping'))->toMatchArray([
-            'label' => 'Peer-reviewed NASA flood mapping',
-            'meta' => 'GeoHorizons, 2026',
-        ])
-        ->and($links->pluck('url')->filter())->toBeEmpty()
-        ->and($links->pluck('path')->filter()->values()->all())->not->toContain('/#system');
+it('keeps working approach concise and drops retired page data', function () {
+    expect(config('site.about.approach'))->toHaveCount(2)
+        ->and(config('site.kit'))->toBeNull()
+        ->and(config('site.delivery'))->toBeNull();
 });

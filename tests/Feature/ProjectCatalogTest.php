@@ -79,10 +79,10 @@ it('portfolio pages preserve mission anchors and product presentation', function
         '~<img\b[^>]*src="/img/webp/ss-dry-standard\.webp"[^>]*width="1200"[^>]*height="675"[^>]*loading="lazy"~',
         $html,
     );
-    $this->assertMatchesRegularExpression(
-        '~<a\b[^>]*href="https://drinkdrystandard\.com/"[^>]*data-no-ext~',
-        $html,
-    );
+    $response->assertSee('href="'.url('/work/the-dry-standard').'"', false)
+        ->assertDontSee('href="https://drinkdrystandard.com/"', false);
+    $this->get('/work/the-dry-standard')->assertOk()
+        ->assertSee('href="https://drinkdrystandard.com/"', false);
 })->with([
     'home' => ['/', '/work#work'],
     'work' => ['/work', '#work'],

@@ -49,12 +49,9 @@ class LlmsTxtBuilder
             $this->fileItem('Home', $base.'/', 'Work, selected projects, and contact'),
             $this->fileItem('How software gets delivered', $base.'/#system', 'Code, verify, integrate, release'),
             $this->fileItem('Work', $base.'/work', 'Aerospace mission software and public case studies'),
-            $this->fileItem('Recruiter kit', $base.'/kit', 'Bio, resume PDF, and selected work to share'),
-            $this->fileItem('Now', $base.'/now', 'Current status and booking'),
             $this->fileItem('Writing', $base.'/blog', 'Essays on leadership, delivery, and mission software'),
-            $this->fileItem('About', $base.'/about', 'Career, research, and music'),
+            $this->fileItem('About', $base.'/about', 'Career, current focus, working approach, and opportunities'),
             $this->fileItem('Research', $base.'/research/global-flood-mapping', 'Karl Hill on NASA Global Water and Flood Mapping — GeoHorizons, GWFMS, Software (Equal)'),
-            $this->fileItem('Engineering delivery', $base.'/delivery', 'Definition of Done, PR rubric, integration risk, coaching'),
             $this->fileItem('Resume', $base.'/resume', 'Canonical HTML curriculum vitae'),
             $this->fileItem('Privacy', $base.'/privacy', 'Contact, booking, and analytics'),
         ];

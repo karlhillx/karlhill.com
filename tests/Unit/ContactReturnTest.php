@@ -6,11 +6,11 @@ it('allows public pages including article and case-study paths', function (strin
     expect(ContactReturn::path($candidate))->toBe($expected);
 })->with([
     ['/', '/'],
-    ['/now', '/now'],
+    ['/now', '/'],
     ['/about', '/about'],
     ['/resume', '/resume'],
-    ['/kit', '/kit'],
-    ['/delivery', '/delivery'],
+    ['/kit', '/'],
+    ['/delivery', '/'],
     ['/research', '/research'],
     ['/research/global-flood-mapping', '/research/global-flood-mapping'],
     ['/work', '/work'],

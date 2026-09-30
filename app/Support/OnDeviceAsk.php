@@ -3,42 +3,10 @@
 namespace App\Support;
 
 /**
- * Compact hire facts for the on-device Prompt API. Print-only kit sections
- * never reach innerText, and the ask widget used to scrape itself — this
- * brief is the fallback the model can always see.
+ * Compact resume facts for the on-device Prompt API, independent of hidden UI.
  */
 final class OnDeviceAsk
 {
-    /**
-     * @param  array<string, mixed>  $person
-     * @param  array<string, mixed>  $kit
-     */
-    public static function kitBrief(array $person, array $kit): string
-    {
-        $scope = collect($kit['scope'] ?? [])
-            ->filter(fn ($row): bool => is_array($row) && filled($row['label'] ?? null) && filled($row['body'] ?? null))
-            ->map(fn (array $row): string => $row['label'].': '.$row['body'])
-            ->implode("\n");
-
-        $evidence = collect($kit['evidence'] ?? [])
-            ->pluck('label')
-            ->filter(fn ($label): bool => is_string($label) && $label !== '')
-            ->implode('; ');
-
-        $glance = collect($kit['glance'] ?? [])
-            ->filter(fn ($line): bool => is_string($line) && $line !== '')
-            ->implode("\n");
-
-        return self::join([
-            self::identityLine($person),
-            self::prefixed('Open to', $person['availability'] ?? null),
-            self::prefixed('Direction', $person['availability_long'] ?? null),
-            $glance !== '' ? "At a glance:\n{$glance}" : null,
-            $scope !== '' ? "Current scope:\n{$scope}" : null,
-            $evidence !== '' ? 'Selected evidence: '.$evidence : null,
-        ]);
-    }
-
     /**
      * @param  array<string, mixed>  $person
      * @param  array<string, mixed>  $resume

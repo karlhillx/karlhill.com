@@ -20,7 +20,9 @@ test('featured work appears in the first viewport on desktop and immediately aft
         await expect(article.locator('.portfolio-card__brief')).toBeVisible();
         await expect(article.locator('.portfolio-card__impact')).toBeVisible();
         await expect(article.getByRole('link', { name: /Read case study/ })).toBeVisible();
+        await expect(article.locator('.portfolio-card__actions a')).toHaveCount(1);
     }
+    await expect(page.locator('.tooling-proof__index')).toHaveCount(1);
 });
 
 test('every portfolio image loads without broken sources or horizontal page overflow', async ({
@@ -105,4 +107,72 @@ test('command search finds the tooling collection by repository name', async ({ 
     await page.keyboard.press('Control+K');
     await page.locator('#command-input').fill('pipeguard');
     await expect(page.getByRole('option', { name: /Developer tooling/ })).toBeVisible();
+});
+
+test('open source shows only the three selected tools in order', async ({ page }) => {
+    for (const path of ['/', '/work', '/work/developer-tooling', '/resume']) {
+        await page.goto(path);
+        const lists = page.locator(
+            '.tooling-proof__index, .tooling-directory, section[aria-labelledby="resume-open-source"] ul'
+        );
+        expect(await lists.count()).toBeGreaterThan(0);
+        await expect(lists).toHaveCount(1);
+        for (const list of await lists.all()) {
+            expect(
+                await list
+                    .locator('a')
+                    .evaluateAll((links) => links.map((link) => link.getAttribute('href')))
+            ).toEqual([
+                'https://github.com/karlhillx/bb-run',
+                'https://github.com/karlhillx/testrisk',
+                'https://github.com/karlhillx/pipeguard',
+            ]);
+        }
+        await expect(page.locator('main')).not.toContainText(/sim-rs|driftlens|drift-rs/);
+    }
+    await expect(
+        page.locator('#credentials').getByRole('link', { name: /SAFe.*Agilist/ })
+    ).toHaveAttribute(
+        'href',
+        'https://www.credly.com/badges/55c2cb68-b3d6-4da6-8f76-dd6ff2fa37b4/public_url'
+    );
+});
+
+test('booking works without JavaScript and stays collapsed until requested', async ({
+    browser,
+    baseURL,
+    isMobile,
+}) => {
+    const context = await browser.newContext({
+        javaScriptEnabled: false,
+        viewport: { width: isMobile ? 320 : 1440, height: 900 },
+    });
+    const page = await context.newPage();
+    try {
+        await page.goto(`${baseURL}/`);
+        const booking = page.locator('.contact-booking');
+        await expect(booking).not.toHaveAttribute('open');
+        await booking.locator('summary').focus();
+        await page.keyboard.press('Enter');
+        await expect(booking).toHaveAttribute('open');
+        await expect(page.locator('.booking-embed__frame')).toBeVisible();
+        await page.goto(`${baseURL}/resume`);
+        await page.locator('main a[href="/#book"]').click();
+        await expect(page).toHaveURL(/\/#book$/);
+        await expect(booking).toHaveAttribute('open');
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+            true
+        );
+    } finally {
+        await context.close();
+    }
+});
+
+test('legacy delivery bookmarks reach the practices within the Jacobs study', async ({ page }) => {
+    for (const path of ['/delivery', '/lead']) {
+        await page.goto(path);
+        await expect(page).toHaveURL(/\/work\/jacobs-mission-software#delivery-practices$/);
+        await expect(page.locator('#delivery-practices')).toBeVisible();
+        await expect(page.locator('#definition-of-done')).toBeVisible();
+    }
 });

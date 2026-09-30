@@ -17,7 +17,7 @@ final class PersonJsonLd
         $personId = "{$url}/#person";
 
         // Identity only. Next-role copy stays on kit, llms.txt, and the
-        // hire packet — not on the Person node, About, or /now.
+        // hire packet and About — not on the Person node.
         $description = is_string($person['bio'] ?? null) ? $person['bio'] : '';
 
         $disambiguating = is_string($person['disambiguating_description'] ?? null)

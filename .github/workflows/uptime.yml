@@ -57,7 +57,7 @@ jobs:
             rm -f "$body"
           }
 
-          # Legacy /lead must keep redirecting to /delivery (not 200).
+          # Retired pages must resolve directly to their consolidated destinations.
           check_redirect() {
             local path="$1" expect_location="$2"
             local url="${SITE_URL}${path}"
@@ -86,12 +86,13 @@ jobs:
           check /work/laads-daac 'case-study-media__label'
           check /about 'Beyond the work'
           check /research/global-flood-mapping 'citation_doi'
-          check /delivery 'Definition of Done'
+          check /work/jacobs-mission-software 'Definition of Done'
           check /blog 'post-list-title'
-          check /now 'booking-embed'
-          check /kit 'kit-glance-heading'
           check /resume 'resume-experience'
-          check_redirect /lead '/delivery'
+          check_redirect /lead '/work/jacobs-mission-software#delivery-practices'
+          check_redirect /delivery '/work/jacobs-mission-software#delivery-practices'
+          check_redirect /now '/#book'
+          check_redirect /kit '/about'
           check /feed.xml '<feed'
           check /sitemap.xml '<urlset'
           check /api/site.json '"name"'

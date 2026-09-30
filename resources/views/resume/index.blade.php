@@ -31,15 +31,15 @@
                 </x-site.button>
             @endif
             @if(filled($bookingUrl))
-                <x-site.button variant="secondary" href="/now#book"
+                <x-site.button variant="secondary" href="/#book"
                     data-analytics-event="booking_cta_clicked"
                     data-analytics-location="resume-hero">
                     {{ $bookingLabel }}
                 </x-site.button>
             @endif
-            @if(! empty($linkedin))
-                <x-site.button variant="link" :href="$linkedin['url']" target="_blank" rel="me noopener noreferrer">
-                    LinkedIn
+            @if(\App\Support\SiteFeatures::contentCredentials())
+                <x-site.button variant="link" href="/api/credentials.json">
+                    Content credentials
                 </x-site.button>
             @endif
         </div>
@@ -229,7 +229,7 @@
                 </section>
 
                 @foreach(['products' => ['resume-products', 'Independent Products'], 'tooling' => ['resume-open-source', 'Open Source']] as $key => [$sectionId, $sectionTitle])
-                @if(! empty($resume[$key]))
+                    @continue(empty($resume[$key]))
                     <section class="resume-section" aria-labelledby="{{ $sectionId }}" data-reveal>
                         <h2 id="{{ $sectionId }}" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">{{ $sectionTitle }}</h2>
                         <ul class="resume-bullets list-disc pl-5 text-neutral-300">
@@ -245,7 +245,6 @@
                             @endforeach
                         </ul>
                     </section>
-                @endif
                 @endforeach
 
                 @php

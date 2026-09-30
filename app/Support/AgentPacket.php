@@ -76,7 +76,7 @@ final class AgentPacket
                     'name' => 'hire-packet',
                     'uri' => $this->catalog->baseUrl().'/api/site.json',
                     'mimeType' => 'application/json',
-                    'description' => 'Person, experience, case studies, writing, and recruiter kit.',
+                    'description' => 'Person, experience, case studies, writing, and hiring resources.',
                 ],
                 [
                     'name' => 'agent-card',
@@ -169,8 +169,8 @@ final class AgentPacket
                 ],
                 [
                     'id' => 'recruiter-kit',
-                    'name' => 'Recruiter kit',
-                    'description' => 'Recruiter overview: bio, resume PDF, booking, and selected work.',
+                    'name' => 'About and hiring',
+                    'description' => 'Professional background, current focus, working approach, and opportunities.',
                     'tags' => ['recruiting', 'kit', 'resume'],
                     'examples' => [
                         'GET '.$kit['url'],

@@ -1,5 +1,5 @@
 ---
-updated: '2026-09-16'
+updated: '2026-09-30'
 lede: Hands-on engineering and technical delivery on a simulation program — roughly 20 repositories, three environments, a team of about 10, and partner and vendor teams. Six engineers onboarded and coached. A portable messaging layer is in use; ownership is shared.
 role: Staff Aerospace Software Engineer — implementation, technical delivery, and coaching.
 leadership:
@@ -94,3 +94,27 @@ Program-specific architecture and operational details are not included here.
 Read the status labels as the adoption record: delivery gates are the baseline, messaging is in use with shared ownership, the unit-test standard is in review, and cross-team delivery is ongoing work.
 
 A concrete defect: some tests reported coverage without failing when the behavior was wrong, including filters whose no-op path never triggered a failure. Remaining test work is quality — isolation, representative data, and failure cases on changed code — not another coverage number.
+
+## Delivery practices
+
+A change is ready when another engineer can review it, rebuild it, and see the evidence. These expectations live in tests, CI, review, and coaching, not in a separate process checklist.
+
+### Definition of Done
+
+- Purpose, scope, and ownership are clear.
+- Tests cover changed behavior, including relevant failure cases.
+- Required quality, packaging, dependency, and security checks pass.
+- Interfaces and deployment assumptions have been checked, with remaining risks recorded.
+- Versioning, release notes, and supporting documentation are ready for the next person.
+
+### Pull request rubric
+
+Review for **correctness** at boundaries and failure cases, **evidence** that tests check meaningful behavior, **maintainability** of interfaces and error handling, and **context** for important decisions. Reviews should improve the change and help the author understand why.
+
+### Make integration risk visible
+
+A working component is not a working release. Identify dependencies and interface assumptions before they block implementation, exercise integration paths throughout development, and record blockers, ownership, and the evidence needed to move forward. Keep changes small enough to test, explain, and recover.
+
+### Make the practices shared
+
+Put repeatable checks into tooling rather than reminders. Explain the reasoning in reviews, include release expectations in onboarding, and adjust practices when they add work without improving delivery.

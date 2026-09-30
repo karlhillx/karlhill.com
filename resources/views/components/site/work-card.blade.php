@@ -5,7 +5,6 @@
     $summary = $project['summary'] ?? null;
     $study = $project['case_study'];
     $href = \App\Support\ProjectCatalog::cardUrl($project);
-    $liveUrl = \App\Support\ProjectCatalog::liveUrl($project);
     $isMission = $group === 'mission';
     $isTooling = $group === 'tooling';
     $wide = $isMission || $isTooling || (! $featured && $group === 'product');
@@ -80,14 +79,6 @@
                data-analytics-event="case_study_opened" data-analytics-project="{{ $project['slug'] }}">
                 Read case study <span class="sr-only">: {{ $project['title'] }}</span><span aria-hidden="true">→</span>
             </a>
-            @if($liveUrl)
-                <a href="{{ $liveUrl }}" class="portfolio-card__external" target="_blank" rel="noopener noreferrer" data-no-ext>
-                    {{ \App\Support\ProjectCatalog::artifactLabel($project) }} <span aria-hidden="true">↗</span>
-                    <span class="sr-only">(opens in a new tab)</span>
-                </a>
-            @else
-                <span class="portfolio-caption">Public scope &amp; delivery practices</span>
-            @endif
         </div>
     </div>
 </article>

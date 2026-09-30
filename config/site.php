@@ -11,17 +11,16 @@ use App\Support\Booking;
  * Page roles (portfolio first — one job per URL):
  * - /         identity, six featured projects, delivery snapshot, background, contact
  * - /work     mission, NASA, developer tooling, independent products, earlier work
- * - /kit      recruiter leave-behind: bio, open-to, evidence links, PDF
- * - /now      this-month status + booking (#book). Not a bio. Not the ask.
  * - /blog     writing
- * - /about    person: career, research, short music coda. Not a leadership manifesto.
+ * - /about    career, current focus, working approach, opportunities, music coda
  * - /research/global-flood-mapping  Karl Hill companion to the GeoHorizons GWFMS paper
- * - /delivery written bar for reviews, integration, and release (not advertised from About)
- * - /resume   HTML CV evidence (secondary; PDF from kit)
- * - /privacy  contact, booking, analytics (footer credit strip)
- * - /lead     301 → /delivery (legacy)
+ * - /resume   HTML CV and PDF, including certifications (secondary utility)
+ * - /privacy  contact, booking, analytics (footer utility row)
+ * - /kit      301 → /about
+ * - /now      301 → /#book; focus data lives on About
+ * - /delivery and /lead  301 → /work/jacobs-mission-software#delivery-practices
  * - /music    do not add — music stays on /about. This is a career site.
- * - footer    home = contact form; other pages = Book + email; Explore includes Kit
+ * - footer    contact + booking; Writing, Resume, GitHub, LinkedIn, Privacy
  */
 $social = require __DIR__.'/site/social.php';
 
@@ -64,7 +63,7 @@ return [
         ],
     ],
 
-    // Cal.com (or Calendly). CTAs on /now, homepage availability, footer, menu.
+    // Cal.com (or Calendly). Scheduler alongside the homepage contact form.
     'booking' => [
         'url' => $bookingUrl,
         'label' => env('BOOKING_LABEL', 'Book a conversation'),
@@ -103,8 +102,6 @@ return [
     'about' => require __DIR__.'/site/about.php',
     'now' => require __DIR__.'/site/now.php',
     'privacy' => require __DIR__.'/site/privacy.php',
-    'kit' => require __DIR__.'/site/kit.php',
-    'delivery' => require __DIR__.'/site/delivery.php',
     'system' => require __DIR__.'/site/system.php',
     'github' => require __DIR__.'/site/github.php',
     'resume' => require __DIR__.'/site/resume.php',

@@ -55,9 +55,6 @@
                     @endforeach
                 </section>
             @endif
-            @if($group === 'tooling')
-                <x-site.tooling-list />
-            @endif
         </x-site.section>
     @endforeach
 

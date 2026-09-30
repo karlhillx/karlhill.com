@@ -43,4 +43,4 @@ The published evaluation reports 90.9% overall accuracy and a 3.5% false-positiv
 
 Co-author of [*A web-based high-resolution global water and flood mapping platform*](/research/global-flood-mapping), published in GeoHorizons (7 July 2026). CRediT: Software (Equal); Writing – review & editing (Equal). The paper describes the Global Water and Flood Mapping System, a NASA-supported experimental portal, and its scientific evaluation. It is not a claim of sole authorship.
 
-[Peer-reviewed research](/research/global-flood-mapping). [Read the paper](https://doi.org/10.1144/gh2025-7).
+[Read the paper](https://doi.org/10.1144/gh2025-7).

@@ -34,7 +34,30 @@
     </x-site.page-hero>
 
     @include('about.partials.arc', ['sectionNumber' => '01'])
-    @include('partials.research', ['sectionNumber' => '02'])
+
+    <x-site.section id="focus" section-label="Current focus" border="soft">
+        <div class="grid md:grid-cols-[200px_1fr] gap-8 md:gap-14" data-reveal>
+            <h2 class="portfolio-eyebrow">Current focus</h2>
+            <div class="about-lede max-w-2xl">
+                <p>{{ config('site.now.lede') }} {{ config('site.now.body') }}</p>
+                <p>{{ config('site.now.focus') }}</p>
+                <p class="portfolio-caption">Updated {{ config('site.now.updated') }}</p>
+            </div>
+        </div>
+    </x-site.section>
+
+    <x-site.section id="approach" section-label="How I work" border="soft">
+        <div class="grid md:grid-cols-[200px_1fr] gap-8 md:gap-14" data-reveal>
+            <h2 class="portfolio-eyebrow">How I work</h2>
+            <div class="about-lede max-w-2xl">
+                @foreach(config('site.about.approach') as $paragraph)
+                    <p>{{ $paragraph }}</p>
+                @endforeach
+                <p>{{ config('site.person.availability') }}</p>
+                <a href="/#contact" class="portfolio-text-link">Get in touch <span aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </x-site.section>
 
     @if($beyondParagraphs !== [])
         <section id="beyond" aria-label="Beyond the work" class="site-section site-section--soft border-t border-neutral-800/50">

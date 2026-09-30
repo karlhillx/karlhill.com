@@ -67,7 +67,7 @@ final class SiteCatalog
         $now = config('site.now', []);
 
         return [
-            'url' => $this->baseUrl().'/now',
+            'url' => $this->baseUrl().'/about#focus',
             'updated' => $now['updated'] ?? null,
             'lede' => is_string($now['lede'] ?? null) ? $now['lede'] : null,
             'body' => is_string($now['body'] ?? null) ? $now['body'] : null,
@@ -331,8 +331,8 @@ final class SiteCatalog
         $base = $this->baseUrl();
 
         return [
-            'url' => $base.'/kit',
-            'delivery' => $base.'/delivery',
+            'url' => $base.'/about',
+            'delivery' => $base.'/work/jacobs-mission-software#delivery-practices',
             'system' => $base.'/#system',
             'resume_html' => $base.'/resume',
             'resume_pdf' => $base.config('site.footer.resume'),
@@ -392,20 +392,16 @@ final class SiteCatalog
         $siteUpdated = $this->lastUpdated()->toDateString();
         $latestPost = $this->latestPostModified()?->toDateString() ?? $siteUpdated;
         $latestWork = $this->latestCaseStudyUpdated()?->toDateString() ?? $siteUpdated;
-        $nowUpdated = $this->nowUpdated()?->toDateString() ?? $siteUpdated;
 
         // Evergreen pages have no editorial date of their own; the most recent
         // change anywhere on the site is the honest upper bound.
-        // Primary hire path: Home → Work → Kit → Book (/now). About/Resume are secondary.
+        // Primary path: Home → Work → evidence → Contact.
         $urls = [
             ['loc' => $base.'/', 'lastmod' => $siteUpdated, 'changefreq' => 'weekly', 'priority' => '1.0'],
             ['loc' => $base.'/work', 'lastmod' => $latestWork, 'changefreq' => 'weekly', 'priority' => '0.9'],
-            ['loc' => $base.'/kit', 'lastmod' => $siteUpdated, 'changefreq' => 'weekly', 'priority' => '0.9'],
-            ['loc' => $base.'/now', 'lastmod' => $nowUpdated, 'changefreq' => 'weekly', 'priority' => '0.85'],
             ['loc' => $base.'/blog', 'lastmod' => $latestPost, 'changefreq' => 'weekly', 'priority' => '0.8'],
             ['loc' => $base.'/about', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],
             ['loc' => $base.'/research/global-flood-mapping', 'lastmod' => $siteUpdated, 'changefreq' => 'yearly', 'priority' => '0.7'],
-            ['loc' => $base.'/delivery', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.6'],
             ['loc' => $base.'/resume', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],
             ['loc' => $base.'/privacy', 'lastmod' => $siteUpdated, 'changefreq' => 'yearly', 'priority' => '0.3'],
         ];
@@ -431,7 +427,7 @@ final class SiteCatalog
         return $urls;
     }
 
-    /** Most recent editorial change anywhere: posts, case studies, or /now. */
+    /** Most recent editorial change: posts, case studies, or current focus. */
     public function lastUpdated(): CarbonImmutable
     {
         $latest = collect([

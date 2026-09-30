@@ -116,7 +116,7 @@ class ContactController extends Controller
      */
     protected function sentPayload(): array
     {
-        $bookingUrl = filled(config('site.booking.url')) ? url('/now').'#book' : null;
+        $bookingUrl = filled(config('site.booking.url')) ? url('/').'#book' : null;
 
         return [
             'status' => 'contact-sent',

@@ -47,7 +47,7 @@ try {
         });
 
         let builder = new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']);
-        if (url.includes('/now')) {
+        if (await page.locator('.booking-embed').count()) {
             builder = builder.exclude('.booking-embed');
         }
 

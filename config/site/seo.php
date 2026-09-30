@@ -24,11 +24,6 @@ return [
         'description' => 'Karl Hill (Karl M. Hill), Staff Aerospace Software Engineer at Jacobs. NASA Goddard Earth science 2017–2025; GeoHorizons co-author on NASA flood mapping.',
         'og_description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs, NASA flood-mapping co-author, and musician and songwriter. Washington, DC.',
     ],
-    'now' => [
-        'title' => 'Now — Karl Hill',
-        'description' => 'Karl Hill is building mission software and the engineering systems around it at Jacobs. Python services, messaging, CI/CD, and technical delivery.',
-        'og_description' => 'Karl Hill at Jacobs: mission software, delivery practices, and problems that cross teams. Updated September 16, 2026.',
-    ],
     'privacy' => [
         'title' => 'Privacy — Karl Hill',
         'description' => 'How karlhill.com handles contact messages, booking, and analytics. No ads, no account system, no selling of visitor data.',
@@ -38,16 +33,6 @@ return [
         'title' => 'Resume — Karl Hill',
         'description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs. NASA Earth science, GeoHorizons flood mapping, Python, technical leadership, and software delivery.',
         'og_description' => 'Karl Hill resume: software engineering, NASA flood mapping, technical skills, education, and credentials.',
-    ],
-    'kit' => [
-        'title' => 'Recruiter kit — Karl Hill',
-        'description' => 'Karl Hill, Staff Aerospace Software Engineer at Jacobs: open to, NASA flood-mapping paper, selected evidence, and a resume to forward.',
-        'og_description' => 'Karl Hill recruiter kit: Jacobs scope, GeoHorizons NASA flood mapping, and paths to Principal-level technical leadership or Engineering Manager.',
-    ],
-    'delivery' => [
-        'title' => 'Engineering delivery — Karl Hill',
-        'description' => 'Karl Hill on code review, testing, integration, and release readiness.',
-        'og_description' => 'Karl Hill: reviews, shared standards, integration risk, and software delivery.',
     ],
     'research' => [
         'title' => 'NASA Global Water and Flood Mapping Research',
