@@ -421,13 +421,18 @@ article.surface-card:focus-within {
     --tilt-x: 0deg;
     --tilt-y: 0deg;
     isolation: isolate;
-    transition: transform 0.35s var(--ease-out-spring);
+    transition:
+        transform 0.35s var(--ease-out-spring),
+        box-shadow 0.35s var(--ease-out-soft);
 }
 
 .surface-card-media.pointer-lit:hover,
 .surface-card-media.pointer-lit:focus-within {
-    transform: perspective(920px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    transform: perspective(920px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-2px);
     transform-style: preserve-3d;
+    box-shadow:
+        0 10px 24px -10px color-mix(in oklab, var(--accent) 18%, transparent),
+        0 0 0 1px color-mix(in oklab, var(--accent) 35%, var(--hairline-strong));
 }
 
 .surface-card-media.pointer-lit::after {
@@ -463,13 +468,13 @@ article.surface-card:focus-within {
 }
 
 .surface-chip {
-    border-radius: 0.125rem;
+    border-radius: 0.25rem;
     border: 1px solid var(--border-strong);
     background-color: color-mix(in oklab, var(--panel) 72%, transparent);
 }
 
 .surface-chip-accent {
-    border-radius: 0.125rem;
+    border-radius: 0.25rem;
     border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
     background-color: color-mix(in oklab, var(--accent) 10%, transparent);
 }

@@ -59,6 +59,32 @@
         <div class="site-shell resume-shell">
             {{-- Sidebar first in DOM so print float:right sits beside the main column like the classic PDF. --}}
             <aside class="resume-aside" aria-label="Contact and expertise">
+                <nav class="resume-aside-block resume-nav print:hidden" aria-label="Resume sections">
+                    <h2 class="resume-aside-title">Jump to</h2>
+                    <ul class="resume-aside-list resume-jump-list">
+                        <li><a href="#resume-summary">Summary</a></li>
+                        @if(! empty($resume['impact']))
+                            <li><a href="#resume-impact">Impact</a></li>
+                        @endif
+                        <li><a href="#resume-experience">Experience</a></li>
+                        @if(! empty($resume['tooling']))
+                            <li><a href="#resume-open-source">Open Source</a></li>
+                        @endif
+                        @if(! empty($research['identity']))
+                            <li><a href="#resume-publications">Publications</a></li>
+                        @endif
+                        @if(! empty($education))
+                            <li><a href="#resume-education">Education</a></li>
+                        @endif
+                        @if(! empty($certifications))
+                            <li><a href="#credentials">Certifications</a></li>
+                        @endif
+                        @if(! empty($stack))
+                            <li><a href="#stack">Technical Stack</a></li>
+                        @endif
+                    </ul>
+                </nav>
+
                 <section class="resume-aside-block">
                     <h2 class="resume-aside-title">Details</h2>
                     <ul class="resume-aside-list">

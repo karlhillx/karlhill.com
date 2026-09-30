@@ -38,9 +38,9 @@
                     aria-keyshortcuts="Meta+K Control+K"
                     title="Search pages and sections (⌘K)"
                     data-mod-shortcut-host
-                    class="hidden lg:inline-flex items-center justify-center gap-1.5 min-h-11 px-2.5 border border-[color:var(--border-strong)] hover:border-accent text-neutral-400 hover:text-accent transition-colors shrink-0">
+                    class="hidden sm:inline-flex items-center justify-center gap-1.5 min-h-11 px-2.5 border border-[color:var(--border-strong)] hover:border-accent text-neutral-400 hover:text-accent transition-colors shrink-0">
                 <x-site.icons.search class="w-4 h-4 shrink-0" />
-                <kbd class="nav-shortcut" data-mod-shortcut aria-hidden="true">⌘K</kbd>
+                <kbd class="nav-shortcut hidden lg:inline" data-mod-shortcut aria-hidden="true">⌘K</kbd>
             </button>
 
             <x-site.theme-toggle />

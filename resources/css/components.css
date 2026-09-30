@@ -2821,6 +2821,42 @@ a.series-chapters__card:hover .series-chapters__title,
     color: var(--accent);
 }
 
+.resume-jump-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.45rem;
+}
+
+.resume-jump-list li {
+    display: inline-flex;
+}
+
+.resume-jump-list a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    background: color-mix(in oklab, var(--panel) 70%, transparent);
+    color: var(--muted);
+    transition:
+        color 180ms ease,
+        border-color 180ms ease,
+        background-color 180ms ease;
+}
+
+.resume-jump-list a:hover,
+.resume-jump-list a:focus-visible {
+    color: var(--accent);
+    border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+    background: color-mix(in oklab, var(--accent) 8%, var(--panel));
+}
+
 .resume-link-url {
     display: none;
 }
