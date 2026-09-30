@@ -18,16 +18,10 @@ use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\WebmentionController;
 use App\Http\Controllers\WorkController;
 use App\Support\PageMeta;
-use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
-use Illuminate\Cookie\Middleware\EncryptCookies;
-use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
-use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
-use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
-use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 // Accessibility fixtures — only registered when A11Y_FIXTURES=true (CI).
 if (config('site.a11y_fixtures')) {
