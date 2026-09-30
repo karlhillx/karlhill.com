@@ -18,6 +18,7 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         'jacobs-mission-software',
         'flood-mapping-system',
         'laads-daac',
+        'the-dry-standard',
     ]);
 
     expect(ProjectCatalog::supporting()->pluck('slug')->all())->toBe([
@@ -31,7 +32,10 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         ->assertSee('jacobs-mission-software', escape: false)
         ->assertSee('flood-mapping-system', escape: false)
         ->assertSee('laads-daac', escape: false)
-        ->assertDontSee('finium', escape: false)
+        ->assertSee('the-dry-standard', escape: false)
+        ->assertSee('The Dry Standard', escape: false)
+        ->assertSee('finium', escape: false)
+        ->assertSee('informeddna-platform', escape: false)
         ->assertDontSee('$105M', escape: false)
         ->assertSee('near-real-time Earth observation products', escape: false)
         ->assertSee('NASA MODIS and VIIRS satellite data', escape: false)
@@ -49,8 +53,7 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         ->assertDontSee('Software other people depend on, then the engineering system around it', escape: false)
         ->assertSee('/work/esscor', escape: false)
         ->assertSee('/work/direct-readout-laboratory', escape: false)
-        ->assertSee('/work/nasa-earth-observatory', escape: false)
-        ->assertDontSee('informeddna-platform', escape: false);
+        ->assertSee('/work/nasa-earth-observatory', escape: false);
 
     $this->get('/work/esscor')->assertOk();
     $this->get('/work/direct-readout-laboratory')->assertOk();

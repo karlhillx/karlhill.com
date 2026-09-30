@@ -28,6 +28,11 @@ return [
     ],
     'tooling' => [
         [
+            'name' => 'The Dry Standard',
+            'url' => 'https://drinkdrystandard.com',
+            'note' => 'Production non-alcoholic drink catalog & comparison engine; open-source codebase.',
+        ],
+        [
             'name' => 'bb-run',
             'url' => 'https://github.com/karlhillx/bb-run',
             'note' => 'Run Bitbucket Pipelines locally.',

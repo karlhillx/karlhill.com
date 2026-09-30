@@ -56,8 +56,11 @@ class WorkController extends Controller
         return view('work.index', [
             'meta' => $meta,
             'projects' => $projects,
+            'missionProjects' => ProjectCatalog::mission(),
+            'productProjects' => ProjectCatalog::products(),
             'supporting' => $supporting,
-            'githubRepos' => $this->github->topRepos(),
+            'earlierProjects' => ProjectCatalog::earlier(),
+            'githubRepos' => $this->github->topRepos(6),
         ]);
     }
 }

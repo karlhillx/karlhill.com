@@ -14,6 +14,8 @@ final class GitHubRepo
         public readonly int $stars,
         public readonly ?string $language,
         public readonly array $topics,
+        public readonly ?string $category = null,
+        public readonly ?string $problem = null,
     ) {}
 
     /**
@@ -28,6 +30,8 @@ final class GitHubRepo
             stars: (int) ($row['stars'] ?? 0),
             language: isset($row['language']) ? (string) $row['language'] : null,
             topics: is_array($row['topics'] ?? null) ? $row['topics'] : [],
+            category: isset($row['category']) ? (string) $row['category'] : null,
+            problem: isset($row['problem']) ? (string) $row['problem'] : null,
         );
     }
 

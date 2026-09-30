@@ -77,6 +77,42 @@ final class ProjectCatalog
     }
 
     /**
+     * Mission and professional software projects (Jacobs and NASA Goddard).
+     *
+     * @return Collection<int, array<string, mixed>>
+     */
+    public static function mission(): Collection
+    {
+        return self::listed()
+            ->filter(fn (array $project) => ($project['portfolio_group'] ?? 'mission') === 'mission')
+            ->values();
+    }
+
+    /**
+     * Independent products designed, built, and operated end-to-end.
+     *
+     * @return Collection<int, array<string, mixed>>
+     */
+    public static function products(): Collection
+    {
+        return self::all()
+            ->filter(fn (array $project) => ($project['portfolio_group'] ?? '') === 'product')
+            ->values();
+    }
+
+    /**
+     * Earlier major engineering systems.
+     *
+     * @return Collection<int, array<string, mixed>>
+     */
+    public static function earlier(): Collection
+    {
+        return self::all()
+            ->filter(fn (array $project) => ($project['portfolio_group'] ?? '') === 'earlier' || ($project['earlier'] ?? false) === true)
+            ->values();
+    }
+
+    /**
      * @param  Collection<int, array<string, mixed>>  $projects
      * @return Collection<int, array<string, mixed>>
      */

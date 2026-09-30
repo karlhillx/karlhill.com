@@ -62,9 +62,9 @@ it('ranks featured fallback order so bb-run and testrisk lead live results', fun
 
     $repos = app(GitHubRepository::class)->topRepos();
 
-    expect($repos->pluck('name')->all())->toBe(['bb-run', 'testrisk', 'pipeguard'])
+    expect($repos->pluck('name')->all())->toBe(['bb-run', 'pipeguard', 'sim-rs'])
         ->and($repos->firstWhere('name', 'pipeguard')?->description)
-        ->toBe('Check Bitbucket Pipelines definitions against CI/CD and deployment policies.');
+        ->toBe('Policy-as-code validation and rule enforcement for Bitbucket Pipelines.');
 });
 
 it('top repos returns featured public repositories', function () {
@@ -73,9 +73,9 @@ it('top repos returns featured public repositories', function () {
     Http::fake([
         'api.github.com/*' => Http::response([
             [
-                'name' => 'drift-rs',
-                'description' => 'Rust drift detection',
-                'html_url' => 'https://github.com/karlhillx/drift-rs',
+                'name' => 'sim-rs',
+                'description' => 'Rust orbit simulation',
+                'html_url' => 'https://github.com/karlhillx/sim-rs',
                 'stargazers_count' => 12,
                 'language' => 'Rust',
                 'topics' => ['rust'],
@@ -99,8 +99,7 @@ it('top repos returns featured public repositories', function () {
 
     $repos = app(GitHubRepository::class)->topRepos();
 
-    $this->assertSame(['bb-run', 'testrisk', 'pipeguard'], $repos->pluck('name')->all());
-    $this->assertFalse($repos->contains(fn ($repo) => $repo->name === 'drift-rs'));
+    $this->assertSame(['sim-rs'], $repos->pluck('name')->all());
     $this->assertFalse($repos->contains(fn ($repo) => $repo->name === 'karlhill.com'));
 });
 
@@ -111,7 +110,7 @@ it('falls back to curated repos when api fails', function () {
 
     $repos = app(GitHubRepository::class)->topRepos();
 
-    $this->assertSame(['bb-run', 'testrisk', 'pipeguard'], $repos->pluck('name')->all());
+    $this->assertSame(['bb-run', 'pipeguard', 'sim-rs'], $repos->pluck('name')->all());
 });
 
 it('work page shows fallback repos instead of empty state', function () {
@@ -126,8 +125,8 @@ it('work page shows fallback repos instead of empty state', function () {
     $response->assertSee('bb-run', escape: false);
     $response->assertSee('testrisk', escape: false);
     $response->assertSee('pipeguard', escape: false);
-    $response->assertDontSee('sim-rs', escape: false);
-    $response->assertDontSee('driftlens', escape: false);
+    $response->assertSee('sim-rs', escape: false);
+    $response->assertSee('driftlens', escape: false);
     $response->assertDontSee('No public repositories were returned');
 });
 
@@ -164,8 +163,8 @@ it('work page renders server side github repos', function () {
     $response->assertOk();
     $response->assertSee('id="open-source"', escape: false);
     $response->assertSee('bb-run', escape: false);
-    $response->assertSee('Run Bitbucket Pipelines locally from your existing pipeline file.', escape: false);
+    $response->assertSee('Run Bitbucket Pipelines locally from your existing pipeline file', escape: false);
     $response->assertDontSee('the observability lens', escape: false);
-    $response->assertDontSee('sim-rs', escape: false);
+    $response->assertSee('sim-rs', escape: false);
     $response->assertDontSee('id="github-repos"', escape: false);
 });

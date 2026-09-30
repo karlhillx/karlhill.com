@@ -232,6 +232,7 @@ class LlmsTxtBuilder
             'jacobs-mission-software' => 'Current: implementation and delivery on a simulation program. Quality gates, two-approval PRs, and ≥80% repo coverage in place; releases more predictable. No public demo',
             'flood-mapping-system' => 'Live map: satellite-derived flood products',
             'laads-daac' => 'Live Find Data search for NASA satellite data',
+            'the-dry-standard' => 'Independent non-alcoholic drinks publication and structured product database. Live at drinkdrystandard.com',
             'nasa-earth-observatory' => 'Live Earth Observatory. About 1.5 million monthly visitors during that work — platform scale, not a traffic result',
             'direct-readout-laboratory' => 'Live direct-readout portal for satellite data products',
             'esscor' => 'Catalog, search, and access workflows. No public demo. No time-saved figure',

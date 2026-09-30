@@ -128,16 +128,23 @@ class GitHubRepository
                 return $this->fallbackRows($limit);
             }
 
-            $overrides = $this->descriptionOverrides();
+            $fallbackByName = collect($this->fallbackRows(PHP_INT_MAX))->keyBy(fn ($r) => strtolower((string) ($r['name'] ?? '')));
 
-            return array_map(fn ($repo) => [
-                'name' => $repo['name'],
-                'description' => $overrides[strtolower((string) ($repo['name'] ?? ''))] ?? $repo['description'],
-                'url' => $repo['html_url'],
-                'stars' => $repo['stargazers_count'],
-                'language' => $repo['language'],
-                'topics' => $repo['topics'] ?? [],
-            ], array_slice($repos, 0, $limit));
+            return array_map(function ($repo) use ($fallbackByName) {
+                $name = strtolower((string) ($repo['name'] ?? ''));
+                $curated = $fallbackByName->get($name);
+
+                return [
+                    'name' => $repo['name'],
+                    'description' => $curated['description'] ?? $repo['description'],
+                    'problem' => $curated['problem'] ?? null,
+                    'category' => $curated['category'] ?? null,
+                    'url' => $repo['html_url'],
+                    'stars' => $repo['stargazers_count'],
+                    'language' => $repo['language'] ?? ($curated['language'] ?? null),
+                    'topics' => ! empty($curated['topics']) ? $curated['topics'] : ($repo['topics'] ?? []),
+                ];
+            }, array_slice($repos, 0, $limit));
         } catch (\Throwable $e) {
             Log::warning('GitHub API exception', ['message' => $e->getMessage()]);
 
