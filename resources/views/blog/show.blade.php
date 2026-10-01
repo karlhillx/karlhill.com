@@ -57,7 +57,7 @@
             ['label' => $post->title],
         ]" />
 
-        <p class="font-mono text-accent text-xs tracking-widest uppercase mb-4">
+        <p class="eyebrow mb-4">
             <time datetime="{{ $post->isoDate() }}">{{ $post->publishedAt->format('M j, Y') }}</time>
             @if($post->wasUpdated())
                 &nbsp;·&nbsp; Updated <time datetime="{{ $post->updatedAt->toIso8601String() }}">{{ $post->updatedAt->format('M j, Y') }}</time>
@@ -78,7 +78,7 @@
         <div class="flex flex-wrap items-center gap-2 mb-9">
             @foreach($post->tags as $tag)
                 <a href="{{ route('blog.tag', $tag) }}"
-                   class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
+                   class="surface-chip eyebrow eyebrow--muted px-2 py-1 hover:border-accent hover:text-accent transition-colors">
                     {{ $tag }}
                 </a>
             @endforeach
@@ -125,23 +125,28 @@
 
         <div @class([
             'mb-0',
-            'lg:grid lg:grid-cols-[9.5rem_minmax(0,1fr)] lg:gap-x-12 lg:items-start' => count($post->tableOfContents) >= 2,
+            // From xl the TOC steps into the left margin so the prose keeps its
+            // full measure; at lg both share the prose width.
+            'lg:grid lg:grid-cols-[11rem_minmax(0,1fr)] lg:gap-x-10 lg:items-start xl:-ml-[13.5rem]' => count($post->tableOfContents) >= 2,
         ])>
             @if(count($post->tableOfContents) >= 2)
                 <x-site.article-toc :items="$post->tableOfContents" class="hidden lg:block sticky top-28" />
             @endif
 
             <div class="prose-karl min-w-0" data-summary-source>
-                <x-site.on-device-summary
-                    class="mb-8"
-                    type="key-points"
-                    length="short"
-                    label="Summarize this essay"
-                    :context="$post->title.'. '.$post->excerpt"
-                />
                 {!! $post->bodyHtml !!}
             </div>
         </div>
+
+        {{-- Reader tools sit after the essay: the on-device summary stays hidden
+             unless Chrome's Summarizer API can run, so the body never waits on it. --}}
+        <x-site.on-device-summary
+            class="mt-12"
+            type="key-points"
+            length="short"
+            label="Summarize this essay"
+            :context="$post->title.'. '.$post->excerpt"
+        />
 
         <hr class="border-neutral-800 my-12">
 
@@ -174,7 +179,7 @@
         <x-site.webmentions :mentions="$webmentions ?? []" :target="$shareUrl" />
 
         <div class="surface-card-static p-5 mb-12" data-reveal>
-            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-3">On this site</p>
+            <p class="eyebrow mb-3">On this site</p>
             <div class="flex flex-wrap gap-4 font-mono text-caption uppercase tracking-widest">
                 <a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Selected work →</a>
                 <a href="/about#experience" class="text-neutral-400 hover:text-accent transition-colors">Experience →</a>
@@ -184,7 +189,7 @@
 
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <div>
-                <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">Share</p>
+                <p class="eyebrow mb-2">Share</p>
                 <div class="flex items-center gap-4">
                     <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($shareUrl) }}"
                        target="_blank" rel="noopener noreferrer" data-no-ext
@@ -234,7 +239,7 @@
                 </div>
             </div>
             <div class="text-right">
-                <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-2">Written by</p>
+                <p class="eyebrow eyebrow--muted mb-2">Written by</p>
                 <a href="/" class="font-display text-2xl text-neutral-300 hover:text-accent tracking-widest transition-colors">
                     Karl Hill
                 </a>

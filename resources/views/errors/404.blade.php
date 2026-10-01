@@ -6,7 +6,7 @@
 
         <div class="relative z-10 site-shell w-full">
             <div class="site-prose text-center">
-                <p class="font-mono text-accent text-xs tracking-widest uppercase mb-6 hero-enter" style="animation-delay:80ms">
+                <p class="eyebrow mb-6 hero-enter" style="animation-delay:80ms">
                     Error · 404
                 </p>
                 <x-site.mark :size="72" class="site-mark--page mb-6 hero-enter" style="animation-delay:120ms" />
@@ -24,14 +24,14 @@
                 </p>
                 <div class="hero-enter" style="animation-delay:480ms">
                     <a href="/"
-                       class="inline-block font-bold px-8 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200 btn-accent-fill">
+                       class="inline-block font-semibold px-8 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200 btn-accent-fill">
                         Back home
                     </a>
                     <div class="flex flex-wrap items-center justify-center gap-6 mt-8 font-mono text-xs uppercase tracking-widest">
                         <a href="/work" class="text-neutral-400 hover:text-accent transition-colors">Work →</a>
                         <a href="/#contact" class="text-neutral-400 hover:text-accent transition-colors">Contact →</a>
                     </div>
-                    <p class="hidden sm:block font-mono text-caption text-neutral-500 uppercase tracking-widest mt-8">
+                    <p class="hidden sm:block eyebrow eyebrow--faint mt-8">
                         Or press <kbd class="surface-chip px-1.5 py-0.5 text-caption text-neutral-400 normal-case tracking-normal" data-mod-shortcut>⌘K</kbd> to search the site
                     </p>
                 </div>

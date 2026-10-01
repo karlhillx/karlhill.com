@@ -47,6 +47,10 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
+# Python tooling (scripts/)
+__pycache__/
+*.pyc
+
 # Accidental media dumps at repo root (client assets under clients/ are fine)
 /*.mp4
 /*.mov

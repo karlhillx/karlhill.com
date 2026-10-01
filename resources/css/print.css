@@ -13,21 +13,18 @@
     .scroll-progress,
     .quick-back-top,
     nav[aria-label='Primary'],
-    .section-minimap,
     #command-palette,
     .hero-dot-grid,
     #nav-toggle,
     #quick-back-top,
     .article-sticky-title,
     .site-toast,
-    .cmdk-tip,
     .article-toc,
     .article-toc-mobile,
     .media-lightbox,
     .case-study-media__zoom,
     .case-study-flow .case-study-logo-plate__grid,
     .case-study-flow .case-study-logo-plate__glow,
-    .site-toolbar--sticky,
     .portfolio-nav,
     .on-device-summary,
     .on-device-ask {
@@ -212,7 +209,7 @@
     .resume-doc .resume-aside-title {
         margin: 0 0 0.2rem !important;
         font-size: 8pt !important;
-        font-weight: 700 !important;
+        font-weight: 600 !important;
         letter-spacing: 0.08em !important;
         text-transform: uppercase !important;
         color: #ffffff !important;
@@ -255,12 +252,8 @@
     }
 
     .resume-doc .resume-aside-stack .resume-stack-label {
-        font-weight: 700 !important;
+        font-weight: 600 !important;
         color: #ffffff !important;
-    }
-
-    .resume-doc .resume-contact--screen {
-        display: none !important;
     }
 
     .resume-doc .resume-main {
@@ -276,7 +269,7 @@
 
     .resume-doc .resume-name {
         font-size: 20pt !important;
-        font-weight: 700 !important;
+        font-weight: 600 !important;
         letter-spacing: -0.015em !important;
         line-height: 1 !important;
         color: #0a0a0a !important;
@@ -302,7 +295,7 @@
         padding: 0 0 0.08rem !important;
         border-bottom: 1.25px solid #111;
         font-size: 9pt !important;
-        font-weight: 700 !important;
+        font-weight: 600 !important;
         letter-spacing: 0.02em !important;
         text-transform: none !important;
         color: #111 !important;
@@ -323,7 +316,7 @@
     .resume-doc .resume-role-title {
         margin: 0 !important;
         font-size: 9pt !important;
-        font-weight: 700 !important;
+        font-weight: 600 !important;
         letter-spacing: 0 !important;
         text-transform: none !important;
         color: #111 !important;
@@ -384,7 +377,6 @@
     }
 
     .resume-doc .space-y-2,
-    .resume-doc .space-y-8,
     .resume-doc .mt-1,
     .resume-doc .mt-3,
     .resume-doc .mt-4,
@@ -405,8 +397,7 @@
     .resume-doc .text-neutral-300,
     .resume-doc .text-accent,
     .resume-doc .text-neutral-400,
-    .resume-doc .text-neutral-500,
-    .resume-doc .text-neutral-600 {
+    .resume-doc .text-neutral-500 {
         color: inherit !important;
     }
 
@@ -441,267 +432,6 @@
     .prose-karl .code-copy-feedback,
     .prose-karl .heading-permalink {
         display: none !important;
-    }
-
-    /* Delivery packet — readable print of DoD / rubric / risk / coaching. */
-    body:has(.delivery-doc) .site-footer,
-    body:has(.delivery-doc) #contact,
-    body:has(.delivery-doc) .page-spotlight,
-    body:has(.delivery-doc) .hero-dot-grid,
-    body:has(.delivery-doc) .breadcrumbs,
-    body:has(.delivery-doc) [data-print],
-    body:has(.delivery-doc) .delivery-screen-actions {
-        display: none !important;
-    }
-
-    body:has(.delivery-doc) .site-page-hero {
-        padding-block: 0 1.25rem !important;
-    }
-
-    /* Recruiter kit — one-page leave-behind: identity, bio, absolute links. */
-    body:has(.kit-doc) .site-footer,
-    body:has(.kit-doc) #contact,
-    body:has(.kit-doc) .kit-screen-hero,
-    body:has(.kit-doc) .kit-screen-actions,
-    body:has(.kit-doc) .kit-link-meta,
-    body:has(.kit-doc) .kit-facts,
-    body:has(.kit-doc) .page-spotlight,
-    body:has(.kit-doc) .hero-dot-grid,
-    body:has(.kit-doc) .breadcrumbs {
-        display: none !important;
-    }
-
-    body:has(.kit-doc) {
-        font-size: 9.5pt;
-        line-height: 1.32;
-        color: #111;
-        font-family:
-            Helvetica,
-            Arial,
-            'Segoe UI',
-            -apple-system,
-            BlinkMacSystemFont,
-            sans-serif !important;
-    }
-
-    body:has(.kit-doc) .kit-doc {
-        max-width: none !important;
-    }
-
-    body:has(.kit-doc) .kit-print-masthead,
-    body:has(.delivery-doc) .kit-print-masthead {
-        display: block !important;
-        margin: 0 0 0.22in;
-        padding: 0 0 0.16in;
-        border-bottom: 1.5pt solid #0b1f3a;
-    }
-
-    body:has(.kit-doc) .kit-print-masthead__name,
-    body:has(.delivery-doc) .kit-print-masthead__name {
-        margin: 0 !important;
-        font-size: 18pt !important;
-        font-weight: 700 !important;
-        letter-spacing: 0.02em;
-        color: #0b1f3a !important;
-    }
-
-    body:has(.kit-doc) .kit-print-masthead__role,
-    body:has(.delivery-doc) .kit-print-masthead__role {
-        margin: 0.06in 0 0 !important;
-        font-size: 10pt !important;
-        color: #333 !important;
-    }
-
-    body:has(.kit-doc) .kit-print-masthead__open,
-    body:has(.delivery-doc) .kit-print-masthead__open {
-        margin: 0.04in 0 0 !important;
-        font-size: 9pt !important;
-        color: #0b1f3a !important;
-        font-weight: 600 !important;
-    }
-
-    body:has(.kit-doc) .kit-print-masthead__contact,
-    body:has(.delivery-doc) .kit-print-masthead__contact {
-        margin: 0.08in 0 0 !important;
-        font-size: 9pt !important;
-        color: #222 !important;
-    }
-
-    body:has(.kit-doc) .kit-print-masthead a,
-    body:has(.delivery-doc) .kit-print-masthead a {
-        color: #0b1f3a !important;
-        text-decoration: underline !important;
-        text-underline-offset: 0.12em;
-    }
-
-    body:has(.kit-doc) .kit-print-masthead a::after,
-    body:has(.delivery-doc) .kit-print-masthead a::after {
-        content: none !important;
-    }
-
-    body:has(.kit-doc) .site-section {
-        padding-block: 0.14in !important;
-        border-color: #ccc !important;
-    }
-
-    body:has(.kit-doc) .kit-doc .site-shell {
-        display: block !important;
-        max-width: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        gap: 0 !important;
-    }
-
-    body:has(.kit-doc) .kit-section-label {
-        position: static !important;
-        top: auto !important;
-        margin: 0 0 0.1in !important;
-        padding: 0 0 0.05in !important;
-        font-size: 8pt !important;
-        font-weight: 700 !important;
-        letter-spacing: 0.14em !important;
-        text-transform: uppercase !important;
-        color: #0b1f3a !important;
-        border-bottom: 0.75pt solid #ccc;
-        line-height: 1.2 !important;
-    }
-
-    body:has(.kit-doc) .kit-bio {
-        display: grid !important;
-        gap: 0.1in !important;
-        margin: 0 0 0.14in !important;
-        font-size: 10pt !important;
-        line-height: 1.4 !important;
-        color: #111 !important;
-        max-width: none !important;
-    }
-
-    body:has(.kit-doc) .kit-bio p {
-        margin: 0 !important;
-    }
-
-    body:has(.kit-doc) .job-scope {
-        margin: 0 0 0.14in !important;
-        padding: 0 !important;
-        border: 0 !important;
-    }
-
-    body:has(.kit-doc) .job-scope__heading {
-        margin: 0 0 0.08in !important;
-        font-size: 8pt !important;
-        color: #0b1f3a !important;
-    }
-
-    body:has(.kit-doc) .job-scope__list {
-        max-width: none !important;
-    }
-
-    body:has(.kit-doc) .job-scope__row {
-        padding: 0.04in 0 !important;
-        border-color: #ddd !important;
-    }
-
-    body:has(.kit-doc) .job-scope__label {
-        color: #0b1f3a !important;
-        font-size: 8pt !important;
-    }
-
-    body:has(.kit-doc) .job-scope__body {
-        font-size: 9.5pt !important;
-        color: #222 !important;
-    }
-
-    body:has(.kit-doc) .kit-highlights {
-        margin: 0 !important;
-        padding: 0 !important;
-        border: 0 !important;
-        gap: 0.06in !important;
-    }
-
-    body:has(.kit-doc) .kit-highlights li,
-    body:has(.kit-doc) .kit-highlights__item {
-        margin: 0 !important;
-        font-size: 9.5pt !important;
-        color: #222 !important;
-    }
-
-    body:has(.kit-doc) .kit-highlights__mark {
-        color: #0b1f3a !important;
-    }
-
-    body:has(.kit-doc) .kit-highlights__text {
-        color: #222 !important;
-        max-width: none !important;
-        font-size: 9.5pt !important;
-    }
-
-    body:has(.kit-doc) .kit-highlights__meta {
-        color: #555 !important;
-        font-size: 8pt !important;
-    }
-
-    body:has(.kit-doc) .kit-print-only {
-        display: block !important;
-    }
-
-    /* Screen-only overflow. Print is glance, evidence, and the primary row. */
-    body:has(.kit-doc) .kit-links-more {
-        display: none !important;
-    }
-
-    body:has(.kit-doc) .kit-links {
-        list-style: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        max-width: none !important;
-        border: 0 !important;
-    }
-
-    body:has(.kit-doc) .kit-links li {
-        margin: 0 !important;
-        padding: 0.05in 0 !important;
-        border: 0 !important;
-        break-inside: avoid;
-    }
-
-    body:has(.kit-doc) .kit-links a {
-        display: block !important;
-        text-decoration: none !important;
-        color: #111 !important;
-    }
-
-    body:has(.kit-doc) .kit-link-label {
-        display: inline !important;
-        font-size: 9.5pt !important;
-        font-weight: 600 !important;
-        color: #111 !important;
-    }
-
-    body:has(.kit-doc) .kit-link-label::after {
-        content: ' — ';
-        font-weight: 400;
-        color: #555;
-    }
-
-    body:has(.kit-doc) .kit-links a::after {
-        content: attr(href);
-        font-size: 8.5pt;
-        font-weight: 400;
-        color: #333;
-        word-break: break-all;
-    }
-
-    /* Email already appears as the label / masthead — skip mailto: noise. */
-    body:has(.kit-doc) .kit-link-email {
-        display: none !important;
-    }
-
-    body:has(.kit-doc) .text-neutral-200,
-    body:has(.kit-doc) .text-neutral-300,
-    body:has(.kit-doc) .text-neutral-400,
-    body:has(.kit-doc) .text-accent,
-    body:has(.kit-doc) .text-white {
-        color: #111 !important;
     }
 }
 

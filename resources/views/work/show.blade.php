@@ -107,15 +107,15 @@
 
                 <div class="min-w-0 max-w-3xl">
                     <header class="case-study-masthead">
-                        <nav class="case-study-breadcrumbs" aria-label="Breadcrumb">
-                            <a href="/work">Work</a><span aria-hidden="true">/</span>
-                            @if($collection)
-                                <a href="/work#{{ $collection['id'] }}">{{ $collection['title'] }}</a>
-                            @else
-                                <a href="/work#earlier">Earlier Work</a>
-                            @endif
-                        </nav>
-                        <p class="case-study-masthead__meta font-mono text-accent text-xs tracking-widest uppercase">{{ $project['meta'] }}</p>
+                        <x-site.breadcrumbs class="mb-4" :items="[
+                            ['label' => 'Home', 'url' => '/'],
+                            ['label' => 'Work', 'url' => '/work'],
+                            $collection
+                                ? ['label' => $collection['title'], 'url' => '/work#'.$collection['id']]
+                                : ['label' => 'Earlier Work', 'url' => '/work#earlier'],
+                            ['label' => $project['title']],
+                        ]" />
+                        <p class="case-study-masthead__meta eyebrow">{{ $project['meta'] }}</p>
                         <h1 class="case-study-masthead__title font-sans font-semibold text-[clamp(1.75rem,3.8vw,2.55rem)] leading-[1.15] tracking-tight text-neutral-100 text-balance"
                             data-article-title
                             style="view-transition-name: work-title-{{ $project['slug'] }}">
@@ -124,7 +124,7 @@
                         <p class="case-study-lede text-neutral-400">{{ $study['lede'] }}</p>
                         @if(! empty($project['summary']))
                             <div class="case-study-evidence">
-                                <p class="portfolio-eyebrow">Impact &amp; evidence</p>
+                                <p class="eyebrow">Impact &amp; evidence</p>
                                 <p>{{ $project['summary']['impact'] }}</p>
                                 <p class="portfolio-caption">{{ $project['summary']['note'] }}</p>
                             </div>
@@ -138,7 +138,7 @@
                                     <ul class="case-study-masthead__stack">
                                         @foreach($project['tags'] as $tag)
                                             <li>
-                                                <span class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1">
+                                                <span class="surface-chip eyebrow eyebrow--muted px-2 py-1">
                                                     {{ $tag }}
                                                 </span>
                                             </li>

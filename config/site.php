@@ -9,7 +9,7 @@ use App\Support\Booking;
  * derived values (sameAs, analytics primary) stay here so fragments stay pure.
  *
  * Page roles (portfolio first — one job per URL):
- * - /         identity, six featured projects, delivery snapshot, background, contact
+ * - /         identity, three lead case studies, delivery snapshot, latest notes, contact
  * - /work     mission, NASA, developer tooling, independent products, earlier work
  * - /blog     writing
  * - /about    career, current focus, working approach, opportunities, music coda

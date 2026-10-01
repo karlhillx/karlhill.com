@@ -6,9 +6,10 @@
         return 'nav-link transition-colors duration-200 '.($isActive($key) ? 'text-accent' : 'hover:text-accent');
     };
     $mobileLinkClass = static function (string $key) use ($isActive): string {
-        return 'min-h-11 flex items-center py-3.5 border-b border-neutral-800/50 transition-colors '
+        return 'nav-mobile-link min-h-11 flex items-center py-3.5 transition-colors '
             .($isActive($key) ? 'text-accent' : 'hover:text-accent');
     };
+    $email = config('site.person.email');
 @endphp
 
 <nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/60 bg-bg/90 backdrop-blur-sm nav-enter">
@@ -18,8 +19,9 @@
                 <x-site.mark :size="28" class="brand-lockup__mark" />
                 <span>KARL HILL</span>
             </a>
-            <div class="hidden xl:flex items-center gap-5 font-mono text-xs text-neutral-400 uppercase tracking-widest">
-                <a href="/work" class="nav-work {{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
+            <div class="hidden lg:flex items-center gap-5 font-mono text-xs text-neutral-400 uppercase tracking-widest">
+                <a href="/work" class="{{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
+                <a href="/blog" class="{{ $navLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/about" class="{{ $navLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
             </div>
         </div>
@@ -32,7 +34,7 @@
                     aria-keyshortcuts="Meta+K Control+K"
                     title="Search pages and sections (⌘K)"
                     data-mod-shortcut-host
-                    class="hidden sm:inline-flex items-center justify-center gap-1.5 min-h-11 px-2.5 border border-[color:var(--border-strong)] hover:border-accent text-neutral-400 hover:text-accent transition-colors shrink-0">
+                    class="hidden sm:inline-flex items-center justify-center gap-1.5 min-h-11 px-2.5 border border-neutral-700 hover:border-accent text-neutral-400 hover:text-accent transition-colors shrink-0">
                 <x-site.icons.search class="w-4 h-4 shrink-0" />
                 <kbd class="nav-shortcut hidden lg:inline" data-mod-shortcut aria-hidden="true">⌘K</kbd>
             </button>
@@ -50,14 +52,14 @@
                     commandfor="mobile-menu"
                     popovertarget="mobile-menu"
                     aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu"
-                    class="xl:hidden flex flex-col justify-center items-center min-h-11 min-w-11 gap-1.5 border border-[color:var(--border-strong)] hover:border-accent transition-colors shrink-0">
+                    class="lg:hidden flex flex-col justify-center items-center min-h-11 min-w-11 gap-1.5 border border-neutral-700 hover:border-accent transition-colors shrink-0">
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
             </button>
         </div>
     </div>
-    <div id="mobile-menu" popover="auto" class="xl:hidden border-t border-neutral-800 bg-bg">
+    <div id="mobile-menu" popover="auto" class="lg:hidden border-t border-neutral-800 bg-bg">
         <div class="site-shell site-gutter py-4 pb-[max(2rem,env(safe-area-inset-bottom))] flex flex-col font-mono text-xs text-neutral-400 uppercase tracking-widest">
             <button type="button"
                     command="show-popover"
@@ -71,8 +73,21 @@
             </button>
 
             <div class="flex flex-col divide-y divide-neutral-800/80">
-                <a href="/work" class="nav-work {{ $mobileLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
+                <a href="/work" class="{{ $mobileLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
+                <a href="/blog" class="{{ $mobileLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/about" class="{{ $mobileLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
+                <a href="/resume" class="{{ $mobileLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-neutral-800/80 flex flex-col gap-1 normal-case tracking-normal">
+                <p class="eyebrow eyebrow--faint">Email directly</p>
+                <a href="mailto:{{ $email }}"
+                   data-analytics-event="email_clicked"
+                   data-analytics-location="mobile-menu"
+                   class="inline-flex items-center gap-3 min-h-11 font-mono text-sm text-neutral-300 hover:text-accent transition-colors">
+                    <span class="text-accent arrow-nudge" aria-hidden="true">→</span>
+                    <span class="truncate">{{ $email }}</span>
+                </a>
             </div>
 
         </div>

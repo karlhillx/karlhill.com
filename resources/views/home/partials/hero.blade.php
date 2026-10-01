@@ -8,7 +8,7 @@
                 <x-site.responsive-image src="/img/webp/profile.webp" :alt="$person['name']"
                     width="48" height="48" sizes="48px" loading="eager" :lqip="false"
                     img-class="portfolio-portrait rounded-full object-cover" />
-                <p class="portfolio-eyebrow">{{ $person['job_title'] }} <span>/ Jacobs</span></p>
+                <p class="eyebrow">{{ $person['job_title'] }} <span>/ Jacobs</span></p>
             </div>
             <h1 id="hero-title" class="portfolio-hero__name">{{ $hero['headline'] }}</h1>
             <p class="portfolio-hero__statement">{{ $hero['statement'] }}</p>
@@ -19,7 +19,7 @@
             </div>
         </div>
         <nav class="portfolio-hero__index" aria-label="Explore the portfolio">
-            <p class="portfolio-eyebrow">A body of work / 1996–today</p>
+            <p class="eyebrow">A body of work / 1996–today</p>
             @foreach($collections as $collection)
                 <a href="/work#{{ $collection['id'] }}">
                     <span class="portfolio-hero__index-number" aria-hidden="true">0{{ $loop->iteration }}</span>

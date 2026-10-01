@@ -160,8 +160,13 @@ it('homepage is a focused landing page', function () {
     $response->assertDontSee('work-card--constraint', escape: false);
     $response->assertDontSee('work-card--scope', escape: false);
     $response->assertSee('portfolio-card--mission', escape: false);
-    $response->assertSee('portfolio-card--tooling', escape: false);
     $response->assertSee('Mission software at scale', escape: false);
+    // Home carries three studies; the tooling and product cards live on /work.
+    expect(substr_count($response->getContent(), '<article id="'))->toBe(3);
+    $response->assertDontSee('portfolio-card--tooling', escape: false);
+    $response->assertSee('id="notes"', escape: false);
+    $response->assertSee('All writing', escape: false);
+    $response->assertSee('href="/about"', escape: false);
     $response->assertDontSee('>DevSecOps</span>', escape: false);
     $response->assertDontSee('>Repositories</dt>', escape: false);
     $response->assertDontSee('surface-chip-overlay', escape: false);
@@ -568,29 +573,40 @@ it('homepage hero prioritizes work and contact over hiring documents', function 
         ->and($heroCta[0] ?? '')->toContain('href="/#contact"');
 });
 
-it('primary navigation contains only work about and contact on both layouts', function () {
-    $html = $this->get('/')->assertOk()->getContent();
+it('primary navigation offers work writing about and contact in the bar and adds resume plus email in the drawer', function () {
+    $html = $this->get('/about')->assertOk()->getContent();
+
+    $doc = new DOMDocument;
+    libxml_use_internal_errors(true);
+    $doc->loadHTML('<?xml encoding="utf-8" ?>'.$html);
+    libxml_clear_errors();
+    $xpath = new DOMXPath($doc);
+
+    $hrefs = fn (string $query): array => array_map(
+        fn (DOMElement $a) => $a->getAttribute('href'),
+        iterator_to_array($xpath->query($query), false),
+    );
+
+    $bar = '//nav[@aria-label="Primary"]/*[not(@id="mobile-menu")]//a';
+    $drawer = '//nav[@aria-label="Primary"]//*[@id="mobile-menu"]//a';
+
+    expect($hrefs($bar))->toContain('/', '/work', '/blog', '/about', '/#contact')
+        ->not->toContain('/kit', '/resume')
+        ->and($hrefs($drawer))->toContain('/work', '/blog', '/about', '/resume', 'mailto:'.config('site.person.email'))
+        ->not->toContain('/kit');
+
+    // Exactly one destination reads as current, in both layouts.
+    $current = $xpath->query('//nav[@aria-label="Primary"]//a[@aria-current="page"]');
+    expect($current->length)->toBe(2)
+        ->and($current->item(0)->getAttribute('href'))->toBe('/about')
+        ->and($current->item(1)->getAttribute('href'))->toBe('/about');
+
+    // Search affordance exposes its keyboard shortcut; the drawer toggle controls the drawer.
+    expect($xpath->query('//nav[@aria-label="Primary"]//button[@aria-keyshortcuts]')->length)->toBe(1)
+        ->and($xpath->query('//nav[@aria-label="Primary"]//button[@aria-controls="mobile-menu"][@aria-expanded="false"]')->length)->toBe(1);
 
     preg_match('~<nav aria-label="Primary".*?</nav>~s', $html, $matches);
-    $nav = $matches[0];
-    expect($nav)
-        ->not->toContain('href="/kit"')
-        ->not->toContain('href="/blog"')
-        ->not->toContain('href="/resume"')
-        ->toContain('href="/about"')
-        ->toContain('>About</a>')
-        ->toContain('href="/work"')
-        ->toContain('href="/#contact"')
-        ->toContain('hidden xl:flex')
-        ->toContain('xl:hidden')
-        ->not->toContain('max-lg:hidden')
-        ->toContain('data-mod-shortcut')
-        ->toContain('⌘K')
-        ->not->toContain('Get in Touch')
-        ->not->toContain('href="mailto:'.config('site.person.email').'" class="btn-sweep hidden md:inline-flex')
-        ->not->toContain('href="/#contact" class="min-h-11 flex items-center');
-
-    expect($nav)->not->toContain('booking_cta_clicked');
+    expect($matches[0])->not->toContain('booking_cta_clicked')->not->toContain('Get in Touch');
 });
 
 it('home contact embeds the booking scheduler', function () {
@@ -607,10 +623,12 @@ it('homepage sections follow the hire-me funnel order', function () {
 
     $work = strpos($html, 'id="work"');
     $system = strpos($html, 'id="system"');
+    $notes = strpos($html, 'id="notes"');
     $contact = strpos($html, 'id="contact"');
 
     expect($work)->toBeInt()
         ->and($system)->toBeInt()
+        ->and($notes)->toBeInt()
         ->and($contact)->toBeInt();
 
     expect($html)->not->toContain('id="writing"')
@@ -619,7 +637,8 @@ it('homepage sections follow the hire-me funnel order', function () {
         ->and($html)->not->toContain('id="path"');
 
     expect($work)->toBeLessThan($system)
-        ->and($system)->toBeLessThan($contact);
+        ->and($system)->toBeLessThan($notes)
+        ->and($notes)->toBeLessThan($contact);
 });
 
 it('sitemap includes canonical pages but excludes retired destinations', function () {

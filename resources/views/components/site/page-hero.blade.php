@@ -21,7 +21,7 @@
             <x-site.breadcrumbs :items="$breadcrumbs" class="site-page-hero__crumbs hero-enter" style="animation-delay:80ms" />
         @endif
         @if($eyebrow)
-            <p class="font-mono text-accent text-xs tracking-widest uppercase mb-3 hero-enter" style="animation-delay:160ms">{{ $eyebrow }}</p>
+            <p class="eyebrow mb-3 hero-enter" style="animation-delay:160ms">{{ $eyebrow }}</p>
         @endif
         <h1 class="{{ $titleClass }} hero-enter" style="animation-delay:240ms">
             {{ $title }}

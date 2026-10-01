@@ -1,0 +1,27 @@
+/* Generative WebGPU field — mounted by webgpu-flood.js only after an adapter
+   and device are acquired, so no visitor ever sees an empty canvas box. The
+   canvas is always dark: it renders a night-time flood scene, not UI. */
+.webgpu-flood[hidden] {
+    display: none;
+}
+
+.webgpu-flood__canvas {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #1a3a4a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .webgpu-flood {
+        display: none;
+    }
+}
+
+.on-device-summary[hidden],
+.on-device-summary__cancel[hidden],
+.on-device-summary__output[hidden],
+.on-device-ask[hidden],
+.on-device-ask [hidden] {
+    display: none;
+}

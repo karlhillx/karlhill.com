@@ -16,10 +16,6 @@ export const prefersSaveData =
             window.matchMedia('(prefers-reduced-data: reduce)').matches)) ||
     false;
 
-/** Ambient spotlight/mesh/tilt — fine pointer, full data, motion OK. */
-/** @type {boolean} */
-export const allowAmbientMotion = !prefersReducedMotion && prefersFinePointer && !prefersSaveData;
-
 /** @type {boolean} */
 export const supportsViewTimeline =
     typeof CSS !== 'undefined' && CSS.supports('animation-timeline', 'view()');

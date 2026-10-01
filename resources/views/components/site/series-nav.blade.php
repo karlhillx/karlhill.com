@@ -6,8 +6,8 @@
 @if($series)
     <aside {{ $attributes->merge(['class' => 'surface-card-static p-5 sm:p-6 mb-10']) }} data-reveal aria-label="Series">
         <div class="flex flex-wrap items-baseline justify-between gap-3 mb-2">
-            <p class="font-mono text-accent text-xs tracking-widest uppercase">Series</p>
-            <p class="font-mono text-caption text-neutral-500 uppercase tracking-widest">
+            <p class="eyebrow">Series</p>
+            <p class="eyebrow eyebrow--faint">
                 Part {{ $series['index'] + 1 }} of {{ $series['posts']->count() }}
             </p>
         </div>

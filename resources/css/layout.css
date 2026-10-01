@@ -1,58 +1,5 @@
 /* Atmosphere overlays, chrome, responsive shell adjustments */
 
-/* ---------------------------------------------------------------------------
-   Animated conic-gradient border for the active "Current Role" card.
-   Uses @property so the angle interpolates in CSS (not via JS).
---------------------------------------------------------------------------- */
-@property --angle {
-    syntax: '<angle>';
-    inherits: false;
-    initial-value: 0deg;
-}
-
-@keyframes spin-angle {
-    to {
-        --angle: 360deg;
-    }
-}
-
-.role-active {
-    position: relative;
-    isolation: isolate;
-}
-
-.role-active::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    padding: 1px;
-    pointer-events: none;
-    border-radius: inherit;
-    background: conic-gradient(
-        from var(--angle),
-        color-mix(in oklab, var(--accent) 0%, transparent) 0deg,
-        color-mix(in oklab, var(--accent) 70%, transparent) 90deg,
-        color-mix(in oklab, var(--accent) 0%, transparent) 180deg,
-        color-mix(in oklab, var(--accent) 0%, transparent) 360deg
-    );
-    /* Mask out the interior so only the 1px ring remains */
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: spin-angle 9s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .role-active::before {
-        animation: none;
-    }
-}
-
 /* Defer expensive layout/paint for below-the-fold anonymous sections.
    Never skip hash targets ([id]) or the contact footer — Chromium omits
    content-visibility: auto subtrees from layout until they near the viewport,
@@ -67,20 +14,6 @@ main > section:nth-of-type(n + 3):not([id]) {
    desktop nav never fights mobile chrome math.
 --------------------------------------------------------------------------- */
 @media (max-width: 767px) {
-    .hero-mesh__blob {
-        opacity: 0.35;
-        filter: blur(48px);
-        animation: none;
-        left: 8%;
-        right: auto;
-    }
-
-    .hero-mesh__blob--b {
-        left: auto;
-        right: 0;
-        bottom: 12%;
-    }
-
     :root {
         --space-gutter: clamp(1rem, 4.5vw, 1.5rem);
         --space-section: clamp(3.25rem, 11vw, 5rem);
@@ -128,31 +61,14 @@ main > section:nth-of-type(n + 3):not([id]) {
         gap: 0;
     }
 
-    .site-page-hero__body .kit-screen-actions,
     .site-page-hero__body > .flex,
     .site-page-hero__body .writing-feeds {
         margin-top: 1.35rem;
     }
 
-    .site-page-hero__body .now-status {
-        max-width: none;
-    }
-
-    .now-status__actions {
-        margin-top: 1.35rem;
-    }
-
     .hero-dot-grid,
-    .hero-shine,
-    .hero-mask,
-    .hero-mesh__blob,
-    #hero .hero-portrait,
-    #hero .hero-mesh {
+    .hero-shine {
         animation: none;
-    }
-
-    .hero-mask {
-        clip-path: none;
     }
 
     .hero-enter,
@@ -210,16 +126,6 @@ main > section:nth-of-type(n + 3):not([id]) {
         margin-left: 0;
     }
 
-    /* Work chapters: whole row is the hit target — drop the trailing CTA. */
-    .work-chapters__cta {
-        display: none;
-    }
-
-    .work-chapters__link {
-        gap: 0.35rem;
-        padding-block: 1rem;
-    }
-
     /* Case study actions fill the column on phones. */
     .case-study-masthead__actions .btn-accent-fill,
     .case-study-masthead__actions a,
@@ -251,93 +157,8 @@ main > section:nth-of-type(n + 3):not([id]) {
         display: none;
     }
 
-    .kit-screen-actions__links {
-        flex-wrap: wrap;
-        row-gap: 0.75rem;
-    }
-
     .resume-aside {
         padding: 1.15rem 1.05rem;
-    }
-}
-
-/* Phones only — prefer a compact hire composition over a tall empty hero. */
-@media (max-width: 639px) {
-    #hero.hero {
-        min-height: auto;
-        justify-content: flex-end;
-        padding-top: calc(var(--nav-offset) + 1.75rem);
-        padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px));
-    }
-
-    #hero .hero-title {
-        letter-spacing: var(--tracking-display);
-        font-size: clamp(2.45rem, 13.5vw, 3.5rem);
-        line-height: 0.92;
-        margin-bottom: 0.85rem;
-    }
-
-    #hero .hero-eyebrow {
-        margin-bottom: 0.85rem;
-    }
-
-    #hero .hero-statement {
-        font-size: 1.1rem;
-        margin-bottom: 0.35rem;
-        max-width: min(36rem, 100%);
-    }
-
-    #hero .hero-lede {
-        margin-bottom: 0.85rem;
-        font-size: 1.025rem;
-        line-height: var(--leading-body);
-        max-width: min(36rem, 100%);
-    }
-
-    #hero .hero-proof {
-        margin-bottom: 0.7rem;
-    }
-
-    #hero .hero-cta {
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    #hero .hero-cta-btn {
-        flex: 1 1 auto;
-        width: 100%;
-        min-width: 0;
-        justify-content: center;
-    }
-
-    .site-card-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-}
-
-/* Small tablets in the md gap — keep a short hero without phone stacking. */
-@media (min-width: 640px) and (max-width: 767px) {
-    #hero.hero {
-        min-height: min(72svh, 40rem);
-        min-height: min(72dvh, 40rem);
-        justify-content: center;
-        padding-top: calc(var(--nav-offset) + 1.5rem);
-        padding-bottom: 2.5rem;
-    }
-
-    #hero .hero-title {
-        font-size: clamp(3.25rem, 9vw, 5.5rem);
-    }
-
-    #hero .hero-cta {
-        width: auto;
-        flex-direction: row;
-    }
-
-    #hero .hero-cta-btn {
-        width: auto;
-        flex: 0 0 auto;
     }
 }
 
@@ -368,10 +189,6 @@ main > section:nth-of-type(n + 3):not([id]) {
 }
 
 @media (max-width: 480px) {
-    .site-pillars > * {
-        padding-block: 2rem;
-    }
-
     .site-page-hero__title,
     .site-page-hero h1 {
         font-size: clamp(2.15rem, 11.5vw, 2.85rem);

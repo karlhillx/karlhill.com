@@ -12,7 +12,7 @@
 @php
     $base = 'inline-flex items-center justify-center min-h-11 gap-2 font-mono text-xs uppercase tracking-widest transition-colors cursor-pointer';
     $variants = [
-        'primary' => 'btn-accent-fill magnetic-btn px-5 py-3',
+        'primary' => 'btn-accent-fill px-5 py-3',
         'secondary' => 'btn-sweep text-accent border border-accent/40 px-5 py-3',
         'link' => 'text-neutral-400 hover:text-accent',
     ];

@@ -37,7 +37,7 @@
 
         <div class="grid gap-5 md:grid-cols-2">
             <div>
-                <label for="{{ $nameId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-2">Your name</label>
+                <label for="{{ $nameId }}" class="block eyebrow eyebrow--muted mb-2">Your name</label>
                 <input id="{{ $nameId }}" name="name" type="text" required maxlength="120"
                        value="{{ old('name') }}" placeholder="Your name" autocomplete="name"
                        @if($errorBag->has('name')) aria-invalid="true" aria-describedby="{{ $nameId }}-error" @endif
@@ -51,7 +51,7 @@
                 @endif
             </div>
             <div>
-                <label for="{{ $emailId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-2">Your email</label>
+                <label for="{{ $emailId }}" class="block eyebrow eyebrow--muted mb-2">Your email</label>
                 <input id="{{ $emailId }}" name="email" type="email" required maxlength="190"
                        value="{{ old('email') }}" placeholder="you@company.com" autocomplete="email"
                        @if($errorBag->has('email')) aria-invalid="true" aria-describedby="{{ $emailId }}-error" @endif
@@ -66,7 +66,7 @@
             </div>
         </div>
         <div>
-            <label for="{{ $messageId }}" class="block font-mono text-caption text-neutral-400 uppercase tracking-widest mb-2">Message</label>
+            <label for="{{ $messageId }}" class="block eyebrow eyebrow--muted mb-2">Message</label>
             <textarea id="{{ $messageId }}" name="message" required minlength="10" maxlength="4000" rows="5"
                       placeholder="{{ config('site.footer.contact_placeholder', 'Role, timeline, and the question.') }}"
                       @if($errorBag->has('message')) aria-invalid="true" aria-describedby="{{ $messageId }}-error" @endif

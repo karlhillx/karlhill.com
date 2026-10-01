@@ -109,7 +109,7 @@ export function initNavigation() {
     const navToggle = document.getElementById('nav-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    window.matchMedia('(min-width: 80rem)').addEventListener('change', (event) => {
+    window.matchMedia('(min-width: 64rem)').addEventListener('change', (event) => {
         if (event.matches && mobileMenu?.matches(':popover-open')) mobileMenu.hidePopover();
     });
 

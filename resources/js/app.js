@@ -33,7 +33,6 @@ function loadWhen(enabled, loader, initName) {
         });
 }
 
-loadWhen(features.has('pointer'), () => import('./modules/pointer.js'), 'initPointerEffects');
 loadWhen(features.has('reveal'), () => import('./modules/reveal.js'), 'initRevealAndCounters');
 // Contact: route flag OR a form in the DOM — most footers only have Book + email.
 loadWhen(
@@ -51,7 +50,6 @@ loadWhen(
     'initMediaEnhancements'
 );
 loadWhen(features.has('share'), () => import('./modules/share.js'), 'initShareAndCopy');
-loadWhen(features.has('cmdk-tip'), () => import('./modules/cmdk-tip.js'), 'initCmdkTip');
 loadWhen(features.has('push'), () => import('./modules/push.js'), 'initPushSubscribe');
 loadWhen(features.has('highlight'), () => import('./modules/highlight.js'), 'initHighlight');
 loadWhen(features.has('soft-nav'), () => import('./modules/soft-nav.js'), 'initSoftNav');

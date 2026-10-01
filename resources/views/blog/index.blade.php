@@ -114,7 +114,7 @@
                                       class="font-mono text-xs text-neutral-400 uppercase tracking-widest">
                                     {{ $post->publishedAt->format('M j, Y') }}
                                 </time>
-                                <span class="font-mono text-caption text-neutral-400 uppercase tracking-widest">
+                                <span class="eyebrow eyebrow--muted">
                                     {{ $post->readMinutes }} min read
                                 </span>
                             </div>
@@ -134,7 +134,7 @@
                                 <div class="relative z-20 flex flex-wrap items-center gap-4">
                                     @foreach($post->tags as $tag)
                                         <a href="{{ route('blog.tag', $tag) }}"
-                                           class="surface-chip font-mono text-caption text-neutral-400 uppercase tracking-widest px-2 py-1 hover:border-accent hover:text-accent transition-colors">
+                                           class="surface-chip eyebrow eyebrow--muted px-2 py-1 hover:border-accent hover:text-accent transition-colors">
                                             {{ $tag }}
                                         </a>
                                     @endforeach

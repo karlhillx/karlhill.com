@@ -32,10 +32,11 @@ it('features six evidence-rich projects in editorial order', function () {
             ->and($project['tags'])->not->toBeEmpty();
     }
 
+    // Home renders the first three; its ItemList describes exactly what is on the page.
     $graph = HomeStructuredData::build(collect())['@graph'];
     $list = collect($graph)->firstWhere('@type', 'ItemList')['itemListElement'];
-    expect(array_column($list, 'position'))->toBe([1, 2, 3, 4, 5, 6])
-        ->and(array_column($list, 'name'))->toBe($projects->pluck('title')->all());
+    expect(array_column($list, 'position'))->toBe([1, 2, 3])
+        ->and(array_column($list, 'name'))->toBe($projects->take(3)->pluck('title')->all());
 });
 
 it('renders the complete portfolio without a GitHub dependency', function (string $path) {
@@ -50,7 +51,7 @@ it('renders the complete portfolio without a GitHub dependency', function (strin
         'https://github.com/karlhillx/pipeguard',
     ], false)->assertDontSee('sim-rs')->assertDontSee('driftlens')->assertDontSee('drift-rs');
     Http::assertNothingSent();
-})->with(['/', '/work', '/work/developer-tooling', '/resume', '/llms.txt']);
+})->with(['/work', '/work/developer-tooling', '/resume', '/llms.txt']);
 
 it('publishes consistent tooling and product proof on every discovery surface', function (string $slug) {
     $project = ProjectCatalog::findOrFail($slug);
@@ -73,8 +74,8 @@ it('keeps tool names searchable and qualifies quantitative claims', function () 
     $this->get('/api/commands.json')->assertSee('bb-run, testrisk, and pipeguard')
         ->assertDontSee('sim-rs')->assertDontSee('driftlens')->assertDontSee('drift-rs');
     $this->get('/')->assertSee('Collaborative scientific result', false)
-        ->assertSee('Historical platform scale', false)
         ->assertSee('Shared ownership', false);
+    $this->get('/work')->assertSee('Historical platform scale', false);
     $this->get('/work/the-dry-standard')->assertSee('generated SQLite runtime catalog')
         ->assertSee('Publication builds the catalog')
         ->assertDontSee('sub-second')
@@ -116,9 +117,10 @@ it('keeps global links and repository choices deliberately small', function (str
         expect($html)->not->toContain('href="'.$retired.'"')
             ->not->toContain('href="'.$retired.'#');
     }
+    // Repo links appear once on /work (tooling card) and not at all on the shorter home page.
     preg_match('~<main\b[^>]*>(.*?)</main>~s', $html, $main);
     foreach (['bb-run', 'testrisk', 'pipeguard'] as $repo) {
-        expect(substr_count($main[1], 'href="https://github.com/karlhillx/'.$repo.'"'))->toBe(1);
+        expect(substr_count($main[1], 'href="https://github.com/karlhillx/'.$repo.'"'))->toBe($path === '/' ? 0 : 1);
     }
 })->with(['/', '/work']);
 

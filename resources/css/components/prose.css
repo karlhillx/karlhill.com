@@ -1,0 +1,303 @@
+/* ---------------------------------------------------------------------------
+   Long-form prose for the blog. Hand-rolled to match the site's design tokens
+   without pulling in @tailwindcss/typography (which would override the
+   Bebas Neue display font and OKLCH oranges).
+--------------------------------------------------------------------------- */
+.prose-karl {
+    /* Cool-tinted body grey on dark; warm near-black on light. */
+    color: light-dark(oklch(30% 0.01 250), oklch(84% 0.012 250));
+    font-size: 1.0625rem;
+    line-height: var(--leading-prose);
+    letter-spacing: var(--tracking-sans);
+    max-width: 62ch;
+}
+
+.prose-karl p,
+.prose-karl ul,
+.prose-karl ol,
+.prose-karl blockquote,
+.prose-karl pre,
+.prose-karl figure {
+    margin: 0;
+}
+
+.prose-karl p,
+.prose-karl li {
+    text-wrap: pretty;
+}
+
+.prose-karl > * + * {
+    margin-top: 0.9em;
+}
+
+.prose-karl > p + p {
+    margin-top: 1em;
+}
+
+/* Extra breathing room around lists and blockquotes — they should feel like distinct blocks */
+.prose-karl > * + ul,
+.prose-karl > * + ol,
+.prose-karl > * + blockquote,
+.prose-karl > ul + *,
+.prose-karl > ol + *,
+.prose-karl > blockquote + * {
+    margin-top: 1.4em;
+}
+
+.prose-karl h2,
+.prose-karl h3,
+.prose-karl h4 {
+    font-family: var(--font-display);
+    color: var(--text);
+    letter-spacing: var(--tracking-display);
+    line-height: 1.08;
+}
+
+.prose-karl h2 {
+    font-size: clamp(1.35rem, 2.3vw, 1.7rem);
+    margin-top: 1.75em;
+    margin-bottom: 0.45em;
+    padding-top: 0.75em;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 6.5rem;
+}
+
+.prose-karl h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.prose-karl h3 {
+    font-size: clamp(1.15rem, 1.9vw, 1.3rem);
+    margin-top: 1.5em;
+    margin-bottom: 0.3em;
+    scroll-margin-top: 6.5rem;
+}
+
+.prose-karl h4 {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 1.4em;
+    margin-bottom: 0.15em;
+    letter-spacing: var(--tracking-sans);
+    scroll-margin-top: 6.5rem;
+}
+
+/* Heading permalink anchors — visible on hover/focus */
+.prose-karl .heading-anchor-wrap {
+    position: relative;
+}
+
+.prose-karl .heading-permalink {
+    position: absolute;
+    right: 100%;
+    margin-right: 0.45rem;
+    top: 0.12em;
+    color: var(--muted-2);
+    text-decoration: none;
+    opacity: 0;
+    transition:
+        opacity 0.16s ease,
+        color 0.16s ease;
+    font-family: var(--font-mono);
+    font-size: 0.72em;
+    line-height: 1;
+}
+
+.prose-karl .heading-anchor-wrap:hover .heading-permalink,
+.prose-karl .heading-anchor-wrap:focus-within .heading-permalink,
+.prose-karl .heading-permalink:focus-visible {
+    opacity: 1;
+}
+
+.prose-karl .heading-permalink:hover,
+.prose-karl .heading-permalink:focus-visible {
+    color: var(--accent);
+}
+
+.portfolio-nav {
+    position: sticky;
+    top: var(--primary-nav-height, 6rem);
+    z-index: 35;
+    background: var(--bg);
+    border-block: 1px solid var(--border-strong);
+}
+
+.portfolio-nav__links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1rem;
+    padding-block: 0.25rem;
+}
+
+.portfolio-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.5rem 0.125rem;
+    border-bottom: 2px solid transparent;
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+    text-decoration: none;
+}
+
+.portfolio-nav a:hover,
+.portfolio-nav a:focus-visible,
+.portfolio-nav a[aria-current='location'] {
+    color: var(--accent);
+    border-bottom-color: currentColor;
+}
+
+.portfolio-nav a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+html:has(.portfolio-nav) {
+    scroll-padding-top: calc(var(--primary-nav-height, 6rem) + var(--portfolio-nav-height, 7rem));
+}
+
+main:has(> .portfolio-nav) section[id] {
+    scroll-margin-top: 0;
+}
+
+@media (min-width: 640px) {
+    .portfolio-nav__links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 1.5rem;
+    }
+}
+
+/* Article table of contents */
+.article-toc {
+    font-size: var(--text-caption);
+}
+
+.article-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    border-left: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+}
+
+.article-toc-item {
+    position: relative;
+}
+
+.article-toc-item--child {
+    padding-left: 0.75rem;
+}
+
+.article-toc-link {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: var(--leading-ui);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding-left: 0.85rem;
+    padding-block: 0.3rem;
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    color: var(--muted);
+    transition:
+        color 0.16s ease,
+        border-color 0.16s ease;
+}
+
+.article-toc-link:hover {
+    color: var(--text);
+}
+
+.article-toc-link.is-active,
+.article-toc-link[aria-current='location'] {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    font-weight: 500;
+}
+
+.article-toc-mobile summary::-webkit-details-marker {
+    display: none;
+}
+
+.article-toc-mobile summary::after {
+    content: '+';
+    float: right;
+    color: var(--muted-2);
+    font-family: var(--font-mono);
+}
+
+.article-toc-mobile[open] summary::after {
+    content: '−';
+}
+
+.prose-karl strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.prose-karl em {
+    color: light-dark(oklch(22% 0.015 250), oklch(92% 0.015 250));
+}
+
+/* Inline article links keep a faint resting underline for affordance, then a
+   solid accent underline sweeps across on hover as the faint one fades out. */
+.prose-karl a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 35%, transparent);
+    text-underline-offset: 3px;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    transition:
+        background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        text-decoration-color 0.18s ease,
+        color 0.18s ease;
+}
+
+.prose-karl a:hover {
+    color: light-dark(oklch(48% 0.17 50), oklch(80% 0.18 50));
+    text-decoration-color: transparent;
+    background-size: 100% 2px;
+}
+
+.prose-karl code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    color: oklch(82% 0.12 50);
+    background: color-mix(in oklab, var(--accent) 8%, transparent);
+    border: 1px solid color-mix(in oklab, var(--accent) 18%, transparent);
+    padding: 0.08em 0.4em;
+    border-radius: 3px;
+}
+
+.prose-karl pre {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    line-height: 1.65;
+    background: #0d0d0d;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.1em 1.3em;
+    overflow-x: auto;
+    color: #e5e5e5;
+}
+
+.prose-karl pre code {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}

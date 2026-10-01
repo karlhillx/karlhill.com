@@ -96,41 +96,6 @@ body {
     margin-bottom: 0;
 }
 
-.site-card-grid {
-    display: grid;
-    gap: var(--space-card-gap);
-}
-
-@media (min-width: 640px) {
-    .site-card-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (min-width: 1024px) {
-    .site-card-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-@supports (grid-template-rows: masonry) {
-    @media (min-width: 640px) {
-        .site-card-grid {
-            grid-template-rows: masonry;
-            align-items: start;
-        }
-    }
-}
-
-@supports (display: masonry) {
-    @media (min-width: 640px) {
-        .site-card-grid {
-            display: masonry;
-            gap: var(--space-card-gap);
-        }
-    }
-}
-
 .site-list-row {
     padding-block: var(--space-list-row);
 }
@@ -146,33 +111,6 @@ body {
 .site-bleed .site-list-row {
     padding-inline: max(var(--space-gutter), env(safe-area-inset-left, 0px))
         max(var(--space-gutter), env(safe-area-inset-right, 0px));
-}
-
-.site-pillars {
-    display: grid;
-}
-
-.site-pillars > * {
-    padding-block: 3rem;
-}
-
-@media (min-width: 768px) {
-    .site-pillars {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .site-pillars > * {
-        padding-block: var(--space-pillar);
-        padding-inline: var(--space-pillar);
-    }
-
-    .site-pillars > *:first-child {
-        padding-left: 0;
-    }
-
-    .site-pillars > *:last-child {
-        padding-right: 0;
-    }
 }
 
 .site-footer {
@@ -274,9 +212,7 @@ body {
 
 /* The block directly after a page hero is its continuation, not a new
    chapter — trim its top padding so the page doesn't intro twice. */
-.site-page-hero + .site-section,
-.site-page-hero + .site-toolbar + .site-section,
-.site-page-hero + .site-toolbar + section .site-section:first-child {
+.site-page-hero + .site-section {
     padding-block-start: var(--space-section-soft);
 }
 
@@ -286,72 +222,15 @@ body {
         max(var(--space-gutter), env(safe-area-inset-right, 0px));
 }
 
-/* Compact strip under page heroes (tag filters, toolbars). */
-.site-toolbar {
-    padding-block: clamp(1.35rem, 2.5vw, 2rem) 1.125rem;
-    padding-inline: max(var(--space-gutter), env(safe-area-inset-left, 0px))
-        max(var(--space-gutter), env(safe-area-inset-right, 0px));
-}
-
-.site-toolbar--sticky {
-    position: sticky;
-    /* Fallback under fixed nav; upgraded to anchor(bottom) where supported. */
-    top: max(3.75rem, calc(env(safe-area-inset-top, 0px) + 3.25rem));
-    z-index: 35;
-    background: color-mix(in oklab, var(--bg) 88%, transparent);
-    backdrop-filter: blur(10px) saturate(1.15);
-    border-bottom: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
-}
-
-@media (min-width: 768px) {
-    .site-toolbar--sticky {
-        top: max(4.75rem, calc(env(safe-area-inset-top, 0px) + 4.25rem));
-    }
-
-    nav[aria-label='Primary'].is-compact ~ * .site-toolbar--sticky,
-    body:has(nav[aria-label='Primary'].is-compact) .site-toolbar--sticky {
-        top: max(4rem, calc(env(safe-area-inset-top, 0px) + 3.5rem));
-    }
-}
-
 /* When the nav shrinks via scroll-timeline (no is-compact class), keep the
    toolbar tucked under the compact height. Anchor positioning below wins. */
 @supports (animation-timeline: scroll()) {
-    @media (min-width: 768px) {
-        .site-toolbar--sticky {
-            animation: toolbarUnderNav linear forwards;
-            animation-timeline: scroll(root);
-            animation-range: 160px 320px;
-        }
-    }
-
     @keyframes toolbarUnderNav {
         from {
             top: max(4.75rem, calc(env(safe-area-inset-top, 0px) + 4.25rem));
         }
         to {
             top: max(4rem, calc(env(safe-area-inset-top, 0px) + 3.5rem));
-        }
-    }
-}
-
-@supports (anchor-name: --a) {
-    .site-toolbar--sticky {
-        position-anchor: --site-nav;
-        top: anchor(bottom);
-        animation: none;
-    }
-}
-
-@supports (container-type: scroll-state) {
-    .site-toolbar--sticky {
-        container-type: scroll-state;
-    }
-
-    @container scroll-state(stuck: top) {
-        .site-toolbar--sticky {
-            background: color-mix(in oklab, var(--bg) 94%, transparent);
-            border-bottom-color: color-mix(in oklab, var(--accent) 22%, var(--border));
         }
     }
 }
@@ -378,25 +257,10 @@ article.surface-card:focus-within {
     transform: translateY(-0.25rem);
 }
 
-a.surface-card.pointer-lit:hover,
-a.surface-card.pointer-lit:focus-visible,
-article.surface-card.pointer-lit:hover,
-article.surface-card.pointer-lit:focus-within {
-    transform: perspective(920px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-0.25rem);
-}
-
 a.surface-card:focus-visible,
 article.surface-card:focus-within {
     outline: none;
     box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 60%, transparent);
-}
-
-.surface-card-media {
-    background-color: var(--bg);
-    overflow: hidden;
-    /* Transformed screenshots (hover scale, parallax) otherwise paint past
-       border-radius and show up as a light crescent on the corners. */
-    isolation: isolate;
 }
 
 .surface-card-static {
@@ -413,70 +277,10 @@ article.surface-card:focus-within {
     box-shadow: 0 0 0 1px var(--hairline-strong);
 }
 
-/* Pointer-lit work cards — local spotlight + soft perspective tilt on hover only
-   (a resting 3D transform promotes every card to its own compositor layer). */
-.surface-card-media.pointer-lit {
-    --card-x: 50%;
-    --card-y: 40%;
-    --tilt-x: 0deg;
-    --tilt-y: 0deg;
-    isolation: isolate;
-    transition:
-        transform 0.35s var(--ease-out-spring),
-        box-shadow 0.35s var(--ease-out-soft);
-}
-
-.surface-card-media.pointer-lit:hover,
-.surface-card-media.pointer-lit:focus-within {
-    transform: perspective(920px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-2px);
-    transform-style: preserve-3d;
-    box-shadow:
-        0 10px 24px -10px color-mix(in oklab, var(--accent) 18%, transparent),
-        0 0 0 1px color-mix(in oklab, var(--accent) 35%, var(--hairline-strong));
-}
-
-.surface-card-media.pointer-lit::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    border-radius: inherit;
-    background: radial-gradient(
-        320px circle at var(--card-x) var(--card-y),
-        color-mix(in oklab, var(--accent) 18%, transparent),
-        transparent 58%
-    );
-    opacity: 0;
-    transition: opacity 0.28s var(--ease-out-soft);
-    mix-blend-mode: soft-light;
-}
-
-.surface-card-media.pointer-lit:hover::after,
-.surface-card-media.pointer-lit:focus-visible::after {
-    opacity: 1;
-}
-
-@media (pointer: coarse) {
-    .surface-card-media.pointer-lit::after {
-        display: none;
-    }
-
-    .surface-card-media.pointer-lit {
-        transform: none;
-    }
-}
-
 .surface-chip {
     border-radius: 0.25rem;
     border: 1px solid var(--border-strong);
     background-color: color-mix(in oklab, var(--panel) 72%, transparent);
-}
-
-.surface-chip-accent {
-    border-radius: 0.25rem;
-    border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
-    background-color: color-mix(in oklab, var(--accent) 10%, transparent);
 }
 
 /* Primary fill CTA — hex solid so contrast stays AA under animation/compositing. */
@@ -507,7 +311,6 @@ p {
    Skip the homepage hero wordmark — trim collapses the gap into the
    eyebrow row and reads as an overlap on narrow viewports. */
 @supports (text-box: trim-both cap alphabetic) {
-    h1.font-display:not(.hero-title),
     .prose-karl h2,
     .prose-karl h3 {
         text-box: trim-both cap alphabetic;

@@ -6,10 +6,13 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-CSS_MAX=195000   # bytes (reviewed screen CSS baseline + limited headroom; print decoupled)
-PRINT_CSS_MAX=15000 # bytes (decoupled print stylesheet)
+CSS_MAX=165000   # bytes (155 KB after the 2026-10 dead-selector purge + ~6% headroom)
+PRINT_CSS_MAX=9000  # bytes (decoupled print stylesheet)
 JS_MAX=18500     # bytes — core app.js after route-level splitting
 JS_TOTAL_MAX=54000  # core + lazy chunks (analytics transport, summarizer, WebGPU)
+
+# Author CSS must not define classes nothing references.
+python3 "$ROOT/scripts/check-dead-css.py"
 
 css="$(find "$ROOT/public/build/assets" -maxdepth 1 -name 'app-*.css' -print -quit)"
 print_css="$(find "$ROOT/public/build/assets" -maxdepth 1 -name 'print-*.css' -print -quit)"

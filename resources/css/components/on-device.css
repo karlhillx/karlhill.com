@@ -1,0 +1,390 @@
+/* Reader-tool sections collapse entirely until a tool has been revealed, so
+   browsers without the on-device APIs never see an empty bordered band. */
+.reader-tools:not(
+    :has([data-on-device-ask]:not([hidden]), [data-on-device-summary]:not([hidden]))
+) {
+    display: none;
+}
+
+.on-device-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-top: var(--space-stack);
+    margin-bottom: var(--space-stack);
+    max-width: min(36rem, 100%);
+}
+
+.on-device-summary__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+}
+
+.on-device-summary__btn {
+    min-height: 2.75rem;
+    padding: 0.75rem 1.25rem;
+    color: var(--accent);
+    border: 1px solid color-mix(in oklab, var(--accent) 42%, var(--border));
+    background: transparent;
+    cursor: pointer;
+}
+
+.on-device-summary__btn:hover,
+.on-device-summary__btn:focus-visible {
+    border-color: var(--accent);
+    background: color-mix(in oklab, var(--accent) 8%, transparent);
+}
+
+.on-device-summary__btn:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+}
+
+.on-device-summary__btn:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.on-device-summary__cancel {
+    min-height: 2.75rem;
+    padding: 0 0.25rem;
+    color: var(--muted-2);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.on-device-summary__cancel:hover,
+.on-device-summary__cancel:focus-visible {
+    color: var(--accent);
+}
+
+.on-device-summary__cancel:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+}
+
+.on-device-summary__hint {
+    margin: 0;
+    max-width: 36rem;
+    color: var(--muted-2);
+    line-height: 1.6;
+}
+
+.on-device-summary.is-running .on-device-summary__hint {
+    display: none;
+}
+
+.on-device-ask.on-device-summary {
+    align-items: stretch;
+    gap: 0.85rem;
+    max-width: min(40rem, 100%);
+}
+
+.on-device-ask {
+    width: 100%;
+    padding: 1.1rem 1.15rem 1.15rem;
+    border: 1px solid color-mix(in oklab, var(--accent) 32%, var(--border));
+    background: color-mix(in oklab, var(--accent) 6%, var(--panel));
+    border-radius: 0.75rem;
+}
+
+.on-device-ask__intro {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.on-device-ask__head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    margin: 0;
+}
+
+.on-device-ask__title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.98rem;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+    color: var(--text);
+}
+
+.on-device-ask__lede {
+    margin: 0;
+    color: var(--muted-2);
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.on-device-ask__prompts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.on-device-ask__prompt {
+    min-height: 2.25rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--panel) 88%, transparent);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    line-height: 1.3;
+    cursor: pointer;
+}
+
+.on-device-ask__prompt:hover,
+.on-device-ask__prompt:focus-visible {
+    border-color: var(--accent);
+    color: var(--text);
+    background: color-mix(in oklab, var(--accent) 10%, var(--panel));
+}
+
+.on-device-ask__prompt:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+}
+
+.on-device-ask.is-running .on-device-ask__prompt {
+    pointer-events: none;
+    opacity: 0.55;
+}
+
+.on-device-ask__form {
+    width: 100%;
+    margin: 0;
+}
+
+.on-device-ask__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.on-device-ask__input {
+    flex: 1 1 12rem;
+    min-height: 2.75rem;
+    min-width: 0;
+    padding: 0.65rem 0.85rem;
+    color: var(--text);
+    background: color-mix(in oklab, var(--panel) 72%, transparent);
+    border: 1px solid var(--border-strong);
+}
+
+.on-device-ask__input:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-color: var(--accent);
+}
+
+.on-device-summary__output {
+    margin: 0;
+    min-width: 0;
+    width: 100%;
+    color: var(--text);
+}
+
+.on-device-summary__output.is-busy,
+.on-device-summary__output.is-ready,
+.on-device-summary__output.is-error {
+    padding: 0.85rem 1rem;
+    background: color-mix(in oklab, var(--panel) 78%, transparent);
+    border: 1px solid var(--hairline);
+    border-radius: 0.65rem;
+}
+
+.on-device-summary__output.is-ready {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    letter-spacing: 0.012em;
+    white-space: pre-wrap;
+    text-wrap: pretty;
+}
+
+.summary-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.summary-panel__status {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+}
+
+.summary-panel__live {
+    width: 0.42rem;
+    height: 0.42rem;
+    flex-shrink: 0;
+    border-radius: 999px;
+    background: var(--accent);
+    translate: 0 0.12em;
+    animation: summaryLive 1.35s ease-in-out infinite;
+}
+
+.summary-panel__title {
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    line-height: 1.35;
+    color: var(--text);
+}
+
+.summary-ellipsis {
+    display: inline-block;
+    overflow: hidden;
+    width: 0;
+    margin-inline-start: 0.06em;
+    vertical-align: baseline;
+    white-space: nowrap;
+    animation: summaryEllipsis 1.25s steps(4, end) infinite;
+}
+
+.summary-ellipsis::after {
+    content: '...';
+}
+
+@keyframes summaryEllipsis {
+    to {
+        width: 1.15em;
+    }
+}
+
+.summary-panel__elapsed {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    letter-spacing: 0.06em;
+    color: var(--muted-2);
+    font-variant-numeric: tabular-nums;
+}
+
+.summary-panel__meter {
+    position: relative;
+    height: 0.35rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--border-strong) 80%, var(--panel));
+}
+
+.summary-panel__meter[hidden] {
+    display: none;
+}
+
+.summary-panel__meter > span {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    background: var(--accent-solid);
+    transition: width 0.28s var(--ease-out-soft);
+}
+
+/* Chrome often reports 0% for a while — keep motion so the bar still reads as live. */
+.summary-panel__meter.is-indeterminate > span {
+    width: 36% !important;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--accent-solid) 40%,
+        var(--accent-solid) 60%,
+        transparent 100%
+    );
+    animation: summaryMeterSweep 1.35s var(--ease-out-soft) infinite;
+}
+
+.summary-panel__meter.is-complete > span {
+    width: 100% !important;
+    animation: none;
+}
+
+@keyframes summaryMeterSweep {
+    from {
+        translate: -120% 0;
+    }
+    to {
+        translate: 280% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .summary-panel__meter.is-indeterminate > span {
+        width: 28% !important;
+        animation: none;
+        opacity: 0.7;
+    }
+}
+
+.summary-panel__note {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+.summary-panel__help {
+    margin: 0;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--muted);
+}
+
+.summary-panel__help[hidden] {
+    display: none;
+}
+
+.summary-panel__help p {
+    margin: 0;
+}
+
+.summary-panel__help p + p,
+.summary-panel__help p + ol {
+    margin-top: 0.45rem;
+}
+
+.summary-panel__help ol {
+    padding-left: 1.15rem;
+}
+
+.summary-panel__code {
+    font-family: var(--font-mono);
+    font-size: 0.78em;
+    color: var(--accent);
+    user-select: all;
+}
+
+@keyframes summaryLive {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.35;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .summary-panel__live {
+        animation: none;
+    }
+
+    .summary-ellipsis {
+        animation: none;
+        width: 1.15em;
+    }
+}

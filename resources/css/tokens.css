@@ -143,22 +143,21 @@
     --text-caption--line-height: 1.5;
     /* Scheme-aware neutrals. The site was designed dark-first, so the
        templates read `text-neutral-100` as “primary text” and `bg-neutral-900`
-       as “raised surface”. In light mode the scale is mirrored so those same
-       utilities keep their *role* rather than their literal luminance. */
+       as “raised surface”. Steps that carry a role alias the token above so
+       utilities and `var(--…)` can never drift apart; the rest mirror the
+       scale so they keep their *role* rather than their literal luminance. */
     --color-white: light-dark(#0a0a0a, #ffffff);
     --color-neutral-50: light-dark(#0a0a0a, #fafafa);
-    --color-neutral-100: light-dark(#171717, #f5f5f5);
+    --color-neutral-100: var(--text);
     --color-neutral-200: light-dark(#262626, #e5e5e5);
     --color-neutral-300: light-dark(#404040, #d4d4d4);
-    --color-neutral-400: light-dark(#454545, #a3a3a3);
-    /* Lifted mid neutral for small mono labels (nav, filters, captions) —
-       ≥ 4.5:1 against both canvases. */
-    --color-neutral-500: light-dark(#505050, #a1a1a1);
+    --color-neutral-400: var(--muted);
+    --color-neutral-500: var(--muted-2);
     /* 600: secondary meta / placeholders. Both ends clear 4.5:1 on the
        matching canvas (dark was stuck at ~2.5:1 with literal #525252). */
     --color-neutral-600: light-dark(#707070, #8a8a8a);
-    --color-neutral-700: light-dark(#cfcfcf, #404040);
-    --color-neutral-800: light-dark(#e4e4e4, #262626);
-    --color-neutral-900: light-dark(#f1f1f0, #171717);
-    --color-neutral-950: light-dark(#f7f7f6, #0a0a0a);
+    --color-neutral-700: var(--border-strong);
+    --color-neutral-800: var(--border);
+    --color-neutral-900: var(--panel);
+    --color-neutral-950: var(--bg);
 }

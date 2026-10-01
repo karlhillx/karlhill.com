@@ -3,6 +3,8 @@ import { toggleTheme } from './theme.js';
 
 const GROUP_LABELS = {
     page: 'Page',
+    section: 'Section',
+    action: 'Action',
     writing: 'Writing',
     work: 'Work',
 };
@@ -148,78 +150,111 @@ export function initCommandPalette() {
             keywords: 'writing blog posts articles essays notes governance leadership',
             action: () => window.location.assign('/blog'),
         }),
-        withGroup({
-            label: 'Book a conversation',
-            keywords: 'book calendly cal.com schedule call conversation hiring recruiter #book',
-            action: () => window.location.assign('/#book'),
-        }),
+        withGroup(
+            {
+                label: 'Book a conversation',
+                keywords: 'book calendly cal.com schedule call conversation hiring recruiter #book',
+                action: () => window.location.assign('/#book'),
+            },
+            'section'
+        ),
         withGroup({
             label: 'About',
             keywords: 'about experience career background music now focus recruiter kit hiring',
             action: () => window.location.assign('/about'),
         }),
-        withGroup({
-            label: 'Engineering delivery',
-            keywords: 'delivery definition of done pr rubric risk coaching lead packet',
-            action: () =>
-                window.location.assign('/work/jacobs-mission-software#delivery-practices'),
-        }),
-        withGroup({
-            label: 'How software gets delivered',
-            keywords: 'diagram verify integrate release system',
-            action: () => window.location.assign('/#system'),
-        }),
+        withGroup(
+            {
+                label: 'Engineering delivery',
+                keywords: 'delivery definition of done pr rubric risk coaching lead packet',
+                action: () =>
+                    window.location.assign('/work/jacobs-mission-software#delivery-practices'),
+            },
+            'section'
+        ),
+        withGroup(
+            {
+                label: 'How software gets delivered',
+                keywords: 'diagram verify integrate release system',
+                action: () => window.location.assign('/#system'),
+            },
+            'section'
+        ),
         withGroup({
             label: 'Resume',
             keywords: 'resume cv curriculum vitae experience pdf print',
             action: () => window.location.assign('/resume'),
         }),
-        withGroup({
-            label: 'Experience',
-            keywords: 'experience career nasa jacobs',
-            action: () => gotoSection('experience'),
-        }),
+        withGroup(
+            {
+                label: 'Experience',
+                keywords: 'experience career nasa jacobs',
+                action: () => gotoSection('experience'),
+            },
+            'section'
+        ),
         withGroup({
             label: 'Research',
             keywords:
                 'research publication paper doi geohorizons flood mapping gwfms zenodo orcid ads',
             action: () => window.location.assign('/research/global-flood-mapping'),
         }),
-        withGroup({
-            label: 'Technical expertise',
-            keywords: 'stack tech tools languages expertise',
-            action: () => gotoSection('stack'),
-        }),
-        withGroup({
-            label: 'Credentials',
-            keywords: 'certs certifications education scrum stats',
-            action: () => gotoSection('credentials'),
-        }),
-        withGroup({
-            label: 'Open source',
-            keywords: 'github repos open source',
-            action: () => gotoSection('open-source'),
-        }),
-        withGroup({
-            label: 'Contact',
-            keywords: 'contact email hire',
-            action: () => gotoSection('contact'),
-        }),
-        withGroup({
-            label: 'Switch theme',
-            keywords: 'theme dark light appearance night mode color scheme',
-            action: () => toggleTheme(),
-        }),
-        withGroup({
-            label: 'Atom feed',
-            keywords: 'rss atom feed subscribe',
-            action: () => window.open('/feed.xml', '_blank', 'noopener,noreferrer'),
-        }),
-        withGroup({
-            label: 'JSON feed',
-            keywords: 'json feed subscribe',
-            action: () => window.open('/feed.json', '_blank', 'noopener,noreferrer'),
-        }),
+        withGroup(
+            {
+                label: 'Technical expertise',
+                keywords: 'stack tech tools languages expertise',
+                action: () => gotoSection('stack'),
+            },
+            'section'
+        ),
+        withGroup(
+            {
+                label: 'Credentials',
+                keywords: 'certs certifications education scrum stats',
+                action: () => gotoSection('credentials'),
+            },
+            'section'
+        ),
+        withGroup(
+            {
+                label: 'Open source',
+                keywords: 'github repos open source',
+                action: () => gotoSection('open-source'),
+            },
+            'section'
+        ),
+        withGroup(
+            {
+                label: 'Contact',
+                keywords: 'contact email hire',
+                action: () => gotoSection('contact'),
+            },
+            'section'
+        ),
+        withGroup(
+            {
+                label: 'Switch theme',
+                keywords: 'theme dark light appearance night mode color scheme',
+                action: () => toggleTheme(),
+            },
+            'action'
+        ),
+        withGroup(
+            {
+                label: 'Atom feed',
+                keywords: 'rss atom feed subscribe',
+                action: () => window.open('/feed.xml', '_blank', 'noopener,noreferrer'),
+            },
+            'action'
+        ),
+        withGroup(
+            {
+                label: 'JSON feed',
+                keywords: 'json feed subscribe',
+                action: () => window.open('/feed.json', '_blank', 'noopener,noreferrer'),
+            },
+            'action'
+        ),
         withGroup({
             label: 'LinkedIn',
             keywords: 'linkedin social',

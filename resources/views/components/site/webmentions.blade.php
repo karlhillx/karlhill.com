@@ -4,7 +4,7 @@
 ])
 
 <section class="mb-12" data-reveal aria-labelledby="webmentions-heading">
-    <p id="webmentions-heading" class="font-mono text-accent text-xs tracking-widest uppercase mb-3">Mentions</p>
+    <p id="webmentions-heading" class="eyebrow mb-3">Mentions</p>
     @if(count($mentions) > 0)
         <ul class="space-y-3">
             @foreach($mentions as $mention)

@@ -82,7 +82,7 @@ final class HomeStructuredData
 
         return [
             '@context' => 'https://schema.org',
-            '@graph' => [$personLd, $websiteLd, $profilePageLd, $blogLd, ProjectCatalog::itemList(ProjectCatalog::featured(6))],
+            '@graph' => [$personLd, $websiteLd, $profilePageLd, $blogLd, ProjectCatalog::itemList(ProjectCatalog::featured(3))],
         ];
     }
 }

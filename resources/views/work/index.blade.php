@@ -33,7 +33,7 @@
         <x-site.section :id="$collection['id']" :section-label="$collection['title']" class="portfolio-collection">
             <div class="portfolio-section-heading">
                 <div>
-                    <p class="portfolio-eyebrow">{{ $collection['kicker'] }}</p>
+                    <p class="eyebrow">{{ $collection['kicker'] }}</p>
                     <h2>{{ $collection['title'] }}</h2>
                 </div>
                 <p>{{ $collection['intro'] }}</p>
@@ -45,7 +45,7 @@
             </div>
             @if($group === 'nasa')
                 <section id="chapters" class="portfolio-chapters" aria-labelledby="chapters-title">
-                    <h3 id="chapters-title" class="portfolio-eyebrow">Also at Goddard</h3>
+                    <h3 id="chapters-title" class="eyebrow">Also at Goddard</h3>
                     @foreach($collection['projects']->reject(fn ($project) => \App\Support\ProjectCatalog::isListed($project)) as $project)
                         <a href="/work/{{ $project['slug'] }}" class="portfolio-chapters__row">
                             <strong>{{ $project['title'] }}</strong>
@@ -60,7 +60,7 @@
 
     <x-site.section id="earlier" section-label="Earlier Work">
         <div class="portfolio-section-heading">
-            <div><p class="portfolio-eyebrow">The foundation / Enterprise &amp; healthcare</p><h2>Earlier Work</h2></div>
+            <div><p class="eyebrow">The foundation / Enterprise &amp; healthcare</p><h2>Earlier Work</h2></div>
             <p>Reliability, operational visibility, and domain-heavy applications were the work long before aerospace.</p>
         </div>
         @foreach($earlierProjects as $project)

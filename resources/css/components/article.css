@@ -1,0 +1,258 @@
+/* ---------------------------------------------------------------------------
+   Article sticky title + LQIP + toasts + ⌘K tip
+--------------------------------------------------------------------------- */
+.article-sticky-title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* Sit under the primary nav (z-50), never over the mobile menu. */
+    z-index: 40;
+    padding-top: 3.75rem;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-0.35rem);
+    transition:
+        opacity 0.22s var(--ease-out-soft),
+        transform 0.22s var(--ease-out-soft);
+}
+
+@media (min-width: 768px) {
+    .article-sticky-title {
+        padding-top: 4.75rem;
+    }
+
+    nav[aria-label='Primary'].is-compact ~ * .article-sticky-title,
+    body:has(nav[aria-label='Primary'].is-compact) .article-sticky-title {
+        padding-top: 4rem;
+    }
+}
+
+.article-sticky-title.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.article-sticky-title.is-suppressed {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.article-sticky-title > div {
+    pointer-events: auto;
+    border-bottom: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+    background: color-mix(in oklab, var(--bg) 92%, transparent);
+    backdrop-filter: blur(10px) saturate(1.15);
+    min-height: 2.5rem;
+}
+
+.img-lqip {
+    display: block;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Visible without JS. media.js opts into a fade-up only when it runs. */
+.img-lqip__media {
+    opacity: 1;
+}
+
+.img-lqip--enhance:not(.is-loaded) .img-lqip__media {
+    opacity: 0;
+    transition: opacity 0.45s var(--ease-out-soft);
+}
+
+.img-lqip.is-loaded .img-lqip__media,
+.img-lqip__media.is-loaded {
+    opacity: 1;
+}
+
+.site-toast {
+    position: fixed;
+    z-index: 80;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    max-width: min(26rem, calc(100vw - 2rem));
+    padding: 0.9rem 1rem;
+    border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--border));
+    background: color-mix(in oklab, var(--panel) 92%, transparent);
+    backdrop-filter: blur(14px) saturate(1.2);
+    box-shadow: 0 18px 50px light-dark(rgb(20 20 20 / 0.14), rgb(0 0 0 / 0.45));
+}
+
+.copy-feedback {
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    z-index: 30;
+    transform: translateX(-50%);
+    border-radius: 0.25rem;
+    border: 1px solid color-mix(in oklab, var(--accent) 45%, var(--border));
+    background-color: var(--panel);
+    color: var(--accent);
+    box-shadow: 0 2px 8px light-dark(rgb(20 20 20 / 0.08), rgb(0 0 0 / 0.28));
+}
+
+.contact-form-status {
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    line-height: 1.45;
+    border: 1px solid var(--border);
+    outline: none;
+}
+
+.contact-form-status--success {
+    border-color: color-mix(in oklab, var(--success) 45%, var(--border));
+    color: color-mix(in oklab, var(--success) 85%, var(--text));
+    background: color-mix(in oklab, var(--success) 10%, transparent);
+}
+
+.contact-form-status--error {
+    border-color: color-mix(in oklab, oklch(65% 0.18 25) 50%, var(--border));
+    color: oklch(78% 0.14 25);
+    background: color-mix(in oklab, oklch(55% 0.16 25) 12%, transparent);
+}
+
+.contact-form-status__next {
+    margin-top: 0.75rem;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: 0.75rem;
+}
+
+.site-toast {
+    right: 1rem;
+    bottom: 1rem;
+    opacity: 0;
+    transform: translateY(0.6rem) scale(0.98);
+    transition:
+        opacity 0.28s var(--ease-out-soft),
+        transform 0.28s var(--ease-out-soft);
+    overflow: hidden;
+}
+
+.site-toast.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.site-toast.is-leaving {
+    opacity: 0;
+    transform: translateY(0.4rem) scale(0.98);
+}
+
+.site-toast--error {
+    border-color: color-mix(in oklab, oklch(65% 0.18 25) 50%, var(--border));
+}
+
+.site-toast__progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    transform-origin: left center;
+    background: color-mix(in oklab, var(--accent) 80%, transparent);
+    transform: scaleX(1);
+}
+
+.site-toast.is-visible .site-toast__progress {
+    animation: toastProgress var(--toast-duration, 5.2s) linear forwards;
+}
+
+.site-toast--error .site-toast__progress {
+    background: color-mix(in oklab, oklch(65% 0.18 25) 80%, transparent);
+}
+
+@keyframes toastProgress {
+    from {
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(0);
+    }
+}
+
+/* Theme toggle — icon shows the scheme you'd switch *to*. Pure CSS state:
+   an explicit [data-theme] pin wins, otherwise the OS preference decides. */
+.theme-toggle__icon--moon {
+    display: none;
+}
+
+:root[data-theme='light'] .theme-toggle__icon--sun {
+    display: none;
+}
+
+:root[data-theme='light'] .theme-toggle__icon--moon {
+    display: block;
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) .theme-toggle__icon--sun {
+        display: none;
+    }
+
+    :root:not([data-theme]) .theme-toggle__icon--moon {
+        display: block;
+    }
+}
+
+/* Tag filter + adjacent nav micro-interactions */
+.tag-filter__chip {
+    transition:
+        color 0.16s ease,
+        border-color 0.16s ease,
+        background-color 0.16s ease,
+        transform 0.16s var(--ease-out-soft);
+}
+
+.tag-filter__chip:hover {
+    border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
+    color: var(--accent);
+}
+
+.tag-filter__chip:active {
+    transform: scale(0.97);
+}
+
+.tag-filter__chip.is-active {
+    background: color-mix(in oklab, var(--accent) 10%, transparent);
+}
+
+.case-study-lede {
+    text-wrap: pretty;
+    font-size: 1.0625rem;
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
+    max-width: 38rem;
+}
+
+.site-article .article-title {
+    margin: 0 0 1.15rem;
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    line-height: 1.2;
+    letter-spacing: var(--tracking-sans-tight);
+    max-width: 28ch;
+}
+
+.site-article .article-excerpt {
+    margin: 0 0 1.5rem;
+    max-width: 36rem;
+    font-size: 1.05rem;
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-sans);
+    text-wrap: pretty;
+}
+
+.post-list-title {
+    font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+    line-height: 1.28;
+    letter-spacing: var(--tracking-sans-tight);
+}

@@ -21,7 +21,7 @@ class HomeController extends Controller
         return view('home.index', [
             'meta' => PageMeta::home(),
             'latestPosts' => $posts->take(3),
-            'featuredProjects' => ProjectCatalog::featured(6),
+            'featuredProjects' => ProjectCatalog::featured(3),
             'collections' => ProjectCatalog::collections(),
             'structuredData' => HomeStructuredData::build($posts->take(12)),
         ]);

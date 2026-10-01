@@ -125,7 +125,7 @@ async function revealIfAvailable(root) {
     if (isDownloading) {
         status.textContent = 'Chrome on-device · Model downloading in background';
     } else if (isDownloadable) {
-        status.textContent = 'Chrome on-device · First run downloads Gemini Nano (~1.5 GB)';
+        status.textContent = 'Chrome on-device · One-time model download (~1.5 GB) on first use';
     } else {
         status.textContent = 'Chrome on-device · Model ready · Nothing leaves this device';
     }

@@ -37,7 +37,7 @@
 
     <x-site.section id="focus" section-label="Current focus" border="soft">
         <div class="grid md:grid-cols-[200px_1fr] gap-8 md:gap-14" data-reveal>
-            <h2 class="portfolio-eyebrow">Current focus</h2>
+            <h2 class="eyebrow">Current focus</h2>
             <div class="about-lede max-w-2xl">
                 <p>{{ config('site.now.lede') }} {{ config('site.now.body') }}</p>
                 <p>{{ config('site.now.focus') }}</p>
@@ -48,7 +48,7 @@
 
     <x-site.section id="approach" section-label="How I work" border="soft">
         <div class="grid md:grid-cols-[200px_1fr] gap-8 md:gap-14" data-reveal>
-            <h2 class="portfolio-eyebrow">How I work</h2>
+            <h2 class="eyebrow">How I work</h2>
             <div class="about-lede max-w-2xl">
                 @foreach(config('site.about.approach') as $paragraph)
                     <p>{{ $paragraph }}</p>
@@ -62,7 +62,7 @@
     @if($beyondParagraphs !== [])
         <section id="beyond" aria-label="Beyond the work" class="site-section site-section--soft border-t border-neutral-800/50">
             <div class="site-shell grid md:grid-cols-[200px_1fr] gap-8 md:gap-14" data-reveal>
-                <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">Beyond the work</p>
+                <p class="eyebrow pt-1">Beyond the work</p>
                 <div class="about-lede max-w-2xl">
                     @foreach($beyondParagraphs as $paragraph)
                         <p class="text-neutral-300 text-lg leading-relaxed">

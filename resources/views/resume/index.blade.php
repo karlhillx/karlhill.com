@@ -43,16 +43,6 @@
                 </x-site.button>
             @endif
         </div>
-        <x-site.on-device-ask
-            class="mt-8"
-            id="resume-ask"
-            source="[data-ask-source]"
-            :context="$askBrief"
-            :prompts="$askPrompts"
-            heading="Ask this resume"
-            label="Ask"
-            placeholder="What is the current role?"
-        />
     </x-site.page-hero>
 
     <article class="resume-doc site-section site-section--soft border-t border-neutral-800/50" aria-label="Resume" data-ask-source>
@@ -167,13 +157,13 @@
                 </header>
 
                 <section class="resume-section" aria-labelledby="resume-summary" data-reveal>
-                    <h2 id="resume-summary" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Summary</h2>
+                    <h2 id="resume-summary" class="resume-section-title eyebrow">Summary</h2>
                     <p class="resume-summary text-neutral-300 text-lg leading-relaxed">{{ $experience['intro'] }}</p>
                 </section>
 
                 @if(! empty($resume['impact']))
                     <section class="resume-section" aria-labelledby="resume-impact" data-reveal>
-                        <h2 id="resume-impact" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Selected Leadership Impact</h2>
+                        <h2 id="resume-impact" class="resume-section-title eyebrow">Selected Leadership Impact</h2>
                         <ul class="resume-bullets resume-impact list-disc pl-5 text-neutral-300">
                             @foreach($resume['impact'] as $item)
                                 <li>{{ $item }}</li>
@@ -183,7 +173,7 @@
                 @endif
 
                 <section class="resume-section" aria-labelledby="resume-experience" data-reveal>
-                    <h2 id="resume-experience" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Professional Experience</h2>
+                    <h2 id="resume-experience" class="resume-section-title eyebrow">Professional Experience</h2>
 
                     <div class="resume-roles">
                         <div class="resume-role resume-role--current">
@@ -231,7 +221,7 @@
                 @foreach(['products' => ['resume-products', 'Independent Products'], 'tooling' => ['resume-open-source', 'Open Source']] as $key => [$sectionId, $sectionTitle])
                     @continue(empty($resume[$key]))
                     <section class="resume-section" aria-labelledby="{{ $sectionId }}" data-reveal>
-                        <h2 id="{{ $sectionId }}" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">{{ $sectionTitle }}</h2>
+                        <h2 id="{{ $sectionId }}" class="resume-section-title eyebrow">{{ $sectionTitle }}</h2>
                         <ul class="resume-bullets list-disc pl-5 text-neutral-300">
                             @foreach($resume[$key] as $item)
                                 <li>
@@ -252,7 +242,7 @@
                 @endphp
                 @if(! empty($research['identity']))
                     <section class="resume-section" aria-labelledby="resume-publications" data-reveal>
-                        <h2 id="resume-publications" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Publications</h2>
+                        <h2 id="resume-publications" class="resume-section-title eyebrow">Publications</h2>
                         <p class="font-mono text-xs text-accent uppercase tracking-widest mb-3">{{ $research['identity_label'] ?? 'Peer-reviewed research' }}</p>
                         <p class="text-neutral-200 font-medium leading-snug max-w-3xl mb-3">
                             <a href="{{ $research['path'] ?? '/research/global-flood-mapping' }}" class="text-accent underline underline-offset-[3px] decoration-accent/35 hover:decoration-accent transition-colors">{{ $research['title'] }}</a>
@@ -273,7 +263,7 @@
 
                 @if(! empty($education))
                     <section class="resume-section" aria-labelledby="resume-education" data-reveal>
-                        <h2 id="resume-education" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Education</h2>
+                        <h2 id="resume-education" class="resume-section-title eyebrow">Education</h2>
                         <ul class="resume-education">
                             @foreach($education as $item)
                                 <li class="text-neutral-300">
@@ -286,7 +276,7 @@
 
                 @if(! empty($certifications))
                     <section id="credentials" class="resume-section" aria-labelledby="resume-certifications" data-reveal>
-                        <h2 id="resume-certifications" class="resume-section-title font-mono text-accent text-xs tracking-widest uppercase">Certifications</h2>
+                        <h2 id="resume-certifications" class="resume-section-title eyebrow">Certifications</h2>
                         <ul class="resume-certs list-disc pl-5">
                             @foreach($certifications as $cert)
                                 <li class="text-neutral-300">
@@ -304,6 +294,21 @@
             </div>
         </div>
     </article>
+
+    {{-- Reader tool after the document: hidden unless Chrome's Prompt API can run. --}}
+    <div class="reader-tools site-section site-section--soft border-t border-neutral-800/50">
+        <div class="site-shell">
+            <x-site.on-device-ask
+                id="resume-ask"
+                source="[data-ask-source]"
+                :context="$askBrief"
+                :prompts="$askPrompts"
+                heading="Ask this resume"
+                label="Ask"
+                placeholder="What is the current role?"
+            />
+        </div>
+    </div>
 @endsection
 
 @section('page_footer')

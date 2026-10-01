@@ -25,18 +25,24 @@ test.describe('smoke + a11y', () => {
     test('navigation stays complete across desktop, tablet, and mobile', async ({ page }) => {
         await page.goto('/work');
         const primary = page.getByRole('navigation', { name: 'Primary', exact: true });
-        for (const width of [320, 390, 820, 1280, 1440]) {
+        // Text links appear from lg (1024px); below that the drawer carries them.
+        const DRAWER_MAX = 1024;
+        for (const width of [320, 390, 820, 1024, 1280, 1440]) {
             await page.setViewportSize({ width, height: 900 });
-            if (width < 1280) {
+            if (width < DRAWER_MAX) {
                 await primary.getByRole('button', { name: 'Open menu', exact: true }).click();
             }
-            for (const name of ['Work', 'About', 'Contact']) {
+            for (const name of ['Work', 'Writing', 'About', 'Contact']) {
                 await expect(
                     primary.getByRole('link', { name, exact: true }).filter({ visible: true })
                 ).toBeVisible();
             }
+            // Resume lives in the drawer only; the footer carries it everywhere.
+            const resume = primary
+                .getByRole('link', { name: 'Resume', exact: true })
+                .filter({ visible: true });
+            await expect(resume).toHaveCount(width < DRAWER_MAX ? 1 : 0);
             for (const name of ['Writing', 'Resume']) {
-                await expect(primary.getByRole('link', { name, exact: true })).toHaveCount(0);
                 await expect(
                     page.locator('footer').getByRole('link', { name, exact: true })
                 ).toBeVisible();
@@ -44,7 +50,7 @@ test.describe('smoke + a11y', () => {
             await expect(
                 primary.getByRole('link', { name: /Recruiter|Certifications/ })
             ).toHaveCount(0);
-            if (width < 1280) {
+            if (width < DRAWER_MAX) {
                 await page.keyboard.press('Escape');
                 await expect(page.locator('#nav-toggle')).toHaveAttribute('aria-expanded', 'false');
                 await expect(page.locator('#nav-toggle')).toBeFocused();
@@ -127,11 +133,18 @@ test.describe('smoke + a11y', () => {
             'Mission software at scale',
             'Flood Mapping System',
             'LAADS DAAC',
-            'Engineering the feedback loop',
-            'The Dry Standard',
-            'NASA Earth Observatory',
         ]);
         await expect(page.locator('h3#work-card-title-jacobs-mission-software')).toBeVisible();
+        await page.goto('/work');
+        // Collection order on /work: mission → NASA → tooling → products.
+        await expect(page.locator('main .portfolio-card > .portfolio-card__body > h3')).toHaveText([
+            'Mission software at scale',
+            'Flood Mapping System',
+            'LAADS DAAC',
+            'NASA Earth Observatory',
+            'Engineering the feedback loop',
+            'The Dry Standard',
+        ]);
         const title = page
             .locator('#the-dry-standard')
             .getByRole('link', { name: /Read case study/ });

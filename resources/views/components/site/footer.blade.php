@@ -20,7 +20,7 @@
         @if($isHome)
             <div class="site-footer-home grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(14rem,18rem)] lg:gap-16 xl:gap-20 lg:items-start">
                 <div class="min-w-0" data-reveal>
-                    <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-5 sm:mb-6">Contact</h2>
+                    <h2 class="eyebrow mb-5 sm:mb-6">Contact</h2>
                     <p class="font-display leading-none tracking-wide text-balance text-[clamp(2.75rem,7vw,5.5rem)] mb-5 sm:mb-6">
                         {!! nl2br(e($footer['headline'])) !!}
                     </p>
@@ -31,67 +31,62 @@
                     <x-site.contact-form id-prefix="contact" :return-to="url()->current()" />
                 </div>
 
-                <aside class="site-footer-aside flex flex-col gap-10 lg:gap-12 lg:pt-1" data-reveal aria-label="Direct contact and site links">
+                <aside class="site-footer-aside flex flex-col gap-10 lg:gap-12 lg:pt-1" data-reveal aria-label="Direct contact, scheduling, and profiles">
                     <div>
-                        <p class="font-mono text-caption text-neutral-400 uppercase tracking-widest mb-5">Email directly</p>
-                        <div class="flex flex-col gap-4">
-                            <div class="flex items-center gap-2 min-w-0">
-                                <a href="mailto:{{ $person['email'] }}"
-                                   data-analytics-event="email_clicked"
-                                   data-analytics-location="footer-home"
-                                   class="inline-flex items-center gap-3 font-mono text-sm text-neutral-400 hover:text-accent transition-colors min-w-0">
-                                    <span class="text-accent text-base arrow-nudge shrink-0" aria-hidden="true">→</span>
-                                    <span class="truncate">{{ $person['email'] }}</span>
-                                </a>
-                                <button type="button" data-copy-text="{{ $person['email'] }}" aria-label="Copy email address"
-                                        class="relative isolate inline-flex items-center justify-center min-h-11 min-w-11 text-neutral-500 hover:text-accent transition-colors shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5a2 2 0 012-2h9a2 2 0 012 2v9a2 2 0 01-2 2h-2M5 8h9a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a2 2 0 012-2z"/>
-                                    </svg>
-                                    <span data-copy-feedback role="status" aria-live="polite"
-                                          class="copy-feedback pointer-events-none absolute inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1 font-mono text-caption uppercase tracking-widest opacity-0 transition-opacity duration-200">
-                                        <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                                        </svg>
-                                        Copied to clipboard
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
+                        <p class="eyebrow eyebrow--muted mb-5">Email directly</p>
+                        <x-site.email-copy location="footer-home" :arrow="true" />
                     </div>
 
+                    @if(filled($bookingUrl))
+                        <div>
+                            <p class="eyebrow eyebrow--muted mb-3">Schedule</p>
+                            {{-- The summary lives here; the wide scheduler panel renders below the
+                                 grid and is revealed with :has() so the iframe gets full width. --}}
+                            <details class="contact-booking">
+                                <summary class="contact-booking__summary portfolio-text-link cursor-pointer"
+                                         data-analytics-event="booking_cta_clicked"
+                                         data-analytics-location="footer-home">
+                                    <span>{{ $bookingLabel }}</span>
+                                    <svg class="contact-booking__chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </summary>
+                                <div id="book" class="contact-booking__body">
+                                    @if(filled($bookingEmbed))
+                                        <p class="text-neutral-400 text-sm leading-relaxed">Pick a time in the scheduler below.</p>
+                                    @endif
+                                    <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer"
+                                       data-analytics-event="scheduler_opened" data-analytics-location="contact"
+                                       class="portfolio-text-link text-sm">
+                                        Open scheduler in a new tab
+                                    </a>
+                                </div>
+                            </details>
+                        </div>
+                    @else
+                        <span id="book"></span>
+                    @endif
+
+                    <div>
+                        <p class="eyebrow eyebrow--muted mb-1">Elsewhere</p>
+                        <x-site.social-links class="-ml-3" />
+                    </div>
                 </aside>
             </div>
-            @if(filled($bookingUrl))
-                <details class="contact-booking mt-8 max-w-4xl">
-                    <summary class="portfolio-text-link min-h-11 cursor-pointer py-3"
-                             data-analytics-event="booking_cta_clicked"
-                             data-analytics-location="footer-home">{{ $bookingLabel }}</summary>
-                    <div id="book">
-                        @if(filled($bookingEmbed))
-                            <div class="booking-embed">
-                                <iframe class="booking-embed__frame"
-                                        src="{{ $bookingEmbed }}"
-                                        title="{{ $bookingLabel }}"
-                                        loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"
-                                        allow="payment *"></iframe>
-                            </div>
-                        @endif
-                        <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer"
-                           data-analytics-event="scheduler_opened" data-analytics-location="contact"
-                           class="portfolio-text-link inline-flex min-h-11 items-center">
-                            Open scheduler in a new tab
-                        </a>
-                    </div>
-                </details>
-            @else
-                <span id="book"></span>
+            @if(filled($bookingUrl) && filled($bookingEmbed))
+                <div class="booking-embed booking-embed--footer">
+                    <iframe class="booking-embed__frame"
+                            src="{{ $bookingEmbed }}"
+                            title="{{ $bookingLabel }}"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allow="payment *"></iframe>
+                </div>
             @endif
         @else
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10 lg:gap-16">
                 <div class="max-w-xl">
-                    <h2 class="font-mono text-accent text-xs tracking-widest uppercase mb-4">Contact</h2>
+                    <h2 class="eyebrow mb-4">Contact</h2>
                     <p class="text-neutral-300 text-base leading-relaxed">
                         {{ $footer['compact_body'] ?? 'Schedule a conversation or send email.' }}
                     </p>
@@ -103,27 +98,7 @@
                                 {{ $bookingLabel }}
                             </x-site.button>
                         @endif
-                        <div class="flex items-center gap-2">
-                            <a href="mailto:{{ $person['email'] }}"
-                               data-analytics-event="email_clicked"
-                               data-analytics-location="footer"
-                               class="inline-flex items-center min-h-11 font-mono text-sm text-neutral-400 hover:text-accent transition-colors">
-                                {{ $person['email'] }}
-                            </a>
-                            <button type="button" data-copy-text="{{ $person['email'] }}" aria-label="Copy email address"
-                                    class="relative isolate inline-flex items-center justify-center min-h-11 min-w-11 text-neutral-500 hover:text-accent transition-colors">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5a2 2 0 012-2h9a2 2 0 012 2v9a2 2 0 01-2 2h-2M5 8h9a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a2 2 0 012-2z"/>
-                                </svg>
-                                <span data-copy-feedback role="status" aria-live="polite"
-                                      class="copy-feedback pointer-events-none absolute inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1 font-mono text-caption uppercase tracking-widest opacity-0 transition-opacity duration-200">
-                                    <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    Copied to clipboard
-                                </span>
-                            </button>
-                        </div>
+                        <x-site.email-copy location="footer" />
                     </div>
                 </div>
             </div>

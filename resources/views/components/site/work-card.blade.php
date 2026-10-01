@@ -18,7 +18,7 @@
     <div class="portfolio-card__visual">
         @if($isMission)
             <div class="mission-proof">
-                <p class="portfolio-eyebrow">Engineering delivery / Jacobs</p>
+                <p class="eyebrow">Engineering delivery / Jacobs</p>
                 <p class="mission-proof__headline">Many repositories.<br>One delivery standard.</p>
                 <ol class="mission-proof__flow" aria-label="Simplified delivery workflow">
                     <li>Local checks</li><li>Review + CI</li><li>Integration</li><li>Release</li>
@@ -32,7 +32,7 @@
             </div>
         @elseif($isTooling)
             <div class="tooling-proof">
-                <p class="portfolio-eyebrow">Source available / Independent tools</p>
+                <p class="eyebrow">Source available / Independent tools</p>
                 <p class="mission-proof__headline">Make the feedback<br>loop inspectable.</p>
                 <ul class="tooling-proof__index" aria-label="Featured repositories">
                     @foreach(config('site.github.fallback_repos') as $repo)
@@ -54,7 +54,7 @@
         @endif
     </div>
     <div class="portfolio-card__body">
-        <p class="portfolio-eyebrow">{{ $project['meta'] }}</p>
+        <p class="eyebrow">{{ $project['meta'] }}</p>
         <h3 id="work-card-title-{{ $project['slug'] }}">{{ $project['card_title'] ?? $project['title'] }}</h3>
         <p class="portfolio-card__role">{{ $study['role'] }}</p>
         @if($summary)

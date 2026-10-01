@@ -24,17 +24,6 @@
     }
 }
 
-@keyframes borderReveal {
-    from {
-        transform: scaleX(0);
-        transform-origin: left;
-    }
-    to {
-        transform: scaleX(1);
-        transform-origin: left;
-    }
-}
-
 @keyframes arrowNudge {
     0%,
     100% {
@@ -45,70 +34,8 @@
     }
 }
 
-@keyframes availabilityPulse {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.35;
-    }
-}
-
-.availability-pulse {
-    position: relative;
-    animation: availabilityPulse 2.5s ease-in-out infinite;
-}
-
-/* Radar "ping" — a soft ring radiates outward from the live availability dot. */
-.availability-pulse::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 9999px;
-    background: inherit;
-    animation: availabilityPing 2.5s var(--ease-out-soft) infinite;
-    pointer-events: none;
-    z-index: -1;
-}
-
-@keyframes availabilityPing {
-    0% {
-        transform: scale(1);
-        opacity: 0.55;
-    }
-    70%,
-    100% {
-        transform: scale(2.8);
-        opacity: 0;
-    }
-}
-
 /* Portrait halo used to animate filter: drop-shadow — that forces a paint
    every frame. The static ring on the image is enough. */
-
-/* Work-card imagery drifts vertically as the card travels through the viewport,
-   giving the otherwise-static grid a subtle sense of depth. Scroll-driven, so
-   it costs nothing on the main thread; only enabled where view() timelines and
-   the oversize crop are supported (others keep the flat, full-bleed image). */
-@keyframes workParallax {
-    from {
-        translate: 0 -8%;
-    }
-    to {
-        translate: 0 8%;
-    }
-}
-
-@supports (animation-timeline: view()) {
-    .work-parallax {
-        top: -8%;
-        height: 116%;
-        animation: workParallax linear both;
-        animation-timeline: view();
-        animation-range: cover;
-    }
-}
 
 /* ---------------------------------------------------------------------------
    Hero entrance animations — one-shot on page load
@@ -126,238 +53,6 @@
 
 .hero-enter {
     animation: heroEnter 0.75s var(--ease-out-spring) both;
-}
-
-/* Homepage hero — atmosphere + one hire composition (no screenshot). */
-#hero.hero {
-    /* Clears fixed nav without crowding the wordmark. */
-    padding-top: calc(4.75rem + 2.75rem + 1.25rem);
-    padding-bottom: clamp(3.5rem, 8vw, 6rem);
-    overflow-x: clip;
-}
-
-#hero .hero-copy {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    min-width: 0;
-    max-width: 42rem;
-    padding-top: clamp(0.5rem, 2vw, 2.5rem);
-}
-
-#hero .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin: 0 0 clamp(1rem, 2.5vw, 1.75rem);
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-}
-
-#hero .hero-portrait-frame {
-    flex: 0 0 auto;
-    display: block;
-    width: 2.75rem;
-    height: 2.75rem;
-}
-
-#hero .hero-portrait {
-    width: 100%;
-    height: 100%;
-}
-
-#hero .hero-kicker {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    column-gap: 0.5rem;
-    row-gap: 0.2rem;
-    margin: 0;
-    font-size: 0.75rem;
-    letter-spacing: var(--tracking-mono);
-    line-height: var(--leading-ui);
-    flex: 1 1 0;
-    min-width: 0;
-}
-
-#hero .hero-kicker__sep {
-    opacity: 0.7;
-}
-
-@media (max-width: 639px) {
-    #hero .hero-kicker__sep {
-        display: none;
-    }
-
-    #hero .hero-kicker > span:not(.hero-kicker__sep) {
-        flex: 1 1 100%;
-    }
-}
-
-/* Hero wordmark size lives in CSS (not a Tailwind arbitrary class) so Vite
-   content-scan cache misses can't collapse the brand to 16px. */
-#hero .hero-title {
-    font-size: clamp(3rem, 11.5vw, 10.5rem);
-    line-height: 0.9;
-    letter-spacing: var(--tracking-display);
-    margin: 0 0 clamp(0.65rem, 1.6vw, 1.05rem);
-    max-width: 100%;
-    width: 100%;
-    overflow-wrap: anywhere;
-    padding-top: 0.04em;
-    text-wrap: balance;
-}
-
-#hero .hero-statement {
-    font-weight: 600;
-    font-size: clamp(1.125rem, 2.4vw, 1.4rem);
-    line-height: 1.32;
-    letter-spacing: var(--tracking-sans-tight);
-    width: 100%;
-    max-width: min(36rem, 100%);
-    margin: 0 0 0.5rem;
-    min-width: 0;
-    text-wrap: balance;
-}
-
-#hero .hero-lede {
-    font-size: clamp(1.05rem, 2.2vw, 1.175rem);
-    line-height: var(--leading-body);
-    letter-spacing: var(--tracking-sans);
-    width: 100%;
-    max-width: min(36rem, 100%);
-    margin: 0 0 clamp(1rem, 2.25vw, 1.35rem);
-    min-width: 0;
-    text-wrap: pretty;
-}
-
-#hero .hero-proof {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    list-style: none;
-    margin: 0 0 0.85rem;
-    padding: 0;
-    max-width: min(42rem, 100%);
-}
-
-#hero .hero-proof li {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: var(--tracking-mono);
-    line-height: var(--leading-ui);
-    text-transform: uppercase;
-    color: color-mix(in oklab, var(--muted) 70%, var(--text));
-    border: 1px solid color-mix(in oklab, var(--accent) 28%, var(--border));
-    background: color-mix(in oklab, var(--accent) 8%, transparent);
-    padding: 0.4rem 0.65rem;
-    border-radius: 0.25rem;
-}
-
-#hero .hero-cta {
-    gap: 0.75rem;
-    width: 100%;
-}
-
-#hero .hero-cta-btn {
-    min-height: 2.75rem;
-    padding: 0.75rem 1.35rem;
-    font-size: 0.75rem;
-}
-
-@media (max-width: 639px) {
-    #hero.hero {
-        /* Prefer Book above the fold over a full-bleed square on small phones. */
-        min-height: auto;
-        padding-top: calc(var(--nav-offset) + 1.75rem);
-        padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px));
-        justify-content: flex-end;
-    }
-
-    #hero .hero-eyebrow {
-        margin-bottom: 0.85rem;
-        gap: 0.65rem;
-    }
-
-    #hero .hero-kicker {
-        font-size: 0.6875rem;
-    }
-
-    #hero .hero-proof {
-        margin-bottom: 0.7rem;
-        gap: 0.35rem;
-    }
-
-    #hero .hero-proof li {
-        font-size: 0.625rem;
-        padding: 0.35rem 0.5rem;
-    }
-
-    #hero .hero-title {
-        font-size: clamp(2.45rem, 13.5vw, 3.5rem);
-        margin-bottom: 0.85rem;
-        line-height: 0.92;
-    }
-
-    #hero .hero-statement {
-        font-size: 1.1rem;
-        margin-bottom: 0.35rem;
-    }
-
-    #hero .hero-lede {
-        font-size: 1.025rem;
-        margin-bottom: 0.85rem;
-    }
-
-    #hero .hero-copy {
-        padding-top: 0;
-        max-width: 100%;
-    }
-
-    #hero .hero-cta {
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.65rem;
-    }
-
-    #hero .hero-cta-btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-@media (min-width: 640px) {
-    #hero .hero-portrait-frame {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    #hero .hero-eyebrow {
-        gap: 1rem;
-    }
-
-    #hero .hero-kicker {
-        font-size: 0.75rem;
-        letter-spacing: var(--tracking-mono);
-    }
-
-    #hero .hero-cta {
-        gap: 1rem;
-    }
-
-    #hero .hero-cta-btn {
-        padding: 0.85rem 2rem;
-    }
-}
-
-@media (min-width: 768px) {
-    #hero.hero {
-        padding-top: 7rem;
-        justify-content: flex-end;
-    }
 }
 
 .nav-enter {
@@ -457,10 +152,6 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     line-height: 1;
 }
 
-.border-reveal {
-    animation: borderReveal 0.8s ease-out both;
-}
-
 /* Arrow micro-animation — only while the parent link/button is hovered or focused. */
 .arrow-nudge {
     display: inline-block;
@@ -545,8 +236,7 @@ button:focus-visible > .arrow-nudge,
     transform: scaleX(1);
 }
 
-/* Hero ambient glow orbs */
-/* Hero dot-grid overlay — static texture (an infinite crawl kept the GPU warm). */
+/* Page-hero dot-grid overlay — static texture (an infinite crawl kept the GPU warm). */
 .hero-dot-grid {
     background-image: radial-gradient(
         circle,
@@ -554,90 +244,6 @@ button:focus-visible > .arrow-nudge,
         transparent 1px
     );
     background-size: 48px 48px;
-}
-
-/* Hero mesh — soft accent blobs. Static positions; blur is expensive enough
-   without also animating the filtered layers forever. */
-.hero-mesh {
-    z-index: 0;
-    overflow: hidden;
-}
-
-.hero-mesh__blob {
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(48px);
-    opacity: light-dark(0.12, 0.55);
-    background: radial-gradient(
-        circle at 40% 40%,
-        color-mix(in oklab, var(--accent) light-dark(22%, 42%), transparent),
-        transparent 68%
-    );
-    will-change: auto;
-}
-
-.hero-mesh__blob--a {
-    width: min(42vw, 28rem);
-    height: min(42vw, 28rem);
-    top: 8%;
-    left: 10%;
-}
-
-.hero-mesh__blob--b {
-    width: min(48vw, 34rem);
-    height: min(48vw, 34rem);
-    bottom: 4%;
-    right: 5%;
-    opacity: light-dark(0.08, 0.4);
-    background: radial-gradient(
-        circle at 60% 50%,
-        color-mix(in oklab, var(--accent) light-dark(16%, 28%), transparent),
-        transparent 70%
-    );
-}
-
-/* Background layers ease away as the hero leaves the viewport — presence
-   without fighting the entrance animations on the copy. */
-@supports (animation-timeline: view()) {
-    #hero .hero-dot-grid,
-    #hero .hero-mesh {
-        animation: heroBgExit linear both;
-        animation-timeline: view();
-        animation-range: cover;
-    }
-}
-
-@keyframes heroBgExit {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(14%);
-        opacity: 0.25;
-    }
-}
-
-@media (pointer: coarse) {
-    .hero-mesh__blob--a,
-    .hero-mesh__blob--b {
-        left: 10%;
-        right: auto;
-        animation-duration: 20s;
-    }
-
-    .hero-mesh__blob--b {
-        left: auto;
-        right: 5%;
-        bottom: 10%;
-    }
-}
-
-/* Hero wordmark — visible by default. A one-shot shine is progressive
-   enhancement; it must return to solid text so a skipped animation can
-   never leave a warm tint parked on the name. */
-.hero-mask {
-    display: inline-block;
 }
 
 .hero-shine {
@@ -674,113 +280,6 @@ button:focus-visible > .arrow-nudge,
     }
 }
 
-/* Full-page spotlight that follows the pointer. A translated orb — not a
-   full-viewport gradient whose stop position is rewritten every frame. */
-.page-spotlight {
-    display: none;
-}
-
-@media (pointer: fine) {
-    .has-page-spotlight .page-spotlight {
-        display: block;
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        overflow: hidden;
-    }
-
-    .page-spotlight__orb {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 520px;
-        height: 520px;
-        margin: -260px 0 0 -260px;
-        border-radius: 50%;
-        pointer-events: none;
-        background: radial-gradient(
-            circle at 50% 50%,
-            color-mix(in oklab, var(--accent) 9%, transparent),
-            transparent 62%
-        );
-        opacity: 0;
-        transform: translate3d(50vw, 35vh, 0);
-        transition: opacity 0.45s var(--ease-out-soft);
-        will-change: transform, opacity;
-    }
-
-    .page-spotlight__orb.is-active {
-        opacity: 0.9;
-    }
-
-    .page-spotlight__orb.is-sleeping {
-        will-change: auto;
-    }
-}
-
-/* Save-data / reduced-data: drop ambient layers that cost paint for little clarity. */
-@media (prefers-reduced-data: reduce) {
-    .page-spotlight,
-    .has-page-spotlight .page-spotlight {
-        display: none !important;
-    }
-
-    .hero-mesh__blob,
-    #hero .hero-portrait,
-    .hero-wordmark,
-    .surface-card-media {
-        animation: none !important;
-    }
-
-    .hero-mesh__blob {
-        opacity: 0.22;
-        filter: blur(36px);
-    }
-
-    .surface-card-media.pointer-lit {
-        transform: none !important;
-    }
-
-    .magnetic-btn:hover {
-        transform: none;
-    }
-}
-
-@media (pointer: coarse) {
-    .page-spotlight,
-    .has-page-spotlight .page-spotlight {
-        display: none !important;
-    }
-
-    .hero-mesh__blob,
-    #hero .hero-portrait,
-    .hero-wordmark,
-    .surface-card-media {
-        animation: none !important;
-    }
-
-    .hero-mesh__blob {
-        opacity: 0.28;
-    }
-
-    .magnetic-btn:hover {
-        transform: none;
-    }
-}
-
-/* Navigator saveData (Chromium) — mirror prefers-reduced-data when JS sets the class. */
-html.save-data .page-spotlight,
-html.save-data .has-page-spotlight .page-spotlight {
-    display: none !important;
-}
-
-html.save-data .hero-mesh__blob,
-html.save-data #hero .hero-portrait,
-html.save-data .surface-card-media {
-    animation: none !important;
-}
-
 /* Booking embed (Calendly / Cal.com iframe) */
 .booking-embed {
     margin-top: 2rem;
@@ -804,6 +303,57 @@ html.save-data .surface-card-media {
         /* Calendly’s mobile UI needs vertical room; dvh tracks real device chrome. */
         min-height: 720px;
         height: max(720px, min(92dvh, 900px));
+    }
+}
+
+/* Home footer: the <details> summary sits in the aside rail; the wide panel
+   below the grid follows its open state so the iframe keeps full width. The
+   #book target stays inside <details> so fragment navigation auto-expands it
+   without JS. Browsers without :has() simply always show the panel. */
+.contact-booking__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    min-height: 2.75rem;
+    list-style: none;
+}
+
+.contact-booking__summary::-webkit-details-marker {
+    display: none;
+}
+
+.contact-booking__chevron {
+    flex-shrink: 0;
+    color: var(--accent);
+    transition: transform 0.2s ease;
+}
+
+.contact-booking[open] .contact-booking__chevron {
+    transform: rotate(180deg);
+}
+
+.contact-booking__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-top: 0.5rem;
+}
+
+.booking-embed--footer {
+    margin-top: 2.5rem;
+}
+
+@supports selector(:has(a)) {
+    .site-footer-home:not(:has(.contact-booking[open])) + .booking-embed--footer {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-booking__chevron {
+        transition: none;
     }
 }
 
@@ -971,133 +521,6 @@ html.save-data .surface-card-media {
 .quick-back-top:hover {
     color: var(--accent);
     border-color: var(--accent);
-}
-
-.section-minimap {
-    /* Desktop/tablet only — the mobile section rail covers this job. */
-    display: none;
-    position: fixed;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-    z-index: 55;
-    flex-direction: column;
-    gap: 0.55rem;
-    align-items: flex-end;
-}
-
-@media (min-width: 768px) {
-    .section-minimap {
-        display: flex;
-    }
-}
-
-.section-minimap-item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.section-minimap button {
-    width: 0.56rem;
-    height: 0.56rem;
-    border-radius: 999px;
-    border: 1px solid var(--color-neutral-700);
-    background: var(--color-neutral-900);
-    transition:
-        transform 0.22s var(--ease-out-spring),
-        background-color 0.2s var(--ease-out-soft),
-        border-color 0.2s var(--ease-out-soft);
-}
-
-.section-minimap button[aria-current='true'] {
-    transform: scale(1.28);
-    background: var(--accent);
-    border-color: var(--accent);
-}
-
-.section-minimap-tip {
-    position: absolute;
-    right: calc(100% + 0.55rem);
-    top: 50%;
-    translate: 0 -50%;
-    white-space: nowrap;
-    padding: 0.28rem 0.55rem;
-    border: 1px solid var(--border-strong);
-    border-radius: 0.35rem;
-    background: color-mix(in oklab, var(--bg) 88%, transparent);
-    backdrop-filter: blur(6px);
-    color: var(--muted);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    opacity: 0;
-    transform: translateX(4px);
-    pointer-events: none;
-    transition:
-        opacity 0.18s var(--ease-out-soft),
-        transform 0.22s var(--ease-out-spring);
-}
-
-@supports (anchor-name: --a) {
-    .section-minimap-tip {
-        position: fixed;
-        position-area: left;
-        justify-self: anchor-center;
-        right: auto;
-        top: auto;
-        translate: none;
-        margin-right: 0.55rem;
-    }
-}
-
-.section-minimap-item:hover .section-minimap-tip,
-.section-minimap-item:focus-within .section-minimap-tip {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.magnetic-btn {
-    transform: translate3d(var(--mx, 0px), var(--my, 0px), 0);
-    transition:
-        transform 160ms var(--ease-out-spring),
-        box-shadow 200ms var(--ease-out-soft);
-}
-
-.magnetic-btn:hover {
-    box-shadow: 0 10px 30px light-dark(rgb(20 20 20 / 0.12), rgb(0 0 0 / 0.25));
-}
-
-/* One-shot Book CTA settle after idle (class added by pointer.js). */
-@keyframes ctaIdleSettle {
-    0%,
-    100% {
-        transform: translate3d(var(--mx, 0px), var(--my, 0px), 0);
-    }
-    38% {
-        transform: translate3d(calc(var(--mx, 0px) + 4px), calc(var(--my, 0px) - 2px), 0);
-    }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    [data-idle-cta].is-idle-settle {
-        animation: ctaIdleSettle 0.9s var(--ease-out-spring) 1;
-    }
-}
-
-/* Pause remaining hero loops when the hero is off-screen or the tab is hidden. */
-html.hero-ambient-paused #hero .hero-portrait,
-html.hero-ambient-paused .hero-shine,
-html.hero-ambient-paused #hero .availability-pulse,
-html.hero-ambient-paused #hero .availability-pulse::after {
-    animation-play-state: paused;
-}
-
-html.hero-ambient-paused .page-spotlight__orb {
-    opacity: 0 !important;
-    will-change: auto;
 }
 
 /* Command palette — liquid glass surface with staggered result entrance. */
@@ -1333,8 +756,7 @@ nav[aria-label='Primary'] {
 /* Reduced motion: skip all animations */
 @media (prefers-reduced-motion: reduce) {
     .hero-enter,
-    .nav-enter,
-    .border-reveal {
+    .nav-enter {
         animation: none;
         opacity: 1;
         transform: none;
@@ -1354,28 +776,8 @@ nav[aria-label='Primary'] {
         transform: scaleX(1);
     }
     .hero-dot-grid,
-    .hero-shine,
-    .hero-mesh__blob,
-    #hero .hero-portrait,
-    #hero .hero-mesh {
+    .hero-shine {
         animation: none;
-    }
-    .hero-mesh__blob {
-        opacity: 0.35;
-        filter: blur(48px);
-    }
-    .availability-pulse,
-    .work-parallax {
-        animation: none;
-    }
-    .availability-pulse::after {
-        display: none;
-    }
-    .page-spotlight {
-        display: none !important;
-    }
-    .surface-card-media.pointer-lit {
-        transform: none !important;
     }
     [data-reveal] {
         animation: none;
@@ -1388,13 +790,6 @@ nav[aria-label='Primary'] {
         translate: 0;
         transition: none;
     }
-    .magnetic-btn {
-        transform: none !important;
-        transition: none;
-    }
-    [data-idle-cta].is-idle-settle {
-        animation: none;
-    }
     a.surface-card:hover,
     a.surface-card:focus-visible,
     article.surface-card:hover,
@@ -1403,9 +798,6 @@ nav[aria-label='Primary'] {
     }
     html {
         scroll-behavior: auto;
-    }
-    .role-active::before {
-        animation: none;
     }
     .command-palette,
     .command-palette::backdrop,
@@ -1439,10 +831,6 @@ nav[aria-label='Primary'] {
     }
     .command-palette::backdrop {
         backdrop-filter: none;
-    }
-    .section-minimap-tip {
-        backdrop-filter: none;
-        background: var(--bg);
     }
 }
 
@@ -1549,11 +937,6 @@ html:active-view-transition-type(same)::view-transition-new(root) {
     ::view-transition-old(*),
     ::view-transition-new(*) {
         animation: none !important;
-    }
-
-    .hero-mask {
-        clip-path: none;
-        animation: none;
     }
 }
 

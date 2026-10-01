@@ -15,13 +15,16 @@ test('featured work appears in the first viewport on desktop and immediately aft
     expect(bounds.portrait).toBeLessThanOrEqual(52);
     expect(bounds.work - bounds.hero).toBeLessThan(120);
     expect(bounds.work).toBeLessThan(isMobile ? bounds.height + 120 : bounds.height);
-    await expect(page.locator('#work > .site-shell > .portfolio-grid > article')).toHaveCount(6);
+    // Home carries three studies; the full six-card grid lives on /work.
+    await expect(page.locator('#work > .site-shell > .portfolio-grid > article')).toHaveCount(3);
     for (const article of await page.locator('#work article').all()) {
         await expect(article.locator('.portfolio-card__brief')).toBeVisible();
         await expect(article.locator('.portfolio-card__impact')).toBeVisible();
         await expect(article.getByRole('link', { name: /Read case study/ })).toBeVisible();
         await expect(article.locator('.portfolio-card__actions a')).toHaveCount(1);
     }
+    await expect(page.locator('#notes .portfolio-writing-link')).toHaveCount(3);
+    await page.goto('/work');
     await expect(page.locator('.tooling-proof__index')).toHaveCount(1);
 });
 
@@ -110,7 +113,7 @@ test('command search finds the tooling collection by repository name', async ({ 
 });
 
 test('open source shows only the three selected tools in order', async ({ page }) => {
-    for (const path of ['/', '/work', '/work/developer-tooling', '/resume']) {
+    for (const path of ['/work', '/work/developer-tooling', '/resume']) {
         await page.goto(path);
         const lists = page.locator(
             '.tooling-proof__index, .tooling-directory, section[aria-labelledby="resume-open-source"] ul'

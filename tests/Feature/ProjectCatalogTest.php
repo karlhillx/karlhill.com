@@ -74,13 +74,14 @@ it('portfolio pages preserve mission anchors and product presentation', function
         ->assertDontSee('Explore products on /work', escape: false)
         ->assertDontSee('View all tools on /work', escape: false);
 
-    $html = $response->getContent();
+    // The product card (and its lazy screenshot) renders on /work; home carries three studies.
+    $html = $this->get('/work')->getContent();
     $this->assertMatchesRegularExpression(
         '~<img\b[^>]*src="/img/webp/ss-dry-standard\.webp"[^>]*width="1200"[^>]*height="675"[^>]*loading="lazy"~',
         $html,
     );
-    $response->assertSee('href="'.url('/work/the-dry-standard').'"', false)
-        ->assertDontSee('href="https://drinkdrystandard.com/"', false);
+    expect($html)->toContain('href="'.url('/work/the-dry-standard').'"')
+        ->not->toContain('href="https://drinkdrystandard.com/"');
     $this->get('/work/the-dry-standard')->assertOk()
         ->assertSee('href="https://drinkdrystandard.com/"', false);
 })->with([

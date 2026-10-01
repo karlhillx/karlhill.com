@@ -12,7 +12,7 @@
         </p>
 
         @if(! empty($privacy['updated']))
-            <p class="mt-5 font-mono text-caption text-neutral-400 uppercase tracking-widest">
+            <p class="mt-5 eyebrow eyebrow--muted">
                 Updated {{ $privacy['updated'] }}
             </p>
         @endif
@@ -20,7 +20,7 @@
 
     <section id="contact" class="site-section border-t border-neutral-800/50 scroll-mt-24" aria-labelledby="privacy-contact-heading">
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-            <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">01 · Contact</p>
+            <p class="eyebrow pt-1">01 · Contact</p>
             <div class="max-w-2xl">
                 <h2 id="privacy-contact-heading" class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mb-3">
                     Messages you send
@@ -42,7 +42,7 @@
 
     <section id="booking" class="site-section border-t border-neutral-800/50 scroll-mt-24" aria-labelledby="privacy-booking-heading">
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-            <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">02 · Booking</p>
+            <p class="eyebrow pt-1">02 · Booking</p>
             <div class="max-w-2xl">
                 <h2 id="privacy-booking-heading" class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mb-3">
                     Scheduling a conversation
@@ -60,7 +60,7 @@
 
     <section id="analytics" class="site-section border-t border-neutral-800/50 scroll-mt-24" aria-labelledby="privacy-analytics-heading">
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-            <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">03 · Analytics</p>
+            <p class="eyebrow pt-1">03 · Analytics</p>
             <div class="max-w-2xl">
                 <h2 id="privacy-analytics-heading" class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mb-3">
                     How visits are measured
@@ -80,7 +80,7 @@
 
     <section id="also" class="site-section border-t border-neutral-800/50 scroll-mt-24" aria-labelledby="privacy-also-heading">
         <div class="site-shell grid md:grid-cols-[220px_1fr] gap-6 md:gap-12" data-reveal>
-            <p class="font-mono text-accent text-xs tracking-widest uppercase pt-1">04 · Also</p>
+            <p class="eyebrow pt-1">04 · Also</p>
             <div class="max-w-2xl">
                 <h2 id="privacy-also-heading" class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 mb-3">
                     Optional features

@@ -1,0 +1,92 @@
+/* ---------------------------------------------------------------------------
+   Outbound link marker — subtle ↗ on absolute external URLs. Social icons and
+   other intentional exceptions opt out with [data-no-ext].
+--------------------------------------------------------------------------- */
+/* Qualifiers sit in :where() so this stays at element specificity — any
+   utility on the link (e.g. a stretched-link `after:content-['']`) overrides
+   it instead of the marker leaking into card overlays. */
+a:where([href^='http://'], [href^='https://']):not(
+        :where([href*='karlhill.com'], [href*='localhost'], [href*='127.0.0.1'], [data-no-ext])
+    )::after {
+    content: ' ↗';
+    /* The sans face carries a proper arrow glyph; the mono fallback renders
+       it superscript-small, so pin the family and sit it on the baseline. */
+    font-family: var(--font-sans);
+    font-size: 0.9em;
+    opacity: 0.65;
+    speak: never;
+}
+
+.command-result--external .command-result__ext {
+    flex-shrink: 0;
+    display: inline-grid;
+    place-items: center;
+    width: 0.95rem;
+    height: 0.95rem;
+    margin-inline-start: 0.15rem;
+    font-size: 0.55rem;
+    line-height: 1;
+    color: var(--accent);
+    background: light-dark(#f6f1ea, #241c14);
+    border: 1px solid light-dark(#dfc9a8, #6b542e);
+    border-radius: 0.18rem;
+}
+
+/* Footer profiles: eight icons, two rows of four. Column count lives here so
+   Vite rebuilds it with CSS (Blade-only Tailwind utilities can miss HMR). */
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(4, 2.75rem);
+    width: max-content;
+    gap: 0.25rem;
+    padding-top: 0.5rem;
+}
+
+/* Internal taxonomy, surface chips, and icon-only links: suppress outbound arrow. */
+.social-links a::after,
+.surface-chip::after,
+.case-study-masthead__stack a::after,
+a.surface-card::after {
+    content: none !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Mobile nav toggle — hamburger → X when the popover is open
+--------------------------------------------------------------------------- */
+#nav-toggle {
+    position: relative;
+}
+
+#nav-toggle .nav-toggle-bar {
+    display: block;
+    width: 1rem;
+    height: 1px;
+    background: currentColor;
+    transform-origin: center;
+    transition:
+        transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.18s ease;
+}
+
+#nav-toggle[aria-expanded='true'] .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+#nav-toggle[aria-expanded='true'] .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+#nav-toggle[aria-expanded='true'] .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #nav-toggle .nav-toggle-bar {
+        transition: none;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Print — strip chrome, keep the writing readable
+--------------------------------------------------------------------------- */
