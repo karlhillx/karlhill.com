@@ -670,9 +670,10 @@ main:has(> .portfolio-nav) section[id] {
     .portfolio-nav__links {
         display: flex;
         flex-wrap: nowrap;
+        width: auto;
         overflow-x: auto;
         justify-content: space-between;
-        gap: 0.5rem;
+        gap: 0.25rem;
         margin-inline: calc(var(--space-gutter) * -1);
         padding-inline: var(--space-gutter);
         scroll-padding-inline: var(--space-gutter);
@@ -687,6 +688,8 @@ main:has(> .portfolio-nav) section[id] {
 
     .portfolio-nav__links a {
         flex-shrink: 0;
+        font-size: 0.8125rem;
+        padding-inline: 0;
         max-width: 12rem;
     }
 }
