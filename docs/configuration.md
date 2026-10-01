@@ -6,17 +6,20 @@ Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared 
 
 ## Portfolio architecture
 
-- Primary navigation is Work, Writing, About, Contact from `lg` (1024px); below that a drawer carries those plus Resume and the email address. The footer has five utility links: Writing, Resume, GitHub, LinkedIn, Privacy.
+- Primary navigation is Work, Writing, About, Resume, Contact from `lg` (1024px); below that a drawer carries Work, Writing, About, Resume, and email while Contact stays visible. The footer has five utility links: Writing, Resume, GitHub, LinkedIn, Privacy.
 - `/kit` redirects permanently to `/about`; `/now` to `/#book`; `/delivery` and `/lead` directly to `/work/jacobs-mission-software#delivery-practices`. No redirect chains. Retired pages are absent from the sitemap, prefetch targets, and search destinations. Existing `now` and `kit` JSON keys remain compatible but point to the consolidated destinations.
 - About combines career, current focus, working approach, and hiring information. Delivery practices live in the Jacobs narrative. Publication details remain linked from the Flood Mapping case study, not global navigation.
-- Cards have one case-study CTA; live systems and papers are linked within case studies. Each portfolio tooling section lists bb-run, testrisk, and pipeguard once, in that order.
-- `/` introduces Karl, then presents the three lead case studies, the delivery diagram, the latest three notes, and contact. Work is the primary CTA; the full six-card catalog lives on `/work`.
-- `/work` is a server-rendered collection hub: Mission Software, NASA Platforms, Developer Tooling / Open Source, and Independent Products. Anchor navigation does not hide content or require JavaScript. Existing `/work#work`, `#chapters`, `#open-source`, and `#products` links remain valid; legacy tag URLs still redirect.
-- `config/site/work.php` defines collection labels and anchors. `config/site/projects.php` assigns `portfolio_group`, `featured_order`, and concise `summary` fields (problem, contribution, impact, qualification). Full narratives and roles remain in `resources/work/{slug}.md`.
-- `ProjectCatalog::collections()` powers the hub and homepage index; `featured(3)` powers the home cards and their JSON-LD list; `featured(6)` is the editorial order used on `/work` and in tests. `work-card` is shared rather than duplicating product markup.
+- Cards have one accessible case-study link in the title, with a stretched hit area and a visual CTA below. Independent repository links remain separately operable. Live systems and papers are linked within case studies.
+- `/` introduces Karl, then presents three compact case-study teasers, a short delivery-practices link, the latest three notes, and contact. Home teasers omit large visuals, repeated roles, and stack lists. Work is the primary CTA; the five-card catalog lives on `/work`. Earth Observatory, Direct Readout Laboratory, and ESSCOR are omitted from that overview; their case-study pages remain linked from the NASA role on Resume and stay in the sitemap, search, and machine-readable catalog. The `/#system` bookmark remains valid.
+- `/work` is a server-rendered collection hub: Mission Software, NASA Platforms, Developer Tooling / Open Source, and Independent Products. Its structured-data list describes only the five cards and two earlier-work links displayed there. Anchor navigation does not hide content or require JavaScript. Existing `/work#work`, `#chapters`, `#open-source`, and `#products` links remain valid; `#chapters` now targets the NASA card grid. Legacy tag URLs still redirect.
+- `config/site/work.php` defines full collection titles, concise `nav_label` values, and anchors. The collection rail uses Mission, NASA, Tools, Products, Earlier; active items stay visible if the rail overflows. `config/site/projects.php` assigns `portfolio_group`, `featured_order`, and concise `summary` fields (problem, contribution, impact, qualification). Full narratives and roles remain in `resources/work/{slug}.md`.
+- `ProjectCatalog::collections()` powers the hub and homepage index; `featured(3)` powers the home cards and their JSON-LD list; `featured(5)` is the editorial order used on `/work` and in tests. `work-card` is shared rather than duplicating product markup.
+- `PortfolioContent` validates required project and narrative fields with source-specific exceptions. CI checks the entire catalog, unique slugs, and featured ordering. Case-study metrics may use `fact: repos_display` instead of `value:` to reference `site.facts`; changing facts invalidates the narrative cache.
+- `CaseStudyPage` prepares gallery defaults, artifact links, scope, and the TOC. Case studies render problem → decisions → diagram/screenshots and evidence → outcome → supporting detail. The Jacobs diagram replaces the decorative logo panel. Existing section IDs remain stable.
+- Writing filters use ordinary server navigation. Breadcrumbs, series, canonical metadata, focus, and browser history update together; there is no partial-page swap layer.
 - `/work/developer-tooling` features only **bb-run, testrisk, and pipeguard**, in that order, from `config/site/github.php`. `/work/the-dry-standard` documents product ownership, the generated SQLite catalog, evidence rules, discovery, editorial operations, and production delivery. Both flow through the existing sitemap, command search, and machine-readable catalog. The resume keeps Independent Products separate from Open Source.
 - Keep metrics attributable: Jacobs figures describe scope and adopted standards; the flood-map evaluation is collaborative research; Earth Observatory traffic describes historical platform scale. Do not invent product revenue, adoption, or speed claims.
-- Portfolio styling lives in `resources/css/portfolio.css`, using shared tokens. Cards expose their content without hover; screenshots use the responsive-image component, explicit dimensions, and lazy loading. Only four first-paint font faces are preloaded.
+- Portfolio styling and collection navigation live in `resources/css/portfolio.css`, using shared tokens. Body text uses a normal-width system font; Oswald supplies condensed headings/UI and Bebas Neue supplies display text. Cards expose their content without hover; screenshots use the responsive-image component, explicit dimensions, and lazy loading. Three first-paint font faces are preloaded.
 - About supplies context, Resume owns chronology/credentials/PDF, and Kit is the forwarding document. Do not turn each into another homepage.
 
 For new raster images, run `php artisan assets:webp`, then `php artisan og:generate <slug>` for a 1200×630 social card. The developer-tooling diagram source is `public/img/developer-tooling.svg`; its PNG is the raster input to the same asset pipeline.
@@ -53,7 +56,7 @@ PLAUSIBLE_DOMAIN=karlhill.com
 # GOOGLE_ANALYTICS_MEASUREMENT_ID=G-EZZNL8KY8P
 ```
 
-Booking (Calendly or Cal.com) lives beside Contact on the homepage. A native
+Booking (Calendly or Cal.com) lives beside Contact on desktop and before the form on mobile. DOM and keyboard order follow the mobile layout: introduction, email/scheduling, form, profiles. A native
 disclosure keeps the inline scheduler collapsed until requested; `/#book`
 opens it directly, including without JavaScript. Footer and resume booking
 links use that anchor. The primary navigation always says Contact:
@@ -89,7 +92,7 @@ Motion is progressive and declarative. Entrance animations (`.hero-enter`, `.nav
 
 ### CSS layout and budget
 
-`resources/css/app.css` imports tokens → base → layout → components → motion → portfolio. `components.css` is an index over `resources/css/components/*.css`, one file per surface (prose, syntax, chrome, writing, article, case-study, delivery-map, resume, webgpu, on-device). CI runs `scripts/check-bundle-size.sh`, which enforces the byte budgets and calls `scripts/check-dead-css.py` so a class selector nothing references fails the build; runtime-only classes (highlighter tokens, config-composed modifiers) are allowlisted there.
+`resources/css/app.css` imports tokens → base → layout → components → motion → portfolio. `components.css` is an index over `resources/css/components/*.css`. Prose owns reading styles, syntax owns code highlighting, article owns the TOC, and case-study/on-device own their respective responsive rules. The retired interactive homepage delivery map no longer ships; `config/site/system.php` retains the compatible machine-readable delivery vocabulary. CI runs `scripts/check-bundle-size.sh`, which enforces byte budgets and rejects unreferenced class selectors.
 
 ## Optional platform surfaces
 

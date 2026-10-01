@@ -41,6 +41,9 @@
 
             <x-site.theme-toggle />
 
+            <a href="/resume" class="hidden lg:inline-flex items-center min-h-11 px-2 font-mono text-xs text-neutral-400 hover:text-accent"
+               @if($isActive('resume')) aria-current="page" @endif>Resume</a>
+
             <a href="/#contact"
                data-nav-section="contact"
                class="btn-sweep inline-flex items-center min-h-11 font-mono text-caption md:text-xs text-neutral-300 border border-neutral-700 px-3.5 md:px-5 uppercase tracking-widest shrink-0">

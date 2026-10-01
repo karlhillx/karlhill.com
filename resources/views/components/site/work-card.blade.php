@@ -1,4 +1,4 @@
-@props(['project', 'featured' => false])
+@props(['project', 'compact' => false])
 
 @php
     $group = $project['portfolio_group'];
@@ -7,14 +7,16 @@
     $href = \App\Support\ProjectCatalog::cardUrl($project);
     $isMission = $group === 'mission';
     $isTooling = $group === 'tooling';
-    $wide = $isMission || $isTooling || (! $featured && $group === 'product');
+    $wide = ! $compact && ($isMission || $isTooling || $group === 'product');
 @endphp
 
 <article id="{{ $project['slug'] }}" @class([
     'portfolio-card',
     'portfolio-card--'.$group,
     'portfolio-card--wide' => $wide,
+    'portfolio-card--compact' => $compact,
 ]) aria-labelledby="work-card-title-{{ $project['slug'] }}">
+    @unless($compact)
     <div class="portfolio-card__visual">
         @if($isMission)
             <div class="mission-proof">
@@ -24,9 +26,9 @@
                     <li>Local checks</li><li>Review + CI</li><li>Integration</li><li>Release</li>
                 </ol>
                 <div class="mission-proof__facts">
-                    <p><strong>~20</strong><span>repositories</span></p>
-                    <p><strong>≥80%</strong><span>test coverage baseline</span></p>
-                    <p><strong>2</strong><span>review approvals</span></p>
+                    <p><strong>{{ config('site.facts.repos_display') }}</strong><span>repositories</span></p>
+                    <p><strong>{{ config('site.facts.coverage_display') }}</strong><span>test coverage baseline</span></p>
+                    <p><strong>{{ config('site.facts.approvals_display') }}</strong><span>review approvals</span></p>
                 </div>
                 <p class="portfolio-caption">Simplified delivery view. Not program architecture.</p>
             </div>
@@ -42,7 +44,7 @@
             </div>
         @else
             <div class="portfolio-card__chrome" aria-hidden="true">
-                <span>{{ $project['sector'] }}</span><span>Public system ↗</span>
+                <span>{{ $project['sector'] }}</span><span>Project preview</span>
             </div>
             <x-site.responsive-image
                 :src="$project['image']"
@@ -53,10 +55,21 @@
             />
         @endif
     </div>
+    @endunless
     <div class="portfolio-card__body">
-        <p class="eyebrow">{{ $project['meta'] }}</p>
-        <h3 id="work-card-title-{{ $project['slug'] }}">{{ $project['card_title'] ?? $project['title'] }}</h3>
-        <p class="portfolio-card__role">{{ $study['role'] }}</p>
+        <p class="eyebrow eyebrow--muted">{{ $project['meta'] }}</p>
+        <h3 id="work-card-title-{{ $project['slug'] }}">
+            <a href="{{ $href }}" class="portfolio-card__title-link"
+               data-analytics-event="case_study_opened" data-analytics-project="{{ $project['slug'] }}">
+                <span class="sr-only">Read case study: </span>{{ $project['card_title'] ?? $project['title'] }}
+            </a>
+        </h3>
+        @if(! empty($project['subtitle']))
+            <p class="portfolio-caption">{{ $project['subtitle'] }}</p>
+        @endif
+        @unless($compact)
+            <p class="portfolio-card__role">{{ $study['role'] }}</p>
+        @endunless
         @if($summary)
             <dl class="portfolio-card__brief">
                 <div><dt>Problem</dt><dd>{{ $summary['problem'] }}</dd></div>
@@ -69,16 +82,15 @@
         @else
             <p class="portfolio-card__description">{{ $project['description'] }}</p>
         @endif
+        @unless($compact)
         <ul class="portfolio-card__stack" aria-label="Stack">
             @foreach($project['card_tags'] ?? $project['tags'] as $tag)
                 <li>{{ $tag }}</li>
             @endforeach
         </ul>
+        @endunless
         <div class="portfolio-card__actions">
-            <a href="{{ $href }}" class="portfolio-text-link"
-               data-analytics-event="case_study_opened" data-analytics-project="{{ $project['slug'] }}">
-                Read case study <span class="sr-only">: {{ $project['title'] }}</span><span aria-hidden="true">→</span>
-            </a>
+            <span class="portfolio-text-link" aria-hidden="true">Read case study <span>→</span></span>
         </div>
     </div>
 </article>

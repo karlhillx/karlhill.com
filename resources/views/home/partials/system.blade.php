@@ -1,12 +1,12 @@
-@php($system = config('site.system', []))
-
-<x-site.section id="system" section-label="Delivery" number="02" label="How software gets delivered" border="soft">
-    @if(filled($system['lede'] ?? null))
-        <p class="text-neutral-300 text-lg leading-relaxed max-w-2xl mb-10 sm:mb-12" data-reveal>
-            {{ $system['lede'] }}
-        </p>
-    @endif
-    <div data-reveal>
-        <x-site.delivery-map :system="$system" />
+<x-site.section id="system" section-label="Delivery" border="soft" class="portfolio-delivery">
+    <div class="portfolio-section-heading">
+        <div>
+            <p class="eyebrow eyebrow--muted">How I work</p>
+            <h2>Make delivery repeatable.</h2>
+        </div>
+        <p>Shared checks, clear interfaces, and review that tests the reasoning—not just the code.</p>
+        <a href="/work/jacobs-mission-software#delivery-system" class="portfolio-text-link">
+            See the delivery system <span aria-hidden="true">→</span>
+        </a>
     </div>
 </x-site.section>

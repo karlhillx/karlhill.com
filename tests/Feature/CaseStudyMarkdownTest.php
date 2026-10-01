@@ -115,7 +115,7 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertDontSee('Shared packages', escape: false)
         ->assertDontSee('Standards · Reviews · Documentation', escape: false)
         ->assertDontSee('Agile Delivery · Coaching · Governance', escape: false)
-        ->assertSee('case-study-logo-plate', escape: false)
+        ->assertDontSee('class="case-study-logo-plate"', escape: false)
         ->assertSee('Local checks run on the workstation; CI provides the authoritative repository gate. Downstream validation covers cross-repository and environment-level behavior. Simplified, unclassified delivery view—not a program architecture.', escape: false)
         ->assertSee('Adopted', escape: false)
         ->assertSee('In progress', escape: false)
@@ -133,17 +133,21 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertDontSee('Executive Summary', escape: false);
 
     $jacobsHtml = $jacobsResponse->getContent();
-    expect(preg_match('/<figure class="case-study-media".*?<\/figure>/s', $jacobsHtml, $mediaFigure))->toBe(1)
-        ->and($mediaFigure[0])->toContain('case-study-logo-plate')
-        ->and($mediaFigure[0])->not->toContain('case-study-flow');
+    expect($jacobsHtml)->not->toContain('case-study-logo-plate__mark');
 
+    $problemAt = strpos($jacobsHtml, 'id="problem"');
+    $decisionsAt = strpos($jacobsHtml, 'id="decisions"');
+    $evidenceAt = strpos($jacobsHtml, 'id="snapshot"');
     $outcomeAt = strpos($jacobsHtml, 'id="outcome"');
     $flowAt = strpos($jacobsHtml, 'id="delivery-system"');
     $scopeAt = strpos($jacobsHtml, 'id="scope"');
     $disclaimerAt = strpos($jacobsHtml, 'Program-specific architecture and operational details are not included here');
-    expect($outcomeAt)->toBeInt()->toBeGreaterThan(0)
-        ->and($flowAt)->toBeInt()->toBeGreaterThan($outcomeAt)
-        ->and($scopeAt)->toBeInt()->toBeGreaterThan($flowAt)
+    expect($problemAt)->toBeInt()->toBeGreaterThan(0)
+        ->and($decisionsAt)->toBeInt()->toBeGreaterThan($problemAt)
+        ->and($flowAt)->toBeInt()->toBeGreaterThan($decisionsAt)
+        ->and($evidenceAt)->toBeInt()->toBeGreaterThan($flowAt)
+        ->and($outcomeAt)->toBeInt()->toBeGreaterThan($evidenceAt)
+        ->and($scopeAt)->toBeInt()->toBeGreaterThan($outcomeAt)
         ->and($disclaimerAt)->toBeInt()->toBeGreaterThan($scopeAt);
 
     $flood = $this->get('/work/flood-mapping-system');

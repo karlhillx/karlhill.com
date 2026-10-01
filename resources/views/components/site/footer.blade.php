@@ -18,7 +18,7 @@
 ])>
     <div class="site-shell">
         @if($isHome)
-            <div class="site-footer-home grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(14rem,18rem)] lg:gap-16 xl:gap-20 lg:items-start">
+            <div class="site-footer-home">
                 <div class="min-w-0" data-reveal>
                     <h2 class="eyebrow mb-5 sm:mb-6">Contact</h2>
                     <p class="font-display leading-none tracking-wide text-balance text-[clamp(2.75rem,7vw,5.5rem)] mb-5 sm:mb-6">
@@ -28,10 +28,9 @@
                         {{ $footer['body'] }}
                     </p>
 
-                    <x-site.contact-form id-prefix="contact" :return-to="url()->current()" />
                 </div>
 
-                <aside class="site-footer-aside flex flex-col gap-10 lg:gap-12 lg:pt-1" data-reveal aria-label="Direct contact, scheduling, and profiles">
+                <aside class="site-footer-aside flex flex-col gap-6" data-reveal aria-label="Direct contact and scheduling">
                     <div>
                         <p class="eyebrow eyebrow--muted mb-5">Email directly</p>
                         <x-site.email-copy location="footer-home" :arrow="true" />
@@ -67,11 +66,14 @@
                         <span id="book"></span>
                     @endif
 
-                    <div>
-                        <p class="eyebrow eyebrow--muted mb-1">Elsewhere</p>
-                        <x-site.social-links class="-ml-3" />
-                    </div>
                 </aside>
+                <div class="site-footer-form">
+                    <x-site.contact-form id-prefix="contact" :return-to="url()->current()" />
+                </div>
+                <div>
+                    <p class="eyebrow eyebrow--muted mb-1">Elsewhere</p>
+                    <x-site.social-links class="-ml-3" />
+                </div>
             </div>
             @if(filled($bookingUrl) && filled($bookingEmbed))
                 <div class="booking-embed booking-embed--footer">

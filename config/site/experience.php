@@ -1,21 +1,23 @@
 <?php
 
+$facts = require __DIR__.'/facts.php';
+
 return [
     'intro' => 'Staff Aerospace Software Engineer with 20+ years of experience building and delivering production software across national security, aerospace, NASA, and enterprise environments. Combines hands-on engineering with technical leadership across software delivery, engineering practices, mentoring, and cross-team work.',
     'current' => [
         'label' => 'Current Role',
         'title' => 'Staff Aerospace Software Engineer',
-        'company' => 'Jacobs National Security',
+        'company' => $facts['employer'],
         'location' => 'Chantilly, VA',
         'period' => 'Sept 2025 — Present',
-        'summary' => 'Hands-on software development, technical guidance, delivery leadership, mentoring, and engineering guardrails for a team of about 10 across roughly 20 repositories.',
+        'summary' => "Hands-on software development, technical guidance, delivery leadership, mentoring, and engineering guardrails for a team of {$facts['team']} across {$facts['repos']} repositories.",
         'scope' => [
-            'owned' => 'Day-to-day software delivery, engineering standards, mentoring, and hands-on implementation across roughly 20 repositories.',
+            'owned' => "Day-to-day software delivery, engineering standards, mentoring, and hands-on implementation across {$facts['repos']} repositories.",
             'influence' => 'Program priorities, vendor and partner-team dependencies, and integration across repositories.',
             'reserved' => 'Staff individual-contributor role; formal personnel decisions remain with management.',
         ],
         'highlights' => [
-            'Lead engineering delivery for a team of about 10 across roughly 20 repositories and multiple deployment environments, sequencing work, coordinating dependencies, and driving integration and release readiness.',
+            "Lead engineering delivery for a team of {$facts['team']} across {$facts['repos']} repositories and multiple deployment environments, sequencing work, coordinating dependencies, and driving integration and release readiness.",
             'Develop mission software, shared interfaces, messaging integrations, and service orchestration while providing technical guidance and reviewing implementation across the team.',
             'Advanced a portable messaging layer with a common interface and broker adapters so broker choice can stay in configuration. Ownership is shared.',
             'Lead Agile planning and execution across internal and partner teams, translating mission priorities into sequenced engineering work and resolving cross-team dependencies and blockers.',
@@ -38,6 +40,7 @@ return [
         [
             'title' => 'Lead Software Engineer',
             'company' => 'SSAI / NASA Goddard Space Flight Center',
+            'portfolio_group' => 'nasa',
             'location' => 'Greenbelt, MD',
             'period' => 'Dec 2017 — Sept 2025',
             'summary' => 'Earth science software other people used: flood maps, satellite-data access, and science publishing.',

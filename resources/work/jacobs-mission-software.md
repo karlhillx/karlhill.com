@@ -23,11 +23,11 @@ outcome:
 - Stronger unit-test expectations are defined and applied in review. They are not a finished program-wide rewrite.
 - Six engineers onboarded and coached while the same practices were reinforced in review.
 metrics:
-- value: ~10
+- fact: team_display
   label: Engineers on the team
-- value: ~20
+- fact: repos_display
   label: Repositories in scope
-- value: ≥80%
+- fact: coverage_display
   label: Repository test coverage
 status:
 - label: Delivery gates

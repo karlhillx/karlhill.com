@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Support\OnDeviceAsk;
 use App\Support\PageMeta;
+use App\Support\ProjectCatalog;
 use Illuminate\View\View;
 
 class ResumeController extends Controller
@@ -20,6 +21,7 @@ class ResumeController extends Controller
             'person' => $person,
             'resume' => $resume,
             'experience' => $experience,
+            'supportingProjects' => ProjectCatalog::supporting()->groupBy('portfolio_group'),
             'education' => config('site.education', []),
             'certifications' => config('site.certifications', []),
             'stack' => config('site.stack', []),

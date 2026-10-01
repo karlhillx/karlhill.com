@@ -1,36 +1,24 @@
-/* Secondary family: UI, body, article titles. Display stays Bebas Neue.
-   Weights 400/500/600 + 400 italic only — nothing on screen asks for 700. */
+/* Condensed headings and UI. Body text uses the native system sans. */
 @font-face {
-    font-family: 'Barlow Semi Condensed';
+    font-family: 'Oswald';
     font-style: normal;
     font-display: swap;
     font-weight: 400;
-    src: url('@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-400-normal.woff2')
-        format('woff2');
+    src: url('@fontsource/oswald/files/oswald-latin-400-normal.woff2') format('woff2');
 }
 @font-face {
-    font-family: 'Barlow Semi Condensed';
-    font-style: italic;
-    font-display: swap;
-    font-weight: 400;
-    src: url('@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-400-italic.woff2')
-        format('woff2');
-}
-@font-face {
-    font-family: 'Barlow Semi Condensed';
+    font-family: 'Oswald';
     font-style: normal;
     font-display: swap;
     font-weight: 500;
-    src: url('@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-500-normal.woff2')
-        format('woff2');
+    src: url('@fontsource/oswald/files/oswald-latin-500-normal.woff2') format('woff2');
 }
 @font-face {
-    font-family: 'Barlow Semi Condensed';
+    font-family: 'Oswald';
     font-style: normal;
     font-display: swap;
     font-weight: 600;
-    src: url('@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-600-normal.woff2')
-        format('woff2');
+    src: url('@fontsource/oswald/files/oswald-latin-600-normal.woff2') format('woff2');
 }
 @font-face {
     font-family: 'JetBrains Mono';
@@ -51,7 +39,7 @@
 @import 'tailwindcss';
 
 /* Bebas Neue (hero/display font, and the site's LCP element) is bundled via
-   Vite from resources/fonts so build-time resolution is clean. Bebas, Barlow,
+   Vite from resources/fonts so build-time resolution is clean. Bebas, Oswald,
    and JetBrains are preloaded in the document head — see PreloadLinks. */
 @font-face {
     font-family: 'Bebas Neue';

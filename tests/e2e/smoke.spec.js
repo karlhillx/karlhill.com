@@ -37,11 +37,11 @@ test.describe('smoke + a11y', () => {
                     primary.getByRole('link', { name, exact: true }).filter({ visible: true })
                 ).toBeVisible();
             }
-            // Resume lives in the drawer only; the footer carries it everywhere.
+            // Resume is available in both navigation layouts.
             const resume = primary
                 .getByRole('link', { name: 'Resume', exact: true })
                 .filter({ visible: true });
-            await expect(resume).toHaveCount(width < DRAWER_MAX ? 1 : 0);
+            await expect(resume).toHaveCount(1);
             for (const name of ['Writing', 'Resume']) {
                 await expect(
                     page.locator('footer').getByRole('link', { name, exact: true })
@@ -72,11 +72,11 @@ test.describe('smoke + a11y', () => {
         await page.goto('/work');
         const navigation = page.getByRole('navigation', { name: 'Portfolio sections' });
         for (const [label, target] of [
-            ['Independent Products', 'products'],
-            ['Developer Tooling / Open Source', 'open-source'],
-            ['NASA Platforms', 'nasa'],
-            ['Earlier Work', 'earlier'],
-            ['Mission Software', 'work'],
+            ['Products', 'products'],
+            ['Tools', 'open-source'],
+            ['NASA', 'nasa'],
+            ['Earlier', 'earlier'],
+            ['Mission', 'work'],
         ]) {
             const link = navigation.getByRole('link', { name: label, exact: true });
             expect((await link.boundingBox()).height).toBeGreaterThanOrEqual(44);
@@ -114,9 +114,10 @@ test.describe('smoke + a11y', () => {
             expect(Math.abs(bounds.bar - bounds.header)).toBeLessThanOrEqual(2);
         }
         await page.locator('#chapters').scrollIntoViewIfNeeded();
-        await expect(
-            navigation.getByRole('link', { name: 'NASA Platforms', exact: true })
-        ).toHaveAttribute('aria-current', 'location');
+        await expect(navigation.getByRole('link', { name: 'NASA', exact: true })).toHaveAttribute(
+            'aria-current',
+            'location'
+        );
         for (const id of ['work', 'nasa', 'chapters', 'products', 'open-source', 'earlier']) {
             await expect(page.locator(`#${id}`)).toBeVisible();
         }
@@ -129,21 +130,20 @@ test.describe('smoke + a11y', () => {
     }) => {
         await page.goto('/');
         await expect(page.locator('[data-home-actions] a[href="/work"]')).toBeVisible();
-        await expect(page.locator('#work h3')).toHaveText([
-            'Mission software at scale',
-            'Flood Mapping System',
-            'LAADS DAAC',
+        await expect(page.locator('#work h3 a')).toHaveText([
+            'Read case study: Mission software at scale',
+            'Read case study: Flood Mapping System',
+            'Read case study: NASA satellite-data search',
         ]);
         await expect(page.locator('h3#work-card-title-jacobs-mission-software')).toBeVisible();
         await page.goto('/work');
         // Collection order on /work: mission → NASA → tooling → products.
-        await expect(page.locator('main .portfolio-card > .portfolio-card__body > h3')).toHaveText([
-            'Mission software at scale',
-            'Flood Mapping System',
-            'LAADS DAAC',
-            'NASA Earth Observatory',
-            'Engineering the feedback loop',
-            'The Dry Standard',
+        await expect(page.locator('main .portfolio-card h3 a')).toHaveText([
+            'Read case study: Mission software at scale',
+            'Read case study: Flood Mapping System',
+            'Read case study: NASA satellite-data search',
+            'Read case study: Engineering the feedback loop',
+            'Read case study: The Dry Standard',
         ]);
         const title = page
             .locator('#the-dry-standard')
@@ -171,12 +171,11 @@ test.describe('smoke + a11y', () => {
         await expect(page.locator('[data-home-actions] a[href="/#contact"]')).toBeVisible();
         await expect(page.locator('a[href="/kit"]')).toHaveCount(0);
         await expect(page.locator('#system')).toBeVisible();
-        await expect(page.locator('#ds-verify')).toBeChecked();
-        await expect(page.locator('[data-panel="verify"]')).toBeVisible();
-        await page.locator('[data-stage="integrate"]').click();
-        await expect(page.locator('#ds-integrate')).toBeChecked();
-        await expect(page.locator('[data-panel="integrate"]')).toBeVisible();
-        await expect(page.locator('[data-panel="integrate"]')).toContainText('messaging');
+        await expect(page.locator('#system').getByRole('link')).toHaveAttribute(
+            'href',
+            '/work/jacobs-mission-software#delivery-system'
+        );
+        await expect(page.locator('[data-delivery-map]')).toHaveCount(0);
         await expect(page.locator('#contact-form, [data-contact-form]').first()).toBeVisible();
         await assertA11y(page);
     });
@@ -193,13 +192,20 @@ test.describe('smoke + a11y', () => {
         await assertA11y(page, { exclude: ['.booking-embed'] });
     });
 
-    test('work supporting chapters and lightbox chrome', async ({ page }) => {
+    test('work stays curated while supporting studies remain available on resume', async ({
+        page,
+    }) => {
         await page.goto('/work');
         await expect(page.locator('.site-toolbar')).toHaveCount(0);
         await expect(page.locator('#chapters')).toBeVisible();
-        await expect(
-            page.locator('#nasa-earth-observatory').getByRole('link', { name: /Read case study/ })
-        ).toBeVisible();
+        await expect(page.getByRole('heading', { name: 'Also at Goddard' })).toHaveCount(0);
+        for (const slug of ['nasa-earth-observatory', 'direct-readout-laboratory', 'esscor']) {
+            await expect(page.locator(`main a[href="/work/${slug}"]`)).toHaveCount(0);
+        }
+        await page.goto('/resume');
+        for (const slug of ['nasa-earth-observatory', 'direct-readout-laboratory', 'esscor']) {
+            await expect(page.locator(`main a[href="/work/${slug}"]`)).toBeVisible();
+        }
 
         await page.goto('/work/laads-daac');
         await expect(page.locator('[data-lightbox-open]').first()).toBeVisible();

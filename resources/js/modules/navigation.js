@@ -54,15 +54,30 @@ export function initNavigation() {
                     link.removeAttribute('aria-current');
                 }
             });
+            const rail = document.querySelector('.portfolio-nav__links');
+            const active = rail?.querySelector('[aria-current="location"]');
+            if (rail && active && rail.scrollWidth > rail.clientWidth) {
+                const railBounds = rail.getBoundingClientRect();
+                const activeBounds = active.getBoundingClientRect();
+                if (activeBounds.left < railBounds.left || activeBounds.right > railBounds.right) {
+                    rail.scrollBy({
+                        left:
+                            activeBounds.left -
+                            railBounds.left -
+                            (rail.clientWidth - activeBounds.width) / 2,
+                        behavior: 'instant',
+                    });
+                }
+            }
         };
 
         const tocObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) return;
-                    const id = entry.target.getAttribute('id');
-                    if (id) setActiveToc(id);
-                });
+            () => {
+                const active =
+                    tocTargets
+                        .filter((target) => target.getBoundingClientRect().top <= innerHeight * 0.4)
+                        .at(-1) || tocTargets[0];
+                if (active) setActiveToc(active.id);
             },
             {
                 rootMargin: '-30% 0px -60% 0px',
@@ -108,6 +123,13 @@ export function initNavigation() {
 
     const navToggle = document.getElementById('nav-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape' || !mobileMenu?.matches(':popover-open')) return;
+        event.preventDefault();
+        mobileMenu.hidePopover();
+        navToggle?.focus({ preventScroll: true });
+    });
 
     window.matchMedia('(min-width: 64rem)').addEventListener('change', (event) => {
         if (event.matches && mobileMenu?.matches(':popover-open')) mobileMenu.hidePopover();

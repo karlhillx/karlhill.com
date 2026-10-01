@@ -1,11 +1,12 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-test('featured work appears in the first viewport on desktop and immediately after mobile hero', async ({
+test('featured projects expose meaningful links without oversized teasers', async ({
     page,
     isMobile,
 }) => {
     await page.goto('/');
+    await page.evaluate(() => document.fonts.ready);
     const bounds = await page.evaluate(() => ({
         hero: document.querySelector('#hero').getBoundingClientRect().bottom,
         work: document.querySelector('#work h2').getBoundingClientRect().top,
@@ -15,14 +16,18 @@ test('featured work appears in the first viewport on desktop and immediately aft
     expect(bounds.portrait).toBeLessThanOrEqual(52);
     expect(bounds.work - bounds.hero).toBeLessThan(120);
     expect(bounds.work).toBeLessThan(isMobile ? bounds.height + 120 : bounds.height);
-    // Home carries three studies; the full six-card grid lives on /work.
+    // Home carries three studies; the full five-card grid lives on /work.
     await expect(page.locator('#work > .site-shell > .portfolio-grid > article')).toHaveCount(3);
     for (const article of await page.locator('#work article').all()) {
         await expect(article.locator('.portfolio-card__brief')).toBeVisible();
         await expect(article.locator('.portfolio-card__impact')).toBeVisible();
         await expect(article.getByRole('link', { name: /Read case study/ })).toBeVisible();
-        await expect(article.locator('.portfolio-card__actions a')).toHaveCount(1);
+        await expect(article.getByRole('link')).toHaveCount(1);
+        await expect(article.locator('.portfolio-card__visual')).toHaveCount(0);
     }
+    const firstLink = page.locator('#work article').first().getByRole('link');
+    const linkBottom = await firstLink.evaluate((el) => el.getBoundingClientRect().bottom);
+    expect(linkBottom).toBeLessThan(isMobile ? bounds.height * 1.5 : bounds.height);
     await expect(page.locator('#notes .portfolio-writing-link')).toHaveCount(3);
     await page.goto('/work');
     await expect(page.locator('.tooling-proof__index')).toHaveCount(1);
@@ -73,7 +78,7 @@ test('portfolio content and collection navigation work without JavaScript', asyn
         await page.goto(`${baseURL}/work`);
         const products = page
             .getByRole('navigation', { name: 'Portfolio sections' })
-            .getByRole('link', { name: 'Independent Products', exact: true });
+            .getByRole('link', { name: 'Products', exact: true });
         await products.click();
         await expect(page).toHaveURL(/#products$/);
         await expect(page.locator('#products h2')).toBeVisible();

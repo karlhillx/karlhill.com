@@ -26,7 +26,7 @@ Personal site for Karl Hill — Staff Aerospace Software Engineer (Washington, D
 - **Backend:** Laravel 13 (PHP 8.5)
 - **Frontend:** Tailwind CSS v4, vanilla JS (no SPA framework), CSS scroll/view timelines + gated idle motion
 - **Build:** Vite 8 with `laravel-vite-plugin`
-- **Fonts:** Barlow Semi Condensed (UI/body), Bebas Neue (display), JetBrains Mono (self-hosted via `@fontsource`)
+- **Fonts:** Native system body text, Oswald (condensed headings/UI), Bebas Neue (display), JetBrains Mono (metadata/code); custom faces are self-hosted.
 - **Testing:** Pest 4, Laravel Pint
 
 ## Getting Started
@@ -60,9 +60,11 @@ composer test
 # with the app on :8000:
 # A11Y_FIXTURES=true php artisan serve --host=127.0.0.1 --port=8000
 npm run a11y            # axe WCAG2 A/AA over .pa11yci.json URLs (Playwright)
-npm run a11y:browsers   # optional: install Playwright Chromium for CI/Linux
+npx playwright install chromium webkit
 npm run test:e2e
 ```
+
+Browser tests cover desktop Chromium, Pixel 7, and iPhone/WebKit. They check native navigation and history, no-JavaScript paths, accessible interactions, first-project visibility, and mobile layout budgets. Screenshot state comparisons verify writing-filter resets and theme round trips at 390px and 1440px in light and dark themes. They compare captures within the same run rather than committing OS-dependent golden images; failures retain before/after images and CI uploads the artifacts.
 
 `npm run a11y` runs `scripts/run-a11y.mjs` (Playwright + axe). Resume PDFs use the same Playwright stack — Puppeteer/pa11y were removed to clear Dependabot’s unpatched `extract-zip` advisory.
 

@@ -198,6 +198,16 @@
                                     {{ $role['period'] }}
                                 </p>
                                 <x-site.role-highlights class="resume-bullets" :items="$role['highlights']" plain />
+                                @if($supportingProjects->has($role['portfolio_group'] ?? ''))
+                                    <nav class="mt-3 print:hidden" aria-label="{{ $role['company'] }} case studies">
+                                        <p class="portfolio-caption">Additional case studies</p>
+                                        <ul class="flex flex-wrap gap-x-4 gap-y-1">
+                                            @foreach($supportingProjects[$role['portfolio_group']] as $project)
+                                                <li><a href="/work/{{ $project['slug'] }}" class="portfolio-text-link text-sm">{{ $project['title'] }}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </nav>
+                                @endif
                             </div>
                         @endforeach
 

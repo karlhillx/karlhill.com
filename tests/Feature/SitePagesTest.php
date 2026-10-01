@@ -130,15 +130,11 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('id="work"', escape: false);
     $response->assertSee('id="system"', escape: false);
     $response->assertDontSee('id="path"', escape: false);
-    $response->assertSee('How software gets delivered', escape: false);
-    $response->assertSee('role="radiogroup"', escape: false);
-    $response->assertSee('Ruff', escape: false);
-    $response->assertSee('<span>ty</span>', escape: false);
-    $response->assertSee('pytest', escape: false);
+    $response->assertSee('Make delivery repeatable.', escape: false);
+    $response->assertDontSee('role="radiogroup"', escape: false);
+    $response->assertSee('href="/work/jacobs-mission-software#delivery-system"', escape: false);
     $response->assertDontSee('mypy', escape: false);
     $response->assertDontSee('mutation testing', escape: false);
-    $response->assertSee('distributed services', escape: false);
-    $response->assertSee('environment promotion', escape: false);
     $response->assertDontSee('href="/delivery"', escape: false);
     $response->assertDontSee('Cloud &amp; Containers', escape: false);
     $response->assertSee('All work', escape: false);
@@ -153,7 +149,7 @@ it('homepage is a focused landing page', function () {
     $response->assertDontSee('href="/research/global-flood-mapping"', escape: false);
     $response->assertDontSee('NASA Earth science systems from Goddard are still public.', escape: false);
     $response->assertDontSee('logo-jacobs-mark', escape: false);
-    $response->assertSee('mission-proof', escape: false);
+    $response->assertDontSee('mission-proof', escape: false);
     $response->assertSee('portfolio-card__impact', escape: false);
     $response->assertSee('portfolio-card__brief', escape: false);
     $response->assertDontSee('work-card--logo', escape: false);
@@ -170,7 +166,7 @@ it('homepage is a focused landing page', function () {
     $response->assertDontSee('>DevSecOps</span>', escape: false);
     $response->assertDontSee('>Repositories</dt>', escape: false);
     $response->assertDontSee('surface-chip-overlay', escape: false);
-    $response->assertSee('portfolio-card__stack', escape: false);
+    $response->assertDontSee('portfolio-card__stack', escape: false);
     $response->assertDontSee('hero-mesh', escape: false);
     $response->assertDontSee('hero-dot-grid', escape: false);
     $response->assertDontSee('hero-visual__scrim', escape: false);
@@ -313,16 +309,16 @@ it('case studies with empty metrics hide the facts strip', function () {
         ->and(substr_count($html, 'case-study-facts__row'))->toBe(0);
 });
 
-it('jacobs scale facts remain in the snapshot footer', function () {
+it('jacobs scale facts remain readable in the evidence section without animated counters', function () {
     $jacobs = $this->get('/work/jacobs-mission-software')->assertOk()->getContent();
 
     expect($jacobs)
         ->toContain('case-study-facts')
-        ->toContain('case-study-media__footer')
-        ->toContain('data-final="~10"')
-        ->toContain('data-final="~20"')
-        ->toContain('data-final="≥80%"')
-        ->toContain('logo-ink');
+        ->toContain('id="snapshot"')
+        ->toContain('>~10</dd>')
+        ->toContain('>~20</dd>')
+        ->toContain('>≥80%</dd>')
+        ->not->toContain('data-counter', 'logo-ink');
 
     $eo = $this->get('/work/nasa-earth-observatory')->assertOk()->getContent();
     expect($eo)->not->toContain('data-final="1.5M+"');

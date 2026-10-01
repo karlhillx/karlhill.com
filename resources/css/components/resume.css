@@ -230,22 +230,6 @@
     margin-bottom: 1.05rem;
 }
 
-/* Light artwork (Jacobs glyphs) — black on light, white on dark.
-   light-dark() is a color function; it cannot wrap filter values. */
-.logo-ink {
-    filter: brightness(0);
-}
-
-:root[data-theme='dark'] .logo-ink {
-    filter: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) .logo-ink {
-        filter: none;
-    }
-}
-
 .about-lede {
     display: grid;
     gap: 1em;

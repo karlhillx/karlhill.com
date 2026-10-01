@@ -38,8 +38,7 @@
                             :sizes="$sizes"
                             width="1200"
                             height="675"
-                            :loading="$index === 0 ? 'eager' : 'lazy'"
-                            :fetchpriority="$index === 0 ? 'high' : null"
+                            loading="lazy"
                             :img-style="$index === 0 && $transitionName ? $transitionName : null"
                             img-class="case-study-media__img w-full aspect-[16/9] object-cover {{ $slide['position'] ?? 'object-center' }} transition-[opacity,filter] duration-300 group-hover:opacity-90"
                         />

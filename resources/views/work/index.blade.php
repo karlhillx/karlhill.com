@@ -7,7 +7,11 @@
         '@type' => 'CollectionPage',
         'name' => 'Engineering portfolio — Karl Hill',
         'url' => \App\Support\PageMeta::siteUrl().'/work',
-        'mainEntity' => \App\Support\ProjectCatalog::itemList($collections->pluck('projects')->flatten(1)->concat($earlierProjects)),
+        'mainEntity' => \App\Support\ProjectCatalog::itemList(
+            $collections->pluck('projects')->flatten(1)
+                ->filter(fn ($project) => \App\Support\ProjectCatalog::isListed($project))
+                ->concat($earlierProjects)
+        ),
     ]" />
 @endpush
 
@@ -23,9 +27,9 @@
             @foreach($collections as $group => $collection)
                 <a href="#{{ $collection['id'] }}" data-toc-link
                    @if($group === 'nasa') data-toc-sections="nasa chapters" @endif
-                   @if($loop->first) aria-current="location" @endif>{{ $collection['title'] }}</a>
+                   @if($loop->first) aria-current="location" @endif>{{ $collection['nav_label'] }}</a>
             @endforeach
-            <a href="#earlier" data-toc-link>Earlier Work</a>
+            <a href="#earlier" data-toc-link>Earlier</a>
         </div>
     </nav>
 
@@ -38,23 +42,11 @@
                 </div>
                 <p>{{ $collection['intro'] }}</p>
             </div>
-            <div class="portfolio-grid">
+            <div class="portfolio-grid" @if($group === 'nasa') id="chapters" @endif>
                 @foreach($collection['projects']->filter(fn ($project) => \App\Support\ProjectCatalog::isListed($project)) as $project)
                     <x-site.work-card :project="$project" />
                 @endforeach
             </div>
-            @if($group === 'nasa')
-                <section id="chapters" class="portfolio-chapters" aria-labelledby="chapters-title">
-                    <h3 id="chapters-title" class="eyebrow">Also at Goddard</h3>
-                    @foreach($collection['projects']->reject(fn ($project) => \App\Support\ProjectCatalog::isListed($project)) as $project)
-                        <a href="/work/{{ $project['slug'] }}" class="portfolio-chapters__row">
-                            <strong>{{ $project['title'] }}</strong>
-                            <span>{{ $project['description'] }}</span>
-                            <span class="portfolio-text-link">Case study <span aria-hidden="true">→</span></span>
-                        </a>
-                    @endforeach
-                </section>
-            @endif
         </x-site.section>
     @endforeach
 

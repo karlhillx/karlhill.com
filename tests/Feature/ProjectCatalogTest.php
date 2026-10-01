@@ -19,11 +19,11 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         'flood-mapping-system',
         'laads-daac',
         'the-dry-standard',
-        'nasa-earth-observatory',
         'developer-tooling',
     ]);
 
     expect(ProjectCatalog::supporting()->pluck('slug')->all())->toBe([
+        'nasa-earth-observatory',
         'direct-readout-laboratory',
         'esscor',
     ]);
@@ -43,7 +43,7 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         ->assertSee('<title>Work — Karl Hill</title>', escape: false)
         ->assertSee('NASA Platforms', escape: false)
         ->assertSee('id="chapters"', escape: false)
-        ->assertSee('Also at Goddard', escape: false)
+        ->assertDontSee('Also at Goddard', escape: false)
         ->assertSee('Eight years connecting satellite data', escape: false)
         ->assertSee('Developer Tooling / Open Source', escape: false)
         ->assertSee('6 engineers onboarded', escape: false)
@@ -52,9 +52,9 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         ->assertDontSee('releases are safer and more predictable', escape: false)
         ->assertDontSee('Supporting chapters, not a second flagship set', escape: false)
         ->assertDontSee('Software other people depend on, then the engineering system around it', escape: false)
-        ->assertSee('/work/esscor', escape: false)
-        ->assertSee('/work/direct-readout-laboratory', escape: false)
-        ->assertSee('/work/nasa-earth-observatory', escape: false);
+        ->assertDontSee('href="/work/esscor"', escape: false)
+        ->assertDontSee('href="/work/direct-readout-laboratory"', escape: false)
+        ->assertDontSee('href="/work/nasa-earth-observatory"', escape: false);
 
     $this->get('/work/esscor')->assertOk();
     $this->get('/work/direct-readout-laboratory')->assertOk();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\CaseStudyPage;
 use App\Support\PageMeta;
 use App\Support\ProjectCatalog;
 use Illuminate\Http\RedirectResponse;
@@ -34,6 +35,7 @@ class WorkController extends Controller
     {
         $project = ProjectCatalog::findOrFail($slug);
         $adjacent = ProjectCatalog::adjacent($slug);
+        $related = ProjectCatalog::related($project);
 
         return view('work.show', [
             'meta' => PageMeta::forProject($project),
@@ -41,7 +43,8 @@ class WorkController extends Controller
             'caseStudy' => $project['case_study'],
             'previousProject' => $adjacent['previous'],
             'nextProject' => $adjacent['next'],
-            'relatedProjects' => ProjectCatalog::related($project),
+            'relatedProjects' => $related,
+            'page' => new CaseStudyPage($project, $related->isNotEmpty()),
             'collection' => config('site.work.collections.'.$project['portfolio_group']),
         ]);
     }

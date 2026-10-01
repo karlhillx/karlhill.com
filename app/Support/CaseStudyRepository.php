@@ -11,6 +11,7 @@ use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
 use League\CommonMark\MarkdownConverter;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Tempest\Highlight\CommonMark\HighlightExtension;
+use UnexpectedValueException;
 
 /**
  * Load case-study narratives from resources/work/{slug}.md (YAML front matter).
@@ -40,7 +41,7 @@ final class CaseStudyRepository
         $signature = $this->signature();
 
         return Cache::remember(
-            "work.case-studies.{$signature}",
+            'work.case-studies.v2.'.$signature.'.'.hash('sha256', serialize(config('site.facts'))),
             now()->addHour(),
             fn () => $this->loadAll(),
         );
@@ -75,10 +76,6 @@ final class CaseStudyRepository
         $document = YamlFrontMatter::parseFile($path);
         $matter = $document->matter();
 
-        if ($matter === []) {
-            return null;
-        }
-
         /** @var array<string, mixed> $study */
         $study = $matter;
 
@@ -86,6 +83,24 @@ final class CaseStudyRepository
         if (empty($study['decisions']) && ! empty($study['approach'])) {
             $study['decisions'] = $study['approach'];
         }
+
+        foreach ($study['metrics'] ?? [] as $index => $metric) {
+            if (! is_array($metric)) {
+                throw new UnexpectedValueException($path.': expected a metric record');
+            }
+            if (! isset($metric['fact'])) {
+                continue;
+            }
+            if (! is_string($metric['fact']) || array_key_exists('value', $metric)) {
+                throw new UnexpectedValueException($path.': a metric must name one display fact or an explicit value');
+            }
+            $fact = config('site.facts.'.$metric['fact']);
+            if (! is_string($fact) || $fact === '') {
+                throw new UnexpectedValueException($path.': unknown display fact '.$metric['fact']);
+            }
+            $study['metrics'][$index]['value'] = $fact;
+        }
+        PortfolioContent::validateStudy($study, $path);
 
         $body = trim((string) $document->body());
         if ($body !== '') {

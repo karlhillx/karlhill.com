@@ -51,7 +51,7 @@ jobs:
         run: composer test
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium webkit
 
       - name: Prepare application env
         run: |
@@ -88,4 +88,12 @@ jobs:
             exit 1
           fi
           npm run a11y
-          PLAYWRIGHT_SKIP_WEBSERVER=1 npm run test:e2e -- --project=chromium
+          PLAYWRIGHT_SKIP_WEBSERVER=1 npm run test:e2e
+
+      - name: Upload browser failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-test-results
+          path: test-results/
+          retention-days: 7

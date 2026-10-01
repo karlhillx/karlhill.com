@@ -48,6 +48,18 @@
     opacity: 0.7;
 }
 
+@media (max-width: 640px) {
+    .on-device-summary {
+        margin-block: 1.25rem;
+        max-width: 100%;
+    }
+
+    .on-device-summary__btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 .on-device-summary__cancel {
     min-height: 2.75rem;
     padding: 0 0.25rem;

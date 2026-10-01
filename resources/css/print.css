@@ -434,23 +434,3 @@
         display: none !important;
     }
 }
-
-@media print {
-    .delivery-map__panel {
-        display: grid !important;
-        padding-block: 0.6rem;
-        border-top: 1px solid #ddd;
-        animation: none !important;
-    }
-
-    .delivery-map__detail {
-        min-height: 0;
-    }
-
-    .delivery-map__node,
-    .delivery-map__sat {
-        cursor: default;
-        box-shadow: none !important;
-        outline: none !important;
-    }
-}

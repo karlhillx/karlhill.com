@@ -160,8 +160,8 @@ it('nav uses invoker commands and blog cards use interest invokers', function ()
         ->assertOk()
         ->assertSee('interestfor="post-preview-', escape: false)
         ->assertSee('popover="hint"', escape: false)
-        ->assertSee('data-soft-nav', escape: false)
-        ->assertSee('data-soft-nav-target', escape: false);
+        ->assertDontSee('data-soft-nav', escape: false)
+        ->assertSee('data-post-list', escape: false);
 });
 
 it('flood case study gates webgpu when the feature is on', function () {

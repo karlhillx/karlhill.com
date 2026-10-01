@@ -22,6 +22,8 @@ final class ProjectCatalog
                 $project['case_study'] = $studies[$slug];
             }
 
+            PortfolioContent::validateProject($project);
+
             return $project;
         });
 
@@ -98,7 +100,7 @@ final class ProjectCatalog
     }
 
     /**
-     * Unlisted NASA chapters shown on /work as “also shipped,” not as flagship cards.
+     * Additional studies linked from Resume and discovery surfaces, not the Work overview.
      *
      * @return Collection<int, array<string, mixed>>
      */

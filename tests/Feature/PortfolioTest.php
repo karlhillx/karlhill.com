@@ -19,11 +19,11 @@ it('organizes every primary project into one explicit portfolio collection', fun
         ->and(ProjectCatalog::earlier())->toHaveCount(2);
 });
 
-it('features six evidence-rich projects in editorial order', function () {
-    $projects = ProjectCatalog::featured(6);
+it('features five evidence-rich projects in editorial order', function () {
+    $projects = ProjectCatalog::featured(5);
     expect($projects->pluck('slug')->all())->toBe([
         'jacobs-mission-software', 'flood-mapping-system', 'laads-daac',
-        'developer-tooling', 'the-dry-standard', 'nasa-earth-observatory',
+        'developer-tooling', 'the-dry-standard',
     ]);
 
     foreach ($projects as $project) {
@@ -75,7 +75,7 @@ it('keeps tool names searchable and qualifies quantitative claims', function () 
         ->assertDontSee('sim-rs')->assertDontSee('driftlens')->assertDontSee('drift-rs');
     $this->get('/')->assertSee('Collaborative scientific result', false)
         ->assertSee('Shared ownership', false);
-    $this->get('/work')->assertSee('Historical platform scale', false);
+    $this->get('/work/nasa-earth-observatory')->assertSee('Historical platform scale', false);
     $this->get('/work/the-dry-standard')->assertSee('generated SQLite runtime catalog')
         ->assertSee('Publication builds the catalog')
         ->assertDontSee('sub-second')
@@ -88,15 +88,27 @@ it('offers responsive dry standard assets and leaves vector paths intact', funct
         ->and(Images::webp('/img/developer-tooling.svg'))->toBe('/img/developer-tooling.svg');
 });
 
-it('lists all ten case studies once in work collection metadata', function () {
+it('lists only the seven displayed studies in work collection metadata', function () {
     $html = $this->get('/work')->assertOk()->getContent();
     preg_match_all('~<script type="application/ld\+json"[^>]*>(.*?)</script>~s', $html, $matches);
     $page = collect($matches[1])->map(fn ($json) => json_decode($json, true))
         ->firstWhere('@type', 'CollectionPage');
     $items = $page['mainEntity']['itemListElement'];
-    expect($items)->toHaveCount(10)
-        ->and(array_unique(array_column($items, 'url')))->toHaveCount(10);
+    expect($items)->toHaveCount(7)
+        ->and(array_unique(array_column($items, 'url')))->toHaveCount(7);
+    expect(array_column($items, 'url'))->not->toContain(
+        url('/work/nasa-earth-observatory'),
+        url('/work/direct-readout-laboratory'),
+        url('/work/esscor'),
+    );
 });
+
+it('keeps supporting NASA studies available through resume and discovery surfaces', function (string $slug) {
+    $this->get('/resume')->assertOk()->assertSee('href="/work/'.$slug.'"', false);
+    $this->get('/work/'.$slug)->assertOk();
+    $this->get('/sitemap.xml')->assertSee('/work/'.$slug);
+    $this->get('/api/site.json')->assertJsonFragment(['slug' => $slug]);
+})->with(['nasa-earth-observatory', 'direct-readout-laboratory', 'esscor']);
 
 it('case study navigation follows collection order including supporting work', function () {
     expect(ProjectCatalog::adjacent('laads-daac')['next']['slug'])->toBe('nasa-earth-observatory')

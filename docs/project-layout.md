@@ -14,6 +14,8 @@ app/Console/Commands/GenerateOgImages.php     # php artisan og:generate (static 
 app/Console/Commands/GenerateWebpAssets.php   # php artisan assets:webp (WebP + AVIF + LQIP)
 app/Console/Commands/SyndicatePost.php        # php artisan post:syndicate
 app/Support/SiteCatalog.php                   # shared catalog (posts, studies, person, URLs)
+app/Support/PortfolioContent.php              # validated portfolio and narrative contracts
+app/Support/CaseStudyPage.php                 # typed case-study presentation (TOC, gallery, scope)
 app/Support/SiteFeatures.php                  # optional platform kill switches
 app/Support/PageFeatures.php                  # per-route JS chunks (pointer, reveal, …)
 app/Support/BlogPost.php                      # blog post value object
@@ -31,6 +33,7 @@ resources/js/modules/*                        # view transitions, palette, conta
 resources/posts/*.md                          # blog posts (YAML frontmatter)
 resources/views/home/index.blade.php          # homepage shell
 resources/views/home/partials/*               # homepage sections
+resources/views/work/partials/evidence.blade.php # case-study screenshots, metrics, and status
 resources/views/about/index.blade.php         # consolidated professional background
 resources/views/components/site/*             # nav, footer, cards, series, images
 resources/views/layouts/site.blade.php        # shared layout

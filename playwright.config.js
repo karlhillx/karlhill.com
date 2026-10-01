@@ -5,7 +5,7 @@ const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:8000';
 /** Shared browser defaults — keep on projects so device presets cannot drop them. */
 const a11yStable = {
     colorScheme: 'dark',
-    // Hero/magnetic transforms make axe color-contrast sample compositing layers.
+    // Sample final painted colors rather than an entrance-animation frame.
     reducedMotion: 'reduce',
 };
 
@@ -37,6 +37,10 @@ export default defineConfig({
         {
             name: 'mobile',
             use: { ...devices['Pixel 7'], ...a11yStable },
+        },
+        {
+            name: 'webkit',
+            use: { ...devices['iPhone 13'], ...a11yStable },
         },
     ],
 });

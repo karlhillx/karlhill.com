@@ -6,24 +6,28 @@ return [
         'mission' => [
             'id' => 'work',
             'title' => 'Mission Software',
+            'nav_label' => 'Mission',
             'kicker' => '01 / Aerospace · Jacobs',
             'intro' => 'Current, hands-on technical leadership: making multi-repository software integrate, pass meaningful checks, and ship across teams.',
         ],
         'nasa' => [
             'id' => 'nasa',
             'title' => 'NASA Platforms',
+            'nav_label' => 'NASA',
             'kicker' => '02 / Earth science · 2017–2025',
             'intro' => 'Eight years connecting satellite data to the people who need it. Public search, flood mapping, and science publishing are the evidence.',
         ],
         'tooling' => [
             'id' => 'open-source',
             'title' => 'Developer Tooling / Open Source',
+            'nav_label' => 'Tools',
             'kicker' => '03 / Developer platforms · DevEx',
             'intro' => 'The engineering system is a product too. Independent tools shorten feedback loops, make policy executable, and expose operational behavior.',
         ],
         'product' => [
             'id' => 'products',
             'title' => 'Independent Products',
+            'nav_label' => 'Products',
             'kicker' => '04 / Full-stack product ownership',
             'intro' => 'From domain research and information architecture to editorial tooling, search, deployment, and ongoing operation.',
         ],

@@ -343,7 +343,7 @@ final class SiteCatalog
     }
 
     /**
-     * Homepage delivery diagram for hire-packet consumers.
+     * Delivery vocabulary for hire-packet consumers; the homepage links to the detailed study.
      *
      * @return array<string, mixed>
      */

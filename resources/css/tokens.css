@@ -127,7 +127,8 @@
 }
 
 @theme {
-    --font-sans: 'Barlow Semi Condensed', ui-sans-serif, system-ui, sans-serif;
+    --font-body: ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Oswald', ui-sans-serif, system-ui, sans-serif;
     --font-display: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
     --color-bg: var(--bg);

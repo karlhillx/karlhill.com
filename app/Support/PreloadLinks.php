@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Vite;
 final class PreloadLinks
 {
     /**
-     * First-paint font files (Bebas display, Barlow body, JetBrains mono).
+     * First-paint display, heading, and metadata fonts. Body text uses system fonts.
      *
      * @return list<string>
      */
@@ -21,8 +21,7 @@ final class PreloadLinks
     {
         return [
             'resources/fonts/bebas-neue-latin-400-normal.woff2',
-            'node_modules/@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-400-normal.woff2',
-            'node_modules/@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-600-normal.woff2',
+            'node_modules/@fontsource/oswald/files/oswald-latin-600-normal.woff2',
             'node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2',
         ];
     }

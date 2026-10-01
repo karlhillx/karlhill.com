@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Homepage delivery diagram. Tools named here are in current use.
- * The longer catalog stays on /resume#stack — this is not a skills grid.
+ * Delivery vocabulary retained for machine-readable hire packets.
+ * The diagram and practices live in the Jacobs case study.
  */
 return [
     'heading' => 'How software gets delivered',
-    'lede' => 'Software other people depend on, then the checks, integration, and release around it. Select a stage.',
+    'lede' => 'Software other people depend on, then the checks, integration, and release around it.',
     'caption' => 'A delivery diagram of current practice. Not a program architecture.',
     'default' => 'verify',
     'continue' => [

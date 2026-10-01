@@ -9,12 +9,12 @@ html {
     scrollbar-gutter: stable;
     /* Clip rather than scroll when decorative bleed/orbs paint past the edge. */
     overflow-x: clip;
-    /* Slightly larger root so Barlow Semi Condensed matches Plex’s perceived size. */
     font-size: 106.25%;
 }
 
 body {
     background: var(--bg);
+    font-family: var(--font-body);
     font-size: 1rem;
     line-height: var(--leading-body);
     letter-spacing: var(--tracking-sans);
@@ -121,6 +121,23 @@ body {
 
 .site-footer--home {
     padding-block: var(--space-section);
+}
+
+.site-footer-home {
+    display: grid;
+    gap: 2rem;
+}
+
+.site-footer-form .js-contact-form {
+    margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+    .site-footer-home {
+        grid-template-columns: minmax(0, 1fr) minmax(14rem, 18rem);
+        gap: 2.5rem 4rem;
+        align-items: start;
+    }
 }
 
 .site-footer--compact {

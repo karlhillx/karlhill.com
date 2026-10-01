@@ -1,5 +1,7 @@
 <?php
 
+$facts = require __DIR__.'/facts.php';
+
 return [
     [
         'slug' => 'jacobs-mission-software',
@@ -12,7 +14,7 @@ return [
         'summary' => [
             'problem' => 'Independent services, inconsistent delivery practices, and integration risk across partner teams.',
             'contribution' => 'Shared CI/CD and DevSecOps gates, portable messaging, integration standards, and hands-on coaching.',
-            'impact' => '~20 repositories · 3 environments · 6 engineers onboarded',
+            'impact' => "{$facts['repos_display']} repositories · {$facts['environments_display']} environments · {$facts['onboarded_to']} engineers onboarded",
             'note' => 'Current program scope. Shared ownership; program-specific details are not public.',
         ],
         'description' => 'Hands-on engineering and technical delivery on a simulation program: roughly 20 repositories, three environments, and partner teams. Six engineers onboarded and coached. A portable messaging layer is in use; ownership is shared.',
@@ -91,6 +93,8 @@ return [
     [
         'slug' => 'laads-daac',
         'title' => 'LAADS DAAC',
+        'card_title' => 'NASA satellite-data search',
+        'subtitle' => 'LAADS DAAC / Find Data',
         'meta' => 'NASA · 2017–2025',
         'sector' => 'NASA Earth Science',
         'portfolio_group' => 'nasa',
@@ -188,7 +192,6 @@ return [
         'meta' => 'NASA · 2017–2025',
         'sector' => 'NASA Earth Science',
         'portfolio_group' => 'nasa',
-        'featured_order' => 6,
         'summary' => [
             'problem' => 'Support science editors and large imagery on a heavily used public publishing platform.',
             'contribution' => 'Laravel and MySQL platform modernization, reusable editorial workflows, performance, and discoverability.',
@@ -203,8 +206,9 @@ return [
             'href' => 'https://earthobservatory.nasa.gov/',
             'line' => 'Live Earth Observatory. About 1.5 million monthly visitors during that work — platform scale, not a traffic result.',
         ],
-        'featured' => true,
-        'listed' => true,
+        'featured' => false,
+        'listed' => false,
+        'supporting' => true,
         'tags' => [
             'Laravel',
             'MySQL',

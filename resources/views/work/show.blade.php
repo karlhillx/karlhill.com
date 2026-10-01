@@ -1,65 +1,8 @@
 @php
     $study = $caseStudy;
-    $liveUrl = \App\Support\ProjectCatalog::liveUrl($project);
-    $liveLabel = \App\Support\ProjectCatalog::artifactLabel($project);
-    $alsoLinks = \App\Support\ProjectCatalog::alsoLinks($project);
-    $canonical = \App\Support\PageMeta::siteUrl().'/work/'.$project['slug'];
-    $ogImage = $meta->ogImage;
-    $decisions = $study['decisions'] ?? $study['approach'] ?? [];
-    $imageAlt = $project['image_alt'] ?? ('Screenshot of '.$project['title']);
-
-    $bodyH2s = array_values(array_filter($study['body_toc'] ?? [], fn ($item) => ($item['level'] ?? 2) === 2));
-    $isJacobs = ($project['slug'] ?? '') === 'jacobs-mission-software';
-    $jobScope = $isJacobs ? (config('site.experience.current.scope') ?? []) : [];
-    $hasScope = filled($jobScope['owned'] ?? null)
-        && filled($jobScope['influence'] ?? null)
-        && filled($jobScope['reserved'] ?? null);
-    $hasDiagram = ! empty($study['diagram']['zones']) || ! empty($study['diagram']['stages']);
-    $frameTitle = $isJacobs
-        ? 'Technical delivery'
-        : (($liveUrl ? parse_url($liveUrl, PHP_URL_HOST) : null) ?: $project['title']);
-
-    // Flat TOC — leave-behind skim, not academic grouping.
-    $toc = array_values(array_filter([
-        ['id' => 'snapshot', 'text' => 'Snapshot'],
-        ! empty($study['problem']) ? ['id' => 'problem', 'text' => 'Problem'] : null,
-        ! empty($decisions) ? ['id' => 'decisions', 'text' => 'Decisions'] : null,
-        ! empty($study['outcome']) ? ['id' => 'outcome', 'text' => 'Outcome'] : null,
-        $hasDiagram ? ['id' => 'delivery-system', 'text' => $study['diagram']['title'] ?? 'Delivery system'] : null,
-        $hasScope ? ['id' => 'scope', 'text' => 'Scope'] : null,
-        ! empty($study['leadership']) ? ['id' => 'leadership', 'text' => 'Team & contribution'] : null,
-        ...$bodyH2s,
-        $relatedProjects->isNotEmpty() ? ['id' => 'related', 'text' => 'Related'] : null,
-    ]));
-    $tocGroups = null;
-
-    $gallery = collect($project['gallery'] ?? [])
-        ->map(function ($shot) use ($imageAlt, $project) {
-            if (is_string($shot)) {
-                return [
-                    'src' => $shot,
-                    'alt' => $imageAlt,
-                    'label' => $project['title'],
-                    'position' => $project['imagePosition'] ?? 'object-center',
-                ];
-            }
-
-            return array_merge([
-                'alt' => $imageAlt,
-                'position' => $project['imagePosition'] ?? 'object-center',
-            ], $shot);
-        })
-        ->filter(fn ($shot) => filled($shot['src'] ?? null))
-        ->values();
-
-    if ($gallery->isEmpty() && ! $isJacobs && filled($project['image'] ?? null)) {
-        $gallery = collect([[
-            'src' => $project['image'],
-            'alt' => $imageAlt,
-            'label' => $project['title'],
-            'position' => $project['imagePosition'] ?? 'object-center',
-        ]]);
-    }
+    $liveUrl = $page->liveUrl;
+    $liveLabel = $page->liveLabel;
+    $alsoLinks = $page->alsoLinks;
 @endphp
 
 @extends('layouts.site', ['meta' => $meta])
@@ -71,8 +14,8 @@
     '@type' => 'CreativeWork',
     'name' => $project['title'],
     'description' => $study['lede'] ?? $project['description'],
-    'image' => $ogImage,
-    'url' => $canonical,
+    'image' => $meta->ogImage,
+    'url' => $page->canonical,
     'author' => [
         '@type' => 'Person',
         'name' => config('site.person.name'),
@@ -102,7 +45,7 @@
         <div class="relative z-10 max-w-6xl mx-auto">
             <div class="lg:grid lg:grid-cols-[11.5rem_minmax(0,1fr)] xl:grid-cols-[12.5rem_minmax(0,1fr)] lg:gap-x-8 xl:gap-x-10 lg:items-start">
                 <aside class="hidden lg:block sticky top-24">
-                    <x-site.article-toc :items="$toc" :groups="$tocGroups" />
+                    <x-site.article-toc :items="$page->toc" />
                 </aside>
 
                 <div class="min-w-0 max-w-3xl">
@@ -169,13 +112,13 @@
                         <x-site.tooling-list />
                     @endif
 
-                    @if(count($toc) >= 2)
+                    @if(count($page->toc) >= 2)
                         <details class="article-toc-mobile lg:hidden mb-6 surface-card-static p-4">
                             <summary class="font-mono text-xs text-accent uppercase tracking-widest cursor-pointer select-none">
                                 On this page
                             </summary>
                             <ol class="article-toc-list mt-3" hidden="until-found">
-                                @foreach($toc as $item)
+                                @foreach($page->toc as $item)
                                     <li @class([
                                         'article-toc-item',
                                         'article-toc-item--child' => ($item['level'] ?? 2) === 3,
@@ -191,106 +134,6 @@
                         </details>
                     @endif
 
-                    <section id="snapshot" class="scroll-mt-24 mb-10" aria-label="Project snapshot">
-                        <figure class="case-study-media" data-reveal>
-                            <div class="case-study-frame__chrome" aria-hidden="true">
-                                <span class="case-study-frame__dots">
-                                    <span></span><span></span><span></span>
-                                </span>
-                                <span class="case-study-frame__title">{{ $frameTitle }}</span>
-                                @if(! empty($project['logo']['path']))
-                                    @php
-                                        $frameLogoSrc = ! empty($project['logo']['ink'])
-                                            ? ($project['card_image'] ?? $project['logo']['path'])
-                                            : $project['logo']['path'];
-                                    @endphp
-                                    <img src="{{ $frameLogoSrc }}" alt=""
-                                         loading="lazy" decoding="async"
-                                         @if(! empty($project['logo']['filter'])) style="filter: {{ $project['logo']['filter'] }};" @endif
-                                         @class([
-                                             'case-study-frame__logo',
-                                             'logo-ink' => ! empty($project['logo']['ink']),
-                                         ])>
-                                @endif
-                            </div>
-
-                            @if($isJacobs)
-                                <div class="case-study-logo-plate" aria-hidden="true">
-                                    <div class="case-study-logo-plate__grid"></div>
-                                    <div class="case-study-logo-plate__glow"></div>
-                                    <img src="{{ $project['card_image'] ?? $project['logo']['path'] }}"
-                                         alt=""
-                                         class="case-study-logo-plate__mark">
-                                </div>
-                            @else
-                                <x-site.shot-carousel
-                                    :slides="$gallery"
-                                    :transition-name="'view-transition-name: work-img-'.$project['slug'].'; view-transition-class: card-media'"
-                                />
-                            @endif
-
-                            <figcaption class="case-study-media__footer">
-                                <div class="case-study-media__caption">
-                                    <span class="case-study-media__label">Case study</span>
-                                    @if(! empty($project['meta']))
-                                        <span class="case-study-media__sep" aria-hidden="true">·</span>
-                                        <span class="case-study-media__detail">{{ $project['meta'] }}</span>
-                                    @endif
-                                </div>
-
-                                @if(! empty($study['metrics']))
-                                    <dl class="case-study-facts" aria-label="Key facts">
-                                        @foreach($study['metrics'] as $metric)
-                                            @php
-                                                $metricValue = (string) ($metric['value'] ?? '');
-                                                $isNumericMetric = preg_match('/\d/', $metricValue) === 1;
-                                            @endphp
-                                            <div class="case-study-facts__row">
-                                                <dt class="case-study-facts__label">{{ $metric['label'] }}</dt>
-                                                <dd @class(['case-study-facts__value', 'case-study-facts__value--stat' => $isNumericMetric])@if($isNumericMetric) data-counter data-final="{{ $metricValue }}"@endif>{{ $metricValue }}</dd>
-                                            </div>
-                                        @endforeach
-                                    </dl>
-                                @endif
-
-                                @if(! empty($study['status']))
-                                    <dl class="case-study-status" aria-label="Delivery status">
-                                        @foreach($study['status'] as $row)
-                                            <div class="case-study-status__row">
-                                                <dt>
-                                                    <span class="case-study-status__state">{{ $row['state'] }}</span>
-                                                    {{ $row['label'] }}
-                                                </dt>
-                                                <dd>{{ $row['detail'] }}</dd>
-                                            </div>
-                                        @endforeach
-                                    </dl>
-                                @endif
-                            </figcaption>
-                        </figure>
-
-                        @if(($project['slug'] ?? '') === 'flood-mapping-system' && \App\Support\SiteFeatures::webgpu())
-                            {{-- Ships hidden; webgpu-flood.js reveals it only after a GPU device
-                                 is acquired, so unsupported browsers and reduced-motion users never
-                                 see an empty frame. The photograph above stays canonical. --}}
-                            <figure class="webgpu-flood case-study-media mt-6" data-webgpu-flood-root hidden>
-                                <div class="case-study-frame__chrome" aria-hidden="true">
-                                    <span class="case-study-frame__dots">
-                                        <span></span><span></span><span></span>
-                                    </span>
-                                    <span class="case-study-frame__title">Live WebGPU field</span>
-                                </div>
-                                <canvas data-webgpu-flood
-                                        class="webgpu-flood__canvas w-full aspect-[16/9]"
-                                        aria-label="Generative flood-extent field, animated"></canvas>
-                                <figcaption class="case-study-media__footer">
-                                    <p class="case-study-media__detail">Generative illustration, not mission data.</p>
-                                </figcaption>
-                            </figure>
-                        @endif
-
-                    </section>
-
                     <div class="case-study-brief">
                         <div class="case-study-brief__arc">
                             <section id="problem" class="case-study-brief__block scroll-mt-24" data-reveal>
@@ -301,15 +144,26 @@
                                 <x-site.arrow-list class="case-study-list" :items="$study['problem']" />
                             </section>
 
-                            @if(! empty($decisions))
+                            @if($page->decisions !== [])
                                 <section id="decisions" class="case-study-brief__block scroll-mt-24" data-reveal>
                                     <h2 class="case-study-brief__heading">
                                         <span class="case-study-brief__step" aria-hidden="true">02</span>
                                         Decisions
                                     </h2>
-                                    <x-site.arrow-list class="case-study-list" :items="$decisions" />
+                                    <x-site.arrow-list class="case-study-list" :items="$page->decisions" />
                                 </section>
                             @endif
+
+                            @if($page->hasDiagram)
+                                <figure id="delivery-system" class="case-study-flow-figure scroll-mt-24" data-reveal>
+                                    <x-site.case-study-flow :diagram="$study['diagram']" />
+                                    @if(filled($study['diagram']['caption'] ?? null))
+                                        <figcaption class="case-study-flow-figure__caption">{{ $study['diagram']['caption'] }}</figcaption>
+                                    @endif
+                                </figure>
+                            @endif
+
+                            @include('work.partials.evidence')
 
                             <section id="outcome" class="case-study-brief__block scroll-mt-24" data-reveal>
                                 <h2 class="case-study-brief__heading">
@@ -320,19 +174,10 @@
                             </section>
                         </div>
 
-                        @if($hasDiagram)
-                            <figure id="delivery-system" class="case-study-flow-figure scroll-mt-24" data-reveal>
-                                <x-site.case-study-flow :diagram="$study['diagram']" />
-                                @if(filled($study['diagram']['caption'] ?? null))
-                                    <figcaption class="case-study-flow-figure__caption">{{ $study['diagram']['caption'] }}</figcaption>
-                                @endif
-                            </figure>
-                        @endif
-
-                        @if($hasScope)
+                        @if($page->hasScope)
                             <section id="scope" class="case-study-brief__block case-study-brief__block--solo scroll-mt-24" data-reveal>
                                 <h2 class="case-study-brief__heading">Scope</h2>
-                                <x-site.job-scope :heading="false" :scope="$jobScope" />
+                                <x-site.job-scope :heading="false" :scope="$page->jobScope" />
                             </section>
                         @endif
 

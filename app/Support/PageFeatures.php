@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 /**
  * Progressive JS features loaded per route (see resources/js/app.js).
  * Core modules (nav, ⌘K, toast, SW, view transitions, theme) always boot.
- * Ambient platform chrome (soft-nav, summarizer, WebGPU) is gated per page.
+ * Reader tools and WebGPU are gated per page.
  */
 final class PageFeatures
 {
@@ -32,10 +32,6 @@ final class PageFeatures
         if (in_array($name, ['work', 'work.tag', 'blog.index', 'blog.tag'], true)) {
             $features[] = 'reveal';
             $features[] = 'media';
-            if (str_starts_with((string) $name, 'blog')) {
-                $features[] = 'soft-nav';
-            }
-
             if (str_starts_with((string) $name, 'blog') && self::pushEnabled()) {
                 $features[] = 'push';
             }

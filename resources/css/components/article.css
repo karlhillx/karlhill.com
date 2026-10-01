@@ -1,6 +1,70 @@
 /* ---------------------------------------------------------------------------
    Article sticky title + LQIP + toasts + ⌘K tip
 --------------------------------------------------------------------------- */
+.article-toc {
+    font-size: var(--text-caption);
+}
+
+.article-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    border-left: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+}
+
+.article-toc-item {
+    position: relative;
+}
+
+.article-toc-item--child {
+    padding-left: 0.75rem;
+}
+
+.article-toc-link {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    line-height: var(--leading-ui);
+    text-decoration: none;
+    padding-left: 0.85rem;
+    padding-block: 0.4rem;
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    color: var(--muted);
+    transition:
+        color 0.16s ease,
+        border-color 0.16s ease;
+}
+
+.article-toc-link:hover {
+    color: var(--text);
+}
+
+.article-toc-link.is-active,
+.article-toc-link[aria-current='location'] {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    font-weight: 500;
+}
+
+.article-toc-mobile summary::-webkit-details-marker {
+    display: none;
+}
+
+.article-toc-mobile summary::after {
+    content: '+';
+    float: right;
+    color: var(--muted-2);
+    font-family: var(--font-mono);
+}
+
+.article-toc-mobile[open] summary::after {
+    content: '−';
+}
+
 .article-sticky-title {
     position: fixed;
     top: 0;
@@ -255,4 +319,11 @@
     font-size: clamp(1.2rem, 2.4vw, 1.7rem);
     line-height: 1.28;
     letter-spacing: var(--tracking-sans-tight);
+}
+
+@media (max-width: 640px) {
+    .site-article .article-title {
+        max-width: none;
+        font-size: clamp(1.7rem, 7.5vw, 2.25rem);
+    }
 }
