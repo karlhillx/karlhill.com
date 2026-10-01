@@ -57,7 +57,7 @@ test('mobile teasers, collection choices, and contact actions stay easy to reach
         await page.evaluate(() => document.fonts.ready);
         for (const card of await page.locator('#work article').all()) {
             expect((await card.boundingBox()).height).toBeLessThanOrEqual(
-                width === 320 ? 800 : 650
+                width === 320 ? 820 : 700
             );
         }
         const firstLink = page.locator('#work article').first().getByRole('link');

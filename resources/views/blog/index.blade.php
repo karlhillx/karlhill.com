@@ -47,7 +47,7 @@
     <div class="writing-feeds mt-6 sm:mt-7">
         <div class="writing-feeds__actions">
             <a href="{{ route('feed') }}" class="writing-feeds__link">
-                @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])
+                <x-site.icon name="rss" class="w-3.5 h-3.5" />
                 Subscribe via Atom feed
             </a>
             <a href="{{ route('feed.json') }}" class="writing-feeds__link">
@@ -158,7 +158,7 @@
                     <p class="text-neutral-400 text-sm max-w-md leading-relaxed">New essays appear here. Subscribe through your feed reader.</p>
                 </div>
                 <x-site.button variant="secondary" :href="route('feed')" class="shrink-0">
-                    @include('components.site.icons.rss', ['class' => 'w-3.5 h-3.5'])
+                    <x-site.icon name="rss" class="w-3.5 h-3.5" />
                     Subscribe via Atom feed
                 </x-site.button>
             </div>

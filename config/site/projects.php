@@ -151,7 +151,23 @@ return [
         'description' => 'Independent non-alcoholic drinks publication and structured product database built around transparent classification, production methods, provenance, tasting data, and product discovery.',
         'image' => '/img/webp/ss-dry-standard.webp',
         'image_alt' => 'The Dry Standard — independent reviews and structured non-alcoholic drinks database',
-        'imagePosition' => 'object-top',
+        'imagePosition' => 'object-center',
+        'imageFit' => 'object-contain',
+        'imageBg' => '#ede8df',
+        'gallery' => [
+            [
+                'src' => '/img/webp/ss-dry-standard.webp',
+                'alt' => 'The Dry Standard publication and structured tasting database overview',
+                'label' => 'Publication & database',
+                'position' => 'object-center',
+            ],
+            [
+                'src' => '/img/webp/ss-dry-standard-review.webp',
+                'alt' => 'The Dry Standard review card showing 82/100 score, tasting notes, and verified ABV for Best Day Brewing Oktoberfest',
+                'label' => 'Product review & score',
+                'position' => 'object-center',
+            ],
+        ],
         'url' => '/work/the-dry-standard',
         'artifact' => [
             'label' => 'Visit The Dry Standard',

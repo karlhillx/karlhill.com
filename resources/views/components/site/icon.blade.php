@@ -1,6 +1,5 @@
 @props([
     'name',
-    'class' => 'w-4 h-4',
 ])
 
 @php
@@ -21,4 +20,4 @@
     $resolved = $aliases[strtolower($name)] ?? strtolower($name);
 @endphp
 
-<x-dynamic-component :component="'site.icons.'.$resolved" {{ $attributes->merge(['class' => $class, 'aria-hidden' => 'true']) }} />
+<x-dynamic-component :component="'site.icons.'.$resolved" {{ $attributes }} />

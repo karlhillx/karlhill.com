@@ -23,11 +23,12 @@ test('featured projects expose meaningful links without oversized teasers', asyn
         await expect(article.locator('.portfolio-card__impact')).toBeVisible();
         await expect(article.getByRole('link', { name: /Read case study/ })).toBeVisible();
         await expect(article.getByRole('link')).toHaveCount(1);
-        await expect(article.locator('.portfolio-card__visual')).toHaveCount(0);
+        await expect(article.locator('.portfolio-card__visual')).toHaveCount(1);
+        await expect(article.locator('.project-visual')).toBeVisible();
     }
     const firstLink = page.locator('#work article').first().getByRole('link');
     const linkBottom = await firstLink.evaluate((el) => el.getBoundingClientRect().bottom);
-    expect(linkBottom).toBeLessThan(isMobile ? bounds.height * 1.5 : bounds.height);
+    expect(linkBottom).toBeLessThan(bounds.height * 1.6);
     await expect(page.locator('#notes .portfolio-writing-link')).toHaveCount(3);
     await page.goto('/work');
     await expect(page.locator('.tooling-proof__index')).toHaveCount(1);

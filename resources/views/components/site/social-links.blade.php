@@ -4,11 +4,11 @@
         <a href="{{ $link['url'] }}" target="_blank" rel="me noopener noreferrer" data-no-ext
            aria-label="{{ $link['label'] }} (opens in a new tab)" title="{{ $link['label'] }}"
            class="inline-flex items-center justify-center min-h-11 min-w-11 text-neutral-500 hover:text-accent hover:-translate-y-0.5 transition-[color,transform] duration-200">
-            @include('components.site.icons.'.$link['icon'])
+            <x-site.icon :name="$link['icon']" />
         </a>
     @endforeach
     <a href="/feed.xml" aria-label="Atom feed" title="Atom feed" data-no-ext
        class="inline-flex items-center justify-center min-h-11 min-w-11 text-neutral-500 hover:text-accent hover:-translate-y-0.5 transition-[color,transform] duration-200">
-        @include('components.site.icons.rss', ['class' => 'w-5 h-5'])
+        <x-site.icon name="rss" class="w-5 h-5" />
     </a>
 </div>

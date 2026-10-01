@@ -150,6 +150,8 @@ it('homepage is a focused landing page', function () {
     $response->assertDontSee('NASA Earth science systems from Goddard are still public.', escape: false);
     $response->assertDontSee('logo-jacobs-mark', escape: false);
     $response->assertDontSee('mission-proof', escape: false);
+    $response->assertSee('project-visual', escape: false);
+    $response->assertSee('System Topology', escape: false);
     $response->assertSee('portfolio-card__impact', escape: false);
     $response->assertSee('portfolio-card__brief', escape: false);
     $response->assertDontSee('work-card--logo', escape: false);

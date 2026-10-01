@@ -16,46 +16,9 @@
     'portfolio-card--wide' => $wide,
     'portfolio-card--compact' => $compact,
 ]) aria-labelledby="work-card-title-{{ $project['slug'] }}">
-    @unless($compact)
     <div class="portfolio-card__visual">
-        @if($isMission)
-            <div class="mission-proof">
-                <p class="eyebrow">Engineering delivery / Jacobs</p>
-                <p class="mission-proof__headline">Many repositories.<br>One delivery standard.</p>
-                <ol class="mission-proof__flow" aria-label="Simplified delivery workflow">
-                    <li>Local checks</li><li>Review + CI</li><li>Integration</li><li>Release</li>
-                </ol>
-                <div class="mission-proof__facts">
-                    <p><strong>{{ config('site.facts.repos_display') }}</strong><span>repositories</span></p>
-                    <p><strong>{{ config('site.facts.coverage_display') }}</strong><span>test coverage baseline</span></p>
-                    <p><strong>{{ config('site.facts.approvals_display') }}</strong><span>review approvals</span></p>
-                </div>
-                <p class="portfolio-caption">Simplified delivery view. Not program architecture.</p>
-            </div>
-        @elseif($isTooling)
-            <div class="tooling-proof">
-                <p class="eyebrow">Source available / Independent tools</p>
-                <p class="mission-proof__headline">Make the feedback<br>loop inspectable.</p>
-                <ul class="tooling-proof__index" aria-label="Featured repositories">
-                    @foreach(config('site.github.fallback_repos') as $repo)
-                        <li><a href="{{ $repo['url'] }}" target="_blank" rel="noopener noreferrer" data-no-ext>{{ $repo['name'] }} <span aria-hidden="true">↗</span></a><span>{{ $repo['language'] }}</span></li>
-                    @endforeach
-                </ul>
-            </div>
-        @else
-            <div class="portfolio-card__chrome" aria-hidden="true">
-                <span>{{ $project['sector'] }}</span><span>Project preview</span>
-            </div>
-            <x-site.responsive-image
-                :src="$project['image']"
-                :alt="$project['image_alt'] ?? 'Screenshot of '.$project['title']"
-                sizes="(min-width: 1280px) 590px, (min-width: 768px) 46vw, 92vw"
-                width="1200" height="675" loading="lazy" :lqip="false"
-                img-class="portfolio-card__image {{ $project['imagePosition'] ?? 'object-top' }}"
-            />
-        @endif
+        <x-site.project-visual :project="$project" :compact="$compact" />
     </div>
-    @endunless
     <div class="portfolio-card__body">
         <p class="eyebrow eyebrow--muted">{{ $project['meta'] }}</p>
         <h3 id="work-card-title-{{ $project['slug'] }}">
@@ -85,12 +48,17 @@
         @unless($compact)
         <ul class="portfolio-card__stack" aria-label="Stack">
             @foreach($project['card_tags'] ?? $project['tags'] as $tag)
-                <li>{{ $tag }}</li>
+                <li class="inline-flex items-center gap-1.5">
+                    @if($icon = \App\Support\TechIcons::name($tag))
+                        <x-site.icon :name="$icon" class="w-3.5 h-3.5 text-accent shrink-0" />
+                    @endif
+                    <span>{{ $tag }}</span>
+                </li>
             @endforeach
         </ul>
         @endunless
         <div class="portfolio-card__actions">
-            <span class="portfolio-text-link" aria-hidden="true">Read case study <span>→</span></span>
+            <span class="portfolio-text-link" aria-hidden="true">Read case study <x-site.icon name="arrow-right" class="w-4 h-4 ml-1 inline-block" /></span>
         </div>
     </div>
 </article>
