@@ -25,7 +25,7 @@
     border: 1px solid var(--border-strong);
     background: color-mix(in oklab, var(--panel) 72%, transparent);
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
+    font-size: var(--text-caption);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
@@ -78,7 +78,7 @@
 
 .writing-series__lede {
     margin: 0;
-    font-size: 1.05rem;
+    font-size: 1.0625rem;
     line-height: var(--leading-body);
     letter-spacing: var(--tracking-sans);
     color: var(--muted);
@@ -164,7 +164,7 @@ a.series-chapters__card:hover {
 
 .series-chapters__num {
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
+    font-size: var(--text-caption);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted-2);
@@ -172,7 +172,7 @@ a.series-chapters__card:hover {
 
 .series-chapters__meta {
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
+    font-size: var(--text-caption);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: color-mix(in oklab, var(--accent) 75%, var(--muted-2));
@@ -187,7 +187,7 @@ a.series-chapters__card:hover {
    all-caps display type at card size. */
 .series-chapters__title {
     font-family: var(--font-sans);
-    font-size: 1.05rem;
+    font-size: 1.0625rem;
     font-weight: 600;
     line-height: 1.35;
     letter-spacing: var(--tracking-sans);
@@ -269,7 +269,7 @@ a.series-chapters__card:hover .series-chapters__title,
     .series-chapters--board .series-chapters__card {
         min-height: 10.5rem;
         padding: 1.25rem 1.35rem 1.15rem;
-        gap: 0.7rem;
+        gap: 0.75rem;
     }
 
     .series-chapters--board .series-chapters__title {
@@ -281,7 +281,7 @@ a.series-chapters__card:hover .series-chapters__title,
         content: 'Read chapter →';
         margin-top: auto;
         font-family: var(--font-mono);
-        font-size: 0.6875rem;
+        font-size: var(--text-caption);
         letter-spacing: var(--tracking-mono);
         text-transform: uppercase;
         color: var(--muted-2);

@@ -60,14 +60,14 @@ it('machine readable json omits session cookies', function () {
         ->and($response->headers->get('X-Powered-By'))->toBeNull();
 });
 
-it('html preloads bebas oswald and jetbrains fonts', function () {
+it('html preloads big shoulders and jetbrains fonts', function () {
     $response = $this->get('/');
     $html = $response->assertOk()->getContent();
 
     expect($html)
         ->toContain('rel="preload" as="font" type="font/woff2"')
-        ->toContain('bebas-neue-latin-400-normal')
-        ->toContain('oswald-latin-600-normal')
+        ->toContain('big-shoulders-display-latin-700-normal')
+        ->toContain('big-shoulders-text-latin-600-normal')
         ->toContain('jetbrains-mono-latin-400-normal')
         ->not->toContain('jetbrains-mono-latin-500-normal');
 
@@ -77,7 +77,7 @@ it('html preloads bebas oswald and jetbrains fonts', function () {
     if ($link !== null) {
         expect($link)
             ->toContain('as=font')
-            ->toContain('oswald')
+            ->toContain('big-shoulders')
             ->toContain('jetbrains-mono');
     }
 });

@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------
    Long-form prose for the blog. Hand-rolled to match the site's design tokens
    without pulling in @tailwindcss/typography (which would override the
-   Bebas Neue display font and OKLCH oranges).
+   Big Shoulders display font and OKLCH oranges).
 --------------------------------------------------------------------------- */
 .prose-karl {
     /* Cool-tinted body grey on dark; warm near-black on light. */
@@ -48,6 +48,8 @@
 .prose-karl h3,
 .prose-karl h4 {
     font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
     color: var(--text);
     letter-spacing: var(--tracking-display);
     line-height: 1.08;
@@ -77,7 +79,7 @@
 
 .prose-karl h4 {
     font-family: var(--font-sans);
-    font-size: 1.05rem;
+    font-size: 1.0625rem;
     font-weight: 600;
     color: var(--text);
     margin-top: 1.4em;
@@ -157,7 +159,7 @@
     background: color-mix(in oklab, var(--accent) 8%, transparent);
     border: 1px solid color-mix(in oklab, var(--accent) 18%, transparent);
     padding: 0.08em 0.4em;
-    border-radius: 3px;
+    border-radius: var(--radius-sm);
 }
 
 .prose-karl pre {
@@ -166,7 +168,7 @@
     line-height: 1.65;
     background: #0d0d0d;
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: var(--radius-md);
     padding: 1.1em 1.3em;
     overflow-x: auto;
     color: #e5e5e5;
@@ -237,7 +239,7 @@
 .prose-karl ol li::marker {
     color: light-dark(oklch(48% 0.06 50), oklch(72% 0.04 50));
     font-family: var(--font-mono);
-    font-size: 0.85em;
+    font-size: 0.875em;
 }
 
 .prose-karl ul:has(> li > input[type='checkbox']) {
@@ -263,7 +265,7 @@
     width: 1.05em;
     height: 1.05em;
     border: 1px solid color-mix(in oklab, var(--success) 55%, var(--border-strong));
-    border-radius: 3px;
+    border-radius: var(--radius-sm);
     background: color-mix(in oklab, var(--success) 8%, var(--bg));
     position: relative;
     transform: translateY(0.15em);
@@ -290,7 +292,7 @@
 }
 
 .prose-karl img {
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     border: 1px solid var(--border);
     max-width: 100%;
     height: auto;

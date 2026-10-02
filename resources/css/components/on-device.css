@@ -101,7 +101,7 @@
     padding: 1.1rem 1.15rem 1.15rem;
     border: 1px solid color-mix(in oklab, var(--accent) 32%, var(--border));
     background: color-mix(in oklab, var(--accent) 6%, var(--panel));
-    border-radius: 0.75rem;
+    border-radius: var(--radius-lg);
 }
 
 .on-device-ask__intro {
@@ -112,7 +112,7 @@
 .on-device-ask__head {
     display: flex;
     align-items: baseline;
-    gap: 0.55rem;
+    gap: 0.5rem;
     margin: 0;
 }
 
@@ -120,7 +120,7 @@
     margin: 0;
     font-family: var(--font-sans);
     font-weight: 600;
-    font-size: 0.98rem;
+    font-size: 1rem;
     letter-spacing: 0.01em;
     line-height: 1.3;
     color: var(--text);
@@ -129,8 +129,8 @@
 .on-device-ask__lede {
     margin: 0;
     color: var(--muted-2);
-    font-size: 0.9rem;
-    line-height: 1.45;
+    font-size: 0.875rem;
+    line-height: var(--leading-ui);
 }
 
 .on-device-ask__prompts {
@@ -143,7 +143,7 @@
     min-height: 2.25rem;
     padding: 0.3rem 0.8rem;
     border: 1px solid var(--border-strong);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: color-mix(in oklab, var(--panel) 88%, transparent);
     color: var(--text);
     font-family: var(--font-sans);
@@ -211,11 +211,11 @@
     padding: 0.85rem 1rem;
     background: color-mix(in oklab, var(--panel) 78%, transparent);
     border: 1px solid var(--hairline);
-    border-radius: 0.65rem;
+    border-radius: var(--radius-lg);
 }
 
 .on-device-summary__output.is-ready {
-    font-size: 0.95rem;
+    font-size: 0.9375rem;
     line-height: 1.65;
     letter-spacing: 0.012em;
     white-space: pre-wrap;
@@ -225,20 +225,20 @@
 .summary-panel {
     display: flex;
     flex-direction: column;
-    gap: 0.55rem;
+    gap: 0.5rem;
 }
 
 .summary-panel__status {
     display: flex;
     align-items: baseline;
-    gap: 0.55rem;
+    gap: 0.5rem;
 }
 
 .summary-panel__live {
     width: 0.42rem;
     height: 0.42rem;
     flex-shrink: 0;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--accent);
     translate: 0 0.12em;
     animation: summaryLive 1.35s ease-in-out infinite;
@@ -250,7 +250,7 @@
     min-width: 0;
     font-family: var(--font-sans);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.01em;
     line-height: 1.35;
     color: var(--text);
@@ -288,7 +288,7 @@
     position: relative;
     height: 0.35rem;
     overflow: hidden;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: color-mix(in oklab, var(--border-strong) 80%, var(--panel));
 }
 

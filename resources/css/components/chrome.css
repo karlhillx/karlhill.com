@@ -24,12 +24,12 @@ a:where([href^='http://'], [href^='https://']):not(
     width: 0.95rem;
     height: 0.95rem;
     margin-inline-start: 0.15rem;
-    font-size: 0.55rem;
+    font-size: var(--text-micro);
     line-height: 1;
     color: var(--accent);
     background: light-dark(#f6f1ea, #241c14);
     border: 1px solid light-dark(#dfc9a8, #6b542e);
-    border-radius: 0.18rem;
+    border-radius: var(--radius-xs);
 }
 
 /* Footer profiles: eight icons, two rows of four. Column count lives here so

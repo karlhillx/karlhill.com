@@ -91,7 +91,7 @@ main:has(> .portfolio-nav) section[id] {
 }
 
 .portfolio-hero {
-    padding-block: clamp(6.5rem, 10vh, 8rem) 1.25rem;
+    padding-block: clamp(6.5rem, 10vh, 8rem) var(--space-section-soft);
     background: radial-gradient(
         ellipse at 90% 15%,
         color-mix(in srgb, var(--accent) 6%, transparent),
@@ -102,13 +102,12 @@ main:has(> .portfolio-nav) section[id] {
 .portfolio-hero__layout {
     display: grid;
     gap: 3rem;
-    align-items: center;
 }
 
 .portfolio-hero__identity {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.75rem;
     margin-bottom: 1rem;
 }
 
@@ -126,16 +125,17 @@ main:has(> .portfolio-nav) section[id] {
 }
 
 .portfolio-hero__name {
-    font: 400 clamp(2.5rem, 4vw, 3rem) / 0.95 var(--font-display);
+    font: 700 clamp(2.75rem, 4.5vw, 3.5rem) / 0.95 var(--font-display);
     letter-spacing: 0.025em;
-    margin-bottom: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
 }
 
 .portfolio-hero__statement {
     font-family: var(--font-sans);
     font-size: clamp(2rem, 3.6vw, 3.15rem);
     font-weight: 600;
-    line-height: 1.08;
+    line-height: 1.12;
     letter-spacing: -0.015em;
     text-wrap: balance;
     max-width: 20ch;
@@ -153,6 +153,10 @@ main:has(> .portfolio-nav) section[id] {
     display: none;
     padding-left: 2rem;
     border-left: 1px solid var(--border-strong);
+    /* Stretched grid track: top eyebrow aligns with the identity row, and the
+       location line pins to the bottom so the rail ends flush with the CTAs. */
+    flex-direction: column;
+    height: 100%;
 }
 
 .portfolio-hero__index > a {
@@ -175,7 +179,8 @@ main:has(> .portfolio-nav) section[id] {
 }
 
 .portfolio-hero__location {
-    margin-top: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
     color: var(--muted);
     font-size: 0.875rem;
 }
@@ -226,11 +231,11 @@ main:has(> .portfolio-nav) section[id] {
 }
 
 .featured-work {
-    padding-top: 1rem;
+    padding-top: var(--space-section-soft);
 }
 
 .featured-work .portfolio-section-heading {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-heading);
 }
 
 .portfolio-grid {
@@ -330,7 +335,7 @@ main:has(> .portfolio-nav) section[id] {
 }
 
 .portfolio-card__role {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: var(--muted);
     margin-bottom: 1.5rem;
 }
@@ -359,7 +364,7 @@ main:has(> .portfolio-nav) section[id] {
 }
 
 .portfolio-card__impact > p:first-child {
-    font-size: 1.15rem;
+    font-size: 1.125rem;
     line-height: 1.35;
     font-weight: 600;
     margin-bottom: 0.4rem;
@@ -439,13 +444,13 @@ main:has(> .portfolio-nav) section[id] {
 
 .project-visual__stage--terminal .terminal-out {
     color: #9ca3af;
-    font-size: 11px;
+    font-size: var(--text-caption);
     padding-left: 0.75rem;
 }
 
 .project-visual__stage--terminal .terminal-success {
     color: #7ee787;
-    font-size: 11px;
+    font-size: var(--text-caption);
     padding-left: 0.75rem;
 }
 
@@ -521,7 +526,7 @@ main:has(> .portfolio-nav) section[id] {
 .portfolio-chapters__row small {
     display: block;
     color: var(--muted);
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     font-weight: 400;
     margin-top: 0.35rem;
 }
@@ -546,7 +551,7 @@ main:has(> .portfolio-nav) section[id] {
     align-items: baseline;
     gap: 1rem;
     padding-block: 1.25rem;
-    font-size: 1.15rem;
+    font-size: 1.125rem;
     border-bottom: 1px solid var(--border);
 }
 
@@ -639,7 +644,7 @@ main:has(> .portfolio-nav) section[id] {
     }
 
     .portfolio-hero__index {
-        display: block;
+        display: flex;
     }
 
     .tooling-directory {
@@ -654,7 +659,7 @@ main:has(> .portfolio-nav) section[id] {
 @media (max-width: 767px) {
     .portfolio-hero {
         padding-top: 6.5rem;
-        padding-bottom: 2rem;
+        padding-bottom: var(--space-section-soft);
     }
 
     .portfolio-hero__identity .eyebrow {

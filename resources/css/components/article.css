@@ -153,7 +153,7 @@
     left: 50%;
     z-index: 30;
     transform: translateX(-50%);
-    border-radius: 0.25rem;
+    border-radius: var(--radius-sm);
     border: 1px solid color-mix(in oklab, var(--accent) 45%, var(--border));
     background-color: var(--panel);
     color: var(--accent);
@@ -164,10 +164,10 @@
     margin-top: 1rem;
     padding: 0.85rem 1rem;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: var(--text-caption);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
-    line-height: 1.45;
+    line-height: var(--leading-ui);
     border: 1px solid var(--border);
     outline: none;
 }
@@ -309,7 +309,7 @@
 .site-article .article-excerpt {
     margin: 0 0 1.5rem;
     max-width: 36rem;
-    font-size: 1.05rem;
+    font-size: 1.0625rem;
     line-height: var(--leading-body);
     letter-spacing: var(--tracking-sans);
     text-wrap: pretty;

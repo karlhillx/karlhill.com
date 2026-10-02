@@ -115,7 +115,7 @@
                 {{ $person['location'] }} · {{ $person['job_title'] }}
             </p>
         </div>
-        <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div class="mt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <x-site.footer-explore />
             <p class="site-build-credit font-mono uppercase text-neutral-500">
                 <span>Built with Laravel {{ \App\Support\Stack::laravelVersion() }}</span>

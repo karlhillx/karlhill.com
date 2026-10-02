@@ -20,8 +20,8 @@ final class PreloadLinks
     public static function fonts(): array
     {
         return [
-            'resources/fonts/bebas-neue-latin-400-normal.woff2',
-            'node_modules/@fontsource/oswald/files/oswald-latin-600-normal.woff2',
+            'node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-700-normal.woff2',
+            'node_modules/@fontsource/big-shoulders-text/files/big-shoulders-text-latin-600-normal.woff2',
             'node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2',
         ];
     }

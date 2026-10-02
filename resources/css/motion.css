@@ -142,11 +142,11 @@ nav[aria-label='Primary'].is-compact .nav-bar {
     min-height: 1.2rem;
     padding: 0 0.32rem;
     border: 1px solid color-mix(in oklab, currentColor 45%, transparent);
-    border-radius: 0.25rem;
+    border-radius: var(--radius-sm);
     background: color-mix(in oklab, var(--bg) 55%, transparent);
     color: inherit;
     font-family: var(--font-mono);
-    font-size: 0.625rem;
+    font-size: var(--text-micro);
     font-weight: 500;
     letter-spacing: 0.04em;
     line-height: 1;
@@ -284,7 +284,7 @@ button:focus-visible > .arrow-nudge,
 .booking-embed {
     margin-top: 2rem;
     border: 1px solid color-mix(in oklab, var(--accent) 22%, var(--border));
-    border-radius: 0.35rem;
+    border-radius: var(--radius-sm);
     overflow: hidden;
     background: color-mix(in oklab, var(--bg) 92%, black);
 }
@@ -436,7 +436,7 @@ button:focus-visible > .arrow-nudge,
 :focus-visible {
     outline: 2px solid var(--focus);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: var(--radius-xs);
 }
 
 .scroll-progress {
@@ -540,7 +540,7 @@ button:focus-visible > .arrow-nudge,
         ),
         color-mix(in oklab, var(--bg) 78%, transparent);
     backdrop-filter: blur(18px) saturate(1.25);
-    border-radius: 0.9rem;
+    border-radius: var(--radius-xl);
     box-shadow:
         inset 0 1px 0 var(--hairline-strong),
         0 30px 80px light-dark(rgb(20 20 20 / 0.18), rgb(0 0 0 / 0.55));
@@ -651,9 +651,9 @@ nav[aria-label='Primary'] {
     border: 1px solid var(--border-strong);
     background: color-mix(in oklab, var(--panel) 75%, transparent);
     color: var(--text);
-    border-radius: 0.55rem;
+    border-radius: var(--radius-md);
     padding: 0.7rem 0.8rem;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
 }
 
 .command-results {
@@ -665,7 +665,7 @@ nav[aria-label='Primary'] {
 
 .command-result {
     border: 1px solid var(--border);
-    border-radius: 0.55rem;
+    border-radius: var(--radius-md);
     background: var(--panel);
     color: var(--text);
     padding: 0.65rem 0.85rem;
@@ -746,7 +746,7 @@ nav[aria-label='Primary'] {
     height: 1.15rem;
     padding: 0 0.3rem;
     border: 1px solid var(--border-strong);
-    border-radius: 0.3rem;
+    border-radius: var(--radius-sm);
     background: var(--panel);
     color: var(--muted);
     font-size: 0.75rem;
@@ -926,7 +926,7 @@ html:active-view-transition-type(same)::view-transition-new(root) {
 }
 
 ::view-transition-image-pair(.card-media) {
-    border-radius: 0.75rem;
+    border-radius: var(--radius-lg);
     overflow: clip;
 }
 
@@ -948,7 +948,7 @@ html:active-view-transition-type(same)::view-transition-new(root) {
     background: var(--panel);
     color: var(--text);
     border: 1px solid var(--border);
-    border-radius: 0.85rem;
+    border-radius: var(--radius-lg);
     /* Without position-area, hint popovers can land in a viewport corner. */
     position: absolute;
     position-anchor: auto;

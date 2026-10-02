@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('headings use loaded Oswald while body text keeps a readable system face', async ({
+test('headings use loaded Big Shoulders while body text keeps a readable system face', async ({
     page,
 }) => {
     await page.goto('/');
@@ -8,13 +8,16 @@ test('headings use loaded Oswald while body text keeps a readable system face', 
     const fonts = await page.evaluate(() => ({
         heading: getComputedStyle(document.querySelector('.portfolio-hero__statement')).fontFamily,
         body: getComputedStyle(document.body).fontFamily,
-        oswaldLoaded: [...document.fonts].some(
-            (font) => font.family === 'Oswald' && font.weight === '600' && font.status === 'loaded'
+        displayLoaded: [...document.fonts].some(
+            (font) =>
+                font.family === 'Big Shoulders Text' &&
+                font.weight === '600' &&
+                font.status === 'loaded'
         ),
     }));
-    expect(fonts.heading).toContain('Oswald');
-    expect(fonts.body).not.toContain('Oswald');
-    expect(fonts.oswaldLoaded).toBe(true);
+    expect(fonts.heading).toContain('Big Shoulders Text');
+    expect(fonts.body).not.toContain('Big Shoulders Text');
+    expect(fonts.displayLoaded).toBe(true);
 });
 
 test('writing filters, reset, reload, and history keep the whole page consistent', async ({

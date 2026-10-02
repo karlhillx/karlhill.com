@@ -26,7 +26,7 @@ Personal site for Karl Hill — Staff Aerospace Software Engineer (Washington, D
 - **Backend:** Laravel 13 (PHP 8.5)
 - **Frontend:** Tailwind CSS v4, vanilla JS (no SPA framework), CSS scroll/view timelines + gated idle motion
 - **Build:** Vite 8 with `laravel-vite-plugin`
-- **Fonts:** Native system body text, Oswald (condensed headings/UI), Bebas Neue (display), JetBrains Mono (metadata/code); custom faces are self-hosted.
+- **Fonts:** Native system body text, Big Shoulders Text (condensed headings/UI), Big Shoulders Display (display), JetBrains Mono (metadata/code); custom faces are self-hosted. (Oswald/Lato remain installed only for the classic resume PDF.)
 - **Testing:** Pest 4, Laravel Pint
 
 ## Getting Started

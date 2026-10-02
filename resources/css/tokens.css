@@ -74,7 +74,16 @@
     --leading-body: 1.62;
     --leading-prose: 1.7;
     --leading-ui: 1.45;
-    /* Type tracking — condensed UI needs open air; Bebas needs restraint. */
+    /* Corner scale — the only approved radii. xs: focus rings, tiny chips;
+       sm: code, buttons, small cards; md: panels, popovers; lg: media frames,
+       large cards; xl: feature surfaces; pill: tags, status dots. */
+    --radius-xs: 0.125rem;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-pill: 999px;
+    /* Type tracking — condensed UI needs open air; display caps need restraint. */
     --tracking-sans: 0.01em;
     --tracking-sans-tight: 0.004em;
     --tracking-display: 0.02em;
@@ -128,8 +137,8 @@
 
 @theme {
     --font-body: ui-sans-serif, system-ui, sans-serif;
-    --font-sans: 'Oswald', ui-sans-serif, system-ui, sans-serif;
-    --font-display: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Big Shoulders Text', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Big Shoulders Display', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
     --color-bg: var(--bg);
     --color-panel: var(--panel);
@@ -138,10 +147,14 @@
     --color-muted: var(--muted);
     --color-danger: var(--danger);
     --color-ink: var(--text);
-    /* Type floor: nothing on screen below 12px. `text-caption` is the one
-       approved small size for mono eyebrows, captions and chips. */
+    /* Type floor: no readable content below 12px. `text-caption` is the one
+       approved small size for mono eyebrows, captions and chips.
+       `text-micro` exists solely for diagram labels and glyph badges inside
+       fixed-size artifacts (flow charts, window chrome) — never for copy. */
     --text-caption: 0.75rem;
     --text-caption--line-height: 1.5;
+    --text-micro: 0.625rem;
+    --text-micro--line-height: 1.4;
     /* Scheme-aware neutrals. The site was designed dark-first, so the
        templates read `text-neutral-100` as “primary text” and `bg-neutral-900`
        as “raised surface”. Steps that carry a role alias the token above so

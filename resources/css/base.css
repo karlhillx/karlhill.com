@@ -152,7 +152,7 @@ body {
     align-items: flex-start;
     gap: 0.35rem;
     margin: 0;
-    font-size: 0.6875rem;
+    font-size: var(--text-caption);
     line-height: 1.4;
     letter-spacing: var(--tracking-wide);
 }
@@ -166,11 +166,12 @@ body {
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
+        flex-shrink: 0;
         gap: 0.25rem;
         width: max-content;
         max-width: 100%;
         padding: 0.125rem 0.5rem;
-        border-radius: 0.125rem;
+        border-radius: var(--radius-xs);
         border: 1px solid var(--border-strong);
         background-color: color-mix(in oklab, var(--panel) 72%, transparent);
     }
@@ -256,7 +257,7 @@ body {
    Surface language — sharp structure, rounded interactive cards, square chips.
    --------------------------------------------------------------------------- */
 .surface-card {
-    border-radius: 1rem;
+    border-radius: var(--radius-xl);
     background-color: color-mix(in oklab, var(--panel) 40%, transparent);
     box-shadow: 0 0 0 1px var(--hairline);
     transition:
@@ -281,7 +282,7 @@ article.surface-card:focus-within {
 }
 
 .surface-card-static {
-    border-radius: 1rem;
+    border-radius: var(--radius-xl);
     background-color: color-mix(in oklab, var(--panel) 40%, transparent);
     box-shadow: 0 0 0 1px var(--hairline);
     transition:
@@ -295,7 +296,7 @@ article.surface-card:focus-within {
 }
 
 .surface-chip {
-    border-radius: 0.25rem;
+    border-radius: var(--radius-sm);
     border: 1px solid var(--border-strong);
     background-color: color-mix(in oklab, var(--panel) 72%, transparent);
 }
@@ -319,11 +320,15 @@ p {
     text-wrap: pretty;
 }
 
+/* Display voice: Big Shoulders Display ships lowercase (unlike Bebas Neue),
+   so keep the all-caps poster look and its bold color centrally. */
 .font-display {
+    font-weight: 700;
+    text-transform: uppercase;
     text-wrap: balance;
 }
 
-/* Trim Bebas Neue's generous built-in leading so display headings sit
+/* Trim the display font's generous built-in leading so headings sit
    optically tight against surrounding content (no margin fudging).
    Skip the homepage hero wordmark — trim collapses the gap into the
    eyebrow row and reads as an overlap on narrow viewports. */

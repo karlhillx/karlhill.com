@@ -404,7 +404,7 @@
     /* Show destination URLs for external links in blog print. */
     .prose-karl a[href^='http']::after {
         content: ' (' attr(href) ')';
-        font-size: 0.85em;
+        font-size: 0.875em;
         word-break: break-all;
         opacity: 0.75;
     }
