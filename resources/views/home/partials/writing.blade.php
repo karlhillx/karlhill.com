@@ -1,4 +1,4 @@
-<x-site.section id="notes" section-label="Writing" border="soft">
+<x-site.section id="notes" section-label="Writing" border="none" class="portfolio-writing-section">
     <div class="portfolio-section-heading">
         <div>
             <p class="eyebrow">Engineering notes</p>
@@ -17,6 +17,6 @@
                 </span>
             </a>
         @endforeach
-        <a href="/blog" class="portfolio-text-link mt-6">All writing <span aria-hidden="true">→</span></a>
+        <a href="/blog" class="portfolio-text-link">All writing <span aria-hidden="true">→</span></a>
     </div>
 </x-site.section>

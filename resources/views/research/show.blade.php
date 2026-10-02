@@ -51,7 +51,7 @@
             {{ $research['published'] }}.
         </p>
 
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
+        <div class="site-page-hero__actions">
             <x-site.button variant="primary" :href="$research['doi']" target="_blank" rel="noopener noreferrer" data-no-ext>
                 {{ $research['doi_label'] }}
                 <span aria-hidden="true">↗</span>

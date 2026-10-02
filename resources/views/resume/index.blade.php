@@ -21,7 +21,7 @@
         </p>
 
         {{-- The PDF is this page's purpose, so it takes the fill; booking is the secondary. --}}
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-7">
+        <div class="site-page-hero__actions">
             @if(! empty($pdf))
                 <x-site.button variant="primary" :href="$pdf"
                     download="Karl-Hill-Resume.pdf"
@@ -45,7 +45,7 @@
         </div>
     </x-site.page-hero>
 
-    <article class="resume-doc site-section site-section--soft border-t border-neutral-800/50" aria-label="Resume" data-ask-source>
+    <article class="resume-doc site-section site-section--soft border-t border-neutral-800/40" aria-label="Resume" data-ask-source>
         <div class="site-shell resume-shell">
             {{-- Sidebar first in DOM so print float:right sits beside the main column like the classic PDF. --}}
             <aside class="resume-aside" aria-label="Contact and expertise">

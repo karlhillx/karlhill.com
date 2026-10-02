@@ -70,15 +70,21 @@ body {
         max(var(--space-gutter), env(safe-area-inset-right, 0px));
 }
 
+.site-section--chapter {
+    padding-block: var(--space-chapter);
+    padding-inline: max(var(--space-gutter), env(safe-area-inset-left, 0px))
+        max(var(--space-gutter), env(safe-area-inset-right, 0px));
+}
+
 .site-shell {
     width: 100%;
-    max-width: 72rem;
+    max-width: var(--content-default);
     margin-inline: auto;
 }
 
 .site-prose {
     width: 100%;
-    max-width: var(--space-prose);
+    max-width: var(--content-reading);
     margin-inline: auto;
 }
 
@@ -120,12 +126,12 @@ body {
 }
 
 .site-footer--home {
-    padding-block: var(--space-section);
+    padding-block: var(--space-chapter);
 }
 
 .site-footer-home {
     display: grid;
-    gap: 2rem;
+    gap: var(--space-stack);
 }
 
 .site-footer-form .js-contact-form {
@@ -135,7 +141,7 @@ body {
 @media (min-width: 1024px) {
     .site-footer-home {
         grid-template-columns: minmax(0, 1fr) minmax(14rem, 18rem);
-        gap: 2.5rem 4rem;
+        gap: var(--space-heading) var(--space-chapter);
         align-items: start;
     }
 }
@@ -189,14 +195,14 @@ body {
 /* Inner-page hero: clear the fixed nav, then hand off quickly — chrome, not
    content. Bottom padding stays short so the first body block starts early. */
 .site-page-hero {
-    padding-block: clamp(6.75rem, 12vh, 7.5rem) clamp(1.5rem, 3vh, 2.25rem);
+    padding-block: clamp(6.5rem, 11vh, 7.25rem) var(--space-stack);
     padding-inline: max(var(--space-gutter), env(safe-area-inset-left, 0px))
         max(var(--space-gutter), env(safe-area-inset-right, 0px));
 }
 
 .site-page-hero__title {
-    margin: 0 0 1rem;
-    font-size: clamp(2.65rem, 8vw, 5rem);
+    margin: 0 0 var(--space-inline);
+    font-size: var(--type-page-title);
     line-height: 0.95;
     letter-spacing: var(--tracking-display-wide);
     text-wrap: balance;
@@ -210,9 +216,9 @@ body {
 }
 
 .site-page-hero__lede {
-    max-width: 36rem;
+    max-width: var(--space-measure-narrow);
     margin: 0;
-    font-size: clamp(1.05rem, 2.1vw, 1.125rem);
+    font-size: var(--type-lede);
     line-height: var(--leading-body);
     letter-spacing: var(--tracking-sans);
     text-wrap: pretty;
@@ -220,12 +226,24 @@ body {
 
 .site-page-hero > .site-shell > p,
 .site-page-hero .hero-enter > p:first-of-type {
-    max-width: 36rem;
+    max-width: var(--space-measure-narrow);
     line-height: var(--leading-body);
 }
 
 .site-page-hero__crumbs {
-    margin-bottom: 1.15rem;
+    margin-bottom: var(--space-inline);
+}
+
+.site-page-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-micro) var(--space-inline);
+    margin-top: var(--space-stack);
+}
+
+.site-page-hero__body > .writing-feeds {
+    margin-top: var(--space-stack);
 }
 
 /* The block directly after a page hero is its continuation, not a new
@@ -254,16 +272,28 @@ body {
 }
 
 /* ---------------------------------------------------------------------------
-   Surface language — sharp structure, rounded interactive cards, square chips.
+   Surface language — page → raised → card → feature → code.
+   Prefer hairlines and washes over hard borders; keep chips sharp.
    --------------------------------------------------------------------------- */
+.surface-raised {
+    background-color: var(--surface-raised);
+    box-shadow: 0 0 0 1px var(--hairline);
+    border-radius: var(--radius-lg);
+}
+
+.surface-feature {
+    background-color: var(--surface-feature);
+    box-shadow: 0 0 0 1px var(--hairline);
+    border-radius: var(--radius-xl);
+}
+
 .surface-card {
     border-radius: var(--radius-xl);
-    background-color: color-mix(in oklab, var(--panel) 40%, transparent);
+    background-color: var(--surface-card);
     box-shadow: 0 0 0 1px var(--hairline);
     transition:
-        box-shadow 320ms var(--ease-out-soft),
-        background-color 320ms var(--ease-out-soft),
-        transform 320ms var(--ease-out-spring);
+        box-shadow 280ms var(--ease-out-soft),
+        background-color 280ms var(--ease-out-soft);
 }
 
 a.surface-card:hover,
@@ -271,23 +301,22 @@ a.surface-card:focus-visible,
 article.surface-card:hover,
 article.surface-card:focus-within {
     background-color: var(--surface-hover);
-    box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 40%, transparent);
-    transform: translateY(-0.25rem);
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 35%, transparent);
 }
 
 a.surface-card:focus-visible,
 article.surface-card:focus-within {
     outline: none;
-    box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 60%, transparent);
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 55%, transparent);
 }
 
 .surface-card-static {
     border-radius: var(--radius-xl);
-    background-color: color-mix(in oklab, var(--panel) 40%, transparent);
+    background-color: var(--surface-card);
     box-shadow: 0 0 0 1px var(--hairline);
     transition:
-        box-shadow 300ms ease,
-        background-color 300ms ease;
+        box-shadow 280ms var(--ease-out-soft),
+        background-color 280ms var(--ease-out-soft);
 }
 
 .surface-card-static:hover {
@@ -299,6 +328,68 @@ article.surface-card:focus-within {
     border-radius: var(--radius-sm);
     border: 1px solid var(--border-strong);
     background-color: color-mix(in oklab, var(--panel) 72%, transparent);
+}
+
+/* Form fields — shared contact / utility input language. */
+.site-field {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: color-mix(in oklab, var(--panel) 45%, transparent);
+    color: var(--text);
+    font-size: var(--type-support);
+    line-height: var(--leading-ui);
+    outline: none;
+    transition:
+        border-color var(--duration-fast) var(--ease-standard),
+        background-color var(--duration-fast) var(--ease-standard);
+}
+
+.site-field::placeholder {
+    color: var(--muted-2);
+}
+
+.site-field:hover {
+    border-color: var(--border-strong);
+}
+
+.site-field:focus,
+.site-field:focus-visible {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+.site-field[aria-invalid='true'] {
+    border-color: color-mix(in oklab, var(--danger) 70%, var(--border));
+}
+
+.contact-textarea.site-field {
+    min-height: 7rem;
+}
+
+.js-contact-form {
+    margin-top: var(--space-heading);
+}
+
+/* CTA system — condensed sans, not mono texture. */
+.btn-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-micro);
+    min-height: 2.75rem;
+    font-family: var(--font-sans);
+    font-size: var(--type-eyebrow);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    transition:
+        color var(--duration-fast) var(--ease-standard),
+        background-color var(--duration-fast) var(--ease-standard),
+        border-color var(--duration-fast) var(--ease-standard);
+    cursor: pointer;
 }
 
 /* Primary fill CTA — hex solid so contrast stays AA under animation/compositing. */

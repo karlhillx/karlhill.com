@@ -20,8 +20,8 @@
         @if($isHome)
             <div class="site-footer-home">
                 <div class="min-w-0" data-reveal>
-                    <h2 class="eyebrow mb-5 sm:mb-6">Contact</h2>
-                    <p class="font-display leading-none tracking-wide text-balance text-[clamp(2.75rem,7vw,5.5rem)] mb-5 sm:mb-6">
+                    <h2 class="eyebrow mb-4 sm:mb-5">Contact</h2>
+                    <p class="font-display leading-none tracking-wide text-balance text-[clamp(2.35rem,5.5vw,4rem)] mb-4 sm:mb-5">
                         {!! nl2br(e($footer['headline'])) !!}
                     </p>
                     <p class="text-neutral-400 text-sm leading-relaxed max-w-xl">

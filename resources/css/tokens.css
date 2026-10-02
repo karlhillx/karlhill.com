@@ -7,10 +7,10 @@
     --bg: light-dark(#fafaf9, #0a0a0a);
     --panel: light-dark(#ffffff, #141414);
     --text: light-dark(#141414, #f5f5f5);
-    --muted: light-dark(#454545, #a3a3a3);
+    --muted: light-dark(#3f3f3f, #a8a8a8);
     /* Raised for small mono chrome (filters, captions, form hints) —
        sunlight / cheap screens still need ~3:1 on dark, 4.5:1 on light. */
-    --muted-2: light-dark(#505050, #9e9e9e);
+    --muted-2: light-dark(#4a4a4a, #9a9a9a);
     --border: light-dark(#dedbd5, #262626);
     --border-strong: light-dark(#c8c5be, #2a2a2a);
     --surface-hover: light-dark(rgb(20 20 20 / 0.04), rgb(23 23 23 / 0.4));
@@ -60,20 +60,55 @@
     );
     --nav-py: 1.25rem;
     --nav-brand-size: 1.5rem;
-    /* Rhythm for a condensed secondary face: a little more inline air,
-       a little less leftover vertical gap around shorter lines. */
+    /* Spacing ladder — micro → chapter. Prefer these over ad-hoc rem values. */
+    --space-micro: 0.35rem;
+    --space-inline: 0.75rem;
     --space-gutter: clamp(1.25rem, 4vw, 2.125rem);
-    --space-section: clamp(3.5rem, 7.5vh, 5.75rem);
-    --space-section-soft: clamp(2.25rem, 5vh, 4rem);
-    --space-heading: clamp(1.35rem, 2.5vw, 2.25rem);
     --space-stack: clamp(1.125rem, 2vw, 1.625rem);
-    --space-card-gap: clamp(0.875rem, 1.6vw, 1.25rem);
-    --space-list-row: clamp(1.625rem, 2.75vw, 2.25rem);
+    --space-card-pad: clamp(1.15rem, 2.2vw, 1.75rem);
+    --space-card-gap: clamp(1rem, 1.8vw, 1.5rem);
+    --space-heading: clamp(1.35rem, 2.5vw, 2rem);
+    --space-list-row: clamp(1.5rem, 2.5vw, 2.1rem);
+    --space-section-soft: clamp(2.25rem, 5vh, 3.75rem);
+    --space-section: clamp(3.5rem, 7.5vh, 5.5rem);
+    --space-chapter: clamp(4.5rem, 9vh, 7rem);
     --space-prose: 40rem;
     --space-pillar: clamp(1.5rem, 2.4vw, 2.5rem);
-    --leading-body: 1.62;
-    --leading-prose: 1.7;
+    --space-measure: 65ch;
+    --space-measure-narrow: 56ch;
+    /* Content shells — not everything shares one max-width. */
+    --content-narrow: 32rem;
+    --content-reading: 40rem;
+    --content-editorial: 48rem;
+    --content-default: 72rem;
+    --content-wide: 80rem;
+    /* Semantic type roles — fluid clamps; mono reserved for meta/labels. */
+    --type-hero-name: clamp(2.5rem, 4.2vw, 3.25rem);
+    --type-hero-statement: clamp(1.75rem, 3.1vw, 2.65rem);
+    --type-page-title: clamp(2.35rem, 6.5vw, 4rem);
+    --type-section: clamp(1.75rem, 3.2vw, 2.5rem);
+    --type-card-title: clamp(1.4rem, 2.2vw, 1.85rem);
+    --type-feature-title: clamp(1.85rem, 2.8vw, 2.45rem);
+    --type-lede: clamp(1.05rem, 1.8vw, 1.125rem);
+    --type-body: 1rem;
+    --type-support: 0.9375rem;
+    --type-caption: 0.875rem;
+    --type-eyebrow: 0.75rem;
+    --leading-body: 1.65;
+    --leading-prose: 1.72;
     --leading-ui: 1.45;
+    --leading-display: 1.08;
+    /* Surface hierarchy — canvas → low → panel → raised → feature → code. */
+    --surface-page: var(--bg);
+    --surface-low: light-dark(#f3f1ec, #0f0f0f);
+    --surface-raised: color-mix(in oklab, var(--panel) 32%, transparent);
+    --surface-card: color-mix(in oklab, var(--panel) 58%, transparent);
+    --surface-card-solid: var(--panel);
+    --surface-feature: color-mix(in oklab, var(--panel) 78%, transparent);
+    --surface-code: light-dark(#0d1117, #0d1117);
+    --duration-fast: 160ms;
+    --duration-medium: 240ms;
+    --ease-standard: var(--ease-out-soft);
     /* Corner scale — the only approved radii. xs: focus rings, tiny chips;
        sm: code, buttons, small cards; md: panels, popovers; lg: media frames,
        large cards; xl: feature surfaces; pill: tags, status dots. */

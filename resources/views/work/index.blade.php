@@ -19,7 +19,7 @@
     <x-site.page-hero :breadcrumbs="[['label' => 'Home', 'url' => '/'], ['label' => 'Work']]">
         <x-slot:title>Work, in context.</x-slot:title>
         <p class="site-page-hero__lede text-neutral-300">{{ config('site.work.lede') }}</p>
-        <p class="portfolio-caption mt-4">Start with a collection. Each case study separates the problem, my contribution, and the evidence.</p>
+        <p class="portfolio-caption" style="margin-top: var(--space-inline)">Start with a collection. Each case study separates the problem, my contribution, and the evidence.</p>
     </x-site.page-hero>
 
     <nav class="portfolio-nav site-gutter" aria-label="Portfolio sections">
@@ -34,7 +34,7 @@
     </nav>
 
     @foreach($collections as $group => $collection)
-        <x-site.section :id="$collection['id']" :section-label="$collection['title']" class="portfolio-collection">
+        <x-site.section :id="$collection['id']" :section-label="$collection['title']" class="portfolio-collection" border="soft">
             <div class="portfolio-section-heading">
                 <div>
                     <p class="eyebrow">{{ $collection['kicker'] }}</p>
@@ -50,7 +50,7 @@
         </x-site.section>
     @endforeach
 
-    <x-site.section id="earlier" section-label="Earlier Work">
+    <x-site.section id="earlier" section-label="Earlier Work" border="soft">
         <div class="portfolio-section-heading">
             <div><p class="eyebrow">The foundation / Enterprise &amp; healthcare</p><h2>Earlier Work</h2></div>
             <p>Reliability, operational visibility, and domain-heavy applications were the work long before aerospace.</p>
@@ -62,6 +62,6 @@
                 <span class="portfolio-text-link">Case study <span aria-hidden="true">→</span></span>
             </a>
         @endforeach
-        <p class="portfolio-caption mt-6">For the complete chronology, education, and certifications: <a href="/resume" class="portfolio-text-link">Resume</a>.</p>
+        <p class="portfolio-caption" style="margin-top: var(--space-stack)">For the complete chronology, education, and certifications: <a href="/resume" class="portfolio-text-link">Resume</a>.</p>
     </x-site.section>
 @endsection

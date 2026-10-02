@@ -9,25 +9,25 @@
             </div>
         @endif
 
-        <div class="space-y-10 max-w-3xl">
+        <div class="about-career">
             @foreach($career['roles'] ?? [] as $role)
-                <div data-reveal>
-                    <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 leading-snug">{{ $role['title'] }}</h3>
+                <div class="about-career__role" data-reveal>
+                    <h3>{{ $role['title'] }}</h3>
                     @if(! empty($role['org']))
-                        <p class="text-neutral-400 text-sm mt-1.5">{{ $role['org'] }}</p>
+                        <p class="about-career__org">{{ $role['org'] }}</p>
                     @endif
                     @if(! empty($role['summary']))
-                        <p class="text-neutral-300 text-base leading-relaxed mt-4">{{ $role['summary'] }}</p>
+                        <p class="about-career__summary">{{ $role['summary'] }}</p>
                     @endif
                     @if(! empty($role['highlights']))
-                        <ul class="mt-5 space-y-2.5 text-neutral-400 text-sm leading-relaxed">
+                        <ul class="about-career__highlights">
                             @foreach($role['highlights'] as $item)
                                 @php($text = is_array($item) ? (string) ($item['text'] ?? '') : (string) $item)
                                 @php($href = is_array($item) ? ($item['href'] ?? null) : null)
                                 @php($link = is_array($item) ? ($item['link'] ?? 'Open') : null)
                                 @php($external = is_string($href) && str_starts_with($href, 'http'))
-                                <li class="flex gap-3">
-                                    <span class="text-accent shrink-0" aria-hidden="true">→</span>
+                                <li>
+                                    <span aria-hidden="true">→</span>
                                     <span>
                                         {{ $text }}
                                         @if(is_string($href) && $href !== '' && $external)
@@ -53,9 +53,9 @@
             @endforeach
 
             @if(! empty($career['earlier']))
-                <div data-reveal>
-                    <h3 class="font-sans font-semibold text-xl sm:text-2xl tracking-tight text-neutral-100 leading-snug">{{ $career['earlier']['title'] }}</h3>
-                    <p class="text-neutral-300 text-base leading-relaxed mt-4">{{ $career['earlier']['body'] }}</p>
+                <div class="about-career__role" data-reveal>
+                    <h3>{{ $career['earlier']['title'] }}</h3>
+                    <p class="about-career__summary">{{ $career['earlier']['body'] }}</p>
                 </div>
             @endif
         </div>

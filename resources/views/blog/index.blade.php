@@ -44,7 +44,7 @@
     <p class="site-page-hero__lede text-neutral-300">
         Practical notes on software engineering, technical leadership, and delivery.
     </p>
-    <div class="writing-feeds mt-6 sm:mt-7">
+    <div class="writing-feeds">
         <div class="writing-feeds__actions">
             <a href="{{ route('feed') }}" class="writing-feeds__link">
                 <x-site.icon name="rss" class="w-3.5 h-3.5" />
@@ -60,7 +60,7 @@
 </x-site.page-hero>
 
 @if(isset($seriesList) && $seriesList->isNotEmpty())
-    <section class="site-section site-section--soft border-t border-neutral-800/50" aria-label="Series">
+    <section class="site-section site-section--soft border-t border-neutral-800/40" aria-label="Series">
         <div class="site-shell space-y-16">
             @foreach($seriesList as $series)
                 <div id="{{ $series['id'] }}" class="writing-series scroll-mt-28" data-reveal>
@@ -80,7 +80,7 @@
     </section>
 @endif
 
-<section class="site-section border-t border-neutral-800" style="padding-block: var(--space-section-soft) var(--space-section)">
+<section class="site-section border-t border-neutral-800/70" style="padding-block: var(--space-section-soft) var(--space-section)">
     <div class="site-shell">
         {{-- Twelve singleton tags over six posts is a chip cloud, not a
              filter. Tagged URLs still show the bar so Clear / All works. --}}
@@ -137,7 +137,7 @@
                                             {{ $tag }}
                                         </a>
                                     @endforeach
-                                    <span class="blog-read-cta font-mono text-xs text-neutral-400 ml-auto group-hover:text-accent transition-colors">
+                                    <span class="blog-read-cta text-neutral-400 ml-auto group-hover:text-accent transition-colors">
                                         Read <span class="arrow-nudge inline-block" aria-hidden="true">→</span>
                                     </span>
                                 </div>

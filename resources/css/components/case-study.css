@@ -1,37 +1,41 @@
 /* Case studies — clear the fixed nav, then let crumbs / masthead / TOC breathe. */
 .case-study-page {
-    padding-block: clamp(6.75rem, 11vh, 7.75rem) var(--space-section-soft);
+    padding-block: clamp(6.5rem, 10vh, 7.25rem) var(--space-section-soft);
 }
 
 .case-study-masthead {
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-heading);
 }
 
 .case-study-masthead__meta {
-    margin: 0 0 0.75rem;
+    margin: 0 0 var(--space-micro);
 }
 
 .case-study-masthead__title {
-    margin: 0 0 0.9rem;
+    margin: 0 0 var(--space-inline);
+    font-size: var(--type-page-title);
     letter-spacing: var(--tracking-display-wide);
     line-height: 0.95;
 }
 
 .case-study-masthead .case-study-lede {
     margin: 0;
+    max-width: var(--space-measure-narrow);
+    font-size: var(--type-lede);
+    line-height: var(--leading-body);
 }
 
 .case-study-masthead__meta-row {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
-    margin-top: 1rem;
+    gap: var(--space-micro);
+    margin-top: var(--space-inline);
 }
 
 .case-study-masthead__role {
     margin: 0;
     color: color-mix(in oklab, var(--text) 82%, var(--muted));
-    font-size: 0.875rem;
+    font-size: var(--type-caption);
     line-height: var(--leading-ui);
 }
 
@@ -41,11 +45,11 @@
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: var(--space-micro);
 }
 
 .case-study-masthead__actions {
-    margin: 1.15rem 0 0;
+    margin: var(--space-stack) 0 0;
 }
 
 .case-study-page .article-toc__groups {
@@ -72,9 +76,9 @@
 }
 
 .case-study-narrative {
-    padding-top: 1.75rem;
-    margin-top: 0.35rem;
-    border-top: 1px solid var(--border);
+    padding-top: var(--space-stack);
+    margin-top: var(--space-micro);
+    border-top: 1px solid var(--hairline);
 }
 
 .case-study-narrative .prose-karl {

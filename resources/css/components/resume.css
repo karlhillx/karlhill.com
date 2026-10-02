@@ -233,10 +233,75 @@
 .about-lede {
     display: grid;
     gap: 1em;
-    max-width: 58ch;
-    font-size: 1.0625rem;
+    max-width: var(--space-measure);
+    font-size: var(--type-lede);
     line-height: var(--leading-body);
     letter-spacing: var(--tracking-sans);
+}
+
+.about-lede p {
+    margin: 0;
+}
+
+.about-career {
+    display: grid;
+    gap: 0;
+    max-width: var(--content-editorial);
+}
+
+.about-career__role {
+    display: grid;
+    gap: var(--space-micro);
+    padding-block: var(--space-stack);
+    border-top: 1px solid var(--hairline);
+}
+
+.about-career__role:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.about-career__role h3 {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+    font-weight: 600;
+    letter-spacing: var(--tracking-sans-tight);
+    line-height: 1.25;
+}
+
+.about-career__org {
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--type-caption);
+}
+
+.about-career__summary {
+    margin: var(--space-inline) 0 0;
+    color: color-mix(in oklab, var(--text) 88%, var(--muted));
+    font-size: var(--type-body);
+    line-height: var(--leading-body);
+}
+
+.about-career__highlights {
+    list-style: none;
+    margin: var(--space-inline) 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.55rem;
+}
+
+.about-career__highlights li {
+    display: flex;
+    gap: var(--space-inline);
+    color: var(--muted);
+    font-size: var(--type-support);
+    line-height: 1.5;
+}
+
+.about-career__highlights li > span:first-child {
+    color: var(--accent);
+    flex-shrink: 0;
 }
 
 .about-lede p {

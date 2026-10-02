@@ -12,9 +12,9 @@
 
 @php
     $borderClass = match ($border) {
-        'soft' => 'border-t border-neutral-800/50',
+        'soft' => 'border-t border-neutral-800/40',
         'none' => '',
-        default => 'border-t border-neutral-800',
+        default => 'border-t border-neutral-800/70',
     };
     $minimapLabel = $sectionLabel ?? $label;
     $hasActions = isset($actions) && trim((string) $actions) !== '';

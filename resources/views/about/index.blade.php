@@ -27,7 +27,7 @@
             </div>
         @endif
 
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-6 sm:mt-8">
+        <div class="site-page-hero__actions">
             <x-site.button variant="primary" href="/work">Explore the portfolio</x-site.button>
             <x-site.button variant="secondary" href="/resume">Resume</x-site.button>
         </div>
@@ -60,7 +60,7 @@
     </x-site.section>
 
     @if($beyondParagraphs !== [])
-        <section id="beyond" aria-label="Beyond the work" class="site-section site-section--soft border-t border-neutral-800/50">
+        <section id="beyond" aria-label="Beyond the work" class="site-section site-section--soft border-t border-neutral-800/40">
             <div class="site-shell grid md:grid-cols-[200px_1fr] gap-8 md:gap-14" data-reveal>
                 <p class="eyebrow pt-1">Beyond the work</p>
                 <div class="about-lede max-w-2xl">
