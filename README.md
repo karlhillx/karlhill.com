@@ -74,7 +74,7 @@ Deeper material lives in [`docs/`](docs/):
 
 - [Configuration](docs/configuration.md) — `config/site/*.php` fragments, portfolio architecture, shared catalog, motion gates, optional platform surfaces, nginx/CDN, resume source of truth, client staging.
 - [Writing and publishing](docs/writing.md) — post frontmatter, series, OG cards, `post:publish`, dev.to syndication.
-- [Deployment and monitoring](docs/deployment.md) — `scripts/deploy.sh`, uptime checks, reporting.
+- [Deployment and monitoring](docs/deployment.md) — `scripts/deploy.sh`, error logging, reporting.
 - [Project layout](docs/project-layout.md) — annotated tree of controllers, support classes, views, and scripts.
 
 Content lives as Markdown with YAML frontmatter: blog posts in `resources/posts/`, case-study narratives in `resources/work/`. Card metadata for projects stays in `config/site/projects.php`.
