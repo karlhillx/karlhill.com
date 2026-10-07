@@ -65,13 +65,6 @@
                             {{ $project['title'] }}
                         </h1>
                         <p class="case-study-lede text-neutral-400">{{ $study['lede'] }}</p>
-                        @if(! empty($project['summary']))
-                            <div class="case-study-evidence">
-                                <p class="eyebrow">Impact &amp; evidence</p>
-                                <p>{{ $project['summary']['impact'] }}</p>
-                                <p class="portfolio-caption">{{ $project['summary']['note'] }}</p>
-                            </div>
-                        @endif
                         @if(! empty($study['role']) || ! empty($project['tags']))
                             <div class="case-study-masthead__meta-row">
                                 @if(! empty($study['role']))
@@ -90,6 +83,13 @@
                                 @endif
                             </div>
                         @endif
+                        @if(! empty($project['summary']))
+                            <div class="case-study-evidence">
+                                <p class="eyebrow">Impact &amp; evidence</p>
+                                <p>{{ $project['summary']['impact'] }}</p>
+                                <p class="portfolio-caption">{{ $project['summary']['note'] }}</p>
+                            </div>
+                        @endif
                         @if($liveUrl || $alsoLinks !== [])
                             <div class="case-study-masthead__actions flex flex-wrap items-center gap-3">
                                 @if($liveUrl)
@@ -99,7 +99,7 @@
                                 @endif
                                 @foreach($alsoLinks as $link)
                                     <a href="{{ $link['href'] }}"
-                                       class="font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors"
+                                       class="portfolio-text-link text-sm"
                                        target="_blank" rel="noopener noreferrer" data-no-ext>
                                         {{ $link['label'] }} <span aria-hidden="true">↗</span>
                                     </a>
@@ -109,7 +109,7 @@
                     </header>
 
                     @if(! empty($study['attribution']))
-                        <aside class="surface-card-static p-4 mb-6" aria-label="Scope and attribution">
+                        <aside class="case-study-attribution" aria-label="Scope and attribution">
                             <p class="eyebrow mb-2">Scope &amp; attribution</p>
                             <p class="portfolio-caption">{{ $study['attribution'] }}</p>
                         </aside>
@@ -253,7 +253,7 @@
                                 @endif
                                 @foreach($alsoLinks as $link)
                                     <a href="{{ $link['href'] }}"
-                                       class="font-mono text-xs text-neutral-400 hover:text-accent uppercase tracking-widest transition-colors"
+                                       class="portfolio-text-link text-sm"
                                        target="_blank" rel="noopener noreferrer" data-no-ext>
                                         {{ $link['label'] }} <span aria-hidden="true">↗</span>
                                     </a>

@@ -10,12 +10,10 @@
                     width="64" height="64" sizes="64px" loading="eager" :lqip="false"
                     img-class="portfolio-portrait object-cover" />
                 <div class="portfolio-hero__identity-text">
-                    <p class="eyebrow">{{ $person['job_title'] }}</p>
-                    <p class="portfolio-hero__affiliation">Jacobs · NASA alumni · Open source</p>
+                    <p class="portfolio-hero__role">{{ $person['job_title'] }}</p>
                 </div>
             </div>
-            <h1 id="hero-title" class="portfolio-hero__name">{{ $hero['headline'] }}</h1>
-            <p class="portfolio-hero__statement">{{ $hero['statement'] }}</p>
+            <h1 id="hero-title" class="portfolio-hero__statement">{{ $hero['statement'] }}</h1>
             <p class="portfolio-hero__lede">{{ $hero['lede'] }}</p>
             <p class="portfolio-caption mt-3 max-w-xl">{{ $hero['proof'] }}</p>
             <div data-home-actions class="portfolio-hero__actions flex flex-wrap items-center">

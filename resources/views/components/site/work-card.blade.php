@@ -40,22 +40,32 @@
             <p class="portfolio-card__role">{{ $study['role'] }}</p>
         @endif
         @if($summary)
-            <dl class="portfolio-card__brief">
-                <div>
-                    <dt>Problem</dt>
-                    <dd>{{ $summary['problem'] }}</dd>
+            @if($compact)
+                <p class="portfolio-card__description">{{ $summary['contribution'] }}</p>
+                <div class="portfolio-card__impact">
+                    <p>{{ $summary['impact'] }}</p>
+                    @if($showNote && filled($summary['note'] ?? null))
+                        <p class="portfolio-caption">{{ $summary['note'] }}</p>
+                    @endif
                 </div>
-                <div>
-                    <dt>Contribution</dt>
-                    <dd>{{ $summary['contribution'] }}</dd>
+            @else
+                <dl class="portfolio-card__brief">
+                    <div>
+                        <dt>Problem</dt>
+                        <dd>{{ $summary['problem'] }}</dd>
+                    </div>
+                    <div>
+                        <dt>Contribution</dt>
+                        <dd>{{ $summary['contribution'] }}</dd>
+                    </div>
+                </dl>
+                <div class="portfolio-card__impact">
+                    <p>{{ $summary['impact'] }}</p>
+                    @if($showNote)
+                        <p class="portfolio-caption">{{ $summary['note'] }}</p>
+                    @endif
                 </div>
-            </dl>
-            <div class="portfolio-card__impact">
-                <p>{{ $summary['impact'] }}</p>
-                @if($showNote)
-                    <p class="portfolio-caption">{{ $summary['note'] }}</p>
-                @endif
-            </div>
+            @endif
         @else
             <p class="portfolio-card__description">{{ $project['description'] }}</p>
         @endif

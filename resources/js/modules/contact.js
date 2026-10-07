@@ -12,6 +12,8 @@ let turnstileLoader = null;
  * email button is on every page while the form is not.
  */
 export function initContactForms() {
+    initBookingEmbeds();
+
     document.querySelectorAll('[data-contact-form], .js-contact-form').forEach((contactForm) => {
         if (!(contactForm instanceof HTMLFormElement)) return;
 
@@ -131,6 +133,22 @@ export function initContactForms() {
                 })
                 .finally(() => setSubmitting(false));
         });
+    });
+}
+
+function initBookingEmbeds() {
+    document.querySelectorAll('.contact-booking').forEach((details) => {
+        const frame = details.closest('footer')?.querySelector('.booking-embed__frame[data-src]');
+        if (!(frame instanceof HTMLIFrameElement)) return;
+
+        const activate = () => {
+            if (!frame.hasAttribute('src')) frame.src = frame.dataset.src;
+        };
+
+        details.addEventListener('toggle', () => {
+            if (details.open) activate();
+        });
+        if (details.open) activate();
     });
 }
 

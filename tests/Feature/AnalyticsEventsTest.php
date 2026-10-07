@@ -39,7 +39,10 @@ it('renders the booking embed the completion listener hooks into', function () {
     $now = $this->get('/')->assertOk()->getContent();
 
     expect($now)->toContain('class="booking-embed__frame"')
+        ->toContain('data-src="')
         ->and($now)->toContain('data-analytics-event="booking_cta_clicked"')
         ->and($now)->toContain('data-analytics-location="footer-home"')
         ->and($now)->toContain('data-analytics-location="contact"');
+
+    expect(preg_match('~<iframe[^>]*\ssrc=~s', $now))->toBe(0);
 });

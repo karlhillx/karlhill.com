@@ -19,7 +19,8 @@ test('featured projects expose meaningful links without oversized teasers', asyn
     // Home carries three studies; the full five-card grid lives on /work.
     await expect(page.locator('#work > .site-shell > .portfolio-grid > article')).toHaveCount(3);
     for (const article of await page.locator('#work article').all()) {
-        await expect(article.locator('.portfolio-card__brief')).toBeVisible();
+        await expect(article.locator('.portfolio-card__description')).toBeVisible();
+        await expect(article.locator('.portfolio-card__brief')).toHaveCount(0);
         await expect(article.locator('.portfolio-card__impact')).toBeVisible();
         await expect(article.getByRole('link', { name: /Read case study/ })).toBeVisible();
         await expect(article.getByRole('link')).toHaveCount(1);
@@ -96,6 +97,64 @@ test('portfolio content and collection navigation work without JavaScript', asyn
     }
 });
 
+test('hero hierarchy and work rail hold across responsive widths', async ({ page }) => {
+    await page.goto('/');
+    await page.evaluate(() => document.fonts.ready);
+    const statement = page.locator('.portfolio-hero__statement');
+    await expect(statement).toHaveText('Mission software across teams and programs.');
+
+    for (const width of [320, 375, 430, 768, 1024, 1280, 1440]) {
+        await page.setViewportSize({ width, height: 900 });
+        const typeSizes = await page.evaluate(() => ({
+            statement: parseFloat(
+                getComputedStyle(document.querySelector('.portfolio-hero__statement')).fontSize
+            ),
+            role: parseFloat(
+                getComputedStyle(document.querySelector('.portfolio-hero__role')).fontSize
+            ),
+        }));
+        expect(typeSizes.statement).toBeGreaterThan(typeSizes.role);
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+            true
+        );
+    }
+
+    await page.goto('/work');
+    const rail = page.locator('.portfolio-nav__links');
+    const links = rail.getByRole('link');
+    await expect(links).toHaveCount(5);
+
+    for (const width of [320, 375, 430, 768, 1024, 1280, 1440]) {
+        await page.setViewportSize({ width, height: 900 });
+        await expect(links.first()).toHaveAttribute('aria-current', 'location');
+        const flexWrap = await rail.evaluate((element) => getComputedStyle(element).flexWrap);
+        expect(flexWrap).toBe('nowrap');
+
+        await rail.evaluate((element) => {
+            element.scrollLeft = 0;
+        });
+        const firstVisible = await links.first().evaluate((element) => {
+            const link = element.getBoundingClientRect();
+            const container = element.parentElement.getBoundingClientRect();
+            return link.left >= container.left && link.right <= container.right;
+        });
+        expect(firstVisible).toBe(true);
+
+        await rail.evaluate((element) => {
+            element.scrollLeft = element.scrollWidth;
+        });
+        const lastVisible = await links.last().evaluate((element) => {
+            const link = element.getBoundingClientRect();
+            const container = element.parentElement.getBoundingClientRect();
+            return link.left >= container.left && link.right <= container.right;
+        });
+        expect(lastVisible).toBe(true);
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+            true
+        );
+    }
+});
+
 test('case studies support keyboard discovery and return to their collection', async ({ page }) => {
     await page.goto('/work');
     const cta = page.locator('#the-dry-standard').getByRole('link', { name: /Read case study/ });
@@ -109,6 +168,29 @@ test('case studies support keyboard discovery and return to their collection', a
     await page.keyboard.press('Enter');
     await expect(page).toHaveURL(/\/work#products$/);
     await expect(page.locator('#the-dry-standard')).toBeVisible();
+
+    await page.goto('/work/jacobs-mission-software');
+    await expect(page.locator('.case-study-masthead__title')).toBeVisible();
+    const hierarchy = await page.evaluate(() => {
+        const role = document.querySelector('.case-study-masthead__role');
+        const evidence = document.querySelector('.case-study-evidence');
+        return role && evidence
+            ? role.getBoundingClientRect().top < evidence.getBoundingClientRect().top
+            : false;
+    });
+    expect(hierarchy).toBe(true);
+});
+
+test('primary actions and resume jump links meet touch-size minimums', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    const primaryAction = page.getByRole('link', { name: /Explore the work/ });
+    expect((await primaryAction.boundingBox()).height).toBeGreaterThanOrEqual(44);
+
+    await page.goto('/resume');
+    for (const link of await page.locator('.resume-jump-list a').all()) {
+        expect((await link.boundingBox()).height).toBeGreaterThanOrEqual(44);
+    }
 });
 
 test('command search finds the tooling collection by repository name', async ({ page }) => {
@@ -169,13 +251,17 @@ test('booking works without JavaScript and stays collapsed until requested', asy
     try {
         await page.goto(`${baseURL}/`);
         const booking = page.locator('.contact-booking');
+        const frame = page.locator('.booking-embed__frame');
+        await expect(frame).not.toHaveAttribute('src');
+        await expect(frame).toHaveAttribute('data-src', /calendly|cal\.com/);
         await expect(booking).not.toHaveAttribute('open');
         await booking.locator('summary').focus();
         await page.keyboard.press('Enter');
         await expect(booking).toHaveAttribute('open');
-        await expect(page.locator('.booking-embed__frame')).toBeVisible();
+        await expect(frame).not.toHaveAttribute('src');
+        await expect(page.locator('.contact-booking__body a')).toBeVisible();
         await page.goto(`${baseURL}/resume`);
-        await page.locator('main a[href="/#book"]').click();
+        await page.locator('a[href="/#book"]').click();
         await expect(page).toHaveURL(/\/#book$/);
         await expect(booking).toHaveAttribute('open');
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(

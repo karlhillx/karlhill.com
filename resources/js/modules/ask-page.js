@@ -103,6 +103,10 @@ async function revealIfAvailable(root, Model) {
         return;
     }
 
+    const disclosure = root.closest('[data-on-device-disclosure]');
+    if (disclosure instanceof HTMLElement) {
+        disclosure.hidden = false;
+    }
     root.hidden = false;
     const form = root.querySelector('[data-ask-form]');
     const input = root.querySelector('[data-ask-input]');

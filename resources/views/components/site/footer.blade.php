@@ -85,7 +85,7 @@
             @if(filled($bookingUrl) && filled($bookingEmbed))
                 <div class="booking-embed booking-embed--footer">
                     <iframe class="booking-embed__frame"
-                            src="{{ $bookingEmbed }}"
+                            data-src="{{ $bookingEmbed }}"
                             title="{{ $bookingLabel }}"
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"

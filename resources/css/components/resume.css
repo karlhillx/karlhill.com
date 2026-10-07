@@ -37,8 +37,8 @@
 
 .resume-aside {
     border: 1px solid var(--border);
-    background: color-mix(in oklab, var(--panel) 92%, var(--accent));
-    padding: 1.4rem 1.3rem;
+    background: var(--surface-raised);
+    padding: var(--space-stack) var(--space-card-pad);
 }
 
 .resume-aside-block + .resume-aside-block {
@@ -47,10 +47,10 @@
 
 .resume-aside-title {
     margin: 0 0 0.65rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
+    font-family: var(--font-sans);
+    font-size: var(--type-support);
+    font-weight: 600;
+    letter-spacing: var(--tracking-sans-tight);
     color: var(--accent);
 }
 
@@ -89,7 +89,8 @@
 .resume-jump-list a {
     display: inline-flex;
     align-items: center;
-    padding: 0.2rem 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.35rem 0.65rem;
     font-family: var(--font-mono);
     font-size: var(--text-caption);
     letter-spacing: var(--tracking-mono);
@@ -224,6 +225,58 @@
 
 .resume-section + .resume-section {
     margin-top: 3rem;
+}
+
+.resume-ask > summary {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.15rem;
+    min-height: 44px;
+    padding-block: var(--space-inline);
+    padding-right: 2rem;
+    border-block: 1px solid var(--hairline);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: var(--type-lede);
+    font-weight: 600;
+    line-height: var(--leading-ui);
+    cursor: pointer;
+    list-style: none;
+}
+
+.resume-ask > summary::-webkit-details-marker {
+    display: none;
+}
+
+.resume-ask > summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-family: var(--font-body);
+}
+
+.resume-ask > summary span + span {
+    color: var(--muted);
+    font-size: var(--type-caption);
+    font-weight: 400;
+}
+
+.resume-ask[open] > summary::after {
+    content: '−';
+}
+
+.resume-ask > summary:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+}
+
+.resume-ask .on-device-ask {
+    margin-top: var(--space-stack);
 }
 
 .resume-section-title {

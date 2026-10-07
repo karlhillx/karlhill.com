@@ -65,7 +65,7 @@
     --space-inline: 0.75rem;
     --space-gutter: clamp(1.25rem, 4vw, 2.125rem);
     --space-stack: clamp(1.125rem, 2vw, 1.625rem);
-    --space-card-pad: clamp(1.15rem, 2.2vw, 1.75rem);
+    --space-card-pad: clamp(1.1rem, 2vw, 1.5rem);
     --space-card-gap: clamp(1rem, 1.8vw, 1.5rem);
     --space-heading: clamp(1.35rem, 2.5vw, 2rem);
     --space-list-row: clamp(1.5rem, 2.5vw, 2.1rem);
@@ -83,8 +83,8 @@
     --content-default: 72rem;
     --content-wide: 80rem;
     /* Semantic type roles — fluid clamps; mono reserved for meta/labels. */
-    --type-hero-name: clamp(2.5rem, 4.2vw, 3.25rem);
-    --type-hero-statement: clamp(1.75rem, 3.1vw, 2.65rem);
+    --type-hero-name: clamp(1.85rem, 3.1vw, 2.5rem);
+    --type-hero-statement: clamp(2.1rem, 4vw, 3.35rem);
     --type-page-title: clamp(2.35rem, 6.5vw, 4rem);
     --type-section: clamp(1.75rem, 3.2vw, 2.5rem);
     --type-card-title: clamp(1.4rem, 2.2vw, 1.85rem);
@@ -97,7 +97,7 @@
     --leading-body: 1.65;
     --leading-prose: 1.72;
     --leading-ui: 1.45;
-    --leading-display: 1.08;
+    --leading-display: 1.04;
     /* Surface hierarchy — canvas → low → panel → raised → feature → code. */
     --surface-page: var(--bg);
     --surface-low: light-dark(#f3f1ec, #0f0f0f);
@@ -123,8 +123,8 @@
     --tracking-sans-tight: 0.004em;
     --tracking-display: 0.02em;
     --tracking-display-wide: 0.04em;
-    --tracking-mono: 0.1em;
-    --tracking-mono-loose: 0.12em;
+    --tracking-mono: 0.08em;
+    --tracking-mono-loose: 0.1em;
     --tracking-wide: 0.025em;
     /* Both schemes are supported. The UA picks from the OS preference; the
        toggle pins one via [data-theme]. light-dark() tokens above follow it. */

@@ -355,7 +355,7 @@ article.surface-card:focus-within {
     margin-top: var(--space-heading);
 }
 
-/* CTA system — condensed sans, not mono texture. */
+/* CTA system — sentence case keeps action labels readable and direct. */
 .btn-base {
     display: inline-flex;
     align-items: center;
@@ -363,10 +363,10 @@ article.surface-card:focus-within {
     gap: var(--space-micro);
     min-height: 2.75rem;
     font-family: var(--font-sans);
-    font-size: var(--type-eyebrow);
+    font-size: var(--type-support);
     font-weight: 600;
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
+    letter-spacing: var(--tracking-sans-tight);
+    text-transform: none;
     transition:
         color var(--duration-fast) var(--ease-standard),
         background-color var(--duration-fast) var(--ease-standard),

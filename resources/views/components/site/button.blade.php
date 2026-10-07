@@ -12,8 +12,8 @@
 @php
     $base = 'btn-base';
     $variants = [
-        'primary' => 'btn-accent-fill px-5 py-3',
-        'secondary' => 'btn-sweep text-accent border border-accent/40 px-5 py-3',
+        'primary' => 'btn-accent-fill px-5 py-2.5',
+        'secondary' => 'btn-sweep text-accent border border-accent/40 px-5 py-2.5',
         'link' => 'text-neutral-400 hover:text-accent normal-case tracking-normal font-normal',
     ];
     $classes = $base.' '.($variants[$variant] ?? $variants['secondary']);

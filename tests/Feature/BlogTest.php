@@ -1,6 +1,7 @@
 <?php
 
 use App\Support\BlogPostRepository;
+use App\Support\BlogSeries;
 use Illuminate\Support\Facades\Cache;
 
 beforeEach(function () {
@@ -13,6 +14,20 @@ it('blog index renders with release governance post', function () {
     $response->assertStatus(200);
     $response->assertSee('Notes from', escape: false);
     $response->assertSee('What 20 Years Taught Me About Release Governance', escape: false);
+});
+
+it('keeps series posts out of the latest writing list', function () {
+    $response = $this->get('/blog')->assertOk();
+    $response->assertSee('Latest writing', escape: false);
+
+    preg_match('~<ul\b[^>]*data-post-list[^>]*>(.*?)</ul>~s', $response->getContent(), $matches);
+    $latestList = $matches[1] ?? '';
+    $seriesSlugs = BlogSeries::published()
+        ->flatMap(fn ($series) => $series['posts']->pluck('slug'));
+
+    foreach ($seriesSlugs as $slug) {
+        expect($latestList)->not->toContain('/blog/'.$slug);
+    }
 });
 
 it('blog show renders for known slug', function () {
@@ -242,9 +257,8 @@ it('homepage hero is a tight first viewport', function () {
     $response = $this->get('/');
 
     $response->assertStatus(200);
-    $response->assertSee(config('site.hero.headline'), escape: false);
+    $response->assertSee('<h1 id="hero-title" class="portfolio-hero__statement">Mission software across teams and programs.</h1>', escape: false);
     $response->assertDontSee('hero-subtitle', escape: false);
-    $response->assertSee(config('site.hero.statement'), escape: false);
     $response->assertSee(config('site.hero.lede'), escape: false);
     $response->assertDontSee('hero-open', escape: false);
     $response->assertSee('portfolio-portrait', escape: false);

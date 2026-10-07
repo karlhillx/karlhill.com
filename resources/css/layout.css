@@ -24,8 +24,8 @@ main > section:nth-of-type(n + 3):not([id]) {
         --space-card-gap: 1rem;
         --space-card-pad: 1.05rem;
         --type-page-title: clamp(2.15rem, 11vw, 3rem);
-        --type-hero-name: clamp(2.25rem, 10vw, 2.85rem);
-        --type-hero-statement: clamp(1.5rem, 6.5vw, 2rem);
+        --type-hero-name: clamp(1.5rem, 7vw, 1.8rem);
+        --type-hero-statement: clamp(1.9rem, 7.2vw, 2.35rem);
         --type-section: clamp(1.55rem, 6vw, 2.1rem);
         --nav-py: 0.8rem;
         --nav-brand-size: 1.25rem;

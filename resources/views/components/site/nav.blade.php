@@ -19,7 +19,7 @@
                 <x-site.mark :size="28" class="brand-lockup__mark" />
                 <span>KARL HILL</span>
             </a>
-            <div class="nav-destinations hidden lg:flex items-center gap-5 font-sans text-[0.8125rem] font-medium text-neutral-400 uppercase tracking-wide">
+            <div class="nav-destinations hidden lg:flex items-center gap-5 font-sans text-sm font-medium text-neutral-400">
                 <a href="/work" class="{{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
                 <a href="/blog" class="{{ $navLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/about" class="{{ $navLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
@@ -61,7 +61,7 @@
         </div>
     </div>
     <div id="mobile-menu" popover="auto" class="lg:hidden border-t border-neutral-800 bg-bg">
-        <div class="site-shell site-gutter py-4 pb-[max(2rem,env(safe-area-inset-bottom))] flex flex-col font-sans text-[0.8125rem] font-medium text-neutral-400 uppercase tracking-wide">
+        <div class="site-shell site-gutter py-4 pb-[max(2rem,env(safe-area-inset-bottom))] flex flex-col font-sans text-sm font-medium text-neutral-400">
             <button type="button"
                     command="show-popover"
                     commandfor="command-palette"

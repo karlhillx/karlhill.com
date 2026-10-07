@@ -27,6 +27,13 @@
 @section('content')
 
 @php
+    $seriesSlugs = ($seriesList ?? collect())
+        ->flatMap(fn ($series) => $series['posts']->pluck('slug'))
+        ->all();
+    $latestPosts = $posts
+        ->reject(fn ($post) => in_array($post->slug, $seriesSlugs, true))
+        ->values();
+
     $breadcrumbs = [
         ['label' => 'Home', 'url' => '/'],
     ];
@@ -82,6 +89,7 @@
 
 <section class="site-section border-t border-neutral-800/70" style="padding-block: var(--space-section-soft) var(--space-section)">
     <div class="site-shell">
+        <h2 class="writing-series__title">Latest writing</h2>
         {{-- Twelve singleton tags over six posts is a chip cloud, not a
              filter. Tagged URLs still show the bar so Clear / All works. --}}
         @if($activeTag && $allTags->isNotEmpty())
@@ -95,17 +103,19 @@
             />
         @endif
 
-        @if($posts->isEmpty())
+        @if($latestPosts->isEmpty())
             <p class="font-mono text-sm text-neutral-400">
                 @if($activeTag)
                     No posts tagged “{{ $activeTag }}” yet.
+                @elseif($seriesSlugs !== [])
+                    Recent posts are grouped in the series above.
                 @else
                     No posts yet — check back soon.
                 @endif
             </p>
         @else
             <ul class="divide-y divide-neutral-800/70 site-bleed" data-post-list style="view-transition-name: writing-list">
-                @foreach($posts as $post)
+                @foreach($latestPosts as $post)
                     <li class="group" data-reveal>
                         <div class="site-list-row grid md:grid-cols-[200px_1fr] gap-6 md:gap-12 hover:bg-neutral-900/30 transition-colors relative">
                             <div class="relative z-10 flex flex-col gap-2">
@@ -127,7 +137,7 @@
                                         {{ $post->title }}
                                     </a>
                                 </h2>
-                                <p class="text-neutral-400 leading-relaxed mb-6 max-w-2xl">
+                                <p class="text-neutral-400 leading-relaxed mb-6 max-w-[65ch]">
                                     {{ $post->excerpt }}
                                 </p>
                                 <div class="relative z-20 flex flex-wrap items-center gap-4">

@@ -20,7 +20,7 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-micro);
-    min-height: 2.5rem;
+    min-height: 2.75rem;
     padding: 0.35rem 0.7rem;
     border: 1px solid var(--hairline-strong);
     background: var(--surface-raised);

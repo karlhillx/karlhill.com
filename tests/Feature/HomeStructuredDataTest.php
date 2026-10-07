@@ -102,7 +102,7 @@ it('homepage html includes a disambiguating title and json-ld', function () {
     $response->assertOk();
     $response->assertSee('<title>Karl Hill · Staff Aerospace Software Engineer</title>', escape: false);
     $response->assertSee('property="og:title" content="Karl Hill · Staff Aerospace Software Engineer"', escape: false);
-    $response->assertSee('<h1 id="hero-title" class="portfolio-hero__name">Karl Hill</h1>', escape: false);
+    $response->assertSee('<h1 id="hero-title" class="portfolio-hero__statement">Mission software across teams and programs.</h1>', escape: false);
     $response->assertDontSee('<title>Karl Hill</title>', escape: false);
     $response->assertSee(config('site.seo.home.description'), escape: false);
     $response->assertSee('NASA Goddard Earth science', escape: false);

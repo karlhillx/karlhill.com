@@ -154,7 +154,8 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('project-visual', escape: false);
     $response->assertSee('System Topology', escape: false);
     $response->assertSee('portfolio-card__impact', escape: false);
-    $response->assertSee('portfolio-card__brief', escape: false);
+    $response->assertSee('portfolio-card__description', escape: false);
+    $response->assertDontSee('portfolio-card__brief', escape: false);
     $response->assertDontSee('work-card--logo', escape: false);
     $response->assertDontSee('work-card--constraint', escape: false);
     $response->assertDontSee('work-card--scope', escape: false);
@@ -394,6 +395,7 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertDontSee('section-rail', escape: false);
     $resume->assertDontSee('id="contact-form"', escape: false);
     $resume->assertSee('Download PDF', escape: false);
+    $resume->assertSee('View selected work', escape: false);
     $resume->assertSee('/files/Karl-Hill-Resume.pdf', escape: false);
     $resume->assertSee('Software Architecture', escape: false);
     $resume->assertSee('Cross-Program Technical Leadership', escape: false);

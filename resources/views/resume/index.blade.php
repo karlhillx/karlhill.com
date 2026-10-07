@@ -5,11 +5,6 @@
 @endpush
 
 @section('content')
-    @php
-        $bookingUrl = config('site.booking.url');
-        $bookingLabel = config('site.booking.label');
-    @endphp
-
     <x-site.page-hero :breadcrumbs="[
         ['label' => 'Home', 'url' => '/'],
         ['label' => 'Resume'],
@@ -20,7 +15,7 @@
             The complete chronology, technical background, and credentials. For problems, decisions, and shipped outcomes, <a href="/work" class="portfolio-text-link">explore the portfolio</a>.
         </p>
 
-        {{-- The PDF is this page's purpose, so it takes the fill; booking is the secondary. --}}
+        {{-- Keep the resume's primary actions focused on evaluation. --}}
         <div class="site-page-hero__actions">
             @if(! empty($pdf))
                 <x-site.button variant="primary" :href="$pdf"
@@ -30,18 +25,9 @@
                     Download PDF
                 </x-site.button>
             @endif
-            @if(filled($bookingUrl))
-                <x-site.button variant="secondary" href="/#book"
-                    data-analytics-event="booking_cta_clicked"
-                    data-analytics-location="resume-hero">
-                    {{ $bookingLabel }}
-                </x-site.button>
-            @endif
-            @if(\App\Support\SiteFeatures::contentCredentials())
-                <x-site.button variant="link" href="/api/credentials.json">
-                    Content credentials
-                </x-site.button>
-            @endif
+            <x-site.button variant="secondary" href="/work">
+                View selected work
+            </x-site.button>
         </div>
     </x-site.page-hero>
 
@@ -306,17 +292,24 @@
     </article>
 
     {{-- Reader tool after the document: hidden unless Chrome's Prompt API can run. --}}
-    <div class="reader-tools site-section site-section--soft border-t border-neutral-800/50">
+    <div class="reader-tools site-section site-section--soft border-t border-neutral-800/50"
+         hidden data-on-device-disclosure>
         <div class="site-shell">
-            <x-site.on-device-ask
-                id="resume-ask"
-                source="[data-ask-source]"
-                :context="$askBrief"
-                :prompts="$askPrompts"
-                heading="Quick answers · experimental"
-                label="Ask"
-                placeholder="What is the current role?"
-            />
+            <details class="resume-ask">
+                <summary>
+                    <span>Quick résumé answers</span>
+                    <span>Optional on-device Q&amp;A using only this page.</span>
+                </summary>
+                <x-site.on-device-ask
+                    id="resume-ask"
+                    source="[data-ask-source]"
+                    :context="$askBrief"
+                    :prompts="$askPrompts"
+                    heading="Quick résumé answers"
+                    label="Ask"
+                    placeholder="What is the current role?"
+                />
+            </details>
         </div>
     </div>
 @endsection
