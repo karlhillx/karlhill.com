@@ -5,6 +5,9 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
+echo "→ Enabling maintenance page"
+php artisan down --render="errors::503" --retry=60
+
 echo "→ Installing PHP dependencies"
 composer install --no-dev --optimize-autoloader --no-interaction
 
@@ -73,5 +76,8 @@ php artisan optimize
 echo "→ Fixing runtime permissions"
 chown -R www-data:www-data storage bootstrap/cache
 chmod -R ug+rwx storage bootstrap/cache
+
+echo "→ Reopening site"
+php artisan up
 
 echo "✓ Deploy complete"

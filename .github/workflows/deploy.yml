@@ -10,6 +10,10 @@ on:
 env:
   CONTAINER_APP_PATH: /var/www/html
 
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -63,12 +67,16 @@ jobs:
 
           SSH="ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no"
 
+          $SSH "${DEPLOY_USER}@${DEPLOY_HOST}" \
+            "docker exec ${DEPLOY_CONTAINER} bash -lc 'cd ${APP_PATH} && php artisan down --render=\"errors::503\" --retry=60'"
+
           tar czf - \
             --exclude='./.git' \
             --exclude='./vendor' \
             --exclude='./node_modules' \
             --exclude='./.env' \
             --exclude='./storage' \
+            --exclude='./bootstrap/cache/*.php' \
             . | $SSH "${DEPLOY_USER}@${DEPLOY_HOST}" \
             "docker exec -i ${DEPLOY_CONTAINER} tar xzf - -C ${APP_PATH}"
 
@@ -77,6 +85,8 @@ jobs:
 
           $SSH "${DEPLOY_USER}@${DEPLOY_HOST}" \
             "docker exec karl-nginx-1 nginx -s reload 2>/dev/null || true"
+
+          curl --fail --silent --show-error --retry 3 --retry-delay 2 https://karlhill.com/ > /dev/null
 
       - name: Fail when deploy secrets are missing
         if: steps.config.outputs.missing != ''

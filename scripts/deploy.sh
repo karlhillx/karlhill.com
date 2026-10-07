@@ -14,6 +14,9 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
+echo "→ Enabling maintenance page before updating live files"
+php artisan down --render="errors::503" --retry=60
+
 echo "→ Pulling latest code"
 if ! git pull --ff-only origin main 2>/dev/null && ! git pull --ff-only; then
   echo "error: git pull failed." >&2

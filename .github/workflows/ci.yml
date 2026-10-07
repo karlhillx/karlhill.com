@@ -78,6 +78,9 @@ jobs:
       - name: Run tests
         run: composer test
 
+      - name: Test deployment lifecycle
+        run: node --test tests/scripts/deploy-remote.test.mjs
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium webkit
 

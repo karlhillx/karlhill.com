@@ -17,6 +17,10 @@ When you change the HTML shell, offline fallback, or the precache list in
 
 With those set, successful push-triggered syntax checks on `main` or `master` deploy automatically. Deployment checks out the exact SHA checked by that run, not the latest branch tip. You can also dispatch Deploy manually from the Actions tab, bypassing CI. Asset compilation and dependency installation still happen in the existing remote deployment script.
 
+Deployments are serialized and enable Laravel's pre-rendered maintenance page **before** transferring files. Visitors receive a deliberate HTTP 503 with a 60-second retry hint while dependencies, assets, and caches change, instead of intermittent HTTP 500s. Local bootstrap cache files are excluded from the transfer. The remote script also enables maintenance for standalone use and runs `artisan up` only after all build, optimization, and permission steps succeed. The workflow checks the public homepage after reopening.
+
+If deployment fails, the site intentionally stays in maintenance mode. Fix the failure and rerun Deploy; do not reopen a partially updated application. If the application is independently verified healthy, an operator can run `php artisan up` inside the app container to reopen it.
+
 > **Don't use `scripts/deploy.sh` unless the Actions workflow itself is down.** It runs `git pull` on the *host*, which requires the host user to own every tracked file. The app container writes some paths as its own runtime user, so a host-side `git pull` can start failing with `Permission denied` on unlink/create — and recovering requires root on the box, which you may not have. This has already caused a real production incident (a stale deploy left `/lead` 404ing — that path now redirects to the Jacobs case study) that had to be fixed by reaching into the container as root. If the Actions workflow is genuinely unavailable, fix ownership from *inside* the container (`docker exec -u root ... chown`) before falling back to this script — don't `sudo chown` the host tree.
 
 ## Monitoring
