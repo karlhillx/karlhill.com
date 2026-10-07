@@ -73,7 +73,7 @@ test.describe('smoke + a11y', () => {
         const navigation = page.getByRole('navigation', { name: 'Portfolio sections' });
         for (const [label, target] of [
             ['Products', 'products'],
-            ['Tools', 'open-source'],
+            ['Platform / DevEx', 'open-source'],
             ['NASA', 'nasa'],
             ['Earlier', 'earlier'],
             ['Mission', 'work'],
@@ -121,7 +121,9 @@ test.describe('smoke + a11y', () => {
         for (const id of ['work', 'nasa', 'chapters', 'products', 'open-source', 'earlier']) {
             await expect(page.locator(`#${id}`)).toBeVisible();
         }
-        await expect(page.locator('#open-source h2')).toHaveText('Developer Tooling / Open Source');
+        await expect(page.locator('#open-source h2')).toHaveText(
+            'Platform Engineering / Developer Experience'
+        );
         await assertA11y(page);
     });
 
@@ -131,18 +133,18 @@ test.describe('smoke + a11y', () => {
         await page.goto('/');
         await expect(page.locator('[data-home-actions] a[href="/work"]')).toBeVisible();
         await expect(page.locator('#work h3 a')).toHaveText([
-            'Read case study: Mission software at scale',
+            'Read case study: Cross-program mission software',
+            'Read case study: Engineering the feedback loop',
             'Read case study: Flood Mapping System',
-            'Read case study: NASA satellite-data search',
         ]);
         await expect(page.locator('h3#work-card-title-jacobs-mission-software')).toBeVisible();
         await page.goto('/work');
-        // Collection order on /work: mission → NASA → tooling → products.
+        // Collection order on /work: mission → platform → NASA → products.
         await expect(page.locator('main .portfolio-card h3 a')).toHaveText([
-            'Read case study: Mission software at scale',
+            'Read case study: Cross-program mission software',
+            'Read case study: Engineering the feedback loop',
             'Read case study: Flood Mapping System',
             'Read case study: NASA satellite-data search',
-            'Read case study: Engineering the feedback loop',
             'Read case study: The Dry Standard',
         ]);
         const title = page
@@ -176,7 +178,9 @@ test.describe('smoke + a11y', () => {
             '/work/jacobs-mission-software#delivery-system'
         );
         await expect(page.locator('[data-delivery-map]')).toHaveCount(0);
-        await expect(page.locator('#contact-form, [data-contact-form]').first()).toBeVisible();
+        await expect(page.locator('#contact-form')).toBeHidden();
+        await page.locator('.contact-message summary').click();
+        await expect(page.locator('#contact-form')).toBeVisible();
         await assertA11y(page);
     });
 
@@ -262,8 +266,8 @@ test.describe('smoke + a11y', () => {
         await page.goto('/kit');
         await expect(page).toHaveURL(/\/about$/);
         await expect(page.getByRole('heading', { name: 'About', exact: true })).toBeVisible();
-        await expect(page.locator('#focus')).toContainText('simpler developer workflows');
-        await expect(page.locator('#approach')).toContainText('Principal Software Engineer');
+        await expect(page.locator('#focus')).toContainText('cross-repository developer workflows');
+        await expect(page.locator('#approach')).toContainText('broader organizational leadership');
         await expect(
             page.locator('main').getByRole('link', { name: 'Resume', exact: true })
         ).toBeVisible();

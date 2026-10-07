@@ -45,8 +45,7 @@ final readonly class CaseStudyPage
         $this->decisions = $study['decisions'];
         $this->jobScope = $this->isJacobs ? config('site.experience.current.scope', []) : [];
         $this->hasScope = filled($this->jobScope['owned'] ?? null)
-            && filled($this->jobScope['influence'] ?? null)
-            && filled($this->jobScope['reserved'] ?? null);
+            && filled($this->jobScope['influence'] ?? null);
         $this->hasDiagram = ! empty($study['diagram']['zones']) || ! empty($study['diagram']['stages']);
         $this->frameTitle = $this->isJacobs
             ? 'Technical delivery'

@@ -60,7 +60,7 @@ it('machine readable json omits session cookies', function () {
         ->and($response->headers->get('X-Powered-By'))->toBeNull();
 });
 
-it('html preloads big shoulders and jetbrains fonts', function () {
+it('html preloads big shoulders, ibm plex sans, and jetbrains fonts', function () {
     $response = $this->get('/');
     $html = $response->assertOk()->getContent();
 
@@ -68,16 +68,19 @@ it('html preloads big shoulders and jetbrains fonts', function () {
         ->toContain('rel="preload" as="font" type="font/woff2"')
         ->toContain('big-shoulders-display-latin-700-normal')
         ->toContain('big-shoulders-text-latin-600-normal')
+        ->toContain('ibm-plex-sans-latin-wght-normal')
         ->toContain('jetbrains-mono-latin-400-normal')
+        ->not->toContain('ibm-plex-sans-latin-wght-italic')
         ->not->toContain('jetbrains-mono-latin-500-normal');
 
-    expect(substr_count($html, 'rel="preload" as="font"'))->toBe(3);
+    expect(substr_count($html, 'rel="preload" as="font"'))->toBe(4);
 
     $link = $response->headers->get('Link');
     if ($link !== null) {
         expect($link)
             ->toContain('as=font')
             ->toContain('big-shoulders')
+            ->toContain('ibm-plex-sans-latin-wght-normal')
             ->toContain('jetbrains-mono');
     }
 });

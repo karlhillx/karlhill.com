@@ -12,7 +12,7 @@ it('work page renders projects and open source', function () {
 
     $response->assertStatus(200);
     $response->assertSee('Mission Software', escape: false);
-    $response->assertSee('Developer Tooling / Open Source', escape: false);
+    $response->assertSee('Platform Engineering / Developer Experience', escape: false);
     $response->assertSee('LAADS DAAC', escape: false);
     $response->assertSee('jacobs-mission-software', escape: false);
     $response->assertSee('id="open-source"', escape: false);
@@ -31,7 +31,7 @@ it('about page renders career, current focus, opportunities, and music', functio
     $response->assertDontSee('This Karl Hill', escape: false);
     $response->assertDontSee('Karl Hill (Karl M. Hill) is a software engineer in Washington, DC', escape: false);
     $response->assertDontSee('A different person from the Scottish novelist who writes thrillers', escape: false);
-    $response->assertSee('Software engineer and technical leader working on aerospace mission software at Jacobs', escape: false);
+    $response->assertSee('Staff Aerospace Software Engineer at Jacobs combining hands-on engineering with cross-program technical leadership', escape: false);
     $response->assertSee('The work connects software other people depend on', escape: false);
     $response->assertDontSee('The work has grown from building software other people depend on', escape: false);
     $response->assertDontSee('From NASA systems at operational scale to Staff-level leadership', escape: false);
@@ -143,9 +143,9 @@ it('homepage is a focused landing page', function () {
     $response->assertDontSee('Also at Goddard', escape: false);
     $response->assertSee('Featured Work', escape: false);
     $response->assertSee('href="'.url('/work/flood-mapping-system').'"', escape: false);
-    $response->assertSee('href="'.url('/work/laads-daac').'"', escape: false);
+    $response->assertSee('href="'.url('/work/developer-tooling').'"', escape: false);
     $response->assertSee('Flood Mapping System', escape: false);
-    $response->assertSee('Find Data', escape: false);
+    $response->assertSee('Engineering the feedback loop', escape: false);
     $response->assertSee('GeoHorizons 2026', escape: false);
     $response->assertDontSee('href="/research/global-flood-mapping"', escape: false);
     $response->assertDontSee('NASA Earth science systems from Goddard are still public.', escape: false);
@@ -159,10 +159,10 @@ it('homepage is a focused landing page', function () {
     $response->assertDontSee('work-card--constraint', escape: false);
     $response->assertDontSee('work-card--scope', escape: false);
     $response->assertSee('portfolio-card--mission', escape: false);
-    $response->assertSee('Mission software at scale', escape: false);
-    // Home carries three studies; the tooling and product cards live on /work.
+    $response->assertSee('Cross-program mission software', escape: false);
+    // Home carries mission, tooling, and flood mapping; the full catalog lives on /work.
     expect(substr_count($response->getContent(), '<article id="'))->toBe(3);
-    $response->assertDontSee('portfolio-card--tooling', escape: false);
+    $response->assertSee('portfolio-card--tooling', escape: false);
     $response->assertSee('id="notes"', escape: false);
     $response->assertSee('All writing', escape: false);
     $response->assertSee('href="/about"', escape: false);
@@ -740,12 +740,28 @@ it('both legacy delivery urls redirect directly to the Jacobs practices', functi
         ->assertDontSee('Kubernetes Mission Mesh', escape: false);
 });
 
-it('about preserves the current focus date without advertising retired pages', function () {
+it('about keeps current focus evergreen without advertising retired pages', function () {
     $this->get('/about')
         ->assertOk()
-        ->assertSee('Updated September 16, 2026', escape: false)
+        ->assertSee(config('site.now.focus'), escape: false)
+        ->assertDontSee('This month', escape: false)
+        ->assertDontSee('Updated September', escape: false)
+        ->assertDontSee('formal people-management responsibility', escape: false)
         ->assertDontSee('href="/kit"', escape: false)
         ->assertDontSee('href="/now"', escape: false);
+});
+
+it('home curates technical and leadership writing independently of publication order', function () {
+    $response = $this->get('/')->assertOk();
+    $response->assertSee('Portfolio index / 1997–present', false)
+        ->assertSee('Mission software across teams and programs.', false)
+        ->assertSeeInOrder(array_map(fn (string $slug): string => 'href="/blog/'.$slug.'"', config('site.writing.featured')), false);
+
+    foreach (['engineering-system-is-a-product', 'integration-is-not-a-phase', 'standardize-repositories-without-centralizing-decisions'] as $slug) {
+        $this->get('/blog/'.$slug)->assertOk();
+        $this->get('/api/commands.json')->assertSee($slug);
+        $this->get('/sitemap.xml')->assertSee('/blog/'.$slug);
+    }
 });
 
 it('footer utilities are consistent across home and resume', function () {

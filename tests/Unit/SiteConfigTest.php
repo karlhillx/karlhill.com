@@ -48,9 +48,10 @@ it('experience fragment powers resume and facts stay consistent', function () {
         ->and(config('site.experience.current.company'))->toBe(config('site.facts.employer'))
         ->and(config('site.facts.repos'))->toBe('roughly 20')
         ->and(config('site.facts.team'))->toBe('about 10')
-        ->and(config('site.hero.lede'))->toContain('Thirty years')
+        ->and(config('site.hero.proof'))->toContain('Nearly 30 years')
         ->and(config('site.now.body'))->not->toContain(config('site.facts.repos'))
-        ->and(config('site.now.focus'))->toStartWith('This month:');
+        ->and(config('site.now.focus'))->not->toContain('This month:')
+        ->and(config('site.now.updated'))->toBeNull();
 
     expect(config_path('site/experience.php'))->toBeFile()
         ->and(config_path('site/facts.php'))->toBeFile()

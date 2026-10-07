@@ -21,7 +21,7 @@ it('homepage title disambiguates in search and interior titles use a single bran
     $jacobs = ProjectCatalog::findOrFail('jacobs-mission-software');
 
     expect(PageMeta::forProject($flood)->title)->toBe('Flood Mapping System — Karl Hill')
-        ->and(PageMeta::forProject($jacobs)->title)->toBe('Engineering mission software at scale — Karl Hill')
+        ->and(PageMeta::forProject($jacobs)->title)->toBe('Engineering mission software across teams and programs — Karl Hill')
         ->and(mb_strlen(PageMeta::research()->description))->toBeLessThanOrEqual(155)
         ->and(PageMeta::research()->description)->toContain('>90%');
 });

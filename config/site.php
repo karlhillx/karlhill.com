@@ -9,8 +9,8 @@ use App\Support\Booking;
  * derived values (sameAs, analytics primary) stay here so fragments stay pure.
  *
  * Page roles (portfolio first — one job per URL):
- * - /         identity, three lead case studies, delivery snapshot, latest notes, contact
- * - /work     mission, NASA, developer tooling, independent products, earlier work
+ * - /         identity, three lead case studies, delivery snapshot, curated notes, contact
+ * - /work     mission, platform/DevEx, NASA, independent products, earlier work
  * - /blog     writing
  * - /about    career, current focus, working approach, opportunities, music coda
  * - /research/global-flood-mapping  Karl Hill companion to the GeoHorizons GWFMS paper
@@ -78,6 +78,7 @@ return [
     ],
 
     'series' => require __DIR__.'/site/series.php',
+    'writing' => require __DIR__.'/site/writing.php',
 
     // CI-only accessibility fixtures (never enable in production).
     'a11y_fixtures' => filter_var(env('A11Y_FIXTURES', false), FILTER_VALIDATE_BOOLEAN),

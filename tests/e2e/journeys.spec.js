@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('headings use loaded Big Shoulders while body text keeps a readable system face', async ({
+test('headings use loaded Big Shoulders while body text uses IBM Plex Sans Variable', async ({
     page,
 }) => {
     await page.goto('/');
@@ -8,6 +8,9 @@ test('headings use loaded Big Shoulders while body text keeps a readable system 
     const fonts = await page.evaluate(() => ({
         heading: getComputedStyle(document.querySelector('.portfolio-hero__statement')).fontFamily,
         body: getComputedStyle(document.body).fontFamily,
+        bodyLoaded: [...document.fonts].some(
+            (font) => font.family === 'IBM Plex Sans Variable' && font.status === 'loaded'
+        ),
         displayLoaded: [...document.fonts].some(
             (font) =>
                 font.family === 'Big Shoulders Text' &&
@@ -17,6 +20,8 @@ test('headings use loaded Big Shoulders while body text keeps a readable system 
     }));
     expect(fonts.heading).toContain('Big Shoulders Text');
     expect(fonts.body).not.toContain('Big Shoulders Text');
+    expect(fonts.body).toContain('IBM Plex Sans Variable');
+    expect(fonts.bodyLoaded).toBe(true);
     expect(fonts.displayLoaded).toBe(true);
 });
 
@@ -65,6 +70,7 @@ test('mobile teasers, collection choices, and contact actions stay easy to reach
         }
         const firstLink = page.locator('#work article').first().getByRole('link');
         expect(await firstLink.evaluate((el) => el.getBoundingClientRect().top)).toBeLessThan(1200);
+        await page.locator('.contact-message summary').click();
         const positions = await page.evaluate(() => ({
             actions: document.querySelector('.site-footer-aside').getBoundingClientRect().bottom,
             form: document.querySelector('[data-contact-form]').getBoundingClientRect().top,
@@ -72,7 +78,7 @@ test('mobile teasers, collection choices, and contact actions stay easy to reach
         expect(positions.actions).toBeLessThan(positions.form);
         await page.goto('/work');
         const rail = page.getByRole('navigation', { name: 'Portfolio sections' });
-        for (const name of ['Mission', 'NASA', 'Tools', 'Products', 'Earlier']) {
+        for (const name of ['Mission', 'Platform / DevEx', 'NASA', 'Products', 'Earlier']) {
             const box = await rail.getByRole('link', { name, exact: true }).boundingBox();
             expect(box.x).toBeGreaterThanOrEqual(0);
             expect(box.x + box.width).toBeLessThanOrEqual(width);

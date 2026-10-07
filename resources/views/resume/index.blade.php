@@ -313,7 +313,7 @@
                 source="[data-ask-source]"
                 :context="$askBrief"
                 :prompts="$askPrompts"
-                heading="Ask this resume"
+                heading="Quick answers · experimental"
                 label="Ask"
                 placeholder="What is the current role?"
             />

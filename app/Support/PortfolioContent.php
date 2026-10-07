@@ -52,6 +52,7 @@ final class PortfolioContent
             'updated' => ['required', 'date_format:Y-m-d'],
             'lede' => ['required', 'string'],
             'role' => ['required', 'string'],
+            'attribution' => ['sometimes', 'required', 'string'],
             'problem' => ['required', 'array', 'min:1'],
             'problem.*' => ['required', 'string'],
             'decisions' => ['required', 'array', 'min:1'],

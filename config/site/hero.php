@@ -2,7 +2,7 @@
 
 return [
     'headline' => 'Karl Hill',
-    // Positioning line under the name. Kit “Open to” uses person.availability.
-    'statement' => 'Complex systems. Reliable software.',
-    'lede' => 'I build mission software and public data platforms. Thirty years of hands-on engineering; technical leadership at Jacobs today.',
+    'statement' => 'Mission software across teams and programs.',
+    'lede' => 'Hands-on engineering and cross-program technical leadership at Jacobs: mission software, platform engineering, integration, DevSecOps, developer experience, and delivery.',
+    'proof' => 'Nearly 30 years building production systems across aerospace, NASA, national security, and enterprise software.',
 ];

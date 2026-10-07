@@ -23,8 +23,8 @@ it('loads case studies from markdown front matter', function () {
 
     $jacobs = $this->get('/work/jacobs-mission-software');
     $jacobs->assertOk()
-        ->assertSee('Engineering mission software at scale', escape: false)
-        ->assertSee('Program-specific architecture and operational details are not included here', escape: false)
+        ->assertSee('Engineering mission software across teams and programs', escape: false)
+        ->assertSee('sensitive program architecture and operational details are omitted', escape: false)
         ->assertDontSee('Visit live project', escape: false);
 });
 
@@ -56,7 +56,7 @@ it('parses substantive markdown body and generates html and toc', function () {
     $jacobs = $repo->find('jacobs-mission-software');
     expect($jacobs)->toBeArray()
         ->and($jacobs['body_html'] ?? null)->toBeString()
-        ->and($jacobs['body_html'])->toContain('Program-specific architecture')
+        ->and($jacobs['attribution'])->toContain('sensitive program architecture')
         ->and($jacobs['body_html'])->toContain('no-op path')
         ->and($jacobs['body_html'])->not->toContain('Delivery gates')
         ->and($jacobs['body_html'])->not->toContain('Portable messaging')
@@ -78,8 +78,8 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertDontSee('BlackLynx', escape: false)
         ->assertDontSee('id="platform"', escape: false)
         ->assertDontSee('id="delivery-gates"', escape: false)
-        ->assertSee('Program-specific architecture and operational details are not included here', escape: false)
-        ->assertSee('Hands-on technical leadership', escape: false)
+        ->assertSee('sensitive program architecture and operational details are omitted', escape: false)
+        ->assertSee('Hands-on cross-program technical leadership', escape: false)
         ->assertSee('id="scope"', escape: false)
         ->assertSee('id="delivery-system"', escape: false)
         ->assertSee('case-study-flow', escape: false)
@@ -120,10 +120,11 @@ it('parses substantive markdown body and generates html and toc', function () {
         ->assertSee('Adopted', escape: false)
         ->assertSee('In progress', escape: false)
         ->assertSee('Delivery status', escape: false)
-        ->assertSee('Owns', escape: false)
-        ->assertSee('Influences', escape: false)
-        ->assertSee('Reserved', escape: false)
-        ->assertSee('Staff individual-contributor role; formal personnel decisions remain with management.', escape: false)
+        ->assertSee('My scope', escape: false)
+        ->assertSee('Broader influence', escape: false)
+        ->assertDontSee('Reserved', escape: false)
+        ->assertSee('Scope &amp; attribution', escape: false)
+        ->assertSee('Core-program metrics are separate from broader cross-program influence.', escape: false)
         ->assertDontSee('Held a sprint commitment', escape: false)
         ->assertDontSee('Staff IC title — formal personnel decisions remain with management.', escape: false)
         ->assertDontSee('Staff IC with technical and delivery leadership', escape: false)
@@ -141,14 +142,14 @@ it('parses substantive markdown body and generates html and toc', function () {
     $outcomeAt = strpos($jacobsHtml, 'id="outcome"');
     $flowAt = strpos($jacobsHtml, 'id="delivery-system"');
     $scopeAt = strpos($jacobsHtml, 'id="scope"');
-    $disclaimerAt = strpos($jacobsHtml, 'Program-specific architecture and operational details are not included here');
+    $disclaimerAt = strpos($jacobsHtml, 'Scope &amp; attribution');
     expect($problemAt)->toBeInt()->toBeGreaterThan(0)
         ->and($decisionsAt)->toBeInt()->toBeGreaterThan($problemAt)
         ->and($flowAt)->toBeInt()->toBeGreaterThan($decisionsAt)
         ->and($evidenceAt)->toBeInt()->toBeGreaterThan($flowAt)
         ->and($outcomeAt)->toBeInt()->toBeGreaterThan($evidenceAt)
         ->and($scopeAt)->toBeInt()->toBeGreaterThan($outcomeAt)
-        ->and($disclaimerAt)->toBeInt()->toBeGreaterThan($scopeAt);
+        ->and($disclaimerAt)->toBeInt()->toBeLessThan($problemAt);
 
     $flood = $this->get('/work/flood-mapping-system');
     $flood->assertOk()

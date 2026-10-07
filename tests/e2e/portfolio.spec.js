@@ -115,7 +115,9 @@ test('command search finds the tooling collection by repository name', async ({ 
     await page.goto('/');
     await page.keyboard.press('Control+K');
     await page.locator('#command-input').fill('pipeguard');
-    await expect(page.getByRole('option', { name: /Developer tooling/ })).toBeVisible();
+    await expect(
+        page.getByRole('option', { name: /Engineering the developer feedback loop/ })
+    ).toBeVisible();
 });
 
 test('open source shows only the three selected tools in order', async ({ page }) => {
@@ -131,11 +133,18 @@ test('open source shows only the three selected tools in order', async ({ page }
                 await list
                     .locator('a')
                     .evaluateAll((links) => links.map((link) => link.getAttribute('href')))
-            ).toEqual([
-                'https://github.com/karlhillx/bb-run',
-                'https://github.com/karlhillx/testrisk',
-                'https://github.com/karlhillx/pipeguard',
-            ]);
+            ).toEqual(
+                path === '/resume'
+                    ? [
+                          'https://github.com/karlhillx/bb-run',
+                          'https://github.com/karlhillx/testrisk',
+                      ]
+                    : [
+                          'https://github.com/karlhillx/bb-run',
+                          'https://github.com/karlhillx/testrisk',
+                          'https://github.com/karlhillx/pipeguard',
+                      ]
+            );
         }
         await expect(page.locator('main')).not.toContainText(/sim-rs|driftlens|drift-rs/);
     }

@@ -1,7 +1,5 @@
-import { prefersReducedMotion } from '../lib/prefs.js';
-
 /**
- * LQIP fade-in, case-study sticky title, series chapter scroll, media lightbox.
+ * LQIP fade-in, case-study sticky title, media lightbox.
  */
 export function initMediaEnhancements() {
     document.querySelectorAll('[data-lqip-img]').forEach((img) => {
@@ -42,18 +40,6 @@ export function initMediaEnhancements() {
             stickyTitle.classList.toggle('is-suppressed', event.newState === 'open');
         });
     }
-
-    document.querySelectorAll('[data-series-chapters]').forEach((strip) => {
-        const current = strip.querySelector('.series-chapters__item.is-current');
-        if (!current || window.matchMedia('(min-width: 768px)').matches) return;
-        requestAnimationFrame(() => {
-            current.scrollIntoView({
-                inline: 'start',
-                block: 'nearest',
-                behavior: prefersReducedMotion ? 'auto' : 'smooth',
-            });
-        });
-    });
 }
 
 /**

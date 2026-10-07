@@ -10,13 +10,13 @@
             <p class="eyebrow">Selected engineering</p>
             <h2>Featured Work</h2>
         </div>
-        <p>What I built, the decisions I made, and the evidence — starting with the work that carries the most weight.</p>
+        <p>Mission delivery, engineering systems, and externally verifiable NASA work.</p>
         <a href="/work" class="portfolio-text-link">All work <span aria-hidden="true">→</span></a>
     </div>
 
     <div class="portfolio-grid portfolio-grid--featured">
         @if($flagship)
-            <x-site.work-card :project="$flagship" :flagship="true" />
+            <x-site.work-card :project="$flagship" :compact="true" :flagship="true" />
         @endif
         @foreach($supporting as $project)
             <x-site.work-card :project="$project" :compact="true" />
@@ -25,6 +25,12 @@
 
     @if($dry)
         <aside class="portfolio-product-callout" aria-labelledby="dry-callout-title">
+            <div class="portfolio-product-callout__visual">
+                <x-site.responsive-image :src="$dry['image']" :alt="$dry['image_alt']"
+                    width="1200" height="675" loading="lazy" :lqip="false"
+                    sizes="(min-width: 1024px) 460px, (min-width: 640px) 560px, 90vw"
+                    img-class="portfolio-product-callout__image" />
+            </div>
             <div class="portfolio-product-callout__copy">
                 <p class="eyebrow eyebrow--muted">Independent product</p>
                 <h3 id="dry-callout-title">{{ $dry['card_title'] ?? $dry['title'] }}</h3>

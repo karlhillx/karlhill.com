@@ -10,7 +10,7 @@
     $wide = $flagship || (! $compact && ($isMission || $isTooling || $group === 'product'));
     // Homepage teasers stay stack-free; full work cards carry the tech list.
     $showStack = ! $compact && ! $flagship;
-    $showRole = ! $compact || $flagship;
+    $showRole = ! $compact;
     // Notes qualify quantitative claims — keep them visible even on compact teasers.
     $showNote = true;
 @endphp

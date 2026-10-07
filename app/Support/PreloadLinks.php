@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Vite;
 final class PreloadLinks
 {
     /**
-     * First-paint display, heading, and metadata fonts. Body text uses system fonts.
+     * First-paint display, heading, body, and metadata fonts.
      *
      * @return list<string>
      */
@@ -22,6 +22,7 @@ final class PreloadLinks
         return [
             'node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-700-normal.woff2',
             'node_modules/@fontsource/big-shoulders-text/files/big-shoulders-text-latin-600-normal.woff2',
+            'node_modules/@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2',
             'node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2',
         ];
     }

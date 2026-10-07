@@ -41,7 +41,6 @@
             <div class="about-lede max-w-2xl">
                 <p>{{ config('site.now.lede') }} {{ config('site.now.body') }}</p>
                 <p>{{ config('site.now.focus') }}</p>
-                <p class="portfolio-caption">Updated {{ config('site.now.updated') }}</p>
             </div>
         </div>
     </x-site.section>

@@ -1,4 +1,4 @@
-{{-- Horizontal chapter strip for an essay series. --}}
+{{-- Series chapters stack on mobile and form a board on desktop. --}}
 @props([
     'series',
     'currentIndex' => null,
@@ -18,8 +18,6 @@
         @else
             <p class="series-chapters__progress font-mono text-caption uppercase tracking-widest text-neutral-500 mb-3 md:hidden">
                 {{ $total }} chapters
-                <span class="text-neutral-500">·</span>
-                Swipe to browse
             </p>
         @endif
 

@@ -108,6 +108,13 @@
                         @endif
                     </header>
 
+                    @if(! empty($study['attribution']))
+                        <aside class="surface-card-static p-4 mb-6" aria-label="Scope and attribution">
+                            <p class="eyebrow mb-2">Scope &amp; attribution</p>
+                            <p class="portfolio-caption">{{ $study['attribution'] }}</p>
+                        </aside>
+                    @endif
+
                     @if($project['portfolio_group'] === 'tooling')
                         <x-site.tooling-list />
                     @endif

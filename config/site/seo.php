@@ -6,8 +6,8 @@ return [
     // in the description and JSON-LD, not in interior titles.
     'home' => [
         'title' => 'Karl Hill · Staff Aerospace Software Engineer',
-        'description' => 'Karl Hill: 30 years building reliable software. Aerospace leadership at Jacobs, NASA public systems, open-source tools, and The Dry Standard.',
-        'og_description' => 'Explore the work: Jacobs mission software, NASA platforms, developer tools, and The Dry Standard. Engineering by Karl Hill.',
+        'description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs. Cross-program technical leadership, mission software, platform engineering, and NASA systems.',
+        'og_description' => 'Mission software across teams and programs. Hands-on engineering, platform/DevEx, and technical leadership at Jacobs; NASA research and public systems.',
     ],
     'blog_index' => [
         'title' => 'Writing — Karl Hill',
@@ -16,12 +16,12 @@ return [
     ],
     'work' => [
         'title' => 'Work — Karl Hill',
-        'description' => 'Karl Hill’s engineering portfolio: Jacobs mission software, NASA Earth science platforms, open-source developer tools, and The Dry Standard.',
+        'description' => 'Karl Hill’s engineering portfolio: cross-program mission software, platform/DevEx tools, NASA Earth science systems, and The Dry Standard.',
         'og_description' => 'Case studies, public systems, source code, and research. Mission software to independently built products.',
     ],
     'about' => [
         'title' => 'About — Karl Hill',
-        'description' => 'Karl Hill (Karl M. Hill), Staff Aerospace Software Engineer at Jacobs. NASA Goddard Earth science 2017–2025; GeoHorizons co-author on NASA flood mapping.',
+        'description' => 'Karl Hill (Karl M. Hill): Staff Aerospace Software Engineer at Jacobs. Cross-program technical leadership, hands-on engineering, and NASA research.',
         'og_description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs, NASA flood-mapping co-author, and musician and songwriter. Washington, DC.',
     ],
     'privacy' => [
@@ -31,7 +31,7 @@ return [
     ],
     'resume' => [
         'title' => 'Resume — Karl Hill',
-        'description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs. NASA Earth science, GeoHorizons flood mapping, Python, technical leadership, and software delivery.',
+        'description' => 'Karl Hill: Staff Aerospace Software Engineer. 25+ years of mission software, cross-program technical leadership, platform engineering, and NASA systems.',
         'og_description' => 'Karl Hill resume: software engineering, NASA flood mapping, technical skills, education, and credentials.',
     ],
     'research' => [

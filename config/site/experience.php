@@ -10,11 +10,10 @@ return [
         'company' => $facts['employer'],
         'location' => 'Chantilly, VA',
         'period' => 'Sept 2025 — Present',
-        'summary' => "Hands-on software development, technical guidance, delivery leadership, mentoring, and engineering guardrails for a team of {$facts['team']} across {$facts['repos']} repositories.",
+        'summary' => "Hands-on mission software and cross-program technical leadership across internal and partner teams. Core-program execution spans {$facts['team']} engineers and {$facts['repos']} Python repositories.",
         'scope' => [
-            'owned' => "Day-to-day software delivery, engineering standards, mentoring, and hands-on implementation across {$facts['repos']} repositories.",
-            'influence' => 'Program priorities, vendor and partner-team dependencies, and integration across repositories.',
-            'reserved' => 'Staff individual-contributor role; formal personnel decisions remain with management.',
+            'owned' => "Hands-on implementation, technical execution, engineering standards, and engineer development. Core-program scope: {$facts['team']} engineers across {$facts['repos']} Python repositories and multiple deployment environments.",
+            'influence' => 'Cross-program integration strategy, shared interfaces and engineering practices, partner-team dependencies, architecture decisions, and release readiness across aerospace mission-software efforts.',
         ],
         'highlights' => [
             'Provide cross-program technical leadership across multiple aerospace mission-software efforts, aligning internal and partner teams on engineering standards, shared interfaces, integration strategy, and release readiness.',

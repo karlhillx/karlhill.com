@@ -41,7 +41,9 @@
     text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
     text-underline-offset: 0.28em;
     text-decoration-thickness: 1px;
-    transition: color 200ms var(--ease-out-soft), text-decoration-color 200ms var(--ease-out-soft);
+    transition:
+        color 200ms var(--ease-out-soft),
+        text-decoration-color 200ms var(--ease-out-soft);
 }
 
 .portfolio-text-link:hover,
@@ -70,7 +72,7 @@
 .portfolio-nav a {
     display: flex;
     align-items: center;
-    min-height: 2.5rem;
+    min-height: 44px;
     padding: 0.35rem 0.125rem;
     border-bottom: 1.5px solid transparent;
     color: var(--muted);
@@ -80,7 +82,9 @@
     line-height: 1.4;
     letter-spacing: var(--tracking-sans-tight);
     text-decoration: none;
-    transition: color 180ms var(--ease-out-soft), border-color 180ms var(--ease-out-soft);
+    transition:
+        color 180ms var(--ease-out-soft),
+        border-color 180ms var(--ease-out-soft);
 }
 
 .portfolio-nav a:hover,
@@ -157,8 +161,8 @@ main:has(> .portfolio-nav) section[id] {
 
 .portfolio-hero__identity img,
 .portfolio-portrait {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 52px;
+    height: 52px;
     border-radius: var(--radius-sm);
     box-shadow: 0 0 0 1px var(--hairline-strong);
 }
@@ -195,11 +199,11 @@ main:has(> .portfolio-nav) section[id] {
     line-height: var(--leading-display);
     letter-spacing: -0.015em;
     text-wrap: balance;
-    max-width: 18ch;
+    max-width: 26ch;
 }
 
 .portfolio-hero__lede {
-    max-width: 42ch;
+    max-width: 52ch;
     margin-block: var(--space-inline) var(--space-stack);
     color: var(--muted);
     font-size: var(--type-lede);
@@ -207,6 +211,7 @@ main:has(> .portfolio-nav) section[id] {
 }
 
 .portfolio-hero__actions {
+    margin-top: 1.5rem;
     gap: var(--space-micro) var(--space-inline);
 }
 
@@ -264,9 +269,14 @@ main:has(> .portfolio-nav) section[id] {
     font-size: 0.9em;
 }
 
-.portfolio-hero__location {
+.portfolio-hero__index-footer {
     margin-top: auto;
-    padding-top: var(--space-stack);
+    padding-top: var(--space-inline);
+    border-top: 1px solid var(--hairline);
+}
+
+.portfolio-hero__location {
+    margin-top: var(--space-micro);
     color: var(--muted);
     font-size: var(--type-caption);
     line-height: 1.45;
@@ -428,6 +438,20 @@ main:has(> .portfolio-nav) section[id] {
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: -0.01em;
+}
+
+.portfolio-product-callout__visual {
+    width: 100%;
+    max-width: 35rem;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 0 0 1px var(--hairline);
+}
+
+.portfolio-product-callout__image {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .portfolio-product-callout__copy > p:last-child {
@@ -867,6 +891,7 @@ main:has(> .portfolio-nav) section[id] {
     .portfolio-card--wide .portfolio-card__visual {
         display: flex;
         flex-direction: column;
+        border-right: 1px solid var(--hairline);
     }
 
     .portfolio-card--wide .project-visual {
@@ -919,9 +944,13 @@ main:has(> .portfolio-nav) section[id] {
     }
 
     .portfolio-product-callout {
-        grid-template-columns: minmax(0, 1.4fr) minmax(12rem, 18rem);
-        align-items: end;
-        gap: var(--space-heading);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+        align-items: center;
+        gap: var(--space-inline) var(--space-heading);
+    }
+
+    .portfolio-product-callout__visual {
+        grid-row: 1 / 3;
     }
 
     .portfolio-delivery__pillars {
@@ -938,6 +967,10 @@ main:has(> .portfolio-nav) section[id] {
     .portfolio-delivery__pillars li:last-child {
         border-right: 0;
         padding-right: 0;
+    }
+
+    .portfolio-delivery__pillars li + li {
+        padding-left: max(1rem, var(--space-inline));
     }
 
     .tooling-directory {
@@ -958,6 +991,59 @@ main:has(> .portfolio-nav) section[id] {
 }
 
 @media (max-width: 767px) {
+    .portfolio-section-heading--featured {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.75rem 1rem;
+    }
+
+    .portfolio-section-heading--featured h2 {
+        font-size: clamp(1.6rem, 6vw, 2rem);
+    }
+
+    .portfolio-section-heading--featured > p {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .portfolio-section-heading--featured > .portfolio-text-link {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .portfolio-hero__statement {
+        font-size: clamp(1.6rem, 7vw, 1.85rem);
+    }
+
+    .portfolio-grid--featured .portfolio-card__visual .project-visual__stage {
+        height: 6rem;
+        min-height: 0;
+        aspect-ratio: auto;
+    }
+
+    .portfolio-grid--featured .portfolio-card__body {
+        padding: 1rem;
+    }
+
+    .portfolio-grid--featured .portfolio-card h3 {
+        font-size: 1.35rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .portfolio-grid--featured .portfolio-card__brief {
+        gap: 0.5rem;
+    }
+
+    .portfolio-grid--featured .portfolio-card__brief dd,
+    .portfolio-grid--featured .portfolio-card__impact > p:first-child {
+        font-size: var(--type-support);
+        line-height: 1.45;
+    }
+
+    .portfolio-grid--featured .portfolio-card__impact {
+        margin-block: 1rem 0;
+    }
+
     .portfolio-hero {
         padding-top: 6.25rem;
         padding-bottom: var(--space-section-soft);
@@ -975,6 +1061,7 @@ main:has(> .portfolio-nav) section[id] {
     }
 
     .portfolio-hero__actions {
+        margin-top: 1rem;
         gap: var(--space-micro) var(--space-inline);
     }
 
@@ -989,11 +1076,11 @@ main:has(> .portfolio-nav) section[id] {
     /* Keep all collection choices visible, including at 320px. */
     .portfolio-nav__links {
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         width: auto;
-        overflow-x: auto;
+        overflow-x: visible;
         justify-content: flex-start;
-        gap: var(--space-inline);
+        gap: 0 0.8rem;
         margin-inline: calc(var(--space-gutter) * -1);
         padding-inline: var(--space-gutter);
         scroll-padding-inline: var(--space-gutter);

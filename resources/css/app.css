@@ -1,4 +1,20 @@
-/* Condensed headings and UI. Body text uses the native system sans. */
+/* Condensed headings and UI with a normal-width variable body face. */
+@font-face {
+    font-family: 'IBM Plex Sans Variable';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 700;
+    src: url('@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2')
+        format('woff2');
+}
+@font-face {
+    font-family: 'IBM Plex Sans Variable';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 100 700;
+    src: url('@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-italic.woff2')
+        format('woff2');
+}
 @font-face {
     font-family: 'Big Shoulders Text';
     font-style: normal;
@@ -50,7 +66,7 @@
 @import 'tailwindcss';
 
 /* Big Shoulders Display (hero/display font, and the site's LCP element).
-   Display, Text, and JetBrains Mono first-paint faces are preloaded in the
+   Display, Text, IBM Plex Sans, and JetBrains Mono first-paint faces are preloaded in the
    document head — see PreloadLinks. Display renders at 700 with an uppercase
    transform (see base.css) to preserve the all-caps poster voice Bebas Neue
    gave it. */

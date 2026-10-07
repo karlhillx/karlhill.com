@@ -374,6 +374,16 @@ export function initCommandPalette() {
         command.action();
     };
 
+    let returnFocus = null;
+    document
+        .querySelectorAll('[popovertarget="command-palette"]:not([popovertargetaction="hide"])')
+        .forEach((trigger) => {
+            trigger.addEventListener('click', () => trigger.focus({ preventScroll: true }));
+        });
+    palette.addEventListener('beforetoggle', (e) => {
+        if (e.newState === 'open') returnFocus = document.activeElement;
+    });
+
     palette.addEventListener('toggle', (e) => {
         const open = e.newState === 'open';
         commandInput.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -386,6 +396,9 @@ export function initCommandPalette() {
             setTimeout(() => commandInput.focus(), 0);
         } else {
             document.body.style.removeProperty('overflow');
+            if (returnFocus instanceof HTMLElement && returnFocus.isConnected) {
+                returnFocus.focus({ preventScroll: true });
+            }
         }
     });
 

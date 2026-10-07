@@ -163,6 +163,10 @@
     @endif
 
     <div id="command-palette" popover="auto" class="command-palette" aria-label="Command palette">
+        <button type="button" popovertarget="command-palette" popovertargetaction="hide"
+                class="portfolio-text-link min-h-11 min-w-11 mb-2" aria-label="Close search">
+            Close <span aria-hidden="true">×</span>
+        </button>
         <search class="command-palette__search">
             <input id="command-input" type="search"
                    class="command-input font-mono"

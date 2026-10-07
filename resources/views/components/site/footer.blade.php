@@ -68,7 +68,14 @@
 
                 </aside>
                 <div class="site-footer-form">
-                    <x-site.contact-form id-prefix="contact" :return-to="url()->current()" />
+                    <details class="contact-message" @if(($errors ?? null)?->any() || in_array(session('status'), ['contact-sent', 'contact-failed'], true)) open @endif>
+                        <summary class="portfolio-text-link cursor-pointer min-h-11 inline-flex items-center">
+                            Prefer a form? Send a message
+                        </summary>
+                        <div class="mt-6">
+                            <x-site.contact-form id-prefix="contact" :return-to="url()->current()" />
+                        </div>
+                    </details>
                 </div>
                 <div>
                     <p class="eyebrow eyebrow--muted mb-1">Elsewhere</p>
@@ -118,9 +125,9 @@
         <div class="mt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <x-site.footer-explore />
             <p class="site-build-credit font-mono uppercase text-neutral-500">
-                <span>Built with Laravel {{ \App\Support\Stack::laravelVersion() }}</span>
+                <span>Built with Laravel</span>
                 <span class="site-build-credit__sep" aria-hidden="true">&middot;</span>
-                <span>Tailwind CSS {{ \App\Support\Stack::tailwindVersion() ?? '4' }}</span>
+                <span>Tailwind CSS</span>
             </p>
         </div>
     </div>

@@ -10,7 +10,10 @@ it('home page renders the contact form', function () {
         ->assertOk()
         ->assertSee('name="message"', false)
         ->assertSee('action="'.route('contact.store').'"', false)
-        ->assertSee('id="contact-submit"', false);
+        ->assertSee('id="contact-submit"', false)
+        ->assertSee('Prefer a form? Send a message', false);
+    $html = $this->get('/')->getContent();
+    expect($html)->toMatch('/<details class="contact-message"\\s*>/');
 });
 
 it('valid submission sends mail and redirects', function () {
@@ -35,6 +38,7 @@ it('valid submission sends mail and redirects', function () {
         ->assertSee('data-toast', false)
         ->assertSee('Thanks — message sent', false)
         ->assertSee('data-contact-complete', false)
+        ->assertSee('class="contact-message"', false)
         ->assertSee('You can also book a conversation', false)
         ->assertSee(url('/').'#book', false);
 });
@@ -63,12 +67,13 @@ it('validation errors render accessible feedback on the form', function () {
 
     $response->assertRedirect(route('home').'#contact-form');
 
-    $this->followRedirects($response)
+    $page = $this->followRedirects($response)
         ->assertOk()
         ->assertSee('aria-invalid="true"', false)
         ->assertSee('id="contact-name-error"', false)
         ->assertSee('id="contact-email-error"', false)
         ->assertSee('id="contact-message-error"', false);
+    expect($page->getContent())->toMatch('/<details class="contact-message"\\s+open\\s*>/');
 });
 
 it('csrf token endpoint returns a fresh uncached token', function () {

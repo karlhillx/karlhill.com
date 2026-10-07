@@ -1,17 +1,17 @@
 ---
-updated: '2026-09-30'
-lede: Hands-on engineering and technical delivery on a simulation program — roughly 20 repositories, three environments, a team of about 10, and partner and vendor teams. Six engineers onboarded and coached. A portable messaging layer is in use; ownership is shared.
-role: Staff Aerospace Software Engineer — implementation, technical delivery, and coaching.
+updated: '2026-10-07'
+lede: Hands-on engineering and cross-program technical leadership across aerospace mission software, shared engineering systems, integration, and internal and partner teams.
+role: Staff Aerospace Software Engineer — implementation, cross-program technical direction, platform practices, and engineer development.
+attribution: Collaborative engineering; sensitive program architecture and operational details are omitted. Core-program metrics are separate from broader cross-program influence. Messaging ownership is shared. Adoption states distinguish established practices from ongoing work.
 leadership:
-  mode: Hands-on technical leadership
-  team: About 10 engineers, plus program stakeholders, partner teams, and vendors
+  mode: Hands-on cross-program technical leadership
+  team: Core team of about 10 engineers, with collaboration across additional internal and partner teams
   unblocked: Onboarding, technical feedback, and turning integration problems into tickets while the change is still cheap.
   decision: Treat weak tests and integration risk as engineering work, not process leftovers.
-  note: Formal personnel management remains with management.
 problem:
 - Independently developed services need compatible interfaces and repeatable integration.
 - Delivery conventions varied by repository, which made reviews, testing, and releases harder to trust.
-- Work spans roughly 20 repositories, three environments, and multiple Jacobs, partner, and vendor teams.
+- Core-program integration spans roughly 20 Python repositories and three environments; shared interfaces and technical coordination also cross program boundaries.
 decisions:
 - Put CI/CD, two-approval review, testing, type-checking, security, coverage, and release practices on a shared baseline.
 - Separate application messaging from the broker behind a common interface and adapters.
@@ -19,14 +19,14 @@ decisions:
 outcome:
 - Established at least 80% repository test coverage, two-approval pull-request governance, and automated quality gates across the repositories in scope. Releases are safer and more predictable.
 - Shared delivery gates are the adopted baseline across those repositories.
-- A portable messaging layer is in use so broker choice can stay in configuration. Ownership is shared.
-- Stronger unit-test expectations are defined and applied in review. They are not a finished program-wide rewrite.
+- A portable messaging layer is in use so broker choice can stay in configuration.
+- Stronger unit-test expectations are defined and applied in review; behavior-focused improvements continue on changed code.
 - Six engineers onboarded and coached while the same practices were reinforced in review.
 metrics:
 - fact: team_display
-  label: Engineers on the team
+  label: Core-program engineers
 - fact: repos_display
-  label: Repositories in scope
+  label: Core-program repositories
 - fact: coverage_display
   label: Repository test coverage
 status:
@@ -35,16 +35,16 @@ status:
   detail: Shared CI/CD, two-approval review, testing, type-checking, security, coverage, and release baseline in use across the repositories in scope.
 - label: Portable messaging
   state: In use
-  detail: Common interface and broker adapters. Ownership is shared; every consumer is not claimed.
+  detail: Common interface and broker adapters supporting configurable broker choice.
 - label: Unit-test standard
   state: In progress
-  detail: Written and used in review. Not a repository-wide rewrite.
+  detail: Written and used in review; continuing improvements to isolation, representative data, and failure cases.
 - label: Cross-team delivery
   state: Ongoing
-  detail: Tickets, sequencing, and coordination. Not a closed initiative.
+  detail: Integration strategy, dependency sequencing, and technical coordination across internal and partner teams.
 - label: Coaching
   state: Shipped
-  detail: Six engineers onboarded. Personnel decisions remain with management.
+  detail: Approximately six engineers onboarded and coached through technical feedback, engineering standards, and structured growth plans.
 diagram:
   title: Engineering delivery system
   caption: Local checks run on the workstation; CI provides the authoritative repository gate. Downstream validation covers cross-repository and environment-level behavior. Simplified, unclassified delivery view—not a program architecture.
@@ -88,10 +88,6 @@ diagram:
         - Release
   loop: Validation feedback
 ---
-
-Program-specific architecture and operational details are not included here.
-
-Read the status labels as the adoption record: delivery gates are the baseline, messaging is in use with shared ownership, the unit-test standard is in review, and cross-team delivery is ongoing work.
 
 A concrete defect: some tests reported coverage without failing when the behavior was wrong, including filters whose no-op path never triggered a failure. Remaining test work is quality — isolation, representative data, and failure cases on changed code — not another coverage number.
 

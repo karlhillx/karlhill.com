@@ -4,7 +4,7 @@ $facts = require __DIR__.'/facts.php';
 
 return [
     'lede' => [
-        'Software engineer and technical leader working on aerospace mission software at Jacobs. Previously eight years on NASA Goddard Earth science systems — flood maps, satellite-data access, and public science publishing.',
+        'Staff Aerospace Software Engineer at Jacobs combining hands-on engineering with cross-program technical leadership across multiple aerospace mission-software efforts. Previously eight years on NASA Goddard Earth science systems — flood maps, satellite-data access, and public science publishing.',
         'The work connects software other people depend on with the delivery practices, standards, and coaching around it.',
     ],
     'career' => [
@@ -14,10 +14,10 @@ return [
             [
                 'title' => 'Staff Aerospace Software Engineer',
                 'org' => $facts['employer'].' · '.$facts['period'],
-                'summary' => 'Hands-on engineer and technical delivery leader working across '.$facts['repos'].' repositories and multiple deployment environments.',
+                'summary' => 'Hands-on engineering, shared interfaces, platform practices, and technical delivery across internal and partner teams. The core program spans '.$facts['repos'].' Python repositories and multiple deployment environments.',
                 'highlights' => [
                     [
-                        'text' => 'Implementation, standards, delivery coordination, and mentoring. Outcomes live in the current-work case study.',
+                        'text' => 'Cross-program integration strategy, architecture and design reviews, engineering standards, delivery coordination, and engineer development. Outcomes live in the current-work case study.',
                         'href' => '/work/jacobs-mission-software',
                         'link' => 'Read the case study',
                     ],
@@ -56,7 +56,7 @@ return [
     ],
     'approach' => [
         'Implementation, reviews, and coaching belong in the same week. I work on Python services, shared interfaces, messaging, and CI/CD while helping teams turn program priorities into executable software.',
-        'My technical leadership spans integration, engineering standards, and delivery across teams. Mentoring and onboarding are part of that work; formal people-management responsibility remains with management.',
+        'My scope is increasingly cross-program: technical direction, engineering systems, integration, architecture, delivery, and engineer development across team boundaries.',
     ],
     'beyond' => [
         'When not writing software, solving engineering problems, or working with a team, the other work is music: songwriter and musician across post-punk, indie rock, hardcore, and alternative. Independent label work has also supported underground and alternative artists in Washington, DC and beyond.',

@@ -16,9 +16,8 @@
     }
     if ($resolved === []) {
         $resolved = array_filter([
-            'Owns' => $scope['owned'] ?? null,
-            'Influences' => $scope['influence'] ?? null,
-            'Reserved' => $scope['reserved'] ?? null,
+            'My scope' => $scope['owned'] ?? null,
+            'Broader influence' => $scope['influence'] ?? null,
         ], fn ($value) => filled($value));
     }
 @endphp

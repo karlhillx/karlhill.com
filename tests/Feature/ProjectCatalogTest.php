@@ -7,8 +7,8 @@ it('jacobs mission software is always first', function () {
     $this->assertSame('jacobs-mission-software', ProjectCatalog::featured()->first()['slug']);
     $this->assertSame('jacobs-mission-software', ProjectCatalog::filteredByTag('AWS')->first()['slug']);
     $this->assertSame('flood-mapping-system', ProjectCatalog::all()[1]['slug']);
-    $this->assertSame('flood-mapping-system', ProjectCatalog::featured()[1]['slug']);
-    $this->assertSame('laads-daac', ProjectCatalog::featured()[2]['slug']);
+    $this->assertSame('developer-tooling', ProjectCatalog::featured()[1]['slug']);
+    $this->assertSame('flood-mapping-system', ProjectCatalog::featured()[2]['slug']);
 });
 
 it('portfolio lists trajectory chapters and keeps supporting studies routable', function () {
@@ -45,9 +45,9 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         ->assertSee('id="chapters"', escape: false)
         ->assertDontSee('Also at Goddard', escape: false)
         ->assertSee('Eight years connecting satellite data', escape: false)
-        ->assertSee('Developer Tooling / Open Source', escape: false)
-        ->assertSee('6 engineers onboarded', escape: false)
-        ->assertSee('portable messaging', escape: false)
+        ->assertSee('Platform Engineering / Developer Experience', escape: false)
+        ->assertSee('Core program: ~20 repositories', escape: false)
+        ->assertSee('integration, and engineer development', escape: false)
         ->assertDontSee('at least 80% repository test coverage', escape: false)
         ->assertDontSee('releases are safer and more predictable', escape: false)
         ->assertDontSee('Supporting chapters, not a second flagship set', escape: false)
@@ -122,7 +122,7 @@ it('unknown case study returns 404', function () {
 });
 
 it('adjacent case studies', function () {
-    $studies = ProjectCatalog::withCaseStudies()->values();
+    $studies = ProjectCatalog::collections()->pluck('projects')->flatten(1)->concat(ProjectCatalog::earlier())->values();
     $this->assertGreaterThan(2, $studies->count());
 
     $middle = $studies[1];
@@ -171,7 +171,7 @@ it('case study snippets name Karl Hill and the NASA or Jacobs affiliation', func
 
     $this->get('/work/jacobs-mission-software')
         ->assertOk()
-        ->assertSee('<title>Engineering mission software at scale — Karl Hill</title>', escape: false);
+        ->assertSee('<title>Engineering mission software across teams and programs — Karl Hill</title>', escape: false);
 });
 
 it('work cards expose stack tags as labels, not filter urls', function () {

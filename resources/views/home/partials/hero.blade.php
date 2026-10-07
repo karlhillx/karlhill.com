@@ -17,13 +17,14 @@
             <h1 id="hero-title" class="portfolio-hero__name">{{ $hero['headline'] }}</h1>
             <p class="portfolio-hero__statement">{{ $hero['statement'] }}</p>
             <p class="portfolio-hero__lede">{{ $hero['lede'] }}</p>
+            <p class="portfolio-caption mt-3 max-w-xl">{{ $hero['proof'] }}</p>
             <div data-home-actions class="portfolio-hero__actions flex flex-wrap items-center">
                 <x-site.button variant="primary" href="/work">Explore the work <span aria-hidden="true">→</span></x-site.button>
                 <a href="/#contact" class="portfolio-text-link">Contact Karl</a>
             </div>
         </div>
         <nav class="portfolio-hero__index" aria-label="Explore the portfolio">
-            <p class="eyebrow eyebrow--muted">Portfolio index / 1996–today</p>
+            <p class="eyebrow eyebrow--muted">Portfolio index / 1997–present</p>
             @foreach($collections as $collection)
                 <a href="/work#{{ $collection['id'] }}">
                     <span class="portfolio-hero__index-number" aria-hidden="true">0{{ $loop->iteration }}</span>
@@ -31,7 +32,10 @@
                     <span class="portfolio-hero__index-arrow" aria-hidden="true">↗</span>
                 </a>
             @endforeach
-            <p class="portfolio-hero__location">{{ $person['location'] }} · Code, systems, and technical leadership.</p>
+            <div class="portfolio-hero__index-footer">
+                <p class="eyebrow eyebrow--muted">Based in</p>
+                <p class="portfolio-hero__location">{{ $person['location'] }}</p>
+            </div>
         </nav>
     </div>
 </section>

@@ -19,10 +19,11 @@
                 <x-site.mark :size="28" class="brand-lockup__mark" />
                 <span>KARL HILL</span>
             </a>
-            <div class="hidden lg:flex items-center gap-5 font-sans text-[0.8125rem] font-medium text-neutral-400 uppercase tracking-wide">
+            <div class="nav-destinations hidden lg:flex items-center gap-5 font-sans text-[0.8125rem] font-medium text-neutral-400 uppercase tracking-wide">
                 <a href="/work" class="{{ $navLinkClass('work') }}" @if($isActive('work')) aria-current="page" @endif>Work</a>
                 <a href="/blog" class="{{ $navLinkClass('writing') }}" @if($isActive('writing')) aria-current="page" @endif>Writing</a>
                 <a href="/about" class="{{ $navLinkClass('about') }}" @if($isActive('about')) aria-current="page" @endif>About</a>
+                <a href="/resume" class="{{ $navLinkClass('resume') }}" @if($isActive('resume')) aria-current="page" @endif>Resume</a>
             </div>
         </div>
         <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
@@ -34,15 +35,12 @@
                     aria-keyshortcuts="Meta+K Control+K"
                     title="Search pages and sections (⌘K)"
                     data-mod-shortcut-host
-                    class="hidden sm:inline-flex items-center justify-center gap-1.5 min-h-11 px-2.5 border border-neutral-700/80 hover:border-accent text-neutral-400 hover:text-accent transition-colors shrink-0">
+                    class="inline-flex items-center justify-center gap-1.5 min-h-11 min-w-11 px-2.5 border border-neutral-700/80 hover:border-accent text-neutral-400 hover:text-accent transition-colors shrink-0">
                 <x-site.icons.search class="w-4 h-4 shrink-0" />
                 <kbd class="nav-shortcut hidden lg:inline" data-mod-shortcut aria-hidden="true">⌘K</kbd>
             </button>
 
             <x-site.theme-toggle />
-
-            <a href="/resume" class="hidden lg:inline-flex items-center min-h-11 px-2 font-sans text-[0.8125rem] font-medium text-neutral-400 hover:text-accent uppercase tracking-wide"
-               @if($isActive('resume')) aria-current="page" @endif>Resume</a>
 
             <a href="/#contact"
                data-nav-section="contact"

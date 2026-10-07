@@ -44,8 +44,9 @@ it('hire packet json includes person experience writing and case studies', funct
         ->and($json['kit']['system'])->toEndWith('/#system')
         ->and($json['delivery_system']['heading'])->toBe('How software gets delivered')
         ->and(collect($json['delivery_system']['stages'])->pluck('id'))->toContain('verify', 'integrate', 'release')
-        ->and($json['kit']['scope']['owned'])->toContain('software delivery')
-        ->and($json['experience'][0]['scope']['reserved'])->toContain('personnel decisions');
+        ->and($json['kit']['scope']['owned'])->toContain('Core-program scope')
+        ->and($json['experience'][0]['scope']['influence'])->toContain('Cross-program')
+        ->and($json['experience'][0]['scope'])->not->toHaveKey('reserved');
 
     expect($response->headers->get('Link'))->toContain('/schemas/site.schema.json')
         ->and($response->headers->get('Link'))->toContain('rel="describedby"');
@@ -91,9 +92,9 @@ it('agent packet builder matches the public json', function () {
     $site = $packet->site();
 
     expect($site['person']['email'])->toBe(config('site.person.email'))
-        ->and($site['seeking'])->toContain('Engineering Manager')
-        ->and($site['trajectory'])->toContain('Engineering Manager')
-        ->and($site['person']['trajectory'])->toContain('Engineering Manager')
+        ->and($site['seeking'])->toContain('platform engineering')
+        ->and($site['trajectory'])->toContain('Cross-program technical leadership')
+        ->and($site['person']['trajectory'])->toContain('engineer development')
         ->and($site['headline'])->toContain('Staff Aerospace Software Engineer')
         ->and($site['person']['headline'])->toContain('Jacobs');
 });

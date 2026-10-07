@@ -54,6 +54,12 @@
     display: none;
 }
 
+.article-toc-mobile summary,
+.article-toc-mobile .article-toc-link {
+    min-height: 44px;
+    align-content: center;
+}
+
 .article-toc-mobile summary::after {
     content: '+';
     float: right;

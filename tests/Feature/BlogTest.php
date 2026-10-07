@@ -225,7 +225,7 @@ it('em craft series appears on posts and index', function () {
     $index->assertSee('writing-series', escape: false);
     $index->assertSee('series-chapters--board', escape: false);
     $index->assertSee('series-chapters', escape: false);
-    $index->assertSee('Swipe to browse', escape: false);
+    $index->assertDontSee('Swipe to browse', escape: false);
 
     $show = $this->get('/blog/staff-to-em-first-90-days');
     $show->assertStatus(200);

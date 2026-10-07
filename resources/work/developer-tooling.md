@@ -1,7 +1,8 @@
 ---
-updated: '2026-09-30'
+updated: '2026-10-07'
 lede: Three independent developer tools for a common engineering problem — make feedback faster, test priorities clearer, and delivery policy easier to inspect.
 role: Independent author and maintainer — tool design, implementation, tests, and documentation.
+attribution: These are independently authored projects, not employer-delivered tools. Public source, tests, and documentation are the evidence; employer adoption, usage counts, and performance benchmarks are not claimed.
 problem:
 - Pipeline failures are expensive to discover only after pushing a commit.
 - Delivery policies and environment assumptions are difficult to maintain when they live only in documentation.
@@ -13,7 +14,6 @@ decisions:
 outcome:
 - Three public tools covering local CI, test-risk analysis, and policy checks.
 - Source code and usage documentation provide technical proof beyond a portfolio description.
-- These are independent projects. No employer adoption, performance benchmark, or usage count is claimed here.
 metrics: []
 ---
 
@@ -31,8 +31,8 @@ The common thread is the feedback loop around software. A pipeline definition, t
 
 [pipeguard](https://github.com/karlhillx/pipeguard) checks pipeline definitions against policy. It makes delivery constraints inspectable alongside the configuration they govern. Its repository documents the supported rules and invocation.
 
-These tools belong together as developer-platform engineering, but they are not presented as a single integrated stack. Each has its own boundary, documentation, and implementation.
+These tools address complementary developer-platform concerns. Each has its own boundary, documentation, and implementation.
 
 ## What to inspect
 
-Start with the README and supported inputs, then follow the implementation and tests. Look for how errors are reported, how configuration is represented, and which assumptions the tests actually exercise. Public source is the proof; star counts and unverified benchmark claims are not.
+Start with the README and supported inputs, then follow the implementation and tests. Look for how errors are reported, how configuration is represented, and which assumptions the tests actually exercise.

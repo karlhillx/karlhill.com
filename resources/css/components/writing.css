@@ -236,20 +236,21 @@ a.series-chapters__card:hover .series-chapters__title,
 
 @media (max-width: 767px) {
     .series-chapters {
-        scroll-snap-type: x mandatory;
-        scroll-padding-inline: var(--space-gutter);
+        margin-inline: 0;
+        padding-inline: 0;
+        overflow-x: visible;
     }
 
     .series-chapters__track {
+        flex-direction: column;
+        min-width: 0;
         gap: 0.75rem;
         padding-bottom: 1rem;
     }
 
     .series-chapters__item {
-        width: min(82vw, 19rem);
+        width: 100%;
         padding-right: 0;
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
     }
 
     .series-chapters__item:not(:last-child)::after {

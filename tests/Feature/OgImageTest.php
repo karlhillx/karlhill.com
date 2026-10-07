@@ -4,16 +4,24 @@ use App\Support\BlogPost;
 use App\Support\BlogPostRepository;
 use Carbon\CarbonImmutable;
 
-it('post with a static card uses the generated jpg', function () {
-    $post = app(BlogPostRepository::class)->all()->first();
-    if ($post === null) {
-        skip('No blog posts available.');
-    }
+it('post with a static card uses the generated jpg', function (string $slug) {
+    $post = app(BlogPostRepository::class)->findOrFail($slug);
 
     $url = $post->ogImageUrl();
     expect($url)->toContain('/img/og/blog/')
         ->and($url)->toEndWith('.jpg');
-});
+
+    $dimensions = getimagesize(public_path("img/og/blog/{$slug}.jpg"));
+    expect($dimensions)->not->toBeFalse()
+        ->and($dimensions[0])->toBe(1200)
+        ->and($dimensions[1])->toBe(630)
+        ->and($dimensions['mime'])->toBe('image/jpeg');
+})->with([
+    'release-governance',
+    'engineering-system-is-a-product',
+    'integration-is-not-a-phase',
+    'standardize-repositories-without-centralizing-decisions',
+]);
 
 it('post without a static card falls back to the homepage og image', function () {
     $post = new BlogPost(

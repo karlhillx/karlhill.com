@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 it('organizes every primary project into one explicit portfolio collection', function () {
     $collections = ProjectCatalog::collections();
-    expect($collections->keys()->all())->toBe(['mission', 'nasa', 'tooling', 'product'])
+    expect($collections->keys()->all())->toBe(['mission', 'tooling', 'nasa', 'product'])
         ->and($collections['mission']['projects']->pluck('slug')->all())->toBe(['jacobs-mission-software'])
         ->and($collections['nasa']['projects']->pluck('slug')->all())->toBe([
             'flood-mapping-system', 'laads-daac', 'nasa-earth-observatory', 'direct-readout-laboratory', 'esscor',
@@ -22,8 +22,8 @@ it('organizes every primary project into one explicit portfolio collection', fun
 it('features five evidence-rich projects in editorial order', function () {
     $projects = ProjectCatalog::featured(5);
     expect($projects->pluck('slug')->all())->toBe([
-        'jacobs-mission-software', 'flood-mapping-system', 'laads-daac',
-        'developer-tooling', 'the-dry-standard',
+        'jacobs-mission-software', 'developer-tooling', 'flood-mapping-system',
+        'laads-daac', 'the-dry-standard',
     ]);
 
     foreach ($projects as $project) {
@@ -75,7 +75,8 @@ it('keeps tool names searchable and qualifies quantitative claims', function () 
     $this->get('/api/commands.json')->assertSee('bb-run, testrisk, and pipeguard')
         ->assertDontSee('sim-rs')->assertDontSee('driftlens')->assertDontSee('drift-rs');
     $this->get('/')->assertSee('Collaborative scientific result', false)
-        ->assertSee('Shared ownership', false);
+        ->assertSee('Core-program scale', false);
+    $this->get('/work/jacobs-mission-software')->assertSee('Messaging ownership is shared', false);
     $this->get('/work/nasa-earth-observatory')->assertSee('Historical platform scale', false);
     $this->get('/work/the-dry-standard')->assertSee('generated SQLite runtime catalog')
         ->assertSee('Publication builds the catalog')
@@ -113,8 +114,8 @@ it('keeps supporting NASA studies available through resume and discovery surface
 
 it('case study navigation follows collection order including supporting work', function () {
     expect(ProjectCatalog::adjacent('laads-daac')['next']['slug'])->toBe('nasa-earth-observatory')
-        ->and(ProjectCatalog::adjacent('esscor')['next']['slug'])->toBe('developer-tooling')
-        ->and(ProjectCatalog::adjacent('developer-tooling')['next']['slug'])->toBe('the-dry-standard')
+        ->and(ProjectCatalog::adjacent('esscor')['next']['slug'])->toBe('the-dry-standard')
+        ->and(ProjectCatalog::adjacent('developer-tooling')['next']['slug'])->toBe('flood-mapping-system')
         ->and(ProjectCatalog::adjacent('direct-readout-laboratory')['previous']['slug'])->toBe('nasa-earth-observatory');
 });
 

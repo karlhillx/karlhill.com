@@ -171,7 +171,7 @@
 }
 
 @theme {
-    --font-body: ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'IBM Plex Sans Variable', ui-sans-serif, system-ui, sans-serif;
     --font-sans: 'Big Shoulders Text', ui-sans-serif, system-ui, sans-serif;
     --font-display: 'Big Shoulders Display', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;

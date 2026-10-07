@@ -17,10 +17,12 @@ class HomeController extends Controller
     public function __invoke(): View
     {
         $posts = $this->posts->all();
+        $featuredPosts = collect(config('site.writing.featured'))
+            ->map(fn (string $slug) => $this->posts->findOrFail($slug));
 
         return view('home.index', [
             'meta' => PageMeta::home(),
-            'latestPosts' => $posts->take(3),
+            'featuredPosts' => $featuredPosts,
             'featuredProjects' => ProjectCatalog::featured(3),
             'collections' => ProjectCatalog::collections(),
             'structuredData' => HomeStructuredData::build($posts->take(12)),
