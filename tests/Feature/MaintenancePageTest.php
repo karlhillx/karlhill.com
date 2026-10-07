@@ -10,6 +10,8 @@ it('renders a self-contained maintenance message without deployment assets', fun
         ->toContain('class="status-dot" aria-hidden="true"')
         ->toContain('@media (prefers-reduced-motion: no-preference)')
         ->toContain('animation: status-pulse 2.8s')
+        ->toContain('animation: signal-flow 2.4s')
+        ->toContain('animation-delay: .6s')
         ->not->toContain('/build/')
         ->not->toContain('<script')
         ->not->toContain('<link');

@@ -43,7 +43,7 @@
         .status-dot { width: .5rem; height: .5rem; flex-shrink: 0; border-radius: 50%; background: var(--accent); }
         .content { padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 3rem); }
         .signal { display: flex; align-items: center; gap: .5rem; margin-bottom: 2rem; }
-        .signal span { width: 1.5rem; height: .35rem; background: var(--accent); }
+        .signal span { width: 2.5rem; height: .35rem; background: var(--accent); }
         .signal span:nth-child(2) { opacity: .55; }
         .signal span:nth-child(3) { opacity: .25; }
         h1 { max-width: 15ch; margin: 0 0 1.5rem; font-size: clamp(2.25rem, 6vw, 3.75rem); font-weight: 600; line-height: 1.08; letter-spacing: -.045em; text-wrap: balance; }
@@ -54,7 +54,11 @@
         .footer { padding: 1rem clamp(1.25rem, 5vw, 3rem); border-top: 1px solid var(--line); color: var(--muted); font: .75rem/1.5 ui-monospace, monospace; }
         @media (prefers-reduced-motion: no-preference) {
             .status-dot { animation: status-pulse 2.8s ease-in-out infinite; }
+            .signal span { animation: signal-flow 2.4s ease-in-out infinite; }
+            .signal span:nth-child(2) { animation-delay: .3s; }
+            .signal span:nth-child(3) { animation-delay: .6s; }
             @keyframes status-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+            @keyframes signal-flow { 0%, 100% { opacity: .25; } 40% { opacity: 1; } }
         }
     </style>
 </head>
