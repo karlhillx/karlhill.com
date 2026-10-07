@@ -173,6 +173,18 @@ spot-check `/resume` + `/about`):
    About, `llms.txt`, and the hire packet — not the homepage or the CV body).
    Music stays on `/about`; do not add `/music`.
 
+The resume summary and Jacobs/NASA bullets use the cross-program leadership
+copy in `experience.php`. Leadership & Engineering Scope comes from
+`resume.php`'s `expertise` list; the PDF renders it in the main text column as
+well as the visual sidebar so it remains available to text extractors.
+The PDF sidebar uses vector glyph outlines with separate link annotations:
+phone, email, profile labels, and profile URLs are clickable without adding
+duplicate sidebar text to the ATS text stream. After regenerating, run
+`node --test tests/pdf/resume-links.test.mjs` to check the downloadable PDF's
+link targets and sidebar hit areas.
+The resume's Open Source list is curated separately from the portfolio:
+it includes bb-run and testrisk, while pipeguard remains on the portfolio.
+
 ## Client staging
 
 Client previews live in `clients/{domain}/` (static `index.html`, or a

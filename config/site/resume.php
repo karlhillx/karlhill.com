@@ -10,7 +10,7 @@ return [
     'phone_on_web' => false,
     'postal' => '',
     // PDF splits on the first "|": lead line, then the rest.
-    'tagline' => 'Mission Software | Engineering Systems | Technical Leadership | Delivery',
+    'tagline' => 'Staff Aerospace Software Engineer | Cross-Program Technical Leadership | Mission Software & Platform Engineering',
     'ask_prompts' => [
         'What is the current role?',
         'What did he do at NASA?',
@@ -19,12 +19,13 @@ return [
     // Intentionally empty: leadership evidence lives in Jacobs experience bullets.
     'impact' => [],
     'expertise' => [
-        'Software Engineering',
-        'Technical Leadership & Direction',
+        'Cross-Program Technical Leadership',
+        'Software Architecture',
+        'Platform Engineering & Developer Experience',
         'Distributed Systems & Integration',
-        'Engineering Systems & Developer Tooling',
-        'Engineer Development & Coaching',
-        'Agile & Cross-Team Delivery',
+        'DevSecOps & CI/CD',
+        'Engineer Development',
+        'Agile Delivery',
     ],
     'products' => [
         [
@@ -43,11 +44,6 @@ return [
             'name' => 'testrisk',
             'url' => 'https://github.com/karlhillx/testrisk',
             'note' => 'Rank the highest-value Python test gaps from coverage, AST, and git.',
-        ],
-        [
-            'name' => 'pipeguard',
-            'url' => 'https://github.com/karlhillx/pipeguard',
-            'note' => 'Policy-as-code validation for Bitbucket Pipelines.',
         ],
     ],
 ];

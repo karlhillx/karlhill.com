@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\PlainText;
 use Illuminate\Support\Facades\Cache;
 
 beforeEach(function () {
@@ -382,7 +383,7 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertSee('https://www.credly.com/badges/da27e50e-ef55-41f0-bc14-ca26d9e3e0ff', escape: false);
     $resume->assertSee('Technical Expertise', escape: false);
     $resume->assertDontSee('Selected Leadership Impact', escape: false);
-    $resume->assertSee('Areas of Expertise', escape: false);
+    $resume->assertSee('Leadership &amp; Engineering Scope', escape: false);
     // Phone is PDF-only unless site.resume.phone_on_web opts in.
     $resume->assertDontSee('(202) 599-1442', escape: false);
     $resume->assertSee('Phone on the PDF', escape: false);
@@ -394,30 +395,34 @@ it('about and resume pages include contact and live cv', function () {
     $resume->assertDontSee('id="contact-form"', escape: false);
     $resume->assertSee('Download PDF', escape: false);
     $resume->assertSee('/files/Karl-Hill-Resume.pdf', escape: false);
-    $resume->assertSee('Software Engineering', escape: false);
-    $resume->assertSee('Technical Leadership &amp; Direction', escape: false);
-    $resume->assertSee('Agile &amp; Cross-Team Delivery', escape: false);
+    $resume->assertSee('Software Architecture', escape: false);
+    $resume->assertSee('Cross-Program Technical Leadership', escape: false);
+    $resume->assertSee('Platform Engineering &amp; Developer Experience', escape: false);
+    $resume->assertSee('Agile Delivery', escape: false);
     $resume->assertSee('CI/CD', escape: false);
     $resume->assertSee('bb-run', escape: false);
     $resume->assertSee('testrisk', escape: false);
-    $resume->assertSee('pipeguard', escape: false);
-    $resume->assertSee('Lead engineering delivery', escape: false);
-    $resume->assertSee('portable messaging layer', escape: false);
+    $resume->assertDontSee('pipeguard', escape: false);
+    $resume->assertSee('Provide cross-program technical leadership', escape: false);
+    $resume->assertSee('Lead technical execution for a core team of about 10 engineers across roughly 20 Python repositories', escape: false);
+    $resume->assertSee('structured growth plans', escape: false);
     $resume->assertDontSee('≥80% repository test coverage', escape: false);
     $resume->assertDontSee('two-approval PR governance', escape: false);
     $resume->assertSee('new PHP applications', escape: false);
     $resume->assertSee('Sabre', escape: false);
     $resume->assertSee('Onboarded and coached approximately six engineers', escape: false);
-    $resume->assertSee('Led software engineering on an AWS flood-mapping system', escape: false);
-    $resume->assertSee('The public map is the shipped artifact', escape: false);
+    $resume->assertSee('Architected and developed an AWS-based platform', escape: false);
+    $resume->assertSee('25+ years delivering mission-critical software', escape: false);
     $resume->assertSee('id="resume-publications"', escape: false);
     $resume->assertSee('Peer-reviewed research', escape: false);
     $resume->assertSee('href="/research/global-flood-mapping"', escape: false);
     $resume->assertSee('Software (Equal)', escape: false);
-    $resume->assertSee('Delivered Find Data search, ordering, and near-real-time access', escape: false);
-    $resume->assertSee('Led web engineering on NASA Earth Observatory', escape: false);
-    $resume->assertSee('1.5 million monthly visitors during that work', escape: false);
-    $resume->assertSee('Led Agile software delivery across NASA Earth science teams', escape: false);
+    $resume->assertSee('Delivered LAADS DAAC Find Data search, ordering, and near-real-time access', escape: false);
+    $resume->assertSee('Helped rebuild NASA Earth Observatory', escape: false);
+    $resume->assertSee('approximately 1.5 million monthly visitors', escape: false);
+    $resume->assertSee('NASA Group Achievement Award', escape: false);
+    $resume->assertSee('approximately 60%', escape: false);
+    $resume->assertSee('Led Agile technical delivery across engineers, scientists, operations teams', escape: false);
     $resume->assertDontSee('Led design and development of an AWS-based flood-mapping system', escape: false);
     $resume->assertDontSee('Modernized LAADS DAAC', escape: false);
     $resume->assertDontSee('Modernized NASA Earth Observatory', escape: false);
@@ -448,7 +453,20 @@ it('resume pdf template lists ty not mypy', function () {
     expect($html)
         ->toContain('uv, Ruff, ty, pytest, pre-commit')
         ->toContain('dependency management, linting, type checking, testing, and automated quality gates')
-        ->and($html)->not->toContain('mypy');
+        ->and($html)->not->toContain('mypy', 'pipeguard');
+
+    $text = preg_replace('/\s+/', ' ', PlainText::fromHtml($html));
+    expect($text)
+        ->toContain(config('site.experience.intro'))
+        ->toContain('Leadership & Engineering Scope');
+
+    foreach (array_merge(config('site.experience.current.highlights'), config('site.experience.roles.0.highlights')) as $bullet) {
+        expect($text)->toContain($bullet);
+    }
+
+    foreach (config('site.resume.expertise') as $scope) {
+        expect($text)->toContain($scope);
+    }
 });
 
 it('booking cta appears when configured', function () {

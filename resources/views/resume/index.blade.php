@@ -121,7 +121,7 @@
 
                 @if(! empty($resume['expertise']))
                     <section class="resume-aside-block">
-                        <h2 class="resume-aside-title">Areas of Expertise</h2>
+                        <h2 class="resume-aside-title">Leadership &amp; Engineering Scope</h2>
                         <ul class="resume-expertise">
                             @foreach($resume['expertise'] as $item)
                                 <li>{{ $item }}</li>

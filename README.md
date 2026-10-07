@@ -49,7 +49,7 @@ This installs PHP and JS deps, copies `.env.example` to `.env`, generates an app
 composer dev
 ```
 
-That runs Laravel’s `php artisan dev` (server, log tail, Vite — no queue). The site is then available at `http://localhost:8000`.
+That runs Laravel’s `php artisan dev` (server, log tail, Vite — no queue). Laravel handles process orchestration; the Node `concurrently` package is not required. The site is then available at `http://localhost:8000`.
 
 ### Production build
 

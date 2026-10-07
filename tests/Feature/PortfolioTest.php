@@ -42,14 +42,15 @@ it('features five evidence-rich projects in editorial order', function () {
 it('renders the complete portfolio without a GitHub dependency', function (string $path) {
     Http::preventStrayRequests();
     $response = $this->get($path)->assertOk();
-    foreach (['bb-run', 'testrisk', 'pipeguard'] as $name) {
+    $names = $path === '/resume' ? ['bb-run', 'testrisk'] : ['bb-run', 'testrisk', 'pipeguard'];
+    foreach ($names as $name) {
         $response->assertSee('https://github.com/karlhillx/'.$name, false);
     }
-    $response->assertSeeInOrder([
-        'https://github.com/karlhillx/bb-run',
-        'https://github.com/karlhillx/testrisk',
-        'https://github.com/karlhillx/pipeguard',
-    ], false)->assertDontSee('sim-rs')->assertDontSee('driftlens')->assertDontSee('drift-rs');
+    $response->assertSeeInOrder(array_map(fn (string $name): string => 'https://github.com/karlhillx/'.$name, $names), false)
+        ->assertDontSee('sim-rs')->assertDontSee('driftlens')->assertDontSee('drift-rs');
+    if ($path === '/resume') {
+        $response->assertDontSee('pipeguard');
+    }
     Http::assertNothingSent();
 })->with(['/work', '/work/developer-tooling', '/resume', '/llms.txt']);
 

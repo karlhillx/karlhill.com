@@ -40,6 +40,7 @@
             'high-assurance',
             'multi-environment',
             'cross-team',
+            'cross-program',
             'cross-functional',
             'multi-tenant',
             'managed-security',
@@ -48,6 +49,16 @@
             'high-traffic',
             'high-performance',
             'mission-critical',
+            'mission-software',
+            'surface-water',
+            'AWS-based',
+            'co-authored',
+            'peer-reviewed',
+            'Kubernetes-based',
+            'content-registry',
+            'data-collection',
+            'Ceph-based',
+            'production-readiness',
             'day-to-day',
             'satellite-derived',
             'Python-based',
@@ -217,7 +228,6 @@
 
         .tagline-line {
             display: block;
-            white-space: nowrap;
         }
 
         .tagline-lead {
@@ -247,7 +257,7 @@
         }
 
         .section {
-            margin-top: 0.2in;
+            margin-top: 0.14in;
         }
 
         .section-title {
@@ -273,6 +283,11 @@
             color: var(--ink);
         }
 
+        .page-1 .summary {
+            font-size: 8.8pt;
+            line-height: 1.3;
+        }
+
         .bullets {
             list-style: none;
             margin: 0.055in 0 0;
@@ -295,6 +310,12 @@
             color: var(--accent);
             padding-right: 0.08in;
             text-indent: 0;
+        }
+
+        .page-1 .bullets li {
+            font-size: 8.8pt;
+            line-height: 1.27;
+            margin-bottom: 0.03in;
         }
 
         article.role {
@@ -442,10 +463,14 @@
             padding: 0.45in 0.55in 0.36in var(--gutter);
         }
 
+        .page-2 .section {
+            margin-top: 0.1in;
+        }
+
         .page-2-kicker {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 0.2in;
+            margin-bottom: 0.14in;
             padding-bottom: 0.1in;
             border-bottom: 2px solid var(--rule);
         }
@@ -495,7 +520,7 @@
         }
 
         .stack-block {
-            margin-top: 0.2in;
+            margin-top: 0.1in;
         }
 
         .stack-line {
@@ -548,6 +573,11 @@
                         {!! $nowrapHtml($summaryFull) !!}
                     @endif
                 </p>
+            </section>
+
+            <section class="section" aria-labelledby="scope-heading">
+                <h2 id="scope-heading" class="section-title">Leadership &amp; Engineering Scope</h2>
+                <p class="summary">{{ implode(' | ', $resume['expertise']) }}</p>
             </section>
 
             <section class="section" aria-labelledby="experience-heading">
@@ -677,7 +707,7 @@
                             {{ $research['credit_label'] ?? 'CRediT' }}: {{ $research['credit'] }}.
                         @endif
                         @if(! empty($research['doi_id']))
-                            doi:{{ $research['doi_id'] }}
+                            <a href="{{ $research['doi'] }}">doi:{{ $research['doi_id'] }}</a>
                         @endif
                     </p>
                 </section>

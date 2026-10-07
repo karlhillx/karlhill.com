@@ -17,6 +17,7 @@ import { chromium } from 'playwright';
 import fontkit from '@pdf-lib/fontkit';
 import {
     PDFDocument,
+    PDFString,
     popGraphicsState,
     pushGraphicsState,
     rgb,
@@ -56,7 +57,7 @@ async function loadLato(weight) {
     const file = path.join(
         base,
         'node_modules/@fontsource/lato/files',
-        `lato-latin-${weight}-normal.woff2`,
+        `lato-latin-${weight}-normal.woff2`
     );
     const woff2 = fs.readFileSync(file);
     return Buffer.from(await decompressWoff2(woff2));
@@ -179,11 +180,23 @@ function drawTitle(text) {
     y -= 10;
 }
 
-function drawLines(lines, { size = 8.75, bold = false, leading = 1.4, gapAfter = 6 } = {}) {
+function drawLines(lines, { size = 8.75, bold = false, leading = 1.4, gapAfter = 6, href } = {}) {
     const fkFont = bold ? latoBoldFk : latoFk;
     for (const line of lines) {
         for (const part of wrapText(line, fkFont, size, maxTextW)) {
-            drawOutlinedText(part, left, y - size, size, fkFont);
+            const baseline = y - size;
+            const width = drawOutlinedText(part, left, baseline, size, fkFont);
+            if (href) {
+                // Glyph outlines have no HTML anchors; add PDF hit areas per wrapped line.
+                const annotation = pdfDoc.context.obj({
+                    Type: 'Annot',
+                    Subtype: 'Link',
+                    Rect: [left, baseline - size * 0.25, left + width, y],
+                    Border: [0, 0, 0],
+                    A: { Type: 'Action', S: 'URI', URI: PDFString.of(href) },
+                });
+                page1.node.addAnnot(pdfDoc.context.register(annotation));
+            }
             y -= size * leading;
         }
         y -= gapAfter;
@@ -191,16 +204,21 @@ function drawLines(lines, { size = 8.75, bold = false, leading = 1.4, gapAfter =
 }
 
 drawTitle('Details');
-drawLines([sidebar.location, sidebar.phone, sidebar.email].filter(Boolean), {
-    size: 8.75,
-    gapAfter: 5,
-});
+for (const [text, href] of [
+    [sidebar.location],
+    [sidebar.phone, `tel:+1${sidebar.phone.replace(/\D/g, '')}`],
+    [sidebar.email, `mailto:${sidebar.email}`],
+]) {
+    if (text) {
+        drawLines([text], { size: 8.75, gapAfter: 5, href });
+    }
+}
 
 y -= 14;
 drawTitle('Links');
 for (const link of sidebar.links ?? []) {
-    drawLines([link.label], { size: 9, bold: true, leading: 1.25, gapAfter: 1 });
-    drawLines([link.url], { size: 8, leading: 1.35, gapAfter: 8 });
+    drawLines([link.label], { size: 9, bold: true, leading: 1.25, gapAfter: 1, href: link.href });
+    drawLines([link.url], { size: 8, leading: 1.35, gapAfter: 8, href: link.href });
 }
 
 y -= 14;

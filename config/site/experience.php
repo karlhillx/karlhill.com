@@ -3,7 +3,7 @@
 $facts = require __DIR__.'/facts.php';
 
 return [
-    'intro' => 'Staff Aerospace Software Engineer with 20+ years of experience building and delivering production software across national security, aerospace, NASA, and enterprise environments. Combines hands-on engineering with technical leadership across software delivery, engineering practices, mentoring, and cross-team work.',
+    'intro' => 'Staff Aerospace Software Engineer and technical leader with 25+ years delivering mission-critical software across national security, aerospace, NASA, and enterprise environments. Leads cross-program engineering across multiple teams, shared repositories, partner organizations, and deployment environments while remaining hands-on in Python, distributed systems, integration, and developer tooling. Builds the engineering systems - architecture, CI/CD, DevSecOps, testing, release governance, and standards - that enable teams to deliver reliable software at scale.',
     'current' => [
         'label' => 'Current Role',
         'title' => 'Staff Aerospace Software Engineer',
@@ -17,11 +17,12 @@ return [
             'reserved' => 'Staff individual-contributor role; formal personnel decisions remain with management.',
         ],
         'highlights' => [
-            "Lead engineering delivery for a team of {$facts['team']} across {$facts['repos']} repositories and multiple deployment environments, sequencing work, coordinating dependencies, and driving integration and release readiness.",
-            'Develop mission software, shared interfaces, messaging integrations, and service orchestration while providing technical guidance and reviewing implementation across the team.',
-            'Advanced a portable messaging layer with a common interface and broker adapters so broker choice can stay in configuration. Ownership is shared.',
-            'Lead Agile planning and execution across internal and partner teams, translating mission priorities into sequenced engineering work and resolving cross-team dependencies and blockers.',
-            'Onboarded and coached approximately six engineers through code review, technical feedback, development guidance, and reinforcement of engineering standards.',
+            'Provide cross-program technical leadership across multiple aerospace mission-software efforts, aligning internal and partner teams on engineering standards, shared interfaces, integration strategy, and release readiness.',
+            "Lead technical execution for a core team of {$facts['team']} engineers across {$facts['repos']} Python repositories and multiple deployment environments; sequence work, resolve cross-team dependencies, and drive integration and delivery.",
+            'Design and develop mission software, distributed integrations, shared contracts, messaging capabilities, and service orchestration spanning RabbitMQ and ActiveMQ.',
+            'Build and evolve platform engineering and DevSecOps capabilities including Bitbucket Pipelines, automated testing, dependency management, repository standards, quality/security gates, and release automation.',
+            'Provide technical direction through architecture and design reviews, code review, interface decisions, repository governance, and resolution of cross-team implementation and integration issues.',
+            'Onboarded and coached approximately six engineers through technical feedback, development guidance, engineering standards, and structured growth plans while leading Agile execution across team boundaries.',
         ],
         'skills' => [
             'Python',
@@ -45,12 +46,12 @@ return [
             'period' => 'Dec 2017 — Sept 2025',
             'summary' => 'Earth science software other people used: flood maps, satellite-data access, and science publishing.',
             'highlights' => [
-                'Led software engineering on an AWS flood-mapping system for satellite-derived products. GeoHorizons co-author (2026): Software (Equal); Writing – review & editing (Equal). The public map is the shipped artifact.',
-                'Delivered Find Data search, ordering, and near-real-time access for LAADS DAAC, with GitLab CI/CD and Kubernetes web delivery alongside existing archive services.',
-                'Led web engineering on NASA Earth Observatory — editorial workflows, imagery, and the public site. About 1.5 million monthly visitors during that work.',
-                'Automated a content-registry workflow so dataset registration did not depend on a fully manual path.',
-                'Built a Ceph-based file and metadata platform for virtual directory mapping and discovery of large scientific datasets.',
-                'Led Agile software delivery across NASA Earth science teams, coordinating priorities, sprint execution, stakeholder needs, and continuous improvement.',
+                'Architected and developed an AWS-based platform generating near-real-time flood and surface-water products from satellite and geospatial data; co-authored the peer-reviewed GeoHorizons publication describing the system.',
+                'Helped rebuild NASA Earth Observatory, serving approximately 1.5 million monthly visitors; the team received a NASA Group Achievement Award.',
+                'Delivered LAADS DAAC Find Data search, ordering, and near-real-time access, with GitLab CI/CD and Kubernetes-based web delivery alongside existing archive services.',
+                'Led modernization of legacy scientific processing workflows into containerized services supported by automated CI/CD and Kubernetes deployment.',
+                'Built an automated content-registry workflow that improved scientific data-collection efficiency by approximately 60%, and developed Ceph-based file and metadata services for large datasets.',
+                'Led Agile technical delivery across engineers, scientists, operations teams, and program stakeholders while strengthening testing, code review, documentation, and production-readiness practices.',
             ],
             'skills' => [
                 'AWS',
