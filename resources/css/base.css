@@ -70,12 +70,6 @@ body {
         max(var(--space-gutter), env(safe-area-inset-right, 0px));
 }
 
-.site-section--chapter {
-    padding-block: var(--space-chapter);
-    padding-inline: max(var(--space-gutter), env(safe-area-inset-left, 0px))
-        max(var(--space-gutter), env(safe-area-inset-right, 0px));
-}
-
 .site-shell {
     width: 100%;
     max-width: var(--content-default);
@@ -275,18 +269,6 @@ body {
    Surface language — page → raised → card → feature → code.
    Prefer hairlines and washes over hard borders; keep chips sharp.
    --------------------------------------------------------------------------- */
-.surface-raised {
-    background-color: var(--surface-raised);
-    box-shadow: 0 0 0 1px var(--hairline);
-    border-radius: var(--radius-lg);
-}
-
-.surface-feature {
-    background-color: var(--surface-feature);
-    box-shadow: 0 0 0 1px var(--hairline);
-    border-radius: var(--radius-xl);
-}
-
 .surface-card {
     border-radius: var(--radius-xl);
     background-color: var(--surface-card);

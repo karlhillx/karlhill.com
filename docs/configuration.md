@@ -100,7 +100,7 @@ Motion is progressive and declarative. Entrance animations (`.hero-enter`, `.nav
 
 ### CSS layout and budget
 
-`resources/css/app.css` imports tokens → base → layout → components → motion → portfolio. `components.css` is an index over `resources/css/components/*.css`. Prose owns reading styles, syntax owns code highlighting, article owns the TOC, and case-study/on-device own their respective responsive rules. The retired interactive homepage delivery map no longer ships; `config/site/system.php` retains the compatible machine-readable delivery vocabulary. CI runs `scripts/check-bundle-size.sh`, which enforces byte budgets and rejects unreferenced class selectors.
+`resources/css/app.css` imports tokens → base → layout → components → motion → portfolio. `components.css` is an index over `resources/css/components/*.css`. Prose owns reading styles, syntax owns code highlighting, article owns the TOC, and case-study/on-device own their respective responsive rules. The retired interactive homepage delivery map no longer ships; `config/site/system.php` retains the compatible machine-readable delivery vocabulary. Manually dispatched full CI runs `scripts/check-bundle-size.sh`, which enforces byte budgets and rejects unreferenced class selectors. Push-triggered pre-deploy checks validate PHP and shell syntax only.
 
 ## Optional platform surfaces
 

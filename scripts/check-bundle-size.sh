@@ -8,7 +8,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 CSS_MAX=165000   # bytes (155 KB after the 2026-10 dead-selector purge + ~6% headroom)
 PRINT_CSS_MAX=9000  # bytes (decoupled print stylesheet)
-JS_MAX=18500     # bytes — core app.js after route-level splitting
+JS_MAX=19500     # bytes — ~18.8 KB core after search focus/close updates + headroom
 JS_TOTAL_MAX=54000  # core + lazy chunks (analytics transport, summarizer, WebGPU)
 
 # Author CSS must not define classes nothing references.
