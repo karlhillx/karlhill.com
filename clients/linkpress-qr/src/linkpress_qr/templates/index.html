@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linkpress QR — Clean QR codes. Ready for print.</title>
+  <meta name="description" content="Paste a link, generate a QR code, and download print-ready PNG and SVG files.">
+  <link rel="icon" href="{{ url_for('static', path='favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', path='app.css') }}?v={{ version }}">
+  <script src="{{ url_for('static', path='app.js') }}?v={{ version }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#url">Skip to link field</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <rect x="1" y="1" width="22" height="22" rx="5" fill="currentColor"/>
+        <g fill="#fff">
+          <path d="M5 5h6v6H5zM13 5h6v6h-6zM5 13h6v6H5z"/>
+        </g>
+        <g fill="currentColor">
+          <path d="M6.5 6.5h3v3h-3zM14.5 6.5h3v3h-3zM6.5 14.5h3v3h-3z"/>
+        </g>
+        <g fill="#fff"><path d="M13 13h2v2h-2zM17 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM17 17h2v2h-2z"/></g>
+      </svg>
+      <div>
+        <p class="brand-name">Linkpress QR</p>
+        <p class="brand-tagline">Clean QR codes. Ready for print.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="panel controls" aria-labelledby="create-heading">
+      <h1 id="create-heading">Create a QR code</h1>
+
+      <form id="qr-form" novalidate>
+        <div class="field">
+          <label for="url">Link</label>
+          <input id="url" name="url" type="url" inputmode="url"
+                 placeholder="https://example.com/tickets"
+                 autocomplete="off" autocapitalize="off" spellcheck="false"
+                 aria-describedby="url-hint url-error" required>
+          <p id="url-hint" class="hint">Paste a complete http:// or https:// link. It's encoded exactly as entered.</p>
+          <p id="url-error" class="field-error" hidden></p>
+        </div>
+
+        <fieldset class="field">
+          <legend>Style</legend>
+          <div class="segmented">
+            <input type="radio" id="preset-rounded" name="preset" value="rounded" checked>
+            <label for="preset-rounded">Rounded card</label>
+            <input type="radio" id="preset-square" name="preset" value="square">
+            <label for="preset-square">Classic square</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field" id="border-field">
+          <legend>Card border</legend>
+          <div class="segmented">
+            <input type="radio" id="border-none" name="card_border" value="none" checked>
+            <label for="border-none">None</label>
+            <input type="radio" id="border-black" name="card_border" value="black">
+            <label for="border-black">Black rounded</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field" id="outer-field">
+          <legend>Outside the card</legend>
+          <div class="segmented">
+            <input type="radio" id="outer-transparent" name="outer_background" value="transparent" checked>
+            <label for="outer-transparent">Transparent</label>
+            <input type="radio" id="outer-black" name="outer_background" value="black">
+            <label for="outer-black">Black</label>
+          </div>
+          <p class="hint">The QR code and its margin always stay solid white.</p>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary" id="generate-btn">
+            <span class="spinner" aria-hidden="true"></span>
+            <span class="btn-label">Generate QR code</span>
+          </button>
+          <button type="button" class="btn btn-quiet" id="reset-btn">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel result" aria-labelledby="preview-heading" aria-busy="false" id="result-panel">
+      <h2 id="preview-heading" class="visually-hidden">Preview</h2>
+
+      <div class="stage" id="stage">
+        <div class="stage-empty" id="stage-empty">
+          <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="4" y="4" width="40" height="40" rx="6" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/></svg>
+          <p>Your QR code will appear here.</p>
+        </div>
+        <img id="preview-img" alt="" hidden>
+        <p class="stale-badge" id="stale-badge" hidden>Settings changed — generate again to update.</p>
+      </div>
+
+      <div class="result-details" id="result-details" hidden>
+        <p class="label" id="destination-label">Opens</p>
+        <p class="destination" id="destination" aria-labelledby="destination-label"></p>
+        <p class="meta" id="meta"></p>
+      </div>
+
+      <div class="export" aria-labelledby="export-heading">
+        <h2 id="export-heading" class="export-heading">Download</h2>
+
+        <fieldset class="field compact">
+          <legend>PNG size</legend>
+          <div class="segmented">
+            {% for size in png_sizes %}
+            <input type="radio" id="size-{{ size }}" name="png_size" value="{{ size }}" {% if size == default_png_size %}checked{% endif %}>
+            <label for="size-{{ size }}">{{ size }} px</label>
+            {% endfor %}
+          </div>
+        </fieldset>
+
+        <div class="download-row">
+          <button type="button" class="btn btn-download" id="download-png" disabled>
+            <span class="spinner" aria-hidden="true"></span>
+            <span class="btn-label">Download PNG</span>
+          </button>
+          <button type="button" class="btn btn-download" id="download-svg" disabled>
+            <span class="spinner" aria-hidden="true"></span>
+            <span class="btn-label">Download SVG</span>
+          </button>
+        </div>
+        <p class="hint" id="download-hint">Generate a QR code to enable downloads.</p>
+
+        <details class="advanced">
+          <summary>Advanced export settings</summary>
+          <div class="advanced-body">
+            <div class="field compact">
+              <label for="ppi">PNG print resolution</label>
+              <select id="ppi" name="ppi">
+                <option value="">Not set (screen use)</option>
+                {% for ppi in ppi_options %}
+                <option value="{{ ppi }}">{{ ppi }} PPI</option>
+                {% endfor %}
+              </select>
+              <p class="hint" id="print-size" aria-live="polite"></p>
+            </div>
+            <p class="hint">PPI only changes the print-size metadata in the PNG; the pixels are identical. SVG is resolution-independent.</p>
+          </div>
+        </details>
+      </div>
+
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Runs locally. Links are encoded on this computer and never fetched, shortened, or sent anywhere. v{{ version }}</p>
+  </footer>
+</body>
+</html>
