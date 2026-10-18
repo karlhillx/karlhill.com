@@ -179,7 +179,7 @@
     setLoading(true);
     setStatus("Generating QR code…");
     try {
-      const response = await fetch("/api/generate", {
+      const response = await fetch("api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(settings),
@@ -233,7 +233,7 @@
     button.disabled = true;
     setStatus(`Preparing ${kind.toUpperCase()}…`);
     try {
-      const response = await fetch(`/api/export/${kind}`, {
+      const response = await fetch(`api/export/${kind}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

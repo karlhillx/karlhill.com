@@ -22,7 +22,7 @@ def test_index_page(client: TestClient) -> None:
     assert "Generate QR code" in html
     assert 'placeholder="https://example.com/tickets"' in html
     assert "Download PNG" in html and "Download SVG" in html
-    assert "/static/app.css" in html and "/static/app.js" in html
+    assert 'href="static/app.css' in html and 'src="static/app.js' in html
     assert "https://" not in html.split("<body>")[0].replace("https://example.com", "")
     assert "default-src 'self'" in r.headers["content-security-policy"]
 

@@ -8,6 +8,7 @@ it('clients index lists staged sites', function () {
     $response->assertSee('keithhillmusic.com', escape: false);
     $response->assertSee('name="robots" content="noindex"', escape: false);
     $response->assertSee('href="/clients/keithhillmusic.com/"', escape: false);
+    $response->assertSee('href="/linkpress-qr/"', escape: false);
 });
 
 it('client site serves html with base href', function () {

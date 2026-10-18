@@ -11,6 +11,12 @@ services:
     networks:
       - karlhill
 
+  linkpress-qr:
+    build:
+      context: ./clients/linkpress-qr
+    networks:
+      - karlhill
+
   nginx:
     image: nginx:alpine
     platform: linux/arm64
@@ -29,6 +35,7 @@ services:
       - ./docker/nginx:/etc/nginx/conf.d/
     depends_on:
       - app
+      - linkpress-qr
     networks:
       - karlhill
 

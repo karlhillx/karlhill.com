@@ -19,9 +19,24 @@ final class ClientSiteCatalog
     }
 
     /**
+     * Apps served by their own process behind nginx, listed alongside previews.
+     */
+    private const HOSTED = [
+        ['slug' => 'linkpress-qr', 'title' => 'Linkpress QR', 'path' => '/linkpress-qr/'],
+    ];
+
+    /**
      * @return Collection<int, array{slug: string, title: string, path: string}>
      */
     public function all(): Collection
+    {
+        return $this->previews()->concat(self::HOSTED)->sortBy('slug')->values();
+    }
+
+    /**
+     * @return Collection<int, array{slug: string, title: string, path: string}>
+     */
+    private function previews(): Collection
     {
         $root = $this->root();
 
