@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 php:8.5-fpm
+FROM --platform=linux/arm64 php:8.5.12-fpm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
