@@ -24,9 +24,7 @@ Trois was much more than a place where I worked or performed. It was my home, an
 
 While we had a weekday office manager during regular business hours, I frequently became the primary on-site resource during evenings and weekends. On busy weekends, the property could be full with 50–60 overnight guests.
 
-The owner also spent significant periods away from the property caring for her mother, and during those times I became her eyes, ears, and hands on the estate — someone she could trust to know what was happening, respond when something needed attention, and help keep both the guests and property cared for.
-
-It was a responsibility I took seriously, but also one I genuinely enjoyed.
+During extended periods when the owner was away, I also served as her eyes, ears, and hands on the estate, someone she could trust to know what was happening, respond when something needed attention, and help ensure that both the guests and property were well cared for.
 
 ## Guest Experience & Hospitality
 

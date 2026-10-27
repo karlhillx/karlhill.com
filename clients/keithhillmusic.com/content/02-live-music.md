@@ -18,10 +18,12 @@ Replace any placeholder/sample show dates currently on the site with this real s
 - June 10 — 6–9pm — Vino Di Sedona
 - July 4 — 8pm — The Joy Sedona
 - July 14 — 6–9pm — Vino Di Sedona
-
-**Upcoming shows:**
 - August 24 — 6–9pm — Vino Di Sedona
 - September 18 — The Joy (Private Event)
+
+**Upcoming shows:**
+- October 30 — 5–8pm — Outbound Sedona
+- November 1 — 5–8pm — Vino Di Sedona (featured flyer)
 
 (As new dates get booked, this list should keep growing — build it as a simple, easy-to-edit list/array rather than hardcoded markup, since Keith will keep adding shows.)
 

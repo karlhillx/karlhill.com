@@ -38,4 +38,17 @@ window.KEITH_SHOWS = [
     venue: "The Joy (Private Event)",
     year: 2026,
   },
+  {
+    date: "2026-10-30",
+    time: "5–8pm",
+    venue: "Outbound Sedona",
+    year: 2026,
+  },
+  {
+    date: "2026-11-01",
+    time: "5–8pm",
+    venue: "Vino Di Sedona",
+    year: 2026,
+    featured: true,
+  },
 ];
