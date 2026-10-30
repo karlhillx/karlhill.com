@@ -1,0 +1,10 @@
+---
+description: karlhill.com agent entry. Read AGENTS.md, then the matching .ai rule.
+alwaysApply: true
+---
+
+Read `AGENTS.md` before editing. `.ai/` is not loaded automatically.
+
+Open `.ai/rules/index.md` and read each rule whose paths match the files you will change. When the task is a visual review or a code review, read the matching skill in `.ai/skills/<name>/SKILL.md`.
+
+Do not push, merge to `main`, or deploy unless the human asks in this conversation.

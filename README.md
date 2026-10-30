@@ -76,6 +76,7 @@ Deeper material lives in [`docs/`](docs/):
 - [Writing and publishing](docs/writing.md) — post frontmatter, series, OG cards, `post:publish`, dev.to syndication.
 - [Deployment and monitoring](docs/deployment.md) — `scripts/deploy.sh`, error logging, reporting.
 - [Project layout](docs/project-layout.md) — annotated tree of controllers, support classes, views, and scripts.
+- [AI-assisted development](docs/ai-assisted-development.md) — agent contract, `.ai/` rules, and review skills.
 
 Content lives as Markdown with YAML frontmatter: blog posts in `resources/posts/`, case-study narratives in `resources/work/`. Card metadata for projects stays in `config/site/projects.php`.
 

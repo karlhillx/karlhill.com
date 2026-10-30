@@ -28,9 +28,11 @@
 /.nova
 /.vscode
 /.zed
-/.cursor
-/AGENTS.md
-/CLAUDE.md
+# Local editor state stays untracked. Only the shared Cursor entry point is committed.
+/.cursor/*
+!/.cursor/rules/
+/.cursor/rules/*
+!/.cursor/rules/project.mdc
 /GEMINI.md
 
 # Homestead
