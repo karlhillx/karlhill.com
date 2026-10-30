@@ -12,16 +12,16 @@ return [
         'period' => 'Sept 2025 — Present',
         'summary' => "Hands-on mission software and cross-program technical leadership across internal and partner teams. Core-program execution spans {$facts['team']} engineers and {$facts['repos']} Python repositories.",
         'scope' => [
-            'owned' => "Hands-on implementation, technical execution, engineering standards, and engineer development. Core-program scope: {$facts['team']} engineers across {$facts['repos']} Python repositories and multiple deployment environments.",
+            'owned' => "Hands-on implementation, technical execution, engineering standards, and engineer development. Core-program scope: {$facts['team']} engineers across {$facts['repos']} Python repositories and {$facts['environments']} deployment environments.",
             'influence' => 'Cross-program integration strategy, shared interfaces and engineering practices, partner-team dependencies, architecture decisions, and release readiness across aerospace mission-software efforts.',
         ],
         'highlights' => [
             'Provide cross-program technical leadership across multiple aerospace mission-software efforts, aligning internal and partner teams on engineering standards, shared interfaces, integration strategy, and release readiness.',
-            "Lead technical execution for a core team of {$facts['team']} engineers across {$facts['repos']} Python repositories and multiple deployment environments; sequence work, resolve cross-team dependencies, and drive integration and delivery.",
+            "Lead technical execution for a core team of {$facts['team']} engineers across {$facts['repos']} Python repositories and {$facts['environments']} deployment environments; sequence work, resolve cross-team dependencies, and drive integration and delivery.",
             'Design and develop mission software, distributed integrations, shared contracts, messaging capabilities, and service orchestration spanning RabbitMQ and ActiveMQ.',
             'Build and evolve platform engineering and DevSecOps capabilities including Bitbucket Pipelines, automated testing, dependency management, repository standards, quality/security gates, and release automation.',
             'Provide technical direction through architecture and design reviews, code review, interface decisions, repository governance, and resolution of cross-team implementation and integration issues.',
-            'Onboarded and coached approximately six engineers through technical feedback, development guidance, engineering standards, and structured growth plans while leading Agile execution across team boundaries.',
+            'Onboarded and coached approximately six engineers through technical feedback, development guidance, engineering standards, and structured growth plans while leading cross-team SAFe Agile.',
         ],
         'skills' => [
             'Python',
@@ -31,7 +31,7 @@ return [
             'CI/CD',
             'Testing',
             'Release engineering',
-            'Agile / Scrum',
+            'SAFe Agile',
             'Mentoring',
             'Cross-team coordination',
         ],

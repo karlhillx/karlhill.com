@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth"
-      data-features="{{ implode(' ', $pageFeatures ?? ['contact']) }}"
+      data-features="{{ implode(' ', $pageFeatures ?? []) }}"
       @if(! app()->isProduction()) data-sw="off" @endif
       @if(filled(config('site.push.public_key')))
           data-vapid-public="{{ config('site.push.public_key') }}"
-      @endif
-      @if(filled(config('site.booking.url')))
-          data-booking-url="{{ config('site.booking.url') }}"
-          data-booking-label="{{ config('site.booking.label') }}"
       @endif
 >
 <head>
@@ -64,19 +60,19 @@
     <meta name="twitter:description" content="{{ $ogDescription ?? ($description ?? '') }}">
     <meta name="twitter:image" content="{{ $ogImageUrl }}">
 
-    <meta name="theme-color" content="#080808">
-    <meta name="color-scheme" content="light dark">
-    {{-- Pre-paint theme pin: a stored preference wins over the OS scheme. Runs
-         before CSS applies so there is no flash between schemes. Without a
-         stored value the tokens follow prefers-color-scheme on their own. --}}
+    <meta name="theme-color" content="#0d1520">
+    <meta name="color-scheme" content="dark">
+    {{-- Pre-paint theme pin: dark unless a stored light preference exists. --}}
     <script nonce="{{ Vite::cspNonce() }}">
         (() => {
+            let theme = 'dark';
             try {
-                const t = localStorage.getItem('theme');
-                const light = t === 'light' || (t !== 'dark' && matchMedia('(prefers-color-scheme: light)').matches);
-                if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
-                if (light) document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#fafaf9');
+                if (localStorage.getItem('theme') === 'light') theme = 'light';
             } catch {}
+            document.documentElement.dataset.theme = theme;
+            const color = theme === 'light' ? '#f4f6f8' : '#0d1520';
+            document.querySelector('meta[name="theme-color"]')?.setAttribute('content', color);
+            document.querySelector('meta[name="color-scheme"]')?.setAttribute('content', theme);
         })();
     </script>
     @if($canonical ?? null)
@@ -114,8 +110,6 @@
 </head>
 <body class="bg-bg text-neutral-100 antialiased">
 
-    <div class="scroll-progress" aria-hidden="true"></div>
-
     <a href="#main-content"
        class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-black focus:font-semibold focus:text-xs focus:uppercase focus:tracking-widest">
         Skip to content
@@ -132,12 +126,6 @@
     @else
         <x-site.footer />
     @endif
-
-    <button id="quick-back-top" type="button"
-            class="quick-back-top font-mono text-caption uppercase tracking-widest"
-            aria-label="Back to top">
-        ↑ Top
-    </button>
 
     @php($toastStatus = session('status'))
     @if(in_array($toastStatus, ['contact-sent', 'contact-failed'], true))
@@ -162,30 +150,5 @@
         </div>
     @endif
 
-    <div id="command-palette" popover="auto" class="command-palette" aria-label="Command palette">
-        <button type="button" popovertarget="command-palette" popovertargetaction="hide"
-                class="portfolio-text-link min-h-11 min-w-11 mb-2" aria-label="Close search">
-            Close <span aria-hidden="true">×</span>
-        </button>
-        <search class="command-palette__search">
-            <input id="command-input" type="search"
-                   class="command-input font-mono"
-                   placeholder="Search pages and sections…"
-                   aria-label="Search commands"
-                   role="combobox"
-                   aria-expanded="false"
-                   aria-controls="command-results"
-                   aria-autocomplete="list"
-                   autocomplete="off"
-                   spellcheck="false">
-            <div id="command-results" class="command-results mt-3" role="listbox" aria-label="Commands"></div>
-        </search>
-        <div class="command-hint" aria-hidden="true">
-            <span><kbd data-mod-shortcut>⌘K</kbd> open</span>
-            <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
-            <span><kbd>↵</kbd> select</span>
-            <span><kbd>esc</kbd> close</span>
-        </div>
-    </div>
 </body>
 </html>

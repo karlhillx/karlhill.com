@@ -46,10 +46,10 @@
 @endphp
 
 <x-site.page-hero :breadcrumbs="$breadcrumbs">
-    <x-slot:title>Notes from<br>the field</x-slot:title>
+    <x-slot:title>Writing</x-slot:title>
 
     <p class="site-page-hero__lede text-neutral-300">
-        Practical notes on software engineering, technical leadership, and delivery.
+        Notes on engineering systems, delivery, and technical leadership.
     </p>
     <div class="writing-feeds">
         <div class="writing-feeds__actions">

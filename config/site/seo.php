@@ -6,8 +6,8 @@ return [
     // in the description and JSON-LD, not in interior titles.
     'home' => [
         'title' => 'Karl Hill · Staff Aerospace Software Engineer',
-        'description' => 'Karl Hill: Staff Aerospace Software Engineer at Jacobs. Cross-program technical leadership, mission software, platform engineering, and NASA systems.',
-        'og_description' => 'Mission software across teams and programs. Hands-on engineering, platform/DevEx, and technical leadership at Jacobs; NASA research and public systems.',
+        'description' => 'Karl Hill, Staff Aerospace Software Engineer. National security, aerospace, and defense mission software, NASA Goddard, and independent products.',
+        'og_description' => 'Staff Aerospace Software Engineer at Jacobs. NASA Goddard, mission software, and products built end to end.',
     ],
     'blog_index' => [
         'title' => 'Writing — Karl Hill',
@@ -15,9 +15,9 @@ return [
         'og_description' => 'Practical notes on engineering teams, software delivery, and the systems around the code.',
     ],
     'work' => [
-        'title' => 'Work — Karl Hill',
-        'description' => 'Karl Hill’s engineering portfolio: cross-program mission software, platform/DevEx tools, NASA Earth science systems, and The Dry Standard.',
-        'og_description' => 'Case studies, public systems, source code, and research. Mission software to independently built products.',
+        'title' => 'Projects',
+        'description' => 'Engineering projects: national security and aerospace mission software, NASA Earth science systems, open source, and The Dry Standard.',
+        'og_description' => 'Case studies across mission software, NASA public systems, open-source tools, and an independent product.',
     ],
     'about' => [
         'title' => 'About — Karl Hill',
@@ -26,8 +26,18 @@ return [
     ],
     'privacy' => [
         'title' => 'Privacy — Karl Hill',
-        'description' => 'How karlhill.com handles contact messages, booking, and analytics. No ads, no account system, no selling of visitor data.',
-        'og_description' => 'Contact, booking, and analytics on karlhill.com — concise and specific.',
+        'description' => 'How karlhill.com handles email and analytics. No ads, no account system, no selling of visitor data.',
+        'og_description' => 'Email and analytics on karlhill.com — concise and specific.',
+    ],
+    'experience' => [
+        'title' => 'Experience',
+        'description' => 'Karl Hill’s engineering career: Jacobs National Security, NASA Goddard, and earlier enterprise systems.',
+        'og_description' => 'Career progression across national security, aerospace, NASA, and enterprise software.',
+    ],
+    'open_source' => [
+        'title' => 'Open Source',
+        'description' => 'Open-source tools by Karl Hill: local pipeline runs, test-gap ranking, and policy checks for CI.',
+        'og_description' => 'bb-run, testrisk, and pipeguard — small tools for feedback, test risk, and pipeline policy.',
     ],
     'resume' => [
         'title' => 'Resume — Karl Hill',

@@ -10,26 +10,19 @@ test('featured projects expose meaningful links without oversized teasers', asyn
     const bounds = await page.evaluate(() => ({
         hero: document.querySelector('#hero').getBoundingClientRect().bottom,
         work: document.querySelector('#work h2').getBoundingClientRect().top,
-        portrait: document.querySelector('.portfolio-portrait').getBoundingClientRect().width,
+        portrait: document.querySelector('.opening__photo').getBoundingClientRect().width,
         height: innerHeight,
     }));
-    expect(bounds.portrait).toBeLessThanOrEqual(52);
-    expect(bounds.work - bounds.hero).toBeLessThan(120);
-    expect(bounds.work).toBeLessThan(isMobile ? bounds.height + 120 : bounds.height);
-    // Home carries three studies; the full five-card grid lives on /work.
-    await expect(page.locator('#work > .site-shell > .portfolio-grid > article')).toHaveCount(3);
-    for (const article of await page.locator('#work article').all()) {
-        await expect(article.locator('.portfolio-card__description')).toBeVisible();
-        await expect(article.locator('.portfolio-card__brief')).toHaveCount(0);
-        await expect(article.locator('.portfolio-card__impact')).toBeVisible();
+    expect(bounds.portrait).toBeGreaterThan(140);
+    expect(bounds.portrait).toBeLessThanOrEqual(isMobile ? 400 : 420);
+    expect(bounds.work).toBeGreaterThan(bounds.hero - 8);
+    await expect(page.locator('#work .studies__list > article')).toHaveCount(3);
+    for (const article of await page.locator('#work .studies__list > article').all()) {
+        await expect(article.locator('.study__body')).toBeVisible();
+        await expect(article.locator('.study__impact')).toBeVisible();
         await expect(article.getByRole('link', { name: /Read case study/ })).toBeVisible();
         await expect(article.getByRole('link')).toHaveCount(1);
-        await expect(article.locator('.portfolio-card__visual')).toHaveCount(1);
-        await expect(article.locator('.project-visual')).toBeVisible();
     }
-    const firstLink = page.locator('#work article').first().getByRole('link');
-    const linkBottom = await firstLink.evaluate((el) => el.getBoundingClientRect().bottom);
-    expect(linkBottom).toBeLessThan(bounds.height * 1.6);
     await expect(page.locator('#notes .portfolio-writing-link')).toHaveCount(3);
     await page.goto('/work');
     await expect(page.locator('.tooling-proof__index')).toHaveCount(1);
@@ -56,6 +49,9 @@ test('every portfolio image loads without broken sources or horizontal page over
 for (const theme of ['light', 'dark']) {
     test(`portfolio and product pages meet WCAG AA in ${theme} mode`, async ({ page }) => {
         await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' });
+        await page.addInitScript((choice) => {
+            localStorage.setItem('theme', choice);
+        }, theme);
         for (const path of ['/', '/work', '/work/the-dry-standard', '/work/developer-tooling']) {
             await page.goto(path);
             const results = await new AxeBuilder({ page })
@@ -100,18 +96,16 @@ test('portfolio content and collection navigation work without JavaScript', asyn
 test('hero hierarchy and work rail hold across responsive widths', async ({ page }) => {
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
-    const statement = page.locator('.portfolio-hero__statement');
-    await expect(statement).toHaveText('Mission software across teams and programs.');
+    const statement = page.locator('.opening__statement');
+    await expect(statement).toHaveText('Engineering mission-critical software.');
 
     for (const width of [320, 375, 430, 768, 1024, 1280, 1440]) {
         await page.setViewportSize({ width, height: 900 });
         const typeSizes = await page.evaluate(() => ({
             statement: parseFloat(
-                getComputedStyle(document.querySelector('.portfolio-hero__statement')).fontSize
+                getComputedStyle(document.querySelector('.opening__statement')).fontSize
             ),
-            role: parseFloat(
-                getComputedStyle(document.querySelector('.portfolio-hero__role')).fontSize
-            ),
+            role: parseFloat(getComputedStyle(document.querySelector('.opening__role')).fontSize),
         }));
         expect(typeSizes.statement).toBeGreaterThan(typeSizes.role);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
@@ -184,7 +178,7 @@ test('case studies support keyboard discovery and return to their collection', a
 test('primary actions and resume jump links meet touch-size minimums', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
-    const primaryAction = page.getByRole('link', { name: /Explore the work/ });
+    const primaryAction = page.getByRole('link', { name: /Explore Projects/ });
     expect((await primaryAction.boundingBox()).height).toBeGreaterThanOrEqual(44);
 
     await page.goto('/resume');
@@ -193,17 +187,16 @@ test('primary actions and resume jump links meet touch-size minimums', async ({ 
     }
 });
 
-test('command search finds the tooling collection by repository name', async ({ page }) => {
-    await page.goto('/');
-    await page.keyboard.press('Control+K');
-    await page.locator('#command-input').fill('pipeguard');
-    await expect(
-        page.getByRole('option', { name: /Engineering the developer feedback loop/ })
-    ).toBeVisible();
+test('work index reaches the tooling case study without a command palette', async ({ page }) => {
+    await page.goto('/work');
+    await expect(page.locator('#command-palette')).toHaveCount(0);
+    await page.locator('#developer-tooling').getByRole('link', { name: /Read case study/ }).click();
+    await expect(page).toHaveURL(/\/work\/developer-tooling$/);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/feedback loop/i);
 });
 
 test('open source shows only the three selected tools in order', async ({ page }) => {
-    for (const path of ['/work', '/work/developer-tooling', '/resume']) {
+    for (const path of ['/work', '/work/developer-tooling', '/open-source', '/resume']) {
         await page.goto(path);
         const lists = page.locator(
             '.tooling-proof__index, .tooling-directory, section[aria-labelledby="resume-open-source"] ul'
@@ -238,7 +231,7 @@ test('open source shows only the three selected tools in order', async ({ page }
     );
 });
 
-test('booking works without JavaScript and stays collapsed until requested', async ({
+test('contact is an email link and needs no JavaScript', async ({
     browser,
     baseURL,
     isMobile,
@@ -250,20 +243,10 @@ test('booking works without JavaScript and stays collapsed until requested', asy
     const page = await context.newPage();
     try {
         await page.goto(`${baseURL}/`);
-        const booking = page.locator('.contact-booking');
-        const frame = page.locator('.booking-embed__frame');
-        await expect(frame).not.toHaveAttribute('src');
-        await expect(frame).toHaveAttribute('data-src', /calendly|cal\.com/);
-        await expect(booking).not.toHaveAttribute('open');
-        await booking.locator('summary').focus();
-        await page.keyboard.press('Enter');
-        await expect(booking).toHaveAttribute('open');
-        await expect(frame).not.toHaveAttribute('src');
-        await expect(page.locator('.contact-booking__body a')).toBeVisible();
-        await page.goto(`${baseURL}/resume`);
-        await page.locator('a[href="/#book"]').click();
-        await expect(page).toHaveURL(/\/#book$/);
-        await expect(booking).toHaveAttribute('open');
+        await expect(page.locator('#book')).toHaveCount(0);
+        await expect(page.locator('.booking-embed__frame')).toHaveCount(0);
+        await expect(page.locator('#contact-form')).toHaveCount(0);
+        await expect(page.locator('#contact a[href^="mailto:"]')).toBeVisible();
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
             true
         );

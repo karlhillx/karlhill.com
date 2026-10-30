@@ -13,17 +13,14 @@ use Illuminate\Support\Facades\Vite;
 final class PreloadLinks
 {
     /**
-     * First-paint display, heading, body, and metadata fonts.
+     * First-paint display and body fonts. Code faces load with prose.
      *
      * @return list<string>
      */
     public static function fonts(): array
     {
         return [
-            'node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-700-normal.woff2',
-            'node_modules/@fontsource/big-shoulders-text/files/big-shoulders-text-latin-600-normal.woff2',
-            'node_modules/@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2',
-            'node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2',
+            'node_modules/@fontsource-variable/albert-sans/files/albert-sans-latin-wght-normal.woff2',
         ];
     }
 

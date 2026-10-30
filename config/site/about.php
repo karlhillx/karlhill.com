@@ -4,8 +4,8 @@ $facts = require __DIR__.'/facts.php';
 
 return [
     'lede' => [
-        'Staff Aerospace Software Engineer at Jacobs combining hands-on engineering with cross-program technical leadership across multiple aerospace mission-software efforts. Previously eight years on NASA Goddard Earth science systems — flood maps, satellite-data access, and public science publishing.',
-        'The work connects software other people depend on with the delivery practices, standards, and coaching around it.',
+        'Staff Aerospace Software Engineer at Jacobs. The work is hands-on mission software and technical leadership across programs: shared interfaces, delivery, and the engineers doing the work.',
+        'Before this, eight years at NASA Goddard on Earth science systems — flood maps, satellite-data access, and public science publishing.',
     ],
     'career' => [
         'title' => 'Career',
@@ -13,8 +13,8 @@ return [
         'roles' => [
             [
                 'title' => 'Staff Aerospace Software Engineer',
-                'org' => $facts['employer'].' · '.$facts['period'],
-                'summary' => 'Hands-on engineering, shared interfaces, platform practices, and technical delivery across internal and partner teams. The core program spans '.$facts['repos'].' Python repositories and multiple deployment environments.',
+                'org' => $facts['employer'].' · '.$facts['unit'].' · '.$facts['period'],
+                'summary' => 'Hands-on engineering, shared interfaces, platform practices, and technical delivery across internal and partner teams. The core program spans '.$facts['repos'].' Python repositories and '.$facts['environments'].' deployment environments.',
                 'highlights' => [
                     [
                         'text' => 'Cross-program integration strategy, architecture and design reviews, engineering standards, delivery coordination, and engineer development. Outcomes live in the current-work case study.',

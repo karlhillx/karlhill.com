@@ -2,7 +2,6 @@
 // Core modules boot on every page; heavier features load from data-features.
 import { initViewTransitions } from './modules/view-transitions.js';
 import { initNavigation } from './modules/navigation.js';
-import { initCommandPalette } from './modules/command-palette.js';
 import { initToast } from './modules/toast.js';
 import { initServiceWorker } from './modules/service-worker.js';
 import { initThemeToggle } from './modules/theme.js';
@@ -11,7 +10,6 @@ import { initCopyText } from './modules/copy-text.js';
 initViewTransitions();
 initNavigation();
 initThemeToggle();
-initCommandPalette();
 initToast();
 initServiceWorker();
 initCopyText();

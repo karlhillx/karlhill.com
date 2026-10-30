@@ -18,7 +18,7 @@ decisions:
 outcome:
 - A live Laravel product at drinkdrystandard.com, combining editorial publishing with structured search and comparison.
 - One maintained model supports discovery, product pages, editorial operations, and public data surfaces.
-- Public architecture documentation and the running product demonstrate ownership from domain research to production. No traffic, revenue, or search-latency figures are claimed.
+- The running product shows the path from domain research through classification to production.
 metrics: []
 diagram:
   title: From editorial source to product discovery
@@ -71,4 +71,4 @@ Release verification checks the application build, asset manifest, and catalog a
 
 ## Technical proof
 
-Explore the [live product](https://drinkdrystandard.com/), then inspect the [public architecture documentation](https://github.com/karlhillx/drinkdrystandard.com/blob/main/docs/architecture.md) and [publishing workflow](https://github.com/karlhillx/drinkdrystandard.com/blob/main/docs/publishing.md). These describe the implementation behind the interface. Audience, revenue, and performance benchmarks are not published here.
+Explore the [live product](https://drinkdrystandard.com/). The sections above describe the classification model, the generated catalog, and how the public application reads it.

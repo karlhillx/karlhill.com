@@ -53,7 +53,7 @@ class LlmsTxtBuilder
             $this->fileItem('About', $base.'/about', 'Career, current focus, working approach, and opportunities'),
             $this->fileItem('Research', $base.'/research/global-flood-mapping', 'Karl Hill on NASA Global Water and Flood Mapping — GeoHorizons, GWFMS, Software (Equal)'),
             $this->fileItem('Resume', $base.'/resume', 'Canonical HTML curriculum vitae'),
-            $this->fileItem('Privacy', $base.'/privacy', 'Contact, booking, and analytics'),
+            $this->fileItem('Privacy', $base.'/privacy', 'Email and analytics'),
         ];
 
         $seriesLines = $this->seriesSection($base);
@@ -109,11 +109,6 @@ class LlmsTxtBuilder
                 (string) $research['doi'],
                 (string) $research['title'],
             );
-        }
-
-        $booking = config('site.booking.url');
-        if (is_string($booking) && $booking !== '') {
-            $lines[] = $this->fileItem('Book a conversation', $booking, 'Scheduling');
         }
 
         return implode("\n", $lines)."\n";

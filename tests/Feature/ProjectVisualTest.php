@@ -13,10 +13,10 @@ it('renders appropriate artifact types for each project group', function (string
         ->toContain($expectedClass)
         ->toContain($expectedContent);
 })->with([
-    ['jacobs-mission-software', 'project-visual--diagram', 'DEVSECOPS GATE'],
+    ['jacobs-mission-software', 'project-visual--screenshot', 'ss-jacobs-ns'],
     ['flood-mapping-system', 'project-visual--screenshot', 'floodmapping.gsfc.nasa.gov'],
     ['laads-daac', 'project-visual--screenshot', 'ladsweb.modaps.eosdis.nasa.gov'],
-    ['developer-tooling', 'project-visual--terminal', 'testrisk --changed'],
+    ['developer-tooling', 'project-visual--screenshot', 'developer-tooling'],
     ['the-dry-standard', 'project-visual--screenshot', 'drinkdrystandard.com'],
 ]);
 

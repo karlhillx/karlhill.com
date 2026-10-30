@@ -20,20 +20,23 @@
         <x-slot:title>About</x-slot:title>
 
         @if($ledeParagraphs !== [])
-            <div class="about-lede max-w-2xl">
-                @foreach($ledeParagraphs as $paragraph)
-                    <p class="text-neutral-300 text-base sm:text-lg leading-relaxed">{{ $paragraph }}</p>
-                @endforeach
+            <div class="about-open grid gap-8 md:grid-cols-[minmax(0,1fr)_12rem] md:items-start">
+                <div class="about-lede max-w-2xl">
+                    @foreach($ledeParagraphs as $paragraph)
+                        <p class="text-neutral-300 text-base sm:text-lg leading-relaxed">{{ $paragraph }}</p>
+                    @endforeach
+                </div>
+                <x-site.responsive-image src="/img/webp/profile.webp" alt=""
+                    width="800" height="800" sizes="12rem" loading="lazy" :lqip="false"
+                    img-class="w-full aspect-square object-cover" />
             </div>
         @endif
 
         <div class="site-page-hero__actions">
-            <x-site.button variant="primary" href="/work">Explore the portfolio</x-site.button>
+            <x-site.button variant="primary" href="/experience">Experience</x-site.button>
             <x-site.button variant="secondary" href="/resume">Resume</x-site.button>
         </div>
     </x-site.page-hero>
-
-    @include('about.partials.arc', ['sectionNumber' => '01'])
 
     <x-site.section id="focus" section-label="Current focus" border="soft">
         <div class="grid md:grid-cols-[200px_1fr] gap-8 md:gap-14" data-reveal>

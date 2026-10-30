@@ -18,7 +18,7 @@ return [
     'employer' => 'Jacobs',
     'employer_display' => 'Jacobs National Security',
     'twitter_handle' => '@karl_hill',
-    'bio' => 'Staff Aerospace Software Engineer at Jacobs. Hands-on Python mission software and cross-program technical leadership across internal and partner teams, shared interfaces, messaging, platform engineering, and DevSecOps. Core-program technical execution for about 10 engineers across roughly 20 Python repositories. Lead Software Engineer at SSAI supporting NASA Goddard Earth science platforms, 2017–2025, including flood mapping (GeoHorizons co-author, 2026), LAADS DAAC, and Earth Observatory.',
+    'bio' => 'Staff Aerospace Software Engineer at Jacobs. Hands-on Python mission software and cross-program technical leadership across internal and partner teams, shared interfaces, messaging, platform engineering, and DevSecOps. Core-program technical execution for about 6 engineers across roughly 12 Python repositories and four environments. Lead Software Engineer at SSAI supporting NASA Goddard Earth science platforms, 2017–2025, including flood mapping (GeoHorizons co-author, 2026), LAADS DAAC, and Earth Observatory.',
     // Schema.org Thing.disambiguatingDescription — unique facts so Google
     // separates this Person from the Scottish novelist (pen name) and the
     // 19th-century German baritone who owns the primary Wikipedia article.

@@ -13,9 +13,7 @@
     'titleClass' => 'site-page-hero__title font-display text-white',
 ])
 
-<section {{ $attributes->merge(['class' => 'relative site-page-hero overflow-hidden']) }}>
-    <div class="hero-dot-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
-
+<section {{ $attributes->merge(['class' => 'relative site-page-hero']) }}>
     <div class="relative z-10 site-shell">
         @if(count($breadcrumbs) > 0)
             <x-site.breadcrumbs :items="$breadcrumbs" class="site-page-hero__crumbs hero-enter" style="animation-delay:80ms" />

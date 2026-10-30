@@ -399,6 +399,8 @@ final class SiteCatalog
         $urls = [
             ['loc' => $base.'/', 'lastmod' => $siteUpdated, 'changefreq' => 'weekly', 'priority' => '1.0'],
             ['loc' => $base.'/work', 'lastmod' => $latestWork, 'changefreq' => 'weekly', 'priority' => '0.9'],
+            ['loc' => $base.'/experience', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.8'],
+            ['loc' => $base.'/open-source', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.8'],
             ['loc' => $base.'/blog', 'lastmod' => $latestPost, 'changefreq' => 'weekly', 'priority' => '0.8'],
             ['loc' => $base.'/about', 'lastmod' => $siteUpdated, 'changefreq' => 'monthly', 'priority' => '0.7'],
             ['loc' => $base.'/research/global-flood-mapping', 'lastmod' => $siteUpdated, 'changefreq' => 'yearly', 'priority' => '0.7'],

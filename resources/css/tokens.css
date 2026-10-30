@@ -1,31 +1,25 @@
 /* Design tokens + Tailwind @theme font/color bridges */
-/* Colour scheme: dark is the designed default, light is a first-class
-   counterpart. Every token is expressed with light-dark() so the whole surface
-   flips from a single `color-scheme` value — set by the OS preference, or
-   pinned by the theme toggle via `data-theme` on <html>. */
+/* Colour scheme: dark is the default. Light is available from the theme
+   toggle. Every token is expressed with light-dark() so the whole surface
+   flips from a single `color-scheme` value, pinned by `data-theme` on <html>. */
 :root {
-    --bg: light-dark(#fafaf9, #0a0a0a);
-    --panel: light-dark(#ffffff, #141414);
-    --text: light-dark(#141414, #f5f5f5);
-    --muted: light-dark(#3f3f3f, #a8a8a8);
-    /* Raised for small mono chrome (filters, captions, form hints) —
-       sunlight / cheap screens still need ~3:1 on dark, 4.5:1 on light. */
-    --muted-2: light-dark(#4a4a4a, #9a9a9a);
-    --border: light-dark(#dedbd5, #262626);
-    --border-strong: light-dark(#c8c5be, #2a2a2a);
-    --surface-hover: light-dark(rgb(20 20 20 / 0.04), rgb(23 23 23 / 0.4));
-    /* Hairline used for card rings — replaces hard-coded white/black alphas. */
-    --hairline: light-dark(rgb(20 20 20 / 0.08), rgb(255 255 255 / 0.06));
-    --hairline-strong: light-dark(rgb(20 20 20 / 0.16), rgb(255 255 255 / 0.12));
-    /* Scrim for overlays / lightboxes. */
-    --scrim: light-dark(rgb(250 250 249 / 0.72), rgb(0 0 0 / 0.55));
-    /* Softer signal amber — less “glow kit”, still warm on dark; deepened on
-       light so amber text clears 4.5:1 on near-white. */
-    --accent: light-dark(oklch(50% 0.15 55), oklch(72% 0.14 55));
-    /* sRGB solid for primary fill CTAs (axe-stable contrast on black text). */
-    --accent-solid: light-dark(#c9862c, #d4923a);
-    --accent-ink: #0a0a0a;
-    --focus: light-dark(oklch(58% 0.14 55), oklch(78% 0.12 55));
+    /* Dark is the default surface. Light keeps the same hierarchy. */
+    --bg: light-dark(#f4f6f8, #0d1520);
+    --panel: light-dark(#ffffff, #141e2b);
+    --text: light-dark(#122033, #e7eef6);
+    --muted: light-dark(#3e4c5e, #c5d0dc);
+    --muted-2: light-dark(#4e5d70, #a8b6c6);
+    --border: light-dark(#d5dde6, #243244);
+    --border-strong: light-dark(#b7c3d1, #33465c);
+    --surface-hover: light-dark(rgb(18 32 51 / 0.04), rgb(231 238 246 / 0.06));
+    --hairline: light-dark(rgb(18 32 51 / 0.1), rgb(231 238 246 / 0.12));
+    --hairline-strong: light-dark(rgb(18 32 51 / 0.18), rgb(231 238 246 / 0.2));
+    --scrim: light-dark(rgb(244 246 248 / 0.9), rgb(13 21 32 / 0.8));
+    --accent: light-dark(#1a5278, #9ec3dc);
+    --accent-solid: light-dark(#143f5c, #7eafd0);
+    --accent-ink: light-dark(#f7f9fb, #0d1520);
+    --focus: light-dark(#1a5278, #c5dff0);
+    --navy: light-dark(#10243c, #0d1520);
     --success: light-dark(oklch(52% 0.15 150), oklch(72% 0.16 150));
     /* Form / validation errors — AA on both canvases at caption size. */
     --danger: light-dark(#b91c1c, #fca5a5);
@@ -83,24 +77,24 @@
     --content-default: 72rem;
     --content-wide: 80rem;
     /* Semantic type roles — fluid clamps; mono reserved for meta/labels. */
-    --type-hero-name: clamp(1.85rem, 3.1vw, 2.5rem);
-    --type-hero-statement: clamp(2.1rem, 4vw, 3.35rem);
-    --type-page-title: clamp(2.35rem, 6.5vw, 4rem);
-    --type-section: clamp(1.75rem, 3.2vw, 2.5rem);
-    --type-card-title: clamp(1.4rem, 2.2vw, 1.85rem);
-    --type-feature-title: clamp(1.85rem, 2.8vw, 2.45rem);
+    --type-hero-name: clamp(1.75rem, 2.4vw, 2.25rem);
+    --type-hero-statement: clamp(1.85rem, 2.8vw, 2.65rem);
+    --type-page-title: clamp(1.85rem, 2.6vw, 2.35rem);
+    --type-section: clamp(1.45rem, 2vw, 1.75rem);
+    --type-card-title: clamp(1.15rem, 1.5vw, 1.3rem);
+    --type-feature-title: clamp(1.35rem, 1.8vw, 1.6rem);
     --type-lede: clamp(1.05rem, 1.8vw, 1.125rem);
     --type-body: 1rem;
     --type-support: 0.9375rem;
     --type-caption: 0.875rem;
     --type-eyebrow: 0.75rem;
-    --leading-body: 1.65;
-    --leading-prose: 1.72;
-    --leading-ui: 1.45;
-    --leading-display: 1.04;
+    --leading-body: 1.55;
+    --leading-prose: 1.62;
+    --leading-ui: 1.4;
+    --leading-display: 1.06;
     /* Surface hierarchy — canvas → low → panel → raised → feature → code. */
     --surface-page: var(--bg);
-    --surface-low: light-dark(#f3f1ec, #0f0f0f);
+    --surface-low: light-dark(#eef2f6, #101926);
     --surface-raised: color-mix(in oklab, var(--panel) 32%, transparent);
     --surface-card: color-mix(in oklab, var(--panel) 58%, transparent);
     --surface-card-solid: var(--panel);
@@ -113,22 +107,22 @@
        sm: code, buttons, small cards; md: panels, popovers; lg: media frames,
        large cards; xl: feature surfaces; pill: tags, status dots. */
     --radius-xs: 0.125rem;
-    --radius-sm: 0.25rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
+    --radius-sm: 0.125rem;
+    --radius-md: 0.25rem;
+    --radius-lg: 0.25rem;
+    --radius-xl: 0.375rem;
     --radius-pill: 999px;
-    /* Type tracking — condensed UI needs open air; display caps need restraint. */
-    --tracking-sans: 0.01em;
-    --tracking-sans-tight: 0.004em;
-    --tracking-display: 0.02em;
-    --tracking-display-wide: 0.04em;
+    /* Albert Sans is a wide geometric. Body sits a hair tight; display tightens
+       further as the size grows. Kerning stays on — tracking is added to it. */
+    --tracking-sans: -0.009em;
+    --tracking-sans-tight: -0.016em;
+    --tracking-display: -0.032em;
+    --tracking-display-wide: -0.02em;
     --tracking-mono: 0.08em;
     --tracking-mono-loose: 0.1em;
     --tracking-wide: 0.025em;
-    /* Both schemes are supported. The UA picks from the OS preference; the
-       toggle pins one via [data-theme]. light-dark() tokens above follow it. */
-    color-scheme: light dark;
+    /* Dark unless the toggle pins light. light-dark() tokens above follow it. */
+    color-scheme: dark;
     interpolate-size: allow-keywords;
 }
 
@@ -140,40 +134,18 @@
     color-scheme: dark;
 }
 
-/* Wide-gamut escalation on Display-P3 hardware. Falls back silently on sRGB. */
+/* Wide-gamut blue. Falls back to the sRGB accent above. */
 @supports (color: color(display-p3 1 0 0)) {
     :root {
-        --accent: light-dark(oklch(50% 0.17 55), oklch(74% 0.16 55));
-        --focus: light-dark(oklch(58% 0.15 55), oklch(80% 0.14 55));
-    }
-}
-
-/* Relative color surfaces — panels/borders inherit hue from --accent. */
-@supports (color: oklch(from red l c h)) {
-    :root {
-        --panel: light-dark(
-            oklch(from var(--accent) 99.4% 0.003 h),
-            oklch(from var(--accent) 14% 0.014 h)
-        );
-        --border: light-dark(
-            oklch(from var(--accent) 88% 0.009 h),
-            oklch(from var(--accent) 22% 0.016 h)
-        );
-        --border-strong: light-dark(
-            oklch(from var(--accent) 82% 0.014 h),
-            oklch(from var(--accent) 26% 0.02 h)
-        );
-        --surface-hover: light-dark(
-            oklch(from var(--accent) 96% 0.012 h / 0.7),
-            oklch(from var(--accent) 18% 0.028 h / 0.45)
-        );
+        --accent: light-dark(oklch(40% 0.07 240), oklch(80% 0.045 230));
+        --focus: light-dark(oklch(40% 0.07 240), oklch(86% 0.04 230));
     }
 }
 
 @theme {
-    --font-body: 'IBM Plex Sans Variable', ui-sans-serif, system-ui, sans-serif;
-    --font-sans: 'Big Shoulders Text', ui-sans-serif, system-ui, sans-serif;
-    --font-display: 'Big Shoulders Display', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
     --color-bg: var(--bg);
     --color-panel: var(--panel);
@@ -195,8 +167,8 @@
        as “raised surface”. Steps that carry a role alias the token above so
        utilities and `var(--…)` can never drift apart; the rest mirror the
        scale so they keep their *role* rather than their literal luminance. */
-    --color-white: light-dark(#0a0a0a, #ffffff);
-    --color-neutral-50: light-dark(#0a0a0a, #fafafa);
+    --color-white: light-dark(#122033, #e7eef6);
+    --color-neutral-50: light-dark(#122033, #e7eef6);
     --color-neutral-100: var(--text);
     --color-neutral-200: light-dark(#262626, #e5e5e5);
     --color-neutral-300: light-dark(#404040, #d4d4d4);

@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'statement' => 'Mission software across teams and programs.',
-    'lede' => 'Hands-on engineering and cross-program technical leadership at Jacobs: mission software, platform engineering, integration, DevSecOps, developer experience, and delivery.',
-    'proof' => 'Nearly 30 years building production systems across aerospace, NASA, national security, and enterprise software.',
+    'statement' => 'Engineering mission-critical software.',
+    'lede' => 'Staff Aerospace Software Engineer working across national security, aerospace, and defense. Technical leadership spanning mission software, platform engineering, architecture, DevSecOps, and engineering delivery.',
 ];

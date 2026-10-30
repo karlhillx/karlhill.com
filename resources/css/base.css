@@ -16,12 +16,16 @@ body {
     background: var(--bg);
     font-family: var(--font-body);
     font-size: 1rem;
+    font-weight: 430;
     line-height: var(--leading-body);
     letter-spacing: var(--tracking-sans);
     font-kerning: normal;
+    font-synthesis: none;
     font-feature-settings:
         'kern' 1,
-        'liga' 1;
+        'liga' 1,
+        'calt' 1;
+    font-variant-ligatures: common-ligatures contextual;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -393,12 +397,13 @@ p {
     text-wrap: pretty;
 }
 
-/* Display voice: Big Shoulders Display ships lowercase (unlike Bebas Neue),
-   so keep the all-caps poster look and its bold color centrally. */
+/* Display voice: Albert Sans, sentence case. Tracking tightens with size. */
 .font-display {
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: 520;
+    text-transform: none;
     text-wrap: balance;
+    letter-spacing: -0.032em;
+    line-height: 1.08;
 }
 
 /* Trim the display font's generous built-in leading so headings sit

@@ -32,7 +32,7 @@ The blog at `/blog` is a flat-file Markdown system — no DB, no admin UI. To ad
 
 To add a post to an essay series, append its slug under `config/site/series.php`.
 
-OG cards are static JPGs from `php artisan og:generate` (`public/img/og/blog/{slug}.jpg`, else `/img/og-home.jpg`) — there is no runtime PNG route. The command palette fetches `/api/commands.json` on idle / first open instead of inlining the index in every HTML page.
+OG cards are static JPGs from `php artisan og:generate` (`public/img/og/blog/{slug}.jpg`, else `/img/og-home.jpg`) — there is no runtime PNG route. `/api/commands.json` remains a machine-readable index. The site does not ship a command palette.
 
 ## Syndicating to dev.to
 

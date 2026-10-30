@@ -15,7 +15,7 @@ Engineering leadership has a visibility problem.
 
 The parts that get celebrated — architecture diagrams, major launches, clever technical wins — are real. They are rarely the main reason a team succeeds or fails.
 
-I see that now in aerospace software as clearly as I did on NASA systems. Most of the work is keeping roughly twenty repositories, multiple environments, partner teams, and a group of engineers moving under the same expectations.
+I see that now in aerospace software as clearly as I did on NASA systems. Most of the work is keeping roughly twelve repositories, four environments, partner teams, and about six engineers moving under the same expectations.
 
 That work is less visible. It is also where leadership matters.
 

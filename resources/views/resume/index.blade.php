@@ -28,6 +28,9 @@
             <x-site.button variant="secondary" href="/work">
                 View selected work
             </x-site.button>
+            @if(is_file(public_path('files/content-credentials.json')))
+                <a href="/api/credentials.json" class="portfolio-text-link">Content credentials</a>
+            @endif
         </div>
     </x-site.page-hero>
 
@@ -167,7 +170,7 @@
                                 <p class="resume-role-kicker">{{ $experience['current']['label'] }}</p>
                             @endif
                             <h3 class="resume-role-title">
-                                {{ $experience['current']['title'] }}, {{ $experience['current']['company'] }}, {{ $experience['current']['location'] }}
+                                {{ $experience['current']['title'] }}, {{ $experience['current']['company'] }}@if(filled(config('site.facts.unit'))) · {{ config('site.facts.unit') }}@endif, {{ $experience['current']['location'] }}
                             </h3>
                             <p class="resume-meta resume-dates">
                                 {{ $experience['current']['period'] }}

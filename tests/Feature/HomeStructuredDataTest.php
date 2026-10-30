@@ -102,7 +102,7 @@ it('homepage html includes a disambiguating title and json-ld', function () {
     $response->assertOk();
     $response->assertSee('<title>Karl Hill · Staff Aerospace Software Engineer</title>', escape: false);
     $response->assertSee('property="og:title" content="Karl Hill · Staff Aerospace Software Engineer"', escape: false);
-    $response->assertSee('<h1 id="hero-title" class="portfolio-hero__statement">Mission software across teams and programs.</h1>', escape: false);
+    $response->assertSee('<h1 id="hero-title" class="opening__statement">'.e(config('site.hero.statement')).'</h1>', escape: false);
     $response->assertDontSee('<title>Karl Hill</title>', escape: false);
     $response->assertSee(config('site.seo.home.description'), escape: false);
     $response->assertSee('NASA Goddard Earth science', escape: false);
@@ -119,8 +119,8 @@ it('homepage html includes a disambiguating title and json-ld', function () {
     $response->assertSee('sizes="96x96" href="/img/favicon-96x96.png"', escape: false);
     $response->assertSee('sizes="192x192" href="/img/android-chrome-192x192.png"', escape: false);
     $response->assertSee('class="brand-lockup', escape: false);
-    $response->assertSee('brand-lockup__mark', escape: false);
-    $response->assertSee('>KARL HILL</span>', escape: false);
+    $response->assertSee('brand-lockup__name', escape: false);
+    $response->assertSee('>Karl Hill</span>', escape: false);
     $response->assertSee('NASA Goddard Space Flight Center', escape: false);
     $response->assertSee('Washington, DC', escape: false);
     $response->assertSee('"propertyID": "ORCID"', escape: false);

@@ -60,28 +60,26 @@ it('machine readable json omits session cookies', function () {
         ->and($response->headers->get('X-Powered-By'))->toBeNull();
 });
 
-it('html preloads big shoulders, ibm plex sans, and jetbrains fonts', function () {
+it('html preloads albert sans', function () {
     $response = $this->get('/');
     $html = $response->assertOk()->getContent();
 
     expect($html)
         ->toContain('rel="preload" as="font" type="font/woff2"')
-        ->toContain('big-shoulders-display-latin-700-normal')
-        ->toContain('big-shoulders-text-latin-600-normal')
-        ->toContain('ibm-plex-sans-latin-wght-normal')
-        ->toContain('jetbrains-mono-latin-400-normal')
-        ->not->toContain('ibm-plex-sans-latin-wght-italic')
-        ->not->toContain('jetbrains-mono-latin-500-normal');
+        ->toContain('albert-sans-latin-wght-normal')
+        ->not->toContain('newsreader-latin-wght-normal')
+        ->not->toContain('albert-sans-latin-wght-italic')
+        ->not->toContain('ibm-plex-sans-latin-wght-normal')
+        ->not->toContain('jetbrains-mono-latin-400-normal');
 
-    expect(substr_count($html, 'rel="preload" as="font"'))->toBe(4);
+    expect(substr_count($html, 'rel="preload" as="font"'))->toBe(1);
 
     $link = $response->headers->get('Link');
     if ($link !== null) {
         expect($link)
             ->toContain('as=font')
-            ->toContain('big-shoulders')
-            ->toContain('ibm-plex-sans-latin-wght-normal')
-            ->toContain('jetbrains-mono');
+            ->toContain('albert-sans-latin-wght-normal')
+            ->not->toContain('newsreader');
     }
 });
 

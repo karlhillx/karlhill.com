@@ -15,12 +15,12 @@ use App\Support\Booking;
  * - /about    career, current focus, working approach, opportunities, music coda
  * - /research/global-flood-mapping  Karl Hill companion to the GeoHorizons GWFMS paper
  * - /resume   HTML CV and PDF, including certifications (secondary utility)
- * - /privacy  contact, booking, analytics (footer utility row)
+ * - /privacy  email and analytics (footer utility row)
  * - /kit      301 → /about
- * - /now      301 → /#book; focus data lives on About
+ * - /now      301 → /#contact; focus data lives on About
  * - /delivery and /lead  301 → /work/jacobs-mission-software#delivery-practices
  * - /music    do not add — music stays on /about. This is a career site.
- * - footer    contact + booking; Writing, Resume, GitHub, LinkedIn, Privacy
+ * - footer    email; Writing, Resume, GitHub, LinkedIn, Privacy
  */
 $social = require __DIR__.'/site/social.php';
 

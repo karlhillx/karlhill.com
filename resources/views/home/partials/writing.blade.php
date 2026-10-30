@@ -2,9 +2,9 @@
     <div class="portfolio-section-heading">
         <div>
             <p class="eyebrow">Engineering notes</p>
-            <h2>Writing from the work.</h2>
+            <h2>Writing</h2>
         </div>
-        <p>Engineering systems, technical leadership, and teams — making integration visible, delivery repeatable, and engineers more effective.</p>
+        <p>Engineering systems, technical leadership, and what changes when delivery is treated as part of the product.</p>
         <a href="/about" class="portfolio-text-link">About Karl <span aria-hidden="true">→</span></a>
     </div>
     <div class="portfolio-writing">

@@ -44,7 +44,7 @@ test('Dry Standard homepage callout shows an uncropped product preview', async (
 test('wide cards separate the visual from the summary only in two-column layouts', async ({
     page,
 }) => {
-    for (const route of ['/', '/work']) {
+    for (const route of ['/work']) {
         await page.goto(route);
         const visual = page.locator('#jacobs-mission-software .portfolio-card__visual');
         for (const width of [390, 768, 1280]) {
@@ -73,13 +73,25 @@ test('hero actions have breathing room and desktop index has a labeled location'
     expect(spacing).toBeGreaterThanOrEqual(16);
 
     await page.setViewportSize({ width: 1280, height: 900 });
-    const footer = page.locator('.portfolio-hero__index-footer');
-    await expect(footer).toBeVisible();
-    await expect(footer).toContainText('Based in');
-    await expect(footer).toContainText('Washington, DC');
-    expect(await footer.evaluate((el) => parseFloat(getComputedStyle(el).borderTopWidth))).toBe(1);
+    const place = page.locator('.opening__facts');
+    await expect(place).toBeVisible();
+    await expect(place).toContainText('Based in');
+    await expect(place).toContainText('Washington, DC');
+    expect(
+        await place
+            .locator('div')
+            .last()
+            .evaluate((el) => parseFloat(getComputedStyle(el).borderTopWidth))
+    ).toBe(1);
     const destinations = page.locator('.nav-destinations');
-    await expect(destinations.getByRole('link')).toHaveText(['Work', 'Writing', 'About', 'Resume']);
+    await expect(destinations.getByRole('link')).toHaveText([
+        'Experience',
+        'Projects',
+        'Open Source',
+        'Writing',
+        'About',
+        'Resume',
+    ]);
     await destinations.getByRole('link', { name: 'Resume', exact: true }).click();
     await expect(destinations.getByRole('link', { name: 'Resume', exact: true })).toHaveAttribute(
         'aria-current',
@@ -87,28 +99,19 @@ test('hero actions have breathing room and desktop index has a labeled location'
     );
 });
 
-test('search has a visible close action and returns focus to its invoker', async ({ page }) => {
+test('theme toggle meets the touch target and there is no command palette', async ({ page }) => {
     await page.goto('/');
-    const trigger = page.getByRole('button', { name: 'Search pages and sections', exact: true });
+    await expect(page.locator('#command-palette')).toHaveCount(0);
+    const trigger = page.getByRole('button', { name: /Switch to (light|dark) theme/ });
     await expect(trigger).toBeVisible();
     const bounds = await trigger.boundingBox();
     expect(bounds.width).toBeGreaterThanOrEqual(44);
     expect(bounds.height).toBeGreaterThanOrEqual(44);
-    await trigger.click();
-    await expect(page.locator('#command-input')).toBeFocused();
-    await page.getByRole('button', { name: 'Close search', exact: true }).click();
-    await expect(page.locator('#command-palette')).toBeHidden();
-    await expect(trigger).toBeFocused();
-    await trigger.click();
-    await page.keyboard.press('Escape');
-    await expect(page.locator('#command-palette')).toBeHidden();
+    await trigger.focus();
     await expect(trigger).toBeFocused();
 });
 
-test('contact disclosure works without JavaScript and exposes server errors', async ({
-    browser,
-    baseURL,
-}) => {
+test('contact is email only and needs no JavaScript', async ({ browser, baseURL }) => {
     const context = await browser.newContext({
         javaScriptEnabled: false,
         viewport: { width: 390, height: 844 },
@@ -116,20 +119,11 @@ test('contact disclosure works without JavaScript and exposes server errors', as
     try {
         const page = await context.newPage();
         await page.goto(baseURL);
-        await expect(page.locator('#contact-form')).toBeHidden();
-        await page.locator('.contact-message summary').click();
-        await expect(page.locator('#contact-form')).toBeVisible();
-        await page.locator('#contact-name').fill('Test visitor');
-        await page.locator('#contact-email').fill('invalid-email');
-        await page.locator('#contact-message').fill('A message with enough text.');
-        await page.locator('#contact-form').evaluate((form) => {
-            form.noValidate = true;
-        });
-        await page.locator('#contact-submit').click();
-        await expect(page).toHaveURL(/#contact-form$/);
-        await expect(page.locator('.contact-message')).toHaveAttribute('open');
-        await expect(page.locator('#contact-email-error')).toBeVisible();
-        await expect(page.locator('#contact-message')).toHaveValue('A message with enough text.');
+        await expect(page.locator('#contact-form')).toHaveCount(0);
+        await expect(page.locator('#book')).toHaveCount(0);
+        const email = page.locator('#contact a[href^="mailto:"]');
+        await expect(email).toBeVisible();
+        await expect(email).toHaveAttribute('href', /^mailto:/);
     } finally {
         await context.close();
     }

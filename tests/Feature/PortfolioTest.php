@@ -75,11 +75,14 @@ it('keeps tool names searchable and qualifies quantitative claims', function () 
     $this->get('/api/commands.json')->assertSee('bb-run, testrisk, and pipeguard')
         ->assertDontSee('sim-rs')->assertDontSee('driftlens')->assertDontSee('drift-rs');
     $this->get('/')->assertSee('Collaborative scientific result', false)
-        ->assertSee('Core-program scale', false);
+        ->assertSee('Core-program scale', false)
+        ->assertDontSee('Nearly thirty years', false)
+        ->assertDontSee('github.com/karlhillx/drinkdrystandard.com', false);
     $this->get('/work/jacobs-mission-software')->assertSee('Messaging ownership is shared', false);
     $this->get('/work/nasa-earth-observatory')->assertSee('Historical platform scale', false);
     $this->get('/work/the-dry-standard')->assertSee('generated SQLite runtime catalog')
         ->assertSee('Publication builds the catalog')
+        ->assertDontSee('github.com/karlhillx/drinkdrystandard.com', false)
         ->assertDontSee('sub-second')
         ->assertDontSee('Content integrity is guaranteed');
 });
@@ -138,11 +141,12 @@ it('keeps global links and repository choices deliberately small', function (str
     }
 })->with(['/', '/work']);
 
-it('keeps contact available when scheduling is disabled', function () {
+it('keeps email contact when scheduling is disabled', function () {
     config(['site.booking.url' => null, 'site.booking.embed_src' => null]);
     $this->get('/')->assertOk()
         ->assertSee('href="/#contact"', false)
-        ->assertSee('id="contact-form"', false)
-        ->assertSee('id="book"', false)
+        ->assertSee('mailto:'.config('site.person.email'), false)
+        ->assertDontSee('id="contact-form"', false)
+        ->assertDontSee('id="book"', false)
         ->assertDontSee('booking-embed__frame', false);
 });

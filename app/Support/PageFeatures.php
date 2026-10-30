@@ -22,7 +22,6 @@ final class PageFeatures
         $features = [];
 
         if ($name === 'home') {
-            $features[] = 'contact';
             $features[] = 'reveal';
             $features[] = 'media';
 
@@ -63,7 +62,7 @@ final class PageFeatures
             return array_values(array_unique($features));
         }
 
-        if (in_array($name, ['about', 'resume', 'research.show'], true)) {
+        if (in_array($name, ['about', 'resume', 'research.show', 'experience', 'open-source'], true)) {
             $features[] = 'reveal';
             if ($name === 'resume') {
                 $features[] = 'summarizer';

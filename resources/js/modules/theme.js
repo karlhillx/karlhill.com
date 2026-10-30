@@ -1,12 +1,10 @@
 import { prefersReducedMotion } from '../lib/prefs.js';
 
 const STORAGE_KEY = 'theme';
-const THEME_COLOR = { light: '#fafaf9', dark: '#080808' };
-
-const osLight = () => matchMedia('(prefers-color-scheme: light)');
+const THEME_COLOR = { light: '#f4f6f8', dark: '#0d1520' };
 
 export function resolvedTheme() {
-    return document.documentElement.dataset.theme || (osLight().matches ? 'light' : 'dark');
+    return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
 }
 
 function syncThemeChrome() {
@@ -19,6 +17,7 @@ function syncThemeChrome() {
     document
         .querySelector('meta[name="theme-color"]')
         ?.setAttribute('content', THEME_COLOR[current]);
+    document.querySelector('meta[name="color-scheme"]')?.setAttribute('content', current);
 }
 
 export function toggleTheme() {
@@ -43,19 +42,13 @@ export function toggleTheme() {
 /**
  * Light/dark toggle. Tokens are light-dark() driven, so all this does is pin
  * `color-scheme` via [data-theme] on <html>, persist the choice, and keep the
- * theme-color meta honest. With no stored choice the OS wins (the pre-paint
- * script in the layout mirrors this logic to avoid a flash). Theme switching
- * lives on [data-theme-toggle] in the header; ⌘K also exposes Switch theme.
+ * theme-color meta honest. With no stored choice the site stays dark (the
+ * pre-paint script in the layout mirrors this to avoid a flash). Theme
+ * switching lives on [data-theme-toggle] in the header.
  */
 export function initThemeToggle() {
     document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
         button.addEventListener('click', toggleTheme);
-    });
-
-    osLight().addEventListener('change', () => {
-        if (!document.documentElement.dataset.theme) {
-            syncThemeChrome();
-        }
     });
     syncThemeChrome();
 }

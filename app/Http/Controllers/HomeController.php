@@ -23,7 +23,11 @@ class HomeController extends Controller
         return view('home.index', [
             'meta' => PageMeta::home(),
             'featuredPosts' => $featuredPosts,
-            'featuredProjects' => ProjectCatalog::featured(3),
+            'featuredProjects' => collect([
+                'jacobs-mission-software',
+                'flood-mapping-system',
+                'developer-tooling',
+            ])->map(fn (string $slug) => ProjectCatalog::findOrFail($slug))->values(),
             'collections' => ProjectCatalog::collections(),
             'structuredData' => HomeStructuredData::build($posts->take(12)),
         ]);

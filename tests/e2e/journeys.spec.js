@@ -1,28 +1,20 @@
 import { expect, test } from '@playwright/test';
 
-test('headings use loaded Big Shoulders while body text uses IBM Plex Sans Variable', async ({
-    page,
-}) => {
+test('headings and body use Albert Sans Variable', async ({ page }) => {
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
     const fonts = await page.evaluate(() => ({
-        heading: getComputedStyle(document.querySelector('.portfolio-hero__statement')).fontFamily,
+        heading: getComputedStyle(document.querySelector('.opening__statement')).fontFamily,
         body: getComputedStyle(document.body).fontFamily,
-        bodyLoaded: [...document.fonts].some(
-            (font) => font.family === 'IBM Plex Sans Variable' && font.status === 'loaded'
-        ),
-        displayLoaded: [...document.fonts].some(
-            (font) =>
-                font.family === 'Big Shoulders Text' &&
-                font.weight === '600' &&
-                font.status === 'loaded'
+        loaded: [...document.fonts].some(
+            (font) => font.family === 'Albert Sans Variable' && font.status === 'loaded'
         ),
     }));
-    expect(fonts.heading).toContain('Big Shoulders Text');
-    expect(fonts.body).not.toContain('Big Shoulders Text');
-    expect(fonts.body).toContain('IBM Plex Sans Variable');
-    expect(fonts.bodyLoaded).toBe(true);
-    expect(fonts.displayLoaded).toBe(true);
+    expect(fonts.heading).toContain('Albert Sans Variable');
+    expect(fonts.body).toContain('Albert Sans Variable');
+    expect(fonts.heading).not.toContain('Newsreader');
+    expect(fonts.body).not.toContain('Newsreader');
+    expect(fonts.loaded).toBe(true);
 });
 
 test('writing filters, reset, reload, and history keep the whole page consistent', async ({
@@ -69,16 +61,13 @@ test('mobile teasers, collection choices, and contact actions stay easy to reach
             );
         }
         const firstLink = page.locator('#work article').first().getByRole('link');
-        expect(await firstLink.evaluate((el) => el.getBoundingClientRect().top)).toBeLessThan(1200);
-        await page.locator('.contact-message summary').click();
-        const positions = await page.evaluate(() => ({
-            actions: document.querySelector('.site-footer-aside').getBoundingClientRect().bottom,
-            form: document.querySelector('[data-contact-form]').getBoundingClientRect().top,
-        }));
-        expect(positions.actions).toBeLessThan(positions.form);
+        expect(await firstLink.evaluate((el) => el.getBoundingClientRect().top)).toBeLessThan(2200);
+        await expect(page.locator('[data-analytics-location="footer-home"]')).toBeVisible();
+        await expect(page.locator('[data-contact-form]')).toHaveCount(0);
+        await expect(page.locator('#book')).toHaveCount(0);
         await page.goto('/work');
         const rail = page.getByRole('navigation', { name: 'Portfolio sections' });
-        for (const name of ['Mission', 'Platform / DevEx', 'NASA', 'Products', 'Earlier']) {
+        for (const name of ['Mission', 'Tools', 'NASA', 'Products', 'Earlier']) {
             const box = await rail.getByRole('link', { name, exact: true }).boundingBox();
             expect(box.x).toBeGreaterThanOrEqual(0);
             expect(box.x + box.width).toBeLessThanOrEqual(width);

@@ -12,7 +12,8 @@ it('blog index renders with release governance post', function () {
     $response = $this->get('/blog');
 
     $response->assertStatus(200);
-    $response->assertSee('Notes from', escape: false);
+    $response->assertSee('site-page-hero__title', escape: false);
+    $response->assertSee('Writing', escape: false);
     $response->assertSee('What 20 Years Taught Me About Release Governance', escape: false);
 });
 
@@ -257,11 +258,11 @@ it('homepage hero is a tight first viewport', function () {
     $response = $this->get('/');
 
     $response->assertStatus(200);
-    $response->assertSee('<h1 id="hero-title" class="portfolio-hero__statement">Mission software across teams and programs.</h1>', escape: false);
+    $response->assertSee('<h1 id="hero-title" class="opening__statement">'.e(config('site.hero.statement')).'</h1>', escape: false);
     $response->assertDontSee('hero-subtitle', escape: false);
     $response->assertSee(config('site.hero.lede'), escape: false);
     $response->assertDontSee('hero-open', escape: false);
-    $response->assertSee('portfolio-portrait', escape: false);
+    $response->assertSee('opening__photo', escape: false);
     $response->assertDontSee('Platforms · Delivery · Engineering Leadership', escape: false);
     $response->assertDontSee('hero-availability', escape: false);
 });

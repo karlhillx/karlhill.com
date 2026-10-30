@@ -8,16 +8,17 @@ beforeEach(function () {
     ]);
 });
 
-it('tags booking and email CTAs in the footer with their placement', function () {
+it('tags the footer email with its placement', function () {
     $about = $this->get('/about')->assertOk()->getContent();
 
-    expect($about)->toContain('data-analytics-event="booking_cta_clicked"')
+    expect($about)->not->toContain('data-analytics-event="booking_cta_clicked"')
         ->and($about)->toContain('data-analytics-location="footer"')
         ->and($about)->toContain('data-analytics-event="email_clicked"');
 
     $home = $this->get('/')->assertOk()->getContent();
 
     expect($home)->toContain('data-analytics-location="footer-home"')
+        ->and($home)->not->toContain('data-analytics-event="booking_cta_clicked"')
         ->and($home)->not->toContain('data-analytics-target="kit"');
 });
 
@@ -35,14 +36,14 @@ it('tags resume downloads with placement', function () {
         ->and($resume)->toContain('data-analytics-event="resume_downloaded"');
 });
 
-it('renders the booking embed the completion listener hooks into', function () {
+it('does not link or embed a scheduler', function () {
     $now = $this->get('/')->assertOk()->getContent();
 
-    expect($now)->toContain('class="booking-embed__frame"')
-        ->toContain('data-src="')
-        ->and($now)->toContain('data-analytics-event="booking_cta_clicked"')
+    expect($now)->not->toContain('booking-embed__frame')
+        ->and($now)->not->toContain('id="book"')
+        ->and($now)->not->toContain('data-analytics-event="booking_cta_clicked"')
         ->and($now)->toContain('data-analytics-location="footer-home"')
-        ->and($now)->toContain('data-analytics-location="contact"');
+        ->and($now)->not->toContain('https://calendly.com/example');
 
     expect(preg_match('~<iframe[^>]*\ssrc=~s', $now))->toBe(0);
 });

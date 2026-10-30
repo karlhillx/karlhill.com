@@ -1,5 +1,5 @@
 ---
-title: 'How to Standardize 20 Repositories Without Centralizing Every Decision'
+title: 'How to Standardize 12 Repositories Without Centralizing Every Decision'
 slug: standardize-repositories-without-centralizing-decisions
 date: 2026-10-07
 excerpt: 'A shared baseline should make reliable delivery easier while leaving implementation decisions with the engineers closest to the work.'
@@ -11,7 +11,7 @@ tags:
   - leadership
 ---
 
-Across roughly 20 repositories, consistency is an engineering concern. So is local ownership.
+Across roughly 12 repositories, consistency is an engineering concern. So is local ownership.
 
 Standardize too little and each repository becomes a different set of assumptions. Standardize too much and every change depends on the people maintaining the shared machinery.
 

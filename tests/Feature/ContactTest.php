@@ -5,15 +5,13 @@ use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
-it('home page renders the contact form', function () {
+it('home page offers email and does not render a contact form', function () {
     $this->get('/')
         ->assertOk()
-        ->assertSee('name="message"', false)
-        ->assertSee('action="'.route('contact.store').'"', false)
-        ->assertSee('id="contact-submit"', false)
-        ->assertSee('Prefer a form? Send a message', false);
-    $html = $this->get('/')->getContent();
-    expect($html)->toMatch('/<details class="contact-message"\\s*>/');
+        ->assertSee('mailto:'.config('site.person.email'), false)
+        ->assertDontSee('name="message"', false)
+        ->assertDontSee('id="contact-form"', false)
+        ->assertDontSee('id="book"', false);
 });
 
 it('valid submission sends mail and redirects', function () {
@@ -37,10 +35,9 @@ it('valid submission sends mail and redirects', function () {
         ->assertOk()
         ->assertSee('data-toast', false)
         ->assertSee('Thanks — message sent', false)
-        ->assertSee('data-contact-complete', false)
-        ->assertSee('class="contact-message"', false)
-        ->assertSee('You can also book a conversation', false)
-        ->assertSee(url('/').'#book', false);
+        ->assertDontSee('data-contact-complete', false)
+        ->assertDontSee('You can also book a conversation', false)
+        ->assertDontSee('id="book"', false);
 });
 
 it('invalid submission fails validation and sends nothing', function () {
@@ -55,7 +52,7 @@ it('invalid submission fails validation and sends nothing', function () {
     Mail::assertNothingSent();
 });
 
-it('validation errors render accessible feedback on the form', function () {
+it('validation errors return to contact without rendering a form', function () {
     Mail::fake();
 
     $response = $this->from('/')
@@ -65,15 +62,12 @@ it('validation errors render accessible feedback on the form', function () {
             'message' => 'too short',
         ]);
 
-    $response->assertRedirect(route('home').'#contact-form');
+    $response->assertRedirect(route('home').'#contact');
 
-    $page = $this->followRedirects($response)
+    $this->followRedirects($response)
         ->assertOk()
-        ->assertSee('aria-invalid="true"', false)
-        ->assertSee('id="contact-name-error"', false)
-        ->assertSee('id="contact-email-error"', false)
-        ->assertSee('id="contact-message-error"', false);
-    expect($page->getContent())->toMatch('/<details class="contact-message"\\s+open\\s*>/');
+        ->assertDontSee('id="contact-form"', false)
+        ->assertDontSee('aria-invalid="true"', false);
 });
 
 it('csrf token endpoint returns a fresh uncached token', function () {
@@ -133,7 +127,7 @@ it('turnstile failure blocks send when configured', function () {
             'message' => 'I would love to talk about a platform build.',
             'cf-turnstile-response' => 'invalid',
         ])
-        ->assertRedirect(route('home').'#contact-form')
+        ->assertRedirect(route('home').'#contact')
         ->assertSessionHasErrors('turnstile');
 
     Mail::assertNothingSent();
@@ -168,7 +162,8 @@ it('ajax submission returns json success without redirect', function () {
     $response->assertOk()
         ->assertJsonPath('status', 'contact-sent')
         ->assertJsonStructure(['status', 'message', 'email', 'booking_url', 'booking_label'])
-        ->assertJsonPath('booking_url', url('/').'#book');
+        ->assertJsonPath('booking_url', null)
+        ->assertJsonPath('booking_label', null);
 
     Mail::assertSent(ContactMessage::class);
 });
@@ -274,7 +269,7 @@ it('turnstile still requires a token when configured', function () {
             'email' => 'ada@example.com',
             'message' => 'I would love to talk about a platform build.',
         ])
-        ->assertRedirect(route('home').'#contact-form')
+        ->assertRedirect(route('home').'#contact')
         ->assertSessionHasErrors('turnstile');
 
     Mail::assertNothingSent();

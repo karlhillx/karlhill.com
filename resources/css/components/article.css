@@ -250,8 +250,7 @@
     }
 }
 
-/* Theme toggle — icon shows the scheme you'd switch *to*. Pure CSS state:
-   an explicit [data-theme] pin wins, otherwise the OS preference decides. */
+/* Theme toggle — icon shows the scheme you'd switch *to*. Dark is the default. */
 .theme-toggle__icon--moon {
     display: none;
 }
@@ -262,16 +261,6 @@
 
 :root[data-theme='light'] .theme-toggle__icon--moon {
     display: block;
-}
-
-@media (prefers-color-scheme: light) {
-    :root:not([data-theme]) .theme-toggle__icon--sun {
-        display: none;
-    }
-
-    :root:not([data-theme]) .theme-toggle__icon--moon {
-        display: block;
-    }
 }
 
 /* Tag filter + adjacent nav micro-interactions */

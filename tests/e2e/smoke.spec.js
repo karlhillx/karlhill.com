@@ -25,14 +25,14 @@ test.describe('smoke + a11y', () => {
     test('navigation stays complete across desktop, tablet, and mobile', async ({ page }) => {
         await page.goto('/work');
         const primary = page.getByRole('navigation', { name: 'Primary', exact: true });
-        // Text links appear from lg (1024px); below that the drawer carries them.
-        const DRAWER_MAX = 1024;
+        // Text links appear from 1180px; below that the drawer carries them.
+        const DRAWER_MAX = 1180;
         for (const width of [320, 390, 820, 1024, 1280, 1440]) {
             await page.setViewportSize({ width, height: 900 });
             if (width < DRAWER_MAX) {
                 await primary.getByRole('button', { name: 'Open menu', exact: true }).click();
             }
-            for (const name of ['Work', 'Writing', 'About', 'Contact']) {
+            for (const name of ['Experience', 'Projects', 'Open Source', 'Writing', 'About', 'Contact']) {
                 await expect(
                     primary.getByRole('link', { name, exact: true }).filter({ visible: true })
                 ).toBeVisible();
@@ -73,7 +73,7 @@ test.describe('smoke + a11y', () => {
         const navigation = page.getByRole('navigation', { name: 'Portfolio sections' });
         for (const [label, target] of [
             ['Products', 'products'],
-            ['Platform / DevEx', 'open-source'],
+            ['Tools', 'open-source'],
             ['NASA', 'nasa'],
             ['Earlier', 'earlier'],
             ['Mission', 'work'],
@@ -134,8 +134,8 @@ test.describe('smoke + a11y', () => {
         await expect(page.locator('[data-home-actions] a[href="/work"]')).toBeVisible();
         await expect(page.locator('#work h3 a')).toHaveText([
             'Read case study: Cross-program mission software',
-            'Read case study: Engineering the feedback loop',
             'Read case study: Flood Mapping System',
+            'Read case study: Engineering the feedback loop',
         ]);
         await expect(page.locator('h3#work-card-title-jacobs-mission-software')).toBeVisible();
         await page.goto('/work');
@@ -170,7 +170,7 @@ test.describe('smoke + a11y', () => {
         await page.goto('/');
         await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
         await expect(page.locator('[data-home-actions] a')).toHaveCount(2);
-        await expect(page.locator('[data-home-actions] a[href="/#contact"]')).toBeVisible();
+        await expect(page.locator('[data-home-actions] a[href="/resume"]')).toBeVisible();
         await expect(page.locator('a[href="/kit"]')).toHaveCount(0);
         await expect(page.locator('#system')).toBeVisible();
         await expect(page.locator('#system').getByRole('link')).toHaveAttribute(
@@ -178,22 +178,19 @@ test.describe('smoke + a11y', () => {
             '/work/jacobs-mission-software#delivery-system'
         );
         await expect(page.locator('[data-delivery-map]')).toHaveCount(0);
-        await expect(page.locator('#contact-form')).toBeHidden();
-        await page.locator('.contact-message summary').click();
-        await expect(page.locator('#contact-form')).toBeVisible();
+        await expect(page.locator('#contact-form')).toHaveCount(0);
+        await expect(page.locator('#book')).toHaveCount(0);
+        await expect(page.locator('#contact a[href^="mailto:"]')).toBeVisible();
         await assertA11y(page);
     });
 
-    test('legacy now bookmark opens booking alongside contact', async ({ page }) => {
-        await page.goto('/now#book');
-        await expect(page).toHaveURL(/\/#book$/);
-        await expect(page.locator('.contact-booking')).toHaveAttribute('open');
-        await expect(page.locator('#book')).toBeVisible();
-        await expect(page.locator('.booking-embed__frame')).toHaveAttribute(
-            'src',
-            /calendly|cal\.com/
-        );
-        await assertA11y(page, { exclude: ['.booking-embed'] });
+    test('legacy now bookmark opens the email contact', async ({ page }) => {
+        await page.goto('/now');
+        await expect(page).toHaveURL(/\/#contact$/);
+        await expect(page.locator('#book')).toHaveCount(0);
+        await expect(page.locator('#contact a[href^="mailto:"]')).toBeVisible();
+        await expect(page.locator('.booking-embed__frame')).toHaveCount(0);
+        await assertA11y(page);
     });
 
     test('work stays curated while supporting studies remain available on resume', async ({
@@ -242,15 +239,15 @@ test.describe('smoke + a11y', () => {
         await page.evaluate(() => {
             document.addEventListener('click', (e) => e.preventDefault(), { capture: true });
         });
-        await page.locator('footer [data-analytics-event="booking_cta_clicked"]').first().click();
+        await page.locator('footer [data-analytics-event="email_clicked"]').first().click();
 
         const events = await page.evaluate(() => window.__events);
         expect(events).toContainEqual({
-            name: 'booking_cta_clicked',
+            name: 'email_clicked',
             options: { props: { page: '/about', location: 'footer' } },
         });
 
-        await page.goto('/#book');
+        await page.goto('/#contact');
         const scheduled = await page.evaluate(() => {
             window.__events = [];
             window.postMessage({ event: 'calendly.event_scheduled' }, window.location.origin);
@@ -274,17 +271,15 @@ test.describe('smoke + a11y', () => {
         await assertA11y(page);
     });
 
-    test('command palette marks off-site results', async ({ page }) => {
+    test('primary navigation opens on a phone without a command palette', async ({ page }) => {
+        await page.setViewportSize({ width: 390, height: 844 });
         await page.goto('/');
-        await page.keyboard.press('Control+K');
-        await expect(page.locator('#command-palette')).toBeVisible();
-
-        const linkedin = page.getByRole('option', { name: /linkedin/i });
-        await expect(linkedin.locator('.command-result__ext')).toHaveText('↗');
-        await expect(linkedin).toContainText('opens in a new tab');
-
-        await expect(
-            page.getByRole('option', { name: /switch theme/i }).locator('.command-result__ext')
-        ).toHaveCount(0);
+        await expect(page.locator('#command-palette')).toHaveCount(0);
+        await page.getByRole('button', { name: 'Open menu' }).click();
+        const menu = page.locator('#mobile-menu');
+        await expect(menu).toBeVisible();
+        await expect(menu.getByRole('link', { name: 'Projects', exact: true })).toBeVisible();
+        await page.keyboard.press('Escape');
+        await expect(menu).toBeHidden();
     });
 });

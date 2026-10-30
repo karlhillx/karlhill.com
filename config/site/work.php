@@ -1,19 +1,19 @@
 <?php
 
 return [
-    'lede' => 'Nearly 30 years of engineering, seen through the work: mission software, platform engineering, NASA-scale public systems, and independently built products.',
+    'lede' => 'National security and aerospace mission software, NASA public systems, open-source tools, and one product owned end to end.',
     'collections' => [
         'mission' => [
             'id' => 'work',
             'title' => 'Mission Software',
             'nav_label' => 'Mission',
-            'kicker' => '01 / Aerospace · Jacobs',
+            'kicker' => '01 / Jacobs · BlackLynx',
             'intro' => 'Hands-on engineering and cross-program technical leadership: making mission software integrate, pass meaningful checks, and ship across internal and partner teams.',
         ],
         'tooling' => [
             'id' => 'open-source',
             'title' => 'Platform Engineering / Developer Experience',
-            'nav_label' => 'Platform / DevEx',
+            'nav_label' => 'Tools',
             'kicker' => '02 / Developer platforms · DevEx',
             'intro' => 'The engineering system is a product too. Independent tools shorten feedback loops, make policy executable, and expose operational behavior.',
         ],

@@ -16,10 +16,10 @@
 @endpush
 
 @section('content')
-    <x-site.page-hero :breadcrumbs="[['label' => 'Home', 'url' => '/'], ['label' => 'Work']]">
-        <x-slot:title>Work, in context.</x-slot:title>
+    <x-site.page-hero :breadcrumbs="[['label' => 'Home', 'url' => '/'], ['label' => 'Projects']]">
+        <x-slot:title>Projects</x-slot:title>
         <p class="site-page-hero__lede text-neutral-300">{{ config('site.work.lede') }}</p>
-        <p class="portfolio-caption portfolio-inline-note">Start with a collection. Each case study separates the problem, my contribution, and the evidence.</p>
+        <p class="portfolio-caption">Each case study separates the problem, the responsibility, and what can be verified.</p>
     </x-site.page-hero>
 
     <nav class="portfolio-nav site-gutter" aria-label="Portfolio sections">

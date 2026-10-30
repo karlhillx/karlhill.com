@@ -74,7 +74,7 @@ class ContactController extends Controller
             throw ValidationException::withMessages($errors);
         }
 
-        return redirect($this->returnUrl($request, fragment: 'contact-form'))
+        return redirect($this->returnUrl($request, fragment: 'contact'))
             ->withErrors($errors)
             ->withInput($input);
     }
@@ -116,14 +116,12 @@ class ContactController extends Controller
      */
     protected function sentPayload(): array
     {
-        $bookingUrl = filled(config('site.booking.url')) ? url('/').'#book' : null;
-
         return [
             'status' => 'contact-sent',
             'message' => 'Thanks — message sent. I\'ll reply from '.config('site.person.email').'.',
             'email' => config('site.person.email'),
-            'booking_url' => $bookingUrl,
-            'booking_label' => $bookingUrl ? (string) config('site.booking.label') : null,
+            'booking_url' => null,
+            'booking_label' => null,
         ];
     }
 

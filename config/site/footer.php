@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'headline' => "Let's\nTalk",
-    'body' => 'Engineering leadership, mission software, platform engineering, developer experience, or collaboration.',
+    'headline' => 'Get in touch.',
+    'body' => 'For a role, a collaboration, or a question about the work. Email is the direct route.',
     'resume' => '/files/Karl-Hill-Resume.pdf',
-    'contact_placeholder' => 'Role, timeline, and the question.',
-    'compact_body' => 'Schedule a conversation or send email.',
+    'contact_placeholder' => 'What you are working on, and the question.',
+    'compact_body' => 'Email is the direct route.',
 ];

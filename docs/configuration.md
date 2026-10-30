@@ -2,14 +2,14 @@
 
 Domain copy lives in `config/site/*.php` (hero, person, experience, projects, now, …). `config/site.php` is the aggregator: it loads those fragments and wires env-sensitive flags (analytics, booking, Turnstile, push, platform surfaces).
 
-Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared scale and affiliation facts live in `config/site/facts.php`. Homepage positioning is `hero.statement`, `hero.lede`, and `hero.proof`: hands-on cross-program technical leadership, with a 1997–present chronology. About, `llms.txt`, and the hire packet use `person.availability` for fit centered on architecture, platform/DevEx, delivery, and engineer development rather than a predetermined job title. The longer statement is `person.availability_long`. Evergreen current-focus data remains in `config/site/now.php` and renders on About without a monthly label or timestamp. Music stays a short coda on `/about`; do not add `/music`.
+Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared scale and affiliation facts live in `config/site/facts.php`. Homepage positioning is `hero.statement` and `hero.lede`: hands-on cross-program technical leadership. About, `llms.txt`, and the hire packet use `person.availability` for fit centered on architecture, platform/DevEx, delivery, and engineer development rather than a predetermined job title. The longer statement is `person.availability_long`. Evergreen current-focus data remains in `config/site/now.php` and renders on About without a monthly label or timestamp. Music stays a short coda on `/about`; do not add `/music`.
 
 ## Portfolio architecture
 
-- Primary navigation is Work, Writing, About, Resume, Contact from `lg` (1024px); below that a drawer carries Work, Writing, About, Resume, and email while Contact stays visible. The footer has five utility links: Writing, Resume, GitHub, LinkedIn, Privacy.
+- Primary navigation is Experience, Projects, Open Source, Writing, About, Resume, and Contact from 1180px; below that a drawer carries the same destinations plus email. The footer has five utility links: Writing, Resume, GitHub, LinkedIn, Privacy.
 - Resume sits alongside Work, Writing, and About in the desktop destination group; search, theme, and Contact remain separate actions. Hero CTAs have explicit spacing above them, and the desktop portfolio index ends with a divided, labeled location footer rather than a repeated positioning sentence.
-- `/kit` redirects permanently to `/about`; `/now` to `/#book`; `/delivery` and `/lead` directly to `/work/jacobs-mission-software#delivery-practices`. No redirect chains. Retired pages are absent from the sitemap, prefetch targets, and search destinations. Existing `now` and `kit` JSON keys remain compatible but point to the consolidated destinations.
-- About combines career, current focus, working approach, and hiring information. Delivery practices live in the Jacobs narrative. Publication details remain linked from the Flood Mapping case study, not global navigation.
+- `/kit` redirects permanently to `/about`; `/now` to `/#contact`; `/delivery` and `/lead` directly to `/work/jacobs-mission-software#delivery-practices`. No redirect chains. Retired pages are absent from the sitemap, prefetch targets, and search destinations. Existing `now` and `kit` JSON keys remain compatible but point to the consolidated destinations.
+- `/experience` holds the career record. About keeps current focus, working approach, and the short music note. Delivery practices live in the Jacobs narrative. Publication details remain linked from the Flood Mapping case study, not global navigation.
 - Cards have one accessible case-study link in the title, with a stretched hit area and a visual CTA below. Independent repository links remain separately operable. Live systems and papers are linked within case studies.
 - Wide cards use a hairline vertical divider between visual and summary in two-column layouts. Visual headers remain scoped to their artifact; stacked mobile cards omit the vertical divider.
 - The homepage Dry Standard callout includes the existing publication/product-review screenshot, uncropped and lazy-loaded through the responsive-image component. It sits beside the copy on desktop and above it on smaller screens.
@@ -23,9 +23,9 @@ Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared 
 - `/work/developer-tooling` features only **bb-run, testrisk, and pipeguard**, in that order, from `config/site/github.php`. `/work/the-dry-standard` documents product ownership, the generated SQLite catalog, evidence rules, discovery, editorial operations, and production delivery. Both flow through the existing sitemap, command search, and machine-readable catalog. The resume keeps Independent Products separate from Open Source.
 - Keep metrics attributable: Jacobs figures describe scope and adopted standards; the flood-map evaluation is collaborative research; Earth Observatory traffic describes historical platform scale. Do not invent product revenue, adoption, or speed claims.
 - Jacobs team/repository/environment figures are core-program scale, not aggregate cross-program totals. Jacobs and tooling narratives use one validated `attribution` statement near the masthead. Scope renders as My scope / Broader influence; adoption states remain explicit.
-- The home contact form is a native disclosure, automatically open after server validation errors or contact status. Email precedes booking; the full-page POST path remains usable without JavaScript. Framework credits omit exact versions.
+- Public pages offer email as the only contact method. The footer does not render a form or a scheduler. Framework credits omit exact versions.
 - Essay series stack vertically on mobile. Case-study TOCs stay sticky on desktop and collapsible on mobile. Search is visible as an icon on mobile, includes a close button, and restores focus to its invoker.
-- Portfolio styling and collection navigation live in `resources/css/portfolio.css`, using shared tokens. Body text uses self-hosted IBM Plex Sans Variable (Latin, normal and italic); Big Shoulders Text supplies condensed headings/UI and Big Shoulders Display supplies display text (rendered bold + uppercase to keep the old all-caps poster voice). Cards expose their content without hover; screenshots use the responsive-image component, explicit dimensions, and lazy loading. Four first-paint font faces are preloaded; IBM Plex Sans italic loads only when needed. Oswald and Lato stay in `package.json` only because `resume/pdf.blade.php` embeds them in the classic resume PDF.
+- The public visual system defaults to dark and stays technical: cool neutrals, navy ink, a restrained blue accent, and Albert Sans for both UI and headings. Light is available from the theme toggle and is remembered. Tokens live in `resources/css/tokens.css`; `resources/css/mission.css` overrides older portfolio chrome. Screenshots use the responsive-image component, explicit dimensions, and lazy loading. Albert Sans is preloaded; the italic face and JetBrains Mono load only when needed. Oswald and Lato stay in `package.json` only because `resume/pdf.blade.php` embeds them in the classic resume PDF. Confidential work is described in prose. It is not illustrated with invented architecture diagrams.
 - About supplies context, Resume owns chronology/credentials/PDF, and Kit is the forwarding document. Do not turn each into another homepage.
 
 For new raster images, run `php artisan assets:webp`, then `php artisan og:generate <slug>` for a 1200×630 social card. The developer-tooling diagram source is `public/img/developer-tooling.svg`; its PNG is the raster input to the same asset pipeline.
@@ -64,19 +64,9 @@ PLAUSIBLE_DOMAIN=karlhill.com
 # GOOGLE_ANALYTICS_MEASUREMENT_ID=G-EZZNL8KY8P
 ```
 
-Booking (Calendly or Cal.com) lives beside Contact on desktop and before the form on mobile. DOM and keyboard order follow the mobile layout: introduction, email/scheduling, form, profiles. A native
-disclosure keeps the inline scheduler collapsed until requested; `/#book`
-opens it directly, including without JavaScript. Footer and resume booking
-links use that anchor. The primary navigation always says Contact:
+Contact on public pages is the footer email address. Navigation Contact links to `/#contact`. `BOOKING_URL` remains in config for older machine-readable fields and is not rendered.
 
-```env
-BOOKING_URL=https://calendly.com/karlhill
-BOOKING_LABEL="Book a conversation"
-```
-
-Optional Cloudflare Turnstile for the contact form (skipped until both keys
-are set). The widget script loads on form focus or when the footer is near
-the viewport — not on every page's first paint.
+Optional Cloudflare Turnstile applies only if a contact form is rendered (it is not on public pages). The widget is skipped until both keys are set.
 
 ```env
 TURNSTILE_SITE_KEY=

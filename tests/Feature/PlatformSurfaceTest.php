@@ -146,9 +146,10 @@ it('nav uses invoker commands and blog cards use interest invokers', function ()
     $this->get('/')
         ->assertOk()
         ->assertSee('command="toggle-popover"', escape: false)
-        ->assertSee('commandfor="command-palette"', escape: false)
+        ->assertSee('commandfor="mobile-menu"', escape: false)
+        ->assertDontSee('command-palette', escape: false)
         ->assertSee('data-theme-toggle', escape: false)
-        ->assertSee('<search', escape: false);
+        ->assertDontSee('<search', escape: false);
 
     $this->get('/work')
         ->assertOk()

@@ -77,6 +77,16 @@ final class PageMeta
         return self::fromSeo('about', '/about', 'about');
     }
 
+    public static function experience(): self
+    {
+        return self::fromSeo('experience', '/experience', 'experience');
+    }
+
+    public static function openSource(): self
+    {
+        return self::fromSeo('open_source', '/open-source', 'open-source');
+    }
+
     public static function privacy(): self
     {
         return self::fromSeo('privacy', '/privacy', null);

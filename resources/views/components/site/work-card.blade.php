@@ -24,6 +24,19 @@
 ]) aria-labelledby="work-card-title-{{ $project['slug'] }}">
     <div class="portfolio-card__visual">
         <x-site.project-visual :project="$project" :compact="$compact && ! $flagship" />
+        @if($isTooling && ! $compact)
+            <ul class="tooling-proof__index" aria-label="Featured repositories">
+                @foreach(config('site.github.fallback_repos') as $repo)
+                    <li>
+                        <a href="{{ $repo['url'] }}" target="_blank" rel="noopener noreferrer" data-no-ext>
+                            {{ $repo['name'] }}
+                            <span class="sr-only"> (source, opens in a new tab)</span>
+                        </a>
+                        <span>{{ $repo['language'] }}</span>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
     </div>
     <div class="portfolio-card__body">
         <p class="eyebrow eyebrow--muted">{{ $project['meta'] }}</p>

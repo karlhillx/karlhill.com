@@ -590,7 +590,7 @@
                             <td class="role-dates">{{ $experience['current']['period'] }}</td>
                         </tr>
                     </table>
-                    <p class="role-meta">{{ $experience['current']['company'] }} · {{ $experience['current']['location'] }}</p>
+                    <p class="role-meta">{{ $experience['current']['company'] }}@if(filled(config('site.facts.unit'))) · {{ config('site.facts.unit') }}@endif · {{ $experience['current']['location'] }}</p>
                     <ul class="bullets">
                         @foreach($jacobs as $item)
                             <li>{!! $nowrapHtml($item) !!}</li>

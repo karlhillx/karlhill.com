@@ -5,7 +5,9 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientSiteController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DryStandardRedirectController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OpenSourceController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\PushController;
 use App\Http\Controllers\ReportingController;
@@ -61,11 +63,13 @@ Route::middleware('cache.headers:public;max_age=300;s_maxage=600;stale_while_rev
         ->where('slug', '[a-z0-9-]+')
         ->name('work.show');
     Route::get('/about', AboutController::class)->name('about');
+    Route::get('/experience', ExperienceController::class)->name('experience');
+    Route::get('/open-source', OpenSourceController::class)->name('open-source');
     Route::redirect('/research', '/research/global-flood-mapping', 301)->name('research.index');
     Route::get('/research/global-flood-mapping', ResearchController::class)->name('research.show');
     Route::redirect('/delivery', '/work/jacobs-mission-software#delivery-practices', 301)->name('delivery');
     Route::redirect('/lead', '/work/jacobs-mission-software#delivery-practices', 301)->name('lead');
-    Route::redirect('/now', '/#book', 301)->name('now');
+    Route::redirect('/now', '/#contact', 301)->name('now');
     Route::get('/privacy', PrivacyController::class)->name('privacy');
     Route::get('/resume', ResumeController::class)->name('resume');
     Route::redirect('/kit', '/about', 301)->name('kit');
