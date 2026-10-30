@@ -59,6 +59,8 @@ return [
         ],
         'description' => 'Python and Docker software for processing and distributing satellite-derived flood maps on AWS. Built to support near-real-time Earth observation products. The live map is public; a GeoHorizons paper describes the system.',
         'image' => '/img/webp/small-flood.webp',
+        'image_alt' => 'Public Global Water and Flood Mapping System map',
+        'image_caption' => 'Public flood map',
         'imagePosition' => 'object-left-top',
         'gallery' => [
             [
@@ -108,6 +110,7 @@ return [
         'description' => 'Find Data search, ordering, and near-real-time access to NASA MODIS and VIIRS satellite data. Web systems shipped through GitLab CI/CD and Kubernetes alongside existing Perl services.',
         'image' => '/img/webp/ss-ladsweb.webp',
         'image_alt' => 'NASA LAADS Find Data — product, time, location, files, and review-and-order wizard for MODIS and VIIRS granules.',
+        'image_caption' => 'Public Find Data',
         'imagePosition' => 'object-left-top',
         'card_parallax' => false,
         'url' => '/work/laads-daac',
@@ -199,6 +202,7 @@ return [
     [
         'slug' => 'nasa-earth-observatory',
         'title' => 'NASA Earth Observatory',
+        'card_title' => 'Earth Observatory',
         'meta' => 'NASA · 2017–2025',
         'sector' => 'NASA Earth Science',
         'portfolio_group' => 'nasa',
@@ -210,6 +214,9 @@ return [
         ],
         'description' => 'Public Earth science publishing — editorial workflows, imagery, and the live site. Audience scale during that work was about 1.5 million monthly visitors; that is platform size, not a traffic result.',
         'image' => '/img/webp/ss-earth-observatory.webp',
+        'image_alt' => 'NASA Earth Observatory — public Earth science stories and imagery.',
+        'image_caption' => 'Public Earth Observatory',
+        'imagePosition' => 'object-left-top',
         'url' => '/work/nasa-earth-observatory',
         'artifact' => [
             'label' => 'Open Earth Observatory',
@@ -217,7 +224,7 @@ return [
             'line' => 'Live Earth Observatory. About 1.5 million monthly visitors during that work — platform scale, not a traffic result.',
         ],
         'featured' => false,
-        'listed' => false,
+        'listed' => true,
         'supporting' => true,
         'tags' => [
             'Laravel',

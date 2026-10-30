@@ -200,9 +200,12 @@ test.describe('smoke + a11y', () => {
         await expect(page.locator('.site-toolbar')).toHaveCount(0);
         await expect(page.locator('#chapters')).toBeVisible();
         await expect(page.getByRole('heading', { name: 'Also at Goddard' })).toHaveCount(0);
-        for (const slug of ['nasa-earth-observatory', 'direct-readout-laboratory', 'esscor']) {
+        for (const slug of ['direct-readout-laboratory', 'esscor']) {
             await expect(page.locator(`main a[href="/work/${slug}"]`)).toHaveCount(0);
         }
+        await expect(page.locator('main a[href$="/work/nasa-earth-observatory"]')).toBeVisible();
+        await expect(page.getByText('Public Earth Observatory')).toBeVisible();
+        await expect(page.getByText('Public Find Data')).toBeVisible();
         await page.goto('/resume');
         for (const slug of ['nasa-earth-observatory', 'direct-readout-laboratory', 'esscor']) {
             await expect(page.locator(`main a[href="/work/${slug}"]`)).toBeVisible();

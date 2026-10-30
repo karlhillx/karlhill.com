@@ -6,6 +6,7 @@ return [
     'lede' => [
         'Staff Aerospace Software Engineer at Jacobs. The work is hands-on mission software and technical leadership across programs: shared interfaces, delivery, and the engineers doing the work.',
         'Before this, eight years at NASA Goddard on Earth science systems — flood maps, satellite-data access, and public science publishing.',
+        'The Dry Standard is the independent product where that range is public: domain model, publishing pipeline, interface, and the operational work of keeping a live catalog honest.',
     ],
     'career' => [
         'title' => 'Career',

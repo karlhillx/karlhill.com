@@ -407,7 +407,7 @@ nav[aria-label='Primary'] .brand-lockup {
 
 .study__figure {
     margin: 0.5rem 0 0;
-    max-width: 28rem;
+    max-width: 32rem;
 }
 
 .study__figure img {
@@ -418,9 +418,18 @@ nav[aria-label='Primary'] .brand-lockup {
     box-shadow: 0 0 0 1px var(--border);
 }
 
+.study__figure figcaption {
+    margin-top: 0.45rem;
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 560;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 @media (min-width: 800px) {
     .study--split {
-        grid-template-columns: minmax(0, 1fr) 22rem;
+        grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
     }
 
     .study--split .study__figure {

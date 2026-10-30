@@ -100,14 +100,14 @@ final class ProjectCatalog
     }
 
     /**
-     * Additional studies linked from Resume and discovery surfaces, not the Work overview.
+     * Studies linked from Resume. Unlisted ones stay off the Work overview.
      *
      * @return Collection<int, array<string, mixed>>
      */
     public static function supporting(): Collection
     {
         return self::all()
-            ->filter(fn (array $project) => self::isSupporting($project) && ! self::isListed($project))
+            ->filter(fn (array $project) => self::isSupporting($project))
             ->values();
     }
 

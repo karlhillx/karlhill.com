@@ -7,7 +7,7 @@
     $href = \App\Support\ProjectCatalog::cardUrl($project);
     $isMission = $group === 'mission';
     $isTooling = $group === 'tooling';
-    $wide = $flagship || (! $compact && ($isMission || $isTooling || $group === 'product'));
+    $wide = $flagship || (! $compact && ($isMission || $isTooling || $group === 'product' || filled($project['image_caption'] ?? null)));
     // Homepage teasers stay stack-free; full work cards carry the tech list.
     $showStack = ! $compact && ! $flagship;
     $showRole = ! $compact;
@@ -19,11 +19,15 @@
     'portfolio-card',
     'portfolio-card--'.$group,
     'portfolio-card--wide' => $wide,
+    'portfolio-card--shot' => $wide && filled($project['image_caption'] ?? null),
     'portfolio-card--compact' => $compact && ! $flagship,
     'portfolio-card--flagship' => $flagship,
 ]) aria-labelledby="work-card-title-{{ $project['slug'] }}">
     <div class="portfolio-card__visual">
         <x-site.project-visual :project="$project" :compact="$compact && ! $flagship" />
+        @if(filled($project['image_caption'] ?? null) && ! $compact)
+            <p class="portfolio-card__shot-caption">{{ $project['image_caption'] }}</p>
+        @endif
         @if($isTooling && ! $compact)
             <ul class="tooling-proof__index" aria-label="Featured repositories">
                 @foreach(config('site.github.fallback_repos') as $repo)

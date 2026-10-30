@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'statement' => 'Engineering mission-critical software.',
-    'lede' => 'Staff Aerospace Software Engineer working across national security, aerospace, and defense. Technical leadership spanning mission software, platform engineering, architecture, DevSecOps, and engineering delivery.',
+    'statement' => 'Engineering complex systems.',
+    'lede' => 'Staff Aerospace Software Engineer. Hands-on technical leadership across national security, aerospace, and NASA software — distributed systems, architecture, platform engineering, and the path a change takes to production.',
 ];

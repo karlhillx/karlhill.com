@@ -19,6 +19,7 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         'flood-mapping-system',
         'laads-daac',
         'the-dry-standard',
+        'nasa-earth-observatory',
         'developer-tooling',
     ]);
 
@@ -54,7 +55,10 @@ it('portfolio lists trajectory chapters and keeps supporting studies routable', 
         ->assertDontSee('Software other people depend on, then the engineering system around it', escape: false)
         ->assertDontSee('href="/work/esscor"', escape: false)
         ->assertDontSee('href="/work/direct-readout-laboratory"', escape: false)
-        ->assertDontSee('href="/work/nasa-earth-observatory"', escape: false);
+        ->assertSee('work/nasa-earth-observatory', escape: false)
+        ->assertSee('Public Earth Observatory', escape: false)
+        ->assertSee('Public Find Data', escape: false)
+        ->assertSee('Public flood map', escape: false);
 
     $this->get('/work/esscor')->assertOk();
     $this->get('/work/direct-readout-laboratory')->assertOk();

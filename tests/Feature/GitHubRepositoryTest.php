@@ -64,7 +64,7 @@ it('ranks featured fallback order so bb-run and testrisk lead live results', fun
 
     expect($repos->pluck('name')->all())->toBe(['bb-run', 'testrisk', 'pipeguard'])
         ->and($repos->firstWhere('name', 'pipeguard')?->description)
-        ->toBe('Policy-as-code validation and rule enforcement for Bitbucket Pipelines.');
+        ->toBe('Check Bitbucket Pipelines YAML for required steps, forbidden image tags, manual production triggers, and an allowlist of pipes.');
 });
 
 it('uses the curated selection when the api only returns unfeatured repositories', function () {
@@ -170,5 +170,5 @@ it('work page renders server side github repos', function () {
     $response->assertDontSee('sim-rs', escape: false);
     $response->assertDontSee('id="github-repos"', escape: false);
     $this->get('/work/developer-tooling')->assertOk()
-        ->assertSee('Run Bitbucket Pipelines locally from your existing pipeline file', escape: false);
+        ->assertSee('runs it in Docker or on the host', escape: false);
 });

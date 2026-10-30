@@ -8,7 +8,7 @@
             <p class="eyebrow">Selected engineering</p>
             <h2>Selected work</h2>
         </div>
-        <p>Mission software, a public NASA system, an independent product, and open-source tools. Each one separates the problem, the responsibility, and the evidence.</p>
+        <p>Mission software is the current work. The public proof is a NASA flood-mapping system and The Dry Standard, an application I design and operate, plus the tools I maintain in the open.</p>
         <a href="/work#work" class="portfolio-text-link">All work <span aria-hidden="true">→</span></a>
     </header>
 
@@ -42,7 +42,8 @@
                     <figure class="study__figure">
                         <x-site.responsive-image :src="$project['image']" :alt="$project['image_alt'] ?? $title"
                             width="1200" height="675" loading="lazy" :lqip="false"
-                            sizes="(min-width: 800px) 420px, 92vw" />
+                            sizes="(min-width: 800px) 520px, 92vw" />
+                        <figcaption>Public flood map</figcaption>
                     </figure>
                 @endif
             </article>

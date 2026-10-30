@@ -1,6 +1,6 @@
 ---
 updated: '2026-09-30'
-lede: An independently designed and engineered publication and product database. The work spans the domain model, evidence and classification rules, search, editorial tooling, SEO, and production operation.
+lede: An independent production application I founded, edit, and engineer. The work is the domain model, the publishing pipeline, the public interface, and the operational checks that keep them consistent.
 role: Founder, designer, and engineer — end-to-end product ownership.
 leadership:
   mode: Independent product ownership
@@ -63,11 +63,23 @@ Search spans product and brand names, styles, methods, classifications, and tast
 
 The information architecture distinguishes temporary exploration from durable editorial destinations. Faceted query URLs support browsing; curated collections and substantive category pages provide indexable landings. Structured metadata and canonical URL decisions belong to the model and publishing workflow rather than being added after launch.
 
+## Why the catalog is generated
+
+Editorial markdown is the source of truth. A build validates it and writes a SQLite catalog, exports, and the payloads the public site reads. Search, comparison, product pages, and curated collections all query that catalog. A public request does not write it.
+
+The tradeoff is deliberate. A change is not visible until validation and the build succeed, so the site cannot drift into a second, quieter editor. The cost is a publish step. The gain is one schema for discovery and one place to decide what a researched fact is allowed to look like.
+
+This is not a distributed platform. It is one Laravel application, one catalog, and one public renderer.
+
+## The interface is part of the model
+
+Public pages are PHP templates with Vite-built CSS and JavaScript. Cards, search, comparison, and curated landings are how the taxonomy is explained, not a skin added afterward. A researched record and a tasted score have to look different, or the classification work is wasted. Blade is limited to mail, errors, and the private operations dashboard.
+
 ## Production ownership
 
 The stack is Laravel, SQLite, PHP templates, and Vite-built CSS and JavaScript. Blade serves mail, errors, and the operations dashboard. The product runs on its own domain, not as a portfolio preview.
 
-Release verification checks the application build, asset manifest, and catalog against the deployed release. It is a practical example of taking responsibility for the whole product: domain decisions, editorial operations, public UX, build artifacts, and what is actually running.
+Release verification checks the application build, asset manifest, and catalog against the deployed release. I own that path as founder, editor, and principal engineer: domain rules, the interface, publish checks, and what is actually running. The limit is the same as the advantage. One person can keep the model and the product aligned. The work does not pretend to be a staffed platform.
 
 ## Technical proof
 

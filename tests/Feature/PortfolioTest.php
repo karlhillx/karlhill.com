@@ -93,19 +93,18 @@ it('offers responsive dry standard assets and leaves vector paths intact', funct
         ->and(Images::webp('/img/developer-tooling.svg'))->toBe('/img/developer-tooling.svg');
 });
 
-it('lists only the seven displayed studies in work collection metadata', function () {
+it('lists the displayed studies in work collection metadata', function () {
     $html = $this->get('/work')->assertOk()->getContent();
     preg_match_all('~<script type="application/ld\+json"[^>]*>(.*?)</script>~s', $html, $matches);
     $page = collect($matches[1])->map(fn ($json) => json_decode($json, true))
         ->firstWhere('@type', 'CollectionPage');
     $items = $page['mainEntity']['itemListElement'];
-    expect($items)->toHaveCount(7)
-        ->and(array_unique(array_column($items, 'url')))->toHaveCount(7);
-    expect(array_column($items, 'url'))->not->toContain(
-        url('/work/nasa-earth-observatory'),
-        url('/work/direct-readout-laboratory'),
-        url('/work/esscor'),
-    );
+    expect($items)->toHaveCount(8)
+        ->and(array_unique(array_column($items, 'url')))->toHaveCount(8);
+    $urls = array_column($items, 'url');
+    expect($urls)->toContain(url('/work/nasa-earth-observatory'));
+    expect($urls)->not->toContain(url('/work/direct-readout-laboratory'));
+    expect($urls)->not->toContain(url('/work/esscor'));
 });
 
 it('keeps supporting NASA studies available through resume and discovery surfaces', function (string $slug) {

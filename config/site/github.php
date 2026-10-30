@@ -18,8 +18,8 @@ return [
     'fallback_repos' => [
         [
             'name' => 'bb-run',
-            'description' => 'Run Bitbucket Pipelines locally from your existing pipeline file before pushing.',
-            'problem' => 'Eliminates slow commit-push-fail cycles by executing containerized pipeline steps on local workstations.',
+            'description' => 'Run bitbucket-pipelines.yml locally in Docker or on the host, including parallel steps, services, caches, and artifacts.',
+            'problem' => 'Catch pipeline failures on the workstation. Host mode runs script-only steps without Docker; service sidecars still need it.',
             'url' => 'https://github.com/karlhillx/bb-run',
             'stars' => 1,
             'language' => 'Python',
@@ -32,8 +32,8 @@ return [
         ],
         [
             'name' => 'testrisk',
-            'description' => 'Rank the highest-value Python test gaps from coverage, AST, and git churn.',
-            'problem' => 'Identifies untested code risks by combining AST complexity analysis with git mutation history.',
+            'description' => 'Rank Python functions that need better tests from coverage.py, uncovered branches, complexity, and changed lines.',
+            'problem' => 'A coverage percentage does not say which gap to test next. The default command advises; optional flags can fail a run.',
             'url' => 'https://github.com/karlhillx/testrisk',
             'stars' => 1,
             'language' => 'Python',
@@ -46,8 +46,8 @@ return [
         ],
         [
             'name' => 'pipeguard',
-            'description' => 'Policy-as-code validation and rule enforcement for Bitbucket Pipelines.',
-            'problem' => 'Enforces governance, secret safety, and deployment constraints against pipeline YAML definitions before execution.',
+            'description' => 'Check Bitbucket Pipelines YAML for required steps, forbidden image tags, manual production triggers, and an allowlist of pipes.',
+            'problem' => 'Policy that lives only in a document is easy to skip. PipeGuard reports ERROR, WARNING, or INFO against the pipeline file. It does not run the pipeline.',
             'url' => 'https://github.com/karlhillx/pipeguard',
             'stars' => 0,
             'language' => 'Go',

@@ -512,6 +512,16 @@ main:has(> .portfolio-nav) section[id] {
     background: var(--surface-page);
 }
 
+.portfolio-card__shot-caption {
+    margin: 0;
+    padding: 0.55rem 0.9rem 0.7rem;
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 560;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .portfolio-card__body {
     padding: var(--space-card-pad);
     display: flex;
@@ -928,6 +938,13 @@ main:has(> .portfolio-nav) section[id] {
         height: 100%;
         min-height: 18rem;
         aspect-ratio: auto;
+    }
+
+    .portfolio-card--shot.portfolio-card--wide .project-visual__stage {
+        flex: 0 0 auto;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 16 / 10;
     }
 
     .portfolio-card--product.portfolio-card--wide .portfolio-card__image {

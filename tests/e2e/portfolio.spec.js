@@ -97,7 +97,7 @@ test('hero hierarchy and work rail hold across responsive widths', async ({ page
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
     const statement = page.locator('.opening__statement');
-    await expect(statement).toHaveText('Engineering mission-critical software.');
+    await expect(statement).toHaveText('Engineering complex systems.');
 
     for (const width of [320, 375, 430, 768, 1024, 1280, 1440]) {
         await page.setViewportSize({ width, height: 900 });
