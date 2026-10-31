@@ -1,3 +1,16 @@
+# Production deploy.
+#
+# Automatic path: a successful CI run on a push to main/master. CI now includes
+# build, Pest, Pint, bundle budget, a11y, and Playwright. This workflow only
+# starts when that CI run's event is `push` and its conclusion is success. It
+# deploys the same commit (workflow_run.head_sha).
+#
+# Pull-request CI does not deploy. It has no access to production secrets.
+#
+# Manual path: workflow_dispatch of this workflow. It does not re-run tests.
+# Dispatch CI first for the same SHA if you need equivalent validation.
+# YAML cannot require GitHub branch protection or environment reviewers;
+# those remain repository settings.
 name: Deploy
 
 on:

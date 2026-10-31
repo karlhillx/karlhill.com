@@ -25,6 +25,6 @@ Report only commands you ran and the result they printed. Do not invent pass cou
 
 Playwright screenshot checks compare captures inside one run. Do not commit golden images.
 
-CI on a push to `main` is syntax-only and then deploys. The Pest, Pint, build, and browser jobs run when CI is dispatched by hand. A green local test run is not a production deploy.
+CI on a push or pull request to `main` runs syntax, then Pest, Pint, build, a11y, and Playwright. A successful push-triggered CI run can start production deploy for that commit. Dispatching the Deploy workflow by hand does not re-run those checks. A green local test run is not a production deploy. YAML does not create GitHub branch-protection rules.
 
 Agents do not dispatch Deploy, push, or merge unless the human asks in the current request.

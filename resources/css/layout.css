@@ -171,24 +171,6 @@ main > section:nth-of-type(n + 3):not([id]) {
 }
 
 @media (max-width: 640px) {
-    .command-palette {
-        inset: max(4.25rem, calc(env(safe-area-inset-top, 0px) + 3.5rem)) 0.75rem auto;
-        width: auto;
-        max-width: none;
-        margin-inline: 0;
-        max-height: min(85dvh, 44rem);
-        padding: 0.75rem;
-        border-radius: var(--radius-lg);
-    }
-
-    .command-results {
-        max-height: min(52dvh, 22rem);
-    }
-
-    .command-hint {
-        display: none;
-    }
-
     .quick-back-top {
         right: max(0.75rem, env(safe-area-inset-right, 0px));
         bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));

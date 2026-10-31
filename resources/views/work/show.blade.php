@@ -65,6 +65,26 @@
                             {{ $project['title'] }}
                         </h1>
                         <p class="case-study-lede text-neutral-400">{{ $study['lede'] }}</p>
+                        @if(! empty($project['summary']))
+                            <dl class="case-study-first">
+                                <div>
+                                    <dt>Role</dt>
+                                    <dd>{{ $study['role'] }} · {{ $project['meta'] }}</dd>
+                                </div>
+                                <div>
+                                    <dt>Problem</dt>
+                                    <dd>{{ $project['summary']['problem'] }}</dd>
+                                </div>
+                                <div>
+                                    <dt>What I contributed</dt>
+                                    <dd>{{ $project['summary']['contribution'] }}</dd>
+                                </div>
+                                <div>
+                                    <dt>Now</dt>
+                                    <dd>{{ $project['artifact']['line'] ?? $project['summary']['impact'] }}</dd>
+                                </div>
+                            </dl>
+                        @endif
                         @if(! empty($study['role']) || ! empty($project['tags']))
                             <div class="case-study-masthead__meta-row">
                                 @if(! empty($study['role']))

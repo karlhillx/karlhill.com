@@ -107,174 +107,8 @@ main:has(> .portfolio-nav) section[id] {
     scroll-margin-top: 0;
 }
 
-/* ---------------------------------------------------------------------------
-   Homepage hero — editorial, restrained, two-column at lg+
---------------------------------------------------------------------------- */
-.portfolio-hero {
-    position: relative;
-    padding-block: clamp(6.25rem, 9vh, 7.5rem) calc(var(--space-section-soft) - var(--space-micro));
-    overflow: clip;
-}
-
-.portfolio-hero__atmosphere {
-    pointer-events: none;
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(
-            ellipse at 88% 10%,
-            color-mix(in srgb, var(--accent) 4.5%, transparent),
-            transparent 52%
-        ),
-        linear-gradient(var(--hairline) 1px, transparent 1px),
-        linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
-    background-size:
-        auto,
-        2.75rem 2.75rem,
-        2.75rem 2.75rem;
-    mask-image: linear-gradient(180deg, rgb(0 0 0 / 0.55), transparent 78%);
-    opacity: 0.55;
-}
-
-.portfolio-hero__layout {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    gap: var(--space-heading);
-    align-items: stretch;
-}
-
-.portfolio-hero__primary {
-    max-width: var(--content-editorial);
-}
-
-.portfolio-hero__identity {
-    display: flex;
-    align-items: center;
-    gap: var(--space-inline);
-    margin-bottom: var(--space-stack);
-}
-
-.portfolio-hero__identity picture {
-    flex-shrink: 0;
-}
-
-.portfolio-hero__identity img,
-.portfolio-portrait {
-    width: 52px;
-    height: 52px;
-    border-radius: var(--radius-sm);
-    box-shadow: 0 0 0 1px var(--hairline-strong);
-}
-
-.portfolio-hero__identity-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    min-width: 0;
-}
-
-.portfolio-hero__role {
-    margin: 0;
-    color: var(--muted);
-    font-family: var(--font-sans);
-    font-size: var(--type-caption);
-    font-weight: 500;
-    line-height: 1.4;
-}
-
-.portfolio-hero__statement {
-    font-family: var(--font-sans);
-    font-size: var(--type-hero-statement);
-    font-weight: 300;
-    line-height: var(--leading-display);
-    letter-spacing: 0;
-    text-wrap: balance;
-    max-width: 21ch;
-    margin: 0;
-}
-
-.portfolio-hero__lede {
-    max-width: 52ch;
-    margin-block: var(--space-inline) var(--space-stack);
-    color: var(--muted);
-    font-size: var(--type-lede);
-    line-height: 1.58;
-}
-
-.portfolio-hero__actions {
-    margin-top: var(--space-stack);
-    gap: var(--space-micro) var(--space-inline);
-}
-
 .portfolio-inline-note {
     margin-top: var(--space-inline);
-}
-
-.portfolio-hero__index {
-    display: none;
-    padding: var(--space-micro) 0 var(--space-micro) var(--space-stack);
-    border-left: 1px solid var(--hairline-strong);
-    flex-direction: column;
-    height: 100%;
-    gap: 0;
-}
-
-.portfolio-hero__index > .eyebrow {
-    margin-bottom: var(--space-inline);
-}
-
-.portfolio-hero__index > a {
-    display: grid;
-    grid-template-columns: 1.75rem minmax(0, 1fr) auto;
-    gap: var(--space-inline);
-    align-items: center;
-    min-height: 3.15rem;
-    padding-block: var(--space-micro);
-    border-bottom: 1px solid var(--hairline);
-    font-family: var(--font-sans);
-    font-size: var(--type-support);
-    font-weight: 500;
-    text-decoration: none;
-    transition: color var(--duration-fast) var(--ease-standard);
-}
-
-.portfolio-hero__index > a:last-of-type {
-    border-bottom: 0;
-}
-
-.portfolio-hero__index > a:hover,
-.portfolio-hero__index > a:focus-visible {
-    color: var(--accent);
-}
-
-.portfolio-hero__index-number {
-    font: 400 var(--type-eyebrow) / 1 var(--font-mono);
-    letter-spacing: var(--tracking-mono);
-    color: var(--muted-2);
-}
-
-.portfolio-hero__index-title {
-    min-width: 0;
-}
-
-.portfolio-hero__index-arrow {
-    color: var(--muted-2);
-    font-size: 0.9em;
-}
-
-.portfolio-hero__index-footer {
-    margin-top: auto;
-    padding-top: var(--space-inline);
-    border-top: 1px solid var(--hairline);
-}
-
-.portfolio-hero__location {
-    margin-top: var(--space-micro);
-    color: var(--muted);
-    font-size: var(--type-caption);
-    line-height: 1.45;
-    max-width: 28ch;
 }
 
 /* Primary nav: the current page carries the accent, weight, and a square
@@ -334,26 +168,12 @@ main:has(> .portfolio-nav) section[id] {
     padding-block-start: var(--space-section-soft);
 }
 
-.portfolio-collection--tooling .portfolio-section-heading {
-    padding-bottom: var(--space-inline);
-    border-bottom: 1px solid var(--hairline-strong);
-}
-
-.portfolio-collection--tooling .portfolio-section-heading h2 {
-    font-size: clamp(1.8rem, 3.4vw, 2.65rem);
-}
-
 .featured-work {
     padding-block: var(--space-chapter) var(--space-section);
 }
 
-.featured-work .portfolio-section-heading,
-.portfolio-section-heading--featured {
+.featured-work .portfolio-section-heading {
     margin-bottom: var(--space-heading);
-}
-
-.portfolio-section-heading--featured h2 {
-    font-size: clamp(2rem, 3.6vw, 2.85rem);
 }
 
 /* Delivery chapter — raised editorial block + principle pillars. */
@@ -421,57 +241,6 @@ main:has(> .portfolio-nav) section[id] {
 
 .portfolio-writing-section .portfolio-section-heading {
     margin-bottom: var(--space-stack);
-}
-
-/* Dry Standard / product callout — serious product presence without a card grid. */
-.portfolio-product-callout {
-    display: grid;
-    gap: var(--space-stack);
-    margin-top: var(--space-heading);
-    padding: var(--space-stack) var(--space-card-pad);
-    background: var(--surface-feature);
-    box-shadow: 0 0 0 1px var(--hairline);
-    border-radius: var(--radius-lg);
-}
-
-.portfolio-product-callout h3 {
-    margin: var(--space-micro) 0 var(--space-inline);
-    font-family: var(--font-sans);
-    font-size: var(--type-feature-title);
-    font-weight: 500;
-    line-height: 1.15;
-    letter-spacing: 0;
-}
-
-.portfolio-product-callout__visual {
-    width: 100%;
-    max-width: 35rem;
-    overflow: hidden;
-    border-radius: var(--radius-sm);
-    box-shadow: 0 0 0 1px var(--hairline);
-}
-
-.portfolio-product-callout__image {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.portfolio-product-callout__copy > p:last-child {
-    margin: 0;
-    max-width: 52ch;
-    color: var(--muted);
-    font-size: var(--type-support);
-    line-height: 1.55;
-}
-
-.portfolio-product-callout__impact {
-    margin: 0 0 var(--space-inline);
-    font-family: var(--font-sans);
-    font-size: var(--type-lede);
-    font-weight: 600;
-    line-height: 1.35;
-    max-width: 36ch;
 }
 
 /* ---------------------------------------------------------------------------
@@ -709,34 +478,6 @@ main:has(> .portfolio-nav) section[id] {
 
 .portfolio-card__image {
     transition: transform 420ms var(--ease-out-soft);
-}
-
-.project-visual__stage--terminal {
-    background: var(--surface-code);
-    color: #f0f6fc;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-.project-visual__stage--terminal .terminal-cmd {
-    color: #f0f6fc;
-}
-
-.project-visual__stage--terminal .terminal-prompt {
-    color: #f0883e;
-    font-weight: 600;
-}
-
-.project-visual__stage--terminal .terminal-out {
-    color: #9ca3af;
-    font-size: var(--text-caption);
-    padding-left: 0.75rem;
-}
-
-.project-visual__stage--terminal .terminal-success {
-    color: #7ee787;
-    font-size: var(--text-caption);
-    padding-left: 0.75rem;
 }
 
 .project-visual--compact .project-visual__stage {
@@ -987,35 +728,6 @@ main:has(> .portfolio-nav) section[id] {
 }
 
 @media (min-width: 1024px) {
-    .portfolio-grid--featured {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: var(--space-card-gap);
-    }
-
-    .portfolio-grid--featured .portfolio-card--flagship {
-        grid-column: 1 / -1;
-    }
-
-    .portfolio-hero__layout {
-        grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 22rem);
-        gap: clamp(2rem, 5vw, 4rem);
-        align-items: stretch;
-    }
-
-    .portfolio-hero__index {
-        display: flex;
-    }
-
-    .portfolio-product-callout {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-        align-items: center;
-        gap: var(--space-inline) var(--space-heading);
-    }
-
-    .portfolio-product-callout__visual {
-        grid-row: 1 / 3;
-    }
-
     .portfolio-delivery__pillars {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0;
@@ -1054,69 +766,6 @@ main:has(> .portfolio-nav) section[id] {
 }
 
 @media (max-width: 767px) {
-    .portfolio-section-heading--featured {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 0.75rem 1rem;
-    }
-
-    .portfolio-section-heading--featured h2 {
-        font-size: clamp(1.6rem, 6vw, 2rem);
-    }
-
-    .portfolio-section-heading--featured > p {
-        grid-column: 1 / -1;
-        grid-row: 2;
-    }
-
-    .portfolio-section-heading--featured > .portfolio-text-link {
-        grid-column: 2;
-        grid-row: 1;
-    }
-
-    .portfolio-hero__statement {
-        font-size: clamp(1.9rem, 7.2vw, 2.35rem);
-    }
-
-    .portfolio-grid--featured .portfolio-card__visual .project-visual__stage {
-        height: auto;
-        min-height: 8rem;
-        aspect-ratio: 2.5 / 1;
-    }
-
-    .portfolio-grid--featured .portfolio-card__body {
-        padding: 1rem;
-    }
-
-    .portfolio-grid--featured .portfolio-card h3 {
-        font-size: 1.35rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .portfolio-grid--featured .portfolio-card__impact > p:first-child {
-        font-size: var(--type-support);
-        line-height: 1.45;
-    }
-
-    .portfolio-grid--featured .portfolio-card__impact {
-        margin-block: 1rem 0;
-    }
-
-    .portfolio-hero {
-        padding-top: 6.25rem;
-    }
-
-    .portfolio-hero__identity img,
-    .portfolio-portrait {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .portfolio-hero__actions {
-        margin-top: 1rem;
-        gap: var(--space-micro) var(--space-inline);
-    }
-
     .portfolio-delivery .portfolio-section-heading {
         padding: var(--space-stack) var(--space-inline);
     }
@@ -1223,10 +872,6 @@ main:has(> .portfolio-nav) section[id] {
 }
 
 @media print {
-    .portfolio-hero {
-        padding-top: 1rem;
-    }
-
     .portfolio-grid {
         display: block;
     }

@@ -32,7 +32,7 @@ test.describe('smoke + a11y', () => {
             if (width < DRAWER_MAX) {
                 await primary.getByRole('button', { name: 'Open menu', exact: true }).click();
             }
-            for (const name of ['Experience', 'Projects', 'Open Source', 'Writing', 'About', 'Contact']) {
+            for (const name of ['Work', 'Open Source', 'About', 'Writing', 'Contact']) {
                 await expect(
                     primary.getByRole('link', { name, exact: true }).filter({ visible: true })
                 ).toBeVisible();
@@ -131,11 +131,11 @@ test.describe('smoke + a11y', () => {
         page,
     }) => {
         await page.goto('/');
-        await expect(page.locator('[data-home-actions] a[href="/work"]')).toBeVisible();
+        await expect(page.locator('[data-home-actions] a[href="/#work"]')).toBeVisible();
         await expect(page.locator('#work h3 a')).toHaveText([
             'Read case study: Cross-program mission software',
             'Read case study: Flood Mapping System',
-            'Read case study: Engineering the feedback loop',
+            'Read case study: The Dry Standard',
         ]);
         await expect(page.locator('h3#work-card-title-jacobs-mission-software')).toBeVisible();
         await page.goto('/work');
@@ -145,6 +145,7 @@ test.describe('smoke + a11y', () => {
             'Read case study: Engineering the feedback loop',
             'Read case study: Flood Mapping System',
             'Read case study: NASA satellite-data search',
+            'Read case study: Earth Observatory',
             'Read case study: The Dry Standard',
         ]);
         const title = page
@@ -156,8 +157,8 @@ test.describe('smoke + a11y', () => {
         const footer = page
             .locator('footer')
             .getByRole('navigation', { name: 'Site', exact: true });
-        await expect(footer.getByRole('link')).toHaveCount(5);
-        for (const name of ['Writing', 'Resume', 'GitHub', 'LinkedIn', 'Privacy']) {
+        await expect(footer.getByRole('link')).toHaveCount(6);
+        for (const name of ['Experience', 'Writing', 'Resume', 'GitHub', 'LinkedIn', 'Privacy']) {
             await expect(footer.getByRole('link', { name: new RegExp(`^${name}`) })).toBeVisible();
         }
         await page.emulateMedia({ media: 'print' });
@@ -173,7 +174,7 @@ test.describe('smoke + a11y', () => {
         await expect(page.locator('[data-home-actions] a[href="/resume"]')).toBeVisible();
         await expect(page.locator('a[href="/kit"]')).toHaveCount(0);
         await expect(page.locator('#system')).toBeVisible();
-        await expect(page.locator('#system').getByRole('link')).toHaveAttribute(
+        await expect(page.locator('#system .portfolio-section-heading a')).toHaveAttribute(
             'href',
             '/work/jacobs-mission-software#delivery-system'
         );
@@ -281,7 +282,7 @@ test.describe('smoke + a11y', () => {
         await page.getByRole('button', { name: 'Open menu' }).click();
         const menu = page.locator('#mobile-menu');
         await expect(menu).toBeVisible();
-        await expect(menu.getByRole('link', { name: 'Projects', exact: true })).toBeVisible();
+        await expect(menu.getByRole('link', { name: 'Work', exact: true })).toBeVisible();
         await page.keyboard.press('Escape');
         await expect(menu).toBeHidden();
     });

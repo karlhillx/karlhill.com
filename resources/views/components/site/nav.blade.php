@@ -11,11 +11,10 @@
     };
     $email = config('site.person.email');
     $items = [
-        'experience' => ['/experience', 'Experience'],
-        'work' => ['/work', 'Projects'],
+        'work' => ['/work', 'Work'],
         'open-source' => ['/open-source', 'Open Source'],
-        'writing' => ['/blog', 'Writing'],
         'about' => ['/about', 'About'],
+        'writing' => ['/blog', 'Writing'],
         'resume' => ['/resume', 'Resume'],
     ];
 @endphp

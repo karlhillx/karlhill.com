@@ -12,6 +12,12 @@
     'site-footer--home' => $isHome,
     'site-footer--compact' => ! $isHome,
 ])>
+    @if($isHome)
+        <div class="site-shell contact-close">
+            <h2>{{ config('site.footer.headline') }}</h2>
+            <p class="contact-close__lead">{{ config('site.footer.body') }}</p>
+        </div>
+    @endif
     <div class="site-shell site-footer__bar">
         <p class="site-footer__id">
             <span class="site-footer__name">{{ $person['name'] }}</span>

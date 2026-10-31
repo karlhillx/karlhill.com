@@ -39,6 +39,37 @@ final class ProjectCatalog
     }
 
     /**
+     * Explicit homepage flagship stories. Order comes from config/site/home.php,
+     * not from featured_order, so The Dry Standard does not depend on another slug.
+     *
+     * @return Collection<int, array<string, mixed>>
+     */
+    public static function homepageStories(): Collection
+    {
+        return collect(config('site.home.stories', []))
+            ->map(fn (string $slug): array => self::findOrFail($slug))
+            ->values();
+    }
+
+    /**
+     * @return Collection<int, array<string, mixed>>
+     */
+    public static function homepageNasaSupporting(): Collection
+    {
+        return collect(config('site.home.nasa_supporting', []))
+            ->map(fn (string $slug): array => self::findOrFail($slug))
+            ->values();
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public static function homepageTools(): array
+    {
+        return self::findOrFail((string) config('site.home.tools'));
+    }
+
+    /**
      * @return Collection<string, array<string, mixed>>
      */
     public static function collections(): Collection

@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'statement' => 'Engineering complex systems.',
-    'lede' => 'Staff Aerospace Software Engineer. Hands-on technical leadership across national security, aerospace, and NASA software — distributed systems, architecture, platform engineering, and the path a change takes to production.',
+    'statement' => 'Engineering complex systems. Helping teams deliver.',
+    'lede' => 'I build mission software at Jacobs. Before that I was a Lead Software Engineer at SSAI, supporting NASA Goddard public Earth science systems. I also founded The Dry Standard and maintain independent developer tools.',
 ];

@@ -74,14 +74,14 @@ it('publishes consistent tooling and product proof on every discovery surface', 
 it('keeps tool names searchable and qualifies quantitative claims', function () {
     $this->get('/api/commands.json')->assertSee('bb-run, testrisk, and pipeguard')
         ->assertDontSee('sim-rs')->assertDontSee('driftlens')->assertDontSee('drift-rs');
-    $this->get('/')->assertSee('Collaborative scientific result', false)
+    $this->get('/')->assertSee('collaborative scientific evaluation', false)
         ->assertSee('Core-program scale', false)
         ->assertDontSee('Nearly thirty years', false)
         ->assertDontSee('github.com/karlhillx/drinkdrystandard.com', false);
     $this->get('/work/jacobs-mission-software')->assertSee('Messaging ownership is shared', false);
     $this->get('/work/nasa-earth-observatory')->assertSee('Historical platform scale', false);
-    $this->get('/work/the-dry-standard')->assertSee('generated SQLite runtime catalog')
-        ->assertSee('Publication builds the catalog')
+    $this->get('/work/the-dry-standard')->assertSee('data/catalog.sqlite', false)
+        ->assertSee('does not write the catalog', false)
         ->assertDontSee('github.com/karlhillx/drinkdrystandard.com', false)
         ->assertDontSee('sub-second')
         ->assertDontSee('Content integrity is guaranteed');
@@ -126,7 +126,7 @@ it('keeps global links and repository choices deliberately small', function (str
     preg_match('~<nav[^>]*aria-label="Site"[^>]*>(.*?)</nav>~s', $html, $footer);
     preg_match_all('~href="([^"]+)"~', $footer[1], $links);
     expect($links[1])->toBe([
-        '/blog', '/resume', 'https://github.com/karlhillx',
+        '/experience', '/blog', '/resume', 'https://github.com/karlhillx',
         'https://www.linkedin.com/in/khill/', '/privacy',
     ]);
     foreach (['/kit', '/now', '/delivery', '/lead'] as $retired) {
@@ -136,7 +136,7 @@ it('keeps global links and repository choices deliberately small', function (str
     // Repo links appear once on /work (tooling card) and not at all on the shorter home page.
     preg_match('~<main\b[^>]*>(.*?)</main>~s', $html, $main);
     foreach (['bb-run', 'testrisk', 'pipeguard'] as $repo) {
-        expect(substr_count($main[1], 'href="https://github.com/karlhillx/'.$repo.'"'))->toBe($path === '/' ? 0 : 1);
+        expect(substr_count($main[1], 'href="https://github.com/karlhillx/'.$repo.'"'))->toBe(1);
     }
 })->with(['/', '/work']);
 

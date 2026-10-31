@@ -7,9 +7,8 @@
 
 @section('content')
     @include('home.partials.hero')
-    @include('home.partials.organizations')
     @include('home.partials.featured-work')
-    @include('home.partials.capabilities')
+    @include('home.partials.tools')
     @include('home.partials.system')
     @include('home.partials.writing')
 @endsection

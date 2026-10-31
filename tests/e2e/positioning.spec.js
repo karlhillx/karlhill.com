@@ -18,9 +18,9 @@ test('delivery pillar numbers have space from desktop dividers', async ({ page }
     }
 });
 
-test('Dry Standard homepage callout shows an uncropped product preview', async ({ page }) => {
+test('Dry Standard homepage story shows an uncropped product preview', async ({ page }) => {
     await page.goto('/');
-    const callout = page.locator('.portfolio-product-callout');
+    const callout = page.locator('#the-dry-standard');
     const image = callout.getByRole('img', { name: /The Dry Standard/ });
     await image.scrollIntoViewIfNeeded();
     await expect(image).toBeVisible();
@@ -46,16 +46,22 @@ test('wide cards separate the visual from the summary only in two-column layouts
 }) => {
     for (const route of ['/work']) {
         await page.goto(route);
-        const visual = page.locator('#jacobs-mission-software .portfolio-card__visual');
         for (const width of [390, 768, 1280]) {
             await page.setViewportSize({ width, height: 900 });
-            const border = await visual.evaluate((el) => {
-                const style = getComputedStyle(el);
-                return { width: parseFloat(style.borderRightWidth), style: style.borderRightStyle };
+            const layout = await page.locator('#jacobs-mission-software').evaluate((card) => {
+                const visual = card.querySelector('.portfolio-card__visual');
+                const body = card.querySelector('.portfolio-card__body');
+                const visualBox = visual.getBoundingClientRect();
+                const bodyBox = body.getBoundingClientRect();
+                return {
+                    stacked: visualBox.bottom <= bodyBox.top + 1,
+                    beside: visualBox.right <= bodyBox.left + 1 && Math.abs(visualBox.top - bodyBox.top) < 24,
+                };
             });
-            expect(border.width).toBe(width >= 768 ? 1 : 0);
             if (width >= 768) {
-                expect(border.style).toBe('solid');
+                expect(layout.beside).toBe(true);
+            } else {
+                expect(layout.stacked).toBe(true);
             }
         }
     }
@@ -77,6 +83,8 @@ test('hero actions have breathing room and desktop index has a labeled location'
     await expect(place).toBeVisible();
     await expect(place).toContainText('Based in');
     await expect(place).toContainText('Washington, DC');
+    await expect(place).toContainText('Jacobs / BlackLynx');
+    await expect(place).toContainText('NASA Goddard via SSAI');
     expect(
         await place
             .locator('div')
@@ -85,11 +93,10 @@ test('hero actions have breathing room and desktop index has a labeled location'
     ).toBe(1);
     const destinations = page.locator('.nav-destinations');
     await expect(destinations.getByRole('link')).toHaveText([
-        'Experience',
-        'Projects',
+        'Work',
         'Open Source',
-        'Writing',
         'About',
+        'Writing',
         'Resume',
     ]);
     await destinations.getByRole('link', { name: 'Resume', exact: true }).click();
@@ -97,6 +104,30 @@ test('hero actions have breathing room and desktop index has a labeled location'
         'aria-current',
         'page'
     );
+});
+
+test('homepage copy stays inside the gutter at phone and desktop widths', async ({ page }) => {
+    await page.goto('/');
+    await page.evaluate(() => document.fonts.ready);
+    for (const width of [320, 390, 768, 1280, 1440]) {
+        await page.setViewportSize({ width, height: 900 });
+        const measure = await page.evaluate(() => {
+            const shell = document.querySelector('.opening .site-shell');
+            const copy = document.querySelector('.opening__copy');
+            const facts = document.querySelector('.opening__facts');
+            const pad = parseFloat(getComputedStyle(shell).paddingLeft);
+            return {
+                pad,
+                copyLeft: copy.getBoundingClientRect().left,
+                factsLeft: facts.getBoundingClientRect().left,
+                overflow: document.documentElement.scrollWidth > innerWidth + 1,
+            };
+        });
+        expect(measure.pad).toBeGreaterThanOrEqual(16);
+        expect(measure.copyLeft).toBeGreaterThanOrEqual(measure.pad - 1);
+        expect(measure.factsLeft).toBeGreaterThanOrEqual(measure.pad - 1);
+        expect(measure.overflow).toBe(false);
+    }
 });
 
 test('theme toggle meets the touch target and there is no command palette', async ({ page }) => {

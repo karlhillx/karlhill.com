@@ -9,7 +9,7 @@ use App\Support\Booking;
  * derived values (sameAs, analytics primary) stay here so fragments stay pure.
  *
  * Page roles (portfolio first — one job per URL):
- * - /         identity, three lead case studies, delivery snapshot, curated notes, contact
+ * - /         identity, Jacobs / NASA / Dry Standard, independent tools, how I work, notes, contact
  * - /work     mission, platform/DevEx, NASA, independent products, earlier work
  * - /blog     writing
  * - /about    career, current focus, working approach, opportunities, music coda
@@ -20,7 +20,7 @@ use App\Support\Booking;
  * - /now      301 → /#contact; focus data lives on About
  * - /delivery and /lead  301 → /work/jacobs-mission-software#delivery-practices
  * - /music    do not add — music stays on /about. This is a career site.
- * - footer    email; Writing, Resume, GitHub, LinkedIn, Privacy
+ * - footer    email; Experience, Writing, Resume, GitHub, LinkedIn, Privacy
  */
 $social = require __DIR__.'/site/social.php';
 
@@ -91,6 +91,7 @@ return [
     'same_as' => $sameAs,
     'facts' => require __DIR__.'/site/facts.php',
     'hero' => require __DIR__.'/site/hero.php',
+    'home' => require __DIR__.'/site/home.php',
     'experience' => require __DIR__.'/site/experience.php',
     'projects' => require __DIR__.'/site/projects.php',
     'work' => require __DIR__.'/site/work.php',

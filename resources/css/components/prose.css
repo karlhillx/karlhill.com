@@ -155,7 +155,7 @@
 .prose-karl code {
     font-family: var(--font-mono);
     font-size: 0.875em;
-    color: oklch(82% 0.12 50);
+    color: light-dark(oklch(38% 0.13 50), oklch(82% 0.12 50));
     background: color-mix(in oklab, var(--accent) 8%, transparent);
     border: 1px solid color-mix(in oklab, var(--accent) 18%, transparent);
     padding: 0.08em 0.4em;

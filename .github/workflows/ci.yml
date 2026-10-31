@@ -3,6 +3,8 @@ name: CI
 on:
   push:
     branches: [main, master]
+  pull_request:
+    branches: [main, master]
   workflow_dispatch:
 
 jobs:
@@ -34,7 +36,6 @@ jobs:
           echo "PHP and shell syntax checks passed."
 
   test:
-    if: github.event_name == 'workflow_dispatch'
     needs: syntax
     runs-on: ubuntu-latest
 

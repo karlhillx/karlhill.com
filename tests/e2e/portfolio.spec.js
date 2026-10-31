@@ -19,9 +19,9 @@ test('featured projects expose meaningful links without oversized teasers', asyn
     await expect(page.locator('#work .studies__list > article')).toHaveCount(3);
     for (const article of await page.locator('#work .studies__list > article').all()) {
         await expect(article.locator('.study__body')).toBeVisible();
+        await expect(article.locator('.study__contribution')).toBeVisible();
         await expect(article.locator('.study__impact')).toBeVisible();
-        await expect(article.getByRole('link', { name: /Read case study/ })).toBeVisible();
-        await expect(article.getByRole('link')).toHaveCount(1);
+        await expect(article.getByRole('link', { name: 'Read the case study' })).toBeVisible();
     }
     await expect(page.locator('#notes .portfolio-writing-link')).toHaveCount(3);
     await page.goto('/work');
@@ -86,7 +86,7 @@ test('portfolio content and collection navigation work without JavaScript', asyn
             .click();
         await expect(page).toHaveURL(/\/work\/the-dry-standard$/);
         await expect(
-            page.getByRole('heading', { name: /Editorial source, generated catalog/ })
+            page.getByRole('heading', { name: /Editorial source and the catalog/ })
         ).toBeVisible();
     } finally {
         await context.close();
@@ -97,7 +97,7 @@ test('hero hierarchy and work rail hold across responsive widths', async ({ page
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
     const statement = page.locator('.opening__statement');
-    await expect(statement).toHaveText('Engineering complex systems.');
+    await expect(statement).toHaveText('Engineering complex systems. Helping teams deliver.');
 
     for (const width of [320, 375, 430, 768, 1024, 1280, 1440]) {
         await page.setViewportSize({ width, height: 900 });
@@ -178,7 +178,7 @@ test('case studies support keyboard discovery and return to their collection', a
 test('primary actions and resume jump links meet touch-size minimums', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
-    const primaryAction = page.getByRole('link', { name: /Explore Projects/ });
+    const primaryAction = page.getByRole('link', { name: /Explore the work/ });
     expect((await primaryAction.boundingBox()).height).toBeGreaterThanOrEqual(44);
 
     await page.goto('/resume');

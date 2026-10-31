@@ -153,7 +153,7 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('id="work"', escape: false);
     $response->assertSee('id="system"', escape: false);
     $response->assertDontSee('id="path"', escape: false);
-    $response->assertSee('Technical leadership', escape: false);
+    $response->assertSee('How I work', escape: false);
     $response->assertDontSee('role="radiogroup"', escape: false);
     $response->assertSee('href="/work/jacobs-mission-software#delivery-system"', escape: false);
     $response->assertDontSee('mypy', escape: false);
@@ -167,8 +167,9 @@ it('homepage is a focused landing page', function () {
     $response->assertSee('href="'.url('/work/flood-mapping-system').'"', escape: false);
     $response->assertSee('href="'.url('/work/developer-tooling').'"', escape: false);
     $response->assertSee('Flood Mapping System', escape: false);
-    $response->assertSee('Engineering the feedback loop', escape: false);
-    $response->assertSee('GeoHorizons 2026', escape: false);
+    $response->assertSee('The Dry Standard', escape: false);
+    $response->assertSee('SSAI', escape: false);
+    $response->assertSee('GeoHorizons', escape: false);
     $response->assertDontSee('href="/research/global-flood-mapping"', escape: false);
     $response->assertDontSee('NASA Earth science systems from Goddard are still public.', escape: false);
     $response->assertDontSee('logo-jacobs-mark', escape: false);
@@ -183,9 +184,14 @@ it('homepage is a focused landing page', function () {
     $response->assertDontSee('work-card--scope', escape: false);
     $response->assertDontSee('portfolio-card--mission', escape: false);
     $response->assertSee('Cross-program mission software', escape: false);
-    // Home carries mission, tooling, and flood mapping; the full catalog lives on /work.
+    // Home carries Jacobs, NASA flood mapping, and The Dry Standard; tools are a compact collection.
     expect(substr_count($response->getContent(), '<article id="'))->toBe(3);
+    $response->assertSee('id="jacobs-mission-software"', escape: false);
+    $response->assertSee('id="flood-mapping-system"', escape: false);
+    $response->assertSee('id="the-dry-standard"', escape: false);
     $response->assertSee('id="developer-tooling"', escape: false);
+    $response->assertDontSee('id="organizations"', escape: false);
+    $response->assertDontSee('id="capabilities"', escape: false);
     $response->assertSee('id="notes"', escape: false);
     $response->assertSee('All writing', escape: false);
     $response->assertSee('href="/about"', escape: false);
@@ -207,6 +213,11 @@ it('homepage is a focused landing page', function () {
     $response->assertDontSee('scripts/generate-og-images.py', escape: false);
     $response->assertDontSee('id="experience"', escape: false);
     $response->assertDontSee('id="open-source"', escape: false);
+    $response->assertDontSee('portfolio-product-callout', escape: false);
+    $response->assertSee('bb-run', escape: false);
+    $response->assertSee('testrisk', escape: false);
+    $response->assertSee('pipeguard', escape: false);
+    $response->assertSee('drinkdrystandard.com', escape: false);
 });
 
 it('work cards lead to case studies rather than competing live project exits', function () {
@@ -610,7 +621,7 @@ it('homepage hero prioritizes work and contact over hiring documents', function 
 
     preg_match('/<div data-home-actions.*?<\/div>/s', $html, $heroCta);
     expect($heroCta[0] ?? '')->not->toContain('href="/kit"')
-        ->and($heroCta[0] ?? '')->toContain('href="/work"')
+        ->and($heroCta[0] ?? '')->toContain('href="/#work"')
         ->and($heroCta[0] ?? '')->toContain('href="/resume"');
 });
 

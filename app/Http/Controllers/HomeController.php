@@ -23,11 +23,10 @@ class HomeController extends Controller
         return view('home.index', [
             'meta' => PageMeta::home(),
             'featuredPosts' => $featuredPosts,
-            'featuredProjects' => collect([
-                'jacobs-mission-software',
-                'flood-mapping-system',
-                'developer-tooling',
-            ])->map(fn (string $slug) => ProjectCatalog::findOrFail($slug))->values(),
+            'featuredProjects' => ProjectCatalog::homepageStories(),
+            'nasaSupporting' => ProjectCatalog::homepageNasaSupporting(),
+            'toolingProject' => ProjectCatalog::homepageTools(),
+            'toolingRepos' => config('site.github.fallback_repos'),
             'collections' => ProjectCatalog::collections(),
             'structuredData' => HomeStructuredData::build($posts->take(12)),
         ]);

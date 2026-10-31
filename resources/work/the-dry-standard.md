@@ -1,86 +1,76 @@
 ---
-updated: '2026-09-30'
-lede: An independent production application I founded, edit, and engineer. The work is the domain model, the publishing pipeline, the public interface, and the operational checks that keep them consistent.
-role: Founder, designer, and engineer — end-to-end product ownership.
+updated: '2026-10-31'
+lede: An independent publication and product I founded, edit, and engineer. Markdown reviews are the source. Publish validates them and writes the SQLite catalog the public site reads.
+role: Founder, editor, and product engineer — end-to-end product ownership.
 leadership:
   mode: Independent product ownership
   team: Independently built and operated
-  unblocked: Inconsistent product claims and a category that is difficult to search or compare.
-  decision: Model products, evidence, and tasting state separately rather than make a review blog carry the entire domain.
+  unblocked: A category where alcohol level, production method, and taste get collapsed into one listing.
+  decision: Keep researched facts and firsthand scores separate, and refuse to publish until validation passes.
 problem:
-- Production method, alcohol level, and sensory judgment are different kinds of information, but are often conflated.
-- A publication needs an editorial workflow; a useful database also needs consistent records, queryable attributes, and explainable discovery.
+- Production method, alcohol level, and sensory judgment are different facts, and listings usually collapse them.
+- A publication needs an editorial workflow. A catalog needs records that search and comparison can explain.
+- Saving a file, or deploying it early, must not put an untasted score on the public site.
 decisions:
-- Separate human-authored editorial source from a generated SQLite runtime catalog.
-- Keep producer facts, their sources, and firsthand tasting scores distinct; researched records do not automatically qualify for scored rankings.
-- Build discovery and comparison on the domain model, with curated indexable landing pages rather than treating every faceted URL as an SEO page.
-- Own publishing validation, frontend assets, deployment, and release verification as part of the product.
+- Treat markdown as the editorial source and a generated SQLite catalog as the read model. Public page requests do not write that catalog.
+- Require a firsthand tasting before a public 0–100 score. Research records can publish as profiles and stay off scored rankings.
+- Fail closed in validation. Publish assigns the durable product id and builds the catalog; a failed build restores the previous review and catalog.
+- Render public pages from PHP templates. Blade stays on mail, errors, and the private operations dashboard.
+- Keep homepage scheduling in the application database, outside the catalog, so a scheduled tasting stays off the public site until its publish time.
 outcome:
-- A live Laravel product at drinkdrystandard.com, combining editorial publishing with structured search and comparison.
-- One maintained model supports discovery, product pages, editorial operations, and public data surfaces.
-- The running product shows the path from domain research through classification to production.
+- A live Laravel 13 application at drinkdrystandard.com, on PHP 8.5, with Vite-built CSS and JavaScript.
+- Search, comparison, reviews, guides, and bounded reader feeds read one generated catalog.
+- I own the domain rules, the publish gate, the interface, deployment, and the release that is running.
 metrics: []
 diagram:
-  title: From editorial source to product discovery
-  caption: Simplified content architecture. Publication builds the catalog; public GET requests read it rather than mutate it.
+  title: From editorial source to the public catalog
+  caption: Markdown is the source. Publish validates it and writes the catalog. Public requests read that catalog.
   zones:
   - label: Editorial source
     steps:
-    - Product identity and classification
-    - Evidence and producer claims
+    - Markdown reviews and guides
+    - Sourced facts and discrepancies
     - Firsthand tasting state
-  - label: Publish and build
+  - label: Validate and publish
     steps:
-    - Validate publication readiness
-    - Build SQLite catalog
-    - Generate public data
+    - Fail closed on unsourced facts
+    - Assign a durable product id
+    - Build the SQLite catalog
   - label: Public product
     steps:
-    - Search and intent finder
-    - Reviews and comparisons
-    - Curated discovery pages
+    - PHP pages read the catalog
+    - Search, comparison, and guides
+    - Scheduled tastings stay off until publish time
 ---
 
-The Dry Standard is a publication and structured database for drinks at 0.5% ABV or less. It is also a full-stack product-engineering project: deciding what the domain means, designing how people explore it, and building the systems that keep publication and operation consistent.
+The Dry Standard reviews drinks at 0.5% ABV or less. Dealcoholized is not a synonym for nonalcoholic. The model keeps production type, the evidence for that type, and the tasting record as separate facts. A researched profile can publish. A public 0–100 score requires a firsthand tasting.
 
-## A model that preserves meaning
+I am the editor and the engineer. The live site is the product. The application repository stays private.
 
-Alcohol level does not explain how a beverage was made. A dealcoholized wine and a formulated alternative can occupy the same retail category while representing different production histories. The model treats product identity, production type, method, evidence, tasting state, and scores as distinct concerns.
+## Editorial source and the catalog
 
-That separation matters in the interface. A researched fact should not look like a firsthand tasting result. Scored rankings require tasted or retasted records; research-only records can still contribute useful factual information without implying a sensory judgment.
+Reviews and guides are markdown. `product_id` is the durable key, assigned when a review publishes. The file does not carry a second public id.
 
-## Editorial source, generated catalog
+`php artisan dry-standard:validate` reads the candidate and does not write the catalog. It refuses publication when a factual field has no source, ABV is not verifiably at or below 0.5%, a classified production type has no supporting source, required tasting fields are empty, or the bottle still fails its image checks. A public rating also requires `tasting_status` of `tasted` or `retasted` and an explicit firsthand tasting event.
 
-Editors work with authored review and guide content. Publication validation and a build step turn that source into a SQLite runtime catalog, exports, and public payloads. The Laravel application reads the catalog for public requests.
+`php artisan dry-standard:publish` runs that gate, persists the product id with the published status, and builds. `php artisan dry-standard:build` syncs published markdown into `data/catalog.sqlite` and writes operator-side CSV exports. The build stops if any published file fails the same checks. If publication bookkeeping fails, the previous review and catalog are restored.
 
-This separates editorial work from serving traffic. The catalog is a generated read model, not an alternative source of truth that public page requests silently update.
+Public traffic does not take a shortcut around that path. A page request does not write the catalog. Forms land in a private inbox and never publish. Saved bottles stay on the device; the site looks up only those slugs. Reader feeds are short and include firsthand tasted reviews, not research profiles. Bulk catalog download stays off.
 
-The application includes a private operations dashboard, publishing commands, and explicit release checks. These are product features for the operator, not just deployment chores.
+Homepage scheduling is the piece that stays outside the catalog. Pins and holds live in the Laravel application database. A scheduled review becomes public at its clock time in America/New_York. Pushing the file earlier does not put the score on the site, and a rebuild does not copy a still-scheduled file into the catalog. An already-live research profile keeps serving the published version until that time.
 
-## Search and discovery
+## How the application is split
 
-Search spans product and brand names, styles, methods, classifications, and tasted flavor terms. An intent finder and side-by-side comparisons offer different ways into the same catalog.
+The stack is Laravel 13 and PHP 8.5. Domain code lives in `DryStandard\`: product identity, production type, evidence, tasting state, and scores. Finder, archive queries, comparison, recommendations, and the Artisan publish and validate commands sit on that model.
 
-The information architecture distinguishes temporary exploration from durable editorial destinations. Faceted query URLs support browsing; curated collections and substantive category pages provide indexable landings. Structured metadata and canonical URL decisions belong to the model and publishing workflow rather than being added after launch.
+Public HTML is PHP templates in `src/views/`. Blade is mail, HTTP errors, and the private `/ops/` dashboard. CSS and JavaScript are authored under `assets/` and built with Vite. Node 24 is the local, container, and CI runtime.
 
-## Why the catalog is generated
+Bottle stills are committed JPEGs. WebP derivatives are generated into a cache. A request may write a missing derivative. It still may not write the catalog.
 
-Editorial markdown is the source of truth. A build validates it and writes a SQLite catalog, exports, and the payloads the public site reads. Search, comparison, product pages, and curated collections all query that catalog. A public request does not write it.
+Search, comparison, product pages, Best, Learn, and the cellar read the same catalog. Faceted query URLs are browsing tools. Curated collections and category pages are the durable, indexable landings. Research-only records stay off Best and off rankings by score.
 
-The tradeoff is deliberate. A change is not visible until validation and the build succeed, so the site cannot drift into a second, quieter editor. The cost is a publish step. The gain is one schema for discovery and one place to decide what a researched fact is allowed to look like.
+## What I run
 
-This is not a distributed platform. It is one Laravel application, one catalog, and one public renderer.
+A deploy rebuilds the Vite assets and the catalog, including published-record validation. `php artisan dry-standard:release-check` compares the application build, the Vite manifest, the catalog, and the recorded release id with the revision I expect. Pest covers the domain rules. I run those checks before a change that needs them.
 
-## The interface is part of the model
-
-Public pages are PHP templates with Vite-built CSS and JavaScript. Cards, search, comparison, and curated landings are how the taxonomy is explained, not a skin added afterward. A researched record and a tasted score have to look different, or the classification work is wasted. Blade is limited to mail, errors, and the private operations dashboard.
-
-## Production ownership
-
-The stack is Laravel, SQLite, PHP templates, and Vite-built CSS and JavaScript. Blade serves mail, errors, and the operations dashboard. The product runs on its own domain, not as a portfolio preview.
-
-Release verification checks the application build, asset manifest, and catalog against the deployed release. I own that path as founder, editor, and principal engineer: domain rules, the interface, publish checks, and what is actually running. The limit is the same as the advantage. One person can keep the model and the product aligned. The work does not pretend to be a staffed platform.
-
-## Technical proof
-
-Explore the [live product](https://drinkdrystandard.com/). The sections above describe the classification model, the generated catalog, and how the public application reads it.
+The limit is the same as the advantage. One person keeps the model, the editorial record, and the running site aligned. Explore the [live product](https://drinkdrystandard.com/).

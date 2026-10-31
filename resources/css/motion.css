@@ -78,7 +78,6 @@ nav[aria-label='Primary'] .brand-lockup {
     transition: font-size 0.28s var(--ease-out-soft);
 }
 
-.brand-lockup__mark,
 .site-mark {
     display: block;
     flex-shrink: 0;
@@ -133,23 +132,6 @@ nav[aria-label='Primary'].is-compact {
 
 nav[aria-label='Primary'].is-compact .nav-bar {
     min-height: 4rem;
-}
-
-.nav-shortcut {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 1.2rem;
-    padding: 0 0.32rem;
-    border: 1px solid color-mix(in oklab, currentColor 45%, transparent);
-    border-radius: var(--radius-sm);
-    background: color-mix(in oklab, var(--bg) 55%, transparent);
-    color: inherit;
-    font-family: var(--font-mono);
-    font-size: var(--text-micro);
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    line-height: 1;
 }
 
 /* Arrow micro-animation — only while the parent link/button is hovered or focused. */
@@ -303,57 +285,6 @@ button:focus-visible > .arrow-nudge,
         /* Calendly’s mobile UI needs vertical room; dvh tracks real device chrome. */
         min-height: 720px;
         height: max(720px, min(92dvh, 900px));
-    }
-}
-
-/* Home footer: the <details> summary sits in the aside rail; the wide panel
-   below the grid follows its open state so the iframe keeps full width. The
-   #book target stays inside <details> so fragment navigation auto-expands it
-   without JS. Browsers without :has() simply always show the panel. */
-.contact-booking__summary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    width: 100%;
-    min-height: 2.75rem;
-    list-style: none;
-}
-
-.contact-booking__summary::-webkit-details-marker {
-    display: none;
-}
-
-.contact-booking__chevron {
-    flex-shrink: 0;
-    color: var(--accent);
-    transition: transform 0.2s ease;
-}
-
-.contact-booking[open] .contact-booking__chevron {
-    transform: rotate(180deg);
-}
-
-.contact-booking__body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding-top: 0.5rem;
-}
-
-.booking-embed--footer {
-    margin-top: 2.5rem;
-}
-
-@supports selector(:has(a)) {
-    .site-footer-home:not(:has(.contact-booking[open])) + .booking-embed--footer {
-        display: none;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .contact-booking__chevron {
-        transition: none;
     }
 }
 
@@ -554,10 +485,6 @@ button:focus-visible > .arrow-nudge,
         display 0.24s allow-discrete;
 }
 
-.command-palette__search {
-    display: block;
-}
-
 .command-palette:popover-open {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -654,103 +581,6 @@ nav[aria-label='Primary'] {
     border-radius: var(--radius-md);
     padding: 0.7rem 0.8rem;
     font-size: 0.875rem;
-}
-
-.command-results {
-    max-height: min(44vh, 26rem);
-    overflow-y: auto;
-    display: grid;
-    gap: 0.4rem;
-}
-
-.command-result {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    background: var(--panel);
-    color: var(--text);
-    padding: 0.65rem 0.85rem;
-    text-align: left;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    transition:
-        border-color 0.18s var(--ease-out-soft),
-        background-color 0.18s var(--ease-out-soft),
-        transform 0.2s var(--ease-out-spring),
-        color 0.18s var(--ease-out-soft);
-    animation: fadeUp 0.32s var(--ease-out-spring) both;
-}
-
-.command-result__group {
-    flex-shrink: 0;
-    width: 4.5rem;
-    font-size: 0.75rem;
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--muted-2);
-}
-
-.command-result__label {
-    display: flex;
-    min-width: 0;
-    flex: 1;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-@supports (animation-delay: calc(sibling-index() * 1ms)) {
-    .command-result {
-        animation-delay: calc(sibling-index() * 28ms);
-    }
-}
-
-.command-result:hover,
-.command-result.is-active {
-    border-color: color-mix(in oklab, var(--accent) 70%, var(--border-strong));
-    background: color-mix(in oklab, var(--accent) 22%, var(--panel));
-    color: var(--text);
-    transform: translateX(3px);
-}
-
-.command-result.is-active .command-result__group,
-.command-result:hover .command-result__group {
-    color: var(--accent);
-}
-
-.command-hint {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 0.85rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--muted-2);
-}
-
-.command-hint span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.command-hint kbd {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 1.15rem;
-    height: 1.15rem;
-    padding: 0 0.3rem;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-sm);
-    background: var(--panel);
-    color: var(--muted);
-    font-size: 0.75rem;
-    line-height: 1;
 }
 
 /* Reduced motion: skip all animations */

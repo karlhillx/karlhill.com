@@ -9,6 +9,12 @@ it('jacobs mission software is always first', function () {
     $this->assertSame('flood-mapping-system', ProjectCatalog::all()[1]['slug']);
     $this->assertSame('developer-tooling', ProjectCatalog::featured()[1]['slug']);
     $this->assertSame('flood-mapping-system', ProjectCatalog::featured()[2]['slug']);
+    expect(ProjectCatalog::homepageStories()->pluck('slug')->all())->toBe([
+        'jacobs-mission-software',
+        'flood-mapping-system',
+        'the-dry-standard',
+    ]);
+    expect(ProjectCatalog::homepageTools()['slug'])->toBe('developer-tooling');
 });
 
 it('portfolio lists trajectory chapters and keeps supporting studies routable', function () {
@@ -89,7 +95,7 @@ it('portfolio pages preserve mission anchors and product presentation', function
     $this->get('/work/the-dry-standard')->assertOk()
         ->assertSee('href="https://drinkdrystandard.com/"', false);
 })->with([
-    'home' => ['/', '/work#work'],
+    'home' => ['/', '/work'],
     'work' => ['/work', '#work'],
 ]);
 

@@ -67,10 +67,13 @@ test('mobile teasers, collection choices, and contact actions stay easy to reach
         await page.evaluate(() => document.fonts.ready);
         for (const card of await page.locator('#work article').all()) {
             expect((await card.boundingBox()).height).toBeLessThanOrEqual(
-                width === 320 ? 820 : 700
+                width === 320 ? 900 : 880
             );
         }
-        const firstLink = page.locator('#work article').first().getByRole('link');
+        const firstLink = page
+            .locator('#work article')
+            .first()
+            .getByRole('link', { name: 'Read the case study' });
         expect(await firstLink.evaluate((el) => el.getBoundingClientRect().top)).toBeLessThan(2200);
         await expect(page.locator('[data-analytics-location="footer-home"]')).toBeVisible();
         await expect(page.locator('[data-contact-form]')).toHaveCount(0);
@@ -92,9 +95,12 @@ test('case studies put the problem and decisions before supporting visuals', asy
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/work/jacobs-mission-software');
     await page.evaluate(() => document.fonts.ready);
+    const firstScreen = page.locator('.case-study-first');
+    await expect(firstScreen).toBeVisible();
+    expect(await firstScreen.evaluate((el) => el.getBoundingClientRect().top)).toBeLessThan(900);
     expect(
         await page.locator('#problem').evaluate((el) => el.getBoundingClientRect().top)
-    ).toBeLessThan(1200);
+    ).toBeGreaterThan(await firstScreen.evaluate((el) => el.getBoundingClientRect().bottom));
     const ids = await page
         .locator('#problem, #decisions, #delivery-system, #snapshot, #outcome')
         .evaluateAll((nodes) => nodes.map((node) => node.id));

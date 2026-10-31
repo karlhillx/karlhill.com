@@ -57,6 +57,12 @@ it('experience fragment powers resume and facts stay consistent', function () {
         ->and(config_path('site/facts.php'))->toBeFile()
         ->and(config_path('site/now.php'))->toBeFile()
         ->and(config_path('site/work.php'))->toBeFile()
+        ->and(config_path('site/home.php'))->toBeFile()
+        ->and(config('site.home.stories'))->toBe([
+            'jacobs-mission-software',
+            'flood-mapping-system',
+            'the-dry-standard',
+        ])
         ->and(config_path('site/projects.php'))->toBeFile()
         ->and(config_path('site/resume.php'))->toBeFile()
         ->and(config_path('site/about.php'))->toBeFile();

@@ -1,6 +1,7 @@
 @php
     $profiles = collect(config('site.social'))->keyBy('icon');
     $links = [
+        ['href' => '/experience', 'label' => 'Experience'],
         ['href' => '/blog', 'label' => 'Writing'],
         ['href' => '/resume', 'label' => 'Resume'],
     ];

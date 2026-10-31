@@ -36,4 +36,4 @@ Dark is the default (`color-scheme` and the pre-paint script). Check light mode 
 
 - Nav, buttons, and footer stay compact. Do not add a booking widget.
 - Screenshots use real images and a short caption. Do not fake terminal output.
-- Homepage order is work, then the delivery system, then notes, then contact.
+- Homepage order is work, then independent tools, then how I work, then notes, then contact.
