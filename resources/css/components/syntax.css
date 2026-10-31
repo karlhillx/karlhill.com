@@ -18,7 +18,7 @@
     color: #a3a3a3;
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: var(--tracking-mono);
     padding: 0.28rem 0.5rem;
     border-radius: var(--radius-sm);
     opacity: 0;
@@ -47,7 +47,7 @@
     z-index: 1;
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: var(--tracking-mono);
     color: var(--accent);
     opacity: 0;
     transition: opacity 0.18s ease;
@@ -67,7 +67,7 @@
     font-family: var(--font-mono);
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: var(--tracking-mono);
     color: #737373;
     pointer-events: none;
     transition: opacity 0.16s ease;

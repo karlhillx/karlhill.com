@@ -161,6 +161,11 @@ body {
     text-wrap: pretty;
 }
 
+.site-page-hero__lede + .portfolio-caption,
+.site-page-hero__lede + p {
+    margin-top: var(--space-inline);
+}
+
 .site-page-hero > .site-shell > p,
 .site-page-hero .hero-enter > p:first-of-type {
     max-width: var(--space-measure-narrow);

@@ -25,7 +25,7 @@
             <a href="/" class="brand-lockup shrink-0" @if($isActive('home')) aria-current="page" @endif>
                 <span class="brand-lockup__name">Karl Hill</span>
             </a>
-            <div class="nav-destinations hidden min-[1180px]:flex items-center gap-4 text-neutral-400">
+            <div class="nav-destinations hidden md:flex items-center gap-x-3 lg:gap-x-4 text-neutral-400">
                 @foreach($items as $key => [$href, $label])
                     <a href="{{ $href }}" class="{{ $navLinkClass($key) }}" @if($isActive($key)) aria-current="page" @endif>{{ $label }}</a>
                 @endforeach
@@ -36,7 +36,7 @@
 
             <a href="/#contact"
                data-nav-section="contact"
-               class="masthead__contact hidden min-[1180px]:inline-flex">
+               class="masthead__contact hidden md:inline-flex">
                 Contact
             </a>
 
@@ -45,14 +45,14 @@
                     commandfor="mobile-menu"
                     popovertarget="mobile-menu"
                     aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu"
-                    class="min-[1180px]:hidden flex flex-col justify-center items-center min-h-11 min-w-11 gap-1.5 border border-neutral-700/80 hover:border-accent transition-colors shrink-0">
+                    class="md:hidden flex flex-col justify-center items-center min-h-11 min-w-11 gap-1.5 border border-neutral-700/80 hover:border-accent transition-colors shrink-0">
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
                 <span class="nav-toggle-bar" aria-hidden="true"></span>
             </button>
         </div>
     </div>
-    <div id="mobile-menu" popover="auto" class="min-[1180px]:hidden border-t border-neutral-800 bg-bg">
+    <div id="mobile-menu" popover="auto" class="md:hidden border-t border-neutral-800 bg-bg">
         <div class="site-shell site-gutter py-4 pb-[max(2rem,env(safe-area-inset-bottom))] flex flex-col text-neutral-400">
             <div class="flex flex-col divide-y divide-neutral-800/60">
                 @foreach($items as $key => [$href, $label])

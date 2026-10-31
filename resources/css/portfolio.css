@@ -35,7 +35,7 @@
     color: var(--text);
     font-family: var(--font-sans);
     font-size: var(--type-support);
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: var(--tracking-sans-tight);
     text-decoration: underline;
     text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
@@ -290,9 +290,9 @@ main:has(> .portfolio-nav) section[id] {
     margin: 0;
     padding: 0.55rem 0.9rem 0.7rem;
     color: var(--muted);
-    font-size: 0.75rem;
-    font-weight: 560;
-    letter-spacing: 0.08em;
+    font-size: var(--type-eyebrow);
+    font-weight: 500;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
 }
 
@@ -308,7 +308,7 @@ main:has(> .portfolio-nav) section[id] {
 .portfolio-card h3 {
     font-family: var(--font-sans);
     font-size: var(--type-card-title);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.15;
     margin-block: var(--space-micro) var(--space-micro);
     text-wrap: balance;

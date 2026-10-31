@@ -68,7 +68,7 @@
     margin: 0 0 var(--space-inline);
     font-family: var(--font-sans);
     font-size: var(--type-section);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.15;
     letter-spacing: var(--tracking-sans-tight);
     color: var(--text);

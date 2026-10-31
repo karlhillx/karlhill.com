@@ -27,9 +27,10 @@ h1,
 .eyebrow {
     font-family: var(--font-sans);
     font-stretch: inherit;
-    font-size: 0.6875rem;
+    font-size: var(--type-eyebrow);
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: var(--tracking-mono);
+    line-height: 1.4;
     text-transform: uppercase;
     color: var(--muted);
 }
@@ -101,23 +102,11 @@ nav[aria-label='Primary'] .brand-lockup {
     color: var(--accent-ink);
 }
 
-@media (min-width: 1180px) {
-    .masthead__contact {
-        display: inline-flex;
-    }
-}
-
 /* Homepage ---------------------------------------------------------------- */
 
 .opening {
-    padding-top: 6.5rem;
-    padding-bottom: 1.5rem;
-}
-
-@media (max-width: 767px) {
-    .opening {
-        padding-top: 6.75rem;
-    }
+    padding-top: calc(var(--nav-offset) + 1.75rem);
+    padding-bottom: var(--space-stack);
 }
 
 .opening__grid {
@@ -136,11 +125,12 @@ nav[aria-label='Primary'] .brand-lockup {
 }
 
 .opening__role {
-    margin: 0 0 0.85rem;
+    margin: 0 0 var(--space-inline);
     color: var(--accent);
-    font-size: 0.75rem;
+    font-size: var(--type-eyebrow);
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: var(--tracking-mono);
+    line-height: 1.4;
     text-transform: uppercase;
 }
 
@@ -160,8 +150,8 @@ nav[aria-label='Primary'] .brand-lockup {
     color: var(--text);
     font-size: 1.0625rem;
     font-weight: 400;
-    letter-spacing: 0.005em;
-    line-height: 1.55;
+    letter-spacing: var(--tracking-sans);
+    line-height: var(--leading-body);
 }
 
 .opening__actions {
@@ -209,9 +199,10 @@ nav[aria-label='Primary'] .brand-lockup {
 .opening__facts dt {
     margin: 0;
     color: var(--muted);
-    font-size: 0.75rem;
+    font-size: var(--type-eyebrow);
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: var(--tracking-mono);
+    line-height: 1.4;
     text-transform: uppercase;
 }
 
@@ -319,10 +310,11 @@ nav[aria-label='Primary'] .brand-lockup {
 .study__meta {
     margin: 0;
     color: var(--muted);
-    font-size: 0.8125rem;
+    font-size: var(--type-caption);
     font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    letter-spacing: var(--tracking-sans);
+    line-height: var(--leading-ui);
+    text-transform: none;
 }
 
 .study h3 {
@@ -411,11 +403,12 @@ nav[aria-label='Primary'] .brand-lockup {
 }
 
 .study__figure figcaption {
-    margin-top: 0.45rem;
+    margin-top: var(--space-micro);
     color: var(--muted);
-    font-size: 0.75rem;
+    font-size: var(--type-eyebrow);
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: var(--tracking-mono);
+    line-height: 1.4;
     text-transform: uppercase;
 }
 
@@ -476,7 +469,7 @@ nav[aria-label='Primary'] .brand-lockup {
 }
 
 .contact-close {
-    padding-bottom: 1.15rem;
+    padding-bottom: var(--space-heading);
 }
 
 .contact-close h2 {
@@ -489,10 +482,6 @@ nav[aria-label='Primary'] .brand-lockup {
     margin: 0;
     max-width: 46ch;
     color: var(--muted);
-}
-
-.site-footer--home {
-    padding-block: 1.5rem 0.75rem;
 }
 
 /* Case-study delivery diagram: light technical panel, not a dark widget. */
@@ -538,9 +527,12 @@ nav[aria-label='Primary'] .brand-lockup {
 /* One footer row: name, links, email. */
 
 .site-footer,
-.site-footer--home,
 .site-footer--compact {
-    padding-block: 0.55rem;
+    padding-block: var(--space-stack);
+}
+
+.site-footer.site-footer--home {
+    padding-block: var(--space-section-soft) var(--space-stack);
 }
 
 .site-footer__bar {
@@ -548,7 +540,7 @@ nav[aria-label='Primary'] .brand-lockup {
     flex-wrap: wrap;
     align-items: center;
     column-gap: 1.35rem;
-    row-gap: 0.15rem;
+    row-gap: var(--space-micro);
 }
 
 .site-footer__id {

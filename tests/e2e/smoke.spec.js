@@ -25,8 +25,8 @@ test.describe('smoke + a11y', () => {
     test('navigation stays complete across desktop, tablet, and mobile', async ({ page }) => {
         await page.goto('/work');
         const primary = page.getByRole('navigation', { name: 'Primary', exact: true });
-        // Text links appear from 1180px; below that the drawer carries them.
-        const DRAWER_MAX = 1180;
+        // Text links appear from the md breakpoint; below that the drawer carries them.
+        const DRAWER_MAX = 768;
         for (const width of [320, 390, 820, 1024, 1280, 1440]) {
             await page.setViewportSize({ width, height: 900 });
             if (width < DRAWER_MAX) {
@@ -59,7 +59,7 @@ test.describe('smoke + a11y', () => {
                 await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)
             ).toBe(true);
         }
-        await page.setViewportSize({ width: 820, height: 900 });
+        await page.setViewportSize({ width: 390, height: 900 });
         await primary.getByRole('button', { name: 'Open menu', exact: true }).click();
         await page.setViewportSize({ width: 1440, height: 900 });
         await expect(page.locator('#mobile-menu')).toBeHidden();

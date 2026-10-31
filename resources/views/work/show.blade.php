@@ -59,7 +59,7 @@
                             ['label' => $project['title']],
                         ]" />
                         <p class="case-study-masthead__meta eyebrow">{{ $project['meta'] }}</p>
-                        <h1 class="case-study-masthead__title font-sans font-semibold text-[clamp(1.75rem,3.8vw,2.55rem)] leading-[1.15] tracking-tight text-neutral-100 text-balance"
+                        <h1 class="case-study-masthead__title"
                             data-article-title
                             style="view-transition-name: work-title-{{ $project['slug'] }}">
                             {{ $project['title'] }}

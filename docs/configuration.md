@@ -6,7 +6,7 @@ Hire bio is canonical in `config/site/person.php` (`bio`, third person). Shared 
 
 ## Portfolio architecture
 
-- Primary navigation is Experience, Projects, Open Source, Writing, About, Resume, and Contact from 1180px; below that a drawer carries the same destinations plus email. The footer has five utility links: Writing, Resume, GitHub, LinkedIn, Privacy.
+- Primary navigation is Work, Open Source, About, Writing, and Resume, plus Contact, from 768px. Below that a drawer carries the same destinations plus email. Experience stays in the footer.
 - Resume sits alongside Work, Writing, and About in the desktop destination group; search, theme, and Contact remain separate actions. Hero CTAs have explicit spacing above them, and the desktop portfolio index ends with a divided, labeled location footer rather than a repeated positioning sentence.
 - `/kit` redirects permanently to `/about`; `/now` to `/#contact`; `/delivery` and `/lead` directly to `/work/jacobs-mission-software#delivery-practices`. No redirect chains. Retired pages are absent from the sitemap, prefetch targets, and search destinations. Existing `now` and `kit` JSON keys remain compatible but point to the consolidated destinations.
 - `/experience` holds the career record. About keeps current focus, working approach, and the short music note. Delivery practices live in the Jacobs narrative. Publication details remain linked from the Flood Mapping case study, not global navigation.

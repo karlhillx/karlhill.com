@@ -54,6 +54,8 @@
     );
     --nav-py: 1.25rem;
     --nav-brand-size: 1.5rem;
+    /* Fixed bar. Mobile layout.css tightens this to the real phone bar. */
+    --nav-offset: 5.5rem;
     /* Spacing ladder — micro → chapter. Prefer these over ad-hoc rem values. */
     --space-micro: 0.35rem;
     --space-inline: 0.75rem;
@@ -63,9 +65,10 @@
     --space-card-gap: clamp(1rem, 1.8vw, 1.5rem);
     --space-heading: clamp(1.35rem, 2.5vw, 2rem);
     --space-list-row: clamp(1.5rem, 2.5vw, 2.1rem);
-    --space-section-soft: clamp(2.25rem, 5vh, 3.75rem);
-    --space-section: clamp(3.5rem, 7.5vh, 5.5rem);
-    --space-chapter: clamp(4.5rem, 9vh, 7rem);
+    /* Width-based so a tall window does not open huge gaps between the same sections. */
+    --space-section-soft: clamp(2.15rem, 1.5rem + 1.2vw, 3.5rem);
+    --space-section: clamp(3.25rem, 2.4rem + 1.6vw, 5rem);
+    --space-chapter: clamp(4rem, 2.8rem + 2vw, 6rem);
     --space-prose: 40rem;
     --space-pillar: clamp(1.5rem, 2.4vw, 2.5rem);
     --space-measure: 65ch;
@@ -79,7 +82,8 @@
     /* Semantic type roles — fluid clamps; mono reserved for meta/labels. */
     --type-hero-name: clamp(1.75rem, 2.4vw, 2.25rem);
     --type-hero-statement: clamp(1.85rem, 2.8vw, 2.65rem);
-    --type-page-title: clamp(1.85rem, 2.6vw, 2.35rem);
+    /* One continuous title size. Phone, tablet, and desktop stay on this curve. */
+    --type-page-title: clamp(2.05rem, 1.35rem + 2.2vw, 2.5rem);
     --type-section: clamp(1.45rem, 2vw, 1.75rem);
     --type-card-title: clamp(1.15rem, 1.5vw, 1.3rem);
     --type-feature-title: clamp(1.35rem, 1.8vw, 1.6rem);

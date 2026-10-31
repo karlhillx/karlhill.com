@@ -23,7 +23,6 @@ main > section:nth-of-type(n + 3):not([id]) {
         --space-list-row: clamp(1.25rem, 3.5vw, 1.75rem);
         --space-card-gap: 1rem;
         --space-card-pad: 1.05rem;
-        --type-page-title: clamp(2.15rem, 11vw, 3rem);
         --type-hero-name: clamp(1.5rem, 7vw, 1.8rem);
         --type-hero-statement: clamp(1.9rem, 7.2vw, 2.35rem);
         --type-section: clamp(1.55rem, 6vw, 2.1rem);
@@ -54,7 +53,7 @@ main > section:nth-of-type(n + 3):not([id]) {
     .site-page-hero h1 {
         font-size: var(--type-page-title);
         margin-bottom: 0.85rem;
-        line-height: 0.94;
+        line-height: var(--leading-display);
     }
 
     .site-page-hero__lede {
@@ -94,7 +93,7 @@ main > section:nth-of-type(n + 3):not([id]) {
 
     nav[aria-label='Primary'] .brand-lockup {
         font-size: 1.2rem;
-        letter-spacing: 0.04em;
+        letter-spacing: 0;
     }
 
     #mobile-menu {
@@ -179,23 +178,7 @@ main > section:nth-of-type(n + 3):not([id]) {
 }
 
 @media (max-width: 480px) {
-    .site-page-hero__title,
-    .site-page-hero h1 {
-        font-size: clamp(2rem, 11vw, 2.65rem);
-    }
-
     .post-list-title {
         font-size: clamp(1.15rem, 5.5vw, 1.4rem);
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-    .site-page-hero__title,
-    .site-page-hero h1 {
-        font-size: clamp(2.65rem, 6vw, 3.5rem);
-    }
-
-    .case-study-page {
-        padding-block: clamp(6.5rem, 10vh, 7.25rem) var(--space-section-soft);
     }
 }
