@@ -83,8 +83,8 @@ test('hero actions have breathing room and desktop index has a labeled location'
     await expect(place).toBeVisible();
     await expect(place).toContainText('Based in');
     await expect(place).toContainText('Washington, DC');
-    await expect(place).toContainText('Jacobs / BlackLynx');
-    await expect(place).toContainText('NASA Goddard via SSAI');
+    await expect(place.locator('div').nth(0).locator('dd')).toHaveText('Jacobs');
+    await expect(place.locator('div').nth(1).locator('dd')).toHaveText('NASA, 2017–2025');
     expect(
         await place
             .locator('div')

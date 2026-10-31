@@ -2,5 +2,5 @@
 
 return [
     'statement' => 'Engineering complex systems. Helping teams deliver.',
-    'lede' => 'I build mission software at Jacobs. Before that I was a Lead Software Engineer at SSAI, supporting NASA Goddard public Earth science systems. I also founded The Dry Standard and maintain independent developer tools.',
+    'lede' => 'I build mission software at Jacobs. Previously, I was a lead software engineer supporting NASA Goddard\'s public Earth science systems. I\'m also the founder and editor of The Dry Standard, an independent publication covering nonalcoholic drinks, and I maintain open-source developer tools.',
 ];

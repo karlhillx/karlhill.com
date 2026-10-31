@@ -13,9 +13,11 @@
         @foreach(config('site.home.how_i_work') as $index => $theme)
             <li>
                 <span class="portfolio-delivery__num" aria-hidden="true">{{ str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}</span>
-                <strong>{{ $theme['title'] }}</strong>
-                <p>{{ $theme['body'] }}</p>
-                <a href="{{ $theme['href'] }}" class="portfolio-text-link">{{ $theme['label'] }} <span aria-hidden="true">→</span></a>
+                <div class="portfolio-delivery__body">
+                    <strong>{{ $theme['title'] }}</strong>
+                    <p>{{ $theme['body'] }}</p>
+                    <a href="{{ $theme['href'] }}" class="portfolio-text-link">{{ $theme['label'] }} <span aria-hidden="true">→</span></a>
+                </div>
             </li>
         @endforeach
     </ul>

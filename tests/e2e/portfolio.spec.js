@@ -19,7 +19,6 @@ test('featured projects expose meaningful links without oversized teasers', asyn
     await expect(page.locator('#work .studies__list > article')).toHaveCount(3);
     for (const article of await page.locator('#work .studies__list > article').all()) {
         await expect(article.locator('.study__body')).toBeVisible();
-        await expect(article.locator('.study__contribution')).toBeVisible();
         await expect(article.locator('.study__impact')).toBeVisible();
         await expect(article.getByRole('link', { name: 'Read the case study' })).toBeVisible();
     }

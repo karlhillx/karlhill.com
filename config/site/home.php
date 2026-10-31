@@ -14,8 +14,8 @@ return [
     ],
     'tools' => 'developer-tooling',
     'context' => [
-        ['label' => 'Current', 'value' => 'Jacobs / '.$facts['unit']],
-        ['label' => 'Previously', 'value' => 'NASA Goddard via SSAI, '.$facts['nasa_period']],
+        ['label' => 'Current', 'value' => 'Jacobs'],
+        ['label' => 'Previously', 'value' => 'NASA, '.$facts['nasa_period']],
         ['label' => 'Independent', 'value' => 'The Dry Standard'],
         ['label' => 'Based in', 'value' => $facts['location']],
     ],
