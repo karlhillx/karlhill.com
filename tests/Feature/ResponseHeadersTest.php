@@ -60,15 +60,15 @@ it('machine readable json omits session cookies', function () {
         ->and($response->headers->get('X-Powered-By'))->toBeNull();
 });
 
-it('html preloads albert sans', function () {
+it('html preloads pathway extreme', function () {
     $response = $this->get('/');
     $html = $response->assertOk()->getContent();
 
     expect($html)
         ->toContain('rel="preload" as="font" type="font/woff2"')
-        ->toContain('albert-sans-latin-wght-normal')
+        ->toContain('pathway-extreme-latin-wdth-normal')
         ->not->toContain('newsreader-latin-wght-normal')
-        ->not->toContain('albert-sans-latin-wght-italic')
+        ->not->toContain('albert-sans-latin-wght-normal')
         ->not->toContain('ibm-plex-sans-latin-wght-normal')
         ->not->toContain('jetbrains-mono-latin-400-normal');
 
@@ -78,8 +78,9 @@ it('html preloads albert sans', function () {
     if ($link !== null) {
         expect($link)
             ->toContain('as=font')
-            ->toContain('albert-sans-latin-wght-normal')
-            ->not->toContain('newsreader');
+            ->toContain('pathway-extreme-latin-wdth-normal')
+            ->not->toContain('newsreader')
+            ->not->toContain('albert-sans');
     }
 });
 

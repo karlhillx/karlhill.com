@@ -7,7 +7,7 @@ paths:
 
 # Design system
 
-One voice. Albert Sans Variable for UI and headings. JetBrains Mono for code and short technical labels. Both are self-hosted from Fontsource. Do not add another UI typeface.
+One voice. Pathway Extreme Variable for UI and headings, with `font-stretch: 83%` on `html`. Light (300) is for the name, the homepage statement, and page titles. Regular (400) is for body text. Medium (500) is for navigation, buttons, and section headings. Do not set Light on paragraphs. JetBrains Mono is for code and short technical labels. Both are self-hosted from Fontsource. Do not add another UI typeface. Do not use negative tracking; it was tuned for Albert Sans and pinches this width.
 
 ## Tokens
 

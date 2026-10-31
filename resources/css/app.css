@@ -1,18 +1,11 @@
-/* Albert Sans — geometric grotesque by Andreas Rasmussen. One voice for UI and headings. */
+/* Pathway Extreme — width-axis grotesque. One voice for UI and headings, set at 83%. */
 @font-face {
-    font-family: 'Albert Sans Variable';
+    font-family: 'Pathway Extreme Variable';
     font-style: normal;
     font-display: swap;
     font-weight: 100 900;
-    src: url('@fontsource-variable/albert-sans/files/albert-sans-latin-wght-normal.woff2')
-        format('woff2');
-}
-@font-face {
-    font-family: 'Albert Sans Variable';
-    font-style: italic;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url('@fontsource-variable/albert-sans/files/albert-sans-latin-wght-italic.woff2')
+    font-stretch: 75% 100%;
+    src: url('@fontsource-variable/pathway-extreme/files/pathway-extreme-latin-wdth-normal.woff2')
         format('woff2');
 }
 @font-face {

@@ -186,9 +186,9 @@ main:has(> .portfolio-nav) section[id] {
 .portfolio-hero__statement {
     font-family: var(--font-sans);
     font-size: var(--type-hero-statement);
-    font-weight: 600;
+    font-weight: 300;
     line-height: var(--leading-display);
-    letter-spacing: -0.015em;
+    letter-spacing: 0;
     text-wrap: balance;
     max-width: 21ch;
     margin: 0;
@@ -310,9 +310,9 @@ main:has(> .portfolio-nav) section[id] {
 .portfolio-section-heading h2 {
     font-family: var(--font-sans);
     font-size: var(--type-section);
-    font-weight: 600;
-    line-height: 1.12;
-    letter-spacing: -0.012em;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: 0;
     margin-top: var(--space-micro);
     text-wrap: balance;
 }
@@ -438,9 +438,9 @@ main:has(> .portfolio-nav) section[id] {
     margin: var(--space-micro) 0 var(--space-inline);
     font-family: var(--font-sans);
     font-size: var(--type-feature-title);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.15;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
 }
 
 .portfolio-product-callout__visual {
@@ -510,6 +510,11 @@ main:has(> .portfolio-nav) section[id] {
     min-width: 0;
     overflow: hidden;
     background: var(--surface-page);
+}
+
+.portfolio-card--wide .portfolio-card__visual {
+    padding: var(--space-card-pad);
+    background: color-mix(in oklab, var(--bg) 62%, var(--panel));
 }
 
 .portfolio-card__shot-caption {
@@ -697,6 +702,11 @@ main:has(> .portfolio-nav) section[id] {
     object-fit: cover;
 }
 
+.project-visual__stage--screenshot img.object-contain {
+    object-fit: contain;
+    object-position: center;
+}
+
 .portfolio-card__image {
     transition: transform 420ms var(--ease-out-soft);
 }
@@ -738,12 +748,20 @@ main:has(> .portfolio-nav) section[id] {
     padding-block: 0.3rem;
 }
 
+.tooling-proof__index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    width: 100%;
+    margin: var(--space-inline) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
 .tooling-proof__index li {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-inline);
-    border-top: 1px solid var(--hairline);
+    align-items: baseline;
+    gap: 0.45rem;
     font-family: var(--font-mono);
 }
 
@@ -918,38 +936,43 @@ main:has(> .portfolio-nav) section[id] {
     .portfolio-card--wide {
         grid-column: 1 / -1;
         display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1.4fr) minmax(16rem, 0.82fr);
+        align-items: start;
     }
 
     .portfolio-card--wide .portfolio-card__visual {
         display: flex;
         flex-direction: column;
-        border-right: 1px solid var(--hairline);
+        justify-content: center;
+        padding: clamp(1rem, 2vw, 1.5rem);
+        background: color-mix(in oklab, var(--bg) 62%, var(--panel));
     }
 
     .portfolio-card--wide .project-visual {
         display: flex;
         flex-direction: column;
-        height: 100%;
+        height: auto;
+        border-radius: var(--radius-md);
+        box-shadow: 0 0 0 1px var(--border);
     }
 
     .portfolio-card--wide .project-visual__stage {
-        flex: 1 1 0%;
-        height: 100%;
-        min-height: 18rem;
-        aspect-ratio: auto;
-    }
-
-    .portfolio-card--shot.portfolio-card--wide .project-visual__stage {
         flex: 0 0 auto;
         height: auto;
         min-height: 0;
         aspect-ratio: 16 / 10;
     }
 
-    .portfolio-card--product.portfolio-card--wide .portfolio-card__image {
-        height: 100%;
-        min-height: 100%;
+    .portfolio-card--tooling.portfolio-card--wide .project-visual__stage {
+        aspect-ratio: 1200 / 630;
+    }
+
+    .portfolio-card--wide .portfolio-card__body {
+        padding: clamp(1.35rem, 2.4vw, 2.15rem);
+    }
+
+    .portfolio-card--shot.portfolio-card--wide .project-visual__stage {
+        aspect-ratio: 16 / 9;
     }
 
     .portfolio-card--product.portfolio-card--wide picture {
@@ -1140,6 +1163,56 @@ main:has(> .portfolio-nav) section[id] {
     .portfolio-card:hover .portfolio-card__image {
         transform: scale(1.012);
     }
+
+    .portfolio-card--shot:hover .portfolio-card__image {
+        transform: none;
+    }
+}
+
+/* Full application screenshots read as noise at card size. Crop to the calm
+   part of each screen. The browser bar stays on every shot. */
+.portfolio-card--shot .project-visual__stage {
+    aspect-ratio: 16 / 9;
+}
+
+.portfolio-card--shot .portfolio-card__image {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: none;
+}
+
+#flood-mapping-system .portfolio-card__image {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: auto;
+    object-fit: cover;
+    object-position: center;
+    transform: none;
+}
+
+#laads-daac .project-visual__stage {
+    aspect-ratio: 16 / 10;
+}
+
+#laads-daac .portfolio-card__image {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    transform: none;
+}
+
+#nasa-earth-observatory .portfolio-card__image {
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

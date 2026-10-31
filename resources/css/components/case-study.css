@@ -170,7 +170,7 @@
 
 .case-study-facts__value--stat {
     font-size: 1.0625rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     font-variant-numeric: tabular-nums;
 }
 

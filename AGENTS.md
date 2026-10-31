@@ -17,7 +17,7 @@ Read this file first. Then open [`.ai/rules/index.md`](.ai/rules/index.md) and t
 - Small, reviewable diffs. Match the surrounding code.
 - Public numbers come from `config/site/facts.php` and the project file that already states them. Keep the qualifier that is already next to the number.
 - Scale in prose is the facts file: roughly 12 repositories, four environments, about 6 engineers.
-- Dark is the default theme. Albert Sans Variable is the UI face. JetBrains Mono is for code.
+- Dark is the default theme. Pathway Extreme at 83% width is the UI face: Light (300) for the name and page titles, Regular (400) for text, Medium (500) for navigation and section headings. JetBrains Mono is for code.
 
 ## Where things live
 

@@ -1,19 +1,29 @@
 import { expect, test } from '@playwright/test';
 
-test('headings and body use Albert Sans Variable', async ({ page }) => {
+test('headings and body use Pathway Extreme at 83% width', async ({ page }) => {
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
-    const fonts = await page.evaluate(() => ({
-        heading: getComputedStyle(document.querySelector('.opening__statement')).fontFamily,
-        body: getComputedStyle(document.body).fontFamily,
-        loaded: [...document.fonts].some(
-            (font) => font.family === 'Albert Sans Variable' && font.status === 'loaded'
-        ),
-    }));
-    expect(fonts.heading).toContain('Albert Sans Variable');
-    expect(fonts.body).toContain('Albert Sans Variable');
+    const fonts = await page.evaluate(() => {
+        const statement = getComputedStyle(document.querySelector('.opening__statement'));
+        const body = getComputedStyle(document.body);
+        return {
+            heading: statement.fontFamily,
+            body: body.fontFamily,
+            stretch: body.fontStretch,
+            statementWeight: statement.fontWeight,
+            bodyWeight: body.fontWeight,
+            loaded: [...document.fonts].some(
+                (font) => font.family === 'Pathway Extreme Variable' && font.status === 'loaded'
+            ),
+        };
+    });
+    expect(fonts.heading).toContain('Pathway Extreme Variable');
+    expect(fonts.body).toContain('Pathway Extreme Variable');
+    expect(fonts.stretch).toBe('83%');
+    expect(fonts.statementWeight).toBe('300');
+    expect(fonts.bodyWeight).toBe('400');
     expect(fonts.heading).not.toContain('Newsreader');
-    expect(fonts.body).not.toContain('Newsreader');
+    expect(fonts.heading).not.toContain('Albert Sans');
     expect(fonts.loaded).toBe(true);
 });
 

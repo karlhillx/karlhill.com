@@ -15,6 +15,7 @@
 # Laravel build / runtime
 /public/build
 /public/hot
+/public/type-specimen
 /public/storage
 /storage/*.key
 /storage/pail

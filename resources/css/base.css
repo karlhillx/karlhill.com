@@ -10,13 +10,15 @@ html {
     /* Clip rather than scroll when decorative bleed/orbs paint past the edge. */
     overflow-x: clip;
     font-size: 106.25%;
+    /* Between Barlow Semi Condensed and a normal grotesque. Inherited. */
+    font-stretch: 83%;
 }
 
 body {
     background: var(--bg);
     font-family: var(--font-body);
     font-size: 1rem;
-    font-weight: 430;
+    font-weight: 400;
     line-height: var(--leading-body);
     letter-spacing: var(--tracking-sans);
     font-kerning: normal;
@@ -201,15 +203,15 @@ body {
 .site-page-hero__title {
     margin: 0 0 var(--space-inline);
     font-size: var(--type-page-title);
-    line-height: 0.95;
-    letter-spacing: var(--tracking-display-wide);
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
     text-wrap: balance;
 }
 
 .site-page-hero h1.site-page-hero__title--article {
     font-size: clamp(1.65rem, 3.6vw, 2.6rem);
     line-height: 1.15;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     max-width: 40rem;
 }
 
@@ -382,7 +384,7 @@ article.surface-card:focus-within {
 .btn-accent-fill {
     background-color: var(--accent-solid);
     color: var(--accent-ink);
-    font-weight: 700;
+    font-weight: 500;
     box-shadow: inset 0 0 0 1px light-dark(rgb(10 10 10 / 0.14), rgb(255 255 255 / 0.08));
 }
 
@@ -397,12 +399,12 @@ p {
     text-wrap: pretty;
 }
 
-/* Display voice: Albert Sans, sentence case. Tracking tightens with size. */
+/* Display voice: Pathway Extreme Light, sentence case. */
 .font-display {
-    font-weight: 520;
+    font-weight: 300;
     text-transform: none;
     text-wrap: balance;
-    letter-spacing: -0.032em;
+    letter-spacing: 0;
     line-height: 1.08;
 }
 
@@ -425,7 +427,9 @@ p {
 
 @supports (font-variation-settings: normal) {
     .opsz-scroll {
-        font-variation-settings: 'opsz' 18;
+        font-variation-settings:
+            'wdth' 83,
+            'opsz' 18;
     }
 }
 

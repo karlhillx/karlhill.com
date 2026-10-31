@@ -58,10 +58,10 @@ return [
             'note' => 'Collaborative scientific result, not an individual engineering KPI. Software (Equal), GeoHorizons 2026.',
         ],
         'description' => 'Python and Docker software for processing and distributing satellite-derived flood maps on AWS. Built to support near-real-time Earth observation products. The live map is public; a GeoHorizons paper describes the system.',
-        'image' => '/img/webp/small-flood.webp',
-        'image_alt' => 'Public Global Water and Flood Mapping System map',
+        'image' => '/img/webp/ss-flood-request.webp',
+        'image_alt' => 'Flood Mapping System request screen, with the area-of-interest map and flood-product choices.',
         'image_caption' => 'Public flood map',
-        'imagePosition' => 'object-left-top',
+        'imagePosition' => 'object-center',
         'gallery' => [
             [
                 'src' => '/img/webp/small-flood.webp',
@@ -308,6 +308,9 @@ return [
         ],
         'image' => '/img/webp/developer-tooling.webp',
         'image_alt' => 'bb-run for local feedback, testrisk for test priorities, and pipeguard for executable policy',
+        'imageFit' => 'object-contain',
+        'imageInset' => false,
+        'imageBg' => '#111111',
         'url' => '/work/developer-tooling',
         'artifact' => [
             'label' => 'Explore the source',

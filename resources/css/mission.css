@@ -7,43 +7,37 @@ h3,
 h4,
 .font-display {
     font-family: var(--font-sans);
-    font-weight: 520;
+    font-weight: 500;
     font-kerning: normal;
-    line-height: 1.12;
-    letter-spacing: -0.024em;
+    line-height: 1.15;
+    letter-spacing: 0;
 }
 
 h1,
+.font-display,
+.opening__name,
 .opening__statement,
-.site-page-hero h1 {
-    font-weight: 500;
-    line-height: 1.04;
-    letter-spacing: -0.036em;
-}
-
-h2 {
-    letter-spacing: -0.028em;
-}
-
-h3,
-h4 {
-    font-weight: 550;
-    letter-spacing: -0.02em;
+.site-page-hero h1,
+.case-study-masthead__title {
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: 0;
 }
 
 .eyebrow {
     font-family: var(--font-sans);
+    font-stretch: inherit;
     font-size: 0.6875rem;
-    font-weight: 560;
-    letter-spacing: 0.09em;
+    font-weight: 500;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--muted);
 }
 
 .btn-base {
     font-family: var(--font-sans);
-    font-weight: 550;
-    letter-spacing: -0.012em;
+    font-weight: 500;
+    letter-spacing: 0;
     text-transform: none;
     border-radius: var(--radius-sm);
     min-height: 2.75rem;
@@ -72,7 +66,7 @@ nav[aria-label='Primary'] .brand-lockup {
     font-family: var(--font-sans);
     font-weight: 500;
     font-size: 1.125rem;
-    letter-spacing: -0.034em;
+    letter-spacing: 0;
     line-height: 1;
     color: var(--text);
     text-transform: none;
@@ -82,8 +76,8 @@ nav[aria-label='Primary'] .brand-lockup {
 .nav-mobile-link {
     font-family: var(--font-sans);
     font-size: 0.875rem;
-    font-weight: 480;
-    letter-spacing: -0.008em;
+    font-weight: 500;
+    letter-spacing: 0;
     text-transform: none;
 }
 
@@ -96,8 +90,8 @@ nav[aria-label='Primary'] .brand-lockup {
     border-radius: var(--radius-sm);
     font-family: var(--font-sans);
     font-size: 0.875rem;
-    font-weight: 550;
-    letter-spacing: -0.012em;
+    font-weight: 500;
+    letter-spacing: 0;
     align-items: center;
 }
 
@@ -135,9 +129,9 @@ nav[aria-label='Primary'] .brand-lockup {
 .opening__name {
     margin: 0 0 0.3rem;
     font-size: var(--type-hero-name);
-    font-weight: 500;
-    letter-spacing: -0.038em;
-    line-height: 1;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 1.05;
     color: var(--text);
 }
 
@@ -145,8 +139,8 @@ nav[aria-label='Primary'] .brand-lockup {
     margin: 0 0 0.85rem;
     color: var(--accent);
     font-size: 0.75rem;
-    font-weight: 550;
-    letter-spacing: 0.11em;
+    font-weight: 500;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
@@ -154,9 +148,9 @@ nav[aria-label='Primary'] .brand-lockup {
     margin: 0;
     max-width: 18ch;
     font-size: var(--type-hero-statement);
-    font-weight: 500;
-    line-height: 1.02;
-    letter-spacing: -0.04em;
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: 0;
     text-wrap: balance;
 }
 
@@ -165,8 +159,8 @@ nav[aria-label='Primary'] .brand-lockup {
     margin: 1.25rem 0 0;
     color: var(--text);
     font-size: 1.0625rem;
-    font-weight: 430;
-    letter-spacing: -0.011em;
+    font-weight: 400;
+    letter-spacing: 0.005em;
     line-height: 1.55;
 }
 
@@ -216,8 +210,8 @@ nav[aria-label='Primary'] .brand-lockup {
     margin: 0;
     color: var(--muted);
     font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    font-weight: 500;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
@@ -225,7 +219,7 @@ nav[aria-label='Primary'] .brand-lockup {
     margin: 0;
     color: var(--text);
     font-size: 0.9375rem;
-    letter-spacing: -0.012em;
+    letter-spacing: 0;
     white-space: nowrap;
 }
 
@@ -264,8 +258,8 @@ nav[aria-label='Primary'] .brand-lockup {
     margin: 0;
     color: var(--muted);
     font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    font-weight: 500;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
@@ -368,8 +362,8 @@ nav[aria-label='Primary'] .brand-lockup {
     margin: 0;
     color: var(--muted);
     font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    font-weight: 500;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
@@ -397,7 +391,7 @@ nav[aria-label='Primary'] .brand-lockup {
 
 .study__impact {
     color: var(--text);
-    font-weight: 550;
+    font-weight: 500;
 }
 
 .study__body,
@@ -422,8 +416,8 @@ nav[aria-label='Primary'] .brand-lockup {
     margin-top: 0.45rem;
     color: var(--muted);
     font-size: 0.75rem;
-    font-weight: 560;
-    letter-spacing: 0.08em;
+    font-weight: 500;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
@@ -472,7 +466,7 @@ nav[aria-label='Primary'] .brand-lockup {
 
 .contact-close h2 {
     font-size: var(--type-section);
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
 }
 
 .contact-close__lead {
@@ -514,9 +508,9 @@ nav[aria-label='Primary'] .brand-lockup {
 .case-study-masthead__title,
 .site-page-hero h1 {
     font-family: var(--font-sans);
-    font-weight: 500;
-    letter-spacing: -0.038em;
-    line-height: 1.02;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 1.08;
     text-transform: none;
 }
 
@@ -547,7 +541,7 @@ nav[aria-label='Primary'] .brand-lockup {
 .site-footer__name {
     font-size: 1.0625rem;
     font-weight: 500;
-    letter-spacing: -0.034em;
+    letter-spacing: 0;
     line-height: 1;
     color: var(--text);
 }
@@ -555,8 +549,8 @@ nav[aria-label='Primary'] .brand-lockup {
 .site-footer__place {
     color: var(--muted);
     font-size: 0.8125rem;
-    font-weight: 450;
-    letter-spacing: -0.008em;
+    font-weight: 400;
+    letter-spacing: 0;
 }
 
 .site-footer__nav {
@@ -585,8 +579,8 @@ nav[aria-label='Primary'] .brand-lockup {
     min-height: 2.5rem;
     color: var(--muted);
     font-size: 0.8125rem;
-    font-weight: 480;
-    letter-spacing: -0.006em;
+    font-weight: 500;
+    letter-spacing: 0;
     text-decoration: none;
 }
 
@@ -597,7 +591,7 @@ nav[aria-label='Primary'] .brand-lockup {
 
 .site-footer__bar [data-analytics-event='email_clicked'] {
     font-size: 0.8125rem;
-    font-weight: 450;
-    letter-spacing: -0.008em;
+    font-weight: 400;
+    letter-spacing: 0;
     min-height: 2.5rem;
 }

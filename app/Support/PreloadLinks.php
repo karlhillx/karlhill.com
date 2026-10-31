@@ -20,7 +20,7 @@ final class PreloadLinks
     public static function fonts(): array
     {
         return [
-            'node_modules/@fontsource-variable/albert-sans/files/albert-sans-latin-wght-normal.woff2',
+            'node_modules/@fontsource-variable/pathway-extreme/files/pathway-extreme-latin-wdth-normal.woff2',
         ];
     }
 

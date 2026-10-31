@@ -91,7 +91,7 @@
     --leading-body: 1.55;
     --leading-prose: 1.62;
     --leading-ui: 1.4;
-    --leading-display: 1.06;
+    --leading-display: 1.08;
     /* Surface hierarchy — canvas → low → panel → raised → feature → code. */
     --surface-page: var(--bg);
     --surface-low: light-dark(#eef2f6, #101926);
@@ -112,15 +112,15 @@
     --radius-lg: 0.25rem;
     --radius-xl: 0.375rem;
     --radius-pill: 999px;
-    /* Albert Sans is a wide geometric. Body sits a hair tight; display tightens
-       further as the size grows. Kerning stays on — tracking is added to it. */
-    --tracking-sans: -0.009em;
-    --tracking-sans-tight: -0.016em;
-    --tracking-display: -0.032em;
-    --tracking-display-wide: -0.02em;
-    --tracking-mono: 0.08em;
-    --tracking-mono-loose: 0.1em;
-    --tracking-wide: 0.025em;
+    /* Pathway Extreme at 83% is already narrow. Keep tracking at 0 or open.
+       Negative tracking was for wide Albert Sans and pinches this face. */
+    --tracking-sans: 0.005em;
+    --tracking-sans-tight: 0em;
+    --tracking-display: 0em;
+    --tracking-display-wide: 0em;
+    --tracking-mono: 0.06em;
+    --tracking-mono-loose: 0.08em;
+    --tracking-wide: 0.02em;
     /* Dark unless the toggle pins light. light-dark() tokens above follow it. */
     color-scheme: dark;
     interpolate-size: allow-keywords;
@@ -143,9 +143,9 @@
 }
 
 @theme {
-    --font-body: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif;
-    --font-sans: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif;
-    --font-display: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Pathway Extreme Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Pathway Extreme Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Pathway Extreme Variable', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
     --color-bg: var(--bg);
     --color-panel: var(--panel);
